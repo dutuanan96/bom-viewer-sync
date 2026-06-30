@@ -943,6 +943,28 @@ mark {
   top: 0;
 }
 
+.model3d-cell {
+  min-width: 92px;
+}
+
+.pdf-frame[hidden],
+.model3d-frame[hidden] {
+  display: none;
+}
+
+.model3d-frame {
+  background: linear-gradient(180deg, #c6ced8 0%, #e8edf2 52%, #d2dae3 100%);
+  border: 0;
+  display: block;
+  height: min(72vh, 760px);
+  min-height: 520px;
+  width: 100%;
+}
+
+.pdf-dialog:has(.model3d-frame:not([hidden])) {
+  max-width: min(1180px, calc(100vw - 48px));
+}
+
 @media (max-width: 900px) {
   .sync-summary {
     grid-template-columns: 1fr;
@@ -966,7 +988,6 @@ mark {
       rawUrl: 'https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/data.js'
     };
   </script>
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body>
   <nav class="nav">
@@ -1000,7 +1021,12 @@ mark {
       </div>
       <div class="sync-status" id="syncStatus"></div>
     </div>
-    <div class="admin-config" id="adminControls" hidden></div>
+    <div class="admin-config" id="adminControls" hidden>
+      <label class="wide">
+        <span data-i18n="token">GitHub token</span>
+        <input type="password" id="githubToken" autocomplete="off">
+      </label>
+    </div>
   </section>
 
   <section class="search-section">
@@ -1040,6 +1066,8 @@ mark {
       <iframe class="pdf-frame" id="pdfFrame" src="about:blank" title="2D drawing"></iframe>
     </div>
   </div>
+
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <script>
 (function (global) {
   'use strict';
@@ -1062,6 +1090,7 @@ mark {
       noManual: '未上传',
       viewManual: '查看说明书',
       viewDrawing: '查看',
+      model3d: '3D',
       noDrawing: '未匹配',
       originalDrawing: '原始',
       edit: '编辑',
@@ -1104,6 +1133,7 @@ mark {
       noManual: 'Chưa có',
       viewManual: 'Xem hướng dẫn',
       viewDrawing: 'Xem',
+      model3d: '3D',
       noDrawing: 'Chưa khớp',
       originalDrawing: 'Gốc',
       edit: 'Sửa',
@@ -1204,7 +1234,8 @@ mark {
       updatedAt: String(source.updatedAt || ''),
       bom: clone(source.bom),
       drawings: clone(source.drawings),
-      manuals: clone(source.manuals)
+      manuals: clone(source.manuals),
+      models3d: clone(source.models3d)
     };
   }
 
@@ -1212,7 +1243,12 @@ mark {
     if (global.BOM_VIEWER_DATA && global.BOM_VIEWER_DATA.bom) {
       return normalizePayload(global.BOM_VIEWER_DATA);
     }
-    return normalizePayload({ bom: global.BOM_DATA || {}, drawings: global.DRAWING_INDEX || {}, manuals: global.MANUAL_INDEX || {} });
+    return normalizePayload({
+      bom: global.BOM_DATA || {},
+      drawings: global.DRAWING_INDEX || {},
+      manuals: global.MANUAL_INDEX || {},
+      models3d: global.MODEL3D_INDEX || {}
+    });
   }
 
   function serializeDataJs(payload) {
@@ -1323,6 +1359,7 @@ mark {
         bom: payload.bom,
         drawings: payload.drawings,
         manuals: payload.manuals,
+        models3d: payload.models3d,
         loadedPayload: clone(payload),
         currentSku: '',
         currentColor: '',
@@ -1450,7 +1487,12 @@ mark {
         return;
       }
       const manual = event.target.closest('[data-manual-index]');
-      if (manual) this.openManual(Number(manual.dataset.manualIndex));
+      if (manual) {
+        this.openManual(Number(manual.dataset.manualIndex));
+        return;
+      }
+      const productModel3d = event.target.closest('[data-product-model3d-index]');
+      if (productModel3d) this.openProductModel3d(Number(productModel3d.dataset.productModel3dIndex));
     }
 
     bindActions() {
@@ -1458,9 +1500,11 @@ mark {
         const action = event.target.closest('[data-action]');
         const sort = event.target.closest('[data-sort]');
         const drawing = event.target.closest('[data-drawing-row]');
+        const model3d = event.target.closest('[data-model3d-row]');
         if (action) this.runAction(action.dataset.action);
         if (sort) this.sortBy(sort.dataset.sort);
         if (drawing) this.openDrawing(Number(drawing.dataset.drawingRow));
+        if (model3d) this.openModel3d(Number(model3d.dataset.model3dRow));
       });
     }
 
@@ -1654,12 +1698,15 @@ mark {
     }
 
     metaHtml(product, colorData) {
-      return [
+      const items = [
         this.metaItem('size', this.state.editMode ? this.productInput(colorData.size || '', 'size', 'edit-small') : escapeHTML(colorData.size || '')),
         this.metaItem('colors', Object.keys(product.color_info || {}).length),
         this.metaItem('total', (colorData.materials || []).length),
         this.metaItem('manual', this.manualButtons())
-      ].join('');
+      ];
+      const productModels = this.productModels3d();
+      if (productModels.length) items.push(this.metaItem('model3d', this.productModel3dButtons(productModels)));
+      return items.join('');
     }
 
     metaItem(labelKey, value) {
@@ -1696,6 +1743,13 @@ mark {
       return manuals.map((manual, index) => {
         const suffix = manuals.length > 1 ? ` ${index + 1}` : '';
         return `<button class="drawing-btn primary" type="button" data-manual-index="${index}">${escapeHTML(this.label('viewManual') + suffix)}</button>`;
+      }).join('');
+    }
+
+    productModel3dButtons(models) {
+      return models.map((model, index) => {
+        const suffix = models.length > 1 ? ` ${index + 1}` : '';
+        return `<button class="drawing-btn primary" type="button" data-product-model3d-index="${index}">${escapeHTML(this.label('model3d') + suffix)}</button>`;
       }).join('');
     }
 
@@ -1757,14 +1811,14 @@ mark {
       const headers = this.label('headers');
       const cols = ['stt', 'mat_code', 'comp_code', 'name', 'spec', 'material', 'color', 'attr', 'qty'];
       const sortable = cols.map((col, index) => `<th><button class="th-button" type="button" data-sort="${col}">${escapeHTML(headers[index])} ${this.sortIcon(col)}</button></th>`);
-      return `<tr>${sortable.join('')}<th>${escapeHTML(headers[9])}</th></tr>`;
+      return `<tr>${sortable.join('')}<th>${escapeHTML(headers[9])}</th><th>3D</th></tr>`;
     }
 
     rowHtml(material, index) {
       const cells = ['mat_code', 'comp_code', 'name', 'spec', 'material', 'color', 'attr', 'qty']
         .map((field) => this.cellHtml(material, field, index))
         .join('');
-      return `<tr><td>${index + 1}</td>${cells}<td class="drawing-cell">${this.drawingCellHtml(material, index)}</td></tr>`;
+      return `<tr><td>${index + 1}</td>${cells}<td class="drawing-cell">${this.drawingCellHtml(material, index)}</td><td class="model3d-cell">${this.model3dCellHtml(material, index)}</td></tr>`;
     }
 
     cellHtml(material, field, index) {
@@ -1795,6 +1849,14 @@ mark {
         <div class="drawing-note">${escapeHTML(`${this.label('originalDrawing')}: ${names}`)}</div>`;
     }
 
+    model3dCellHtml(material, index) {
+      const models = this.models3dFor(material);
+      if (!models.length) return `<div class="drawing-note">${escapeHTML(this.label('noDrawing'))}</div>`;
+      const names = models.map((model) => model.name).join(' | ');
+      return `<div class="drawing-tools"><button class="drawing-btn primary" type="button" data-model3d-row="${index}">3D</button></div>
+        <div class="drawing-note">${escapeHTML(`${this.label('originalDrawing')}: ${names}`)}</div>`;
+    }
+
     drawingsFor(material) {
       const skuDrawings = this.state.drawings[this.state.currentSku] || {};
       const directKey = this.drawingKey(`${material.mat_code || ''}|${material.name_zh || ''}`);
@@ -1804,8 +1866,28 @@ mark {
       return found ? found[1] : [];
     }
 
+    models3dFor(material) {
+      const skuModels = this.state.models3d[this.state.currentSku] || {};
+      const directKey = this.drawingKey(`${material.mat_code || ''}|${material.name_zh || ''}`);
+      if (skuModels[directKey]) return skuModels[directKey];
+      const name = this.drawingKey(material.name_zh || material.name_vi || '');
+      const code = this.drawingKey(material.mat_code || '');
+      const foundByCode = Object.entries(skuModels).find(([key]) => code && key.split('|')[0] === code);
+      if (foundByCode) return foundByCode[1];
+      const foundByName = Object.entries(skuModels).find(([key]) => name && key.split('|')[1] === name);
+      if (foundByName) return foundByName[1];
+      return [];
+    }
+
+    productModels3d() {
+      const skuModels = this.state.models3d[this.state.currentSku] || {};
+      return Object.entries(skuModels)
+        .filter(([key]) => !key.includes('|'))
+        .flatMap(([, models]) => models);
+    }
+
     drawingKey(value) {
-      return normalizeText(value).replace(/\.pdf$/i, '').replace(/[\s\-_()（）[\]【】{}+&.]/g, '').replace(/组件/g, '');
+      return normalizeText(value).replace(/\.(pdf|glb|gltf)$/i, '').replace(/[\s\-_()（）[\]【】{}+&.]/g, '').replace(/组件/g, '');
     }
 
     sortIcon(col) {
@@ -1926,6 +2008,7 @@ mark {
       this.state.bom = this.state.payload.bom;
       this.state.drawings = this.state.payload.drawings;
       this.state.manuals = this.state.payload.manuals;
+      this.state.models3d = this.state.payload.models3d;
       this.state.loadedPayload = clone(this.state.payload);
       this.state.dirty = false;
       this.pickFirstProduct();
@@ -1947,7 +2030,13 @@ mark {
     async writeGithubData(token) {
       this.setStatus(this.label('saving'), '');
       const updatedAt = new Date().toISOString();
-      const payload = normalizePayload({ updatedAt, bom: this.state.bom, drawings: this.state.drawings, manuals: this.state.manuals });
+      const payload = normalizePayload({
+        updatedAt,
+        bom: this.state.bom,
+        drawings: this.state.drawings,
+        manuals: this.state.manuals,
+        models3d: this.state.models3d
+      });
       const source = serializeDataJs(payload);
       const sha = await this.fetchGithubSha(token);
       const request = buildGithubUpdateRequest({ config: this.config, token, sha, source, message: `chore: update bom data ${updatedAt}` });
@@ -2017,12 +2106,63 @@ mark {
       if (drawing) this.showModal(drawing.url, drawing.name, drawing.path || materialText(material, 'name', this.state.lang));
     }
 
+    openModel3d(index) {
+      const material = this.state.lastRows[index];
+      const model = material ? this.models3dFor(material)[0] : null;
+      if (model) this.showModel3dModal(model, materialText(material, 'name', this.state.lang));
+    }
+
+    openProductModel3d(index) {
+      const model = this.productModels3d()[index];
+      const colorData = this.colorData();
+      if (model) this.showModel3dModal(model, this.localizedProductName(colorData || {}));
+    }
+
     showModal(url, title, subtitle) {
       this.query('#pdfModalTitle').textContent = title || this.label('viewDrawing');
       this.query('#pdfModalSubtitle').textContent = subtitle || '';
-      this.query('#pdfFrame').src = this.pdfFrameUrl(url);
+      const frame = this.query('#pdfFrame');
+      const modelViewer = this.ensureModelViewer();
+      frame.hidden = false;
+      modelViewer.hidden = true;
+      modelViewer.removeAttribute('src');
+      frame.src = this.pdfFrameUrl(url);
       this.query('#pdfOpenLink').href = url || '#';
+      this.query('#pdfOpenLink').textContent = 'Open';
       this.query('#pdfModal').classList.add('open');
+    }
+
+    showModel3dModal(model, fallbackTitle) {
+      const previewUrl = model.previewUrl || model.url || '';
+      const sourceUrl = model.sourceUrl || previewUrl;
+      const frame = this.query('#pdfFrame');
+      const modelViewer = this.ensureModelViewer();
+      this.query('#pdfModalTitle').textContent = model.name || fallbackTitle || '3D';
+      this.query('#pdfModalSubtitle').textContent = model.path || fallbackTitle || '';
+      frame.hidden = true;
+      frame.src = 'about:blank';
+      modelViewer.hidden = false;
+      modelViewer.setAttribute('src', previewUrl);
+      this.query('#pdfOpenLink').href = sourceUrl || '#';
+      this.query('#pdfOpenLink').textContent = model.sourceUrl ? 'STEP' : 'Open';
+      this.query('#pdfModal').classList.add('open');
+    }
+
+    ensureModelViewer() {
+      let modelViewer = this.query('#model3dViewer');
+      if (modelViewer) return modelViewer;
+      modelViewer = global.document.createElement('model-viewer');
+      modelViewer.id = 'model3dViewer';
+      modelViewer.className = 'model3d-frame';
+      modelViewer.setAttribute('camera-controls', '');
+      modelViewer.setAttribute('auto-rotate', '');
+      modelViewer.setAttribute('shadow-intensity', '1');
+      modelViewer.setAttribute('exposure', '0.72');
+      modelViewer.setAttribute('environment-image', 'neutral');
+      modelViewer.setAttribute('interaction-prompt', 'auto');
+      modelViewer.hidden = true;
+      this.query('#pdfFrame').insertAdjacentElement('afterend', modelViewer);
+      return modelViewer;
     }
 
     pdfFrameUrl(url) {
@@ -2033,6 +2173,11 @@ mark {
 
     closeModal() {
       this.query('#pdfFrame').src = 'about:blank';
+      const modelViewer = this.query('#model3dViewer');
+      if (modelViewer) {
+        modelViewer.removeAttribute('src');
+        modelViewer.hidden = true;
+      }
       this.query('#pdfModal').classList.remove('open');
     }
 
@@ -2042,7 +2187,8 @@ mark {
         rows.push([rows.length, material.mat_code || '', material.comp_code || '', materialText(material, 'name', this.state.lang),
           materialText(material, 'spec', this.state.lang), materialText(material, 'material', this.state.lang),
           materialText(material, 'color', this.state.lang), materialText(material, 'attr', this.state.lang),
-          material.qty || '', this.drawingsFor(material).map((drawing) => drawing.name).join(' | ')]);
+          material.qty || '', this.drawingsFor(material).map((drawing) => drawing.name).join(' | '),
+          this.models3dFor(material).map((model) => model.name).join(' | ')]);
       });
       return rows;
     }
