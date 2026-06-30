@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BOM Viewer</title>
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    window.BOM_REPO_CONFIG = {
+      owner: 'dutuanan96',
+      repo: 'bom-viewer-sync',
+      branch: 'main',
+      path: 'bom-viewer-sync/data.js',
+      rawUrl: 'https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/data.js'
+    };
+  </script>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-logo" data-i18n="brand">BOM</div>
+    <div class="nav-right">
+      <span class="mode-badge" id="modeBadge">Viewer</span>
+      <div class="nav-stats">
+        <div><span class="stat-val" id="statProducts">0</span> <span class="stat-label" data-i18n="products">Products</span></div>
+        <div><span class="stat-val" id="statMaterials">0</span> <span class="stat-label" data-i18n="materials">Materials</span></div>
+      </div>
+      <div class="lang-toggle">
+        <button class="lang-btn active" type="button" data-lang="zh">中</button>
+        <button class="lang-btn" type="button" data-lang="vi">VI</button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="sync-panel viewer" id="syncPanel">
+    <div class="sync-summary">
+      <div>
+        <div class="sync-label" data-i18n="source">GitHub data source</div>
+        <div class="sync-source" id="syncSource">-</div>
+      </div>
+      <div>
+        <div class="sync-label" data-i18n="updated">Data updated</div>
+        <div class="sync-value" id="lastSync">-</div>
+      </div>
+      <div>
+        <div class="sync-label" data-i18n="localRefresh">Local refresh</div>
+        <div class="sync-value" id="lastLocalRefresh">-</div>
+      </div>
+      <div class="sync-status" id="syncStatus"></div>
+    </div>
+    <div class="admin-config" id="adminControls" hidden></div>
+  </section>
+
+  <section class="search-section">
+    <div class="search-wrapper">
+      <span class="search-icon" aria-hidden="true">⌕</span>
+      <input type="text" class="search-input" id="searchInput" data-i18n-placeholder="search">
+      <button class="search-clear" id="searchClear" type="button" aria-label="Clear search">×</button>
+    </div>
+    <div class="filter-bar" id="filterBar"></div>
+  </section>
+
+  <main class="main">
+    <aside class="sidebar">
+      <h3 data-i18n="products">Products</h3>
+      <div class="sidebar-search">
+        <input type="text" class="sidebar-search-input" id="sidebarSearch" data-i18n-placeholder="sidebarSearch">
+      </div>
+      <div class="product-list" id="productList"></div>
+    </aside>
+    <section class="content">
+      <div class="content-header" id="contentHeader"></div>
+    </section>
+  </main>
+
+  <div class="pdf-modal" id="pdfModal" aria-hidden="true">
+    <div class="pdf-dialog">
+      <div class="pdf-modal-bar">
+        <div>
+          <div class="pdf-modal-title" id="pdfModalTitle">2D</div>
+          <div class="pdf-modal-subtitle" id="pdfModalSubtitle"></div>
+        </div>
+        <div class="pdf-modal-actions">
+          <a class="drawing-btn primary" id="pdfOpenLink" href="#" target="_blank" rel="noopener">Open</a>
+          <button class="pdf-close" type="button" data-close-modal aria-label="Close">×</button>
+        </div>
+      </div>
+      <iframe class="pdf-frame" id="pdfFrame" src="about:blank" title="2D drawing"></iframe>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app-core.js"></script>
+  <script src="app-viewer.js"></script>
+</body>
+</html>
