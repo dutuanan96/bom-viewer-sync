@@ -936,6 +936,28 @@ mark {
   top: 0;
 }
 
+.model3d-cell {
+  min-width: 92px;
+}
+
+.pdf-frame[hidden],
+.model3d-frame[hidden] {
+  display: none;
+}
+
+.model3d-frame {
+  background: linear-gradient(180deg, #c6ced8 0%, #e8edf2 52%, #d2dae3 100%);
+  border: 0;
+  display: block;
+  height: min(72vh, 760px);
+  min-height: 520px;
+  width: 100%;
+}
+
+.pdf-dialog:has(.model3d-frame:not([hidden])) {
+  max-width: min(1180px, calc(100vw - 48px));
+}
+
 @media (max-width: 900px) {
   .sync-summary {
     grid-template-columns: 1fr;
