@@ -21,7 +21,6 @@
       viewDrawing: '查看',
       model3d: '3D',
       noDrawing: '未匹配',
-      originalDrawing: '原始',
       edit: '编辑',
       done: '完成',
       save: '保存到 GitHub',
@@ -64,7 +63,6 @@
       viewDrawing: 'Xem',
       model3d: '3D',
       noDrawing: 'Chưa khớp',
-      originalDrawing: 'Gốc',
       edit: 'Sửa',
       done: 'Xong',
       save: 'Lưu lên GitHub',
@@ -678,7 +676,7 @@
     productModel3dButtons(models) {
       return models.map((model, index) => {
         const suffix = models.length > 1 ? ` ${index + 1}` : '';
-        return `<button class="drawing-btn primary" type="button" data-product-model3d-index="${index}">${escapeHTML(this.label('model3d') + suffix)}</button>`;
+        return `<button class="drawing-btn primary" type="button" data-product-model3d-index="${index}">${escapeHTML(this.label('viewDrawing') + suffix)}</button>`;
       }).join('');
     }
 
@@ -773,17 +771,13 @@
     drawingCellHtml(material, index) {
       const drawings = this.drawingsFor(material);
       if (!drawings.length) return `<div class="drawing-note">${escapeHTML(this.label('noDrawing'))}</div>`;
-      const names = drawings.map((drawing) => drawing.name).join(' | ');
-      return `<div class="drawing-tools"><button class="drawing-btn primary" type="button" data-drawing-row="${index}">${escapeHTML(this.label('viewDrawing'))}</button></div>
-        <div class="drawing-note">${escapeHTML(`${this.label('originalDrawing')}: ${names}`)}</div>`;
+      return `<div class="drawing-tools"><button class="drawing-btn primary" type="button" data-drawing-row="${index}">${escapeHTML(this.label('viewDrawing'))}</button></div>`;
     }
 
     model3dCellHtml(material, index) {
       const models = this.models3dFor(material);
       if (!models.length) return `<div class="drawing-note">${escapeHTML(this.label('noDrawing'))}</div>`;
-      const names = models.map((model) => model.name).join(' | ');
-      return `<div class="drawing-tools"><button class="drawing-btn primary" type="button" data-model3d-row="${index}">3D</button></div>
-        <div class="drawing-note">${escapeHTML(`${this.label('originalDrawing')}: ${names}`)}</div>`;
+      return `<div class="drawing-tools"><button class="drawing-btn primary" type="button" data-model3d-row="${index}">${escapeHTML(this.label('viewDrawing'))}</button></div>`;
     }
 
     drawingsFor(material) {
