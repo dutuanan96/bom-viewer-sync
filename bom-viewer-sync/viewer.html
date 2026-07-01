@@ -1240,19 +1240,18 @@ mark {
     const matchers = [
       ([key]) => {
         const parts = assetParts(key);
+        return materialParts.name && materialParts.code &&
+          parts.name === materialParts.name && parts.code === materialParts.code;
+      },
+      ([key]) => {
+        const parts = assetParts(key);
         return materialParts.name && materialParts.neutralCode &&
           parts.name === materialParts.name && parts.neutralCode === materialParts.neutralCode;
       },
       ([key]) => {
         const parts = assetParts(key);
-        return materialParts.neutralCode && parts.neutralCode === materialParts.neutralCode;
-      },
-      ([key]) => {
-        const parts = assetParts(key);
-        return materialParts.name && parts.name === materialParts.name;
-      },
-      ([key]) => materialParts.code && key.includes(materialParts.code),
-      ([key]) => materialParts.comp && key.includes(materialParts.comp)
+        return materialParts.code && parts.code === materialParts.code;
+      }
     ];
 
     for (const matcher of matchers) {
