@@ -1020,7 +1020,7 @@ mark {
 
   <section class="sync-panel viewer" id="syncPanel">
     <div class="sync-summary">
-      <div>
+      <div data-sync-source-row>
         <div class="sync-label" data-i18n="source">GitHub data source</div>
         <div class="sync-source" id="syncSource">-</div>
       </div>
@@ -1193,6 +1193,77 @@ mark {
 
   function normalizeText(value) {
     return String(value || '').toLowerCase().normalize('NFKD');
+  }
+
+  function assetKey(value) {
+    return normalizeText(value)
+      .replace(/\.(pdf|glb|gltf)$/i, '')
+      .replace(/[\s\-_()（）[\]【】{}+&.]/g, '')
+      .replace(/组件/g, '');
+  }
+
+  function colorNeutralCode(value) {
+    const key = assetKey(value);
+    return key.replace(/(bh|wh|kd|bz|cz|ys|gy|bk)$/i, '');
+  }
+
+  function assetParts(key) {
+    const [code = '', name = ''] = String(key || '').split('|');
+    return {
+      code,
+      name,
+      neutralCode: colorNeutralCode(code)
+    };
+  }
+
+  function materialAssetParts(material) {
+    const code = assetKey(material?.mat_code || '');
+    const name = assetKey(material?.name_zh || material?.name_vi || '');
+    const comp = assetKey(material?.comp_code || '');
+    return {
+      directKey: code && name ? `${code}|${name}` : '',
+      code,
+      neutralCode: colorNeutralCode(code),
+      name,
+      comp
+    };
+  }
+
+  function findBomAssetEntry(assetMap, material) {
+    const source = assetMap || {};
+    const materialParts = materialAssetParts(material || {});
+    if (materialParts.directKey && source[materialParts.directKey]) {
+      return { key: materialParts.directKey, assets: source[materialParts.directKey] };
+    }
+
+    const entries = Object.entries(source);
+    const matchers = [
+      ([key]) => {
+        const parts = assetParts(key);
+        return materialParts.name && materialParts.neutralCode &&
+          parts.name === materialParts.name && parts.neutralCode === materialParts.neutralCode;
+      },
+      ([key]) => {
+        const parts = assetParts(key);
+        return materialParts.neutralCode && parts.neutralCode === materialParts.neutralCode;
+      },
+      ([key]) => {
+        const parts = assetParts(key);
+        return materialParts.name && parts.name === materialParts.name;
+      },
+      ([key]) => materialParts.code && key.includes(materialParts.code),
+      ([key]) => materialParts.comp && key.includes(materialParts.comp)
+    ];
+
+    for (const matcher of matchers) {
+      const found = entries.find(matcher);
+      if (found) return { key: found[0], assets: found[1] };
+    }
+    return null;
+  }
+
+  function findBomAssets(assetMap, material) {
+    return findBomAssetEntry(assetMap, material)?.assets || [];
   }
 
   function normalizeConfig(config) {
@@ -1510,8 +1581,18 @@ mark {
       this.query('.content').addEventListener('click', (event) => {
         const action = event.target.closest('[data-action]');
         const sort = event.target.closest('[data-sort]');
+        const deleteDrawing = event.target.closest('[data-delete-drawing-row]');
+        const deleteModel3d = event.target.closest('[data-delete-model3d-row]');
         const drawing = event.target.closest('[data-drawing-row]');
         const model3d = event.target.closest('[data-model3d-row]');
+        if (deleteDrawing) {
+          this.deleteMaterialAsset(Number(deleteDrawing.dataset.deleteDrawingRow), 'drawings');
+          return;
+        }
+        if (deleteModel3d) {
+          this.deleteMaterialAsset(Number(deleteModel3d.dataset.deleteModel3dRow), 'models3d');
+          return;
+        }
         if (action) this.runAction(action.dataset.action);
         if (sort) this.sortBy(sort.dataset.sort);
         if (drawing) this.openDrawing(Number(drawing.dataset.drawingRow));
@@ -1584,7 +1665,9 @@ mark {
     }
 
     renderStatus() {
-      this.query('#syncSource').textContent = rawUrl(this.config);
+      const syncSourceRow = this.query('[data-sync-source-row]');
+      if (syncSourceRow) syncSourceRow.hidden = !this.isAdmin();
+      this.query('#syncSource').textContent = this.isAdmin() ? rawUrl(this.config) : '';
       this.query('#lastSync').textContent = this.formatDate(this.state.payload.updatedAt);
       this.query('#lastLocalRefresh').textContent = this.state.lastLoadAt ? this.formatDate(this.state.lastLoadAt) : '-';
       this.query('#adminControls').hidden = !this.isAdmin();
@@ -1855,35 +1938,35 @@ mark {
     drawingCellHtml(material, index) {
       const drawings = this.drawingsFor(material);
       if (!drawings.length) return `<div class="drawing-note">${escapeHTML(this.label('noDrawing'))}</div>`;
-      return `<div class="drawing-tools"><button class="drawing-btn primary" type="button" data-drawing-row="${index}">${escapeHTML(this.label('viewDrawing'))}</button></div>`;
+      const deleteButton = this.assetDeleteButton('drawing', index);
+      return `<div class="drawing-tools"><button class="drawing-btn primary" type="button" data-drawing-row="${index}">${escapeHTML(this.label('viewDrawing'))}</button>${deleteButton}</div>`;
     }
 
     model3dCellHtml(material, index) {
       const models = this.models3dFor(material);
       if (!models.length) return `<div class="drawing-note">${escapeHTML(this.label('noDrawing'))}</div>`;
-      return `<div class="drawing-tools"><button class="drawing-btn primary" type="button" data-model3d-row="${index}">${escapeHTML(this.label('viewDrawing'))}</button></div>`;
+      const deleteButton = this.assetDeleteButton('model3d', index);
+      return `<div class="drawing-tools"><button class="drawing-btn primary" type="button" data-model3d-row="${index}">${escapeHTML(this.label('viewDrawing'))}</button>${deleteButton}</div>`;
+    }
+
+    assetDeleteButton(type, index) {
+      if (!this.isAdmin() || !this.state.editMode) return '';
+      const attr = type === 'drawing' ? 'data-delete-drawing-row' : 'data-delete-model3d-row';
+      return `<button class="drawing-btn danger" type="button" ${attr}="${index}">${escapeHTML(this.deleteAssetLabel())}</button>`;
+    }
+
+    deleteAssetLabel() {
+      return this.state.lang === 'vi' ? 'X\u00f3a' : '\u5220\u9664';
     }
 
     drawingsFor(material) {
       const skuDrawings = this.state.drawings[this.state.currentSku] || {};
-      const directKey = this.drawingKey(`${material.mat_code || ''}|${material.name_zh || ''}`);
-      if (skuDrawings[directKey]) return skuDrawings[directKey];
-      const code = this.drawingKey(material.mat_code || '');
-      const found = Object.entries(skuDrawings).find(([key]) => key.includes(code));
-      return found ? found[1] : [];
+      return findBomAssets(skuDrawings, material);
     }
 
     models3dFor(material) {
       const skuModels = this.state.models3d[this.state.currentSku] || {};
-      const directKey = this.drawingKey(`${material.mat_code || ''}|${material.name_zh || ''}`);
-      if (skuModels[directKey]) return skuModels[directKey];
-      const name = this.drawingKey(material.name_zh || material.name_vi || '');
-      const code = this.drawingKey(material.mat_code || '');
-      const foundByCode = Object.entries(skuModels).find(([key]) => code && key.split('|')[0] === code);
-      if (foundByCode) return foundByCode[1];
-      const foundByName = Object.entries(skuModels).find(([key]) => name && key.split('|')[1] === name);
-      if (foundByName) return foundByName[1];
-      return [];
+      return findBomAssets(skuModels, material);
     }
 
     productModels3d() {
@@ -1894,7 +1977,7 @@ mark {
     }
 
     drawingKey(value) {
-      return normalizeText(value).replace(/\.(pdf|glb|gltf)$/i, '').replace(/[\s\-_()（）[\]【】{}+&.]/g, '').replace(/组件/g, '');
+      return assetKey(value);
     }
 
     sortIcon(col) {
@@ -1944,6 +2027,35 @@ mark {
         this.updateSharedMaterialField(material.mat_code, this.materialEditKey(field), value);
       }
       this.markDirty();
+    }
+
+    deleteMaterialAsset(index, collectionName) {
+      if (!this.isAdmin()) return;
+      const material = this.state.lastRows[index];
+      if (!material) return;
+      const collection = collectionName === 'models3d' ? this.state.models3d : this.state.drawings;
+      const skuAssets = collection[this.state.currentSku] || {};
+      const entry = findBomAssetEntry(skuAssets, material);
+      if (!entry) return;
+      const confirmKey = collectionName === 'models3d'
+        ? 'deleteModel3dConfirm'
+        : 'deleteDrawingConfirm';
+      if (global.confirm && !global.confirm(this.deleteAssetConfirmText(confirmKey))) return;
+      delete skuAssets[entry.key];
+      collection[this.state.currentSku] = skuAssets;
+      this.markDirty();
+      this.renderTable();
+    }
+
+    deleteAssetConfirmText(key) {
+      if (key === 'deleteModel3dConfirm') {
+        return this.state.lang === 'vi'
+          ? 'X\u00f3a li\u00ean k\u1ebft model 3D n\u00e0y?'
+          : '\u5220\u9664\u8fd9\u4e2a 3D \u6a21\u578b\u5173\u8054\uff1f';
+      }
+      return this.state.lang === 'vi'
+        ? 'X\u00f3a li\u00ean k\u1ebft b\u1ea3n v\u1ebd 2D n\u00e0y?'
+        : '\u5220\u9664\u8fd9\u4e2a 2D \u56fe\u7eb8\u5173\u8054\uff1f';
     }
 
     replaceMaterialCode(oldCode, newCode) {
@@ -2226,6 +2338,7 @@ mark {
   global.BomApp = { createApp, start: createApp };
   global.BomCoreUtils = {
     buildGithubUpdateRequest,
+    findBomAssets,
     filterMaterials,
     normalizeConfig,
     parseDataJsPayload,
