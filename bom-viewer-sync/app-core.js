@@ -72,9 +72,20 @@
       assetSummary: '图纸资产',
       openBom: '打开 BOM',
       viewMaterial: '查看物料',
+      productCatalogTitle: 'LGS 产品',
+      productCatalogSubtitle: '按 SPU 管理规格、颜色、状态和 BOM',
+      spu: 'SPU',
+      version: '版本',
+      status: '状态',
+      activeStatus: '使用中',
+      disabledStatus: '禁用',
+      viewBom: '查看 BOM',
+      colorDots: '颜色',
       productSpecifications: '产品规格',
       billOfMaterials: 'Bill of Materials (BOM)',
       assemblyPreview: '装配预览',
+      modelPreview: '3D 装配',
+      productImage: '产品图片',
       revision: '版本',
       lastModified: '最后修改',
       unit: '单位',
@@ -151,9 +162,20 @@
       assetSummary: 'Tài sản bản vẽ',
       openBom: 'Mở BOM',
       viewMaterial: 'Xem vật liệu',
+      productCatalogTitle: 'Sản phẩm LGS',
+      productCatalogSubtitle: 'Quản lý quy cách, màu sắc, trạng thái và BOM theo SPU',
+      spu: 'SPU',
+      version: 'Phiên bản',
+      status: 'Trạng thái',
+      activeStatus: 'Đang dùng',
+      disabledStatus: 'Cấm dùng',
+      viewBom: 'Xem BOM',
+      colorDots: 'Màu',
       productSpecifications: 'Thông số sản phẩm',
       billOfMaterials: 'Bill of Materials (BOM)',
       assemblyPreview: 'Xem lắp ráp',
+      modelPreview: '3D lắp ráp',
+      productImage: 'Ảnh sản phẩm',
       revision: 'Phiên bản',
       lastModified: 'Cập nhật',
       unit: 'Đơn vị',
@@ -727,7 +749,8 @@
       bom: clone(source.bom),
       drawings: clone(source.drawings),
       manuals: clone(source.manuals),
-      models3d: clone(source.models3d)
+      models3d: clone(source.models3d),
+      productImages: clone(source.productImages)
     };
     normalized.materialDb = normalizeMaterialDatabase({ ...source, ...normalized });
     return normalized;
@@ -741,7 +764,8 @@
       bom: global.BOM_DATA || {},
       drawings: global.DRAWING_INDEX || {},
       manuals: global.MANUAL_INDEX || {},
-      models3d: global.MODEL3D_INDEX || {}
+      models3d: global.MODEL3D_INDEX || {},
+      productImages: global.PRODUCT_IMAGE_INDEX || {}
     });
   }
 
@@ -854,10 +878,12 @@
         drawings: payload.drawings,
         manuals: payload.manuals,
         models3d: payload.models3d,
+        productImages: payload.productImages,
         materialDb: payload.materialDb,
         loadedPayload: clone(payload),
         currentSku: '',
         currentColor: '',
+        bomDetailOpen: false,
         currentAttr: 'all',
         selectedMaterialId: '',
         selectedEntryId: '',
@@ -951,12 +977,11 @@
       this.query('#searchInput').addEventListener('input', (event) => {
         this.state.searchQuery = event.target.value.trim();
         this.query('#searchClear').classList.toggle('visible', this.state.searchQuery.length > 0);
-        if (this.state.adminView !== 'bom') {
+        if (this.state.adminView !== 'bom' || !this.state.bomDetailOpen) {
           this.renderContent();
           this.renderInspector();
           return;
         }
-        this.renderProductList();
         this.renderTable();
         this.renderInspector();
       });
@@ -971,12 +996,11 @@
       this.state.searchQuery = '';
       this.query('#searchInput').value = '';
       this.query('#searchClear').classList.remove('visible');
-      if (this.state.adminView !== 'bom') {
+      if (this.state.adminView !== 'bom' || !this.state.bomDetailOpen) {
         this.renderContent();
         this.renderInspector();
         return;
       }
-      this.renderProductList();
       this.renderTable();
       this.renderInspector();
     }
@@ -1035,10 +1059,15 @@
         const deleteBom = event.target.closest('[data-delete-bom-row]');
         const replaceBom = event.target.closest('[data-replace-bom-row]');
         const deleteDbMaterial = event.target.closest('[data-delete-db-material]');
+        const openBomProduct = event.target.closest('[data-open-bom-product]');
         const bomRow = event.target.closest('[data-bom-entry]');
         const materialRow = event.target.closest('[data-material-row]');
         const drawing = event.target.closest('[data-drawing-row]');
         const model3d = event.target.closest('[data-model3d-row]');
+        if (openBomProduct) {
+          this.selectProduct(openBomProduct.dataset.openBomProduct);
+          return;
+        }
         if (deleteDbMaterial) {
           this.deleteDatabaseMaterial(deleteDbMaterial.dataset.deleteDbMaterial);
           return;
@@ -1123,6 +1152,7 @@
       this.state.adminView = nextView;
       this.state.selectedMaterialId = '';
       this.state.selectedEntryId = '';
+      this.state.bomDetailOpen = false;
       this.renderProductList();
       this.renderFilterBar();
       this.renderContent();
@@ -1135,6 +1165,7 @@
       this.state.selectedMaterialId = '';
       this.state.selectedEntryId = '';
       this.state.adminView = 'bom';
+      this.state.bomDetailOpen = true;
       this.ensureColor();
       this.renderProductList();
       this.renderFilterBar();
@@ -1219,7 +1250,7 @@
     }
 
     renderFilterBar() {
-      if (this.state.adminView === 'materials') {
+      if (this.state.adminView !== 'bom' || !this.state.bomDetailOpen) {
         this.query('#filterBar').innerHTML = '';
         return;
       }
@@ -1252,13 +1283,7 @@
     renderProductList() {
       const list = this.query('#productList');
       const navigation = createPdmNavigation(this.state.payload, this.state.lang);
-      const productItems = this.filteredProductItems();
-      list.innerHTML = `<div class="module-nav">${navigation.map((item) => this.moduleButtonHtml(item)).join('')}</div>
-        <div class="product-switcher">
-          <div class="sidebar-section-title">${escapeHTML(this.label('productPicker'))}</div>
-          ${this.productSelectHtml()}
-          <div class="compact-product-list">${productItems.map((item) => this.productButtonHtml(item)).join('') || `<div class="sidebar-empty">${escapeHTML(this.label('noSidebarResults'))}</div>`}</div>
-        </div>`;
+      list.innerHTML = `<div class="module-nav">${navigation.map((item) => this.moduleButtonHtml(item)).join('')}</div>`;
     }
 
     moduleButtonHtml(item) {
@@ -1316,6 +1341,10 @@
         this.renderAssetsView();
         return;
       }
+      if (!this.state.bomDetailOpen) {
+        this.renderProductCatalog();
+        return;
+      }
       const product = this.product();
       const colorData = this.colorData();
       if (!product || !colorData) {
@@ -1324,6 +1353,91 @@
       }
       this.query('#contentHeader').innerHTML = this.contentHeaderHtml(product, colorData);
       this.renderTable();
+    }
+
+    renderProductCatalog() {
+      const content = this.query('.content');
+      this.query('#contentHeader').innerHTML = `<div class="catalog-header">
+        <div>
+          <h1>${escapeHTML(this.label('productCatalogTitle'))}</h1>
+          <div class="subtitle">${escapeHTML(this.label('productCatalogSubtitle'))}</div>
+        </div>
+        <div class="catalog-count"><strong>${Object.keys(this.state.bom).length}</strong> ${escapeHTML(this.label('products'))}</div>
+      </div>`;
+      const existing = content.querySelector('.table-container');
+      if (existing) existing.remove();
+      const rows = this.productCatalogRows();
+      content.insertAdjacentHTML('beforeend', `<div class="table-container product-catalog-view">
+        <div class="table-toolbar">
+          <div class="table-title"><span class="material-symbols-outlined">inventory_2</span><strong>${escapeHTML(this.label('productCatalogTitle'))}</strong><span class="count">${rows.length} ${escapeHTML(this.label('products'))}</span></div>
+        </div>
+        <table><thead><tr>
+          <th>${escapeHTML(this.label('spu'))}</th>
+          <th>${escapeHTML(this.label('description'))}</th>
+          <th>${escapeHTML(this.label('size'))}</th>
+          <th>${escapeHTML(this.label('version'))}</th>
+          <th>${escapeHTML(this.label('colorDots'))}</th>
+          <th>${escapeHTML(this.label('status'))}</th>
+          <th>${escapeHTML(this.label('openBom'))}</th>
+        </tr></thead><tbody>${rows.map((row) => this.productCatalogRowHtml(row)).join('')}</tbody></table>
+      </div>`);
+    }
+
+    productCatalogRows() {
+      const query = normalizeText(this.state.searchQuery);
+      return Object.keys(this.state.bom).sort()
+        .map((sku) => {
+          const product = this.state.bom[sku];
+          const firstColor = product?.color_info?.[product.colors?.[0]] || {};
+          return {
+            sku,
+            product,
+            name: this.productName(product),
+            size: firstColor.size || '-',
+            colors: product.colors || [],
+            disabled: this.productDisabled(product)
+          };
+        })
+        .filter((row) => !query || [
+          row.sku,
+          row.name,
+          row.size,
+          row.colors.join(' ')
+        ].some((value) => normalizeText(value).includes(query)));
+    }
+
+    productCatalogRowHtml(row) {
+      const statusKey = row.disabled ? 'disabledStatus' : 'activeStatus';
+      const statusClass = row.disabled ? 'disabled' : 'active';
+      return `<tr class="product-catalog-row">
+        <td><span class="spu-code">${escapeHTML(row.sku)}</span></td>
+        <td>${escapeHTML(row.name)}</td>
+        <td>${escapeHTML(row.size)}</td>
+        <td><span class="version-badge">A.1</span></td>
+        <td><div class="color-dot-list">${row.colors.map((color) => this.productColorDotHtml(row.product, color)).join('')}</div></td>
+        <td><span class="status-pill ${statusClass}">${escapeHTML(this.label(statusKey))}</span></td>
+        <td><button class="drawing-btn primary" type="button" data-open-bom-product="${escapeHTML(row.sku)}">${escapeHTML(this.label('viewBom'))}</button></td>
+      </tr>`;
+    }
+
+    productDisabled(product) {
+      const status = normalizeText(product?.status || product?.workflowState || product?.state || '');
+      return Boolean(product?.disabled || status.includes('disable') || status.includes('obsolete') || status.includes('禁') || status.includes('停'));
+    }
+
+    productColorDotHtml(product, color) {
+      const colorData = product?.color_info?.[color] || {};
+      const label = this.colorLabel(colorData) || color;
+      return `<span class="color-dot ${this.colorDotClass(label)}" title="${escapeHTML(label)}"></span>`;
+    }
+
+    colorDotClass(label) {
+      const text = String(label || '');
+      if (/黑|black/i.test(text)) return 'black';
+      if (/白|white/i.test(text)) return 'white';
+      if (/复古|古|brown|gỗ|go|cổ|co/i.test(text)) return 'brown';
+      if (/纸|beige|natural/i.test(text)) return 'paper';
+      return 'neutral';
     }
 
     clearContentTable() {
@@ -1640,6 +1754,7 @@
       <div class="detail-card-grid">
         ${this.productSpecCardHtml(product, colorData)}
         ${this.assemblyPreviewHtml(colorData)}
+        ${this.productImagePreviewHtml(colorData)}
       </div>
       <div class="color-tabs">${this.colorTabsHtml(product)}</div>`;
     }
@@ -1675,14 +1790,43 @@
       const preview = models[0]?.previewUrl || models[0]?.url || '';
       const viewer = preview
         ? `<model-viewer class="assembly-model" src="${escapeHTML(preview)}" camera-controls auto-rotate shadow-intensity="1" exposure="0.72" environment-image="neutral"></model-viewer>`
-        : `<div class="assembly-placeholder"><span class="material-symbols-outlined">inventory_2</span><strong>${escapeHTML(colorData.sku || this.state.currentSku)}</strong><small>${escapeHTML(this.localizedProductName(colorData))}</small></div>`;
+        : `<div class="assembly-placeholder"><span class="material-symbols-outlined">deployed_code</span><strong>${escapeHTML(colorData.sku || this.state.currentSku)}</strong><small>${escapeHTML(this.label('modelPreview'))}</small></div>`;
       const buttons = models.length ? this.productModel3dButtons(models) : '';
-      return `<section class="detail-card preview-card">
+      return `<section class="detail-card preview-card model-preview-card">
         <div class="preview-dots"></div>
-        <div class="preview-label">BOM Detail: ${escapeHTML(colorData.sku || this.state.currentSku)}</div>
+        <div class="preview-label">${escapeHTML(this.label('modelPreview'))}</div>
         ${viewer}
         <div class="preview-actions">${buttons}</div>
       </section>`;
+    }
+
+    productImagePreviewHtml(colorData) {
+      const image = this.productPreviewImage(colorData);
+      const viewer = image
+        ? `<img class="assembly-image" src="${escapeHTML(image.url)}" alt="${escapeHTML(image.name || this.localizedProductName(colorData))}" loading="lazy">`
+        : `<div class="assembly-placeholder"><span class="material-symbols-outlined">image</span><strong>${escapeHTML(colorData.sku || this.state.currentSku)}</strong><small>${escapeHTML(this.label('productImage'))}</small></div>`;
+      return `<section class="detail-card preview-card product-image-preview">
+        <div class="preview-dots"></div>
+        <div class="preview-label">${escapeHTML(this.label('productImage'))}</div>
+        ${viewer}
+      </section>`;
+    }
+
+    productPreviewImage(colorData) {
+      const catalog = this.state.productImages?.[this.state.currentSku] || {};
+      const colorKeys = [
+        this.state.currentColor,
+        colorData?.color_ver,
+        colorData?.color_zh,
+        colorData?.color_ver_vi,
+        colorData?.color_vi,
+        'default'
+      ].filter(Boolean);
+      for (const key of colorKeys) {
+        const image = catalog[key];
+        if (image?.url) return image;
+      }
+      return null;
     }
 
     renderSku(colorData) {
@@ -2284,11 +2428,13 @@
       this.state.drawings = this.state.payload.drawings;
       this.state.manuals = this.state.payload.manuals;
       this.state.models3d = this.state.payload.models3d;
+      this.state.productImages = this.state.payload.productImages;
       this.state.materialDb = this.state.payload.materialDb;
       this.state.loadedPayload = clone(this.state.payload);
       this.state.dirty = false;
       this.state.selectedMaterialId = '';
       this.state.selectedEntryId = '';
+      this.state.bomDetailOpen = false;
       this.pickFirstProduct();
     }
 
@@ -2315,6 +2461,7 @@
         drawings: this.state.drawings,
         manuals: this.state.manuals,
         models3d: this.state.models3d,
+        productImages: this.state.productImages,
         materialDb: this.state.materialDb
       });
       syncLegacyBomFromMaterialDb(payload);
@@ -2336,6 +2483,7 @@
         drawings: this.state.drawings,
         manuals: this.state.manuals,
         models3d: this.state.models3d,
+        productImages: this.state.productImages,
         materialDb: this.state.materialDb
       };
       syncLegacyBomFromMaterialDb(payload);
