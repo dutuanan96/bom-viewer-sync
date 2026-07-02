@@ -71,7 +71,18 @@
       childMaterial: '子项物料',
       assetSummary: '图纸资产',
       openBom: '打开 BOM',
-      viewMaterial: '查看物料'
+      viewMaterial: '查看物料',
+      productSpecifications: '产品规格',
+      billOfMaterials: 'Bill of Materials (BOM)',
+      assemblyPreview: '装配预览',
+      revision: '版本',
+      lastModified: '最后修改',
+      unit: '单位',
+      viewAssembly: '查看装配',
+      export: '导出',
+      level: '层级',
+      partNumber: '物料编号',
+      description: '说明'
     },
     vi: {
       brand: 'Jintai BOM',
@@ -139,7 +150,18 @@
       childMaterial: 'Vật liệu con',
       assetSummary: 'Tài sản bản vẽ',
       openBom: 'Mở BOM',
-      viewMaterial: 'Xem vật liệu'
+      viewMaterial: 'Xem vật liệu',
+      productSpecifications: 'Thông số sản phẩm',
+      billOfMaterials: 'Bill of Materials (BOM)',
+      assemblyPreview: 'Xem lắp ráp',
+      revision: 'Phiên bản',
+      lastModified: 'Cập nhật',
+      unit: 'Đơn vị',
+      viewAssembly: 'Xem lắp ráp',
+      export: 'Xuất',
+      level: 'Cấp',
+      partNumber: 'Mã vật liệu',
+      description: 'Mô tả'
     }
   };
 
@@ -1492,10 +1514,12 @@
       const panel = this.query('#inspectorPanel');
       if (!panel) return;
       if (this.state.adminView === 'bom') {
+        panel.classList.toggle('visible', Boolean(this.state.selectedEntryId));
         panel.innerHTML = this.bomInspectorHtml();
         return;
       }
       const record = this.state.selectedMaterialId ? this.state.materialDb?.materials?.[this.state.selectedMaterialId] : null;
+      panel.classList.toggle('visible', Boolean(record));
       panel.innerHTML = record ? this.materialInspectorHtml(record) : this.emptyInspectorHtml();
     }
 
@@ -1601,9 +1625,64 @@
     contentHeaderHtml(product, colorData) {
       const name = this.localizedProductName(colorData);
       const title = this.state.editMode ? this.productInput(name, 'name', 'edit-title') : `<h1>${escapeHTML(name)}</h1>`;
-      return `<div class="pdm-title-row">${title}<span class="status-badge released">RELEASED</span></div><div class="subtitle">${this.renderSku(colorData)}</div>
-        <div class="product-meta">${this.metaHtml(product, colorData)}</div>
-        <div class="color-tabs">${this.colorTabsHtml(product)}</div>`;
+      const sku = this.renderSku(colorData);
+      return `<div class="bom-detail-header">
+        <div>
+          <div class="pdm-title-row">${title}<span class="color-badge">${escapeHTML(this.colorLabel(colorData))}</span><span class="status-badge released">RELEASED</span></div>
+          <div class="pdm-meta-line">
+            <span>SKU: ${sku}</span><span class="dot"></span>
+            <span>${escapeHTML(this.label('revision'))}: A.1</span><span class="dot"></span>
+            <span>${escapeHTML(this.label('lastModified'))}: ${escapeHTML(this.formatDate(this.state.payload.updatedAt))}</span>
+          </div>
+        </div>
+        <div class="header-actions">${this.headerActionsHtml()}</div>
+      </div>
+      <div class="detail-card-grid">
+        ${this.productSpecCardHtml(product, colorData)}
+        ${this.assemblyPreviewHtml(colorData)}
+      </div>
+      <div class="color-tabs">${this.colorTabsHtml(product)}</div>`;
+    }
+
+    headerActionsHtml() {
+      const editButton = this.isAdmin()
+        ? `<button class="btn btn-outline ${this.state.editMode ? 'active' : ''}" type="button" data-action="toggle-edit"><span class="material-symbols-outlined">edit</span>${escapeHTML(this.state.editMode ? this.label('done') : this.label('edit'))}</button>`
+        : `<span class="read-only-note">${escapeHTML(this.label('readOnly'))}</span>`;
+      const assemblyButton = this.productModels3d().length
+        ? `<button class="btn btn-outline" type="button" data-product-model3d-index="0"><span class="material-symbols-outlined">architecture</span>${escapeHTML(this.label('viewAssembly'))}</button>`
+        : '';
+      return `${editButton}
+        ${assemblyButton}
+        <button class="btn btn-outline" type="button" data-action="copy"><span class="material-symbols-outlined">content_copy</span>${escapeHTML(this.label('copy'))}</button>
+        <button class="btn btn-primary" type="button" data-action="export"><span class="material-symbols-outlined">download</span>${escapeHTML(this.label('export'))}</button>`;
+    }
+
+    productSpecCardHtml(product, colorData) {
+      const rows = [
+        [this.label('size'), this.state.editMode ? this.productInput(colorData.size || '', 'size', 'edit-small') : escapeHTML(colorData.size || '-')],
+        [this.label('colors'), escapeHTML(Object.keys(product.color_info || {}).length)],
+        [this.label('total'), escapeHTML(this.bomRows().length)],
+        [this.label('manual'), this.manualButtons()]
+      ];
+      return `<section class="detail-card spec-card">
+        <h2><span class="material-symbols-outlined">info</span>${escapeHTML(this.label('productSpecifications'))}</h2>
+        <div class="spec-list">${rows.map(([label, value]) => `<div class="spec-row"><span>${escapeHTML(label)}</span><strong>${value}</strong></div>`).join('')}</div>
+      </section>`;
+    }
+
+    assemblyPreviewHtml(colorData) {
+      const models = this.productModels3d();
+      const preview = models[0]?.previewUrl || models[0]?.url || '';
+      const viewer = preview
+        ? `<model-viewer class="assembly-model" src="${escapeHTML(preview)}" camera-controls auto-rotate shadow-intensity="1" exposure="0.72" environment-image="neutral"></model-viewer>`
+        : `<div class="assembly-placeholder"><span class="material-symbols-outlined">inventory_2</span><strong>${escapeHTML(colorData.sku || this.state.currentSku)}</strong><small>${escapeHTML(this.localizedProductName(colorData))}</small></div>`;
+      const buttons = models.length ? this.productModel3dButtons(models) : '';
+      return `<section class="detail-card preview-card">
+        <div class="preview-dots"></div>
+        <div class="preview-label">BOM Detail: ${escapeHTML(colorData.sku || this.state.currentSku)}</div>
+        ${viewer}
+        <div class="preview-actions">${buttons}</div>
+      </section>`;
     }
 
     renderSku(colorData) {
@@ -1706,7 +1785,7 @@
 
     toolbarHtml(rows) {
       const adminActions = this.isAdmin() ? this.adminActionsHtml() : `<span class="read-only-note">${escapeHTML(this.label('readOnly'))}</span>`;
-      return `<div class="count"><strong>${rows.length}</strong> ${escapeHTML(this.label('materials'))}</div>
+      return `<div class="table-title"><span class="material-symbols-outlined">view_list</span><strong>${escapeHTML(this.label('billOfMaterials'))}</strong><span class="count">${rows.length} ${escapeHTML(this.label('materials'))}</span></div>
         <div class="table-actions">${adminActions}
         <button class="btn" type="button" data-action="copy">${escapeHTML(this.label('copy'))}</button>
         <button class="btn btn-primary" type="button" data-action="export">${escapeHTML(this.label('exportCSV'))}</button></div>`;
@@ -1731,16 +1810,20 @@
 
     tableHeadHtml() {
       const headers = this.label('headers');
-      const cols = ['stt', 'mat_code', 'comp_code', 'name', 'spec', 'material', 'color', 'attr', 'qty'];
-      const sortable = cols.map((col, index) => `<th><button class="th-button" type="button" data-sort="${col}">${escapeHTML(headers[index])} ${this.sortIcon(col)}</button></th>`);
+      const sortable = [
+        ['stt', this.label('level')],
+        ['mat_code', this.label('partNumber')],
+        ['name', this.label('description')],
+        ['spec', headers[4]],
+        ['material', headers[5]],
+        ['attr', headers[7]],
+        ['qty', headers[8]]
+      ].map(([col, label]) => `<th><button class="th-button" type="button" data-sort="${col}">${escapeHTML(label)} ${this.sortIcon(col)}</button></th>`);
       const editAction = this.isAdmin() && this.state.editMode ? '<th>\u64cd\u4f5c</th>' : '';
       return `<tr>${sortable.join('')}<th>${escapeHTML(headers[9])}</th><th>3D</th>${editAction}</tr>`;
     }
 
     rowHtml(material, index) {
-      const cells = ['mat_code', 'comp_code', 'name', 'spec', 'material', 'color', 'attr', 'qty']
-        .map((field) => this.cellHtml(material, field, index))
-        .join('');
       const editAction = this.isAdmin() && this.state.editMode
         ? `<td><div class="drawing-tools">
           <button class="drawing-btn" type="button" data-replace-bom-row="${index}">${escapeHTML(this.label('replaceMaterial'))}</button>
@@ -1748,7 +1831,32 @@
         </div></td>`
         : '';
       const active = material._entryId && material._entryId === this.state.selectedEntryId ? 'selected-row' : '';
-      return `<tr class="${active}" data-bom-entry="${escapeHTML(material._entryId || '')}"><td>${index + 1}</td>${cells}<td class="drawing-cell">${this.drawingCellHtml(material, index)}</td><td class="model3d-cell">${this.model3dCellHtml(material, index)}</td>${editAction}</tr>`;
+      return `<tr class="${active}" data-bom-entry="${escapeHTML(material._entryId || '')}">
+        <td><span class="level-cell">1</span></td>
+        ${this.partNumberCellHtml(material, index)}
+        ${this.cellHtml(material, 'name', index)}
+        ${this.cellHtml(material, 'spec', index)}
+        ${this.materialStackCellHtml(material, index)}
+        ${this.cellHtml(material, 'attr', index)}
+        ${this.cellHtml(material, 'qty', index)}
+        <td class="drawing-cell">${this.drawingCellHtml(material, index)}</td>
+        <td class="model3d-cell">${this.model3dCellHtml(material, index)}</td>
+        ${editAction}
+      </tr>`;
+    }
+
+    partNumberCellHtml(material, index) {
+      if (this.isAdmin() && this.state.editMode) {
+        return `<td><div class="stack-cell">${this.editInput(materialText(material, 'mat_code', this.state.lang), 'mat_code', index)}${this.editInput(materialText(material, 'comp_code', this.state.lang), 'comp_code', index)}</div></td>`;
+      }
+      return `<td><div class="stack-cell"><span class="mat-code">${this.highlight(materialText(material, 'mat_code', this.state.lang))}</span><span class="muted-line">${escapeHTML(materialText(material, 'comp_code', this.state.lang) || '-')}</span></div></td>`;
+    }
+
+    materialStackCellHtml(material, index) {
+      if (this.isAdmin() && this.state.editMode) {
+        return `<td><div class="stack-cell">${this.editInput(materialText(material, 'material', this.state.lang), 'material', index)}${this.editInput(materialText(material, 'color', this.state.lang), 'color', index)}</div></td>`;
+      }
+      return `<td><div class="stack-cell"><span>${this.highlight(materialText(material, 'material', this.state.lang))}</span><span class="muted-line">${escapeHTML(materialText(material, 'color', this.state.lang) || '-')}</span></div></td>`;
     }
 
     cellHtml(material, field, index) {

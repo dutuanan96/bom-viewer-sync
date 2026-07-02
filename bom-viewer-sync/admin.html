@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BOM Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script>
     window.BOM_REPO_CONFIG = {
@@ -15,67 +16,79 @@
     };
   </script>
 </head>
-<body>
-  <nav class="nav">
-    <div class="nav-logo" data-i18n="brand">BOM</div>
-    <div class="nav-right">
-      <span class="mode-badge" id="modeBadge">Admin</span>
-      <div class="nav-stats">
-        <div><span class="stat-val" id="statProducts">0</span> <span class="stat-label" data-i18n="products">Products</span></div>
-        <div><span class="stat-val" id="statMaterials">0</span> <span class="stat-label" data-i18n="materials">Materials</span></div>
-      </div>
-      <div class="lang-toggle">
-        <button class="lang-btn active" type="button" data-lang="zh">中</button>
-        <button class="lang-btn" type="button" data-lang="vi">VI</button>
-      </div>
-    </div>
-  </nav>
-
-  <section class="sync-panel admin" id="syncPanel">
-    <div class="sync-summary">
-      <div data-sync-source-row>
-        <div class="sync-label" data-i18n="source">GitHub data source</div>
-        <div class="sync-source" id="syncSource">-</div>
-      </div>
+<body class="pdm-shell">
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-logo">LGS</div>
       <div>
-        <div class="sync-label" data-i18n="updated">Data updated</div>
-        <div class="sync-value" id="lastSync">-</div>
+        <div class="sidebar-brand-title">PDM System</div>
+        <div class="sidebar-brand-subtitle">Engineering Vault</div>
       </div>
-      <div>
-        <div class="sync-label" data-i18n="localRefresh">Local refresh</div>
-        <div class="sync-value" id="lastLocalRefresh">-</div>
-      </div>
-      <div class="sync-status" id="syncStatus"></div>
     </div>
-    <div class="admin-config" id="adminControls">
-      <label class="wide">
-        <span data-i18n="token">GitHub token</span>
-        <input type="password" id="githubToken" autocomplete="off">
-      </label>
+    <h3 data-i18n="sidebarTitle">PDM</h3>
+    <div class="sidebar-search">
+      <input type="text" class="sidebar-search-input" id="sidebarSearch" data-i18n-placeholder="sidebarSearch">
     </div>
-  </section>
+    <div class="product-list" id="productList"></div>
+    <div class="sidebar-footer">
+      <span class="material-symbols-outlined" aria-hidden="true">settings</span>
+      <span>Settings</span>
+    </div>
+  </aside>
 
-  <section class="search-section">
-    <div class="search-wrapper">
-      <span class="search-icon" aria-hidden="true">⌕</span>
-      <input type="text" class="search-input" id="searchInput" data-i18n-placeholder="search">
-      <button class="search-clear" id="searchClear" type="button" aria-label="Clear search">×</button>
-    </div>
-    <div class="filter-bar" id="filterBar"></div>
-  </section>
-
-  <main class="main">
-    <aside class="sidebar">
-      <h3 data-i18n="sidebarTitle">Index</h3>
-      <div class="sidebar-search">
-        <input type="text" class="sidebar-search-input" id="sidebarSearch" data-i18n-placeholder="sidebarSearch">
+  <div class="app-frame">
+    <nav class="nav">
+      <div class="search-wrapper">
+        <span class="material-symbols-outlined search-icon" aria-hidden="true">search</span>
+        <input type="text" class="search-input" id="searchInput" data-i18n-placeholder="search">
+        <button class="search-clear" id="searchClear" type="button" aria-label="Clear search">×</button>
       </div>
-      <div class="product-list" id="productList"></div>
-    </aside>
-    <section class="content">
-      <div class="content-header" id="contentHeader"></div>
+      <div class="filter-bar" id="filterBar"></div>
+      <div class="nav-right">
+        <span class="material-symbols-outlined nav-icon" aria-hidden="true">notifications</span>
+        <span class="material-symbols-outlined nav-icon" aria-hidden="true">help</span>
+        <span class="mode-badge" id="modeBadge">Admin</span>
+        <div class="nav-stats">
+          <div><span class="stat-val" id="statProducts">0</span> <span class="stat-label" data-i18n="products">Products</span></div>
+          <div><span class="stat-val" id="statMaterials">0</span> <span class="stat-label" data-i18n="materials">Materials</span></div>
+        </div>
+        <div class="lang-toggle">
+          <button class="lang-btn active" type="button" data-lang="zh">中</button>
+          <button class="lang-btn" type="button" data-lang="vi">VI</button>
+        </div>
+      </div>
+    </nav>
+
+    <section class="sync-panel admin" id="syncPanel">
+      <div class="sync-summary">
+        <div data-sync-source-row>
+          <div class="sync-label" data-i18n="source">GitHub data source</div>
+          <div class="sync-source" id="syncSource">-</div>
+        </div>
+        <div>
+          <div class="sync-label" data-i18n="updated">Data updated</div>
+          <div class="sync-value" id="lastSync">-</div>
+        </div>
+        <div>
+          <div class="sync-label" data-i18n="localRefresh">Local refresh</div>
+          <div class="sync-value" id="lastLocalRefresh">-</div>
+        </div>
+        <div class="sync-status" id="syncStatus"></div>
+      </div>
+      <div class="admin-config" id="adminControls">
+        <label class="wide">
+          <span data-i18n="token">GitHub token</span>
+          <input type="password" id="githubToken" autocomplete="off">
+        </label>
+      </div>
     </section>
-  </main>
+
+    <main class="main">
+      <section class="content">
+        <div class="content-header" id="contentHeader"></div>
+      </section>
+    </main>
+  </div>
 
   <div class="pdf-modal" id="pdfModal" aria-hidden="true">
     <div class="pdf-dialog">

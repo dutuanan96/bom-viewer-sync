@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BOM Viewer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
   <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
@@ -1206,6 +1207,736 @@ mark {
     grid-column: span 1;
   }
 }
+
+/* Reference PDM layout overrides */
+.material-symbols-outlined {
+  direction: ltr;
+  display: inline-block;
+  font-family: 'Material Symbols Outlined';
+  font-feature-settings: 'liga';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
+body.pdm-shell {
+  background: #f8f9fb;
+  color: #191c1e;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.pdm-shell .sidebar {
+  background: #2e3132;
+  border: 0;
+  border-radius: 0;
+  bottom: 0;
+  color: #f0f1f3;
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  max-height: none;
+  overflow: hidden;
+  padding: 24px 10px;
+  position: fixed;
+  top: 0;
+  width: 260px;
+  z-index: 220;
+}
+
+.sidebar-brand {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  margin: 0 14px 40px;
+}
+
+.sidebar-logo {
+  align-items: center;
+  background: #003d9b;
+  color: #fff;
+  display: flex;
+  font-size: 14px;
+  font-weight: 800;
+  height: 38px;
+  justify-content: center;
+  width: 38px;
+}
+
+.sidebar-brand-title {
+  color: #dae2ff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.sidebar-brand-subtitle {
+  color: #e1e2e4;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+}
+
+.pdm-shell .sidebar h3 {
+  color: #b2c5ff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin: 0 14px 10px;
+  text-transform: uppercase;
+}
+
+.pdm-shell .sidebar-search {
+  margin: 0 10px 14px;
+}
+
+.pdm-shell .sidebar-search-input,
+.pdm-shell .product-select {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 4px;
+  color: #f0f1f3;
+  height: 34px;
+}
+
+.pdm-shell .product-list {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.pdm-shell .module-nav {
+  gap: 4px;
+}
+
+.pdm-shell .module-item {
+  border-radius: 0 4px 4px 0;
+  border-width: 0 0 0 4px;
+  color: #c3c6d6;
+  font-size: 13px;
+  font-weight: 600;
+  gap: 10px;
+  min-height: 42px;
+  padding: 10px 12px;
+}
+
+.pdm-shell .module-item:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+.pdm-shell .module-item.active {
+  background: #0052cc;
+  border-left-color: #b2c5ff;
+  color: #c4d2ff;
+}
+
+.pdm-shell .module-item strong {
+  color: inherit;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.pdm-shell .product-switcher {
+  border-top: 1px solid rgba(255,255,255,0.12);
+  margin: 6px 10px 0;
+  padding-top: 14px;
+}
+
+.pdm-shell .compact-product-list {
+  max-height: 260px;
+  overflow-y: auto;
+  padding-right: 2px;
+}
+
+.pdm-shell .product-item {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #f0f1f3;
+  padding: 8px 10px;
+}
+
+.pdm-shell .product-item.active {
+  background: rgba(0,82,204,0.75);
+  border-color: rgba(178,197,255,0.4);
+}
+
+.pdm-shell .product-item .sku,
+.pdm-shell .product-name-small {
+  color: inherit;
+}
+
+.sidebar-footer {
+  align-items: center;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  color: #c3c6d6;
+  display: flex;
+  gap: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  margin: auto 14px 0;
+  padding-top: 20px;
+}
+
+.app-frame {
+  margin-left: 260px;
+  min-height: 100vh;
+}
+
+.pdm-shell .nav {
+  background: #f8f9fb;
+  border-bottom: 1px solid #c3c6d6;
+  gap: 16px;
+  height: 64px;
+  left: 260px;
+  padding: 0 24px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 200;
+}
+
+.pdm-shell .nav .search-wrapper {
+  margin: 0;
+  max-width: 420px;
+  width: min(420px, 38vw);
+}
+
+.pdm-shell .search-input {
+  background: #f3f4f6;
+  border: 1px solid #c3c6d6;
+  border-radius: 12px;
+  height: 44px;
+  padding-left: 44px;
+}
+
+.pdm-shell .search-icon {
+  color: #434654;
+  left: 12px;
+}
+
+.pdm-shell .filter-bar {
+  flex: 1;
+  margin: 0;
+  max-width: none;
+  overflow: hidden;
+}
+
+.pdm-shell .filter-chip {
+  border-radius: 4px;
+  padding: 6px 10px;
+}
+
+.pdm-shell .nav-right {
+  gap: 14px;
+  margin-left: auto;
+}
+
+.nav-icon {
+  color: #434654;
+}
+
+.pdm-shell .lang-toggle {
+  border-radius: 4px;
+  padding: 0;
+}
+
+.pdm-shell .lang-btn {
+  border-radius: 0;
+  min-width: 48px;
+}
+
+.pdm-shell .lang-btn.active {
+  background: #0052cc;
+  color: #fff;
+}
+
+.pdm-shell .sync-panel {
+  background: #f3f4f6;
+  border-bottom: 1px solid #c3c6d6;
+  margin-top: 64px;
+  padding: 8px 24px;
+}
+
+.pdm-shell .sync-summary {
+  gap: 12px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.pdm-shell .sync-label {
+  font-size: 10px;
+  letter-spacing: 0.05em;
+}
+
+.pdm-shell .sync-value,
+.pdm-shell .sync-source,
+.pdm-shell .sync-status {
+  font-size: 11px;
+}
+
+.pdm-shell .admin-config {
+  margin-top: 8px;
+}
+
+.pdm-shell .main {
+  display: block;
+  margin: 0;
+  max-width: none;
+  padding: 24px;
+}
+
+.pdm-shell .content {
+  margin: 0 auto;
+  max-width: 1480px;
+}
+
+.pdm-shell .content-header {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  margin: 0 0 24px;
+  padding: 0;
+}
+
+.bom-detail-header {
+  align-items: flex-start;
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.pdm-title-row {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.pdm-title-row h1,
+.pdm-title-row .edit-title {
+  color: #191c1e;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 32px;
+  margin: 0;
+}
+
+.color-badge,
+.status-badge {
+  border-radius: 999px;
+  display: inline-flex;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 14px;
+  padding: 4px 10px;
+  text-transform: uppercase;
+}
+
+.color-badge {
+  background: #d6e3ff;
+  color: #374763;
+}
+
+.status-badge.released {
+  background: #006476;
+  color: #70e2ff;
+}
+
+.pdm-meta-line {
+  align-items: center;
+  color: #434654;
+  display: flex;
+  flex-wrap: wrap;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 13px;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.pdm-meta-line .dot {
+  background: #c3c6d6;
+  border-radius: 999px;
+  height: 4px;
+  width: 4px;
+}
+
+.header-actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.detail-card-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: minmax(320px, 4fr) minmax(0, 8fr);
+  margin-bottom: 24px;
+}
+
+.detail-card {
+  background: #fff;
+  border: 1px solid #c3c6d6;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+
+.spec-card {
+  padding: 24px;
+}
+
+.spec-card h2,
+.table-title {
+  align-items: center;
+  color: #191c1e;
+  display: flex;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.spec-card h2 .material-symbols-outlined,
+.table-title .material-symbols-outlined {
+  color: #0052cc;
+}
+
+.spec-list {
+  display: grid;
+  gap: 0;
+  margin-top: 18px;
+}
+
+.spec-row {
+  align-items: center;
+  border-bottom: 1px solid #e1e2e4;
+  display: flex;
+  gap: 18px;
+  justify-content: space-between;
+  min-height: 44px;
+}
+
+.spec-row:last-child {
+  border-bottom: 0;
+}
+
+.spec-row span {
+  color: #434654;
+  font-size: 13px;
+}
+
+.spec-row strong {
+  color: #191c1e;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: right;
+}
+
+.preview-card {
+  align-items: center;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  min-height: 270px;
+  overflow: hidden;
+  padding: 20px;
+  position: relative;
+}
+
+.preview-dots {
+  background-image: radial-gradient(#c3c6d6 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+  inset: 0;
+  opacity: 0.22;
+  position: absolute;
+}
+
+.preview-label {
+  color: #434654;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 11px;
+  left: 24px;
+  position: absolute;
+  top: 18px;
+  z-index: 1;
+}
+
+.assembly-model {
+  background: #f8f9fb;
+  height: 230px;
+  max-width: 680px;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.assembly-placeholder {
+  align-items: center;
+  background: rgba(248,249,251,0.86);
+  color: #434654;
+  display: grid;
+  gap: 6px;
+  justify-items: center;
+  min-height: 190px;
+  position: relative;
+  width: min(680px, 100%);
+  z-index: 1;
+}
+
+.assembly-placeholder .material-symbols-outlined {
+  color: #0052cc;
+  font-size: 46px;
+}
+
+.assembly-placeholder strong {
+  color: #191c1e;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.assembly-placeholder small {
+  max-width: 520px;
+  text-align: center;
+}
+
+.preview-actions {
+  bottom: 16px;
+  display: flex;
+  gap: 8px;
+  position: absolute;
+  right: 16px;
+  z-index: 2;
+}
+
+.pdm-shell .color-tabs {
+  gap: 8px;
+  margin: -8px 0 24px;
+}
+
+.pdm-shell .color-tab {
+  border-radius: 999px;
+  padding: 6px 14px;
+}
+
+.pdm-shell .table-container {
+  border: 1px solid #c3c6d6;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  overflow: auto;
+}
+
+.pdm-shell .table-toolbar {
+  background: #fff;
+  min-height: 80px;
+  padding: 18px 24px;
+}
+
+.table-title .count {
+  border-left: 1px solid #c3c6d6;
+  color: #434654;
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: 6px;
+  padding-left: 14px;
+}
+
+.pdm-shell .btn,
+.pdm-shell .drawing-btn {
+  align-items: center;
+  border-radius: 4px;
+  display: inline-flex;
+  gap: 8px;
+  justify-content: center;
+  min-height: 36px;
+  padding: 7px 14px;
+}
+
+.pdm-shell .btn-outline {
+  background: transparent;
+  border-color: #737685;
+  color: #191c1e;
+}
+
+.pdm-shell .btn-primary {
+  background: #003d9b;
+  border-color: #003d9b;
+  color: #fff;
+}
+
+.pdm-shell table {
+  font-size: 13px;
+  table-layout: auto;
+}
+
+.pdm-shell thead {
+  background: #edeef0;
+}
+
+.pdm-shell th {
+  background: #edeef0;
+  color: #434654;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 11px 14px;
+}
+
+.pdm-shell td {
+  color: #191c1e;
+  padding: 10px 14px;
+}
+
+.pdm-shell tbody tr:nth-child(even) td {
+  background: #fbfbfc;
+}
+
+.pdm-shell th:nth-child(1),
+.pdm-shell td:nth-child(1) {
+  text-align: center;
+  width: 64px;
+}
+
+.pdm-shell th:nth-child(2),
+.pdm-shell td:nth-child(2) {
+  min-width: 170px;
+}
+
+.pdm-shell th:nth-child(3),
+.pdm-shell td:nth-child(3) {
+  min-width: 240px;
+}
+
+.pdm-shell th:nth-child(4),
+.pdm-shell td:nth-child(4) {
+  min-width: 220px;
+}
+
+.pdm-shell th:nth-child(7),
+.pdm-shell td:nth-child(7) {
+  text-align: right;
+  width: 72px;
+}
+
+.pdm-shell th:nth-child(8),
+.pdm-shell td:nth-child(8),
+.pdm-shell th:nth-child(9),
+.pdm-shell td:nth-child(9) {
+  text-align: center;
+  width: 96px;
+}
+
+.level-cell {
+  color: #0052cc;
+  font-weight: 700;
+}
+
+.stack-cell {
+  display: grid;
+  gap: 4px;
+}
+
+.stack-cell .mat-code {
+  color: #191c1e;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.pdm-shell .muted-line {
+  color: #5f6675;
+  font-size: 12px;
+}
+
+.pdm-shell .attr-badge {
+  background: #d6e3ff;
+  border-radius: 999px;
+  color: #374763;
+}
+
+.pdm-shell .inspector-panel {
+  background: #fff;
+  border: 1px solid #c3c6d6;
+  border-radius: 8px 0 0 8px;
+  box-shadow: -12px 0 36px rgba(25,28,30,0.18);
+  display: block;
+  max-height: calc(100vh - 88px);
+  opacity: 0;
+  overflow-y: auto;
+  padding: 20px;
+  pointer-events: none;
+  position: fixed;
+  right: 0;
+  top: 80px;
+  transform: translateX(24px);
+  transition: opacity 0.16s ease, transform 0.16s ease;
+  width: 360px;
+  z-index: 180;
+}
+
+.pdm-shell .inspector-panel.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+@media (max-width: 1100px) {
+  .pdm-shell .sidebar {
+    width: 220px;
+  }
+
+  .app-frame {
+    margin-left: 220px;
+  }
+
+  .pdm-shell .nav {
+    left: 220px;
+  }
+
+  .detail-card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 800px) {
+  .pdm-shell .sidebar {
+    position: static;
+    width: 100%;
+  }
+
+  .app-frame {
+    margin-left: 0;
+  }
+
+  .pdm-shell .nav {
+    left: 0;
+    position: sticky;
+  }
+
+  .pdm-shell .sync-panel {
+    margin-top: 0;
+  }
+
+  .bom-detail-header,
+  .pdm-shell .table-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .pdm-shell .nav .search-wrapper {
+    width: 100%;
+  }
+}
   </style>
 <script>
     window.BOM_REPO_CONFIG = {
@@ -1217,67 +1948,79 @@ mark {
     };
   </script>
 </head>
-<body>
-  <nav class="nav">
-    <div class="nav-logo" data-i18n="brand">BOM</div>
-    <div class="nav-right">
-      <span class="mode-badge" id="modeBadge">Viewer</span>
-      <div class="nav-stats">
-        <div><span class="stat-val" id="statProducts">0</span> <span class="stat-label" data-i18n="products">Products</span></div>
-        <div><span class="stat-val" id="statMaterials">0</span> <span class="stat-label" data-i18n="materials">Materials</span></div>
-      </div>
-      <div class="lang-toggle">
-        <button class="lang-btn active" type="button" data-lang="zh">中</button>
-        <button class="lang-btn" type="button" data-lang="vi">VI</button>
-      </div>
-    </div>
-  </nav>
-
-  <section class="sync-panel viewer" id="syncPanel">
-    <div class="sync-summary">
-      <div data-sync-source-row>
-        <div class="sync-label" data-i18n="source">GitHub data source</div>
-        <div class="sync-source" id="syncSource">-</div>
-      </div>
+<body class="pdm-shell">
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-logo">LGS</div>
       <div>
-        <div class="sync-label" data-i18n="updated">Data updated</div>
-        <div class="sync-value" id="lastSync">-</div>
+        <div class="sidebar-brand-title">PDM System</div>
+        <div class="sidebar-brand-subtitle">Engineering Vault</div>
       </div>
-      <div>
-        <div class="sync-label" data-i18n="localRefresh">Local refresh</div>
-        <div class="sync-value" id="lastLocalRefresh">-</div>
-      </div>
-      <div class="sync-status" id="syncStatus"></div>
     </div>
-    <div class="admin-config" id="adminControls" hidden>
-      <label class="wide">
-        <span data-i18n="token">GitHub token</span>
-        <input type="password" id="githubToken" autocomplete="off">
-      </label>
+    <h3 data-i18n="sidebarTitle">PDM</h3>
+    <div class="sidebar-search">
+      <input type="text" class="sidebar-search-input" id="sidebarSearch" data-i18n-placeholder="sidebarSearch">
     </div>
-  </section>
+    <div class="product-list" id="productList"></div>
+    <div class="sidebar-footer">
+      <span class="material-symbols-outlined" aria-hidden="true">settings</span>
+      <span>Settings</span>
+    </div>
+  </aside>
 
-  <section class="search-section">
-    <div class="search-wrapper">
-      <span class="search-icon" aria-hidden="true">⌕</span>
-      <input type="text" class="search-input" id="searchInput" data-i18n-placeholder="search">
-      <button class="search-clear" id="searchClear" type="button" aria-label="Clear search">×</button>
-    </div>
-    <div class="filter-bar" id="filterBar"></div>
-  </section>
-
-  <main class="main">
-    <aside class="sidebar">
-      <h3 data-i18n="sidebarTitle">Index</h3>
-      <div class="sidebar-search">
-        <input type="text" class="sidebar-search-input" id="sidebarSearch" data-i18n-placeholder="sidebarSearch">
+  <div class="app-frame">
+    <nav class="nav">
+      <div class="search-wrapper">
+        <span class="material-symbols-outlined search-icon" aria-hidden="true">search</span>
+        <input type="text" class="search-input" id="searchInput" data-i18n-placeholder="search">
+        <button class="search-clear" id="searchClear" type="button" aria-label="Clear search">×</button>
       </div>
-      <div class="product-list" id="productList"></div>
-    </aside>
-    <section class="content">
-      <div class="content-header" id="contentHeader"></div>
+      <div class="filter-bar" id="filterBar"></div>
+      <div class="nav-right">
+        <span class="material-symbols-outlined nav-icon" aria-hidden="true">notifications</span>
+        <span class="material-symbols-outlined nav-icon" aria-hidden="true">help</span>
+        <span class="mode-badge" id="modeBadge">Viewer</span>
+        <div class="nav-stats">
+          <div><span class="stat-val" id="statProducts">0</span> <span class="stat-label" data-i18n="products">Products</span></div>
+          <div><span class="stat-val" id="statMaterials">0</span> <span class="stat-label" data-i18n="materials">Materials</span></div>
+        </div>
+        <div class="lang-toggle">
+          <button class="lang-btn active" type="button" data-lang="zh">中</button>
+          <button class="lang-btn" type="button" data-lang="vi">VI</button>
+        </div>
+      </div>
+    </nav>
+
+    <section class="sync-panel viewer" id="syncPanel">
+      <div class="sync-summary">
+        <div data-sync-source-row>
+          <div class="sync-label" data-i18n="source">GitHub data source</div>
+          <div class="sync-source" id="syncSource">-</div>
+        </div>
+        <div>
+          <div class="sync-label" data-i18n="updated">Data updated</div>
+          <div class="sync-value" id="lastSync">-</div>
+        </div>
+        <div>
+          <div class="sync-label" data-i18n="localRefresh">Local refresh</div>
+          <div class="sync-value" id="lastLocalRefresh">-</div>
+        </div>
+        <div class="sync-status" id="syncStatus"></div>
+      </div>
+      <div class="admin-config" id="adminControls" hidden>
+        <label class="wide">
+          <span data-i18n="token">GitHub token</span>
+          <input type="password" id="githubToken" autocomplete="off">
+        </label>
+      </div>
     </section>
-  </main>
+
+    <main class="main">
+      <section class="content">
+        <div class="content-header" id="contentHeader"></div>
+      </section>
+    </main>
+  </div>
 
   <div class="pdf-modal" id="pdfModal" aria-hidden="true">
     <div class="pdf-dialog">
@@ -1370,7 +2113,18 @@ mark {
       childMaterial: '子项物料',
       assetSummary: '图纸资产',
       openBom: '打开 BOM',
-      viewMaterial: '查看物料'
+      viewMaterial: '查看物料',
+      productSpecifications: '产品规格',
+      billOfMaterials: 'Bill of Materials (BOM)',
+      assemblyPreview: '装配预览',
+      revision: '版本',
+      lastModified: '最后修改',
+      unit: '单位',
+      viewAssembly: '查看装配',
+      export: '导出',
+      level: '层级',
+      partNumber: '物料编号',
+      description: '说明'
     },
     vi: {
       brand: 'Jintai BOM',
@@ -1438,7 +2192,18 @@ mark {
       childMaterial: 'Vật liệu con',
       assetSummary: 'Tài sản bản vẽ',
       openBom: 'Mở BOM',
-      viewMaterial: 'Xem vật liệu'
+      viewMaterial: 'Xem vật liệu',
+      productSpecifications: 'Thông số sản phẩm',
+      billOfMaterials: 'Bill of Materials (BOM)',
+      assemblyPreview: 'Xem lắp ráp',
+      revision: 'Phiên bản',
+      lastModified: 'Cập nhật',
+      unit: 'Đơn vị',
+      viewAssembly: 'Xem lắp ráp',
+      export: 'Xuất',
+      level: 'Cấp',
+      partNumber: 'Mã vật liệu',
+      description: 'Mô tả'
     }
   };
 
@@ -2791,10 +3556,12 @@ mark {
       const panel = this.query('#inspectorPanel');
       if (!panel) return;
       if (this.state.adminView === 'bom') {
+        panel.classList.toggle('visible', Boolean(this.state.selectedEntryId));
         panel.innerHTML = this.bomInspectorHtml();
         return;
       }
       const record = this.state.selectedMaterialId ? this.state.materialDb?.materials?.[this.state.selectedMaterialId] : null;
+      panel.classList.toggle('visible', Boolean(record));
       panel.innerHTML = record ? this.materialInspectorHtml(record) : this.emptyInspectorHtml();
     }
 
@@ -2900,9 +3667,64 @@ mark {
     contentHeaderHtml(product, colorData) {
       const name = this.localizedProductName(colorData);
       const title = this.state.editMode ? this.productInput(name, 'name', 'edit-title') : `<h1>${escapeHTML(name)}</h1>`;
-      return `<div class="pdm-title-row">${title}<span class="status-badge released">RELEASED</span></div><div class="subtitle">${this.renderSku(colorData)}</div>
-        <div class="product-meta">${this.metaHtml(product, colorData)}</div>
-        <div class="color-tabs">${this.colorTabsHtml(product)}</div>`;
+      const sku = this.renderSku(colorData);
+      return `<div class="bom-detail-header">
+        <div>
+          <div class="pdm-title-row">${title}<span class="color-badge">${escapeHTML(this.colorLabel(colorData))}</span><span class="status-badge released">RELEASED</span></div>
+          <div class="pdm-meta-line">
+            <span>SKU: ${sku}</span><span class="dot"></span>
+            <span>${escapeHTML(this.label('revision'))}: A.1</span><span class="dot"></span>
+            <span>${escapeHTML(this.label('lastModified'))}: ${escapeHTML(this.formatDate(this.state.payload.updatedAt))}</span>
+          </div>
+        </div>
+        <div class="header-actions">${this.headerActionsHtml()}</div>
+      </div>
+      <div class="detail-card-grid">
+        ${this.productSpecCardHtml(product, colorData)}
+        ${this.assemblyPreviewHtml(colorData)}
+      </div>
+      <div class="color-tabs">${this.colorTabsHtml(product)}</div>`;
+    }
+
+    headerActionsHtml() {
+      const editButton = this.isAdmin()
+        ? `<button class="btn btn-outline ${this.state.editMode ? 'active' : ''}" type="button" data-action="toggle-edit"><span class="material-symbols-outlined">edit</span>${escapeHTML(this.state.editMode ? this.label('done') : this.label('edit'))}</button>`
+        : `<span class="read-only-note">${escapeHTML(this.label('readOnly'))}</span>`;
+      const assemblyButton = this.productModels3d().length
+        ? `<button class="btn btn-outline" type="button" data-product-model3d-index="0"><span class="material-symbols-outlined">architecture</span>${escapeHTML(this.label('viewAssembly'))}</button>`
+        : '';
+      return `${editButton}
+        ${assemblyButton}
+        <button class="btn btn-outline" type="button" data-action="copy"><span class="material-symbols-outlined">content_copy</span>${escapeHTML(this.label('copy'))}</button>
+        <button class="btn btn-primary" type="button" data-action="export"><span class="material-symbols-outlined">download</span>${escapeHTML(this.label('export'))}</button>`;
+    }
+
+    productSpecCardHtml(product, colorData) {
+      const rows = [
+        [this.label('size'), this.state.editMode ? this.productInput(colorData.size || '', 'size', 'edit-small') : escapeHTML(colorData.size || '-')],
+        [this.label('colors'), escapeHTML(Object.keys(product.color_info || {}).length)],
+        [this.label('total'), escapeHTML(this.bomRows().length)],
+        [this.label('manual'), this.manualButtons()]
+      ];
+      return `<section class="detail-card spec-card">
+        <h2><span class="material-symbols-outlined">info</span>${escapeHTML(this.label('productSpecifications'))}</h2>
+        <div class="spec-list">${rows.map(([label, value]) => `<div class="spec-row"><span>${escapeHTML(label)}</span><strong>${value}</strong></div>`).join('')}</div>
+      </section>`;
+    }
+
+    assemblyPreviewHtml(colorData) {
+      const models = this.productModels3d();
+      const preview = models[0]?.previewUrl || models[0]?.url || '';
+      const viewer = preview
+        ? `<model-viewer class="assembly-model" src="${escapeHTML(preview)}" camera-controls auto-rotate shadow-intensity="1" exposure="0.72" environment-image="neutral"></model-viewer>`
+        : `<div class="assembly-placeholder"><span class="material-symbols-outlined">inventory_2</span><strong>${escapeHTML(colorData.sku || this.state.currentSku)}</strong><small>${escapeHTML(this.localizedProductName(colorData))}</small></div>`;
+      const buttons = models.length ? this.productModel3dButtons(models) : '';
+      return `<section class="detail-card preview-card">
+        <div class="preview-dots"></div>
+        <div class="preview-label">BOM Detail: ${escapeHTML(colorData.sku || this.state.currentSku)}</div>
+        ${viewer}
+        <div class="preview-actions">${buttons}</div>
+      </section>`;
     }
 
     renderSku(colorData) {
@@ -3005,7 +3827,7 @@ mark {
 
     toolbarHtml(rows) {
       const adminActions = this.isAdmin() ? this.adminActionsHtml() : `<span class="read-only-note">${escapeHTML(this.label('readOnly'))}</span>`;
-      return `<div class="count"><strong>${rows.length}</strong> ${escapeHTML(this.label('materials'))}</div>
+      return `<div class="table-title"><span class="material-symbols-outlined">view_list</span><strong>${escapeHTML(this.label('billOfMaterials'))}</strong><span class="count">${rows.length} ${escapeHTML(this.label('materials'))}</span></div>
         <div class="table-actions">${adminActions}
         <button class="btn" type="button" data-action="copy">${escapeHTML(this.label('copy'))}</button>
         <button class="btn btn-primary" type="button" data-action="export">${escapeHTML(this.label('exportCSV'))}</button></div>`;
@@ -3030,16 +3852,20 @@ mark {
 
     tableHeadHtml() {
       const headers = this.label('headers');
-      const cols = ['stt', 'mat_code', 'comp_code', 'name', 'spec', 'material', 'color', 'attr', 'qty'];
-      const sortable = cols.map((col, index) => `<th><button class="th-button" type="button" data-sort="${col}">${escapeHTML(headers[index])} ${this.sortIcon(col)}</button></th>`);
+      const sortable = [
+        ['stt', this.label('level')],
+        ['mat_code', this.label('partNumber')],
+        ['name', this.label('description')],
+        ['spec', headers[4]],
+        ['material', headers[5]],
+        ['attr', headers[7]],
+        ['qty', headers[8]]
+      ].map(([col, label]) => `<th><button class="th-button" type="button" data-sort="${col}">${escapeHTML(label)} ${this.sortIcon(col)}</button></th>`);
       const editAction = this.isAdmin() && this.state.editMode ? '<th>\u64cd\u4f5c</th>' : '';
       return `<tr>${sortable.join('')}<th>${escapeHTML(headers[9])}</th><th>3D</th>${editAction}</tr>`;
     }
 
     rowHtml(material, index) {
-      const cells = ['mat_code', 'comp_code', 'name', 'spec', 'material', 'color', 'attr', 'qty']
-        .map((field) => this.cellHtml(material, field, index))
-        .join('');
       const editAction = this.isAdmin() && this.state.editMode
         ? `<td><div class="drawing-tools">
           <button class="drawing-btn" type="button" data-replace-bom-row="${index}">${escapeHTML(this.label('replaceMaterial'))}</button>
@@ -3047,7 +3873,32 @@ mark {
         </div></td>`
         : '';
       const active = material._entryId && material._entryId === this.state.selectedEntryId ? 'selected-row' : '';
-      return `<tr class="${active}" data-bom-entry="${escapeHTML(material._entryId || '')}"><td>${index + 1}</td>${cells}<td class="drawing-cell">${this.drawingCellHtml(material, index)}</td><td class="model3d-cell">${this.model3dCellHtml(material, index)}</td>${editAction}</tr>`;
+      return `<tr class="${active}" data-bom-entry="${escapeHTML(material._entryId || '')}">
+        <td><span class="level-cell">1</span></td>
+        ${this.partNumberCellHtml(material, index)}
+        ${this.cellHtml(material, 'name', index)}
+        ${this.cellHtml(material, 'spec', index)}
+        ${this.materialStackCellHtml(material, index)}
+        ${this.cellHtml(material, 'attr', index)}
+        ${this.cellHtml(material, 'qty', index)}
+        <td class="drawing-cell">${this.drawingCellHtml(material, index)}</td>
+        <td class="model3d-cell">${this.model3dCellHtml(material, index)}</td>
+        ${editAction}
+      </tr>`;
+    }
+
+    partNumberCellHtml(material, index) {
+      if (this.isAdmin() && this.state.editMode) {
+        return `<td><div class="stack-cell">${this.editInput(materialText(material, 'mat_code', this.state.lang), 'mat_code', index)}${this.editInput(materialText(material, 'comp_code', this.state.lang), 'comp_code', index)}</div></td>`;
+      }
+      return `<td><div class="stack-cell"><span class="mat-code">${this.highlight(materialText(material, 'mat_code', this.state.lang))}</span><span class="muted-line">${escapeHTML(materialText(material, 'comp_code', this.state.lang) || '-')}</span></div></td>`;
+    }
+
+    materialStackCellHtml(material, index) {
+      if (this.isAdmin() && this.state.editMode) {
+        return `<td><div class="stack-cell">${this.editInput(materialText(material, 'material', this.state.lang), 'material', index)}${this.editInput(materialText(material, 'color', this.state.lang), 'color', index)}</div></td>`;
+      }
+      return `<td><div class="stack-cell"><span>${this.highlight(materialText(material, 'material', this.state.lang))}</span><span class="muted-line">${escapeHTML(materialText(material, 'color', this.state.lang) || '-')}</span></div></td>`;
     }
 
     cellHtml(material, field, index) {
