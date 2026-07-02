@@ -971,6 +971,20 @@ mark {
   max-width: min(1180px, calc(100vw - 48px));
 }
 
+.material-db-view table {
+  min-width: 1500px;
+}
+
+.db-i18n {
+  display: grid;
+  gap: 6px;
+  min-width: 180px;
+}
+
+.db-i18n .edit-input {
+  width: 100%;
+}
+
 @media (max-width: 900px) {
   .sync-summary {
     grid-template-columns: 1fr;

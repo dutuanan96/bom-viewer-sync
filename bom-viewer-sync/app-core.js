@@ -181,6 +181,287 @@
     return findBomAssetEntry(assetMap, material)?.assets || [];
   }
 
+  function stableId(prefix, value) {
+    const textValue = String(value || '');
+    let hash = 2166136261;
+    for (let index = 0; index < textValue.length; index += 1) {
+      hash ^= textValue.charCodeAt(index);
+      hash = Math.imul(hash, 16777619);
+    }
+    return `${prefix}_${(hash >>> 0).toString(36)}`;
+  }
+
+  function localizedPair(zh, vi) {
+    return {
+      zh: String(zh || vi || ''),
+      vi: String(vi || zh || '')
+    };
+  }
+
+  function canonicalSharedName(value) {
+    const raw = String(value || '').trim();
+    if (!raw.startsWith('LGS') || !raw.includes('_')) return raw;
+    const dash = raw.lastIndexOf('-');
+    if (dash < 0) return raw;
+    const prefix = raw.slice(0, dash);
+    const suffix = raw.slice(dash + 1);
+    const codes = Array.from(prefix.matchAll(/(?:LGS)?(\d{3})/g)).map((match) => match[1]);
+    if (codes.length < 2) return raw;
+    const uniqueCodes = Array.from(new Set(codes)).sort((left, right) => Number(left) - Number(right));
+    const style = /-S\b/i.test(prefix) ? '-S' : '';
+    return `LGS${uniqueCodes.join('_')}${style}-${suffix}`;
+  }
+
+  function canonicalLegacyMaterial(material, productCode) {
+    const result = clone(material || {});
+    if (productCode === 'LGS111' && /^LGS101/i.test(String(result.mat_code || ''))) {
+      result.name_zh = String(result.name_zh || '').replace(/^LGS111-S-/, 'LGS101-S-');
+      result.name_vi = String(result.name_vi || '').replace(/^LGS111-S-/, 'LGS101-S-');
+    }
+    result.name_zh = canonicalSharedName(result.name_zh);
+    result.name_vi = canonicalSharedName(result.name_vi);
+    return result;
+  }
+
+  function materialIdentity(material, productCode) {
+    const canonical = canonicalLegacyMaterial(material, productCode);
+    const name = canonical.name_zh || canonical.name_vi || '';
+    const sharedName = canonicalSharedName(name);
+    const codeKey = sharedName !== name
+      ? `shared:${assetKey(sharedName)}`
+      : `code:${colorNeutralCode(canonical.mat_code || '')}|name:${assetKey(name)}`;
+    return [
+      codeKey,
+      assetKey(canonical.spec || canonical.spec_vi || ''),
+      assetKey(canonical.material_zh || canonical.material_vi || ''),
+      assetKey(canonical.color_zh || canonical.color_vi || ''),
+      assetKey(canonical.attr_zh || canonical.attr_vi || '')
+    ].join('|');
+  }
+
+  function materialIdFor(material, productCode) {
+    return stableId('mat', materialIdentity(material, productCode));
+  }
+
+  function mergeAssets(target, assets) {
+    const seen = new Set((target || []).map((item) => item.url || item.previewUrl || item.path || item.name));
+    (assets || []).forEach((asset) => {
+      const key = asset.url || asset.previewUrl || asset.path || asset.name;
+      if (!key || seen.has(key)) return;
+      seen.add(key);
+      target.push(clone(asset));
+    });
+  }
+
+  function materialRecordFromLegacy(material, productCode) {
+    const canonical = canonicalLegacyMaterial(material, productCode);
+    const id = materialIdFor(canonical, productCode);
+    return {
+      id,
+      code: String(canonical.mat_code || ''),
+      name: localizedPair(canonical.name_zh, canonical.name_vi),
+      spec: localizedPair(canonical.spec, canonical.spec_vi),
+      material: localizedPair(canonical.material_zh, canonical.material_vi),
+      color: localizedPair(canonical.color_zh, canonical.color_vi),
+      attr: localizedPair(canonical.attr_zh, canonical.attr_vi),
+      drawings: [],
+      models3d: []
+    };
+  }
+
+  function isHardwarePackSummary(material) {
+    const code = material?.mat_code || material?.code || '';
+    const name = material?.name_zh || material?.name?.zh || '';
+    return /^LGS\d+WJBBH$/i.test(String(code || '')) ||
+      /^LGS\d+五金包$/i.test(String(name || ''));
+  }
+
+  function legacyRowFromRecord(record, entry) {
+    return {
+      stt: entry.stt || '',
+      mat_code: record.code || '',
+      comp_code: entry.comp_code || '',
+      name_zh: record.name?.zh || '',
+      name_vi: record.name?.vi || record.name?.zh || '',
+      spec: record.spec?.zh || '',
+      spec_vi: record.spec?.vi || record.spec?.zh || '',
+      material_zh: record.material?.zh || '',
+      material_vi: record.material?.vi || record.material?.zh || '',
+      color_zh: record.color?.zh || '',
+      color_vi: record.color?.vi || record.color?.zh || '',
+      attr_zh: record.attr?.zh || '',
+      attr_vi: record.attr?.vi || record.attr?.zh || '',
+      color_ver: entry.color_ver || '',
+      color_ver_vi: entry.color_ver_vi || entry.color_ver || '',
+      qty: entry.qty || '',
+      _materialId: record.id,
+      _entryId: entry.id,
+      _materialRecord: record
+    };
+  }
+
+  function createMaterialDatabase(payload) {
+    const source = payload || {};
+    const db = { version: 1, materials: {}, bomEntries: [] };
+    const productEntriesByColor = new Map();
+    Object.entries(source.bom || {}).forEach(([productCode, product]) => {
+      Object.entries(product.color_info || {}).forEach(([colorName, colorData]) => {
+        const productEntries = [];
+        (colorData.materials || []).forEach((material, index) => {
+          const canonical = canonicalLegacyMaterial(material, productCode);
+          const materialId = materialIdFor(canonical, productCode);
+          if (!db.materials[materialId]) db.materials[materialId] = materialRecordFromLegacy(canonical, productCode);
+          const record = db.materials[materialId];
+          mergeAssets(record.drawings, findBomAssets((source.drawings || {})[productCode], material));
+          mergeAssets(record.drawings, findBomAssets((source.drawings || {})[productCode], canonical));
+          mergeAssets(record.models3d, findBomAssets((source.models3d || {})[productCode], material));
+          mergeAssets(record.models3d, findBomAssets((source.models3d || {})[productCode], canonical));
+          const entry = {
+            id: stableId('bom', `${productCode}|${colorName}|${index}|${materialId}|${material.comp_code || ''}`),
+            parentType: 'product',
+            parentId: productCode,
+            productCode,
+            color: colorName,
+            materialId,
+            stt: String(material.stt || ''),
+            comp_code: String(material.comp_code || ''),
+            qty: String(material.qty || ''),
+            color_ver: String(material.color_ver || colorData.color_ver || colorName),
+            color_ver_vi: String(material.color_ver_vi || colorData.color_ver_vi || colorName),
+            order: index
+          };
+          db.bomEntries.push(entry);
+          productEntries.push({ entry, material: canonical });
+        });
+        productEntriesByColor.set(`${productCode}|${colorName}`, productEntries);
+      });
+    });
+
+    productEntriesByColor.forEach((entries, key) => {
+      let hardwarePack = entries.find((item) => isHardwarePackSummary(db.materials[item.entry.materialId]));
+      const hardwareChildren = entries.filter((item) => db.materials[item.entry.materialId]?.attr?.zh === '五金包');
+      if (!hardwarePack && hardwareChildren.length) {
+        const [productCode, colorName] = key.split('|');
+        const virtualMaterial = {
+          mat_code: `${productCode}WJBBH`,
+          name_zh: `${productCode}五金包`,
+          name_vi: `${productCode} tui ngu kim`,
+          spec: '',
+          spec_vi: '',
+          material_zh: '无',
+          material_vi: 'khong',
+          color_zh: '',
+          color_vi: '',
+          attr_zh: '零件',
+          attr_vi: 'linh kien'
+        };
+        const materialId = materialIdFor(virtualMaterial, productCode);
+        if (!db.materials[materialId]) db.materials[materialId] = materialRecordFromLegacy(virtualMaterial, productCode);
+        const firstOrder = hardwareChildren[0]?.entry?.order ?? 0;
+        const entry = {
+          id: stableId('bomv', `${key}|${materialId}`),
+          parentType: 'product',
+          parentId: productCode,
+          productCode,
+          color: colorName,
+          materialId,
+          stt: '',
+          comp_code: '无',
+          qty: '1',
+          color_ver: colorName,
+          color_ver_vi: colorName,
+          order: firstOrder - 0.1,
+          virtual: true
+        };
+        db.bomEntries.push(entry);
+        hardwarePack = { entry, material: virtualMaterial };
+      }
+      if (!hardwarePack) return;
+      hardwareChildren.forEach((item, index) => {
+          const childEntry = {
+            id: stableId('bomc', `${key}|${hardwarePack.entry.materialId}|${item.entry.materialId}|${index}`),
+            parentType: 'material',
+            parentId: hardwarePack.entry.materialId,
+            productCode: hardwarePack.entry.productCode,
+            color: hardwarePack.entry.color,
+            materialId: item.entry.materialId,
+            childMaterialId: item.entry.materialId,
+            stt: item.entry.stt,
+            comp_code: item.entry.comp_code,
+            qty: item.entry.qty,
+            color_ver: item.entry.color_ver,
+            color_ver_vi: item.entry.color_ver_vi,
+            order: index
+          };
+          db.bomEntries.push(childEntry);
+        });
+    });
+    return db;
+  }
+
+  function normalizeMaterialDatabase(payload) {
+    if (payload?.materialDb?.materials && payload?.materialDb?.bomEntries) {
+      return clone(payload.materialDb);
+    }
+    return createMaterialDatabase(payload);
+  }
+
+  function resolveBomRows(payload, productCode, colorName) {
+    const source = payload || {};
+    if (!source.materialDb?.materials || !source.materialDb?.bomEntries) {
+      return (((source.bom || {})[productCode] || {}).color_info || {})[colorName]?.materials || [];
+    }
+    return source.materialDb.bomEntries
+      .filter((entry) => entry.parentType === 'product' && !entry.virtual && entry.productCode === productCode && entry.color === colorName)
+      .sort((left, right) => (left.order ?? 0) - (right.order ?? 0))
+      .map((entry) => {
+        const record = source.materialDb.materials[entry.materialId];
+        return record ? legacyRowFromRecord(record, entry) : null;
+      })
+      .filter(Boolean);
+  }
+
+  function materialWhereUsed(payload, materialId) {
+    const entries = (payload?.materialDb?.bomEntries || []);
+    return {
+      productEntries: entries.filter((entry) => entry.parentType === 'product' && entry.materialId === materialId),
+      parentEntries: entries.filter((entry) => entry.parentType === 'material' && entry.materialId === materialId),
+      childEntries: entries.filter((entry) => entry.parentType === 'material' && entry.parentId === materialId)
+    };
+  }
+
+  function updateMaterialRecord(payload, materialId, patch) {
+    const record = payload?.materialDb?.materials?.[materialId];
+    if (!record || !patch) return null;
+    ['name', 'spec', 'material', 'color', 'attr'].forEach((field) => {
+      if (!patch[field]) return;
+      record[field] = {
+        zh: String(patch[field].zh ?? record[field]?.zh ?? ''),
+        vi: String(patch[field].vi ?? record[field]?.vi ?? patch[field].zh ?? record[field]?.zh ?? '')
+      };
+    });
+    if (Object.prototype.hasOwnProperty.call(patch, 'code')) record.code = String(patch.code || '');
+    if (Object.prototype.hasOwnProperty.call(patch, 'drawings')) record.drawings = clone(patch.drawings);
+    if (Object.prototype.hasOwnProperty.call(patch, 'models3d')) record.models3d = clone(patch.models3d);
+    return record;
+  }
+
+  function syncLegacyBomFromMaterialDb(payload) {
+    if (!payload?.materialDb?.materials || !payload?.materialDb?.bomEntries) return payload;
+    Object.entries(payload.bom || {}).forEach(([productCode, product]) => {
+      Object.entries(product.color_info || {}).forEach(([colorName, colorData]) => {
+        colorData.materials = resolveBomRows(payload, productCode, colorName).map((row) => {
+          const copy = clone(row);
+          delete copy._materialId;
+          delete copy._entryId;
+          delete copy._materialRecord;
+          return copy;
+        });
+      });
+    });
+    return payload;
+  }
+
   function normalizeConfig(config) {
     const source = config || {};
     return {
@@ -226,14 +507,16 @@
 
   function normalizePayload(payload) {
     const source = payload || {};
-    return {
-      version: Number(source.version || 1),
+    const normalized = {
+      version: 2,
       updatedAt: String(source.updatedAt || ''),
       bom: clone(source.bom),
       drawings: clone(source.drawings),
       manuals: clone(source.manuals),
       models3d: clone(source.models3d)
     };
+    normalized.materialDb = normalizeMaterialDatabase({ ...source, ...normalized });
+    return normalized;
   }
 
   function currentPayloadFromWindow() {
@@ -357,10 +640,12 @@
         drawings: payload.drawings,
         manuals: payload.manuals,
         models3d: payload.models3d,
+        materialDb: payload.materialDb,
         loadedPayload: clone(payload),
         currentSku: '',
         currentColor: '',
         currentAttr: 'all',
+        adminView: 'bom',
         searchQuery: '',
         sidebarQuery: '',
         sortCol: 'attr',
@@ -406,6 +691,10 @@
       return product && product.color_info ? product.color_info[this.state.currentColor] : null;
     }
 
+    bomRows(productCode, colorName) {
+      return resolveBomRows(this.state.payload, productCode || this.state.currentSku, colorName || this.state.currentColor);
+    }
+
     pickFirstProduct() {
       if (!this.state.currentSku || !this.state.bom[this.state.currentSku]) {
         this.state.currentSku = Object.keys(this.state.bom).sort()[0] || '';
@@ -437,6 +726,10 @@
       this.query('#searchInput').addEventListener('input', (event) => {
         this.state.searchQuery = event.target.value.trim();
         this.query('#searchClear').classList.toggle('visible', this.state.searchQuery.length > 0);
+        if (this.isAdmin() && this.state.adminView === 'materials') {
+          this.renderContent();
+          return;
+        }
         this.renderProductList();
         this.renderTable();
       });
@@ -451,6 +744,10 @@
       this.state.searchQuery = '';
       this.query('#searchInput').value = '';
       this.query('#searchClear').classList.remove('visible');
+      if (this.isAdmin() && this.state.adminView === 'materials') {
+        this.renderContent();
+        return;
+      }
       this.renderProductList();
       this.renderTable();
     }
@@ -498,8 +795,18 @@
         const sort = event.target.closest('[data-sort]');
         const deleteDrawing = event.target.closest('[data-delete-drawing-row]');
         const deleteModel3d = event.target.closest('[data-delete-model3d-row]');
+        const deleteBom = event.target.closest('[data-delete-bom-row]');
+        const deleteDbMaterial = event.target.closest('[data-delete-db-material]');
         const drawing = event.target.closest('[data-drawing-row]');
         const model3d = event.target.closest('[data-model3d-row]');
+        if (deleteDbMaterial) {
+          this.deleteDatabaseMaterial(deleteDbMaterial.dataset.deleteDbMaterial);
+          return;
+        }
+        if (deleteBom) {
+          this.deleteBomRow(Number(deleteBom.dataset.deleteBomRow));
+          return;
+        }
         if (deleteDrawing) {
           this.deleteMaterialAsset(Number(deleteDrawing.dataset.deleteDrawingRow), 'drawings');
           return;
@@ -520,6 +827,7 @@
       this.query('#contentHeader').addEventListener('change', (event) => this.handleProductInput(event, true));
       this.query('.content').addEventListener('input', (event) => this.handleMaterialInput(event, false));
       this.query('.content').addEventListener('change', (event) => this.handleMaterialInput(event, true));
+      this.query('.content').addEventListener('input', (event) => this.handleMaterialDbInput(event));
       const tokenInput = this.query('#githubToken');
       if (tokenInput) tokenInput.addEventListener('change', () => this.storeToken(tokenInput.value.trim()));
     }
@@ -548,8 +856,22 @@
       if (action === 'save' && this.isAdmin()) this.saveCloud();
       if (action === 'reload') this.loadCloud({ silent: false });
       if (action === 'discard' && this.isAdmin()) this.discard();
+      if (action === 'material-db' && this.isAdmin()) this.openMaterialDatabase();
+      if (action === 'bom-view' && this.isAdmin()) this.openBomView();
+      if (action === 'add-db-material' && this.isAdmin()) this.addDatabaseMaterial();
+      if (action === 'add-bom-row' && this.isAdmin()) this.addBomRowFromPrompt();
       if (action === 'copy') this.copyTable();
       if (action === 'export') this.exportCSV();
+    }
+
+    openMaterialDatabase() {
+      this.state.adminView = 'materials';
+      this.renderContent();
+    }
+
+    openBomView() {
+      this.state.adminView = 'bom';
+      this.renderContent();
     }
 
     toggleEdit() {
@@ -677,6 +999,10 @@
     }
 
     renderContent() {
+      if (this.isAdmin() && this.state.adminView === 'materials') {
+        this.renderMaterialDatabase();
+        return;
+      }
       const product = this.product();
       const colorData = this.colorData();
       if (!product || !colorData) {
@@ -692,6 +1018,69 @@
         <h3>${escapeHTML(this.label('emptyTitle'))}</h3><p>${escapeHTML(this.label('emptyText'))}</p></div>`;
       const table = this.query('.content .table-container');
       if (table) table.remove();
+    }
+
+    renderMaterialDatabase() {
+      const content = this.query('.content');
+      this.query('#contentHeader').innerHTML = `<h1>\u7269\u6599\u6570\u636e\u5e93</h1>
+        <div class="subtitle">Material Database</div>`;
+      const existing = content.querySelector('.table-container');
+      if (existing) existing.remove();
+      const records = this.filteredMaterialRecords();
+      content.insertAdjacentHTML('beforeend', `<div class="table-container material-db-view">
+        <div class="table-toolbar">${this.materialDbToolbar(records)}</div>
+        <table><thead><tr>
+          <th>\u7269\u6599\u7f16\u7801</th><th>\u7269\u6599\u540d\u79f0</th><th>\u89c4\u683c\u578b\u53f7</th>
+          <th>\u6750\u8d28</th><th>\u989c\u8272</th><th>\u5c5e\u6027</th><th>2D</th><th>3D</th>
+          <th>\u4f7f\u7528\u4e8e</th><th>\u7236\u9879</th><th>\u5b50\u9879</th><th>\u64cd\u4f5c</th>
+        </tr></thead><tbody>${records.map((record) => this.materialDbRowHtml(record)).join('')}</tbody></table>
+      </div>`);
+    }
+
+    materialDbToolbar(records) {
+      const adminActions = this.adminActionsHtml();
+      return `<div class="count"><strong>${records.length}</strong> \u7269\u6599</div>
+        <div class="table-actions">${adminActions}</div>`;
+    }
+
+    filteredMaterialRecords() {
+      const query = normalizeText(this.state.searchQuery);
+      return Object.values(this.state.materialDb?.materials || {})
+        .filter((record) => !query || [
+          record.code, record.name?.zh, record.name?.vi, record.spec?.zh, record.spec?.vi,
+          record.material?.zh, record.material?.vi, record.color?.zh, record.color?.vi,
+          record.attr?.zh, record.attr?.vi
+        ].some((value) => normalizeText(value).includes(query)))
+        .sort((left, right) => String(left.code || '').localeCompare(String(right.code || '')));
+    }
+
+    materialDbRowHtml(record) {
+      const whereUsed = materialWhereUsed(this.state.payload, record.id);
+      const usedProducts = Array.from(new Set(whereUsed.productEntries.map((entry) => entry.productCode))).sort();
+      const edit = this.isAdmin() && this.state.editMode;
+      const cell = (field, value, lang) => edit
+        ? `<input class="edit-input edit-wide" data-material-id="${escapeHTML(record.id)}" data-material-db-edit="${field}" ${lang ? `data-lang="${lang}"` : ''} value="${escapeHTML(value)}">`
+        : escapeHTML(value);
+      const bilingual = (field, pair) => edit
+        ? `<div class="db-i18n">${cell(field, pair?.zh || '', 'zh')}${cell(field, pair?.vi || '', 'vi')}</div>`
+        : `<div>${escapeHTML(this.state.lang === 'vi' ? (pair?.vi || pair?.zh || '') : (pair?.zh || pair?.vi || ''))}</div>`;
+      const deleteButton = edit
+        ? `<button class="drawing-btn danger" type="button" data-delete-db-material="${escapeHTML(record.id)}">${escapeHTML(this.deleteAssetLabel())}</button>`
+        : '';
+      return `<tr>
+        <td>${cell('code', record.code || '')}</td>
+        <td>${bilingual('name', record.name)}</td>
+        <td>${bilingual('spec', record.spec)}</td>
+        <td>${bilingual('material', record.material)}</td>
+        <td>${bilingual('color', record.color)}</td>
+        <td>${bilingual('attr', record.attr)}</td>
+        <td>${(record.drawings || []).length}</td>
+        <td>${(record.models3d || []).length}</td>
+        <td>${escapeHTML(usedProducts.join(', ') || '-')}</td>
+        <td>${whereUsed.parentEntries.length}</td>
+        <td>${whereUsed.childEntries.length}</td>
+        <td>${deleteButton}</td>
+      </tr>`;
     }
 
     contentHeaderHtml(product, colorData) {
@@ -710,7 +1099,7 @@
       const items = [
         this.metaItem('size', this.state.editMode ? this.productInput(colorData.size || '', 'size', 'edit-small') : escapeHTML(colorData.size || '')),
         this.metaItem('colors', Object.keys(product.color_info || {}).length),
-        this.metaItem('total', (colorData.materials || []).length),
+        this.metaItem('total', this.bomRows().length),
         this.metaItem('manual', this.manualButtons())
       ];
       const productModels = this.productModels3d();
@@ -772,9 +1161,8 @@
     }
 
     filteredRows() {
-      const colorData = this.colorData();
       return filterMaterials({
-        materials: colorData ? colorData.materials : [],
+        materials: this.bomRows(),
         attr: this.state.currentAttr,
         query: this.state.searchQuery,
         sortCol: this.state.sortCol,
@@ -810,24 +1198,38 @@
     }
 
     adminActionsHtml() {
+      const viewAction = this.state.adminView === 'materials'
+        ? `<button class="btn" type="button" data-action="bom-view">BOM</button>`
+        : `<button class="btn" type="button" data-action="material-db">\u7269\u6599\u6570\u636e\u5e93</button>`;
+      const bomAdd = this.state.adminView === 'bom' && this.state.editMode
+        ? `<button class="btn" type="button" data-action="add-bom-row">\u6dfb\u52a0\u7269\u6599</button>`
+        : '';
+      const dbAdd = this.state.adminView === 'materials' && this.state.editMode
+        ? `<button class="btn" type="button" data-action="add-db-material">\u65b0\u589e\u7269\u6599</button>`
+        : '';
       return `<button class="btn ${this.state.editMode ? 'active' : ''}" type="button" data-action="toggle-edit">${escapeHTML(this.state.editMode ? this.label('done') : this.label('edit'))}</button>
         <button class="btn btn-primary" type="button" data-action="save">${escapeHTML(this.label('save'))}</button>
         <button class="btn" type="button" data-action="discard">${escapeHTML(this.label('discard'))}</button>
-        <button class="btn" type="button" data-action="reload">${escapeHTML(this.label('reload'))}</button>`;
+        <button class="btn" type="button" data-action="reload">${escapeHTML(this.label('reload'))}</button>
+        ${viewAction}${bomAdd}${dbAdd}`;
     }
 
     tableHeadHtml() {
       const headers = this.label('headers');
       const cols = ['stt', 'mat_code', 'comp_code', 'name', 'spec', 'material', 'color', 'attr', 'qty'];
       const sortable = cols.map((col, index) => `<th><button class="th-button" type="button" data-sort="${col}">${escapeHTML(headers[index])} ${this.sortIcon(col)}</button></th>`);
-      return `<tr>${sortable.join('')}<th>${escapeHTML(headers[9])}</th><th>3D</th></tr>`;
+      const editAction = this.isAdmin() && this.state.editMode ? '<th>\u64cd\u4f5c</th>' : '';
+      return `<tr>${sortable.join('')}<th>${escapeHTML(headers[9])}</th><th>3D</th>${editAction}</tr>`;
     }
 
     rowHtml(material, index) {
       const cells = ['mat_code', 'comp_code', 'name', 'spec', 'material', 'color', 'attr', 'qty']
         .map((field) => this.cellHtml(material, field, index))
         .join('');
-      return `<tr><td>${index + 1}</td>${cells}<td class="drawing-cell">${this.drawingCellHtml(material, index)}</td><td class="model3d-cell">${this.model3dCellHtml(material, index)}</td></tr>`;
+      const editAction = this.isAdmin() && this.state.editMode
+        ? `<td><button class="drawing-btn danger" type="button" data-delete-bom-row="${index}">${escapeHTML(this.deleteAssetLabel())}</button></td>`
+        : '';
+      return `<tr><td>${index + 1}</td>${cells}<td class="drawing-cell">${this.drawingCellHtml(material, index)}</td><td class="model3d-cell">${this.model3dCellHtml(material, index)}</td>${editAction}</tr>`;
     }
 
     cellHtml(material, field, index) {
@@ -875,11 +1277,13 @@
     }
 
     drawingsFor(material) {
+      if (material?._materialRecord?.drawings) return material._materialRecord.drawings;
       const skuDrawings = this.state.drawings[this.state.currentSku] || {};
       return findBomAssets(skuDrawings, material);
     }
 
     models3dFor(material) {
+      if (material?._materialRecord?.models3d) return material._materialRecord.models3d;
       const skuModels = this.state.models3d[this.state.currentSku] || {};
       return findBomAssets(skuModels, material);
     }
@@ -934,7 +1338,9 @@
     updateMaterial(index, field, value) {
       const material = this.state.lastRows[index];
       if (!material) return;
-      if (field === 'mat_code') {
+      if (material._materialId && this.state.materialDb?.materials?.[material._materialId]) {
+        this.updateMaterialDbBackedRow(material, field, value);
+      } else if (field === 'mat_code') {
         this.replaceMaterialCode(material.mat_code, value);
       } else if (field === 'comp_code' || field === 'qty') {
         material[field] = value;
@@ -944,11 +1350,57 @@
       this.markDirty();
     }
 
+    updateMaterialDbBackedRow(material, field, value) {
+      const entry = this.state.materialDb.bomEntries.find((item) => item.id === material._entryId);
+      if (field === 'comp_code' || field === 'qty') {
+        if (entry) entry[field] = value;
+        return;
+      }
+      const patch = {};
+      if (field === 'mat_code') patch.code = value;
+      if (field === 'name') patch.name = { [this.state.lang === 'vi' ? 'vi' : 'zh']: value };
+      if (field === 'spec') patch.spec = { [this.state.lang === 'vi' ? 'vi' : 'zh']: value };
+      if (field === 'material') patch.material = { [this.state.lang === 'vi' ? 'vi' : 'zh']: value };
+      if (field === 'color') patch.color = { [this.state.lang === 'vi' ? 'vi' : 'zh']: value };
+      if (field === 'attr') patch.attr = { [this.state.lang === 'vi' ? 'vi' : 'zh']: value };
+      updateMaterialRecord(this.state.payload, material._materialId, patch);
+      this.state.materialDb = this.state.payload.materialDb;
+    }
+
+    handleMaterialDbInput(event) {
+      const input = event.target.closest('[data-material-db-edit]');
+      if (!input || !this.isAdmin()) return;
+      const record = this.state.materialDb.materials[input.dataset.materialId];
+      if (!record) return;
+      const field = input.dataset.materialDbEdit;
+      const lang = input.dataset.lang || this.state.lang;
+      if (field === 'code') {
+        updateMaterialRecord(this.state.payload, record.id, { code: input.value });
+      } else {
+        updateMaterialRecord(this.state.payload, record.id, {
+          [field]: { [lang]: input.value }
+        });
+      }
+      this.markDirty();
+    }
+
     deleteMaterialAsset(index, collectionName) {
       if (!this.isAdmin()) return;
       const material = this.state.lastRows[index];
       if (!material) return;
       const collection = collectionName === 'models3d' ? this.state.models3d : this.state.drawings;
+      if (material._materialRecord) {
+        const assetField = collectionName === 'models3d' ? 'models3d' : 'drawings';
+        const confirmKey = collectionName === 'models3d'
+          ? 'deleteModel3dConfirm'
+          : 'deleteDrawingConfirm';
+        if (global.confirm && !global.confirm(this.deleteAssetConfirmText(confirmKey))) return;
+        updateMaterialRecord(this.state.payload, material._materialId, { [assetField]: [] });
+        this.state.materialDb = this.state.payload.materialDb;
+        this.markDirty();
+        this.renderTable();
+        return;
+      }
       const skuAssets = collection[this.state.currentSku] || {};
       const entry = findBomAssetEntry(skuAssets, material);
       if (!entry) return;
@@ -960,6 +1412,86 @@
       collection[this.state.currentSku] = skuAssets;
       this.markDirty();
       this.renderTable();
+    }
+
+    deleteBomRow(index) {
+      if (!this.isAdmin()) return;
+      const material = this.state.lastRows[index];
+      if (!material?._entryId) return;
+      if (global.confirm && !global.confirm(this.state.lang === 'vi' ? 'Xoa dong BOM nay?' : '\u5220\u9664\u8fd9\u884c BOM\uff1f')) return;
+      this.state.materialDb.bomEntries = this.state.materialDb.bomEntries.filter((entry) => entry.id !== material._entryId);
+      this.state.payload.materialDb = this.state.materialDb;
+      this.markDirty();
+      this.renderTable();
+    }
+
+    addBomRowFromPrompt() {
+      if (!this.isAdmin() || !global.prompt) return;
+      const query = global.prompt(this.state.lang === 'vi' ? 'Nhap ma vat lieu hoac materialId' : '\u8f93\u5165\u7269\u6599\u7f16\u7801\u6216 materialId', '');
+      if (!query) return;
+      const normalized = normalizeText(query);
+      const record = Object.values(this.state.materialDb.materials)
+        .find((item) => item.id === query || normalizeText(item.code).includes(normalized) ||
+          normalizeText(item.name?.zh).includes(normalized) || normalizeText(item.name?.vi).includes(normalized));
+      if (!record) {
+        this.setStatus(this.state.lang === 'vi' ? 'Khong tim thay vat lieu' : '\u672a\u627e\u5230\u7269\u6599', 'error');
+        return;
+      }
+      const rows = this.bomRows();
+      const compCode = global.prompt(this.state.lang === 'vi' ? 'Ma linh kien' : '\u90e8\u4ef6\u7f16\u53f7', '') || '';
+      const qty = global.prompt(this.state.lang === 'vi' ? 'So luong' : '\u6570\u91cf', '1') || '1';
+      const entry = {
+        id: stableId('bom', `${this.state.currentSku}|${this.state.currentColor}|${Date.now()}|${record.id}`),
+        parentType: 'product',
+        parentId: this.state.currentSku,
+        productCode: this.state.currentSku,
+        color: this.state.currentColor,
+        materialId: record.id,
+        stt: String(rows.length + 1),
+        comp_code: compCode,
+        qty,
+        color_ver: this.state.currentColor,
+        color_ver_vi: this.state.currentColor,
+        order: rows.length
+      };
+      this.state.materialDb.bomEntries.push(entry);
+      this.state.payload.materialDb = this.state.materialDb;
+      this.markDirty();
+      this.renderContent();
+    }
+
+    addDatabaseMaterial() {
+      const id = stableId('mat', `manual|${Date.now()}|${Math.random()}`);
+      this.state.materialDb.materials[id] = {
+        id,
+        code: '',
+        name: { zh: '\u65b0\u7269\u6599', vi: 'vat lieu moi' },
+        spec: { zh: '', vi: '' },
+        material: { zh: '', vi: '' },
+        color: { zh: '', vi: '' },
+        attr: { zh: '\u96f6\u4ef6', vi: 'linh kien' },
+        drawings: [],
+        models3d: []
+      };
+      this.state.payload.materialDb = this.state.materialDb;
+      this.markDirty();
+      this.renderContent();
+    }
+
+    deleteDatabaseMaterial(materialId) {
+      if (!this.isAdmin()) return;
+      const whereUsed = materialWhereUsed(this.state.payload, materialId);
+      const usedCount = whereUsed.productEntries.length + whereUsed.parentEntries.length + whereUsed.childEntries.length;
+      const message = this.state.lang === 'vi'
+        ? `Xoa vat lieu nay va ${usedCount} quan he BOM?`
+        : `\u5220\u9664\u8be5\u7269\u6599\u548c ${usedCount} \u6761 BOM \u5173\u7cfb\uff1f`;
+      if (global.confirm && !global.confirm(message)) return;
+      delete this.state.materialDb.materials[materialId];
+      this.state.materialDb.bomEntries = this.state.materialDb.bomEntries
+        .filter((entry) => entry.materialId !== materialId && entry.childMaterialId !== materialId && entry.parentId !== materialId);
+      this.state.payload.materialDb = this.state.materialDb;
+      this.markDirty();
+      this.renderContent();
     }
 
     deleteAssetConfirmText(key) {
@@ -1043,6 +1575,7 @@
       this.state.drawings = this.state.payload.drawings;
       this.state.manuals = this.state.payload.manuals;
       this.state.models3d = this.state.payload.models3d;
+      this.state.materialDb = this.state.payload.materialDb;
       this.state.loadedPayload = clone(this.state.payload);
       this.state.dirty = false;
       this.pickFirstProduct();
@@ -1064,13 +1597,16 @@
     async writeGithubData(token) {
       this.setStatus(this.label('saving'), '');
       const updatedAt = new Date().toISOString();
+      this.syncLegacyBom();
       const payload = normalizePayload({
         updatedAt,
         bom: this.state.bom,
         drawings: this.state.drawings,
         manuals: this.state.manuals,
-        models3d: this.state.models3d
+        models3d: this.state.models3d,
+        materialDb: this.state.materialDb
       });
+      syncLegacyBomFromMaterialDb(payload);
       const source = serializeDataJs(payload);
       const sha = await this.fetchGithubSha(token);
       const request = buildGithubUpdateRequest({ config: this.config, token, sha, source, message: `chore: update bom data ${updatedAt}` });
@@ -1081,6 +1617,20 @@
       this.state.dirty = false;
       this.renderAll();
       this.setStatus(this.label('saved'), 'saved');
+    }
+
+    syncLegacyBom() {
+      const payload = {
+        bom: this.state.bom,
+        drawings: this.state.drawings,
+        manuals: this.state.manuals,
+        models3d: this.state.models3d,
+        materialDb: this.state.materialDb
+      };
+      syncLegacyBomFromMaterialDb(payload);
+      this.state.bom = payload.bom;
+      this.state.payload.bom = payload.bom;
+      this.state.payload.materialDb = this.state.materialDb;
     }
 
     async fetchGithubSha(token) {
@@ -1253,11 +1803,17 @@
   global.BomApp = { createApp, start: createApp };
   global.BomCoreUtils = {
     buildGithubUpdateRequest,
+    createMaterialDatabase,
     findBomAssets,
     filterMaterials,
+    materialWhereUsed,
+    normalizePayload,
     normalizeConfig,
     parseDataJsPayload,
     rawUrl,
+    resolveBomRows,
+    syncLegacyBomFromMaterialDb,
+    updateMaterialRecord,
     serializeDataJs
   };
 }(typeof window !== 'undefined' ? window : globalThis));
