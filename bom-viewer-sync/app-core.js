@@ -743,6 +743,7 @@
 
   function normalizePayload(payload) {
     const source = payload || {};
+    const fallbackProductImages = global.BOM_VIEWER_DATA?.productImages || global.PRODUCT_IMAGE_INDEX || {};
     const normalized = {
       version: 2,
       updatedAt: String(source.updatedAt || ''),
@@ -750,7 +751,7 @@
       drawings: clone(source.drawings),
       manuals: clone(source.manuals),
       models3d: clone(source.models3d),
-      productImages: clone(source.productImages)
+      productImages: clone({ ...fallbackProductImages, ...(source.productImages || {}) })
     };
     normalized.materialDb = normalizeMaterialDatabase({ ...source, ...normalized });
     return normalized;
@@ -1803,13 +1804,21 @@
     productImagePreviewHtml(colorData) {
       const image = this.productPreviewImage(colorData);
       const viewer = image
-        ? `<img class="assembly-image" src="${escapeHTML(image.url)}" alt="${escapeHTML(image.name || this.localizedProductName(colorData))}" loading="lazy">`
+        ? `<img class="assembly-image" src="${escapeHTML(this.assetDisplayUrl(image))}" alt="${escapeHTML(image.name || this.localizedProductName(colorData))}" loading="lazy">`
         : `<div class="assembly-placeholder"><span class="material-symbols-outlined">image</span><strong>${escapeHTML(colorData.sku || this.state.currentSku)}</strong><small>${escapeHTML(this.label('productImage'))}</small></div>`;
       return `<section class="detail-card preview-card product-image-preview">
         <div class="preview-dots"></div>
         <div class="preview-label">${escapeHTML(this.label('productImage'))}</div>
         ${viewer}
       </section>`;
+    }
+
+    assetDisplayUrl(asset) {
+      const pathUrl = asset?.path || '';
+      const remoteUrl = asset?.url || '';
+      const isLocalDocument = ['file:', 'http:'].includes(window.location.protocol)
+        && ['', 'localhost', '127.0.0.1'].includes(window.location.hostname);
+      return isLocalDocument && pathUrl ? pathUrl : remoteUrl || pathUrl;
     }
 
     productPreviewImage(colorData) {
