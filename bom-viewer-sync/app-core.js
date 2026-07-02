@@ -1815,10 +1815,20 @@
 
     assetDisplayUrl(asset) {
       const pathUrl = asset?.path || '';
-      const remoteUrl = asset?.url || '';
+      const remoteUrl = asset?.directUrl || asset?.url || '';
+      const driveId = asset?.driveId || this.driveFileId(remoteUrl) || this.driveFileId(asset?.url || '');
+      if (driveId) return `https://drive.google.com/thumbnail?id=${encodeURIComponent(driveId)}&sz=w1600`;
       const isLocalDocument = ['file:', 'http:'].includes(window.location.protocol)
         && ['', 'localhost', '127.0.0.1'].includes(window.location.hostname);
       return isLocalDocument && pathUrl ? pathUrl : remoteUrl || pathUrl;
+    }
+
+    driveFileId(url) {
+      const value = String(url || '');
+      const fileMatch = value.match(/drive\.google\.com\/file\/d\/([^/?#]+)/i);
+      if (fileMatch) return fileMatch[1];
+      const idMatch = value.match(/[?&]id=([^&#]+)/i);
+      return idMatch ? decodeURIComponent(idMatch[1]) : '';
     }
 
     productPreviewImage(colorData) {

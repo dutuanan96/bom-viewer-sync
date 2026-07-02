@@ -118261,294 +118261,444 @@ window.BOM_VIEWER_DATA = {
       "黑色": {
         "name": "LGS031_BH.jpg",
         "path": "product-images/LGS031_BH.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS031_BH.jpg"
+        "url": "https://drive.google.com/file/d/1qG3M1eHuSvpq0Axx36F-TJkfOgXOgExZ/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1qG3M1eHuSvpq0Axx36F-TJkfOgXOgExZ",
+        "directUrl": "https://drive.google.com/thumbnail?id=1qG3M1eHuSvpq0Axx36F-TJkfOgXOgExZ&sz=w1600"
       },
       "复古色": {
         "name": "LGS031_KD.jpg",
         "path": "product-images/LGS031_KD.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS031_KD.jpg"
+        "url": "https://drive.google.com/file/d/1lBBTF9wm4woROM3hDo7mZhV3_hY8ceep/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1lBBTF9wm4woROM3hDo7mZhV3_hY8ceep",
+        "directUrl": "https://drive.google.com/thumbnail?id=1lBBTF9wm4woROM3hDo7mZhV3_hY8ceep&sz=w1600"
       }
     },
     "LGS032": {
       "黑色": {
         "name": "LGS032_BH.jpg",
         "path": "product-images/LGS032_BH.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS032_BH.jpg"
+        "url": "https://drive.google.com/file/d/1rW0jxzQaFlcp5PLt7DRCj766sTaOr5GC/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1rW0jxzQaFlcp5PLt7DRCj766sTaOr5GC",
+        "directUrl": "https://drive.google.com/thumbnail?id=1rW0jxzQaFlcp5PLt7DRCj766sTaOr5GC&sz=w1600"
       },
       "复古色": {
         "name": "LGS032_KD.jpg",
         "path": "product-images/LGS032_KD.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS032_KD.jpg"
+        "url": "https://drive.google.com/file/d/1geyv8b1d3vh9t_UTi0D8CeOT_UwJGrws/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1geyv8b1d3vh9t_UTi0D8CeOT_UwJGrws",
+        "directUrl": "https://drive.google.com/thumbnail?id=1geyv8b1d3vh9t_UTi0D8CeOT_UwJGrws&sz=w1600"
       }
     },
     "LGS033": {
       "复古色": {
         "name": "LGS033_KD.jpg",
         "path": "product-images/LGS033_KD.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS033_KD.jpg"
+        "url": "https://drive.google.com/file/d/1WHogIpy7KC3wUCi0awPMSMvrozhekupa/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1WHogIpy7KC3wUCi0awPMSMvrozhekupa",
+        "directUrl": "https://drive.google.com/thumbnail?id=1WHogIpy7KC3wUCi0awPMSMvrozhekupa&sz=w1600"
       },
       "白色": {
         "name": "LGS033_WH.jpg",
         "path": "product-images/LGS033_WH.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS033_WH.jpg"
+        "url": "https://drive.google.com/file/d/1_EhFYbInTbaQek03LVq4jNsoYGuUKSQd/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1_EhFYbInTbaQek03LVq4jNsoYGuUKSQd",
+        "directUrl": "https://drive.google.com/thumbnail?id=1_EhFYbInTbaQek03LVq4jNsoYGuUKSQd&sz=w1600"
       }
     },
     "LGS043": {
       "黑色": {
         "name": "LGS043_BH.jpg",
         "path": "product-images/LGS043_BH.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS043_BH.jpg"
+        "url": "https://drive.google.com/file/d/1VvDBIdxPf2S-XtDSTW1tULxetX7X_yj-/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1VvDBIdxPf2S-XtDSTW1tULxetX7X_yj-",
+        "directUrl": "https://drive.google.com/thumbnail?id=1VvDBIdxPf2S-XtDSTW1tULxetX7X_yj-&sz=w1600"
       },
       "复古色": {
         "name": "LGS043_KD.jpg",
         "path": "product-images/LGS043_KD.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS043_KD.jpg"
+        "url": "https://drive.google.com/file/d/1ORqLekrQqMGYLJVmxGxsc4UjhPv8YN0M/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1ORqLekrQqMGYLJVmxGxsc4UjhPv8YN0M",
+        "directUrl": "https://drive.google.com/thumbnail?id=1ORqLekrQqMGYLJVmxGxsc4UjhPv8YN0M&sz=w1600"
       }
     },
     "LGS101": {
       "黑色": {
         "name": "LGS101B.jpg",
         "path": "product-images/LGS101B.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS101B.jpg"
+        "url": "https://drive.google.com/file/d/1rCkn9trDcCXaC-_uLgsxrBWsn9xMDHN5/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1rCkn9trDcCXaC-_uLgsxrBWsn9xMDHN5",
+        "directUrl": "https://drive.google.com/thumbnail?id=1rCkn9trDcCXaC-_uLgsxrBWsn9xMDHN5&sz=w1600"
       },
       "复古色": {
         "name": "LGS101K.jpg",
         "path": "product-images/LGS101K.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS101K.jpg"
+        "url": "https://drive.google.com/file/d/1XOQJ6s1NQ7ziCKBgorwvW5AV4_QTMw0l/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1XOQJ6s1NQ7ziCKBgorwvW5AV4_QTMw0l",
+        "directUrl": "https://drive.google.com/thumbnail?id=1XOQJ6s1NQ7ziCKBgorwvW5AV4_QTMw0l&sz=w1600"
       },
       "白色": {
         "name": "LGS101W.jpg",
         "path": "product-images/LGS101W.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS101W.jpg"
+        "url": "https://drive.google.com/file/d/1HAxvV540lX-VMfiA5wmxgaA5YCqyroWr/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1HAxvV540lX-VMfiA5wmxgaA5YCqyroWr",
+        "directUrl": "https://drive.google.com/thumbnail?id=1HAxvV540lX-VMfiA5wmxgaA5YCqyroWr&sz=w1600"
       }
     },
     "LGS111": {
       "黑色": {
         "name": "LGS111B.jpg",
         "path": "product-images/LGS111B.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS111B.jpg"
+        "url": "https://drive.google.com/file/d/16I6tW_DcJ1TB9c3TI9ZwD2fZ3C8YrNBT/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "16I6tW_DcJ1TB9c3TI9ZwD2fZ3C8YrNBT",
+        "directUrl": "https://drive.google.com/thumbnail?id=16I6tW_DcJ1TB9c3TI9ZwD2fZ3C8YrNBT&sz=w1600"
       },
       "复古色": {
         "name": "LGS111K.jpg",
         "path": "product-images/LGS111K.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS111K.jpg"
+        "url": "https://drive.google.com/file/d/1bmAscXrp_4LK2WT7-3gTQIWYZv06ym5F/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1bmAscXrp_4LK2WT7-3gTQIWYZv06ym5F",
+        "directUrl": "https://drive.google.com/thumbnail?id=1bmAscXrp_4LK2WT7-3gTQIWYZv06ym5F&sz=w1600"
       }
     },
     "LGS131": {
       "黑色": {
         "name": "LGS131_BH.jpg",
         "path": "product-images/LGS131_BH.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS131_BH.jpg"
+        "url": "https://drive.google.com/file/d/1VXNxIEjVoyAXm7Z7SSoZQ3PJiTk26QjG/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1VXNxIEjVoyAXm7Z7SSoZQ3PJiTk26QjG",
+        "directUrl": "https://drive.google.com/thumbnail?id=1VXNxIEjVoyAXm7Z7SSoZQ3PJiTk26QjG&sz=w1600"
       },
       "复古色": {
         "name": "LGS131_KD.jpg",
         "path": "product-images/LGS131_KD.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS131_KD.jpg"
+        "url": "https://drive.google.com/file/d/1zw-VZQrN1nBf0XRFmi_5c3sP_-keLOsH/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1zw-VZQrN1nBf0XRFmi_5c3sP_-keLOsH",
+        "directUrl": "https://drive.google.com/thumbnail?id=1zw-VZQrN1nBf0XRFmi_5c3sP_-keLOsH&sz=w1600"
       },
       "白色": {
         "name": "LGS131_WH.jpg",
         "path": "product-images/LGS131_WH.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS131_WH.jpg"
+        "url": "https://drive.google.com/file/d/1YTptKgBMKDOhOfo6X9pJB38AsL9iL6gl/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1YTptKgBMKDOhOfo6X9pJB38AsL9iL6gl",
+        "directUrl": "https://drive.google.com/thumbnail?id=1YTptKgBMKDOhOfo6X9pJB38AsL9iL6gl&sz=w1600"
       }
     },
     "LGS132": {
       "黑色": {
         "name": "LGS132_BH.jpg",
         "path": "product-images/LGS132_BH.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS132_BH.jpg"
+        "url": "https://drive.google.com/file/d/1VSo5jj8DIrvzvd-gbCSm-AVkIYvLZLbJ/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1VSo5jj8DIrvzvd-gbCSm-AVkIYvLZLbJ",
+        "directUrl": "https://drive.google.com/thumbnail?id=1VSo5jj8DIrvzvd-gbCSm-AVkIYvLZLbJ&sz=w1600"
       }
     },
     "LGS133": {
       "复古色": {
         "name": "LGS133_KD.jpg",
         "path": "product-images/LGS133_KD.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS133_KD.jpg"
+        "url": "https://drive.google.com/file/d/12xd2rSMk8Mb6rklkSmUQkUjK1B3kyabP/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "12xd2rSMk8Mb6rklkSmUQkUjK1B3kyabP",
+        "directUrl": "https://drive.google.com/thumbnail?id=12xd2rSMk8Mb6rklkSmUQkUjK1B3kyabP&sz=w1600"
       }
     },
     "LGS231": {
       "黑色": {
         "name": "LGS231_BH.jpg",
         "path": "product-images/LGS231_BH.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS231_BH.jpg"
+        "url": "https://drive.google.com/file/d/1sNWtj5Xa23eNTmS57rMzWVlxca_x9fGy/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1sNWtj5Xa23eNTmS57rMzWVlxca_x9fGy",
+        "directUrl": "https://drive.google.com/thumbnail?id=1sNWtj5Xa23eNTmS57rMzWVlxca_x9fGy&sz=w1600"
       },
       "复古色": {
         "name": "LGS231_KD.jpg",
         "path": "product-images/LGS231_KD.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS231_KD.jpg"
+        "url": "https://drive.google.com/file/d/1X56g_sggh7T2znIN46NhC8oSifmTAMpG/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1X56g_sggh7T2znIN46NhC8oSifmTAMpG",
+        "directUrl": "https://drive.google.com/thumbnail?id=1X56g_sggh7T2znIN46NhC8oSifmTAMpG&sz=w1600"
       }
     },
     "LGS232": {
       "黑色": {
         "name": "LGS232_BH.jpg",
         "path": "product-images/LGS232_BH.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS232_BH.jpg"
+        "url": "https://drive.google.com/file/d/1KzCK_u229a7F9fVNys9ShpKOQ6WBPqrR/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1KzCK_u229a7F9fVNys9ShpKOQ6WBPqrR",
+        "directUrl": "https://drive.google.com/thumbnail?id=1KzCK_u229a7F9fVNys9ShpKOQ6WBPqrR&sz=w1600"
       },
       "复古色": {
         "name": "LGS232_KD.png",
         "path": "product-images/LGS232_KD.png",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS232_KD.png"
+        "url": "https://drive.google.com/file/d/1ISb33_hs5NYsoRXtoYtBkNWYT_YtcGwJ/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1ISb33_hs5NYsoRXtoYtBkNWYT_YtcGwJ",
+        "directUrl": "https://drive.google.com/thumbnail?id=1ISb33_hs5NYsoRXtoYtBkNWYT_YtcGwJ&sz=w1600"
       }
     },
     "LGS233": {
       "黑色": {
         "name": "LGS233_BH.jpg",
         "path": "product-images/LGS233_BH.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS233_BH.jpg"
+        "url": "https://drive.google.com/file/d/13fzUYQxnsuSmD84Ak67q0SP1LuTgVUTz/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "13fzUYQxnsuSmD84Ak67q0SP1LuTgVUTz",
+        "directUrl": "https://drive.google.com/thumbnail?id=13fzUYQxnsuSmD84Ak67q0SP1LuTgVUTz&sz=w1600"
       },
       "复古色": {
         "name": "LGS233_KD.jpg",
         "path": "product-images/LGS233_KD.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS233_KD.jpg"
+        "url": "https://drive.google.com/file/d/1FQTD-XeJzuNmNLxb2L_HPhQMq33nZZx_/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1FQTD-XeJzuNmNLxb2L_HPhQMq33nZZx_",
+        "directUrl": "https://drive.google.com/thumbnail?id=1FQTD-XeJzuNmNLxb2L_HPhQMq33nZZx_&sz=w1600"
       },
       "白色": {
         "name": "LGS233_WH.jpg",
         "path": "product-images/LGS233_WH.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS233_WH.jpg"
+        "url": "https://drive.google.com/file/d/1mChn8BG2TOhnEnfeTMN8ucIQc5taRpAx/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1mChn8BG2TOhnEnfeTMN8ucIQc5taRpAx",
+        "directUrl": "https://drive.google.com/thumbnail?id=1mChn8BG2TOhnEnfeTMN8ucIQc5taRpAx&sz=w1600"
       }
     },
     "LGS333": {
       "黑色": {
         "name": "LGS333_BH.jpg",
         "path": "product-images/LGS333_BH.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS333_BH.jpg"
+        "url": "https://drive.google.com/file/d/1A7V2FX6xUOIWvSEv7IG2NjOddJUwOD-A/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1A7V2FX6xUOIWvSEv7IG2NjOddJUwOD-A",
+        "directUrl": "https://drive.google.com/thumbnail?id=1A7V2FX6xUOIWvSEv7IG2NjOddJUwOD-A&sz=w1600"
       },
       "复古色": {
         "name": "LGS333_KD.jpg",
         "path": "product-images/LGS333_KD.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS333_KD.jpg"
+        "url": "https://drive.google.com/file/d/1f85QkNhbON0NgrPUZXgq8yhXKrwFthIY/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1f85QkNhbON0NgrPUZXgq8yhXKrwFthIY",
+        "directUrl": "https://drive.google.com/thumbnail?id=1f85QkNhbON0NgrPUZXgq8yhXKrwFthIY&sz=w1600"
       },
       "白色": {
         "name": "LGS333_WH.jpg",
         "path": "product-images/LGS333_WH.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS333_WH.jpg"
+        "url": "https://drive.google.com/file/d/1bmqAgmbEL3hXlAeR0iEDf_lmIXLu2TWo/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1bmqAgmbEL3hXlAeR0iEDf_lmIXLu2TWo",
+        "directUrl": "https://drive.google.com/thumbnail?id=1bmqAgmbEL3hXlAeR0iEDf_lmIXLu2TWo&sz=w1600"
       }
     },
     "LGS334": {
       "黑色": {
         "name": "LGS334_BH.jpg",
         "path": "product-images/LGS334_BH.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS334_BH.jpg"
+        "url": "https://drive.google.com/file/d/1upgjDV-HUkSVU-ah5hRr-q30G5hnH3SO/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1upgjDV-HUkSVU-ah5hRr-q30G5hnH3SO",
+        "directUrl": "https://drive.google.com/thumbnail?id=1upgjDV-HUkSVU-ah5hRr-q30G5hnH3SO&sz=w1600"
       }
     },
     "LGS420": {
       "黑色": {
         "name": "LGS420_BH.jpg",
         "path": "product-images/LGS420_BH.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS420_BH.jpg"
+        "url": "https://drive.google.com/file/d/1NB0KmiBQfkA_qV4oAQQGg9uRuFO9XUlE/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1NB0KmiBQfkA_qV4oAQQGg9uRuFO9XUlE",
+        "directUrl": "https://drive.google.com/thumbnail?id=1NB0KmiBQfkA_qV4oAQQGg9uRuFO9XUlE&sz=w1600"
       },
       "复古色": {
         "name": "LGS420_KD.jpg",
         "path": "product-images/LGS420_KD.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS420_KD.jpg"
+        "url": "https://drive.google.com/file/d/1I3Am_4lm7yiBdN1lEzjTkYybIP0Y-Zf8/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1I3Am_4lm7yiBdN1lEzjTkYybIP0Y-Zf8",
+        "directUrl": "https://drive.google.com/thumbnail?id=1I3Am_4lm7yiBdN1lEzjTkYybIP0Y-Zf8&sz=w1600"
       },
       "白色": {
         "name": "LGS420_WH.jpg",
         "path": "product-images/LGS420_WH.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS420_WH.jpg"
+        "url": "https://drive.google.com/file/d/1g3uOtpkyZ5JLZcQMIsnUEzsEibi4n-q7/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1g3uOtpkyZ5JLZcQMIsnUEzsEibi4n-q7",
+        "directUrl": "https://drive.google.com/thumbnail?id=1g3uOtpkyZ5JLZcQMIsnUEzsEibi4n-q7&sz=w1600"
       }
     },
     "LGS421": {
       "黑色": {
         "name": "LGS421_BH.jpg",
         "path": "product-images/LGS421_BH.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS421_BH.jpg"
+        "url": "https://drive.google.com/file/d/121po694OugqN8oZ5Tl0pzv_Qy654VSjy/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "121po694OugqN8oZ5Tl0pzv_Qy654VSjy",
+        "directUrl": "https://drive.google.com/thumbnail?id=121po694OugqN8oZ5Tl0pzv_Qy654VSjy&sz=w1600"
       },
       "复古色": {
         "name": "LGS421_KD.jpg",
         "path": "product-images/LGS421_KD.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS421_KD.jpg"
+        "url": "https://drive.google.com/file/d/12gE0U1Sk0Q6IrPC62Vl1bzmq9gMtliXJ/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "12gE0U1Sk0Q6IrPC62Vl1bzmq9gMtliXJ",
+        "directUrl": "https://drive.google.com/thumbnail?id=12gE0U1Sk0Q6IrPC62Vl1bzmq9gMtliXJ&sz=w1600"
       }
     },
     "LGS433": {
       "黑色": {
         "name": "LGS433_BH.jpg",
         "path": "product-images/LGS433_BH.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS433_BH.jpg"
+        "url": "https://drive.google.com/file/d/1PN8Ptx3XwcUniAH90Fx4MqwQjQ39orsS/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1PN8Ptx3XwcUniAH90Fx4MqwQjQ39orsS",
+        "directUrl": "https://drive.google.com/thumbnail?id=1PN8Ptx3XwcUniAH90Fx4MqwQjQ39orsS&sz=w1600"
       },
       "复古色": {
         "name": "LGS433_KD.jpg",
         "path": "product-images/LGS433_KD.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS433_KD.jpg"
+        "url": "https://drive.google.com/file/d/1udLtKMuiN9ayK4QJNRsSja_8rabKitHU/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1udLtKMuiN9ayK4QJNRsSja_8rabKitHU",
+        "directUrl": "https://drive.google.com/thumbnail?id=1udLtKMuiN9ayK4QJNRsSja_8rabKitHU&sz=w1600"
       },
       "白色": {
         "name": "LGS433_WB.jpg",
         "path": "product-images/LGS433_WB.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS433_WB.jpg"
+        "url": "https://drive.google.com/file/d/1-1-ATcLGX6871H81ug6CZJhRhpMcFuHF/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1-1-ATcLGX6871H81ug6CZJhRhpMcFuHF",
+        "directUrl": "https://drive.google.com/thumbnail?id=1-1-ATcLGX6871H81ug6CZJhRhpMcFuHF&sz=w1600"
       }
     },
     "LGS434": {
       "黑色": {
         "name": "LGS434_BH.jpg",
         "path": "product-images/LGS434_BH.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS434_BH.jpg"
+        "url": "https://drive.google.com/file/d/197KLcas-6tWpMTJhMn9ZkQqoR6mNde5A/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "197KLcas-6tWpMTJhMn9ZkQqoR6mNde5A",
+        "directUrl": "https://drive.google.com/thumbnail?id=197KLcas-6tWpMTJhMn9ZkQqoR6mNde5A&sz=w1600"
       },
       "白色": {
         "name": "LGS434_WH.jpg",
         "path": "product-images/LGS434_WH.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS434_WH.jpg"
+        "url": "https://drive.google.com/file/d/1VFbbznGHoRFWNi07uzXKkDC2acHOkuGP/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1VFbbznGHoRFWNi07uzXKkDC2acHOkuGP",
+        "directUrl": "https://drive.google.com/thumbnail?id=1VFbbznGHoRFWNi07uzXKkDC2acHOkuGP&sz=w1600"
       }
     },
     "LGS723": {
       "黑色": {
         "name": "LGS723_BH.jpg",
         "path": "product-images/LGS723_BH.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS723_BH.jpg"
+        "url": "https://drive.google.com/file/d/1EMulLjvDAwtHN9fEDNsM3d-pEVpKpUpU/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1EMulLjvDAwtHN9fEDNsM3d-pEVpKpUpU",
+        "directUrl": "https://drive.google.com/thumbnail?id=1EMulLjvDAwtHN9fEDNsM3d-pEVpKpUpU&sz=w1600"
       },
       "复古色": {
         "name": "LGS723_KD.jpg",
         "path": "product-images/LGS723_KD.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS723_KD.jpg"
+        "url": "https://drive.google.com/file/d/17q5NmBQZwx8-Q4bo5utjgze6DnaYFN5G/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "17q5NmBQZwx8-Q4bo5utjgze6DnaYFN5G",
+        "directUrl": "https://drive.google.com/thumbnail?id=17q5NmBQZwx8-Q4bo5utjgze6DnaYFN5G&sz=w1600"
       },
       "白色": {
         "name": "LGS723_WH.jpg",
         "path": "product-images/LGS723_WH.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS723_WH.jpg"
+        "url": "https://drive.google.com/file/d/1DCFtOoBz8XjhGNhKI2Ocbe1QeYk0Vyoy/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1DCFtOoBz8XjhGNhKI2Ocbe1QeYk0Vyoy",
+        "directUrl": "https://drive.google.com/thumbnail?id=1DCFtOoBz8XjhGNhKI2Ocbe1QeYk0Vyoy&sz=w1600"
       }
     },
     "LGS733": {
       "黑色": {
         "name": "LGS733_BH.jpg",
         "path": "product-images/LGS733_BH.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS733_BH.jpg"
+        "url": "https://drive.google.com/file/d/1qkbg3JTVyde7ys8X8YwaeQmOFCWPuFEj/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1qkbg3JTVyde7ys8X8YwaeQmOFCWPuFEj",
+        "directUrl": "https://drive.google.com/thumbnail?id=1qkbg3JTVyde7ys8X8YwaeQmOFCWPuFEj&sz=w1600"
       },
       "复古色": {
         "name": "LGS733_KD.jpg",
         "path": "product-images/LGS733_KD.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS733_KD.jpg"
+        "url": "https://drive.google.com/file/d/1HeaUrgvghQDx1eb0T3cjlJAUQuN_w4LL/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1HeaUrgvghQDx1eb0T3cjlJAUQuN_w4LL",
+        "directUrl": "https://drive.google.com/thumbnail?id=1HeaUrgvghQDx1eb0T3cjlJAUQuN_w4LL&sz=w1600"
       },
       "白色": {
         "name": "LGS733_WH.jpg",
         "path": "product-images/LGS733_WH.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS733_WH.jpg"
+        "url": "https://drive.google.com/file/d/1utxfqYSfegNSpgubhJ8fvocE5D6z9hhI/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1utxfqYSfegNSpgubhJ8fvocE5D6z9hhI",
+        "directUrl": "https://drive.google.com/thumbnail?id=1utxfqYSfegNSpgubhJ8fvocE5D6z9hhI&sz=w1600"
       }
     },
     "LGS833": {
       "黑色": {
         "name": "LGS833_BH.jpg",
         "path": "product-images/LGS833_BH.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS833_BH.jpg"
+        "url": "https://drive.google.com/file/d/1gi2JLCWCkVwI4JYdxKTjA7tfUiN8DSr2/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1gi2JLCWCkVwI4JYdxKTjA7tfUiN8DSr2",
+        "directUrl": "https://drive.google.com/thumbnail?id=1gi2JLCWCkVwI4JYdxKTjA7tfUiN8DSr2&sz=w1600"
       },
       "复古色": {
         "name": "LGS833_KD.jpg",
         "path": "product-images/LGS833_KD.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS833_KD.jpg"
+        "url": "https://drive.google.com/file/d/1pExtmtPUquEXyC4nZnM5_lZBk-GRrnp-/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1pExtmtPUquEXyC4nZnM5_lZBk-GRrnp-",
+        "directUrl": "https://drive.google.com/thumbnail?id=1pExtmtPUquEXyC4nZnM5_lZBk-GRrnp-&sz=w1600"
       },
       "白色": {
         "name": "LGS833_WH.jpg",
         "path": "product-images/LGS833_WH.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS833_WH.jpg"
+        "url": "https://drive.google.com/file/d/1TkEoKMWVihtAlwhVcLkn1fADxsaeCjf0/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1TkEoKMWVihtAlwhVcLkn1fADxsaeCjf0",
+        "directUrl": "https://drive.google.com/thumbnail?id=1TkEoKMWVihtAlwhVcLkn1fADxsaeCjf0&sz=w1600"
       }
     },
     "LGS834": {
       "黑色": {
         "name": "LGS834_BH.jpg",
         "path": "product-images/LGS834_BH.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS834_BH.jpg"
+        "url": "https://drive.google.com/file/d/1heFcfk5mvfKOneXzKKoYefT88plS2CcC/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1heFcfk5mvfKOneXzKKoYefT88plS2CcC",
+        "directUrl": "https://drive.google.com/thumbnail?id=1heFcfk5mvfKOneXzKKoYefT88plS2CcC&sz=w1600"
       },
       "白色": {
         "name": "LGS834_WB.jpg",
         "path": "product-images/LGS834_WB.jpg",
-        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/LGS834_WB.jpg"
+        "url": "https://drive.google.com/file/d/1uGpL00AWeLardXkZCKUeFvxGcUj8B5zG/view?usp=sharing",
+        "source": "google-drive",
+        "driveId": "1uGpL00AWeLardXkZCKUeFvxGcUj8B5zG",
+        "directUrl": "https://drive.google.com/thumbnail?id=1uGpL00AWeLardXkZCKUeFvxGcUj8B5zG&sz=w1600"
       }
     }
   }
