@@ -93,6 +93,7 @@
       export: '导出',
       level: '层级',
       partNumber: '物料编号',
+      componentNumber: '编号',
       description: '说明'
     },
     vi: {
@@ -183,6 +184,7 @@
       export: 'Xuất',
       level: 'Cấp',
       partNumber: 'Mã vật liệu',
+      componentNumber: 'Mã bộ phận',
       description: 'Mô tả'
     }
   };
@@ -1943,7 +1945,24 @@
 
     tableHtml(rows) {
       return `<div class="table-container"><div class="table-toolbar">${this.toolbarHtml(rows)}</div>
-        <table><thead>${this.tableHeadHtml()}</thead><tbody>${rows.map((row, index) => this.rowHtml(row, index)).join('')}</tbody></table></div>`;
+        <table class="bom-table">${this.tableColgroupHtml()}<thead>${this.tableHeadHtml()}</thead><tbody>${rows.map((row, index) => this.rowHtml(row, index)).join('')}</tbody></table></div>`;
+    }
+
+    tableColgroupHtml() {
+      const editAction = this.isAdmin() && this.state.editMode ? '<col class="col-actions">' : '';
+      return `<colgroup>
+        <col class="col-level">
+        <col class="col-mat-code">
+        <col class="col-comp-code">
+        <col class="col-description">
+        <col class="col-spec">
+        <col class="col-material">
+        <col class="col-attr">
+        <col class="col-qty">
+        <col class="col-2d">
+        <col class="col-3d">
+        ${editAction}
+      </colgroup>`;
     }
 
     toolbarHtml(rows) {
@@ -1976,6 +1995,7 @@
       const sortable = [
         ['stt', this.label('level')],
         ['mat_code', this.label('partNumber')],
+        ['comp_code', this.label('componentNumber')],
         ['name', this.label('description')],
         ['spec', headers[4]],
         ['material', headers[5]],
@@ -1997,6 +2017,7 @@
       return `<tr class="${active}" data-bom-entry="${escapeHTML(material._entryId || '')}">
         <td><span class="level-cell">1</span></td>
         ${this.partNumberCellHtml(material, index)}
+        ${this.componentNumberCellHtml(material, index)}
         ${this.cellHtml(material, 'name', index)}
         ${this.cellHtml(material, 'spec', index)}
         ${this.materialStackCellHtml(material, index)}
@@ -2010,9 +2031,16 @@
 
     partNumberCellHtml(material, index) {
       if (this.isAdmin() && this.state.editMode) {
-        return `<td><div class="stack-cell">${this.editInput(materialText(material, 'mat_code', this.state.lang), 'mat_code', index)}${this.editInput(materialText(material, 'comp_code', this.state.lang), 'comp_code', index)}</div></td>`;
+        return `<td>${this.editInput(materialText(material, 'mat_code', this.state.lang), 'mat_code', index)}</td>`;
       }
-      return `<td><div class="stack-cell"><span class="mat-code">${this.highlight(materialText(material, 'mat_code', this.state.lang))}</span><span class="muted-line">${escapeHTML(materialText(material, 'comp_code', this.state.lang) || '-')}</span></div></td>`;
+      return `<td><span class="mat-code">${this.highlight(materialText(material, 'mat_code', this.state.lang))}</span></td>`;
+    }
+
+    componentNumberCellHtml(material, index) {
+      if (this.isAdmin() && this.state.editMode) {
+        return `<td>${this.editInput(materialText(material, 'comp_code', this.state.lang), 'comp_code', index)}</td>`;
+      }
+      return `<td><span class="comp-code">${escapeHTML(materialText(material, 'comp_code', this.state.lang) || '-')}</span></td>`;
     }
 
     materialStackCellHtml(material, index) {

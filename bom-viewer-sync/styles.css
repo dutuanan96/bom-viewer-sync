@@ -1229,9 +1229,12 @@ body.pdm-shell {
   border: 0;
   border-radius: 0;
   bottom: 0;
+  box-sizing: border-box;
   color: #f0f1f3;
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  min-height: 100dvh;
   left: 0;
   max-height: none;
   overflow: hidden;
@@ -1775,13 +1778,7 @@ body.pdm-shell {
 }
 
 .preview-label {
-  color: #434654;
-  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
-  font-size: 11px;
-  left: 24px;
-  position: absolute;
-  top: 18px;
-  z-index: 1;
+  display: none;
 }
 
 .assembly-model {
@@ -1903,7 +1900,22 @@ body.pdm-shell {
 
 .pdm-shell table {
   font-size: 13px;
-  table-layout: auto;
+  min-width: 1304px;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.bom-table .col-level { width: 72px; }
+.bom-table .col-mat-code { width: 160px; }
+.bom-table .col-comp-code { width: 92px; }
+.bom-table .col-description { width: 230px; }
+.bom-table .col-spec { width: 220px; }
+.bom-table .col-material { width: 150px; }
+.bom-table .col-attr { width: 96px; }
+.bom-table .col-qty { width: 76px; }
+.bom-table .col-2d { width: 112px; }
+.bom-table .col-3d { width: 96px; }
+.bom-table .col-actions { width: 170px; }
 }
 
 .pdm-shell thead {
@@ -1917,50 +1929,42 @@ body.pdm-shell {
   font-weight: 700;
   letter-spacing: 0.05em;
   padding: 11px 14px;
+  white-space: nowrap;
 }
 
 .pdm-shell td {
   color: #191c1e;
   padding: 10px 14px;
+  vertical-align: top;
 }
 
 .pdm-shell tbody tr:nth-child(even) td {
   background: #fbfbfc;
 }
 
-.pdm-shell th:nth-child(1),
-.pdm-shell td:nth-child(1) {
+.pdm-shell .bom-table th:nth-child(1),
+.pdm-shell .bom-table td:nth-child(1),
+.pdm-shell .bom-table th:nth-child(3),
+.pdm-shell .bom-table td:nth-child(3),
+.pdm-shell .bom-table th:nth-child(8),
+.pdm-shell .bom-table td:nth-child(8),
+.pdm-shell .bom-table th:nth-child(9),
+.pdm-shell .bom-table td:nth-child(9),
+.pdm-shell .bom-table th:nth-child(10),
+.pdm-shell .bom-table td:nth-child(10) {
   text-align: center;
-  width: 64px;
 }
 
-.pdm-shell th:nth-child(2),
-.pdm-shell td:nth-child(2) {
-  min-width: 170px;
-}
-
-.pdm-shell th:nth-child(3),
-.pdm-shell td:nth-child(3) {
-  min-width: 240px;
-}
-
-.pdm-shell th:nth-child(4),
-.pdm-shell td:nth-child(4) {
-  min-width: 220px;
-}
-
-.pdm-shell th:nth-child(7),
-.pdm-shell td:nth-child(7) {
+.pdm-shell .bom-table th:nth-child(8),
+.pdm-shell .bom-table td:nth-child(8) {
   text-align: right;
-  width: 72px;
 }
 
-.pdm-shell th:nth-child(8),
-.pdm-shell td:nth-child(8),
-.pdm-shell th:nth-child(9),
-.pdm-shell td:nth-child(9) {
+.pdm-shell .bom-table th:nth-child(9),
+.pdm-shell .bom-table td:nth-child(9),
+.pdm-shell .bom-table th:nth-child(10),
+.pdm-shell .bom-table td:nth-child(10) {
   text-align: center;
-  width: 96px;
 }
 
 .level-cell {
@@ -1978,6 +1982,19 @@ body.pdm-shell {
   font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
   font-size: 13px;
   font-weight: 700;
+}
+
+.pdm-shell .mat-code,
+.pdm-shell .comp-code {
+  display: inline-block;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.pdm-shell .comp-code {
+  color: #5f6675;
+  font-size: 12px;
 }
 
 .pdm-shell .muted-line {
