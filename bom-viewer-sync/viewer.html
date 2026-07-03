@@ -1546,36 +1546,62 @@ body.pdm-shell {
   margin-right: 4px;
 }
 
+/* Catalog table: table-layout auto so size column never wraps */
 .product-catalog-view table {
-  min-width: 980px;
+  min-width: 920px;
+  table-layout: auto;
 }
 
+/* SPU code — fixed, monospace code */
 .product-catalog-view th:nth-child(1),
 .product-catalog-view td:nth-child(1) {
   text-align: left;
-  width: 130px;
+  white-space: nowrap;
+  width: 110px;
 }
 
+/* 说明 — product name, wrapping is fine and expected */
 .product-catalog-view th:nth-child(2),
 .product-catalog-view td:nth-child(2) {
-  min-width: 320px;
+  min-width: 240px;
 }
 
+/* 尺寸 — dimension string like 300Dx1138Wx598Hmm, must NOT wrap */
 .product-catalog-view th:nth-child(3),
 .product-catalog-view td:nth-child(3) {
-  min-width: 190px;
+  white-space: nowrap;
+  width: 170px;
 }
 
+/* 版本 badge — short */
 .product-catalog-view th:nth-child(4),
-.product-catalog-view td:nth-child(4),
+.product-catalog-view td:nth-child(4) {
+  text-align: center;
+  white-space: nowrap;
+  width: 75px;
+}
+
+/* 颜色 dots */
 .product-catalog-view th:nth-child(5),
-.product-catalog-view td:nth-child(5),
+.product-catalog-view td:nth-child(5) {
+  text-align: center;
+  width: 90px;
+}
+
+/* 状态 pill — "使用中" */
 .product-catalog-view th:nth-child(6),
-.product-catalog-view td:nth-child(6),
+.product-catalog-view td:nth-child(6) {
+  text-align: center;
+  white-space: nowrap;
+  width: 90px;
+}
+
+/* 打开BOM button */
 .product-catalog-view th:nth-child(7),
 .product-catalog-view td:nth-child(7) {
   text-align: center;
-  width: 120px;
+  white-space: nowrap;
+  width: 100px;
 }
 
 .spu-code {
@@ -1914,23 +1940,34 @@ body.pdm-shell {
 
 .pdm-shell table {
   font-size: 13px;
-  min-width: 1150px;
+  min-width: 1080px;
   table-layout: fixed;
   width: 100%;
 }
 
-.bom-table .col-level { width: 55px; }
-.bom-table .col-mat-code { width: 140px; }
-.bom-table .col-comp-code { width: 110px; }
-.bom-table .col-description { width: 180px; }
-.bom-table .col-spec { width: 180px; }
-.bom-table .col-material { width: 120px; }
-.bom-table .col-attr { width: 110px; }
-.bom-table .col-qty { width: 65px; }
-.bom-table .col-2d { width: 110px; }
-.bom-table .col-3d { width: 80px; }
-.bom-table .col-actions { width: 130px; }
-}
+/* BOM column widths — justified by actual data length:
+   层级: just "1"          → 42px
+   物料编号: 14-char codes  → 148px
+   编号: "A1"~"Z05" ≤4ch  → 72px
+   说明: product names     → 200px
+   规格型号: tech specs    → 195px
+   材质+色 (stacked)      → 115px
+   属性 badge "零件"       → 78px
+   数量: "12+2" nowrap    → 58px
+   2D图纸 button          → 95px
+   3D button              → 77px
+   total: 1080px (viewer) / 1200px (admin+actions) */
+.bom-table .col-level       { width: 42px; }
+.bom-table .col-mat-code    { width: 148px; }
+.bom-table .col-comp-code   { width: 72px; }
+.bom-table .col-description { width: 200px; }
+.bom-table .col-spec        { width: 195px; }
+.bom-table .col-material    { width: 115px; }
+.bom-table .col-attr        { width: 78px; }
+.bom-table .col-qty         { width: 58px; }
+.bom-table .col-2d          { width: 95px; }
+.bom-table .col-3d          { width: 77px; }
+.bom-table .col-actions     { width: 120px; }
 
 .pdm-shell thead {
   background: #edeef0;
@@ -1951,6 +1988,11 @@ body.pdm-shell {
 .pdm-shell td {
   color: #191c1e;
   padding: 10px 8px;
+  vertical-align: middle;
+}
+
+/* Stacked material/color cell stays top-aligned */
+.pdm-shell .bom-table td:has(.stack-cell) {
   vertical-align: top;
 }
 
