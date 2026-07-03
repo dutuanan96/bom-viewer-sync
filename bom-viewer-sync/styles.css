@@ -777,7 +777,7 @@ tr:last-child td {
 /* Material Code */
 .mat-code {
   font-family: 'SF Mono', 'Menlo', monospace;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--ink);
 }
@@ -2001,7 +2001,7 @@ body.pdm-shell {
 }
 
 .bom-table .col-mat-code {
-  width: 148px;
+  width: 135px;
 }
 
 .bom-table .col-comp-code {
@@ -2017,7 +2017,7 @@ body.pdm-shell {
 }
 
 .bom-table .col-material {
-  width: 75px;
+  width: 88px;
 }
 
 .bom-table .col-color {
@@ -2051,9 +2051,9 @@ body.pdm-shell {
 .pdm-shell th {
   background: #edeef0;
   color: #434654;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.03em;
   padding: 10px 8px;
   white-space: nowrap;
   overflow: hidden;
@@ -2064,6 +2064,7 @@ body.pdm-shell {
   color: #191c1e;
   padding: 10px 8px;
   vertical-align: middle;
+  font-size: 13px;
 }
 
 /* Stacked material/color cell stays top-aligned */
