@@ -829,6 +829,7 @@ tr:last-child td { border-bottom: none; }
 .qty {
   font-weight: 600;
   text-align: center;
+  white-space: nowrap;
 }
 
 .drawing-cell {
@@ -1136,6 +1137,10 @@ mark {
   font-weight: 600;
   padding: 0;
   text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .read-only-note {
@@ -1630,6 +1635,7 @@ body.pdm-shell {
 .bom-detail-header {
   align-items: flex-start;
   display: flex;
+  flex-wrap: wrap;
   gap: 24px;
   justify-content: space-between;
   margin-bottom: 24px;
@@ -1908,21 +1914,21 @@ body.pdm-shell {
 
 .pdm-shell table {
   font-size: 13px;
-  min-width: 1000px;
+  min-width: 1150px;
   table-layout: fixed;
   width: 100%;
 }
 
-.bom-table .col-level { width: 42px; }
+.bom-table .col-level { width: 55px; }
 .bom-table .col-mat-code { width: 140px; }
-.bom-table .col-comp-code { width: 68px; }
-.bom-table .col-description { width: 210px; }
-.bom-table .col-spec { width: 210px; }
-.bom-table .col-material { width: 130px; }
-.bom-table .col-attr { width: 85px; }
-.bom-table .col-qty { width: 55px; }
-.bom-table .col-2d { width: 95px; }
-.bom-table .col-3d { width: 85px; }
+.bom-table .col-comp-code { width: 110px; }
+.bom-table .col-description { width: 180px; }
+.bom-table .col-spec { width: 180px; }
+.bom-table .col-material { width: 120px; }
+.bom-table .col-attr { width: 110px; }
+.bom-table .col-qty { width: 65px; }
+.bom-table .col-2d { width: 110px; }
+.bom-table .col-3d { width: 80px; }
 .bom-table .col-actions { width: 130px; }
 }
 
@@ -1938,6 +1944,8 @@ body.pdm-shell {
   letter-spacing: 0.05em;
   padding: 10px 8px;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .pdm-shell td {
@@ -2002,7 +2010,9 @@ body.pdm-shell {
   display: inline-block;
   font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
   max-width: 100%;
-  overflow-wrap: anywhere;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .pdm-shell .comp-code {
