@@ -1546,57 +1546,59 @@ body.pdm-shell {
   margin-right: 4px;
 }
 
-/* Catalog table: table-layout auto so size column never wraps */
+/* Catalog table: Use fixed layout for precise control. 
+   Column 2 (名称) will auto-expand to fill all remaining space. */
 .product-catalog-view table {
   min-width: 920px;
-  table-layout: auto;
+  table-layout: fixed;
+  width: 100%;
 }
 
-/* SPU code — fixed, monospace code */
+/* 1. SPU code */
 .product-catalog-view th:nth-child(1),
 .product-catalog-view td:nth-child(1) {
   text-align: left;
   white-space: nowrap;
-  width: 80px;
+  width: 75px;
 }
 
-/* 名称 — product name, wrapping is fine and expected */
+/* 2. 名称 — product name, wrapping is fine. No explicit width so it takes all remaining space. */
 .product-catalog-view th:nth-child(2),
 .product-catalog-view td:nth-child(2) {
-  min-width: 280px;
+  /* No width constraint -> expands automatically */
 }
 
-/* 尺寸 — dimension string like 300Dx1138Wx598Hmm, must NOT wrap */
+/* 3. 尺寸 — dimension string like 300Dx1138Wx598Hmm */
 .product-catalog-view th:nth-child(3),
 .product-catalog-view td:nth-child(3) {
   white-space: nowrap;
-  width: 170px;
+  width: 145px;
 }
 
-/* 版本 badge — short */
+/* 4. 版本 badge */
 .product-catalog-view th:nth-child(4),
 .product-catalog-view td:nth-child(4) {
   text-align: center;
   white-space: nowrap;
-  width: 75px;
+  width: 60px;
 }
 
-/* 颜色 dots */
+/* 5. 颜色 dots */
 .product-catalog-view th:nth-child(5),
 .product-catalog-view td:nth-child(5) {
   text-align: center;
-  width: 90px;
+  width: 80px;
 }
 
-/* 状态 pill — "使用中" */
+/* 6. 状态 pill */
 .product-catalog-view th:nth-child(6),
 .product-catalog-view td:nth-child(6) {
   text-align: center;
   white-space: nowrap;
-  width: 90px;
+  width: 80px;
 }
 
-/* 打开BOM button */
+/* 7. 打开BOM button */
 .product-catalog-view th:nth-child(7),
 .product-catalog-view td:nth-child(7) {
   text-align: center;
