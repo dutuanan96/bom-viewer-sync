@@ -736,62 +736,7 @@ th .sort-icon {
   font-size: 10px;
 }
 
-th:nth-child(1),
-td:nth-child(1) {
-  width: 42px;
-}
 
-th:nth-child(2),
-td:nth-child(2) {
-  width: 11%;
-}
-
-th:nth-child(3),
-td:nth-child(3) {
-  width: 8%;
-}
-
-th:nth-child(4),
-td:nth-child(4) {
-  width: 17%;
-}
-
-th:nth-child(5),
-td:nth-child(5) {
-  width: 18%;
-}
-
-th:nth-child(6),
-td:nth-child(6) {
-  width: 8%;
-}
-
-th:nth-child(7),
-td:nth-child(7) {
-  width: 7%;
-}
-
-th:nth-child(8),
-td:nth-child(8) {
-  width: 8%;
-}
-
-th:nth-child(9),
-td:nth-child(9) {
-  width: 42px;
-  text-align: center;
-}
-
-th:nth-child(10),
-td:nth-child(10) {
-  width: 12%;
-}
-
-th:nth-child(11),
-td:nth-child(11) {
-  width: 74px;
-  text-align: center;
-}
 
 td {
   padding: 9px 8px;
@@ -1262,6 +1207,12 @@ mark {
 
 .pdf-dialog:has(.model3d-frame:not([hidden])) {
   max-width: min(1180px, calc(100vw - 48px));
+}
+
+.material-db-view table,
+.structure-view table,
+.assets-view table {
+  table-layout: auto;
 }
 
 .material-db-view table {
@@ -2066,7 +2017,7 @@ body.pdm-shell {
 }
 
 .bom-table .col-description {
-  width: 200px;
+  width: 180px;
 }
 
 .bom-table .col-spec {
@@ -2074,7 +2025,11 @@ body.pdm-shell {
 }
 
 .bom-table .col-material {
-  width: 115px;
+  width: 75px;
+}
+
+.bom-table .col-color {
+  width: 60px;
 }
 
 .bom-table .col-attr {
@@ -2137,25 +2092,16 @@ body.pdm-shell {
 .pdm-shell .bom-table td:nth-child(1),
 .pdm-shell .bom-table th:nth-child(3),
 .pdm-shell .bom-table td:nth-child(3),
-.pdm-shell .bom-table th:nth-child(8),
-.pdm-shell .bom-table td:nth-child(8),
-.pdm-shell .bom-table th:nth-child(9),
-.pdm-shell .bom-table td:nth-child(9),
 .pdm-shell .bom-table th:nth-child(10),
-.pdm-shell .bom-table td:nth-child(10) {
+.pdm-shell .bom-table td:nth-child(10),
+.pdm-shell .bom-table th:nth-child(11),
+.pdm-shell .bom-table td:nth-child(11) {
   text-align: center;
 }
 
-.pdm-shell .bom-table th:nth-child(8),
-.pdm-shell .bom-table td:nth-child(8) {
+.pdm-shell .bom-table th:nth-child(9),
+.pdm-shell .bom-table td:nth-child(9) {
   text-align: right;
-}
-
-.pdm-shell .bom-table th:nth-child(9),
-.pdm-shell .bom-table td:nth-child(9),
-.pdm-shell .bom-table th:nth-child(10),
-.pdm-shell .bom-table td:nth-child(10) {
-  text-align: center;
 }
 
 .level-cell {
@@ -123043,6 +122989,7 @@ window.BOM_VIEWER_DATA = {
         <col class="col-description">
         <col class="col-spec">
         <col class="col-material">
+        <col class="col-color">
         <col class="col-attr">
         <col class="col-qty">
         <col class="col-2d">
@@ -123085,6 +123032,7 @@ window.BOM_VIEWER_DATA = {
         ['name', this.label('description')],
         ['spec', headers[4]],
         ['material', headers[5]],
+        ['color', headers[6]],
         ['attr', headers[7]],
         ['qty', headers[8]]
       ].map(([col, label]) => `<th><button class="th-button" type="button" data-sort="${col}">${escapeHTML(label)} ${this.sortIcon(col)}</button></th>`);
@@ -123106,7 +123054,8 @@ window.BOM_VIEWER_DATA = {
         ${this.componentNumberCellHtml(material, index)}
         ${this.cellHtml(material, 'name', index)}
         ${this.cellHtml(material, 'spec', index)}
-        ${this.materialStackCellHtml(material, index)}
+        ${this.cellHtml(material, 'material', index)}
+        ${this.cellHtml(material, 'color', index)}
         ${this.cellHtml(material, 'attr', index)}
         ${this.cellHtml(material, 'qty', index)}
         <td class="drawing-cell">${this.drawingCellHtml(material, index)}</td>

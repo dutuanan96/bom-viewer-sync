@@ -2009,7 +2009,7 @@ body.pdm-shell {
 }
 
 .bom-table .col-description {
-  width: 200px;
+  width: 180px;
 }
 
 .bom-table .col-spec {
@@ -2017,7 +2017,11 @@ body.pdm-shell {
 }
 
 .bom-table .col-material {
-  width: 115px;
+  width: 75px;
+}
+
+.bom-table .col-color {
+  width: 60px;
 }
 
 .bom-table .col-attr {
@@ -2080,25 +2084,16 @@ body.pdm-shell {
 .pdm-shell .bom-table td:nth-child(1),
 .pdm-shell .bom-table th:nth-child(3),
 .pdm-shell .bom-table td:nth-child(3),
-.pdm-shell .bom-table th:nth-child(8),
-.pdm-shell .bom-table td:nth-child(8),
-.pdm-shell .bom-table th:nth-child(9),
-.pdm-shell .bom-table td:nth-child(9),
 .pdm-shell .bom-table th:nth-child(10),
-.pdm-shell .bom-table td:nth-child(10) {
+.pdm-shell .bom-table td:nth-child(10),
+.pdm-shell .bom-table th:nth-child(11),
+.pdm-shell .bom-table td:nth-child(11) {
   text-align: center;
 }
 
-.pdm-shell .bom-table th:nth-child(8),
-.pdm-shell .bom-table td:nth-child(8) {
+.pdm-shell .bom-table th:nth-child(9),
+.pdm-shell .bom-table td:nth-child(9) {
   text-align: right;
-}
-
-.pdm-shell .bom-table th:nth-child(9),
-.pdm-shell .bom-table td:nth-child(9),
-.pdm-shell .bom-table th:nth-child(10),
-.pdm-shell .bom-table td:nth-child(10) {
-  text-align: center;
 }
 
 .level-cell {

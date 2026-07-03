@@ -1957,6 +1957,7 @@
         <col class="col-description">
         <col class="col-spec">
         <col class="col-material">
+        <col class="col-color">
         <col class="col-attr">
         <col class="col-qty">
         <col class="col-2d">
@@ -1999,6 +2000,7 @@
         ['name', this.label('description')],
         ['spec', headers[4]],
         ['material', headers[5]],
+        ['color', headers[6]],
         ['attr', headers[7]],
         ['qty', headers[8]]
       ].map(([col, label]) => `<th><button class="th-button" type="button" data-sort="${col}">${escapeHTML(label)} ${this.sortIcon(col)}</button></th>`);
@@ -2020,7 +2022,8 @@
         ${this.componentNumberCellHtml(material, index)}
         ${this.cellHtml(material, 'name', index)}
         ${this.cellHtml(material, 'spec', index)}
-        ${this.materialStackCellHtml(material, index)}
+        ${this.cellHtml(material, 'material', index)}
+        ${this.cellHtml(material, 'color', index)}
         ${this.cellHtml(material, 'attr', index)}
         ${this.cellHtml(material, 'qty', index)}
         <td class="drawing-cell">${this.drawingCellHtml(material, index)}</td>
