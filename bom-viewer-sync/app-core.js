@@ -1181,6 +1181,7 @@
     }
 
     openMaterialRecord(materialId) {
+      if (!this.isAdmin()) return;
       if (!this.state.materialDb?.materials?.[materialId]) return;
       this.state.adminView = 'materials';
       this.state.selectedMaterialId = materialId;
@@ -2136,6 +2137,7 @@
     }
 
     selectBomEntry(entryId) {
+      if (!this.isAdmin()) return;
       if (!entryId) return;
       this.state.selectedEntryId = entryId;
       const row = this.bomRows().find((item) => item._entryId === entryId);
