@@ -1625,65 +1625,65 @@ body.pdm-shell {
   margin-right: 4px;
 }
 
-/* Catalog table: fixed layout — 名称 col takes all remaining space.
-   Fixed cols total: 72+140+55+72+78+96 = 513px
-   At 1080px table: 名称 gets ~567px (enough for long CN names) */
+/* Catalog table: fixed layout with percentage widths.
+   All 7 cols sum to 100% — overrides global th:nth-child rules.
+   At 1270px: SPU=89px, 名称=508px, 尺寸=229px, others=89-127px */
 .product-catalog-view table {
-  min-width: 1080px;
+  min-width: 900px;
   table-layout: fixed;
   width: 100%;
 }
 
-/* SPU code: "LGS031" = 6 chars mono */
+/* 1. SPU "LGS031" */
 .product-catalog-view th:nth-child(1),
 .product-catalog-view td:nth-child(1) {
   text-align: left;
   white-space: nowrap;
-  width: 72px;
+  width: 7%;
 }
 
-/* 名称 — product name; width:auto overrides global 11% rule → absorbs all leftover space */
+/* 2. 名称 — 40% ensures even long names fit on 1 line */
 .product-catalog-view th:nth-child(2),
 .product-catalog-view td:nth-child(2) {
-  width: auto;
+  width: 40%;
 }
 
-/* 尺寸 — 300Dx1138Wx598Hmm must NOT wrap (18 chars × 7.8px = 140px) */
+/* 3. 尺寸 — 18% fits "300Dx1738Wx679Hmm" */
 .product-catalog-view th:nth-child(3),
 .product-catalog-view td:nth-child(3) {
   white-space: nowrap;
-  width: 140px;
+  width: 18%;
 }
 
-/* 版本 badge — "A.1" */
+/* 4. 版本 "A.1" badge */
 .product-catalog-view th:nth-child(4),
 .product-catalog-view td:nth-child(4) {
   text-align: center;
   white-space: nowrap;
-  width: 55px;
+  width: 7%;
 }
 
-/* 颜色 dots — 2-3 circles, no text needed */
+/* 5. 颜色 dots */
 .product-catalog-view th:nth-child(5),
 .product-catalog-view td:nth-child(5) {
   text-align: center;
-  width: 72px;
+  width: 8%;
 }
 
-/* 状态 pill — "使用中" 3 chars */
+/* 6. 状态 "使用中" */
 .product-catalog-view th:nth-child(6),
 .product-catalog-view td:nth-child(6) {
   text-align: center;
   white-space: nowrap;
-  width: 78px;
+  width: 10%;
 }
 
-/* 打开BOM button */
+/* 7. 打开BOM button */
 .product-catalog-view th:nth-child(7),
 .product-catalog-view td:nth-child(7) {
   text-align: center;
   white-space: nowrap;
-  width: 96px;
+  width: 10%;
 }
 
 .spu-code {
