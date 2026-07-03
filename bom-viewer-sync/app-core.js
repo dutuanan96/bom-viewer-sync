@@ -94,7 +94,7 @@
       level: '层级',
       partNumber: '物料编号',
       componentNumber: '编号',
-      description: '说明'
+      description: '名称'
     },
     vi: {
       brand: 'Jintai BOM',
@@ -185,7 +185,7 @@
       level: 'Cấp',
       partNumber: 'Mã vật liệu',
       componentNumber: 'Mã bộ phận',
-      description: 'Mô tả'
+      description: 'Tên gọi'
     }
   };
 

@@ -1549,13 +1549,13 @@ body.pdm-shell {
 .product-catalog-view td:nth-child(1) {
   text-align: left;
   white-space: nowrap;
-  width: 110px;
+  width: 80px;
 }
 
-/* 说明 — product name, wrapping is fine and expected */
+/* 名称 — product name, wrapping is fine and expected */
 .product-catalog-view th:nth-child(2),
 .product-catalog-view td:nth-child(2) {
-  min-width: 240px;
+  min-width: 280px;
 }
 
 /* 尺寸 — dimension string like 300Dx1138Wx598Hmm, must NOT wrap */
