@@ -728,62 +728,7 @@ th .sort-icon {
   font-size: 10px;
 }
 
-th:nth-child(1),
-td:nth-child(1) {
-  width: 42px;
-}
 
-th:nth-child(2),
-td:nth-child(2) {
-  width: 11%;
-}
-
-th:nth-child(3),
-td:nth-child(3) {
-  width: 8%;
-}
-
-th:nth-child(4),
-td:nth-child(4) {
-  width: 17%;
-}
-
-th:nth-child(5),
-td:nth-child(5) {
-  width: 18%;
-}
-
-th:nth-child(6),
-td:nth-child(6) {
-  width: 8%;
-}
-
-th:nth-child(7),
-td:nth-child(7) {
-  width: 7%;
-}
-
-th:nth-child(8),
-td:nth-child(8) {
-  width: 8%;
-}
-
-th:nth-child(9),
-td:nth-child(9) {
-  width: 42px;
-  text-align: center;
-}
-
-th:nth-child(10),
-td:nth-child(10) {
-  width: 12%;
-}
-
-th:nth-child(11),
-td:nth-child(11) {
-  width: 74px;
-  text-align: center;
-}
 
 td {
   padding: 9px 8px;
@@ -1254,6 +1199,12 @@ mark {
 
 .pdf-dialog:has(.model3d-frame:not([hidden])) {
   max-width: min(1180px, calc(100vw - 48px));
+}
+
+.material-db-view table,
+.structure-view table,
+.assets-view table {
+  table-layout: auto;
 }
 
 .material-db-view table {
