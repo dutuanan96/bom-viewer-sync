@@ -1908,22 +1908,22 @@ body.pdm-shell {
 
 .pdm-shell table {
   font-size: 13px;
-  min-width: 1304px;
+  min-width: 1000px;
   table-layout: fixed;
   width: 100%;
 }
 
-.bom-table .col-level { width: 72px; }
-.bom-table .col-mat-code { width: 160px; }
-.bom-table .col-comp-code { width: 92px; }
-.bom-table .col-description { width: 230px; }
-.bom-table .col-spec { width: 220px; }
-.bom-table .col-material { width: 150px; }
-.bom-table .col-attr { width: 96px; }
-.bom-table .col-qty { width: 76px; }
-.bom-table .col-2d { width: 112px; }
-.bom-table .col-3d { width: 96px; }
-.bom-table .col-actions { width: 170px; }
+.bom-table .col-level { width: 42px; }
+.bom-table .col-mat-code { width: 140px; }
+.bom-table .col-comp-code { width: 68px; }
+.bom-table .col-description { width: 210px; }
+.bom-table .col-spec { width: 210px; }
+.bom-table .col-material { width: 130px; }
+.bom-table .col-attr { width: 85px; }
+.bom-table .col-qty { width: 55px; }
+.bom-table .col-2d { width: 95px; }
+.bom-table .col-3d { width: 85px; }
+.bom-table .col-actions { width: 130px; }
 }
 
 .pdm-shell thead {
@@ -1936,14 +1936,19 @@ body.pdm-shell {
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.05em;
-  padding: 11px 14px;
+  padding: 10px 8px;
   white-space: nowrap;
 }
 
 .pdm-shell td {
   color: #191c1e;
-  padding: 10px 14px;
+  padding: 10px 8px;
   vertical-align: top;
+}
+
+.pdm-shell .bom-table th,
+.pdm-shell .bom-table td {
+  width: auto;
 }
 
 .pdm-shell tbody tr:nth-child(even) td {
