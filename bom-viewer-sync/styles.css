@@ -1175,11 +1175,13 @@ mark {
   min-width: 74px;
 }
 
-.model3d-cell .drawing-tools {
+.model3d-cell .drawing-tools,
+.drawing-cell .drawing-tools {
   justify-content: center;
 }
 
-.model3d-cell .drawing-note {
+.model3d-cell .drawing-note,
+.drawing-cell .drawing-note {
   display: none;
 }
 
