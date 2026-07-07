@@ -1463,8 +1463,8 @@
         }
         if (action) this.runAction(action.dataset.action);
         if (sort) this.sortBy(sort.dataset.sort);
-        if (drawing) this.openDrawing(Number(drawing.dataset.drawingRow));
-        if (model3d) this.openModel3d(Number(model3d.dataset.model3dRow));
+        if (drawing) { console.log('[DEBUG] drawing found:', drawing.dataset.drawingRow); this.openDrawing(Number(drawing.dataset.drawingRow)); return; }
+        if (model3d) { console.log('[DEBUG] model3d found:', model3d.dataset.model3dRow); this.openModel3d(Number(model3d.dataset.model3dRow)); return; }
         const drawingMat = event.target.closest('[data-drawing-material]');
         if (drawingMat) {
           this.openMaterialDrawing(drawingMat.dataset.drawingMaterial);
