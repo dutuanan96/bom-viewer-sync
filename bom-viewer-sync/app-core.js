@@ -31,6 +31,7 @@
       discard: '放弃更改',
       copy: '复制',
       exportCSV: '导出 CSV',
+      exportExcel: '导出 Excel',
       readOnly: 'Viewer 只读',
       token: 'GitHub token',
       loaded: '已加载 GitHub 数据',
@@ -169,6 +170,7 @@
       discard: 'Bỏ thay đổi',
       copy: 'Copy',
       exportCSV: 'Xuất CSV',
+      exportExcel: 'Xuất Excel',
       readOnly: 'Viewer chỉ được xem',
       token: 'GitHub token',
       loaded: 'Đã tải dữ liệu GitHub',
@@ -1554,6 +1556,7 @@
       if (action === 'delete-material-master' && this.isAdmin()) this.deleteSelectedMaterialMaster();
       if (action === 'copy') this.copyTable();
       if (action === 'export') this.exportCSV();
+      if (action === 'exportExcel') this.exportExcel();
     }
 
     addChildMaterialFromPrompt() {
@@ -2063,7 +2066,7 @@
     materialDbToolbar(records) {
       const actions = this.isAdmin()
         ? this.materialDbActionsHtml()
-        : `<span class="read-only-note">${escapeHTML(this.label('readOnly'))}</span>`;
+        : `<button class="btn btn-primary" type="button" data-action="exportExcel">${escapeHTML(this.label('exportExcel'))}</button>`;
       return `<div class="count"><strong>${records.length}</strong> ${escapeHTML(this.label('materials'))}</div>
         <div class="table-actions">${actions}</div>`;
     }
@@ -2073,7 +2076,8 @@
         <button class="btn" type="button" data-action="discard">${escapeHTML(this.label('discard'))}</button>
         <button class="btn" type="button" data-action="reload">${escapeHTML(this.label('reload'))}</button>
         <button class="btn" type="button" data-action="bom-view">BOM</button>
-        <button class="btn" type="button" data-action="add-db-material">${escapeHTML(this.label('addMaterial'))}</button>`;
+        <button class="btn" type="button" data-action="add-db-material">${escapeHTML(this.label('addMaterial'))}</button>
+        <button class="btn btn-primary" type="button" data-action="exportExcel">${escapeHTML(this.label('exportExcel'))}</button>`;
     }
 
     filteredMaterialRecords() {
@@ -2596,8 +2600,11 @@
     }
 
     genericToolbar(count, label) {
+      const actions = this.isAdmin()
+        ? this.adminActionsHtml()
+        : `<button class="btn btn-primary" type="button" data-action="exportExcel">${escapeHTML(this.label('exportExcel'))}</button>`;
       return `<div class="count"><strong>${count}</strong> ${escapeHTML(label)}</div>
-        <div class="table-actions">${this.isAdmin() ? this.adminActionsHtml() : `<span class="read-only-note">${escapeHTML(this.label('readOnly'))}</span>`}</div>`;
+        <div class="table-actions">${actions}</div>`;
     }
 
     renderInspector() {
@@ -3016,7 +3023,8 @@
       return `<div class="table-title"><span class="material-symbols-outlined">view_list</span><strong>${escapeHTML(this.label('billOfMaterials'))}</strong><span class="count">${rows.length} ${escapeHTML(this.label('materials'))}</span></div>
         <div class="table-actions">${adminActions}
         <button class="btn" type="button" data-action="copy">${escapeHTML(this.label('copy'))}</button>
-        <button class="btn btn-primary" type="button" data-action="export">${escapeHTML(this.label('exportCSV'))}</button></div>`;
+        <button class="btn btn-primary" type="button" data-action="export">${escapeHTML(this.label('exportCSV'))}</button>
+        <button class="btn btn-primary" type="button" data-action="exportExcel">${escapeHTML(this.label('exportExcel'))}</button></div>`;
     }
 
     adminActionsHtml() {
@@ -3960,13 +3968,14 @@
     }
 
     rowsForExport() {
-      const rows = [this.label('headers')];
-      this.filteredRows().forEach((material) => {
-        rows.push([rows.length, material.mat_code || '', material.comp_code || '', materialText(material, 'name', this.state.lang),
+      const rows = [['层级', '物料编码', '部件编号', '物料名称', '规格型号', '材质', '颜色', '属性', '数量']];
+      // Use buildBomTreeRows directly to avoid filteredRows duplication bug
+      const treeRows = buildBomTreeRows(this.state.payload, this.state.currentSku, this.state.currentColor);
+      treeRows.forEach((material) => {
+        rows.push([material._level || 1, material.mat_code || '', material.comp_code || '', materialText(material, 'name', this.state.lang),
         materialText(material, 'spec', this.state.lang), materialText(material, 'material', this.state.lang),
         materialText(material, 'color', this.state.lang), materialText(material, 'attr', this.state.lang),
-        material.qty || '', this.drawingsFor(material).map((drawing) => drawing.name).join(' | '),
-        this.models3dFor(material).map((model) => model.name).join(' | ')]);
+        material.qty || '']);
       });
       return rows;
     }
@@ -3986,6 +3995,41 @@
       link.download = `BOM_${this.state.currentSku}_${this.state.currentColor}_${this.state.lang}.csv`;
       link.click();
       URL.revokeObjectURL(url);
+    }
+
+    exportExcel() {
+      if (!global.XLSX) { this.setStatus('SheetJS not loaded', 'error'); return; }
+      let rows, filename;
+      if (this.state.adminView === 'materials') {
+        const records = this.filteredMaterialRecords();
+        const lang = this.state.lang;
+        const loc = (pair) => lang === 'vi' ? (pair?.vi || pair?.zh || '') : (pair?.zh || pair?.vi || '');
+        rows = [['物料编码', '物料名称', '规格型号', '材质', '颜色', '使用于']];
+        records.forEach((r) => {
+          const whereUsed = materialWhereUsed(this.state.payload, r.id);
+          const usedProducts = [...new Set(whereUsed.productEntries.map((e) => e.productCode))].sort();
+          rows.push([
+            r.code || '', loc(r.name), loc(r.spec), loc(r.material), loc(r.color),
+            usedProducts.join(', ')
+          ]);
+        });
+        filename = `MaterialDB_${this.state.lang}_${this.state.searchQuery || 'all'}.xlsx`;
+      } else {
+        rows = this.rowsForExport();
+        filename = `BOM_${this.state.currentSku}_${this.state.currentColor}_${this.state.lang}.xlsx`;
+      }
+      const ws = XLSX.utils.aoa_to_sheet(rows);
+      // Auto-width columns
+      const colWidths = rows[0].map((_, c) => {
+        let max = 10;
+        rows.forEach((row) => { const len = String(row[c] || '').length; if (len > max) max = len; });
+        return Math.min(max + 2, 40);
+      });
+      ws['!cols'] = colWidths.map((w) => ({ wch: w }));
+      const wb = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Materials');
+      XLSX.writeFile(wb, filename);
+      this.setStatus(this.label('exportExcel') + ' ✓', 'saved');
     }
 
     escapeCSV(value) {
