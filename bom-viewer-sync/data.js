@@ -81690,20 +81690,6 @@ window.BOM_VIEWER_DATA = {
         "order": 30
       },
       {
-        "id": "bom_sxi7nr",
-        "parentType": "product",
-        "parentId": "LGS033",
-        "productCode": "LGS033",
-        "color": "白色",
-        "materialId": "mat_vizwaa",
-        "stt": "0",
-        "comp_code": "无",
-        "qty": "1",
-        "color_ver": "白色",
-        "color_ver_vi": "màu trắng",
-        "order": 0
-      },
-      {
         "id": "bom_7leztl",
         "parentType": "product",
         "parentId": "LGS033",
@@ -86714,20 +86700,6 @@ window.BOM_VIEWER_DATA = {
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 43
-      },
-      {
-        "id": "bom_gt9a9l",
-        "parentType": "product",
-        "parentId": "LGS131",
-        "productCode": "LGS131",
-        "color": "白色",
-        "materialId": "mat_1ns752w",
-        "stt": "0",
-        "comp_code": "无",
-        "qty": "1",
-        "color_ver": "白色",
-        "color_ver_vi": "màu trắng",
-        "order": 0
       },
       {
         "id": "bom_gy97ae",
@@ -96206,20 +96178,6 @@ window.BOM_VIEWER_DATA = {
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 44
-      },
-      {
-        "id": "bom_dhbugb",
-        "parentType": "product",
-        "parentId": "LGS420",
-        "productCode": "LGS420",
-        "color": "白色",
-        "materialId": "mat_1rk0cpy",
-        "stt": "0",
-        "comp_code": "无",
-        "qty": "1",
-        "color_ver": "白色",
-        "color_ver_vi": "màu trắng",
-        "order": 0
       },
       {
         "id": "bom_1uapwur",
