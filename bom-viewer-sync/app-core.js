@@ -3969,9 +3969,7 @@
 
     rowsForExport() {
       const rows = [['层级', '物料编码', '部件编号', '物料名称', '规格型号', '材质', '颜色', '属性', '数量']];
-      // Use buildBomTreeRows directly to avoid filteredRows duplication bug
-      const treeRows = buildBomTreeRows(this.state.payload, this.state.currentSku, this.state.currentColor);
-      treeRows.forEach((material) => {
+      this.filteredRows().forEach((material) => {
         rows.push([material._level || 1, material.mat_code || '', material.comp_code || '', materialText(material, 'name', this.state.lang),
         materialText(material, 'spec', this.state.lang), materialText(material, 'material', this.state.lang),
         materialText(material, 'color', this.state.lang), materialText(material, 'attr', this.state.lang),
