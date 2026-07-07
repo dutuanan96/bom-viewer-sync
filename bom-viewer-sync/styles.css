@@ -612,6 +612,17 @@ body {
   color: var(--blue);
 }
 
+.btn.danger {
+  border-color: rgba(180, 35, 24, 0.35);
+  color: #b42318;
+}
+
+.btn.danger:hover {
+  background: #fff5f2;
+  border-color: #b42318;
+  color: #b42318;
+}
+
 .btn-primary {
   background: var(--blue);
   border-color: var(--blue);
@@ -757,6 +768,7 @@ tr:last-child td {
   border-radius: 12px;
   font-size: 11px;
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .attr-part {
@@ -821,6 +833,7 @@ tr:last-child td {
   font-weight: 500;
   cursor: pointer;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .drawing-btn:hover {
@@ -903,11 +916,32 @@ tr:last-child td {
   flex-shrink: 0;
 }
 
-.pdf-frame {
-  width: 100%;
+.pdf-frame-wrapper {
+  position: relative;
   flex: 1;
+  width: 100%;
+  overflow: hidden;
+  background: var(--parchment);
+}
+
+.pdf-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   border: 0;
   background: var(--parchment);
+}
+
+.pdf-popout-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 60px;
+  background-color: #202124;
+  z-index: 10;
 }
 
 /* Empty State */
@@ -1203,20 +1237,380 @@ mark {
   max-width: min(1180px, calc(100vw - 48px));
 }
 
-.material-db-view table,
+.material-db-view table {
+  width: 100%;
+}
+
+.structure-view table {
+  table-layout: fixed;
+  width: 100%;
+  min-width: 960px;
+}
+
+.structure-view td,
+.structure-view td>div {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.assets-view table {
+  table-layout: auto;
+  width: 100%;
+}
+
+/* ── Structure View (父子项结构) parent list ── */
+
+.structure-view .str-col-code {
+  width: 130px;
+}
+
+.structure-view th:nth-child(2),
+.structure-view td:nth-child(2) {
+  width: 80px;
+}
+
+/* Component Code */
+.structure-view th:nth-child(3),
+.structure-view td:nth-child(3) {
+  width: auto;
+}
+
+/* Name */
+.structure-view th:nth-child(4),
+.structure-view td:nth-child(4) {
+  width: auto;
+}
+
+/* Size */
+.structure-view th:nth-child(5),
+.structure-view td:nth-child(5) {
+  width: 80px;
+}
+
+/* Material */
+.structure-view th:nth-child(6),
+.structure-view td:nth-child(6) {
+  width: 70px;
+}
+
+/* Color */
+.structure-view th:nth-child(7),
+.structure-view td:nth-child(7) {
+  width: 70px;
+}
+
+/* Attr */
+.structure-view .str-col-num {
+  width: 50px;
+  text-align: center;
+}
+
+.structure-view .str-col-used {
+  width: 100px;
+}
+
+.structure-view .str-col-action {
+  width: 70px;
+  text-align: center;
+}
+
+.structure-view .str-col-drill {
+  width: 70px;
+  text-align: center;
+}
+
+.str-parent-row:hover td {
+  background: rgba(0, 82, 204, 0.06);
+}
+
+.str-parent-code {
+  color: var(--blue);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.str-parent-name {
+  font-weight: 500;
+}
+
+.str-drill-icon {
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* ── Structure Detail View (子项物料 drill-down) ── */
+.structure-detail-view table,
 .structure-view table,
 .assets-view table {
   table-layout: auto;
+  width: 100%;
 }
 
+.structure-detail-view .str-col-used {
+  min-width: 160px;
+}
+
+.str-detail-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.str-detail-header h1 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.str-detail-parent-name {
+  font-weight: 400;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.str-back-btn {
+  align-self: flex-start;
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 16px;
+  margin-bottom: 4px;
+}
+
+.str-back-btn:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+  background: rgba(0, 102, 204, 0.06);
+}
+
+/* ── Material Database column widths ── */
 .material-db-view table {
-  min-width: 1500px;
+  width: 100%;
+}
+
+.material-db-view td,
+.material-db-view td>div {
+  white-space: normal;
+  word-break: break-word;
+}
+
+.material-db-view .mdb-col-code {
+  width: 130px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.material-db-view .mdb-col-name {
+  width: auto;
+}
+
+.material-db-view .mdb-col-spec {
+  width: auto;
+}
+
+.material-db-view .mdb-col-mat {
+  width: 140px;
+}
+
+.material-db-view .mdb-col-color {
+  width: 90px;
+}
+
+.material-db-view .mdb-col-attr {
+  width: 80px;
+}
+
+.material-db-view .mdb-col-num {
+  width: 60px;
+  text-align: center;
+}
+
+.material-db-view .mdb-col-used {
+  width: 110px;
+}
+
+.material-db-view .mdb-col-action {
+  width: 70px;
+  text-align: center;
+}
+
+.material-db-view [data-edit-db-material] {
+  min-width: 44px;
+  white-space: nowrap;
+}
+
+.material-db-view td.mdb-center {
+  text-align: center;
+}
+
+/* PDM Filter Bar Styles */
+.pdm-module-filter-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 12px 24px;
+  background: var(--card, #fff);
+  border: 1px solid var(--border);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.pdm-shell .pdm-module-filter-bar+.table-container {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top: 0;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-label {
+  font-size: 13px;
+  font-weight: bold;
+  color: var(--ink, #191c1e);
+  text-transform: uppercase;
+}
+
+.filter-chips {
+  display: flex;
+  gap: 4px;
+}
+
+.db-filter-chip {
+  background: var(--bg-hover, #f3f4f6);
+  border: 1px solid transparent;
+  color: var(--text-color, #191c1e);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.db-filter-chip:hover {
+  background: #e2e4e9;
+}
+
+.db-filter-chip.active {
+  background: var(--blue, #0052cc);
+  color: #fff;
+}
+
+.db-filter-select {
+  padding: 4px 8px;
+  border: 1px solid var(--border, #c3c6d6);
+  border-radius: 4px;
+  font-size: 12px;
+  color: var(--text-color, #191c1e);
+  background: #fff;
+  cursor: pointer;
+}
+
+.clear-filters-btn {
+  margin-left: auto;
+  gap: 4px;
+  padding: 4px 12px;
+}
+
+.clear-filters-btn .material-symbols-outlined {
+  font-size: 16px;
+}
+
+.material-db-view td.mdb-col-code {
+  font-family: 'SF Mono', 'Menlo', Consolas, monospace;
+  font-size: 11.5px;
+  letter-spacing: -0.2px;
+  white-space: nowrap;
+}
+
+/* SPU pill list – compact inline tags */
+.spu-pill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px 4px;
+}
+
+.level-cell {
+  background: transparent;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.level-cell-2 {
+  background: transparent;
+  color: var(--muted);
+  padding: 2px 6px;
+  padding-left: var(--bom-level-indent, 16px);
+  border-radius: 4px;
+  font-size: 11px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.level-toggle {
+  cursor: pointer;
+  background: rgba(0, 102, 204, 0.1);
+  color: var(--blue);
+}
+
+.level-expand-icon {
+  font-size: 10px;
+  transition: transform 0.15s;
+}
+
+.spu-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 10.5px;
+  font-weight: 600;
+  font-family: 'SF Mono', 'Menlo', Consolas, monospace;
+  background: rgba(0, 102, 204, 0.08);
+  color: var(--blue);
+  white-space: nowrap;
+  line-height: 1.5;
+}
+
+.spu-pill-delete {
+  background: none;
+  border: none;
+  color: #dc2626;
+  font-size: 11px;
+  cursor: pointer;
+  padding: 0 0 0 6px;
+  margin-left: 6px;
+  border-left: 1px solid rgba(0, 102, 204, 0.2);
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.spu-pill-delete:hover {
+  color: #b91c1c;
+}
+
+.mdb-empty {
+  color: var(--muted);
+  font-size: 11px;
 }
 
 .db-i18n {
   display: grid;
   gap: 6px;
-  min-width: 180px;
+  min-width: 140px;
 }
 
 .db-i18n .edit-input {
@@ -1291,14 +1685,22 @@ body.pdm-shell {
 
 .sidebar-logo {
   align-items: center;
-  background: #003d9b;
-  color: #fff;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
   display: flex;
-  font-size: 14px;
-  font-weight: 800;
-  height: 38px;
+  height: 46px;
   justify-content: center;
-  width: 38px;
+  overflow: hidden;
+  padding: 0;
+  width: 46px;
+}
+
+.sidebar-logo img {
+  display: block;
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
 }
 
 .sidebar-brand-title {
@@ -1407,6 +1809,15 @@ body.pdm-shell {
   color: inherit;
 }
 
+.sidebar-credit {
+  color: rgba(218, 226, 255, 0.56);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin: 14px 14px 0;
+  padding-top: 10px;
+}
+
 .sidebar-footer {
   align-items: center;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -1415,8 +1826,8 @@ body.pdm-shell {
   gap: 12px;
   font-size: 13px;
   font-weight: 600;
-  margin: auto 14px 0;
-  padding-top: 20px;
+  margin: 12px 14px 0;
+  padding-top: 14px;
 }
 
 .app-frame {
@@ -1499,6 +1910,10 @@ body.pdm-shell {
   padding: 8px 24px;
 }
 
+.pdm-shell .sync-panel.viewer {
+  display: none;
+}
+
 .pdm-shell .sync-summary {
   gap: 12px;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1524,6 +1939,10 @@ body.pdm-shell {
   margin: 0;
   max-width: none;
   padding: 24px;
+}
+
+.pdm-shell .sync-panel.viewer+.main {
+  padding-top: 88px;
 }
 
 .pdm-shell .content {
@@ -1568,6 +1987,16 @@ body.pdm-shell {
   color: #191c1e;
   font-size: 18px;
   margin-right: 4px;
+}
+
+.product-name-link {
+  color: var(--blue, #0052cc);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.product-name-link:hover {
+  text-decoration: underline;
 }
 
 /* Catalog table: fixed layout with percentage widths.
@@ -1755,7 +2184,7 @@ body.pdm-shell {
   font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
   font-size: 13px;
   gap: 12px;
-  margin-top: 8px;
+  margin-top: 14px;
 }
 
 .pdm-meta-line .dot {
@@ -1981,69 +2410,57 @@ body.pdm-shell {
 
 .pdm-shell table {
   font-size: 13px;
-  min-width: 1080px;
   table-layout: fixed;
   width: 100%;
 }
 
-/* BOM column widths — justified by actual data length:
-   层级: just "1"          → 42px
-   物料编号: 14-char codes  → 148px
-   编号: "A1"~"Z05" ≤4ch  → 72px
-   说明: product names     → 200px
-   规格型号: tech specs    → 195px
-   材质+色 (stacked)      → 115px
-   属性 badge "零件"       → 78px
-   数量: "12+2" nowrap    → 58px
-   2D图纸 button          → 95px
-   3D button              → 77px
-   total: 1080px (viewer) / 1200px (admin+actions) */
+/* BOM column widths */
 .bom-table .col-level {
-  width: 42px;
-}
-
-.bom-table .col-mat-code {
-  width: 135px;
-}
-
-.bom-table .col-comp-code {
-  width: 72px;
-}
-
-.bom-table .col-description {
-  width: 180px;
-}
-
-.bom-table .col-spec {
-  width: 195px;
-}
-
-.bom-table .col-material {
-  width: 88px;
-}
-
-.bom-table .col-color {
   width: 60px;
 }
 
+.bom-table .col-mat-code {
+  width: 140px;
+}
+
+.bom-table .col-comp-code {
+  width: 80px;
+}
+
+.bom-table .col-description {
+  width: auto;
+}
+
+.bom-table .col-spec {
+  width: auto;
+}
+
+.bom-table .col-material {
+  width: 140px;
+}
+
+.bom-table .col-color {
+  width: 90px;
+}
+
 .bom-table .col-attr {
-  width: 78px;
+  width: 80px;
 }
 
 .bom-table .col-qty {
-  width: 58px;
+  width: 60px;
 }
 
 .bom-table .col-2d {
-  width: 95px;
+  width: 70px;
 }
 
 .bom-table .col-3d {
-  width: 77px;
+  width: 70px;
 }
 
 .bom-table .col-actions {
-  width: 120px;
+  width: 70px;
 }
 
 .pdm-shell thead {
@@ -2067,6 +2484,12 @@ body.pdm-shell {
   padding: 10px 8px;
   vertical-align: middle;
   font-size: 13px;
+}
+
+.bom-table td,
+.bom-table td>div {
+  white-space: normal;
+  word-break: break-word;
 }
 
 /* Stacked material/color cell stays top-aligned */
@@ -2099,10 +2522,7 @@ body.pdm-shell {
   text-align: right;
 }
 
-.level-cell {
-  color: #0052cc;
-  font-weight: 700;
-}
+
 
 .stack-cell {
   display: grid;
@@ -2213,5 +2633,429 @@ body.pdm-shell {
 
   .pdm-shell .nav .search-wrapper {
     width: 100%;
+  }
+}
+
+/* Material Master detail editor */
+.pdm-shell .material-db-view table {
+  table-layout: auto;
+  min-width: 1120px;
+}
+
+.pdm-shell .material-master-view {
+  overflow: visible;
+}
+
+.material-master-body {
+  display: grid;
+  gap: 22px;
+  padding: 22px 24px 26px;
+}
+
+.material-master-section {
+  border-top: 1px solid #d8dbe6;
+  display: grid;
+  gap: 14px;
+  padding-top: 18px;
+}
+
+.material-master-section:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.material-master-section h2 {
+  color: #191c1e;
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.material-master-form {
+  display: grid;
+  gap: 14px 16px;
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+}
+
+.material-master-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.material-master-field span,
+.material-master-relation strong,
+.material-master-asset-list strong {
+  color: #5f6675;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.material-master-field input[readonly] {
+  background: #f5f6f8;
+  color: #5f6675;
+}
+
+.material-master-relations,
+.material-master-assets {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.material-master-relation,
+.material-master-asset-list {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.material-master-relation ul,
+.material-master-asset-list ul {
+  display: grid;
+  gap: 6px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.material-master-relation li,
+.material-master-asset-list li {
+  align-items: baseline;
+  border-bottom: 1px solid #eef0f5;
+  display: grid;
+  gap: 4px;
+  grid-template-columns: minmax(92px, max-content) minmax(0, 1fr);
+  padding: 4px 0 7px;
+}
+
+.material-master-asset-list li {
+  align-items: start;
+  grid-template-columns: 1fr;
+}
+
+.material-master-asset-list li span {
+  color: #5f6675;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 1100px) {
+
+  .material-master-form,
+  .material-master-relations,
+  .material-master-assets {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Level Tags */
+.level-tag {
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.level-tag-1 {
+  background: #d0ebff;
+  color: #1971c2;
+}
+
+.level-tag-2 {
+  background: #f4fce3;
+  color: #5c940d;
+}
+
+.level-tag-3 {
+  background: #fff0f6;
+  color: #a61e4d;
+}
+
+.level-tag-4 {
+  background: #f3f0ff;
+  color: #5f3dc4;
+}
+
+.level-tag-5 {
+  background: #fff4e6;
+  color: #e8590c;
+}
+
+/* Attribute Badges override */
+.pdm-shell .attr-badge.attr-hardware {
+  background: #d6e3ff;
+  color: #374763;
+  border: 1px solid #bacffc;
+}
+
+.pdm-shell .attr-badge.attr-part {
+  background: #e3fafc;
+  color: #1098ad;
+  border: 1px solid #c5f6fa;
+}
+
+.pdm-shell .attr-badge.attr-pack {
+  background: #fff4e6;
+  color: #e8590c;
+  border: 1px solid #ffe8cc;
+}
+
+.pdm-shell .attr-badge.attr-default {
+  background: #f1f3f5;
+  color: #495057;
+  border: 1px solid #dee2e6;
+}
+
+
+.str-parent-row:hover .str-parent-code {
+  text-decoration: underline;
+  color: var(--blue-hover);
+}
+
+.color-dot-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.color-dot {
+  width: 12px !important;
+  height: 12px !important;
+  flex-shrink: 0;
+}
+
+.sidebar-brand-version {
+  font-size: 11px;
+  color: var(--text-muted, #718096);
+  margin-top: 2px;
+}
+
+/* Column Filter Styles */
+.col-filter-btn {
+  background: none;
+  border: none;
+  padding: 2px 4px;
+  cursor: pointer;
+  color: #8c9096;
+  border-radius: 4px;
+  margin-left: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.col-filter-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #212529;
+}
+
+.col-filter-btn.active {
+  color: #0f52ba;
+  background-color: rgba(15, 82, 186, 0.1);
+}
+
+.col-filter-btn .material-symbols-outlined {
+  font-size: 16px;
+}
+
+.column-filter-popup {
+  position: absolute;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  min-width: 160px;
+  max-height: 300px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.col-filter-list {
+  padding: 8px;
+  overflow-y: auto;
+  flex: 1;
+  max-height: 200px;
+}
+
+.col-filter-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #333;
+}
+
+.col-filter-item:hover {
+  background-color: #f1f3f5;
+}
+
+.col-filter-actions {
+  display: flex;
+  gap: 4px;
+  padding: 8px;
+  border-top: 1px solid #eee;
+  background: #fafafa;
+}
+
+.col-filter-actions .btn {
+  flex: 1;
+  padding: 4px 8px;
+  font-size: 12px;
+  height: 28px;
+}
+/* Custom Modal Selector */
+.pdm-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.pdm-modal-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.pdm-modal-content {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  width: 600px;
+  max-width: 90vw;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  transform: translateY(20px);
+  transition: transform 0.2s ease;
+}
+
+.pdm-modal-overlay.open .pdm-modal-content {
+  transform: translateY(0);
+}
+
+.pdm-modal-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pdm-modal-header h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0;
+}
+
+.pdm-modal-close {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 20px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.pdm-modal-body {
+  padding: 16px 20px;
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pdm-modal-search {
+  width: 100%;
+  padding: 10px 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.pdm-modal-search:focus {
+  outline: none;
+  border-color: var(--blue);
+}
+
+.pdm-modal-list {
+  flex: 1;
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pdm-modal-list-item {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: background 0.1s;
+}
+
+.pdm-modal-list-item:last-child {
+  border-bottom: none;
+}
+
+.pdm-modal-list-item:hover {
+  background: var(--parchment);
+}
+
+.pdm-modal-list-item.selected {
+  background: rgba(0, 82, 204, 0.08);
+  border-left: 3px solid var(--blue);
+}
+
+.pdm-modal-list-item-code {
+  font-weight: 600;
+  color: var(--blue);
+  font-size: 14px;
+}
+
+.pdm-modal-list-item-name {
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.pdm-modal-footer {
+  padding: 16px 20px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .pdm-modal-list-item.selected {
+    background: rgba(43, 108, 176, 0.2);
   }
 }

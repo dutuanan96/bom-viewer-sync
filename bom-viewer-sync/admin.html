@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BOM Admin</title>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20">
   <script>
     window.BOM_REPO_CONFIG = {
       owner: 'dutuanan96',
@@ -16,10 +18,13 @@
     };
   </script>
 </head>
+
 <body class="pdm-shell">
   <aside class="sidebar">
     <div class="sidebar-brand">
-      <div class="sidebar-logo"><img src="https://drive.google.com/thumbnail?id=1Yb3OmD0IbFp4sQjybsO8gBxyeVL63CQ9&amp;sz=w160" alt="JinTai logo"></div>
+      <div class="sidebar-logo"><img
+          src="https://drive.google.com/thumbnail?id=1Yb3OmD0IbFp4sQjybsO8gBxyeVL63CQ9&amp;sz=w160" alt="JinTai logo">
+      </div>
       <div>
         <div class="sidebar-brand-title" data-i18n="brandTitle">JinTai Furniture</div>
         <div class="sidebar-brand-subtitle" data-i18n="brandSubtitle">PDM System</div>
@@ -51,8 +56,10 @@
         <span class="material-symbols-outlined nav-icon" aria-hidden="true">help</span>
         <span class="mode-badge" id="modeBadge">Admin</span>
         <div class="nav-stats">
-          <div><span class="stat-val" id="statProducts">0</span> <span class="stat-label" data-i18n="products">Products</span></div>
-          <div><span class="stat-val" id="statMaterials">0</span> <span class="stat-label" data-i18n="materials">Materials</span></div>
+          <div><span class="stat-val" id="statProducts">0</span> <span class="stat-label"
+              data-i18n="products">Products</span></div>
+          <div><span class="stat-val" id="statMaterials">0</span> <span class="stat-label"
+              data-i18n="materials">Materials</span></div>
         </div>
         <div class="lang-toggle">
           <button class="lang-btn active" type="button" data-lang="zh">中</button>
@@ -97,11 +104,10 @@
       <div class="pdf-modal-bar">
         <div>
           <div class="pdf-modal-title" id="pdfModalTitle">2D</div>
-          <div class="pdf-modal-subtitle" id="pdfModalSubtitle"></div>
         </div>
         <div class="pdf-modal-actions">
-          <a class="drawing-btn primary" id="pdfOpenLink" href="#" target="_blank" rel="noopener">Open</a>
-          <button class="pdf-close" type="button" data-close-modal aria-label="Close">×</button>
+          <a class="drawing-btn primary" id="pdfOpenLink" href="#" target="_blank" rel="noopener" download></a>
+          <button class="drawing-btn" id="pdfCloseBtn" type="button" data-close-modal></button>
         </div>
       </div>
       <iframe class="pdf-frame" id="pdfFrame" src="about:blank" title="2D drawing"></iframe>
@@ -109,8 +115,9 @@
   </div>
 
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-  <script src="data.js"></script>
-  <script src="app-core.js"></script>
-  <script src="app-admin.js"></script>
+  <script src="data.js?v=21"></script>
+  <script src="app-core.js?v=22"></script>
+  <script src="app-admin.js?v=20"></script>
 </body>
+
 </html>
