@@ -3471,8 +3471,8 @@ window.BOM_VIEWER_DATA = {
               "spec_vi": "Xem chi tiØt",
               "material_zh": "无",
               "material_vi": "không",
-              "color_zh": "黑色",
-              "color_vi": "màu đen",
+              "color_zh": "白色",
+              "color_vi": "trang",
               "attr_zh": "零件",
               "attr_vi": "linh kiện",
               "color_ver": "白色",
@@ -5855,6 +5855,24 @@ window.BOM_VIEWER_DATA = {
           "color_ver_vi": "màu gỗ cổ",
           "materials": [
             {
+              "stt": "0",
+              "mat_code": "LGS101WJBBH",
+              "comp_code": "无",
+              "name_zh": "LGS101五金包",
+              "name_vi": "LGS101Tui ngu kim",
+              "spec": "详见明细",
+              "spec_vi": "Xem chi tiết",
+              "material_zh": "无",
+              "material_vi": "khong",
+              "color_zh": "黑色",
+              "color_vi": "mau den",
+              "attr_zh": "零件",
+              "attr_vi": "linh kien",
+              "color_ver": "复古色",
+              "color_ver_vi": "复古色",
+              "qty": "1"
+            },
+            {
               "stt": "1.0",
               "mat_code": "LGS101CB101KD",
               "comp_code": "A005",
@@ -6448,6 +6466,24 @@ window.BOM_VIEWER_DATA = {
           "color_ver": "白色",
           "color_ver_vi": "màu trắng",
           "materials": [
+            {
+              "stt": "0",
+              "mat_code": "LGS101WJBWH",
+              "comp_code": "无",
+              "name_zh": "LGS101五金包",
+              "name_vi": "LGS101Tui ngu kim",
+              "spec": "详见明细",
+              "spec_vi": "Xem chi tiết",
+              "material_zh": "无",
+              "material_vi": "khong",
+              "color_zh": "白色",
+              "color_vi": "trang",
+              "attr_zh": "零件",
+              "attr_vi": "linh kien",
+              "color_ver": "白色",
+              "color_ver_vi": "白色",
+              "qty": "1"
+            },
             {
               "stt": "1.0",
               "mat_code": "LGS101CB101WH",
@@ -7043,6 +7079,24 @@ window.BOM_VIEWER_DATA = {
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "materials": [
+            {
+              "stt": "0",
+              "mat_code": "LGS101WJBBH",
+              "comp_code": "无",
+              "name_zh": "LGS101五金包",
+              "name_vi": "LGS101Tui ngu kim",
+              "spec": "详见明细",
+              "spec_vi": "Xem chi tiết",
+              "material_zh": "无",
+              "material_vi": "khong",
+              "color_zh": "黑色",
+              "color_vi": "mau den",
+              "attr_zh": "零件",
+              "attr_vi": "linh kien",
+              "color_ver": "黑色",
+              "color_ver_vi": "黑色",
+              "qty": "1"
+            },
             {
               "stt": "1.0",
               "mat_code": "LGS101CB101BH",
@@ -7650,6 +7704,24 @@ window.BOM_VIEWER_DATA = {
           "color_ver_vi": "màu gỗ cổ",
           "materials": [
             {
+              "stt": "0",
+              "mat_code": "LGS111WJBBH",
+              "comp_code": "无",
+              "name_zh": "LGS111五金包",
+              "name_vi": "LGS111Tui ngu kim",
+              "spec": "详见明细",
+              "spec_vi": "Xem chi tiết",
+              "material_zh": "无",
+              "material_vi": "khong",
+              "color_zh": "黑色",
+              "color_vi": "mau den",
+              "attr_zh": "零件",
+              "attr_vi": "linh kien",
+              "color_ver": "复古色",
+              "color_ver_vi": "复古色",
+              "qty": "1"
+            },
+            {
               "stt": "1.0",
               "mat_code": "LGS101CB101KD",
               "comp_code": "A005",
@@ -8207,6 +8279,24 @@ window.BOM_VIEWER_DATA = {
           "color_ver": "白色",
           "color_ver_vi": "màu trắng",
           "materials": [
+            {
+              "stt": "0",
+              "mat_code": "LGS111WJBWH",
+              "comp_code": "无",
+              "name_zh": "LGS111五金包",
+              "name_vi": "LGS111Tui ngu kim",
+              "spec": "详见明细",
+              "spec_vi": "Xem chi tiết",
+              "material_zh": "无",
+              "material_vi": "khong",
+              "color_zh": "白色",
+              "color_vi": "trang",
+              "attr_zh": "零件",
+              "attr_vi": "linh kien",
+              "color_ver": "白色",
+              "color_ver_vi": "白色",
+              "qty": "1"
+            },
             {
               "stt": "1.0",
               "mat_code": "LGS101CB101WH",
@@ -8766,6 +8856,24 @@ window.BOM_VIEWER_DATA = {
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "materials": [
+            {
+              "stt": "0",
+              "mat_code": "LGS111WJBBH",
+              "comp_code": "无",
+              "name_zh": "LGS111五金包",
+              "name_vi": "LGS111Tui ngu kim",
+              "spec": "详见明细",
+              "spec_vi": "Xem chi tiết",
+              "material_zh": "无",
+              "material_vi": "khong",
+              "color_zh": "黑色",
+              "color_vi": "mau den",
+              "attr_zh": "零件",
+              "attr_vi": "linh kien",
+              "color_ver": "黑色",
+              "color_ver_vi": "黑色",
+              "qty": "1"
+            },
             {
               "stt": "1.0",
               "mat_code": "LGS101CB101BH",
@@ -10156,8 +10264,8 @@ window.BOM_VIEWER_DATA = {
               "spec_vi": "Xem chi tiết",
               "material_zh": "无",
               "material_vi": "không",
-              "color_zh": "黑色",
-              "color_vi": "màu đen",
+              "color_zh": "白色",
+              "color_vi": "trang",
               "attr_zh": "零件",
               "attr_vi": "linh kiện",
               "color_ver": "白色",
@@ -22740,8 +22848,8 @@ window.BOM_VIEWER_DATA = {
               "spec_vi": "Xem chi tiết",
               "material_zh": "无",
               "material_vi": "không",
-              "color_zh": "黑色",
-              "color_vi": "màu đen",
+              "color_zh": "白色",
+              "color_vi": "trang",
               "attr_zh": "零件",
               "attr_vi": "linh kiện",
               "color_ver": "白色",
@@ -110346,13 +110454,13 @@ window.BOM_VIEWER_DATA = {
         "productCode": "LGS101",
         "color": "复古色",
         "materialId": "mat_1pz6zfm",
-        "stt": "",
+        "stt": "0",
         "comp_code": "无",
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 21.9,
-        "virtual": true
+        "order": -0.1,
+        "virtual": false
       },
       {
         "id": "bomc_1tpjk9g",
@@ -110511,13 +110619,13 @@ window.BOM_VIEWER_DATA = {
         "productCode": "LGS101",
         "color": "白色",
         "materialId": "mat_1pz6zfm",
-        "stt": "",
+        "stt": "0",
         "comp_code": "无",
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 21.9,
-        "virtual": true
+        "order": -0.1,
+        "virtual": false
       },
       {
         "id": "bomc_ypfo40",
@@ -110676,13 +110784,13 @@ window.BOM_VIEWER_DATA = {
         "productCode": "LGS101",
         "color": "黑色",
         "materialId": "mat_1pz6zfm",
-        "stt": "",
+        "stt": "0",
         "comp_code": "无",
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 21.9,
-        "virtual": true
+        "order": -0.1,
+        "virtual": false
       },
       {
         "id": "bomc_11ispr8",
@@ -110841,13 +110949,13 @@ window.BOM_VIEWER_DATA = {
         "productCode": "LGS111",
         "color": "复古色",
         "materialId": "mat_1migwq8",
-        "stt": "",
+        "stt": "0",
         "comp_code": "无",
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 19.9,
-        "virtual": true
+        "order": -0.1,
+        "virtual": false
       },
       {
         "id": "bomc_1g79drn",
@@ -111006,13 +111114,13 @@ window.BOM_VIEWER_DATA = {
         "productCode": "LGS111",
         "color": "白色",
         "materialId": "mat_1migwq8",
-        "stt": "",
+        "stt": "0",
         "comp_code": "无",
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 19.9,
-        "virtual": true
+        "order": -0.1,
+        "virtual": false
       },
       {
         "id": "bomc_5mi5r5",
@@ -111171,13 +111279,13 @@ window.BOM_VIEWER_DATA = {
         "productCode": "LGS111",
         "color": "黑色",
         "materialId": "mat_1migwq8",
-        "stt": "",
+        "stt": "0",
         "comp_code": "无",
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 19.9,
-        "virtual": true
+        "order": -0.1,
+        "virtual": false
       },
       {
         "id": "bomc_c8gf9",
@@ -117867,7 +117975,7 @@ window.BOM_VIEWER_DATA = {
         "color_ver": "白色",
         "color_ver_vi": "白色",
         "order": -0.1,
-        "virtual": true
+        "virtual": false
       },
       {
         "id": "bomc_wjbwh_LGS101_白色_0",
@@ -118152,7 +118260,7 @@ window.BOM_VIEWER_DATA = {
         "color_ver": "白色",
         "color_ver_vi": "白色",
         "order": -0.1,
-        "virtual": true
+        "virtual": false
       },
       {
         "id": "bomc_wjbwh_LGS111_白色_0",

@@ -723,13 +723,21 @@
     return createMaterialDatabase(payload);
   }
 
+  function isRenderableProductEntry(source, entry, productCode, colorName) {
+    if (!entry || entry.parentType !== 'product') return false;
+    if (entry.productCode !== productCode || entry.color !== colorName) return false;
+    if (!entry.virtual) return true;
+    const record = source?.materialDb?.materials?.[entry.materialId];
+    return isHardwarePackSummary(record);
+  }
+
   function resolveBomRows(payload, productCode, colorName) {
     const source = payload || {};
     if (!source.materialDb?.materials || !source.materialDb?.bomEntries) {
       return (((source.bom || {})[productCode] || {}).color_info || {})[colorName]?.materials || [];
     }
     return source.materialDb.bomEntries
-      .filter((entry) => entry.parentType === 'product' && !entry.virtual && entry.productCode === productCode && entry.color === colorName)
+      .filter((entry) => isRenderableProductEntry(source, entry, productCode, colorName))
       .sort((left, right) => (left.order ?? 0) - (right.order ?? 0))
       .map((entry) => {
         const record = source.materialDb.materials[entry.materialId];
@@ -770,7 +778,7 @@
     const flatRows = resolveBomRows(payload, productCode, colorName);
     if (!source.materialDb?.materials || !source.materialDb?.bomEntries) return flatRows.map((r) => ({ ...r, _level: 1 }));
     const productEntries = source.materialDb.bomEntries
-      .filter((entry) => entry.parentType === 'product' && !entry.virtual && entry.productCode === productCode && entry.color === colorName)
+      .filter((entry) => isRenderableProductEntry(source, entry, productCode, colorName))
       .sort((left, right) => (left.order ?? 0) - (right.order ?? 0));
     const coveredEntryIds = new Set(productEntries
       .filter((entry) => productEntryCoveredByParent(source, entry, productEntries, productCode, colorName))
@@ -1080,7 +1088,7 @@
     Object.entries(payload.bom || {}).forEach(([productCode, product]) => {
       Object.entries(product.color_info || {}).forEach(([colorName, colorData]) => {
         const topEntries = payload.materialDb.bomEntries
-          .filter((entry) => entry.parentType === 'product' && !entry.virtual && entry.productCode === productCode && entry.color === colorName)
+          .filter((entry) => isRenderableProductEntry(payload, entry, productCode, colorName))
           .sort((left, right) => (left.order ?? 0) - (right.order ?? 0));
 
         colorData.materials = topEntries.map(entry => buildNode(entry, productCode, colorName)).filter(Boolean);
