@@ -54036,10 +54036,10 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_47zmys": {
         "id": "mat_47zmys",
-        "code": "DD1050",
+        "code": "DD1050R1",
         "name": {
-          "zh": "1050-灯带",
-          "vi": "1050-đèn LED"
+          "zh": "自粘灯带固定卡扣",
+          "vi": "Đồ gài cố định đèn led"
         },
         "spec": {
           "zh": "DC12V，SMD5050，1050mm",
@@ -55707,10 +55707,10 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_r787pi": {
         "id": "mat_r787pi",
-        "code": "DD0310",
+        "code": "DD0310R1",
         "name": {
-          "zh": "310-灯带",
-          "vi": "310-đèn LED"
+          "zh": "自粘灯带固定卡扣",
+          "vi": "Đồ gài cố định đèn led"
         },
         "spec": {
           "zh": "DC12V，SMD5050，310mm",
@@ -57701,10 +57701,10 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_13imrat": {
         "id": "mat_13imrat",
-        "code": "DD0900",
+        "code": "DD0900R1",
         "name": {
-          "zh": "900-灯带",
-          "vi": "900-đèn LED"
+          "zh": "自粘灯带固定卡扣",
+          "vi": "Đồ gài cố định đèn led"
         },
         "spec": {
           "zh": "DC12V，SMD5050，900mm",
@@ -60508,10 +60508,10 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_az72aa": {
         "id": "mat_az72aa",
-        "code": "DD1500",
+        "code": "DD1500R1",
         "name": {
-          "zh": "1500-灯带",
-          "vi": "1500-đèn LED"
+          "zh": "自粘灯带固定卡扣",
+          "vi": "Đồ gài cố định đèn led"
         },
         "spec": {
           "zh": "DC12V，SMD5050，1500mm",
@@ -62250,10 +62250,10 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_17un1su": {
         "id": "mat_17un1su",
-        "code": "DD0400",
+        "code": "DD0400R1",
         "name": {
-          "zh": "400-灯带",
-          "vi": "400-đèn LED"
+          "zh": "自粘灯带固定卡扣",
+          "vi": "Đồ gài cố định đèn led"
         },
         "spec": {
           "zh": "DC12V，SMD5050，400mm",
@@ -63838,10 +63838,10 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_1oeda3c": {
         "id": "mat_1oeda3c",
-        "code": "DD1700",
+        "code": "DD1700R1",
         "name": {
-          "zh": "1700-灯带",
-          "vi": "1700-đèn LED"
+          "zh": "自粘灯带固定卡扣",
+          "vi": "Đồ gài cố định đèn led"
         },
         "spec": {
           "zh": "DC12V，SMD5050，1700mm",
@@ -64718,10 +64718,10 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_1abho09": {
         "id": "mat_1abho09",
-        "code": "DD0500",
+        "code": "DD0500R1",
         "name": {
-          "zh": "500-灯带",
-          "vi": "500-đèn LED"
+          "zh": "自粘灯带固定卡扣",
+          "vi": "Đồ gài cố định đèn led"
         },
         "spec": {
           "zh": "DC12V，SMD5050，500mm",
@@ -71948,10 +71948,10 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_2gfja6": {
         "id": "mat_2gfja6",
-        "code": "DD0500",
+        "code": "DD0500R1",
         "name": {
-          "zh": "500-灯带",
-          "vi": "500-đèn LED"
+          "zh": "自粘灯带固定卡扣",
+          "vi": "Đồ gài cố định đèn led"
         },
         "spec": {
           "zh": "DC12V，SMD5050，500mm",
@@ -72587,10 +72587,10 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_1j506i6": {
         "id": "mat_1j506i6",
-        "code": "DD0650",
+        "code": "DD0650R1",
         "name": {
-          "zh": "650-灯带",
-          "vi": "650-đèn LED"
+          "zh": "自粘灯带固定卡扣",
+          "vi": "Đồ gài cố định đèn led"
         },
         "spec": {
           "zh": "DC12V, SMD5050, 650mm",
@@ -73847,10 +73847,10 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_1pofdix": {
         "id": "mat_1pofdix",
-        "code": "DD0650",
+        "code": "DD0650R1",
         "name": {
-          "zh": "650-灯带",
-          "vi": "650-đèn LED"
+          "zh": "自粘灯带固定卡扣",
+          "vi": "Đồ gài cố định đèn led"
         },
         "spec": {
           "zh": "DC12V, SMD5050, 650mm",
@@ -75340,10 +75340,10 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_1g4ooru": {
         "id": "mat_1g4ooru",
-        "code": "DD0900",
+        "code": "DD0900R1",
         "name": {
-          "zh": "900-灯带",
-          "vi": "900-đèn LED"
+          "zh": "自粘灯带固定卡扣",
+          "vi": "Đồ gài cố định đèn led"
         },
         "spec": {
           "zh": "DC12V，SMD5050，900mm",
@@ -76607,10 +76607,10 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_e3jxxz": {
         "id": "mat_e3jxxz",
-        "code": "DD1050",
+        "code": "DD1050R1",
         "name": {
-          "zh": "1050-灯带",
-          "vi": "1050-đèn LED"
+          "zh": "自粘灯带固定卡扣",
+          "vi": "Đồ gài cố định đèn led"
         },
         "spec": {
           "zh": "DC12V，SMD5050，1050mm",
@@ -77864,10 +77864,10 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_ijhbi8": {
         "id": "mat_ijhbi8",
-        "code": "DD1350",
+        "code": "DD1350R1",
         "name": {
-          "zh": "1350-灯带",
-          "vi": "1350-đèn LED"
+          "zh": "自粘灯带固定卡扣",
+          "vi": "Đồ gài cố định đèn led"
         },
         "spec": {
           "zh": "DC12V, SMD5050, 1350mm",
@@ -78538,10 +78538,10 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_507y0z": {
         "id": "mat_507y0z",
-        "code": "DD1350",
+        "code": "DD1350R1",
         "name": {
-          "zh": "1350-灯带",
-          "vi": "1350-đèn LED"
+          "zh": "自粘灯带固定卡扣",
+          "vi": "Đồ gài cố định đèn led"
         },
         "spec": {
           "zh": "DC12V, SMD5050, 1350mm",
