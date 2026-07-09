@@ -1,7 +1,7 @@
 /* BOM cloud data. Update only through admin.html. */
 window.BOM_VIEWER_DATA = {
   "version": 2,
-  "updatedAt": "2026-07-09T09:42:48.153Z",
+  "updatedAt": "2026-07-09T10:53:22.157Z",
   "bom": {
     "LGS031": {
       "code": "LGS031",
@@ -4536,7 +4536,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "7",
-                  "mat_code": "ZGLS4010CZ",
+                  "mat_code": "ZGLS4010WZ",
                   "comp_code": "",
                   "name_zh": "ST4x10圆头十字自攻螺丝",
                   "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
@@ -5078,7 +5078,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "5",
-              "mat_code": "ZGLS4010CZ",
+              "mat_code": "ZGLS4010WZ",
               "comp_code": "5",
               "name_zh": "ST4x10圆头十字自攻螺丝",
               "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
@@ -8301,7 +8301,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "10",
-                  "mat_code": "ZGLS4010CZ",
+                  "mat_code": "ZGLS4010WZ",
                   "comp_code": "",
                   "name_zh": "ST4x10圆头十字自攻螺丝",
                   "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
@@ -8861,7 +8861,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "",
-              "mat_code": "ZGLS4010CZ",
+              "mat_code": "ZGLS4010WZ",
               "comp_code": "6",
               "name_zh": "ST4x10圆头十字自攻螺丝",
               "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
@@ -9869,7 +9869,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "",
-                  "mat_code": "ZGLS4010CZ",
+                  "mat_code": "ZGLS4010WZ",
                   "comp_code": "6",
                   "name_zh": "ST4x10圆头十字自攻螺丝",
                   "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
@@ -10411,7 +10411,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "",
-              "mat_code": "ZGLS4010CZ",
+              "mat_code": "ZGLS4010WZ",
               "comp_code": "6",
               "name_zh": "ST4x10圆头十字自攻螺丝",
               "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
@@ -10584,7 +10584,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "4",
-                  "mat_code": "ZGLS4010CZ",
+                  "mat_code": "ZGLS4010WZ",
                   "comp_code": "",
                   "name_zh": "ST4x10圆头十字自攻螺丝",
                   "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
@@ -11162,7 +11162,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "",
-              "mat_code": "ZGLS4010CZ",
+              "mat_code": "ZGLS4010WZ",
               "comp_code": "6",
               "name_zh": "ST4x10圆头十字自攻螺丝",
               "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
@@ -11371,7 +11371,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "",
-                  "mat_code": "ZGLS4010CZ",
+                  "mat_code": "ZGLS4010WZ",
                   "comp_code": "6",
                   "name_zh": "ST4x10圆头十字自攻螺丝",
                   "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
@@ -11913,7 +11913,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "",
-              "mat_code": "ZGLS4010CZ",
+              "mat_code": "ZGLS4010WZ",
               "comp_code": "6",
               "name_zh": "ST4x10圆头十字自攻螺丝",
               "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
@@ -13227,7 +13227,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "10",
-                  "mat_code": "ZGLS4010CZ",
+                  "mat_code": "ZGLS4010WZ",
                   "comp_code": "",
                   "name_zh": "ST4x10圆头十字自攻螺丝",
                   "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
@@ -13245,7 +13245,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "11",
-                  "mat_code": "PTZGLS6308BZ",
+                  "mat_code": "PTZGLS6308WZ",
                   "comp_code": "",
                   "name_zh": "ST3.5x12平头十字自攻螺丝",
                   "name_vi": "ST3.5x12 ốc tự cắt đầu bằng chữ thập",
@@ -13931,7 +13931,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "6",
-              "mat_code": "ZGLS4010CZ",
+              "mat_code": "ZGLS4010WZ",
               "comp_code": "6",
               "name_zh": "ST4x10圆头十字自攻螺丝",
               "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
@@ -13949,7 +13949,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "7",
-              "mat_code": "PTZGLS6308BZ",
+              "mat_code": "PTZGLS6308WZ",
               "comp_code": "7",
               "name_zh": "ST3.5x12平头十字自攻螺丝",
               "name_vi": "ST3.5x12 ốc tự cắt đầu bằng chữ thập",
@@ -22488,7 +22488,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "5",
-                  "mat_code": "ZGLS4010CZ",
+                  "mat_code": "ZGLS4010WZ",
                   "comp_code": "5",
                   "name_zh": "ST4x10圆头十字自攻螺丝",
                   "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
@@ -23156,7 +23156,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "5",
-              "mat_code": "ZGLS4010CZ",
+              "mat_code": "ZGLS4010WZ",
               "comp_code": "5",
               "name_zh": "ST4x10圆头十字自攻螺丝",
               "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
@@ -25095,7 +25095,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "5",
-                  "mat_code": "ZGLS4010CZ",
+                  "mat_code": "ZGLS4010WZ",
                   "comp_code": "5",
                   "name_zh": "ST4x10圆头十字自攻螺丝",
                   "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
@@ -25745,7 +25745,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "5",
-              "mat_code": "ZGLS4010CZ",
+              "mat_code": "ZGLS4010WZ",
               "comp_code": "5",
               "name_zh": "ST4x10圆头十字自攻螺丝",
               "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
@@ -28859,7 +28859,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "8",
-                  "mat_code": "GSSNZGLS5040BZ",
+                  "mat_code": "GSSNZGLS5040WZ",
                   "comp_code": "",
                   "name_zh": "ST5x38内六角过山丝",
                   "name_vi": "ST5x38 ốc tự khoan lục giác",
@@ -28867,8 +28867,8 @@ window.BOM_VIEWER_DATA = {
                   "spec_vi": "Ø5x38mm",
                   "material_zh": "#10",
                   "material_vi": "#10",
-                  "color_zh": "白色",
-                  "color_vi": "màu trắng",
+                  "color_zh": "镀锌",
+                  "color_vi": "mạ kẽm",
                   "attr_zh": "五金包",
                   "attr_vi": "túi ngũ kim",
                   "color_ver": "白色",
@@ -28895,7 +28895,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "10",
-                  "mat_code": "ZGLS4010CZ",
+                  "mat_code": "ZGLS4010WZ",
                   "comp_code": "",
                   "name_zh": "ST4x10圆头十字自攻螺丝",
                   "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
@@ -28913,7 +28913,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "11",
-                  "mat_code": "PTZGLS6308BZ",
+                  "mat_code": "PTZGLS6308WZ",
                   "comp_code": "",
                   "name_zh": "ST3.5x12平头十字自攻螺丝",
                   "name_vi": "ST3.5x12 ốc tự cắt đầu bằng chữ thập",
@@ -29617,7 +29617,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "4",
-              "mat_code": "GSSNZGLS5040BZ",
+              "mat_code": "GSSNZGLS5040WZ",
               "comp_code": "4",
               "name_zh": "ST5x38内六角过山丝",
               "name_vi": "ST5x38 ốc tự khoan lục giác",
@@ -29625,8 +29625,8 @@ window.BOM_VIEWER_DATA = {
               "spec_vi": "Ø5x38mm",
               "material_zh": "#10",
               "material_vi": "#10",
-              "color_zh": "白色",
-              "color_vi": "màu trắng",
+              "color_zh": "镀锌",
+              "color_vi": "mạ kẽm",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
               "color_ver": "白色",
@@ -29653,7 +29653,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "6",
-              "mat_code": "ZGLS4010CZ",
+              "mat_code": "ZGLS4010WZ",
               "comp_code": "6",
               "name_zh": "ST4x10圆头十字自攻螺丝",
               "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
@@ -29671,7 +29671,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "7",
-              "mat_code": "PTZGLS6308BZ",
+              "mat_code": "PTZGLS6308WZ",
               "comp_code": "7",
               "name_zh": "ST3.5x12平头十字自攻螺丝",
               "name_vi": "ST3.5x12 ốc tự cắt đầu bằng chữ thập",
@@ -34023,7 +34023,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "5",
-                  "mat_code": "ZGLS4010CZ",
+                  "mat_code": "ZGLS4010WZ",
                   "comp_code": "5",
                   "name_zh": "ST4x10圆头十字自攻螺丝",
                   "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
@@ -34113,7 +34113,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "10",
-                  "mat_code": "PTZGLS6308BZ",
+                  "mat_code": "PTZGLS6308WZ",
                   "comp_code": "9",
                   "name_zh": "ST3.5x12平头十字自攻螺丝",
                   "name_vi": "ST3.5x12 ốc tự cắt đầu bằng chữ thập",
@@ -34817,7 +34817,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "5",
-              "mat_code": "ZGLS4010CZ",
+              "mat_code": "ZGLS4010WZ",
               "comp_code": "5",
               "name_zh": "ST4x10圆头十字自攻螺丝",
               "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
@@ -34907,7 +34907,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "10",
-              "mat_code": "PTZGLS6308BZ",
+              "mat_code": "PTZGLS6308WZ",
               "comp_code": "9",
               "name_zh": "ST3.5x12平头十字自攻螺丝",
               "name_vi": "ST3.5x12 ốc tự cắt đầu bằng chữ thập",
@@ -36040,7 +36040,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "5",
-                  "mat_code": "ZGLS4010CZ",
+                  "mat_code": "ZGLS4010WZ",
                   "comp_code": "5",
                   "name_zh": "ST4x10圆头十字自攻螺丝",
                   "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
@@ -36166,7 +36166,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "12",
-                  "mat_code": "PTZGLS6308BZ",
+                  "mat_code": "PTZGLS6308WZ",
                   "comp_code": "11",
                   "name_zh": "ST3.5x12平头十字自攻螺丝",
                   "name_vi": "ST3.5x12 ốc tự cắt đầu bằng chữ thập",
@@ -37050,7 +37050,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "5",
-              "mat_code": "ZGLS4010CZ",
+              "mat_code": "ZGLS4010WZ",
               "comp_code": "5",
               "name_zh": "ST4x10圆头十字自攻螺丝",
               "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
@@ -37176,7 +37176,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "12",
-              "mat_code": "PTZGLS6308BZ",
+              "mat_code": "PTZGLS6308WZ",
               "comp_code": "11",
               "name_zh": "ST3.5x12平头十字自攻螺丝",
               "name_vi": "ST3.5x12 ốc tự cắt đầu bằng chữ thập",
@@ -39583,7 +39583,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "6",
-                  "mat_code": "ZGLS4010CZ",
+                  "mat_code": "ZGLS4010WZ",
                   "comp_code": "6",
                   "name_zh": "ST4x10圆头十字自攻螺丝",
                   "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
@@ -39655,7 +39655,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "10",
-                  "mat_code": "GSSNZGLS5040BZ",
+                  "mat_code": "GSSNZGLS5040WZ",
                   "comp_code": "9",
                   "name_zh": "ST5x38内六角过山丝",
                   "name_vi": "ST5x38 ốc tự khoan lục giác",
@@ -39663,8 +39663,8 @@ window.BOM_VIEWER_DATA = {
                   "spec_vi": "Ø5x38mm",
                   "material_zh": "#10",
                   "material_vi": "#10",
-                  "color_zh": "白色",
-                  "color_vi": "màu trắng",
+                  "color_zh": "镀锌",
+                  "color_vi": "mạ kẽm",
                   "attr_zh": "五金包",
                   "attr_vi": "túi ngũ kim",
                   "color_ver": "白色",
@@ -39673,7 +39673,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "11",
-                  "mat_code": "PTZGLS6308BZ",
+                  "mat_code": "PTZGLS6308WZ",
                   "comp_code": "10",
                   "name_zh": "ST3.5x12平头十字自攻螺丝",
                   "name_vi": "ST3.5x12 ốc tự cắt đầu bằng chữ thập",
@@ -40359,7 +40359,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "6",
-              "mat_code": "ZGLS4010CZ",
+              "mat_code": "ZGLS4010WZ",
               "comp_code": "6",
               "name_zh": "ST4x10圆头十字自攻螺丝",
               "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
@@ -40431,7 +40431,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "10",
-              "mat_code": "GSSNZGLS5040BZ",
+              "mat_code": "GSSNZGLS5040WZ",
               "comp_code": "9",
               "name_zh": "ST5x38内六角过山丝",
               "name_vi": "ST5x38 ốc tự khoan lục giác",
@@ -40439,8 +40439,8 @@ window.BOM_VIEWER_DATA = {
               "spec_vi": "Ø5x38mm",
               "material_zh": "#10",
               "material_vi": "#10",
-              "color_zh": "白色",
-              "color_vi": "màu trắng",
+              "color_zh": "镀锌",
+              "color_vi": "mạ kẽm",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
               "color_ver": "白色",
@@ -40449,7 +40449,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "11",
-              "mat_code": "PTZGLS6308BZ",
+              "mat_code": "PTZGLS6308WZ",
               "comp_code": "10",
               "name_zh": "ST3.5x12平头十字自攻螺丝",
               "name_vi": "ST3.5x12 ốc tự cắt đầu bằng chữ thập",
@@ -42658,7 +42658,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "6",
-                  "mat_code": "ZGLS4010CZ",
+                  "mat_code": "ZGLS4010WZ",
                   "comp_code": "6",
                   "name_zh": "ST4x10圆头十字自攻螺丝",
                   "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
@@ -42730,7 +42730,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "10",
-                  "mat_code": "GSSNZGLS5040BZ",
+                  "mat_code": "GSSNZGLS5040WZ",
                   "comp_code": "9",
                   "name_zh": "ST5x38内六角过山丝",
                   "name_vi": "ST5x38 ốc tự khoan lục giác",
@@ -42738,8 +42738,8 @@ window.BOM_VIEWER_DATA = {
                   "spec_vi": "Ø5x38mm",
                   "material_zh": "#10",
                   "material_vi": "#10",
-                  "color_zh": "白色",
-                  "color_vi": "màu trắng",
+                  "color_zh": "镀锌",
+                  "color_vi": "mạ kẽm",
                   "attr_zh": "五金包",
                   "attr_vi": "túi ngũ kim",
                   "color_ver": "白色",
@@ -42766,7 +42766,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "12",
-                  "mat_code": "PTZGLS6308BZ",
+                  "mat_code": "PTZGLS6308WZ",
                   "comp_code": "11",
                   "name_zh": "ST3.5x12平头十字自攻螺丝",
                   "name_vi": "ST3.5x12 ốc tự cắt đầu bằng chữ thập",
@@ -43470,7 +43470,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "6",
-              "mat_code": "ZGLS4010CZ",
+              "mat_code": "ZGLS4010WZ",
               "comp_code": "6",
               "name_zh": "ST4x10圆头十字自攻螺丝",
               "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
@@ -43542,7 +43542,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "10",
-              "mat_code": "GSSNZGLS5040BZ",
+              "mat_code": "GSSNZGLS5040WZ",
               "comp_code": "9",
               "name_zh": "ST5x38内六角过山丝",
               "name_vi": "ST5x38 ốc tự khoan lục giác",
@@ -43550,8 +43550,8 @@ window.BOM_VIEWER_DATA = {
               "spec_vi": "Ø5x38mm",
               "material_zh": "#10",
               "material_vi": "#10",
-              "color_zh": "白色",
-              "color_vi": "màu trắng",
+              "color_zh": "镀锌",
+              "color_vi": "mạ kẽm",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
               "color_ver": "白色",
@@ -43578,7 +43578,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "12",
-              "mat_code": "PTZGLS6308BZ",
+              "mat_code": "PTZGLS6308WZ",
               "comp_code": "11",
               "name_zh": "ST3.5x12平头十字自攻螺丝",
               "name_vi": "ST3.5x12 ốc tự cắt đầu bằng chữ thập",
@@ -45769,7 +45769,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "6",
-                  "mat_code": "ZGLS4010CZ",
+                  "mat_code": "ZGLS4010WZ",
                   "comp_code": "6",
                   "name_zh": "ST4x10圆头十字自攻螺丝",
                   "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
@@ -45859,7 +45859,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "11",
-                  "mat_code": "GSSNZGLS5040BZ",
+                  "mat_code": "GSSNZGLS5040WZ",
                   "comp_code": "10",
                   "name_zh": "ST5x38内六角过山丝",
                   "name_vi": "ST5x38 ốc tự khoan lục giác",
@@ -45867,8 +45867,8 @@ window.BOM_VIEWER_DATA = {
                   "spec_vi": "Ø5x38mm",
                   "material_zh": "#10",
                   "material_vi": "#10",
-                  "color_zh": "白色",
-                  "color_vi": "màu trắng",
+                  "color_zh": "镀锌",
+                  "color_vi": "mạ kẽm",
                   "attr_zh": "五金包",
                   "attr_vi": "túi ngũ kim",
                   "color_ver": "白色",
@@ -45877,7 +45877,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "12",
-                  "mat_code": "PTZGLS6308BZ",
+                  "mat_code": "PTZGLS6308WZ",
                   "comp_code": "11",
                   "name_zh": "ST3.5x12平头十字自攻螺丝",
                   "name_vi": "ST3.5x12 ốc tự cắt đầu bằng chữ thập",
@@ -46509,7 +46509,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "6",
-              "mat_code": "ZGLS4010CZ",
+              "mat_code": "ZGLS4010WZ",
               "comp_code": "6",
               "name_zh": "ST4x10圆头十字自攻螺丝",
               "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
@@ -46599,7 +46599,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "11",
-              "mat_code": "GSSNZGLS5040BZ",
+              "mat_code": "GSSNZGLS5040WZ",
               "comp_code": "10",
               "name_zh": "ST5x38内六角过山丝",
               "name_vi": "ST5x38 ốc tự khoan lục giác",
@@ -46607,8 +46607,8 @@ window.BOM_VIEWER_DATA = {
               "spec_vi": "Ø5x38mm",
               "material_zh": "#10",
               "material_vi": "#10",
-              "color_zh": "白色",
-              "color_vi": "màu trắng",
+              "color_zh": "镀锌",
+              "color_vi": "mạ kẽm",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
               "color_ver": "白色",
@@ -46617,7 +46617,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "12",
-              "mat_code": "PTZGLS6308BZ",
+              "mat_code": "PTZGLS6308WZ",
               "comp_code": "11",
               "name_zh": "ST3.5x12平头十字自攻螺丝",
               "name_vi": "ST3.5x12 ốc tự cắt đầu bằng chữ thập",
@@ -47768,7 +47768,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "7",
-                  "mat_code": "ZGLS4010CZ",
+                  "mat_code": "ZGLS4010WZ",
                   "comp_code": "7",
                   "name_zh": "ST4x10圆头十字自攻螺丝",
                   "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
@@ -47840,7 +47840,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "11",
-                  "mat_code": "GSSNZGLS5040BZ",
+                  "mat_code": "GSSNZGLS5040WZ",
                   "comp_code": "10",
                   "name_zh": "ST5x38内六角过山丝",
                   "name_vi": "ST5x38 ốc tự khoan lục giác",
@@ -47848,8 +47848,8 @@ window.BOM_VIEWER_DATA = {
                   "spec_vi": "Ø5x38mm",
                   "material_zh": "#10",
                   "material_vi": "#10",
-                  "color_zh": "白色",
-                  "color_vi": "màu trắng",
+                  "color_zh": "镀锌",
+                  "color_vi": "mạ kẽm",
                   "attr_zh": "五金包",
                   "attr_vi": "túi ngũ kim",
                   "color_ver": "白色",
@@ -47894,7 +47894,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "14",
-                  "mat_code": "PTZGLS6308BZ",
+                  "mat_code": "PTZGLS6308WZ",
                   "comp_code": "13",
                   "name_zh": "ST3.5x12平头十字自攻螺丝",
                   "name_vi": "ST3.5x12 ốc tự cắt đầu bằng chữ thập",
@@ -48652,7 +48652,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "7",
-              "mat_code": "ZGLS4010CZ",
+              "mat_code": "ZGLS4010WZ",
               "comp_code": "7",
               "name_zh": "ST4x10圆头十字自攻螺丝",
               "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
@@ -48724,7 +48724,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "11",
-              "mat_code": "GSSNZGLS5040BZ",
+              "mat_code": "GSSNZGLS5040WZ",
               "comp_code": "10",
               "name_zh": "ST5x38内六角过山丝",
               "name_vi": "ST5x38 ốc tự khoan lục giác",
@@ -48732,8 +48732,8 @@ window.BOM_VIEWER_DATA = {
               "spec_vi": "Ø5x38mm",
               "material_zh": "#10",
               "material_vi": "#10",
-              "color_zh": "白色",
-              "color_vi": "màu trắng",
+              "color_zh": "镀锌",
+              "color_vi": "mạ kẽm",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
               "color_ver": "白色",
@@ -48778,7 +48778,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "14",
-              "mat_code": "PTZGLS6308BZ",
+              "mat_code": "PTZGLS6308WZ",
               "comp_code": "13",
               "name_zh": "ST3.5x12平头十字自攻螺丝",
               "name_vi": "ST3.5x12 ốc tự cắt đầu bằng chữ thập",
@@ -63401,6 +63401,22 @@ window.BOM_VIEWER_DATA = {
   },
   "notifications": [
     {
+      "id": "notif_6uc9ww",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-09T10:53:22.157Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "GSSNZGLS5040WZ",
+          "field": "color",
+          "before": "白色 / màu trắng",
+          "after": "镀锌 / mạ kẽm"
+        }
+      ]
+    },
+    {
       "id": "notif_1msiku0",
       "type": "github-save",
       "actor": "admin",
@@ -67578,7 +67594,7 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_m5oo3m": {
         "id": "mat_m5oo3m",
-        "code": "ZGLS4010CZ",
+        "code": "ZGLS4010WZ",
         "name": {
           "zh": "ST4x10圆头十字自攻螺丝",
           "vi": "ST4x10 ốc tự cắt đầu tròn chữ thập"
@@ -72063,7 +72079,7 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_vwmnnz": {
         "id": "mat_vwmnnz",
-        "code": "PTZGLS6308BZ",
+        "code": "PTZGLS6308WZ",
         "name": {
           "zh": "ST3.5x12平头十字自攻螺丝",
           "vi": "ST3.5x12 ốc tự cắt đầu bằng chữ thập"
@@ -80340,7 +80356,7 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_37j9ck": {
         "id": "mat_37j9ck",
-        "code": "GSSNZGLS5040BZ",
+        "code": "GSSNZGLS5040WZ",
         "name": {
           "zh": "ST5x38内六角过山丝",
           "vi": "ST5x38 ốc tự khoan lục giác"
@@ -80354,8 +80370,8 @@ window.BOM_VIEWER_DATA = {
           "vi": "#10"
         },
         "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
+          "zh": "镀锌",
+          "vi": "mạ kẽm"
         },
         "attr": {
           "zh": "五金包",
