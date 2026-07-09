@@ -1,6 +1,7 @@
+/* BOM cloud data. Update only through admin.html. */
 window.BOM_VIEWER_DATA = {
   "version": 2,
-  "updatedAt": "2026-07-09T10:53:22.157Z",
+  "updatedAt": "2026-07-09T11:07:51.829Z",
   "bom": {
     "LGS031": {
       "code": "LGS031",
@@ -4607,7 +4608,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "11",
-                  "mat_code": "NLDP15508020BH",
+                  "mat_code": "NLDP15508020WH",
                   "comp_code": "",
                   "name_zh": "尼龙垫片",
                   "name_vi": "lông đền nhựa",
@@ -5149,7 +5150,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "9",
-              "mat_code": "NLDP15508020BH",
+              "mat_code": "NLDP15508020WH",
               "comp_code": "8",
               "name_zh": "尼龙垫片",
               "name_vi": "lông đền nhựa",
@@ -22559,7 +22560,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "9",
-                  "mat_code": "NLDP15508020BH",
+                  "mat_code": "NLDP15508020WH",
                   "comp_code": "8",
                   "name_zh": "尼龙垫片",
                   "name_vi": "lông đền nhựa",
@@ -23227,7 +23228,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "9",
-              "mat_code": "NLDP15508020BH",
+              "mat_code": "NLDP15508020WH",
               "comp_code": "8",
               "name_zh": "尼龙垫片",
               "name_vi": "lông đền nhựa",
@@ -25166,7 +25167,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "9",
-                  "mat_code": "NLDP15508020BH",
+                  "mat_code": "NLDP15508020WH",
                   "comp_code": "8",
                   "name_zh": "尼龙垫片",
                   "name_vi": "lông đền nhựa",
@@ -25816,7 +25817,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "9",
-              "mat_code": "NLDP15508020BH",
+              "mat_code": "NLDP15508020WH",
               "comp_code": "8",
               "name_zh": "尼龙垫片",
               "name_vi": "lông đền nhựa",
@@ -34094,7 +34095,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "9",
-                  "mat_code": "NLDP15508020BH",
+                  "mat_code": "NLDP15508020WH",
                   "comp_code": "8",
                   "name_zh": "尼龙垫片",
                   "name_vi": "lông đền nhựa",
@@ -34888,7 +34889,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "9",
-              "mat_code": "NLDP15508020BH",
+              "mat_code": "NLDP15508020WH",
               "comp_code": "8",
               "name_zh": "尼龙垫片",
               "name_vi": "lông đền nhựa",
@@ -36111,7 +36112,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "9",
-                  "mat_code": "NLDP15508020BH",
+                  "mat_code": "NLDP15508020WH",
                   "comp_code": "8",
                   "name_zh": "尼龙垫片",
                   "name_vi": "lông đền nhựa",
@@ -37121,7 +37122,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "9",
-              "mat_code": "NLDP15508020BH",
+              "mat_code": "NLDP15508020WH",
               "comp_code": "8",
               "name_zh": "尼龙垫片",
               "name_vi": "lông đền nhựa",
@@ -42747,7 +42748,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "11",
-                  "mat_code": "NLDP15508020BH",
+                  "mat_code": "NLDP15508020WH",
                   "comp_code": "10",
                   "name_zh": "尼龙垫片",
                   "name_vi": "lông đền nhựa",
@@ -43559,7 +43560,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "11",
-              "mat_code": "NLDP15508020BH",
+              "mat_code": "NLDP15508020WH",
               "comp_code": "10",
               "name_zh": "尼龙垫片",
               "name_vi": "lông đền nhựa",
@@ -45840,7 +45841,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "10",
-                  "mat_code": "NLDP15508020BH",
+                  "mat_code": "NLDP15508020WH",
                   "comp_code": "9",
                   "name_zh": "尼龙垫片",
                   "name_vi": "lông đền nhựa",
@@ -46580,7 +46581,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "10",
-              "mat_code": "NLDP15508020BH",
+              "mat_code": "NLDP15508020WH",
               "comp_code": "9",
               "name_zh": "尼龙垫片",
               "name_vi": "lông đền nhựa",
@@ -47857,7 +47858,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "12",
-                  "mat_code": "NLDP15508020BH",
+                  "mat_code": "NLDP15508020WH",
                   "comp_code": "11",
                   "name_zh": "尼龙垫片",
                   "name_vi": "lông đền nhựa",
@@ -48741,7 +48742,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "12",
-              "mat_code": "NLDP15508020BH",
+              "mat_code": "NLDP15508020WH",
               "comp_code": "11",
               "name_zh": "尼龙垫片",
               "name_vi": "lông đền nhựa",
@@ -63400,6 +63401,14 @@ window.BOM_VIEWER_DATA = {
   },
   "notifications": [
     {
+      "id": "notif_1wz3so",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-09T11:07:51.829Z",
+      "version": 2,
+      "changes": []
+    },
+    {
       "id": "notif_6uc9ww",
       "type": "github-save",
       "actor": "admin",
@@ -63527,6 +63536,7 @@ window.BOM_VIEWER_DATA = {
     }
   ],
   "materialDb": {
+    "version": 1,
     "materials": {
       "mat_jncbry": {
         "id": "mat_jncbry",
@@ -67625,6 +67635,41 @@ window.BOM_VIEWER_DATA = {
           }
         ]
       },
+      "mat_1hfibl4": {
+        "id": "mat_1hfibl4",
+        "code": "SLPZLS6030WH",
+        "name": {
+          "zh": "塑料膨胀螺丝",
+          "vi": "ốc tắc kê nhựa"
+        },
+        "spec": {
+          "zh": "6x30mm",
+          "vi": "6x30mm"
+        },
+        "material": {
+          "zh": "PP",
+          "vi": "PP"
+        },
+        "color": {
+          "zh": "镀锌",
+          "vi": "mạ kẽm"
+        },
+        "attr": {
+          "zh": "五金包",
+          "vi": "túi ngũ kim"
+        },
+        "drawings": [],
+        "models3d": [
+          {
+            "name": "塑料膨胀螺丝.glb",
+            "path": "models3d/catalog/model-ee1302bc.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ee1302bc.glb",
+            "matched_name": "塑料膨胀螺丝",
+            "score": 1100,
+            "bytes": 107900
+          }
+        ]
+      },
       "mat_1vasz9q": {
         "id": "mat_1vasz9q",
         "code": "ZGLS3560BH",
@@ -67697,7 +67742,7 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_1kajjg0": {
         "id": "mat_1kajjg0",
-        "code": "NLDP15508020BH",
+        "code": "NLDP15508020WH",
         "name": {
           "zh": "尼龙垫片",
           "vi": "lông đền nhựa"
@@ -82077,6 +82122,42 @@ window.BOM_VIEWER_DATA = {
         "drawings": [],
         "models3d": []
       },
+      "mat_2gfja6": {
+        "id": "mat_2gfja6",
+        "code": "DD0500R1",
+        "name": {
+          "zh": "自粘灯带固定卡扣",
+          "vi": "Đồ gài cố định đèn led"
+        },
+        "spec": {
+          "zh": "以实际为准",
+          "vi": "Tùy thực tế"
+        },
+        "material": {
+          "zh": "PP",
+          "vi": "PP"
+        },
+        "color": {
+          "zh": "白色",
+          "vi": "màu trắng"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [],
+        "models3d": [
+          {
+            "name": "500-灯带.glb",
+            "path": "models3d/catalog/500-57ceb403.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/500-57ceb403.glb",
+            "matched_name": "500-灯带",
+            "score": 1100,
+            "bytes": 1362944
+          }
+        ],
+        "spec_vi": "以实际为准"
+      },
       "mat_glzqbp": {
         "id": "mat_glzqbp",
         "code": "LGS433YKWH",
@@ -83942,6 +84023,42 @@ window.BOM_VIEWER_DATA = {
         "drawings": [],
         "models3d": []
       },
+      "mat_1pofdix": {
+        "id": "mat_1pofdix",
+        "code": "DD0650R1",
+        "name": {
+          "zh": "自粘灯带固定卡扣",
+          "vi": "Đồ gài cố định đèn led"
+        },
+        "spec": {
+          "zh": "以实际为准",
+          "vi": "Tùy thực tế"
+        },
+        "material": {
+          "zh": "PP",
+          "vi": "PP"
+        },
+        "color": {
+          "zh": "本色",
+          "vi": "màu tự nhiên"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [],
+        "models3d": [
+          {
+            "name": "650-灯带.glb",
+            "path": "models3d/catalog/650-b6e37033.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/650-b6e37033.glb",
+            "matched_name": "650-灯带",
+            "score": 1100,
+            "bytes": 1363320
+          }
+        ],
+        "spec_vi": "以实际为准"
+      },
       "mat_d3zu0k": {
         "id": "mat_d3zu0k",
         "code": "LGS434XZQSLBH",
@@ -85400,6 +85517,42 @@ window.BOM_VIEWER_DATA = {
         "drawings": [],
         "models3d": []
       },
+      "mat_1g4ooru": {
+        "id": "mat_1g4ooru",
+        "code": "DD0900R1",
+        "name": {
+          "zh": "自粘灯带固定卡扣",
+          "vi": "Đồ gài cố định đèn led"
+        },
+        "spec": {
+          "zh": "以实际为准",
+          "vi": "Tùy thực tế"
+        },
+        "material": {
+          "zh": "PP",
+          "vi": "PP"
+        },
+        "color": {
+          "zh": "白色",
+          "vi": "màu trắng"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [],
+        "models3d": [
+          {
+            "name": "900-灯带.glb",
+            "path": "models3d/catalog/900-7c8de8ce.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/900-7c8de8ce.glb",
+            "matched_name": "900-灯带",
+            "score": 1100,
+            "bytes": 3024192
+          }
+        ],
+        "spec_vi": "以实际为准"
+      },
       "mat_1n4i99m": {
         "id": "mat_1n4i99m",
         "code": "LGS723SZKWH",
@@ -86631,6 +86784,42 @@ window.BOM_VIEWER_DATA = {
         },
         "drawings": [],
         "models3d": []
+      },
+      "mat_e3jxxz": {
+        "id": "mat_e3jxxz",
+        "code": "DD1050R1",
+        "name": {
+          "zh": "自粘灯带固定卡扣",
+          "vi": "Đồ gài cố định đèn led"
+        },
+        "spec": {
+          "zh": "以实际为准",
+          "vi": "Tùy thực tế"
+        },
+        "material": {
+          "zh": "PP",
+          "vi": "PP"
+        },
+        "color": {
+          "zh": "白色",
+          "vi": "màu trắng"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [],
+        "models3d": [
+          {
+            "name": "1050-灯带.glb",
+            "path": "models3d/catalog/1050-85851297.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/1050-85851297.glb",
+            "matched_name": "1050-灯带",
+            "score": 1100,
+            "bytes": 3421116
+          }
+        ],
+        "spec_vi": "以实际为准"
       },
       "mat_t6uv63": {
         "id": "mat_t6uv63",
@@ -88528,6 +88717,42 @@ window.BOM_VIEWER_DATA = {
         },
         "drawings": [],
         "models3d": []
+      },
+      "mat_507y0z": {
+        "id": "mat_507y0z",
+        "code": "DD1350R1",
+        "name": {
+          "zh": "自粘灯带固定卡扣",
+          "vi": "Đồ gài cố định đèn led"
+        },
+        "spec": {
+          "zh": "以实际为准",
+          "vi": "Tùy thực tế"
+        },
+        "material": {
+          "zh": "PP",
+          "vi": "PP"
+        },
+        "color": {
+          "zh": "本色",
+          "vi": "màu tự nhiên"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [],
+        "models3d": [
+          {
+            "name": "1350-灯带.glb",
+            "path": "models3d/catalog/1350-1e16faba.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/1350-1e16faba.glb",
+            "matched_name": "1350-灯带",
+            "score": 1100,
+            "bytes": 3645220
+          }
+        ],
+        "spec_vi": "以实际为准"
       },
       "mat_hqo7w2": {
         "id": "mat_hqo7w2",
@@ -92052,7 +92277,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS033",
         "productCode": "LGS033",
         "color": "白色",
-        "materialId": "mat_3cqqc3",
+        "materialId": "mat_1hfibl4",
         "stt": "6",
         "comp_code": "6",
         "qty": "2",
@@ -102790,7 +103015,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS233",
         "productCode": "LGS233",
         "color": "白色",
-        "materialId": "mat_3cqqc3",
+        "materialId": "mat_1hfibl4",
         "stt": "6",
         "comp_code": "6",
         "qty": "2",
@@ -104372,7 +104597,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS333",
         "productCode": "LGS333",
         "color": "白色",
-        "materialId": "mat_3cqqc3",
+        "materialId": "mat_1hfibl4",
         "stt": "6",
         "comp_code": "6",
         "qty": "2",
@@ -106724,7 +106949,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS420",
         "productCode": "LGS420",
         "color": "白色",
-        "materialId": "mat_3cqqc3",
+        "materialId": "mat_1hfibl4",
         "stt": "8",
         "comp_code": "8",
         "qty": "2",
@@ -109384,7 +109609,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS433",
         "productCode": "LGS433",
         "color": "白色",
-        "materialId": "mat_1abho09",
+        "materialId": "mat_2gfja6",
         "stt": "5",
         "comp_code": "R1",
         "qty": "5",
@@ -109874,7 +110099,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS433",
         "productCode": "LGS433",
         "color": "白色",
-        "materialId": "mat_3cqqc3",
+        "materialId": "mat_1hfibl4",
         "stt": "6",
         "comp_code": "6",
         "qty": "2",
@@ -111274,7 +111499,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS434",
         "productCode": "LGS434",
         "color": "白色",
-        "materialId": "mat_3cqqc3",
+        "materialId": "mat_1hfibl4",
         "stt": "6",
         "comp_code": "6",
         "qty": "2",
@@ -111456,7 +111681,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS434",
         "productCode": "LGS434",
         "color": "黑色",
-        "materialId": "mat_1j506i6",
+        "materialId": "mat_1pofdix",
         "stt": "6",
         "comp_code": "R1",
         "qty": "5",
@@ -112856,7 +113081,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS723",
         "productCode": "LGS723",
         "color": "白色",
-        "materialId": "mat_13imrat",
+        "materialId": "mat_1g4ooru",
         "stt": "5",
         "comp_code": "R1",
         "qty": "5",
@@ -113332,7 +113557,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS723",
         "productCode": "LGS723",
         "color": "白色",
-        "materialId": "mat_3cqqc3",
+        "materialId": "mat_1hfibl4",
         "stt": "7",
         "comp_code": "7",
         "qty": "2",
@@ -114690,7 +114915,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS733",
         "productCode": "LGS733",
         "color": "白色",
-        "materialId": "mat_47zmys",
+        "materialId": "mat_e3jxxz",
         "stt": "2",
         "comp_code": "R1",
         "qty": "5",
@@ -115222,7 +115447,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS733",
         "productCode": "LGS733",
         "color": "白色",
-        "materialId": "mat_3cqqc3",
+        "materialId": "mat_1hfibl4",
         "stt": "7",
         "comp_code": "7",
         "qty": "2",
@@ -116566,7 +116791,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS833",
         "productCode": "LGS833",
         "color": "白色",
-        "materialId": "mat_47zmys",
+        "materialId": "mat_e3jxxz",
         "stt": "2",
         "comp_code": "R1",
         "qty": "5",
@@ -117042,7 +117267,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS833",
         "productCode": "LGS833",
         "color": "白色",
-        "materialId": "mat_3cqqc3",
+        "materialId": "mat_1hfibl4",
         "stt": "7",
         "comp_code": "7",
         "qty": "2",
@@ -118316,7 +118541,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS834",
         "productCode": "LGS834",
         "color": "白色",
-        "materialId": "mat_3cqqc3",
+        "materialId": "mat_1hfibl4",
         "stt": "8",
         "comp_code": "8",
         "qty": "2",
@@ -118442,7 +118667,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS834",
         "productCode": "LGS834",
         "color": "黑色",
-        "materialId": "mat_ijhbi8",
+        "materialId": "mat_507y0z",
         "stt": "2",
         "comp_code": "R1",
         "qty": "5",
@@ -122609,8 +122834,8 @@ window.BOM_VIEWER_DATA = {
         "parentId": "mat_1oizyxm",
         "productCode": "LGS233",
         "color": "白色",
-        "materialId": "mat_3cqqc3",
-        "childMaterialId": "mat_3cqqc3",
+        "materialId": "mat_1hfibl4",
+        "childMaterialId": "mat_1hfibl4",
         "stt": "6",
         "comp_code": "6",
         "qty": "2",
@@ -123044,8 +123269,8 @@ window.BOM_VIEWER_DATA = {
         "parentId": "mat_1263x50",
         "productCode": "LGS333",
         "color": "白色",
-        "materialId": "mat_3cqqc3",
-        "childMaterialId": "mat_3cqqc3",
+        "materialId": "mat_1hfibl4",
+        "childMaterialId": "mat_1hfibl4",
         "stt": "6",
         "comp_code": "6",
         "qty": "2",
@@ -124334,8 +124559,8 @@ window.BOM_VIEWER_DATA = {
         "parentId": "mat_xhsgou",
         "productCode": "LGS433",
         "color": "白色",
-        "materialId": "mat_3cqqc3",
-        "childMaterialId": "mat_3cqqc3",
+        "materialId": "mat_1hfibl4",
+        "childMaterialId": "mat_1hfibl4",
         "stt": "6",
         "comp_code": "6",
         "qty": "2",
@@ -124634,8 +124859,8 @@ window.BOM_VIEWER_DATA = {
         "parentId": "mat_wo2pto",
         "productCode": "LGS434",
         "color": "白色",
-        "materialId": "mat_3cqqc3",
-        "childMaterialId": "mat_3cqqc3",
+        "materialId": "mat_1hfibl4",
+        "childMaterialId": "mat_1hfibl4",
         "stt": "6",
         "comp_code": "6",
         "qty": "2",
@@ -125174,8 +125399,8 @@ window.BOM_VIEWER_DATA = {
         "parentId": "mat_1roqu8i",
         "productCode": "LGS723",
         "color": "白色",
-        "materialId": "mat_3cqqc3",
-        "childMaterialId": "mat_3cqqc3",
+        "materialId": "mat_1hfibl4",
+        "childMaterialId": "mat_1hfibl4",
         "stt": "7",
         "comp_code": "7",
         "qty": "2",
@@ -125684,8 +125909,8 @@ window.BOM_VIEWER_DATA = {
         "parentId": "mat_79w01o",
         "productCode": "LGS733",
         "color": "白色",
-        "materialId": "mat_3cqqc3",
-        "childMaterialId": "mat_3cqqc3",
+        "materialId": "mat_1hfibl4",
+        "childMaterialId": "mat_1hfibl4",
         "stt": "7",
         "comp_code": "7",
         "qty": "2",
@@ -126224,8 +126449,8 @@ window.BOM_VIEWER_DATA = {
         "parentId": "mat_ojeoxq",
         "productCode": "LGS833",
         "color": "白色",
-        "materialId": "mat_3cqqc3",
-        "childMaterialId": "mat_3cqqc3",
+        "materialId": "mat_1hfibl4",
+        "childMaterialId": "mat_1hfibl4",
         "stt": "7",
         "comp_code": "7",
         "qty": "2",
@@ -126599,8 +126824,8 @@ window.BOM_VIEWER_DATA = {
         "parentId": "mat_15tu9ws",
         "productCode": "LGS834",
         "color": "白色",
-        "materialId": "mat_3cqqc3",
-        "childMaterialId": "mat_3cqqc3",
+        "materialId": "mat_1hfibl4",
+        "childMaterialId": "mat_1hfibl4",
         "stt": "8",
         "comp_code": "8",
         "qty": "2",
@@ -127019,8 +127244,8 @@ window.BOM_VIEWER_DATA = {
         "parentId": "mat_wjbwh_LGS033",
         "productCode": "LGS033",
         "color": "白色",
-        "materialId": "mat_3cqqc3",
-        "childMaterialId": "mat_3cqqc3",
+        "materialId": "mat_1hfibl4",
+        "childMaterialId": "mat_1hfibl4",
         "stt": "8",
         "comp_code": "",
         "qty": "2",
@@ -127784,8 +128009,8 @@ window.BOM_VIEWER_DATA = {
         "parentId": "mat_wjbwh_LGS420",
         "productCode": "LGS420",
         "color": "白色",
-        "materialId": "mat_3cqqc3",
-        "childMaterialId": "mat_3cqqc3",
+        "materialId": "mat_1hfibl4",
+        "childMaterialId": "mat_1hfibl4",
         "stt": "12",
         "comp_code": "",
         "qty": "2",
