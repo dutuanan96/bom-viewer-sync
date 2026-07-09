@@ -4,6 +4,8 @@
   const REFRESH_MS = 60 * 60 * 1000;
   const NOTIFICATION_REFRESH_MS = 60 * 1000;
   const NOTIFICATION_LIMIT = 30;
+  const NOTIFICATION_CHANGE_LIMIT = 8;
+  const MATERIAL_CHANGE_FIELDS = ['name', 'spec', 'material', 'color', 'attr'];
   const TOKEN_KEY = 'bom_admin_github_token_v2';
 
   const TEXT = {
@@ -293,6 +295,7 @@
     notificationMarkRead: '全部已读',
     notificationGithubSaveTitle: 'GitHub 数据已更新',
     notificationGithubSaveBody: 'Admin 已保存 BOM/物料数据，Viewer 可同步最新版本。',
+    notificationChangedItems: '已修改',
     notificationUpdatedTitle: 'PDM 数据已更新',
     notificationUpdatedBody: '检测到新的 PDM 数据版本。',
     notificationUnread: '未读通知'
@@ -304,6 +307,7 @@
     notificationMarkRead: 'Đã đọc tất cả',
     notificationGithubSaveTitle: 'Dữ liệu GitHub đã cập nhật',
     notificationGithubSaveBody: 'Admin đã lưu dữ liệu BOM/vật liệu, Viewer có thể đồng bộ bản mới nhất.',
+    notificationChangedItems: 'Đã sửa',
     notificationUpdatedTitle: 'Dữ liệu PDM đã cập nhật',
     notificationUpdatedBody: 'Phát hiện phiên bản dữ liệu PDM mới.',
     notificationUnread: 'Thông báo chưa đọc'
@@ -414,6 +418,69 @@
     return `${prefix}_${(hash >>> 0).toString(36)}`;
   }
 
+  function normalizeNotificationChanges(changes) {
+    if (!Array.isArray(changes)) return [];
+    return changes
+      .filter((item) => item && typeof item === 'object')
+      .map((item) => ({
+        kind: String(item.kind || 'material'),
+        code: String(item.code || ''),
+        field: String(item.field || ''),
+        before: String(item.before ?? ''),
+        after: String(item.after ?? '')
+      }))
+      .filter((item) => item.code && item.field)
+      .slice(0, NOTIFICATION_CHANGE_LIMIT);
+  }
+
+  function localizedPairSummary(pair) {
+    const zh = localizedValue(pair, 'zh');
+    const vi = localizedValue(pair, 'vi');
+    if (zh && vi && zh !== vi) return `${zh} / ${vi}`;
+    return zh || vi || '';
+  }
+
+  function materialChangeValue(record, field) {
+    if (!record) return '';
+    if (MATERIAL_CHANGE_FIELDS.includes(field)) return localizedPairSummary(record[field]);
+    return String(record[field] ?? '');
+  }
+
+  function describePayloadChanges(previousPayload, nextPayload) {
+    const previous = normalizePayload(previousPayload);
+    const next = normalizePayload(nextPayload);
+    const previousMaterials = previous.materialDb?.materials || {};
+    const nextMaterials = next.materialDb?.materials || {};
+    const previousByCode = Object.values(previousMaterials).reduce((lookup, material) => {
+      if (material?.code) lookup[material.code] = material;
+      return lookup;
+    }, {});
+    const changes = [];
+    const nextRecords = Object.values(nextMaterials)
+      .sort((left, right) => String(left.code || left.id || '').localeCompare(String(right.code || right.id || '')));
+
+    for (const nextRecord of nextRecords) {
+      const previousRecord = previousMaterials[nextRecord.id] || previousByCode[nextRecord.code];
+      if (!previousRecord) continue;
+      for (const field of MATERIAL_CHANGE_FIELDS) {
+        const before = materialChangeValue(previousRecord, field);
+        const after = materialChangeValue(nextRecord, field);
+        if (before !== after) {
+          changes.push({
+            kind: 'material',
+            code: String(nextRecord.code || nextRecord.id || ''),
+            field,
+            before,
+            after
+          });
+          if (changes.length >= NOTIFICATION_CHANGE_LIMIT) return changes;
+        }
+      }
+    }
+
+    return changes;
+  }
+
   function normalizeNotifications(notifications) {
     if (!Array.isArray(notifications)) return [];
     return notifications
@@ -426,7 +493,8 @@
           type,
           actor: String(item.actor || 'admin'),
           createdAt,
-          version: item.version != null ? item.version : null
+          version: item.version != null ? item.version : null,
+          changes: normalizeNotificationChanges(item.changes)
         };
       })
       .filter((item) => item.createdAt)
@@ -443,7 +511,8 @@
       type,
       actor: String(event?.actor || 'admin'),
       createdAt,
-      version: source.version != null ? source.version : null
+      version: source.version != null ? source.version : null,
+      changes: normalizeNotificationChanges(event?.changes)
     };
     source.notifications = normalizeNotifications([notification].concat(source.notifications || []));
     return source;
@@ -1857,10 +1926,32 @@
         : this.label('notificationUpdatedTitle');
     }
 
+    notificationFieldLabel(field) {
+      const labelKeys = {
+        name: 'materialName',
+        spec: 'specification',
+        material: 'materialComposition',
+        color: 'materialColor',
+        attr: 'materialAttribute'
+      };
+      return this.label(labelKeys[field] || field);
+    }
+
+    notificationChangeText(change) {
+      const before = change.before || '-';
+      const after = change.after || '-';
+      return `${change.code} · ${this.notificationFieldLabel(change.field)}: ${before} → ${after}`;
+    }
+
     notificationBody(notification) {
-      return notification?.type === 'github-save'
+      const body = notification?.type === 'github-save'
         ? this.label('notificationGithubSaveBody')
         : this.label('notificationUpdatedBody');
+      const changes = normalizeNotificationChanges(notification?.changes || []);
+      if (!changes.length) return body;
+      const visible = changes.slice(0, 3).map((change) => this.notificationChangeText(change)).join('; ');
+      const more = changes.length > 3 ? ` +${changes.length - 3}` : '';
+      return `${body} ${this.label('notificationChangedItems')}: ${visible}${more}`;
     }
 
     renderNotifications() {
@@ -3984,7 +4075,8 @@
         materialDb: this.state.materialDb,
         notifications: this.state.payload.notifications
       });
-      payload = appendNotificationEvent(payload, { type: 'github-save', actor: 'admin', createdAt: updatedAt });
+      const changes = describePayloadChanges(this.state.loadedPayload, payload);
+      payload = appendNotificationEvent(payload, { type: 'github-save', actor: 'admin', createdAt: updatedAt, changes });
       syncLegacyBomFromMaterialDb(payload);
       const source = serializeDataJs(payload);
       const sha = await this.fetchGithubSha(token);
@@ -4314,6 +4406,7 @@
     buildGithubUpdateRequest,
     createPdmNavigation,
     createSidebarIndex,
+    describePayloadChanges,
     createMaterialDatabase,
     findBomAssets,
     filterMaterials,

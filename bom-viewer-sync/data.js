@@ -1,7 +1,7 @@
 /* BOM cloud data. Update only through admin.html. */
 window.BOM_VIEWER_DATA = {
   "version": 2,
-  "updatedAt": "2026-07-09T05:33:09.974Z",
+  "updatedAt": "2026-07-09T06:03:55.374Z",
   "bom": {
     "LGS031": {
       "code": "LGS031",
@@ -9765,8 +9765,8 @@ window.BOM_VIEWER_DATA = {
               "comp_code": "无",
               "name_zh": "LGS111五金包",
               "name_vi": "LGS111 tui ngu kim",
-              "spec": "",
-              "spec_vi": "",
+              "spec": "详见明细",
+              "spec_vi": "xem chi tiết",
               "material_zh": "无",
               "material_vi": "khong",
               "color_zh": "黑色",
@@ -11267,8 +11267,8 @@ window.BOM_VIEWER_DATA = {
               "comp_code": "无",
               "name_zh": "LGS111五金包",
               "name_vi": "LGS111 tui ngu kim",
-              "spec": "",
-              "spec_vi": "",
+              "spec": "详见明细",
+              "spec_vi": "xem chi tiết",
               "material_zh": "无",
               "material_vi": "khong",
               "color_zh": "黑色",
@@ -63401,11 +63401,28 @@ window.BOM_VIEWER_DATA = {
   },
   "notifications": [
     {
+      "id": "notif_qlfn06",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-09T06:03:55.374Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "LGS111WJBBH",
+          "field": "spec",
+          "before": "",
+          "after": "详见明细 / xem chi tiết"
+        }
+      ]
+    },
+    {
       "id": "notif_1af8mk",
       "type": "github-save",
       "actor": "admin",
       "createdAt": "2026-07-09T05:33:09.974Z",
-      "version": 2
+      "version": 2,
+      "changes": []
     }
   ],
   "materialDb": {
@@ -89040,8 +89057,8 @@ window.BOM_VIEWER_DATA = {
           "vi": "LGS111 tui ngu kim"
         },
         "spec": {
-          "zh": "",
-          "vi": ""
+          "zh": "详见明细",
+          "vi": "xem chi tiết"
         },
         "material": {
           "zh": "无",
