@@ -1,7 +1,7 @@
 /* BOM cloud data. Update only through admin.html. */
 window.BOM_VIEWER_DATA = {
   "version": 2,
-  "updatedAt": "2026-07-09T11:07:51.829Z",
+  "updatedAt": "2026-07-09T11:09:38.621Z",
   "bom": {
     "LGS031": {
       "code": "LGS031",
@@ -29131,7 +29131,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "9",
-              "mat_code": "BCDB35031723BH",
+              "mat_code": "BCDB35031723WH",
               "comp_code": "Z06",
               "name_zh": "LGS布抽底板34.5x32",
               "name_vi": "LGS布抽底板34.5x32",
@@ -63401,6 +63401,14 @@ window.BOM_VIEWER_DATA = {
   },
   "notifications": [
     {
+      "id": "notif_fvu5aa",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-09T11:09:38.621Z",
+      "version": 2,
+      "changes": []
+    },
+    {
       "id": "notif_1wz3so",
       "type": "github-save",
       "actor": "admin",
@@ -80130,7 +80138,7 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_t3dlni": {
         "id": "mat_t3dlni",
-        "code": "BCDB35031723BH",
+        "code": "BCDB35031723WH",
         "name": {
           "zh": "LGS布抽底板34.5x32",
           "vi": "LGS布抽底板34.5x32"
