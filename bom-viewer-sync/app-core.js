@@ -2,6 +2,8 @@
   'use strict';
 
   const REFRESH_MS = 60 * 60 * 1000;
+  const NOTIFICATION_REFRESH_MS = 60 * 1000;
+  const NOTIFICATION_LIMIT = 30;
   const TOKEN_KEY = 'bom_admin_github_token_v2';
 
   const TEXT = {
@@ -285,6 +287,28 @@
     }
   };
 
+  Object.assign(TEXT.zh, {
+    notifications: '通知',
+    notificationEmpty: '暂无通知',
+    notificationMarkRead: '全部已读',
+    notificationGithubSaveTitle: 'GitHub 数据已更新',
+    notificationGithubSaveBody: 'Admin 已保存 BOM/物料数据，Viewer 可同步最新版本。',
+    notificationUpdatedTitle: 'PDM 数据已更新',
+    notificationUpdatedBody: '检测到新的 PDM 数据版本。',
+    notificationUnread: '未读通知'
+  });
+
+  Object.assign(TEXT.vi, {
+    notifications: 'Thông báo',
+    notificationEmpty: 'Chưa có thông báo',
+    notificationMarkRead: 'Đã đọc tất cả',
+    notificationGithubSaveTitle: 'Dữ liệu GitHub đã cập nhật',
+    notificationGithubSaveBody: 'Admin đã lưu dữ liệu BOM/vật liệu, Viewer có thể đồng bộ bản mới nhất.',
+    notificationUpdatedTitle: 'Dữ liệu PDM đã cập nhật',
+    notificationUpdatedBody: 'Phát hiện phiên bản dữ liệu PDM mới.',
+    notificationUnread: 'Thông báo chưa đọc'
+  });
+
   const EDIT_FIELDS = ['mat_code', 'comp_code', 'name', 'spec', 'material', 'color', 'attr', 'qty'];
 
   function clone(value) {
@@ -388,6 +412,41 @@
       hash = Math.imul(hash, 16777619);
     }
     return `${prefix}_${(hash >>> 0).toString(36)}`;
+  }
+
+  function normalizeNotifications(notifications) {
+    if (!Array.isArray(notifications)) return [];
+    return notifications
+      .filter((item) => item && typeof item === 'object')
+      .map((item, index) => {
+        const createdAt = String(item.createdAt || item.updatedAt || '');
+        const type = String(item.type || 'data-update');
+        return {
+          id: String(item.id || stableId('notif', `${type}|${createdAt}|${index}`)),
+          type,
+          actor: String(item.actor || 'admin'),
+          createdAt,
+          version: item.version != null ? item.version : null
+        };
+      })
+      .filter((item) => item.createdAt)
+      .sort((left, right) => String(right.createdAt).localeCompare(String(left.createdAt)))
+      .slice(0, NOTIFICATION_LIMIT);
+  }
+
+  function appendNotificationEvent(payload, event) {
+    const source = normalizePayload(payload);
+    const createdAt = String(event?.createdAt || new Date().toISOString());
+    const type = String(event?.type || 'data-update');
+    const notification = {
+      id: String(event?.id || stableId('notif', `${type}|${createdAt}|${source.updatedAt || ''}`)),
+      type,
+      actor: String(event?.actor || 'admin'),
+      createdAt,
+      version: source.version != null ? source.version : null
+    };
+    source.notifications = normalizeNotifications([notification].concat(source.notifications || []));
+    return source;
   }
 
   function localizedPair(zh, vi) {
@@ -1029,7 +1088,8 @@
       drawings: clone(source.drawings),
       manuals: clone(source.manuals),
       models3d: clone(source.models3d),
-      productImages: clone({ ...fallbackProductImages, ...(source.productImages || {}) })
+      productImages: clone({ ...fallbackProductImages, ...(source.productImages || {}) }),
+      notifications: normalizeNotifications(source.notifications)
     };
     normalized.materialDb = normalizeMaterialDatabase({ ...source, ...normalized });
     return normalized;
@@ -1170,6 +1230,7 @@
     constructor(options) {
       this.mode = options.mode === 'admin' ? 'admin' : 'viewer';
       this.config = normalizeConfig(options.config);
+      this.notificationToastTimer = null;
       this.state = this.initialState();
     }
 
@@ -1203,7 +1264,9 @@
         editMode: false,
         dirty: false,
         lastRows: [],
-        lastLoadAt: ''
+        lastLoadAt: '',
+        notificationOpen: false,
+        notificationToast: null
       };
     }
 
@@ -1214,7 +1277,7 @@
       this.bindEvents();
       this.renderAll();
       this.loadCloud({ silent: true });
-      global.setInterval(() => this.loadCloud({ silent: true }), REFRESH_MS);
+      global.setInterval(() => this.loadCloud({ silent: true }), this.isAdmin() ? REFRESH_MS : NOTIFICATION_REFRESH_MS);
     }
 
     label(key) {
@@ -1277,6 +1340,7 @@
       this.bindActions();
       this.bindEditing();
       this.bindModal();
+      this.bindNotifications();
       this.bindLanguage();
     }
 
@@ -1523,6 +1587,38 @@
       });
     }
 
+    bindNotifications() {
+      const button = this.query('#notificationButton');
+      const readButton = this.query('#notificationReadBtn');
+      if (!button) return;
+      button.addEventListener('click', (event) => {
+        event.stopPropagation();
+        this.state.notificationOpen = !this.state.notificationOpen;
+        if (this.state.notificationOpen) this.markNotificationsRead();
+        this.renderNotifications();
+      });
+      if (readButton) {
+        readButton.addEventListener('click', (event) => {
+          event.stopPropagation();
+          this.markNotificationsRead();
+          this.renderNotifications();
+        });
+      }
+      global.document.addEventListener('click', (event) => {
+        if (!this.state.notificationOpen) return;
+        const center = this.query('#notificationCenter');
+        if (center && !center.contains(event.target)) {
+          this.state.notificationOpen = false;
+          this.renderNotifications();
+        }
+      });
+      global.document.addEventListener('keydown', (event) => {
+        if (event.key !== 'Escape' || !this.state.notificationOpen) return;
+        this.state.notificationOpen = false;
+        this.renderNotifications();
+      });
+    }
+
     bindLanguage() {
       this.queryAll('.lang-btn').forEach((button) => {
         button.addEventListener('click', () => {
@@ -1672,6 +1768,7 @@
       this.renderStaticText();
       this.renderStatus();
       this.renderStats();
+      this.renderNotifications();
       this.renderFilterBar();
       this.renderProductList();
       this.renderContent();
@@ -1712,6 +1809,115 @@
       const materialsCount = Object.keys(this.state.materialDb?.materials || {}).length;
       this.query('#statProducts').textContent = String(productsCount);
       this.query('#statMaterials').textContent = String(materialsCount);
+    }
+
+    notifications() {
+      return normalizeNotifications(this.state.payload?.notifications || []);
+    }
+
+    notificationReadKey() {
+      return `bom_notifications_read_at_v1_${this.mode}`;
+    }
+
+    notificationReadAt() {
+      try {
+        return global.localStorage ? global.localStorage.getItem(this.notificationReadKey()) || '' : '';
+      } catch (error) {
+        return '';
+      }
+    }
+
+    setNotificationReadAt(value) {
+      try {
+        if (global.localStorage) global.localStorage.setItem(this.notificationReadKey(), value || '');
+      } catch (error) {
+        this.setStatus(error.message, 'error');
+      }
+    }
+
+    unreadNotifications() {
+      const readAt = Date.parse(this.notificationReadAt()) || 0;
+      return this.notifications().filter((item) => (Date.parse(item.createdAt) || 0) > readAt);
+    }
+
+    markNotificationsRead() {
+      const newest = this.notifications()[0];
+      if (newest) this.setNotificationReadAt(newest.createdAt);
+    }
+
+    notificationTitle(notification) {
+      return notification?.type === 'github-save'
+        ? this.label('notificationGithubSaveTitle')
+        : this.label('notificationUpdatedTitle');
+    }
+
+    notificationBody(notification) {
+      return notification?.type === 'github-save'
+        ? this.label('notificationGithubSaveBody')
+        : this.label('notificationUpdatedBody');
+    }
+
+    renderNotifications() {
+      const button = this.query('#notificationButton');
+      const panel = this.query('#notificationPanel');
+      const badge = this.query('#notificationBadge');
+      const title = this.query('#notificationTitle');
+      const readButton = this.query('#notificationReadBtn');
+      const list = this.query('#notificationList');
+      if (!button || !panel || !badge || !title || !readButton || !list) return;
+
+      const notifications = this.notifications();
+      const unreadCount = this.unreadNotifications().length;
+      button.setAttribute('aria-label', this.label('notifications'));
+      button.setAttribute('aria-expanded', this.state.notificationOpen ? 'true' : 'false');
+      button.classList.toggle('has-unread', unreadCount > 0);
+      badge.hidden = unreadCount === 0;
+      badge.textContent = unreadCount > 9 ? '9+' : String(unreadCount);
+      panel.hidden = !this.state.notificationOpen;
+      title.textContent = this.label('notifications');
+      readButton.textContent = this.label('notificationMarkRead');
+      readButton.disabled = unreadCount === 0;
+
+      if (!notifications.length) {
+        list.innerHTML = `<div class="notification-empty">${escapeHTML(this.label('notificationEmpty'))}</div>`;
+        return;
+      }
+
+      list.innerHTML = notifications.map((notification) => {
+        const isUnread = this.unreadNotifications().some((item) => item.id === notification.id);
+        const className = isUnread ? 'notification-item unread' : 'notification-item';
+        return `<div class="${className}" data-notification-id="${escapeHTML(notification.id)}">
+          <div class="notification-item-title">${escapeHTML(this.notificationTitle(notification))}</div>
+          <div class="notification-item-body">${escapeHTML(this.notificationBody(notification))}</div>
+          <div class="notification-item-meta">
+            <span>${escapeHTML(notification.actor || 'admin')}</span>
+            <span>${escapeHTML(this.formatDate(notification.createdAt))}</span>
+          </div>
+        </div>`;
+      }).join('');
+    }
+
+    newNotifications(previousNotifications, nextNotifications) {
+      const previousIds = new Set(normalizeNotifications(previousNotifications).map((item) => item.id));
+      return normalizeNotifications(nextNotifications).filter((item) => !previousIds.has(item.id));
+    }
+
+    showNotificationToast(notification) {
+      if (!global.document || !notification) return;
+      let toast = this.query('#notificationToast');
+      if (!toast) {
+        toast = global.document.createElement('div');
+        toast.id = 'notificationToast';
+        toast.className = 'notification-toast';
+        global.document.body.appendChild(toast);
+      }
+      toast.innerHTML = `<strong>${escapeHTML(this.notificationTitle(notification))}</strong>
+        <span>${escapeHTML(this.notificationBody(notification))}</span>`;
+      toast.classList.add('visible');
+      if (this.notificationToastTimer) global.clearTimeout(this.notificationToastTimer);
+      this.notificationToastTimer = global.setTimeout(() => {
+        toast.classList.remove('visible');
+      }, 6000);
     }
 
     renderFilterBar() {
@@ -3651,13 +3857,17 @@
       const url = rawUrl(this.config);
       if (!url) return false;
       try {
+        const previousNotifications = this.notifications();
+        const firstLoad = !this.state.lastLoadAt;
         const response = await fetch(`${url}${url.includes('?') ? '&' : '?'}t=${Date.now()}`, { cache: 'no-store' });
         if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
         const payload = parseDataJsPayload(await response.text());
         if ((this.state.dirty || this.state.materialDraft) && silent) return false;
-        this.applyPayload(payload);
+        const incoming = this.newNotifications(previousNotifications, payload.notifications);
+        this.applyPayload(payload, { preserveView: silent });
         this.state.lastLoadAt = new Date().toISOString();
         this.renderAll();
+        if (silent && !firstLoad && incoming.length && !this.isAdmin()) this.showNotificationToast(incoming[0]);
         if (!options.silent) this.setStatus(this.label('loaded'), 'saved');
         return true;
       } catch (error) {
@@ -3666,7 +3876,20 @@
       }
     }
 
-    applyPayload(payload) {
+    applyPayload(payload, options) {
+      const preserved = options?.preserveView ? {
+        currentSku: this.state.currentSku,
+        currentColor: this.state.currentColor,
+        currentAttr: this.state.currentAttr,
+        adminView: this.state.adminView,
+        bomDetailOpen: this.state.bomDetailOpen,
+        searchQuery: this.state.searchQuery,
+        sidebarQuery: this.state.sidebarQuery,
+        dbFilters: clone(this.state.dbFilters),
+        selectedMaterialId: this.state.selectedMaterialId,
+        selectedEntryId: this.state.selectedEntryId,
+        selectedParentId: this.state.selectedParentId
+      } : null;
       this.state.payload = normalizePayload(payload);
       this.state.bom = this.state.payload.bom;
       this.state.drawings = this.state.payload.drawings;
@@ -3680,6 +3903,19 @@
       this.state.selectedMaterialId = '';
       this.state.selectedEntryId = '';
       this.state.bomDetailOpen = false;
+      if (preserved) {
+        this.state.currentSku = this.state.bom[preserved.currentSku] ? preserved.currentSku : '';
+        this.state.currentColor = preserved.currentColor;
+        this.state.currentAttr = preserved.currentAttr;
+        this.state.adminView = preserved.adminView;
+        this.state.bomDetailOpen = preserved.bomDetailOpen;
+        this.state.searchQuery = preserved.searchQuery;
+        this.state.sidebarQuery = preserved.sidebarQuery;
+        this.state.dbFilters = preserved.dbFilters;
+        this.state.selectedMaterialId = this.state.materialDb?.materials?.[preserved.selectedMaterialId] ? preserved.selectedMaterialId : '';
+        this.state.selectedEntryId = preserved.selectedEntryId;
+        this.state.selectedParentId = this.state.materialDb?.materials?.[preserved.selectedParentId] ? preserved.selectedParentId : '';
+      }
       this.pickFirstProduct();
     }
 
@@ -3700,15 +3936,18 @@
       this.setStatus(this.label('saving'), '');
       const updatedAt = new Date().toISOString();
       this.syncLegacyBom();
-      const payload = normalizePayload({
+      let payload = normalizePayload({
+        version: this.state.payload.version,
         updatedAt,
         bom: this.state.bom,
         drawings: this.state.drawings,
         manuals: this.state.manuals,
         models3d: this.state.models3d,
         productImages: this.state.productImages,
-        materialDb: this.state.materialDb
+        materialDb: this.state.materialDb,
+        notifications: this.state.payload.notifications
       });
+      payload = appendNotificationEvent(payload, { type: 'github-save', actor: 'admin', createdAt: updatedAt });
       syncLegacyBomFromMaterialDb(payload);
       const source = serializeDataJs(payload);
       const sha = await this.fetchGithubSha(token);
@@ -4034,6 +4273,7 @@
 
   global.BomApp = { createApp, start: createApp };
   global.BomCoreUtils = {
+    appendNotificationEvent,
     buildGithubUpdateRequest,
     createPdmNavigation,
     createSidebarIndex,
