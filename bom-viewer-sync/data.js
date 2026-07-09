@@ -1,7 +1,7 @@
 /* BOM cloud data. Update only through admin.html. */
 window.BOM_VIEWER_DATA = {
   "version": 2,
-  "updatedAt": "2026-07-09T06:11:11.656Z",
+  "updatedAt": "2026-07-09T09:42:48.153Z",
   "bom": {
     "LGS031": {
       "code": "LGS031",
@@ -38980,10 +38980,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "17",
               "mat_code": "BC298282166KD",
               "comp_code": "Y13",
-              "name_zh": "LGS布抽30x28x16.8",
-              "name_vi": "LGS布抽30x28x16.8",
-              "spec": "300x280x168mm",
-              "spec_vi": "300x280x168mm",
+              "name_zh": "LGS布抽30x28.2x16.8",
+              "name_vi": "LGS布抽30x28.2x16.8",
+              "spec": "300x282x168mm",
+              "spec_vi": "300x282x168mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "复古色",
@@ -39983,10 +39983,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "17",
               "mat_code": "BC298282166WH",
               "comp_code": "Y13",
-              "name_zh": "LGS布抽30x28x16.8",
-              "name_vi": "LGS布抽30x28x16.8",
-              "spec": "300x280x168mm",
-              "spec_vi": "300x280x168mm",
+              "name_zh": "LGS布抽30x28.2x16.8",
+              "name_vi": "LGS布抽30x28.2x16.8",
+              "spec": "300x282x168mm",
+              "spec_vi": "300x282x168mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "白色",
@@ -40986,10 +40986,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "17",
               "mat_code": "BC298282166BH",
               "comp_code": "Y13",
-              "name_zh": "LGS布抽30x28x16.8",
-              "name_vi": "LGS布抽30x28x16.8",
-              "spec": "300x280x168mm",
-              "spec_vi": "300x280x168mm",
+              "name_zh": "LGS布抽30x28.2x16.8",
+              "name_vi": "LGS布抽30x28.2x16.8",
+              "spec": "300x282x168mm",
+              "spec_vi": "300x282x168mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "黑色",
@@ -63401,6 +63401,57 @@ window.BOM_VIEWER_DATA = {
   },
   "notifications": [
     {
+      "id": "notif_1msiku0",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-09T09:42:48.153Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "BC298282166BH",
+          "field": "name",
+          "before": "LGS布抽30x28x16.8",
+          "after": "LGS布抽30x28.2x16.8"
+        },
+        {
+          "kind": "material",
+          "code": "BC298282166BH",
+          "field": "spec",
+          "before": "300x280x168mm",
+          "after": "300x282x168mm"
+        },
+        {
+          "kind": "material",
+          "code": "BC298282166KD",
+          "field": "name",
+          "before": "LGS布抽30x28x16.8",
+          "after": "LGS布抽30x28.2x16.8"
+        },
+        {
+          "kind": "material",
+          "code": "BC298282166KD",
+          "field": "spec",
+          "before": "300x280x168mm",
+          "after": "300x282x168mm"
+        },
+        {
+          "kind": "material",
+          "code": "BC298282166WH",
+          "field": "name",
+          "before": "LGS布抽30x28x16.8",
+          "after": "LGS布抽30x28.2x16.8"
+        },
+        {
+          "kind": "material",
+          "code": "BC298282166WH",
+          "field": "spec",
+          "before": "300x280x168mm",
+          "after": "300x282x168mm"
+        }
+      ]
+    },
+    {
       "id": "notif_c8cxp6",
       "type": "github-save",
       "actor": "admin",
@@ -85108,12 +85159,12 @@ window.BOM_VIEWER_DATA = {
         "id": "mat_11onhu3",
         "code": "BC298282166KD",
         "name": {
-          "zh": "LGS布抽30x28x16.8",
-          "vi": "LGS布抽30x28x16.8"
+          "zh": "LGS布抽30x28.2x16.8",
+          "vi": "LGS布抽30x28.2x16.8"
         },
         "spec": {
-          "zh": "300x280x168mm",
-          "vi": "300x280x168mm"
+          "zh": "300x282x168mm",
+          "vi": "300x282x168mm"
         },
         "material": {
           "zh": "MDF&纸板&无纺布",
@@ -85939,12 +85990,12 @@ window.BOM_VIEWER_DATA = {
         "id": "mat_qks5j1",
         "code": "BC298282166WH",
         "name": {
-          "zh": "LGS布抽30x28x16.8",
-          "vi": "LGS布抽30x28x16.8"
+          "zh": "LGS布抽30x28.2x16.8",
+          "vi": "LGS布抽30x28.2x16.8"
         },
         "spec": {
-          "zh": "300x280x168mm",
-          "vi": "300x280x168mm"
+          "zh": "300x282x168mm",
+          "vi": "300x282x168mm"
         },
         "material": {
           "zh": "MDF&纸板&无纺布",
@@ -86181,12 +86232,12 @@ window.BOM_VIEWER_DATA = {
         "id": "mat_tr0vtl",
         "code": "BC298282166BH",
         "name": {
-          "zh": "LGS布抽30x28x16.8",
-          "vi": "LGS布抽30x28x16.8"
+          "zh": "LGS布抽30x28.2x16.8",
+          "vi": "LGS布抽30x28.2x16.8"
         },
         "spec": {
-          "zh": "300x280x168mm",
-          "vi": "300x280x168mm"
+          "zh": "300x282x168mm",
+          "vi": "300x282x168mm"
         },
         "material": {
           "zh": "MDF&纸板&无纺布",
