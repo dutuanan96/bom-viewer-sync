@@ -63405,14 +63405,59 @@ window.BOM_VIEWER_DATA = {
       "type": "github-save",
       "actor": "admin",
       "createdAt": "2026-07-09T06:11:11.656Z",
-      "version": 2
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "BC255282166KD",
+          "field": "name",
+          "before": "LGS布抽25.7x28x16.8",
+          "after": "LGS布抽25.7x28.2x16.8"
+        },
+        {
+          "kind": "material",
+          "code": "BC255282166KD",
+          "field": "spec",
+          "before": "257x280x168mm",
+          "after": "257x282x168mm"
+        },
+        {
+          "kind": "material",
+          "code": "BC255282166WH",
+          "field": "name",
+          "before": "LGS布抽25.7x28x16.8",
+          "after": "LGS布抽25.7x28.2x16.8"
+        },
+        {
+          "kind": "material",
+          "code": "BC255282166WH",
+          "field": "spec",
+          "before": "257x280x168mm",
+          "after": "257x282x168mm"
+        },
+        {
+          "kind": "material",
+          "code": "BC255282166BH",
+          "field": "name",
+          "before": "LGS布抽25.7x28x16.8",
+          "after": "LGS布抽25.7x28.2x16.8"
+        },
+        {
+          "kind": "material",
+          "code": "BC255282166BH",
+          "field": "spec",
+          "before": "257x280x168mm",
+          "after": "257x282x168mm"
+        }
+      ]
     },
     {
       "id": "notif_1af8mk",
       "type": "github-save",
       "actor": "admin",
       "createdAt": "2026-07-09T05:33:09.974Z",
-      "version": 2
+      "version": 2,
+      "changes": []
     }
   ],
   "materialDb": {

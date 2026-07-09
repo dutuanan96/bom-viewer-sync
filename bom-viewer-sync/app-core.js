@@ -1153,6 +1153,19 @@
     return output;
   }
 
+  function decodeBase64Utf8(value) {
+    const clean = String(value || '').replace(/\s/g, '');
+    if (!clean) return '';
+    if (typeof global.atob === 'function') {
+      const binary = global.atob(clean);
+      const bytes = new Uint8Array(binary.length);
+      for (let index = 0; index < binary.length; index += 1) bytes[index] = binary.charCodeAt(index);
+      return new TextDecoder().decode(bytes);
+    }
+    if (typeof Buffer !== 'undefined') return Buffer.from(clean, 'base64').toString('utf8');
+    throw new Error('Base64 decoder unavailable');
+  }
+
   function normalizePayload(payload) {
     const source = payload || {};
     const fallbackProductImages = global.BOM_VIEWER_DATA?.productImages || global.PRODUCT_IMAGE_INDEX || {};
@@ -4075,12 +4088,12 @@
         materialDb: this.state.materialDb,
         notifications: this.state.payload.notifications
       });
-      const changes = describePayloadChanges(this.state.loadedPayload, payload);
-      payload = appendNotificationEvent(payload, { type: 'github-save', actor: 'admin', createdAt: updatedAt, changes });
       syncLegacyBomFromMaterialDb(payload);
+      const remoteFile = await this.fetchGithubFile(token);
+      const changes = describePayloadChanges(remoteFile.payload || this.state.loadedPayload, payload);
+      payload = appendNotificationEvent(payload, { type: 'github-save', actor: 'admin', createdAt: updatedAt, changes });
       const source = serializeDataJs(payload);
-      const sha = await this.fetchGithubSha(token);
-      const request = buildGithubUpdateRequest({ config: this.config, token, sha, source, message: `chore: update bom data ${updatedAt}` });
+      const request = buildGithubUpdateRequest({ config: this.config, token, sha: remoteFile.sha, source, message: `chore: update bom data ${updatedAt}` });
       const response = await fetch(request.url, request.options);
       if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
       this.state.loadedPayload = clone(payload);
@@ -4105,13 +4118,15 @@
       this.state.payload.materialDb = this.state.materialDb;
     }
 
-    async fetchGithubSha(token) {
+    async fetchGithubFile(token) {
       const url = `${contentsUrl(this.config)}?ref=${encodeURIComponent(this.config.branch)}`;
       const response = await fetch(url, { headers: this.githubHeaders(token) });
-      if (response.status === 404) return '';
+      if (response.status === 404) return { sha: '', payload: null };
       if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
       const data = await response.json();
-      return data.sha || '';
+      let payload = null;
+      if (data.content) payload = parseDataJsPayload(decodeBase64Utf8(data.content));
+      return { sha: data.sha || '', payload };
     }
 
     githubHeaders(token) {
