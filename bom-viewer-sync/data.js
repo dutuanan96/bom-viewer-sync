@@ -82077,42 +82077,6 @@ window.BOM_VIEWER_DATA = {
         "drawings": [],
         "models3d": []
       },
-      "mat_2gfja6": {
-        "id": "mat_2gfja6",
-        "code": "DD0500R1",
-        "name": {
-          "zh": "自粘灯带固定卡扣",
-          "vi": "Đồ gài cố định đèn led"
-        },
-        "spec": {
-          "zh": "以实际为准",
-          "vi": "Tùy thực tế"
-        },
-        "material": {
-          "zh": "PP",
-          "vi": "PP"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [],
-        "models3d": [
-          {
-            "name": "500-灯带.glb",
-            "path": "models3d/catalog/500-57ceb403.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/500-57ceb403.glb",
-            "matched_name": "500-灯带",
-            "score": 1100,
-            "bytes": 1362944
-          }
-        ],
-        "spec_vi": "以实际为准"
-      },
       "mat_glzqbp": {
         "id": "mat_glzqbp",
         "code": "LGS433YKWH",
@@ -83978,42 +83942,6 @@ window.BOM_VIEWER_DATA = {
         "drawings": [],
         "models3d": []
       },
-      "mat_1pofdix": {
-        "id": "mat_1pofdix",
-        "code": "DD0650R1",
-        "name": {
-          "zh": "自粘灯带固定卡扣",
-          "vi": "Đồ gài cố định đèn led"
-        },
-        "spec": {
-          "zh": "以实际为准",
-          "vi": "Tùy thực tế"
-        },
-        "material": {
-          "zh": "PP",
-          "vi": "PP"
-        },
-        "color": {
-          "zh": "本色",
-          "vi": "màu tự nhiên"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [],
-        "models3d": [
-          {
-            "name": "650-灯带.glb",
-            "path": "models3d/catalog/650-b6e37033.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/650-b6e37033.glb",
-            "matched_name": "650-灯带",
-            "score": 1100,
-            "bytes": 1363320
-          }
-        ],
-        "spec_vi": "以实际为准"
-      },
       "mat_d3zu0k": {
         "id": "mat_d3zu0k",
         "code": "LGS434XZQSLBH",
@@ -85472,42 +85400,6 @@ window.BOM_VIEWER_DATA = {
         "drawings": [],
         "models3d": []
       },
-      "mat_1g4ooru": {
-        "id": "mat_1g4ooru",
-        "code": "DD0900R1",
-        "name": {
-          "zh": "自粘灯带固定卡扣",
-          "vi": "Đồ gài cố định đèn led"
-        },
-        "spec": {
-          "zh": "以实际为准",
-          "vi": "Tùy thực tế"
-        },
-        "material": {
-          "zh": "PP",
-          "vi": "PP"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [],
-        "models3d": [
-          {
-            "name": "900-灯带.glb",
-            "path": "models3d/catalog/900-7c8de8ce.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/900-7c8de8ce.glb",
-            "matched_name": "900-灯带",
-            "score": 1100,
-            "bytes": 3024192
-          }
-        ],
-        "spec_vi": "以实际为准"
-      },
       "mat_1n4i99m": {
         "id": "mat_1n4i99m",
         "code": "LGS723SZKWH",
@@ -86739,42 +86631,6 @@ window.BOM_VIEWER_DATA = {
         },
         "drawings": [],
         "models3d": []
-      },
-      "mat_e3jxxz": {
-        "id": "mat_e3jxxz",
-        "code": "DD1050R1",
-        "name": {
-          "zh": "自粘灯带固定卡扣",
-          "vi": "Đồ gài cố định đèn led"
-        },
-        "spec": {
-          "zh": "以实际为准",
-          "vi": "Tùy thực tế"
-        },
-        "material": {
-          "zh": "PP",
-          "vi": "PP"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [],
-        "models3d": [
-          {
-            "name": "1050-灯带.glb",
-            "path": "models3d/catalog/1050-85851297.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/1050-85851297.glb",
-            "matched_name": "1050-灯带",
-            "score": 1100,
-            "bytes": 3421116
-          }
-        ],
-        "spec_vi": "以实际为准"
       },
       "mat_t6uv63": {
         "id": "mat_t6uv63",
@@ -88672,42 +88528,6 @@ window.BOM_VIEWER_DATA = {
         },
         "drawings": [],
         "models3d": []
-      },
-      "mat_507y0z": {
-        "id": "mat_507y0z",
-        "code": "DD1350R1",
-        "name": {
-          "zh": "自粘灯带固定卡扣",
-          "vi": "Đồ gài cố định đèn led"
-        },
-        "spec": {
-          "zh": "以实际为准",
-          "vi": "Tùy thực tế"
-        },
-        "material": {
-          "zh": "PP",
-          "vi": "PP"
-        },
-        "color": {
-          "zh": "本色",
-          "vi": "màu tự nhiên"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [],
-        "models3d": [
-          {
-            "name": "1350-灯带.glb",
-            "path": "models3d/catalog/1350-1e16faba.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/1350-1e16faba.glb",
-            "matched_name": "1350-灯带",
-            "score": 1100,
-            "bytes": 3645220
-          }
-        ],
-        "spec_vi": "以实际为准"
       },
       "mat_hqo7w2": {
         "id": "mat_hqo7w2",
@@ -109564,7 +109384,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS433",
         "productCode": "LGS433",
         "color": "白色",
-        "materialId": "mat_2gfja6",
+        "materialId": "mat_1abho09",
         "stt": "5",
         "comp_code": "R1",
         "qty": "5",
@@ -111636,7 +111456,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS434",
         "productCode": "LGS434",
         "color": "黑色",
-        "materialId": "mat_1pofdix",
+        "materialId": "mat_1j506i6",
         "stt": "6",
         "comp_code": "R1",
         "qty": "5",
@@ -113036,7 +112856,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS723",
         "productCode": "LGS723",
         "color": "白色",
-        "materialId": "mat_1g4ooru",
+        "materialId": "mat_13imrat",
         "stt": "5",
         "comp_code": "R1",
         "qty": "5",
@@ -114870,7 +114690,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS733",
         "productCode": "LGS733",
         "color": "白色",
-        "materialId": "mat_e3jxxz",
+        "materialId": "mat_47zmys",
         "stt": "2",
         "comp_code": "R1",
         "qty": "5",
@@ -116746,7 +116566,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS833",
         "productCode": "LGS833",
         "color": "白色",
-        "materialId": "mat_e3jxxz",
+        "materialId": "mat_47zmys",
         "stt": "2",
         "comp_code": "R1",
         "qty": "5",
@@ -118622,7 +118442,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS834",
         "productCode": "LGS834",
         "color": "黑色",
-        "materialId": "mat_507y0z",
+        "materialId": "mat_ijhbi8",
         "stt": "2",
         "comp_code": "R1",
         "qty": "5",
