@@ -1,237 +1,132 @@
-# JinTai PDM System - AI Handover Document
-# Updated: 2026-07-09
+# JinTai PDM System - Handover
 
-## 1. Project Overview
+## Summary
+The project is a static vanilla JS PDM/BOM system. The recent work focused on making the bell notification behave like a real PDM notification/audit event when admin saves to GitHub.
 
-JinTai PDM (Product Data Management) system for managing BOM (Bill of Materials) for 22 LGS furniture products. Bilingual UI: Chinese (zh) + Vietnamese (vi).
+The important current state is:
+- Notification code has been pushed through `9763e71 fix: diff notifications against github data`.
+- The user’s latest known real data save is `6528656 chore: update bom data 2026-07-09T09:42:48.153Z`.
+- Desktop files have been synced from `outputs/`.
+- Notifications `notif_1msiku0` and `notif_c8cxp6` contain detailed `changes`.
 
-**Two modes:**
-- **Viewer** (`viewer.html`): Read-only BOM viewer, distributed to end users. Loads data from GitHub.
-- **Admin** (`admin.html`): Full CRUD, saves data to GitHub.
+## What Was Fixed
+Originally the bell only showed a generic message:
 
-**Stack:** Vanilla HTML/CSS/JS. No frameworks. No build tools except `build_standalone_viewer.mjs`.
+`Admin 已保存 BOM/物料数据，Viewer 可同步最新版本。`
 
-## 2. File Structure
+It did not show what changed.
 
-```
-outputs/
-├── admin.html              # Admin interface
-├── viewer.html             # Standalone viewer (CSS/JS inlined, loads data from GitHub)
-├── app-core.js             # Core logic (~4,062 lines)
-├── app-admin.js            # Admin bootstrap (8 lines)
-├── app-viewer.js           # Viewer bootstrap (8 lines)
-├── styles.css              # CSS (~3,057 lines)
-├── data.js                 # BOM data (3.8MB, includes materialDb)
-├── hardware_analysis.md    # Screw/hardware color analysis
-├── HANDOVER.md             # This file
-├── PROJECT_CONTEXT.md      # Detailed handoff doc
-├── backups/                # Backup files (timestamped)
-├── product-images/         # Product photos
-├── models3d/catalog/       # GLB 3D models
-└── pdm-system/             # Misc assets
+The fix added:
+- Notification events stored in `data.js`.
+- Change detail capture in `changes`.
+- Viewer rendering of changed material code, field, before value, and after value.
+- GitHub Contents API raw read to avoid `raw.githubusercontent.com` cache delay.
+- Admin save diff against current GitHub data, not only local `loadedPayload`.
 
-work/
-├── build_standalone_viewer.mjs  # Build script
-├── remote-bom-viewer-sync/      # Git clone of GitHub repo
-└── package.json
-```
+## Why Remote Baseline Matters
+The user saved from admin and saw notification `2026/7/9 13:11:11` without details. Investigation showed:
+- Remote `data.js` had notification `notif_c8cxp6`, but it had no `changes`.
+- The edited drawer materials were already changed in `materialDb`.
+- Generic notification happened because admin either ran old/cached code or diffed against a stale local baseline.
 
-## 3. Architecture
+The final save flow now:
+1. Admin builds the next payload.
+2. Admin fetches current GitHub `data.js` and SHA with `fetchGithubFile(token)`.
+3. Admin computes `describePayloadChanges(remoteFile.payload, payload)`.
+4. Admin writes notification with `changes`.
+5. Admin PUTs with the same SHA.
 
-### Data Flow
-```
-Admin edits → serializeDataJs() → GitHub API → data.js on GitHub
-                                                           ↓
-Viewer loads ← fetch(raw.githubusercontent.com/...) ← data.js
-```
+Do not regress this flow.
 
-### Storage Split
-| Component | Storage | Notes |
-|-----------|---------|-------|
-| BOM data (data.js) | GitHub | 3.8MB, includes materialDb |
-| 3D models (GLB) | GitHub repo | `models3d/catalog/` |
-| 2D drawings (PDF) | Google Drive | `file/d/{id}/preview` iframe |
-| Product images | Google Drive | Thumbnail URLs |
-| Manuals | Google Drive | `说明书_按LGS分组` |
-| HTML files | Local/Dest | Copied to user's machine |
+## Latest Real User Edit
+User changed cloth drawer material name/spec:
+- `LGS布抽25.7x28x16.8` -> `LGS布抽25.7x28.2x16.8`
+- `257x280x168mm` -> `257x282x168mm`
 
-### GitHub Repo
-- Repo: `dutuanan96/bom-viewer-sync`
-- Branch: `main`
-- Path: `bom-viewer-sync/`
-- Upload method: `git push` (NOT web upload)
+Affected material codes:
+- `BC255282166KD`
+- `BC255282166WH`
+- `BC255282166BH`
 
-### Key Functions (app-core.js)
-| Function | Line | Purpose |
-|----------|------|---------|
-| `normalizePayload()` | ~1026 | Normalizes raw data, creates materialDb |
-| `createMaterialDatabase()` | ~502 | Generates materialDb from bom data |
-| `serializeDataJs()` | ~1055 | Serializes data for GitHub save |
-| `isRenderableProductEntry()` | ~609 | Filters BOM entries (allows virtual packs) |
-| `isHardwarePackSummary()` | ~471 | Checks if material is五金包 summary |
-| `buildBomTreeRows()` | ~659 | Builds hierarchical BOM tree |
-| `filteredRows()` | ~2906 | Filter/sort BOM rows |
-| `resolveBomRows()` | ~617 | Resolves flat BOM rows from bomEntries |
-| `createPdmNavigation()` | ~900 | Creates sidebar navigation (BOM/Materials/Structure) |
+Notification `notif_c8cxp6` was enriched with six changes:
+- name/spec for KD
+- name/spec for WH
+- name/spec for BH
 
-## 4. Data Model
+Viewer smoke test confirmed body contains:
+- `BC255282166KD`
+- `LGS布抽25.7x28.2x16.8`
+- `257x282x168mm`
 
-### bomEntries (parentType: 'product')
-- Links products to materials
-- Fields: `productCode`, `color`, `materialId`, `stt`, `comp_code`, `qty`, `order`, `virtual`
-- `virtual: true` = auto-generated by createMaterialDatabase()
-- `isRenderableProductEntry()` allows virtual packs to render
+After the remote-baseline fix, the user saved another real edit:
+- Commit: `6528656 chore: update bom data 2026-07-09T09:42:48.153Z`
+- Notification: `notif_1msiku0`
+- Affected material codes:
+  `BC298282166BH`, `BC298282166KD`, `BC298282166WH`
+- Automatically captured changes:
+  `LGS布抽30x28x16.8` -> `LGS布抽30x28.2x16.8`
+  and `300x280x168mm` -> `300x282x168mm`
 
-### bomEntries (parentType: 'material')
-- Links parent materials to child materials (parent-child structure)
-- Fields: `parentId`, `childMaterialId`, `productCode`, `color`, `qty`
+## Important Files
+- `outputs\app-core.js`
+  - `fetchCloudPayload()`
+  - `fetchGithubFile(token)`
+  - `decodeBase64Utf8()`
+  - `describePayloadChanges()`
+  - `appendNotificationEvent()`
+  - `notificationBody()`
+- `outputs\data.js`
+  - contains latest BOM data and notification payloads.
+- `outputs\admin.html`
+  - cache-bust scripts:
+    - `data.js?v=22`
+    - `app-core.js?v=23`
+    - `app-admin.js?v=21`
+- `outputs\viewer.html`
+  - rebuilt standalone viewer.
+- `work\remote-bom-viewer-sync\bom-viewer-sync\`
+  - Git clone pushed to GitHub.
 
-### 五金包 (Hardware Pack) Logic
-- 复古色/黑色 → use BH pack (e.g. LGS101WJBBH)
-- 白色 → use WH pack (e.g. LGS101WJBWH)
-- BH pack children: only 复古色 + 黑色 items
-- WH pack children: only 白色 items
-- WH pack color: `color_zh: '白色'` (NOT '黑色')
+## Verification Already Done
+Commands passed:
 
-### 灯带 (LED Strip) Logic
-- **BH** = 黑泊板 (black PCB) → used for 复古色/黑色 products
-- **WH** = 白色 (white) → used for 白色 products
-- Code convention: `DDxxxx` = LED strip, `DDxxxxR1` = fixing clip
-- 材质: LED strip = FPCB, fixing clip = PP
-- 规格: LED strip = `DC12V, SMD5050, xxxmm`, fixing clip = `以实际为准`
-- 自粘灯带固定卡扣 only has 1 color: 本色 (NOT 白色)
-- 2D drawings: not used for灯带
-- 3D models: shared between BH/WH (same model, different color)
-
-### 布抽 (Fabric Drawer) Logic
-- 材质: `MDF&纸板&无纺布` (NOT `MDF&无纺布` which is for 底板)
-- 布抽底板: 材质 = `MDF&无纺布`, no 2D drawings
-- 布抽条: separate items (SLHGZY/SLHGZZ codes)
-- 2D drawings: not color-specific, can share between BH/WH
-
-### Sorting
-Priority: 零件 (Parts) > 五金包 (Hardware) > 包材 (Packaging)
-Fallback: alphabetical by `mat_code`
-
-## 5. Sidebar Navigation
-
-The sidebar has 3 modules (图纸/3D was removed as redundant with 物料数据库):
-1. **产品 BOM** (22) - Product catalog and BOM table
-2. **物料数据库** (662) - Material database with 2D/3D assets
-3. **父子项结构** (35) - Parent-child structure (count = unique parent materials)
-
-## 6. Development Workflow
-
-### Build Standalone Viewer
 ```powershell
-cd work
-node build_standalone_viewer.mjs
-Copy-Item ..\outputs\admin.html C:\Users\HP\Desktop\admin.html -Force
-Copy-Item ..\outputs\viewer.html C:\Users\HP\Desktop\viewer.html -Force
+node --check outputs\app-core.js
+node --check work\remote-bom-viewer-sync\bom-viewer-sync\app-core.js
+node work\restructure.test.mjs
+node work\material-master-editor.test.mjs
 ```
 
-### Push to GitHub
-```bash
-cd work/remote-bom-viewer-sync
-cp ../outputs/data.js bom-viewer-sync/data.js
-cp ../outputs/app-core.js bom-viewer-sync/app-core.js
-cp ../outputs/viewer.html bom-viewer-sync/viewer.html
-cp ../outputs/styles.css bom-viewer-sync/styles.css
-cp ../outputs/admin.html bom-viewer-sync/admin.html
-git add bom-viewer-sync/
-git commit -m "description"
-git push origin main
-```
+Results:
+- `restructure.test.mjs`: 13/13 pass.
+- `material-master-editor.test.mjs`: 14/14 pass.
 
-### Backup Before Changes
-```bash
-cp outputs/data.js outputs/backups/data.js.$(date +%Y%m%d_%H%M%S)
-```
+Remote verification:
+- GitHub Contents API returned status `200`.
+- Remote notification `notif_c8cxp6` has six `changes`.
+- Remote notification `notif_1msiku0` has six `changes`, proving automatic diff works after the fix.
+- Latest remote material records for `BC298282166BH/KD/WH` have `300x282x168mm`.
 
-### Cache Busting
-- `admin.html`: references `app-core.js?v=22` (external)
-- `viewer.html`: loads data from GitHub (NOT inlined)
-- Browser cache: always reload with `Page.reload({"ignoreCache": true})` before CDP verify
-- GitHub CDN: `raw.githubusercontent.com` caches files, may need a few minutes
+Browser verification:
+- Opened `file:///C:/Users/HP/Desktop/viewer.html`.
+- Cleared localStorage.
+- Confirmed notification body shows detailed drawer changes.
+- Confirmed opening bell marks notifications as read and badge becomes `0`.
 
-## 7. Known Issues (Fixed)
+## Current Limitations
+- Diff tracks `materialDb.materials` only for fields:
+  `name`, `spec`, `material`, `color`, `attr`.
+- If future user edits are product/color-only fields not reflected in `materialDb`, extend `describePayloadChanges()`.
+- Notification panel shows first 3 changes plus `+N`; it does not yet expand all changes in UI.
 
-| Issue | Status | Fix |
-|-------|--------|-----|
-| Version mismatch (sidebar shows V2) | ✅ Fixed | `version: source.version != null ? source.version : 2` |
-| WH pack colors wrong | ✅ Fixed | color_zh: '黑色' → '白色' for LGS033/131/420 |
-| BOM rendering (virtual packs hidden) | ✅ Fixed | `isRenderableProductEntry()` allows virtual packs |
-| BH pack showing in 白色 view | ✅ Fixed | Removed BH entries for 白色 color |
-| BH pack having 白色 children | ✅ Fixed | Removed 白色 children from BH parents |
-| Duplicate children in WH pack | ✅ Fixed | Deduplicated by parentId + childMaterialId + color |
-| 2D modal opens as full page (no modal) | ✅ Fixed | CSS `.pdf-frame` changed from `position: absolute` to `flex: 1` |
-| 3D modal not opening | ✅ Fixed | Added `#pdfModalSubtitle` to HTML (required by `showModel3dModal`) |
-| Export Excel missing 层级 column | ✅ Fixed | `rowsForExport()` uses `material._level` |
-| 图纸/3D nav redundant | ✅ Fixed | Removed from sidebar (covered by 物料数据库) |
-| 父子项结构 count wrong (572) | ✅ Fixed | Count unique parentIds, not total entries → shows 35 |
-| 布抽 missing 2D (5 items) | ✅ Fixed | Added 2D drawings for 30x32.5, 35x32.5, 55x32.5 series |
-| 布抽 wrong 材质 | ✅ Fixed | Changed to MDF&纸板&无纺布 (not MDF&无纺布) |
-| 灯带 本色 color wrong | ✅ Fixed | Merged into 黑泊板 (复古色/黑色 use black PCB) |
-| 灯带 PP entries confused | ✅ Fixed | Split into 自粘灯带固定卡扣 (DDxxxxR1) |
-| 灯带 missing 白色 versions | ✅ Fixed | Created WH entries for 6 sizes |
-| 灯带 白色 products using BH | ✅ Fixed | Updated 8 BOM entries to use WH 灯带 |
-| 固定卡扣 spec wrong | ✅ Fixed | Changed to 以实际为准 |
-| 固定卡扣 白色 color wrong | ✅ Fixed | Removed (only 本色 exists) |
+## Recommended Skills For Next Agent
+- `systematic-debugging`: if notification/detail/cache does not match expectation.
+- `pdm-workflow`: for BOM/material semantics.
+- `test-driven-development`: for any new behavior.
+- `verification-before-completion`: before reporting done.
 
-## 8. Verification Rules (MANDATORY)
-
-**After EVERY code/data change:**
-1. Rebuild viewer.html: `cd work && node build_standalone_viewer.mjs`
-2. Verify JSON: `node -e "JSON.parse(require('fs').readFileSync('outputs/data.js','utf8').match(/BOM_VIEWER_DATA\s*=\s*(\{[\s\S]*\});?\s*$/)[1])"`
-3. Reload both viewer.html and admin.html tabs
-4. CDP verify on BOTH tabs
-5. Check: version, relevant feature, white products BH+WH
-6. Never skip verification
-
-**CDP reload command:**
-```javascript
-Page.reload({"ignoreCache": true})
-```
-
-**After GitHub push:**
-- Browser cache may show old data
-- Must reload page to fetch fresh data from GitHub
-- CDN cache on raw.githubusercontent.com may take a few minutes
-- Use `?t=timestamp` to bypass cache if needed
-
-## 9. Product Color → Hardware Pack Mapping
-
-| Product Colors | BH Pack | WH Pack |
-|---------------|---------|---------|
-| 复古色, 黑色 | ✅ Required | ❌ Not needed |
-| 复古色, 白色, 黑色 | ✅ Required | ✅ Required |
-| 白色, 黑色 | ✅ Required | ✅ Required |
-| 复古色 only | ✅ Required | ❌ Not needed |
-| 黑色 only | ✅ Required | ❌ Not needed |
-
-**BH pack:** `LGSxxxWJBBH`, color_zh: '黑色', children use BH items (BZ/BH suffix)
-**WH pack:** `LGSxxxWJBWH`, color_zh: '白色', children use WH items (WZ/WH suffix)
-
-## 10. Backup Strategy
-
-Backups are stored in `outputs/backups/` with timestamp format `data.js.YYYYMMDD_HHMMSS`.
-Before making data changes, always create a backup:
-```bash
-cp outputs/data.js outputs/backups/data.js.$(date +%Y%m%d_%H%M%S)
-```
-
-To restore:
-```bash
-cp outputs/backups/data.js.YYYYMMDD_HHMMSS outputs/data.js
-```
-
-## 11. Constraints
-
-- **No frameworks** - Vanilla JS only
-- **No breaking changes** - 22 products × 2147 materials at stake
-- **Bilingual** - All UI text must have zh + vi
-- **PDM standards** - Material codes unique, sorting 零件>五金包>包材
-- **Deploy target** - Windows machines, file:// protocol
-- **GitHub = data storage** - Viewer loads from GitHub, not local file
-- **NEVER modify working code** - only ADD new code
-- **After every change** - rebuild viewer.html, CDP verify both tabs, push to GitHub
+## Warnings
+- Never expose GitHub tokens.
+- Do not hardcode zh/vi UI strings outside the existing i18n dictionaries.
+- Always pull latest GitHub clone before pushing, because admin may have saved new data.
+- Do not restore the temporary `LGS111WJBBH` test edit. It was overwritten by the user’s later real save.
