@@ -54050,8 +54050,8 @@ window.BOM_VIEWER_DATA = {
           "vi": "PP"
         },
         "color": {
-          "zh": "黑泊板",
-          "vi": "bảng đen"
+          "zh": "本色",
+          "vi": "màu tự nhiên"
         },
         "attr": {
           "zh": "零件",
@@ -55721,8 +55721,8 @@ window.BOM_VIEWER_DATA = {
           "vi": "PP"
         },
         "color": {
-          "zh": "黑泊板",
-          "vi": "bảng đen"
+          "zh": "本色",
+          "vi": "màu tự nhiên"
         },
         "attr": {
           "zh": "零件",
@@ -57715,8 +57715,8 @@ window.BOM_VIEWER_DATA = {
           "vi": "PP"
         },
         "color": {
-          "zh": "黑泊板",
-          "vi": "bảng đen"
+          "zh": "本色",
+          "vi": "màu tự nhiên"
         },
         "attr": {
           "zh": "零件",
@@ -60522,8 +60522,8 @@ window.BOM_VIEWER_DATA = {
           "vi": "PP"
         },
         "color": {
-          "zh": "黑泊板",
-          "vi": "bảng đen"
+          "zh": "本色",
+          "vi": "màu tự nhiên"
         },
         "attr": {
           "zh": "零件",
@@ -62264,8 +62264,8 @@ window.BOM_VIEWER_DATA = {
           "vi": "PP"
         },
         "color": {
-          "zh": "黑泊板",
-          "vi": "bảng đen"
+          "zh": "本色",
+          "vi": "màu tự nhiên"
         },
         "attr": {
           "zh": "零件",
@@ -63852,8 +63852,8 @@ window.BOM_VIEWER_DATA = {
           "vi": "PP"
         },
         "color": {
-          "zh": "黑泊板",
-          "vi": "bảng đen"
+          "zh": "本色",
+          "vi": "màu tự nhiên"
         },
         "attr": {
           "zh": "零件",
@@ -64732,8 +64732,8 @@ window.BOM_VIEWER_DATA = {
           "vi": "PP"
         },
         "color": {
-          "zh": "黑泊板",
-          "vi": "bảng đen"
+          "zh": "本色",
+          "vi": "màu tự nhiên"
         },
         "attr": {
           "zh": "零件",
@@ -73861,8 +73861,8 @@ window.BOM_VIEWER_DATA = {
           "vi": "PP"
         },
         "color": {
-          "zh": "黑泊板",
-          "vi": "bảng đen"
+          "zh": "本色",
+          "vi": "màu tự nhiên"
         },
         "attr": {
           "zh": "零件",
@@ -78552,8 +78552,8 @@ window.BOM_VIEWER_DATA = {
           "vi": "PP"
         },
         "color": {
-          "zh": "黑泊板",
-          "vi": "bảng đen"
+          "zh": "本色",
+          "vi": "màu tự nhiên"
         },
         "attr": {
           "zh": "零件",
@@ -79128,32 +79128,6 @@ window.BOM_VIEWER_DATA = {
         "attr": {
           "zh": "零件",
           "vi": "linh kien"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_dd1500wh": {
-        "id": "mat_dd1500wh",
-        "code": "DD1500",
-        "name": {
-          "zh": "1500-灯带",
-          "vi": "1500-đèn led"
-        },
-        "spec": {
-          "zh": "DC12V，SMD5050，1500mm",
-          "vi": "DC12V，SMD5050，1500mm"
-        },
-        "material": {
-          "zh": "PP",
-          "vi": "PP"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
         },
         "drawings": [],
         "models3d": []
@@ -86810,7 +86784,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS131",
         "productCode": "LGS131",
         "color": "白色",
-        "materialId": "mat_dd1500wh",
+        "materialId": "mat_az72aa",
         "stt": "4",
         "comp_code": "R1",
         "qty": "5",
@@ -96316,7 +96290,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS420",
         "productCode": "LGS420",
         "color": "白色",
-        "materialId": "mat_dd1500wh",
+        "materialId": "mat_az72aa",
         "stt": "6",
         "comp_code": "R1",
         "qty": "5",
