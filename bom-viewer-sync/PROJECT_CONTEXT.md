@@ -22,7 +22,7 @@ As of 2026-07-09, the notification code was pushed through:
 Latest known data save after that code fix:
 - `6528656 chore: update bom data 2026-07-09T09:42:48.153Z`
 
-`outputs/`, the local clone, and Desktop files were synced after `9763e71`.
+Runtime files were synced after `9763e71`; `data.js` in `outputs/` and Desktop was then refreshed from the later data save `6528656`.
 
 ## Data Loading / Cache Rules
 Do not rely on `raw.githubusercontent.com` for freshness. It can cache after a save.
