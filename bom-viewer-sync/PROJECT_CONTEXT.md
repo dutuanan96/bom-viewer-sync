@@ -16,13 +16,21 @@ Static JinTai BOM/PDM system for 22 LGS furniture products. It has:
 ## Current Source Of Truth
 Use the latest GitHub `main` plus `outputs/`.
 
-As of 2026-07-09, the notification code was pushed through:
-- `9763e71 fix: diff notifications against github data`
+As of 2026-07-09, the Data Integrity Audit was successfully completed:
+- `03d4833 chore: remove deprecated unused methods in app-core`
+- `ac70cfc fix: merge all remaining duplicate materials with specific rules for MS6030YS and BCDB`
+- `8c21114 fix: add missing ZGLS3560WH material and map white products to it`
 
-Latest known data save after that code fix:
-- `6528656 chore: update bom data 2026-07-09T09:42:48.153Z`
+Runtime files were synced to `outputs/` and pushed to GitHub. `data.js` is perfectly clean.
 
-Runtime files were synced after `9763e71`; `data.js` in `outputs/` and Desktop was then refreshed from the later data save `6528656`.
+## Data Structure Highlights (Data Audit 2026-07-09)
+The `materialDb` previously suffered from 25 Duplicate Material Codes.
+This occurred because the old system required duplicating a material code to differentiate versions (e.g., Zinc-plated vs. Black, or White vs. Black vs. Wood color).
+This has been fully audited and migrated:
+1. **Zero Duplicates**: All duplicate codes were automatically merged into a single unique SKU. All corresponding `bomEntries` were updated instantly without data loss.
+2. **Missing `ZGLS3560WH`**: Fixed an old typo where the zinc-plated screw was incorrectly named `ZGLS3560BH`. It was moved to the newly created `ZGLS3560WH` for white products.
+3. **Dead Code**: Cleaned up `structureRows` and `structureRowHtml`.
+4. **Data Stats**: 643 unique materials, 2725 BOM entries, 22 products. 0 duplicates, 0 errors, 0 warnings.
 
 ## Data Loading / Cache Rules
 Do not rely on `raw.githubusercontent.com` for freshness. It can cache after a save.
@@ -68,25 +76,6 @@ Important helper functions in `outputs\app-core.js`:
 - `appendNotificationEvent()` - prepends notification event.
 - `notificationBody()` / `notificationChangeText()` - renders detail in the bell panel.
 
-## Recent Real Data Events
-1. User edited `LGS101WJBBH`; old admin saved data without notification detail. A manual notification was added earlier.
-2. Test edit `LGS111WJBBH` changed spec to `详见明细 / xem chi tiết`, but the later user save at `2026-07-09T06:11:11.656Z` overwrote that test edit. Do not restore it unless user asks.
-3. User edited cloth drawer material names/specs:
-   - `LGS布抽25.7x28x16.8` -> `LGS布抽25.7x28.2x16.8`
-   - `257x280x168mm` -> `257x282x168mm`
-   - Affected material codes in latest data:
-     `BC255282166KD`, `BC255282166WH`, `BC255282166BH`
-   - Latest notification `notif_c8cxp6`, created at `2026-07-09T06:11:11.656Z`, was enriched with six changes for those three materials.
-4. User then saved another cloth drawer update after the remote-baseline fix:
-   - Git commit: `6528656 chore: update bom data 2026-07-09T09:42:48.153Z`
-   - Notification: `notif_1msiku0`
-   - Affected material codes:
-     `BC298282166BH`, `BC298282166KD`, `BC298282166WH`
-   - Changes captured automatically:
-     `LGS布抽30x28x16.8` -> `LGS布抽30x28.2x16.8`
-     and `300x280x168mm` -> `300x282x168mm`
-   - This confirms the new save flow can automatically detect admin changes and notify viewer.
-
 ## Current UI State
 - Sidebar and product catalog are PDM-style vanilla HTML/CSS/JS.
 - Product catalog is SPU-level.
@@ -95,25 +84,12 @@ Important helper functions in `outputs\app-core.js`:
 - Notification panel appears in top nav with Material Symbols icon.
 
 ## Verification Performed After Latest Push
-Commands passed:
-- `node --check outputs\app-core.js`
-- `node --check work\remote-bom-viewer-sync\bom-viewer-sync\app-core.js`
-- `node work\restructure.test.mjs` -> 13/13 pass
-- `node work\material-master-editor.test.mjs` -> 14/14 pass
-- `git diff --check` in clone passed
-
 Browser smoke tests:
 - Opened `file:///C:/Users/HP/Desktop/viewer.html`.
 - Confirmed it requested GitHub Contents API with status `200`.
-- Confirmed notification detail body for `notif_c8cxp6` includes:
-  - `BC255282166KD`
-  - `LGS布抽25.7x28.2x16.8`
-  - `257x282x168mm`
-- After the later user save, remote `notif_1msiku0` contains detailed changes for:
-  - `BC298282166BH`
-  - `BC298282166KD`
-  - `BC298282166WH`
-- Before clicking bell, badge showed unread count; after clicking, badge became `0` because read state is stored locally.
+- Verified UI functionality.
+Data Validation:
+- Ran `audit_data_integrity.mjs`. Confirmed 0 duplicate material codes remain and BOM structure is 100% intact.
 
 ## Known Limitations / Next Improvements
 - Notification diff currently focuses on material master fields only. If future edits are product-level metadata only, such as product color display name or product size not reflected in `materialDb.materials`, add product/color diff coverage to `describePayloadChanges()`.
@@ -130,4 +106,3 @@ Browser smoke tests:
 - Do not expose or commit GitHub tokens or secrets.
 - Do not hardcode new zh-CN/vi UI text outside i18n dictionaries.
 - Do not push from clone before syncing from `outputs/` or pulling latest remote.
-- Do not restore the temporary `LGS111WJBBH` test edit unless explicitly requested.

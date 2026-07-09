@@ -1,123 +1,45 @@
-# JinTai PDM System - Handover
+# JinTai PDM System - Handover (Updated 2026-07-09)
 
 ## Summary
-The project is a static vanilla JS PDM/BOM system. The recent work focused on making the bell notification behave like a real PDM notification/audit event when admin saves to GitHub.
+The project is a static vanilla JS PDM/BOM system. Recent work focused on auditing the data integrity of the `materialDb` and ensuring GitHub synchronization behaves correctly.
 
 The important current state is:
-- Notification code has been pushed through `9763e71 fix: diff notifications against github data`.
-- The user’s latest known real data save is `6528656 chore: update bom data 2026-07-09T09:42:48.153Z`.
-- Desktop files have been synced from `outputs/`.
-- Notifications `notif_1msiku0` and `notif_c8cxp6` contain detailed `changes`.
+- The system is completely free of Duplicate Material Codes. 25 duplicate codes were audited, merged, and cleaned without causing any data loss or broken BOM structures.
+- A missing zinc-plated screw (`ZGLS3560WH`) was added and mapped to all corresponding white products, fixing a legacy data-entry typo.
+- Minor dead code was removed.
+- GitHub `data.js` was synchronized and verified.
 
 ## What Was Fixed
-Originally the bell only showed a generic message:
+### Data Integrity (Duplicate Material Codes)
+Originally, the `materialDb` contained 25 duplicate codes (e.g. two IDs for `ZGLS3560BH`, one for black and one for zinc-plated). This was an artifact of how the old PDM system forced color differentiation without supporting a unified SKU.
 
-`Admin 已保存 BOM/物料数据，Viewer 可同步最新版本。`
+The fix involved:
+- Node scripts (`merge_duplicates.mjs`, `merge_remaining.mjs`) were written and executed against the `data.js` file to programmatically merge these IDs.
+- For each duplicate code, the most frequently used ID was kept.
+- All `bomEntries` pointing to the discarded secondary IDs were safely re-pointed to the primary ID.
+- Special overrides were applied for `MS6030YS` (forced wood color) and `BCDB32831723BH` (forced correct name).
+- `ZGLS3560WH` was split out correctly from `ZGLS3560BH` and 26 BOM entries for white products were reassigned to it.
 
-It did not show what changed.
-
-The fix added:
-- Notification events stored in `data.js`.
-- Change detail capture in `changes`.
-- Viewer rendering of changed material code, field, before value, and after value.
-- GitHub Contents API raw read to avoid `raw.githubusercontent.com` cache delay.
-- Admin save diff against current GitHub data, not only local `loadedPayload`.
-
-## Why Remote Baseline Matters
-The user saved from admin and saw notification `2026/7/9 13:11:11` without details. Investigation showed:
-- Remote `data.js` had notification `notif_c8cxp6`, but it had no `changes`.
-- The edited drawer materials were already changed in `materialDb`.
-- Generic notification happened because admin either ran old/cached code or diffed against a stale local baseline.
-
-The final save flow now:
-1. Admin builds the next payload.
-2. Admin fetches current GitHub `data.js` and SHA with `fetchGithubFile(token)`.
-3. Admin computes `describePayloadChanges(remoteFile.payload, payload)`.
-4. Admin writes notification with `changes`.
-5. Admin PUTs with the same SHA.
-
-Do not regress this flow.
-
-## Latest Real User Edit
-User changed cloth drawer material name/spec:
-- `LGS布抽25.7x28x16.8` -> `LGS布抽25.7x28.2x16.8`
-- `257x280x168mm` -> `257x282x168mm`
-
-Affected material codes:
-- `BC255282166KD`
-- `BC255282166WH`
-- `BC255282166BH`
-
-Notification `notif_c8cxp6` was enriched with six changes:
-- name/spec for KD
-- name/spec for WH
-- name/spec for BH
-
-Viewer smoke test confirmed body contains:
-- `BC255282166KD`
-- `LGS布抽25.7x28.2x16.8`
-- `257x282x168mm`
-
-After the remote-baseline fix, the user saved another real edit:
-- Commit: `6528656 chore: update bom data 2026-07-09T09:42:48.153Z`
-- Notification: `notif_1msiku0`
-- Affected material codes:
-  `BC298282166BH`, `BC298282166KD`, `BC298282166WH`
-- Automatically captured changes:
-  `LGS布抽30x28x16.8` -> `LGS布抽30x28.2x16.8`
-  and `300x280x168mm` -> `300x282x168mm`
+### Code Cleanup
+- Removed legacy hardcoded zh-CN string in the Material Database column headers. Replaced with `this.label(...)` for i18n support.
+- Removed dead code (`structureRows` and `structureRowHtml`).
+- Removed leftover `console.log` statements in rendering methods.
 
 ## Important Files
 - `outputs\app-core.js`
-  - `fetchCloudPayload()`
-  - `fetchGithubFile(token)`
-  - `decodeBase64Utf8()`
-  - `describePayloadChanges()`
-  - `appendNotificationEvent()`
-  - `notificationBody()`
+  - Core application logic, including the BOM viewer rendering and data state.
 - `outputs\data.js`
-  - contains latest BOM data and notification payloads.
+  - Contains the JSON `window.BOM_VIEWER_DATA` payload. **This is fully cleaned and contains 0 duplicates.**
 - `outputs\admin.html`
-  - cache-bust scripts:
-    - `data.js?v=22`
-    - `app-core.js?v=23`
-    - `app-admin.js?v=21`
 - `outputs\viewer.html`
-  - rebuilt standalone viewer.
+  - The standalone HTML packaged file.
 - `work\remote-bom-viewer-sync\bom-viewer-sync\`
-  - Git clone pushed to GitHub.
+  - Git clone pushed to GitHub. Always run `git pull --rebase` here before merging changes to `data.js`, as the user actively saves data to this repo using `admin.html`.
 
 ## Verification Already Done
-Commands passed:
-
-```powershell
-node --check outputs\app-core.js
-node --check work\remote-bom-viewer-sync\bom-viewer-sync\app-core.js
-node work\restructure.test.mjs
-node work\material-master-editor.test.mjs
-```
-
-Results:
-- `restructure.test.mjs`: 13/13 pass.
-- `material-master-editor.test.mjs`: 14/14 pass.
-
-Remote verification:
-- GitHub Contents API returned status `200`.
-- Remote notification `notif_c8cxp6` has six `changes`.
-- Remote notification `notif_1msiku0` has six `changes`, proving automatic diff works after the fix.
-- Latest remote material records for `BC298282166BH/KD/WH` have `300x282x168mm`.
-
-Browser verification:
-- Opened `file:///C:/Users/HP/Desktop/viewer.html`.
-- Cleared localStorage.
-- Confirmed notification body shows detailed drawer changes.
-- Confirmed opening bell marks notifications as read and badge becomes `0`.
-
-## Current Limitations
-- Diff tracks `materialDb.materials` only for fields:
-  `name`, `spec`, `material`, `color`, `attr`.
-- If future user edits are product/color-only fields not reflected in `materialDb`, extend `describePayloadChanges()`.
-- Notification panel shows first 3 changes plus `+N`; it does not yet expand all changes in UI.
+- Ran `audit_data_integrity.mjs`. Confirmed 0 duplicate material codes remain, and the BOM structure is 100% intact (643 materials, 2725 BOM entries).
+- Rebuilt `viewer.html` using `work\build_standalone_viewer.mjs`.
+- Sync'd all changes to the GitHub repo `dutuanan96/bom-viewer-sync`.
 
 ## Recommended Skills For Next Agent
 - `systematic-debugging`: if notification/detail/cache does not match expectation.
@@ -128,5 +50,4 @@ Browser verification:
 ## Warnings
 - Never expose GitHub tokens.
 - Do not hardcode zh/vi UI strings outside the existing i18n dictionaries.
-- Always pull latest GitHub clone before pushing, because admin may have saved new data.
-- Do not restore the temporary `LGS111WJBBH` test edit. It was overwritten by the user’s later real save.
+- Always pull latest GitHub clone before pushing, because admin may have saved new data. If a merge conflict happens in `data.js`, abort the rebase, fetch the latest, and re-run your Node scripts against the new data instead of manually resolving.
