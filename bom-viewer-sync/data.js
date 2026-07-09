@@ -54042,8 +54042,8 @@ window.BOM_VIEWER_DATA = {
           "vi": "Đồ gài cố định đèn led"
         },
         "spec": {
-          "zh": "DC12V，SMD5050，1050mm",
-          "vi": "DC12V，SMD5050，1050mm"
+          "zh": "以实际为准",
+          "vi": "Tùy thực tế"
         },
         "material": {
           "zh": "PP",
@@ -54067,7 +54067,8 @@ window.BOM_VIEWER_DATA = {
             "score": 1100,
             "bytes": 3421116
           }
-        ]
+        ],
+        "spec_vi": "以实际为准"
       },
       "mat_1mv7y4a": {
         "id": "mat_1mv7y4a",
@@ -55713,8 +55714,8 @@ window.BOM_VIEWER_DATA = {
           "vi": "Đồ gài cố định đèn led"
         },
         "spec": {
-          "zh": "DC12V，SMD5050，310mm",
-          "vi": "DC12V，SMD5050，310mm"
+          "zh": "以实际为准",
+          "vi": "Tùy thực tế"
         },
         "material": {
           "zh": "PP",
@@ -55738,7 +55739,8 @@ window.BOM_VIEWER_DATA = {
             "score": 1100,
             "bytes": 1330884
           }
-        ]
+        ],
+        "spec_vi": "以实际为准"
       },
       "mat_4ipzfw": {
         "id": "mat_4ipzfw",
@@ -57707,8 +57709,8 @@ window.BOM_VIEWER_DATA = {
           "vi": "Đồ gài cố định đèn led"
         },
         "spec": {
-          "zh": "DC12V，SMD5050，900mm",
-          "vi": "DC12V，SMD5050，900mm"
+          "zh": "以实际为准",
+          "vi": "Tùy thực tế"
         },
         "material": {
           "zh": "PP",
@@ -57732,7 +57734,8 @@ window.BOM_VIEWER_DATA = {
             "score": 1100,
             "bytes": 3024192
           }
-        ]
+        ],
+        "spec_vi": "以实际为准"
       },
       "mat_11fc11y": {
         "id": "mat_11fc11y",
@@ -60514,8 +60517,8 @@ window.BOM_VIEWER_DATA = {
           "vi": "Đồ gài cố định đèn led"
         },
         "spec": {
-          "zh": "DC12V，SMD5050，1500mm",
-          "vi": "DC12V，SMD5050，1500mm"
+          "zh": "以实际为准",
+          "vi": "Tùy thực tế"
         },
         "material": {
           "zh": "PP",
@@ -60539,7 +60542,8 @@ window.BOM_VIEWER_DATA = {
             "score": 1100,
             "bytes": 1214848
           }
-        ]
+        ],
+        "spec_vi": "以实际为准"
       },
       "mat_w8i5w5": {
         "id": "mat_w8i5w5",
@@ -62256,8 +62260,8 @@ window.BOM_VIEWER_DATA = {
           "vi": "Đồ gài cố định đèn led"
         },
         "spec": {
-          "zh": "DC12V，SMD5050，400mm",
-          "vi": "DC12V，SMD5050，400mm"
+          "zh": "以实际为准",
+          "vi": "Tùy thực tế"
         },
         "material": {
           "zh": "PP",
@@ -62281,7 +62285,8 @@ window.BOM_VIEWER_DATA = {
             "score": 1100,
             "bytes": 23472
           }
-        ]
+        ],
+        "spec_vi": "以实际为准"
       },
       "mat_14gzmfl": {
         "id": "mat_14gzmfl",
@@ -63844,8 +63849,8 @@ window.BOM_VIEWER_DATA = {
           "vi": "Đồ gài cố định đèn led"
         },
         "spec": {
-          "zh": "DC12V，SMD5050，1700mm",
-          "vi": "DC12V，SMD5050，1700mm"
+          "zh": "以实际为准",
+          "vi": "Tùy thực tế"
         },
         "material": {
           "zh": "PP",
@@ -63869,7 +63874,8 @@ window.BOM_VIEWER_DATA = {
             "score": 1100,
             "bytes": 23472
           }
-        ]
+        ],
+        "spec_vi": "以实际为准"
       },
       "mat_zb61jc": {
         "id": "mat_zb61jc",
@@ -64724,8 +64730,8 @@ window.BOM_VIEWER_DATA = {
           "vi": "Đồ gài cố định đèn led"
         },
         "spec": {
-          "zh": "DC12V，SMD5050，500mm",
-          "vi": "DC12V，SMD5050，500mm"
+          "zh": "以实际为准",
+          "vi": "Tùy thực tế"
         },
         "material": {
           "zh": "PP",
@@ -64749,7 +64755,8 @@ window.BOM_VIEWER_DATA = {
             "score": 1100,
             "bytes": 1362944
           }
-        ]
+        ],
+        "spec_vi": "以实际为准"
       },
       "mat_1mpfeve": {
         "id": "mat_1mpfeve",
@@ -71954,8 +71961,8 @@ window.BOM_VIEWER_DATA = {
           "vi": "Đồ gài cố định đèn led"
         },
         "spec": {
-          "zh": "DC12V，SMD5050，500mm",
-          "vi": "DC12V，SMD5050，500mm"
+          "zh": "以实际为准",
+          "vi": "Tùy thực tế"
         },
         "material": {
           "zh": "PP",
@@ -71979,7 +71986,8 @@ window.BOM_VIEWER_DATA = {
             "score": 1100,
             "bytes": 1362944
           }
-        ]
+        ],
+        "spec_vi": "以实际为准"
       },
       "mat_glzqbp": {
         "id": "mat_glzqbp",
@@ -72593,8 +72601,8 @@ window.BOM_VIEWER_DATA = {
           "vi": "Đồ gài cố định đèn led"
         },
         "spec": {
-          "zh": "DC12V, SMD5050, 650mm",
-          "vi": "DC12V, SMD5050, 650mm"
+          "zh": "以实际为准",
+          "vi": "Tùy thực tế"
         },
         "material": {
           "zh": "PP",
@@ -72618,7 +72626,8 @@ window.BOM_VIEWER_DATA = {
             "score": 1100,
             "bytes": 1363320
           }
-        ]
+        ],
+        "spec_vi": "以实际为准"
       },
       "mat_11m5tk0": {
         "id": "mat_11m5tk0",
@@ -73853,8 +73862,8 @@ window.BOM_VIEWER_DATA = {
           "vi": "Đồ gài cố định đèn led"
         },
         "spec": {
-          "zh": "DC12V, SMD5050, 650mm",
-          "vi": "DC12V, SMD5050, 650mm"
+          "zh": "以实际为准",
+          "vi": "Tùy thực tế"
         },
         "material": {
           "zh": "PP",
@@ -73878,7 +73887,8 @@ window.BOM_VIEWER_DATA = {
             "score": 1100,
             "bytes": 1363320
           }
-        ]
+        ],
+        "spec_vi": "以实际为准"
       },
       "mat_d3zu0k": {
         "id": "mat_d3zu0k",
@@ -75346,8 +75356,8 @@ window.BOM_VIEWER_DATA = {
           "vi": "Đồ gài cố định đèn led"
         },
         "spec": {
-          "zh": "DC12V，SMD5050，900mm",
-          "vi": "DC12V，SMD5050，900mm"
+          "zh": "以实际为准",
+          "vi": "Tùy thực tế"
         },
         "material": {
           "zh": "PP",
@@ -75371,7 +75381,8 @@ window.BOM_VIEWER_DATA = {
             "score": 1100,
             "bytes": 3024192
           }
-        ]
+        ],
+        "spec_vi": "以实际为准"
       },
       "mat_1n4i99m": {
         "id": "mat_1n4i99m",
@@ -76613,8 +76624,8 @@ window.BOM_VIEWER_DATA = {
           "vi": "Đồ gài cố định đèn led"
         },
         "spec": {
-          "zh": "DC12V，SMD5050，1050mm",
-          "vi": "DC12V，SMD5050，1050mm"
+          "zh": "以实际为准",
+          "vi": "Tùy thực tế"
         },
         "material": {
           "zh": "PP",
@@ -76638,7 +76649,8 @@ window.BOM_VIEWER_DATA = {
             "score": 1100,
             "bytes": 3421116
           }
-        ]
+        ],
+        "spec_vi": "以实际为准"
       },
       "mat_t6uv63": {
         "id": "mat_t6uv63",
@@ -77870,8 +77882,8 @@ window.BOM_VIEWER_DATA = {
           "vi": "Đồ gài cố định đèn led"
         },
         "spec": {
-          "zh": "DC12V, SMD5050, 1350mm",
-          "vi": "DC12V, SMD5050, 1350mm"
+          "zh": "以实际为准",
+          "vi": "Tùy thực tế"
         },
         "material": {
           "zh": "PP",
@@ -77895,7 +77907,8 @@ window.BOM_VIEWER_DATA = {
             "score": 1100,
             "bytes": 3645220
           }
-        ]
+        ],
+        "spec_vi": "以实际为准"
       },
       "mat_yaaag6": {
         "id": "mat_yaaag6",
@@ -78544,8 +78557,8 @@ window.BOM_VIEWER_DATA = {
           "vi": "Đồ gài cố định đèn led"
         },
         "spec": {
-          "zh": "DC12V, SMD5050, 1350mm",
-          "vi": "DC12V, SMD5050, 1350mm"
+          "zh": "以实际为准",
+          "vi": "Tùy thực tế"
         },
         "material": {
           "zh": "PP",
@@ -78569,7 +78582,8 @@ window.BOM_VIEWER_DATA = {
             "score": 1100,
             "bytes": 3645220
           }
-        ]
+        ],
+        "spec_vi": "以实际为准"
       },
       "mat_hqo7w2": {
         "id": "mat_hqo7w2",
