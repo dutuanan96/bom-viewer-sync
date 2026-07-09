@@ -4081,26 +4081,22 @@ body.pdm-shell {
     const source = payload?.materialDb?.materials ? payload : normalizePayload(payload || {});
     const entries = source.materialDb?.bomEntries || [];
     const materials = Object.values(source.materialDb?.materials || {});
-    const structureCount = entries.filter((entry) => entry.parentType === 'material').length;
-    const assetCount = materials.filter((record) => (record.drawings || []).length || (record.models3d || []).length).length;
+    const structureCount = new Set(entries.filter((entry) => entry.parentType === 'material').map((entry) => entry.parentId)).size;
     const labels = lang === 'vi'
       ? {
         bom: 'Sản phẩm BOM',
         materials: 'Database vật liệu',
-        structure: 'Cấu trúc cha con',
-        assets: '2D / 3D'
+        structure: 'Cấu trúc cha con'
       }
       : {
         bom: '产品 BOM',
         materials: '物料数据库',
-        structure: '父子项结构',
-        assets: '图纸 / 3D'
+        structure: '父子项结构'
       };
     return [
       { id: 'bom', label: labels.bom, count: Object.keys(source.bom || {}).length },
       { id: 'materials', label: labels.materials, count: materials.length },
-      { id: 'structure', label: labels.structure, count: structureCount },
-      { id: 'assets', label: labels.assets, count: assetCount }
+      { id: 'structure', label: labels.structure, count: structureCount }
     ];
   }
 
@@ -4768,7 +4764,7 @@ body.pdm-shell {
     }
 
     openModuleView(view) {
-      const nextView = ['bom', 'materials', 'structure', 'assets'].includes(view) ? view : 'bom';
+      const nextView = ['bom', 'materials', 'structure'].includes(view) ? view : 'bom';
       this.state.adminView = nextView;
       this.state.materialDraft = null;
       this.state.selectedMaterialId = '';

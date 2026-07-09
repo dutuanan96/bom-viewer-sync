@@ -68237,7 +68237,14 @@ window.BOM_VIEWER_DATA = {
           "zh": "零件",
           "vi": "linh kiện"
         },
-        "drawings": [],
+        "drawings": [
+          {
+            "name": "LGS布抽35x32.5x18.7.pdf",
+            "path": "Google Drive > LGS布抽35x32.5x18.7.pdf",
+            "url": "https://drive.google.com/file/d/1OrVYBYN38vg2spBjMB7iB3RyJqxnh-CP/view?usp=sharing",
+            "matched_name": "LGS布抽35x32.5x18.7"
+          }
+        ],
         "models3d": [
           {
             "name": "LGS布抽35x32.5x18.7.glb",
@@ -68307,7 +68314,14 @@ window.BOM_VIEWER_DATA = {
           "zh": "零件",
           "vi": "linh kiện"
         },
-        "drawings": [],
+        "drawings": [
+          {
+            "name": "LGS布抽30x32.5x14.8.pdf",
+            "path": "Google Drive > LGS布抽30x32.5x14.8.pdf",
+            "url": "https://drive.google.com/file/d/1DYQHdWN33Nfexhp7OE8q-c-u6K8kQ-ja/view?usp=sharing",
+            "matched_name": "LGS布抽30x32.5x14.8"
+          }
+        ],
         "models3d": [
           {
             "name": "LGS布抽30x32.5x14.8.glb",
@@ -69067,7 +69081,14 @@ window.BOM_VIEWER_DATA = {
           "zh": "零件",
           "vi": "linh kiện"
         },
-        "drawings": [],
+        "drawings": [
+          {
+            "name": "LGS布抽35x32.5x18.7.pdf",
+            "path": "Google Drive > LGS布抽35x32.5x18.7.pdf",
+            "url": "https://drive.google.com/file/d/1OrVYBYN38vg2spBjMB7iB3RyJqxnh-CP/view?usp=sharing",
+            "matched_name": "LGS布抽35x32.5x18.7"
+          }
+        ],
         "models3d": [
           {
             "name": "LGS布抽35x32.5x18.7.glb",
@@ -69102,7 +69123,14 @@ window.BOM_VIEWER_DATA = {
           "zh": "零件",
           "vi": "linh kiện"
         },
-        "drawings": [],
+        "drawings": [
+          {
+            "name": "LGS布抽30x32.5x14.8.pdf",
+            "path": "Google Drive > LGS布抽30x32.5x14.8.pdf",
+            "url": "https://drive.google.com/file/d/1DYQHdWN33Nfexhp7OE8q-c-u6K8kQ-ja/view?usp=sharing",
+            "matched_name": "LGS布抽30x32.5x14.8"
+          }
+        ],
         "models3d": [
           {
             "name": "LGS布抽30x32.5x14.8.glb",
@@ -72018,7 +72046,14 @@ window.BOM_VIEWER_DATA = {
           "zh": "零件",
           "vi": "linh kiện"
         },
-        "drawings": [],
+        "drawings": [
+          {
+            "name": "LGS布抽55x32.5x18.7.pdf",
+            "path": "Google Drive > LGS布抽55x32.5x18.7.pdf",
+            "url": "https://drive.google.com/file/d/12q_CqLRgMree018IeDd5t3XqW590be7G/view?usp=sharing",
+            "matched_name": "LGS布抽55x32.5x18.7"
+          }
+        ],
         "models3d": [
           {
             "name": "LGS布抽55x32.5x18.7.glb",
