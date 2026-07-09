@@ -2836,9 +2836,6 @@
       }
     }
 
-    /* DEPRECATED – kept for search compat */
-    structureRows() { return []; }
-    structureRowHtml(row) { return ''; }
 
     renderAssetsView() {
       const content = this.query('.content');
