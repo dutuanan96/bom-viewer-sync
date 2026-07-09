@@ -78990,7 +78990,16 @@ window.BOM_VIEWER_DATA = {
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [
+          {
+            "name": "500-灯带.glb",
+            "path": "models3d/catalog/500-57ceb403.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/500-57ceb403.glb",
+            "matched_name": "500-灯带",
+            "score": 1100,
+            "bytes": 1362944
+          }
+        ]
       },
       "mat_dd0650wh": {
         "id": "mat_dd0650wh",
@@ -79016,7 +79025,16 @@ window.BOM_VIEWER_DATA = {
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [
+          {
+            "name": "650-灯带.glb",
+            "path": "models3d/catalog/650-b6e37033.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/650-b6e37033.glb",
+            "matched_name": "650-灯带",
+            "score": 1100,
+            "bytes": 1363320
+          }
+        ]
       },
       "mat_dd0900wh": {
         "id": "mat_dd0900wh",
@@ -79042,7 +79060,16 @@ window.BOM_VIEWER_DATA = {
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [
+          {
+            "name": "900-灯带.glb",
+            "path": "models3d/catalog/900-7c8de8ce.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/900-7c8de8ce.glb",
+            "matched_name": "900-灯带",
+            "score": 1100,
+            "bytes": 3024192
+          }
+        ]
       },
       "mat_dd1050wh": {
         "id": "mat_dd1050wh",
@@ -79068,7 +79095,16 @@ window.BOM_VIEWER_DATA = {
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [
+          {
+            "name": "1050-灯带.glb",
+            "path": "models3d/catalog/1050-85851297.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/1050-85851297.glb",
+            "matched_name": "1050-灯带",
+            "score": 1100,
+            "bytes": 3421116
+          }
+        ]
       },
       "mat_dd1350wh": {
         "id": "mat_dd1350wh",
@@ -79094,7 +79130,16 @@ window.BOM_VIEWER_DATA = {
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [
+          {
+            "name": "1350-灯带.glb",
+            "path": "models3d/catalog/1350-1e16faba.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/1350-1e16faba.glb",
+            "matched_name": "1350-灯带",
+            "score": 1100,
+            "bytes": 3645220
+          }
+        ]
       },
       "mat_dd1500wh": {
         "id": "mat_dd1500wh",
@@ -79120,7 +79165,16 @@ window.BOM_VIEWER_DATA = {
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [
+          {
+            "name": "1500-灯带.glb",
+            "path": "models3d/catalog/1500-44358ecc.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/1500-44358ecc.glb",
+            "matched_name": "1500-灯带",
+            "score": 1100,
+            "bytes": 1214848
+          }
+        ]
       }
     },
     "bomEntries": [
