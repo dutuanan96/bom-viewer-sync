@@ -54050,7 +54050,7 @@ window.BOM_VIEWER_DATA = {
           "vi": "PP"
         },
         "color": {
-          "zh": "本色",
+          "zh": "黑泊板",
           "vi": "màu tự nhiên"
         },
         "attr": {
@@ -55721,7 +55721,7 @@ window.BOM_VIEWER_DATA = {
           "vi": "PP"
         },
         "color": {
-          "zh": "本色",
+          "zh": "黑泊板",
           "vi": "màu tự nhiên"
         },
         "attr": {
@@ -57715,7 +57715,7 @@ window.BOM_VIEWER_DATA = {
           "vi": "PP"
         },
         "color": {
-          "zh": "本色",
+          "zh": "黑泊板",
           "vi": "màu tự nhiên"
         },
         "attr": {
@@ -60522,7 +60522,7 @@ window.BOM_VIEWER_DATA = {
           "vi": "PP"
         },
         "color": {
-          "zh": "本色",
+          "zh": "黑泊板",
           "vi": "màu tự nhiên"
         },
         "attr": {
@@ -62264,7 +62264,7 @@ window.BOM_VIEWER_DATA = {
           "vi": "PP"
         },
         "color": {
-          "zh": "本色",
+          "zh": "黑泊板",
           "vi": "màu tự nhiên"
         },
         "attr": {
@@ -63852,7 +63852,7 @@ window.BOM_VIEWER_DATA = {
           "vi": "PP"
         },
         "color": {
-          "zh": "本色",
+          "zh": "黑泊板",
           "vi": "màu tự nhiên"
         },
         "attr": {
@@ -64732,7 +64732,7 @@ window.BOM_VIEWER_DATA = {
           "vi": "PP"
         },
         "color": {
-          "zh": "本色",
+          "zh": "黑泊板",
           "vi": "màu tự nhiên"
         },
         "attr": {
@@ -73861,7 +73861,7 @@ window.BOM_VIEWER_DATA = {
           "vi": "PP"
         },
         "color": {
-          "zh": "本色",
+          "zh": "黑泊板",
           "vi": "màu tự nhiên"
         },
         "attr": {
@@ -78552,7 +78552,7 @@ window.BOM_VIEWER_DATA = {
           "vi": "PP"
         },
         "color": {
-          "zh": "本色",
+          "zh": "黑泊板",
           "vi": "màu tự nhiên"
         },
         "attr": {
