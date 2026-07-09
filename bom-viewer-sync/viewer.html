@@ -4431,6 +4431,12 @@ body.pdm-shell {
     return `https://api.github.com/repos/${encodeURIComponent(clean.owner)}/${encodeURIComponent(clean.repo)}/contents/${apiPath(clean.path)}`;
   }
 
+  function rawContentsUrl(config) {
+    const clean = normalizeConfig(config);
+    if (!clean.owner || !clean.repo || !clean.branch || !clean.path) return '';
+    return `${contentsUrl(clean)}?ref=${encodeURIComponent(clean.branch)}`;
+  }
+
   function encodeBase64Utf8(value) {
     const bytes = new TextEncoder().encode(String(value));
     const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
@@ -7220,17 +7226,49 @@ body.pdm-shell {
       this.renderAll();
     }
 
+    async fetchCloudPayload() {
+      const cacheBust = Date.now();
+      const urls = [];
+      const apiUrl = rawContentsUrl(this.config);
+      if (apiUrl) {
+        urls.push({
+          url: `${apiUrl}&t=${cacheBust}`,
+          options: {
+            cache: 'no-store',
+            headers: {
+              Accept: 'application/vnd.github.raw',
+              'X-GitHub-Api-Version': '2022-11-28'
+            }
+          }
+        });
+      }
+      const fallbackUrl = rawUrl(this.config);
+      if (fallbackUrl) {
+        urls.push({
+          url: `${fallbackUrl}${fallbackUrl.includes('?') ? '&' : '?'}t=${cacheBust}`,
+          options: { cache: 'no-store' }
+        });
+      }
+      let lastError = null;
+      for (const request of urls) {
+        try {
+          const response = await fetch(request.url, request.options);
+          if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+          return parseDataJsPayload(await response.text());
+        } catch (error) {
+          lastError = error;
+        }
+      }
+      throw lastError || new Error('No cloud data source');
+    }
+
     async loadCloud(options) {
       const silent = Boolean(options?.silent);
       if ((this.state.dirty || this.state.materialDraft) && silent) return false;
-      const url = rawUrl(this.config);
-      if (!url) return false;
       try {
         const previousNotifications = this.notifications();
         const firstLoad = !this.state.lastLoadAt;
-        const response = await fetch(`${url}${url.includes('?') ? '&' : '?'}t=${Date.now()}`, { cache: 'no-store' });
-        if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
-        const payload = parseDataJsPayload(await response.text());
+        const payload = await this.fetchCloudPayload();
         if ((this.state.dirty || this.state.materialDraft) && silent) return false;
         const incoming = this.newNotifications(previousNotifications, payload.notifications);
         this.applyPayload(payload, { preserveView: silent });
