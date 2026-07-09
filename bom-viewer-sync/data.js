@@ -78965,6 +78965,162 @@ window.BOM_VIEWER_DATA = {
         },
         "drawings": [],
         "models3d": []
+      },
+      "mat_dd0500wh": {
+        "id": "mat_dd0500wh",
+        "code": "DD0500",
+        "name": {
+          "zh": "500-灯带",
+          "vi": "500-đèn LED"
+        },
+        "spec": {
+          "zh": "DC12V，SMD5050，500mm",
+          "vi": "DC12V，SMD5050，500mm"
+        },
+        "material": {
+          "zh": "FPCB",
+          "vi": "FPCB"
+        },
+        "color": {
+          "zh": "白色",
+          "vi": "màu trắng"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_dd0650wh": {
+        "id": "mat_dd0650wh",
+        "code": "DD0650",
+        "name": {
+          "zh": "650-灯带",
+          "vi": "650-đèn LED"
+        },
+        "spec": {
+          "zh": "DC12V, SMD5050, 650mm",
+          "vi": "DC12V, SMD5050, 650mm"
+        },
+        "material": {
+          "zh": "FPCB",
+          "vi": "FPCB"
+        },
+        "color": {
+          "zh": "白色",
+          "vi": "màu trắng"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_dd0900wh": {
+        "id": "mat_dd0900wh",
+        "code": "DD0900",
+        "name": {
+          "zh": "900-灯带",
+          "vi": "900-đèn LED"
+        },
+        "spec": {
+          "zh": "DC12V，SMD5050，900mm",
+          "vi": "DC12V，SMD5050，900mm"
+        },
+        "material": {
+          "zh": "FPCB",
+          "vi": "FPCB"
+        },
+        "color": {
+          "zh": "白色",
+          "vi": "màu trắng"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_dd1050wh": {
+        "id": "mat_dd1050wh",
+        "code": "DD1050",
+        "name": {
+          "zh": "1050-灯带",
+          "vi": "1050-đèn LED"
+        },
+        "spec": {
+          "zh": "DC12V，SMD5050，1050mm",
+          "vi": "DC12V，SMD5050，1050mm"
+        },
+        "material": {
+          "zh": "FPCB",
+          "vi": "FPCB"
+        },
+        "color": {
+          "zh": "白色",
+          "vi": "màu trắng"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_dd1350wh": {
+        "id": "mat_dd1350wh",
+        "code": "DD1350",
+        "name": {
+          "zh": "1350-灯带",
+          "vi": "1350-đèn LED"
+        },
+        "spec": {
+          "zh": "DC12V, SMD5050, 1350mm",
+          "vi": "DC12V, SMD5050, 1350mm"
+        },
+        "material": {
+          "zh": "FPCB",
+          "vi": "FPCB"
+        },
+        "color": {
+          "zh": "白色",
+          "vi": "màu trắng"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_dd1500wh": {
+        "id": "mat_dd1500wh",
+        "code": "DD1500",
+        "name": {
+          "zh": "1500-灯带",
+          "vi": "1500-đèn LED"
+        },
+        "spec": {
+          "zh": "DC12V，SMD5050，1500mm",
+          "vi": "DC12V，SMD5050，1500mm"
+        },
+        "material": {
+          "zh": "FPCB",
+          "vi": "FPCB"
+        },
+        "color": {
+          "zh": "白色",
+          "vi": "màu trắng"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [],
+        "models3d": []
       }
     },
     "bomEntries": [
@@ -86604,7 +86760,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS131",
         "productCode": "LGS131",
         "color": "白色",
-        "materialId": "mat_19kxkg5",
+        "materialId": "mat_dd1500wh",
         "stt": "3",
         "comp_code": "R",
         "qty": "1",
@@ -96110,7 +96266,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS420",
         "productCode": "LGS420",
         "color": "白色",
-        "materialId": "mat_19kxkg5",
+        "materialId": "mat_dd1500wh",
         "stt": "5",
         "comp_code": "R",
         "qty": "1",
@@ -99246,7 +99402,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS433",
         "productCode": "LGS433",
         "color": "白色",
-        "materialId": "mat_3en4g4",
+        "materialId": "mat_dd0500wh",
         "stt": "4",
         "comp_code": "R",
         "qty": "1",
@@ -100520,7 +100676,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS434",
         "productCode": "LGS434",
         "color": "白色",
-        "materialId": "mat_1p91tqs",
+        "materialId": "mat_dd0650wh",
         "stt": "5",
         "comp_code": "R",
         "qty": "1",
@@ -102718,7 +102874,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS723",
         "productCode": "LGS723",
         "color": "白色",
-        "materialId": "mat_1oq7npc",
+        "materialId": "mat_dd0900wh",
         "stt": "4",
         "comp_code": "R",
         "qty": "1",
@@ -104552,7 +104708,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS733",
         "productCode": "LGS733",
         "color": "白色",
-        "materialId": "mat_60k6bf",
+        "materialId": "mat_dd1050wh",
         "stt": "1",
         "comp_code": "R",
         "qty": "1",
@@ -106428,7 +106584,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS833",
         "productCode": "LGS833",
         "color": "白色",
-        "materialId": "mat_60k6bf",
+        "materialId": "mat_dd1050wh",
         "stt": "1",
         "comp_code": "R",
         "qty": "1",
@@ -107604,7 +107760,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS834",
         "productCode": "LGS834",
         "color": "白色",
-        "materialId": "mat_8cuivm",
+        "materialId": "mat_dd1350wh",
         "stt": "1",
         "comp_code": "R",
         "qty": "1",
