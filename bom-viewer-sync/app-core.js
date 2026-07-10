@@ -1762,7 +1762,7 @@
           order: Date.now()
         };
         this.state.materialDb.bomEntries.push(newEntry);
-        this.state.dirty = true;
+        this.markDirty();
         this.renderStructureDetail();
       });
     }
@@ -2284,18 +2284,18 @@
         <div class="table-container material-db-view">
         <div class="table-toolbar">${this.materialDbToolbar(records)}</div>
         <table><thead><tr>
-          <th class="mdb-col-code">\u7269\u6599\u7f16\u7801</th>
-          <th class="mdb-col-name">\u7269\u6599\u540d\u79f0</th>
-          <th class="mdb-col-spec">\u89c4\u683c\u578b\u53f7</th>
-          <th class="mdb-col-mat">\u6750\u8d28</th>
-          <th class="mdb-col-color">\u989c\u8272</th>
-          <th class="mdb-col-attr">\u5c5e\u6027</th>
+          <th class="mdb-col-code">${escapeHTML(this.label('materialCode'))}</th>
+          <th class="mdb-col-name">${escapeHTML(this.label('materialName'))}</th>
+          <th class="mdb-col-spec">${escapeHTML(this.label('specification'))}</th>
+          <th class="mdb-col-mat">${escapeHTML(this.label('materialComposition'))}</th>
+          <th class="mdb-col-color">${escapeHTML(this.label('materialColor'))}</th>
+          <th class="mdb-col-attr">${escapeHTML(this.label('materialAttribute'))}</th>
           <th class="mdb-col-num">2D</th>
           <th class="mdb-col-num">3D</th>
-          <th class="mdb-col-used">\u4f7f\u7528\u4e8e</th>
-          <th class="mdb-col-num">\u7236\u9879</th>
-          <th class="mdb-col-num">\u5b50\u9879</th>
-          ${showActions ? '<th class="mdb-col-action">\u64cd\u4f5c</th>' : ''}
+          <th class="mdb-col-used">${escapeHTML(this.label('whereUsed'))}</th>
+          <th class="mdb-col-num">${escapeHTML(this.label('parentMaterial'))}</th>
+          <th class="mdb-col-num">${escapeHTML(this.label('childMaterial'))}</th>
+          ${showActions ? `<th class="mdb-col-action">${escapeHTML(this.label('operation'))}</th>` : ''}
         </tr></thead><tbody>${records.map((record) => this.materialDbRowHtml(record)).join('')}</tbody></table>
       </div>`);
     }
@@ -2817,7 +2817,7 @@
 
             if (matchingEntries.length > 0) {
               matchingEntries.forEach(ent => ent.qty = newQty);
-              this.state.dirty = true;
+              this.markDirty();
               this.renderContent();
             }
           });
@@ -2829,7 +2829,7 @@
             const entryId = btn.dataset.deleteChildEntry;
             this.state.materialDb.bomEntries = this.state.materialDb.bomEntries.filter((e) => e.id !== entryId);
             this.state.payload.materialDb = this.state.materialDb;
-            this.state.dirty = true;
+            this.markDirty();
             this.renderContent();
           });
         });
@@ -2919,7 +2919,13 @@
     renderInspector() {
       const panel = this.query('#inspectorPanel');
       if (!panel) return;
-      if (this.state.adminView === 'bom' || this.state.adminView === 'materials' || this.state.adminView === 'structure') {
+      if (this.state.adminView === 'bom') {
+        const visible = Boolean(this.state.selectedEntryId);
+        panel.classList.toggle('visible', visible);
+        panel.innerHTML = visible ? this.bomInspectorHtml() : '';
+        return;
+      }
+      if (this.state.adminView === 'materials' || this.state.adminView === 'structure') {
         panel.classList.toggle('visible', false);
         panel.innerHTML = '';
         return;
@@ -3565,7 +3571,6 @@
     }
 
     selectBomEntry(entryId) {
-      if (!this.isAdmin()) return;
       if (!entryId) return;
       this.state.selectedEntryId = entryId;
       const row = this.bomRows().find((item) => item._entryId === entryId);
