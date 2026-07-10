@@ -1635,9 +1635,6 @@
           this.openStructureDetail(parentToggle.dataset.parentToggle);
           return;
         }
-        if (bomRow && !event.target.closest('button,input,a,select,textarea')) {
-          this.selectBomEntry(bomRow.dataset.bomEntry);
-        }
       };
       this.query('.content').addEventListener('click', handleClick);
       this.query('#inspectorPanel').addEventListener('click', handleClick);
@@ -2920,9 +2917,8 @@
       const panel = this.query('#inspectorPanel');
       if (!panel) return;
       if (this.state.adminView === 'bom') {
-        const visible = Boolean(this.state.selectedEntryId);
-        panel.classList.toggle('visible', visible);
-        panel.innerHTML = visible ? this.bomInspectorHtml() : '';
+        panel.classList.toggle('visible', false);
+        panel.innerHTML = '';
         return;
       }
       if (this.state.adminView === 'materials' || this.state.adminView === 'structure') {
