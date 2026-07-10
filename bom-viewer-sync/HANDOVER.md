@@ -1,53 +1,66 @@
-# JinTai PDM System - Handover (Updated 2026-07-09)
+# JinTai PDM System - Handover (Updated 2026-07-10)
 
 ## Summary
-The project is a static vanilla JS PDM/BOM system. Recent work focused on auditing the data integrity of the `materialDb` and ensuring GitHub synchronization behaves correctly.
 
-The important current state is:
-- The system is completely free of Duplicate Material Codes. 25 duplicate codes were audited, merged, and cleaned without causing any data loss or broken BOM structures.
-- A missing zinc-plated screw (`ZGLS3560WH`) was added and mapped to all corresponding white products, fixing a legacy data-entry typo.
-- Minor dead code was removed.
-- GitHub `data.js` was synchronized and verified.
+This is a static vanilla JavaScript PDM/BOM system for 22 JinTai LGS furniture products.
 
-## What Was Fixed
-### Data Integrity (Duplicate Material Codes)
-Originally, the `materialDb` contained 25 duplicate codes (e.g. two IDs for `ZGLS3560BH`, one for black and one for zinc-plated). This was an artifact of how the old PDM system forced color differentiation without supporting a unified SKU.
+Current important state:
+- Data integrity is clean: 643 materials, 2725 BOM entries, 22 products, 0 duplicate material codes, 0 audit errors, and 0 warnings.
+- GitHub reads prefer the Contents API raw response with a cache-busting timestamp. Raw GitHub is fallback only.
+- Latest pushed runtime commit: `7b90662 fix: remove redundant bom inspector`.
+- BOM rows intentionally do not open a floating inspector. The BOM table already contains the required Viewer/Admin information.
+- Material Database and parent-child structure behavior remains unchanged.
 
-The fix involved:
-- Node scripts (`merge_duplicates.mjs`, `merge_remaining.mjs`) were written and executed against the `data.js` file to programmatically merge these IDs.
-- For each duplicate code, the most frequently used ID was kept.
-- All `bomEntries` pointing to the discarded secondary IDs were safely re-pointed to the primary ID.
-- Special overrides were applied for `MS6030YS` (forced wood color) and `BCDB32831723BH` (forced correct name).
-- `ZGLS3560WH` was split out correctly from `ZGLS3560BH` and 26 BOM entries for white products were reassigned to it.
+## Latest Runtime Changes
 
-### Code Cleanup
-- Removed legacy hardcoded zh-CN string in the Material Database column headers. Replaced with `this.label(...)` for i18n support.
-- Removed dead code (`structureRows` and `structureRowHtml`).
-- Removed leftover `console.log` statements in rendering methods.
+- Material Database headers use i18n labels.
+- Parent-child structure changes call `markDirty()` and immediately show unsaved status.
+- The redundant BOM inspector is suppressed in Viewer and Admin.
+- Plain BOM row clicks no longer select a row solely to open the removed inspector.
+- Admin cache bust is `app-core.js?v=25`.
+- Standalone `viewer.html` was rebuilt after the runtime change.
 
 ## Important Files
-- `outputs\app-core.js`
-  - Core application logic, including the BOM viewer rendering and data state.
-- `outputs\data.js`
-  - Contains the JSON `window.BOM_VIEWER_DATA` payload. **This is fully cleaned and contains 0 duplicates.**
-- `outputs\admin.html`
-- `outputs\viewer.html`
-  - The standalone HTML packaged file.
-- `work\remote-bom-viewer-sync\bom-viewer-sync\`
-  - Git clone pushed to GitHub. Always run `git pull --rebase` here before merging changes to `data.js`, as the user actively saves data to this repo using `admin.html`.
 
-## Verification Already Done
-- Ran `audit_data_integrity.mjs`. Confirmed 0 duplicate material codes remain, and the BOM structure is 100% intact (643 materials, 2725 BOM entries).
-- Rebuilt `viewer.html` using `work\build_standalone_viewer.mjs`.
-- Sync'd all changes to the GitHub repo `dutuanan96/bom-viewer-sync`.
+- `outputs\app-core.js`: main runtime, rendering, i18n, material/BOM behavior, notifications, and GitHub sync.
+- `outputs\data.js`: large `window.BOM_VIEWER_DATA` payload. Avoid hand-editing.
+- `outputs\admin.html`: Admin shell and cache-busted shared script references.
+- `outputs\viewer.html`: generated standalone Viewer.
+- `work\build_standalone_viewer.mjs`: rebuilds `outputs\viewer.html`.
+- `work\remote-bom-viewer-sync\bom-viewer-sync\`: local GitHub working directory.
 
-## Recommended Skills For Next Agent
-- `systematic-debugging`: if notification/detail/cache does not match expectation.
-- `pdm-workflow`: for BOM/material semantics.
-- `test-driven-development`: for any new behavior.
-- `verification-before-completion`: before reporting done.
+## Required Flow For Next Agent
 
-## Warnings
-- Never expose GitHub tokens.
-- Do not hardcode zh/vi UI strings outside the existing i18n dictionaries.
-- Always pull latest GitHub clone before pushing, because admin may have saved new data. If a merge conflict happens in `data.js`, abort the rebase, fetch the latest, and re-run your Node scripts against the new data instead of manually resolving.
+1. Read `HANDOVER.md`, `PROJECT_CONTEXT.md`, and `REVIEW_CONTEXT.md`.
+2. Edit verified source/runtime files under `outputs\` first.
+3. Rebuild Viewer after shell, style, core, or Viewer runtime changes:
+   ```powershell
+   node work\build_standalone_viewer.mjs
+   ```
+4. Run the complete verification set:
+   ```powershell
+   node --check outputs\app-core.js
+   node --check outputs\app-admin.js
+   node --check outputs\app-viewer.js
+   node work\material-master-editor.test.mjs
+   node work\restructure.test.mjs
+   node work\audit_data_integrity.mjs
+   ```
+5. Reset the clone remote to the tokenless URL and pull before copying files:
+   ```powershell
+   cd work\remote-bom-viewer-sync\bom-viewer-sync
+   git remote set-url origin https://github.com/dutuanan96/bom-viewer-sync.git
+   git pull --rebase origin main
+   ```
+6. Copy only intentionally changed runtime/docs into the clone. Do not copy `data.js` for UI-only work.
+7. Run `git diff --check` and JavaScript syntax checks in the clone.
+8. Commit with a conventional message and push without force.
+
+## Guardrails
+
+- Never expose, log, or commit GitHub tokens.
+- Do not re-enable the BOM inspector unless the user explicitly changes this UX decision.
+- Do not hardcode zh-CN or Vietnamese UI text outside the i18n dictionaries.
+- Do not assume `raw.githubusercontent.com` is fresh immediately after an Admin save.
+- The workspace root is not a Git repository; commit and push from the local clone.
+- PowerShell here does not support `&&`; run commands separately.
