@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { buildBomTreeRows } from '../src/domain/relationships.js';
 import { materialWhereUsed, updateMaterialRecord } from '../src/domain/materials.js';
-import { resolveBomRows } from '../src/domain/bom.js';
+import { createPdmNavigation, createSidebarIndex, resolveBomRows } from '../src/domain/bom.js';
 import { coreUtils } from '../src/application.js';
 import { loadDataPayload } from './helpers/load-data.mjs';
 
@@ -43,4 +43,46 @@ test('where-used remains a pure domain query', () => {
   const result = materialWhereUsed(payload, material.id);
   assert.ok(result.productEntries.some((entry) => entry.productCode === 'LGS101'));
   assert.ok(result.childEntries.length > 0);
+});
+
+test('BOM navigation normalizes legacy payloads at the domain seam', () => {
+  const legacyPayload = {
+    bom: {
+      P1: {
+        colors: ['black'],
+        color_info: {
+          black: {
+            name_zh: 'Product one',
+            name_vi: 'Product one',
+            materials: [{
+              stt: '1',
+              mat_code: 'MAT001',
+              comp_code: 'COMP001',
+              name_zh: 'Panel',
+              name_vi: 'Panel',
+              attr_zh: 'component',
+              attr_vi: 'component',
+              qty: '1',
+            }],
+          },
+        },
+      },
+    },
+  };
+  const normalizedPayload = normalizePayload(legacyPayload);
+  const options = { lang: 'zh', query: '' };
+
+  const legacyIndex = createSidebarIndex(legacyPayload, options);
+  assert.deepEqual(legacyIndex, createSidebarIndex(normalizedPayload, options));
+  assert.equal(legacyIndex.products.length, 1);
+  assert.equal(legacyIndex.products[0].id, 'P1');
+  assert.equal(legacyIndex.parentMaterials.length, 1);
+  assert.equal(legacyIndex.childMaterials.length, 0);
+
+  const legacyNavigation = createPdmNavigation(legacyPayload, 'zh');
+  assert.deepEqual(legacyNavigation, createPdmNavigation(normalizedPayload, 'zh'));
+  assert.deepEqual(
+    Object.fromEntries(legacyNavigation.map(({ id, count }) => [id, count])),
+    { bom: 1, materials: 1, structure: 0 },
+  );
 });
