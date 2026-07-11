@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import { mkdir, readFile, rename, rm, writeFile } from 'node:fs/promises';
+import { copyFile, mkdir, readFile, rename, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { build, transform } from 'esbuild';
@@ -37,14 +37,72 @@ function replaceTokens(template, values) {
   return result;
 }
 
-async function writeAtomic(outDir, name, content) {
-  const tempDir = path.join(outDir, '.build-tmp');
-  await mkdir(tempDir, { recursive: true });
-  const tempPath = path.join(tempDir, `${name}.tmp`);
-  const finalPath = path.join(outDir, name);
-  await writeFile(tempPath, content, 'utf8');
+async function replaceFile(stagedPath, finalPath) {
   await rm(finalPath, { force: true });
-  await rename(tempPath, finalPath);
+  await rename(stagedPath, finalPath);
+}
+
+export async function commitStagedArtifacts(
+  outDir,
+  names,
+  { commitFile = replaceFile } = {},
+) {
+  const tempDir = path.join(outDir, '.build-tmp');
+  const stagedDir = path.join(tempDir, 'staged');
+  const backupDir = path.join(tempDir, 'backup');
+  const originals = new Map();
+
+  await rm(backupDir, { recursive: true, force: true });
+  await mkdir(backupDir, { recursive: true });
+  try {
+    for (const name of names) {
+      try {
+        await copyFile(path.join(outDir, name), path.join(backupDir, name));
+        originals.set(name, true);
+      } catch (error) {
+        if (error.code !== 'ENOENT') throw error;
+        originals.set(name, false);
+      }
+    }
+  } catch (error) {
+    await rm(tempDir, { recursive: true, force: true });
+    throw error;
+  }
+
+  try {
+    for (const name of names) {
+      await commitFile(path.join(stagedDir, name), path.join(outDir, name), name);
+    }
+  } catch (error) {
+    const rollbackErrors = [];
+    for (const name of names) {
+      try {
+        const finalPath = path.join(outDir, name);
+        if (originals.get(name)) {
+          await copyFile(path.join(backupDir, name), finalPath);
+        } else {
+          await rm(finalPath, { force: true });
+        }
+      } catch (rollbackError) {
+        rollbackErrors.push(rollbackError);
+      }
+    }
+    try {
+      await rm(tempDir, { recursive: true, force: true });
+    } catch (cleanupError) {
+      rollbackErrors.push(cleanupError);
+    }
+    if (rollbackErrors.length) {
+      throw new AggregateError(
+        rollbackErrors,
+        'Artifact commit failed and rollback was incomplete',
+        { cause: error },
+      );
+    }
+    throw error;
+  }
+
+  await rm(tempDir, { recursive: true, force: true });
 }
 
 export async function generateArtifacts(outDir = repoRoot) {
@@ -86,13 +144,25 @@ export async function generateArtifacts(outDir = repoRoot) {
   });
 
   await mkdir(outDir, { recursive: true });
-  await Promise.all([
-    writeAtomic(outDir, 'styles.css', `${css}\n`),
-    writeAtomic(outDir, 'app-admin.js', `${adminBundle}\n`),
-    writeAtomic(outDir, 'admin.html', adminHtml),
-    writeAtomic(outDir, 'viewer.html', viewerHtml),
-  ]);
-  await rm(path.join(outDir, '.build-tmp'), { recursive: true, force: true });
+  const tempDir = path.join(outDir, '.build-tmp');
+  const stagedDir = path.join(tempDir, 'staged');
+  const artifacts = [
+    ['styles.css', `${css}\n`],
+    ['app-admin.js', `${adminBundle}\n`],
+    ['admin.html', adminHtml],
+    ['viewer.html', viewerHtml],
+  ];
+  await rm(tempDir, { recursive: true, force: true });
+  await mkdir(stagedDir, { recursive: true });
+  try {
+    for (const [name, content] of artifacts) {
+      await writeFile(path.join(stagedDir, name), content, 'utf8');
+    }
+    await commitStagedArtifacts(outDir, artifacts.map(([name]) => name));
+  } catch (error) {
+    await rm(tempDir, { recursive: true, force: true });
+    throw error;
+  }
   return { buildId };
 }
 
