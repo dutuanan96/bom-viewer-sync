@@ -1,0 +1,4703 @@
+(function (global) {
+  'use strict';
+
+  const REFRESH_MS = 60 * 60 * 1000;
+  const NOTIFICATION_REFRESH_MS = 60 * 1000;
+  const NOTIFICATION_LIMIT = 30;
+  const NOTIFICATION_CHANGE_LIMIT = 8;
+  const MATERIAL_CHANGE_FIELDS = ['name', 'spec', 'material', 'color', 'attr'];
+  const TOKEN_KEY = 'bom_admin_github_token_v2';
+
+  const TEXT = {
+    zh: {
+      brand: '金汰 BOM',
+      brandTitle: '金汰家具',
+      brandSubtitle: 'PDM系统',
+      developedBy: 'Developed by 俞俊安',
+      products: '产品',
+      materials: '物料',
+      search: '搜索物料编码、名称、规格、部件编号...',
+      sidebarSearch: '搜索产品/物料...',
+      all: '全部',
+      size: '尺寸',
+      colors: '颜色数',
+      total: '总物料',
+      manual: '说明书',
+      noManual: '未上传',
+      viewManual: '查看说明书',
+      viewDrawing: '查看',
+      model3d: '3D',
+      noDrawing: '未匹配',
+      edit: '编辑',
+      done: '完成',
+      save: '保存到 GitHub',
+      reload: '重新加载',
+      discard: '放弃更改',
+      copy: '复制',
+
+      exportExcel: '导出 Excel',
+      readOnly: 'Viewer 只读',
+      token: 'GitHub token',
+      loaded: '已加载 GitHub 数据',
+      loadFailed: 'GitHub 数据加载失败',
+      saving: '正在保存到 GitHub...',
+      saved: '已保存到 GitHub',
+      saveFailed: '保存失败',
+      dirty: '有未保存更改',
+      copied: '已复制表格',
+      source: 'GitHub 数据源',
+      updated: '数据更新时间',
+      localRefresh: '本机刷新时间',
+      discardConfirm: '放弃当前未保存更改？',
+      emptyTitle: '选择产品查看 BOM',
+      emptyText: '点击左侧产品或使用搜索',
+      noResultTitle: '没有找到结果',
+      noResultText: '请调整筛选条件或搜索词',
+      headers: ['序号', '物料编码', '部件编号', '物料名称', '规格型号', '材质', '颜色', '属性', '数量', '2D 图纸'],
+      sidebarTitle: 'PDM 导航',
+      sidebarProductGroup: '产品',
+      sidebarParentGroup: '父项物料',
+      sidebarChildGroup: '子项物料',
+      noSidebarResults: '未找到匹配项',
+      replaceMaterial: '替换',
+      replaceMaterialPrompt: '输入新物料编码或名称',
+      materialNotFound: '未找到物料',
+      bomRowNotFound: '未找到 BOM 行',
+      productPicker: '产品选择',
+      inspector: '检查器',
+      selectRowHint: '选择一行 BOM 查看详情',
+      selectedBomRow: '已选 BOM 行',
+      replaceWith: '替换为',
+      replaceNow: '替换物料',
+      selectedMaterial: '已选物料',
+      whereUsed: '使用位置',
+      noSelection: '未选择',
+      structureView: '父子项结构',
+      addParentMaterial: '新增父项',
+      addParentMaterialPrompt: '输入物料编码或名称以作为父项',
+      deleteParentStructure: '删除父项结构',
+      deleteParentStructureConfirm: '确定要删除此父项的所有子项结构吗？物料本身不会被删除，仅删除其结构关系。',
+      parentStructureDeleted: '父项结构已删除',
+      saveStructureDraft: '保存结构',
+      assetsView: '图纸 / 3D',
+      childCount: '子项',
+      parentMaterial: '父项物料',
+      childMaterial: '子项物料',
+      addChildMaterialPrompt: '输入子项物料编码或名称',
+      childMaterialExists: '该子项物料已存在',
+      assetSummary: '图纸资产',
+      materialDatabase: '物料数据库',
+      addChildMaterial: '添加子项',
+      openBom: '打开 BOM',
+      viewMaterial: '查看物料',
+      editMaterial: '编辑',
+      materialMaster: '物料主数据',
+      backToMaterialList: '返回物料列表',
+      saveMaterial: '保存物料',
+      materialSaved: '物料已保存',
+      deleteMaterial: '删除物料',
+      deleteMaterialConfirm: '删除该物料？',
+      materialDeleted: '物料已删除',
+      materialDeleteBlocked: '该物料已被 BOM 使用，不能删除',
+      addMaterial: '新增物料',
+      materialId: 'MaterialID',
+      materialCode: '物料编码',
+      materialName: '物料名称',
+      specification: '规格型号',
+      materialComposition: '材质',
+      materialColor: '颜色',
+      materialAttribute: '属性',
+      selectMaterial: '选择物料',
+      searchPlaceholder: '搜索物料编码、名称、规格...',
+      selectBtn: '选择',
+      cancelBtn: '取消',
+      chinese: '中文',
+      vietnamese: '越南语',
+      bomRelationships: 'BOM 关系',
+      productCatalogTitle: 'LGS 产品',
+      productCatalogSubtitle: '按 SPU 管理规格、颜色、状态和 BOM',
+      spu: 'SPU',
+      version: '版本',
+      status: '状态',
+      activeStatus: '使用中',
+      disabledStatus: '禁用',
+      viewBom: '查看 BOM',
+      colorDots: '颜色',
+      productSpecifications: '产品规格',
+      billOfMaterials: 'Bill of Materials (BOM)',
+      assemblyPreview: '装配预览',
+      modelPreview: '3D 装配',
+      productImage: '产品图片',
+      revision: '版本',
+      lastModified: '最后修改',
+      unit: '单位',
+      viewAssembly: '查看装配',
+      export: '导出',
+      level: '层级',
+      partNumber: '物料编码',
+      componentNumber: '编号',
+      description: '名称',
+      items: '项',
+      operation: '操作',
+      view: '查看',
+      yes: '有',
+      no: '无',
+      clearFilters: '清除筛选',
+      has2D: '2D图纸',
+      has3D: '3D模型',
+      download: '下载',
+      close: '关闭'
+    },
+    vi: {
+      brand: 'Jintai BOM',
+      brandTitle: 'Nội thất JinTai',
+      brandSubtitle: 'Hệ thống PDM',
+      developedBy: 'Developed by Du Tuan An',
+      products: 'Sản phẩm',
+      materials: 'vật liệu',
+      search: 'Tìm mã vật liệu, tên, quy cách, mã linh kiện...',
+      sidebarSearch: 'Tìm sản phẩm/vật liệu...',
+      all: 'Tất cả',
+      size: 'Kích thước',
+      colors: 'Số màu',
+      total: 'Tổng vật liệu',
+      manual: 'Hướng dẫn',
+      noManual: 'Chưa có',
+      viewManual: 'Xem hướng dẫn',
+      viewDrawing: 'Xem',
+      model3d: '3D',
+      noDrawing: 'Chưa khớp',
+      edit: 'Sửa',
+      done: 'Xong',
+      save: 'Lưu lên GitHub',
+      reload: 'Tải lại',
+      discard: 'Bỏ thay đổi',
+      copy: 'Copy',
+
+      exportExcel: 'Xuất Excel',
+      readOnly: 'Viewer chỉ được xem',
+      token: 'GitHub token',
+      loaded: 'Đã tải dữ liệu GitHub',
+      loadFailed: 'Tải dữ liệu GitHub thất bại',
+      saving: 'Đang lưu lên GitHub...',
+      saved: 'Đã lưu lên GitHub',
+      saveFailed: 'Lưu thất bại',
+      dirty: 'Có thay đổi chưa lưu',
+      copied: 'Đã copy bảng',
+      source: 'Nguồn dữ liệu GitHub',
+      updated: 'Dữ liệu cập nhật',
+      localRefresh: 'Máy này tải lúc',
+      discardConfirm: 'Bỏ thay đổi chưa lưu?',
+      emptyTitle: 'Chọn sản phẩm để xem BOM',
+      emptyText: 'Click sản phẩm bên trái hoặc tìm kiếm',
+      noResultTitle: 'Không tìm thấy',
+      noResultText: 'Thử đổi bộ lọc hoặc từ khóa tìm kiếm',
+      headers: ['STT', 'Mã VL', 'Mã linh kiện', 'Tên vật liệu', 'Quy cách', 'Chất liệu', 'Màu', 'Thuộc tính', 'SL', 'Bản vẽ 2D'],
+      sidebarTitle: 'Điều hướng PDM',
+      sidebarProductGroup: 'Sản phẩm',
+      sidebarParentGroup: 'Vật liệu cha',
+      sidebarChildGroup: 'Vật liệu con',
+      noSidebarResults: 'Không tìm thấy',
+      replaceMaterial: 'Thay thế',
+      replaceMaterialPrompt: 'Nhập mã hoặc tên vật liệu mới',
+      materialNotFound: 'Không tìm thấy vật liệu',
+      bomRowNotFound: 'Không tìm thấy dòng BOM',
+      productPicker: 'Chọn sản phẩm',
+      inspector: 'Inspector',
+      selectRowHint: 'Chọn một dòng BOM để xem chi tiết',
+      selectedBomRow: 'Dòng BOM đã chọn',
+      replaceWith: 'Thay bằng',
+      replaceNow: 'Thay thế vật liệu',
+      selectedMaterial: 'Vật liệu đã chọn',
+      whereUsed: 'Đang dùng ở',
+      noSelection: 'Chưa chọn',
+      structureView: 'Cấu trúc cha con',
+      addParentMaterial: 'Thêm vật liệu cha',
+      addParentMaterialPrompt: 'Nhập mã hoặc tên vật liệu để biến thành cha',
+      deleteParentStructure: 'Xóa kết cấu cha',
+      deleteParentStructureConfirm: 'Bạn có chắc muốn xóa TẤT CẢ vật liệu con của mã cha này? Bản thân vật liệu cha vẫn sẽ được giữ lại trong CSDL, chỉ xóa kết cấu.',
+      parentStructureDeleted: 'Đã xóa kết cấu cha',
+      saveStructureDraft: 'Lưu kết cấu',
+      assetsView: 'Bản vẽ / 3D',
+      childCount: 'Vật liệu con',
+      parentMaterial: 'Vật liệu cha',
+      childMaterial: 'Vật liệu con',
+      addChildMaterialPrompt: 'Nhập mã hoặc tên vật liệu con',
+      childMaterialExists: 'Vật liệu con này đã tồn tại',
+      assetSummary: 'Tài sản bản vẽ',
+      materialDatabase: 'CSDL vật liệu',
+      addChildMaterial: 'Thêm vật liệu con',
+      openBom: 'Mở BOM',
+      viewMaterial: 'Xem vật liệu',
+      editMaterial: 'Sửa',
+      materialMaster: 'Dữ liệu chủ vật liệu',
+      backToMaterialList: 'Quay lại danh sách vật liệu',
+      saveMaterial: 'Lưu vật liệu',
+      materialSaved: 'Đã lưu vật liệu',
+      deleteMaterial: 'Xóa vật liệu',
+      deleteMaterialConfirm: 'Xóa vật liệu này?',
+      materialDeleted: 'Đã xóa vật liệu',
+      materialDeleteBlocked: 'Vật liệu đang được BOM sử dụng, không thể xóa',
+      addMaterial: 'Thêm vật liệu',
+      materialId: 'MaterialID',
+      materialCode: 'Mã vật liệu',
+      materialName: 'Tên vật liệu',
+      specification: 'Quy cách',
+      materialComposition: 'Chất liệu',
+      materialColor: 'Màu',
+      materialAttribute: 'Thuộc tính',
+      selectMaterial: 'Chọn vật liệu',
+      searchPlaceholder: 'Tìm mã vật liệu, tên, quy cách...',
+      selectBtn: 'Chọn',
+      cancelBtn: 'Hủy',
+      chinese: 'Tiếng Trung',
+      vietnamese: 'Tiếng Việt',
+      bomRelationships: 'Quan hệ BOM',
+      productCatalogTitle: 'Sản phẩm LGS',
+      productCatalogSubtitle: 'Quản lý quy cách, màu sắc, trạng thái và BOM theo SPU',
+      spu: 'SPU',
+      version: 'Phiên bản',
+      status: 'Trạng thái',
+      activeStatus: 'Đang dùng',
+      disabledStatus: 'Cấm dùng',
+      viewBom: 'Xem BOM',
+      colorDots: 'Màu',
+      productSpecifications: 'Thông số sản phẩm',
+      billOfMaterials: 'Bill of Materials (BOM)',
+      assemblyPreview: 'Xem lắp ráp',
+      modelPreview: '3D lắp ráp',
+      productImage: 'Ảnh sản phẩm',
+      revision: 'Phiên bản',
+      lastModified: 'Cập nhật',
+      unit: 'Đơn vị',
+      viewAssembly: 'Xem lắp ráp',
+      export: 'Xuất',
+      level: 'Cấp',
+      partNumber: 'Mã vật liệu',
+      componentNumber: 'Mã bộ phận',
+      description: 'Tên gọi',
+      items: 'mục',
+      operation: 'Thao tác',
+      view: 'Xem',
+      yes: 'Có',
+      no: 'Không',
+      clearFilters: 'Xóa bộ lọc',
+      has2D: 'Bản vẽ 2D',
+      has3D: 'Mô hình 3D',
+      download: 'Tải xuống',
+      close: 'Đóng'
+    }
+  };
+
+  Object.assign(TEXT.zh, {
+    notifications: '通知',
+    notificationEmpty: '暂无通知',
+    notificationMarkRead: '全部已读',
+    notificationGithubSaveTitle: 'GitHub 数据已更新',
+    notificationGithubSaveBody: 'Admin 已保存 BOM/物料数据，Viewer 可同步最新版本。',
+    notificationChangedItems: '已修改',
+    notificationUpdatedTitle: 'PDM 数据已更新',
+    notificationUpdatedBody: '检测到新的 PDM 数据版本。',
+    notificationUnread: '未读通知',
+    addProduct: '新增产品',
+    addProductPromptCode: '产品编码',
+    addProductPromptCodePlaceholder: '例: LGS999',
+    addProductPromptName: '产品名称 (中文)',
+    addProductPromptNameVi: '产品名称 (越文)',
+    addProductPromptSize: '尺寸',
+    addProductPromptSku: '默认 SKU',
+    addProductPromptSkuPlaceholder: '例: LGS999K101S',
+    addProductPromptColor: '默认颜色 (中文)',
+    addProductPromptColorVi: '默认颜色 (越文)',
+    productCodeExists: '该产品编码已存在',
+    productAdded: '产品已创建',
+    confirmBtn: '确认',
+    deleteBomRowConfirm: '删除这行 BOM？',
+    addBomRow: '添加物料',
+    bomCompCode: '部件编号',
+    bomQty: '数量'
+  });
+
+  Object.assign(TEXT.vi, {
+    notifications: 'Thông báo',
+    notificationEmpty: 'Chưa có thông báo',
+    notificationMarkRead: 'Đã đọc tất cả',
+    notificationGithubSaveTitle: 'Dữ liệu GitHub đã cập nhật',
+    notificationGithubSaveBody: 'Admin đã lưu dữ liệu BOM/vật liệu, Viewer có thể đồng bộ bản mới nhất.',
+    notificationChangedItems: 'Đã sửa',
+    notificationUpdatedTitle: 'Dữ liệu PDM đã cập nhật',
+    notificationUpdatedBody: 'Phát hiện phiên bản dữ liệu PDM mới.',
+    notificationUnread: 'Thông báo chưa đọc',
+    addProduct: 'Thêm sản phẩm',
+    addProductPromptCode: 'Mã sản phẩm',
+    addProductPromptCodePlaceholder: 'Ví dụ: LGS999',
+    addProductPromptName: 'Tên sản phẩm (tiếng Trung)',
+    addProductPromptNameVi: 'Tên sản phẩm (tiếng Việt)',
+    addProductPromptSize: 'Kích thước',
+    addProductPromptSku: 'SKU mặc định',
+    addProductPromptSkuPlaceholder: 'Ví dụ: LGS999K101S',
+    addProductPromptColor: 'Màu mặc định (tiếng Trung)',
+    addProductPromptColorVi: 'Màu mặc định (tiếng Việt)',
+    productCodeExists: 'Mã sản phẩm đã tồn tại',
+    productAdded: 'Đã tạo sản phẩm',
+    confirmBtn: 'Xác nhận',
+    deleteBomRowConfirm: 'Xóa dòng BOM này?',
+    addBomRow: 'Thêm vật liệu',
+    bomCompCode: 'Mã linh kiện',
+    bomQty: 'Số lượng'
+  });
+
+  const EDIT_FIELDS = ['mat_code', 'comp_code', 'name', 'spec', 'material', 'color', 'attr', 'qty'];
+
+  function clone(value) {
+    return JSON.parse(JSON.stringify(value || {}));
+  }
+
+  function escapeHTML(value) {
+    return String(value ?? '').replace(/[&<>"']/g, (char) => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    }[char]));
+  }
+
+  function normalizeText(value) {
+    return String(value || '').toLowerCase().normalize('NFKD');
+  }
+
+  function escapeRegExp(value) {
+    const patternChars = new Set(['.', '*', '+', '?', '^', '$', '{', '}', '(', ')', '|', '[', ']', '\\']);
+    return String(value || '').replace(/./g, (char) => patternChars.has(char) ? '\\' + char : char);
+  }
+
+  function assetKey(value) {
+    return normalizeText(value)
+      .replace(/\.(pdf|glb|gltf)$/i, '')
+      .replace(/[\s\-_()（）[\]【】{}+&.]/g, '')
+      .replace(/组件/g, '');
+  }
+
+  function colorNeutralCode(value) {
+    const key = assetKey(value);
+    return key.replace(/(bh|wh|kd|bz|cz|ys|gy|bk)$/i, '');
+  }
+
+  function assetParts(key) {
+    const [code = '', name = ''] = String(key || '').split('|');
+    return {
+      code,
+      name,
+      neutralCode: colorNeutralCode(code)
+    };
+  }
+
+  function materialAssetParts(material) {
+    const code = assetKey(material?.mat_code || '');
+    const name = assetKey(material?.name_zh || material?.name_vi || '');
+    const comp = assetKey(material?.comp_code || '');
+    return {
+      directKey: code && name ? `${code}|${name}` : '',
+      code,
+      neutralCode: colorNeutralCode(code),
+      name,
+      comp
+    };
+  }
+
+  function findBomAssetEntry(assetMap, material) {
+    const source = assetMap || {};
+    const materialParts = materialAssetParts(material || {});
+    if (materialParts.directKey && source[materialParts.directKey]) {
+      return { key: materialParts.directKey, assets: source[materialParts.directKey] };
+    }
+
+    const entries = Object.entries(source);
+    const matchers = [
+      ([key]) => {
+        const parts = assetParts(key);
+        return materialParts.name && materialParts.code &&
+          parts.name === materialParts.name && parts.code === materialParts.code;
+      },
+      ([key]) => {
+        const parts = assetParts(key);
+        return materialParts.name && materialParts.neutralCode &&
+          parts.name === materialParts.name && parts.neutralCode === materialParts.neutralCode;
+      },
+      ([key]) => {
+        const parts = assetParts(key);
+        return materialParts.code && parts.code === materialParts.code;
+      }
+    ];
+
+    for (const matcher of matchers) {
+      const found = entries.find(matcher);
+      if (found) return { key: found[0], assets: found[1] };
+    }
+    return null;
+  }
+
+  function findBomAssets(assetMap, material) {
+    return findBomAssetEntry(assetMap, material)?.assets || [];
+  }
+
+  function stableId(prefix, value) {
+    const textValue = String(value || '');
+    let hash = 2166136261;
+    for (let index = 0; index < textValue.length; index += 1) {
+      hash ^= textValue.charCodeAt(index);
+      hash = Math.imul(hash, 16777619);
+    }
+    return `${prefix}_${(hash >>> 0).toString(36)}`;
+  }
+
+  function normalizeNotificationChanges(changes) {
+    if (!Array.isArray(changes)) return [];
+    return changes
+      .filter((item) => item && typeof item === 'object')
+      .map((item) => ({
+        kind: String(item.kind || 'material'),
+        code: String(item.code || ''),
+        field: String(item.field || ''),
+        before: String(item.before ?? ''),
+        after: String(item.after ?? '')
+      }))
+      .filter((item) => item.code && item.field)
+      .slice(0, NOTIFICATION_CHANGE_LIMIT);
+  }
+
+  function localizedPairSummary(pair) {
+    const zh = localizedValue(pair, 'zh');
+    const vi = localizedValue(pair, 'vi');
+    if (zh && vi && zh !== vi) return `${zh} / ${vi}`;
+    return zh || vi || '';
+  }
+
+  function materialChangeValue(record, field) {
+    if (!record) return '';
+    if (MATERIAL_CHANGE_FIELDS.includes(field)) return localizedPairSummary(record[field]);
+    return String(record[field] ?? '');
+  }
+
+  function describePayloadChanges(previousPayload, nextPayload) {
+    const previous = normalizePayload(previousPayload);
+    const next = normalizePayload(nextPayload);
+    const previousMaterials = previous.materialDb?.materials || {};
+    const nextMaterials = next.materialDb?.materials || {};
+    const previousByCode = Object.values(previousMaterials).reduce((lookup, material) => {
+      if (material?.code) lookup[material.code] = material;
+      return lookup;
+    }, {});
+    const changes = [];
+    const nextRecords = Object.values(nextMaterials)
+      .sort((left, right) => String(left.code || left.id || '').localeCompare(String(right.code || right.id || '')));
+
+    for (const nextRecord of nextRecords) {
+      const previousRecord = previousMaterials[nextRecord.id] || previousByCode[nextRecord.code];
+      if (!previousRecord) continue;
+      for (const field of MATERIAL_CHANGE_FIELDS) {
+        const before = materialChangeValue(previousRecord, field);
+        const after = materialChangeValue(nextRecord, field);
+        if (before !== after) {
+          changes.push({
+            kind: 'material',
+            code: String(nextRecord.code || nextRecord.id || ''),
+            field,
+            before,
+            after
+          });
+          if (changes.length >= NOTIFICATION_CHANGE_LIMIT) return changes;
+        }
+      }
+    }
+
+    return changes;
+  }
+
+  function normalizeNotifications(notifications) {
+    if (!Array.isArray(notifications)) return [];
+    return notifications
+      .filter((item) => item && typeof item === 'object')
+      .map((item, index) => {
+        const createdAt = String(item.createdAt || item.updatedAt || '');
+        const type = String(item.type || 'data-update');
+        return {
+          id: String(item.id || stableId('notif', `${type}|${createdAt}|${index}`)),
+          type,
+          actor: String(item.actor || 'admin'),
+          createdAt,
+          version: item.version != null ? item.version : null,
+          changes: normalizeNotificationChanges(item.changes)
+        };
+      })
+      .filter((item) => item.createdAt)
+      .sort((left, right) => String(right.createdAt).localeCompare(String(left.createdAt)))
+      .slice(0, NOTIFICATION_LIMIT);
+  }
+
+  function appendNotificationEvent(payload, event) {
+    const source = normalizePayload(payload);
+    const createdAt = String(event?.createdAt || new Date().toISOString());
+    const type = String(event?.type || 'data-update');
+    const notification = {
+      id: String(event?.id || stableId('notif', `${type}|${createdAt}|${source.updatedAt || ''}`)),
+      type,
+      actor: String(event?.actor || 'admin'),
+      createdAt,
+      version: source.version != null ? source.version : null,
+      changes: normalizeNotificationChanges(event?.changes)
+    };
+    source.notifications = normalizeNotifications([notification].concat(source.notifications || []));
+    return source;
+  }
+
+  function localizedPair(zh, vi) {
+    return {
+      zh: String(zh || vi || ''),
+      vi: String(vi || zh || '')
+    };
+  }
+
+  function canonicalSharedName(value) {
+    const raw = String(value || '').trim();
+    if (!raw.startsWith('LGS') || !raw.includes('_')) return raw;
+    const dash = raw.lastIndexOf('-');
+    if (dash < 0) return raw;
+    const prefix = raw.slice(0, dash);
+    const suffix = raw.slice(dash + 1);
+    const codes = Array.from(prefix.matchAll(/(?:LGS)?(\d{3})/g)).map((match) => match[1]);
+    if (codes.length < 2) return raw;
+    const uniqueCodes = Array.from(new Set(codes)).sort((left, right) => Number(left) - Number(right));
+    const style = /-S\b/i.test(prefix) ? '-S' : '';
+    return `LGS${uniqueCodes.join('_')}${style}-${suffix}`;
+  }
+
+  function canonicalLegacyMaterial(material, productCode) {
+    const result = clone(material || {});
+    if (productCode === 'LGS111' && /^LGS101/i.test(String(result.mat_code || ''))) {
+      result.name_zh = String(result.name_zh || '').replace(/^LGS111-S-/, 'LGS101-S-');
+      result.name_vi = String(result.name_vi || '').replace(/^LGS111-S-/, 'LGS101-S-');
+    }
+    result.name_zh = canonicalSharedName(result.name_zh);
+    result.name_vi = canonicalSharedName(result.name_vi);
+    return result;
+  }
+
+  function materialIdentity(material, productCode) {
+    const canonical = canonicalLegacyMaterial(material, productCode);
+    const name = canonical.name_zh || canonical.name_vi || '';
+    const sharedName = canonicalSharedName(name);
+    const codeKey = sharedName !== name
+      ? `shared:${assetKey(sharedName)}`
+      : `code:${colorNeutralCode(canonical.mat_code || '')}|name:${assetKey(name)}`;
+    return [
+      codeKey,
+      assetKey(canonical.spec || canonical.spec_vi || ''),
+      assetKey(canonical.material_zh || canonical.material_vi || ''),
+      assetKey(canonical.color_zh || canonical.color_vi || ''),
+      assetKey(canonical.attr_zh || canonical.attr_vi || '')
+    ].join('|');
+  }
+
+  function materialIdFor(material, productCode) {
+    return stableId('mat', materialIdentity(material, productCode));
+  }
+
+  function mergeAssets(target, assets) {
+    const seen = new Set((target || []).map((item) => item.url || item.previewUrl || item.path || item.name));
+    (assets || []).forEach((asset) => {
+      const key = asset.url || asset.previewUrl || asset.path || asset.name;
+      if (!key || seen.has(key)) return;
+      seen.add(key);
+      target.push(clone(asset));
+    });
+  }
+
+  function materialRecordFromLegacy(material, productCode) {
+    const canonical = canonicalLegacyMaterial(material, productCode);
+    const id = materialIdFor(canonical, productCode);
+    return {
+      id,
+      code: String(canonical.mat_code || ''),
+      name: localizedPair(canonical.name_zh, canonical.name_vi),
+      spec: localizedPair(canonical.spec, canonical.spec_vi),
+      material: localizedPair(canonical.material_zh, canonical.material_vi),
+      color: localizedPair(canonical.color_zh, canonical.color_vi),
+      attr: localizedPair(canonical.attr_zh, canonical.attr_vi),
+      drawings: [],
+      models3d: []
+    };
+  }
+
+  function isHardwarePackSummary(material) {
+    const code = material?.mat_code || material?.code || '';
+    const name = material?.name_zh || material?.name?.zh || '';
+    return /^LGS\d+WJB(BH|WH)$/i.test(String(code || '')) ||
+      /^LGS\d+五金包$/i.test(String(name || ''));
+  }
+
+  function legacyRowFromRecord(record, entry) {
+    return {
+      stt: entry.stt || '',
+      mat_code: record.code || '',
+      comp_code: entry.comp_code || '',
+      name_zh: record.name?.zh || '',
+      name_vi: record.name?.vi || record.name?.zh || '',
+      spec: record.spec?.zh || '',
+      spec_vi: record.spec?.vi || record.spec?.zh || '',
+      material_zh: record.material?.zh || '',
+      material_vi: record.material?.vi || record.material?.zh || '',
+      color_zh: record.color?.zh || '',
+      color_vi: record.color?.vi || record.color?.zh || '',
+      attr_zh: record.attr?.zh || '',
+      attr_vi: record.attr?.vi || record.attr?.zh || '',
+      color_ver: entry.color_ver || '',
+      color_ver_vi: entry.color_ver_vi || entry.color_ver || '',
+      qty: entry.qty || '',
+      _materialId: record.id,
+      _entryId: entry.id,
+      _materialRecord: record
+    };
+  }
+
+  function createMaterialDatabase(payload) {
+    const source = payload || {};
+    const db = { version: 1, materials: {}, bomEntries: [] };
+    const productEntriesByColor = new Map();
+    Object.entries(source.bom || {}).forEach(([productCode, product]) => {
+      Object.entries(product.color_info || {}).forEach(([colorName, colorData]) => {
+        const productEntries = [];
+        (colorData.materials || []).forEach((material, index) => {
+          const canonical = canonicalLegacyMaterial(material, productCode);
+          const materialId = materialIdFor(canonical, productCode);
+          if (!db.materials[materialId]) db.materials[materialId] = materialRecordFromLegacy(canonical, productCode);
+          const record = db.materials[materialId];
+          mergeAssets(record.drawings, findBomAssets((source.drawings || {})[productCode], material));
+          mergeAssets(record.drawings, findBomAssets((source.drawings || {})[productCode], canonical));
+          mergeAssets(record.models3d, findBomAssets((source.models3d || {})[productCode], material));
+          mergeAssets(record.models3d, findBomAssets((source.models3d || {})[productCode], canonical));
+          const entry = {
+            id: stableId('bom', `${productCode}|${colorName}|${index}|${materialId}|${material.comp_code || ''}`),
+            parentType: 'product',
+            parentId: productCode,
+            productCode,
+            color: colorName,
+            materialId,
+            stt: String(material.stt || ''),
+            comp_code: String(material.comp_code || ''),
+            qty: String(material.qty || ''),
+            color_ver: String(material.color_ver || colorData.color_ver || colorName),
+            color_ver_vi: String(material.color_ver_vi || colorData.color_ver_vi || colorName),
+            order: index
+          };
+          db.bomEntries.push(entry);
+          productEntries.push({ entry, material: canonical });
+        });
+        productEntriesByColor.set(`${productCode}|${colorName}`, productEntries);
+      });
+    });
+
+    productEntriesByColor.forEach((entries, key) => {
+      let hardwarePack = entries.find((item) => isHardwarePackSummary(db.materials[item.entry.materialId]));
+      const hardwareChildren = entries.filter((item) => db.materials[item.entry.materialId]?.attr?.zh === '五金包');
+      if (!hardwarePack && hardwareChildren.length) {
+        const [productCode, colorName] = key.split('|');
+        const isWhite = colorName.includes('白') || colorName.toLowerCase().includes('white');
+        const virtualMaterial = {
+          mat_code: `${productCode}WJB${isWhite ? 'WH' : 'BH'}`,
+          name_zh: `${productCode}五金包`,
+          name_vi: `${productCode} tui ngu kim`,
+          spec: '',
+          spec_vi: '',
+          material_zh: '无',
+          material_vi: 'khong',
+          color_zh: '',
+          color_vi: '',
+          attr_zh: '零件',
+          attr_vi: 'linh kien'
+        };
+        const materialId = materialIdFor(virtualMaterial, productCode);
+        if (!db.materials[materialId]) db.materials[materialId] = materialRecordFromLegacy(virtualMaterial, productCode);
+        const firstOrder = hardwareChildren[0]?.entry?.order ?? 0;
+        const entry = {
+          id: stableId('bomv', `${key}|${materialId}`),
+          parentType: 'product',
+          parentId: productCode,
+          productCode,
+          color: colorName,
+          materialId,
+          stt: '',
+          comp_code: '无',
+          qty: '1',
+          color_ver: colorName,
+          color_ver_vi: colorName,
+          order: firstOrder - 0.1,
+          virtual: true
+        };
+        db.bomEntries.push(entry);
+        hardwarePack = { entry, material: virtualMaterial };
+      }
+      if (!hardwarePack) return;
+      hardwareChildren.forEach((item, index) => {
+        const childEntry = {
+          id: stableId('bomc', `${key}|${hardwarePack.entry.materialId}|${item.entry.materialId}|${index}`),
+          parentType: 'material',
+          parentId: hardwarePack.entry.materialId,
+          productCode: hardwarePack.entry.productCode,
+          color: hardwarePack.entry.color,
+          materialId: item.entry.materialId,
+          childMaterialId: item.entry.materialId,
+          stt: item.entry.stt,
+          comp_code: item.entry.comp_code,
+          qty: item.entry.qty,
+          color_ver: item.entry.color_ver,
+          color_ver_vi: item.entry.color_ver_vi,
+          order: index
+        };
+        db.bomEntries.push(childEntry);
+      });
+    });
+    return db;
+  }
+
+  function normalizeMaterialDatabase(payload) {
+    if (payload?.materialDb?.materials && payload?.materialDb?.bomEntries) {
+      return clone(payload.materialDb);
+    }
+    return createMaterialDatabase(payload);
+  }
+
+  function isRenderableProductEntry(source, entry, productCode, colorName) {
+    if (!entry || entry.parentType !== 'product') return false;
+    if (entry.productCode !== productCode || entry.color !== colorName) return false;
+    if (!entry.virtual) return true;
+    const record = source?.materialDb?.materials?.[entry.materialId];
+    return isHardwarePackSummary(record);
+  }
+
+  function resolveBomRows(payload, productCode, colorName) {
+    const source = payload || {};
+    if (!source.materialDb?.materials || !source.materialDb?.bomEntries) {
+      return (((source.bom || {})[productCode] || {}).color_info || {})[colorName]?.materials || [];
+    }
+    return source.materialDb.bomEntries
+      .filter((entry) => isRenderableProductEntry(source, entry, productCode, colorName))
+      .sort((left, right) => (left.order ?? 0) - (right.order ?? 0))
+      .map((entry) => {
+        const record = source.materialDb.materials[entry.materialId];
+        return record ? legacyRowFromRecord(record, entry) : null;
+      })
+      .filter(Boolean);
+  }
+
+  function childMaterialId(entry) {
+    return entry?.childMaterialId || entry?.materialId || '';
+  }
+
+  function relationMatchesScope(entry, productCode, colorName) {
+    const entryProduct = String(entry?.productCode || '');
+    const entryColor = String(entry?.color || '');
+    return (!entryProduct || entryProduct === productCode) && (!entryColor || entryColor === colorName);
+  }
+
+  function materialChildEntries(payload, parentId, productCode, colorName) {
+    return (payload?.materialDb?.bomEntries || [])
+      .filter((entry) => entry.parentType === 'material' &&
+        entry.parentId === parentId &&
+        childMaterialId(entry) &&
+        relationMatchesScope(entry, productCode, colorName))
+      .sort((left, right) => (left.order ?? 0) - (right.order ?? 0));
+  }
+
+  function productEntryCoveredByParent(payload, productEntry, productEntries, productCode, colorName) {
+    const materialId = productEntry?.materialId;
+    if (!materialId) return false;
+    return productEntries.some((parentEntry) => parentEntry.id !== productEntry.id &&
+      materialChildEntries(payload, parentEntry.materialId, productCode, colorName)
+        .some((childEntry) => childMaterialId(childEntry) === materialId));
+  }
+
+  function buildBomTreeRows(payload, productCode, colorName) {
+    const source = payload || {};
+    const flatRows = resolveBomRows(payload, productCode, colorName);
+    if (!source.materialDb?.materials || !source.materialDb?.bomEntries) return flatRows.map((r) => ({ ...r, _level: 1 }));
+    const productEntries = source.materialDb.bomEntries
+      .filter((entry) => isRenderableProductEntry(source, entry, productCode, colorName))
+      .sort((left, right) => (left.order ?? 0) - (right.order ?? 0));
+    const coveredEntryIds = new Set(productEntries
+      .filter((entry) => productEntryCoveredByParent(source, entry, productEntries, productCode, colorName))
+      .map((entry) => entry.id));
+    const treeRows = [];
+
+    function appendChildren(parentRow, parentMaterialId, level, materialPath) {
+      const childrenEntries = materialChildEntries(source, parentMaterialId, productCode, colorName);
+      if (!childrenEntries.length) return;
+      parentRow._hasChildren = true;
+      childrenEntries.forEach((entry) => {
+        const childId = childMaterialId(entry);
+        if (!childId || materialPath.has(childId)) return;
+        const childRecord = source.materialDb.materials[childId];
+        if (!childRecord) return;
+        const childRow = legacyRowFromRecord(childRecord, entry);
+        childRow._level = level + 1;
+        childRow._parentEntryId = parentRow._entryId;
+        childRow._rootEntryId = parentRow._rootEntryId || parentRow._entryId;
+        treeRows.push(childRow);
+        const nextPath = new Set(materialPath);
+        nextPath.add(childId);
+        appendChildren(childRow, childId, childRow._level, nextPath);
+      });
+    }
+
+    flatRows
+      .filter((row) => !coveredEntryIds.has(row._entryId))
+      .forEach((row) => {
+        row._level = 1;
+        treeRows.push(row);
+        appendChildren(row, row._materialId, 1, new Set([row._materialId]));
+      });
+    return treeRows;
+  }
+
+  function scopeLabel(entry, lang) {
+    const shared = lang === 'vi' ? 'Dùng chung' : '通用';
+    const product = String(entry?.productCode || '').trim();
+    const color = String(entry?.color || '').trim();
+    if (product && color) return `${product} / ${color}`;
+    return product || color || shared;
+  }
+
+  function groupMaterialChildRows(payload, parentId, lang) {
+    const source = payload || {};
+    const groups = new Map();
+    (source.materialDb?.bomEntries || [])
+      .filter((entry) => entry.parentType === 'material' && entry.parentId === parentId)
+      .sort((left, right) => (left.order ?? 0) - (right.order ?? 0))
+      .forEach((entry) => {
+        const childId = childMaterialId(entry);
+        const child = source.materialDb?.materials?.[childId];
+        if (!child) return;
+        const key = `${childId}|${entry.qty || ''}`;
+        if (!groups.has(key)) {
+          groups.set(key, { entry, entries: [], child, qty: entry.qty || '', scopes: [], scopeSet: new Set() });
+        }
+        const group = groups.get(key);
+        const scope = scopeLabel(entry, lang);
+        group.entries.push(entry);
+        if (!group.scopeSet.has(scope)) {
+          group.scopeSet.add(scope);
+          group.scopes.push(scope);
+        }
+      });
+    return Array.from(groups.values()).map((group) => {
+      const { scopeSet, ...row } = group;
+      row.scopes.sort();
+      return row;
+    });
+  }
+
+  function hasChildMaterialRelation(entries, parentId, materialId) {
+    return (entries || []).some((entry) => entry.parentType === 'material' &&
+      entry.parentId === parentId &&
+      childMaterialId(entry) === materialId);
+  }
+
+  function materialWhereUsed(payload, materialId) {
+    const entries = (payload?.materialDb?.bomEntries || []);
+    return {
+      productEntries: entries.filter((entry) => entry.parentType === 'product' && entry.materialId === materialId),
+      parentEntries: entries.filter((entry) => entry.parentType === 'material' && entry.materialId === materialId),
+      childEntries: entries.filter((entry) => entry.parentType === 'material' && entry.parentId === materialId)
+    };
+  }
+
+  function localizedValue(pair, lang) {
+    if (!pair || typeof pair !== 'object') return '';
+    return lang === 'vi' ? (pair.vi || pair.zh || '') : (pair.zh || pair.vi || '');
+  }
+
+  function uniqueValues(values) {
+    return Array.from(new Set(values.filter(Boolean)));
+  }
+
+  function queryMatches(values, query) {
+    if (!query) return true;
+    const keywords = query.trim().split(/\s+/).filter(Boolean);
+    if (!keywords.length) return true;
+    const corpus = values.filter(Boolean).map(normalizeText).join(' ');
+    return keywords.every((kw) => corpus.includes(kw));
+  }
+
+  function productColorNameTokens(product) {
+    const tokens = [];
+    Object.entries(product?.color_info || {}).forEach(([colorName, colorData]) => {
+      tokens.push(colorName, colorData?.color_ver, colorData?.color_zh, colorData?.color_ver_vi, colorData?.color_vi);
+    });
+    return uniqueValues(tokens.map((value) => String(value || '').trim()))
+      .sort((left, right) => right.length - left.length);
+  }
+
+  function stripProductColorName(value, product, lang) {
+    const original = String(value || '').trim();
+    if (!original) return '';
+    let result = original;
+    const tokens = productColorNameTokens(product);
+    if (lang !== 'vi') {
+      result = result
+        .replace(/^[\p{Script=Han}]{1,6}色(?=[0-9０-９一二三四五六七八九十])/u, '')
+        .replace(/[\p{Script=Han}]{1,6}色$/u, '');
+      tokens
+        .filter((token) => token.endsWith('色') && token.length > 1)
+        .map((token) => token.slice(0, -1))
+        .forEach((baseToken) => {
+          const escapedBase = escapeRegExp(baseToken);
+          result = result.replace(new RegExp(`^[\\p{Script=Han}]{0,4}${escapedBase}(?=[0-9０-９一二三四五六七八九十])`, 'u'), '');
+          result = result.replace(new RegExp(`[\\p{Script=Han}]{0,4}${escapedBase}$`, 'u'), '');
+        });
+    }
+    tokens.forEach((token) => {
+      result = result.replace(new RegExp(escapeRegExp(token), 'giu'), '');
+    });
+    result = result
+      .replace(/\s{2,}/g, ' ')
+      .replace(/\s+([,，;；:：)）\]-])/g, '$1')
+      .replace(/([-(（\[])\s+/g, '$1')
+      .replace(/--+/g, '-')
+      .replace(/^-+|-+$/g, '')
+      .trim();
+    return result || original;
+  }
+
+  function productSidebarItem(payload, productCode, lang) {
+    const product = payload?.bom?.[productCode] || {};
+    const colorData = product.color_info?.[product.colors?.[0]] || Object.values(product.color_info || {})[0] || {};
+    const name = lang === 'vi'
+      ? (colorData.name_vi || colorData.name_zh || colorData.name || productCode)
+      : (colorData.name_zh || colorData.name || colorData.name_vi || productCode);
+    const materialCount = Object.entries(product.color_info || {})
+      .reduce((total, [colorName]) => total + resolveBomRows(payload, productCode, colorName).length, 0);
+    return {
+      type: 'product',
+      id: productCode,
+      code: productCode,
+      label: name,
+      subtitle: `${materialCount} materials`,
+      searchText: [productCode, name, product.code, colorData.sku].join(' ')
+    };
+  }
+
+  function relationProducts(entries) {
+    return uniqueValues(entries.map((entry) => entry.productCode)).sort();
+  }
+
+  function materialSidebarItem(payload, record, type, lang) {
+    const whereUsed = materialWhereUsed(payload, record.id);
+    const productEntries = type === 'childMaterial' ? whereUsed.parentEntries : whereUsed.productEntries;
+    const products = relationProducts(productEntries);
+    const parentCodes = uniqueValues(whereUsed.parentEntries
+      .map((entry) => payload.materialDb.materials[entry.parentId]?.code || ''))
+      .sort();
+    const label = localizedValue(record.name, lang) || record.code || record.id;
+    return {
+      type,
+      materialId: record.id,
+      code: record.code || '',
+      label,
+      subtitle: products.join(', ') || parentCodes.join(', ') || '-',
+      products,
+      parentCodes,
+      parentCount: whereUsed.parentEntries.length,
+      childCount: whereUsed.childEntries.length,
+      drawingCount: (record.drawings || []).length,
+      model3dCount: (record.models3d || []).length,
+      searchText: [
+        record.code,
+        record.name?.zh,
+        record.name?.vi,
+        record.spec?.zh,
+        record.spec?.vi,
+        record.material?.zh,
+        record.material?.vi,
+        record.color?.zh,
+        record.color?.vi,
+        record.attr?.zh,
+        record.attr?.vi,
+        products.join(' '),
+        parentCodes.join(' ')
+      ].join(' ')
+    };
+  }
+
+  function createSidebarIndex(payload, options) {
+    const source = payload?.materialDb?.materials ? payload : normalizePayload(payload || {});
+    const query = normalizeText(options?.query || '');
+    const lang = options?.lang === 'vi' ? 'vi' : 'zh';
+    const productItems = Object.keys(source.bom || {})
+      .sort()
+      .map((productCode) => productSidebarItem(source, productCode, lang))
+      .filter((item) => queryMatches([item.searchText], query));
+    const parentIds = new Set();
+    const childIds = new Set();
+    (source.materialDb?.bomEntries || []).forEach((entry) => {
+      if (entry.parentType === 'product' && entry.materialId) parentIds.add(entry.materialId);
+      if (entry.parentType === 'material' && (entry.childMaterialId || entry.materialId)) {
+        childIds.add(entry.childMaterialId || entry.materialId);
+      }
+    });
+    const materialItem = (type) => (materialId) => {
+      const record = source.materialDb.materials[materialId];
+      return record ? materialSidebarItem(source, record, type, lang) : null;
+    };
+    const filterItem = (item) => item && queryMatches([item.searchText], query);
+    return {
+      products: productItems,
+      parentMaterials: Array.from(parentIds).map(materialItem('parentMaterial')).filter(filterItem)
+        .sort((left, right) => String(left.code).localeCompare(String(right.code))),
+      childMaterials: Array.from(childIds).map(materialItem('childMaterial')).filter(filterItem)
+        .sort((left, right) => String(left.code).localeCompare(String(right.code)))
+    };
+  }
+
+  function createPdmNavigation(payload, lang) {
+    const source = payload?.materialDb?.materials ? payload : normalizePayload(payload || {});
+    const entries = source.materialDb?.bomEntries || [];
+    const materials = Object.values(source.materialDb?.materials || {});
+    const structureCount = new Set(entries.filter((entry) => entry.parentType === 'material').map((entry) => entry.parentId)).size;
+    const labels = lang === 'vi'
+      ? {
+        bom: 'Sản phẩm BOM',
+        materials: 'Database vật liệu',
+        structure: 'Cấu trúc cha con'
+      }
+      : {
+        bom: '产品 BOM',
+        materials: '物料数据库',
+        structure: '父子项结构'
+      };
+    return [
+      { id: 'bom', label: labels.bom, count: Object.keys(source.bom || {}).length },
+      { id: 'materials', label: labels.materials, count: materials.length },
+      { id: 'structure', label: labels.structure, count: structureCount }
+    ];
+  }
+
+  function replaceBomEntryMaterial(payload, entryId, materialId) {
+    const entry = (payload?.materialDb?.bomEntries || []).find((item) => item.id === entryId);
+    const record = payload?.materialDb?.materials?.[materialId];
+    if (!entry || !record) return null;
+    entry.materialId = materialId;
+    if (entry.parentType === 'material') entry.childMaterialId = materialId;
+    return entry;
+  }
+
+  function updateMaterialRecord(payload, materialId, patch) {
+    const record = payload?.materialDb?.materials?.[materialId];
+    if (!record || !patch) return null;
+    ['name', 'spec', 'material', 'color', 'attr'].forEach((field) => {
+      if (!patch[field]) return;
+      record[field] = {
+        zh: String(patch[field].zh ?? record[field]?.zh ?? ''),
+        vi: String(patch[field].vi ?? record[field]?.vi ?? patch[field].zh ?? record[field]?.zh ?? '')
+      };
+    });
+    if (Object.prototype.hasOwnProperty.call(patch, 'code')) record.code = String(patch.code || '');
+    if (Object.prototype.hasOwnProperty.call(patch, 'drawings')) record.drawings = clone(patch.drawings);
+    if (Object.prototype.hasOwnProperty.call(patch, 'models3d')) record.models3d = clone(patch.models3d);
+    return record;
+  }
+
+  function syncLegacyBomFromMaterialDb(payload) {
+    if (!payload?.materialDb?.materials || !payload?.materialDb?.bomEntries) return payload;
+
+    function buildNode(entry, productCode, colorName) {
+      const record = payload.materialDb.materials[entry.materialId];
+      if (!record) return null;
+      const row = legacyRowFromRecord(record, entry);
+      const copy = clone(row);
+      delete copy._materialId;
+      delete copy._entryId;
+      delete copy._materialRecord;
+
+      const childrenEntries = materialChildEntries(payload, entry.materialId, productCode, colorName);
+      if (childrenEntries.length > 0) {
+        copy.materials = childrenEntries.map(child => buildNode(child, productCode, colorName)).filter(Boolean);
+      }
+      return copy;
+    }
+
+    Object.entries(payload.bom || {}).forEach(([productCode, product]) => {
+      Object.entries(product.color_info || {}).forEach(([colorName, colorData]) => {
+        const topEntries = payload.materialDb.bomEntries
+          .filter((entry) => isRenderableProductEntry(payload, entry, productCode, colorName))
+          .sort((left, right) => (left.order ?? 0) - (right.order ?? 0));
+
+        colorData.materials = topEntries.map(entry => buildNode(entry, productCode, colorName)).filter(Boolean);
+      });
+    });
+    return payload;
+  }
+
+  function normalizeConfig(config) {
+    const source = config || {};
+    return {
+      owner: String(source.owner || ''),
+      repo: String(source.repo || ''),
+      branch: String(source.branch || 'main'),
+      path: String(source.path || 'data.js'),
+      rawUrl: String(source.rawUrl || '')
+    };
+  }
+
+  function apiPath(pathValue) {
+    return String(pathValue || 'data.js').split('/').map(encodeURIComponent).join('/');
+  }
+
+  function rawUrl(config) {
+    const clean = normalizeConfig(config);
+    if (clean.rawUrl) return clean.rawUrl;
+    if (!clean.owner || !clean.repo || !clean.branch || !clean.path) return '';
+    return `https://raw.githubusercontent.com/${clean.owner}/${clean.repo}/${clean.branch}/${clean.path}`;
+  }
+
+  function contentsUrl(config) {
+    const clean = normalizeConfig(config);
+    return `https://api.github.com/repos/${encodeURIComponent(clean.owner)}/${encodeURIComponent(clean.repo)}/contents/${apiPath(clean.path)}`;
+  }
+
+  function rawContentsUrl(config) {
+    const clean = normalizeConfig(config);
+    if (!clean.owner || !clean.repo || !clean.branch || !clean.path) return '';
+    return `${contentsUrl(clean)}?ref=${encodeURIComponent(clean.branch)}`;
+  }
+
+  function encodeBase64Utf8(value) {
+    const bytes = new TextEncoder().encode(String(value));
+    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+    let output = '';
+    for (let index = 0; index < bytes.length; index += 3) {
+      const first = bytes[index];
+      const second = bytes[index + 1];
+      const third = bytes[index + 2];
+      output += alphabet[first >> 2];
+      output += alphabet[((first & 3) << 4) | ((second || 0) >> 4)];
+      output += index + 1 < bytes.length ? alphabet[((second & 15) << 2) | ((third || 0) >> 6)] : '=';
+      output += index + 2 < bytes.length ? alphabet[third & 63] : '=';
+    }
+    return output;
+  }
+
+  function decodeBase64Utf8(value) {
+    const clean = String(value || '').replace(/\s/g, '');
+    if (!clean) return '';
+    if (typeof global.atob === 'function') {
+      const binary = global.atob(clean);
+      const bytes = new Uint8Array(binary.length);
+      for (let index = 0; index < binary.length; index += 1) bytes[index] = binary.charCodeAt(index);
+      return new TextDecoder().decode(bytes);
+    }
+    if (typeof Buffer !== 'undefined') return Buffer.from(clean, 'base64').toString('utf8');
+    throw new Error('Base64 decoder unavailable');
+  }
+
+  function normalizePayload(payload) {
+    const source = payload || {};
+    const fallbackProductImages = global.BOM_VIEWER_DATA?.productImages || global.PRODUCT_IMAGE_INDEX || {};
+    const normalized = {
+      version: source.version != null ? source.version : 2,
+      updatedAt: String(source.updatedAt || ''),
+      bom: clone(source.bom),
+      drawings: clone(source.drawings),
+      manuals: clone(source.manuals),
+      models3d: clone(source.models3d),
+      productImages: clone({ ...fallbackProductImages, ...(source.productImages || {}) }),
+      notifications: normalizeNotifications(source.notifications)
+    };
+    normalized.materialDb = normalizeMaterialDatabase({ ...source, ...normalized });
+    return normalized;
+  }
+
+  function currentPayloadFromWindow() {
+    if (global.BOM_VIEWER_DATA && global.BOM_VIEWER_DATA.bom) {
+      return normalizePayload(global.BOM_VIEWER_DATA);
+    }
+    return normalizePayload({
+      bom: global.BOM_DATA || {},
+      drawings: global.DRAWING_INDEX || {},
+      manuals: global.MANUAL_INDEX || {},
+      models3d: global.MODEL3D_INDEX || {},
+      productImages: global.PRODUCT_IMAGE_INDEX || {}
+    });
+  }
+
+  function serializeDataJs(payload) {
+    return [
+      '/* BOM cloud data. Update only through admin.html. */',
+      `window.BOM_VIEWER_DATA = ${JSON.stringify(normalizePayload(payload), null, 2)};`,
+      ''
+    ].join('\n');
+  }
+
+  function parseDataJsPayload(source) {
+    const sandbox = {};
+    const runner = new Function('window', `${source}\nreturn window.BOM_VIEWER_DATA;`);
+    const payload = runner(sandbox);
+    if (!payload || !payload.bom) throw new Error('Invalid data.js payload');
+    return normalizePayload(payload);
+  }
+
+  function buildGithubUpdateRequest({ config, token, sha, source, message }) {
+    const clean = normalizeConfig(config);
+    const body = {
+      message: message || 'chore: update bom data',
+      content: encodeBase64Utf8(source),
+      branch: clean.branch
+    };
+    if (sha) body.sha = sha;
+    return {
+      url: contentsUrl(clean),
+      options: {
+        method: 'PUT',
+        headers: {
+          Accept: 'application/vnd.github+json',
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+          'X-GitHub-Api-Version': '2022-11-28'
+        },
+        body: JSON.stringify(body)
+      }
+    };
+  }
+
+  function parseQty(value) {
+    const textValue = String(value || '');
+    if (!textValue) return 0;
+    if (!textValue.includes('+')) return parseInt(textValue, 10) || 0;
+    return textValue.split('+').reduce((sum, item) => sum + (parseInt(item.trim(), 10) || 0), 0);
+  }
+
+  function materialText(material, field, lang) {
+    if (field === 'name') return lang === 'vi' ? (material.name_vi || material.name_zh || '') : (material.name_zh || material.name_vi || '');
+    if (field === 'spec') return lang === 'vi' ? (material.spec_vi || material.spec || '') : (material.spec || material.spec_vi || '');
+    if (field === 'material') return lang === 'vi' ? (material.material_vi || material.material_zh || '') : (material.material_zh || material.material_vi || '');
+    if (field === 'color') return lang === 'vi' ? (material.color_vi || material.color_zh || '') : (material.color_zh || material.color_vi || '');
+    if (field === 'attr') return lang === 'vi' ? (material.attr_vi || material.attr_zh || '') : (material.attr_zh || material.attr_vi || '');
+    return material[field] || '';
+  }
+
+  function materialSearchMatch(material, query) {
+    if (!query) return true;
+    return queryMatches([
+      material.mat_code, material.comp_code, material.name_zh, material.name_vi,
+      material.spec, material.spec_vi, material.material_zh, material.material_vi,
+      material.color_zh, material.color_vi, material.attr_zh, material.attr_vi
+    ], query);
+  }
+
+  function sortMaterials(materials, options) {
+    return materials.slice().sort((left, right) => compareMaterial(left, right, options));
+  }
+
+  function compareMaterial(left, right, options) {
+    const { sortCol, sortAsc, lang, attrOrder } = options;
+    if (sortCol === 'stt') return directional((parseInt(left.stt, 10) || 0) - (parseInt(right.stt, 10) || 0), sortAsc);
+    if (sortCol === 'qty') return directional(parseQty(left.qty) - parseQty(right.qty), sortAsc);
+    if (sortCol === 'attr') {
+      const diff = (attrOrder[left.attr_zh] ?? 99) - (attrOrder[right.attr_zh] ?? 99);
+      if (diff !== 0) return directional(diff, sortAsc);
+      const leftCode = String(left.mat_code || left.code || '');
+      const rightCode = String(right.mat_code || right.code || '');
+      return directional(leftCode.localeCompare(rightCode), sortAsc);
+    }
+    const leftValue = materialText(left, sortCol, lang);
+    const rightValue = materialText(right, sortCol, lang);
+    return directional(String(leftValue).localeCompare(String(rightValue), lang === 'vi' ? 'vi' : 'zh'), sortAsc);
+  }
+
+  function directional(value, sortAsc) {
+    return sortAsc ? value : -value;
+  }
+
+  function filterMaterials({ materials, attr, query, sortCol, sortAsc, lang, attrOrder, dbFilters, has2D, has3D }) {
+    const normalizedQuery = normalizeText(query);
+    const filtered = (materials || [])
+      .filter((material) => attr === 'all' || material.attr_zh === attr)
+      .filter((material) => {
+        if (dbFilters) {
+          if (dbFilters.attr !== 'all' && materialText(material, 'attr', 'zh') !== dbFilters.attr) return false;
+          if (dbFilters.material !== 'all' && materialText(material, 'material', 'zh') !== dbFilters.material) return false;
+          if (dbFilters.color !== 'all' && materialText(material, 'color', 'zh') !== dbFilters.color) return false;
+
+          const has2DVal = has2D ? has2D(material) : (material.drawings || []).length > 0;
+          if (dbFilters.has2D === 'yes' && !has2DVal) return false;
+          if (dbFilters.has2D === 'no' && has2DVal) return false;
+
+          const has3DVal = has3D ? has3D(material) : (material.models3d || []).length > 0;
+          if (dbFilters.has3D === 'yes' && !has3DVal) return false;
+          if (dbFilters.has3D === 'no' && has3DVal) return false;
+        }
+        return true;
+      })
+      .filter((material) => materialSearchMatch(material, normalizedQuery));
+    return sortMaterials(filtered, { sortCol, sortAsc, lang, attrOrder: attrOrder || {} });
+  }
+
+  function createApp(options) {
+    const app = new BomApplication(options || {});
+    app.start();
+    return app;
+  }
+
+  class BomApplication {
+    constructor(options) {
+      this.mode = options.mode === 'admin' ? 'admin' : 'viewer';
+      this.config = normalizeConfig(options.config);
+      this.notificationToastTimer = null;
+      this.state = this.initialState();
+    }
+
+    initialState() {
+      const payload = currentPayloadFromWindow();
+      return {
+        lang: 'zh',
+        payload,
+        bom: payload.bom,
+        drawings: payload.drawings,
+        manuals: payload.manuals,
+        models3d: payload.models3d,
+        productImages: payload.productImages,
+        materialDb: payload.materialDb,
+        materialDraft: null,
+        loadedPayload: clone(payload),
+        currentSku: '',
+        currentColor: '',
+        bomDetailOpen: false,
+        currentAttr: 'all',
+        selectedMaterialId: '',
+        selectedEntryId: '',
+        selectedParentId: '',
+        adminView: 'bom',
+        dbFilters: { attr: 'all', material: 'all', color: 'all', has2D: 'all', has3D: 'all' },
+        searchQuery: '',
+        sidebarQuery: '',
+        replaceQuery: '',
+        sortCol: 'attr',
+        sortAsc: true,
+        editMode: false,
+        dirty: false,
+        lastRows: [],
+        lastLoadAt: '',
+        notificationOpen: false,
+        notificationToast: null
+      };
+    }
+
+    start() {
+      if (!global.document) return;
+      this.pickFirstProduct();
+      this.ensureInspectorPanel();
+      this.bindEvents();
+      this.renderAll();
+      this.loadCloud({ silent: true });
+      global.setInterval(() => this.loadCloud({ silent: true }), this.isAdmin() ? REFRESH_MS : NOTIFICATION_REFRESH_MS);
+    }
+
+    label(key) {
+      return (TEXT[this.state.lang] && TEXT[this.state.lang][key]) || TEXT.zh[key] || key;
+    }
+
+    isAdmin() {
+      return this.mode === 'admin';
+    }
+
+    query(selector) {
+      return global.document.querySelector(selector);
+    }
+
+    queryAll(selector) {
+      return Array.from(global.document.querySelectorAll(selector));
+    }
+
+    ensureInspectorPanel() {
+      if (this.query('#inspectorPanel')) return;
+      const main = this.query('.main');
+      if (!main) return;
+      main.insertAdjacentHTML('beforeend', '<aside class="inspector-panel" id="inspectorPanel"></aside>');
+    }
+
+    product() {
+      return this.state.bom[this.state.currentSku] || null;
+    }
+
+    colorData() {
+      const product = this.product();
+      return product && product.color_info ? product.color_info[this.state.currentColor] : null;
+    }
+
+    bomRows(productCode, colorName) {
+      return buildBomTreeRows(this.state.payload, productCode || this.state.currentSku, colorName || this.state.currentColor);
+    }
+
+    pickFirstProduct() {
+      if (!this.state.currentSku || !this.state.bom[this.state.currentSku]) {
+        this.state.currentSku = Object.keys(this.state.bom).sort()[0] || '';
+      }
+      this.ensureColor();
+    }
+
+    ensureColor() {
+      const product = this.product();
+      if (!product) {
+        this.state.currentColor = '';
+        return;
+      }
+      if (!this.state.currentColor || !product.colors.includes(this.state.currentColor)) {
+        this.state.currentColor = product.colors[0] || Object.keys(product.color_info || {})[0] || '';
+      }
+    }
+
+    bindEvents() {
+      this.bindSearch();
+      this.bindNavigation();
+      this.bindActions();
+      this.bindEditing();
+      this.bindModal();
+      this.bindNotifications();
+      this.bindLanguage();
+    }
+
+    bindSearch() {
+      this.query('#searchInput').addEventListener('input', (event) => {
+        this.state.searchQuery = event.target.value.trim();
+        this.state.materialDbPage = 1;
+        this.query('#searchClear').classList.toggle('visible', this.state.searchQuery.length > 0);
+        if (this.state.adminView !== 'bom' || !this.state.bomDetailOpen) {
+          this.renderContent();
+          this.renderInspector();
+          return;
+        }
+        this.renderTable();
+        this.renderInspector();
+      });
+      this.query('#searchClear').addEventListener('click', () => this.clearSearch());
+      this.query('#sidebarSearch').addEventListener('input', (event) => {
+        this.state.sidebarQuery = event.target.value.trim();
+        this.renderProductList();
+      });
+    }
+
+    clearSearch() {
+      this.state.searchQuery = '';
+      this.state.materialDbPage = 1;
+      this.query('#searchInput').value = '';
+      this.query('#searchClear').classList.remove('visible');
+      if (this.state.adminView !== 'bom' || !this.state.bomDetailOpen) {
+        this.renderContent();
+        this.renderInspector();
+        return;
+      }
+      this.renderTable();
+      this.renderInspector();
+    }
+
+    bindNavigation() {
+      this.query('#productList').addEventListener('click', (event) => {
+        const moduleButton = event.target.closest('[data-module-view]');
+        if (moduleButton) {
+          this.openModuleView(moduleButton.dataset.moduleView);
+          return;
+        }
+        const item = event.target.closest('[data-sku]');
+        if (!item) return;
+        this.selectProduct(item.dataset.sku);
+      });
+      this.query('#productList').addEventListener('change', (event) => {
+        const select = event.target.closest('[data-product-select]');
+        if (select) this.selectProduct(select.value);
+      });
+      this.query('#filterBar').addEventListener('click', (event) => this.handleFilterClick(event));
+      this.query('.content').addEventListener('change', (event) => {
+        const jumpInput = event.target.closest('[data-action="mdb-jump-page"]');
+        if (jumpInput) {
+          let p = parseInt(jumpInput.value, 10);
+          if (p >= 1 && p <= parseInt(jumpInput.max, 10)) {
+            this.state.materialDbPage = p;
+            this.renderContent();
+          }
+        }
+      });
+      this.query('#contentHeader').addEventListener('click', (event) => this.handleHeaderClick(event));
+    }
+
+    handleFilterClick(event) {
+      const chip = event.target.closest('[data-attr]');
+      if (!chip) return;
+      this.state.currentAttr = chip.dataset.attr;
+      this.renderFilterBar();
+      this.renderTable();
+    }
+
+    handleHeaderClick(event) {
+      const color = event.target.closest('[data-color]');
+      if (color) {
+        this.state.currentColor = color.dataset.color;
+        this.state.selectedEntryId = '';
+        this.renderContent();
+        this.renderInspector();
+        return;
+      }
+      const manual = event.target.closest('[data-manual-index]');
+      if (manual) {
+        this.openManual(Number(manual.dataset.manualIndex));
+        return;
+      }
+      const productModel3d = event.target.closest('[data-product-model3d-index]');
+      if (productModel3d) this.openProductModel3d(Number(productModel3d.dataset.productModel3dIndex));
+    }
+
+    bindActions() {
+      const handleClick = (event) => {
+        const action = event.target.closest('[data-action]');
+        const sort = event.target.closest('[data-sort]');
+        const deleteDrawing = event.target.closest('[data-delete-drawing-row]');
+        const deleteModel3d = event.target.closest('[data-delete-model3d-row]');
+        const deleteBom = event.target.closest('[data-delete-bom-row]');
+        const replaceBom = event.target.closest('[data-replace-bom-row]');
+        const deleteDbMaterial = event.target.closest('[data-delete-db-material]');
+        const editBomMaterial = event.target.closest('[data-edit-bom-material]');
+        const editDbMaterial = event.target.closest('[data-edit-db-material]');
+        const editStructureParent = event.target.closest('[data-edit-structure-parent]');
+        const editStructureChild = event.target.closest('[data-edit-structure-child]');
+        const openBomProduct = event.target.closest('[data-open-bom-product]');
+        const bomRow = event.target.closest('[data-bom-entry]');
+        const materialRow = event.target.closest('[data-material-row]');
+        const drawing = event.target.closest('[data-drawing-row]');
+        const model3d = event.target.closest('[data-model3d-row]');
+        const levelToggle = event.target.closest('[data-level-toggle]');
+        if (levelToggle) {
+          const entryId = levelToggle.dataset.levelToggle;
+          const tbody = levelToggle.closest('tbody');
+          const icon = levelToggle.querySelector('.level-expand-icon');
+          const isExpanded = levelToggle.classList.toggle('expanded');
+          const setChildRows = (parentEntryId, visible) => {
+            const childRows = tbody ? Array.from(tbody.querySelectorAll(`[data-child-level="${CSS.escape(parentEntryId)}"]`)) : [];
+            childRows.forEach((row) => {
+              row.style.display = visible ? '' : 'none';
+              if (!visible) {
+                const childToggle = row.querySelector('[data-level-toggle]');
+                if (childToggle) {
+                  childToggle.classList.remove('expanded');
+                  const childIcon = childToggle.querySelector('.level-expand-icon');
+                  if (childIcon) childIcon.textContent = '▸';
+                }
+                if (row.dataset.bomEntry) setChildRows(row.dataset.bomEntry, false);
+              }
+            });
+          };
+          if (icon) icon.textContent = isExpanded ? '▾' : '▸';
+          setChildRows(entryId, isExpanded);
+          return;
+        }
+        if (openBomProduct) {
+          this.selectProduct(openBomProduct.dataset.openBomProduct);
+          return;
+        }
+        if (editBomMaterial) {
+          this.openMaterialMasterEditor(editBomMaterial.dataset.editBomMaterial);
+          return;
+        }
+        if (editDbMaterial) {
+          this.openMaterialMasterEditor(editDbMaterial.dataset.editDbMaterial);
+          return;
+        }
+        if (editStructureParent) {
+          this.openMaterialMasterEditor(editStructureParent.dataset.editStructureParent);
+          return;
+        }
+        if (editStructureChild) {
+          this.openMaterialMasterEditor(editStructureChild.dataset.editStructureChild);
+          return;
+        }
+        if (deleteDbMaterial) {
+          this.deleteDatabaseMaterial(deleteDbMaterial.dataset.deleteDbMaterial);
+          return;
+        }
+        if (deleteBom) {
+          this.deleteBomRow(Number(deleteBom.dataset.deleteBomRow));
+          return;
+        }
+        if (replaceBom) {
+          this.startReplaceBomRow(Number(replaceBom.dataset.replaceBomRow));
+          return;
+        }
+        if (deleteDrawing) {
+          this.deleteMaterialAsset(Number(deleteDrawing.dataset.deleteDrawingRow), 'drawings');
+          return;
+        }
+        if (deleteModel3d) {
+          this.deleteMaterialAsset(Number(deleteModel3d.dataset.deleteModel3dRow), 'models3d');
+          return;
+        }
+
+        const filterChip = event.target.closest('.db-filter-chip');
+        if (filterChip) {
+          const type = filterChip.dataset.filterType;
+          const val = filterChip.dataset.filterVal;
+          if (this.state.dbFilters[type] !== val) {
+            this.state.dbFilters[type] = val;
+            this.state.materialDbPage = 1;
+            this.renderContent();
+          }
+          return;
+        }
+
+        if (action && action.dataset.action === 'clear-db-filters') {
+          this.state.dbFilters = { attr: 'all', material: 'all', color: 'all', has2D: 'all', has3D: 'all' };
+          this.renderContent();
+          return;
+        }
+        if (action) this.runAction(action.dataset.action);
+        if (sort) this.sortBy(sort.dataset.sort);
+        if (drawing) { this.openDrawing(Number(drawing.dataset.drawingRow)); return; }
+        if (model3d) { this.openModel3d(Number(model3d.dataset.model3dRow)); return; }
+        const drawingMat = event.target.closest('[data-drawing-material]');
+        if (drawingMat) {
+          this.openMaterialDrawing(drawingMat.dataset.drawingMaterial);
+          return;
+        }
+        const model3dMat = event.target.closest('[data-model3d-material]');
+        if (model3dMat) {
+          this.openMaterialModel3d(model3dMat.dataset.model3dMaterial);
+          return;
+        }
+        if (
+          materialRow &&
+          !materialRow.closest('.material-db-view') &&
+          !event.target.closest('button,input,a,select,textarea')
+        ) {
+          this.openMaterialRecord(materialRow.dataset.materialRow);
+        }
+        const parentToggle = event.target.closest('[data-parent-toggle]');
+        if (parentToggle) {
+          this.openStructureDetail(parentToggle.dataset.parentToggle);
+          return;
+        }
+      };
+      this.query('.content').addEventListener('click', handleClick);
+      this.query('#inspectorPanel').addEventListener('click', handleClick);
+
+      this.query('.content').addEventListener('change', (event) => {
+        const select = event.target.closest('.db-filter-select');
+        if (select) {
+          const type = select.dataset.filterType;
+          if (type) {
+            this.state.dbFilters[type] = select.value;
+            this.state.materialDbPage = 1;
+            this.renderContent();
+          }
+        }
+      });
+    }
+
+    bindEditing() {
+      this.query('#contentHeader').addEventListener('input', (event) => this.handleProductInput(event, false));
+      this.query('#contentHeader').addEventListener('change', (event) => this.handleProductInput(event, true));
+      this.query('.content').addEventListener('input', (event) => this.handleMaterialInput(event, false));
+      this.query('.content').addEventListener('change', (event) => this.handleMaterialInput(event, true));
+      this.query('.content').addEventListener('input', (event) => this.handleMaterialDbInput(event));
+      this.query('#inspectorPanel').addEventListener('input', (event) => this.handleInspectorInput(event));
+      const tokenInput = this.query('#githubToken');
+      if (tokenInput) tokenInput.addEventListener('change', () => this.storeToken(tokenInput.value.trim()));
+    }
+
+    bindModal() {
+      const modal = this.query('#pdfModal');
+      modal.addEventListener('click', (event) => {
+        if (event.target === modal || event.target.closest('[data-close-modal]')) this.closeModal();
+      });
+      global.document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') this.closeModal();
+      });
+    }
+
+    bindNotifications() {
+      const button = this.query('#notificationButton');
+      const readButton = this.query('#notificationReadBtn');
+      if (!button) return;
+      button.addEventListener('click', (event) => {
+        event.stopPropagation();
+        this.state.notificationOpen = !this.state.notificationOpen;
+        if (this.state.notificationOpen) this.markNotificationsRead();
+        this.renderNotifications();
+      });
+      if (readButton) {
+        readButton.addEventListener('click', (event) => {
+          event.stopPropagation();
+          this.markNotificationsRead();
+          this.renderNotifications();
+        });
+      }
+      global.document.addEventListener('click', (event) => {
+        if (!this.state.notificationOpen) return;
+        const center = this.query('#notificationCenter');
+        if (center && !center.contains(event.target)) {
+          this.state.notificationOpen = false;
+          this.renderNotifications();
+        }
+      });
+      global.document.addEventListener('keydown', (event) => {
+        if (event.key !== 'Escape' || !this.state.notificationOpen) return;
+        this.state.notificationOpen = false;
+        this.renderNotifications();
+      });
+    }
+
+    bindLanguage() {
+      this.queryAll('.lang-btn').forEach((button) => {
+        button.addEventListener('click', () => {
+          this.state.lang = button.dataset.lang;
+          this.state.dbFilters = { attr: 'all', material: 'all', color: 'all', has2D: 'all', has3D: 'all' };
+          this.renderAll();
+        });
+      });
+    }
+
+    runAction(action) {
+      if (action === 'toggle-edit' && this.isAdmin()) this.toggleEdit();
+      if (action === 'save' && this.isAdmin()) this.saveCloud();
+      if (action === 'reload') this.loadCloud({ silent: false });
+      if (action === 'discard' && this.isAdmin()) this.discard();
+      if (action === 'material-db' && this.isAdmin()) { this.state.materialDbPage = 1; this.openMaterialDatabase(); }
+      if (action === 'mdb-prev-page') {
+        this.state.materialDbPage = Math.max(1, (this.state.materialDbPage || 1) - 1);
+        this.renderContent();
+      }
+      if (action === 'mdb-next-page') {
+        this.state.materialDbPage = (this.state.materialDbPage || 1) + 1;
+        this.renderContent();
+      }
+      if (action === 'mdb-go-page') {
+        const pageBtn = event.target.closest('[data-page]');
+        if (pageBtn && pageBtn.dataset.page) {
+          this.state.materialDbPage = parseInt(pageBtn.dataset.page, 10);
+          this.renderContent();
+        }
+      }
+      if (action === 'bom-view' && this.isAdmin()) this.openBomView();
+      if (action === 'replace-selected-bom' && this.isAdmin()) this.replaceSelectedBomRow();
+      if (action === 'add-db-material' && this.isAdmin()) this.addDatabaseMaterial();
+      if (action === 'add-parent-material' && this.isAdmin()) this.addParentMaterial();
+      if (action === 'save-structure-draft' && this.isAdmin()) this.saveStructureDraft();
+      if (action === 'delete-parent-structure' && this.isAdmin()) this.deleteParentStructure();
+      if (action === 'add-bom-row' && this.isAdmin()) this.addBomRowFromPrompt();
+      if (action === 'add-child-material' && this.isAdmin()) this.addChildMaterialFromPrompt();
+      if (action === 'back-material-list' && this.isAdmin()) this.backMaterialList();
+      if (action === 'save-material-master' && this.isAdmin()) this.saveMaterialMaster();
+      if (action === 'delete-material-master' && this.isAdmin()) this.deleteSelectedMaterialMaster();
+      if (action === 'copy') this.copyTable();
+      if (action === 'exportExcel') this.exportExcel();
+      if (action === 'add-product' && this.isAdmin()) this.addProduct();
+    }
+
+    addChildMaterialFromPrompt() {
+      this.openMaterialSelector(this.label('addChildMaterial'), (material) => {
+        const parentId = this.state.selectedParentId;
+        if (hasChildMaterialRelation(this.state.materialDb.bomEntries, parentId, material.id)) {
+          this.setStatus(this.label('childMaterialExists'), 'error');
+          return;
+        }
+        const newEntry = {
+          id: stableId('bomc', `${Date.now()}|${parentId}|${material.id}`),
+          parentType: 'material',
+          parentId: parentId,
+          productCode: '',
+          color: '',
+          materialId: material.id,
+          childMaterialId: material.id,
+          stt: '',
+          comp_code: '',
+          qty: '1',
+          color_ver: '',
+          color_ver_vi: '',
+          order: Date.now()
+        };
+        this.state.materialDb.bomEntries.push(newEntry);
+        this.markDirty();
+        this.renderStructureDetail();
+      });
+    }
+
+    openModuleView(view) {
+      const nextView = ['bom', 'materials', 'structure'].includes(view) ? view : 'bom';
+      this.state.adminView = nextView;
+      this.state.materialDraft = null;
+      this.state.selectedMaterialId = '';
+      this.state.selectedEntryId = '';
+      this.state.selectedParentId = '';
+      this.state.bomDetailOpen = false;
+      this._clearSearchBar();
+      this.renderProductList();
+      this.renderFilterBar();
+      this.renderContent();
+      this.renderInspector();
+    }
+
+    _clearSearchBar() {
+      this.state.searchQuery = '';
+      this.state.materialDbPage = 1;
+      const searchInput = this.query('#searchInput');
+      if (searchInput) searchInput.value = '';
+      const searchClear = this.query('#searchClear');
+      if (searchClear) searchClear.classList.remove('visible');
+    }
+
+    selectProduct(sku) {
+      if (!this.state.bom[sku]) return;
+      this.state.currentSku = sku;
+      this.state.materialDraft = null;
+      this.state.selectedMaterialId = '';
+      this.state.selectedEntryId = '';
+      this.state.adminView = 'bom';
+      this.state.bomDetailOpen = true;
+      this._clearSearchBar();
+      this.ensureColor();
+      this.renderProductList();
+      this.renderFilterBar();
+      this.renderContent();
+      this.renderInspector();
+    }
+
+    openMaterialDatabase() {
+      this.openModuleView('materials');
+    }
+
+    openMaterialRecord(materialId) {
+      this.openMaterialMasterEditor(materialId);
+    }
+
+    openMaterialMasterEditor(materialId) {
+      if (!this.isAdmin()) return;
+      if (!this.state.materialDb?.materials?.[materialId]) return;
+      this.state.adminView = 'materials';
+      this.state.materialDraft = null;
+      this.state.selectedMaterialId = materialId;
+      this.state.searchQuery = '';
+      const searchInput = this.query('#searchInput');
+      if (searchInput) searchInput.value = '';
+      const searchClear = this.query('#searchClear');
+      if (searchClear) searchClear.classList.remove('visible');
+      this.renderProductList();
+      this.renderFilterBar();
+      this.renderContent();
+      this.renderInspector();
+    }
+
+    selectedMaterialRecord() {
+      const materialId = this.state.selectedMaterialId;
+      if (!materialId) return null;
+      if (this.state.materialDraft?.id === materialId) return this.state.materialDraft;
+      return this.state.materialDb?.materials?.[materialId] || null;
+    }
+
+    isNewMaterialDraft(record) {
+      return Boolean(record && this.state.materialDraft?.id === record.id && !this.state.materialDb?.materials?.[record.id]);
+    }
+
+    backMaterialList() {
+      this.state.materialDraft = null;
+      this.state.selectedMaterialId = '';
+      this.renderProductList();
+      this.renderFilterBar();
+      this.renderContent();
+      this.renderInspector();
+    }
+
+    openBomView() {
+      this.openModuleView('bom');
+    }
+
+    toggleEdit() {
+      this.state.editMode = !this.state.editMode;
+      this.renderContent();
+      this.renderInspector();
+    }
+
+    renderAll() {
+      this.ensureInspectorPanel();
+      this.renderStaticText();
+      this.renderStatus();
+      this.renderStats();
+      this.renderNotifications();
+      this.renderFilterBar();
+      this.renderProductList();
+      this.renderContent();
+      this.renderInspector();
+    }
+
+    renderStaticText() {
+      this.queryAll('[data-i18n]').forEach((element) => {
+        element.textContent = this.label(element.dataset.i18n);
+      });
+      this.queryAll('[data-i18n-placeholder]').forEach((element) => {
+        element.setAttribute('placeholder', this.label(element.dataset.i18nPlaceholder));
+      });
+      this.queryAll('.lang-btn').forEach((button) => {
+        button.classList.toggle('active', button.dataset.lang === this.state.lang);
+      });
+      this.query('#modeBadge').textContent = this.isAdmin() ? 'Admin' : 'Viewer';
+    }
+
+    renderStatus() {
+      const syncSourceRow = this.query('[data-sync-source-row]');
+      if (syncSourceRow) syncSourceRow.hidden = !this.isAdmin();
+      this.query('#syncSource').textContent = this.isAdmin() ? rawUrl(this.config) : '';
+      this.query('#lastSync').textContent = this.formatDate(this.state.payload.updatedAt);
+      this.query('#lastLocalRefresh').textContent = this.state.lastLoadAt ? this.formatDate(this.state.lastLoadAt) : '-';
+      this.query('#adminControls').hidden = !this.isAdmin();
+      const tokenInput = this.query('#githubToken');
+      if (tokenInput) tokenInput.value = this.readToken();
+      this.setStatus(this.state.dirty ? this.label('dirty') : '', this.state.dirty ? 'dirty' : '');
+      const versionDisplay = this.query('#sidebarVersionDisplay');
+      if (versionDisplay) {
+        versionDisplay.textContent = `V${this.state.payload.version || 1}`;
+      }
+    }
+
+    renderStats() {
+      const productsCount = Object.keys(this.state.bom || {}).length;
+      const materialsCount = Object.keys(this.state.materialDb?.materials || {}).length;
+      this.query('#statProducts').textContent = String(productsCount);
+      this.query('#statMaterials').textContent = String(materialsCount);
+    }
+
+    notifications() {
+      return normalizeNotifications(this.state.payload?.notifications || []);
+    }
+
+    notificationReadKey() {
+      return `bom_notifications_read_at_v1_${this.mode}`;
+    }
+
+    notificationReadAt() {
+      try {
+        return global.localStorage ? global.localStorage.getItem(this.notificationReadKey()) || '' : '';
+      } catch (error) {
+        return '';
+      }
+    }
+
+    setNotificationReadAt(value) {
+      try {
+        if (global.localStorage) global.localStorage.setItem(this.notificationReadKey(), value || '');
+      } catch (error) {
+        this.setStatus(error.message, 'error');
+      }
+    }
+
+    unreadNotifications() {
+      const readAt = Date.parse(this.notificationReadAt()) || 0;
+      return this.notifications().filter((item) => (Date.parse(item.createdAt) || 0) > readAt);
+    }
+
+    markNotificationsRead() {
+      const newest = this.notifications()[0];
+      if (newest) this.setNotificationReadAt(newest.createdAt);
+    }
+
+    notificationTitle(notification) {
+      return notification?.type === 'github-save'
+        ? this.label('notificationGithubSaveTitle')
+        : this.label('notificationUpdatedTitle');
+    }
+
+    notificationFieldLabel(field) {
+      const labelKeys = {
+        name: 'materialName',
+        spec: 'specification',
+        material: 'materialComposition',
+        color: 'materialColor',
+        attr: 'materialAttribute'
+      };
+      return this.label(labelKeys[field] || field);
+    }
+
+    notificationChangeText(change) {
+      const before = change.before || '-';
+      const after = change.after || '-';
+      return `${change.code} · ${this.notificationFieldLabel(change.field)}: ${before} → ${after}`;
+    }
+
+    notificationBody(notification) {
+      const body = notification?.type === 'github-save'
+        ? this.label('notificationGithubSaveBody')
+        : this.label('notificationUpdatedBody');
+      const changes = normalizeNotificationChanges(notification?.changes || []);
+      if (!changes.length) return body;
+      const visible = changes.slice(0, 3).map((change) => this.notificationChangeText(change)).join('; ');
+      const more = changes.length > 3 ? ` +${changes.length - 3}` : '';
+      return `${body} ${this.label('notificationChangedItems')}: ${visible}${more}`;
+    }
+
+    renderNotifications() {
+      const button = this.query('#notificationButton');
+      const panel = this.query('#notificationPanel');
+      const badge = this.query('#notificationBadge');
+      const title = this.query('#notificationTitle');
+      const readButton = this.query('#notificationReadBtn');
+      const list = this.query('#notificationList');
+      if (!button || !panel || !badge || !title || !readButton || !list) return;
+
+      const notifications = this.notifications();
+      const unreadCount = this.unreadNotifications().length;
+      button.setAttribute('aria-label', this.label('notifications'));
+      button.setAttribute('aria-expanded', this.state.notificationOpen ? 'true' : 'false');
+      button.classList.toggle('has-unread', unreadCount > 0);
+      badge.hidden = unreadCount === 0;
+      badge.textContent = unreadCount > 9 ? '9+' : String(unreadCount);
+      panel.hidden = !this.state.notificationOpen;
+      title.textContent = this.label('notifications');
+      readButton.textContent = this.label('notificationMarkRead');
+      readButton.disabled = unreadCount === 0;
+
+      if (!notifications.length) {
+        list.innerHTML = `<div class="notification-empty">${escapeHTML(this.label('notificationEmpty'))}</div>`;
+        return;
+      }
+
+      list.innerHTML = notifications.map((notification) => {
+        const isUnread = this.unreadNotifications().some((item) => item.id === notification.id);
+        const className = isUnread ? 'notification-item unread' : 'notification-item';
+        return `<div class="${className}" data-notification-id="${escapeHTML(notification.id)}">
+          <div class="notification-item-title">${escapeHTML(this.notificationTitle(notification))}</div>
+          <div class="notification-item-body">${escapeHTML(this.notificationBody(notification))}</div>
+          <div class="notification-item-meta">
+            <span>${escapeHTML(notification.actor || 'admin')}</span>
+            <span>${escapeHTML(this.formatDate(notification.createdAt))}</span>
+          </div>
+        </div>`;
+      }).join('');
+    }
+
+    newNotifications(previousNotifications, nextNotifications) {
+      const previousIds = new Set(normalizeNotifications(previousNotifications).map((item) => item.id));
+      return normalizeNotifications(nextNotifications).filter((item) => !previousIds.has(item.id));
+    }
+
+    showNotificationToast(notification) {
+      if (!global.document || !notification) return;
+      let toast = this.query('#notificationToast');
+      if (!toast) {
+        toast = global.document.createElement('div');
+        toast.id = 'notificationToast';
+        toast.className = 'notification-toast';
+        global.document.body.appendChild(toast);
+      }
+      toast.innerHTML = `<strong>${escapeHTML(this.notificationTitle(notification))}</strong>
+        <span>${escapeHTML(this.notificationBody(notification))}</span>`;
+      toast.classList.add('visible');
+      if (this.notificationToastTimer) global.clearTimeout(this.notificationToastTimer);
+      this.notificationToastTimer = global.setTimeout(() => {
+        toast.classList.remove('visible');
+      }, 6000);
+    }
+
+    renderFilterBar() {
+      const showFilterBar = (this.state.adminView === 'bom' && this.state.bomDetailOpen) || this.state.adminView === 'structure';
+      if (!showFilterBar) {
+        this.query('#filterBar').innerHTML = '';
+        return;
+      }
+      const attrs = this.collectAttrs();
+      const items = [{ value: 'all', label: this.label('all') }].concat(attrs);
+      this.query('#filterBar').innerHTML = items.map((item) => {
+        const active = item.value === this.state.currentAttr ? 'active' : '';
+        return `<button class="filter-chip ${active}" type="button" data-attr="${escapeHTML(item.value)}">${escapeHTML(item.label)}</button>`;
+      }).join('');
+    }
+
+    collectAttrs() {
+      const predefinedOrder = ['零件', '五金包', '包材'];
+      const attrs = new Map();
+      predefinedOrder.forEach(val => {
+        attrs.set(val, {
+          value: val,
+          label: this.state.lang === 'vi' ? (val === '零件' ? 'Linh kiện' : val === '五金包' ? 'Túi ngũ kim' : 'Bao bì') : val
+        });
+      });
+      Object.values(this.state.bom).forEach((product) => {
+        Object.values(product.color_info || {}).forEach((colorData) => this.collectColorAttrs(attrs, colorData));
+      });
+      return Array.from(attrs.values());
+    }
+
+    collectColorAttrs(attrs, colorData) {
+      (colorData.materials || []).forEach((material) => {
+        if (!material.attr_zh || attrs.has(material.attr_zh)) return;
+        attrs.set(material.attr_zh, {
+          value: material.attr_zh,
+          label: this.state.lang === 'vi' ? (material.attr_vi || material.attr_zh) : material.attr_zh
+        });
+      });
+    }
+
+    renderProductList() {
+      const list = this.query('#productList');
+      const navigation = createPdmNavigation(this.state.payload, this.state.lang);
+      list.innerHTML = `<div class="module-nav">${navigation.map((item) => this.moduleButtonHtml(item)).join('')}</div>`;
+    }
+
+    moduleButtonHtml(item) {
+      const active = this.state.adminView === item.id ? 'active' : '';
+      return `<button class="module-item ${active}" type="button" data-module-view="${escapeHTML(item.id)}">
+        <span>${escapeHTML(item.label)}</span><strong>${escapeHTML(item.count)}</strong>
+      </button>`;
+    }
+
+    filteredProductItems() {
+      const query = normalizeText(this.state.sidebarQuery);
+      return Object.keys(this.state.bom).sort()
+        .map((sku) => {
+          const product = this.state.bom[sku];
+          return { id: sku, code: sku, label: this.productName(product) };
+        })
+        .filter((item) => !query || queryMatches([item.code, item.label], query))
+        .slice(0, 12);
+    }
+
+    productSelectHtml() {
+      const options = Object.keys(this.state.bom).sort().map((sku) => {
+        const selected = sku === this.state.currentSku ? 'selected' : '';
+        return `<option value="${escapeHTML(sku)}" ${selected}>${escapeHTML(sku)} - ${escapeHTML(this.productName(this.state.bom[sku]))}</option>`;
+      }).join('');
+      return `<select class="product-select" data-product-select>${options}</select>`;
+    }
+
+    productButtonHtml(item) {
+      const active = this.state.adminView === 'bom' && item.id === this.state.currentSku ? 'active' : '';
+      return `<button class="product-item sidebar-node ${active}" type="button" data-sku="${escapeHTML(item.id)}">
+        <span class="sku">${escapeHTML(item.code)}</span>
+        <span class="product-name-small">${escapeHTML(item.label)}</span>
+      </button>`;
+    }
+
+    productName(product) {
+      const firstColor = product && product.color_info ? product.color_info[product.colors[0]] : null;
+      if (!firstColor) return product ? product.code : '';
+      return this.state.lang === 'vi'
+        ? (firstColor.name_vi || firstColor.name_zh || firstColor.name || product.code)
+        : (firstColor.name_zh || firstColor.name || firstColor.name_vi || product.code);
+    }
+
+    renderContent() {
+      const content = this.query('.content');
+      const existingFilterBars = content?.querySelectorAll('.pdm-module-filter-bar');
+      if (existingFilterBars) existingFilterBars.forEach(el => el.remove());
+
+      if (this.state.adminView === 'materials') {
+        this.renderMaterialDatabase();
+        return;
+      }
+      if (this.state.adminView === 'structure') {
+        if (this.state.selectedParentId) {
+          this.renderStructureDetail();
+        } else {
+          this.renderStructureView();
+        }
+        return;
+      }
+      if (this.state.adminView === 'assets') {
+        this.renderAssetsView();
+        return;
+      }
+      if (!this.state.bomDetailOpen) {
+        this.renderProductCatalog();
+        return;
+      }
+      const product = this.product();
+      const colorData = this.colorData();
+      if (!product || !colorData) {
+        this.renderEmpty();
+        return;
+      }
+      this.query('#contentHeader').innerHTML = this.contentHeaderHtml(product, colorData);
+      this.renderTable();
+    }
+
+    renderProductCatalog() {
+      const content = this.query('.content');
+      this.query('#contentHeader').innerHTML = `<div class="catalog-header">
+        <div>
+          <h1>${escapeHTML(this.label('productCatalogTitle'))}</h1>
+        </div>
+        <div class="catalog-count"><strong>${Object.keys(this.state.bom).length}</strong> ${escapeHTML(this.label('products'))}</div>
+      </div>`;
+      const existing = content.querySelectorAll('.table-container');
+      if (existing) existing.forEach(el => el.remove());
+      const rows = this.productCatalogRows();
+      const addProductBtn = this.isAdmin() ? `<div class="table-actions"><button class="btn btn-primary" type="button" data-action="add-product"><span class="material-symbols-outlined">add</span>${escapeHTML(this.label('addProduct'))}</button></div>` : '';
+      content.insertAdjacentHTML('beforeend', `<div class="table-container product-catalog-view">
+        <div class="table-toolbar">
+          <div class="table-title"><span class="material-symbols-outlined">inventory_2</span><strong>${escapeHTML(this.label('productCatalogTitle'))}</strong><span class="count">${rows.length} ${escapeHTML(this.label('products'))}</span></div>
+          ${addProductBtn}
+        </div>
+        <table><thead><tr>
+          <th>${escapeHTML(this.label('spu'))}</th>
+          <th>${escapeHTML(this.label('description'))}</th>
+          <th>${escapeHTML(this.label('size'))}</th>
+          <th>${escapeHTML(this.label('version'))}</th>
+          <th>${escapeHTML(this.label('colorDots'))}</th>
+          <th>${escapeHTML(this.label('status'))}</th>
+          <th>${escapeHTML(this.label('openBom'))}</th>
+        </tr></thead><tbody>${rows.map((row) => this.productCatalogRowHtml(row)).join('')}</tbody></table>
+      </div>`);
+    }
+
+    productCatalogRows() {
+      const query = normalizeText(this.state.searchQuery);
+      return Object.keys(this.state.bom).sort()
+        .map((sku) => {
+          const product = this.state.bom[sku];
+          const firstColor = product?.color_info?.[product.colors?.[0]] || {};
+          return {
+            sku,
+            product,
+            name: stripProductColorName(this.productName(product), product, this.state.lang),
+            size: firstColor.size || '-',
+            colors: product.colors || [],
+            disabled: this.productDisabled(product)
+          };
+        })
+        .filter((row) => !query || queryMatches([row.sku, row.name, row.size, row.colors.join(' ')], query));
+    }
+
+    productCatalogRowHtml(row) {
+      const statusKey = row.disabled ? 'disabledStatus' : 'activeStatus';
+      const statusClass = row.disabled ? 'disabled' : 'active';
+      return `<tr class="product-catalog-row">
+        <td><span class="spu-code">${escapeHTML(row.sku)}</span></td>
+        <td><span class="product-name-link" data-open-bom-product="${escapeHTML(row.sku)}">${escapeHTML(row.name)}</span></td>
+        <td>${escapeHTML(row.size)}</td>
+        <td><span class="version-badge">${escapeHTML(this.getSpuVersion(row.sku))}</span></td>
+        <td><div class="color-dot-list">${row.colors.map((color) => this.productColorDotHtml(row.product, color)).join('')}</div></td>
+        <td><span class="status-pill ${statusClass}">${escapeHTML(this.label(statusKey))}</span></td>
+        <td><button class="drawing-btn primary" type="button" data-open-bom-product="${escapeHTML(row.sku)}">${escapeHTML(this.label('viewBom'))}</button></td>
+      </tr>`;
+    }
+
+    productDisabled(product) {
+      const status = normalizeText(product?.status || product?.workflowState || product?.state || '');
+      return Boolean(product?.disabled || status.includes('disable') || status.includes('obsolete') || status.includes('禁') || status.includes('停'));
+    }
+
+    getSpuVersion(spuCode) {
+      const data = this.state.payload || window.BOM_VIEWER_DATA;
+      const manuals = data?.manuals?.[spuCode];
+      if (manuals && manuals.length > 0) {
+        const name = manuals[0].name || '';
+        const match = name.match(/-(v\d+)/i);
+        if (match) return match[1].toUpperCase();
+      }
+      return 'A.1';
+    }
+
+    productColorDotHtml(product, color) {
+      const colorData = product?.color_info?.[color] || {};
+      const label = this.colorLabel(colorData) || color;
+      return `<span class="color-dot ${this.colorDotClass(label)}" title="${escapeHTML(label)}"></span>`;
+    }
+
+    colorDotClass(label) {
+      const text = String(label || '');
+      if (/黑|black/i.test(text)) return 'black';
+      if (/白|white/i.test(text)) return 'white';
+      if (/复古|古|brown|gỗ|go|cổ|co/i.test(text)) return 'brown';
+      if (/纸|beige|natural/i.test(text)) return 'paper';
+      return 'neutral';
+    }
+
+    clearContentTable() {
+      const existing = this.queryAll('.content .table-container');
+      if (existing) existing.forEach(el => el.remove());
+    }
+
+    renderEmpty() {
+      this.query('#contentHeader').innerHTML = `<div class="empty-state"><div class="icon">BOM</div>
+        <h3>${escapeHTML(this.label('emptyTitle'))}</h3><p>${escapeHTML(this.label('emptyText'))}</p></div>`;
+      const tables = this.queryAll('.content .table-container');
+      if (tables) tables.forEach(el => el.remove());
+    }
+
+    renderMaterialDatabase() {
+      const content = this.query('.content');
+
+      const existingFilterBars = content.querySelectorAll('.pdm-module-filter-bar');
+      if (existingFilterBars) existingFilterBars.forEach(el => el.remove());
+
+      const selected = this.selectedMaterialRecord();
+      if (selected && this.isAdmin()) {
+        this.renderMaterialMasterEditor(selected);
+        return;
+      }
+      const title = selected
+        ? (localizedValue(selected.name, this.state.lang) || selected.code || this.label('materials'))
+        : '\u7269\u6599\u6570\u636e\u5e93';
+      const subtitle = selected
+        ? `${selected.code || selected.id} · Material Database`
+        : 'Material Database';
+      this.query('#contentHeader').innerHTML = `<h1>${escapeHTML(title)}</h1>
+        <div class="subtitle">${escapeHTML(subtitle)}</div>`;
+      const existing = content.querySelectorAll('.table-container');
+      if (existing) existing.forEach(el => el.remove());
+
+      const allRecords = this.filteredMaterialRecords();
+      const pageSize = 50;
+      const totalPages = Math.max(1, Math.ceil(allRecords.length / pageSize));
+      const page = Math.max(1, Math.min(this.state.materialDbPage || 1, totalPages));
+      const records = allRecords.slice((page - 1) * pageSize, page * pageSize);
+      const showActions = this.isAdmin();
+
+      const renderPageNumbers = (curr, total) => {
+        let pages = [];
+        if (total <= 7) {
+          for (let i = 1; i <= total; i++) pages.push(i);
+        } else {
+          if (curr <= 4) {
+            pages = [1, 2, 3, 4, 5, 6, '...', total];
+          } else if (curr >= total - 3) {
+            pages = [1, '...', total - 5, total - 4, total - 3, total - 2, total - 1, total];
+          } else {
+            pages = [1, '...', curr - 2, curr - 1, curr, curr + 1, curr + 2, '...', total];
+          }
+        }
+        return pages.map(p => {
+          if (p === '...') return `<span class="pdm-page-ellipsis material-symbols-outlined">more_horiz</span>`;
+          return `<button class="pdm-page-number ${p === curr ? 'active' : ''}" data-action="mdb-go-page" data-page="${p}">${p}</button>`;
+        }).join('');
+      };
+
+      const paginationHtml = totalPages > 1 ? `
+        <div class="pdm-pagination">
+          <span class="pdm-page-total">${this.state.lang === 'vi' ? 'Tổng' : '共'} ${allRecords.length} ${this.state.lang === 'vi' ? 'mục' : '条'}</span>
+          <div class="pdm-page-pager">
+            <button class="pdm-page-btn" data-action="mdb-prev-page" ${page === 1 ? 'disabled' : ''}>
+              <span class="material-symbols-outlined">chevron_left</span>
+            </button>
+            ${renderPageNumbers(page, totalPages)}
+            <button class="pdm-page-btn" data-action="mdb-next-page" ${page === totalPages ? 'disabled' : ''}>
+              <span class="material-symbols-outlined">chevron_right</span>
+            </button>
+          </div>
+          <span class="pdm-page-jump">
+            ${this.state.lang === 'vi' ? 'Đến' : '前往'}
+            <input type="number" min="1" max="${totalPages}" value="${page}" data-action="mdb-jump-page">
+            ${this.state.lang === 'vi' ? 'trang' : '页'}
+          </span>
+        </div>
+      ` : '';
+
+      content.insertAdjacentHTML('beforeend', `
+        ${this.materialDbFilterBar()}
+        <div class="table-container material-db-view">
+        <div class="table-toolbar">${this.materialDbToolbar(allRecords)}</div>
+        <table><thead><tr>
+          <th class="mdb-col-code">${escapeHTML(this.label('materialCode'))}</th>
+          <th class="mdb-col-name">${escapeHTML(this.label('materialName'))}</th>
+          <th class="mdb-col-spec">${escapeHTML(this.label('specification'))}</th>
+          <th class="mdb-col-mat">${escapeHTML(this.label('materialComposition'))}</th>
+          <th class="mdb-col-color">${escapeHTML(this.label('materialColor'))}</th>
+          <th class="mdb-col-attr">${escapeHTML(this.label('materialAttribute'))}</th>
+          <th class="mdb-col-num">2D</th>
+          <th class="mdb-col-num">3D</th>
+          <th class="mdb-col-used">${escapeHTML(this.label('whereUsed'))}</th>
+          <th class="mdb-col-num">${escapeHTML(this.label('parentMaterial'))}</th>
+          <th class="mdb-col-num">${escapeHTML(this.label('childMaterial'))}</th>
+          ${showActions ? `<th class="mdb-col-action">${escapeHTML(this.label('operation'))}</th>` : ''}
+        </tr></thead><tbody>${records.map((record) => this.materialDbRowHtml(record)).join('')}</tbody></table>
+        ${paginationHtml}
+      </div>`);
+    }
+
+    materialDbFilterBar() {
+      const dbMaterials = Object.values(this.state.materialDb?.materials || {});
+      const uniqueMaterials = {};
+      const uniqueColors = {};
+      dbMaterials.forEach((record) => {
+        if (record.material && record.material.zh) uniqueMaterials[record.material.zh] = record.material;
+        if (record.color && record.color.zh) uniqueColors[record.color.zh] = record.color;
+      });
+
+      const attrs = ['零件', '五金包', '包材'];
+      const attrChips = ['all', ...attrs].map(val => {
+        const isActive = this.state.dbFilters.attr === val;
+        const text = val === 'all' ? this.label('all') : localizedValue({ zh: val, vi: val === '零件' ? 'Linh kiện' : val === '五金包' ? 'Túi ngũ kim' : 'Bao bì' }, this.state.lang);
+        return `<button class="db-filter-chip ${isActive ? 'active' : ''}" type="button" data-filter-type="attr" data-filter-val="${escapeHTML(val)}">${escapeHTML(text)}</button>`;
+      }).join('');
+
+      const buildOptions = (uniques, currentVal) => {
+        let html = `<option value="all">${escapeHTML(this.label('all'))}</option>`;
+        Object.keys(uniques).sort().forEach(zh => {
+          const text = localizedValue(uniques[zh], this.state.lang);
+          const selected = currentVal === zh ? 'selected' : '';
+          html += `<option value="${escapeHTML(zh)}" ${selected}>${escapeHTML(text)}</option>`;
+        });
+        return html;
+      };
+
+      const yesNoOptions = (currentVal) => {
+        return `<option value="all">${escapeHTML(this.label('all'))}</option>
+                <option value="yes" ${currentVal === 'yes' ? 'selected' : ''}>${escapeHTML(this.label('yes'))}</option>
+                <option value="no" ${currentVal === 'no' ? 'selected' : ''}>${escapeHTML(this.label('no'))}</option>`;
+      };
+
+      const hasActiveFilters = this.state.dbFilters.attr !== 'all' ||
+        this.state.dbFilters.material !== 'all' ||
+        this.state.dbFilters.color !== 'all' ||
+        this.state.dbFilters.has2D !== 'all' ||
+        this.state.dbFilters.has3D !== 'all';
+
+      return `
+        <div class="pdm-module-filter-bar">
+          <div class="filter-group">
+            <span class="filter-label">${escapeHTML(this.label('materialAttribute'))}</span>
+            <div class="filter-chips">${attrChips}</div>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">${escapeHTML(this.label('materialComposition'))}</span>
+            <select class="db-filter-select input-sm" data-filter-type="material">
+              ${buildOptions(uniqueMaterials, this.state.dbFilters.material)}
+            </select>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">${escapeHTML(this.label('materialColor'))}</span>
+            <select class="db-filter-select input-sm" data-filter-type="color">
+              ${buildOptions(uniqueColors, this.state.dbFilters.color)}
+            </select>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">${escapeHTML(this.label('has2D'))}</span>
+            <select class="db-filter-select input-sm" data-filter-type="has2D">
+              ${yesNoOptions(this.state.dbFilters.has2D)}
+            </select>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">${escapeHTML(this.label('has3D'))}</span>
+            <select class="db-filter-select input-sm" data-filter-type="has3D">
+              ${yesNoOptions(this.state.dbFilters.has3D)}
+            </select>
+          </div>
+          ${hasActiveFilters ? `<button class="btn small btn-outline clear-filters-btn" type="button" data-action="clear-db-filters">
+            <span class="material-symbols-outlined">filter_alt_off</span> ${escapeHTML(this.label('clearFilters'))}
+          </button>` : ''}
+        </div>
+      `;
+    }
+
+    materialDbToolbar(records) {
+      const actions = this.isAdmin()
+        ? this.materialDbActionsHtml()
+        : `<button class="btn btn-primary" type="button" data-action="exportExcel">${escapeHTML(this.label('exportExcel'))}</button>`;
+      return `<div class="count"><strong>${records.length}</strong> ${escapeHTML(this.label('materials'))}</div>
+        <div class="table-actions">${actions}</div>`;
+    }
+
+    materialDbActionsHtml() {
+      return `<button class="btn btn-primary" type="button" data-action="save">${escapeHTML(this.label('save'))}</button>
+        <button class="btn" type="button" data-action="discard">${escapeHTML(this.label('discard'))}</button>
+        <button class="btn" type="button" data-action="reload">${escapeHTML(this.label('reload'))}</button>
+        <button class="btn" type="button" data-action="bom-view">BOM</button>
+        <button class="btn" type="button" data-action="add-db-material">${escapeHTML(this.label('addMaterial'))}</button>
+        <button class="btn btn-primary" type="button" data-action="exportExcel">${escapeHTML(this.label('exportExcel'))}</button>`;
+    }
+
+    filteredMaterialRecords() {
+      const query = normalizeText(this.state.searchQuery);
+      if (this.state.selectedMaterialId && this.state.materialDb?.materials?.[this.state.selectedMaterialId] && !query) {
+        return [this.state.materialDb.materials[this.state.selectedMaterialId]];
+      }
+      return Object.values(this.state.materialDb?.materials || {})
+        .filter((record) => {
+          if (this.state.dbFilters.attr !== 'all' && record.attr?.zh !== this.state.dbFilters.attr) return false;
+          if (this.state.dbFilters.material !== 'all' && record.material?.zh !== this.state.dbFilters.material) return false;
+          if (this.state.dbFilters.color !== 'all' && record.color?.zh !== this.state.dbFilters.color) return false;
+
+          const has2D = (record.drawings || []).length > 0;
+          if (this.state.dbFilters.has2D === 'yes' && !has2D) return false;
+          if (this.state.dbFilters.has2D === 'no' && has2D) return false;
+
+          const has3D = (record.models3d || []).length > 0;
+          if (this.state.dbFilters.has3D === 'yes' && !has3D) return false;
+          if (this.state.dbFilters.has3D === 'no' && has3D) return false;
+
+          return !query || queryMatches([
+            record.code, record.name?.zh, record.name?.vi, record.spec?.zh, record.spec?.vi,
+            record.material?.zh, record.material?.vi, record.color?.zh, record.color?.vi,
+            record.attr?.zh, record.attr?.vi
+          ], query);
+        })
+        .sort((left, right) => String(left.code || '').localeCompare(String(right.code || '')));
+    }
+
+    materialDbRowHtml(record) {
+      const whereUsed = materialWhereUsed(this.state.payload, record.id);
+      const usedProducts = Array.from(new Set(whereUsed.productEntries.map((entry) => entry.productCode))).sort();
+      const showActions = this.isAdmin();
+      const localized = (pair) => this.state.lang === 'vi' ? (pair?.vi || pair?.zh || '') : (pair?.zh || pair?.vi || '');
+      const spuPills = usedProducts.length
+        ? usedProducts.map((s) => `<span class="spu-pill">${escapeHTML(s)}</span>`).join('')
+        : '<span class="mdb-empty">-</span>';
+      const editButton = `<button class="drawing-btn" type="button" data-edit-db-material="${escapeHTML(record.id)}">${escapeHTML(this.label('editMaterial'))}</button>`;
+      return `<tr data-material-row="${escapeHTML(record.id)}">
+        <td class="mdb-col-code"><span class="mat-code">${this.highlight(escapeHTML(record.code || ''))}</span></td>
+        <td><div>${this.highlight(localized(record.name))}</div></td>
+        <td><div>${this.highlight(localized(record.spec))}</div></td>
+        <td><div>${this.highlight(localized(record.material))}</div></td>
+        <td><div>${this.renderColorDot(localized(record.color))}</div></td>
+        <td><div>${this.renderAttrBadge(localized(record.attr))}</div></td>
+        <td class="mdb-center">${(record.drawings || []).length ? `<button class="drawing-btn primary" type="button" data-drawing-material="${escapeHTML(record.id)}">${escapeHTML(this.label('viewDrawing'))}</button>` : '<span class="mdb-empty">-</span>'}</td>
+        <td class="mdb-center">${(record.models3d || []).length ? `<button class="drawing-btn primary" type="button" data-model3d-material="${escapeHTML(record.id)}">${escapeHTML(this.label('viewDrawing'))}</button>` : '<span class="mdb-empty">-</span>'}</td>
+        <td><div class="spu-pill-list">${spuPills}</div></td>
+        <td class="mdb-center">${whereUsed.parentEntries.length}</td>
+        <td class="mdb-center">${whereUsed.childEntries.length}</td>
+        ${showActions ? `<td>${editButton}</td>` : ''}
+      </tr>`;
+    }
+
+    renderMaterialMasterEditor(record) {
+      const deleteButton = this.isNewMaterialDraft(record)
+        ? ''
+        : `<button class="btn danger" type="button" data-action="delete-material-master">${escapeHTML(this.label('deleteMaterial'))}</button>`;
+      const content = this.query('.content');
+      this.query('#contentHeader').innerHTML = `<h1>${escapeHTML(this.label('materialMaster'))}</h1>
+        <div class="subtitle">${escapeHTML(record.code || record.id)}</div>`;
+      const existing = content.querySelectorAll('.table-container');
+      if (existing) existing.forEach(el => el.remove());
+      content.insertAdjacentHTML('beforeend', `<div class="table-container material-master-view">
+        <div class="table-toolbar">
+          <div class="table-title"><span class="material-symbols-outlined">inventory_2</span><strong>${escapeHTML(this.label('materialMaster'))}</strong><span class="count">${escapeHTML(record.id)}</span></div>
+          <div class="table-actions">
+            ${deleteButton}
+            <button class="btn" type="button" data-action="back-material-list">${escapeHTML(this.label('backToMaterialList'))}</button>
+            <button class="btn btn-primary" type="button" data-action="save-material-master">${escapeHTML(this.label('saveMaterial'))}</button>
+          </div>
+        </div>
+        <div class="material-master-body">
+          ${this.materialMasterFormHtml(record)}
+          ${this.materialMasterRelationshipsHtml(record)}
+          ${this.materialMasterAssetsHtml(record)}
+        </div>
+      </div>`);
+    }
+
+    materialMasterFormHtml(record) {
+      const pairs = [
+        ['name', this.label('materialName')],
+        ['spec', this.label('specification')],
+        ['material', this.label('materialComposition')],
+        ['color', this.label('materialColor')],
+        ['attr', this.label('materialAttribute')]
+      ];
+      return `<section class="material-master-section">
+        <h2>${escapeHTML(this.label('materialMaster'))}</h2>
+        <div class="material-master-form">
+          ${this.materialMasterReadonly(this.label('materialId'), record.id)}
+          ${this.materialMasterCodeInput(record)}
+          ${pairs.map(([field, label]) => `${this.materialMasterInput(record, field, label, 'zh')}${this.materialMasterInput(record, field, label, 'vi')}`).join('')}
+        </div>
+      </section>`;
+    }
+
+    materialMasterReadonly(label, value) {
+      return `<label class="material-master-field"><span>${escapeHTML(label)}</span><input class="edit-input" value="${escapeHTML(value || '')}" readonly></label>`;
+    }
+
+    materialMasterCodeInput(record) {
+      return `<label class="material-master-field"><span>${escapeHTML(this.label('materialCode'))}</span><input class="edit-input" data-material-master-edit="code" value="${escapeHTML(record.code || '')}"></label>`;
+    }
+
+    materialMasterInput(record, field, label, lang) {
+      const value = record[field]?.[lang] || '';
+      const langLabel = lang === 'zh' ? this.label('chinese') : this.label('vietnamese');
+      return `<label class="material-master-field"><span>${escapeHTML(label)} · ${escapeHTML(langLabel)}</span><input class="edit-input" data-material-master-edit="${escapeHTML(field)}" data-lang="${escapeHTML(lang)}" value="${escapeHTML(value)}"></label>`;
+    }
+
+    materialMasterRelationshipsHtml(record) {
+      const whereUsed = materialWhereUsed(this.state.payload, record.id);
+      return `<section class="material-master-section">
+        <h2>${escapeHTML(this.label('bomRelationships'))}</h2>
+        <div class="material-master-relations">
+          ${this.materialMasterProductUsage(whereUsed.productEntries)}
+          ${this.materialMasterRelationList(this.label('parentMaterial'), whereUsed.parentEntries, 'parent')}
+          ${this.materialMasterRelationList(this.label('childMaterial'), whereUsed.childEntries, 'child')}
+        </div>
+      </section>`;
+    }
+
+    materialMasterProductUsage(entries) {
+      const products = Array.from(new Set((entries || []).map((entry) => entry.productCode).filter(Boolean))).sort();
+      const pills = products.length
+        ? products.map((code) => `<span class="spu-pill">${escapeHTML(code)}</span>`).join('')
+        : '<span class="mdb-empty">-</span>';
+      return `<div class="material-master-relation"><strong>${escapeHTML(this.label('whereUsed'))}</strong><div class="spu-pill-list">${pills}</div></div>`;
+    }
+
+    materialMasterRelationList(title, entries, direction) {
+      const rows = (entries || []).length
+        ? entries.slice(0, 24).map((entry) => this.materialMasterRelationRow(entry, direction)).join('')
+        : '<li class="mdb-empty">-</li>';
+      return `<div class="material-master-relation"><strong>${escapeHTML(title)}</strong><ul>${rows}</ul></div>`;
+    }
+
+    materialMasterRelationRow(entry, direction) {
+      const materials = this.state.materialDb?.materials || {};
+      const materialId = direction === 'parent' ? entry.parentId : (entry.childMaterialId || entry.materialId);
+      const record = materials[materialId] || {};
+      const name = localizedValue(record.name, this.state.lang) || '';
+      return `<li><span class="mat-code">${escapeHTML(record.code || materialId || '-')}</span><span>${escapeHTML(name)}</span></li>`;
+    }
+
+    materialMasterAssetsHtml(record) {
+      return `<section class="material-master-section">
+        <h2>${escapeHTML(this.label('assetSummary'))}</h2>
+        <div class="material-master-assets">
+          ${this.materialMasterAssetList('2D', record.drawings || [])}
+          ${this.materialMasterAssetList('3D', record.models3d || [])}
+        </div>
+      </section>`;
+    }
+
+    materialMasterAssetList(title, assets) {
+      const rows = assets.length
+        ? assets.map((asset) => `<li><strong>${escapeHTML(asset.name || asset.path || asset.url || '-')}</strong><span>${escapeHTML(asset.path || asset.url || '')}</span></li>`).join('')
+        : '<li class="mdb-empty">-</li>';
+      return `<div class="material-master-asset-list"><strong>${escapeHTML(title)}</strong><ul>${rows}</ul></div>`;
+    }
+
+    renderStructureView() {
+      const content = this.query('.content');
+      this.query('#contentHeader').innerHTML = `<h1>${escapeHTML(this.label('structureView'))}</h1>
+        <div class="subtitle">Parent / Child BOM</div>`;
+      const existingFilterBars = content.querySelectorAll('.pdm-module-filter-bar');
+      if (existingFilterBars) existingFilterBars.forEach(el => el.remove());
+      const existing = content.querySelectorAll('.table-container');
+      if (existing) existing.forEach(el => el.remove());
+      content.insertAdjacentHTML('beforeend', this.materialDbFilterBar());
+      const parents = this.parentStructureRows();
+      const totalChildren = parents.reduce((sum, p) => sum + p.children.length, 0);
+      content.insertAdjacentHTML('beforeend', `<div class="table-container structure-view">
+        <div class="table-toolbar">${this.structureToolbar(parents.length, this.label('structureView'), { addParent: true })}</div>
+        <table><thead><tr>
+          <th class="str-col-code">${escapeHTML(this.label('partNumber'))}</th>
+          <th>${escapeHTML(this.label('headers')[2])}</th>
+          <th>${escapeHTML(this.label('description'))}</th>
+          <th>${escapeHTML(this.label('size'))}</th>
+          <th>${escapeHTML(this.label('headers')[5])}</th>
+          <th>${escapeHTML(this.label('headers')[6])}</th>
+          <th>${escapeHTML(this.label('headers')[7])}</th>
+          <th class="str-col-num">${escapeHTML(this.label('childCount'))}</th>
+          <th class="str-col-num">2D</th>
+          <th class="str-col-num">3D</th>
+          <th class="str-col-used">${escapeHTML(this.label('whereUsed'))}</th>
+          ${this.isAdmin() ? `<th class="str-col-action">${escapeHTML(this.label('operation'))}</th>` : ''}
+          <th class="str-col-drill"></th>
+        </tr></thead><tbody>${parents.map((p) => this.parentStructureRowHtml(p)).join('')}</tbody></table>
+      </div>`);
+    }
+
+    parentStructureRows() {
+      const query = normalizeText(this.state.searchQuery);
+      const materials = this.state.materialDb?.materials || {};
+      const entries = (this.state.materialDb?.bomEntries || []).filter((e) => e.parentType === 'material');
+      const payload = { ...this.state.payload, materialDb: this.state.materialDb };
+      const parentMap = {};
+      entries.forEach((entry) => {
+        const parent = materials[entry.parentId];
+        if (!parent || !materials[childMaterialId(entry)]) return;
+        if (!parentMap[entry.parentId]) {
+          parentMap[entry.parentId] = { parent, children: [], productCodes: new Set() };
+        }
+        if (entry.productCode) parentMap[entry.parentId].productCodes.add(entry.productCode);
+      });
+      return Object.values(parentMap)
+        .map((row) => ({ ...row, children: groupMaterialChildRows(payload, row.parent.id, this.state.lang) }))
+        .filter((row) => {
+          const { dbFilters } = this.state;
+          if (dbFilters) {
+            if (dbFilters.attr !== 'all' && row.parent.attr?.zh !== dbFilters.attr) return false;
+            if (dbFilters.material !== 'all' && row.parent.material?.zh !== dbFilters.material) return false;
+            if (dbFilters.color !== 'all' && row.parent.color?.zh !== dbFilters.color) return false;
+
+            const has2DVal = (row.parent.drawings || []).length > 0;
+            if (dbFilters.has2D === 'yes' && !has2DVal) return false;
+            if (dbFilters.has2D === 'no' && has2DVal) return false;
+
+            const has3DVal = (row.parent.models3d || []).length > 0;
+            if (dbFilters.has3D === 'yes' && !has3DVal) return false;
+            if (dbFilters.has3D === 'no' && has3DVal) return false;
+          }
+          return true;
+        })
+        .filter((row) => !query || queryMatches([
+          row.parent.code, row.parent.name?.zh, row.parent.name?.vi,
+          row.parent.spec?.zh, row.parent.spec?.vi,
+          row.parent.material?.zh, row.parent.material?.vi,
+          row.parent.color?.zh, row.parent.color?.vi,
+          row.parent.attr?.zh, row.parent.attr?.vi,
+          ...row.children.map((c) => c.child.code),
+          ...row.children.map((c) => c.child.name?.zh),
+          ...row.children.map((c) => c.child.name?.vi),
+          ...Array.from(row.productCodes)
+        ], query))
+        .sort((a, b) => String(a.parent.code || '').localeCompare(String(b.parent.code || '')));
+    }
+
+    parentStructureRowHtml(row) {
+      const { parent, children, productCodes } = row;
+      const parentName = localizedValue(parent.name, this.state.lang);
+      const products = Array.from(productCodes).sort();
+      const spuPills = products.length
+        ? products.map((s) => `<span class="spu-pill">${escapeHTML(s)}</span>`).join('')
+        : '<span class="mdb-empty">-</span>';
+      const editAction = this.isAdmin()
+        ? `<td><button class="drawing-btn" type="button" data-edit-structure-parent="${escapeHTML(parent.id)}">${escapeHTML(this.label('editMaterial'))}</button></td>`
+        : '';
+
+      const attrVal = localizedValue(parent.attr, this.state.lang);
+      let attrHtml = '<td><span class="mdb-empty">-</span></td>';
+      if (attrVal) {
+        let attrType = 'default';
+        const valLower = attrVal.toLowerCase();
+        if (valLower.includes('\u96f6\u4ef6') || valLower.includes('linh') || valLower.includes('part')) attrType = 'part';
+        else if (valLower.includes('\u4e94\u91d1') || valLower.includes('ng\u0169 kim') || valLower.includes('hardware')) attrType = 'hardware';
+        else if (valLower.includes('\u5305\u6750') || valLower.includes('\u0111\u00f3ng g\u00f3i') || valLower.includes('pack')) attrType = 'pack';
+        attrHtml = `<td><span class="attr-badge attr-${attrType}">${escapeHTML(attrVal)}</span></td>`;
+      }
+
+      return `<tr class="str-parent-row">
+        <td><span class="mat-code str-parent-code" data-parent-toggle="${escapeHTML(parent.id)}">${escapeHTML(parent.code || '')}</span></td>
+        <td><span class="mdb-empty">-</span></td>
+        <td><span class="str-parent-name">${escapeHTML(parentName)}</span></td>
+        <td>${this.highlight(localizedValue(parent.spec, this.state.lang)) || '<span class="mdb-empty">-</span>'}</td>
+        <td>${this.highlight(localizedValue(parent.material, this.state.lang)) || '<span class="mdb-empty">-</span>'}</td>
+        <td>${this.renderColorDot(localizedValue(parent.color, this.state.lang)) || '<span class="mdb-empty">-</span>'}</td>
+        ${attrHtml}
+        <td class="mdb-center">${children.length}</td>
+        <td class="mdb-center">${(parent.drawings || []).length ? `<button class="drawing-btn primary" type="button" data-drawing-material="${escapeHTML(parent.id)}">${escapeHTML(this.label('viewDrawing'))}</button>` : '<span class="mdb-empty">-</span>'}</td>
+        <td class="mdb-center">${(parent.models3d || []).length ? `<button class="drawing-btn primary" type="button" data-model3d-material="${escapeHTML(parent.id)}">${escapeHTML(this.label('viewDrawing'))}</button>` : '<span class="mdb-empty">-</span>'}</td>
+        <td><div class="spu-pill-list">${spuPills}</div></td>
+        ${editAction}
+        <td><button class="drawing-btn primary str-drill-btn" type="button" data-parent-toggle="${escapeHTML(parent.id)}">${escapeHTML(this.label('view'))}</button></td>
+      </tr>`;
+    }
+
+    openStructureDetail(parentId) {
+      if (!this.state.materialDb?.materials?.[parentId]) return;
+      this.state.selectedParentId = parentId;
+      this.state.draftBomEntries = JSON.stringify(this.state.materialDb.bomEntries || []);
+      this.renderProductList();
+      this.renderContent();
+      this.renderInspector();
+    }
+
+    backToStructureList() {
+      if (this.state.draftBomEntries) {
+        this.state.materialDb.bomEntries = JSON.parse(this.state.draftBomEntries);
+        this.state.payload.materialDb.bomEntries = this.state.materialDb.bomEntries;
+        this.state.draftBomEntries = null;
+      }
+      this.state.selectedParentId = '';
+      this.renderProductList();
+      this.renderContent();
+      this.renderInspector();
+    }
+
+    saveStructureDraft() {
+      this.state.draftBomEntries = null;
+      this.state.dirty = true;
+      this.setStatus(this.label('materialSaved'), 'dirty');
+      this.backToStructureList();
+    }
+
+    deleteParentStructure() {
+      this.openPdmConfirm(this.label('deleteParentStructureConfirm'), () => {
+        const parentId = this.state.selectedParentId;
+        this.state.materialDb.bomEntries = (this.state.materialDb.bomEntries || []).filter(e =>
+          !(e.parentType === 'material' && e.parentId === parentId)
+        );
+        this.state.payload.materialDb.bomEntries = this.state.materialDb.bomEntries;
+        this.state.dirty = true;
+        this.state.draftBomEntries = null;
+        this.setStatus(this.label('parentStructureDeleted'), 'dirty');
+        this.backToStructureList();
+      });
+    }
+
+    renderStructureDetail() {
+      const content = this.query('.content');
+      const parent = this.state.materialDb?.materials?.[this.state.selectedParentId];
+      if (!parent) { this.renderStructureView(); return; }
+      const parentName = localizedValue(parent.name, this.state.lang);
+      const payload = { ...this.state.payload, materialDb: this.state.materialDb };
+
+      const children = groupMaterialChildRows(payload, this.state.selectedParentId, this.state.lang);
+      const rowCount = children.length;
+      const rowsHtml = children.map(({ entries, child, qty, scopes }) => {
+        const childName = localizedValue(child.name, this.state.lang);
+        const spec = localizedValue(child.spec, this.state.lang);
+        const material = localizedValue(child.material, this.state.lang);
+        const color = localizedValue(child.color, this.state.lang);
+        const attr = localizedValue(child.attr, this.state.lang);
+        let attrHtml = '<td><span class="mdb-empty">-</span></td>';
+        if (attr) {
+          let attrType = 'default';
+          const valLower = attr.toLowerCase();
+          if (valLower.includes('\u96f6\u4ef6') || valLower.includes('linh') || valLower.includes('part')) attrType = 'part';
+          else if (valLower.includes('\u4e94\u91d1') || valLower.includes('ng\u0169 kim') || valLower.includes('hardware')) attrType = 'hardware';
+          else if (valLower.includes('\u5305\u6750') || valLower.includes('\u0111\u00f3ng g\u00f3i') || valLower.includes('pack')) attrType = 'pack';
+          attrHtml = `<td><span class="attr-badge attr-${attrType}">${escapeHTML(attr)}</span></td>`;
+        }
+        const scopePills = scopes.length
+          ? scopes.map((scope) => `<span class="spu-pill">${escapeHTML(scope)}</span>`).join('')
+          : '<span class="mdb-empty">-</span>';
+
+        const rowActions = this.isAdmin()
+          ? `<div class="drawing-tools">
+              <button class="drawing-btn" type="button" data-edit-structure-child="${escapeHTML(child.id)}">${escapeHTML(this.label('editMaterial'))}</button>
+              ${entries.map((entry) => `<button class="drawing-btn danger" type="button" data-delete-child-entry="${escapeHTML(entry.id)}" title="${escapeHTML(scopeLabel(entry, this.state.lang))}">&#x2715;</button>`).join('')}
+            </div>`
+          : '';
+
+        const qtyHtml = this.isAdmin()
+          ? `<input class="edit-input mdb-center" style="width:60px" data-structure-edit-group="${escapeHTML(child.id)}" data-original-qty="${escapeHTML(qty)}" value="${escapeHTML(qty || '')}">`
+          : `<span class="qty">${escapeHTML(qty || '')}</span>`;
+
+        return `<tr data-material-row="${escapeHTML(child.id)}">
+          <td><span class="mat-code">${escapeHTML(child.code || '')}</span></td>
+          <td><span class="mdb-empty">-</span></td>
+          <td>${escapeHTML(childName)}</td>
+          <td>${escapeHTML(spec) || '<span class="mdb-empty">-</span>'}</td>
+          <td>${escapeHTML(material) || '<span class="mdb-empty">-</span>'}</td>
+          <td>${this.renderColorDot(color) || '<span class="mdb-empty">-</span>'}</td>
+          ${attrHtml}
+          <td class="mdb-center">${qtyHtml}</td>
+          <td class="mdb-center">${(child.drawings || []).length ? `<button class="drawing-btn primary" type="button" data-drawing-material="${escapeHTML(child.id)}">${escapeHTML(this.label('viewDrawing'))}</button>` : '<span class="mdb-empty">-</span>'}</td>
+          <td class="mdb-center">${(child.models3d || []).length ? `<button class="drawing-btn primary" type="button" data-model3d-material="${escapeHTML(child.id)}">${escapeHTML(this.label('viewDrawing'))}</button>` : '<span class="mdb-empty">-</span>'}</td>
+          <td><div class="spu-pill-list">${scopePills}</div></td>
+          ${this.isAdmin() ? `<td>${rowActions}</td>` : ''}
+        </tr>`;
+      }).join('');
+
+      // Header
+      this.query('#contentHeader').innerHTML = `
+        <div class="str-detail-header">
+          <button class="btn str-back-btn" type="button" data-action-back-structure>&#8592; ${escapeHTML(this.label('structureView'))}</button>
+          <h1>${escapeHTML(parent.code || '')} <span class="str-detail-parent-name">${escapeHTML(parentName)}</span></h1>
+          <div class="subtitle">${escapeHTML(this.label('childMaterial'))} &middot; ${rowCount} ${escapeHTML(this.label('items'))}</div>
+        </div>`;
+      const existing = content.querySelectorAll('.table-container');
+      if (existing) existing.forEach(el => el.remove());
+      const actionHeader = this.isAdmin() ? `<th>${escapeHTML(this.label('operation'))}</th>` : '';
+      content.insertAdjacentHTML('beforeend', `<div class="table-container structure-detail-view">
+        <div class="table-toolbar">${this.structureToolbar(rowCount, this.label('childMaterial'), { addChild: true, isDetail: true })}</div>
+        <table><thead><tr>
+          <th class="str-col-code">${escapeHTML(this.label('partNumber'))}</th>
+          <th>${escapeHTML(this.label('headers')[2])}</th>
+          <th>${escapeHTML(this.label('description'))}</th>
+          <th>${escapeHTML(this.label('size'))}</th>
+          <th>${escapeHTML(this.label('headers')[5])}</th>
+          <th>${escapeHTML(this.label('headers')[6])}</th>
+          <th>${escapeHTML(this.label('headers')[7])}</th>
+          <th class="str-col-num">${escapeHTML(this.label('headers')[8])}</th>
+          <th class="str-col-num">2D</th>
+          <th class="str-col-num">3D</th>
+          <th class="str-col-used">${escapeHTML(this.label('whereUsed'))}</th>
+          ${actionHeader}
+        </tr></thead><tbody>${rowsHtml}</tbody></table>
+      </div>`);
+
+      // Back button click
+      const backBtn = this.query('[data-action-back-structure]');
+      if (backBtn) backBtn.addEventListener('click', () => this.backToStructureList());
+
+      if (this.isAdmin()) {
+        // Edit qty input (grouped)
+        content.querySelectorAll('input[data-structure-edit-group]').forEach((input) => {
+          input.addEventListener('change', (e) => {
+            const childId = e.target.dataset.structureEditGroup;
+            const originalQty = e.target.dataset.originalQty;
+            const newQty = e.target.value;
+
+            const matchingEntries = this.state.materialDb.bomEntries.filter(ent =>
+              ent.parentType === 'material' &&
+              ent.parentId === this.state.selectedParentId &&
+              (ent.childMaterialId || ent.materialId) === childId &&
+              (ent.qty || '') === originalQty
+            );
+
+            if (matchingEntries.length > 0) {
+              matchingEntries.forEach(ent => ent.qty = newQty);
+              this.markDirty();
+              this.renderContent();
+            }
+          });
+        });
+
+        // Delete child entry
+        content.querySelectorAll('[data-delete-child-entry]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const entryId = btn.dataset.deleteChildEntry;
+            this.state.materialDb.bomEntries = this.state.materialDb.bomEntries.filter((e) => e.id !== entryId);
+            this.state.payload.materialDb = this.state.materialDb;
+            this.markDirty();
+            this.renderContent();
+          });
+        });
+      }
+    }
+
+
+    renderAssetsView() {
+      const content = this.query('.content');
+      this.query('#contentHeader').innerHTML = `<h1>${escapeHTML(this.label('assetsView'))}</h1>
+        <div class="subtitle">${escapeHTML(this.label('assetSummary'))}</div>`;
+      const existing = content.querySelectorAll('.table-container');
+      if (existing) existing.forEach(el => el.remove());
+      const rows = this.assetRows();
+      content.insertAdjacentHTML('beforeend', `<div class="table-container assets-view">
+        <div class="table-toolbar">${this.genericToolbar(rows.length, this.label('assetSummary'))}</div>
+        <table><thead><tr>
+          <th>${escapeHTML(this.label('headers')[1])}</th>
+          <th>${escapeHTML(this.label('headers')[3])}</th>
+          <th>${escapeHTML(this.label('headers')[7])}</th>
+          <th>2D</th><th>3D</th><th>${escapeHTML(this.label('whereUsed'))}</th>
+        </tr></thead><tbody>${rows.map((record) => this.assetRowHtml(record)).join('')}</tbody></table>
+      </div>`);
+    }
+
+    assetRows() {
+      const query = normalizeText(this.state.searchQuery);
+      return Object.values(this.state.materialDb?.materials || {})
+        .filter((record) => (record.drawings || []).length || (record.models3d || []).length)
+        .filter((record) => !query || queryMatches([
+          record.code, record.name?.zh, record.name?.vi, record.attr?.zh, record.attr?.vi
+        ], query))
+        .sort((left, right) => ((right.drawings || []).length + (right.models3d || []).length) -
+          ((left.drawings || []).length + (left.models3d || []).length));
+    }
+
+    assetRowHtml(record) {
+      const whereUsed = materialWhereUsed(this.state.payload, record.id);
+      const products = Array.from(new Set(whereUsed.productEntries.map((entry) => entry.productCode))).sort();
+      return `<tr data-material-row="${escapeHTML(record.id)}">
+        <td><strong>${escapeHTML(record.code || '')}</strong></td>
+        <td>${escapeHTML(localizedValue(record.name, this.state.lang))}</td>
+        <td><span class="attr-badge">${escapeHTML(localizedValue(record.attr, this.state.lang))}</span></td>
+        <td>${(record.drawings || []).length}</td>
+        <td>${(record.models3d || []).length}</td>
+        <td>${escapeHTML(products.join(', ') || '-')}</td>
+      </tr>`;
+    }
+
+    structureToolbar(count, label, options = {}) {
+      const actions = this.isAdmin()
+        ? this.structureActionsHtml(options)
+        : `<span class="read-only-note">${escapeHTML(this.label('readOnly'))}</span>`;
+      return `<div class="count"><strong>${count}</strong> ${escapeHTML(label)}</div>
+        <div class="table-actions">${actions}</div>`;
+    }
+
+    structureActionsHtml(options = {}) {
+      const addChild = options.addChild
+        ? `<button class="btn" type="button" data-action="add-child-material">${escapeHTML(this.label('addChildMaterial'))}</button>`
+        : '';
+      const addParent = options.addParent
+        ? `<button class="btn" type="button" data-action="add-parent-material">${escapeHTML(this.label('addParentMaterial'))}</button>`
+        : '';
+
+      if (options.isDetail) {
+        return `${addChild}
+          <button class="btn btn-primary" type="button" data-action="save-structure-draft">${escapeHTML(this.label('saveStructureDraft'))}</button>
+          <button class="btn danger" type="button" data-action="delete-parent-structure">${escapeHTML(this.label('deleteParentStructure'))}</button>`;
+      }
+
+      return `${addParent}${addChild}
+        <button class="btn btn-primary" type="button" data-action="save">${escapeHTML(this.label('save'))}</button>
+        <button class="btn" type="button" data-action="discard">${escapeHTML(this.label('discard'))}</button>
+        <button class="btn" type="button" data-action="reload">${escapeHTML(this.label('reload'))}</button>
+        <button class="btn" type="button" data-action="material-db">${escapeHTML(this.label('materialDatabase'))}</button>`;
+    }
+
+    genericToolbar(count, label) {
+      const actions = this.isAdmin()
+        ? this.adminActionsHtml()
+        : `<button class="btn btn-primary" type="button" data-action="exportExcel">${escapeHTML(this.label('exportExcel'))}</button>`;
+      return `<div class="count"><strong>${count}</strong> ${escapeHTML(label)}</div>
+        <div class="table-actions">${actions}</div>`;
+    }
+
+    renderInspector() {
+      const panel = this.query('#inspectorPanel');
+      if (!panel) return;
+      if (this.state.adminView === 'bom') {
+        panel.classList.toggle('visible', false);
+        panel.innerHTML = '';
+        return;
+      }
+      if (this.state.adminView === 'materials' || this.state.adminView === 'structure') {
+        panel.classList.toggle('visible', false);
+        panel.innerHTML = '';
+        return;
+      }
+      const record = this.state.selectedMaterialId ? this.state.materialDb?.materials?.[this.state.selectedMaterialId] : null;
+      panel.classList.toggle('visible', Boolean(record));
+      panel.innerHTML = record ? this.materialInspectorHtml(record) : this.emptyInspectorHtml();
+    }
+
+    bomInspectorHtml() {
+      const selected = this.selectedBomRow();
+      if (!selected) return this.productInspectorHtml();
+      const name = materialText(selected, 'name', this.state.lang);
+      return `<div class="inspector-header">
+        <span class="eyebrow">${escapeHTML(this.label('selectedBomRow'))}</span>
+        <h2>${escapeHTML(selected.mat_code || this.label('noSelection'))}</h2>
+        <p>${escapeHTML(name)}</p>
+      </div>
+      <div class="inspector-section">
+        ${this.inspectorField(this.label('headers')[2], selected.comp_code || '-')}
+        ${this.inspectorField(this.label('headers')[4], materialText(selected, 'spec', this.state.lang) || '-')}
+        ${this.inspectorField(this.label('headers')[8], selected.qty || '-')}
+        ${this.inspectorField(this.label('headers')[7], materialText(selected, 'attr', this.state.lang) || '-')}
+      </div>
+      ${this.replaceControlHtml(selected)}
+      ${this.materialAssetsSummaryHtml(selected._materialRecord)}`;
+    }
+
+    productInspectorHtml() {
+      const product = this.product();
+      const colorData = this.colorData();
+      const title = colorData ? this.localizedProductName(colorData) : this.label('noSelection');
+      return `<div class="inspector-header">
+        <span class="eyebrow">${escapeHTML(this.label('sidebarProductGroup'))}</span>
+        <h2>${escapeHTML(this.state.currentSku || '-')}</h2>
+        <p>${escapeHTML(title)}</p>
+      </div>
+      <div class="inspector-section">
+        ${this.inspectorField(this.label('size'), colorData?.size || '-')}
+        ${this.inspectorField(this.label('colors'), String(Object.keys(product?.color_info || {}).length))}
+        ${this.inspectorField(this.label('total'), String(this.bomRows().length))}
+      </div>
+      <div class="inspector-help">${escapeHTML(this.label('selectRowHint'))}</div>`;
+    }
+
+    materialInspectorHtml(record) {
+      const whereUsed = materialWhereUsed(this.state.payload, record.id);
+      const products = Array.from(new Set(whereUsed.productEntries.map((entry) => entry.productCode))).sort();
+      return `<div class="inspector-header">
+        <span class="eyebrow">${escapeHTML(this.label('selectedMaterial'))}</span>
+        <h2>${escapeHTML(record.code || '-')}</h2>
+        <p>${escapeHTML(localizedValue(record.name, this.state.lang))}</p>
+      </div>
+      <div class="inspector-section">
+        ${this.inspectorField(this.label('headers')[4], localizedValue(record.spec, this.state.lang) || '-')}
+        ${this.inspectorField(this.label('headers')[5], localizedValue(record.material, this.state.lang) || '-')}
+        ${this.inspectorField(this.label('headers')[6], localizedValue(record.color, this.state.lang) || '-')}
+        ${this.inspectorField(this.label('headers')[7], localizedValue(record.attr, this.state.lang) || '-')}
+      </div>
+      <div class="inspector-section">
+        ${this.inspectorField('2D', String((record.drawings || []).length))}
+        ${this.inspectorField('3D', String((record.models3d || []).length))}
+        ${this.inspectorField(this.label('whereUsed'), products.join(', ') || '-')}
+        ${this.inspectorField(this.label('parentMaterial'), String(whereUsed.parentEntries.length))}
+        ${this.inspectorField(this.label('childCount'), String(whereUsed.childEntries.length))}
+      </div>`;
+    }
+
+    emptyInspectorHtml() {
+      return `<div class="inspector-header">
+        <span class="eyebrow">${escapeHTML(this.label('inspector'))}</span>
+        <h2>${escapeHTML(this.label('noSelection'))}</h2>
+        <p>${escapeHTML(this.label('selectRowHint'))}</p>
+      </div>`;
+    }
+
+    inspectorField(label, value) {
+      return `<div class="inspector-field"><span>${escapeHTML(label)}</span><strong>${escapeHTML(value)}</strong></div>`;
+    }
+
+    replaceControlHtml(selected) {
+      if (!this.isAdmin()) return `<div class="inspector-help">${escapeHTML(this.label('readOnly'))}</div>`;
+      return `<div class="inspector-section replace-box">
+        <label>
+          <span>${escapeHTML(this.label('replaceWith'))}</span>
+          <input class="edit-input" id="replaceMaterialInput" data-replace-material-query list="materialOptions" placeholder="${escapeHTML(this.label('replaceMaterialPrompt'))}" value="${escapeHTML(this.state.replaceQuery)}">
+        </label>
+        <datalist id="materialOptions">${this.materialOptionsHtml(selected?._materialId)}</datalist>
+        <button class="btn btn-primary full-width" type="button" data-action="replace-selected-bom">${escapeHTML(this.label('replaceNow'))}</button>
+      </div>`;
+    }
+
+    materialOptionsHtml(currentMaterialId) {
+      return Object.values(this.state.materialDb?.materials || {})
+        .filter((record) => record.id !== currentMaterialId)
+        .sort((left, right) => String(left.code || '').localeCompare(String(right.code || '')))
+        .map((record) => `<option value="${escapeHTML(record.code || record.id)}">${escapeHTML(localizedValue(record.name, this.state.lang))}</option>`)
+        .join('');
+    }
+
+    materialAssetsSummaryHtml(record) {
+      if (!record) return '';
+      return `<div class="inspector-section">
+        ${this.inspectorField('2D', String((record.drawings || []).length))}
+        ${this.inspectorField('3D', String((record.models3d || []).length))}
+      </div>`;
+    }
+
+    contentHeaderHtml(product, colorData) {
+      const name = this.localizedProductName(colorData);
+      const title = this.state.editMode ? this.productInput(name, 'name', 'edit-title') : `<h1>${escapeHTML(name)}</h1>`;
+      const sku = this.renderSku(colorData);
+      return `<div class="bom-detail-header">
+        <div>
+          <div class="pdm-title-row">${title}<span class="color-badge">${escapeHTML(this.colorLabel(colorData))}</span><span class="status-badge released">RELEASED</span></div>
+          <div class="pdm-meta-line">
+            <span>SKU: ${sku}</span><span class="dot"></span>
+            <span>${escapeHTML(this.label('revision'))}: ${escapeHTML(this.getSpuVersion(product.code))}</span><span class="dot"></span>
+            <span>${escapeHTML(this.label('lastModified'))}: ${escapeHTML(this.formatDate(this.state.payload.updatedAt))}</span>
+          </div>
+        </div>
+        <div class="header-actions">${this.headerActionsHtml()}</div>
+      </div>
+      <div class="detail-card-grid">
+        ${this.productSpecCardHtml(product, colorData)}
+        ${this.assemblyPreviewHtml(colorData)}
+        ${this.productImagePreviewHtml(colorData)}
+      </div>
+      <div class="color-tabs">${this.colorTabsHtml(product)}</div>`;
+    }
+
+    headerActionsHtml() {
+      if (!this.isAdmin()) return '';
+      const editButton = this.isAdmin()
+        ? `<button class="btn btn-outline ${this.state.editMode ? 'active' : ''}" type="button" data-action="toggle-edit"><span class="material-symbols-outlined">edit</span>${escapeHTML(this.state.editMode ? this.label('done') : this.label('edit'))}</button>`
+        : `<span class="read-only-note">${escapeHTML(this.label('readOnly'))}</span>`;
+      const assemblyButton = this.productModels3d().length
+        ? `<button class="btn btn-outline" type="button" data-product-model3d-index="0"><span class="material-symbols-outlined">architecture</span>${escapeHTML(this.label('viewAssembly'))}</button>`
+        : '';
+      return `${editButton}
+        ${assemblyButton}
+        <button class="btn btn-outline" type="button" data-action="copy"><span class="material-symbols-outlined">content_copy</span>${escapeHTML(this.label('copy'))}</button>
+        <button class="btn btn-primary" type="button" data-action="exportExcel"><span class="material-symbols-outlined">download</span>${escapeHTML(this.label('export'))}</button>`;
+    }
+
+    productSpecCardHtml(product, colorData) {
+      const rows = [
+        [this.label('size'), this.state.editMode ? this.productInput(colorData.size || '', 'size', 'edit-small') : escapeHTML(colorData.size || '-')],
+        [this.label('colors'), escapeHTML(Object.keys(product.color_info || {}).length)],
+        [this.label('total'), escapeHTML(this.bomRows().length)],
+        [this.label('manual'), this.manualButtons()]
+      ];
+      return `<section class="detail-card spec-card">
+        <h2><span class="material-symbols-outlined">info</span>${escapeHTML(this.label('productSpecifications'))}</h2>
+        <div class="spec-list">${rows.map(([label, value]) => `<div class="spec-row"><span>${escapeHTML(label)}</span><strong>${value}</strong></div>`).join('')}</div>
+      </section>`;
+    }
+
+    assemblyPreviewHtml(colorData) {
+      const models = this.productModels3d();
+      const preview = models[0]?.previewUrl || models[0]?.url || '';
+      const viewer = preview
+        ? `<model-viewer class="assembly-model" src="${escapeHTML(preview)}" camera-controls auto-rotate shadow-intensity="1" exposure="0.72" environment-image="neutral"></model-viewer>`
+        : `<div class="assembly-placeholder"><span class="material-symbols-outlined">deployed_code</span><strong>${escapeHTML(colorData.sku || this.state.currentSku)}</strong><small>${escapeHTML(this.label('modelPreview'))}</small></div>`;
+      const buttons = models.length ? this.productModel3dButtons(models) : '';
+      return `<section class="detail-card preview-card model-preview-card">
+        <div class="preview-dots"></div>
+        <div class="preview-label">${escapeHTML(this.label('modelPreview'))}</div>
+        ${viewer}
+        <div class="preview-actions">${buttons}</div>
+      </section>`;
+    }
+
+    productImagePreviewHtml(colorData) {
+      const image = this.productPreviewImage(colorData);
+      const viewer = image
+        ? `<img class="assembly-image" src="${escapeHTML(this.assetDisplayUrl(image))}" alt="${escapeHTML(image.name || this.localizedProductName(colorData))}" loading="lazy">`
+        : `<div class="assembly-placeholder"><span class="material-symbols-outlined">image</span><strong>${escapeHTML(colorData.sku || this.state.currentSku)}</strong><small>${escapeHTML(this.label('productImage'))}</small></div>`;
+      return `<section class="detail-card preview-card product-image-preview">
+        <div class="preview-dots"></div>
+        <div class="preview-label">${escapeHTML(this.label('productImage'))}</div>
+        ${viewer}
+      </section>`;
+    }
+
+    assetDisplayUrl(asset) {
+      const pathUrl = asset?.path || '';
+      const remoteUrl = asset?.directUrl || asset?.url || '';
+      const driveId = asset?.driveId || this.driveFileId(remoteUrl) || this.driveFileId(asset?.url || '');
+      if (driveId) return `https://drive.google.com/thumbnail?id=${encodeURIComponent(driveId)}&sz=w1600`;
+      const isLocalDocument = ['file:', 'http:'].includes(window.location.protocol)
+        && ['', 'localhost', '127.0.0.1'].includes(window.location.hostname);
+      return isLocalDocument && pathUrl ? pathUrl : remoteUrl || pathUrl;
+    }
+
+    driveFileId(url) {
+      const value = String(url || '');
+      const fileMatch = value.match(/drive\.google\.com\/file\/d\/([^/?#]+)/i);
+      if (fileMatch) return fileMatch[1];
+      const idMatch = value.match(/[?&]id=([^&#]+)/i);
+      return idMatch ? decodeURIComponent(idMatch[1]) : '';
+    }
+
+    productPreviewImage(colorData) {
+      const catalog = this.state.productImages?.[this.state.currentSku] || {};
+      const colorKeys = [
+        this.state.currentColor,
+        colorData?.color_ver,
+        colorData?.color_zh,
+        colorData?.color_ver_vi,
+        colorData?.color_vi,
+        'default'
+      ].filter(Boolean);
+      for (const key of colorKeys) {
+        const image = catalog[key];
+        if (image?.url) return image;
+      }
+      return null;
+    }
+
+    renderSku(colorData) {
+      return this.state.editMode ? this.productInput(colorData.sku || '', 'sku', 'edit-subtitle') : escapeHTML(colorData.sku || '');
+    }
+
+    metaHtml(product, colorData) {
+      const items = [
+        this.metaItem('size', this.state.editMode ? this.productInput(colorData.size || '', 'size', 'edit-small') : escapeHTML(colorData.size || '')),
+        this.metaItem('colors', Object.keys(product.color_info || {}).length),
+        this.metaItem('total', this.bomRows().length),
+        this.metaItem('manual', this.manualButtons())
+      ];
+      const productModels = this.productModels3d();
+      if (productModels.length) items.push(this.metaItem('model3d', this.productModel3dButtons(productModels)));
+      return items.join('');
+    }
+
+    metaItem(labelKey, value) {
+      return `<div class="meta-item"><span class="label">${escapeHTML(this.label(labelKey))}</span><span class="value">${value}</span></div>`;
+    }
+
+    colorTabsHtml(product) {
+      return (product.colors || []).map((color) => {
+        const active = color === this.state.currentColor ? 'active' : '';
+        const label = this.colorLabel(product.color_info[color]);
+        return `<button class="color-tab ${active}" type="button" data-color="${escapeHTML(color)}">${escapeHTML(label)}</button>`;
+      }).join('');
+    }
+
+    localizedProductName(colorData) {
+      return this.state.lang === 'vi'
+        ? (colorData.name_vi || colorData.name_zh || colorData.name || '')
+        : (colorData.name_zh || colorData.name || colorData.name_vi || '');
+    }
+
+    colorLabel(colorData) {
+      return this.state.lang === 'vi'
+        ? (colorData.color_ver_vi || colorData.color_vi || colorData.color_ver || colorData.color_zh || '')
+        : (colorData.color_ver || colorData.color_zh || colorData.color_ver_vi || colorData.color_vi || '');
+    }
+
+    productInput(value, field, className) {
+      return `<input class="edit-input ${className || ''}" data-product-edit="${field}" value="${escapeHTML(value)}">`;
+    }
+
+    manualButtons() {
+      const manuals = this.state.manuals[this.state.currentSku] || [];
+      if (!manuals.length) return escapeHTML(this.label('noManual'));
+      return manuals.map((manual, index) => {
+        const suffix = manuals.length > 1 ? ` ${index + 1}` : '';
+        return `<button class="drawing-btn primary" type="button" data-manual-index="${index}">${escapeHTML(this.label('viewManual') + suffix)}</button>`;
+      }).join('');
+    }
+
+    productModel3dButtons(models) {
+      return models.map((model, index) => {
+        const suffix = models.length > 1 ? ` ${index + 1}` : '';
+        return `<button class="drawing-btn primary" type="button" data-product-model3d-index="${index}">${escapeHTML(this.label('viewDrawing') + suffix)}</button>`;
+      }).join('');
+    }
+
+    renderTable() {
+      const content = this.query('.content');
+      const existingFilterBars = content.querySelectorAll('.pdm-module-filter-bar');
+      if (existingFilterBars) existingFilterBars.forEach(el => el.remove());
+      const existing = content.querySelectorAll('.table-container');
+      if (existing) existing.forEach(el => el.remove());
+      content.insertAdjacentHTML('beforeend', this.materialDbFilterBar());
+      const rows = this.filteredRows();
+      this.state.lastRows = rows;
+      content.insertAdjacentHTML('beforeend', rows.length ? this.tableHtml(rows) : this.emptyTableHtml());
+    }
+
+    filteredRows() {
+      const allRows = this.bomRows();
+      const filtered = filterMaterials({
+        materials: allRows,
+        attr: this.state.currentAttr,
+        query: this.state.searchQuery,
+        sortCol: this.state.sortCol,
+        sortAsc: this.state.sortAsc,
+        lang: this.state.lang,
+        attrOrder: this.attrOrder(),
+        dbFilters: this.state.dbFilters,
+        has2D: (m) => this.drawingsFor(m).length > 0,
+        has3D: (m) => this.models3dFor(m).length > 0
+      });
+      const includedEntryIds = new Set(filtered.map((row) => row._entryId).filter(Boolean));
+      if (!allRows.some((row) => row._parentEntryId)) return filtered;
+      const parentByEntry = new Map();
+      const childrenByParent = new Map();
+      allRows.forEach((row) => {
+        if (!row._entryId || !row._parentEntryId) return;
+        parentByEntry.set(row._entryId, row._parentEntryId);
+        if (!childrenByParent.has(row._parentEntryId)) childrenByParent.set(row._parentEntryId, []);
+        childrenByParent.get(row._parentEntryId).push(row._entryId);
+      });
+      const hasIncludedAncestor = (row) => {
+        let parentId = row._parentEntryId;
+        let guard = 0;
+        while (parentId && guard < 50) {
+          if (includedEntryIds.has(parentId)) return true;
+          parentId = parentByEntry.get(parentId);
+          guard += 1;
+        }
+        return false;
+      };
+      const hasIncludedDescendant = (entryId) => {
+        const stack = [...(childrenByParent.get(entryId) || [])];
+        const seen = new Set();
+        while (stack.length) {
+          const childId = stack.pop();
+          if (!childId || seen.has(childId)) continue;
+          seen.add(childId);
+          if (includedEntryIds.has(childId)) return true;
+          stack.push(...(childrenByParent.get(childId) || []));
+        }
+        return false;
+      };
+      const finalRows = allRows.filter((row) => !row._entryId ||
+        includedEntryIds.has(row._entryId) ||
+        hasIncludedAncestor(row) ||
+        hasIncludedDescendant(row._entryId));
+
+      const rowsByParent = new Map();
+      finalRows.forEach((row) => {
+        const parentId = row._parentEntryId || 'root';
+        if (!rowsByParent.has(parentId)) rowsByParent.set(parentId, []);
+        rowsByParent.get(parentId).push(row);
+      });
+
+      const sortOpts = { sortCol: this.state.sortCol, sortAsc: this.state.sortAsc, lang: this.state.lang, attrOrder: this.attrOrder() };
+      const sortedOutput = [];
+
+      const addSortedChildren = (parentId) => {
+        const children = rowsByParent.get(parentId) || [];
+        sortMaterials(children, sortOpts).forEach((child) => {
+          sortedOutput.push(child);
+          addSortedChildren(child._entryId);
+        });
+      };
+
+      addSortedChildren('root');
+      return sortedOutput;
+    }
+
+    attrOrder() {
+      return this.collectAttrs().reduce((result, item, index) => {
+        result[item.value] = index;
+        return result;
+      }, {});
+    }
+
+    emptyTableHtml() {
+      return `<div class="table-container"><div class="empty-state"><div class="icon">BOM</div>
+        <h3>${escapeHTML(this.label('noResultTitle'))}</h3><p>${escapeHTML(this.label('noResultText'))}</p></div></div>`;
+    }
+
+    tableHtml(rows) {
+      return `<div class="table-container"><div class="table-toolbar">${this.toolbarHtml(rows)}</div>
+        <table class="bom-table">${this.tableColgroupHtml()}<thead>${this.tableHeadHtml()}</thead><tbody>${rows.map((row, index) => this.rowHtml(row, index)).join('')}</tbody></table></div>`;
+    }
+
+    tableColgroupHtml() {
+      const editAction = this.isAdmin() ? '<col class="col-actions">' : '';
+      return `<colgroup>
+        <col class="col-level">
+        <col class="col-mat-code">
+        <col class="col-comp-code">
+        <col class="col-description">
+        <col class="col-spec">
+        <col class="col-material">
+        <col class="col-color">
+        <col class="col-attr">
+        <col class="col-qty">
+        <col class="col-2d">
+        <col class="col-3d">
+        ${editAction}
+      </colgroup>`;
+    }
+
+    bomActionsHtml() {
+      return `<button class="btn btn-primary" type="button" data-action="save">${escapeHTML(this.label('save'))}</button>
+        <button class="btn" type="button" data-action="discard">${escapeHTML(this.label('discard'))}</button>
+        <button class="btn" type="button" data-action="reload">${escapeHTML(this.label('reload'))}</button>
+        <button class="btn" type="button" data-action="material-db">${escapeHTML(this.label('materialDatabase'))}</button>`;
+    }
+
+    toolbarHtml(rows) {
+      const adminActions = this.isAdmin() ? this.bomActionsHtml() : `<span class="read-only-note">${escapeHTML(this.label('readOnly'))}</span>`;
+      return `<div class="table-title"><span class="material-symbols-outlined">view_list</span><strong>${escapeHTML(this.label('billOfMaterials'))}</strong><span class="count">${rows.length} ${escapeHTML(this.label('materials'))}</span></div>
+        <div class="table-actions">${adminActions}
+        <button class="btn" type="button" data-action="copy">${escapeHTML(this.label('copy'))}</button>
+        <button class="btn btn-primary" type="button" data-action="exportExcel">${escapeHTML(this.label('exportExcel'))}</button></div>`;
+    }
+
+    adminActionsHtml() {
+      const viewAction = this.state.adminView === 'materials'
+        ? `<button class="btn" type="button" data-action="bom-view">BOM</button>`
+        : `<button class="btn" type="button" data-action="material-db">\u7269\u6599\u6570\u636e\u5e93</button>`;
+      const bomAdd = this.state.adminView === 'bom' && this.state.editMode
+        ? `<button class="btn" type="button" data-action="add-bom-row">\u6dfb\u52a0\u7269\u6599</button>`
+        : '';
+      const dbAdd = this.state.adminView === 'materials' && this.state.editMode
+        ? `<button class="btn" type="button" data-action="add-db-material">\u65b0\u589e\u7269\u6599</button>`
+        : '';
+      const strAdd = this.state.adminView === 'structure' && this.state.selectedParentId && this.state.editMode
+        ? `<button class="btn" type="button" data-action="add-child-material">\u6dfb\u52a0\u5b50\u9879</button>`
+        : '';
+      return `<button class="btn ${this.state.editMode ? 'active' : ''}" type="button" data-action="toggle-edit">${escapeHTML(this.state.editMode ? this.label('done') : this.label('edit'))}</button>
+        <button class="btn btn-primary" type="button" data-action="save">${escapeHTML(this.label('save'))}</button>
+        <button class="btn" type="button" data-action="discard">${escapeHTML(this.label('discard'))}</button>
+        <button class="btn" type="button" data-action="reload">${escapeHTML(this.label('reload'))}</button>
+        ${viewAction}${bomAdd}${dbAdd}${strAdd}`;
+    }
+
+    tableHeadHtml() {
+      const headers = this.label('headers');
+      const sortable = [
+        ['stt', this.label('level')],
+        ['mat_code', this.label('partNumber')],
+        ['comp_code', this.label('componentNumber')],
+        ['name', this.label('description')],
+        ['spec', headers[4]],
+        ['material', headers[5]],
+        ['color', headers[6]],
+        ['attr', headers[7]],
+        ['qty', headers[8]]
+      ].map(([col, label]) => `<th><button class="th-button" type="button" data-sort="${col}">${escapeHTML(label)} ${this.sortIcon(col)}</button></th>`);
+      const editAction = this.isAdmin() ? '<th>\u64cd\u4f5c</th>' : '';
+      return `<tr>${sortable.join('')}<th>${escapeHTML(headers[9])}</th><th>3D</th>${editAction}</tr>`;
+    }
+
+    rowHtml(material, index) {
+      const editAction = this.isAdmin()
+        ? `<td><div class="drawing-tools">
+          <button class="drawing-btn" type="button" data-edit-bom-material="${escapeHTML(material._materialId || '')}">${escapeHTML(this.label('editMaterial'))}</button>
+          <button class="drawing-btn" type="button" data-replace-bom-row="${index}">${escapeHTML(this.label('replaceMaterial'))}</button>
+          <button class="drawing-btn danger" type="button" data-delete-bom-row="${index}">${escapeHTML(this.deleteAssetLabel())}</button>
+        </div></td>`
+        : '';
+      const active = material._entryId && material._entryId === this.state.selectedEntryId ? 'selected-row' : '';
+      const level = Number(material._level || 1);
+      const levelTag = `<span class="level-tag level-tag-${Math.min(level, 5)}">${escapeHTML(String(level))}</span>`;
+      let levelCell = `<span class="level-cell">${levelTag}</span>`;
+      let trAttrs = `class="${active}" data-bom-entry="${escapeHTML(material._entryId || '')}"`;
+      if (level > 1) {
+        const indent = Math.min(Math.max(level - 2, 0) * 14 + 16, 72);
+        const toggleClass = material._hasChildren ? ' level-toggle expanded' : '';
+        const toggleAttr = material._hasChildren ? ` data-level-toggle="${escapeHTML(material._entryId || '')}"` : '';
+        const icon = material._hasChildren ? ' <span class="level-expand-icon">▾</span>' : '';
+        levelCell = `<span class="level-cell-2${toggleClass}"${toggleAttr} style="--bom-level-indent:${indent}px">└ ${levelTag}${icon}</span>`;
+        trAttrs += ` data-child-level="${escapeHTML(material._parentEntryId || '')}"`;
+      } else if (material._hasChildren) {
+        levelCell = `<span class="level-cell level-toggle expanded" data-level-toggle="${escapeHTML(material._entryId || '')}">${levelTag} <span class="level-expand-icon">▾</span></span>`;
+      }
+      return `<tr ${trAttrs}>
+        <td>${levelCell}</td>
+        ${this.partNumberCellHtml(material, index)}
+        ${this.componentNumberCellHtml(material, index)}
+        ${this.cellHtml(material, 'name', index)}
+        ${this.cellHtml(material, 'spec', index)}
+        ${this.cellHtml(material, 'material', index)}
+        ${this.cellHtml(material, 'color', index)}
+        ${this.cellHtml(material, 'attr', index)}
+        ${this.cellHtml(material, 'qty', index)}
+        <td class="drawing-cell">${this.drawingCellHtml(material, index)}</td>
+        <td class="model3d-cell">${this.model3dCellHtml(material, index)}</td>
+        ${editAction}
+      </tr>`;
+    }
+
+    partNumberCellHtml(material, index) {
+      if (this.isAdmin() && this.state.editMode) {
+        return `<td>${this.editInput(materialText(material, 'mat_code', this.state.lang), 'mat_code', index)}</td>`;
+      }
+      return `<td><span class="mat-code">${this.highlight(materialText(material, 'mat_code', this.state.lang))}</span></td>`;
+    }
+
+    componentNumberCellHtml(material, index) {
+      if (this.isAdmin() && this.state.editMode) {
+        return `<td>${this.editInput(materialText(material, 'comp_code', this.state.lang), 'comp_code', index)}</td>`;
+      }
+      return `<td><span class="comp-code">${escapeHTML(materialText(material, 'comp_code', this.state.lang) || '-')}</span></td>`;
+    }
+
+    materialStackCellHtml(material, index) {
+      if (this.isAdmin() && this.state.editMode) {
+        return `<td><div class="stack-cell">${this.editInput(materialText(material, 'material', this.state.lang), 'material', index)}${this.editInput(materialText(material, 'color', this.state.lang), 'color', index)}</div></td>`;
+      }
+      return `<td><div class="stack-cell"><span>${this.highlight(materialText(material, 'material', this.state.lang))}</span><span class="muted-line">${this.renderColorDot(materialText(material, 'color', this.state.lang))}</span></div></td>`;
+    }
+
+    cellHtml(material, field, index) {
+      const value = materialText(material, field, this.state.lang);
+      if (this.isAdmin() && this.state.editMode) return `<td>${this.editInput(value, field, index)}</td>`;
+      if (field === 'attr') {
+        return `<td>${this.renderAttrBadge(value)}</td>`;
+      }
+      if (field === 'qty') return `<td><span class="qty">${escapeHTML(value)}</span></td>`;
+      if (field === 'color') return `<td>${this.renderColorDot(value)}</td>`;
+      return `<td>${this.highlight(value)}</td>`;
+    }
+
+    renderAttrBadge(attrValue) {
+      if (!attrValue) return '<span class="mdb-empty">-</span>';
+      const valLower = attrValue.toLowerCase();
+      let type = 'default';
+      if (valLower.includes('\u96f6\u4ef6') || valLower.includes('linh') || valLower.includes('part')) type = 'part';
+      else if (valLower.includes('\u4e94\u91d1') || valLower.includes('ng\u0169 kim') || valLower.includes('hardware')) type = 'hardware';
+      else if (valLower.includes('\u5305\u6750') || valLower.includes('\u0111\u00f3ng g\u00f3i') || valLower.includes('pack')) type = 'pack';
+      return `<span class="attr-badge attr-${type}">${this.highlight(attrValue)}</span>`;
+    }
+
+    renderColorDot(colorStr) {
+      if (!colorStr) return '-';
+      let hex = '';
+      let extraStyle = '';
+      const lower = colorStr.toLowerCase();
+
+      // Combination & specific colors first
+      if (lower.includes('\u767d\u5e95\u9ed1\u5b57') || lower.includes('n\u1ec1n tr\u1eafng') || lower.includes('\u9ed1\u767d') || lower.includes('\u0111en tr\u1eafng')) {
+        hex = 'linear-gradient(135deg, #ffffff 50%, #1a1a1a 50%)';
+        extraStyle = 'border: 1px solid #c3c6d6;';
+      }
+      else if (lower.includes('\u9540\u950c') || lower.includes('m\u1ea1 k\u1ebdm') || lower.includes('k\u1ebdm')) hex = '#94a3b8';
+      else if (lower.includes('\u7eb8') || lower.includes('gi\u1ea5y')) hex = '#d7c5a0';
+      else if (lower.includes('\u672c\u8272') || lower.includes('t\u1ef1 nhi\u00ean')) hex = '#e2e8f0';
+      else if (lower.includes('\u590d\u53e4') || lower.includes('g\u1ed7 c\u1ed5')) hex = '#8b5a2b';
+      else if (lower.includes('n\u00e2u') || lower.includes('brown')) hex = '#8b5a2b';
+      else if (lower.includes('\u539f\u6728') || lower.includes('g\u1ed7') || lower.includes('oak')) hex = '#d2b48c';
+      else if (lower.includes('\u80e1\u6843') || lower.includes('walnut')) hex = '#5c4033';
+      else if (lower.includes('\u9ed1') || lower.includes('black') || lower.includes('\u0111en')) hex = '#1a1a1a';
+      else if (lower.includes('\u767d') || lower.includes('white') || lower.includes('tr\u1eafng')) hex = '#ffffff';
+      else if (lower.includes('\u7070') || lower.includes('gray') || lower.includes('grey') || lower.includes('x\u00e1m')) hex = '#9ca3af';
+      else if (lower.includes('\u7ea2') || lower.includes('red') || lower.includes('\u0111\u1ecf')) hex = '#ef4444';
+      else if (lower.includes('\u84dd') || lower.includes('blue') || lower.includes('xanh d\u01b0\u01a1ng')) hex = '#3b82f6';
+      else if (lower.includes('\u7eff') || lower.includes('green') || lower.includes('xanh l\u00e1')) hex = '#10b981';
+      else if (lower.includes('\u9ec4') || lower.includes('yellow') || lower.includes('v\u00e0ng')) hex = '#f59e0b';
+
+      if (hex) {
+        if (!extraStyle && (hex === '#ffffff' || hex === '#e2e8f0')) extraStyle = 'border: 1px solid #c3c6d6;';
+        const bgProp = hex.includes('gradient') ? 'background' : 'background-color';
+        return `<div class="color-dot-wrapper"><span class="color-dot" style="${bgProp}: ${hex}; ${extraStyle}"></span><span>${this.highlight(colorStr)}</span></div>`;
+      }
+      return this.highlight(colorStr);
+    }
+
+    editInput(value, field, index) {
+      const wide = field === 'name' || field === 'spec' ? 'edit-wide' : '';
+      return `<input class="edit-input ${wide}" data-row-index="${index}" data-edit-field="${field}" value="${escapeHTML(value)}">`;
+    }
+
+    highlight(value) {
+      const escaped = escapeHTML(value);
+      if (!this.state.searchQuery || !value) return escaped;
+      const keywords = this.state.searchQuery.trim().split(/\s+/).filter(Boolean);
+      if (!keywords.length) return escaped;
+      const pattern = keywords.map((kw) => kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
+      return escaped.replace(new RegExp(`(${pattern})`, 'gi'), '<mark>$1</mark>');
+    }
+
+    drawingCellHtml(material, index) {
+      const drawings = this.drawingsFor(material);
+      if (!drawings.length) return `<div class="drawing-note">${escapeHTML(this.label('noDrawing'))}</div>`;
+      const deleteButton = this.assetDeleteButton('drawing', index);
+      return `<div class="drawing-tools"><button class="drawing-btn primary" type="button" data-drawing-row="${index}">${escapeHTML(this.label('viewDrawing'))}</button>${deleteButton}</div>`;
+    }
+
+    model3dCellHtml(material, index) {
+      const models = this.models3dFor(material);
+      if (!models.length) return `<div class="drawing-note">${escapeHTML(this.label('noDrawing'))}</div>`;
+      const deleteButton = this.assetDeleteButton('model3d', index);
+      return `<div class="drawing-tools"><button class="drawing-btn primary" type="button" data-model3d-row="${index}">${escapeHTML(this.label('viewDrawing'))}</button>${deleteButton}</div>`;
+    }
+
+    assetDeleteButton(type, index) {
+      if (!this.isAdmin() || !this.state.editMode) return '';
+      const attr = type === 'drawing' ? 'data-delete-drawing-row' : 'data-delete-model3d-row';
+      return `<button class="drawing-btn danger" type="button" ${attr}="${index}">${escapeHTML(this.deleteAssetLabel())}</button>`;
+    }
+
+    deleteAssetLabel() {
+      return this.state.lang === 'vi' ? 'X\u00f3a' : '\u5220\u9664';
+    }
+
+    drawingsFor(material) {
+      if (material?._materialRecord?.drawings) return material._materialRecord.drawings;
+      const skuDrawings = this.state.drawings[this.state.currentSku] || {};
+      return findBomAssets(skuDrawings, material);
+    }
+
+    models3dFor(material) {
+      if (material?._materialRecord?.models3d) return material._materialRecord.models3d;
+      const skuModels = this.state.models3d[this.state.currentSku] || {};
+      return findBomAssets(skuModels, material);
+    }
+
+    productModels3d() {
+      const skuModels = this.state.models3d[this.state.currentSku] || {};
+      return Object.entries(skuModels)
+        .filter(([key]) => !key.includes('|'))
+        .flatMap(([, models]) => models);
+    }
+
+    drawingKey(value) {
+      return assetKey(value);
+    }
+
+    sortIcon(col) {
+      if (this.state.sortCol !== col) return '';
+      return this.state.sortAsc ? '↑' : '↓';
+    }
+
+    sortBy(col) {
+      if (this.state.sortCol === col) {
+        this.state.sortAsc = !this.state.sortAsc;
+      } else {
+        this.state.sortCol = col;
+        this.state.sortAsc = true;
+      }
+      this.renderTable();
+    }
+
+    selectBomEntry(entryId) {
+      if (!entryId) return;
+      this.state.selectedEntryId = entryId;
+      const row = this.bomRows().find((item) => item._entryId === entryId);
+      this.state.selectedMaterialId = row?._materialId || '';
+      this.renderTable();
+      this.renderInspector();
+    }
+
+    startReplaceBomRow(index) {
+      const material = this.state.lastRows[index];
+      if (!material?._entryId) return;
+      this.state.selectedEntryId = material._entryId;
+      this.state.selectedMaterialId = material._materialId || '';
+      this.openMaterialSelector(this.label('replaceMaterialPrompt'), (record) => {
+        const entry = replaceBomEntryMaterial(this.state.payload, material._entryId, record.id);
+        if (!entry) {
+          this.setStatus(this.label('bomRowNotFound'), 'error');
+          return;
+        }
+        this.state.materialDb = this.state.payload.materialDb;
+        this.state.selectedMaterialId = record.id;
+        this.state.replaceQuery = '';
+        this.markDirty();
+        this.renderContent();
+        this.renderInspector();
+      });
+    }
+
+    selectedBomRow() {
+      if (!this.state.selectedEntryId) return null;
+      return this.bomRows().find((row) => row._entryId === this.state.selectedEntryId) || null;
+    }
+
+    handleInspectorInput(event) {
+      const replaceInput = event.target.closest('[data-replace-material-query]');
+      if (replaceInput) this.state.replaceQuery = replaceInput.value;
+    }
+
+    replaceSelectedBomRow() {
+      if (!this.isAdmin()) return;
+      const selected = this.selectedBomRow();
+      if (!selected?._entryId) {
+        this.setStatus(this.label('bomRowNotFound'), 'error');
+        return;
+      }
+      const input = this.query('#replaceMaterialInput');
+      const record = this.findMaterialRecord(input?.value || this.state.replaceQuery);
+      if (!record) {
+        this.setStatus(this.label('materialNotFound'), 'error');
+        return;
+      }
+      const entry = replaceBomEntryMaterial(this.state.payload, selected._entryId, record.id);
+      if (!entry) {
+        this.setStatus(this.label('bomRowNotFound'), 'error');
+        return;
+      }
+      this.state.materialDb = this.state.payload.materialDb;
+      this.state.selectedMaterialId = record.id;
+      this.state.replaceQuery = '';
+      this.markDirty();
+      this.renderContent();
+      this.renderInspector();
+    }
+
+    handleProductInput(event, refresh) {
+      const input = event.target.closest('[data-product-edit]');
+      if (!input || !this.isAdmin()) return;
+      const colorData = this.colorData();
+      const key = input.dataset.productEdit === 'name' ? (this.state.lang === 'vi' ? 'name_vi' : 'name_zh') : input.dataset.productEdit;
+      colorData[key] = input.value;
+      if (key === 'name_zh') colorData.name = input.value;
+      this.markDirty();
+      if (refresh) this.renderProductList();
+    }
+
+    handleMaterialInput(event, refresh) {
+      const input = event.target.closest('[data-edit-field]');
+      if (!input || !this.isAdmin()) return;
+      this.updateMaterial(Number(input.dataset.rowIndex), input.dataset.editField, input.value);
+      if (refresh) {
+        this.renderProductList();
+        this.renderTable();
+        this.renderInspector();
+      }
+    }
+
+    updateMaterial(index, field, value) {
+      const material = this.state.lastRows[index];
+      if (!material) return;
+      if (material._materialId && this.state.materialDb?.materials?.[material._materialId]) {
+        this.updateMaterialDbBackedRow(material, field, value);
+      } else if (field === 'mat_code') {
+        this.replaceMaterialCode(material.mat_code, value);
+      } else if (field === 'comp_code' || field === 'qty') {
+        material[field] = value;
+      } else {
+        this.updateSharedMaterialField(material.mat_code, this.materialEditKey(field), value);
+      }
+      this.markDirty();
+      this.renderInspector();
+    }
+
+    updateMaterialDbBackedRow(material, field, value) {
+      const entry = this.state.materialDb.bomEntries.find((item) => item.id === material._entryId);
+      if (field === 'comp_code' || field === 'qty') {
+        if (entry) entry[field] = value;
+        return;
+      }
+      const patch = {};
+      if (field === 'mat_code') patch.code = value;
+      if (field === 'name') patch.name = { [this.state.lang === 'vi' ? 'vi' : 'zh']: value };
+      if (field === 'spec') patch.spec = { [this.state.lang === 'vi' ? 'vi' : 'zh']: value };
+      if (field === 'material') patch.material = { [this.state.lang === 'vi' ? 'vi' : 'zh']: value };
+      if (field === 'color') patch.color = { [this.state.lang === 'vi' ? 'vi' : 'zh']: value };
+      if (field === 'attr') patch.attr = { [this.state.lang === 'vi' ? 'vi' : 'zh']: value };
+      updateMaterialRecord(this.state.payload, material._materialId, patch);
+      this.state.materialDb = this.state.payload.materialDb;
+    }
+
+    handleMaterialDbInput(event) {
+      const input = event.target.closest('[data-material-db-edit]');
+      if (!input || !this.isAdmin()) return;
+      const record = this.state.materialDb.materials[input.dataset.materialId];
+      if (!record) return;
+      const field = input.dataset.materialDbEdit;
+      const lang = input.dataset.lang || this.state.lang;
+      if (field === 'code') {
+        updateMaterialRecord(this.state.payload, record.id, { code: input.value });
+      } else {
+        updateMaterialRecord(this.state.payload, record.id, {
+          [field]: { [lang]: input.value }
+        });
+      }
+      this.markDirty();
+    }
+
+    saveMaterialMaster() {
+      if (!this.isAdmin()) return;
+      const record = this.selectedMaterialRecord();
+      if (!record) return;
+      const wasDraft = this.state.materialDraft?.id === record.id;
+      const patch = {};
+      this.queryAll('[data-material-master-edit]').forEach((input) => {
+        const field = input.dataset.materialMasterEdit;
+        const lang = input.dataset.lang || 'zh';
+        if (field === 'code') {
+          patch.code = input.value.trim();
+          return;
+        }
+        patch[field] = patch[field] || {};
+        patch[field][lang] = input.value;
+      });
+      if (this.state.materialDraft?.id === record.id) {
+        this.state.materialDb.materials[record.id] = clone(record);
+        this.state.payload.materialDb = this.state.materialDb;
+      }
+      updateMaterialRecord(this.state.payload, record.id, patch);
+      this.state.materialDb = this.state.payload.materialDb;
+      this.state.payload.materialDb = this.state.materialDb;
+      if (wasDraft) this.state.materialDraft = null;
+      this.state.selectedMaterialId = record.id;
+      this.markDirty();
+      this.renderProductList();
+      this.renderContent();
+      this.renderInspector();
+      this.setStatus(this.label('materialSaved'), 'dirty');
+    }
+
+    deleteSelectedMaterialMaster() {
+      if (!this.isAdmin()) return;
+      const record = this.selectedMaterialRecord();
+      if (!record) return;
+      if (this.isNewMaterialDraft(record)) {
+        this.backMaterialList();
+        return;
+      }
+      this.deleteDatabaseMaterial(record.id);
+    }
+    deleteMaterialAsset(index, collectionName) {
+      if (!this.isAdmin()) return;
+      const material = this.state.lastRows[index];
+      if (!material) return;
+      const collection = collectionName === 'models3d' ? this.state.models3d : this.state.drawings;
+      if (material._materialRecord) {
+        const assetField = collectionName === 'models3d' ? 'models3d' : 'drawings';
+        const confirmKey = collectionName === 'models3d'
+          ? 'deleteModel3dConfirm'
+          : 'deleteDrawingConfirm';
+        this.openPdmConfirm(this.deleteAssetConfirmText(confirmKey), () => {
+          updateMaterialRecord(this.state.payload, material._materialId, { [assetField]: [] });
+          this.state.materialDb = this.state.payload.materialDb;
+          this.markDirty();
+          this.renderTable();
+          this.renderInspector();
+        });
+        return;
+      }
+      const skuAssets = collection[this.state.currentSku] || {};
+      const entry = findBomAssetEntry(skuAssets, material);
+      if (!entry) return;
+      const confirmKey = collectionName === 'models3d'
+        ? 'deleteModel3dConfirm'
+        : 'deleteDrawingConfirm';
+      this.openPdmConfirm(this.deleteAssetConfirmText(confirmKey), () => {
+        delete skuAssets[entry.key];
+        collection[this.state.currentSku] = skuAssets;
+        this.markDirty();
+        this.renderTable();
+        this.renderInspector();
+      });
+    }
+
+    deleteBomRow(index) {
+      if (!this.isAdmin()) return;
+      const material = this.state.lastRows[index];
+      if (!material?._entryId) return;
+      this.openPdmConfirm(this.label('deleteBomRowConfirm'), () => {
+        this.state.materialDb.bomEntries = this.state.materialDb.bomEntries.filter((entry) => entry.id !== material._entryId);
+        this.state.payload.materialDb = this.state.materialDb;
+        if (this.state.selectedEntryId === material._entryId) this.state.selectedEntryId = '';
+        this.markDirty();
+        this.renderTable();
+        this.renderInspector();
+      });
+    }
+
+    findMaterialRecord(query) {
+      const rawQuery = String(query || '').trim();
+      if (!rawQuery) return null;
+      const normalized = normalizeText(rawQuery);
+      const records = Object.values(this.state.materialDb?.materials || {});
+      return records.find((item) => item.id === rawQuery || normalizeText(item.code) === normalized) ||
+        records.find((item) => [
+          item.code,
+          item.name?.zh,
+          item.name?.vi,
+          item.spec?.zh,
+          item.spec?.vi,
+          item.material?.zh,
+          item.material?.vi
+        ].some((value) => normalizeText(value).includes(normalized))) ||
+        null;
+    }
+
+    addProduct() {
+      if (!this.isAdmin()) return;
+      this.openPdmPrompt(this.label('addProduct'), [
+        { key: 'code', label: this.label('addProductPromptCode'), placeholder: this.label('addProductPromptCodePlaceholder'), required: true },
+        { key: 'name', label: this.label('addProductPromptName'), required: true },
+        { key: 'name_vi', label: this.label('addProductPromptNameVi') },
+        { key: 'size', label: this.label('addProductPromptSize') },
+        { key: 'sku', label: this.label('addProductPromptSku'), placeholder: this.label('addProductPromptSkuPlaceholder'), required: true },
+        { key: 'color', label: this.label('addProductPromptColor'), defaultValue: '\u9ed8\u8ba4' },
+        { key: 'color_vi', label: this.label('addProductPromptColorVi') }
+      ], (values) => {
+        const code = values.code.trim().toUpperCase();
+        if (!code) return;
+        if (this.state.bom[code]) {
+          this.setStatus(this.label('productCodeExists'), 'error');
+          return;
+        }
+        const nameZh = values.name.trim();
+        if (!nameZh) return;
+        const colorName = (values.color || '\u9ed8\u8ba4').trim();
+        const sku = (values.sku || '').trim().toUpperCase();
+        if (!sku) return;
+        const product = {
+          code,
+          colors: [colorName],
+          color_info: {
+            [colorName]: {
+              sku,
+              name: nameZh,
+              name_zh: nameZh,
+              name_vi: (values.name_vi || '').trim(),
+              size: (values.size || '').trim(),
+              color_ver: colorName,
+              color_ver_vi: (values.color_vi || '').trim(),
+              materials: []
+            }
+          }
+        };
+        this.state.bom[code] = product;
+        this.state.payload.bom[code] = product;
+        this.markDirty();
+        this.selectProduct(code);
+        this.setStatus(this.label('productAdded'), 'saved');
+      });
+    }
+
+    addBomRowFromPrompt() {
+      if (!this.isAdmin()) return;
+      this.openMaterialSelector(this.label('addBomRow'), (record) => {
+        this.openPdmPrompt(this.label('addBomRow'), [
+          { key: 'comp_code', label: this.label('bomCompCode') },
+          { key: 'qty', label: this.label('bomQty'), defaultValue: '1', required: true }
+        ], (values) => {
+          const rows = this.bomRows();
+          const entry = {
+            id: stableId('bom', `${this.state.currentSku}|${this.state.currentColor}|${Date.now()}|${record.id}`),
+            parentType: 'product',
+            parentId: this.state.currentSku,
+            productCode: this.state.currentSku,
+            color: this.state.currentColor,
+            materialId: record.id,
+            stt: String(rows.length + 1),
+            comp_code: values.comp_code || '',
+            qty: values.qty || '1',
+            color_ver: this.state.currentColor,
+            color_ver_vi: this.state.currentColor,
+            order: rows.length
+          };
+          this.state.materialDb.bomEntries.push(entry);
+          this.state.payload.materialDb = this.state.materialDb;
+          this.markDirty();
+          this.renderContent();
+        });
+      });
+    }
+
+    addDatabaseMaterial() {
+      const id = stableId('mat', `manual|${Date.now()}|${Math.random()}`);
+      this.state.materialDraft = {
+        id,
+        code: '',
+        name: { zh: '\u65b0\u7269\u6599', vi: 'v\u1eadt li\u1ec7u m\u1edbi' },
+        spec: { zh: '', vi: '' },
+        material: { zh: '', vi: '' },
+        color: { zh: '', vi: '' },
+        attr: { zh: '\u96f6\u4ef6', vi: 'linh ki\u1ec7n' },
+        drawings: [],
+        models3d: []
+      };
+      this.state.adminView = 'materials';
+      this.state.selectedMaterialId = id;
+      this.renderProductList();
+      this.renderFilterBar();
+      this.renderContent();
+      this.renderInspector();
+    }
+
+    addParentMaterial() {
+      this.openMaterialSelector(this.label('addParentMaterial'), (material) => {
+        this.state.selectedParentId = material.id;
+        this.state.draftBomEntries = JSON.stringify(this.state.materialDb.bomEntries || []);
+        this.state.adminView = 'structure';
+        this.renderProductList();
+        this.renderFilterBar();
+        this.renderContent();
+        this.renderInspector();
+      });
+    }
+
+    deleteDatabaseMaterial(materialId) {
+      if (!this.isAdmin()) return;
+      const whereUsed = materialWhereUsed(this.state.payload, materialId);
+      const usedCount = whereUsed.productEntries.length + whereUsed.parentEntries.length + whereUsed.childEntries.length;
+      if (usedCount > 0) {
+        this.setStatus(`${this.label('materialDeleteBlocked')}: ${usedCount}`, 'error');
+        return;
+      }
+      this.openPdmConfirm(this.label('deleteMaterialConfirm'), () => {
+        this._doDeleteMaterial(materialId);
+      });
+      return;
+    }
+
+    _doDeleteMaterial(materialId) {
+      delete this.state.materialDb.materials[materialId];
+      this.state.payload.materialDb = this.state.materialDb;
+      if (this.state.selectedMaterialId === materialId) this.state.selectedMaterialId = '';
+      this.state.materialDraft = null;
+      this.markDirty();
+      this.renderProductList();
+      this.renderFilterBar();
+      this.renderContent();
+      this.renderInspector();
+      this.setStatus(this.label('materialDeleted'), 'dirty');
+    }
+
+    deleteAssetConfirmText(key) {
+      if (key === 'deleteModel3dConfirm') {
+        return this.state.lang === 'vi'
+          ? 'X\u00f3a li\u00ean k\u1ebft model 3D n\u00e0y?'
+          : '\u5220\u9664\u8fd9\u4e2a 3D \u6a21\u578b\u5173\u8054\uff1f';
+      }
+      return this.state.lang === 'vi'
+        ? 'X\u00f3a li\u00ean k\u1ebft b\u1ea3n v\u1ebd 2D n\u00e0y?'
+        : '\u5220\u9664\u8fd9\u4e2a 2D \u56fe\u7eb8\u5173\u8054\uff1f';
+    }
+
+    replaceMaterialCode(oldCode, newCode) {
+      if (!newCode.trim()) return;
+      this.forEachMaterialWithCode(oldCode, (material) => {
+        material.mat_code = newCode;
+      });
+    }
+
+    updateSharedMaterialField(matCode, key, value) {
+      this.forEachMaterialWithCode(matCode, (material) => {
+        material[key] = value;
+      });
+    }
+
+    forEachMaterialWithCode(matCode, callback) {
+      Object.values(this.state.bom).forEach((product) => {
+        Object.values(product.color_info || {}).forEach((colorData) => {
+          (colorData.materials || []).forEach((material) => {
+            if (material.mat_code === matCode) callback(material);
+          });
+        });
+      });
+    }
+
+    materialEditKey(field) {
+      if (field === 'name') return this.state.lang === 'vi' ? 'name_vi' : 'name_zh';
+      if (field === 'material') return this.state.lang === 'vi' ? 'material_vi' : 'material_zh';
+      if (field === 'color') return this.state.lang === 'vi' ? 'color_vi' : 'color_zh';
+      if (field === 'attr') return this.state.lang === 'vi' ? 'attr_vi' : 'attr_zh';
+      if (field === 'spec') return this.state.lang === 'vi' ? 'spec_vi' : 'spec';
+      return field;
+    }
+
+    markDirty() {
+      this.state.dirty = true;
+      this.renderStatus();
+    }
+
+    discard() {
+      this.openPdmConfirm(this.label('discardConfirm'), () => {
+        this.applyPayload(this.state.loadedPayload);
+        this.state.editMode = false;
+        this.state.dirty = false;
+        this.renderAll();
+      });
+    }
+
+    async fetchCloudPayload() {
+      const cacheBust = Date.now();
+      const urls = [];
+      const apiUrl = rawContentsUrl(this.config);
+      if (apiUrl) {
+        urls.push({
+          url: `${apiUrl}&t=${cacheBust}`,
+          options: {
+            cache: 'no-store',
+            headers: {
+              Accept: 'application/vnd.github.raw'
+            }
+          }
+        });
+      }
+      const fallbackUrl = rawUrl(this.config);
+      if (fallbackUrl) {
+        urls.push({
+          url: `${fallbackUrl}${fallbackUrl.includes('?') ? '&' : '?'}t=${cacheBust}`,
+          options: { cache: 'no-store' }
+        });
+      }
+      let lastError = null;
+      for (const request of urls) {
+        try {
+          const response = await fetch(request.url, request.options);
+          if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+          return parseDataJsPayload(await response.text());
+        } catch (error) {
+          lastError = error;
+        }
+      }
+      throw lastError || new Error('No cloud data source');
+    }
+
+    async loadCloud(options) {
+      const silent = Boolean(options?.silent);
+      if ((this.state.dirty || this.state.materialDraft) && silent) return false;
+      try {
+        const previousNotifications = this.notifications();
+        const firstLoad = !this.state.lastLoadAt;
+        const payload = await this.fetchCloudPayload();
+        if ((this.state.dirty || this.state.materialDraft) && silent) return false;
+        const incoming = this.newNotifications(previousNotifications, payload.notifications);
+        this.applyPayload(payload, { preserveView: silent });
+        this.state.lastLoadAt = new Date().toISOString();
+        this.renderAll();
+        if (silent && !firstLoad && incoming.length && !this.isAdmin()) this.showNotificationToast(incoming[0]);
+        if (!options.silent) this.setStatus(this.label('loaded'), 'saved');
+        return true;
+      } catch (error) {
+        if (!options.silent) this.setStatus(`${this.label('loadFailed')}: ${error.message}`, 'error');
+        return false;
+      }
+    }
+
+    applyPayload(payload, options) {
+      const preserved = options?.preserveView ? {
+        currentSku: this.state.currentSku,
+        currentColor: this.state.currentColor,
+        currentAttr: this.state.currentAttr,
+        adminView: this.state.adminView,
+        bomDetailOpen: this.state.bomDetailOpen,
+        searchQuery: this.state.searchQuery,
+        sidebarQuery: this.state.sidebarQuery,
+        dbFilters: clone(this.state.dbFilters),
+        selectedMaterialId: this.state.selectedMaterialId,
+        selectedEntryId: this.state.selectedEntryId,
+        selectedParentId: this.state.selectedParentId
+      } : null;
+      this.state.payload = normalizePayload(payload);
+      this.state.bom = this.state.payload.bom;
+      this.state.drawings = this.state.payload.drawings;
+      this.state.manuals = this.state.payload.manuals;
+      this.state.models3d = this.state.payload.models3d;
+      this.state.productImages = this.state.payload.productImages;
+      this.state.materialDb = this.state.payload.materialDb;
+      this.state.materialDraft = null;
+      this.state.loadedPayload = clone(this.state.payload);
+      this.state.dirty = false;
+      this.state.selectedMaterialId = '';
+      this.state.selectedEntryId = '';
+      this.state.bomDetailOpen = false;
+      if (preserved) {
+        this.state.currentSku = this.state.bom[preserved.currentSku] ? preserved.currentSku : '';
+        this.state.currentColor = preserved.currentColor;
+        this.state.currentAttr = preserved.currentAttr;
+        this.state.adminView = preserved.adminView;
+        this.state.bomDetailOpen = preserved.bomDetailOpen;
+        this.state.searchQuery = preserved.searchQuery;
+        this.state.sidebarQuery = preserved.sidebarQuery;
+        this.state.dbFilters = preserved.dbFilters;
+        this.state.selectedMaterialId = this.state.materialDb?.materials?.[preserved.selectedMaterialId] ? preserved.selectedMaterialId : '';
+        this.state.selectedEntryId = preserved.selectedEntryId;
+        this.state.selectedParentId = this.state.materialDb?.materials?.[preserved.selectedParentId] ? preserved.selectedParentId : '';
+      }
+      this.pickFirstProduct();
+    }
+
+    async saveCloud() {
+      const token = this.readToken();
+      if (!token) {
+        this.setStatus(`${this.label('saveFailed')}: ${this.label('token')}`, 'error');
+        return;
+      }
+      try {
+        await this.writeGithubData(token);
+      } catch (error) {
+        this.setStatus(`${this.label('saveFailed')}: ${error.message}`, 'error');
+      }
+    }
+
+    async writeGithubData(token) {
+      this.setStatus(this.label('saving'), '');
+      const updatedAt = new Date().toISOString();
+      this.syncLegacyBom();
+      let payload = normalizePayload({
+        version: this.state.payload.version,
+        updatedAt,
+        bom: this.state.bom,
+        drawings: this.state.drawings,
+        manuals: this.state.manuals,
+        models3d: this.state.models3d,
+        productImages: this.state.productImages,
+        materialDb: this.state.materialDb,
+        notifications: this.state.payload.notifications
+      });
+      syncLegacyBomFromMaterialDb(payload);
+      const remoteFile = await this.fetchGithubFile(token);
+      const changes = describePayloadChanges(remoteFile.payload || this.state.loadedPayload, payload);
+      payload = appendNotificationEvent(payload, { type: 'github-save', actor: 'admin', createdAt: updatedAt, changes });
+      const source = serializeDataJs(payload);
+      const request = buildGithubUpdateRequest({ config: this.config, token, sha: remoteFile.sha, source, message: `chore: update bom data ${updatedAt}` });
+      const response = await fetch(request.url, request.options);
+      if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+      this.state.loadedPayload = clone(payload);
+      this.state.payload = payload;
+      this.state.dirty = false;
+      this.renderAll();
+      this.setStatus(this.label('saved'), 'saved');
+    }
+
+    syncLegacyBom() {
+      const payload = {
+        bom: this.state.bom,
+        drawings: this.state.drawings,
+        manuals: this.state.manuals,
+        models3d: this.state.models3d,
+        productImages: this.state.productImages,
+        materialDb: this.state.materialDb
+      };
+      syncLegacyBomFromMaterialDb(payload);
+      this.state.bom = payload.bom;
+      this.state.payload.bom = payload.bom;
+      this.state.payload.materialDb = this.state.materialDb;
+    }
+
+    async fetchGithubFile(token) {
+      const url = `${contentsUrl(this.config)}?ref=${encodeURIComponent(this.config.branch)}`;
+      const response = await fetch(url, { headers: this.githubHeaders(token) });
+      if (response.status === 404) return { sha: '', payload: null };
+      if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+      const data = await response.json();
+      let payload = null;
+      if (data.content) payload = parseDataJsPayload(decodeBase64Utf8(data.content));
+      return { sha: data.sha || '', payload };
+    }
+
+    githubHeaders(token) {
+      return {
+        Accept: 'application/vnd.github+json',
+        Authorization: `Bearer ${token}`,
+        'X-GitHub-Api-Version': '2022-11-28'
+      };
+    }
+
+    readToken() {
+      try {
+        return global.sessionStorage ? global.sessionStorage.getItem(TOKEN_KEY) || '' : '';
+      } catch (error) {
+        return '';
+      }
+    }
+
+    storeToken(token) {
+      try {
+        if (global.sessionStorage) global.sessionStorage.setItem(TOKEN_KEY, token);
+      } catch (error) {
+        this.setStatus(error.message, 'error');
+      }
+    }
+
+    setStatus(message, state) {
+      const status = this.query('#syncStatus');
+      if (!status) return;
+      status.textContent = message || '';
+      status.dataset.state = state || '';
+    }
+
+    formatDate(value) {
+      if (!value) return '-';
+      const date = new Date(value);
+      return Number.isNaN(date.getTime()) ? value : date.toLocaleString(this.state.lang === 'vi' ? 'vi-VN' : 'zh-CN');
+    }
+
+    openManual(index) {
+      const manual = (this.state.manuals[this.state.currentSku] || [])[index];
+      if (manual) this.showModal(manual.url, manual.name, manual.path || this.label('manual'));
+    }
+
+    openDrawing(index) {
+      const material = this.state.lastRows[index];
+      const drawing = material ? this.drawingsFor(material)[0] : null;
+      if (drawing) this.showModal(drawing.url, drawing.name, drawing.path || materialText(material, 'name', this.state.lang));
+    }
+
+    openModel3d(index) {
+      const material = this.state.lastRows[index];
+      const model = material ? this.models3dFor(material)[0] : null;
+      if (model) this.showModel3dModal(model, materialText(material, 'name', this.state.lang));
+    }
+
+    openMaterialDrawing(materialId) {
+      const material = this.state.materialDb?.materials?.[materialId];
+      const drawing = material && material.drawings ? material.drawings[0] : null;
+      if (drawing) this.showModal(drawing.url, drawing.name, drawing.path || localizedValue(material.name, this.state.lang));
+    }
+
+    openMaterialModel3d(materialId) {
+      const material = this.state.materialDb?.materials?.[materialId];
+      const model = material && material.models3d ? material.models3d[0] : null;
+      if (model) this.showModel3dModal(model, localizedValue(material.name, this.state.lang));
+    }
+
+    openProductModel3d(index) {
+      const model = this.productModels3d()[index];
+      const colorData = this.colorData();
+      if (model) this.showModel3dModal(model, this.localizedProductName(colorData || {}));
+    }
+
+    showModal(url, title, subtitle) {
+      this.query('#pdfModalTitle').textContent = title || this.label('viewDrawing');
+      const frame = this.query('#pdfFrame');
+      const modelViewer = this.ensureModelViewer();
+      frame.hidden = false;
+      modelViewer.hidden = true;
+      modelViewer.removeAttribute('src');
+      frame.src = this.pdfFrameUrl(url);
+      this.query('#pdfOpenLink').href = url || '#';
+      this.query('#pdfOpenLink').textContent = this.label('download');
+      this.query('#pdfCloseBtn').textContent = this.label('close');
+      this.query('#pdfModal').classList.add('open');
+    }
+
+    showModel3dModal(model, fallbackTitle) {
+      const previewUrl = model.previewUrl || model.url || '';
+      const sourceUrl = model.sourceUrl || previewUrl;
+      const frame = this.query('#pdfFrame');
+      const modelViewer = this.ensureModelViewer();
+      this.query('#pdfModalTitle').textContent = model.name || fallbackTitle || '3D';
+      this.query('#pdfModalSubtitle').textContent = model.path || fallbackTitle || '';
+      frame.hidden = true;
+      frame.src = 'about:blank';
+      modelViewer.hidden = false;
+      modelViewer.setAttribute('src', previewUrl);
+      this.query('#pdfOpenLink').href = sourceUrl || '#';
+      this.query('#pdfOpenLink').textContent = model.sourceUrl ? 'STEP' : 'Open';
+      this.query('#pdfModal').classList.add('open');
+    }
+
+    ensureModelViewer() {
+      let modelViewer = this.query('#model3dViewer');
+      if (modelViewer) return modelViewer;
+      modelViewer = global.document.createElement('model-viewer');
+      modelViewer.id = 'model3dViewer';
+      modelViewer.className = 'model3d-frame';
+      modelViewer.setAttribute('camera-controls', '');
+      modelViewer.setAttribute('auto-rotate', '');
+      modelViewer.setAttribute('shadow-intensity', '1');
+      modelViewer.setAttribute('exposure', '0.72');
+      modelViewer.setAttribute('environment-image', 'neutral');
+      modelViewer.setAttribute('interaction-prompt', 'auto');
+      modelViewer.hidden = true;
+      this.query('#pdfFrame').insertAdjacentElement('afterend', modelViewer);
+      return modelViewer;
+    }
+
+    pdfFrameUrl(url) {
+      const value = String(url || '').trim();
+      const match = value.match(/drive\.google\.com\/file\/d\/([^/?#]+)/i);
+      return match ? `https://drive.google.com/file/d/${encodeURIComponent(match[1])}/preview` : value || 'about:blank';
+    }
+
+    closeModal() {
+      this.query('#pdfFrame').src = 'about:blank';
+      const modelViewer = this.query('#model3dViewer');
+      if (modelViewer) {
+        modelViewer.removeAttribute('src');
+        modelViewer.hidden = true;
+      }
+      this.query('#pdfModal').classList.remove('open');
+    }
+
+    openPdmPrompt(title, fields, onConfirm) {
+      let overlay = this.query('#pdmPromptOverlay');
+      if (overlay) overlay.remove();
+
+      const fieldsHtml = fields.map(f => `
+        <div class="pdm-modal-form-group">
+          <label>${escapeHTML(f.label)}${f.required ? ' *' : ''}</label>
+          <input type="text" data-field-key="${escapeHTML(f.key)}" placeholder="${escapeHTML(f.placeholder || '')}" value="${escapeHTML(f.defaultValue || '')}">
+          <div class="pdm-modal-form-error" data-error-for="${escapeHTML(f.key)}"></div>
+        </div>
+      `).join('');
+
+      const html = `<div id="pdmPromptOverlay" class="pdm-modal-overlay">
+        <div class="pdm-modal-content pdm-modal-sm">
+          <div class="pdm-modal-header">
+            <h2>${escapeHTML(title)}</h2>
+            <button class="pdm-modal-close" data-pdm-prompt-close>&times;</button>
+          </div>
+          <div class="pdm-modal-body">
+            <div class="pdm-modal-form">${fieldsHtml}</div>
+          </div>
+          <div class="pdm-modal-footer">
+            <button class="btn" data-pdm-prompt-close>${escapeHTML(this.label('cancelBtn'))}</button>
+            <button class="btn btn-primary" data-pdm-prompt-confirm>${escapeHTML(this.label('confirmBtn'))}</button>
+          </div>
+        </div>
+      </div>`;
+
+      document.body.insertAdjacentHTML('beforeend', html);
+      overlay = this.query('#pdmPromptOverlay');
+
+      const closeModal = () => {
+        overlay.classList.remove('open');
+        setTimeout(() => overlay.remove(), 200);
+      };
+
+      overlay.querySelectorAll('[data-pdm-prompt-close]').forEach(btn => btn.addEventListener('click', closeModal));
+      overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+
+      overlay.querySelector('[data-pdm-prompt-confirm]').addEventListener('click', () => {
+        const values = {};
+        let hasError = false;
+        fields.forEach(f => {
+          const input = overlay.querySelector(`[data-field-key="${f.key}"]`);
+          const errEl = overlay.querySelector(`[data-error-for="${f.key}"]`);
+          const val = input ? input.value.trim() : '';
+          values[f.key] = val;
+          if (f.required && !val) {
+            if (input) input.classList.add('pdm-input-error');
+            if (errEl) errEl.textContent = this.state.lang === 'vi' ? 'Bắt buộc' : '必填';
+            hasError = true;
+          } else {
+            if (input) input.classList.remove('pdm-input-error');
+            if (errEl) errEl.textContent = '';
+          }
+        });
+        if (hasError) return;
+        closeModal();
+        onConfirm(values);
+      });
+
+      requestAnimationFrame(() => {
+        overlay.classList.add('open');
+        const firstInput = overlay.querySelector('.pdm-modal-form-group input');
+        if (firstInput) firstInput.focus();
+      });
+    }
+
+    openPdmConfirm(message, onConfirm) {
+      let overlay = this.query('#pdmConfirmOverlay');
+      if (overlay) overlay.remove();
+
+      const html = `<div id="pdmConfirmOverlay" class="pdm-modal-overlay">
+        <div class="pdm-modal-content pdm-modal-sm">
+          <div class="pdm-modal-header">
+            <h2>${escapeHTML(this.label('confirmBtn'))}</h2>
+            <button class="pdm-modal-close" data-pdm-confirm-close>&times;</button>
+          </div>
+          <div class="pdm-modal-body">
+            <div class="pdm-confirm-body">
+              <span class="material-symbols-outlined pdm-confirm-icon">warning</span>
+              <div class="pdm-confirm-message">${escapeHTML(message)}</div>
+            </div>
+          </div>
+          <div class="pdm-modal-footer">
+            <button class="btn" data-pdm-confirm-close>${escapeHTML(this.label('cancelBtn'))}</button>
+            <button class="btn btn-danger" data-pdm-confirm-ok>${escapeHTML(this.label('confirmBtn'))}</button>
+          </div>
+        </div>
+      </div>`;
+
+      document.body.insertAdjacentHTML('beforeend', html);
+      overlay = this.query('#pdmConfirmOverlay');
+
+      const closeModal = () => {
+        overlay.classList.remove('open');
+        setTimeout(() => overlay.remove(), 200);
+      };
+
+      overlay.querySelectorAll('[data-pdm-confirm-close]').forEach(btn => btn.addEventListener('click', closeModal));
+      overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+
+      overlay.querySelector('[data-pdm-confirm-ok]').addEventListener('click', () => {
+        closeModal();
+        onConfirm();
+      });
+
+      requestAnimationFrame(() => overlay.classList.add('open'));
+    }
+
+    openMaterialSelector(title, onSelect) {
+      let modalOverlay = this.query('#materialSelectorOverlay');
+      if (modalOverlay) modalOverlay.remove();
+
+      const overlayHtml = `<div id="materialSelectorOverlay" class="pdm-modal-overlay">
+        <div class="pdm-modal-content">
+          <div class="pdm-modal-header">
+            <h2>${escapeHTML(title)}</h2>
+            <button class="pdm-modal-close" data-action="close-selector">&times;</button>
+          </div>
+          <div class="pdm-modal-body">
+            <input type="text" class="pdm-modal-search" placeholder="${escapeHTML(this.label('searchPlaceholder'))}">
+            <ul class="pdm-modal-list"></ul>
+          </div>
+          <div class="pdm-modal-footer">
+            <button class="btn" data-action="close-selector">${escapeHTML(this.label('cancelBtn'))}</button>
+            <button class="btn btn-primary" data-action="confirm-selector" disabled>${escapeHTML(this.label('selectBtn'))}</button>
+          </div>
+        </div>
+      </div>`;
+
+      document.body.insertAdjacentHTML('beforeend', overlayHtml);
+      modalOverlay = this.query('#materialSelectorOverlay');
+
+      const searchInput = modalOverlay.querySelector('.pdm-modal-search');
+      const listEl = modalOverlay.querySelector('.pdm-modal-list');
+      const confirmBtn = modalOverlay.querySelector('[data-action="confirm-selector"]');
+      const closeBtns = modalOverlay.querySelectorAll('[data-action="close-selector"]');
+
+      let selectedMaterialId = null;
+      let allMaterials = Object.values(this.state.materialDb?.materials || {});
+
+      const renderList = (query = '') => {
+        const lowerQuery = query.toLowerCase().trim();
+        const filtered = allMaterials.filter(m => {
+          const nameStr = localizedValue(m.name, this.state.lang).toLowerCase();
+          const specStr = localizedValue(m.spec, this.state.lang).toLowerCase();
+          return (m.code || '').toLowerCase().includes(lowerQuery) ||
+            nameStr.includes(lowerQuery) ||
+            specStr.includes(lowerQuery);
+        });
+
+        listEl.innerHTML = filtered.map(m => `
+          <li class="pdm-modal-list-item ${m.id === selectedMaterialId ? 'selected' : ''}" data-id="${escapeHTML(m.id)}">
+            <span class="pdm-modal-list-item-code">${escapeHTML(m.code || m.id)}</span>
+            <span class="pdm-modal-list-item-name">${escapeHTML(localizedValue(m.name, this.state.lang))} - ${escapeHTML(localizedValue(m.spec, this.state.lang))}</span>
+          </li>
+        `).join('');
+      };
+
+      renderList();
+
+      listEl.addEventListener('click', (e) => {
+        const item = e.target.closest('.pdm-modal-list-item');
+        if (!item) return;
+        selectedMaterialId = item.dataset.id;
+        renderList(searchInput.value);
+        confirmBtn.disabled = false;
+      });
+
+      searchInput.addEventListener('input', (e) => renderList(e.target.value));
+
+      const closeModal = () => {
+        modalOverlay.classList.remove('open');
+        setTimeout(() => modalOverlay.remove(), 200);
+      };
+
+      closeBtns.forEach(btn => btn.addEventListener('click', closeModal));
+
+      confirmBtn.addEventListener('click', () => {
+        if (!selectedMaterialId) return;
+        const selectedMaterial = allMaterials.find(m => m.id === selectedMaterialId);
+        if (selectedMaterial) onSelect(selectedMaterial);
+        closeModal();
+      });
+
+      requestAnimationFrame(() => {
+        modalOverlay.classList.add('open');
+        searchInput.focus();
+      });
+    }
+
+    rowsForExport() {
+      const rows = [['层级', '物料编码', '部件编号', '物料名称', '规格型号', '材质', '颜色', '属性', '数量']];
+      this.filteredRows().forEach((material) => {
+        rows.push([material._level || 1, material.mat_code || '', material.comp_code || '', materialText(material, 'name', this.state.lang),
+        materialText(material, 'spec', this.state.lang), materialText(material, 'material', this.state.lang),
+        materialText(material, 'color', this.state.lang), materialText(material, 'attr', this.state.lang),
+        material.qty || '']);
+      });
+      return rows;
+    }
+
+    copyTable() {
+      const textValue = this.rowsForExport().map((row) => row.join('\t')).join('\n');
+      if (global.navigator && global.navigator.clipboard) {
+        global.navigator.clipboard.writeText(textValue).then(() => this.setStatus(this.label('copied'), 'saved'));
+      }
+    }
+
+    exportExcel() {
+      if (!global.XLSX) { this.setStatus('SheetJS not loaded', 'error'); return; }
+      let rows, filename;
+      if (this.state.adminView === 'materials') {
+        const records = this.filteredMaterialRecords();
+        const lang = this.state.lang;
+        const loc = (pair) => lang === 'vi' ? (pair?.vi || pair?.zh || '') : (pair?.zh || pair?.vi || '');
+        rows = [['物料编码', '物料名称', '规格型号', '材质', '颜色', '使用于']];
+        records.forEach((r) => {
+          const whereUsed = materialWhereUsed(this.state.payload, r.id);
+          const usedProducts = [...new Set(whereUsed.productEntries.map((e) => e.productCode))].sort();
+          rows.push([
+            r.code || '', loc(r.name), loc(r.spec), loc(r.material), loc(r.color),
+            usedProducts.join(', ')
+          ]);
+        });
+        filename = `MaterialDB_${this.state.lang}_${this.state.searchQuery || 'all'}.xlsx`;
+      } else {
+        rows = this.rowsForExport();
+        filename = `BOM_${this.state.currentSku}_${this.state.currentColor}_${this.state.lang}.xlsx`;
+      }
+      const ws = XLSX.utils.aoa_to_sheet(rows);
+      // Auto-width columns
+      const colWidths = rows[0].map((_, c) => {
+        let max = 10;
+        rows.forEach((row) => { const len = String(row[c] || '').length; if (len > max) max = len; });
+        return Math.min(max + 2, 40);
+      });
+      ws['!cols'] = colWidths.map((w) => ({ wch: w }));
+      const wb = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Materials');
+      XLSX.writeFile(wb, filename);
+      this.setStatus(this.label('exportExcel') + ' ✓', 'saved');
+    }
+
+
+  }
+
+  global.BomApp = { createApp, start: createApp };
+  global.BomCoreUtils = {
+    appendNotificationEvent,
+    buildGithubUpdateRequest,
+    createPdmNavigation,
+    createSidebarIndex,
+    describePayloadChanges,
+    createMaterialDatabase,
+    findBomAssets,
+    filterMaterials,
+    materialWhereUsed,
+    normalizePayload,
+    normalizeConfig,
+    parseDataJsPayload,
+    rawUrl,
+    buildBomTreeRows,
+    groupMaterialChildRows,
+    hasChildMaterialRelation,
+    replaceBomEntryMaterial,
+    resolveBomRows,
+    syncLegacyBomFromMaterialDb,
+    updateMaterialRecord,
+    serializeDataJs,
+    stripProductColorName
+  };
+}(typeof window !== 'undefined' ? window : globalThis));

@@ -34,6 +34,6 @@ test('current Viewer is standalone and current Admin uses the shared runtime cha
   const admin = fs.readFileSync(path.join(repoRoot, 'admin.html'), 'utf8');
   assert.doesNotMatch(viewer, /<script src="(?:data|app-core|app-viewer)\.js/);
   assert.match(viewer, /mode:\s*['"]viewer['"]/);
-  assert.match(admin, /app-core\.js\?v=/);
-  assert.match(admin, /app-admin\.js\?v=/);
+  assert.match(admin, /app-admin\.js\?v=[a-f0-9]{12}/);
+  assert.doesNotMatch(admin, /app-core\.js|app-viewer\.js/);
 });

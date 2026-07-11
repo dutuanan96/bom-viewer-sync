@@ -4,11 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="pdm-build" content="afb54a8af785">
-  <title>BOM Admin</title>
+  <meta name="pdm-build" content="{{BUILD_ID}}">
+  <title>{{TITLE}}</title>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=afb54a8af785">
+  {{STYLE_TAG}}
   <script>
     window.BOM_REPO_CONFIG = {
       owner: 'dutuanan96',
@@ -68,7 +68,7 @@
           </div>
         </div>
         <span class="material-symbols-outlined nav-icon" aria-hidden="true">help</span>
-        <span class="mode-badge" id="modeBadge">Admin</span>
+        <span class="mode-badge" id="modeBadge">{{MODE_LABEL}}</span>
         <div class="nav-stats">
           <div><span class="stat-val" id="statProducts">0</span> <span class="stat-label"
               data-i18n="products">Products</span></div>
@@ -82,7 +82,7 @@
       </div>
     </nav>
 
-    <section class="sync-panel admin" id="syncPanel">
+    <section class="sync-panel {{SYNC_CLASS}}" id="syncPanel">
       <div class="sync-summary">
         <div data-sync-source-row>
           <div class="sync-label" data-i18n="source">GitHub data source</div>
@@ -98,7 +98,7 @@
         </div>
         <div class="sync-status" id="syncStatus"></div>
       </div>
-      <div class="admin-config" id="adminControls">
+      <div class="admin-config" id="adminControls"{{ADMIN_HIDDEN}}>
         <label class="wide">
           <span data-i18n="token">GitHub token</span>
           <input type="password" id="githubToken" autocomplete="off">
@@ -130,9 +130,9 @@
   </div>
 
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-  <script src="data.js?v=22"></script>
+  {{DATA_SCRIPT}}
   <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
-  <script src="app-admin.js?v=afb54a8af785"></script>
+  {{APP_SCRIPT}}
 </body>
 
 </html>
