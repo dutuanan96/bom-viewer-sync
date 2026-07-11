@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import test from 'node:test';
-import vm from 'node:vm';
+import { coreUtils } from '../src/application.js';
 
 const rootDir = path.resolve(import.meta.dirname, '..');
 const outputDir = rootDir;
@@ -22,27 +22,17 @@ function readSourceTree() {
 function extractConfig(html) {
   const match = html.match(/window\.BOM_REPO_CONFIG\s*=\s*(\{[\s\S]*?\});/);
   assert.ok(match, 'expected hardcoded window.BOM_REPO_CONFIG');
-  return vm.runInNewContext(`(${match[1]})`);
+  return Function(`"use strict"; return (${match[1]});`)();
 }
 
 function loadCoreUtils() {
-  const source = fs.readFileSync(path.join(rootDir, 'src', 'legacy-core.js'), 'utf8');
-  const context = {
-    console,
-    TextEncoder,
-    TextDecoder,
-    window: { location: { search: '', hash: '' } },
-  };
-  context.window.window = context.window;
-  vm.createContext(context);
-  vm.runInContext(source, context, { filename: 'src/legacy-core.js' });
-  return context.window.BomCoreUtils;
+  return coreUtils;
 }
 
 function loadOutputPayload() {
   const dataJs = readOutput('data.js');
   const sandbox = { window: {} };
-  vm.runInNewContext(dataJs, sandbox, { filename: 'data.js' });
+  Function('window', dataJs)(sandbox.window);
   return sandbox.window.BOM_VIEWER_DATA;
 }
 
@@ -342,7 +332,7 @@ test('viewer and core include browser-native 3D model support', () => {
   const appCore = readSourceTree();
   const dataJs = readOutput('data.js');
   const sandbox = { window: {} };
-  vm.runInNewContext(dataJs, sandbox, { filename: 'data.js' });
+  Function('window', dataJs)(sandbox.window);
 
   assert.match(viewerHtml, /@google\/model-viewer/);
   assert.match(adminHtml, /@google\/model-viewer/);

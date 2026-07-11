@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "audit:data": "node scripts/audit-data.mjs",
     "build": "node scripts/build.mjs",
     "check:generated": "node scripts/check-generated.mjs",
     "test": "node --test tests/*.test.mjs"

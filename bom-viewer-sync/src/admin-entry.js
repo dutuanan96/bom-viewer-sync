@@ -1,6 +1,6 @@
-import './legacy-core.js';
+import { createApp } from './application.js';
 
-globalThis.BomApp.start({
+createApp({
   mode: 'admin',
   config: globalThis.BOM_REPO_CONFIG,
 });
