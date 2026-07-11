@@ -1,4 +1,4 @@
-# JinTai PDM System - Handover (Updated 2026-07-10)
+﻿# JinTai PDM System - Handover (Updated 2026-07-10)
 
 ## Summary
 
@@ -7,17 +7,20 @@ This is a static vanilla JavaScript PDM/BOM system for 22 JinTai LGS furniture p
 Current important state:
 - Data integrity is clean: 643 materials, 2725 BOM entries, 22 products, 0 duplicate material codes, 0 audit errors, and 0 warnings.
 - GitHub reads prefer the Contents API raw response with a cache-busting timestamp. Raw GitHub is fallback only.
-- Latest pushed runtime commit: `7b90662 fix: remove redundant bom inspector`.
+- Latest pushed runtime commit: `a584029 UI improvements: pagination, search reset, modal scroll fix`.
 - BOM rows intentionally do not open a floating inspector. The BOM table already contains the required Viewer/Admin information.
 - Material Database and parent-child structure behavior remains unchanged.
 
 ## Latest Runtime Changes
 
+- `partNumber` label in zh locale changed from `鐗╂枡缂栧彿` to `鐗╂枡缂栫爜` to avoid confusion with `缂栧彿` (componentNumber).
+- CSV export removed 鈥?only Excel export remains (button and method).
+- Admin can add new products via "鏂板浜у搧" button in the Product Catalog toolbar.
 - Material Database headers use i18n labels.
 - Parent-child structure changes call `markDirty()` and immediately show unsaved status.
 - The redundant BOM inspector is suppressed in Viewer and Admin.
 - Plain BOM row clicks no longer select a row solely to open the removed inspector.
-- Admin cache bust is `app-core.js?v=25`.
+- Admin cache bust is `app-core.js?v=26`.
 - Standalone `viewer.html` was rebuilt after the runtime change.
 
 ## Important Files
@@ -64,3 +67,4 @@ Current important state:
 - Do not assume `raw.githubusercontent.com` is fresh immediately after an Admin save.
 - The workspace root is not a Git repository; commit and push from the local clone.
 - PowerShell here does not support `&&`; run commands separately.
+

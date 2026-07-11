@@ -3101,6 +3101,7 @@ body.pdm-shell {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s ease;
+  overscroll-behavior: none;
 }
 
 .pdm-modal-overlay.open {
@@ -3153,7 +3154,8 @@ body.pdm-shell {
 .pdm-modal-body {
   padding: 16px 20px;
   flex: 1;
-  overflow: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -3231,4 +3233,183 @@ body.pdm-shell {
   .pdm-modal-list-item.selected {
     background: rgba(43, 108, 176, 0.2);
   }
+}
+
+/* PDM Form Modal */
+.pdm-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pdm-modal-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pdm-modal-form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+
+.pdm-modal-form-group input {
+  width: 100%;
+  padding: 10px 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--ink);
+  font-size: 14px;
+  transition: border-color 0.15s;
+  box-sizing: border-box;
+}
+
+.pdm-modal-form-group input:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.1);
+}
+
+.pdm-modal-form-group input.pdm-input-error {
+  border-color: #e53e3e;
+}
+
+.pdm-modal-form-error {
+  font-size: 12px;
+  color: #e53e3e;
+  margin-top: 2px;
+  min-height: 16px;
+}
+
+/* PDM Confirm Modal */
+.pdm-confirm-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  padding: 8px 0;
+}
+
+.pdm-confirm-icon {
+  font-size: 40px;
+  color: #e53e3e;
+  opacity: 0.85;
+}
+
+.pdm-confirm-message {
+  font-size: 15px;
+  color: var(--ink);
+  line-height: 1.5;
+  max-width: 360px;
+}
+
+.pdm-modal-footer .btn-danger {
+  background: #e53e3e;
+  color: #fff;
+  border-color: #e53e3e;
+}
+
+.pdm-modal-footer .btn-danger:hover {
+  background: #c53030;
+  border-color: #c53030;
+}
+
+.pdm-modal-content.pdm-modal-sm {
+  width: 420px;
+}
+
+.pdm-pagination {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--surface);
+  font-size: 13px;
+  color: var(--ink-light);
+  border-top: 1px solid var(--border);
+  border-radius: 0 0 4px 4px;
+  user-select: none;
+}
+
+.pdm-page-total {
+  margin-right: auto;
+  font-weight: 400;
+}
+
+.pdm-page-pager {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pdm-page-btn, .pdm-page-number {
+  min-width: 30px;
+  height: 28px;
+  padding: 0 4px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: #f4f4f5;
+  border: none;
+  border-radius: 2px;
+  color: #606266;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.pdm-page-btn:hover:not(:disabled), .pdm-page-number:hover:not(.active) {
+  color: var(--primary);
+}
+
+.pdm-page-number.active {
+  background: var(--primary);
+  color: #fff;
+  cursor: default;
+}
+
+.pdm-page-btn:disabled {
+  color: #c0c4cc;
+  cursor: not-allowed;
+  background: #f4f4f5;
+}
+
+.pdm-page-btn .material-symbols-outlined {
+  font-size: 16px;
+}
+
+.pdm-page-ellipsis {
+  min-width: 30px;
+  text-align: center;
+  color: #c0c4cc;
+}
+
+.pdm-page-jump {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pdm-page-jump input {
+  width: 46px;
+  height: 28px;
+  text-align: center;
+  border: 1px solid #dcdfe6;
+  border-radius: 2px;
+  color: #606266;
+  outline: none;
+  transition: border-color 0.2s;
+  font-size: 13px;
+  font-family: inherit;
+}
+
+.pdm-page-jump input:focus {
+  border-color: var(--primary);
 }

@@ -34,7 +34,7 @@
       reload: '重新加载',
       discard: '放弃更改',
       copy: '复制',
-      exportCSV: '导出 CSV',
+
       exportExcel: '导出 Excel',
       readOnly: 'Viewer 只读',
       token: 'GitHub token',
@@ -134,7 +134,7 @@
       viewAssembly: '查看装配',
       export: '导出',
       level: '层级',
-      partNumber: '物料编号',
+      partNumber: '物料编码',
       componentNumber: '编号',
       description: '名称',
       items: '项',
@@ -173,7 +173,7 @@
       reload: 'Tải lại',
       discard: 'Bỏ thay đổi',
       copy: 'Copy',
-      exportCSV: 'Xuất CSV',
+
       exportExcel: 'Xuất Excel',
       readOnly: 'Viewer chỉ được xem',
       token: 'GitHub token',
@@ -298,7 +298,24 @@
     notificationChangedItems: '已修改',
     notificationUpdatedTitle: 'PDM 数据已更新',
     notificationUpdatedBody: '检测到新的 PDM 数据版本。',
-    notificationUnread: '未读通知'
+    notificationUnread: '未读通知',
+    addProduct: '新增产品',
+    addProductPromptCode: '产品编码',
+    addProductPromptCodePlaceholder: '例: LGS999',
+    addProductPromptName: '产品名称 (中文)',
+    addProductPromptNameVi: '产品名称 (越文)',
+    addProductPromptSize: '尺寸',
+    addProductPromptSku: '默认 SKU',
+    addProductPromptSkuPlaceholder: '例: LGS999K101S',
+    addProductPromptColor: '默认颜色 (中文)',
+    addProductPromptColorVi: '默认颜色 (越文)',
+    productCodeExists: '该产品编码已存在',
+    productAdded: '产品已创建',
+    confirmBtn: '确认',
+    deleteBomRowConfirm: '删除这行 BOM？',
+    addBomRow: '添加物料',
+    bomCompCode: '部件编号',
+    bomQty: '数量'
   });
 
   Object.assign(TEXT.vi, {
@@ -310,7 +327,24 @@
     notificationChangedItems: 'Đã sửa',
     notificationUpdatedTitle: 'Dữ liệu PDM đã cập nhật',
     notificationUpdatedBody: 'Phát hiện phiên bản dữ liệu PDM mới.',
-    notificationUnread: 'Thông báo chưa đọc'
+    notificationUnread: 'Thông báo chưa đọc',
+    addProduct: 'Thêm sản phẩm',
+    addProductPromptCode: 'Mã sản phẩm',
+    addProductPromptCodePlaceholder: 'Ví dụ: LGS999',
+    addProductPromptName: 'Tên sản phẩm (tiếng Trung)',
+    addProductPromptNameVi: 'Tên sản phẩm (tiếng Việt)',
+    addProductPromptSize: 'Kích thước',
+    addProductPromptSku: 'SKU mặc định',
+    addProductPromptSkuPlaceholder: 'Ví dụ: LGS999K101S',
+    addProductPromptColor: 'Màu mặc định (tiếng Trung)',
+    addProductPromptColorVi: 'Màu mặc định (tiếng Việt)',
+    productCodeExists: 'Mã sản phẩm đã tồn tại',
+    productAdded: 'Đã tạo sản phẩm',
+    confirmBtn: 'Xác nhận',
+    deleteBomRowConfirm: 'Xóa dòng BOM này?',
+    addBomRow: 'Thêm vật liệu',
+    bomCompCode: 'Mã linh kiện',
+    bomQty: 'Số lượng'
   });
 
   const EDIT_FIELDS = ['mat_code', 'comp_code', 'name', 'spec', 'material', 'color', 'attr', 'qty'];
@@ -1435,6 +1469,7 @@
     bindSearch() {
       this.query('#searchInput').addEventListener('input', (event) => {
         this.state.searchQuery = event.target.value.trim();
+        this.state.materialDbPage = 1;
         this.query('#searchClear').classList.toggle('visible', this.state.searchQuery.length > 0);
         if (this.state.adminView !== 'bom' || !this.state.bomDetailOpen) {
           this.renderContent();
@@ -1453,6 +1488,7 @@
 
     clearSearch() {
       this.state.searchQuery = '';
+      this.state.materialDbPage = 1;
       this.query('#searchInput').value = '';
       this.query('#searchClear').classList.remove('visible');
       if (this.state.adminView !== 'bom' || !this.state.bomDetailOpen) {
@@ -1480,6 +1516,16 @@
         if (select) this.selectProduct(select.value);
       });
       this.query('#filterBar').addEventListener('click', (event) => this.handleFilterClick(event));
+      this.query('.content').addEventListener('change', (event) => {
+        const jumpInput = event.target.closest('[data-action="mdb-jump-page"]');
+        if (jumpInput) {
+          let p = parseInt(jumpInput.value, 10);
+          if (p >= 1 && p <= parseInt(jumpInput.max, 10)) {
+            this.state.materialDbPage = p;
+            this.renderContent();
+          }
+        }
+      });
       this.query('#contentHeader').addEventListener('click', (event) => this.handleHeaderClick(event));
     }
 
@@ -1599,6 +1645,7 @@
           const val = filterChip.dataset.filterVal;
           if (this.state.dbFilters[type] !== val) {
             this.state.dbFilters[type] = val;
+            this.state.materialDbPage = 1;
             this.renderContent();
           }
           return;
@@ -1645,6 +1692,7 @@
           const type = select.dataset.filterType;
           if (type) {
             this.state.dbFilters[type] = select.value;
+            this.state.materialDbPage = 1;
             this.renderContent();
           }
         }
@@ -1719,7 +1767,22 @@
       if (action === 'save' && this.isAdmin()) this.saveCloud();
       if (action === 'reload') this.loadCloud({ silent: false });
       if (action === 'discard' && this.isAdmin()) this.discard();
-      if (action === 'material-db' && this.isAdmin()) this.openMaterialDatabase();
+      if (action === 'material-db' && this.isAdmin()) { this.state.materialDbPage = 1; this.openMaterialDatabase(); }
+      if (action === 'mdb-prev-page') {
+        this.state.materialDbPage = Math.max(1, (this.state.materialDbPage || 1) - 1);
+        this.renderContent();
+      }
+      if (action === 'mdb-next-page') {
+        this.state.materialDbPage = (this.state.materialDbPage || 1) + 1;
+        this.renderContent();
+      }
+      if (action === 'mdb-go-page') {
+        const pageBtn = event.target.closest('[data-page]');
+        if (pageBtn && pageBtn.dataset.page) {
+          this.state.materialDbPage = parseInt(pageBtn.dataset.page, 10);
+          this.renderContent();
+        }
+      }
       if (action === 'bom-view' && this.isAdmin()) this.openBomView();
       if (action === 'replace-selected-bom' && this.isAdmin()) this.replaceSelectedBomRow();
       if (action === 'add-db-material' && this.isAdmin()) this.addDatabaseMaterial();
@@ -1732,8 +1795,8 @@
       if (action === 'save-material-master' && this.isAdmin()) this.saveMaterialMaster();
       if (action === 'delete-material-master' && this.isAdmin()) this.deleteSelectedMaterialMaster();
       if (action === 'copy') this.copyTable();
-      if (action === 'export') this.exportCSV();
       if (action === 'exportExcel') this.exportExcel();
+      if (action === 'add-product' && this.isAdmin()) this.addProduct();
     }
 
     addChildMaterialFromPrompt() {
@@ -1772,10 +1835,20 @@
       this.state.selectedEntryId = '';
       this.state.selectedParentId = '';
       this.state.bomDetailOpen = false;
+      this._clearSearchBar();
       this.renderProductList();
       this.renderFilterBar();
       this.renderContent();
       this.renderInspector();
+    }
+
+    _clearSearchBar() {
+      this.state.searchQuery = '';
+      this.state.materialDbPage = 1;
+      const searchInput = this.query('#searchInput');
+      if (searchInput) searchInput.value = '';
+      const searchClear = this.query('#searchClear');
+      if (searchClear) searchClear.classList.remove('visible');
     }
 
     selectProduct(sku) {
@@ -1786,6 +1859,7 @@
       this.state.selectedEntryId = '';
       this.state.adminView = 'bom';
       this.state.bomDetailOpen = true;
+      this._clearSearchBar();
       this.ensureColor();
       this.renderProductList();
       this.renderFilterBar();
@@ -2160,9 +2234,11 @@
       const existing = content.querySelectorAll('.table-container');
       if (existing) existing.forEach(el => el.remove());
       const rows = this.productCatalogRows();
+      const addProductBtn = this.isAdmin() ? `<div class="table-actions"><button class="btn btn-primary" type="button" data-action="add-product"><span class="material-symbols-outlined">add</span>${escapeHTML(this.label('addProduct'))}</button></div>` : '';
       content.insertAdjacentHTML('beforeend', `<div class="table-container product-catalog-view">
         <div class="table-toolbar">
           <div class="table-title"><span class="material-symbols-outlined">inventory_2</span><strong>${escapeHTML(this.label('productCatalogTitle'))}</strong><span class="count">${rows.length} ${escapeHTML(this.label('products'))}</span></div>
+          ${addProductBtn}
         </div>
         <table><thead><tr>
           <th>${escapeHTML(this.label('spu'))}</th>
@@ -2273,13 +2349,56 @@
       const existing = content.querySelectorAll('.table-container');
       if (existing) existing.forEach(el => el.remove());
 
-      const records = this.filteredMaterialRecords();
+      const allRecords = this.filteredMaterialRecords();
+      const pageSize = 50;
+      const totalPages = Math.max(1, Math.ceil(allRecords.length / pageSize));
+      const page = Math.max(1, Math.min(this.state.materialDbPage || 1, totalPages));
+      const records = allRecords.slice((page - 1) * pageSize, page * pageSize);
       const showActions = this.isAdmin();
+
+      const renderPageNumbers = (curr, total) => {
+        let pages = [];
+        if (total <= 7) {
+          for (let i = 1; i <= total; i++) pages.push(i);
+        } else {
+          if (curr <= 4) {
+            pages = [1, 2, 3, 4, 5, 6, '...', total];
+          } else if (curr >= total - 3) {
+            pages = [1, '...', total - 5, total - 4, total - 3, total - 2, total - 1, total];
+          } else {
+            pages = [1, '...', curr - 2, curr - 1, curr, curr + 1, curr + 2, '...', total];
+          }
+        }
+        return pages.map(p => {
+          if (p === '...') return `<span class="pdm-page-ellipsis material-symbols-outlined">more_horiz</span>`;
+          return `<button class="pdm-page-number ${p === curr ? 'active' : ''}" data-action="mdb-go-page" data-page="${p}">${p}</button>`;
+        }).join('');
+      };
+
+      const paginationHtml = totalPages > 1 ? `
+        <div class="pdm-pagination">
+          <span class="pdm-page-total">${this.state.lang === 'vi' ? 'Tổng' : '共'} ${allRecords.length} ${this.state.lang === 'vi' ? 'mục' : '条'}</span>
+          <div class="pdm-page-pager">
+            <button class="pdm-page-btn" data-action="mdb-prev-page" ${page === 1 ? 'disabled' : ''}>
+              <span class="material-symbols-outlined">chevron_left</span>
+            </button>
+            ${renderPageNumbers(page, totalPages)}
+            <button class="pdm-page-btn" data-action="mdb-next-page" ${page === totalPages ? 'disabled' : ''}>
+              <span class="material-symbols-outlined">chevron_right</span>
+            </button>
+          </div>
+          <span class="pdm-page-jump">
+            ${this.state.lang === 'vi' ? 'Đến' : '前往'}
+            <input type="number" min="1" max="${totalPages}" value="${page}" data-action="mdb-jump-page">
+            ${this.state.lang === 'vi' ? 'trang' : '页'}
+          </span>
+        </div>
+      ` : '';
 
       content.insertAdjacentHTML('beforeend', `
         ${this.materialDbFilterBar()}
         <div class="table-container material-db-view">
-        <div class="table-toolbar">${this.materialDbToolbar(records)}</div>
+        <div class="table-toolbar">${this.materialDbToolbar(allRecords)}</div>
         <table><thead><tr>
           <th class="mdb-col-code">${escapeHTML(this.label('materialCode'))}</th>
           <th class="mdb-col-name">${escapeHTML(this.label('materialName'))}</th>
@@ -2294,6 +2413,7 @@
           <th class="mdb-col-num">${escapeHTML(this.label('childMaterial'))}</th>
           ${showActions ? `<th class="mdb-col-action">${escapeHTML(this.label('operation'))}</th>` : ''}
         </tr></thead><tbody>${records.map((record) => this.materialDbRowHtml(record)).join('')}</tbody></table>
+        ${paginationHtml}
       </div>`);
     }
 
@@ -2698,16 +2818,17 @@
     }
 
     deleteParentStructure() {
-      if (!global.confirm || !global.confirm(this.label('deleteParentStructureConfirm'))) return;
-      const parentId = this.state.selectedParentId;
-      this.state.materialDb.bomEntries = (this.state.materialDb.bomEntries || []).filter(e =>
-        !(e.parentType === 'material' && e.parentId === parentId)
-      );
-      this.state.payload.materialDb.bomEntries = this.state.materialDb.bomEntries;
-      this.state.dirty = true;
-      this.state.draftBomEntries = null;
-      this.setStatus(this.label('parentStructureDeleted'), 'dirty');
-      this.backToStructureList();
+      this.openPdmConfirm(this.label('deleteParentStructureConfirm'), () => {
+        const parentId = this.state.selectedParentId;
+        this.state.materialDb.bomEntries = (this.state.materialDb.bomEntries || []).filter(e =>
+          !(e.parentType === 'material' && e.parentId === parentId)
+        );
+        this.state.payload.materialDb.bomEntries = this.state.materialDb.bomEntries;
+        this.state.dirty = true;
+        this.state.draftBomEntries = null;
+        this.setStatus(this.label('parentStructureDeleted'), 'dirty');
+        this.backToStructureList();
+      });
     }
 
     renderStructureDetail() {
@@ -3064,7 +3185,7 @@
       return `${editButton}
         ${assemblyButton}
         <button class="btn btn-outline" type="button" data-action="copy"><span class="material-symbols-outlined">content_copy</span>${escapeHTML(this.label('copy'))}</button>
-        <button class="btn btn-primary" type="button" data-action="export"><span class="material-symbols-outlined">download</span>${escapeHTML(this.label('export'))}</button>`;
+        <button class="btn btn-primary" type="button" data-action="exportExcel"><span class="material-symbols-outlined">download</span>${escapeHTML(this.label('export'))}</button>`;
     }
 
     productSpecCardHtml(product, colorData) {
@@ -3334,7 +3455,6 @@
       return `<div class="table-title"><span class="material-symbols-outlined">view_list</span><strong>${escapeHTML(this.label('billOfMaterials'))}</strong><span class="count">${rows.length} ${escapeHTML(this.label('materials'))}</span></div>
         <div class="table-actions">${adminActions}
         <button class="btn" type="button" data-action="copy">${escapeHTML(this.label('copy'))}</button>
-        <button class="btn btn-primary" type="button" data-action="export">${escapeHTML(this.label('exportCSV'))}</button>
         <button class="btn btn-primary" type="button" data-action="exportExcel">${escapeHTML(this.label('exportExcel'))}</button></div>`;
     }
 
@@ -3580,28 +3700,19 @@
       if (!material?._entryId) return;
       this.state.selectedEntryId = material._entryId;
       this.state.selectedMaterialId = material._materialId || '';
-      const query = global.prompt ? global.prompt(this.label('replaceMaterialPrompt'), '') : '';
-      if (!query) {
-        this.renderTable();
+      this.openMaterialSelector(this.label('replaceMaterialPrompt'), (record) => {
+        const entry = replaceBomEntryMaterial(this.state.payload, material._entryId, record.id);
+        if (!entry) {
+          this.setStatus(this.label('bomRowNotFound'), 'error');
+          return;
+        }
+        this.state.materialDb = this.state.payload.materialDb;
+        this.state.selectedMaterialId = record.id;
+        this.state.replaceQuery = '';
+        this.markDirty();
+        this.renderContent();
         this.renderInspector();
-        return;
-      }
-      const record = this.findMaterialRecord(query);
-      if (!record) {
-        this.setStatus(this.label('materialNotFound'), 'error');
-        return;
-      }
-      const entry = replaceBomEntryMaterial(this.state.payload, material._entryId, record.id);
-      if (!entry) {
-        this.setStatus(this.label('bomRowNotFound'), 'error');
-        return;
-      }
-      this.state.materialDb = this.state.payload.materialDb;
-      this.state.selectedMaterialId = record.id;
-      this.state.replaceQuery = '';
-      this.markDirty();
-      this.renderContent();
-      this.renderInspector();
+      });
     }
 
     selectedBomRow() {
@@ -3764,12 +3875,13 @@
         const confirmKey = collectionName === 'models3d'
           ? 'deleteModel3dConfirm'
           : 'deleteDrawingConfirm';
-        if (global.confirm && !global.confirm(this.deleteAssetConfirmText(confirmKey))) return;
-        updateMaterialRecord(this.state.payload, material._materialId, { [assetField]: [] });
-        this.state.materialDb = this.state.payload.materialDb;
-        this.markDirty();
-        this.renderTable();
-        this.renderInspector();
+        this.openPdmConfirm(this.deleteAssetConfirmText(confirmKey), () => {
+          updateMaterialRecord(this.state.payload, material._materialId, { [assetField]: [] });
+          this.state.materialDb = this.state.payload.materialDb;
+          this.markDirty();
+          this.renderTable();
+          this.renderInspector();
+        });
         return;
       }
       const skuAssets = collection[this.state.currentSku] || {};
@@ -3778,25 +3890,27 @@
       const confirmKey = collectionName === 'models3d'
         ? 'deleteModel3dConfirm'
         : 'deleteDrawingConfirm';
-      if (global.confirm && !global.confirm(this.deleteAssetConfirmText(confirmKey))) return;
-      delete skuAssets[entry.key];
-      collection[this.state.currentSku] = skuAssets;
-      this.markDirty();
-      this.renderTable();
-      this.renderInspector();
+      this.openPdmConfirm(this.deleteAssetConfirmText(confirmKey), () => {
+        delete skuAssets[entry.key];
+        collection[this.state.currentSku] = skuAssets;
+        this.markDirty();
+        this.renderTable();
+        this.renderInspector();
+      });
     }
 
     deleteBomRow(index) {
       if (!this.isAdmin()) return;
       const material = this.state.lastRows[index];
       if (!material?._entryId) return;
-      if (global.confirm && !global.confirm(this.state.lang === 'vi' ? 'Xoa dong BOM nay?' : '\u5220\u9664\u8fd9\u884c BOM\uff1f')) return;
-      this.state.materialDb.bomEntries = this.state.materialDb.bomEntries.filter((entry) => entry.id !== material._entryId);
-      this.state.payload.materialDb = this.state.materialDb;
-      if (this.state.selectedEntryId === material._entryId) this.state.selectedEntryId = '';
-      this.markDirty();
-      this.renderTable();
-      this.renderInspector();
+      this.openPdmConfirm(this.label('deleteBomRowConfirm'), () => {
+        this.state.materialDb.bomEntries = this.state.materialDb.bomEntries.filter((entry) => entry.id !== material._entryId);
+        this.state.payload.materialDb = this.state.materialDb;
+        if (this.state.selectedEntryId === material._entryId) this.state.selectedEntryId = '';
+        this.markDirty();
+        this.renderTable();
+        this.renderInspector();
+      });
     }
 
     findMaterialRecord(query) {
@@ -3817,36 +3931,80 @@
         null;
     }
 
+    addProduct() {
+      if (!this.isAdmin()) return;
+      this.openPdmPrompt(this.label('addProduct'), [
+        { key: 'code', label: this.label('addProductPromptCode'), placeholder: this.label('addProductPromptCodePlaceholder'), required: true },
+        { key: 'name', label: this.label('addProductPromptName'), required: true },
+        { key: 'name_vi', label: this.label('addProductPromptNameVi') },
+        { key: 'size', label: this.label('addProductPromptSize') },
+        { key: 'sku', label: this.label('addProductPromptSku'), placeholder: this.label('addProductPromptSkuPlaceholder'), required: true },
+        { key: 'color', label: this.label('addProductPromptColor'), defaultValue: '\u9ed8\u8ba4' },
+        { key: 'color_vi', label: this.label('addProductPromptColorVi') }
+      ], (values) => {
+        const code = values.code.trim().toUpperCase();
+        if (!code) return;
+        if (this.state.bom[code]) {
+          this.setStatus(this.label('productCodeExists'), 'error');
+          return;
+        }
+        const nameZh = values.name.trim();
+        if (!nameZh) return;
+        const colorName = (values.color || '\u9ed8\u8ba4').trim();
+        const sku = (values.sku || '').trim().toUpperCase();
+        if (!sku) return;
+        const product = {
+          code,
+          colors: [colorName],
+          color_info: {
+            [colorName]: {
+              sku,
+              name: nameZh,
+              name_zh: nameZh,
+              name_vi: (values.name_vi || '').trim(),
+              size: (values.size || '').trim(),
+              color_ver: colorName,
+              color_ver_vi: (values.color_vi || '').trim(),
+              materials: []
+            }
+          }
+        };
+        this.state.bom[code] = product;
+        this.state.payload.bom[code] = product;
+        this.markDirty();
+        this.selectProduct(code);
+        this.setStatus(this.label('productAdded'), 'saved');
+      });
+    }
+
     addBomRowFromPrompt() {
-      if (!this.isAdmin() || !global.prompt) return;
-      const query = global.prompt(this.state.lang === 'vi' ? 'Nhap ma vat lieu hoac materialId' : '\u8f93\u5165\u7269\u6599\u7f16\u7801\u6216 materialId', '');
-      if (!query) return;
-      const record = this.findMaterialRecord(query);
-      if (!record) {
-        this.setStatus(this.label('materialNotFound'), 'error');
-        return;
-      }
-      const rows = this.bomRows();
-      const compCode = global.prompt(this.state.lang === 'vi' ? 'Ma linh kien' : '\u90e8\u4ef6\u7f16\u53f7', '') || '';
-      const qty = global.prompt(this.state.lang === 'vi' ? 'So luong' : '\u6570\u91cf', '1') || '1';
-      const entry = {
-        id: stableId('bom', `${this.state.currentSku}|${this.state.currentColor}|${Date.now()}|${record.id}`),
-        parentType: 'product',
-        parentId: this.state.currentSku,
-        productCode: this.state.currentSku,
-        color: this.state.currentColor,
-        materialId: record.id,
-        stt: String(rows.length + 1),
-        comp_code: compCode,
-        qty,
-        color_ver: this.state.currentColor,
-        color_ver_vi: this.state.currentColor,
-        order: rows.length
-      };
-      this.state.materialDb.bomEntries.push(entry);
-      this.state.payload.materialDb = this.state.materialDb;
-      this.markDirty();
-      this.renderContent();
+      if (!this.isAdmin()) return;
+      this.openMaterialSelector(this.label('addBomRow'), (record) => {
+        this.openPdmPrompt(this.label('addBomRow'), [
+          { key: 'comp_code', label: this.label('bomCompCode') },
+          { key: 'qty', label: this.label('bomQty'), defaultValue: '1', required: true }
+        ], (values) => {
+          const rows = this.bomRows();
+          const entry = {
+            id: stableId('bom', `${this.state.currentSku}|${this.state.currentColor}|${Date.now()}|${record.id}`),
+            parentType: 'product',
+            parentId: this.state.currentSku,
+            productCode: this.state.currentSku,
+            color: this.state.currentColor,
+            materialId: record.id,
+            stt: String(rows.length + 1),
+            comp_code: values.comp_code || '',
+            qty: values.qty || '1',
+            color_ver: this.state.currentColor,
+            color_ver_vi: this.state.currentColor,
+            order: rows.length
+          };
+          this.state.materialDb.bomEntries.push(entry);
+          this.state.payload.materialDb = this.state.materialDb;
+          this.markDirty();
+          this.renderContent();
+        });
+      });
     }
 
     addDatabaseMaterial() {
@@ -3890,7 +4048,13 @@
         this.setStatus(`${this.label('materialDeleteBlocked')}: ${usedCount}`, 'error');
         return;
       }
-      if (global.confirm && !global.confirm(this.label('deleteMaterialConfirm'))) return;
+      this.openPdmConfirm(this.label('deleteMaterialConfirm'), () => {
+        this._doDeleteMaterial(materialId);
+      });
+      return;
+    }
+
+    _doDeleteMaterial(materialId) {
       delete this.state.materialDb.materials[materialId];
       this.state.payload.materialDb = this.state.materialDb;
       if (this.state.selectedMaterialId === materialId) this.state.selectedMaterialId = '';
@@ -3952,11 +4116,12 @@
     }
 
     discard() {
-      if (global.confirm && !global.confirm(this.label('discardConfirm'))) return;
-      this.applyPayload(this.state.loadedPayload);
-      this.state.editMode = false;
-      this.state.dirty = false;
-      this.renderAll();
+      this.openPdmConfirm(this.label('discardConfirm'), () => {
+        this.applyPayload(this.state.loadedPayload);
+        this.state.editMode = false;
+        this.state.dirty = false;
+        this.renderAll();
+      });
     }
 
     async fetchCloudPayload() {
@@ -4262,6 +4427,116 @@
       this.query('#pdfModal').classList.remove('open');
     }
 
+    openPdmPrompt(title, fields, onConfirm) {
+      let overlay = this.query('#pdmPromptOverlay');
+      if (overlay) overlay.remove();
+
+      const fieldsHtml = fields.map(f => `
+        <div class="pdm-modal-form-group">
+          <label>${escapeHTML(f.label)}${f.required ? ' *' : ''}</label>
+          <input type="text" data-field-key="${escapeHTML(f.key)}" placeholder="${escapeHTML(f.placeholder || '')}" value="${escapeHTML(f.defaultValue || '')}">
+          <div class="pdm-modal-form-error" data-error-for="${escapeHTML(f.key)}"></div>
+        </div>
+      `).join('');
+
+      const html = `<div id="pdmPromptOverlay" class="pdm-modal-overlay">
+        <div class="pdm-modal-content pdm-modal-sm">
+          <div class="pdm-modal-header">
+            <h2>${escapeHTML(title)}</h2>
+            <button class="pdm-modal-close" data-pdm-prompt-close>&times;</button>
+          </div>
+          <div class="pdm-modal-body">
+            <div class="pdm-modal-form">${fieldsHtml}</div>
+          </div>
+          <div class="pdm-modal-footer">
+            <button class="btn" data-pdm-prompt-close>${escapeHTML(this.label('cancelBtn'))}</button>
+            <button class="btn btn-primary" data-pdm-prompt-confirm>${escapeHTML(this.label('confirmBtn'))}</button>
+          </div>
+        </div>
+      </div>`;
+
+      document.body.insertAdjacentHTML('beforeend', html);
+      overlay = this.query('#pdmPromptOverlay');
+
+      const closeModal = () => {
+        overlay.classList.remove('open');
+        setTimeout(() => overlay.remove(), 200);
+      };
+
+      overlay.querySelectorAll('[data-pdm-prompt-close]').forEach(btn => btn.addEventListener('click', closeModal));
+      overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+
+      overlay.querySelector('[data-pdm-prompt-confirm]').addEventListener('click', () => {
+        const values = {};
+        let hasError = false;
+        fields.forEach(f => {
+          const input = overlay.querySelector(`[data-field-key="${f.key}"]`);
+          const errEl = overlay.querySelector(`[data-error-for="${f.key}"]`);
+          const val = input ? input.value.trim() : '';
+          values[f.key] = val;
+          if (f.required && !val) {
+            if (input) input.classList.add('pdm-input-error');
+            if (errEl) errEl.textContent = this.state.lang === 'vi' ? 'Bắt buộc' : '必填';
+            hasError = true;
+          } else {
+            if (input) input.classList.remove('pdm-input-error');
+            if (errEl) errEl.textContent = '';
+          }
+        });
+        if (hasError) return;
+        closeModal();
+        onConfirm(values);
+      });
+
+      requestAnimationFrame(() => {
+        overlay.classList.add('open');
+        const firstInput = overlay.querySelector('.pdm-modal-form-group input');
+        if (firstInput) firstInput.focus();
+      });
+    }
+
+    openPdmConfirm(message, onConfirm) {
+      let overlay = this.query('#pdmConfirmOverlay');
+      if (overlay) overlay.remove();
+
+      const html = `<div id="pdmConfirmOverlay" class="pdm-modal-overlay">
+        <div class="pdm-modal-content pdm-modal-sm">
+          <div class="pdm-modal-header">
+            <h2>${escapeHTML(this.label('confirmBtn'))}</h2>
+            <button class="pdm-modal-close" data-pdm-confirm-close>&times;</button>
+          </div>
+          <div class="pdm-modal-body">
+            <div class="pdm-confirm-body">
+              <span class="material-symbols-outlined pdm-confirm-icon">warning</span>
+              <div class="pdm-confirm-message">${escapeHTML(message)}</div>
+            </div>
+          </div>
+          <div class="pdm-modal-footer">
+            <button class="btn" data-pdm-confirm-close>${escapeHTML(this.label('cancelBtn'))}</button>
+            <button class="btn btn-danger" data-pdm-confirm-ok>${escapeHTML(this.label('confirmBtn'))}</button>
+          </div>
+        </div>
+      </div>`;
+
+      document.body.insertAdjacentHTML('beforeend', html);
+      overlay = this.query('#pdmConfirmOverlay');
+
+      const closeModal = () => {
+        overlay.classList.remove('open');
+        setTimeout(() => overlay.remove(), 200);
+      };
+
+      overlay.querySelectorAll('[data-pdm-confirm-close]').forEach(btn => btn.addEventListener('click', closeModal));
+      overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+
+      overlay.querySelector('[data-pdm-confirm-ok]').addEventListener('click', () => {
+        closeModal();
+        onConfirm();
+      });
+
+      requestAnimationFrame(() => overlay.classList.add('open'));
+    }
+
     openMaterialSelector(title, onSelect) {
       let modalOverlay = this.query('#materialSelectorOverlay');
       if (modalOverlay) modalOverlay.remove();
@@ -4362,16 +4637,6 @@
       }
     }
 
-    exportCSV() {
-      const csv = `\uFEFF${this.rowsForExport().map((row) => row.map(this.escapeCSV).join(',')).join('\n')}`;
-      const url = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8;' }));
-      const link = global.document.createElement('a');
-      link.href = url;
-      link.download = `BOM_${this.state.currentSku}_${this.state.currentColor}_${this.state.lang}.csv`;
-      link.click();
-      URL.revokeObjectURL(url);
-    }
-
     exportExcel() {
       if (!global.XLSX) { this.setStatus('SheetJS not loaded', 'error'); return; }
       let rows, filename;
@@ -4407,10 +4672,7 @@
       this.setStatus(this.label('exportExcel') + ' ✓', 'saved');
     }
 
-    escapeCSV(value) {
-      const textValue = String(value ?? '');
-      return /[",\n]/.test(textValue) ? `"${textValue.replace(/"/g, '""')}"` : textValue;
-    }
+
   }
 
   global.BomApp = { createApp, start: createApp };

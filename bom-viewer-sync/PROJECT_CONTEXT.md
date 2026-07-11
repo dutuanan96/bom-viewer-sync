@@ -1,4 +1,4 @@
-# BOM Viewer / PDM Context - Updated 2026-07-10
+﻿# BOM Viewer / PDM Context - Updated 2026-07-10
 
 ## Current Goal
 
@@ -21,7 +21,8 @@ Static JinTai BOM/PDM system for 22 LGS furniture products:
 Use the latest GitHub `main` together with verified files under `outputs\`.
 
 Latest relevant commits:
-- `7b90662 fix: remove redundant bom inspector`
+- `a584029 UI improvements: pagination, search reset, modal scroll fix
+- 7b90662 fix: remove redundant bom inspector`
 - `ed585e7 fix: improve pdm viewer and admin interactions`
 - `a400200 docs: update handover and project context with data audit results`
 
@@ -52,7 +53,7 @@ Rules:
 - Use `Accept: application/vnd.github.raw` for public reads.
 - Keep raw GitHub as fallback only.
 - Admin writes through Contents API JSON and uses the current remote SHA.
-- Current Admin versions: `data.js?v=22`, `app-core.js?v=25`, `app-admin.js?v=21`.
+- Current Admin versions: `data.js?v=22`, `app-core.js?v=26`, `app-admin.js?v=21`.
 - If old behavior appears, close/reopen Admin or use Ctrl+F5.
 
 ## Notification Flow
@@ -81,3 +82,4 @@ Rules:
 - Notification diffs do not yet cover arbitrary product/color metadata.
 - `data.js` is large and should be changed through application/helper logic, not manual string edits.
 - Browser export success has not been verified as a physical downloaded file in the latest run.
+
