@@ -351,7 +351,7 @@ test('parent-child structure parent list extracts localized fields and prevents 
 
   assert.doesNotMatch(appCore, /materialText\(parent,\s*'spec'/);
   assert.doesNotMatch(appCore, /materialText\(parent,\s*'attr'/);
-  
+
   assert.match(appCore, /localizedValue\(parent\.spec,\s*this\.state\.lang\)/);
   assert.match(appCore, /localizedValue\(parent\.material,\s*this\.state\.lang\)/);
   assert.match(appCore, /localizedValue\(parent\.color,\s*this\.state\.lang\)/);
@@ -361,4 +361,3 @@ test('parent-child structure parent list extracts localized fields and prevents 
   assert.match(appCore, /if\s*\(\s*attrVal\s*\)\s*\{/);
   assert.match(appCore, /<td><span class="mdb-empty">-<\/span><\/td>/);
 });
-

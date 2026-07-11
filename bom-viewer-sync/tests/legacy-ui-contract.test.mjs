@@ -131,4 +131,3 @@ test('Parent-child structure detail edits update dirty status immediately', () =
   assert.match(renderStructureDetail, /this\.markDirty\(\)/);
   assert.doesNotMatch(renderStructureDetail, /this\.state\.dirty = true;\s*this\.renderContent\(\)/);
 });
-
