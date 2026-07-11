@@ -1,12 +1,10 @@
 import { isRenderableProductEntry } from './bom.js';
 import { materialChildEntries } from './relationships.js';
+import { assetKey, colorNeutralCode, findBomAssetEntry, findBomAssets } from '../infrastructure/assets.js';
+import { normalizeText, stableId } from '../shared/primitives.js';
 
 function clone(value) {
   return JSON.parse(JSON.stringify(value || {}));
-}
-
-function normalizeText(value) {
-  return String(value || '').toLowerCase().normalize('NFKD');
 }
 
 function escapeRegExp(value) {
@@ -423,86 +421,6 @@ function filterMaterials({ materials, attr, query, sortCol, sortAsc, lang, attrO
     })
     .filter((material) => materialSearchMatch(material, normalizedQuery));
   return sortMaterials(filtered, { sortCol, sortAsc, lang, attrOrder: attrOrder || {} });
-}
-
-function assetKey(value) {
-  return normalizeText(value)
-    .replace(/\.(pdf|glb|gltf)$/i, '')
-    .replace(/[\s\-_()（）[\]【】{}+&.]/g, '')
-    .replace(/组件/g, '');
-}
-
-function colorNeutralCode(value) {
-  const key = assetKey(value);
-  return key.replace(/(bh|wh|kd|bz|cz|ys|gy|bk)$/i, '');
-}
-
-function assetParts(key) {
-  const [code = '', name = ''] = String(key || '').split('|');
-  return {
-    code,
-    name,
-    neutralCode: colorNeutralCode(code)
-  };
-}
-
-function materialAssetParts(material) {
-  const code = assetKey(material?.mat_code || '');
-  const name = assetKey(material?.name_zh || material?.name_vi || '');
-  const comp = assetKey(material?.comp_code || '');
-  return {
-    directKey: code && name ? `${code}|${name}` : '',
-    code,
-    neutralCode: colorNeutralCode(code),
-    name,
-    comp
-  };
-}
-
-function findBomAssetEntry(assetMap, material) {
-  const source = assetMap || {};
-  const materialParts = materialAssetParts(material || {});
-  if (materialParts.directKey && source[materialParts.directKey]) {
-    return { key: materialParts.directKey, assets: source[materialParts.directKey] };
-  }
-
-  const entries = Object.entries(source);
-  const matchers = [
-    ([key]) => {
-      const parts = assetParts(key);
-      return materialParts.name && materialParts.code &&
-        parts.name === materialParts.name && parts.code === materialParts.code;
-    },
-    ([key]) => {
-      const parts = assetParts(key);
-      return materialParts.name && materialParts.neutralCode &&
-        parts.name === materialParts.name && parts.neutralCode === materialParts.neutralCode;
-    },
-    ([key]) => {
-      const parts = assetParts(key);
-      return materialParts.code && parts.code === materialParts.code;
-    }
-  ];
-
-  for (const matcher of matchers) {
-    const found = entries.find(matcher);
-    if (found) return { key: found[0], assets: found[1] };
-  }
-  return null;
-}
-
-function findBomAssets(assetMap, material) {
-  return findBomAssetEntry(assetMap, material)?.assets || [];
-}
-
-function stableId(prefix, value) {
-  const textValue = String(value || '');
-  let hash = 2166136261;
-  for (let index = 0; index < textValue.length; index += 1) {
-    hash ^= textValue.charCodeAt(index);
-    hash = Math.imul(hash, 16777619);
-  }
-  return `${prefix}_${(hash >>> 0).toString(36)}`;
 }
 
 export {
