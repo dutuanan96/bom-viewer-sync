@@ -13,10 +13,10 @@ import {
   replaceBomEntryMaterial,
   sortMaterials,
   stripProductColorName,
-  syncLegacyBomFromMaterialDb,
   updateMaterialRecord,
 } from './domain/materials.js';
 import { assetDisplayUrl, pdfFrameUrl } from './infrastructure/assets.js';
+import { stableId } from './shared/primitives.js';
 import {
   appendNotificationEvent as appendNormalizedNotificationEvent,
   describePayloadChanges as describeNormalizedPayloadChanges,
@@ -29,6 +29,7 @@ import {
   groupMaterialChildRows,
   hasChildMaterialRelation,
   scopeLabel,
+  syncLegacyBomFromMaterialDb,
 } from './domain/relationships.js';
 
   'use strict';

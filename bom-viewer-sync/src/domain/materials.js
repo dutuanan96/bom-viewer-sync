@@ -1,5 +1,3 @@
-import { isRenderableProductEntry } from './bom.js';
-import { materialChildEntries } from './relationships.js';
 import { assetKey, colorNeutralCode, findBomAssetEntry, findBomAssets } from '../infrastructure/assets.js';
 import { normalizeText, stableId } from '../shared/primitives.js';
 
@@ -319,37 +317,6 @@ function updateMaterialRecord(payload, materialId, patch) {
   return record;
 }
 
-function syncLegacyBomFromMaterialDb(payload) {
-  if (!payload?.materialDb?.materials || !payload?.materialDb?.bomEntries) return payload;
-
-  function buildNode(entry, productCode, colorName) {
-    const record = payload.materialDb.materials[entry.materialId];
-    if (!record) return null;
-    const row = legacyRowFromRecord(record, entry);
-    const copy = clone(row);
-    delete copy._materialId;
-    delete copy._entryId;
-    delete copy._materialRecord;
-
-    const childrenEntries = materialChildEntries(payload, entry.materialId, productCode, colorName);
-    if (childrenEntries.length > 0) {
-      copy.materials = childrenEntries.map(child => buildNode(child, productCode, colorName)).filter(Boolean);
-    }
-    return copy;
-  }
-
-  Object.entries(payload.bom || {}).forEach(([productCode, product]) => {
-    Object.entries(product.color_info || {}).forEach(([colorName, colorData]) => {
-      const topEntries = payload.materialDb.bomEntries
-        .filter((entry) => isRenderableProductEntry(payload, entry, productCode, colorName))
-        .sort((left, right) => (left.order ?? 0) - (right.order ?? 0));
-
-      colorData.materials = topEntries.map(entry => buildNode(entry, productCode, colorName)).filter(Boolean);
-    });
-  });
-  return payload;
-}
-
 function parseQty(value) {
   const textValue = String(value || '');
   if (!textValue) return 0;
@@ -433,7 +400,6 @@ export {
   materialWhereUsed,
   replaceBomEntryMaterial,
   updateMaterialRecord,
-  syncLegacyBomFromMaterialDb,
   filterMaterials,
   sortMaterials,
   stripProductColorName,

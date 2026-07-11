@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { assetDisplayUrl, driveFileId, findBomAssets, pdfFrameUrl } from '../src/infrastructure/assets.js';
 import { appendNotificationEvent, describePayloadChanges } from '../src/features/notifications.js';
-import { coreUtils } from '../src/application.js';
+import { BomApplication, coreUtils } from '../src/application.js';
 
 const { normalizePayload } = coreUtils;
 
@@ -34,4 +34,49 @@ test('material diffs become persistent GitHub-save notifications', () => {
   });
   assert.deepEqual(changes.map(({ code, field }) => ({ code, field })), [{ code: 'M1', field: 'name' }]);
   assert.equal(updated.notifications[0].id, 'notification-1');
+});
+
+test('Admin creation flows assign stable IDs and create their records', () => {
+  const app = Object.create(BomApplication.prototype);
+  const materialDb = {
+    materials: {
+      parent: { id: 'parent', code: 'PARENT', name: { zh: 'Parent' } },
+      child: { id: 'child', code: 'CHILD', name: { zh: 'Child' } },
+    },
+    bomEntries: [],
+  };
+  app.mode = 'admin';
+  app.state = {
+    lang: 'zh',
+    selectedParentId: 'parent',
+    currentSku: 'P1',
+    currentColor: 'black',
+    materialDb,
+    payload: { bom: {}, materialDb },
+    adminView: 'bom',
+    selectedMaterialId: '',
+  };
+  app.openMaterialSelector = (_title, select) => select(materialDb.materials.child);
+  app.openPdmPrompt = (_title, _fields, submit) => submit({ comp_code: 'COMP-1', qty: '2' });
+  app.markDirty = () => {};
+  app.renderStructureDetail = () => {};
+  app.renderProductList = () => {};
+  app.renderFilterBar = () => {};
+  app.renderContent = () => {};
+  app.renderInspector = () => {};
+
+  app.addChildMaterialFromPrompt();
+  const childEntry = materialDb.bomEntries.find((entry) => entry.parentType === 'material');
+  assert.match(childEntry.id, /^bomc_/);
+  assert.equal(childEntry.childMaterialId, 'child');
+
+  app.addBomRowFromPrompt();
+  const productEntry = materialDb.bomEntries.find((entry) => entry.parentType === 'product');
+  assert.match(productEntry.id, /^bom_/);
+  assert.equal(productEntry.materialId, 'child');
+  assert.equal(productEntry.comp_code, 'COMP-1');
+
+  app.addDatabaseMaterial();
+  assert.match(app.state.materialDraft.id, /^mat_/);
+  assert.equal(app.state.selectedMaterialId, app.state.materialDraft.id);
 });

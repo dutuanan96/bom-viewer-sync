@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 import test from 'node:test';
 import { buildBomTreeRows } from '../src/domain/relationships.js';
 import { materialWhereUsed, updateMaterialRecord } from '../src/domain/materials.js';
@@ -85,4 +86,9 @@ test('BOM navigation normalizes legacy payloads at the domain seam', () => {
     Object.fromEntries(legacyNavigation.map(({ id, count }) => [id, count])),
     { bom: 1, materials: 1, structure: 0 },
   );
+});
+
+test('materials domain does not import BOM or relationship modules', () => {
+  const source = readFileSync(new URL('../src/domain/materials.js', import.meta.url), 'utf8');
+  assert.doesNotMatch(source, /from\s+['"]\.\/(?:bom|relationships)\.js['"]/);
 });
