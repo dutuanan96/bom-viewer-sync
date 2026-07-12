@@ -25,6 +25,17 @@ test('BOM view keeps the redundant inspector hidden', () => {
   assert.doesNotMatch(source, /bomInspectorHtml\(\)/);
 });
 
+test('structure detail delegates mutation controls to BomApplication', () => {
+  const source = String(structureViewMethods.renderStructureDetail);
+
+  assert.equal(typeof BomApplication.prototype.bindStructureDetailControls, 'function');
+  assert.match(source, /this\.bindStructureDetailControls\(content\)/);
+  assert.doesNotMatch(source, /addEventListener/);
+  assert.doesNotMatch(source, /bomEntries\s*(?:=|\.push|\.filter)/);
+  assert.doesNotMatch(source, /payload\.materialDb/);
+  assert.doesNotMatch(source, /markDirty\(\)/);
+});
+
 test('BomApplication installs each uniquely owned view method', () => {
   const collections = [
     sharedViewMethods,

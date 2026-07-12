@@ -201,45 +201,7 @@ function renderStructureDetail() {
       ${actionHeader}
     </tr></thead><tbody>${rowsHtml}</tbody></table>
   </div>`);
-
-  // Back button click
-  const backBtn = this.query('[data-action-back-structure]');
-  if (backBtn) backBtn.addEventListener('click', () => this.backToStructureList());
-
-  if (this.isAdmin()) {
-    // Edit qty input (grouped)
-    content.querySelectorAll('input[data-structure-edit-group]').forEach((input) => {
-      input.addEventListener('change', (e) => {
-        const childId = e.target.dataset.structureEditGroup;
-        const originalQty = e.target.dataset.originalQty;
-        const newQty = e.target.value;
-
-        const matchingEntries = this.state.materialDb.bomEntries.filter(ent =>
-          ent.parentType === 'material' &&
-          ent.parentId === this.state.selectedParentId &&
-          (ent.childMaterialId || ent.materialId) === childId &&
-          (ent.qty || '') === originalQty
-        );
-
-        if (matchingEntries.length > 0) {
-          matchingEntries.forEach(ent => ent.qty = newQty);
-          this.markDirty();
-          this.renderContent();
-        }
-      });
-    });
-
-    // Delete child entry
-    content.querySelectorAll('[data-delete-child-entry]').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const entryId = btn.dataset.deleteChildEntry;
-        this.state.materialDb.bomEntries = this.state.materialDb.bomEntries.filter((e) => e.id !== entryId);
-        this.state.payload.materialDb = this.state.materialDb;
-        this.markDirty();
-        this.renderContent();
-      });
-    });
-  }
+  this.bindStructureDetailControls(content);
 }
 
 function structureToolbar(count, label, options = {}) {
