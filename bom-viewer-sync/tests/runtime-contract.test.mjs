@@ -322,7 +322,7 @@ test('admin save and viewer UI include a PDM notification center', () => {
   assert.match(appCore, /notificationBadge/);
   assert.match(appCore, /NOTIFICATION_REFRESH_MS/);
   assert.match(appCore, /application\/vnd\.github\.raw/);
-  assert.match(appCore, /fetchGithubFile/);
+  assert.match(appCore, /createGithubDataAdapter/);
   assert.match(appCore, /describePayloadChanges\(remoteFile\.payload/);
 });
 

@@ -7,7 +7,6 @@ import {
   localizedValue,
   materialText,
   materialWhereUsed,
-  normalizeMaterialDatabase,
   normalizeText,
   queryMatches,
   replaceBomEntryMaterial,
@@ -16,11 +15,19 @@ import {
   updateMaterialRecord,
 } from './domain/materials.js';
 import { assetDisplayUrl, pdfFrameUrl } from './infrastructure/assets.js';
+import {
+  buildGithubUpdateRequest,
+  createGithubDataAdapter,
+  normalizeConfig,
+  normalizePayload,
+  parseDataJsPayload,
+  rawUrl,
+  serializeDataJs,
+} from './infrastructure/github-data.js';
 import { stableId } from './shared/primitives.js';
 import {
   appendNotificationEvent as appendNormalizedNotificationEvent,
   describePayloadChanges as describeNormalizedPayloadChanges,
-  normalizeNotifications,
 } from './features/notifications.js';
 import { createPdmNavigation, createSidebarIndex, resolveBomRows } from './domain/bom.js';
 import {
@@ -447,85 +454,6 @@ const global = globalThis;
 
 
 
-  function normalizeConfig(config) {
-    const source = config || {};
-    return {
-      owner: String(source.owner || ''),
-      repo: String(source.repo || ''),
-      branch: String(source.branch || 'main'),
-      path: String(source.path || 'data.js'),
-      rawUrl: String(source.rawUrl || '')
-    };
-  }
-
-  function apiPath(pathValue) {
-    return String(pathValue || 'data.js').split('/').map(encodeURIComponent).join('/');
-  }
-
-  function rawUrl(config) {
-    const clean = normalizeConfig(config);
-    if (clean.rawUrl) return clean.rawUrl;
-    if (!clean.owner || !clean.repo || !clean.branch || !clean.path) return '';
-    return `https://raw.githubusercontent.com/${clean.owner}/${clean.repo}/${clean.branch}/${clean.path}`;
-  }
-
-  function contentsUrl(config) {
-    const clean = normalizeConfig(config);
-    return `https://api.github.com/repos/${encodeURIComponent(clean.owner)}/${encodeURIComponent(clean.repo)}/contents/${apiPath(clean.path)}`;
-  }
-
-  function rawContentsUrl(config) {
-    const clean = normalizeConfig(config);
-    if (!clean.owner || !clean.repo || !clean.branch || !clean.path) return '';
-    return `${contentsUrl(clean)}?ref=${encodeURIComponent(clean.branch)}`;
-  }
-
-  function encodeBase64Utf8(value) {
-    const bytes = new TextEncoder().encode(String(value));
-    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
-    let output = '';
-    for (let index = 0; index < bytes.length; index += 3) {
-      const first = bytes[index];
-      const second = bytes[index + 1];
-      const third = bytes[index + 2];
-      output += alphabet[first >> 2];
-      output += alphabet[((first & 3) << 4) | ((second || 0) >> 4)];
-      output += index + 1 < bytes.length ? alphabet[((second & 15) << 2) | ((third || 0) >> 6)] : '=';
-      output += index + 2 < bytes.length ? alphabet[third & 63] : '=';
-    }
-    return output;
-  }
-
-  function decodeBase64Utf8(value) {
-    const clean = String(value || '').replace(/\s/g, '');
-    if (!clean) return '';
-    if (typeof global.atob === 'function') {
-      const binary = global.atob(clean);
-      const bytes = new Uint8Array(binary.length);
-      for (let index = 0; index < binary.length; index += 1) bytes[index] = binary.charCodeAt(index);
-      return new TextDecoder().decode(bytes);
-    }
-    if (typeof Buffer !== 'undefined') return Buffer.from(clean, 'base64').toString('utf8');
-    throw new Error('Base64 decoder unavailable');
-  }
-
-  function normalizePayload(payload) {
-    const source = payload || {};
-    const fallbackProductImages = global.BOM_VIEWER_DATA?.productImages || global.PRODUCT_IMAGE_INDEX || {};
-    const normalized = {
-      version: source.version != null ? source.version : 2,
-      updatedAt: String(source.updatedAt || ''),
-      bom: clone(source.bom),
-      drawings: clone(source.drawings),
-      manuals: clone(source.manuals),
-      models3d: clone(source.models3d),
-      productImages: clone({ ...fallbackProductImages, ...(source.productImages || {}) }),
-      notifications: normalizeNotifications(source.notifications)
-    };
-    normalized.materialDb = normalizeMaterialDatabase({ ...source, ...normalized });
-    return normalized;
-  }
-
   function currentPayloadFromWindow() {
     if (global.BOM_VIEWER_DATA && global.BOM_VIEWER_DATA.bom) {
       return normalizePayload(global.BOM_VIEWER_DATA);
@@ -537,45 +465,6 @@ const global = globalThis;
       models3d: global.MODEL3D_INDEX || {},
       productImages: global.PRODUCT_IMAGE_INDEX || {}
     });
-  }
-
-  function serializeDataJs(payload) {
-    return [
-      '/* BOM cloud data. Update only through admin.html. */',
-      `window.BOM_VIEWER_DATA = ${JSON.stringify(normalizePayload(payload), null, 2)};`,
-      ''
-    ].join('\n');
-  }
-
-  function parseDataJsPayload(source) {
-    const sandbox = {};
-    const runner = new Function('window', `${source}\nreturn window.BOM_VIEWER_DATA;`);
-    const payload = runner(sandbox);
-    if (!payload || !payload.bom) throw new Error('Invalid data.js payload');
-    return normalizePayload(payload);
-  }
-
-  function buildGithubUpdateRequest({ config, token, sha, source, message }) {
-    const clean = normalizeConfig(config);
-    const body = {
-      message: message || 'chore: update bom data',
-      content: encodeBase64Utf8(source),
-      branch: clean.branch
-    };
-    if (sha) body.sha = sha;
-    return {
-      url: contentsUrl(clean),
-      options: {
-        method: 'PUT',
-        headers: {
-          Accept: 'application/vnd.github+json',
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json',
-          'X-GitHub-Api-Version': '2022-11-28'
-        },
-        body: JSON.stringify(body)
-      }
-    };
   }
 
 
@@ -595,6 +484,7 @@ const global = globalThis;
     constructor(options) {
       this.mode = options.mode === 'admin' ? 'admin' : 'viewer';
       this.config = normalizeConfig(options.config);
+      this.githubData = options.githubData || createGithubDataAdapter({ config: this.config });
       this.notificationToastTimer = null;
       this.state = this.initialState();
     }
@@ -3349,48 +3239,13 @@ const global = globalThis;
       });
     }
 
-    async fetchCloudPayload() {
-      const cacheBust = Date.now();
-      const urls = [];
-      const apiUrl = rawContentsUrl(this.config);
-      if (apiUrl) {
-        urls.push({
-          url: `${apiUrl}&t=${cacheBust}`,
-          options: {
-            cache: 'no-store',
-            headers: {
-              Accept: 'application/vnd.github.raw'
-            }
-          }
-        });
-      }
-      const fallbackUrl = rawUrl(this.config);
-      if (fallbackUrl) {
-        urls.push({
-          url: `${fallbackUrl}${fallbackUrl.includes('?') ? '&' : '?'}t=${cacheBust}`,
-          options: { cache: 'no-store' }
-        });
-      }
-      let lastError = null;
-      for (const request of urls) {
-        try {
-          const response = await fetch(request.url, request.options);
-          if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
-          return parseDataJsPayload(await response.text());
-        } catch (error) {
-          lastError = error;
-        }
-      }
-      throw lastError || new Error('No cloud data source');
-    }
-
     async loadCloud(options) {
       const silent = Boolean(options?.silent);
       if ((this.state.dirty || this.state.materialDraft) && silent) return false;
       try {
         const previousNotifications = this.notifications();
         const firstLoad = !this.state.lastLoadAt;
-        const payload = await this.fetchCloudPayload();
+        const payload = await this.githubData.loadPublic();
         if ((this.state.dirty || this.state.materialDraft) && silent) return false;
         const incoming = this.newNotifications(previousNotifications, payload.notifications);
         this.applyPayload(payload, { preserveView: silent });
@@ -3477,13 +3332,11 @@ const global = globalThis;
         notifications: this.state.payload.notifications
       });
       syncLegacyBomFromMaterialDb(payload);
-      const remoteFile = await this.fetchGithubFile(token);
-      const changes = describePayloadChanges(remoteFile.payload || this.state.loadedPayload, payload);
+      const remoteFile = await this.githubData.loadForWrite(token);
+      const changes = describePayloadChanges(remoteFile.payload, payload);
       payload = appendNotificationEvent(payload, { type: 'github-save', actor: 'admin', createdAt: updatedAt, changes });
       const source = serializeDataJs(payload);
-      const request = buildGithubUpdateRequest({ config: this.config, token, sha: remoteFile.sha, source, message: `chore: update bom data ${updatedAt}` });
-      const response = await fetch(request.url, request.options);
-      if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+      await this.githubData.write({ token, sha: remoteFile.sha, source, message: `chore: update bom data ${updatedAt}` });
       this.state.loadedPayload = clone(payload);
       this.state.payload = payload;
       this.state.dirty = false;
@@ -3504,25 +3357,6 @@ const global = globalThis;
       this.state.bom = payload.bom;
       this.state.payload.bom = payload.bom;
       this.state.payload.materialDb = this.state.materialDb;
-    }
-
-    async fetchGithubFile(token) {
-      const url = `${contentsUrl(this.config)}?ref=${encodeURIComponent(this.config.branch)}`;
-      const response = await fetch(url, { headers: this.githubHeaders(token) });
-      if (response.status === 404) return { sha: '', payload: null };
-      if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
-      const data = await response.json();
-      let payload = null;
-      if (data.content) payload = parseDataJsPayload(decodeBase64Utf8(data.content));
-      return { sha: data.sha || '', payload };
-    }
-
-    githubHeaders(token) {
-      return {
-        Accept: 'application/vnd.github+json',
-        Authorization: `Bearer ${token}`,
-        'X-GitHub-Api-Version': '2022-11-28'
-      };
     }
 
     readToken() {
