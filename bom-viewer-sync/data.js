@@ -1,7 +1,7 @@
 /* BOM cloud data. Update only through admin.html. */
 window.BOM_VIEWER_DATA = {
   "version": 2,
-  "updatedAt": "2026-07-13T04:02:42.987Z",
+  "updatedAt": "2026-07-13T04:04:51.979Z",
   "bom": {
     "LGS031": {
       "code": "LGS031",
@@ -69144,10 +69144,10 @@ window.BOM_VIEWER_DATA = {
   },
   "notifications": [
     {
-      "id": "notif_tfgfm",
+      "id": "notif_1jnhl6w",
       "type": "github-save",
       "actor": "admin",
-      "createdAt": "2026-07-13T04:02:42.987Z",
+      "createdAt": "2026-07-13T04:04:51.979Z",
       "version": 2,
       "changes": []
     }
@@ -94189,8 +94189,8 @@ window.BOM_VIEWER_DATA = {
           "vi": "Q195"
         },
         "color": {
-          "zh": "黑色",
-          "vi": "màu đen"
+          "zh": "黑砂纹",
+          "vi": "đen nhám"
         },
         "attr": {
           "zh": "零件",
@@ -94215,8 +94215,8 @@ window.BOM_VIEWER_DATA = {
           "vi": "Q195"
         },
         "color": {
-          "zh": "黑色",
-          "vi": "màu đen"
+          "zh": "黑砂纹",
+          "vi": "đen nhám"
         },
         "attr": {
           "zh": "零件",
@@ -94241,8 +94241,8 @@ window.BOM_VIEWER_DATA = {
           "vi": "Q195"
         },
         "color": {
-          "zh": "黑色",
-          "vi": "màu đen"
+          "zh": "黑砂纹",
+          "vi": "đen nhám"
         },
         "attr": {
           "zh": "零件",
