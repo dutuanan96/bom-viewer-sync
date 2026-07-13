@@ -1,7 +1,7 @@
 /* BOM cloud data. Update only through admin.html. */
 window.BOM_VIEWER_DATA = {
   "version": 2,
-  "updatedAt": "2026-07-13T03:41:59.882Z",
+  "updatedAt": "2026-07-13T04:01:16.836Z",
   "bom": {
     "LGS031": {
       "code": "LGS031",
@@ -69144,10 +69144,10 @@ window.BOM_VIEWER_DATA = {
   },
   "notifications": [
     {
-      "id": "notif_1408qp2",
+      "id": "notif_13t8034",
       "type": "github-save",
       "actor": "admin",
-      "createdAt": "2026-07-13T03:41:59.882Z",
+      "createdAt": "2026-07-13T04:01:16.836Z",
       "version": 2,
       "changes": []
     }
@@ -94179,6 +94179,32 @@ window.BOM_VIEWER_DATA = {
         "name": {
           "zh": "LGS032-S-右侧框",
           "vi": "LGS032-S-khung bên phải"
+        },
+        "spec": {
+          "zh": "647x290x15mm",
+          "vi": "647x290x15mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "黑色",
+          "vi": "màu đen"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fwib1i": {
+        "id": "mat_fwib1i",
+        "code": "LGS032ZKBH647",
+        "name": {
+          "zh": "LGS032-S-左侧框",
+          "vi": "LGS032-S-khung bên trái"
         },
         "spec": {
           "zh": "647x290x15mm",
