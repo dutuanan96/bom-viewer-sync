@@ -36,6 +36,13 @@ import {
   hasChildMaterialRelation,
   syncLegacyBomFromMaterialDb,
 } from './domain/relationships.js';
+import {
+  createProductRevision,
+  isHistoricalProductRevision,
+  payloadForProductRevision,
+  productRevisionOptions as revisionOptionsForProduct,
+  releaseProductRevision,
+} from './domain/revisions.js';
 import { bomViewMethods } from './ui/bom-view.js';
 import { catalogViewMethods } from './ui/catalog-view.js';
 import { materialViewMethods } from './ui/material-view.js';
@@ -367,7 +374,32 @@ const global = globalThis;
     deleteBomRowConfirm: '删除这行 BOM？',
     addBomRow: '添加物料',
     bomCompCode: '部件编号',
-    bomQty: '数量'
+    bomQty: '数量',
+    createRevision: '新建版本',
+    currentRevision: '当前版本',
+    newRevision: '新版本',
+    changeReason: '变更原因',
+    revisionCreated: '新版本已创建',
+    revisionExists: '版本已存在',
+    revisionCreateFailed: '新建版本失败',
+    revisionDirtyBlocked: '请先保存或放弃当前更改',
+    historicalRevisionReadOnly: '历史版本只读',
+    releasedRevisionReadOnly: '\u5df2\u53d1\u5e03\u7248\u672c\u53ea\u8bfb',
+    draftStatus: '\u8349\u7a3f',
+    releasedStatus: '\u5df2\u53d1\u5e03',
+    revisionSource: '\u7248\u672c\u6765\u6e90',
+    revisionCreatedAt: '\u521b\u5efa\u65f6\u95f4',
+    effectiveStatus: '\u4f7f\u7528\u4e2d',
+    nonCurrentStatus: '\u975e\u73b0\u884c',
+    effectiveRevision: '\u4f7f\u7528\u4e2d\u7248\u672c',
+    releaseRevision: '\u53d1\u5e03\u7248\u672c',
+    releaseRevisionReason: '\u53d1\u5e03\u539f\u56e0',
+    revisionReleased: '\u7248\u672c\u5df2\u53d1\u5e03',
+    revisionReleaseDirtyBlocked: '\u8bf7\u5148\u4fdd\u5b58\u6216\u653e\u5f03\u5f53\u524d\u66f4\u6539',
+    revisionReleaseReasonRequired: '\u8bf7\u8f93\u5165\u53d1\u5e03\u539f\u56e0',
+    revisionReleaseCurrentOnly: '\u53ea\u80fd\u53d1\u5e03\u6700\u65b0\u7248\u672c',
+    revisionReleaseDraftOnly: '\u53ea\u80fd\u53d1\u5e03\u8349\u7a3f\u7248\u672c',
+    revisionReleaseFailed: '\u53d1\u5e03\u7248\u672c\u5931\u8d25'
   });
 
   Object.assign(TEXT.vi, {
@@ -406,7 +438,32 @@ const global = globalThis;
     deleteBomRowConfirm: 'Xóa dòng BOM này?',
     addBomRow: 'Thêm vật liệu',
     bomCompCode: 'Mã linh kiện',
-    bomQty: 'Số lượng'
+    bomQty: 'Số lượng',
+    createRevision: 'Tạo phiên bản',
+    currentRevision: 'Phiên bản hiện tại',
+    newRevision: 'Phiên bản mới',
+    changeReason: 'Lý do thay đổi',
+    revisionCreated: 'Đã tạo phiên bản mới',
+    revisionExists: 'Phiên bản đã tồn tại',
+    revisionCreateFailed: 'Không thể tạo phiên bản',
+    revisionDirtyBlocked: 'Hãy lưu hoặc bỏ các thay đổi hiện tại trước',
+    historicalRevisionReadOnly: 'Phiên bản cũ chỉ đọc',
+    releasedRevisionReadOnly: 'Phi\u00ean b\u1ea3n \u0111\u00e3 ph\u00e1t h\u00e0nh ch\u1ec9 \u0111\u1ecdc',
+    draftStatus: 'B\u1ea3n nh\u00e1p',
+    releasedStatus: '\u0110\u00e3 ph\u00e1t h\u00e0nh',
+    revisionSource: 'Ngu\u1ed3n phi\u00ean b\u1ea3n',
+    revisionCreatedAt: 'Th\u1eddi gian t\u1ea1o',
+    effectiveStatus: '\u0110ang s\u1eed d\u1ee5ng',
+    nonCurrentStatus: 'Kh\u00f4ng hi\u1ec7n h\u00e0nh',
+    effectiveRevision: 'Phi\u00ean b\u1ea3n s\u1eed d\u1ee5ng',
+    releaseRevision: 'Ph\u00e1t h\u00e0nh phi\u00ean b\u1ea3n',
+    releaseRevisionReason: 'L\u00fd do ph\u00e1t h\u00e0nh',
+    revisionReleased: '\u0110\u00e3 ph\u00e1t h\u00e0nh phi\u00ean b\u1ea3n',
+    revisionReleaseDirtyBlocked: 'H\u00e3y l\u01b0u ho\u1eb7c b\u1ecf c\u00e1c thay \u0111\u1ed5i hi\u1ec7n t\u1ea1i tr\u01b0\u1edbc',
+    revisionReleaseReasonRequired: 'H\u00e3y nh\u1eadp l\u00fd do ph\u00e1t h\u00e0nh',
+    revisionReleaseCurrentOnly: 'Ch\u1ec9 c\u00f3 th\u1ec3 ph\u00e1t h\u00e0nh phi\u00ean b\u1ea3n m\u1edbi nh\u1ea5t',
+    revisionReleaseDraftOnly: 'Ch\u1ec9 c\u00f3 th\u1ec3 ph\u00e1t h\u00e0nh b\u1ea3n nh\u00e1p',
+    revisionReleaseFailed: 'Kh\u00f4ng th\u1ec3 ph\u00e1t h\u00e0nh phi\u00ean b\u1ea3n'
   });
 
   const EDIT_FIELDS = ['mat_code', 'comp_code', 'name', 'spec', 'material', 'color', 'attr', 'qty'];
@@ -474,6 +531,7 @@ const global = globalThis;
         loadedPayload: clone(payload),
         currentSku: '',
         currentColor: '',
+        selectedRevision: '',
         bomDetailOpen: false,
         currentAttr: 'all',
         selectedMaterialId: '',
@@ -517,6 +575,60 @@ const global = globalThis;
       return this.mode === 'admin';
     }
 
+    productRevisionOptions(productCode) {
+      return revisionOptionsForProduct(this.state.payload, productCode || this.state.currentSku);
+    }
+
+    selectedProductRevision(productCode) {
+      const code = productCode || this.state.currentSku;
+      const options = this.productRevisionOptions(code);
+      const selected = code === this.state.currentSku ? this.state.selectedRevision : '';
+      return options.some((item) => item.revision === selected)
+        ? selected
+        : (options[0]?.revision || 'V1');
+    }
+
+    selectedProductRevisionInfo(productCode) {
+      const code = productCode || this.state.currentSku;
+      const selectedRevision = this.selectedProductRevision(code);
+      return this.productRevisionOptions(code).find((item) => item.revision === selectedRevision) || null;
+    }
+
+    activeProductPayload(productCode) {
+      const code = productCode || this.state.currentSku;
+      return payloadForProductRevision(this.state.payload, code, this.selectedProductRevision(code));
+    }
+
+    isHistoricalRevision() {
+      return isHistoricalProductRevision(
+        this.state.payload,
+        this.state.currentSku,
+        this.selectedProductRevision(),
+      );
+    }
+
+    canEditProductRevision() {
+      const revisionInfo = this.selectedProductRevisionInfo();
+      return this.isAdmin() &&
+        Boolean(revisionInfo?.current) &&
+        revisionInfo.workflowState === 'draft';
+    }
+
+    canCreateProductRevision() {
+      const revisionInfo = this.selectedProductRevisionInfo();
+      return this.isAdmin() &&
+        Boolean(revisionInfo?.current) &&
+        revisionInfo.workflowState === 'released';
+    }
+
+    canReleaseProductRevision() {
+      const revisionInfo = this.selectedProductRevisionInfo();
+      return this.isAdmin() &&
+        !this.state.dirty &&
+        Boolean(revisionInfo?.current) &&
+        revisionInfo.workflowState === 'draft';
+    }
+
     query(selector) {
       return global.document.querySelector(selector);
     }
@@ -533,7 +645,7 @@ const global = globalThis;
     }
 
     product() {
-      return this.state.bom[this.state.currentSku] || null;
+      return this.activeProductPayload().bom?.[this.state.currentSku] || null;
     }
 
     colorData() {
@@ -542,7 +654,8 @@ const global = globalThis;
     }
 
     bomRows(productCode, colorName) {
-      return buildBomTreeRows(this.state.payload, productCode || this.state.currentSku, colorName || this.state.currentColor);
+      const code = productCode || this.state.currentSku;
+      return buildBomTreeRows(this.activeProductPayload(code), code, colorName || this.state.currentColor);
     }
 
     pickFirstProduct() {
@@ -710,6 +823,7 @@ const global = globalThis;
           return;
         }
         if (editBomMaterial) {
+          if (!this.canEditProductRevision()) return;
           this.openMaterialMasterEditor(editBomMaterial.dataset.editBomMaterial);
           return;
         }
@@ -730,10 +844,12 @@ const global = globalThis;
           return;
         }
         if (deleteBom) {
+          if (!this.canEditProductRevision()) return;
           this.deleteBomRow(Number(deleteBom.dataset.deleteBomRow));
           return;
         }
         if (replaceBom) {
+          if (!this.canEditProductRevision()) return;
           this.startReplaceBomRow(Number(replaceBom.dataset.replaceBomRow));
           return;
         }
@@ -808,7 +924,14 @@ const global = globalThis;
 
     bindEditing() {
       this.query('#contentHeader').addEventListener('input', (event) => this.handleProductInput(event, false));
-      this.query('#contentHeader').addEventListener('change', (event) => this.handleProductInput(event, true));
+      this.query('#contentHeader').addEventListener('change', (event) => {
+        const revisionSelect = event.target.closest('[data-product-revision]');
+        if (revisionSelect) {
+          this.selectProductRevision(revisionSelect.value);
+          return;
+        }
+        this.handleProductInput(event, true);
+      });
       this.query('.content').addEventListener('input', (event) => this.handleMaterialInput(event, false));
       this.query('.content').addEventListener('change', (event) => this.handleMaterialInput(event, true));
       this.query('.content').addEventListener('input', (event) => this.handleMaterialDbInput(event));
@@ -870,7 +993,7 @@ const global = globalThis;
     }
 
     runAction(action, actionElement) {
-      if (action === 'toggle-edit' && this.isAdmin()) this.toggleEdit();
+      if (action === 'toggle-edit' && this.canEditProductRevision()) this.toggleEdit();
       if (action === 'save' && this.isAdmin()) this.saveCloud();
       if (action === 'reload') this.loadCloud({ silent: false });
       if (action === 'discard' && this.isAdmin()) this.discard();
@@ -903,6 +1026,8 @@ const global = globalThis;
       if (action === 'copy') this.copyTable();
       if (action === 'exportExcel') this.exportExcel();
       if (action === 'add-product' && this.isAdmin()) this.addProduct();
+      if (action === 'create-product-revision' && this.isAdmin()) this.createProductRevisionFromPrompt();
+      if (action === 'release-product-revision' && this.isAdmin()) this.releaseProductRevisionFromPrompt();
     }
 
     addChildMaterialFromPrompt() {
@@ -982,6 +1107,7 @@ const global = globalThis;
       this.state.selectedEntryId = '';
       this.state.selectedParentId = '';
       this.state.bomDetailOpen = false;
+      this.state.selectedRevision = '';
       this._clearSearchBar();
       this.renderProductList();
       this.renderFilterBar();
@@ -1001,6 +1127,7 @@ const global = globalThis;
     selectProduct(sku) {
       if (!this.state.bom[sku]) return;
       this.state.currentSku = sku;
+      this.state.selectedRevision = '';
       this.state.materialDraft = null;
       this.state.selectedMaterialId = '';
       this.state.selectedEntryId = '';
@@ -1010,6 +1137,18 @@ const global = globalThis;
       this.ensureColor();
       this.renderProductList();
       this.renderFilterBar();
+      this.renderContent();
+      this.renderInspector();
+    }
+
+    selectProductRevision(revision) {
+      const option = this.productRevisionOptions().find((item) => item.revision === revision);
+      if (!option) return;
+      this.state.selectedRevision = option.revision;
+      this.state.selectedMaterialId = '';
+      this.state.selectedEntryId = '';
+      this.state.editMode = false;
+      this.ensureColor();
       this.renderContent();
       this.renderInspector();
     }
@@ -1064,6 +1203,7 @@ const global = globalThis;
     }
 
     toggleEdit() {
+      if (!this.canEditProductRevision()) return;
       this.state.editMode = !this.state.editMode;
       this.renderContent();
       this.renderInspector();
@@ -1295,6 +1435,7 @@ const global = globalThis;
     }
 
     startReplaceBomRow(index) {
+      if (!this.canEditProductRevision()) return;
       const material = this.state.lastRows[index];
       if (!material?._entryId) return;
       this.state.selectedEntryId = material._entryId;
@@ -1325,7 +1466,7 @@ const global = globalThis;
     }
 
     replaceSelectedBomRow() {
-      if (!this.isAdmin()) return;
+      if (!this.canEditProductRevision()) return;
       const selected = this.selectedBomRow();
       if (!selected?._entryId) {
         this.setStatus(this.label('bomRowNotFound'), 'error');
@@ -1352,7 +1493,7 @@ const global = globalThis;
 
     handleProductInput(event, refresh) {
       const input = event.target.closest('[data-product-edit]');
-      if (!input || !this.isAdmin()) return;
+      if (!input || !this.canEditProductRevision()) return;
       const colorData = this.colorData();
       const key = input.dataset.productEdit === 'name' ? (this.state.lang === 'vi' ? 'name_vi' : 'name_zh') : input.dataset.productEdit;
       colorData[key] = input.value;
@@ -1363,7 +1504,7 @@ const global = globalThis;
 
     handleMaterialInput(event, refresh) {
       const input = event.target.closest('[data-edit-field]');
-      if (!input || !this.isAdmin()) return;
+      if (!input || !this.canEditProductRevision()) return;
       this.updateMaterial(Number(input.dataset.rowIndex), input.dataset.editField, input.value);
       if (refresh) {
         this.renderProductList();
@@ -1465,7 +1606,7 @@ const global = globalThis;
       this.deleteDatabaseMaterial(record.id);
     }
     deleteMaterialAsset(index, collectionName) {
-      if (!this.isAdmin()) return;
+      if (!this.canEditProductRevision()) return;
       const material = this.state.lastRows[index];
       if (!material) return;
       const collection = collectionName === 'models3d' ? this.state.models3d : this.state.drawings;
@@ -1499,7 +1640,7 @@ const global = globalThis;
     }
 
     deleteBomRow(index) {
-      if (!this.isAdmin()) return;
+      if (!this.canEditProductRevision()) return;
       const material = this.state.lastRows[index];
       if (!material?._entryId) return;
       this.openPdmConfirm(this.label('deleteBomRowConfirm'), () => {
@@ -1577,7 +1718,7 @@ const global = globalThis;
     }
 
     addBomRowFromPrompt() {
-      if (!this.isAdmin()) return;
+      if (!this.canEditProductRevision()) return;
       this.openMaterialSelector(this.label('addBomRow'), (record) => {
         this.openPdmPrompt(this.label('addBomRow'), [
           { key: 'comp_code', label: this.label('bomCompCode') },
@@ -1603,6 +1744,87 @@ const global = globalThis;
           this.markDirty();
           this.renderContent();
         });
+      });
+    }
+
+    createProductRevisionFromPrompt() {
+      if (!this.canCreateProductRevision()) return;
+      if (this.state.dirty) {
+        this.setStatus(this.label('revisionDirtyBlocked'), 'error');
+        return;
+      }
+      const fields = [];
+      if (!this.state.payload.productRevisions?.[this.state.currentSku]) {
+        fields.push({
+          key: 'currentRevision',
+          label: this.label('currentRevision'),
+          defaultValue: this.selectedProductRevision(),
+          required: true,
+        });
+      }
+      fields.push(
+        {
+          key: 'revision',
+          label: this.label('newRevision'),
+          placeholder: 'V4.1',
+          required: true,
+        },
+        {
+          key: 'changeReason',
+          label: this.label('changeReason'),
+          required: true,
+        },
+      );
+      this.openPdmPrompt(this.label('createRevision'), fields, (values) => {
+        try {
+          createProductRevision(this.state.payload, this.state.currentSku, values.revision, {
+            currentRevision: values.currentRevision,
+            changeReason: values.changeReason,
+          });
+          this.state.bom = this.state.payload.bom;
+          this.state.selectedRevision = values.revision.trim();
+          this.state.selectedMaterialId = '';
+          this.state.selectedEntryId = '';
+          this.markDirty();
+          this.renderAll();
+          this.setStatus(this.label('revisionCreated'), 'dirty');
+        } catch (error) {
+          const key = error.message === 'REVISION_EXISTS' ? 'revisionExists' : 'revisionCreateFailed';
+          this.setStatus(this.label(key), 'error');
+        }
+      });
+    }
+
+    releaseProductRevisionFromPrompt() {
+      const revisionInfo = this.selectedProductRevisionInfo();
+      if (!this.isAdmin() || !revisionInfo?.current || revisionInfo.workflowState !== 'draft') return;
+      if (this.state.dirty) {
+        this.setStatus(this.label('revisionReleaseDirtyBlocked'), 'error');
+        return;
+      }
+      this.openPdmPrompt(this.label('releaseRevision'), [{
+        key: 'releaseReason',
+        label: this.label('releaseRevisionReason'),
+        required: true,
+      }], (values) => {
+        try {
+          releaseProductRevision(
+            this.state.payload,
+            this.state.currentSku,
+            this.selectedProductRevision(),
+            { reason: values.releaseReason },
+          );
+          this.markDirty();
+          this.renderAll();
+          this.setStatus(this.label('revisionReleased'), 'dirty');
+        } catch (error) {
+          const errorKeys = {
+            RELEASE_REASON_REQUIRED: 'revisionReleaseReasonRequired',
+            REVISION_NOT_CURRENT: 'revisionReleaseCurrentOnly',
+            REVISION_NOT_DRAFT: 'revisionReleaseDraftOnly',
+          };
+          this.setStatus(this.label(errorKeys[error.message] || 'revisionReleaseFailed'), 'error');
+        }
       });
     }
 
@@ -1748,6 +1970,7 @@ const global = globalThis;
       const preserved = options?.preserveView ? {
         currentSku: this.state.currentSku,
         currentColor: this.state.currentColor,
+        selectedRevision: this.state.selectedRevision,
         currentAttr: this.state.currentAttr,
         adminView: this.state.adminView,
         bomDetailOpen: this.state.bomDetailOpen,
@@ -1770,10 +1993,12 @@ const global = globalThis;
       this.state.dirty = false;
       this.state.selectedMaterialId = '';
       this.state.selectedEntryId = '';
+      this.state.selectedRevision = '';
       this.state.bomDetailOpen = false;
       if (preserved) {
         this.state.currentSku = this.state.bom[preserved.currentSku] ? preserved.currentSku : '';
         this.state.currentColor = preserved.currentColor;
+        this.state.selectedRevision = preserved.selectedRevision;
         this.state.currentAttr = preserved.currentAttr;
         this.state.adminView = preserved.adminView;
         this.state.bomDetailOpen = preserved.bomDetailOpen;
@@ -1812,6 +2037,7 @@ const global = globalThis;
         manuals: this.state.manuals,
         models3d: this.state.models3d,
         productImages: this.state.productImages,
+        productRevisions: this.state.payload.productRevisions,
         materialDb: this.state.materialDb,
         notifications: this.state.payload.notifications
       });

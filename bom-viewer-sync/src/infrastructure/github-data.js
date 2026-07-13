@@ -1,4 +1,5 @@
 import { clone, normalizeMaterialDatabase } from '../domain/materials.js';
+import { normalizeProductRevisionRegistry } from '../domain/revisions.js';
 import { normalizeNotifications } from '../features/notifications.js';
 
 export function normalizeConfig(config) {
@@ -73,6 +74,7 @@ export function normalizePayload(payload, fallbackProductImages = globalThis.BOM
     manuals: clone(source.manuals),
     models3d: clone(source.models3d),
     productImages: clone({ ...fallbackProductImages, ...(source.productImages || {}) }),
+    productRevisions: normalizeProductRevisionRegistry(source),
     notifications: normalizeNotifications(source.notifications),
   };
   normalized.materialDb = normalizeMaterialDatabase({ ...source, ...normalized });

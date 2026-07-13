@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import test from 'node:test';
-import { BomApplication } from '../src/application.js';
+import { BomApplication, coreUtils } from '../src/application.js';
 import { bomViewMethods } from '../src/ui/bom-view.js';
 import { catalogViewMethods } from '../src/ui/catalog-view.js';
 import { materialViewMethods } from '../src/ui/material-view.js';
@@ -205,4 +205,240 @@ test('Parent-child structure detail edits update dirty status immediately', () =
   assert.match(bindStructureDetailControls, /this\.markDirty\(\)/);
   assert.doesNotMatch(bindStructureDetailControls, /this\.state\.dirty = true;\s*this\.renderContent\(\)/);
   assert.match(renderStructureDetail, /scopeLabel\(entry, this\.label\('sharedScope'\)\)/);
+});
+
+test('BOM revision selector uses product revision state and historical snapshots are read-only', () => {
+  const payload = coreUtils.normalizePayload({
+    bom: {
+      P1: { code: 'P1', revision: 'V4.1', colors: ['black'], color_info: { black: { materials: [] } } },
+    },
+    materialDb: {
+      version: 1,
+      materials: { current: { id: 'current', code: 'CURRENT' } },
+      bomEntries: [
+        { id: 'current-entry', parentType: 'product', productCode: 'P1', color: 'black', materialId: 'current', qty: '2' },
+      ],
+    },
+    productRevisions: {
+      P1: {
+        currentRevision: 'V4.1',
+        revisions: [{
+          revision: 'V4',
+          createdAt: '2026-07-13T00:00:00.000Z',
+          changeReason: 'Previous release',
+          snapshot: {
+            product: { code: 'P1', revision: 'V4', colors: ['black'], color_info: { black: { materials: [] } } },
+            materialDb: {
+              version: 1,
+              materials: { previous: { id: 'previous', code: 'PREVIOUS' } },
+              bomEntries: [
+                { id: 'previous-entry', parentType: 'product', productCode: 'P1', color: 'black', materialId: 'previous', qty: '1' },
+              ],
+            },
+          },
+        }],
+      },
+    },
+  });
+  const app = Object.create(BomApplication.prototype);
+  app.mode = 'admin';
+  app.state = {
+    payload,
+    bom: payload.bom,
+    currentSku: 'P1',
+    currentColor: 'black',
+    selectedRevision: 'V4',
+  };
+  app.label = (key) => key;
+
+  assert.equal(app.selectedProductRevision(), 'V4');
+  assert.equal(app.isHistoricalRevision(), true);
+  assert.equal(app.canEditProductRevision(), false);
+  assert.equal(app.bomRows()[0].qty, '1');
+  const revisionSelector = app.revisionSelectorHtml();
+  assert.match(revisionSelector, /data-product-revision/);
+  assert.match(revisionSelector, /V4\.1 · draftStatus · nonCurrentStatus/);
+  assert.match(revisionSelector, /V4 · releasedStatus · effectiveStatus/);
+  const revisionBadges = app.revisionStatusBadgesHtml?.(app.selectedProductRevisionInfo()) || '';
+  assert.match(revisionBadges, /releasedStatus/);
+  assert.match(revisionBadges, /effectiveStatus/);
+
+  const rowHtml = methodSource('rowHtml');
+  const headerActionsHtml = methodSource('headerActionsHtml');
+  const contentHeaderHtml = methodSource('contentHeaderHtml');
+  const productCatalogRowHtml = methodSource('productCatalogRowHtml');
+  const getSpuVersion = methodSource('getSpuVersion');
+  const bindEditing = methodSource('bindEditing');
+  assert.match(rowHtml, /this\.canEditProductRevision\(\)/);
+  assert.match(headerActionsHtml, /this\.canEditProductRevision\(\)/);
+  assert.doesNotMatch(contentHeaderHtml, />RELEASED</);
+  assert.match(contentHeaderHtml, /revisionTransitionHtml/);
+  assert.match(contentHeaderHtml, /revisionStatusBadgesHtml/);
+  assert.match(productCatalogRowHtml, /effectiveRevision/);
+  assert.doesNotMatch(getSpuVersion, /manuals/);
+  assert.match(bindEditing, /data-product-revision/);
+  assert.match(appSource, /data-action="create-product-revision"/);
+});
+
+test('admin creates the next live revision from the current product snapshot', () => {
+  const payload = coreUtils.normalizePayload({
+    bom: {
+      P1: { code: 'P1', colors: ['black'], color_info: { black: { size: '100mm', materials: [] } } },
+    },
+    materialDb: { version: 1, materials: {}, bomEntries: [] },
+  });
+  const app = Object.create(BomApplication.prototype);
+  app.mode = 'admin';
+  app.state = {
+    payload,
+    bom: payload.bom,
+    currentSku: 'P1',
+    currentColor: 'black',
+    selectedRevision: 'V1',
+    selectedMaterialId: '',
+    selectedEntryId: '',
+    editMode: false,
+    dirty: false,
+  };
+  app.label = (key) => key;
+  let revisionFields = [];
+  app.openPdmPrompt = (title, fields, onConfirm) => {
+    revisionFields = fields;
+    onConfirm({
+      currentRevision: 'V4',
+      revision: 'V4.1',
+      changeReason: 'Reduce height by 10mm',
+    });
+  };
+  app.markDirty = () => { app.state.dirty = true; };
+  app.renderAll = () => {};
+  app.setStatus = () => {};
+
+  app.createProductRevisionFromPrompt();
+  app.state.payload.bom.P1.color_info.black.size = '90mm';
+
+  assert.equal(app.state.payload.productRevisions.P1.currentRevision, 'V4.1');
+  assert.equal(app.state.payload.productRevisions.P1.revisions[0].revision, 'V4');
+  assert.equal(app.state.payload.productRevisions.P1.revisions[0].snapshot.product.color_info.black.size, '100mm');
+  assert.equal(revisionFields.find((field) => field.key === 'changeReason')?.required, true);
+  assert.equal(app.state.selectedRevision, 'V4.1');
+  assert.equal(app.state.dirty, true);
+});
+
+test('released current revision is read-only but can start a new revision', () => {
+  const payload = coreUtils.normalizePayload({
+    bom: { P1: { code: 'P1', colors: [], color_info: {} } },
+    manuals: { P1: [{ name: 'P1-S-A4-manual-V3.pdf' }] },
+    materialDb: { version: 1, materials: {}, bomEntries: [] },
+  });
+  const app = Object.create(BomApplication.prototype);
+  app.mode = 'admin';
+  app.state = {
+    payload,
+    currentSku: 'P1',
+    selectedRevision: 'V3',
+    dirty: false,
+  };
+
+  assert.equal(app.canEditProductRevision(), false);
+  assert.equal(app.canCreateProductRevision?.(), true);
+  assert.match(methodSource('bomActionsHtml'), /canCreateProductRevision/);
+});
+
+test('admin releases only the clean latest draft revision with a required reason', () => {
+  const payload = coreUtils.normalizePayload({
+    bom: {
+      P1: { code: 'P1', colors: ['black'], color_info: { black: { materials: [] } } },
+    },
+    manuals: { P1: [{ name: 'P1-S-A4-manual-V3.pdf' }] },
+    materialDb: { version: 1, materials: {}, bomEntries: [] },
+  });
+  const app = Object.create(BomApplication.prototype);
+  app.mode = 'admin';
+  app.state = {
+    payload,
+    bom: payload.bom,
+    currentSku: 'P1',
+    currentColor: 'black',
+    selectedRevision: 'V3',
+    selectedMaterialId: '',
+    selectedEntryId: '',
+    editMode: false,
+    dirty: false,
+  };
+  app.label = (key) => key;
+  app.markDirty = () => { app.state.dirty = true; };
+  app.renderAll = () => {};
+  let status = null;
+  app.setStatus = (message, state) => { status = { message, state }; };
+
+  app.createProductRevisionFromPrompt = BomApplication.prototype.createProductRevisionFromPrompt;
+  app.openPdmPrompt = (title, fields, onConfirm) => {
+    onConfirm({ currentRevision: 'V3', revision: 'V3.1', changeReason: 'Reduce height by 10mm' });
+  };
+  app.createProductRevisionFromPrompt();
+  app.state.dirty = false;
+
+  assert.equal(app.canReleaseProductRevision?.(), true);
+  app.mode = 'viewer';
+  assert.equal(app.canReleaseProductRevision?.(), false);
+  app.mode = 'admin';
+  app.state.selectedRevision = 'V3';
+  assert.equal(app.canReleaseProductRevision?.(), false);
+  app.state.selectedRevision = 'V3.1';
+  app.state.dirty = true;
+  assert.equal(app.canReleaseProductRevision?.(), false);
+  app.state.dirty = false;
+
+  let releaseFields = [];
+  app.openPdmPrompt = (title, fields, onConfirm) => {
+    releaseFields = fields;
+    onConfirm({ releaseReason: 'Approved for production' });
+  };
+  app.releaseProductRevisionFromPrompt?.();
+
+  const [current, previous] = app.productRevisionOptions();
+  assert.equal(releaseFields.find((field) => field.key === 'releaseReason')?.required, true);
+  assert.equal(current.revision, 'V3.1');
+  assert.equal(current.workflowState, 'released');
+  assert.equal(current.effective, true);
+  assert.equal(previous.revision, 'V3');
+  assert.equal(previous.effective, false);
+  assert.equal(app.state.dirty, true);
+  assert.deepEqual(status, { message: 'revisionReleased', state: 'dirty' });
+});
+
+test('release command reports unsaved changes without opening the prompt', () => {
+  const payload = coreUtils.normalizePayload({
+    bom: { P1: { code: 'P1', revision: 'V3.1', colors: [], color_info: {} } },
+    materialDb: { version: 1, materials: {}, bomEntries: [] },
+    productRevisions: {
+      P1: {
+        currentRevision: 'V3.1',
+        effectiveRevision: 'V3',
+        currentRevisionInfo: { sourceRevision: 'V3', workflowState: 'draft' },
+        revisions: [{
+          revision: 'V3',
+          workflowState: 'released',
+          snapshot: {
+            product: { code: 'P1', revision: 'V3', colors: [], color_info: {} },
+            materialDb: { version: 1, materials: {}, bomEntries: [] },
+          },
+        }],
+      },
+    },
+  });
+  const app = Object.create(BomApplication.prototype);
+  app.mode = 'admin';
+  app.state = { payload, currentSku: 'P1', selectedRevision: 'V3.1', dirty: true };
+  app.label = (key) => key;
+  let opened = false;
+  app.openPdmPrompt = () => { opened = true; };
+  let status = null;
+  app.setStatus = (message, state) => { status = { message, state }; };
+
+  app.releaseProductRevisionFromPrompt?.();
+
+  assert.equal(opened, false);
+  assert.deepEqual(status, { message: 'revisionReleaseDirtyBlocked', state: 'error' });
 });

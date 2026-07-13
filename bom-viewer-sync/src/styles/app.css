@@ -1508,6 +1508,16 @@ mark {
   cursor: pointer;
 }
 
+.revision-meta {
+  align-items: center;
+  display: inline-flex;
+  gap: 6px;
+}
+
+.product-revision-select {
+  min-width: 72px;
+}
+
 .clear-filters-btn {
   margin-left: auto;
   gap: 4px;
@@ -2256,14 +2266,39 @@ body.pdm-shell {
   color: #434654;
 }
 
-.status-pill.active {
+.catalog-revision-stack,
+.catalog-status-stack {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.catalog-revision-stack small {
+  color: #52606d;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.status-pill.released,
+.status-pill.effective {
   background: #d8f3dc;
   color: #166534;
+}
+
+.status-pill.draft {
+  background: #fff3cd;
+  color: #7a5200;
 }
 
 .status-pill.disabled {
   background: #ffdad6;
   color: #93000a;
+}
+
+.status-pill.non-current {
+  background: #edeef0;
+  color: #52606d;
 }
 
 .color-dot-list {
@@ -2347,6 +2382,31 @@ body.pdm-shell {
 .status-badge.released {
   background: #006476;
   color: #70e2ff;
+}
+
+.status-badge.draft {
+  background: #fff3cd;
+  color: #7a5200;
+}
+
+.status-badge.effective {
+  background: #d8f3dc;
+  color: #166534;
+}
+
+.status-badge.non-current {
+  background: #edeef0;
+  color: #52606d;
+}
+
+.revision-transition-line {
+  align-items: center;
+  color: #52606d;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 12px;
+  gap: 8px;
+  margin-top: 6px;
 }
 
 .pdm-meta-line {

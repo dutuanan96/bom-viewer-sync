@@ -171,6 +171,25 @@ test('save diffs the current remote payload before writing its SHA', async () =>
   const localPayload = structuredClone(remotePayload);
   localPayload.notifications = [];
   localPayload.materialDb.materials.m1.name.zh = 'Local new';
+  localPayload.productRevisions = {
+    P1: {
+      currentRevision: 'V4.1',
+      effectiveRevision: 'V4.1',
+      currentRevisionInfo: {
+        sourceRevision: 'V4',
+        workflowState: 'released',
+      },
+      revisions: [],
+      effectivityEvents: [{
+        id: 'effectivity_release_v4_1',
+        action: 'release',
+        revision: 'V4.1',
+        previousRevision: 'V4',
+        occurredAt: '2026-07-13T02:03:04.000Z',
+        reason: 'Approved for production',
+      }],
+    },
+  };
   const calls = [];
   let writeInput;
   const app = Object.create(BomApplication.prototype);
@@ -213,6 +232,12 @@ test('save diffs the current remote payload before writing its SHA', async () =>
   assert.match(writeInput.source, /"field": "name"/);
   assert.match(writeInput.source, /"before": "Remote old"/);
   assert.match(writeInput.source, /remote-only-notification/);
+  assert.match(writeInput.source, /"currentRevision": "V4\.1"/);
+  assert.match(writeInput.source, /"effectiveRevision": "V4\.1"/);
+  assert.match(writeInput.source, /effectivity_release_v4_1/);
   assert.equal(app.state.loadedPayload.materialDb.materials.m1.name.zh, 'Local new');
+  assert.equal(app.state.loadedPayload.productRevisions.P1.currentRevision, 'V4.1');
+  assert.equal(app.state.loadedPayload.productRevisions.P1.effectiveRevision, 'V4.1');
+  assert.equal(app.state.loadedPayload.productRevisions.P1.effectivityEvents[0].reason, 'Approved for production');
   assert.equal(app.state.payload.materialDb.materials.m1.name.zh, 'Local new');
 });

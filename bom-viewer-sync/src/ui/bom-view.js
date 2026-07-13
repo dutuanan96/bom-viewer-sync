@@ -228,7 +228,7 @@ function tableHtml(rows) {
 }
 
 function tableColgroupHtml() {
-  const editAction = this.isAdmin() ? '<col class="col-actions">' : '';
+  const editAction = this.canEditProductRevision() ? '<col class="col-actions">' : '';
   return `<colgroup>
     <col class="col-level">
     <col class="col-mat-code">
@@ -246,14 +246,21 @@ function tableColgroupHtml() {
 }
 
 function bomActionsHtml() {
+  const createRevisionAction = this.canCreateProductRevision()
+    ? `<button class="btn" type="button" data-action="create-product-revision">${escapeHTML(this.label('createRevision'))}</button>`
+    : '';
   return `<button class="btn btn-primary" type="button" data-action="save">${escapeHTML(this.label('save'))}</button>
     <button class="btn" type="button" data-action="discard">${escapeHTML(this.label('discard'))}</button>
     <button class="btn" type="button" data-action="reload">${escapeHTML(this.label('reload'))}</button>
+    ${createRevisionAction}
     <button class="btn" type="button" data-action="material-db">${escapeHTML(this.label('materialDatabase'))}</button>`;
 }
 
 function toolbarHtml(rows) {
-  const adminActions = this.isAdmin() ? this.bomActionsHtml() : `<span class="read-only-note">${escapeHTML(this.label('readOnly'))}</span>`;
+  const readOnlyLabel = this.isHistoricalRevision() ? 'historicalRevisionReadOnly' : 'readOnly';
+  const adminActions = this.isAdmin() && !this.isHistoricalRevision()
+    ? this.bomActionsHtml()
+    : `<span class="read-only-note">${escapeHTML(this.label(readOnlyLabel))}</span>`;
   return `<div class="table-title"><span class="material-symbols-outlined">view_list</span><strong>${escapeHTML(this.label('billOfMaterials'))}</strong><span class="count">${rows.length} ${escapeHTML(this.label('materials'))}</span></div>
     <div class="table-actions">${adminActions}
     <button class="btn" type="button" data-action="copy">${escapeHTML(this.label('copy'))}</button>
@@ -293,12 +300,12 @@ function tableHeadHtml() {
     ['attr', headers[7]],
     ['qty', headers[8]]
   ].map(([col, label]) => `<th><button class="th-button" type="button" data-sort="${col}">${escapeHTML(label)} ${this.sortIcon(col)}</button></th>`);
-  const editAction = this.isAdmin() ? '<th>\u64cd\u4f5c</th>' : '';
+  const editAction = this.canEditProductRevision() ? '<th>\u64cd\u4f5c</th>' : '';
   return `<tr>${sortable.join('')}<th>${escapeHTML(headers[9])}</th><th>3D</th>${editAction}</tr>`;
 }
 
 function rowHtml(material, index) {
-  const editAction = this.isAdmin()
+  const editAction = this.canEditProductRevision()
     ? `<td><div class="drawing-tools">
       <button class="drawing-btn" type="button" data-edit-bom-material="${escapeHTML(material._materialId || '')}">${escapeHTML(this.label('editMaterial'))}</button>
       <button class="drawing-btn" type="button" data-replace-bom-row="${index}">${escapeHTML(this.label('replaceMaterial'))}</button>
@@ -337,21 +344,21 @@ function rowHtml(material, index) {
 }
 
 function partNumberCellHtml(material, index) {
-  if (this.isAdmin() && this.state.editMode) {
+  if (this.canEditProductRevision() && this.state.editMode) {
     return `<td>${this.editInput(materialText(material, 'mat_code', this.state.lang), 'mat_code', index)}</td>`;
   }
   return `<td><span class="mat-code">${this.highlight(materialText(material, 'mat_code', this.state.lang))}</span></td>`;
 }
 
 function componentNumberCellHtml(material, index) {
-  if (this.isAdmin() && this.state.editMode) {
+  if (this.canEditProductRevision() && this.state.editMode) {
     return `<td>${this.editInput(materialText(material, 'comp_code', this.state.lang), 'comp_code', index)}</td>`;
   }
   return `<td><span class="comp-code">${escapeHTML(materialText(material, 'comp_code', this.state.lang) || '-')}</span></td>`;
 }
 
 function materialStackCellHtml(material, index) {
-  if (this.isAdmin() && this.state.editMode) {
+  if (this.canEditProductRevision() && this.state.editMode) {
     return `<td><div class="stack-cell">${this.editInput(materialText(material, 'material', this.state.lang), 'material', index)}${this.editInput(materialText(material, 'color', this.state.lang), 'color', index)}</div></td>`;
   }
   return `<td><div class="stack-cell"><span>${this.highlight(materialText(material, 'material', this.state.lang))}</span><span class="muted-line">${this.renderColorDot(materialText(material, 'color', this.state.lang))}</span></div></td>`;
@@ -359,7 +366,7 @@ function materialStackCellHtml(material, index) {
 
 function cellHtml(material, field, index) {
   const value = materialText(material, field, this.state.lang);
-  if (this.isAdmin() && this.state.editMode) return `<td>${this.editInput(value, field, index)}</td>`;
+  if (this.canEditProductRevision() && this.state.editMode) return `<td>${this.editInput(value, field, index)}</td>`;
   if (field === 'attr') {
     return `<td>${this.renderAttrBadge(value)}</td>`;
   }
@@ -441,7 +448,7 @@ function model3dCellHtml(material, index) {
 }
 
 function assetDeleteButton(type, index) {
-  if (!this.isAdmin() || !this.state.editMode) return '';
+  if (!this.canEditProductRevision() || !this.state.editMode) return '';
   const attr = type === 'drawing' ? 'data-delete-drawing-row' : 'data-delete-model3d-row';
   return `<button class="drawing-btn danger" type="button" ${attr}="${index}">${escapeHTML(this.deleteAssetLabel())}</button>`;
 }

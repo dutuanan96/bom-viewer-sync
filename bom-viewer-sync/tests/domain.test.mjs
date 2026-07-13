@@ -4,6 +4,12 @@ import test from 'node:test';
 import { buildBomTreeRows, groupMaterialChildRows } from '../src/domain/relationships.js';
 import { materialWhereUsed, updateMaterialRecord } from '../src/domain/materials.js';
 import { createPdmNavigation, createSidebarIndex, resolveBomRows } from '../src/domain/bom.js';
+import {
+  createProductRevision,
+  payloadForProductRevision,
+  productRevisionOptions,
+} from '../src/domain/revisions.js';
+import * as revisionDomain from '../src/domain/revisions.js';
 import { coreUtils } from '../src/application.js';
 import { loadDataPayload } from './helpers/load-data.mjs';
 
@@ -106,4 +112,256 @@ test('material relationship scopes use the translated shared label supplied by t
 test('materials domain does not import BOM or relationship modules', () => {
   const source = readFileSync(new URL('../src/domain/materials.js', import.meta.url), 'utf8');
   assert.doesNotMatch(source, /from\s+['"]\.\/(?:bom|relationships)\.js['"]/);
+});
+
+test('creating a product revision preserves the previous BOM as an immutable snapshot', () => {
+  const payload = normalizePayload({
+    bom: {
+      P1: {
+        code: 'P1',
+        colors: ['black'],
+        color_info: { black: { size: '100mm', materials: [] } },
+      },
+    },
+    materialDb: {
+      version: 1,
+      materials: {
+        parent: { id: 'parent', code: 'PARENT', spec: { zh: '100mm' } },
+        child: { id: 'child', code: 'CHILD', spec: { zh: '10mm' } },
+      },
+      bomEntries: [
+        { id: 'p', parentType: 'product', productCode: 'P1', color: 'black', materialId: 'parent', qty: '1' },
+        { id: 'c', parentType: 'material', parentId: 'parent', productCode: 'P1', color: 'black', childMaterialId: 'child', materialId: 'child', qty: '2' },
+      ],
+    },
+    productRevisions: {
+      P1: { currentRevision: 'V4', revisions: [] },
+    },
+  });
+
+  createProductRevision(payload, 'P1', 'V4.1', {
+    createdAt: '2026-07-13T00:00:00.000Z',
+    changeReason: 'Reduce product height by 10mm',
+  });
+  payload.bom.P1.color_info.black.size = '90mm';
+  payload.materialDb.materials.parent.spec.zh = '90mm';
+  payload.materialDb.bomEntries.find((entry) => entry.id === 'p').qty = '3';
+
+  const previous = payloadForProductRevision(payload, 'P1', 'V4');
+  const current = payloadForProductRevision(payload, 'P1', 'V4.1');
+
+  assert.equal(previous.bom.P1.color_info.black.size, '100mm');
+  assert.equal(previous.materialDb.materials.parent.spec.zh, '100mm');
+  assert.equal(previous.materialDb.bomEntries.find((entry) => entry.id === 'p').qty, '1');
+  assert.equal(current.bom.P1.color_info.black.size, '90mm');
+  assert.equal(current.materialDb.bomEntries.find((entry) => entry.id === 'p').qty, '3');
+  assert.deepEqual(productRevisionOptions(payload, 'P1').map((item) => item.revision), ['V4.1', 'V4']);
+  assert.equal(payload.productRevisions.P1.currentRevisionInfo.changeReason, 'Reduce product height by 10mm');
+});
+
+test('product revisions preserve the legacy A.1 fallback and reject duplicate revision codes', () => {
+  const payload = normalizePayload({
+    version: 9,
+    bom: { P1: { code: 'P1', colors: [], color_info: {} } },
+    materialDb: { version: 1, materials: {}, bomEntries: [] },
+  });
+
+  assert.deepEqual(productRevisionOptions(payload, 'P1').map((item) => item.revision), ['A.1']);
+  createProductRevision(payload, 'P1', 'V2');
+  assert.throws(() => createProductRevision(payload, 'P1', 'A.1'), /REVISION_EXISTS/);
+  assert.throws(() => createProductRevision(payload, 'P1', 'V2'), /REVISION_EXISTS/);
+});
+
+test('legacy products preserve manual-derived versions until a revision registry exists', () => {
+  const payload = normalizePayload({
+    bom: { P1: { code: 'P1', colors: [], color_info: {} } },
+    manuals: { P1: [{ name: 'P1-S-A4-manual-V4.pdf' }] },
+    materialDb: { version: 1, materials: {}, bomEntries: [] },
+  });
+
+  assert.deepEqual(productRevisionOptions(payload, 'P1').map((item) => item.revision), ['V4']);
+
+  createProductRevision(payload, 'P1', 'V4.1');
+
+  assert.deepEqual(productRevisionOptions(payload, 'P1').map((item) => item.revision), ['V4.1', 'V4']);
+  assert.equal(payload.productRevisions.P1.revisions[0].snapshot.product.revision, 'V4');
+});
+
+test('legacy released revision is both current and effective', () => {
+  const payload = normalizePayload({
+    bom: { P1: { code: 'P1', colors: [], color_info: {} } },
+    manuals: { P1: [{ name: 'P1-S-A4-manual-V3.pdf' }] },
+    materialDb: { version: 1, materials: {}, bomEntries: [] },
+  });
+
+  const [revision] = productRevisionOptions(payload, 'P1');
+
+  assert.equal(revisionDomain.effectiveProductRevision?.(payload, 'P1'), 'V3');
+  assert.equal(revision.revision, 'V3');
+  assert.equal(revision.workflowState, 'released');
+  assert.equal(revision.effective, true);
+});
+
+test('the first revision can initialize an existing product at its real current revision', () => {
+  const payload = normalizePayload({
+    bom: { P1: { code: 'P1', colors: [], color_info: {} } },
+    materialDb: { version: 1, materials: {}, bomEntries: [] },
+  });
+
+  createProductRevision(payload, 'P1', 'V4.1', { currentRevision: 'V4' });
+
+  assert.deepEqual(productRevisionOptions(payload, 'P1').map((item) => item.revision), ['V4.1', 'V4']);
+  assert.equal(payload.productRevisions.P1.revisions[0].snapshot.product.revision, 'V4');
+});
+
+test('a new product revision starts as draft and records its source transition', () => {
+  const payload = normalizePayload({
+    bom: { P1: { code: 'P1', colors: [], color_info: {} } },
+    manuals: { P1: [{ name: 'P1-S-A4-manual-V3.pdf' }] },
+    materialDb: { version: 1, materials: {}, bomEntries: [] },
+  });
+
+  createProductRevision(payload, 'P1', 'V3.1', {
+    createdAt: '2026-07-13T01:02:03.000Z',
+    changeReason: 'Reduce height by 10mm',
+  });
+
+  const [current, previous] = productRevisionOptions(payload, 'P1');
+  assert.deepEqual(current, {
+    revision: 'V3.1',
+    current: true,
+    effective: false,
+    sourceRevision: 'V3',
+    createdAt: '2026-07-13T01:02:03.000Z',
+    changeReason: 'Reduce height by 10mm',
+    workflowState: 'draft',
+  });
+  assert.equal(previous.revision, 'V3');
+  assert.equal(previous.workflowState, 'released');
+  assert.equal(previous.effective, true);
+  assert.equal(payload.productRevisions.P1.effectiveRevision, 'V3');
+  assert.deepEqual(payload.productRevisions.P1.effectivityEvents, []);
+});
+
+test('releasing the current draft moves effectivity and records the transition', () => {
+  const payload = normalizePayload({
+    bom: { P1: { code: 'P1', colors: [], color_info: {} } },
+    manuals: { P1: [{ name: 'P1-S-A4-manual-V3.pdf' }] },
+    materialDb: { version: 1, materials: {}, bomEntries: [] },
+  });
+  createProductRevision(payload, 'P1', 'V3.1', {
+    createdAt: '2026-07-13T01:02:03.000Z',
+    changeReason: 'Reduce height by 10mm',
+  });
+
+  revisionDomain.releaseProductRevision?.(payload, 'P1', 'V3.1', {
+    eventId: 'effectivity_release_v3_1',
+    occurredAt: '2026-07-13T02:03:04.000Z',
+    reason: 'Approved for production',
+  });
+
+  const [current, previous] = productRevisionOptions(payload, 'P1');
+  assert.equal(current.workflowState, 'released');
+  assert.equal(current.effective, true);
+  assert.equal(previous.workflowState, 'released');
+  assert.equal(previous.effective, false);
+  assert.equal(payload.productRevisions.P1.effectiveRevision, 'V3.1');
+  assert.deepEqual(payload.productRevisions.P1.effectivityEvents, [{
+    id: 'effectivity_release_v3_1',
+    action: 'release',
+    revision: 'V3.1',
+    previousRevision: 'V3',
+    occurredAt: '2026-07-13T02:03:04.000Z',
+    reason: 'Approved for production',
+  }]);
+});
+
+test('invalid release transitions are atomic', () => {
+  const payload = normalizePayload({
+    bom: { P1: { code: 'P1', colors: [], color_info: {} } },
+    manuals: { P1: [{ name: 'P1-S-A4-manual-V3.pdf' }] },
+    materialDb: { version: 1, materials: {}, bomEntries: [] },
+  });
+  createProductRevision(payload, 'P1', 'V3.1', {
+    createdAt: '2026-07-13T01:02:03.000Z',
+    changeReason: 'Reduce height by 10mm',
+  });
+  const before = structuredClone(payload.productRevisions.P1);
+
+  assert.throws(
+    () => revisionDomain.releaseProductRevision(payload, 'P1', 'V3.1', { reason: '  ' }),
+    /RELEASE_REASON_REQUIRED/,
+  );
+  assert.deepEqual(payload.productRevisions.P1, before);
+  assert.throws(
+    () => revisionDomain.releaseProductRevision(payload, 'P1', 'V3', { reason: 'Rollback' }),
+    /REVISION_NOT_CURRENT/,
+  );
+  assert.deepEqual(payload.productRevisions.P1, before);
+
+  revisionDomain.releaseProductRevision(payload, 'P1', 'V3.1', {
+    eventId: 'effectivity_release_v3_1',
+    occurredAt: '2026-07-13T02:03:04.000Z',
+    reason: 'Approved for production',
+  });
+  const released = structuredClone(payload.productRevisions.P1);
+  assert.throws(
+    () => revisionDomain.releaseProductRevision(payload, 'P1', 'V3.1', { reason: 'Release again' }),
+    /REVISION_NOT_DRAFT/,
+  );
+  assert.deepEqual(payload.productRevisions.P1, released);
+});
+
+test('old revision records migrate their transition metadata to the current revision', () => {
+  const payload = normalizePayload({
+    bom: { P1: { code: 'P1', revision: 'V3.1', colors: [], color_info: {} } },
+    materialDb: { version: 1, materials: {}, bomEntries: [] },
+    productRevisions: {
+      P1: {
+        currentRevision: 'V3.1',
+        revisions: [{
+          revision: 'V3',
+          createdAt: '2026-07-13T01:02:03.000Z',
+          changeReason: 'Reduce height by 10mm',
+          snapshot: {
+            product: { code: 'P1', revision: 'V3', colors: [], color_info: {} },
+            materialDb: { version: 1, materials: {}, bomEntries: [] },
+          },
+        }],
+      },
+    },
+  });
+
+  const [current] = productRevisionOptions(payload, 'P1');
+  assert.equal(current.sourceRevision, 'V3');
+  assert.equal(current.createdAt, '2026-07-13T01:02:03.000Z');
+  assert.equal(current.changeReason, 'Reduce height by 10mm');
+  assert.equal(current.workflowState, 'draft');
+});
+
+test('effectivity inference skips historical revisions without a product snapshot', () => {
+  const payload = normalizePayload({
+    bom: { P1: { code: 'P1', revision: 'V4', colors: [], color_info: {} } },
+    materialDb: { version: 1, materials: {}, bomEntries: [] },
+    productRevisions: {
+      P1: {
+        currentRevision: 'V4',
+        currentRevisionInfo: { sourceRevision: 'V3', workflowState: 'draft' },
+        revisions: [
+          { revision: 'V2', workflowState: 'released' },
+          {
+            revision: 'V3',
+            workflowState: 'released',
+            snapshot: {
+              product: { code: 'P1', revision: 'V3', colors: [], color_info: {} },
+              materialDb: { version: 1, materials: {}, bomEntries: [] },
+            },
+          },
+        ],
+      },
+    },
+  });
+
+  assert.equal(revisionDomain.effectiveProductRevision(payload, 'P1'), 'V3');
+  assert.equal(payloadForProductRevision(payload, 'P1', 'V2'), payload);
 });
