@@ -149,6 +149,16 @@ const global = globalThis;
       materialDeleted: '物料已删除',
       materialDeleteBlocked: '该物料已被 BOM 使用，不能删除',
       addMaterial: '新增物料',
+      add2D: '添加 2D',
+      add3D: '添加 3D',
+      assetName: '显示名称 (选填)',
+      assetUrl: 'URL (必填)',
+      openAsset: '打开',
+      deleteAsset: '删除',
+      invalid2DUrl: '2D 必须是 HTTPS PDF 或 Google Drive 文件',
+      invalid3DUrl: '3D 必须是 HTTPS GLB/GLTF 直链',
+      duplicateUrl: 'URL 已存在',
+      saveLocalOnly: '已更新本地状态，请点击【保存到 GitHub】生效',
       materialId: 'MaterialID',
       materialCode: '物料编码',
       materialName: '物料名称',
@@ -288,6 +298,16 @@ const global = globalThis;
       materialDeleted: 'Đã xóa vật liệu',
       materialDeleteBlocked: 'Vật liệu đang được BOM sử dụng, không thể xóa',
       addMaterial: 'Thêm vật liệu',
+      add2D: 'Thêm 2D',
+      add3D: 'Thêm 3D',
+      assetName: 'Tên hiển thị (không bắt buộc)',
+      assetUrl: 'URL (bắt buộc)',
+      openAsset: 'Mở',
+      deleteAsset: 'Xóa',
+      invalid2DUrl: '2D URL phải là HTTPS PDF hoặc Google Drive',
+      invalid3DUrl: '3D URL phải là HTTPS GLB/GLTF trực tiếp',
+      duplicateUrl: 'URL đã tồn tại',
+      saveLocalOnly: 'Đã cập nhật local, hãy bấm [Lưu lên GitHub] để đồng bộ',
       materialId: 'MaterialID',
       materialCode: 'Mã vật liệu',
       materialName: 'Tên vật liệu',
@@ -1563,6 +1583,50 @@ const global = globalThis;
       this.markDirty();
     }
 
+    syncMaterialMasterFormToRecord(record) {
+      this.queryAll('[data-material-master-edit]').forEach((input) => {
+        const field = input.dataset.materialMasterEdit;
+        const lang = input.dataset.lang || 'zh';
+        if (field === 'code') {
+          record.code = input.value.trim();
+          return;
+        }
+        record[field] = record[field] || {};
+        record[field][lang] = input.value;
+      });
+      ['drawings', 'models3d'].forEach(typeKey => {
+        const arr = [];
+        this.queryAll(`#${typeKey}-container .material-asset-edit-row`).forEach((row, i) => {
+           const nameInput = row.querySelector('[data-asset-edit="name"]');
+           const urlInput = row.querySelector('[data-asset-edit="url"]');
+           const orig = (record[typeKey] || [])[i] || {};
+           arr.push({ ...orig, name: nameInput.value.trim(), url: urlInput.value.trim() });
+        });
+        record[typeKey] = arr;
+      });
+    }
+
+    addMaterialAssetRow(typeKey) {
+      const record = this.selectedMaterialRecord();
+      if (!record) return;
+      this.syncMaterialMasterFormToRecord(record);
+      record[typeKey] = record[typeKey] || [];
+      record[typeKey].push({ url: '', name: '' });
+      this.renderContent();
+    }
+
+    deleteMaterialAssetRow(button) {
+      const record = this.selectedMaterialRecord();
+      if (!record) return;
+      this.syncMaterialMasterFormToRecord(record);
+      const typeKey = button.dataset.assetType;
+      const index = parseInt(button.dataset.assetIndex, 10);
+      if (record[typeKey]) {
+        record[typeKey].splice(index, 1);
+      }
+      this.renderContent();
+    }
+
     saveMaterialMaster() {
       if (!this.isAdmin()) return;
       const record = this.selectedMaterialRecord();
@@ -1580,14 +1644,49 @@ const global = globalThis;
         patch[field][lang] = input.value;
       });
 
-      const drawingsInput = this.query('[data-material-assets="drawings"]');
-      if (drawingsInput) {
-        patch.drawings = drawingsInput.value.split('\n').map(u => u.trim()).filter(Boolean).map(url => ({ url }));
-      }
+      let validationError = null;
+      const validate2D = (url) => {
+        if (!url) return false;
+        if (!url.startsWith('https://')) return false;
+        if (url.includes('drive.google.com') || url.toLowerCase().endsWith('.pdf')) return true;
+        return false;
+      };
+      const validate3D = (url) => {
+        if (!url) return false;
+        if (!url.startsWith('https://')) return false;
+        if (url.includes('drive.google.com')) return false;
+        if (url.toLowerCase().endsWith('.glb') || url.toLowerCase().endsWith('.gltf')) return true;
+        return false;
+      };
 
-      const models3dInput = this.query('[data-material-assets="models3d"]');
-      if (models3dInput) {
-        patch.models3d = models3dInput.value.split('\n').map(u => u.trim()).filter(Boolean).map(url => ({ url }));
+      const seenUrls = new Set();
+
+      const processAssets = (typeKey, validator, errorLabel) => {
+        const arr = [];
+        this.queryAll(`#${typeKey}-container .material-asset-edit-row`).forEach((row, i) => {
+           const nameInput = row.querySelector('[data-asset-edit="name"]');
+           const urlInput = row.querySelector('[data-asset-edit="url"]');
+           const url = urlInput.value.trim();
+           if (!url) return;
+           if (!validator(url)) {
+             validationError = this.label(errorLabel);
+           }
+           if (seenUrls.has(url)) {
+             validationError = this.label('duplicateUrl');
+           }
+           seenUrls.add(url);
+           const orig = (record[typeKey] || [])[i] || {};
+           arr.push({ ...orig, name: nameInput.value.trim(), url });
+        });
+        return arr;
+      };
+
+      patch.drawings = processAssets('drawings', validate2D, 'invalid2DUrl');
+      patch.models3d = processAssets('models3d', validate3D, 'invalid3DUrl');
+
+      if (validationError) {
+        this.setStatus(validationError, 'error');
+        return;
       }
 
       if (this.state.materialDraft?.id === record.id) {
@@ -1603,7 +1702,7 @@ const global = globalThis;
       this.renderProductList();
       this.renderContent();
       this.renderInspector();
-      this.setStatus(this.label('materialSaved'), 'dirty');
+      this.setStatus(this.label('saveLocalOnly'), 'dirty');
     }
 
     deleteSelectedMaterialMaster() {
