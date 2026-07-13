@@ -4,7 +4,7 @@
 
 Review editable modules under `work/remote-bom-viewer-sync/bom-viewer-sync/src/` and the build scripts. `admin.html`, `app-admin.js`, `styles.css`, and `viewer.html` are generated artifacts, never manual edit targets.
 
-Build with `npm run build`; run `npm run check` for the complete local gate. The generated cache ID is a dynamic 12-character build hash (current output: `82d8372d92c1`), not a fixed version number. Viewer program changes require a rebuilt and redistributed `viewer.html`; Viewer reloads still receive GitHub/Drive data changes.
+Build with `npm run build`; run `npm run check` for the complete local gate. The generated cache ID is a dynamic 12-character build hash (current output: `afb6a28bd88c`), not a fixed version number. Viewer program changes require a rebuilt and redistributed `viewer.html`; Viewer reloads still receive GitHub/Drive data changes.
 
 ## Required Contracts
 
@@ -22,6 +22,6 @@ Before integration, syntax-check the outer compatibility wrappers but do not exe
 
 ## Expected Gates
 
-- Repository: 51 tests, audit 643/2725/22 with 0 errors and 0 warnings, generated check, and `app-admin.js` syntax.
+- Repository: 52 tests, audit 643/2725/22 with 0 errors and 0 warnings, generated check, and `app-admin.js` syntax.
 - Direct feature contracts: 16 UI tests and 13 runtime tests.
 - The non-gating `work/material-db.test.mjs` baseline remains 8/10.

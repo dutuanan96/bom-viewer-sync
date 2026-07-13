@@ -1,10 +1,10 @@
 # BOM Viewer GitHub Sync
 
-The canonical editable source is `work/remote-bom-viewer-sync/bom-viewer-sync/src/`. Build from the clone with `npm run build`, then run `npm run check` for the complete local gate.
+The canonical project root is `work/remote-bom-viewer-sync/bom-viewer-sync/`; application source lives in `src/`. Build from the clone with `npm run build`, then run `npm run check` for the complete local gate.
 
 ## Generated Runtime
 
-The build generates `admin.html`, `app-admin.js`, `styles.css`, and `viewer.html`. Never edit these files directly. Their cache/build identifier is a dynamic 12-character source hash (current output: `82d8372d92c1`), not a fixed version string.
+The build generates `admin.html`, `app-admin.js`, `styles.css`, and `viewer.html`. Never edit these files directly. Their cache/build identifier is a dynamic 12-character source hash (current output: `afb6a28bd88c`), not a fixed version string.
 
 `viewer.html` is the shareable standalone Viewer. Rebuild and redistribute it after a program, style, or shell change. Data and linked assets remain remote, so GitHub/Drive data changes appear when Viewer reloads.
 
