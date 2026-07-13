@@ -1,5 +1,7 @@
 # JinTai PDM System Handover
 
+AI debugging entrypoint: read `AI_DEBUG_GUIDE.md` first. It is self-contained; the remaining context files provide history and handoff detail only.
+
 ## Working Rule
 
 Work in the canonical project root: `work/remote-bom-viewer-sync/bom-viewer-sync/`. Application source lives in `src/`; build scripts, tests, and project configuration remain editable source-of-truth files. The generated deliverables are `admin.html`, `app-admin.js`, `styles.css`, and `viewer.html`; never edit them directly.
@@ -26,7 +28,7 @@ node --check app-admin.js
 git diff --check
 ```
 
-Expected baselines are 55 repository tests, Material Master 16/16, runtime 13/13, and audit 643 materials / 2725 BOM entries / 22 products / 0 errors / 0 warnings.
+Expected baselines are 56 repository tests, Material Master 18/18, runtime 13/13, and audit 643 materials / 2725 BOM entries / 22 products / 0 errors / 0 warnings.
 
 ## Guardrails
 

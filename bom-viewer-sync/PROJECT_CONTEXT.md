@@ -1,5 +1,7 @@
 # BOM Viewer / PDM Context
 
+AI debugging entrypoint: read `AI_DEBUG_GUIDE.md` first. It is self-contained; the remaining context files provide history and handoff detail only.
+
 ## Canonical Source And Build
 
 - Canonical project root: `work/remote-bom-viewer-sync/bom-viewer-sync/`; application source lives in `src/`.
@@ -25,7 +27,7 @@ Outer `outputs/` is a verified runtime mirror, not the editable source tree. Mir
 
 ## Verification Baseline
 
-- `npm run check` verifies 55 tests, the data audit, generated artifacts, and `app-admin.js` syntax.
+- `npm run check` verifies 56 tests, the data audit, generated artifacts, and `app-admin.js` syntax.
 - The data baseline is 643 materials, 2725 BOM entries, 22 products, 0 errors, and 0 warnings.
-- Material Master contracts are 16/16 and runtime contracts are 13/13.
+- Material Master contracts are 18/18 and runtime contracts are 13/13.
 - `work/material-db.test.mjs` has a known non-gating 8/10 baseline; do not change runtime behavior only to satisfy its two stale expectations.
