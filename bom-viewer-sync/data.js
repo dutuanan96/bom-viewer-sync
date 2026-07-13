@@ -1,7 +1,7 @@
 /* BOM cloud data. Update only through admin.html. */
 window.BOM_VIEWER_DATA = {
   "version": 2,
-  "updatedAt": "2026-07-13T04:01:16.836Z",
+  "updatedAt": "2026-07-13T04:02:42.987Z",
   "bom": {
     "LGS031": {
       "code": "LGS031",
@@ -69144,10 +69144,10 @@ window.BOM_VIEWER_DATA = {
   },
   "notifications": [
     {
-      "id": "notif_13t8034",
+      "id": "notif_tfgfm",
       "type": "github-save",
       "actor": "admin",
-      "createdAt": "2026-07-13T04:01:16.836Z",
+      "createdAt": "2026-07-13T04:02:42.987Z",
       "version": 2,
       "changes": []
     }
@@ -94209,6 +94209,32 @@ window.BOM_VIEWER_DATA = {
         "spec": {
           "zh": "647x290x15mm",
           "vi": "647x290x15mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "黑色",
+          "vi": "màu đen"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_1c0a8em": {
+        "id": "mat_1c0a8em",
+        "code": "ZJG150641BH",
+        "name": {
+          "zh": "41底脚",
+          "vi": "Chân đế 41"
+        },
+        "spec": {
+          "zh": "57x15x15mm",
+          "vi": "57x15x15mm"
         },
         "material": {
           "zh": "Q195",
