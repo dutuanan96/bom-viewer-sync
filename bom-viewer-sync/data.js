@@ -1,6 +1,7 @@
+/* BOM cloud data. Update only through admin.html. */
 window.BOM_VIEWER_DATA = {
   "version": 2,
-  "updatedAt": "2026-07-09T11:09:38.621Z",
+  "updatedAt": "2026-07-13T03:41:59.882Z",
   "bom": {
     "LGS031": {
       "code": "LGS031",
@@ -3674,7 +3675,8 @@ window.BOM_VIEWER_DATA = {
         }
       },
       "name_zh": "复古色3列3层6抽开放式带灯带电布抽电视柜-45inch",
-      "name_vi": "màu gỗ cổ 3 cột 3 tầng 6 Tủ đựng TV kiểu ngăn kéo mở có đèn và điện-45inch"
+      "name_vi": "màu gỗ cổ 3 cột 3 tầng 6 Tủ đựng TV kiểu ngăn kéo mở có đèn và điện-45inch",
+      "revision": "V3.1"
     },
     "LGS033": {
       "code": "LGS033",
@@ -4556,13 +4558,13 @@ window.BOM_VIEWER_DATA = {
                   "mat_code": "SLPZLS6030WH",
                   "comp_code": "",
                   "name_zh": "塑料膨胀螺丝",
-                  "name_vi": "ốc tắc kê nhựa",
+                  "name_vi": "Ốc tắc kê nhựa",
                   "spec": "6x30mm",
                   "spec_vi": "6x30mm",
                   "material_zh": "PP",
                   "material_vi": "PP",
-                  "color_zh": "镀锌",
-                  "color_vi": "mạ kẽm",
+                  "color_zh": "白色",
+                  "color_vi": "màu trắng",
                   "attr_zh": "五金包",
                   "attr_vi": "túi ngũ kim",
                   "color_ver": "白色",
@@ -4571,7 +4573,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "9",
-                  "mat_code": "ZGLS3560BH",
+                  "mat_code": "ZGLS3560WH",
                   "comp_code": "",
                   "name_zh": "自攻螺丝",
                   "name_vi": "ốc tự cắt",
@@ -5098,13 +5100,13 @@ window.BOM_VIEWER_DATA = {
               "mat_code": "SLPZLS6030WH",
               "comp_code": "6",
               "name_zh": "塑料膨胀螺丝",
-              "name_vi": "ốc tắc kê nhựa",
+              "name_vi": "Ốc tắc kê nhựa",
               "spec": "6x30mm",
               "spec_vi": "6x30mm",
               "material_zh": "PP",
               "material_vi": "PP",
-              "color_zh": "镀锌",
-              "color_vi": "mạ kẽm",
+              "color_zh": "白色",
+              "color_vi": "màu trắng",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
               "color_ver": "白色",
@@ -5113,7 +5115,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "7",
-              "mat_code": "ZGLS3560BH",
+              "mat_code": "ZGLS3560WH",
               "comp_code": "6",
               "name_zh": "自攻螺丝",
               "name_vi": "ốc tự cắt",
@@ -5323,8 +5325,8 @@ window.BOM_VIEWER_DATA = {
                   "spec_vi": "Ø6x30mm",
                   "material_zh": "木",
                   "material_vi": "gỗ",
-                  "color_zh": "本色",
-                  "color_vi": "màu tự nhiên",
+                  "color_zh": "木色",
+                  "color_vi": "màu gỗ",
                   "attr_zh": "五金包",
                   "attr_vi": "túi ngũ kim",
                   "color_ver": "复古色",
@@ -6189,8 +6191,8 @@ window.BOM_VIEWER_DATA = {
               "spec_vi": "Ø6x30mm",
               "material_zh": "木",
               "material_vi": "gỗ",
-              "color_zh": "本色",
-              "color_vi": "màu tự nhiên",
+              "color_zh": "木色",
+              "color_vi": "màu gỗ",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
               "color_ver": "复古色",
@@ -6416,8 +6418,8 @@ window.BOM_VIEWER_DATA = {
                   "spec_vi": "Ø6x30mm",
                   "material_zh": "木",
                   "material_vi": "gỗ",
-                  "color_zh": "本色",
-                  "color_vi": "màu tự nhiên",
+                  "color_zh": "木色",
+                  "color_vi": "màu gỗ",
                   "attr_zh": "五金包",
                   "attr_vi": "túi ngũ kim",
                   "color_ver": "黑色",
@@ -7282,8 +7284,8 @@ window.BOM_VIEWER_DATA = {
               "spec_vi": "Ø6x30mm",
               "material_zh": "木",
               "material_vi": "gỗ",
-              "color_zh": "本色",
-              "color_vi": "màu tự nhiên",
+              "color_zh": "木色",
+              "color_vi": "màu gỗ",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
               "color_ver": "黑色",
@@ -8318,7 +8320,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "12",
-                  "mat_code": "ZGLS3560BH",
+                  "mat_code": "ZGLS3560WH",
                   "comp_code": "",
                   "name_zh": "自攻螺丝",
                   "name_vi": "ốc tự cắt",
@@ -8896,7 +8898,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "",
-              "mat_code": "ZGLS3560BH",
+              "mat_code": "ZGLS3560WH",
               "comp_code": "8",
               "name_zh": "自攻螺丝",
               "name_vi": "ốc tự cắt",
@@ -10655,7 +10657,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "13",
-                  "mat_code": "ZGLS3560BH",
+                  "mat_code": "ZGLS3560WH",
                   "comp_code": "",
                   "name_zh": "自攻螺丝",
                   "name_vi": "ốc tự cắt",
@@ -11197,7 +11199,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "",
-              "mat_code": "ZGLS3560BH",
+              "mat_code": "ZGLS3560WH",
               "comp_code": "8",
               "name_zh": "自攻螺丝",
               "name_vi": "ốc tự cắt",
@@ -12249,8 +12251,8 @@ window.BOM_VIEWER_DATA = {
                   "spec_vi": "Ø6x30mm",
                   "material_zh": "木",
                   "material_vi": "gỗ",
-                  "color_zh": "本色",
-                  "color_vi": "màu tự nhiên",
+                  "color_zh": "木色",
+                  "color_vi": "màu gỗ",
                   "attr_zh": "五金包",
                   "attr_vi": "túi ngũ kim",
                   "color_ver": "复古色",
@@ -13025,8 +13027,8 @@ window.BOM_VIEWER_DATA = {
               "spec_vi": "Ø6x30mm",
               "material_zh": "木",
               "material_vi": "gỗ",
-              "color_zh": "本色",
-              "color_vi": "màu tự nhiên",
+              "color_zh": "木色",
+              "color_vi": "màu gỗ",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
               "color_ver": "复古色",
@@ -13126,8 +13128,8 @@ window.BOM_VIEWER_DATA = {
                   "spec_vi": "Ø6x30mm",
                   "material_zh": "木",
                   "material_vi": "gỗ",
-                  "color_zh": "本色",
-                  "color_vi": "màu tự nhiên",
+                  "color_zh": "木色",
+                  "color_vi": "màu gỗ",
                   "attr_zh": "五金包",
                   "attr_vi": "túi ngũ kim",
                   "color_ver": "白色",
@@ -13262,7 +13264,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "13",
-                  "mat_code": "ZGLS3560BH",
+                  "mat_code": "ZGLS3560WH",
                   "comp_code": "",
                   "name_zh": "自攻螺丝",
                   "name_vi": "ốc tự cắt",
@@ -13984,7 +13986,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "9",
-              "mat_code": "ZGLS3560BH",
+              "mat_code": "ZGLS3560WH",
               "comp_code": "8",
               "name_zh": "自攻螺丝",
               "name_vi": "ốc tự cắt",
@@ -14046,8 +14048,8 @@ window.BOM_VIEWER_DATA = {
               "spec_vi": "Ø6x30mm",
               "material_zh": "木",
               "material_vi": "gỗ",
-              "color_zh": "本色",
-              "color_vi": "màu tự nhiên",
+              "color_zh": "木色",
+              "color_vi": "màu gỗ",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
               "color_ver": "白色",
@@ -14291,8 +14293,8 @@ window.BOM_VIEWER_DATA = {
                   "spec_vi": "Ø6x30mm",
                   "material_zh": "木",
                   "material_vi": "gỗ",
-                  "color_zh": "本色",
-                  "color_vi": "màu tự nhiên",
+                  "color_zh": "木色",
+                  "color_vi": "màu gỗ",
                   "attr_zh": "五金包",
                   "attr_vi": "túi ngũ kim",
                   "color_ver": "黑色",
@@ -15067,8 +15069,8 @@ window.BOM_VIEWER_DATA = {
               "spec_vi": "Ø6x30mm",
               "material_zh": "木",
               "material_vi": "gỗ",
-              "color_zh": "本色",
-              "color_vi": "màu tự nhiên",
+              "color_zh": "木色",
+              "color_vi": "màu gỗ",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
               "color_ver": "黑色",
@@ -15340,8 +15342,8 @@ window.BOM_VIEWER_DATA = {
                   "spec_vi": "Ø6x30mm",
                   "material_zh": "木",
                   "material_vi": "gỗ",
-                  "color_zh": "本色",
-                  "color_vi": "màu tự nhiên",
+                  "color_zh": "木色",
+                  "color_vi": "màu gỗ",
                   "attr_zh": "五金包",
                   "attr_vi": "túi ngũ kim",
                   "color_ver": "黑色",
@@ -16188,8 +16190,8 @@ window.BOM_VIEWER_DATA = {
               "spec_vi": "Ø6x30mm",
               "material_zh": "木",
               "material_vi": "gỗ",
-              "color_zh": "本色",
-              "color_vi": "màu tự nhiên",
+              "color_zh": "木色",
+              "color_vi": "màu gỗ",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
               "color_ver": "黑色",
@@ -17349,8 +17351,8 @@ window.BOM_VIEWER_DATA = {
                   "spec_vi": "Ø6x30mm",
                   "material_zh": "木",
                   "material_vi": "gỗ",
-                  "color_zh": "本色",
-                  "color_vi": "màu tự nhiên",
+                  "color_zh": "木色",
+                  "color_vi": "màu gỗ",
                   "attr_zh": "五金包",
                   "attr_vi": "túi ngũ kim",
                   "color_ver": "复古色",
@@ -18161,8 +18163,8 @@ window.BOM_VIEWER_DATA = {
               "spec_vi": "Ø6x30mm",
               "material_zh": "木",
               "material_vi": "gỗ",
-              "color_zh": "本色",
-              "color_vi": "màu tự nhiên",
+              "color_zh": "木色",
+              "color_vi": "màu gỗ",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
               "color_ver": "复古色",
@@ -18406,8 +18408,8 @@ window.BOM_VIEWER_DATA = {
                   "spec_vi": "Ø6x30mm",
                   "material_zh": "木",
                   "material_vi": "gỗ",
-                  "color_zh": "本色",
-                  "color_vi": "màu tự nhiên",
+                  "color_zh": "木色",
+                  "color_vi": "màu gỗ",
                   "attr_zh": "五金包",
                   "attr_vi": "túi ngũ kim",
                   "color_ver": "黑色",
@@ -19218,8 +19220,8 @@ window.BOM_VIEWER_DATA = {
               "spec_vi": "Ø6x30mm",
               "material_zh": "木",
               "material_vi": "gỗ",
-              "color_zh": "本色",
-              "color_vi": "màu tự nhiên",
+              "color_zh": "木色",
+              "color_vi": "màu gỗ",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
               "color_ver": "黑色",
@@ -19492,8 +19494,8 @@ window.BOM_VIEWER_DATA = {
                   "spec_vi": "Ø6x30mm",
                   "material_zh": "木",
                   "material_vi": "gỗ",
-                  "color_zh": "本色",
-                  "color_vi": "màu tự nhiên",
+                  "color_zh": "木色",
+                  "color_vi": "màu gỗ",
                   "attr_zh": "五金包",
                   "attr_vi": "túi ngũ kim",
                   "color_ver": "复古色",
@@ -20358,8 +20360,8 @@ window.BOM_VIEWER_DATA = {
               "spec_vi": "Ø6x30mm",
               "material_zh": "木",
               "material_vi": "gỗ",
-              "color_zh": "本色",
-              "color_vi": "màu tự nhiên",
+              "color_zh": "木色",
+              "color_vi": "màu gỗ",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
               "color_ver": "复古色",
@@ -20621,8 +20623,8 @@ window.BOM_VIEWER_DATA = {
                   "spec_vi": "Ø6x30mm",
                   "material_zh": "木",
                   "material_vi": "gỗ",
-                  "color_zh": "本色",
-                  "color_vi": "màu tự nhiên",
+                  "color_zh": "木色",
+                  "color_vi": "màu gỗ",
                   "attr_zh": "五金包",
                   "attr_vi": "túi ngũ kim",
                   "color_ver": "黑色",
@@ -21487,8 +21489,8 @@ window.BOM_VIEWER_DATA = {
               "spec_vi": "Ø6x30mm",
               "material_zh": "木",
               "material_vi": "gỗ",
-              "color_zh": "本色",
-              "color_vi": "màu tự nhiên",
+              "color_zh": "木色",
+              "color_vi": "màu gỗ",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
               "color_ver": "黑色",
@@ -22508,13 +22510,13 @@ window.BOM_VIEWER_DATA = {
                   "mat_code": "SLPZLS6030WH",
                   "comp_code": "6",
                   "name_zh": "塑料膨胀螺丝",
-                  "name_vi": "ốc tắc kê nhựa",
+                  "name_vi": "Ốc tắc kê nhựa",
                   "spec": "6x30mm",
                   "spec_vi": "6x30mm",
                   "material_zh": "PP",
                   "material_vi": "PP",
-                  "color_zh": "镀锌",
-                  "color_vi": "mạ kẽm",
+                  "color_zh": "白色",
+                  "color_vi": "màu trắng",
                   "attr_zh": "五金包",
                   "attr_vi": "túi ngũ kim",
                   "color_ver": "白色",
@@ -22523,7 +22525,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "7",
-                  "mat_code": "ZGLS3560BH",
+                  "mat_code": "ZGLS3560WH",
                   "comp_code": "6",
                   "name_zh": "自攻螺丝",
                   "name_vi": "ốc tự cắt",
@@ -23176,13 +23178,13 @@ window.BOM_VIEWER_DATA = {
               "mat_code": "SLPZLS6030WH",
               "comp_code": "6",
               "name_zh": "塑料膨胀螺丝",
-              "name_vi": "ốc tắc kê nhựa",
+              "name_vi": "Ốc tắc kê nhựa",
               "spec": "6x30mm",
               "spec_vi": "6x30mm",
               "material_zh": "PP",
               "material_vi": "PP",
-              "color_zh": "镀锌",
-              "color_vi": "mạ kẽm",
+              "color_zh": "白色",
+              "color_vi": "màu trắng",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
               "color_ver": "白色",
@@ -23191,7 +23193,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "7",
-              "mat_code": "ZGLS3560BH",
+              "mat_code": "ZGLS3560WH",
               "comp_code": "6",
               "name_zh": "自攻螺丝",
               "name_vi": "ốc tự cắt",
@@ -24491,8 +24493,8 @@ window.BOM_VIEWER_DATA = {
               "stt": "9",
               "mat_code": "LGS333SQHLBH",
               "comp_code": "G",
-              "name_zh": "LGS333_433_733_833底部横杆前",
-              "name_vi": "LGS333_433_733_833 Thanh dưới trước",
+              "name_zh": "LGS333_733顶部横杆",
+              "name_vi": "LGS333_733 thanh trên",
               "spec": "1098x15x15mm",
               "spec_vi": "1098x15x15mm",
               "material_zh": "Q195",
@@ -25115,13 +25117,13 @@ window.BOM_VIEWER_DATA = {
                   "mat_code": "SLPZLS6030WH",
                   "comp_code": "6",
                   "name_zh": "塑料膨胀螺丝",
-                  "name_vi": "ốc tắc kê nhựa",
+                  "name_vi": "Ốc tắc kê nhựa",
                   "spec": "6x30mm",
                   "spec_vi": "6x30mm",
                   "material_zh": "PP",
                   "material_vi": "PP",
-                  "color_zh": "镀锌",
-                  "color_vi": "mạ kẽm",
+                  "color_zh": "白色",
+                  "color_vi": "màu trắng",
                   "attr_zh": "五金包",
                   "attr_vi": "túi ngũ kim",
                   "color_ver": "白色",
@@ -25130,7 +25132,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "7",
-                  "mat_code": "ZGLS3560BH",
+                  "mat_code": "ZGLS3560WH",
                   "comp_code": "6",
                   "name_zh": "自攻螺丝",
                   "name_vi": "ốc tự cắt",
@@ -25332,8 +25334,8 @@ window.BOM_VIEWER_DATA = {
               "stt": "9",
               "mat_code": "LGS333SQHLWH",
               "comp_code": "G",
-              "name_zh": "LGS333_433_733_833底部横杆前",
-              "name_vi": "LGS333_433_733_833 Thanh dưới trước",
+              "name_zh": "LGS333_733顶部横杆",
+              "name_vi": "LGS333_733 thanh trên",
               "spec": "1098x15x15mm",
               "spec_vi": "1098x15x15mm",
               "material_zh": "Q195",
@@ -25765,13 +25767,13 @@ window.BOM_VIEWER_DATA = {
               "mat_code": "SLPZLS6030WH",
               "comp_code": "6",
               "name_zh": "塑料膨胀螺丝",
-              "name_vi": "ốc tắc kê nhựa",
+              "name_vi": "Ốc tắc kê nhựa",
               "spec": "6x30mm",
               "spec_vi": "6x30mm",
               "material_zh": "PP",
               "material_vi": "PP",
-              "color_zh": "镀锌",
-              "color_vi": "mạ kẽm",
+              "color_zh": "白色",
+              "color_vi": "màu trắng",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
               "color_ver": "白色",
@@ -25780,7 +25782,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "7",
-              "mat_code": "ZGLS3560BH",
+              "mat_code": "ZGLS3560WH",
               "comp_code": "6",
               "name_zh": "自攻螺丝",
               "name_vi": "ốc tự cắt",
@@ -26173,8 +26175,8 @@ window.BOM_VIEWER_DATA = {
               "stt": "9",
               "mat_code": "LGS333SQHLBH",
               "comp_code": "G",
-              "name_zh": "LGS333_433_733_833底部横杆前",
-              "name_vi": "LGS333_433_733_833 Thanh dưới trước",
+              "name_zh": "LGS333_733顶部横杆",
+              "name_vi": "LGS333_733 thanh trên",
               "spec": "1098x15x15mm",
               "spec_vi": "1098x15x15mm",
               "material_zh": "Q195",
@@ -27240,8 +27242,8 @@ window.BOM_VIEWER_DATA = {
               "stt": "20",
               "mat_code": "BCDB32831723BH",
               "comp_code": "Z04",
-              "name_zh": "LGS布抽底板32.5x34",
-              "name_vi": "LGS đáy túi vải 32.5x34",
+              "name_zh": "LGS布抽底板33.5x32",
+              "name_vi": "LGS đáy túi vải 33.5x32",
               "spec": "335x320x3mm",
               "spec_vi": "335x320x3mm",
               "material_zh": "MDF&无纺布",
@@ -27899,8 +27901,8 @@ window.BOM_VIEWER_DATA = {
                   "spec_vi": "Ø6x30mm",
                   "material_zh": "木",
                   "material_vi": "gỗ",
-                  "color_zh": "本色",
-                  "color_vi": "màu tự nhiên",
+                  "color_zh": "木色",
+                  "color_vi": "màu gỗ",
                   "attr_zh": "五金包",
                   "attr_vi": "túi ngũ kim",
                   "color_ver": "复古色",
@@ -28693,8 +28695,8 @@ window.BOM_VIEWER_DATA = {
               "spec_vi": "Ø6x30mm",
               "material_zh": "木",
               "material_vi": "gỗ",
-              "color_zh": "本色",
-              "color_vi": "màu tự nhiên",
+              "color_zh": "木色",
+              "color_vi": "màu gỗ",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
               "color_ver": "复古色",
@@ -28794,8 +28796,8 @@ window.BOM_VIEWER_DATA = {
                   "spec_vi": "Ø6x30mm",
                   "material_zh": "木",
                   "material_vi": "gỗ",
-                  "color_zh": "本色",
-                  "color_vi": "màu tự nhiên",
+                  "color_zh": "木色",
+                  "color_vi": "màu gỗ",
                   "attr_zh": "五金包",
                   "attr_vi": "túi ngũ kim",
                   "color_ver": "白色",
@@ -28933,13 +28935,13 @@ window.BOM_VIEWER_DATA = {
                   "mat_code": "SLPZLS6030WH",
                   "comp_code": "",
                   "name_zh": "塑料膨胀螺丝",
-                  "name_vi": "ốc tắc kê nhựa",
+                  "name_vi": "Ốc tắc kê nhựa",
                   "spec": "6x30mm",
                   "spec_vi": "6x30mm",
                   "material_zh": "PP",
                   "material_vi": "PP",
-                  "color_zh": "镀锌",
-                  "color_vi": "mạ kẽm",
+                  "color_zh": "白色",
+                  "color_vi": "màu trắng",
                   "attr_zh": "五金包",
                   "attr_vi": "túi ngũ kim",
                   "color_ver": "白色",
@@ -28948,7 +28950,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "13",
-                  "mat_code": "ZGLS3560BH",
+                  "mat_code": "ZGLS3560WH",
                   "comp_code": "",
                   "name_zh": "自攻螺丝",
                   "name_vi": "ốc tự cắt",
@@ -29691,13 +29693,13 @@ window.BOM_VIEWER_DATA = {
               "mat_code": "SLPZLS6030WH",
               "comp_code": "8",
               "name_zh": "塑料膨胀螺丝",
-              "name_vi": "ốc tắc kê nhựa",
+              "name_vi": "Ốc tắc kê nhựa",
               "spec": "6x30mm",
               "spec_vi": "6x30mm",
               "material_zh": "PP",
               "material_vi": "PP",
-              "color_zh": "镀锌",
-              "color_vi": "mạ kẽm",
+              "color_zh": "白色",
+              "color_vi": "màu trắng",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
               "color_ver": "白色",
@@ -29706,7 +29708,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "9",
-              "mat_code": "ZGLS3560BH",
+              "mat_code": "ZGLS3560WH",
               "comp_code": "8",
               "name_zh": "自攻螺丝",
               "name_vi": "ốc tự cắt",
@@ -30013,8 +30015,8 @@ window.BOM_VIEWER_DATA = {
                   "spec_vi": "Ø6x30mm",
                   "material_zh": "木",
                   "material_vi": "gỗ",
-                  "color_zh": "本色",
-                  "color_vi": "màu tự nhiên",
+                  "color_zh": "木色",
+                  "color_vi": "màu gỗ",
                   "attr_zh": "五金包",
                   "attr_vi": "túi ngũ kim",
                   "color_ver": "黑色",
@@ -30807,8 +30809,8 @@ window.BOM_VIEWER_DATA = {
               "spec_vi": "Ø6x30mm",
               "material_zh": "木",
               "material_vi": "gỗ",
-              "color_zh": "本色",
-              "color_vi": "màu tự nhiên",
+              "color_zh": "木色",
+              "color_vi": "màu gỗ",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
               "color_ver": "黑色",
@@ -31063,8 +31065,8 @@ window.BOM_VIEWER_DATA = {
                   "spec_vi": "Ø6x30mm",
                   "material_zh": "木",
                   "material_vi": "gỗ",
-                  "color_zh": "本色",
-                  "color_vi": "màu tự nhiên",
+                  "color_zh": "木色",
+                  "color_vi": "màu gỗ",
                   "attr_zh": "五金包",
                   "attr_vi": "túi ngũ kim",
                   "color_ver": "复古色",
@@ -31113,8 +31115,8 @@ window.BOM_VIEWER_DATA = {
               "stt": "3",
               "mat_code": "LGS421SHLBH",
               "comp_code": "F2",
-              "name_zh": "LGS421-S-顶部横杆前",
-              "name_vi": "LGS421-S-Thanh trên trước",
+              "name_zh": "LGS421-S-顶部横杆后",
+              "name_vi": "LGS421-S-Thanh trên sau",
               "spec": "947x15x15mm",
               "spec_vi": "947x15x15mm",
               "material_zh": "Q195",
@@ -31857,8 +31859,8 @@ window.BOM_VIEWER_DATA = {
               "spec_vi": "Ø6x30mm",
               "material_zh": "木",
               "material_vi": "gỗ",
-              "color_zh": "本色",
-              "color_vi": "màu tự nhiên",
+              "color_zh": "木色",
+              "color_vi": "màu gỗ",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
               "color_ver": "复古色",
@@ -32102,8 +32104,8 @@ window.BOM_VIEWER_DATA = {
                   "spec_vi": "Ø6x30mm",
                   "material_zh": "木",
                   "material_vi": "gỗ",
-                  "color_zh": "本色",
-                  "color_vi": "màu tự nhiên",
+                  "color_zh": "木色",
+                  "color_vi": "màu gỗ",
                   "attr_zh": "五金包",
                   "attr_vi": "túi ngũ kim",
                   "color_ver": "黑色",
@@ -32152,8 +32154,8 @@ window.BOM_VIEWER_DATA = {
               "stt": "3",
               "mat_code": "LGS421SHLBH",
               "comp_code": "F2",
-              "name_zh": "LGS421-S-顶部横杆前",
-              "name_vi": "LGS421-S-Thanh trên trước",
+              "name_zh": "LGS421-S-顶部横杆后",
+              "name_vi": "LGS421-S-Thanh trên sau",
               "spec": "947x15x15mm",
               "spec_vi": "947x15x15mm",
               "material_zh": "Q195",
@@ -32896,8 +32898,8 @@ window.BOM_VIEWER_DATA = {
               "spec_vi": "Ø6x30mm",
               "material_zh": "木",
               "material_vi": "gỗ",
-              "color_zh": "本色",
-              "color_vi": "màu tự nhiên",
+              "color_zh": "木色",
+              "color_vi": "màu gỗ",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
               "color_ver": "黑色",
@@ -33401,8 +33403,8 @@ window.BOM_VIEWER_DATA = {
               "stt": "16",
               "mat_code": "LGS433SZKBH",
               "comp_code": "I1",
-              "name_zh": "LGS433支撑框-左",
-              "name_vi": "LGS433 khung đỡ-trái",
+              "name_zh": "LGS433支撑框-右",
+              "name_vi": "LGS433 khung đỡ-phải",
               "spec": "290x178x15mm",
               "spec_vi": "290x178x15mm",
               "material_zh": "Q195",
@@ -34043,13 +34045,13 @@ window.BOM_VIEWER_DATA = {
                   "mat_code": "SLPZLS6030WH",
                   "comp_code": "6",
                   "name_zh": "塑料膨胀螺丝",
-                  "name_vi": "ốc tắc kê nhựa",
+                  "name_vi": "Ốc tắc kê nhựa",
                   "spec": "6x30mm",
                   "spec_vi": "6x30mm",
                   "material_zh": "PP",
                   "material_vi": "PP",
-                  "color_zh": "镀锌",
-                  "color_vi": "mạ kẽm",
+                  "color_zh": "白色",
+                  "color_vi": "màu trắng",
                   "attr_zh": "五金包",
                   "attr_vi": "túi ngũ kim",
                   "color_ver": "白色",
@@ -34058,7 +34060,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "7",
-                  "mat_code": "ZGLS3560BH",
+                  "mat_code": "ZGLS3560WH",
                   "comp_code": "6",
                   "name_zh": "自攻螺丝",
                   "name_vi": "ốc tự cắt",
@@ -34212,8 +34214,8 @@ window.BOM_VIEWER_DATA = {
               "spec_vi": "Tùy thực tế",
               "material_zh": "PP",
               "material_vi": "PP",
-              "color_zh": "白色",
-              "color_vi": "màu trắng",
+              "color_zh": "本色",
+              "color_vi": "màu tự nhiên",
               "attr_zh": "零件",
               "attr_vi": "linh kiện",
               "color_ver": "白色",
@@ -34404,8 +34406,8 @@ window.BOM_VIEWER_DATA = {
               "stt": "16",
               "mat_code": "LGS433SZKWH",
               "comp_code": "I1",
-              "name_zh": "LGS433支撑框-左",
-              "name_vi": "LGS433 khung đỡ-trái",
+              "name_zh": "LGS433支撑框-右",
+              "name_vi": "LGS433 khung đỡ-phải",
               "spec": "290x178x15mm",
               "spec_vi": "290x178x15mm",
               "material_zh": "Q195",
@@ -34837,13 +34839,13 @@ window.BOM_VIEWER_DATA = {
               "mat_code": "SLPZLS6030WH",
               "comp_code": "6",
               "name_zh": "塑料膨胀螺丝",
-              "name_vi": "ốc tắc kê nhựa",
+              "name_vi": "Ốc tắc kê nhựa",
               "spec": "6x30mm",
               "spec_vi": "6x30mm",
               "material_zh": "PP",
               "material_vi": "PP",
-              "color_zh": "镀锌",
-              "color_vi": "mạ kẽm",
+              "color_zh": "白色",
+              "color_vi": "màu trắng",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
               "color_ver": "白色",
@@ -34852,7 +34854,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "7",
-              "mat_code": "ZGLS3560BH",
+              "mat_code": "ZGLS3560WH",
               "comp_code": "6",
               "name_zh": "自攻螺丝",
               "name_vi": "ốc tự cắt",
@@ -35407,8 +35409,8 @@ window.BOM_VIEWER_DATA = {
               "stt": "16",
               "mat_code": "LGS433SZKBH",
               "comp_code": "I1",
-              "name_zh": "LGS433支撑框-左",
-              "name_vi": "LGS433 khung đỡ-trái",
+              "name_zh": "LGS433支撑框-右",
+              "name_vi": "LGS433 khung đỡ-phải",
               "spec": "290x178x15mm",
               "spec_vi": "290x178x15mm",
               "material_zh": "Q195",
@@ -36060,13 +36062,13 @@ window.BOM_VIEWER_DATA = {
                   "mat_code": "SLPZLS6030WH",
                   "comp_code": "6",
                   "name_zh": "塑料膨胀螺丝",
-                  "name_vi": "ốc tắc kê nhựa",
+                  "name_vi": "Ốc tắc kê nhựa",
                   "spec": "6x30mm",
                   "spec_vi": "6x30mm",
                   "material_zh": "PP",
                   "material_vi": "PP",
-                  "color_zh": "镀锌",
-                  "color_vi": "mạ kẽm",
+                  "color_zh": "白色",
+                  "color_vi": "màu trắng",
                   "attr_zh": "五金包",
                   "attr_vi": "túi ngũ kim",
                   "color_ver": "白色",
@@ -36075,7 +36077,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "7",
-                  "mat_code": "ZGLS3560BH",
+                  "mat_code": "ZGLS3560WH",
                   "comp_code": "6",
                   "name_zh": "自攻螺丝",
                   "name_vi": "ốc tự cắt",
@@ -36583,8 +36585,8 @@ window.BOM_VIEWER_DATA = {
               "stt": "23",
               "mat_code": "LGS434SZKWH",
               "comp_code": "I1",
-              "name_zh": "LGS434支撑框-左",
-              "name_vi": "LGS434 khung đỡ-trái",
+              "name_zh": "LGS434支撑框-右",
+              "name_vi": "LGS434 khung đỡ-phải",
               "spec": "335x178x15mm",
               "spec_vi": "335x178x15mm",
               "material_zh": "Q195",
@@ -37070,13 +37072,13 @@ window.BOM_VIEWER_DATA = {
               "mat_code": "SLPZLS6030WH",
               "comp_code": "6",
               "name_zh": "塑料膨胀螺丝",
-              "name_vi": "ốc tắc kê nhựa",
+              "name_vi": "Ốc tắc kê nhựa",
               "spec": "6x30mm",
               "spec_vi": "6x30mm",
               "material_zh": "PP",
               "material_vi": "PP",
-              "color_zh": "镀锌",
-              "color_vi": "mạ kẽm",
+              "color_zh": "白色",
+              "color_vi": "màu trắng",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
               "color_ver": "白色",
@@ -37085,7 +37087,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "7",
-              "mat_code": "ZGLS3560BH",
+              "mat_code": "ZGLS3560WH",
               "comp_code": "6",
               "name_zh": "自攻螺丝",
               "name_vi": "ốc tự cắt",
@@ -37538,8 +37540,8 @@ window.BOM_VIEWER_DATA = {
               "spec_vi": "Tùy thực tế",
               "material_zh": "PP",
               "material_vi": "PP",
-              "color_zh": "本色",
-              "color_vi": "màu tự nhiên",
+              "color_zh": "白色",
+              "color_vi": "màu trắng",
               "attr_zh": "零件",
               "attr_vi": "linh kiện",
               "color_ver": "黑色",
@@ -37838,8 +37840,8 @@ window.BOM_VIEWER_DATA = {
               "stt": "23",
               "mat_code": "LGS434SZKBH",
               "comp_code": "I1",
-              "name_zh": "LGS434支撑框-左",
-              "name_vi": "LGS434 khung đỡ-trái",
+              "name_zh": "LGS434支撑框-右",
+              "name_vi": "LGS434 khung đỡ-phải",
               "spec": "335x178x15mm",
               "spec_vi": "335x178x15mm",
               "material_zh": "Q195",
@@ -37911,7 +37913,7 @@ window.BOM_VIEWER_DATA = {
               "mat_code": "BCDB32831723BH",
               "comp_code": "Z04",
               "name_zh": "LGS布抽底板33.5x32",
-              "name_vi": "LGS布抽底板33.5x32",
+              "name_vi": "LGS đáy túi vải 33.5x32",
               "spec": "335x320x3mm",
               "spec_vi": "335x320x3mm",
               "material_zh": "MDF&无纺布",
@@ -39603,13 +39605,13 @@ window.BOM_VIEWER_DATA = {
                   "mat_code": "SLPZLS6030WH",
                   "comp_code": "7",
                   "name_zh": "塑料膨胀螺丝",
-                  "name_vi": "ốc tắc kê nhựa",
+                  "name_vi": "Ốc tắc kê nhựa",
                   "spec": "6x30mm",
                   "spec_vi": "6x30mm",
                   "material_zh": "PP",
                   "material_vi": "PP",
-                  "color_zh": "镀锌",
-                  "color_vi": "mạ kẽm",
+                  "color_zh": "白色",
+                  "color_vi": "màu trắng",
                   "attr_zh": "五金包",
                   "attr_vi": "túi ngũ kim",
                   "color_ver": "白色",
@@ -39618,7 +39620,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "8",
-                  "mat_code": "ZGLS3560BH",
+                  "mat_code": "ZGLS3560WH",
                   "comp_code": "7",
                   "name_zh": "自攻螺丝",
                   "name_vi": "ốc tự cắt",
@@ -39772,8 +39774,8 @@ window.BOM_VIEWER_DATA = {
               "spec_vi": "Tùy thực tế",
               "material_zh": "PP",
               "material_vi": "PP",
-              "color_zh": "白色",
-              "color_vi": "màu trắng",
+              "color_zh": "本色",
+              "color_vi": "màu tự nhiên",
               "attr_zh": "零件",
               "attr_vi": "linh kiện",
               "color_ver": "白色",
@@ -40379,13 +40381,13 @@ window.BOM_VIEWER_DATA = {
               "mat_code": "SLPZLS6030WH",
               "comp_code": "7",
               "name_zh": "塑料膨胀螺丝",
-              "name_vi": "ốc tắc kê nhựa",
+              "name_vi": "Ốc tắc kê nhựa",
               "spec": "6x30mm",
               "spec_vi": "6x30mm",
               "material_zh": "PP",
               "material_vi": "PP",
-              "color_zh": "镀锌",
-              "color_vi": "mạ kẽm",
+              "color_zh": "白色",
+              "color_vi": "màu trắng",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
               "color_ver": "白色",
@@ -40394,7 +40396,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "8",
-              "mat_code": "ZGLS3560BH",
+              "mat_code": "ZGLS3560WH",
               "comp_code": "7",
               "name_zh": "自攻螺丝",
               "name_vi": "ốc tự cắt",
@@ -41946,8 +41948,8 @@ window.BOM_VIEWER_DATA = {
               "stt": "13",
               "mat_code": "LGS333YKBH",
               "comp_code": "E",
-              "name_zh": "LGS723_733右侧框",
-              "name_vi": "LGS723_733 khung bên phải",
+              "name_zh": "LGS333-433右侧框",
+              "name_vi": "LGS333-433 khung bên phải",
               "spec": "659x290x15mm",
               "spec_vi": "659x290x15mm",
               "material_zh": "Q195",
@@ -41964,8 +41966,8 @@ window.BOM_VIEWER_DATA = {
               "stt": "14",
               "mat_code": "LGS333ZKBH",
               "comp_code": "D",
-              "name_zh": "LGS723_733左侧框",
-              "name_vi": "LGS723_733 khung bên trái",
+              "name_zh": "LGS333-433左侧框",
+              "name_vi": "LGS333-433 khung bên trái",
               "spec": "659x290x15mm",
               "spec_vi": "659x290x15mm",
               "material_zh": "Q195",
@@ -42678,13 +42680,13 @@ window.BOM_VIEWER_DATA = {
                   "mat_code": "SLPZLS6030WH",
                   "comp_code": "7",
                   "name_zh": "塑料膨胀螺丝",
-                  "name_vi": "ốc tắc kê nhựa",
+                  "name_vi": "Ốc tắc kê nhựa",
                   "spec": "6x30mm",
                   "spec_vi": "6x30mm",
                   "material_zh": "PP",
                   "material_vi": "PP",
-                  "color_zh": "镀锌",
-                  "color_vi": "mạ kẽm",
+                  "color_zh": "白色",
+                  "color_vi": "màu trắng",
                   "attr_zh": "五金包",
                   "attr_vi": "túi ngũ kim",
                   "color_ver": "白色",
@@ -42693,7 +42695,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "8",
-                  "mat_code": "ZGLS3560BH",
+                  "mat_code": "ZGLS3560WH",
                   "comp_code": "7",
                   "name_zh": "自攻螺丝",
                   "name_vi": "ốc tự cắt",
@@ -42811,8 +42813,8 @@ window.BOM_VIEWER_DATA = {
               "spec_vi": "Tùy thực tế",
               "material_zh": "PP",
               "material_vi": "PP",
-              "color_zh": "白色",
-              "color_vi": "màu trắng",
+              "color_zh": "本色",
+              "color_vi": "màu tự nhiên",
               "attr_zh": "零件",
               "attr_vi": "linh kiện",
               "color_ver": "白色",
@@ -43003,8 +43005,8 @@ window.BOM_VIEWER_DATA = {
               "stt": "13",
               "mat_code": "LGS333YKWH",
               "comp_code": "E",
-              "name_zh": "LGS723_733右侧框",
-              "name_vi": "LGS723_733 khung bên phải",
+              "name_zh": "LGS333-433右侧框",
+              "name_vi": "LGS333-433 khung bên phải",
               "spec": "659x290x15mm",
               "spec_vi": "659x290x15mm",
               "material_zh": "Q195",
@@ -43021,8 +43023,8 @@ window.BOM_VIEWER_DATA = {
               "stt": "14",
               "mat_code": "LGS333ZKWH",
               "comp_code": "D",
-              "name_zh": "LGS723_733左侧框",
-              "name_vi": "LGS723_733 khung bên trái",
+              "name_zh": "LGS333-433左侧框",
+              "name_vi": "LGS333-433 khung bên trái",
               "spec": "659x290x15mm",
               "spec_vi": "659x290x15mm",
               "material_zh": "Q195",
@@ -43490,13 +43492,13 @@ window.BOM_VIEWER_DATA = {
               "mat_code": "SLPZLS6030WH",
               "comp_code": "7",
               "name_zh": "塑料膨胀螺丝",
-              "name_vi": "ốc tắc kê nhựa",
+              "name_vi": "Ốc tắc kê nhựa",
               "spec": "6x30mm",
               "spec_vi": "6x30mm",
               "material_zh": "PP",
               "material_vi": "PP",
-              "color_zh": "镀锌",
-              "color_vi": "mạ kẽm",
+              "color_zh": "白色",
+              "color_vi": "màu trắng",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
               "color_ver": "白色",
@@ -43505,7 +43507,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "8",
-              "mat_code": "ZGLS3560BH",
+              "mat_code": "ZGLS3560WH",
               "comp_code": "7",
               "name_zh": "自攻螺丝",
               "name_vi": "ốc tự cắt",
@@ -44060,8 +44062,8 @@ window.BOM_VIEWER_DATA = {
               "stt": "13",
               "mat_code": "LGS333YKBH",
               "comp_code": "E",
-              "name_zh": "LGS723_733右侧框",
-              "name_vi": "LGS723_733 khung bên phải",
+              "name_zh": "LGS333-433右侧框",
+              "name_vi": "LGS333-433 khung bên phải",
               "spec": "659x290x15mm",
               "spec_vi": "659x290x15mm",
               "material_zh": "Q195",
@@ -44078,8 +44080,8 @@ window.BOM_VIEWER_DATA = {
               "stt": "14",
               "mat_code": "LGS333ZKBH",
               "comp_code": "D",
-              "name_zh": "LGS723_733左侧框",
-              "name_vi": "LGS723_733 khung bên trái",
+              "name_zh": "LGS333-433左侧框",
+              "name_vi": "LGS333-433 khung bên trái",
               "spec": "659x290x15mm",
               "spec_vi": "659x290x15mm",
               "material_zh": "Q195",
@@ -45789,13 +45791,13 @@ window.BOM_VIEWER_DATA = {
                   "mat_code": "SLPZLS6030WH",
                   "comp_code": "7",
                   "name_zh": "塑料膨胀螺丝",
-                  "name_vi": "ốc tắc kê nhựa",
+                  "name_vi": "Ốc tắc kê nhựa",
                   "spec": "6x30mm",
                   "spec_vi": "6x30mm",
                   "material_zh": "PP",
                   "material_vi": "PP",
-                  "color_zh": "镀锌",
-                  "color_vi": "mạ kẽm",
+                  "color_zh": "白色",
+                  "color_vi": "màu trắng",
                   "attr_zh": "五金包",
                   "attr_vi": "túi ngũ kim",
                   "color_ver": "白色",
@@ -45804,7 +45806,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "8",
-                  "mat_code": "ZGLS3560BH",
+                  "mat_code": "ZGLS3560WH",
                   "comp_code": "7",
                   "name_zh": "自攻螺丝",
                   "name_vi": "ốc tự cắt",
@@ -45922,8 +45924,8 @@ window.BOM_VIEWER_DATA = {
               "spec_vi": "Tùy thực tế",
               "material_zh": "PP",
               "material_vi": "PP",
-              "color_zh": "白色",
-              "color_vi": "màu trắng",
+              "color_zh": "本色",
+              "color_vi": "màu tự nhiên",
               "attr_zh": "零件",
               "attr_vi": "linh kiện",
               "color_ver": "白色",
@@ -46529,13 +46531,13 @@ window.BOM_VIEWER_DATA = {
               "mat_code": "SLPZLS6030WH",
               "comp_code": "7",
               "name_zh": "塑料膨胀螺丝",
-              "name_vi": "ốc tắc kê nhựa",
+              "name_vi": "Ốc tắc kê nhựa",
               "spec": "6x30mm",
               "spec_vi": "6x30mm",
               "material_zh": "PP",
               "material_vi": "PP",
-              "color_zh": "镀锌",
-              "color_vi": "mạ kẽm",
+              "color_zh": "白色",
+              "color_vi": "màu trắng",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
               "color_ver": "白色",
@@ -46544,7 +46546,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "8",
-              "mat_code": "ZGLS3560BH",
+              "mat_code": "ZGLS3560WH",
               "comp_code": "7",
               "name_zh": "自攻螺丝",
               "name_vi": "ốc tự cắt",
@@ -47788,13 +47790,13 @@ window.BOM_VIEWER_DATA = {
                   "mat_code": "SLPZLS6030WH",
                   "comp_code": "8",
                   "name_zh": "塑料膨胀螺丝",
-                  "name_vi": "ốc tắc kê nhựa",
+                  "name_vi": "Ốc tắc kê nhựa",
                   "spec": "6x30mm",
                   "spec_vi": "6x30mm",
                   "material_zh": "PP",
                   "material_vi": "PP",
-                  "color_zh": "镀锌",
-                  "color_vi": "mạ kẽm",
+                  "color_zh": "白色",
+                  "color_vi": "màu trắng",
                   "attr_zh": "五金包",
                   "attr_vi": "túi ngũ kim",
                   "color_ver": "白色",
@@ -47803,7 +47805,7 @@ window.BOM_VIEWER_DATA = {
                 },
                 {
                   "stt": "9",
-                  "mat_code": "ZGLS3560BH",
+                  "mat_code": "ZGLS3560WH",
                   "comp_code": "8",
                   "name_zh": "自攻螺丝",
                   "name_vi": "ốc tự cắt",
@@ -48672,13 +48674,13 @@ window.BOM_VIEWER_DATA = {
               "mat_code": "SLPZLS6030WH",
               "comp_code": "8",
               "name_zh": "塑料膨胀螺丝",
-              "name_vi": "ốc tắc kê nhựa",
+              "name_vi": "Ốc tắc kê nhựa",
               "spec": "6x30mm",
               "spec_vi": "6x30mm",
               "material_zh": "PP",
               "material_vi": "PP",
-              "color_zh": "镀锌",
-              "color_vi": "mạ kẽm",
+              "color_zh": "白色",
+              "color_vi": "màu trắng",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
               "color_ver": "白色",
@@ -48687,7 +48689,7 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "9",
-              "mat_code": "ZGLS3560BH",
+              "mat_code": "ZGLS3560WH",
               "comp_code": "8",
               "name_zh": "自攻螺丝",
               "name_vi": "ốc tự cắt",
@@ -49104,8 +49106,8 @@ window.BOM_VIEWER_DATA = {
               "spec_vi": "Tùy thực tế",
               "material_zh": "PP",
               "material_vi": "PP",
-              "color_zh": "本色",
-              "color_vi": "màu tự nhiên",
+              "color_zh": "白色",
+              "color_vi": "màu trắng",
               "attr_zh": "零件",
               "attr_vi": "linh kiện",
               "color_ver": "黑色",
@@ -63398,146 +63400,5754 @@ window.BOM_VIEWER_DATA = {
       }
     }
   },
+  "productRevisions": {
+    "LGS032": {
+      "currentRevision": "V3.1",
+      "revisions": [
+        {
+          "revision": "V3",
+          "createdAt": "2026-07-13T03:32:51.309Z",
+          "changeReason": "产品高度变更679mm改为671",
+          "snapshot": {
+            "product": {
+              "code": "LGS032",
+              "colors": [
+                "复古色",
+                "黑色"
+              ],
+              "color_info": {
+                "复古色": {
+                  "sku": "LGS032K101S",
+                  "name": "复古色3列3层6抽开放式带灯带电布抽电视柜-45inch",
+                  "name_zh": "复古色3列3层6抽开放式带灯带电布抽电视柜-45inch",
+                  "name_vi": "màu gỗ cổ 3 cột 3 tầng 6 Tủ đựng TV kiểu ngăn kéo mở có đèn và điện-45inch",
+                  "size": "300Dx1138Wx681Hmm",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "materials": [
+                    {
+                      "stt": "0",
+                      "mat_code": "LGS032WJBBH",
+                      "comp_code": "无",
+                      "name_zh": "LGS032五金包",
+                      "name_vi": "LGS032Túi ngũ kim",
+                      "spec": "详见明细",
+                      "spec_vi": "Xem chi tiết",
+                      "material_zh": "无",
+                      "material_vi": "không",
+                      "color_zh": "黑色",
+                      "color_vi": "màu đen",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "1",
+                      "materials": [
+                        {
+                          "stt": "1",
+                          "mat_code": "TZJD629825BH",
+                          "comp_code": "1",
+                          "name_zh": "10-底脚",
+                          "name_vi": "10-chân đế",
+                          "spec": "M6x10mm",
+                          "spec_vi": "M6x10mm",
+                          "material_zh": "PP&镀锌碳钢",
+                          "material_vi": "PP&thép mạ kẽm",
+                          "color_zh": "黑色",
+                          "color_vi": "màu đen",
+                          "attr_zh": "五金包",
+                          "attr_vi": "túi ngũ kim",
+                          "color_ver": "复古色",
+                          "color_ver_vi": "màu gỗ cổ",
+                          "qty": "6"
+                        },
+                        {
+                          "stt": "2",
+                          "mat_code": "BCLS129228BH",
+                          "comp_code": "2",
+                          "name_zh": "把手",
+                          "name_vi": "tay nắm",
+                          "spec": "112x22x8mm",
+                          "spec_vi": "112x22x8mm",
+                          "material_zh": "PP&GF40",
+                          "material_vi": "PP&GF40",
+                          "color_zh": "黑色",
+                          "color_vi": "màu đen",
+                          "attr_zh": "五金包",
+                          "attr_vi": "túi ngũ kim",
+                          "color_ver": "复古色",
+                          "color_ver_vi": "màu gỗ cổ",
+                          "qty": "6"
+                        },
+                        {
+                          "stt": "3",
+                          "mat_code": "NLPLS6022BZ",
+                          "comp_code": "3",
+                          "name_zh": "M6x22内六角螺丝",
+                          "name_vi": "M6x22 ốc lục giác",
+                          "spec": "M6x22mm",
+                          "spec_vi": "M6x22mm",
+                          "material_zh": "#10",
+                          "material_vi": "#10",
+                          "color_zh": "黑色",
+                          "color_vi": "màu đen",
+                          "attr_zh": "五金包",
+                          "attr_vi": "túi ngũ kim",
+                          "color_ver": "复古色",
+                          "color_ver_vi": "màu gỗ cổ",
+                          "qty": "20+2"
+                        },
+                        {
+                          "stt": "4",
+                          "mat_code": "GSSNZGLS5040BZ",
+                          "comp_code": "4",
+                          "name_zh": "ST5x38内六角过山丝",
+                          "name_vi": "ST5x38 ốc tự khoan lục giác",
+                          "spec": "Ø5x38mm",
+                          "spec_vi": "Ø5x38mm",
+                          "material_zh": "#10",
+                          "material_vi": "#10",
+                          "color_zh": "黑色",
+                          "color_vi": "màu đen",
+                          "attr_zh": "五金包",
+                          "attr_vi": "túi ngũ kim",
+                          "color_ver": "复古色",
+                          "color_ver_vi": "màu gỗ cổ",
+                          "qty": "4+1"
+                        },
+                        {
+                          "stt": "5",
+                          "mat_code": "NLPLS6010BZ",
+                          "comp_code": "5",
+                          "name_zh": "M6x10内六角螺丝",
+                          "name_vi": "M6x10 ốc lục giác",
+                          "spec": "M6x10mm",
+                          "spec_vi": "M6x10mm",
+                          "material_zh": "#10",
+                          "material_vi": "#10",
+                          "color_zh": "黑色",
+                          "color_vi": "màu đen",
+                          "attr_zh": "五金包",
+                          "attr_vi": "túi ngũ kim",
+                          "color_ver": "复古色",
+                          "color_ver_vi": "màu gỗ cổ",
+                          "qty": "8+2"
+                        },
+                        {
+                          "stt": "6",
+                          "mat_code": "ZGLS4010CZ",
+                          "comp_code": "6",
+                          "name_zh": "ST4x10圆头十字自攻螺丝",
+                          "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
+                          "spec": "ST4x10mm",
+                          "spec_vi": "ST4x10mm",
+                          "material_zh": "#10",
+                          "material_vi": "#10",
+                          "color_zh": "黑色",
+                          "color_vi": "màu đen",
+                          "attr_zh": "五金包",
+                          "attr_vi": "túi ngũ kim",
+                          "color_ver": "复古色",
+                          "color_ver_vi": "màu gỗ cổ",
+                          "qty": "12+2"
+                        },
+                        {
+                          "stt": "7",
+                          "mat_code": "PTZGLS6308BZ",
+                          "comp_code": "7",
+                          "name_zh": "ST3.5x12平头十字自攻螺丝",
+                          "name_vi": "ST3.5x12 ốc tự cắt đầu bằng chữ thập",
+                          "spec": "ST3.5x12mm",
+                          "spec_vi": "ST3.5x12mm",
+                          "material_zh": "#10",
+                          "material_vi": "#10",
+                          "color_zh": "黑色",
+                          "color_vi": "màu đen",
+                          "attr_zh": "五金包",
+                          "attr_vi": "túi ngũ kim",
+                          "color_ver": "复古色",
+                          "color_ver_vi": "màu gỗ cổ",
+                          "qty": "2"
+                        },
+                        {
+                          "stt": "8",
+                          "mat_code": "SLPZLS6030WH",
+                          "comp_code": "8",
+                          "name_zh": "塑料膨胀螺丝",
+                          "name_vi": "Ốc tắc kê nhựa",
+                          "spec": "6x30mm",
+                          "spec_vi": "6x30mm",
+                          "material_zh": "PP",
+                          "material_vi": "PP",
+                          "color_zh": "白色",
+                          "color_vi": "màu trắng",
+                          "attr_zh": "五金包",
+                          "attr_vi": "túi ngũ kim",
+                          "color_ver": "复古色",
+                          "color_ver_vi": "màu gỗ cổ",
+                          "qty": "2"
+                        },
+                        {
+                          "stt": "9",
+                          "mat_code": "ZGLS3560BH",
+                          "comp_code": "8",
+                          "name_zh": "自攻螺丝",
+                          "name_vi": "ốc tự cắt",
+                          "spec": "M3.5x60mm",
+                          "spec_vi": "M3.5x60mm",
+                          "material_zh": "#10",
+                          "material_vi": "#10",
+                          "color_zh": "黑色",
+                          "color_vi": "màu đen",
+                          "attr_zh": "五金包",
+                          "attr_vi": "túi ngũ kim",
+                          "color_ver": "复古色",
+                          "color_ver_vi": "màu gỗ cổ",
+                          "qty": "2"
+                        },
+                        {
+                          "stt": "10",
+                          "mat_code": "LNSLSD65254BZ",
+                          "comp_code": "9",
+                          "name_zh": "L型内六角带十字螺丝刀",
+                          "name_vi": "L vít lục giác có đầu chữ thập",
+                          "spec": "S4",
+                          "spec_vi": "S4",
+                          "material_zh": "#10",
+                          "material_vi": "#10",
+                          "color_zh": "镀锌",
+                          "color_vi": "mạ kẽm",
+                          "attr_zh": "五金包",
+                          "attr_vi": "túi ngũ kim",
+                          "color_ver": "复古色",
+                          "color_ver_vi": "màu gỗ cổ",
+                          "qty": "1"
+                        },
+                        {
+                          "stt": "11",
+                          "mat_code": "LNBS57253BZ",
+                          "comp_code": "10",
+                          "name_zh": "L型内六角扳手",
+                          "name_vi": "L cờ lê lục giác",
+                          "spec": "S3",
+                          "spec_vi": "S3",
+                          "material_zh": "#10",
+                          "material_vi": "#10",
+                          "color_zh": "镀锌",
+                          "color_vi": "mạ kẽm",
+                          "attr_zh": "五金包",
+                          "attr_vi": "túi ngũ kim",
+                          "color_ver": "复古色",
+                          "color_ver_vi": "màu gỗ cổ",
+                          "qty": "1"
+                        },
+                        {
+                          "stt": "12",
+                          "mat_code": "NLDP15508020BH",
+                          "comp_code": "11",
+                          "name_zh": "尼龙垫片",
+                          "name_vi": "lông đền nhựa",
+                          "spec": "外径15.5×内孔8.0×厚2.0mm",
+                          "spec_vi": "đường kính ngoài 15.5×lỗ trong 8.0×dày 2.0mm",
+                          "material_zh": "PP",
+                          "material_vi": "PP",
+                          "color_zh": "黑色",
+                          "color_vi": "màu đen",
+                          "attr_zh": "五金包",
+                          "attr_vi": "túi ngũ kim",
+                          "color_ver": "复古色",
+                          "color_ver_vi": "màu gỗ cổ",
+                          "qty": "2"
+                        }
+                      ]
+                    },
+                    {
+                      "stt": "1",
+                      "mat_code": "PC221BH",
+                      "comp_code": "S",
+                      "name_zh": "排插带尾插",
+                      "name_vi": "ổ cắm điện",
+                      "spec": "英规-2AC+1USB+1 Type C插座",
+                      "spec_vi": "tiêu chuẩn Anh-2AC+1USB+1 Type C ổ cắm",
+                      "material_zh": "ABS",
+                      "material_vi": "ABS",
+                      "color_zh": "黑色",
+                      "color_vi": "màu đen",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "2",
+                      "mat_code": "LGS032DB101KD",
+                      "comp_code": "A1",
+                      "name_zh": "LGS032-S顶板",
+                      "name_vi": "LGS032-S tấm trên",
+                      "spec": "1138x300x12mm",
+                      "spec_vi": "1138x300x12mm",
+                      "material_zh": "PB",
+                      "material_vi": "PB",
+                      "color_zh": "复古色",
+                      "color_vi": "màu gỗ cổ",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "3",
+                      "mat_code": "LGS032CBSKD",
+                      "comp_code": "A2",
+                      "name_zh": "LGS032-S-中层板",
+                      "name_vi": "LGS032-S-tấm tầng giữa",
+                      "spec": "356x290x12mm",
+                      "spec_vi": "356x290x12mm",
+                      "material_zh": "PB",
+                      "material_vi": "PB",
+                      "color_zh": "复古色",
+                      "color_vi": "màu gỗ cổ",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "4",
+                      "mat_code": "LGS032CBXKD",
+                      "comp_code": "A3",
+                      "name_zh": "LGS032-S-底部层板",
+                      "name_vi": "LGS032-S-Tấm tầng đáy",
+                      "spec": "356x290x12mm",
+                      "spec_vi": "356x290x12mm",
+                      "material_zh": "PB",
+                      "material_vi": "PB",
+                      "color_zh": "复古色",
+                      "color_vi": "màu gỗ cổ",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "5",
+                      "mat_code": "SLHGZZ001BH",
+                      "comp_code": "BL",
+                      "name_zh": "280mm布抽条左",
+                      "name_vi": "280mm Thanh ngăn kéo trái",
+                      "spec": "280x25x20mm",
+                      "spec_vi": "280x25x20mm",
+                      "material_zh": "PP&GF40",
+                      "material_vi": "PP&GF40",
+                      "color_zh": "黑色",
+                      "color_vi": "màu đen",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "6"
+                    },
+                    {
+                      "stt": "6",
+                      "mat_code": "SLHGZY001BH",
+                      "comp_code": "BR",
+                      "name_zh": "280mm布抽条右",
+                      "name_vi": "280mm Thanh ngăn kéo phải",
+                      "spec": "280x25x20mm",
+                      "spec_vi": "280x25x20mm",
+                      "material_zh": "PP&GF40",
+                      "material_vi": "PP&GF40",
+                      "color_zh": "黑色",
+                      "color_vi": "màu đen",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "6"
+                    },
+                    {
+                      "stt": "7",
+                      "mat_code": "LGS032ZZKBH",
+                      "comp_code": "C1",
+                      "name_zh": "LGS032-S-中框左",
+                      "name_vi": "LGS032-S-Khung giữa trái",
+                      "spec": "584x290x15mm",
+                      "spec_vi": "584x290x15mm",
+                      "material_zh": "Q195",
+                      "material_vi": "Q195",
+                      "color_zh": "黑砂纹",
+                      "color_vi": "đen nhám",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "8",
+                      "mat_code": "LGS032YZKBH",
+                      "comp_code": "C2",
+                      "name_zh": "LGS032-S-中框右",
+                      "name_vi": "LGS032-S-Khung giữa phải",
+                      "spec": "584x290x15mm",
+                      "spec_vi": "584x290x15mm",
+                      "material_zh": "Q195",
+                      "material_vi": "Q195",
+                      "color_zh": "黑砂纹",
+                      "color_vi": "đen nhám",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "9",
+                      "mat_code": "LGS032ZKBH",
+                      "comp_code": "D",
+                      "name_zh": "LGS032-S-左侧框",
+                      "name_vi": "LGS032-S-khung bên trái",
+                      "spec": "657x290x15mm",
+                      "spec_vi": "657x290x15mm",
+                      "material_zh": "Q195",
+                      "material_vi": "Q195",
+                      "color_zh": "黑砂纹",
+                      "color_vi": "đen nhám",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "10",
+                      "mat_code": "LGS032YKBH",
+                      "comp_code": "E",
+                      "name_zh": "LGS032-S-右侧框",
+                      "name_vi": "LGS032-S-khung bên phải",
+                      "spec": "657x290x15mm",
+                      "spec_vi": "657x290x15mm",
+                      "material_zh": "Q195",
+                      "material_vi": "Q195",
+                      "color_zh": "黑砂纹",
+                      "color_vi": "đen nhám",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "11",
+                      "mat_code": "LGS032XHLBH",
+                      "comp_code": "F",
+                      "name_zh": "LGS032-S-底部横杆后",
+                      "name_vi": "LGS032-S-Thanh dưới sau",
+                      "spec": "1098x31x15mm",
+                      "spec_vi": "1098x31x15mm",
+                      "material_zh": "Q195",
+                      "material_vi": "Q195",
+                      "color_zh": "黑砂纹",
+                      "color_vi": "đen nhám",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "12",
+                      "mat_code": "LGS032XQHLBH",
+                      "comp_code": "G",
+                      "name_zh": "LGS032-S-底部横杆前",
+                      "name_vi": "LGS032-S-Thanh dưới trước",
+                      "spec": "1098x31x15mm",
+                      "spec_vi": "1098x31x15mm",
+                      "material_zh": "Q195",
+                      "material_vi": "Q195",
+                      "color_zh": "黑砂纹",
+                      "color_vi": "đen nhám",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "13",
+                      "mat_code": "LGS032SHLBH",
+                      "comp_code": "J",
+                      "name_zh": "LGS032-S-顶部横杆",
+                      "name_vi": "LGS032-S-thanh trên",
+                      "spec": "356x15x15mm",
+                      "spec_vi": "356x15x15mm",
+                      "material_zh": "Q195",
+                      "material_vi": "Q195",
+                      "color_zh": "黑砂纹",
+                      "color_vi": "đen nhám",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "2"
+                    },
+                    {
+                      "stt": "14",
+                      "mat_code": "ZJG150654BH",
+                      "comp_code": "M",
+                      "name_zh": "51底脚",
+                      "name_vi": "51 chân đế",
+                      "spec": "65x15x15mm",
+                      "spec_vi": "65x15x15mm",
+                      "material_zh": "Q195",
+                      "material_vi": "Q195",
+                      "color_zh": "黑砂纹",
+                      "color_vi": "đen nhám",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "2"
+                    },
+                    {
+                      "stt": "15",
+                      "mat_code": "LG05254BH",
+                      "comp_code": "X01",
+                      "name_zh": "254拉杆",
+                      "name_vi": "254 thanh đũa",
+                      "spec": "Ø5x254mm",
+                      "spec_vi": "Ø5x254mm",
+                      "material_zh": "Q195",
+                      "material_vi": "Q195",
+                      "color_zh": "黑砂纹",
+                      "color_vi": "đen nhám",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "2"
+                    },
+                    {
+                      "stt": "16",
+                      "mat_code": "BC350282188KD",
+                      "comp_code": "Y05",
+                      "name_zh": "LGS布抽35x28x18.7",
+                      "name_vi": "LGS布抽35x28x18.7",
+                      "spec": "350x280x187mm",
+                      "spec_vi": "350x280x187mm",
+                      "material_zh": "MDF&纸板&无纺布",
+                      "material_vi": "MDF&giấy&vải không dệt",
+                      "color_zh": "复古色",
+                      "color_vi": "màu gỗ cổ",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "6"
+                    },
+                    {
+                      "stt": "17",
+                      "mat_code": "BCDB35027223BH",
+                      "comp_code": "Z05",
+                      "name_zh": "LGS布抽底板34.5x27.5",
+                      "name_vi": "LGS布抽底板34.5x27.5",
+                      "spec": "345x275x3mm",
+                      "spec_vi": "345x275x3mm",
+                      "material_zh": "MDF&纸板&无纺布",
+                      "material_vi": "MDF&giấy&vải không dệt",
+                      "color_zh": "黑色",
+                      "color_vi": "màu đen",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "6"
+                    },
+                    {
+                      "stt": "18",
+                      "mat_code": "DD0310",
+                      "comp_code": "R",
+                      "name_zh": "310-灯带",
+                      "name_vi": "310-đèn LED",
+                      "spec": "DC12V，SMD5050，310mm",
+                      "spec_vi": "DC12V，SMD5050，310mm",
+                      "material_zh": "FPCB",
+                      "material_vi": "FPCB",
+                      "color_zh": "黑泊板",
+                      "color_vi": "đen bóng",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "19",
+                      "mat_code": "DD0310R1",
+                      "comp_code": "R1",
+                      "name_zh": "自粘灯带固定卡扣",
+                      "name_vi": "Đồ gài cố định đèn led",
+                      "spec": "以实际为准",
+                      "spec_vi": "Tùy thực tế",
+                      "material_zh": "PP",
+                      "material_vi": "PP",
+                      "color_zh": "本色",
+                      "color_vi": "màu tự nhiên",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "5"
+                    },
+                    {
+                      "stt": "20",
+                      "mat_code": "LGS032PKXKD",
+                      "comp_code": "无",
+                      "name_zh": "LGS032-平口箱",
+                      "name_vi": "LGS032-thùng carton",
+                      "spec": "1185x335x110mm",
+                      "spec_vi": "1185x335x110mm",
+                      "material_zh": "瓦楞纸",
+                      "material_vi": "giấy carton",
+                      "color_zh": "纸色",
+                      "color_vi": "màu giấy",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "21",
+                      "mat_code": "ZHJ505085",
+                      "comp_code": "无",
+                      "name_zh": "纸护角",
+                      "name_vi": "giấy nẹp",
+                      "spec": "50x50x85mm",
+                      "spec_vi": "50x50x85mm",
+                      "material_zh": "瓦楞纸",
+                      "material_vi": "giấy carton",
+                      "color_zh": "纸色",
+                      "color_vi": "màu giấy",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "4"
+                    },
+                    {
+                      "stt": "22",
+                      "mat_code": "LGS032ZK",
+                      "comp_code": "无",
+                      "name_zh": "纸卡",
+                      "name_vi": "giấy lót",
+                      "spec": "单瓦1100x60",
+                      "spec_vi": "sóng đơn 1100x60",
+                      "material_zh": "瓦楞纸单瓦",
+                      "material_vi": "giấy carton sóng đơn",
+                      "color_zh": "纸色",
+                      "color_vi": "màu giấy",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "2"
+                    },
+                    {
+                      "stt": "23",
+                      "mat_code": "LGS032PM001",
+                      "comp_code": "无",
+                      "name_zh": "泡沫",
+                      "name_vi": "mút xốp",
+                      "spec": "20Kg,325x85x8mm",
+                      "spec_vi": "20Kg,325x85x8mm",
+                      "material_zh": "EPS泡沫",
+                      "material_vi": "EPS mút xốp",
+                      "color_zh": "白色",
+                      "color_vi": "màu trắng",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "2"
+                    },
+                    {
+                      "stt": "24",
+                      "mat_code": "LGS032PM002",
+                      "comp_code": "无",
+                      "name_zh": "泡沫",
+                      "name_vi": "mút xốp",
+                      "spec": "16Kg,320x32x17mm",
+                      "spec_vi": "16Kg,320x32x17mm",
+                      "material_zh": "EPS泡沫",
+                      "material_vi": "EPS mút xốp",
+                      "color_zh": "白色",
+                      "color_vi": "màu trắng",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "2"
+                    },
+                    {
+                      "stt": "25",
+                      "mat_code": "PPHJ1285",
+                      "comp_code": "无",
+                      "name_zh": "PP护角",
+                      "name_vi": "PP góc nhựa",
+                      "spec": "内径高12mm,边厚度8.5mm",
+                      "spec_vi": "đường kính trong cao 12mm,độ dày cạnh 8.5mm",
+                      "material_zh": "PP",
+                      "material_vi": "PP",
+                      "color_zh": "黑色",
+                      "color_vi": "màu đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "12"
+                    },
+                    {
+                      "stt": "26",
+                      "mat_code": "XHBBL010",
+                      "comp_code": "无",
+                      "name_zh": "序号标BL",
+                      "name_vi": "nhãn STT BL",
+                      "spec": "Ø10mm",
+                      "spec_vi": "∅10mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy decal",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "27",
+                      "mat_code": "XHBBR010",
+                      "comp_code": "无",
+                      "name_zh": "序号标BR",
+                      "name_vi": "nhãn STT BR",
+                      "spec": "Ø10mm",
+                      "spec_vi": "∅10mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy decal",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "28",
+                      "mat_code": "JGB120052",
+                      "comp_code": "无",
+                      "name_zh": "警告标",
+                      "name_vi": "nhãn cảnh báo",
+                      "spec": "120x52mm",
+                      "spec_vi": "120x52mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy decal",
+                      "color_zh": "按样",
+                      "color_vi": "theo mẫu",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "29",
+                      "mat_code": "VTJGB035012",
+                      "comp_code": "无",
+                      "name_zh": "产地标",
+                      "name_vi": "nhãn xuất xứ",
+                      "spec": "35x12mm",
+                      "spec_vi": "35x12mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy decal",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "29",
+                      "mat_code": "LGS032SMS",
+                      "comp_code": "无",
+                      "name_zh": "说明书",
+                      "name_vi": "LGS032 sách hướng dẫn",
+                      "spec": "A4",
+                      "spec_vi": "A4",
+                      "material_zh": "铜版纸",
+                      "material_vi": "giấy couché",
+                      "color_zh": "黑白",
+                      "color_vi": "đen trắng",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "1",
+                      "mat_code": "TZJD629825BH",
+                      "comp_code": "1",
+                      "name_zh": "10-底脚",
+                      "name_vi": "10-chân đế",
+                      "spec": "M6x10mm",
+                      "spec_vi": "M6x10mm",
+                      "material_zh": "PP&镀锌碳钢",
+                      "material_vi": "PP&thép mạ kẽm",
+                      "color_zh": "黑色",
+                      "color_vi": "màu đen",
+                      "attr_zh": "五金包",
+                      "attr_vi": "túi ngũ kim",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "6"
+                    },
+                    {
+                      "stt": "2",
+                      "mat_code": "BCLS129228BH",
+                      "comp_code": "2",
+                      "name_zh": "把手",
+                      "name_vi": "tay nắm",
+                      "spec": "112x22x8mm",
+                      "spec_vi": "112x22x8mm",
+                      "material_zh": "PP&GF40",
+                      "material_vi": "PP&GF40",
+                      "color_zh": "黑色",
+                      "color_vi": "màu đen",
+                      "attr_zh": "五金包",
+                      "attr_vi": "túi ngũ kim",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "6"
+                    },
+                    {
+                      "stt": "3",
+                      "mat_code": "NLPLS6022BZ",
+                      "comp_code": "3",
+                      "name_zh": "M6x22内六角螺丝",
+                      "name_vi": "M6x22 ốc lục giác",
+                      "spec": "M6x22mm",
+                      "spec_vi": "M6x22mm",
+                      "material_zh": "#10",
+                      "material_vi": "#10",
+                      "color_zh": "黑色",
+                      "color_vi": "màu đen",
+                      "attr_zh": "五金包",
+                      "attr_vi": "túi ngũ kim",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "20+2"
+                    },
+                    {
+                      "stt": "4",
+                      "mat_code": "GSSNZGLS5040BZ",
+                      "comp_code": "4",
+                      "name_zh": "ST5x38内六角过山丝",
+                      "name_vi": "ST5x38 ốc tự khoan lục giác",
+                      "spec": "Ø5x38mm",
+                      "spec_vi": "Ø5x38mm",
+                      "material_zh": "#10",
+                      "material_vi": "#10",
+                      "color_zh": "黑色",
+                      "color_vi": "màu đen",
+                      "attr_zh": "五金包",
+                      "attr_vi": "túi ngũ kim",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "4+1"
+                    },
+                    {
+                      "stt": "5",
+                      "mat_code": "NLPLS6010BZ",
+                      "comp_code": "5",
+                      "name_zh": "M6x10内六角螺丝",
+                      "name_vi": "M6x10 ốc lục giác",
+                      "spec": "M6x10mm",
+                      "spec_vi": "M6x10mm",
+                      "material_zh": "#10",
+                      "material_vi": "#10",
+                      "color_zh": "黑色",
+                      "color_vi": "màu đen",
+                      "attr_zh": "五金包",
+                      "attr_vi": "túi ngũ kim",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "8+2"
+                    },
+                    {
+                      "stt": "6",
+                      "mat_code": "ZGLS4010CZ",
+                      "comp_code": "6",
+                      "name_zh": "ST4x10圆头十字自攻螺丝",
+                      "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
+                      "spec": "ST4x10mm",
+                      "spec_vi": "ST4x10mm",
+                      "material_zh": "#10",
+                      "material_vi": "#10",
+                      "color_zh": "黑色",
+                      "color_vi": "màu đen",
+                      "attr_zh": "五金包",
+                      "attr_vi": "túi ngũ kim",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "12+2"
+                    },
+                    {
+                      "stt": "7",
+                      "mat_code": "PTZGLS6308BZ",
+                      "comp_code": "7",
+                      "name_zh": "ST3.5x12平头十字自攻螺丝",
+                      "name_vi": "ST3.5x12 ốc tự cắt đầu bằng chữ thập",
+                      "spec": "ST3.5x12mm",
+                      "spec_vi": "ST3.5x12mm",
+                      "material_zh": "#10",
+                      "material_vi": "#10",
+                      "color_zh": "黑色",
+                      "color_vi": "màu đen",
+                      "attr_zh": "五金包",
+                      "attr_vi": "túi ngũ kim",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "2"
+                    },
+                    {
+                      "stt": "8",
+                      "mat_code": "SLPZLS6030WH",
+                      "comp_code": "8",
+                      "name_zh": "塑料膨胀螺丝",
+                      "name_vi": "Ốc tắc kê nhựa",
+                      "spec": "6x30mm",
+                      "spec_vi": "6x30mm",
+                      "material_zh": "PP",
+                      "material_vi": "PP",
+                      "color_zh": "白色",
+                      "color_vi": "màu trắng",
+                      "attr_zh": "五金包",
+                      "attr_vi": "túi ngũ kim",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "2"
+                    },
+                    {
+                      "stt": "9",
+                      "mat_code": "ZGLS3560BH",
+                      "comp_code": "8",
+                      "name_zh": "自攻螺丝",
+                      "name_vi": "ốc tự cắt",
+                      "spec": "M3.5x60mm",
+                      "spec_vi": "M3.5x60mm",
+                      "material_zh": "#10",
+                      "material_vi": "#10",
+                      "color_zh": "黑色",
+                      "color_vi": "màu đen",
+                      "attr_zh": "五金包",
+                      "attr_vi": "túi ngũ kim",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "2"
+                    },
+                    {
+                      "stt": "10",
+                      "mat_code": "LNSLSD65254BZ",
+                      "comp_code": "9",
+                      "name_zh": "L型内六角带十字螺丝刀",
+                      "name_vi": "L vít lục giác có đầu chữ thập",
+                      "spec": "S4",
+                      "spec_vi": "S4",
+                      "material_zh": "#10",
+                      "material_vi": "#10",
+                      "color_zh": "镀锌",
+                      "color_vi": "mạ kẽm",
+                      "attr_zh": "五金包",
+                      "attr_vi": "túi ngũ kim",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "11",
+                      "mat_code": "LNBS57253BZ",
+                      "comp_code": "10",
+                      "name_zh": "L型内六角扳手",
+                      "name_vi": "L cờ lê lục giác",
+                      "spec": "S3",
+                      "spec_vi": "S3",
+                      "material_zh": "#10",
+                      "material_vi": "#10",
+                      "color_zh": "镀锌",
+                      "color_vi": "mạ kẽm",
+                      "attr_zh": "五金包",
+                      "attr_vi": "túi ngũ kim",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "12",
+                      "mat_code": "NLDP15508020BH",
+                      "comp_code": "11",
+                      "name_zh": "尼龙垫片",
+                      "name_vi": "lông đền nhựa",
+                      "spec": "外径15.5×内孔8.0×厚2.0mm",
+                      "spec_vi": "đường kính ngoài 15.5×lỗ trong 8.0×dày 2.0mm",
+                      "material_zh": "PP",
+                      "material_vi": "PP",
+                      "color_zh": "黑色",
+                      "color_vi": "màu đen",
+                      "attr_zh": "五金包",
+                      "attr_vi": "túi ngũ kim",
+                      "color_ver": "复古色",
+                      "color_ver_vi": "màu gỗ cổ",
+                      "qty": "2"
+                    }
+                  ]
+                },
+                "黑色": {
+                  "sku": "LGS032B101S",
+                  "name": "烟墨黑3列3层6抽开放式带灯带电布抽电视柜-45inch",
+                  "name_zh": "烟墨黑3列3层6抽开放式带灯带电布抽电视柜-45inch",
+                  "name_vi": "đen khói 3 cột 3 tầng 6 Tủ đựng TV kiểu ngăn kéo mở có đèn và điện-45inch",
+                  "size": "300Dx1138Wx681Hmm",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "materials": [
+                    {
+                      "stt": "0",
+                      "mat_code": "LGS032WJBBH",
+                      "comp_code": "无",
+                      "name_zh": "LGS032五金包",
+                      "name_vi": "LGS032Túi ngũ kim",
+                      "spec": "详见明细",
+                      "spec_vi": "Xem chi tiết",
+                      "material_zh": "无",
+                      "material_vi": "không",
+                      "color_zh": "黑色",
+                      "color_vi": "màu đen",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "1",
+                      "materials": [
+                        {
+                          "stt": "1",
+                          "mat_code": "TZJD629825BH",
+                          "comp_code": "1",
+                          "name_zh": "10-底脚",
+                          "name_vi": "10-chân đế",
+                          "spec": "M6x10mm",
+                          "spec_vi": "M6x10mm",
+                          "material_zh": "PP&镀锌碳钢",
+                          "material_vi": "PP&thép mạ kẽm",
+                          "color_zh": "黑色",
+                          "color_vi": "màu đen",
+                          "attr_zh": "五金包",
+                          "attr_vi": "túi ngũ kim",
+                          "color_ver": "黑色",
+                          "color_ver_vi": "màu đen",
+                          "qty": "6"
+                        },
+                        {
+                          "stt": "2",
+                          "mat_code": "BCLS129228BH",
+                          "comp_code": "2",
+                          "name_zh": "把手",
+                          "name_vi": "tay nắm",
+                          "spec": "112x22x8mm",
+                          "spec_vi": "112x22x8mm",
+                          "material_zh": "PP&GF40",
+                          "material_vi": "PP&GF40",
+                          "color_zh": "黑色",
+                          "color_vi": "màu đen",
+                          "attr_zh": "五金包",
+                          "attr_vi": "túi ngũ kim",
+                          "color_ver": "黑色",
+                          "color_ver_vi": "màu đen",
+                          "qty": "6"
+                        },
+                        {
+                          "stt": "3",
+                          "mat_code": "NLPLS6022BZ",
+                          "comp_code": "3",
+                          "name_zh": "M6x22内六角螺丝",
+                          "name_vi": "M6x22 ốc lục giác",
+                          "spec": "M6x22mm",
+                          "spec_vi": "M6x22mm",
+                          "material_zh": "#10",
+                          "material_vi": "#10",
+                          "color_zh": "黑色",
+                          "color_vi": "màu đen",
+                          "attr_zh": "五金包",
+                          "attr_vi": "túi ngũ kim",
+                          "color_ver": "黑色",
+                          "color_ver_vi": "màu đen",
+                          "qty": "20+2"
+                        },
+                        {
+                          "stt": "4",
+                          "mat_code": "GSSNZGLS5040BZ",
+                          "comp_code": "4",
+                          "name_zh": "ST5x38内六角过山丝",
+                          "name_vi": "ST5x38 ốc tự khoan lục giác",
+                          "spec": "Ø5x38mm",
+                          "spec_vi": "Ø5x38mm",
+                          "material_zh": "#10",
+                          "material_vi": "#10",
+                          "color_zh": "黑色",
+                          "color_vi": "màu đen",
+                          "attr_zh": "五金包",
+                          "attr_vi": "túi ngũ kim",
+                          "color_ver": "黑色",
+                          "color_ver_vi": "màu đen",
+                          "qty": "4+1"
+                        },
+                        {
+                          "stt": "5",
+                          "mat_code": "NLPLS6010BZ",
+                          "comp_code": "5",
+                          "name_zh": "M6x10内六角螺丝",
+                          "name_vi": "M6x10 ốc lục giác",
+                          "spec": "M6x10mm",
+                          "spec_vi": "M6x10mm",
+                          "material_zh": "#10",
+                          "material_vi": "#10",
+                          "color_zh": "黑色",
+                          "color_vi": "màu đen",
+                          "attr_zh": "五金包",
+                          "attr_vi": "túi ngũ kim",
+                          "color_ver": "黑色",
+                          "color_ver_vi": "màu đen",
+                          "qty": "8+2"
+                        },
+                        {
+                          "stt": "6",
+                          "mat_code": "ZGLS4010CZ",
+                          "comp_code": "6",
+                          "name_zh": "ST4x10圆头十字自攻螺丝",
+                          "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
+                          "spec": "ST4x10mm",
+                          "spec_vi": "ST4x10mm",
+                          "material_zh": "#10",
+                          "material_vi": "#10",
+                          "color_zh": "黑色",
+                          "color_vi": "màu đen",
+                          "attr_zh": "五金包",
+                          "attr_vi": "túi ngũ kim",
+                          "color_ver": "黑色",
+                          "color_ver_vi": "màu đen",
+                          "qty": "12+2"
+                        },
+                        {
+                          "stt": "7",
+                          "mat_code": "PTZGLS6308BZ",
+                          "comp_code": "7",
+                          "name_zh": "ST3.5x12平头十字自攻螺丝",
+                          "name_vi": "ST3.5x12 ốc tự cắt đầu bằng chữ thập",
+                          "spec": "ST3.5x12mm",
+                          "spec_vi": "ST3.5x12mm",
+                          "material_zh": "#10",
+                          "material_vi": "#10",
+                          "color_zh": "黑色",
+                          "color_vi": "màu đen",
+                          "attr_zh": "五金包",
+                          "attr_vi": "túi ngũ kim",
+                          "color_ver": "黑色",
+                          "color_ver_vi": "màu đen",
+                          "qty": "2"
+                        },
+                        {
+                          "stt": "8",
+                          "mat_code": "SLPZLS6030WH",
+                          "comp_code": "8",
+                          "name_zh": "塑料膨胀螺丝",
+                          "name_vi": "Ốc tắc kê nhựa",
+                          "spec": "6x30mm",
+                          "spec_vi": "6x30mm",
+                          "material_zh": "PP",
+                          "material_vi": "PP",
+                          "color_zh": "白色",
+                          "color_vi": "màu trắng",
+                          "attr_zh": "五金包",
+                          "attr_vi": "túi ngũ kim",
+                          "color_ver": "黑色",
+                          "color_ver_vi": "màu đen",
+                          "qty": "2"
+                        },
+                        {
+                          "stt": "9",
+                          "mat_code": "ZGLS3560BH",
+                          "comp_code": "8",
+                          "name_zh": "自攻螺丝",
+                          "name_vi": "ốc tự cắt",
+                          "spec": "M3.5x60mm",
+                          "spec_vi": "M3.5x60mm",
+                          "material_zh": "#10",
+                          "material_vi": "#10",
+                          "color_zh": "黑色",
+                          "color_vi": "màu đen",
+                          "attr_zh": "五金包",
+                          "attr_vi": "túi ngũ kim",
+                          "color_ver": "黑色",
+                          "color_ver_vi": "màu đen",
+                          "qty": "2"
+                        },
+                        {
+                          "stt": "10",
+                          "mat_code": "LNSLSD65254BZ",
+                          "comp_code": "9",
+                          "name_zh": "L型内六角带十字螺丝刀",
+                          "name_vi": "L vít lục giác có đầu chữ thập",
+                          "spec": "S4",
+                          "spec_vi": "S4",
+                          "material_zh": "#10",
+                          "material_vi": "#10",
+                          "color_zh": "镀锌",
+                          "color_vi": "mạ kẽm",
+                          "attr_zh": "五金包",
+                          "attr_vi": "túi ngũ kim",
+                          "color_ver": "黑色",
+                          "color_ver_vi": "màu đen",
+                          "qty": "1"
+                        },
+                        {
+                          "stt": "11",
+                          "mat_code": "LNBS57253BZ",
+                          "comp_code": "10",
+                          "name_zh": "L型内六角扳手",
+                          "name_vi": "L cờ lê lục giác",
+                          "spec": "S3",
+                          "spec_vi": "S3",
+                          "material_zh": "#10",
+                          "material_vi": "#10",
+                          "color_zh": "镀锌",
+                          "color_vi": "mạ kẽm",
+                          "attr_zh": "五金包",
+                          "attr_vi": "túi ngũ kim",
+                          "color_ver": "黑色",
+                          "color_ver_vi": "màu đen",
+                          "qty": "1"
+                        },
+                        {
+                          "stt": "12",
+                          "mat_code": "NLDP15508020BH",
+                          "comp_code": "11",
+                          "name_zh": "尼龙垫片",
+                          "name_vi": "lông đền nhựa",
+                          "spec": "外径15.5×内孔8.0×厚2.0mm",
+                          "spec_vi": "đường kính ngoài 15.5×lỗ trong 8.0×dày 2.0mm",
+                          "material_zh": "PP",
+                          "material_vi": "PP",
+                          "color_zh": "黑色",
+                          "color_vi": "màu đen",
+                          "attr_zh": "五金包",
+                          "attr_vi": "túi ngũ kim",
+                          "color_ver": "黑色",
+                          "color_ver_vi": "màu đen",
+                          "qty": "2"
+                        }
+                      ]
+                    },
+                    {
+                      "stt": "1",
+                      "mat_code": "PC221BH",
+                      "comp_code": "S",
+                      "name_zh": "排插带尾插",
+                      "name_vi": "ổ cắm điện",
+                      "spec": "英规-2AC+1USB+1 Type C插座",
+                      "spec_vi": "tiêu chuẩn Anh-2AC+1USB+1 Type C ổ cắm",
+                      "material_zh": "ABS",
+                      "material_vi": "ABS",
+                      "color_zh": "黑色",
+                      "color_vi": "màu đen",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "2",
+                      "mat_code": "LGS032DB101BH",
+                      "comp_code": "A1",
+                      "name_zh": "LGS032-S顶板",
+                      "name_vi": "LGS032-S tấm trên",
+                      "spec": "1138x300x12mm",
+                      "spec_vi": "1138x300x12mm",
+                      "material_zh": "PB",
+                      "material_vi": "PB",
+                      "color_zh": "黑色",
+                      "color_vi": "màu đen",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "3",
+                      "mat_code": "LGS032CBSBH",
+                      "comp_code": "A2",
+                      "name_zh": "LGS032-S-中层板",
+                      "name_vi": "LGS032-S-tấm tầng giữa",
+                      "spec": "356x290x12mm",
+                      "spec_vi": "356x290x12mm",
+                      "material_zh": "PB",
+                      "material_vi": "PB",
+                      "color_zh": "黑色",
+                      "color_vi": "màu đen",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "4",
+                      "mat_code": "LGS032CBXBH",
+                      "comp_code": "A3",
+                      "name_zh": "LGS032-S-底部层板",
+                      "name_vi": "LGS032-S-Tấm tầng đáy",
+                      "spec": "356x290x12mm",
+                      "spec_vi": "356x290x12mm",
+                      "material_zh": "PB",
+                      "material_vi": "PB",
+                      "color_zh": "黑色",
+                      "color_vi": "màu đen",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "5",
+                      "mat_code": "SLHGZZ001BH",
+                      "comp_code": "BL",
+                      "name_zh": "280mm布抽条左",
+                      "name_vi": "280mm Thanh ngăn kéo trái",
+                      "spec": "280x25x20mm",
+                      "spec_vi": "280x25x20mm",
+                      "material_zh": "PP&GF40",
+                      "material_vi": "PP&GF40",
+                      "color_zh": "黑色",
+                      "color_vi": "màu đen",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "6"
+                    },
+                    {
+                      "stt": "6",
+                      "mat_code": "SLHGZY001BH",
+                      "comp_code": "BR",
+                      "name_zh": "280mm布抽条右",
+                      "name_vi": "280mm Thanh ngăn kéo phải",
+                      "spec": "280x25x20mm",
+                      "spec_vi": "280x25x20mm",
+                      "material_zh": "PP&GF40",
+                      "material_vi": "PP&GF40",
+                      "color_zh": "黑色",
+                      "color_vi": "màu đen",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "6"
+                    },
+                    {
+                      "stt": "7",
+                      "mat_code": "LGS032ZZKBH",
+                      "comp_code": "C1",
+                      "name_zh": "LGS032-S-中框左",
+                      "name_vi": "LGS032-S-Khung giữa trái",
+                      "spec": "584x290x15mm",
+                      "spec_vi": "584x290x15mm",
+                      "material_zh": "Q195",
+                      "material_vi": "Q195",
+                      "color_zh": "黑砂纹",
+                      "color_vi": "đen nhám",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "8",
+                      "mat_code": "LGS032YZKBH",
+                      "comp_code": "C2",
+                      "name_zh": "LGS032-S-中框右",
+                      "name_vi": "LGS032-S-Khung giữa phải",
+                      "spec": "584x290x15mm",
+                      "spec_vi": "584x290x15mm",
+                      "material_zh": "Q195",
+                      "material_vi": "Q195",
+                      "color_zh": "黑砂纹",
+                      "color_vi": "đen nhám",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "9",
+                      "mat_code": "LGS032ZKBH",
+                      "comp_code": "D",
+                      "name_zh": "LGS032-S-左侧框",
+                      "name_vi": "LGS032-S-khung bên trái",
+                      "spec": "657x290x15mm",
+                      "spec_vi": "657x290x15mm",
+                      "material_zh": "Q195",
+                      "material_vi": "Q195",
+                      "color_zh": "黑砂纹",
+                      "color_vi": "đen nhám",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "10",
+                      "mat_code": "LGS032YKBH",
+                      "comp_code": "E",
+                      "name_zh": "LGS032-S-右侧框",
+                      "name_vi": "LGS032-S-khung bên phải",
+                      "spec": "657x290x15mm",
+                      "spec_vi": "657x290x15mm",
+                      "material_zh": "Q195",
+                      "material_vi": "Q195",
+                      "color_zh": "黑砂纹",
+                      "color_vi": "đen nhám",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "11",
+                      "mat_code": "LGS032XHLBH",
+                      "comp_code": "F",
+                      "name_zh": "LGS032-S-底部横杆后",
+                      "name_vi": "LGS032-S-Thanh dưới sau",
+                      "spec": "1098x31x15mm",
+                      "spec_vi": "1098x31x15mm",
+                      "material_zh": "Q195",
+                      "material_vi": "Q195",
+                      "color_zh": "黑砂纹",
+                      "color_vi": "đen nhám",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "12",
+                      "mat_code": "LGS032XQHLBH",
+                      "comp_code": "G",
+                      "name_zh": "LGS032-S-底部横杆前",
+                      "name_vi": "LGS032-S-Thanh dưới trước",
+                      "spec": "1098x31x15mm",
+                      "spec_vi": "1098x31x15mm",
+                      "material_zh": "Q195",
+                      "material_vi": "Q195",
+                      "color_zh": "黑砂纹",
+                      "color_vi": "đen nhám",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "13",
+                      "mat_code": "LGS032SHLBH",
+                      "comp_code": "J",
+                      "name_zh": "LGS032-S-顶部横杆",
+                      "name_vi": "LGS032-S-thanh trên",
+                      "spec": "356x15x15mm",
+                      "spec_vi": "356x15x15mm",
+                      "material_zh": "Q195",
+                      "material_vi": "Q195",
+                      "color_zh": "黑砂纹",
+                      "color_vi": "đen nhám",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "2"
+                    },
+                    {
+                      "stt": "14",
+                      "mat_code": "ZJG150654BH",
+                      "comp_code": "M",
+                      "name_zh": "51底脚",
+                      "name_vi": "51 chân đế",
+                      "spec": "65x15x15mm",
+                      "spec_vi": "65x15x15mm",
+                      "material_zh": "Q195",
+                      "material_vi": "Q195",
+                      "color_zh": "黑砂纹",
+                      "color_vi": "đen nhám",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "2"
+                    },
+                    {
+                      "stt": "15",
+                      "mat_code": "LG05254BH",
+                      "comp_code": "X01",
+                      "name_zh": "254拉杆",
+                      "name_vi": "254 thanh đũa",
+                      "spec": "Ø5x254mm",
+                      "spec_vi": "Ø5x254mm",
+                      "material_zh": "Q195",
+                      "material_vi": "Q195",
+                      "color_zh": "黑砂纹",
+                      "color_vi": "đen nhám",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "2"
+                    },
+                    {
+                      "stt": "16",
+                      "mat_code": "BC350282188BH",
+                      "comp_code": "Y05",
+                      "name_zh": "LGS布抽35x28x18.7",
+                      "name_vi": "LGS布抽35x28x18.7",
+                      "spec": "350x280x187mm",
+                      "spec_vi": "350x280x187mm",
+                      "material_zh": "MDF&纸板&无纺布",
+                      "material_vi": "MDF&giấy&vải không dệt",
+                      "color_zh": "黑色",
+                      "color_vi": "màu đen",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "6"
+                    },
+                    {
+                      "stt": "17",
+                      "mat_code": "BCDB35027223BH",
+                      "comp_code": "Z05",
+                      "name_zh": "LGS布抽底板34.5x27.5",
+                      "name_vi": "LGS布抽底板34.5x27.5",
+                      "spec": "345x275x3mm",
+                      "spec_vi": "345x275x3mm",
+                      "material_zh": "MDF&纸板&无纺布",
+                      "material_vi": "MDF&giấy&vải không dệt",
+                      "color_zh": "黑色",
+                      "color_vi": "màu đen",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "6"
+                    },
+                    {
+                      "stt": "18",
+                      "mat_code": "DD0310",
+                      "comp_code": "R",
+                      "name_zh": "310-灯带",
+                      "name_vi": "310-đèn LED",
+                      "spec": "DC12V，SMD5050，310mm",
+                      "spec_vi": "DC12V，SMD5050，310mm",
+                      "material_zh": "FPCB",
+                      "material_vi": "FPCB",
+                      "color_zh": "黑泊板",
+                      "color_vi": "đen bóng",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "19",
+                      "mat_code": "DD0310R1",
+                      "comp_code": "R1",
+                      "name_zh": "自粘灯带固定卡扣",
+                      "name_vi": "Đồ gài cố định đèn led",
+                      "spec": "以实际为准",
+                      "spec_vi": "Tùy thực tế",
+                      "material_zh": "PP",
+                      "material_vi": "PP",
+                      "color_zh": "本色",
+                      "color_vi": "màu tự nhiên",
+                      "attr_zh": "零件",
+                      "attr_vi": "linh kiện",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "5"
+                    },
+                    {
+                      "stt": "20",
+                      "mat_code": "LGS032PKXKD",
+                      "comp_code": "无",
+                      "name_zh": "LGS032-平口箱",
+                      "name_vi": "LGS032-thùng carton",
+                      "spec": "1185x335x110mm",
+                      "spec_vi": "1185x335x110mm",
+                      "material_zh": "瓦楞纸",
+                      "material_vi": "giấy carton",
+                      "color_zh": "纸色",
+                      "color_vi": "màu giấy",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "21",
+                      "mat_code": "ZHJ505085",
+                      "comp_code": "无",
+                      "name_zh": "纸护角",
+                      "name_vi": "giấy nẹp",
+                      "spec": "50x50x85mm",
+                      "spec_vi": "50x50x85mm",
+                      "material_zh": "瓦楞纸",
+                      "material_vi": "giấy carton",
+                      "color_zh": "纸色",
+                      "color_vi": "màu giấy",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "4"
+                    },
+                    {
+                      "stt": "22",
+                      "mat_code": "LGS032ZK",
+                      "comp_code": "无",
+                      "name_zh": "纸卡",
+                      "name_vi": "giấy lót",
+                      "spec": "单瓦1100x60",
+                      "spec_vi": "sóng đơn 1100x60",
+                      "material_zh": "瓦楞纸单瓦",
+                      "material_vi": "giấy carton sóng đơn",
+                      "color_zh": "纸色",
+                      "color_vi": "màu giấy",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "2"
+                    },
+                    {
+                      "stt": "23",
+                      "mat_code": "LGS032PM001",
+                      "comp_code": "无",
+                      "name_zh": "泡沫",
+                      "name_vi": "mút xốp",
+                      "spec": "20Kg,325x85x8mm",
+                      "spec_vi": "20Kg,325x85x8mm",
+                      "material_zh": "EPS泡沫",
+                      "material_vi": "EPS mút xốp",
+                      "color_zh": "白色",
+                      "color_vi": "màu trắng",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "2"
+                    },
+                    {
+                      "stt": "24",
+                      "mat_code": "LGS032PM002",
+                      "comp_code": "无",
+                      "name_zh": "泡沫",
+                      "name_vi": "mút xốp",
+                      "spec": "16Kg,320x32x17mm",
+                      "spec_vi": "16Kg,320x32x17mm",
+                      "material_zh": "EPS泡沫",
+                      "material_vi": "EPS mút xốp",
+                      "color_zh": "白色",
+                      "color_vi": "màu trắng",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "2"
+                    },
+                    {
+                      "stt": "25",
+                      "mat_code": "PPHJ1285",
+                      "comp_code": "无",
+                      "name_zh": "PP护角",
+                      "name_vi": "PP góc nhựa",
+                      "spec": "内径高12mm,边厚度8.5mm",
+                      "spec_vi": "đường kính trong cao 12mm,độ dày cạnh 8.5mm",
+                      "material_zh": "PP",
+                      "material_vi": "PP",
+                      "color_zh": "黑色",
+                      "color_vi": "màu đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "12"
+                    },
+                    {
+                      "stt": "26",
+                      "mat_code": "XHBBL010",
+                      "comp_code": "无",
+                      "name_zh": "序号标BL",
+                      "name_vi": "nhãn STT BL",
+                      "spec": "Ø10mm",
+                      "spec_vi": "∅10mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy decal",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "27",
+                      "mat_code": "XHBBR010",
+                      "comp_code": "无",
+                      "name_zh": "序号标BR",
+                      "name_vi": "nhãn STT BR",
+                      "spec": "Ø10mm",
+                      "spec_vi": "∅10mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy decal",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "28",
+                      "mat_code": "JGB120052",
+                      "comp_code": "无",
+                      "name_zh": "警告标",
+                      "name_vi": "nhãn cảnh báo",
+                      "spec": "120x52mm",
+                      "spec_vi": "120x52mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy decal",
+                      "color_zh": "按样",
+                      "color_vi": "theo mẫu",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "29",
+                      "mat_code": "VTJGB035012",
+                      "comp_code": "无",
+                      "name_zh": "产地标",
+                      "name_vi": "nhãn xuất xứ",
+                      "spec": "35x12mm",
+                      "spec_vi": "35x12mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy decal",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "29",
+                      "mat_code": "LGS032SMS",
+                      "comp_code": "无",
+                      "name_zh": "说明书",
+                      "name_vi": "LGS032 sách hướng dẫn",
+                      "spec": "A4",
+                      "spec_vi": "A4",
+                      "material_zh": "铜版纸",
+                      "material_vi": "giấy couché",
+                      "color_zh": "黑白",
+                      "color_vi": "đen trắng",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "1",
+                      "mat_code": "TZJD629825BH",
+                      "comp_code": "1",
+                      "name_zh": "10-底脚",
+                      "name_vi": "10-chân đế",
+                      "spec": "M6x10mm",
+                      "spec_vi": "M6x10mm",
+                      "material_zh": "PP&镀锌碳钢",
+                      "material_vi": "PP&thép mạ kẽm",
+                      "color_zh": "黑色",
+                      "color_vi": "màu đen",
+                      "attr_zh": "五金包",
+                      "attr_vi": "túi ngũ kim",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "6"
+                    },
+                    {
+                      "stt": "2",
+                      "mat_code": "BCLS129228BH",
+                      "comp_code": "2",
+                      "name_zh": "把手",
+                      "name_vi": "tay nắm",
+                      "spec": "112x22x8mm",
+                      "spec_vi": "112x22x8mm",
+                      "material_zh": "PP&GF40",
+                      "material_vi": "PP&GF40",
+                      "color_zh": "黑色",
+                      "color_vi": "màu đen",
+                      "attr_zh": "五金包",
+                      "attr_vi": "túi ngũ kim",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "6"
+                    },
+                    {
+                      "stt": "3",
+                      "mat_code": "NLPLS6022BZ",
+                      "comp_code": "3",
+                      "name_zh": "M6x22内六角螺丝",
+                      "name_vi": "M6x22 ốc lục giác",
+                      "spec": "M6x22mm",
+                      "spec_vi": "M6x22mm",
+                      "material_zh": "#10",
+                      "material_vi": "#10",
+                      "color_zh": "黑色",
+                      "color_vi": "màu đen",
+                      "attr_zh": "五金包",
+                      "attr_vi": "túi ngũ kim",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "20+2"
+                    },
+                    {
+                      "stt": "4",
+                      "mat_code": "GSSNZGLS5040BZ",
+                      "comp_code": "4",
+                      "name_zh": "ST5x38内六角过山丝",
+                      "name_vi": "ST5x38 ốc tự khoan lục giác",
+                      "spec": "Ø5x38mm",
+                      "spec_vi": "Ø5x38mm",
+                      "material_zh": "#10",
+                      "material_vi": "#10",
+                      "color_zh": "黑色",
+                      "color_vi": "màu đen",
+                      "attr_zh": "五金包",
+                      "attr_vi": "túi ngũ kim",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "4+1"
+                    },
+                    {
+                      "stt": "5",
+                      "mat_code": "NLPLS6010BZ",
+                      "comp_code": "5",
+                      "name_zh": "M6x10内六角螺丝",
+                      "name_vi": "M6x10 ốc lục giác",
+                      "spec": "M6x10mm",
+                      "spec_vi": "M6x10mm",
+                      "material_zh": "#10",
+                      "material_vi": "#10",
+                      "color_zh": "黑色",
+                      "color_vi": "màu đen",
+                      "attr_zh": "五金包",
+                      "attr_vi": "túi ngũ kim",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "8+2"
+                    },
+                    {
+                      "stt": "6",
+                      "mat_code": "ZGLS4010CZ",
+                      "comp_code": "6",
+                      "name_zh": "ST4x10圆头十字自攻螺丝",
+                      "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
+                      "spec": "ST4x10mm",
+                      "spec_vi": "ST4x10mm",
+                      "material_zh": "#10",
+                      "material_vi": "#10",
+                      "color_zh": "黑色",
+                      "color_vi": "màu đen",
+                      "attr_zh": "五金包",
+                      "attr_vi": "túi ngũ kim",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "12+2"
+                    },
+                    {
+                      "stt": "7",
+                      "mat_code": "PTZGLS6308BZ",
+                      "comp_code": "7",
+                      "name_zh": "ST3.5x12平头十字自攻螺丝",
+                      "name_vi": "ST3.5x12 ốc tự cắt đầu bằng chữ thập",
+                      "spec": "ST3.5x12mm",
+                      "spec_vi": "ST3.5x12mm",
+                      "material_zh": "#10",
+                      "material_vi": "#10",
+                      "color_zh": "黑色",
+                      "color_vi": "màu đen",
+                      "attr_zh": "五金包",
+                      "attr_vi": "túi ngũ kim",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "2"
+                    },
+                    {
+                      "stt": "8",
+                      "mat_code": "SLPZLS6030WH",
+                      "comp_code": "8",
+                      "name_zh": "塑料膨胀螺丝",
+                      "name_vi": "Ốc tắc kê nhựa",
+                      "spec": "6x30mm",
+                      "spec_vi": "6x30mm",
+                      "material_zh": "PP",
+                      "material_vi": "PP",
+                      "color_zh": "白色",
+                      "color_vi": "màu trắng",
+                      "attr_zh": "五金包",
+                      "attr_vi": "túi ngũ kim",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "2"
+                    },
+                    {
+                      "stt": "9",
+                      "mat_code": "ZGLS3560BH",
+                      "comp_code": "8",
+                      "name_zh": "自攻螺丝",
+                      "name_vi": "ốc tự cắt",
+                      "spec": "M3.5x60mm",
+                      "spec_vi": "M3.5x60mm",
+                      "material_zh": "#10",
+                      "material_vi": "#10",
+                      "color_zh": "黑色",
+                      "color_vi": "màu đen",
+                      "attr_zh": "五金包",
+                      "attr_vi": "túi ngũ kim",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "2"
+                    },
+                    {
+                      "stt": "10",
+                      "mat_code": "LNSLSD65254BZ",
+                      "comp_code": "9",
+                      "name_zh": "L型内六角带十字螺丝刀",
+                      "name_vi": "L vít lục giác có đầu chữ thập",
+                      "spec": "S4",
+                      "spec_vi": "S4",
+                      "material_zh": "#10",
+                      "material_vi": "#10",
+                      "color_zh": "镀锌",
+                      "color_vi": "mạ kẽm",
+                      "attr_zh": "五金包",
+                      "attr_vi": "túi ngũ kim",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "11",
+                      "mat_code": "LNBS57253BZ",
+                      "comp_code": "10",
+                      "name_zh": "L型内六角扳手",
+                      "name_vi": "L cờ lê lục giác",
+                      "spec": "S3",
+                      "spec_vi": "S3",
+                      "material_zh": "#10",
+                      "material_vi": "#10",
+                      "color_zh": "镀锌",
+                      "color_vi": "mạ kẽm",
+                      "attr_zh": "五金包",
+                      "attr_vi": "túi ngũ kim",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "1"
+                    },
+                    {
+                      "stt": "12",
+                      "mat_code": "NLDP15508020BH",
+                      "comp_code": "11",
+                      "name_zh": "尼龙垫片",
+                      "name_vi": "lông đền nhựa",
+                      "spec": "外径15.5×内孔8.0×厚2.0mm",
+                      "spec_vi": "đường kính ngoài 15.5×lỗ trong 8.0×dày 2.0mm",
+                      "material_zh": "PP",
+                      "material_vi": "PP",
+                      "color_zh": "黑色",
+                      "color_vi": "màu đen",
+                      "attr_zh": "五金包",
+                      "attr_vi": "túi ngũ kim",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "qty": "2"
+                    }
+                  ]
+                }
+              },
+              "name_zh": "复古色3列3层6抽开放式带灯带电布抽电视柜-45inch",
+              "name_vi": "màu gỗ cổ 3 cột 3 tầng 6 Tủ đựng TV kiểu ngăn kéo mở có đèn và điện-45inch",
+              "revision": "V3"
+            },
+            "materialDb": {
+              "version": 1,
+              "materials": {
+                "mat_1kzaom8": {
+                  "id": "mat_1kzaom8",
+                  "code": "LGS032WJBBH",
+                  "name": {
+                    "zh": "LGS032五金包",
+                    "vi": "LGS032Túi ngũ kim"
+                  },
+                  "spec": {
+                    "zh": "详见明细",
+                    "vi": "Xem chi tiết"
+                  },
+                  "material": {
+                    "zh": "无",
+                    "vi": "không"
+                  },
+                  "color": {
+                    "zh": "黑色",
+                    "vi": "màu đen"
+                  },
+                  "attr": {
+                    "zh": "零件",
+                    "vi": "linh kiện"
+                  },
+                  "drawings": [],
+                  "models3d": []
+                },
+                "mat_1a142pp": {
+                  "id": "mat_1a142pp",
+                  "code": "PC221BH",
+                  "name": {
+                    "zh": "排插带尾插",
+                    "vi": "ổ cắm điện"
+                  },
+                  "spec": {
+                    "zh": "英规-2AC+1USB+1 Type C插座",
+                    "vi": "tiêu chuẩn Anh-2AC+1USB+1 Type C ổ cắm"
+                  },
+                  "material": {
+                    "zh": "ABS",
+                    "vi": "ABS"
+                  },
+                  "color": {
+                    "zh": "黑色",
+                    "vi": "màu đen"
+                  },
+                  "attr": {
+                    "zh": "零件",
+                    "vi": "linh kiện"
+                  },
+                  "drawings": [],
+                  "models3d": [
+                    {
+                      "name": "排插带尾插.glb",
+                      "path": "models3d/catalog/model-f3d745d5.glb",
+                      "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-f3d745d5.glb",
+                      "matched_name": "排插带尾插",
+                      "score": 1100,
+                      "bytes": 1230356
+                    }
+                  ]
+                },
+                "mat_1qb66wl": {
+                  "id": "mat_1qb66wl",
+                  "code": "LGS032DB101KD",
+                  "name": {
+                    "zh": "LGS032-S顶板",
+                    "vi": "LGS032-S tấm trên"
+                  },
+                  "spec": {
+                    "zh": "1138x300x12mm",
+                    "vi": "1138x300x12mm"
+                  },
+                  "material": {
+                    "zh": "PB",
+                    "vi": "PB"
+                  },
+                  "color": {
+                    "zh": "复古色",
+                    "vi": "màu gỗ cổ"
+                  },
+                  "attr": {
+                    "zh": "零件",
+                    "vi": "linh kiện"
+                  },
+                  "drawings": [
+                    {
+                      "name": "LGS032-S顶板.pdf",
+                      "path": "Google Drive > LGS032-S > LGS032-S顶板.pdf",
+                      "url": "https://drive.google.com/file/d/1z2r59QxOX1Y8SwhCk2JsXpbHPzslMg9j/view?usp=sharing",
+                      "matched_name": "LGS032-S顶板",
+                      "score": 1009
+                    }
+                  ],
+                  "models3d": [
+                    {
+                      "name": "LGS032-S顶板.glb",
+                      "path": "models3d/catalog/LGS032-S-8b308098.glb",
+                      "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS032-S-8b308098.glb",
+                      "matched_name": "LGS032-S顶板",
+                      "score": 1300,
+                      "bytes": 67992
+                    }
+                  ]
+                },
+                "mat_1lhiznh": {
+                  "id": "mat_1lhiznh",
+                  "code": "LGS032CBSKD",
+                  "name": {
+                    "zh": "LGS032-S-中层板",
+                    "vi": "LGS032-S-tấm tầng giữa"
+                  },
+                  "spec": {
+                    "zh": "356x290x12mm",
+                    "vi": "356x290x12mm"
+                  },
+                  "material": {
+                    "zh": "PB",
+                    "vi": "PB"
+                  },
+                  "color": {
+                    "zh": "复古色",
+                    "vi": "màu gỗ cổ"
+                  },
+                  "attr": {
+                    "zh": "零件",
+                    "vi": "linh kiện"
+                  },
+                  "drawings": [
+                    {
+                      "name": "LGS032-S-中层板.pdf",
+                      "path": "Google Drive > LGS032-S > LGS032-S-中层板.pdf",
+                      "url": "https://drive.google.com/file/d/1GM4Jk3Ujc6g1cbqtc_x7Hqlu2_Ty34Om/view?usp=sharing",
+                      "matched_name": "LGS032-S-中层板",
+                      "score": 1010
+                    }
+                  ],
+                  "models3d": [
+                    {
+                      "name": "LGS032-S-中层板.glb",
+                      "path": "models3d/catalog/LGS032-S-7c0404f7.glb",
+                      "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS032-S-7c0404f7.glb",
+                      "matched_name": "LGS032-S-中层板",
+                      "score": 1300,
+                      "bytes": 25284
+                    }
+                  ]
+                },
+                "mat_18qhtjq": {
+                  "id": "mat_18qhtjq",
+                  "code": "LGS032CBXKD",
+                  "name": {
+                    "zh": "LGS032-S-底部层板",
+                    "vi": "LGS032-S-Tấm tầng đáy"
+                  },
+                  "spec": {
+                    "zh": "356x290x12mm",
+                    "vi": "356x290x12mm"
+                  },
+                  "material": {
+                    "zh": "PB",
+                    "vi": "PB"
+                  },
+                  "color": {
+                    "zh": "复古色",
+                    "vi": "màu gỗ cổ"
+                  },
+                  "attr": {
+                    "zh": "零件",
+                    "vi": "linh kiện"
+                  },
+                  "drawings": [
+                    {
+                      "name": "LGS032-S-底部层板.pdf",
+                      "path": "Google Drive > LGS032-S > LGS032-S-底部层板.pdf",
+                      "url": "https://drive.google.com/file/d/1XcYynN9Ui3uIgaQqI8bJ12nfO1ls6MoM/view?usp=sharing",
+                      "matched_name": "LGS032-S-底部层板",
+                      "score": 1011
+                    }
+                  ],
+                  "models3d": [
+                    {
+                      "name": "LGS032-S-底部层板.glb",
+                      "path": "models3d/catalog/LGS032-S-658d4479.glb",
+                      "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS032-S-658d4479.glb",
+                      "matched_name": "LGS032-S-底部层板",
+                      "score": 1300,
+                      "bytes": 55144
+                    }
+                  ]
+                },
+                "mat_9qvt4i": {
+                  "id": "mat_9qvt4i",
+                  "code": "SLHGZZ001BH",
+                  "name": {
+                    "zh": "280mm布抽条左",
+                    "vi": "280mm Thanh ngăn kéo trái"
+                  },
+                  "spec": {
+                    "zh": "280x25x20mm",
+                    "vi": "280x25x20mm"
+                  },
+                  "material": {
+                    "zh": "PP&GF40",
+                    "vi": "PP&GF40"
+                  },
+                  "color": {
+                    "zh": "黑色",
+                    "vi": "màu đen"
+                  },
+                  "attr": {
+                    "zh": "零件",
+                    "vi": "linh kiện"
+                  },
+                  "drawings": [
+                    {
+                      "name": "300-L.pdf",
+                      "path": "Google Drive > LGS031 > 300-L.pdf",
+                      "url": "https://drive.google.com/file/d/1hnfo5kl0Ju2RF-_11o9XdZ0JI_J5WnPf/view?usp=sharing",
+                      "matched_name": "280mm布抽条左",
+                      "score": 980
+                    },
+                    {
+                      "name": "300-L.pdf",
+                      "path": "Google Drive > LGS032-S > 300-L.pdf",
+                      "url": "https://drive.google.com/file/d/17aEVBHcR19u8reS8WlAXHDw-wtuATlkW/view?usp=sharing",
+                      "matched_name": "280mm布抽条左",
+                      "score": 980
+                    },
+                    {
+                      "name": "300-L.pdf",
+                      "path": "Google Drive > LGS033 > 300-L.pdf",
+                      "url": "https://drive.google.com/file/d/1b4xTlS5Kbz8GyrGFPDkNcu-Qh_CP1yH8/view?usp=sharing",
+                      "matched_name": "280mm布抽条左",
+                      "score": 980
+                    },
+                    {
+                      "name": "300-L.pdf",
+                      "path": "Google Drive > LGS101-111 > 300-L.pdf",
+                      "url": "https://drive.google.com/file/d/1BM3E6akJcBPBeLL1iDHsdH2N0riY4LMT/view?usp=sharing",
+                      "matched_name": "280mm布抽条左",
+                      "score": 980
+                    },
+                    {
+                      "name": "300-L.pdf",
+                      "path": "Google Drive > LGS333 > 300-L.pdf",
+                      "url": "https://drive.google.com/file/d/1a1mBZ8uXNx4N1If_5zR2gw-16jBP8tX3/view?usp=sharing",
+                      "matched_name": "280mm布抽条左",
+                      "score": 980
+                    },
+                    {
+                      "name": "300-L.pdf",
+                      "path": "Google Drive > LGS433 > 300-L.pdf",
+                      "url": "https://drive.google.com/file/d/1Wp1q0Ry5i-l_Jl-FV6rSrwq_IjMYBi5g/view?usp=sharing",
+                      "matched_name": "280mm布抽条左",
+                      "score": 980
+                    },
+                    {
+                      "name": "300-L.pdf",
+                      "path": "Google Drive > LGS723 > 300-L.pdf",
+                      "url": "https://drive.google.com/file/d/13Ns2Nk_oFL-USx7SB46KFq36CLGL-iO3/view?usp=sharing",
+                      "matched_name": "280mm布抽条左",
+                      "score": 980
+                    },
+                    {
+                      "name": "300-L.pdf",
+                      "path": "Google Drive > LGS733 > 300-L.pdf",
+                      "url": "https://drive.google.com/file/d/1HnIWvpynA_Wj8K6uGIpRAqLcykoYjOky/view?usp=sharing",
+                      "matched_name": "280mm布抽条左",
+                      "score": 980
+                    },
+                    {
+                      "name": "300-L.pdf",
+                      "path": "Google Drive > LGS833 > 300-L.pdf",
+                      "url": "https://drive.google.com/file/d/1Y3xKheSZitTBUH0AmFz-bjyb0TU5ZOkx/view?usp=sharing",
+                      "matched_name": "280mm布抽条左",
+                      "score": 980
+                    }
+                  ],
+                  "models3d": [
+                    {
+                      "name": "300-L.glb",
+                      "path": "models3d/catalog/300-L-69409d3c.glb",
+                      "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/300-L-69409d3c.glb",
+                      "matched_name": "280mm布抽条左",
+                      "score": 1300,
+                      "bytes": 1360244
+                    }
+                  ]
+                },
+                "mat_4ijpok": {
+                  "id": "mat_4ijpok",
+                  "code": "SLHGZY001BH",
+                  "name": {
+                    "zh": "280mm布抽条右",
+                    "vi": "280mm Thanh ngăn kéo phải"
+                  },
+                  "spec": {
+                    "zh": "280x25x20mm",
+                    "vi": "280x25x20mm"
+                  },
+                  "material": {
+                    "zh": "PP&GF40",
+                    "vi": "PP&GF40"
+                  },
+                  "color": {
+                    "zh": "黑色",
+                    "vi": "màu đen"
+                  },
+                  "attr": {
+                    "zh": "零件",
+                    "vi": "linh kiện"
+                  },
+                  "drawings": [
+                    {
+                      "name": "300-R.pdf",
+                      "path": "Google Drive > LGS031 > 300-R.pdf",
+                      "url": "https://drive.google.com/file/d/1gDAa5IVJ_nClf1E3gKyVvsEiEx9uk5E6/view?usp=sharing",
+                      "matched_name": "280mm布抽条右",
+                      "score": 980
+                    },
+                    {
+                      "name": "300-R.pdf",
+                      "path": "Google Drive > LGS032-S > 300-R.pdf",
+                      "url": "https://drive.google.com/file/d/1l7VtaPp_BHpPxOrryJKxmiBaTZs9EEcg/view?usp=sharing",
+                      "matched_name": "280mm布抽条右",
+                      "score": 980
+                    },
+                    {
+                      "name": "300-R.pdf",
+                      "path": "Google Drive > LGS033 > 300-R.pdf",
+                      "url": "https://drive.google.com/file/d/1dXWWLZQToL4upFx0BKz0upyy2cjJuOXB/view?usp=sharing",
+                      "matched_name": "280mm布抽条右",
+                      "score": 980
+                    },
+                    {
+                      "name": "300-R.pdf",
+                      "path": "Google Drive > LGS101-111 > 300-R.pdf",
+                      "url": "https://drive.google.com/file/d/13EDEIrg3GqEObdhwmLxmjrMuN5wGIHTA/view?usp=sharing",
+                      "matched_name": "280mm布抽条右",
+                      "score": 980
+                    },
+                    {
+                      "name": "300-R.pdf",
+                      "path": "Google Drive > LGS333 > 300-R.pdf",
+                      "url": "https://drive.google.com/file/d/1uP19wxTblW3tQ6h1m5Y6xx7yxh7MnXam/view?usp=sharing",
+                      "matched_name": "280mm布抽条右",
+                      "score": 980
+                    },
+                    {
+                      "name": "300-R.pdf",
+                      "path": "Google Drive > LGS433 > 300-R.pdf",
+                      "url": "https://drive.google.com/file/d/1wrYWaAUvFaoolaJvwpQ31Hi1j_AL4AJ0/view?usp=sharing",
+                      "matched_name": "280mm布抽条右",
+                      "score": 980
+                    },
+                    {
+                      "name": "300-R.pdf",
+                      "path": "Google Drive > LGS723 > 300-R.pdf",
+                      "url": "https://drive.google.com/file/d/1Dga1yF0skybC7L_Cgh5KIM9npofgTZZ9/view?usp=sharing",
+                      "matched_name": "280mm布抽条右",
+                      "score": 980
+                    },
+                    {
+                      "name": "300-R.pdf",
+                      "path": "Google Drive > LGS733 > 300-R.pdf",
+                      "url": "https://drive.google.com/file/d/1ETrmgJXYzGKy5qHbu3dWGFHYB28yzFsG/view?usp=sharing",
+                      "matched_name": "280mm布抽条右",
+                      "score": 980
+                    },
+                    {
+                      "name": "300-R.pdf",
+                      "path": "Google Drive > LGS833 > 300-R.pdf",
+                      "url": "https://drive.google.com/file/d/127bWrns2nkw1ePn489dILwvFJ6-WI9wz/view?usp=sharing",
+                      "matched_name": "280mm布抽条右",
+                      "score": 980
+                    }
+                  ],
+                  "models3d": [
+                    {
+                      "name": "300-R.glb",
+                      "path": "models3d/catalog/300-R-1cf37b37.glb",
+                      "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/300-R-1cf37b37.glb",
+                      "matched_name": "280mm布抽条右",
+                      "score": 1300,
+                      "bytes": 1383884
+                    }
+                  ]
+                },
+                "mat_hkpgus": {
+                  "id": "mat_hkpgus",
+                  "code": "LGS032ZZKBH",
+                  "name": {
+                    "zh": "LGS032-S-中框左",
+                    "vi": "LGS032-S-Khung giữa trái"
+                  },
+                  "spec": {
+                    "zh": "584x290x15mm",
+                    "vi": "584x290x15mm"
+                  },
+                  "material": {
+                    "zh": "Q195",
+                    "vi": "Q195"
+                  },
+                  "color": {
+                    "zh": "黑砂纹",
+                    "vi": "đen nhám"
+                  },
+                  "attr": {
+                    "zh": "零件",
+                    "vi": "linh kiện"
+                  },
+                  "drawings": [
+                    {
+                      "name": "LGS032-S-中框左.pdf",
+                      "path": "Google Drive > LGS032-S > LGS032-S-中框左.pdf",
+                      "url": "https://drive.google.com/file/d/1VZIwRP10Apr8tb4byAtyoaMi0JDZIdpB/view?usp=sharing",
+                      "matched_name": "LGS032-S-中框左",
+                      "score": 1010
+                    }
+                  ],
+                  "models3d": [
+                    {
+                      "name": "LGS032-S-中框左.glb",
+                      "path": "models3d/catalog/LGS032-S-1f2a1a03.glb",
+                      "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS032-S-1f2a1a03.glb",
+                      "matched_name": "LGS032-S-中框左",
+                      "score": 1300,
+                      "bytes": 143692
+                    }
+                  ]
+                },
+                "mat_xclnm": {
+                  "id": "mat_xclnm",
+                  "code": "LGS032YZKBH",
+                  "name": {
+                    "zh": "LGS032-S-中框右",
+                    "vi": "LGS032-S-Khung giữa phải"
+                  },
+                  "spec": {
+                    "zh": "584x290x15mm",
+                    "vi": "584x290x15mm"
+                  },
+                  "material": {
+                    "zh": "Q195",
+                    "vi": "Q195"
+                  },
+                  "color": {
+                    "zh": "黑砂纹",
+                    "vi": "đen nhám"
+                  },
+                  "attr": {
+                    "zh": "零件",
+                    "vi": "linh kiện"
+                  },
+                  "drawings": [
+                    {
+                      "name": "LGS032-S-中框右.pdf",
+                      "path": "Google Drive > LGS032-S > LGS032-S-中框右.pdf",
+                      "url": "https://drive.google.com/file/d/1je88dPfbTmr0iCZfxgxlMEYE-_9MBTdL/view?usp=sharing",
+                      "matched_name": "LGS032-S-中框右",
+                      "score": 1010
+                    }
+                  ],
+                  "models3d": [
+                    {
+                      "name": "LGS032-S-中框右.glb",
+                      "path": "models3d/catalog/LGS032-S-5c03dde7.glb",
+                      "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS032-S-5c03dde7.glb",
+                      "matched_name": "LGS032-S-中框右",
+                      "score": 1300,
+                      "bytes": 143692
+                    }
+                  ]
+                },
+                "mat_a987en": {
+                  "id": "mat_a987en",
+                  "code": "LGS032ZKBH",
+                  "name": {
+                    "zh": "LGS032-S-左侧框",
+                    "vi": "LGS032-S-khung bên trái"
+                  },
+                  "spec": {
+                    "zh": "657x290x15mm",
+                    "vi": "657x290x15mm"
+                  },
+                  "material": {
+                    "zh": "Q195",
+                    "vi": "Q195"
+                  },
+                  "color": {
+                    "zh": "黑砂纹",
+                    "vi": "đen nhám"
+                  },
+                  "attr": {
+                    "zh": "零件",
+                    "vi": "linh kiện"
+                  },
+                  "drawings": [
+                    {
+                      "name": "LGS032-S-左侧框.pdf",
+                      "path": "Google Drive > LGS032-S > LGS032-S-左侧框.pdf",
+                      "url": "https://drive.google.com/file/d/13_fzNIXhQTmT72D4nId_pb3By_pH8pdI/view?usp=sharing",
+                      "matched_name": "LGS032-S-左侧框",
+                      "score": 1010
+                    }
+                  ],
+                  "models3d": [
+                    {
+                      "name": "LGS032-S-左侧框.glb",
+                      "path": "models3d/catalog/LGS032-S-33f48cfd.glb",
+                      "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS032-S-33f48cfd.glb",
+                      "matched_name": "LGS032-S-左侧框",
+                      "score": 1300,
+                      "bytes": 123960
+                    }
+                  ]
+                },
+                "mat_n3m59f": {
+                  "id": "mat_n3m59f",
+                  "code": "LGS032YKBH",
+                  "name": {
+                    "zh": "LGS032-S-右侧框",
+                    "vi": "LGS032-S-khung bên phải"
+                  },
+                  "spec": {
+                    "zh": "657x290x15mm",
+                    "vi": "657x290x15mm"
+                  },
+                  "material": {
+                    "zh": "Q195",
+                    "vi": "Q195"
+                  },
+                  "color": {
+                    "zh": "黑砂纹",
+                    "vi": "đen nhám"
+                  },
+                  "attr": {
+                    "zh": "零件",
+                    "vi": "linh kiện"
+                  },
+                  "drawings": [
+                    {
+                      "name": "HP_LGS032-S-右侧框.pdf",
+                      "path": "Google Drive > LGS032-S > HP_LGS032-S-右侧框.pdf",
+                      "url": "https://drive.google.com/file/d/1idKPzgda6JsK9LxC4FEAGLp-gFnTVaqF/view?usp=sharing",
+                      "matched_name": "LGS032-S-右侧框",
+                      "score": 860
+                    }
+                  ],
+                  "models3d": [
+                    {
+                      "name": "LGS032-S-右侧框.glb",
+                      "path": "models3d/catalog/LGS032-S-1ca3461c.glb",
+                      "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS032-S-1ca3461c.glb",
+                      "matched_name": "LGS032-S-右侧框",
+                      "score": 1150,
+                      "bytes": 123952
+                    }
+                  ]
+                },
+                "mat_1rtvq61": {
+                  "id": "mat_1rtvq61",
+                  "code": "LGS032XHLBH",
+                  "name": {
+                    "zh": "LGS032-S-底部横杆后",
+                    "vi": "LGS032-S-Thanh dưới sau"
+                  },
+                  "spec": {
+                    "zh": "1098x31x15mm",
+                    "vi": "1098x31x15mm"
+                  },
+                  "material": {
+                    "zh": "Q195",
+                    "vi": "Q195"
+                  },
+                  "color": {
+                    "zh": "黑砂纹",
+                    "vi": "đen nhám"
+                  },
+                  "attr": {
+                    "zh": "零件",
+                    "vi": "linh kiện"
+                  },
+                  "drawings": [
+                    {
+                      "name": "LGS032-S-底部横杆后.pdf",
+                      "path": "Google Drive > LGS032-S > LGS032-S-底部横杆后.pdf",
+                      "url": "https://drive.google.com/file/d/1JlAKyFJDMUspIDjKpv8Ms00njMatVtNk/view?usp=sharing",
+                      "matched_name": "LGS032-S-底部横杆后",
+                      "score": 1012
+                    }
+                  ],
+                  "models3d": [
+                    {
+                      "name": "LGS032-S-底部横杆后.glb",
+                      "path": "models3d/catalog/LGS032-S-2abcedf6.glb",
+                      "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS032-S-2abcedf6.glb",
+                      "matched_name": "LGS032-S-底部横杆后",
+                      "score": 1300,
+                      "bytes": 234320
+                    }
+                  ]
+                },
+                "mat_y1jc49": {
+                  "id": "mat_y1jc49",
+                  "code": "LGS032XQHLBH",
+                  "name": {
+                    "zh": "LGS032-S-底部横杆前",
+                    "vi": "LGS032-S-Thanh dưới trước"
+                  },
+                  "spec": {
+                    "zh": "1098x31x15mm",
+                    "vi": "1098x31x15mm"
+                  },
+                  "material": {
+                    "zh": "Q195",
+                    "vi": "Q195"
+                  },
+                  "color": {
+                    "zh": "黑砂纹",
+                    "vi": "đen nhám"
+                  },
+                  "attr": {
+                    "zh": "零件",
+                    "vi": "linh kiện"
+                  },
+                  "drawings": [
+                    {
+                      "name": "LGS032-S-底部横杆前.pdf",
+                      "path": "Google Drive > LGS032-S > LGS032-S-底部横杆前.pdf",
+                      "url": "https://drive.google.com/file/d/12I7u_85M1isBRh2h6-QQMvaKx6cgItpL/view?usp=sharing",
+                      "matched_name": "LGS032-S-底部横杆前",
+                      "score": 1012
+                    }
+                  ],
+                  "models3d": [
+                    {
+                      "name": "LGS032-S-底部横杆前.glb",
+                      "path": "models3d/catalog/LGS032-S-a2940c47.glb",
+                      "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS032-S-a2940c47.glb",
+                      "matched_name": "LGS032-S-底部横杆前",
+                      "score": 1300,
+                      "bytes": 152880
+                    }
+                  ]
+                },
+                "mat_kihop7": {
+                  "id": "mat_kihop7",
+                  "code": "LGS032SHLBH",
+                  "name": {
+                    "zh": "LGS032-S-顶部横杆",
+                    "vi": "LGS032-S-thanh trên"
+                  },
+                  "spec": {
+                    "zh": "356x15x15mm",
+                    "vi": "356x15x15mm"
+                  },
+                  "material": {
+                    "zh": "Q195",
+                    "vi": "Q195"
+                  },
+                  "color": {
+                    "zh": "黑砂纹",
+                    "vi": "đen nhám"
+                  },
+                  "attr": {
+                    "zh": "零件",
+                    "vi": "linh kiện"
+                  },
+                  "drawings": [
+                    {
+                      "name": "LGS032-S-顶部横杆.pdf",
+                      "path": "Google Drive > LGS032-S > LGS032-S-顶部横杆.pdf",
+                      "url": "https://drive.google.com/file/d/1SEmEIY2HZd4TfPTt9-fzMONGwXAMINpY/view?usp=sharing",
+                      "matched_name": "LGS032-S-顶部横杆",
+                      "score": 1011
+                    }
+                  ],
+                  "models3d": [
+                    {
+                      "name": "LGS032-S-顶部横杆.glb",
+                      "path": "models3d/catalog/LGS032-S-60223a00.glb",
+                      "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS032-S-60223a00.glb",
+                      "matched_name": "LGS032-S-顶部横杆",
+                      "score": 1300,
+                      "bytes": 68368
+                    }
+                  ]
+                },
+                "mat_1m5b6t5": {
+                  "id": "mat_1m5b6t5",
+                  "code": "ZJG150654BH",
+                  "name": {
+                    "zh": "51底脚",
+                    "vi": "51 chân đế"
+                  },
+                  "spec": {
+                    "zh": "65x15x15mm",
+                    "vi": "65x15x15mm"
+                  },
+                  "material": {
+                    "zh": "Q195",
+                    "vi": "Q195"
+                  },
+                  "color": {
+                    "zh": "黑砂纹",
+                    "vi": "đen nhám"
+                  },
+                  "attr": {
+                    "zh": "零件",
+                    "vi": "linh kiện"
+                  },
+                  "drawings": [
+                    {
+                      "name": "51底脚.pdf",
+                      "path": "Google Drive > LGS032-S > 51底脚.pdf",
+                      "url": "https://drive.google.com/file/d/1pP0E8lqjsNRuRbg-oLSoMQKiihPWmbgG/view?usp=sharing",
+                      "matched_name": "51底脚",
+                      "score": 1004
+                    },
+                    {
+                      "name": "54底脚.pdf",
+                      "path": "Google Drive > LGS033 > 54底脚.pdf",
+                      "url": "https://drive.google.com/file/d/1wtron5rMWGkFJf7ExlwRJZ738poWuHO6/view?usp=sharing",
+                      "matched_name": "54底脚",
+                      "score": 1004
+                    },
+                    {
+                      "name": "51底脚.pdf",
+                      "path": "Google Drive > LGS132-S > 51底脚.pdf",
+                      "url": "https://drive.google.com/file/d/1TPqGlA-Czl-LqqmNi6wCwh2Pxgqv7CgA/view?usp=sharing",
+                      "matched_name": "51底脚",
+                      "score": 1004
+                    },
+                    {
+                      "name": "54底脚(螺纹长23mm).pdf",
+                      "path": "Google Drive > LGS133 > 54底脚(螺纹长23mm).pdf",
+                      "url": "https://drive.google.com/file/d/1URBurMk1wZ-7V4tCVGb-EZURj53GxkBr/view?usp=sharing",
+                      "matched_name": "54底脚(螺纹长23mm)",
+                      "score": 1011
+                    },
+                    {
+                      "name": "51底脚.pdf",
+                      "path": "Google Drive > LGS232-S > 51底脚.pdf",
+                      "url": "https://drive.google.com/file/d/1AvcvZ8CFg7CaoyzebNsFWiD_xMmnXbgI/view?usp=sharing",
+                      "matched_name": "51底脚",
+                      "score": 1004
+                    },
+                    {
+                      "name": "54底脚(螺纹长23mm).pdf",
+                      "path": "Google Drive > LGS233 > 54底脚(螺纹长23mm).pdf",
+                      "url": "https://drive.google.com/file/d/1bgLYdXFj5BxL1C0mVmbbBwpHKsyXkGZT/view?usp=sharing",
+                      "matched_name": "54底脚(螺纹长23mm)",
+                      "score": 1011
+                    },
+                    {
+                      "name": "54底脚.pdf",
+                      "path": "Google Drive > LGS333 > 54底脚.pdf",
+                      "url": "https://drive.google.com/file/d/1EXel1U2eWKA9CCciihhVl_gbchVADxGa/view?usp=sharing",
+                      "matched_name": "54底脚",
+                      "score": 1004
+                    },
+                    {
+                      "name": "54底脚.pdf",
+                      "path": "Google Drive > LGS334 > 54底脚.pdf",
+                      "url": "https://drive.google.com/file/d/1Fak3eBmddz-0X8Eq48ytEqWwSHoT1shY/view?usp=sharing",
+                      "matched_name": "54底脚",
+                      "score": 1004
+                    },
+                    {
+                      "name": "54底脚.pdf",
+                      "path": "Google Drive > LGS433 > 54底脚.pdf",
+                      "url": "https://drive.google.com/file/d/1efYI7DVepuL6QyR9X_oIaIBGCL3YgyY3/view?usp=sharing",
+                      "matched_name": "54底脚",
+                      "score": 1004
+                    },
+                    {
+                      "name": "54底脚.pdf",
+                      "path": "Google Drive > LGS833 > 54底脚.pdf",
+                      "url": "https://drive.google.com/file/d/16nEBzWtylTs2wkD2IYrD6WUekmMx7_tq/view?usp=sharing",
+                      "matched_name": "54底脚",
+                      "score": 1004
+                    }
+                  ],
+                  "models3d": [
+                    {
+                      "name": "51底脚.glb",
+                      "path": "models3d/catalog/51-1bc9866d.glb",
+                      "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/51-1bc9866d.glb",
+                      "matched_name": "51底脚",
+                      "score": 1300,
+                      "bytes": 19716
+                    },
+                    {
+                      "name": "54底脚.glb",
+                      "path": "models3d/catalog/54-21ec9115.glb",
+                      "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/54-21ec9115.glb",
+                      "matched_name": "54底脚",
+                      "score": 1300,
+                      "bytes": 349028
+                    },
+                    {
+                      "name": "54底脚(螺纹长23mm).glb",
+                      "path": "models3d/catalog/54-23mm-f24fa114.glb",
+                      "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/54-23mm-f24fa114.glb",
+                      "matched_name": "54底脚(螺纹长23mm)",
+                      "score": 1300,
+                      "bytes": 703180
+                    }
+                  ]
+                },
+                "mat_q03tfs": {
+                  "id": "mat_q03tfs",
+                  "code": "LG05254BH",
+                  "name": {
+                    "zh": "254拉杆",
+                    "vi": "254 thanh đũa"
+                  },
+                  "spec": {
+                    "zh": "Ø5x254mm",
+                    "vi": "Ø5x254mm"
+                  },
+                  "material": {
+                    "zh": "Q195",
+                    "vi": "Q195"
+                  },
+                  "color": {
+                    "zh": "黑砂纹",
+                    "vi": "đen nhám"
+                  },
+                  "attr": {
+                    "zh": "零件",
+                    "vi": "linh kiện"
+                  },
+                  "drawings": [
+                    {
+                      "name": "254拉杆.pdf",
+                      "path": "Google Drive > LGS032-S > 254拉杆.pdf",
+                      "url": "https://drive.google.com/file/d/1Z6_Q10QmTVo5l_SkpcPgEN6FgJVV1OrB/view?usp=sharing",
+                      "matched_name": "254拉杆",
+                      "score": 1005
+                    },
+                    {
+                      "name": "254拉杆.pdf",
+                      "path": "Google Drive > LGS131 > 254拉杆.pdf",
+                      "url": "https://drive.google.com/file/d/1b1jmcqx3m9r0aZdjyKqo3rKqmdTOFzZ_/view?usp=sharing",
+                      "matched_name": "254拉杆",
+                      "score": 1005
+                    },
+                    {
+                      "name": "254拉杆.pdf",
+                      "path": "Google Drive > LGS132-S > 254拉杆.pdf",
+                      "url": "https://drive.google.com/file/d/1ibkL_9XfdtBwl6nPzXHzsbxEyTThOPR1/view?usp=sharing",
+                      "matched_name": "254拉杆",
+                      "score": 1005
+                    },
+                    {
+                      "name": "254拉杆.pdf",
+                      "path": "Google Drive > LGS133 > 254拉杆.pdf",
+                      "url": "https://drive.google.com/file/d/10ecJF8umUePzxfGEs9QaFHLyRwComegs/view?usp=sharing",
+                      "matched_name": "254拉杆",
+                      "score": 1005
+                    },
+                    {
+                      "name": "254拉杆.pdf",
+                      "path": "Google Drive > LGS231 > 254拉杆.pdf",
+                      "url": "https://drive.google.com/file/d/1AOatIJgm6CZQr7wpxs4j72jvWu0FJf2f/view?usp=sharing",
+                      "matched_name": "254拉杆",
+                      "score": 1005
+                    },
+                    {
+                      "name": "254拉杆.pdf",
+                      "path": "Google Drive > LGS232-S > 254拉杆.pdf",
+                      "url": "https://drive.google.com/file/d/10Vq_opjI9cevnlMLEDmtTlxq7yKhvUY9/view?usp=sharing",
+                      "matched_name": "254拉杆",
+                      "score": 1005
+                    },
+                    {
+                      "name": "254拉杆.pdf",
+                      "path": "Google Drive > LGS233 > 254拉杆.pdf",
+                      "url": "https://drive.google.com/file/d/1vGQTJusLEtOz4qI63vDlBxsNWENZ_D4S/view?usp=sharing",
+                      "matched_name": "254拉杆",
+                      "score": 1005
+                    },
+                    {
+                      "name": "254拉杆.pdf",
+                      "path": "Google Drive > LGS333 > 254拉杆.pdf",
+                      "url": "https://drive.google.com/file/d/1xDp1_0gpueA5rztZQQNGXxzmtBhANdz3/view?usp=sharing",
+                      "matched_name": "254拉杆",
+                      "score": 1005
+                    },
+                    {
+                      "name": "254拉杆.pdf",
+                      "path": "Google Drive > LGS334 > 254拉杆.pdf",
+                      "url": "https://drive.google.com/file/d/1kD6dqu86hbhoUcwHDsGHa4jLi3GkGane/view?usp=sharing",
+                      "matched_name": "254拉杆",
+                      "score": 1005
+                    },
+                    {
+                      "name": "254拉杆.pdf",
+                      "path": "Google Drive > LGS420-S > 254拉杆.pdf",
+                      "url": "https://drive.google.com/file/d/1LyTBUZyaCEKsRUrinP4lZ1S0pUSKqyxK/view?usp=sharing",
+                      "matched_name": "254拉杆",
+                      "score": 1005
+                    },
+                    {
+                      "name": "254拉杆.pdf",
+                      "path": "Google Drive > LGS421-S > 254拉杆.pdf",
+                      "url": "https://drive.google.com/file/d/1oV63enoAEjMdrKY8bAPU0z4gPWyJwGWo/view?usp=sharing",
+                      "matched_name": "254拉杆",
+                      "score": 1005
+                    },
+                    {
+                      "name": "254拉杆.pdf",
+                      "path": "Google Drive > LGS433 > 254拉杆.pdf",
+                      "url": "https://drive.google.com/file/d/1oZd5Ft_XQALYrrwr4cMVUH7ltwFFoQHe/view?usp=sharing",
+                      "matched_name": "254拉杆",
+                      "score": 1005
+                    },
+                    {
+                      "name": "254拉杆.pdf",
+                      "path": "Google Drive > LGS434 > 254拉杆.pdf",
+                      "url": "https://drive.google.com/file/d/1GGQCEz-E8vTZWIG6pkRZErl4y-YkNCql/view?usp=sharing",
+                      "matched_name": "254拉杆",
+                      "score": 1005
+                    },
+                    {
+                      "name": "254拉杆.pdf",
+                      "path": "Google Drive > LGS723 > 254拉杆.pdf",
+                      "url": "https://drive.google.com/file/d/1FvXGSRfDkSYjGci5CYgAhip9tLhwF9iF/view?usp=sharing",
+                      "matched_name": "254拉杆",
+                      "score": 1005
+                    },
+                    {
+                      "name": "254拉杆.pdf",
+                      "path": "Google Drive > LGS733 > 254拉杆.pdf",
+                      "url": "https://drive.google.com/file/d/1P37bCXp3fdRP5E2VU0jPP3A8YweuznDV/view?usp=sharing",
+                      "matched_name": "254拉杆",
+                      "score": 1005
+                    },
+                    {
+                      "name": "254拉杆.pdf",
+                      "path": "Google Drive > LGS833 > 254拉杆.pdf",
+                      "url": "https://drive.google.com/file/d/1ZIRPVKrzyk5Dbrm_IB_00az6v3cpzNMo/view?usp=sharing",
+                      "matched_name": "254拉杆",
+                      "score": 1005
+                    },
+                    {
+                      "name": "254拉杆.pdf",
+                      "path": "Google Drive > LGS834 > 254拉杆.pdf",
+                      "url": "https://drive.google.com/file/d/1c5NxZ2_JZcBf_CBAQlTzkjhEIflPexZJ/view?usp=sharing",
+                      "matched_name": "254拉杆",
+                      "score": 1005
+                    }
+                  ],
+                  "models3d": [
+                    {
+                      "name": "254拉杆.glb",
+                      "path": "models3d/catalog/254-d2333a3d.glb",
+                      "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/254-d2333a3d.glb",
+                      "matched_name": "254拉杆",
+                      "score": 1300,
+                      "bytes": 25716
+                    }
+                  ]
+                },
+                "mat_inq04s": {
+                  "id": "mat_inq04s",
+                  "code": "BC350282188KD",
+                  "name": {
+                    "zh": "LGS布抽35x28x18.7",
+                    "vi": "LGS布抽35x28x18.7"
+                  },
+                  "spec": {
+                    "zh": "350x280x187mm",
+                    "vi": "350x280x187mm"
+                  },
+                  "material": {
+                    "zh": "MDF&纸板&无纺布",
+                    "vi": "MDF&giấy&vải không dệt"
+                  },
+                  "color": {
+                    "zh": "复古色",
+                    "vi": "màu gỗ cổ"
+                  },
+                  "attr": {
+                    "zh": "零件",
+                    "vi": "linh kiện"
+                  },
+                  "drawings": [
+                    {
+                      "name": "LGS布抽28x35x18.7.pdf",
+                      "path": "Google Drive > LGS031 > LGS布抽28x35x18.7.pdf",
+                      "url": "https://drive.google.com/file/d/18cGn-jLKm8KHUg2s6OPAYi2e09RQjt6p/view?usp=sharing",
+                      "matched_name": "LGS布抽35x28x18.7",
+                      "score": 960
+                    },
+                    {
+                      "name": "LGS布抽28x35x18.7.pdf",
+                      "path": "Google Drive > LGS032-S > LGS布抽28x35x18.7.pdf",
+                      "url": "https://drive.google.com/file/d/1ka9EzcDDbQAHEurM5Dpt0ZpuINiqyFVR/view?usp=sharing",
+                      "matched_name": "LGS布抽35x28x18.7",
+                      "score": 960
+                    }
+                  ],
+                  "models3d": [
+                    {
+                      "name": "LGS布抽35x28x18.7.glb",
+                      "path": "models3d/catalog/LGS-35x28x18-7-3549de43.glb",
+                      "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-35x28x18-7-3549de43.glb",
+                      "matched_name": "LGS布抽35x28x18.7",
+                      "score": 1100,
+                      "bytes": 19736
+                    }
+                  ]
+                },
+                "mat_1mv7y4a": {
+                  "id": "mat_1mv7y4a",
+                  "code": "BCDB35027223BH",
+                  "name": {
+                    "zh": "LGS布抽底板34.5x27.5",
+                    "vi": "LGS布抽底板34.5x27.5"
+                  },
+                  "spec": {
+                    "zh": "345x275x3mm",
+                    "vi": "345x275x3mm"
+                  },
+                  "material": {
+                    "zh": "MDF&纸板&无纺布",
+                    "vi": "MDF&giấy&vải không dệt"
+                  },
+                  "color": {
+                    "zh": "黑色",
+                    "vi": "màu đen"
+                  },
+                  "attr": {
+                    "zh": "零件",
+                    "vi": "linh kiện"
+                  },
+                  "drawings": [],
+                  "models3d": [
+                    {
+                      "name": "LGS布抽底板28x35.glb",
+                      "path": "models3d/catalog/LGS-28x35-7151de33.glb",
+                      "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-28x35-7151de33.glb",
+                      "matched_name": "LGS布抽底板28X35",
+                      "score": 1100,
+                      "bytes": 1320
+                    }
+                  ]
+                },
+                "mat_e7msyx": {
+                  "id": "mat_e7msyx",
+                  "code": "DD0310",
+                  "name": {
+                    "zh": "310-灯带",
+                    "vi": "310-đèn LED"
+                  },
+                  "spec": {
+                    "zh": "DC12V，SMD5050，310mm",
+                    "vi": "DC12V，SMD5050，310mm"
+                  },
+                  "material": {
+                    "zh": "FPCB",
+                    "vi": "FPCB"
+                  },
+                  "color": {
+                    "zh": "黑泊板",
+                    "vi": "đen bóng"
+                  },
+                  "attr": {
+                    "zh": "零件",
+                    "vi": "linh kiện"
+                  },
+                  "drawings": [],
+                  "models3d": [
+                    {
+                      "name": "310-灯带.glb",
+                      "path": "models3d/catalog/310-5baebd21.glb",
+                      "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/310-5baebd21.glb",
+                      "matched_name": "310-灯带",
+                      "score": 1100,
+                      "bytes": 1330884
+                    }
+                  ]
+                },
+                "mat_r787pi": {
+                  "id": "mat_r787pi",
+                  "code": "DD0310R1",
+                  "name": {
+                    "zh": "自粘灯带固定卡扣",
+                    "vi": "Đồ gài cố định đèn led"
+                  },
+                  "spec": {
+                    "zh": "以实际为准",
+                    "vi": "Tùy thực tế"
+                  },
+                  "material": {
+                    "zh": "PP",
+                    "vi": "PP"
+                  },
+                  "color": {
+                    "zh": "本色",
+                    "vi": "màu tự nhiên"
+                  },
+                  "attr": {
+                    "zh": "零件",
+                    "vi": "linh kiện"
+                  },
+                  "drawings": [],
+                  "models3d": [
+                    {
+                      "name": "310-灯带.glb",
+                      "path": "models3d/catalog/310-5baebd21.glb",
+                      "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/310-5baebd21.glb",
+                      "matched_name": "310-灯带",
+                      "score": 1100,
+                      "bytes": 1330884
+                    }
+                  ],
+                  "spec_vi": "以实际为准"
+                },
+                "mat_4ipzfw": {
+                  "id": "mat_4ipzfw",
+                  "code": "LGS032PKXKD",
+                  "name": {
+                    "zh": "LGS032-平口箱",
+                    "vi": "LGS032-thùng carton"
+                  },
+                  "spec": {
+                    "zh": "1185x335x110mm",
+                    "vi": "1185x335x110mm"
+                  },
+                  "material": {
+                    "zh": "瓦楞纸",
+                    "vi": "giấy carton"
+                  },
+                  "color": {
+                    "zh": "纸色",
+                    "vi": "màu giấy"
+                  },
+                  "attr": {
+                    "zh": "包材",
+                    "vi": "vật liệu đóng gói"
+                  },
+                  "drawings": [],
+                  "models3d": []
+                },
+                "mat_155vezs": {
+                  "id": "mat_155vezs",
+                  "code": "ZHJ505085",
+                  "name": {
+                    "zh": "纸护角",
+                    "vi": "giấy nẹp"
+                  },
+                  "spec": {
+                    "zh": "50x50x85mm",
+                    "vi": "50x50x85mm"
+                  },
+                  "material": {
+                    "zh": "瓦楞纸",
+                    "vi": "giấy carton"
+                  },
+                  "color": {
+                    "zh": "纸色",
+                    "vi": "màu giấy"
+                  },
+                  "attr": {
+                    "zh": "包材",
+                    "vi": "vật liệu đóng gói"
+                  },
+                  "drawings": [],
+                  "models3d": []
+                },
+                "mat_14l5oxj": {
+                  "id": "mat_14l5oxj",
+                  "code": "LGS032ZK",
+                  "name": {
+                    "zh": "纸卡",
+                    "vi": "giấy lót"
+                  },
+                  "spec": {
+                    "zh": "单瓦1100x60",
+                    "vi": "sóng đơn 1100x60"
+                  },
+                  "material": {
+                    "zh": "瓦楞纸单瓦",
+                    "vi": "giấy carton sóng đơn"
+                  },
+                  "color": {
+                    "zh": "纸色",
+                    "vi": "màu giấy"
+                  },
+                  "attr": {
+                    "zh": "包材",
+                    "vi": "vật liệu đóng gói"
+                  },
+                  "drawings": [],
+                  "models3d": []
+                },
+                "mat_12v3k9d": {
+                  "id": "mat_12v3k9d",
+                  "code": "LGS032PM001",
+                  "name": {
+                    "zh": "泡沫",
+                    "vi": "mút xốp"
+                  },
+                  "spec": {
+                    "zh": "20Kg,325x85x8mm",
+                    "vi": "20Kg,325x85x8mm"
+                  },
+                  "material": {
+                    "zh": "EPS泡沫",
+                    "vi": "EPS mút xốp"
+                  },
+                  "color": {
+                    "zh": "白色",
+                    "vi": "màu trắng"
+                  },
+                  "attr": {
+                    "zh": "包材",
+                    "vi": "vật liệu đóng gói"
+                  },
+                  "drawings": [],
+                  "models3d": []
+                },
+                "mat_qg9alk": {
+                  "id": "mat_qg9alk",
+                  "code": "LGS032PM002",
+                  "name": {
+                    "zh": "泡沫",
+                    "vi": "mút xốp"
+                  },
+                  "spec": {
+                    "zh": "16Kg,320x32x17mm",
+                    "vi": "16Kg,320x32x17mm"
+                  },
+                  "material": {
+                    "zh": "EPS泡沫",
+                    "vi": "EPS mút xốp"
+                  },
+                  "color": {
+                    "zh": "白色",
+                    "vi": "màu trắng"
+                  },
+                  "attr": {
+                    "zh": "包材",
+                    "vi": "vật liệu đóng gói"
+                  },
+                  "drawings": [],
+                  "models3d": []
+                },
+                "mat_1s4itvb": {
+                  "id": "mat_1s4itvb",
+                  "code": "PPHJ1285",
+                  "name": {
+                    "zh": "PP护角",
+                    "vi": "PP góc nhựa"
+                  },
+                  "spec": {
+                    "zh": "内径高12mm,边厚度8.5mm",
+                    "vi": "đường kính trong cao 12mm,độ dày cạnh 8.5mm"
+                  },
+                  "material": {
+                    "zh": "PP",
+                    "vi": "PP"
+                  },
+                  "color": {
+                    "zh": "黑色",
+                    "vi": "màu đen"
+                  },
+                  "attr": {
+                    "zh": "包材",
+                    "vi": "vật liệu đóng gói"
+                  },
+                  "drawings": [],
+                  "models3d": []
+                },
+                "mat_1w2hwc": {
+                  "id": "mat_1w2hwc",
+                  "code": "XHBBL010",
+                  "name": {
+                    "zh": "序号标BL",
+                    "vi": "nhãn STT BL"
+                  },
+                  "spec": {
+                    "zh": "Ø10mm",
+                    "vi": "∅10mm"
+                  },
+                  "material": {
+                    "zh": "不干胶纸",
+                    "vi": "giấy decal"
+                  },
+                  "color": {
+                    "zh": "白底黑字",
+                    "vi": "nền trắng chữ đen"
+                  },
+                  "attr": {
+                    "zh": "包材",
+                    "vi": "vật liệu đóng gói"
+                  },
+                  "drawings": [],
+                  "models3d": []
+                },
+                "mat_18wm8e4": {
+                  "id": "mat_18wm8e4",
+                  "code": "XHBBR010",
+                  "name": {
+                    "zh": "序号标BR",
+                    "vi": "nhãn STT BR"
+                  },
+                  "spec": {
+                    "zh": "Ø10mm",
+                    "vi": "∅10mm"
+                  },
+                  "material": {
+                    "zh": "不干胶纸",
+                    "vi": "giấy decal"
+                  },
+                  "color": {
+                    "zh": "白底黑字",
+                    "vi": "nền trắng chữ đen"
+                  },
+                  "attr": {
+                    "zh": "包材",
+                    "vi": "vật liệu đóng gói"
+                  },
+                  "drawings": [],
+                  "models3d": []
+                },
+                "mat_f60urh": {
+                  "id": "mat_f60urh",
+                  "code": "JGB120052",
+                  "name": {
+                    "zh": "警告标",
+                    "vi": "nhãn cảnh báo"
+                  },
+                  "spec": {
+                    "zh": "120x52mm",
+                    "vi": "120x52mm"
+                  },
+                  "material": {
+                    "zh": "不干胶纸",
+                    "vi": "giấy decal"
+                  },
+                  "color": {
+                    "zh": "按样",
+                    "vi": "theo mẫu"
+                  },
+                  "attr": {
+                    "zh": "包材",
+                    "vi": "vật liệu đóng gói"
+                  },
+                  "drawings": [],
+                  "models3d": []
+                },
+                "mat_z3s5zi": {
+                  "id": "mat_z3s5zi",
+                  "code": "VTJGB035012",
+                  "name": {
+                    "zh": "产地标",
+                    "vi": "nhãn xuất xứ"
+                  },
+                  "spec": {
+                    "zh": "35x12mm",
+                    "vi": "35x12mm"
+                  },
+                  "material": {
+                    "zh": "不干胶纸",
+                    "vi": "giấy decal"
+                  },
+                  "color": {
+                    "zh": "白底黑字",
+                    "vi": "nền trắng chữ đen"
+                  },
+                  "attr": {
+                    "zh": "包材",
+                    "vi": "vật liệu đóng gói"
+                  },
+                  "drawings": [],
+                  "models3d": []
+                },
+                "mat_1x4jobj": {
+                  "id": "mat_1x4jobj",
+                  "code": "LGS032SMS",
+                  "name": {
+                    "zh": "说明书",
+                    "vi": "LGS032 sách hướng dẫn"
+                  },
+                  "spec": {
+                    "zh": "A4",
+                    "vi": "A4"
+                  },
+                  "material": {
+                    "zh": "铜版纸",
+                    "vi": "giấy couché"
+                  },
+                  "color": {
+                    "zh": "黑白",
+                    "vi": "đen trắng"
+                  },
+                  "attr": {
+                    "zh": "包材",
+                    "vi": "vật liệu đóng gói"
+                  },
+                  "drawings": [],
+                  "models3d": []
+                },
+                "mat_gm18ar": {
+                  "id": "mat_gm18ar",
+                  "code": "TZJD629825BH",
+                  "name": {
+                    "zh": "10-底脚",
+                    "vi": "10-chân đế"
+                  },
+                  "spec": {
+                    "zh": "M6x10mm",
+                    "vi": "M6x10mm"
+                  },
+                  "material": {
+                    "zh": "PP&镀锌碳钢",
+                    "vi": "PP&thép mạ kẽm"
+                  },
+                  "color": {
+                    "zh": "黑色",
+                    "vi": "màu đen"
+                  },
+                  "attr": {
+                    "zh": "五金包",
+                    "vi": "túi ngũ kim"
+                  },
+                  "drawings": [],
+                  "models3d": [
+                    {
+                      "name": "10-底脚.glb",
+                      "path": "models3d/catalog/10-3555bf8a.glb",
+                      "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/10-3555bf8a.glb",
+                      "matched_name": "10-底脚",
+                      "score": 1100,
+                      "bytes": 466004
+                    }
+                  ]
+                },
+                "mat_vz636a": {
+                  "id": "mat_vz636a",
+                  "code": "BCLS129228BH",
+                  "name": {
+                    "zh": "把手",
+                    "vi": "tay nắm"
+                  },
+                  "spec": {
+                    "zh": "112x22x8mm",
+                    "vi": "112x22x8mm"
+                  },
+                  "material": {
+                    "zh": "PP&GF40",
+                    "vi": "PP&GF40"
+                  },
+                  "color": {
+                    "zh": "黑色",
+                    "vi": "màu đen"
+                  },
+                  "attr": {
+                    "zh": "五金包",
+                    "vi": "túi ngũ kim"
+                  },
+                  "drawings": [
+                    {
+                      "name": "把手.pdf",
+                      "path": "Google Drive > LGS031 > 把手.pdf",
+                      "url": "https://drive.google.com/file/d/17iRe22OzZBcqxeKDklynZPnKkHgAHT8U/view?usp=sharing",
+                      "matched_name": "把手",
+                      "score": 1002
+                    },
+                    {
+                      "name": "把手.pdf",
+                      "path": "Google Drive > LGS032-S > 把手.pdf",
+                      "url": "https://drive.google.com/file/d/1r55O5-hvg599_nSAkvnTvAguR21-Ivfo/view?usp=sharing",
+                      "matched_name": "把手",
+                      "score": 1002
+                    },
+                    {
+                      "name": "把手.pdf",
+                      "path": "Google Drive > LGS033 > 把手.pdf",
+                      "url": "https://drive.google.com/file/d/1li083nkUnbkfHRRwiA32CvKn0tx9fFay/view?usp=sharing",
+                      "matched_name": "把手",
+                      "score": 1002
+                    },
+                    {
+                      "name": "把手.pdf",
+                      "path": "Google Drive > LGS043-S > 把手.pdf",
+                      "url": "https://drive.google.com/file/d/1SgWZD259NZLgTTGAmc3hvWvH4alMLduN/view?usp=sharing",
+                      "matched_name": "把手",
+                      "score": 1002
+                    },
+                    {
+                      "name": "把手.pdf",
+                      "path": "Google Drive > LGS131 > 把手.pdf",
+                      "url": "https://drive.google.com/file/d/1eIpO-bmPeHwZjiOkMG7-TsUVg__bo1V7/view?usp=sharing",
+                      "matched_name": "把手",
+                      "score": 1002
+                    },
+                    {
+                      "name": "把手.pdf",
+                      "path": "Google Drive > LGS132-S > 把手.pdf",
+                      "url": "https://drive.google.com/file/d/1TDB3sxhp35HiR7Er52Tro7CFBd7VQ6yF/view?usp=sharing",
+                      "matched_name": "把手",
+                      "score": 1002
+                    },
+                    {
+                      "name": "把手.pdf",
+                      "path": "Google Drive > LGS133 > 把手.pdf",
+                      "url": "https://drive.google.com/file/d/14m-D8F_e3QIyRtJOpQlebXQDL9KnNtHP/view?usp=sharing",
+                      "matched_name": "把手",
+                      "score": 1002
+                    },
+                    {
+                      "name": "把手.pdf",
+                      "path": "Google Drive > LGS231 > 把手.pdf",
+                      "url": "https://drive.google.com/file/d/1XsstgBaS3Vj4IkUzv-MXn0eGJxUdxDQO/view?usp=sharing",
+                      "matched_name": "把手",
+                      "score": 1002
+                    },
+                    {
+                      "name": "把手.pdf",
+                      "path": "Google Drive > LGS232-S > 把手.pdf",
+                      "url": "https://drive.google.com/file/d/1Lm4dOv3H8k59h-XACgKmXzlq4dOziJW-/view?usp=sharing",
+                      "matched_name": "把手",
+                      "score": 1002
+                    },
+                    {
+                      "name": "把手.pdf",
+                      "path": "Google Drive > LGS233 > 把手.pdf",
+                      "url": "https://drive.google.com/file/d/1fFJeSsbCzj34ZcXHE2DeYRO1rAV_NUzx/view?usp=sharing",
+                      "matched_name": "把手",
+                      "score": 1002
+                    },
+                    {
+                      "name": "把手.pdf",
+                      "path": "Google Drive > LGS333 > 把手.pdf",
+                      "url": "https://drive.google.com/file/d/1W_j2bi86H7nuLmBXVv1-MM22R6exyReS/view?usp=sharing",
+                      "matched_name": "把手",
+                      "score": 1002
+                    },
+                    {
+                      "name": "把手.pdf",
+                      "path": "Google Drive > LGS334 > 把手.pdf",
+                      "url": "https://drive.google.com/file/d/1L9zMGR8NIEZvfZikTIGaBV0vwH20WYkV/view?usp=sharing",
+                      "matched_name": "把手",
+                      "score": 1002
+                    },
+                    {
+                      "name": "把手.pdf",
+                      "path": "Google Drive > LGS420-S > 把手.pdf",
+                      "url": "https://drive.google.com/file/d/1kHcESZ8qoTOWH3tq-zEOkWXnwFnfiT58/view?usp=sharing",
+                      "matched_name": "把手",
+                      "score": 1002
+                    },
+                    {
+                      "name": "把手.pdf",
+                      "path": "Google Drive > LGS421-S > 把手.pdf",
+                      "url": "https://drive.google.com/file/d/1rwXYc0D6H72v7qfyXNPEHKTgViqrSCnY/view?usp=sharing",
+                      "matched_name": "把手",
+                      "score": 1002
+                    },
+                    {
+                      "name": "把手.pdf",
+                      "path": "Google Drive > LGS433 > 把手.pdf",
+                      "url": "https://drive.google.com/file/d/19LbuVGah_hdbVZ8PQru77B1pDLx6cIfJ/view?usp=sharing",
+                      "matched_name": "把手",
+                      "score": 1002
+                    },
+                    {
+                      "name": "把手.pdf",
+                      "path": "Google Drive > LGS434 > 把手.pdf",
+                      "url": "https://drive.google.com/file/d/1GHFkxqBgoPq-Pzb--SA9U0w-u2JCDx7Q/view?usp=sharing",
+                      "matched_name": "把手",
+                      "score": 1002
+                    },
+                    {
+                      "name": "把手.pdf",
+                      "path": "Google Drive > LGS723 > 把手.pdf",
+                      "url": "https://drive.google.com/file/d/1iGcgBtkqqdqZhZ1zPqIEIOwboN9i0sVq/view?usp=sharing",
+                      "matched_name": "把手",
+                      "score": 1002
+                    },
+                    {
+                      "name": "把手.pdf",
+                      "path": "Google Drive > LGS733 > 把手.pdf",
+                      "url": "https://drive.google.com/file/d/1t_IZiZF50bETxYJ0pqlCfTteiq3XtPXG/view?usp=sharing",
+                      "matched_name": "把手",
+                      "score": 1002
+                    },
+                    {
+                      "name": "把手.pdf",
+                      "path": "Google Drive > LGS833 > 把手.pdf",
+                      "url": "https://drive.google.com/file/d/1AanaFuQl_Gnto0u4sLVOwDw_odeyt-Sd/view?usp=sharing",
+                      "matched_name": "把手",
+                      "score": 1002
+                    },
+                    {
+                      "name": "把手.pdf",
+                      "path": "Google Drive > LGS834 > 把手.pdf",
+                      "url": "https://drive.google.com/file/d/1r8p7Nhh0SWIyaxS9TFcvqbBcaEPC_rIF/view?usp=sharing",
+                      "matched_name": "把手",
+                      "score": 1002
+                    }
+                  ],
+                  "models3d": [
+                    {
+                      "name": "把手.glb",
+                      "path": "models3d/catalog/model-ae20b397.glb",
+                      "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb",
+                      "matched_name": "把手",
+                      "score": 1300,
+                      "bytes": 1007376
+                    }
+                  ]
+                },
+                "mat_1112bk6": {
+                  "id": "mat_1112bk6",
+                  "code": "NLPLS6022BZ",
+                  "name": {
+                    "zh": "M6x22内六角螺丝",
+                    "vi": "M6x22 ốc lục giác"
+                  },
+                  "spec": {
+                    "zh": "M6x22mm",
+                    "vi": "M6x22mm"
+                  },
+                  "material": {
+                    "zh": "#10",
+                    "vi": "#10"
+                  },
+                  "color": {
+                    "zh": "黑色",
+                    "vi": "màu đen"
+                  },
+                  "attr": {
+                    "zh": "五金包",
+                    "vi": "túi ngũ kim"
+                  },
+                  "drawings": [],
+                  "models3d": [
+                    {
+                      "name": "M6x22内六角螺丝.glb",
+                      "path": "models3d/catalog/M6x22-a232250e.glb",
+                      "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x22-a232250e.glb",
+                      "matched_name": "M6X22内六角螺丝",
+                      "score": 1100,
+                      "bytes": 392404
+                    }
+                  ]
+                },
+                "mat_1xlo8bk": {
+                  "id": "mat_1xlo8bk",
+                  "code": "GSSNZGLS5040BZ",
+                  "name": {
+                    "zh": "ST5x38内六角过山丝",
+                    "vi": "ST5x38 ốc tự khoan lục giác"
+                  },
+                  "spec": {
+                    "zh": "Ø5x38mm",
+                    "vi": "Ø5x38mm"
+                  },
+                  "material": {
+                    "zh": "#10",
+                    "vi": "#10"
+                  },
+                  "color": {
+                    "zh": "黑色",
+                    "vi": "màu đen"
+                  },
+                  "attr": {
+                    "zh": "五金包",
+                    "vi": "túi ngũ kim"
+                  },
+                  "drawings": [],
+                  "models3d": [
+                    {
+                      "name": "ST5X38内六角过山丝.glb",
+                      "path": "models3d/catalog/ST5X38-062c35cb.glb",
+                      "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/ST5X38-062c35cb.glb",
+                      "matched_name": "ST5X38内六角过山丝",
+                      "score": 1100,
+                      "bytes": 235852
+                    }
+                  ]
+                },
+                "mat_6zvz0v": {
+                  "id": "mat_6zvz0v",
+                  "code": "NLPLS6010BZ",
+                  "name": {
+                    "zh": "M6x10内六角螺丝",
+                    "vi": "M6x10 ốc lục giác"
+                  },
+                  "spec": {
+                    "zh": "M6x10mm",
+                    "vi": "M6x10mm"
+                  },
+                  "material": {
+                    "zh": "#10",
+                    "vi": "#10"
+                  },
+                  "color": {
+                    "zh": "黑色",
+                    "vi": "màu đen"
+                  },
+                  "attr": {
+                    "zh": "五金包",
+                    "vi": "túi ngũ kim"
+                  },
+                  "drawings": [],
+                  "models3d": [
+                    {
+                      "name": "M6x10内六角螺丝.glb",
+                      "path": "models3d/catalog/M6x10-1a5aa14f.glb",
+                      "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
+                      "matched_name": "M6X10内六角螺丝",
+                      "score": 1100,
+                      "bytes": 150108
+                    }
+                  ]
+                },
+                "mat_1bb87nh": {
+                  "id": "mat_1bb87nh",
+                  "code": "ZGLS4010CZ",
+                  "name": {
+                    "zh": "ST4x10圆头十字自攻螺丝",
+                    "vi": "ST4x10 ốc tự cắt đầu tròn chữ thập"
+                  },
+                  "spec": {
+                    "zh": "ST4x10mm",
+                    "vi": "ST4x10mm"
+                  },
+                  "material": {
+                    "zh": "#10",
+                    "vi": "#10"
+                  },
+                  "color": {
+                    "zh": "黑色",
+                    "vi": "màu đen"
+                  },
+                  "attr": {
+                    "zh": "五金包",
+                    "vi": "túi ngũ kim"
+                  },
+                  "drawings": [],
+                  "models3d": [
+                    {
+                      "name": "ST4x10圆头十字自攻螺丝.glb",
+                      "path": "models3d/catalog/ST4x10-cd29f990.glb",
+                      "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/ST4x10-cd29f990.glb",
+                      "matched_name": "ST4X10圆头十字自攻螺丝",
+                      "score": 1100,
+                      "bytes": 445256
+                    }
+                  ]
+                },
+                "mat_1cjiqmc": {
+                  "id": "mat_1cjiqmc",
+                  "code": "PTZGLS6308BZ",
+                  "name": {
+                    "zh": "ST3.5x12平头十字自攻螺丝",
+                    "vi": "ST3.5x12 ốc tự cắt đầu bằng chữ thập"
+                  },
+                  "spec": {
+                    "zh": "ST3.5x12mm",
+                    "vi": "ST3.5x12mm"
+                  },
+                  "material": {
+                    "zh": "#10",
+                    "vi": "#10"
+                  },
+                  "color": {
+                    "zh": "黑色",
+                    "vi": "màu đen"
+                  },
+                  "attr": {
+                    "zh": "五金包",
+                    "vi": "túi ngũ kim"
+                  },
+                  "drawings": [],
+                  "models3d": [
+                    {
+                      "name": "ST3.5X12平头十字自攻螺丝.glb",
+                      "path": "models3d/catalog/ST3-5X12-f470419f.glb",
+                      "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/ST3-5X12-f470419f.glb",
+                      "matched_name": "ST3.5X12平头十字自攻螺丝",
+                      "score": 1100,
+                      "bytes": 325680
+                    }
+                  ]
+                },
+                "mat_3cqqc3": {
+                  "id": "mat_3cqqc3",
+                  "code": "SLPZLS6030WH",
+                  "name": {
+                    "zh": "塑料膨胀螺丝",
+                    "vi": "Ốc tắc kê nhựa"
+                  },
+                  "spec": {
+                    "zh": "6x30mm",
+                    "vi": "6x30mm"
+                  },
+                  "material": {
+                    "zh": "PP",
+                    "vi": "PP"
+                  },
+                  "color": {
+                    "zh": "白色",
+                    "vi": "màu trắng"
+                  },
+                  "attr": {
+                    "zh": "五金包",
+                    "vi": "túi ngũ kim"
+                  },
+                  "drawings": [],
+                  "models3d": [
+                    {
+                      "name": "塑料膨胀螺丝.glb",
+                      "path": "models3d/catalog/model-ee1302bc.glb",
+                      "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ee1302bc.glb",
+                      "matched_name": "塑料膨胀螺丝",
+                      "score": 1100,
+                      "bytes": 107900
+                    }
+                  ]
+                },
+                "mat_qqu0zl": {
+                  "id": "mat_qqu0zl",
+                  "code": "ZGLS3560BH",
+                  "name": {
+                    "zh": "自攻螺丝",
+                    "vi": "ốc tự cắt"
+                  },
+                  "spec": {
+                    "zh": "M3.5x60mm",
+                    "vi": "M3.5x60mm"
+                  },
+                  "material": {
+                    "zh": "#10",
+                    "vi": "#10"
+                  },
+                  "color": {
+                    "zh": "黑色",
+                    "vi": "màu đen"
+                  },
+                  "attr": {
+                    "zh": "五金包",
+                    "vi": "túi ngũ kim"
+                  },
+                  "drawings": [],
+                  "models3d": [
+                    {
+                      "name": "自攻螺丝.glb",
+                      "path": "models3d/catalog/model-2f974c00.glb",
+                      "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-2f974c00.glb",
+                      "matched_name": "自攻螺丝",
+                      "score": 1100,
+                      "bytes": 569836
+                    }
+                  ]
+                },
+                "mat_1atkf4g": {
+                  "id": "mat_1atkf4g",
+                  "code": "LNSLSD65254BZ",
+                  "name": {
+                    "zh": "L型内六角带十字螺丝刀",
+                    "vi": "L vít lục giác có đầu chữ thập"
+                  },
+                  "spec": {
+                    "zh": "S4",
+                    "vi": "S4"
+                  },
+                  "material": {
+                    "zh": "#10",
+                    "vi": "#10"
+                  },
+                  "color": {
+                    "zh": "镀锌",
+                    "vi": "mạ kẽm"
+                  },
+                  "attr": {
+                    "zh": "五金包",
+                    "vi": "túi ngũ kim"
+                  },
+                  "drawings": [],
+                  "models3d": [
+                    {
+                      "name": "L型内六角带十字螺丝刀.glb",
+                      "path": "models3d/catalog/L-282c81b1.glb",
+                      "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/L-282c81b1.glb",
+                      "matched_name": "L型内六角带十字螺丝刀",
+                      "score": 1100,
+                      "bytes": 192696
+                    }
+                  ]
+                },
+                "mat_1h3f36d": {
+                  "id": "mat_1h3f36d",
+                  "code": "LNBS57253BZ",
+                  "name": {
+                    "zh": "L型内六角扳手",
+                    "vi": "L cờ lê lục giác"
+                  },
+                  "spec": {
+                    "zh": "S3",
+                    "vi": "S3"
+                  },
+                  "material": {
+                    "zh": "#10",
+                    "vi": "#10"
+                  },
+                  "color": {
+                    "zh": "镀锌",
+                    "vi": "mạ kẽm"
+                  },
+                  "attr": {
+                    "zh": "五金包",
+                    "vi": "túi ngũ kim"
+                  },
+                  "drawings": [],
+                  "models3d": [
+                    {
+                      "name": "L型内六角扳手.glb",
+                      "path": "models3d/catalog/L-f8218509.glb",
+                      "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/L-f8218509.glb",
+                      "matched_name": "L型内六角扳手",
+                      "score": 1100,
+                      "bytes": 9560
+                    }
+                  ]
+                },
+                "mat_f3e6hw": {
+                  "id": "mat_f3e6hw",
+                  "code": "NLDP15508020BH",
+                  "name": {
+                    "zh": "尼龙垫片",
+                    "vi": "lông đền nhựa"
+                  },
+                  "spec": {
+                    "zh": "外径15.5×内孔8.0×厚2.0mm",
+                    "vi": "đường kính ngoài 15.5×lỗ trong 8.0×dày 2.0mm"
+                  },
+                  "material": {
+                    "zh": "PP",
+                    "vi": "PP"
+                  },
+                  "color": {
+                    "zh": "黑色",
+                    "vi": "màu đen"
+                  },
+                  "attr": {
+                    "zh": "五金包",
+                    "vi": "túi ngũ kim"
+                  },
+                  "drawings": [],
+                  "models3d": []
+                },
+                "mat_11xnz3b": {
+                  "id": "mat_11xnz3b",
+                  "code": "LGS032DB101BH",
+                  "name": {
+                    "zh": "LGS032-S顶板",
+                    "vi": "LGS032-S tấm trên"
+                  },
+                  "spec": {
+                    "zh": "1138x300x12mm",
+                    "vi": "1138x300x12mm"
+                  },
+                  "material": {
+                    "zh": "PB",
+                    "vi": "PB"
+                  },
+                  "color": {
+                    "zh": "黑色",
+                    "vi": "màu đen"
+                  },
+                  "attr": {
+                    "zh": "零件",
+                    "vi": "linh kiện"
+                  },
+                  "drawings": [
+                    {
+                      "name": "LGS032-S顶板.pdf",
+                      "path": "Google Drive > LGS032-S > LGS032-S顶板.pdf",
+                      "url": "https://drive.google.com/file/d/1z2r59QxOX1Y8SwhCk2JsXpbHPzslMg9j/view?usp=sharing",
+                      "matched_name": "LGS032-S顶板",
+                      "score": 1009
+                    }
+                  ],
+                  "models3d": [
+                    {
+                      "name": "LGS032-S顶板.glb",
+                      "path": "models3d/catalog/LGS032-S-8b308098.glb",
+                      "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS032-S-8b308098.glb",
+                      "matched_name": "LGS032-S顶板",
+                      "score": 1100,
+                      "bytes": 67992
+                    }
+                  ]
+                },
+                "mat_1ssx9nz": {
+                  "id": "mat_1ssx9nz",
+                  "code": "LGS032CBSBH",
+                  "name": {
+                    "zh": "LGS032-S-中层板",
+                    "vi": "LGS032-S-tấm tầng giữa"
+                  },
+                  "spec": {
+                    "zh": "356x290x12mm",
+                    "vi": "356x290x12mm"
+                  },
+                  "material": {
+                    "zh": "PB",
+                    "vi": "PB"
+                  },
+                  "color": {
+                    "zh": "黑色",
+                    "vi": "màu đen"
+                  },
+                  "attr": {
+                    "zh": "零件",
+                    "vi": "linh kiện"
+                  },
+                  "drawings": [
+                    {
+                      "name": "LGS032-S-中层板.pdf",
+                      "path": "Google Drive > LGS032-S > LGS032-S-中层板.pdf",
+                      "url": "https://drive.google.com/file/d/1GM4Jk3Ujc6g1cbqtc_x7Hqlu2_Ty34Om/view?usp=sharing",
+                      "matched_name": "LGS032-S-中层板",
+                      "score": 1010
+                    }
+                  ],
+                  "models3d": [
+                    {
+                      "name": "LGS032-S-中层板.glb",
+                      "path": "models3d/catalog/LGS032-S-7c0404f7.glb",
+                      "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS032-S-7c0404f7.glb",
+                      "matched_name": "LGS032-S-中层板",
+                      "score": 1100,
+                      "bytes": 25284
+                    }
+                  ]
+                },
+                "mat_d04g9a": {
+                  "id": "mat_d04g9a",
+                  "code": "LGS032CBXBH",
+                  "name": {
+                    "zh": "LGS032-S-底部层板",
+                    "vi": "LGS032-S-Tấm tầng đáy"
+                  },
+                  "spec": {
+                    "zh": "356x290x12mm",
+                    "vi": "356x290x12mm"
+                  },
+                  "material": {
+                    "zh": "PB",
+                    "vi": "PB"
+                  },
+                  "color": {
+                    "zh": "黑色",
+                    "vi": "màu đen"
+                  },
+                  "attr": {
+                    "zh": "零件",
+                    "vi": "linh kiện"
+                  },
+                  "drawings": [
+                    {
+                      "name": "LGS032-S-底部层板.pdf",
+                      "path": "Google Drive > LGS032-S > LGS032-S-底部层板.pdf",
+                      "url": "https://drive.google.com/file/d/1XcYynN9Ui3uIgaQqI8bJ12nfO1ls6MoM/view?usp=sharing",
+                      "matched_name": "LGS032-S-底部层板",
+                      "score": 1011
+                    }
+                  ],
+                  "models3d": [
+                    {
+                      "name": "LGS032-S-底部层板.glb",
+                      "path": "models3d/catalog/LGS032-S-658d4479.glb",
+                      "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS032-S-658d4479.glb",
+                      "matched_name": "LGS032-S-底部层板",
+                      "score": 1100,
+                      "bytes": 55144
+                    }
+                  ]
+                },
+                "mat_n9hhug": {
+                  "id": "mat_n9hhug",
+                  "code": "BC350282188BH",
+                  "name": {
+                    "zh": "LGS布抽35x28x18.7",
+                    "vi": "LGS布抽35x28x18.7"
+                  },
+                  "spec": {
+                    "zh": "350x280x187mm",
+                    "vi": "350x280x187mm"
+                  },
+                  "material": {
+                    "zh": "MDF&纸板&无纺布",
+                    "vi": "MDF&giấy&vải không dệt"
+                  },
+                  "color": {
+                    "zh": "黑色",
+                    "vi": "màu đen"
+                  },
+                  "attr": {
+                    "zh": "零件",
+                    "vi": "linh kiện"
+                  },
+                  "drawings": [
+                    {
+                      "name": "LGS布抽28x35x18.7.pdf",
+                      "path": "Google Drive > LGS031 > LGS布抽28x35x18.7.pdf",
+                      "url": "https://drive.google.com/file/d/18cGn-jLKm8KHUg2s6OPAYi2e09RQjt6p/view?usp=sharing",
+                      "matched_name": "LGS布抽35x28x18.7",
+                      "score": 960
+                    },
+                    {
+                      "name": "LGS布抽28x35x18.7.pdf",
+                      "path": "Google Drive > LGS032-S > LGS布抽28x35x18.7.pdf",
+                      "url": "https://drive.google.com/file/d/1ka9EzcDDbQAHEurM5Dpt0ZpuINiqyFVR/view?usp=sharing",
+                      "matched_name": "LGS布抽35x28x18.7",
+                      "score": 960
+                    }
+                  ],
+                  "models3d": [
+                    {
+                      "name": "LGS布抽35x28x18.7.glb",
+                      "path": "models3d/catalog/LGS-35x28x18-7-3549de43.glb",
+                      "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-35x28x18-7-3549de43.glb",
+                      "matched_name": "LGS布抽35x28x18.7",
+                      "score": 1100,
+                      "bytes": 19736
+                    }
+                  ]
+                }
+              },
+              "bomEntries": [
+                {
+                  "id": "bom_1riqvr5",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_1kzaom8",
+                  "stt": "0",
+                  "comp_code": "无",
+                  "qty": "1",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 0
+                },
+                {
+                  "id": "bom_1pjk177",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_1a142pp",
+                  "stt": "1",
+                  "comp_code": "S",
+                  "qty": "1",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 1
+                },
+                {
+                  "id": "bom_rrpxrj",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_1qb66wl",
+                  "stt": "2",
+                  "comp_code": "A1",
+                  "qty": "1",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 2
+                },
+                {
+                  "id": "bom_15j4i0c",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_1lhiznh",
+                  "stt": "3",
+                  "comp_code": "A2",
+                  "qty": "1",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 3
+                },
+                {
+                  "id": "bom_1w8ba6h",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_18qhtjq",
+                  "stt": "4",
+                  "comp_code": "A3",
+                  "qty": "1",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 4
+                },
+                {
+                  "id": "bom_sg727e",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_9qvt4i",
+                  "stt": "5",
+                  "comp_code": "BL",
+                  "qty": "6",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 5
+                },
+                {
+                  "id": "bom_1m3pcfx",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_4ijpok",
+                  "stt": "6",
+                  "comp_code": "BR",
+                  "qty": "6",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 6
+                },
+                {
+                  "id": "bom_1i78qdj",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_hkpgus",
+                  "stt": "7",
+                  "comp_code": "C1",
+                  "qty": "1",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 7
+                },
+                {
+                  "id": "bom_1bpzwth",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_xclnm",
+                  "stt": "8",
+                  "comp_code": "C2",
+                  "qty": "1",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 8
+                },
+                {
+                  "id": "bom_12624wf",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_a987en",
+                  "stt": "9",
+                  "comp_code": "D",
+                  "qty": "1",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 9
+                },
+                {
+                  "id": "bom_1xtffmm",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_n3m59f",
+                  "stt": "10",
+                  "comp_code": "E",
+                  "qty": "1",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 10
+                },
+                {
+                  "id": "bom_1athxzd",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_1rtvq61",
+                  "stt": "11",
+                  "comp_code": "F",
+                  "qty": "1",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 11
+                },
+                {
+                  "id": "bom_8fyu7a",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_y1jc49",
+                  "stt": "12",
+                  "comp_code": "G",
+                  "qty": "1",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 12
+                },
+                {
+                  "id": "bom_1r55wz6",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_kihop7",
+                  "stt": "13",
+                  "comp_code": "J",
+                  "qty": "2",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 13
+                },
+                {
+                  "id": "bom_1vjenj0",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_1m5b6t5",
+                  "stt": "14",
+                  "comp_code": "M",
+                  "qty": "2",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 14
+                },
+                {
+                  "id": "bom_11pzs18",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_q03tfs",
+                  "stt": "15",
+                  "comp_code": "X01",
+                  "qty": "2",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 15
+                },
+                {
+                  "id": "bom_i4ynbm",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_inq04s",
+                  "stt": "16",
+                  "comp_code": "Y05",
+                  "qty": "6",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 16
+                },
+                {
+                  "id": "bom_abmy6m",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_1mv7y4a",
+                  "stt": "17",
+                  "comp_code": "Z05",
+                  "qty": "6",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 17
+                },
+                {
+                  "id": "bom_6dibns",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_e7msyx",
+                  "stt": "18",
+                  "comp_code": "R",
+                  "qty": "1",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 18
+                },
+                {
+                  "id": "bom_r3bg44",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_r787pi",
+                  "stt": "19",
+                  "comp_code": "R1",
+                  "qty": "5",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 19
+                },
+                {
+                  "id": "bom_180k790",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_4ipzfw",
+                  "stt": "20",
+                  "comp_code": "无",
+                  "qty": "1",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 20
+                },
+                {
+                  "id": "bom_18sxzxa",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_155vezs",
+                  "stt": "21",
+                  "comp_code": "无",
+                  "qty": "4",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 21
+                },
+                {
+                  "id": "bom_1fc3dpl",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_14l5oxj",
+                  "stt": "22",
+                  "comp_code": "无",
+                  "qty": "2",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 22
+                },
+                {
+                  "id": "bom_n826mz",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_12v3k9d",
+                  "stt": "23",
+                  "comp_code": "无",
+                  "qty": "2",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 23
+                },
+                {
+                  "id": "bom_l822b1",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_qg9alk",
+                  "stt": "24",
+                  "comp_code": "无",
+                  "qty": "2",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 24
+                },
+                {
+                  "id": "bom_4yypig",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_1s4itvb",
+                  "stt": "25",
+                  "comp_code": "无",
+                  "qty": "12",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 25
+                },
+                {
+                  "id": "bom_1wfvhu8",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_1w2hwc",
+                  "stt": "26",
+                  "comp_code": "无",
+                  "qty": "1",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 26
+                },
+                {
+                  "id": "bom_1r4a411",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_18wm8e4",
+                  "stt": "27",
+                  "comp_code": "无",
+                  "qty": "1",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 27
+                },
+                {
+                  "id": "bom_14nqyuz",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_f60urh",
+                  "stt": "28",
+                  "comp_code": "无",
+                  "qty": "1",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 28
+                },
+                {
+                  "id": "bom_14sv6eh",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_z3s5zi",
+                  "stt": "29",
+                  "comp_code": "无",
+                  "qty": "1",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 29
+                },
+                {
+                  "id": "bom_1ao6muj",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_1x4jobj",
+                  "stt": "29",
+                  "comp_code": "无",
+                  "qty": "1",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 30
+                },
+                {
+                  "id": "bom_17hlz49",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_gm18ar",
+                  "stt": "1",
+                  "comp_code": "1",
+                  "qty": "6",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 31
+                },
+                {
+                  "id": "bom_q3fhfb",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_vz636a",
+                  "stt": "2",
+                  "comp_code": "2",
+                  "qty": "6",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 32
+                },
+                {
+                  "id": "bom_17kmx9z",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_1112bk6",
+                  "stt": "3",
+                  "comp_code": "3",
+                  "qty": "20+2",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 33
+                },
+                {
+                  "id": "bom_529dbg",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_1xlo8bk",
+                  "stt": "4",
+                  "comp_code": "4",
+                  "qty": "4+1",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 34
+                },
+                {
+                  "id": "bom_1n0jxdp",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_6zvz0v",
+                  "stt": "5",
+                  "comp_code": "5",
+                  "qty": "8+2",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 35
+                },
+                {
+                  "id": "bom_qxmxf",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_1bb87nh",
+                  "stt": "6",
+                  "comp_code": "6",
+                  "qty": "12+2",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 36
+                },
+                {
+                  "id": "bom_1gwp90f",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_1cjiqmc",
+                  "stt": "7",
+                  "comp_code": "7",
+                  "qty": "2",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 37
+                },
+                {
+                  "id": "bom_1l1xso3",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_3cqqc3",
+                  "stt": "8",
+                  "comp_code": "8",
+                  "qty": "2",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 38
+                },
+                {
+                  "id": "bom_1qj6utp",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_qqu0zl",
+                  "stt": "9",
+                  "comp_code": "8",
+                  "qty": "2",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 39
+                },
+                {
+                  "id": "bom_1cxigj5",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_1atkf4g",
+                  "stt": "10",
+                  "comp_code": "9",
+                  "qty": "1",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 40
+                },
+                {
+                  "id": "bom_co7vzh",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_1h3f36d",
+                  "stt": "11",
+                  "comp_code": "10",
+                  "qty": "1",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 41
+                },
+                {
+                  "id": "bom_1qz9b5f",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_f3e6hw",
+                  "stt": "12",
+                  "comp_code": "11",
+                  "qty": "2",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 42
+                },
+                {
+                  "id": "bom_6bmd9j",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_1kzaom8",
+                  "stt": "0",
+                  "comp_code": "无",
+                  "qty": "1",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 0
+                },
+                {
+                  "id": "bom_1uz56bh",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_1a142pp",
+                  "stt": "1",
+                  "comp_code": "S",
+                  "qty": "1",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 1
+                },
+                {
+                  "id": "bom_1t9pmox",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_11xnz3b",
+                  "stt": "2",
+                  "comp_code": "A1",
+                  "qty": "1",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 2
+                },
+                {
+                  "id": "bom_8kcgfi",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_1ssx9nz",
+                  "stt": "3",
+                  "comp_code": "A2",
+                  "qty": "1",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 3
+                },
+                {
+                  "id": "bom_tum2ol",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_d04g9a",
+                  "stt": "4",
+                  "comp_code": "A3",
+                  "qty": "1",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 4
+                },
+                {
+                  "id": "bom_fo0w5o",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_9qvt4i",
+                  "stt": "5",
+                  "comp_code": "BL",
+                  "qty": "6",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 5
+                },
+                {
+                  "id": "bom_y92zzr",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_4ijpok",
+                  "stt": "6",
+                  "comp_code": "BR",
+                  "qty": "6",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 6
+                },
+                {
+                  "id": "bom_16ul85h",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_hkpgus",
+                  "stt": "7",
+                  "comp_code": "C1",
+                  "qty": "1",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 7
+                },
+                {
+                  "id": "bom_je019f",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_xclnm",
+                  "stt": "8",
+                  "comp_code": "C2",
+                  "qty": "1",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 8
+                },
+                {
+                  "id": "bom_1mxlxwt",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_a987en",
+                  "stt": "9",
+                  "comp_code": "D",
+                  "qty": "1",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 9
+                },
+                {
+                  "id": "bom_wk3fkk",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_n3m59f",
+                  "stt": "10",
+                  "comp_code": "E",
+                  "qty": "1",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 10
+                },
+                {
+                  "id": "bom_1hwyd27",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_1rtvq61",
+                  "stt": "11",
+                  "comp_code": "F",
+                  "qty": "1",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 11
+                },
+                {
+                  "id": "bom_1secbw8",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_y1jc49",
+                  "stt": "12",
+                  "comp_code": "G",
+                  "qty": "1",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 12
+                },
+                {
+                  "id": "bom_qdmow0",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_kihop7",
+                  "stt": "13",
+                  "comp_code": "J",
+                  "qty": "2",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 13
+                },
+                {
+                  "id": "bom_1t5uxii",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_1m5b6t5",
+                  "stt": "14",
+                  "comp_code": "M",
+                  "qty": "2",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 14
+                },
+                {
+                  "id": "bom_51c0b6",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_q03tfs",
+                  "stt": "15",
+                  "comp_code": "X01",
+                  "qty": "2",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 15
+                },
+                {
+                  "id": "bom_38ua8a",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_n9hhug",
+                  "stt": "16",
+                  "comp_code": "Y05",
+                  "qty": "6",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 16
+                },
+                {
+                  "id": "bom_cukt3g",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_1mv7y4a",
+                  "stt": "17",
+                  "comp_code": "Z05",
+                  "qty": "6",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 17
+                },
+                {
+                  "id": "bom_17q0k5a",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_e7msyx",
+                  "stt": "18",
+                  "comp_code": "R",
+                  "qty": "1",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 18
+                },
+                {
+                  "id": "bom_1spk2t6",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_r787pi",
+                  "stt": "19",
+                  "comp_code": "R1",
+                  "qty": "5",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 19
+                },
+                {
+                  "id": "bom_ssogfy",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_4ipzfw",
+                  "stt": "20",
+                  "comp_code": "无",
+                  "qty": "1",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 20
+                },
+                {
+                  "id": "bom_1mabrno",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_155vezs",
+                  "stt": "21",
+                  "comp_code": "无",
+                  "qty": "4",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 21
+                },
+                {
+                  "id": "bom_1br80ov",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_14l5oxj",
+                  "stt": "22",
+                  "comp_code": "无",
+                  "qty": "2",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 22
+                },
+                {
+                  "id": "bom_1ucp501",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_12v3k9d",
+                  "stt": "23",
+                  "comp_code": "无",
+                  "qty": "2",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 23
+                },
+                {
+                  "id": "bom_10h2szf",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_qg9alk",
+                  "stt": "24",
+                  "comp_code": "无",
+                  "qty": "2",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 24
+                },
+                {
+                  "id": "bom_pn3zfi",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_1s4itvb",
+                  "stt": "25",
+                  "comp_code": "无",
+                  "qty": "12",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 25
+                },
+                {
+                  "id": "bom_1s3yp76",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_1w2hwc",
+                  "stt": "26",
+                  "comp_code": "无",
+                  "qty": "1",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 26
+                },
+                {
+                  "id": "bom_1k1yebr",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_18wm8e4",
+                  "stt": "27",
+                  "comp_code": "无",
+                  "qty": "1",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 27
+                },
+                {
+                  "id": "bom_gkpygl",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_f60urh",
+                  "stt": "28",
+                  "comp_code": "无",
+                  "qty": "1",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 28
+                },
+                {
+                  "id": "bom_1g34gon",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_z3s5zi",
+                  "stt": "29",
+                  "comp_code": "无",
+                  "qty": "1",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 29
+                },
+                {
+                  "id": "bom_zn5c9h",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_1x4jobj",
+                  "stt": "29",
+                  "comp_code": "无",
+                  "qty": "1",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 30
+                },
+                {
+                  "id": "bom_1tnabbj",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_gm18ar",
+                  "stt": "1",
+                  "comp_code": "1",
+                  "qty": "6",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 31
+                },
+                {
+                  "id": "bom_1hgm1dd",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_vz636a",
+                  "stt": "2",
+                  "comp_code": "2",
+                  "qty": "6",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 32
+                },
+                {
+                  "id": "bom_1lsly3d",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_1112bk6",
+                  "stt": "3",
+                  "comp_code": "3",
+                  "qty": "20+2",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 33
+                },
+                {
+                  "id": "bom_izlb4q",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_1xlo8bk",
+                  "stt": "4",
+                  "comp_code": "4",
+                  "qty": "4+1",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 34
+                },
+                {
+                  "id": "bom_tur7mv",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_6zvz0v",
+                  "stt": "5",
+                  "comp_code": "5",
+                  "qty": "8+2",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 35
+                },
+                {
+                  "id": "bom_1kuhlm5",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_1bb87nh",
+                  "stt": "6",
+                  "comp_code": "6",
+                  "qty": "12+2",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 36
+                },
+                {
+                  "id": "bom_1hvd9a5",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_1cjiqmc",
+                  "stt": "7",
+                  "comp_code": "7",
+                  "qty": "2",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 37
+                },
+                {
+                  "id": "bom_1s9204x",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_3cqqc3",
+                  "stt": "8",
+                  "comp_code": "8",
+                  "qty": "2",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 38
+                },
+                {
+                  "id": "bom_1bdze6v",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_qqu0zl",
+                  "stt": "9",
+                  "comp_code": "8",
+                  "qty": "2",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 39
+                },
+                {
+                  "id": "bom_1933akb",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_1atkf4g",
+                  "stt": "10",
+                  "comp_code": "9",
+                  "qty": "1",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 40
+                },
+                {
+                  "id": "bom_1bmctzz",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_1h3f36d",
+                  "stt": "11",
+                  "comp_code": "10",
+                  "qty": "1",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 41
+                },
+                {
+                  "id": "bom_1v6gwfx",
+                  "parentType": "product",
+                  "parentId": "LGS032",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_f3e6hw",
+                  "stt": "12",
+                  "comp_code": "11",
+                  "qty": "2",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 42
+                },
+                {
+                  "id": "bomc_1tw0pae",
+                  "parentType": "material",
+                  "parentId": "mat_1kzaom8",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_gm18ar",
+                  "childMaterialId": "mat_gm18ar",
+                  "stt": "1",
+                  "comp_code": "1",
+                  "qty": "6",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 0
+                },
+                {
+                  "id": "bomc_kh2qsd",
+                  "parentType": "material",
+                  "parentId": "mat_1kzaom8",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_vz636a",
+                  "childMaterialId": "mat_vz636a",
+                  "stt": "2",
+                  "comp_code": "2",
+                  "qty": "6",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 1
+                },
+                {
+                  "id": "bomc_1g04h9u",
+                  "parentType": "material",
+                  "parentId": "mat_1kzaom8",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_1112bk6",
+                  "childMaterialId": "mat_1112bk6",
+                  "stt": "3",
+                  "comp_code": "3",
+                  "qty": "20+2",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 2
+                },
+                {
+                  "id": "bomc_3hl3k2",
+                  "parentType": "material",
+                  "parentId": "mat_1kzaom8",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_1xlo8bk",
+                  "childMaterialId": "mat_1xlo8bk",
+                  "stt": "4",
+                  "comp_code": "4",
+                  "qty": "4+1",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 3
+                },
+                {
+                  "id": "bomc_193ogfi",
+                  "parentType": "material",
+                  "parentId": "mat_1kzaom8",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_6zvz0v",
+                  "childMaterialId": "mat_6zvz0v",
+                  "stt": "5",
+                  "comp_code": "5",
+                  "qty": "8+2",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 4
+                },
+                {
+                  "id": "bomc_muqam3",
+                  "parentType": "material",
+                  "parentId": "mat_1kzaom8",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_1bb87nh",
+                  "childMaterialId": "mat_1bb87nh",
+                  "stt": "6",
+                  "comp_code": "6",
+                  "qty": "12+2",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 5
+                },
+                {
+                  "id": "bomc_1kcfu4y",
+                  "parentType": "material",
+                  "parentId": "mat_1kzaom8",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_1cjiqmc",
+                  "childMaterialId": "mat_1cjiqmc",
+                  "stt": "7",
+                  "comp_code": "7",
+                  "qty": "2",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 6
+                },
+                {
+                  "id": "bomc_14bgwer",
+                  "parentType": "material",
+                  "parentId": "mat_1kzaom8",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_3cqqc3",
+                  "childMaterialId": "mat_3cqqc3",
+                  "stt": "8",
+                  "comp_code": "8",
+                  "qty": "2",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 7
+                },
+                {
+                  "id": "bomc_hry15h",
+                  "parentType": "material",
+                  "parentId": "mat_1kzaom8",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_qqu0zl",
+                  "childMaterialId": "mat_qqu0zl",
+                  "stt": "9",
+                  "comp_code": "8",
+                  "qty": "2",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 8
+                },
+                {
+                  "id": "bomc_czp5hd",
+                  "parentType": "material",
+                  "parentId": "mat_1kzaom8",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_1atkf4g",
+                  "childMaterialId": "mat_1atkf4g",
+                  "stt": "10",
+                  "comp_code": "9",
+                  "qty": "1",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 9
+                },
+                {
+                  "id": "bomc_t5w9wg",
+                  "parentType": "material",
+                  "parentId": "mat_1kzaom8",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_1h3f36d",
+                  "childMaterialId": "mat_1h3f36d",
+                  "stt": "11",
+                  "comp_code": "10",
+                  "qty": "1",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 10
+                },
+                {
+                  "id": "bomc_1dknkph",
+                  "parentType": "material",
+                  "parentId": "mat_1kzaom8",
+                  "productCode": "LGS032",
+                  "color": "复古色",
+                  "materialId": "mat_f3e6hw",
+                  "childMaterialId": "mat_f3e6hw",
+                  "stt": "12",
+                  "comp_code": "11",
+                  "qty": "2",
+                  "color_ver": "复古色",
+                  "color_ver_vi": "màu gỗ cổ",
+                  "order": 11
+                },
+                {
+                  "id": "bomc_1ps7xbg",
+                  "parentType": "material",
+                  "parentId": "mat_1kzaom8",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_gm18ar",
+                  "childMaterialId": "mat_gm18ar",
+                  "stt": "1",
+                  "comp_code": "1",
+                  "qty": "6",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 0
+                },
+                {
+                  "id": "bomc_1lyl98f",
+                  "parentType": "material",
+                  "parentId": "mat_1kzaom8",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_vz636a",
+                  "childMaterialId": "mat_vz636a",
+                  "stt": "2",
+                  "comp_code": "2",
+                  "qty": "6",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 1
+                },
+                {
+                  "id": "bomc_1verpx4",
+                  "parentType": "material",
+                  "parentId": "mat_1kzaom8",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_1112bk6",
+                  "childMaterialId": "mat_1112bk6",
+                  "stt": "3",
+                  "comp_code": "3",
+                  "qty": "20+2",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 2
+                },
+                {
+                  "id": "bomc_1jf0ges",
+                  "parentType": "material",
+                  "parentId": "mat_1kzaom8",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_1xlo8bk",
+                  "childMaterialId": "mat_1xlo8bk",
+                  "stt": "4",
+                  "comp_code": "4",
+                  "qty": "4+1",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 3
+                },
+                {
+                  "id": "bomc_b7stxc",
+                  "parentType": "material",
+                  "parentId": "mat_1kzaom8",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_6zvz0v",
+                  "childMaterialId": "mat_6zvz0v",
+                  "stt": "5",
+                  "comp_code": "5",
+                  "qty": "8+2",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 4
+                },
+                {
+                  "id": "bomc_b0cmhx",
+                  "parentType": "material",
+                  "parentId": "mat_1kzaom8",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_1bb87nh",
+                  "childMaterialId": "mat_1bb87nh",
+                  "stt": "6",
+                  "comp_code": "6",
+                  "qty": "12+2",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 5
+                },
+                {
+                  "id": "bomc_1xyf3no",
+                  "parentType": "material",
+                  "parentId": "mat_1kzaom8",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_1cjiqmc",
+                  "childMaterialId": "mat_1cjiqmc",
+                  "stt": "7",
+                  "comp_code": "7",
+                  "qty": "2",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 6
+                },
+                {
+                  "id": "bomc_w8xj0d",
+                  "parentType": "material",
+                  "parentId": "mat_1kzaom8",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_3cqqc3",
+                  "childMaterialId": "mat_3cqqc3",
+                  "stt": "8",
+                  "comp_code": "8",
+                  "qty": "2",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 7
+                },
+                {
+                  "id": "bomc_u276j3",
+                  "parentType": "material",
+                  "parentId": "mat_1kzaom8",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_qqu0zl",
+                  "childMaterialId": "mat_qqu0zl",
+                  "stt": "9",
+                  "comp_code": "8",
+                  "qty": "2",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 8
+                },
+                {
+                  "id": "bomc_1rp8r7z",
+                  "parentType": "material",
+                  "parentId": "mat_1kzaom8",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_1atkf4g",
+                  "childMaterialId": "mat_1atkf4g",
+                  "stt": "10",
+                  "comp_code": "9",
+                  "qty": "1",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 9
+                },
+                {
+                  "id": "bomc_26ranq",
+                  "parentType": "material",
+                  "parentId": "mat_1kzaom8",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_1h3f36d",
+                  "childMaterialId": "mat_1h3f36d",
+                  "stt": "11",
+                  "comp_code": "10",
+                  "qty": "1",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 10
+                },
+                {
+                  "id": "bomc_lgrdz3",
+                  "parentType": "material",
+                  "parentId": "mat_1kzaom8",
+                  "productCode": "LGS032",
+                  "color": "黑色",
+                  "materialId": "mat_f3e6hw",
+                  "childMaterialId": "mat_f3e6hw",
+                  "stt": "12",
+                  "comp_code": "11",
+                  "qty": "2",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 11
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
   "notifications": [
     {
-      "id": "notif_fvu5aa",
+      "id": "notif_1408qp2",
       "type": "github-save",
       "actor": "admin",
-      "createdAt": "2026-07-09T11:09:38.621Z",
-      "version": 2,
-      "changes": []
-    },
-    {
-      "id": "notif_1wz3so",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-09T11:07:51.829Z",
-      "version": 2,
-      "changes": []
-    },
-    {
-      "id": "notif_6uc9ww",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-09T10:53:22.157Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "GSSNZGLS5040WZ",
-          "field": "color",
-          "before": "白色 / màu trắng",
-          "after": "镀锌 / mạ kẽm"
-        }
-      ]
-    },
-    {
-      "id": "notif_1msiku0",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-09T09:42:48.153Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "BC298282166BH",
-          "field": "name",
-          "before": "LGS布抽30x28x16.8",
-          "after": "LGS布抽30x28.2x16.8"
-        },
-        {
-          "kind": "material",
-          "code": "BC298282166BH",
-          "field": "spec",
-          "before": "300x280x168mm",
-          "after": "300x282x168mm"
-        },
-        {
-          "kind": "material",
-          "code": "BC298282166KD",
-          "field": "name",
-          "before": "LGS布抽30x28x16.8",
-          "after": "LGS布抽30x28.2x16.8"
-        },
-        {
-          "kind": "material",
-          "code": "BC298282166KD",
-          "field": "spec",
-          "before": "300x280x168mm",
-          "after": "300x282x168mm"
-        },
-        {
-          "kind": "material",
-          "code": "BC298282166WH",
-          "field": "name",
-          "before": "LGS布抽30x28x16.8",
-          "after": "LGS布抽30x28.2x16.8"
-        },
-        {
-          "kind": "material",
-          "code": "BC298282166WH",
-          "field": "spec",
-          "before": "300x280x168mm",
-          "after": "300x282x168mm"
-        }
-      ]
-    },
-    {
-      "id": "notif_c8cxp6",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-09T06:11:11.656Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "BC255282166KD",
-          "field": "name",
-          "before": "LGS布抽25.7x28x16.8",
-          "after": "LGS布抽25.7x28.2x16.8"
-        },
-        {
-          "kind": "material",
-          "code": "BC255282166KD",
-          "field": "spec",
-          "before": "257x280x168mm",
-          "after": "257x282x168mm"
-        },
-        {
-          "kind": "material",
-          "code": "BC255282166WH",
-          "field": "name",
-          "before": "LGS布抽25.7x28x16.8",
-          "after": "LGS布抽25.7x28.2x16.8"
-        },
-        {
-          "kind": "material",
-          "code": "BC255282166WH",
-          "field": "spec",
-          "before": "257x280x168mm",
-          "after": "257x282x168mm"
-        },
-        {
-          "kind": "material",
-          "code": "BC255282166BH",
-          "field": "name",
-          "before": "LGS布抽25.7x28x16.8",
-          "after": "LGS布抽25.7x28.2x16.8"
-        },
-        {
-          "kind": "material",
-          "code": "BC255282166BH",
-          "field": "spec",
-          "before": "257x280x168mm",
-          "after": "257x282x168mm"
-        }
-      ]
-    },
-    {
-      "id": "notif_1af8mk",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-09T05:33:09.974Z",
+      "createdAt": "2026-07-13T03:41:59.882Z",
       "version": 2,
       "changes": []
     }
@@ -88562,6 +94172,32 @@ window.BOM_VIEWER_DATA = {
             "bytes": 569836
           }
         ]
+      },
+      "mat_pxy79y": {
+        "id": "mat_pxy79y",
+        "code": "LGS032YKBH647",
+        "name": {
+          "zh": "LGS032-S-右侧框",
+          "vi": "LGS032-S-khung bên phải"
+        },
+        "spec": {
+          "zh": "647x290x15mm",
+          "vi": "647x290x15mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "黑色",
+          "vi": "màu đen"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [],
+        "models3d": []
       }
     },
     "bomEntries": [
