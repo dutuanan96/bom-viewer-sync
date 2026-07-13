@@ -1579,6 +1579,17 @@ const global = globalThis;
         patch[field] = patch[field] || {};
         patch[field][lang] = input.value;
       });
+
+      const drawingsInput = this.query('[data-material-assets="drawings"]');
+      if (drawingsInput) {
+        patch.drawings = drawingsInput.value.split('\n').map(u => u.trim()).filter(Boolean).map(url => ({ url }));
+      }
+
+      const models3dInput = this.query('[data-material-assets="models3d"]');
+      if (models3dInput) {
+        patch.models3d = models3dInput.value.split('\n').map(u => u.trim()).filter(Boolean).map(url => ({ url }));
+      }
+
       if (this.state.materialDraft?.id === record.id) {
         this.state.materialDb.materials[record.id] = clone(record);
         this.state.payload.materialDb = this.state.materialDb;

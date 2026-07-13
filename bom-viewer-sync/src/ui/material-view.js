@@ -340,6 +340,14 @@ function materialMasterAssetsHtml(record) {
 }
 
 function materialMasterAssetList(title, assets) {
+  const typeKey = title === '2D' ? 'drawings' : 'models3d';
+  if (this.isAdmin && this.isAdmin()) {
+    const urls = assets.map(a => a.url || a.path || a.name || '').filter(Boolean).join('\n');
+    return `<div class="material-master-asset-list">
+      <strong>${escapeHTML(title)}</strong>
+      <textarea class="edit-input" data-material-assets="${typeKey}" rows="3" placeholder="Enter URLs, one per line">${escapeHTML(urls)}</textarea>
+    </div>`;
+  }
   const rows = assets.length
     ? assets.map((asset) => `<li><strong>${escapeHTML(asset.name || asset.path || asset.url || '-')}</strong><span>${escapeHTML(asset.path || asset.url || '')}</span></li>`).join('')
     : '<li class="mdb-empty">-</li>';
