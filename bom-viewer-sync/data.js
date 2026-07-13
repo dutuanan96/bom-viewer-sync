@@ -1,7 +1,7 @@
 /* BOM cloud data. Update only through admin.html. */
 window.BOM_VIEWER_DATA = {
   "version": 2,
-  "updatedAt": "2026-07-13T04:08:32.538Z",
+  "updatedAt": "2026-07-13T04:09:45.370Z",
   "bom": {
     "LGS031": {
       "code": "LGS031",
@@ -3061,12 +3061,12 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "9",
-              "mat_code": "LGS032ZKBH",
+              "mat_code": "LGS032ZKBH647",
               "comp_code": "D",
               "name_zh": "LGS032-S-左侧框",
               "name_vi": "LGS032-S-khung bên trái",
-              "spec": "657x290x15mm",
-              "spec_vi": "657x290x15mm",
+              "spec": "647x290x15mm",
+              "spec_vi": "647x290x15mm",
               "material_zh": "Q195",
               "material_vi": "Q195",
               "color_zh": "黑砂纹",
@@ -3079,12 +3079,12 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "10",
-              "mat_code": "LGS032YKBH",
+              "mat_code": "LGS032YKBH647",
               "comp_code": "E",
               "name_zh": "LGS032-S-右侧框",
               "name_vi": "LGS032-S-khung bên phải",
-              "spec": "657x290x15mm",
-              "spec_vi": "657x290x15mm",
+              "spec": "647x290x15mm",
+              "spec_vi": "647x290x15mm",
               "material_zh": "Q195",
               "material_vi": "Q195",
               "color_zh": "黑砂纹",
@@ -3151,12 +3151,12 @@ window.BOM_VIEWER_DATA = {
             },
             {
               "stt": "14",
-              "mat_code": "ZJG150654BH",
+              "mat_code": "ZJG150641BH",
               "comp_code": "M",
-              "name_zh": "51底脚",
-              "name_vi": "51 chân đế",
-              "spec": "65x15x15mm",
-              "spec_vi": "65x15x15mm",
+              "name_zh": "41底脚",
+              "name_vi": "Chân đế 41",
+              "spec": "57x15x15mm",
+              "spec_vi": "57x15x15mm",
               "material_zh": "Q195",
               "material_vi": "Q195",
               "color_zh": "黑砂纹",
@@ -69144,10 +69144,10 @@ window.BOM_VIEWER_DATA = {
   },
   "notifications": [
     {
-      "id": "notif_1bqyig",
+      "id": "notif_yzg0ia",
       "type": "github-save",
       "actor": "admin",
-      "createdAt": "2026-07-13T04:08:32.538Z",
+      "createdAt": "2026-07-13T04:09:45.370Z",
       "version": 2,
       "changes": []
     }
@@ -95939,7 +95939,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS032",
         "productCode": "LGS032",
         "color": "黑色",
-        "materialId": "mat_a987en",
+        "materialId": "mat_fwib1i",
         "stt": "9",
         "comp_code": "D",
         "qty": "1",
@@ -95953,7 +95953,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS032",
         "productCode": "LGS032",
         "color": "黑色",
-        "materialId": "mat_n3m59f",
+        "materialId": "mat_pxy79y",
         "stt": "10",
         "comp_code": "E",
         "qty": "1",
@@ -96009,7 +96009,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS032",
         "productCode": "LGS032",
         "color": "黑色",
-        "materialId": "mat_1m5b6t5",
+        "materialId": "mat_1c0a8em",
         "stt": "14",
         "comp_code": "M",
         "qty": "2",
