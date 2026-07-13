@@ -4,7 +4,7 @@
 
 Review editable modules under `work/remote-bom-viewer-sync/bom-viewer-sync/src/` and the build scripts. `admin.html`, `app-admin.js`, `styles.css`, and `viewer.html` are generated artifacts, never manual edit targets.
 
-Build with `npm run build`; run `npm run check` for the complete local gate. The generated cache ID is a dynamic 12-character build hash (current output: `06832ff5efec`), not a fixed version number. Viewer program changes require a rebuilt and redistributed `viewer.html`; Viewer reloads still receive GitHub/Drive data changes.
+Build with `npm run build`; run `npm run check` for the complete local gate. The generated cache ID is a dynamic 12-character build hash (current output: `7ab045092fbb`), not a fixed version number. Viewer program changes require a rebuilt and redistributed `viewer.html`; Viewer reloads still receive GitHub/Drive data changes.
 
 ## Required Contracts
 

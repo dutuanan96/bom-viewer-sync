@@ -200,7 +200,9 @@ test('silent cloud refresh does not overwrite an active Material Master draft', 
 
 test('Parent-child structure detail edits update dirty status immediately', () => {
   const bindStructureDetailControls = methodSource('bindStructureDetailControls');
+  const renderStructureDetail = methodSource('renderStructureDetail');
 
   assert.match(bindStructureDetailControls, /this\.markDirty\(\)/);
   assert.doesNotMatch(bindStructureDetailControls, /this\.state\.dirty = true;\s*this\.renderContent\(\)/);
+  assert.match(renderStructureDetail, /scopeLabel\(entry, this\.label\('sharedScope'\)\)/);
 });

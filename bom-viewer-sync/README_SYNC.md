@@ -4,7 +4,7 @@ The canonical project root is `work/remote-bom-viewer-sync/bom-viewer-sync/`; ap
 
 ## Generated Runtime
 
-The build generates `admin.html`, `app-admin.js`, `styles.css`, and `viewer.html`. Never edit these files directly. Their cache/build identifier is a dynamic 12-character source hash (current output: `06832ff5efec`), not a fixed version string.
+The build generates `admin.html`, `app-admin.js`, `styles.css`, and `viewer.html`. Never edit these files directly. Their cache/build identifier is a dynamic 12-character source hash (current output: `7ab045092fbb`), not a fixed version string.
 
 `viewer.html` is the shareable standalone Viewer. Rebuild and redistribute it after a program, style, or shell change. Data and linked assets remain remote, so GitHub/Drive data changes appear when Viewer reloads.
 

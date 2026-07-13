@@ -4,7 +4,7 @@
 
 Work in the canonical project root: `work/remote-bom-viewer-sync/bom-viewer-sync/`. Application source lives in `src/`; build scripts, tests, and project configuration remain editable source-of-truth files. The generated deliverables are `admin.html`, `app-admin.js`, `styles.css`, and `viewer.html`; never edit them directly.
 
-Build with `npm run build`, then run the complete local gate with `npm run check`. The current generated build ID is `06832ff5efec`, but it is a dynamic 12-character source hash rather than a release version. A changed program, stylesheet, or shell requires rebuilding and redistributing `viewer.html`.
+Build with `npm run build`, then run the complete local gate with `npm run check`. The current generated build ID is `7ab045092fbb`, but it is a dynamic 12-character source hash rather than a release version. A changed program, stylesheet, or shell requires rebuilding and redistributing `viewer.html`.
 
 ## Mirror And Compatibility Flow
 

@@ -150,7 +150,7 @@ function renderStructureDetail() {
     const rowActions = this.isAdmin()
       ? `<div class="drawing-tools">
           <button class="drawing-btn" type="button" data-edit-structure-child="${escapeHTML(child.id)}">${escapeHTML(this.label('editMaterial'))}</button>
-          ${entries.map((entry) => `<button class="drawing-btn danger" type="button" data-delete-child-entry="${escapeHTML(entry.id)}" title="${escapeHTML(scopeLabel(entry, this.state.lang))}">&#x2715;</button>`).join('')}
+          ${entries.map((entry) => `<button class="drawing-btn danger" type="button" data-delete-child-entry="${escapeHTML(entry.id)}" title="${escapeHTML(scopeLabel(entry, this.label('sharedScope')))}">&#x2715;</button>`).join('')}
         </div>`
       : '';
 

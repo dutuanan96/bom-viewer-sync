@@ -7,7 +7,7 @@
 - Complete local gate: `npm run check`.
 - Generated files: `admin.html`, `app-admin.js`, `styles.css`, and `viewer.html`.
 - Never edit generated files directly. Edit `src/` or the build scripts, then rebuild.
-- The generated 12-character build ID is dynamic. The current build ID is `06832ff5efec`; it changes whenever the build inputs change.
+- The generated 12-character build ID is dynamic. The current build ID is `7ab045092fbb`; it changes whenever the build inputs change.
 
 `viewer.html` remains a standalone read-only local-file Viewer. Program, style, or shell changes require rebuilding and redistributing `viewer.html`. GitHub/Drive data changes continue to appear when Viewer reloads because data and linked assets remain remote.
 
