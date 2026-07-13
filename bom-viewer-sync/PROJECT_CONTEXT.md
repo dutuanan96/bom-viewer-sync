@@ -1,33 +1,46 @@
 # BOM Viewer / PDM Context
 
-AI debugging entrypoint: read `AI_DEBUG_GUIDE.md` first. It is self-contained; the remaining context files provide history and handoff detail only.
+AI debugging entrypoint: read `AI_DEBUG_GUIDE.md` first. It is self-contained; the remaining context files provide current integration state and handoff detail.
 
 ## Canonical Source And Build
 
-- Canonical project root: `work/remote-bom-viewer-sync/bom-viewer-sync/`; application source lives in `src/`.
-- Build command: `npm run build` from `work/remote-bom-viewer-sync/bom-viewer-sync/`.
-- Complete local gate: `npm run check`.
+- Canonical project root: `work/remote-bom-viewer-sync/bom-viewer-sync/`; editable application source lives in `src/`.
+- Current feature branch: `codex/product-bom-revisions`.
+- Draft pull request: `#1` (`codex/product-bom-revisions` -> `main`).
+- Build command: `npm run build`; complete repository gate: `npm run check`.
 - Generated files: `admin.html`, `app-admin.js`, `styles.css`, and `viewer.html`.
-- Never edit generated files directly. Edit `src/` or the build scripts, then rebuild.
-- The generated 12-character build ID is dynamic. The current build ID is `e20a4df8f465`; it changes whenever the build inputs change.
+- Never edit generated files directly. Edit source or build scripts, then rebuild.
+- Current generated build ID on the feature branch: `1f21d89ccd2a`.
 
-`viewer.html` remains a standalone read-only local-file Viewer. Program, style, or shell changes require rebuilding and redistributing `viewer.html`. GitHub/Drive data changes continue to appear when Viewer reloads because data and linked assets remain remote.
+## Product Revision And Effectivity Model
 
-## Runtime Mirror
+- `currentRevision` is the latest design revision; `effectiveRevision` is the single revision currently used in production.
+- Creating a revision from a released product creates a Draft and preserves the previous BOM as an immutable snapshot.
+- Creating Draft `V3.1` does not automatically release it and does not move effectivity away from released `V3`.
+- Releasing the clean latest Draft requires a reason, makes it the sole effective revision, and leaves earlier revisions released but non-current.
+- Released and historical revisions are read-only. A new revision may be created from the current released revision.
+- Transition metadata and events must preserve the source revision and release history.
 
-Outer `outputs/` is a verified runtime mirror, not the editable source tree. Mirror only the four generated files and these workflow documents after the feature-worktree gates pass. Do not copy `data.js` for code-only changes.
+The main domain owner is `src/domain/revisions.js`; orchestration is in `src/application.js`, and the BOM selectors are rendered by `src/ui/bom-view.js`.
 
-## Data And PDM Guardrails
+## Current Synchronization State
 
-- Public reads use the cache-busted GitHub Contents API raw response first; raw GitHub is fallback only.
-- Admin saves fetch the current remote payload and SHA before diffing and writing.
-- Opening the notification bell changes only local read state; it does not delete GitHub-backed notification events.
-- Keep the BOM inspector hidden and empty for plain BOM-row clicks.
-- Keep zh-CN UI text in the existing i18n dictionary, and never expose or commit tokens.
+| Surface | State | Rule |
+|---|---|---|
+| Canonical feature checkout | Current implementation and generated artifacts | Review and test here |
+| Outer `outputs/` runtime artifacts | Intentionally pre-feature until PR #1 is merged | Do not publish the feature from this mirror yet |
+| Outer `outputs/` context documents | Current | Keep byte-identical to the canonical context documents |
+| Desktop `admin.html` / `viewer.html` | Older shareable copies | Replace only after the integrated `main` build passes |
+| Local `data.js` | Test/snapshot data, older than current `origin/main` | Never copy or commit it for code-only work |
 
-## Verification Baseline
+The Viewer uses a cache-busted GitHub Contents API read, so remote data can be newer than the local `data.js`. Admin saves must read the current remote payload and SHA immediately before diffing and writing.
 
-- `npm run check` verifies 56 tests, the data audit, generated artifacts, and `app-admin.js` syntax.
-- The data baseline is 643 materials, 2725 BOM entries, 22 products, 0 errors, and 0 warnings.
-- Material Master contracts are 18/18 and runtime contracts are 13/13.
-- `work/material-db.test.mjs` has a known non-gating 8/10 baseline; do not change runtime behavior only to satisfy its two stale expectations.
+## Verified Baseline (2026-07-13)
+
+- `npm run check`: 71/71 tests passed.
+- Data audit: 643 materials, 2725 BOM entries, 22 products, 0 errors, 0 warnings.
+- Outer Material Master/revision contracts: 23/23 passed.
+- Outer runtime contracts: 13/13 passed.
+- Generated artifact check and JavaScript syntax check passed.
+
+Do not treat a hard-coded test count as permanent; always report the current command output.
