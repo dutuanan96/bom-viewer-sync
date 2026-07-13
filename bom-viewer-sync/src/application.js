@@ -25,6 +25,7 @@ import { stableId } from './shared/primitives.js';
 import {
   appendNotificationEvent as appendNormalizedNotificationEvent,
   describePayloadChanges as describeNormalizedPayloadChanges,
+  normalizeNotificationChanges,
   normalizeNotifications,
 } from './features/notifications.js';
 import { createPdmNavigation, createSidebarIndex, resolveBomRows } from './domain/bom.js';

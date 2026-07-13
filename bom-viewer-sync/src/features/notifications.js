@@ -5,7 +5,7 @@ const NOTIFICATION_LIMIT = 30;
 const NOTIFICATION_CHANGE_LIMIT = 8;
 const MATERIAL_CHANGE_FIELDS = ['name', 'spec', 'material', 'color', 'attr'];
 
-function normalizeNotificationChanges(changes) {
+export function normalizeNotificationChanges(changes) {
   if (!Array.isArray(changes)) return [];
   return changes
     .filter((item) => item && typeof item === 'object')

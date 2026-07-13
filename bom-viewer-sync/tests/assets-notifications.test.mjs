@@ -36,6 +36,20 @@ test('material diffs become persistent GitHub-save notifications', () => {
   assert.equal(updated.notifications[0].id, 'notification-1');
 });
 
+test('notification body renders normalized material changes', () => {
+  const app = Object.create(BomApplication.prototype);
+  app.state = { lang: 'zh' };
+
+  const body = app.notificationBody({
+    type: 'github-save',
+    changes: [{ kind: 'material', code: 'M1', field: 'name', before: 'Old', after: 'New' }],
+  });
+
+  assert.match(body, /M1/);
+  assert.match(body, /Old/);
+  assert.match(body, /New/);
+});
+
 test('Admin creation flows assign stable IDs and create their records', () => {
   const app = Object.create(BomApplication.prototype);
   const materialDb = {
