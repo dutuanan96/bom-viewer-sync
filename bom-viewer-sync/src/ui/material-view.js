@@ -343,13 +343,14 @@ function materialMasterAssetList(title, assets) {
   const typeKey = title === '2D' ? 'drawings' : 'models3d';
   if (this.isAdmin && this.isAdmin()) {
     const addAction = title === '2D' ? 'add-2d-asset' : 'add-3d-asset';
-    const rows = assets.map((asset, index) => {
+    const draftAssets = this.state.materialAssetDraft ? (this.state.materialAssetDraft[typeKey] || []) : assets;
+    const rows = draftAssets.map((asset, index) => {
       const name = asset.name || '';
-      const url = asset.url || asset.path || '';
+      const url = title === '2D' ? (asset.url || asset.path || '') : (asset.previewUrl || asset.url || '');
       return `<div class="material-asset-edit-row" style="display:flex;gap:8px;margin-bottom:8px;">
         <input class="edit-input" style="flex:1" data-asset-edit="name" data-asset-type="${typeKey}" data-asset-index="${index}" placeholder="${escapeHTML(this.label('assetName'))}" value="${escapeHTML(name)}">
         <input class="edit-input" style="flex:2" data-asset-edit="url" data-asset-type="${typeKey}" data-asset-index="${index}" placeholder="${escapeHTML(this.label('assetUrl'))}" value="${escapeHTML(url)}">
-        <button class="btn" type="button" data-action="open-asset" data-asset-url="${escapeHTML(url)}">${escapeHTML(this.label('openAsset'))}</button>
+        <button class="btn" type="button" data-action="open-asset" data-asset-type="${typeKey}" data-asset-index="${index}" data-asset-url="${escapeHTML(url)}">${escapeHTML(this.label('openAsset'))}</button>
         <button class="btn danger" type="button" data-action="delete-asset-row" data-asset-type="${typeKey}" data-asset-index="${index}">${escapeHTML(this.label('deleteAsset'))}</button>
       </div>`;
     }).join('');

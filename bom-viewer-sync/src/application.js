@@ -1043,6 +1043,10 @@ const global = globalThis;
       if (action === 'back-material-list' && this.isAdmin()) this.backMaterialList();
       if (action === 'save-material-master' && this.isAdmin()) this.saveMaterialMaster();
       if (action === 'delete-material-master' && this.isAdmin()) this.deleteSelectedMaterialMaster();
+      if (action === 'add-2d-asset' && this.isAdmin()) this.addMaterialAssetRow('drawings');
+      if (action === 'add-3d-asset' && this.isAdmin()) this.addMaterialAssetRow('models3d');
+      if (action === 'delete-asset-row' && this.isAdmin()) this.deleteMaterialAssetRow(actionElement);
+      if (action === 'open-asset') this.openAsset(actionElement);
       if (action === 'copy') this.copyTable();
       if (action === 'exportExcel') this.exportExcel();
       if (action === 'add-product' && this.isAdmin()) this.addProduct();
@@ -1211,6 +1215,7 @@ const global = globalThis;
 
     backMaterialList() {
       this.state.materialDraft = null;
+      this.state.materialAssetDraft = null;
       this.state.selectedMaterialId = '';
       this.renderProductList();
       this.renderFilterBar();
@@ -1583,46 +1588,58 @@ const global = globalThis;
       this.markDirty();
     }
 
-    syncMaterialMasterFormToRecord(record) {
-      this.queryAll('[data-material-master-edit]').forEach((input) => {
-        const field = input.dataset.materialMasterEdit;
-        const lang = input.dataset.lang || 'zh';
-        if (field === 'code') {
-          record.code = input.value.trim();
-          return;
+    openAsset(actionElement) {
+      const typeKey = actionElement.dataset.assetType;
+      const url = actionElement.dataset.assetUrl || '';
+      if (!url) return;
+      if (typeKey === 'drawings') {
+        this.showModal(url, '2D', url);
+      } else if (typeKey === 'models3d') {
+        const index = parseInt(actionElement.dataset.assetIndex, 10);
+        const name = this.state.materialAssetDraft?.models3d?.[index]?.name || '3D Model';
+        this.showModel3dModal({ previewUrl: url, name, path: url }, '3D');
+      }
+    }
+
+    syncMaterialMasterFormToDraft() {
+      if (!this.state.materialAssetDraft) {
+        const record = this.selectedMaterialRecord();
+        if (record) {
+          this.state.materialAssetDraft = {
+            drawings: JSON.parse(JSON.stringify(record.drawings || [])),
+            models3d: JSON.parse(JSON.stringify(record.models3d || []))
+          };
+        } else {
+          this.state.materialAssetDraft = { drawings: [], models3d: [] };
         }
-        record[field] = record[field] || {};
-        record[field][lang] = input.value;
-      });
+      }
       ['drawings', 'models3d'].forEach(typeKey => {
         const arr = [];
         this.queryAll(`#${typeKey}-container .material-asset-edit-row`).forEach((row, i) => {
            const nameInput = row.querySelector('[data-asset-edit="name"]');
            const urlInput = row.querySelector('[data-asset-edit="url"]');
-           const orig = (record[typeKey] || [])[i] || {};
+           const orig = (this.state.materialAssetDraft[typeKey] || [])[i] || {};
            arr.push({ ...orig, name: nameInput.value.trim(), url: urlInput.value.trim() });
         });
-        record[typeKey] = arr;
+        this.state.materialAssetDraft[typeKey] = arr;
       });
     }
 
     addMaterialAssetRow(typeKey) {
-      const record = this.selectedMaterialRecord();
-      if (!record) return;
-      this.syncMaterialMasterFormToRecord(record);
-      record[typeKey] = record[typeKey] || [];
-      record[typeKey].push({ url: '', name: '' });
+      if (!this.selectedMaterialRecord()) return;
+      this.syncMaterialMasterFormToDraft();
+      this.state.materialAssetDraft[typeKey] = this.state.materialAssetDraft[typeKey] || [];
+      this.state.materialAssetDraft[typeKey].push({ url: '', name: '' });
       this.renderContent();
     }
 
     deleteMaterialAssetRow(button) {
-      const record = this.selectedMaterialRecord();
-      if (!record) return;
-      this.syncMaterialMasterFormToRecord(record);
+      if (!this.selectedMaterialRecord()) return;
+      this.syncMaterialMasterFormToDraft();
       const typeKey = button.dataset.assetType;
       const index = parseInt(button.dataset.assetIndex, 10);
-      if (record[typeKey]) {
-        record[typeKey].splice(index, 1);
+      if (this.state.materialAssetDraft[typeKey]) {
+        this.state.materialAssetDraft[typeKey].splice(index, 1);
       }
       this.renderContent();
     }
@@ -1644,29 +1661,34 @@ const global = globalThis;
         patch[field][lang] = input.value;
       });
 
+      this.syncMaterialMasterFormToDraft();
+
       let validationError = null;
-      const validate2D = (url) => {
-        if (!url) return false;
-        if (!url.startsWith('https://')) return false;
-        if (url.includes('drive.google.com') || url.toLowerCase().endsWith('.pdf')) return true;
+      const validate2D = (urlStr) => {
+        if (!urlStr) return false;
+        try {
+          const u = new URL(urlStr);
+          if (u.protocol !== 'https:') return false;
+          if (u.hostname === 'drive.google.com' || u.pathname.toLowerCase().endsWith('.pdf')) return true;
+        } catch(e) {}
         return false;
       };
-      const validate3D = (url) => {
-        if (!url) return false;
-        if (!url.startsWith('https://')) return false;
-        if (url.includes('drive.google.com')) return false;
-        if (url.toLowerCase().endsWith('.glb') || url.toLowerCase().endsWith('.gltf')) return true;
+      const validate3D = (urlStr) => {
+        if (!urlStr) return false;
+        try {
+          const u = new URL(urlStr);
+          if (u.protocol !== 'https:') return false;
+          if (u.hostname === 'drive.google.com') return false;
+          if (u.pathname.toLowerCase().endsWith('.glb') || u.pathname.toLowerCase().endsWith('.gltf')) return true;
+        } catch(e) {}
         return false;
       };
 
       const seenUrls = new Set();
-
       const processAssets = (typeKey, validator, errorLabel) => {
         const arr = [];
-        this.queryAll(`#${typeKey}-container .material-asset-edit-row`).forEach((row, i) => {
-           const nameInput = row.querySelector('[data-asset-edit="name"]');
-           const urlInput = row.querySelector('[data-asset-edit="url"]');
-           const url = urlInput.value.trim();
+        (this.state.materialAssetDraft[typeKey] || []).forEach((asset) => {
+           const url = asset.url;
            if (!url) return;
            if (!validator(url)) {
              validationError = this.label(errorLabel);
@@ -1675,8 +1697,10 @@ const global = globalThis;
              validationError = this.label('duplicateUrl');
            }
            seenUrls.add(url);
-           const orig = (record[typeKey] || [])[i] || {};
-           arr.push({ ...orig, name: nameInput.value.trim(), url });
+           if (typeKey === 'models3d') {
+             asset.previewUrl = url;
+           }
+           arr.push(asset);
         });
         return arr;
       };
@@ -1693,6 +1717,7 @@ const global = globalThis;
         this.state.materialDb.materials[record.id] = clone(record);
         this.state.payload.materialDb = this.state.materialDb;
       }
+      this.state.materialAssetDraft = null;
       updateMaterialRecord(this.state.payload, record.id, patch);
       this.state.materialDb = this.state.payload.materialDb;
       this.state.payload.materialDb = this.state.materialDb;
