@@ -1,34 +1,19 @@
 # BOM Viewer GitHub Sync
 
-Target: `dutuanan96/bom-viewer-sync`, branch `main`, app folder `bom-viewer-sync/`.
+The canonical editable source is `work/remote-bom-viewer-sync/bom-viewer-sync/src/`. Build from the clone with `npm run build`, then run `npm run check` for the complete local gate.
 
-## Entrypoints
+## Generated Runtime
 
-- `viewer.html`: generated standalone read-only Viewer. It fetches latest `data.js` from GitHub at runtime.
-- `admin.html`: shared-file Admin shell. It reads current data and writes updates through GitHub Contents API.
+The build generates `admin.html`, `app-admin.js`, `styles.css`, and `viewer.html`. Never edit these files directly. Their cache/build identifier is a dynamic 12-character source hash (current output: `82d8372d92c1`), not a fixed version string.
 
-Shared runtime files:
-- `styles.css`
-- `app-core.js`
-- `app-admin.js`
-- `app-viewer.js`
-- `data.js`
+`viewer.html` is the shareable standalone Viewer. Rebuild and redistribute it after a program, style, or shell change. Data and linked assets remain remote, so GitHub/Drive data changes appear when Viewer reloads.
 
-## Read And Write Rules
+## Sync Rules
 
-- Read with GitHub Contents API raw first and include a cache-busting timestamp.
-- Keep `raw.githubusercontent.com` as fallback only.
-- Admin tokens must never be hardcoded or committed. The Admin stores the entered token in session storage only.
-- The repository must remain public for unauthenticated Viewer reads.
-- Current Admin cache versions: `data.js?v=22`, `app-core.js?v=25`, `app-admin.js?v=21`.
+- Outer `outputs/` is a verified runtime mirror, not the editable source tree.
+- For a code-only change, mirror only the four generated files and synchronized workflow documents.
+- Do not copy or modify `data.js` for code-only work.
+- Public reads use cache-busted GitHub Contents API raw responses first; raw GitHub is fallback only.
+- Admin writes use the current remote payload and SHA, and tokens must never be committed.
 
-## AI Sync Flow
-
-1. Edit and verify files under `outputs\`.
-2. Rebuild `viewer.html` with `node work\build_standalone_viewer.mjs`.
-3. Run syntax checks, both test suites, and the data audit.
-4. Pull/rebase the clone before copying files.
-5. Copy only changed runtime/docs. Do not copy `data.js` for UI-only changes.
-6. Run clone checks, commit explicit files, and push without force.
-
-The BOM inspector is intentionally disabled in Viewer and Admin because the table already shows the required information.
+The BOM inspector is intentionally disabled for plain BOM-row clicks in Viewer and Admin.
