@@ -127,22 +127,11 @@ function createSidebarIndex(payload, options) {
   };
 }
 
-function createPdmNavigation(payload, lang) {
+function createPdmNavigation(payload, labels) {
   const source = payload?.materialDb?.materials ? payload : normalizePayload(payload || {});
   const entries = source.materialDb?.bomEntries || [];
   const materials = Object.values(source.materialDb?.materials || {});
   const structureCount = new Set(entries.filter((entry) => entry.parentType === 'material').map((entry) => entry.parentId)).size;
-  const labels = lang === 'vi'
-    ? {
-      bom: 'Sản phẩm BOM',
-      materials: 'Database vật liệu',
-      structure: 'Cấu trúc cha con'
-    }
-    : {
-      bom: '产品 BOM',
-      materials: '物料数据库',
-      structure: '父子项结构'
-    };
   return [
     { id: 'bom', label: labels.bom, count: Object.keys(source.bom || {}).length },
     { id: 'materials', label: labels.materials, count: materials.length },

@@ -236,7 +236,7 @@ function openPdmPrompt(title, fields, onConfirm) {
       values[f.key] = val;
       if (f.required && !val) {
         if (input) input.classList.add('pdm-input-error');
-        if (errEl) errEl.textContent = this.state.lang === 'vi' ? 'Bắt buộc' : '必填';
+        if (errEl) errEl.textContent = this.label('required');
         hasError = true;
       } else {
         if (input) input.classList.remove('pdm-input-error');

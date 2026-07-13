@@ -332,6 +332,16 @@ const global = globalThis;
   };
 
   Object.assign(TEXT.zh, {
+    productBom: '产品 BOM',
+    paginationTotal: '共',
+    paginationItems: '条',
+    paginationGoTo: '前往',
+    paginationPage: '页',
+    required: '必填',
+    sharedScope: '通用',
+    attrPart: '零件',
+    attrHardware: '五金包',
+    attrPackaging: '包材',
     notifications: '通知',
     notificationEmpty: '暂无通知',
     notificationMarkRead: '全部已读',
@@ -361,6 +371,16 @@ const global = globalThis;
   });
 
   Object.assign(TEXT.vi, {
+    productBom: 'BOM sản phẩm',
+    paginationTotal: 'Tổng',
+    paginationItems: 'mục',
+    paginationGoTo: 'Đến',
+    paginationPage: 'trang',
+    required: 'Bắt buộc',
+    sharedScope: 'Dùng chung',
+    attrPart: 'Linh kiện',
+    attrHardware: 'Túi ngũ kim',
+    attrPackaging: 'Bao bì',
     notifications: 'Thông báo',
     notificationEmpty: 'Chưa có thông báo',
     notificationMarkRead: 'Đã đọc tất cả',
@@ -743,7 +763,7 @@ const global = globalThis;
           this.renderContent();
           return;
         }
-        if (action) this.runAction(action.dataset.action);
+        if (action) this.runAction(action.dataset.action, action);
         if (sort) this.sortBy(sort.dataset.sort);
         if (drawing) { this.openDrawing(Number(drawing.dataset.drawingRow)); return; }
         if (model3d) { this.openModel3d(Number(model3d.dataset.model3dRow)); return; }
@@ -849,7 +869,7 @@ const global = globalThis;
       });
     }
 
-    runAction(action) {
+    runAction(action, actionElement) {
       if (action === 'toggle-edit' && this.isAdmin()) this.toggleEdit();
       if (action === 'save' && this.isAdmin()) this.saveCloud();
       if (action === 'reload') this.loadCloud({ silent: false });
@@ -864,9 +884,8 @@ const global = globalThis;
         this.renderContent();
       }
       if (action === 'mdb-go-page') {
-        const pageBtn = event.target.closest('[data-page]');
-        if (pageBtn && pageBtn.dataset.page) {
-          this.state.materialDbPage = parseInt(pageBtn.dataset.page, 10);
+        if (actionElement?.dataset.page) {
+          this.state.materialDbPage = parseInt(actionElement.dataset.page, 10);
           this.renderContent();
         }
       }
@@ -1155,11 +1174,12 @@ const global = globalThis;
 
     collectAttrs() {
       const predefinedOrder = ['零件', '五金包', '包材'];
+      const predefinedLabels = [this.label('attrPart'), this.label('attrHardware'), this.label('attrPackaging')];
       const attrs = new Map();
-      predefinedOrder.forEach(val => {
+      predefinedOrder.forEach((val, index) => {
         attrs.set(val, {
           value: val,
-          label: this.state.lang === 'vi' ? (val === '零件' ? 'Linh kiện' : val === '五金包' ? 'Túi ngũ kim' : 'Bao bì') : val
+          label: predefinedLabels[index]
         });
       });
       Object.values(this.state.bom).forEach((product) => {
@@ -1798,6 +1818,9 @@ const global = globalThis;
       syncLegacyBomFromMaterialDb(payload);
       const remoteFile = await this.githubData.loadForWrite(token);
       const changes = describePayloadChanges(remoteFile.payload, payload);
+      payload.notifications = normalizeNotifications(
+        remoteFile.sha ? remoteFile.payload?.notifications : payload.notifications
+      );
       payload = appendNotificationEvent(payload, { type: 'github-save', actor: 'admin', createdAt: updatedAt, changes });
       const source = serializeDataJs(payload);
       await this.githubData.write({ token, sha: remoteFile.sha, source, message: `chore: update bom data ${updatedAt}` });

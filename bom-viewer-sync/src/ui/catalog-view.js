@@ -5,7 +5,11 @@ import { escapeHTML } from './shared-view.js';
 
 function renderProductList() {
   const list = this.query('#productList');
-  const navigation = createPdmNavigation(this.state.payload, this.state.lang);
+  const navigation = createPdmNavigation(this.state.payload, {
+    bom: this.label('productBom'),
+    materials: this.label('materialDatabase'),
+    structure: this.label('structureView'),
+  });
   list.innerHTML = `<div class="module-nav">${navigation.map((item) => this.moduleButtonHtml(item)).join('')}</div>`;
 }
 

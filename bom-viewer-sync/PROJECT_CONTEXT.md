@@ -7,7 +7,7 @@
 - Complete local gate: `npm run check`.
 - Generated files: `admin.html`, `app-admin.js`, `styles.css`, and `viewer.html`.
 - Never edit generated files directly. Edit `src/` or the build scripts, then rebuild.
-- The generated 12-character build ID is dynamic. The current build ID is `afb6a28bd88c`; it changes whenever the build inputs change.
+- The generated 12-character build ID is dynamic. The current build ID is `06832ff5efec`; it changes whenever the build inputs change.
 
 `viewer.html` remains a standalone read-only local-file Viewer. Program, style, or shell changes require rebuilding and redistributing `viewer.html`. GitHub/Drive data changes continue to appear when Viewer reloads because data and linked assets remain remote.
 
@@ -25,7 +25,7 @@ Outer `outputs/` is a verified runtime mirror, not the editable source tree. Mir
 
 ## Verification Baseline
 
-- `npm run check` verifies 52 tests, the data audit, generated artifacts, and `app-admin.js` syntax.
+- `npm run check` verifies 55 tests, the data audit, generated artifacts, and `app-admin.js` syntax.
 - The data baseline is 643 materials, 2725 BOM entries, 22 products, 0 errors, and 0 warnings.
 - Material Master contracts are 16/16 and runtime contracts are 13/13.
 - `work/material-db.test.mjs` has a known non-gating 8/10 baseline; do not change runtime behavior only to satisfy its two stale expectations.

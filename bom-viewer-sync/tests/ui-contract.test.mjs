@@ -143,6 +143,27 @@ test('Material Database headers use localized labels instead of hardcoded Chines
   assert.doesNotMatch(renderMaterialDatabase, /\\u89c4\\u683c\\u578b\\u53f7/);
 });
 
+test('pagination and validation UI use dictionary labels', () => {
+  const renderMaterialDatabase = methodSource('renderMaterialDatabase');
+  const openPdmPrompt = methodSource('openPdmPrompt');
+
+  assert.match(renderMaterialDatabase, /this\.label\('paginationTotal'\)/);
+  assert.match(renderMaterialDatabase, /this\.label\('paginationItems'\)/);
+  assert.match(renderMaterialDatabase, /this\.label\('paginationGoTo'\)/);
+  assert.match(renderMaterialDatabase, /this\.label\('paginationPage'\)/);
+  assert.match(openPdmPrompt, /this\.label\('required'\)/);
+});
+
+test('direct Material Database page actions do not depend on ambient browser events', () => {
+  const app = Object.create(BomApplication.prototype);
+  app.state = { materialDbPage: 1 };
+  app.renderContent = () => {};
+
+  app.runAction('mdb-go-page', { dataset: { page: '3' } });
+
+  assert.equal(app.state.materialDbPage, 3);
+});
+
 test('new Material Master draft is not inserted into database before save', () => {
   const addDatabaseMaterial = methodSource('addDatabaseMaterial');
 

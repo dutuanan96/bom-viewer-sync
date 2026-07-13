@@ -14,7 +14,7 @@ function renderMaterialDatabase() {
   }
   const title = selected
     ? (localizedValue(selected.name, this.state.lang) || selected.code || this.label('materials'))
-    : '\u7269\u6599\u6570\u636e\u5e93';
+    : this.label('materialDatabase');
   const subtitle = selected
     ? `${selected.code || selected.id} · Material Database`
     : 'Material Database';
@@ -51,7 +51,7 @@ function renderMaterialDatabase() {
 
   const paginationHtml = totalPages > 1 ? `
     <div class="pdm-pagination">
-      <span class="pdm-page-total">${this.state.lang === 'vi' ? 'Tổng' : '共'} ${allRecords.length} ${this.state.lang === 'vi' ? 'mục' : '条'}</span>
+      <span class="pdm-page-total">${escapeHTML(this.label('paginationTotal'))} ${allRecords.length} ${escapeHTML(this.label('paginationItems'))}</span>
       <div class="pdm-page-pager">
         <button class="pdm-page-btn" data-action="mdb-prev-page" ${page === 1 ? 'disabled' : ''}>
           <span class="material-symbols-outlined">chevron_left</span>
@@ -62,9 +62,9 @@ function renderMaterialDatabase() {
         </button>
       </div>
       <span class="pdm-page-jump">
-        ${this.state.lang === 'vi' ? 'Đến' : '前往'}
+        ${escapeHTML(this.label('paginationGoTo'))}
         <input type="number" min="1" max="${totalPages}" value="${page}" data-action="mdb-jump-page">
-        ${this.state.lang === 'vi' ? 'trang' : '页'}
+        ${escapeHTML(this.label('paginationPage'))}
       </span>
     </div>
   ` : '';
@@ -100,11 +100,11 @@ function materialDbFilterBar() {
     if (record.color && record.color.zh) uniqueColors[record.color.zh] = record.color;
   });
 
-  const attrs = ['零件', '五金包', '包材'];
-  const attrChips = ['all', ...attrs].map(val => {
+  const attrs = this.collectAttrs();
+  const attrChips = [{ value: 'all', label: this.label('all') }, ...attrs].map(({ value, label }) => {
+    const val = value;
     const isActive = this.state.dbFilters.attr === val;
-    const text = val === 'all' ? this.label('all') : localizedValue({ zh: val, vi: val === '零件' ? 'Linh kiện' : val === '五金包' ? 'Túi ngũ kim' : 'Bao bì' }, this.state.lang);
-    return `<button class="db-filter-chip ${isActive ? 'active' : ''}" type="button" data-filter-type="attr" data-filter-val="${escapeHTML(val)}">${escapeHTML(text)}</button>`;
+    return `<button class="db-filter-chip ${isActive ? 'active' : ''}" type="button" data-filter-type="attr" data-filter-val="${escapeHTML(val)}">${escapeHTML(label)}</button>`;
   }).join('');
 
   const buildOptions = (uniques, currentVal) => {

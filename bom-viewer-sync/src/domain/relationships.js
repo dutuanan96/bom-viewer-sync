@@ -101,15 +101,14 @@ function buildBomTreeRows(payload, productCode, colorName) {
   return treeRows;
 }
 
-function scopeLabel(entry, lang) {
-  const shared = lang === 'vi' ? 'Dùng chung' : '通用';
+function scopeLabel(entry, sharedLabel) {
   const product = String(entry?.productCode || '').trim();
   const color = String(entry?.color || '').trim();
   if (product && color) return `${product} / ${color}`;
-  return product || color || shared;
+  return product || color || sharedLabel;
 }
 
-function groupMaterialChildRows(payload, parentId, lang) {
+function groupMaterialChildRows(payload, parentId, sharedLabel) {
   const source = payload || {};
   const groups = new Map();
   (source.materialDb?.bomEntries || [])
@@ -124,7 +123,7 @@ function groupMaterialChildRows(payload, parentId, lang) {
         groups.set(key, { entry, entries: [], child, qty: entry.qty || '', scopes: [], scopeSet: new Set() });
       }
       const group = groups.get(key);
-      const scope = scopeLabel(entry, lang);
+      const scope = scopeLabel(entry, sharedLabel);
       group.entries.push(entry);
       if (!group.scopeSet.has(scope)) {
         group.scopeSet.add(scope);

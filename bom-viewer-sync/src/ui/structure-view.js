@@ -48,7 +48,7 @@ function parentStructureRows() {
     if (entry.productCode) parentMap[entry.parentId].productCodes.add(entry.productCode);
   });
   return Object.values(parentMap)
-    .map((row) => ({ ...row, children: groupMaterialChildRows(payload, row.parent.id, this.state.lang) }))
+    .map((row) => ({ ...row, children: groupMaterialChildRows(payload, row.parent.id, this.label('sharedScope')) }))
     .filter((row) => {
       const { dbFilters } = this.state;
       if (dbFilters) {
@@ -126,7 +126,7 @@ function renderStructureDetail() {
   const parentName = localizedValue(parent.name, this.state.lang);
   const payload = { ...this.state.payload, materialDb: this.state.materialDb };
 
-  const children = groupMaterialChildRows(payload, this.state.selectedParentId, this.state.lang);
+  const children = groupMaterialChildRows(payload, this.state.selectedParentId, this.label('sharedScope'));
   const rowCount = children.length;
   const rowsHtml = children.map(({ entries, child, qty, scopes }) => {
     const childName = localizedValue(child.name, this.state.lang);

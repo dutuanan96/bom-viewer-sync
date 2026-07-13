@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
-import { buildBomTreeRows } from '../src/domain/relationships.js';
+import { buildBomTreeRows, groupMaterialChildRows } from '../src/domain/relationships.js';
 import { materialWhereUsed, updateMaterialRecord } from '../src/domain/materials.js';
 import { createPdmNavigation, createSidebarIndex, resolveBomRows } from '../src/domain/bom.js';
 import { coreUtils } from '../src/application.js';
@@ -80,12 +80,27 @@ test('BOM navigation normalizes legacy payloads at the domain seam', () => {
   assert.equal(legacyIndex.parentMaterials.length, 1);
   assert.equal(legacyIndex.childMaterials.length, 0);
 
-  const legacyNavigation = createPdmNavigation(legacyPayload, 'zh');
-  assert.deepEqual(legacyNavigation, createPdmNavigation(normalizedPayload, 'zh'));
+  const labels = { bom: 'Products', materials: 'Materials', structure: 'Structure' };
+  const legacyNavigation = createPdmNavigation(legacyPayload, labels);
+  assert.deepEqual(legacyNavigation, createPdmNavigation(normalizedPayload, labels));
   assert.deepEqual(
     Object.fromEntries(legacyNavigation.map(({ id, count }) => [id, count])),
     { bom: 1, materials: 1, structure: 0 },
   );
+  assert.deepEqual(legacyNavigation.map(({ label }) => label), Object.values(labels));
+});
+
+test('material relationship scopes use the translated shared label supplied by the caller', () => {
+  const payload = {
+    materialDb: {
+      materials: { child: { id: 'child', code: 'CHILD' } },
+      bomEntries: [{ id: 'entry', parentType: 'material', parentId: 'parent', childMaterialId: 'child' }],
+    },
+  };
+
+  const rows = groupMaterialChildRows(payload, 'parent', 'Shared scope');
+
+  assert.deepEqual(rows[0].scopes, ['Shared scope']);
 });
 
 test('materials domain does not import BOM or relationship modules', () => {

@@ -157,12 +157,19 @@ test('application normalizes current notifications and identifies incoming notif
 test('save diffs the current remote payload before writing its SHA', async () => {
   const remotePayload = coreUtils.normalizePayload({
     bom: {},
+    notifications: [{
+      id: 'remote-only-notification',
+      type: 'github-save',
+      actor: 'other-admin',
+      createdAt: '2026-07-12T00:00:00.000Z',
+    }],
     materialDb: {
       materials: { m1: { id: 'm1', code: 'M1', name: { zh: 'Remote old', vi: 'Remote old' } } },
       bomEntries: [],
     },
   });
   const localPayload = structuredClone(remotePayload);
+  localPayload.notifications = [];
   localPayload.materialDb.materials.m1.name.zh = 'Local new';
   const calls = [];
   let writeInput;
@@ -205,6 +212,7 @@ test('save diffs the current remote payload before writing its SHA', async () =>
   assert.equal(writeInput.sha, 'current-remote-sha');
   assert.match(writeInput.source, /"field": "name"/);
   assert.match(writeInput.source, /"before": "Remote old"/);
+  assert.match(writeInput.source, /remote-only-notification/);
   assert.equal(app.state.loadedPayload.materialDb.materials.m1.name.zh, 'Local new');
   assert.equal(app.state.payload.materialDb.materials.m1.name.zh, 'Local new');
 });
