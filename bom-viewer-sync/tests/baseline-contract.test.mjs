@@ -2,10 +2,11 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import test from 'node:test';
-import { loadDataPayload, loadLegacyCoreUtils, repoRoot } from './helpers/load-data.mjs';
+import { coreUtils } from '../src/application.js';
+import { loadDataPayload, repoRoot } from './helpers/load-data.mjs';
 
-test('legacy runtime exports the behavior required by the modular migration', () => {
-  const utils = loadLegacyCoreUtils();
+test('application exports the behavior required by the modular migration', () => {
+  const utils = coreUtils;
   for (const name of [
     'appendNotificationEvent',
     'buildGithubUpdateRequest',
@@ -22,7 +23,7 @@ test('legacy runtime exports the behavior required by the modular migration', ()
 });
 
 test('current data baseline remains clean enough to normalize', () => {
-  const utils = loadLegacyCoreUtils();
+  const utils = coreUtils;
   const payload = utils.normalizePayload(loadDataPayload());
   assert.equal(Object.keys(payload.bom).length, 22);
   assert.equal(Object.keys(payload.materialDb.materials).length, 643);

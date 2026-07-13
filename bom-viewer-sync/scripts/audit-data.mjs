@@ -5,15 +5,15 @@
  */
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
-import { coreUtils } from '../src/application.js';
+import { resolveBomRows } from '../src/domain/bom.js';
+import { parseDataJsPayload } from '../src/infrastructure/github-data.js';
 
 const repoRoot = path.resolve(import.meta.dirname, '..');
 const dataArgumentIndex = process.argv.indexOf('--data');
 const dataPath = dataArgumentIndex >= 0
   ? path.resolve(process.argv[dataArgumentIndex + 1])
   : path.join(repoRoot, 'data.js');
-const utils = coreUtils;
-const payload = utils.parseDataJsPayload(readFileSync(dataPath, 'utf8'));
+const payload = parseDataJsPayload(readFileSync(dataPath, 'utf8'));
 
 const issues = [];
 function report(severity, category, message, detail) {
@@ -62,7 +62,7 @@ bomEntries.forEach(entry => {
 // 4. Product BOM missing materials
 Object.entries(payload.bom || {}).forEach(([productCode, product]) => {
   Object.entries(product.color_info || {}).forEach(([colorName, colorData]) => {
-    const rows = utils.resolveBomRows(payload, productCode, colorName);
+    const rows = resolveBomRows(payload, productCode, colorName);
     if (!rows.length) {
       report('WARNING', 'EMPTY_BOM', `${productCode}/${colorName} has 0 BOM rows`, null);
     }
@@ -163,7 +163,7 @@ if (warnings.length) {
 const productsWithBom = Object.entries(payload.bom || {}).map(([code, product]) => {
   const colorCount = Object.keys(product.color_info || {}).length;
   const totalRows = Object.entries(product.color_info || {}).reduce((sum, [cn]) =>
-    sum + utils.resolveBomRows(payload, code, cn).length, 0);
+    sum + resolveBomRows(payload, code, cn).length, 0);
   return { code, colorCount, totalRows };
 });
 console.log('\n--- PRODUCT SUMMARY ---');
