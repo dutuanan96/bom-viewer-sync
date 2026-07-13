@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import test from 'node:test';
-import vm from 'node:vm';
+import { coreUtils } from '../src/application.js';
 
 const rootDir = path.resolve(import.meta.dirname, '..');
 const outputDir = rootDir;
@@ -11,30 +11,28 @@ function readOutput(fileName) {
   return fs.readFileSync(path.join(outputDir, fileName), 'utf8');
 }
 
+function readSourceTree() {
+  return fs.readdirSync(path.join(rootDir, 'src'), { recursive: true })
+    .filter((name) => name.endsWith('.js'))
+    .sort()
+    .map((name) => fs.readFileSync(path.join(rootDir, 'src', name), 'utf8'))
+    .join('\n');
+}
+
 function extractConfig(html) {
   const match = html.match(/window\.BOM_REPO_CONFIG\s*=\s*(\{[\s\S]*?\});/);
   assert.ok(match, 'expected hardcoded window.BOM_REPO_CONFIG');
-  return vm.runInNewContext(`(${match[1]})`);
+  return Function(`"use strict"; return (${match[1]});`)();
 }
 
 function loadCoreUtils() {
-  const source = readOutput('app-core.js');
-  const context = {
-    console,
-    TextEncoder,
-    TextDecoder,
-    window: { location: { search: '', hash: '' } },
-  };
-  context.window.window = context.window;
-  vm.createContext(context);
-  vm.runInContext(source, context, { filename: 'app-core.js' });
-  return context.window.BomCoreUtils;
+  return coreUtils;
 }
 
 function loadOutputPayload() {
   const dataJs = readOutput('data.js');
   const sandbox = { window: {} };
-  vm.runInNewContext(dataJs, sandbox, { filename: 'data.js' });
+  Function('window', dataJs)(sandbox.window);
   return sandbox.window.BOM_VIEWER_DATA;
 }
 
@@ -97,7 +95,7 @@ test('catalog product names omit color-specific terms', () => {
 
 test('viewer hides raw GitHub data source while admin can manage linked assets', () => {
   const viewerHtml = readOutput('viewer.html');
-  const appCore = readOutput('app-core.js');
+  const appCore = readSourceTree();
 
   assert.match(viewerHtml, /data-sync-source-row/);
   assert.match(appCore, /syncSourceRow\.hidden\s*=\s*!this\.isAdmin\(\)/);
@@ -118,10 +116,11 @@ test('admin HTML uses shared files and viewer HTML keeps the same GitHub config'
   assert.equal(adminConfig.path, 'bom-viewer-sync/data.js');
   assert.equal(adminConfig.rawUrl, 'https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/data.js');
 
-  assert.match(adminHtml, /app-core\.js/);
-  assert.match(adminHtml, /app-admin\.js/);
-  assert.doesNotMatch(adminHtml, /app-viewer\.js/);
+  assert.match(adminHtml, /app-admin\.js\?v=[a-f0-9]{12}/);
+  assert.doesNotMatch(adminHtml, /app-core\.js|app-viewer\.js/);
   assert.doesNotMatch(viewerHtml, /app-admin\.js/);
+  assert.match(viewerHtml, /<meta name="pdm-build" content="[a-f0-9]{12}">/);
+  assert.match(viewerHtml, /mode:\s*['"]viewer['"]/);
 });
 
 test('viewer HTML is standalone for sharing to another computer', () => {
@@ -132,8 +131,9 @@ test('viewer HTML is standalone for sharing to another computer', () => {
   assert.doesNotMatch(viewerHtml, /<script\s+src="app-core\.js"/);
   assert.doesNotMatch(viewerHtml, /<script\s+src="app-viewer\.js"/);
   assert.match(viewerHtml, /<style>/);
-  assert.match(viewerHtml, /global\.BomApp\s*=\s*\{/);
-  assert.match(viewerHtml, /global\.BomApp\.start\(\{\s*mode:\s*'viewer'/);
+  assert.doesNotMatch(viewerHtml, /app-admin\.js/);
+  assert.match(viewerHtml, /<meta name="pdm-build" content="[a-f0-9]{12}">/);
+  assert.match(viewerHtml, /mode:\s*['"]viewer['"]/);
   assert.match(viewerHtml, /raw\.githubusercontent\.com\/dutuanan96\/bom-viewer-sync\/main\/bom-viewer-sync\/data\.js/);
 });
 
@@ -313,7 +313,7 @@ test('admin save diff records multi-color drawer material changes', () => {
 test('admin save and viewer UI include a PDM notification center', () => {
   const adminHtml = readOutput('admin.html');
   const viewerHtml = readOutput('viewer.html');
-  const appCore = readOutput('app-core.js');
+  const appCore = readSourceTree();
 
   assert.match(adminHtml, /id="notificationButton"/);
   assert.match(viewerHtml, /id="notificationButton"/);
@@ -322,17 +322,17 @@ test('admin save and viewer UI include a PDM notification center', () => {
   assert.match(appCore, /notificationBadge/);
   assert.match(appCore, /NOTIFICATION_REFRESH_MS/);
   assert.match(appCore, /application\/vnd\.github\.raw/);
-  assert.match(appCore, /fetchGithubFile/);
+  assert.match(appCore, /createGithubDataAdapter/);
   assert.match(appCore, /describePayloadChanges\(remoteFile\.payload/);
 });
 
 test('viewer and core include browser-native 3D model support', () => {
   const viewerHtml = readOutput('viewer.html');
   const adminHtml = readOutput('admin.html');
-  const appCore = readOutput('app-core.js');
+  const appCore = readSourceTree();
   const dataJs = readOutput('data.js');
   const sandbox = { window: {} };
-  vm.runInNewContext(dataJs, sandbox, { filename: 'data.js' });
+  Function('window', dataJs)(sandbox.window);
 
   assert.match(viewerHtml, /@google\/model-viewer/);
   assert.match(adminHtml, /@google\/model-viewer/);
@@ -347,11 +347,11 @@ test('viewer and core include browser-native 3D model support', () => {
 });
 
 test('parent-child structure parent list extracts localized fields and prevents [object Object]', () => {
-  const appCore = readOutput('app-core.js');
+  const appCore = readSourceTree();
 
   assert.doesNotMatch(appCore, /materialText\(parent,\s*'spec'/);
   assert.doesNotMatch(appCore, /materialText\(parent,\s*'attr'/);
-  
+
   assert.match(appCore, /localizedValue\(parent\.spec,\s*this\.state\.lang\)/);
   assert.match(appCore, /localizedValue\(parent\.material,\s*this\.state\.lang\)/);
   assert.match(appCore, /localizedValue\(parent\.color,\s*this\.state\.lang\)/);
@@ -361,4 +361,3 @@ test('parent-child structure parent list extracts localized fields and prevents 
   assert.match(appCore, /if\s*\(\s*attrVal\s*\)\s*\{/);
   assert.match(appCore, /<td><span class="mdb-empty">-<\/span><\/td>/);
 });
-

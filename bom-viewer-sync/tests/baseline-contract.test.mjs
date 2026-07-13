@@ -2,10 +2,11 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import test from 'node:test';
-import { loadDataPayload, loadLegacyCoreUtils, repoRoot } from './helpers/load-data.mjs';
+import { coreUtils } from '../src/application.js';
+import { loadDataPayload, repoRoot } from './helpers/load-data.mjs';
 
-test('legacy runtime exports the behavior required by the modular migration', () => {
-  const utils = loadLegacyCoreUtils();
+test('application exports the behavior required by the modular migration', () => {
+  const utils = coreUtils;
   for (const name of [
     'appendNotificationEvent',
     'buildGithubUpdateRequest',
@@ -22,7 +23,7 @@ test('legacy runtime exports the behavior required by the modular migration', ()
 });
 
 test('current data baseline remains clean enough to normalize', () => {
-  const utils = loadLegacyCoreUtils();
+  const utils = coreUtils;
   const payload = utils.normalizePayload(loadDataPayload());
   assert.equal(Object.keys(payload.bom).length, 22);
   assert.equal(Object.keys(payload.materialDb.materials).length, 643);
@@ -34,6 +35,6 @@ test('current Viewer is standalone and current Admin uses the shared runtime cha
   const admin = fs.readFileSync(path.join(repoRoot, 'admin.html'), 'utf8');
   assert.doesNotMatch(viewer, /<script src="(?:data|app-core|app-viewer)\.js/);
   assert.match(viewer, /mode:\s*['"]viewer['"]/);
-  assert.match(admin, /app-core\.js\?v=/);
-  assert.match(admin, /app-admin\.js\?v=/);
+  assert.match(admin, /app-admin\.js\?v=[a-f0-9]{12}/);
+  assert.doesNotMatch(admin, /app-core\.js|app-viewer\.js/);
 });
