@@ -30,7 +30,9 @@ PR #1 was squash-merged into `main` on 2026-07-14 as `72debab`. Review future re
 - Every BOM entry must have one valid product scope before it can be migrated; unsafe product codes must not become paths.
 - Migration is dry-run by default and performs no network writes. Preview files require explicit `--write --out <directory>`.
 - Shard reads are cached by path. Legacy fallback is allowed only when the manifest is missing; schema or dataset-version mismatches must be reported.
-- This PR must not change production load/save orchestration. Runtime cutover requires a separate review of atomic Git tree writes and backward compatibility.
+- Atomic writes must create blobs for string content, use `sha: null` for deletion, create one tree from the current base tree, create one commit whose parent is the observed HEAD, and update the ref with `force: false`.
+- Unsafe repository paths and invalid file values must fail before any GitHub request. Expected-HEAD mismatch must fail before object creation; only ref-update `409`/`422` responses map to `GITHUB_DATA_CONFLICT`.
+- This stacked PR must not change production load/save orchestration. Runtime cutover still requires a separate review of remote notification merging, changed-shard composition, legacy compatibility and real browser behavior.
 
 ## Material Asset Contracts
 
@@ -50,6 +52,7 @@ PR #1 was squash-merged into `main` on 2026-07-14 as `72debab`. Review future re
 
 - Repository: 89/89 tests passed.
 - Sharding foundation branch: 100/100 tests passed; dry-run parity validated 22 products, 646 materials, 2725 BOM entries, 1 notification, and 26 planned shard files.
+- Atomic-writer stacked branch: 108/108 tests passed; no production load/save integration or remote data write is included.
 - Canonical audit: 646 materials / 2725 BOM entries / 22 products / 1 notification / 0 errors / 0 warnings.
 - Outer Material Master/revision contracts: 23/23 passed.
 - Outer runtime contracts: 13/13 passed.

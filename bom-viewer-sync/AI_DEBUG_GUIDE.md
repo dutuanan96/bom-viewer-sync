@@ -10,7 +10,7 @@
 - Editable source-of-truth: `src/`, `scripts/`, `tests/`, `package.json` và các tài liệu trong project root.
 - Generated artifacts: `admin.html`, `app-admin.js`, `styles.css`, `viewer.html`.
 - Runtime data: `data.js`. Không ghi đè file này trong code-only work.
-- Sharding foundation: `src/domain/sharded-data.js`, `src/infrastructure/sharded-data.js`, and `scripts/migrate-data.mjs`. This foundation is not a runtime cutover: `data.js` remains authoritative until an atomic sharded writer is reviewed and merged.
+- Sharding foundation: `src/domain/sharded-data.js`, `src/infrastructure/sharded-data.js`, and `scripts/migrate-data.mjs`. The inactive atomic writer is `src/infrastructure/github-git-data.js`. These modules are not a runtime cutover: `data.js` remains authoritative until compatibility orchestration is reviewed and merged.
 - Portable mirror: outer `outputs/`. Đây là nơi nhận artifact đã verify, không phải source-of-truth.
 - `viewer.html` là Viewer read-only một file để gửi sang máy khác.
 - `admin.html` dùng bundle và data file bên cạnh để chỉnh sửa rồi lưu lên GitHub.
@@ -136,7 +136,7 @@ data.js
   -> optional --write --out <preview-directory>
 ```
 
-The preview schema contains `data/manifest.json`, `data/materials.json`, `data/indexes/where-used.json`, `data/notifications.json`, and one `data/products/<ProductCode>.json` per product. Do not point Viewer/Admin at these files yet. A future cutover must preserve current remote notifications, use optimistic concurrency and one Git tree commit for all changed shards, and keep `data.js` fallback during the compatibility window.
+The preview schema contains `data/manifest.json`, `data/materials.json`, `data/indexes/where-used.json`, `data/notifications.json`, and one `data/products/<ProductCode>.json` per product. Do not point Viewer/Admin at these files yet. The inactive writer publishes changed paths through `GET ref -> GET commit -> POST blobs -> POST tree -> POST commit -> PATCH ref` with `force: false`. It rejects a stale expected HEAD before object creation and maps a concurrent `409`/`422` ref update to `GITHUB_DATA_CONFLICT`. A failed final ref update can leave unreachable Git objects, but it does not partially publish shard files. A future cutover must still preserve current remote notifications, compose the complete changed-shard set, and keep `data.js` fallback during the compatibility window.
 
 Điểm quan trọng: save không được diff dựa trên stale local baseline. Remote-only notifications phải được giữ lại trước khi append event mới. Đây là lý do adapter và application save flow phải đọc current remote payload and SHA ngay trước PUT.
 

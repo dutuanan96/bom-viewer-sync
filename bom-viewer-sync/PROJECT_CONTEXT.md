@@ -55,12 +55,15 @@ The Viewer uses a cache-busted GitHub Contents API read, so remote data can be n
 - The preview schema separates a lightweight manifest, shared materials, compact where-used references, notifications, and product-scoped BOM/assets/revision data.
 - `scripts/migrate-data.mjs` is dry-run by default, derives a SHA-256 dataset version, and refuses output unless full payload parity succeeds. Explicit preview output requires `--write --out <directory>`.
 - `src/infrastructure/sharded-data.js` provides cached lazy reads and uses the legacy loader only when `data/manifest.json` is absent. Existing but invalid shards are errors, not fallback conditions.
-- This foundation is deliberately not wired into `src/application.js`; production Viewer/Admin still read and write `data.js` until the atomic writer and compatibility cutover are implemented.
+- `src/infrastructure/github-git-data.js` can publish a validated set of UTF-8 files and deletions through one Git tree commit. It checks an optional expected HEAD before creating objects and uses a non-force ref update as the final concurrency gate.
+- Ref-update `409`/`422` responses use the stable `GITHUB_DATA_CONFLICT` code. Blob, tree or commit failures retain HTTP status and endpoint context. A failed final ref update may leave unreachable objects but cannot partially update the branch tree.
+- These modules are deliberately not wired into `src/application.js`; production Viewer/Admin still read and write `data.js` until compatibility cutover orchestration preserves remote notification history and submits every affected shard together.
 - Foundation branch verification passes 100/100 tests. The current-data dry-run validates 22 products, 646 materials, 2725 BOM entries, 1 notification, and 26 planned shard files.
 
 ## Verified Baseline (2026-07-14)
 
 - `npm run check`: 89/89 tests passed.
+- Atomic-writer stacked branch: 108/108 tests passed; production runtime orchestration remains unchanged.
 - Canonical data audit: 646 materials, 2725 BOM entries, 22 products, 1 notification, 0 errors, 0 warnings.
 - Outer Material Master/revision contracts: 23/23 passed.
 - Outer runtime contracts: 13/13 passed.

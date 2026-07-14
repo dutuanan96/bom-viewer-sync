@@ -28,7 +28,7 @@ Create a local preview only with an explicit output directory:
 npm run migrate:data -- --write --out <preview-directory>
 ```
 
-The command never updates GitHub and never overwrites `data.js`. Viewer/Admin continue using `data.js`; do not publish preview shards until an atomic sharded writer and compatibility cutover have been reviewed.
+The command never updates GitHub and never overwrites `data.js`. The repository also contains an inactive atomic Git Data API writer that can publish a caller-supplied file set through one non-force commit. Viewer/Admin continue using `data.js`; do not publish preview shards until compatibility orchestration preserves remote notification history and supplies the complete changed-shard set.
 
 ## Sync Rules
 
