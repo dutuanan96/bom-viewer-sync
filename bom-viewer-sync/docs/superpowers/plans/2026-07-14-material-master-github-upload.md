@@ -500,7 +500,7 @@ rg -n "gho_[A-Za-z0-9]{10,}|github_pat_[A-Za-z0-9_]{20,}" . --glob "!node_module
 
 Expected: only Phase B source, tests, generated artifacts, plan, and context files differ; secret scan has no matches.
 
-- [ ] **Step 5: Commit context and publish a Draft PR**
+- [x] **Step 5: Commit context and publish a Draft PR**
 
 ```powershell
 git add AI_DEBUG_GUIDE.md HANDOVER.md PROJECT_CONTEXT.md REVIEW_CONTEXT.md README_SYNC.md docs/superpowers/plans/2026-07-14-material-master-github-upload.md
