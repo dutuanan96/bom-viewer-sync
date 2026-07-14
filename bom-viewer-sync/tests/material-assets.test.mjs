@@ -45,6 +45,124 @@ function setupApp() {
   return { app, payload };
 }
 
+function pendingPdfFile() {
+  const bytes = new TextEncoder().encode('%PDF-1.4\n');
+  return {
+    name: 'drawing final.pdf',
+    type: 'application/pdf',
+    size: bytes.byteLength,
+    async arrayBuffer() {
+      return bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength);
+    }
+  };
+}
+
+function configurePendingDrawingForm(app) {
+  app.queryAll = (selector) => {
+    if (selector.includes('[data-material-master-edit]')) return [];
+    if (selector.includes('#drawings-container')) {
+      return [{
+        querySelector: (query) => ({ value: query.includes('name') ? '' : '' })
+      }];
+    }
+    if (selector.includes('#models3d-container')) {
+      return [{
+        querySelector: (query) => ({
+          value: query.includes('name') ? 'Original Model' : 'https://cdn.example.com/original.glb'
+        })
+      }];
+    }
+    return [];
+  };
+}
+
+test('selecting a PDF stages bytes in the draft without uploading or mutating the database', async () => {
+  const { app } = setupApp();
+  let uploadCount = 0;
+  app.githubAssetStorage = {
+    async uploadAsset() {
+      uploadCount += 1;
+      return {};
+    }
+  };
+  app.openMaterialMasterEditor('mat-1');
+  app.state.materialDraft = structuredClone(app.state.materialDb.materials['mat-1']);
+  app.state.materialDraft.drawings = [{ name: '', url: '', driveId: 'preserved-drive-id' }];
+  configurePendingDrawingForm(app);
+  app.setStatus = () => {};
+  app.label = (key) => key;
+
+  await app.handleMaterialAssetFileInput({
+    dataset: { assetType: 'drawings', assetIndex: '0' },
+    files: [pendingPdfFile()],
+    value: 'selected'
+  });
+
+  const draftAsset = app.state.materialDraft.drawings[0];
+  assert.equal(uploadCount, 0);
+  assert.equal((app.state.materialDb.materials['mat-1'].drawings || []).length, 0);
+  assert.equal(draftAsset.url, '');
+  assert.equal(draftAsset.name, 'drawing final.pdf');
+  assert.equal(draftAsset.driveId, 'preserved-drive-id');
+  assert.match(draftAsset.pendingAssetId, /^assets\/pdfs\/MAT-001_[a-f0-9]{64}_drawing_final\.pdf$/);
+  assert.equal(Object.keys(app.state.pendingMaterialAssets).length, 1);
+  assert.equal(app.state.pendingMaterialAssets[draftAsset.pendingAssetId].bytes instanceof Uint8Array, true);
+});
+
+test('Save Material commits a pending reference locally without uploading', async () => {
+  const { app } = setupApp();
+  let uploadCount = 0;
+  app.githubAssetStorage = {
+    async uploadAsset() {
+      uploadCount += 1;
+      return {};
+    }
+  };
+  app.openMaterialMasterEditor('mat-1');
+  app.state.materialDraft = structuredClone(app.state.materialDb.materials['mat-1']);
+  app.state.materialDraft.drawings = [{ name: '', url: '', sourceUrl: 'preserved-source' }];
+  configurePendingDrawingForm(app);
+  app.setStatus = () => {};
+  app.label = (key) => key;
+
+  await app.handleMaterialAssetFileInput({
+    dataset: { assetType: 'drawings', assetIndex: '0' },
+    files: [pendingPdfFile()],
+    value: 'selected'
+  });
+  app.saveMaterialMaster();
+
+  const saved = app.state.materialDb.materials['mat-1'].drawings[0];
+  assert.equal(uploadCount, 0);
+  assert.equal(saved.url, '');
+  assert.equal(saved.sourceUrl, 'preserved-source');
+  assert.match(saved.pendingAssetId, /^assets\/pdfs\//);
+  assert.equal(app.state.materialDraft, null);
+  assert.equal(app.state.pendingMaterialAssets[saved.pendingAssetId].originalName, 'drawing final.pdf');
+});
+
+test('Back discards unreferenced staged bytes with the Material Draft', async () => {
+  const { app } = setupApp();
+  app.openMaterialMasterEditor('mat-1');
+  app.state.materialDraft = structuredClone(app.state.materialDb.materials['mat-1']);
+  app.state.materialDraft.drawings = [{ name: '', url: '' }];
+  configurePendingDrawingForm(app);
+  app.setStatus = () => {};
+  app.label = (key) => key;
+
+  await app.handleMaterialAssetFileInput({
+    dataset: { assetType: 'drawings', assetIndex: '0' },
+    files: [pendingPdfFile()],
+    value: 'selected'
+  });
+  assert.equal(Object.keys(app.state.pendingMaterialAssets).length, 1);
+
+  app.backMaterialList();
+
+  assert.equal(app.state.materialDraft, null);
+  assert.deepEqual(app.state.pendingMaterialAssets, {});
+});
+
 test('Add asset does not lose unsaved Material Master fields', () => {
   const { app } = setupApp();
   app.openMaterialMasterEditor('mat-1');

@@ -21,6 +21,15 @@ import {
   rawUrl,
   serializeDataJs,
 } from './infrastructure/github-data.js';
+import {
+  buildAssetPath,
+  createGithubAssetStorageAdapter,
+  sha256Hex,
+} from './infrastructure/github-asset-storage.js';
+import {
+  MaterialAssetUploadError,
+  validateMaterialAssetFile,
+} from './features/material-asset-upload.js';
 import { stableId } from './shared/primitives.js';
 import {
   appendNotificationEvent as appendNormalizedNotificationEvent,
@@ -56,6 +65,11 @@ const global = globalThis;
   const REFRESH_MS = 60 * 60 * 1000;
   const NOTIFICATION_REFRESH_MS = 60 * 1000;
   const TOKEN_KEY = 'bom_admin_github_token_v2';
+  const ASSET_STORAGE_CONFIG = {
+    owner: 'dutuanan96',
+    repo: 'bom-viewer-assets',
+    branch: 'main',
+  };
 
   const TEXT = {
     zh: {
@@ -544,6 +558,8 @@ const global = globalThis;
       this.mode = options.mode === 'admin' ? 'admin' : 'viewer';
       this.config = normalizeConfig(options.config);
       this.githubData = options.githubData || createGithubDataAdapter({ config: this.config });
+      this.githubAssetStorage = options.githubAssetStorage
+        || (this.mode === 'admin' ? createGithubAssetStorageAdapter({ config: ASSET_STORAGE_CONFIG }) : null);
       this.notificationToastTimer = null;
       this.state = this.initialState();
     }
@@ -560,6 +576,7 @@ const global = globalThis;
         productImages: payload.productImages,
         materialDb: payload.materialDb,
         materialDraft: null,
+        pendingMaterialAssets: {},
         loadedPayload: clone(payload),
         currentSku: '',
         currentColor: '',
@@ -1144,6 +1161,7 @@ const global = globalThis;
       const nextView = ['bom', 'materials', 'structure'].includes(view) ? view : 'bom';
       this.state.adminView = nextView;
       this.state.materialDraft = null;
+      this.prunePendingMaterialAssets();
       this.state.selectedMaterialId = '';
       this.state.selectedEntryId = '';
       this.state.selectedParentId = '';
@@ -1170,6 +1188,7 @@ const global = globalThis;
       this.state.currentSku = sku;
       this.state.selectedRevision = '';
       this.state.materialDraft = null;
+      this.prunePendingMaterialAssets();
       this.state.selectedMaterialId = '';
       this.state.selectedEntryId = '';
       this.state.adminView = 'bom';
@@ -1207,6 +1226,7 @@ const global = globalThis;
       if (!this.state.materialDb?.materials?.[materialId]) return;
       this.state.adminView = 'materials';
       this.state.materialDraft = null;
+      this.prunePendingMaterialAssets();
       this.state.selectedMaterialId = materialId;
       this.state.searchQuery = '';
       const searchInput = this.query('#searchInput');
@@ -1232,6 +1252,7 @@ const global = globalThis;
 
     backMaterialList() {
       this.state.materialDraft = null;
+      this.prunePendingMaterialAssets();
       this.state.selectedMaterialId = '';
       this.renderProductList();
       this.renderFilterBar();
@@ -1662,10 +1683,87 @@ const global = globalThis;
            const nameInput = row.querySelector('[data-asset-edit="name"]');
            const urlInput = row.querySelector('[data-asset-edit="url"]');
            const orig = (this.state.materialDraft[typeKey] || [])[i] || {};
-           arr.push({ ...orig, name: nameInput.value.trim(), url: urlInput.value.trim() });
+           const nextAsset = { ...orig, name: nameInput.value.trim(), url: urlInput.value.trim() };
+           if (nextAsset.url && nextAsset.pendingAssetId) delete nextAsset.pendingAssetId;
+           arr.push(nextAsset);
+         });
+         this.state.materialDraft[typeKey] = arr;
+       });
+      this.prunePendingMaterialAssets();
+    }
+
+    prunePendingMaterialAssets() {
+      const referenced = new Set();
+      const collect = (record) => {
+        ['drawings', 'models3d'].forEach((typeKey) => {
+          (record?.[typeKey] || []).forEach((asset) => {
+            if (asset?.pendingAssetId) referenced.add(asset.pendingAssetId);
+          });
         });
-        this.state.materialDraft[typeKey] = arr;
+      };
+      collect(this.state.materialDraft);
+      Object.values(this.state.materialDb?.materials || {}).forEach(collect);
+      Object.keys(this.state.pendingMaterialAssets || {}).forEach((pendingId) => {
+        if (!referenced.has(pendingId)) delete this.state.pendingMaterialAssets[pendingId];
       });
+    }
+
+    materialAssetErrorLabel(error) {
+      const labels = {
+        INVALID_ASSET_FILE: 'invalidAssetFile',
+        ASSET_FILE_TOO_LARGE: 'assetFileTooLarge',
+        INVALID_PDF_FILE: 'invalidPdfFile',
+        INVALID_GLB_FILE: 'invalidGlbFile',
+        INVALID_GLTF_FILE: 'invalidGltfFile',
+        PENDING_ASSET_MISSING: 'pendingAssetMissing',
+      };
+      return this.label(labels[error?.code] || 'invalidAssetFile');
+    }
+
+    async handleMaterialAssetFileInput(input) {
+      if (!this.isAdmin()) return;
+      const file = input?.files?.[0];
+      const typeKey = input?.dataset?.assetType;
+      const index = Number.parseInt(input?.dataset?.assetIndex, 10);
+      if (!file || !['drawings', 'models3d'].includes(typeKey) || !Number.isInteger(index)) return;
+      this.syncMaterialMasterFormToDraft();
+      const draftAsset = this.state.materialDraft?.[typeKey]?.[index];
+      if (!draftAsset) return;
+      try {
+        const validated = await validateMaterialAssetFile({ file, typeKey });
+        const contentHash = await sha256Hex(validated.bytes);
+        const path = buildAssetPath({
+          kind: validated.kind,
+          materialCode: this.state.materialDraft.code || this.state.materialDraft.id,
+          originalName: validated.originalName,
+          contentHash,
+        });
+        const previousPendingId = draftAsset.pendingAssetId;
+        this.state.pendingMaterialAssets[path] = {
+          ...validated,
+          path,
+          contentHash,
+        };
+        this.state.materialDraft[typeKey][index] = {
+          ...draftAsset,
+          name: draftAsset.name || validated.originalName,
+          url: '',
+          pendingAssetId: path,
+        };
+        if (previousPendingId && previousPendingId !== path) {
+          delete this.state.pendingMaterialAssets[previousPendingId];
+        }
+        this.prunePendingMaterialAssets();
+        this.renderContent();
+        this.setStatus(this.label('assetFileQueued'), 'saved');
+      } catch (error) {
+        const validationError = error instanceof MaterialAssetUploadError
+          ? error
+          : new MaterialAssetUploadError('INVALID_ASSET_FILE');
+        this.setStatus(this.materialAssetErrorLabel(validationError), 'error');
+      } finally {
+        input.value = '';
+      }
     }
 
     addMaterialAssetRow(typeKey) {
@@ -1684,6 +1782,7 @@ const global = globalThis;
       if (this.state.materialDraft[typeKey]) {
         this.state.materialDraft[typeKey].splice(index, 1);
       }
+      this.prunePendingMaterialAssets();
       this.renderContent();
     }
 
@@ -1730,6 +1829,13 @@ const global = globalThis;
       const processAssets = (typeKey, validator, errorLabel) => {
         const arr = [];
         (this.state.materialDraft[typeKey] || []).forEach((asset) => {
+           if (asset.pendingAssetId) {
+             if (!this.state.pendingMaterialAssets[asset.pendingAssetId]) {
+               validationError = this.label('pendingAssetMissing');
+             }
+             arr.push(asset);
+             return;
+           }
            const url = asset.url;
            if (!url) {
              validationError = this.label(errorLabel);
@@ -1766,6 +1872,7 @@ const global = globalThis;
       this.state.materialDb = this.state.payload.materialDb;
       this.state.payload.materialDb = this.state.materialDb;
       this.state.materialDraft = null;
+      this.prunePendingMaterialAssets();
       this.state.selectedMaterialId = record.id;
       this.markDirty();
       this.renderProductList();
@@ -2008,6 +2115,8 @@ const global = globalThis;
     }
 
     addDatabaseMaterial() {
+      this.state.materialDraft = null;
+      this.prunePendingMaterialAssets();
       const id = stableId('mat', `manual|${Date.now()}|${Math.random()}`);
       this.state.materialDraft = {
         id,
@@ -2059,6 +2168,7 @@ const global = globalThis;
       this.state.payload.materialDb = this.state.materialDb;
       if (this.state.selectedMaterialId === materialId) this.state.selectedMaterialId = '';
       this.state.materialDraft = null;
+      this.prunePendingMaterialAssets();
       this.markDirty();
       this.renderProductList();
       this.renderFilterBar();
@@ -2168,6 +2278,7 @@ const global = globalThis;
       this.state.productImages = this.state.payload.productImages;
       this.state.materialDb = this.state.payload.materialDb;
       this.state.materialDraft = null;
+      this.state.pendingMaterialAssets = {};
       this.state.loadedPayload = clone(this.state.payload);
       this.state.dirty = false;
       this.state.selectedMaterialId = '';

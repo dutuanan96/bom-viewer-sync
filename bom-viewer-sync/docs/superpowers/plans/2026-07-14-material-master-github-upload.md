@@ -188,7 +188,7 @@ Expected: focused and full unit tests pass.
 - Consumes: Task 1 validation plus Phase A `buildAssetPath()` and `sha256Hex()`.
 - Produces: `state.pendingMaterialAssets`, `handleMaterialAssetFileInput(input)`, `openMaterialAssetFilePicker(button)`, and `prunePendingMaterialAssets()`.
 
-- [ ] **Step 1: Write failing draft-isolation tests**
+- [x] **Step 1: Write failing draft-isolation tests**
 
 Add tests that inject a browser-like PDF, call `handleMaterialAssetFileInput`, and assert:
 
@@ -202,7 +202,7 @@ assert.equal(Object.keys(app.state.pendingMaterialAssets).length, 1);
 
 Then call `saveMaterialMaster()` and assert the local material record contains the internal pending ID, still with zero upload calls. Assert Back before Save Material removes unreferenced pending bytes.
 
-- [ ] **Step 2: Run the focused test and verify RED**
+- [x] **Step 2: Run the focused test and verify RED**
 
 Run:
 
@@ -212,7 +212,7 @@ node --test tests/material-assets.test.mjs
 
 Expected: FAIL because the file staging methods and pending state do not exist.
 
-- [ ] **Step 3: Add adapter injection and pending state**
+- [x] **Step 3: Add adapter injection and pending state**
 
 In `src/application.js`:
 
@@ -232,7 +232,7 @@ this.githubAssetStorage = options.githubAssetStorage
 
 Add `pendingMaterialAssets: {}` beside `materialDraft` in `initialState()`.
 
-- [ ] **Step 4: Implement deterministic staging**
+- [x] **Step 4: Implement deterministic staging**
 
 `handleMaterialAssetFileInput(input)` must:
 
@@ -246,11 +246,11 @@ Add `pendingMaterialAssets: {}` beside `materialDraft` in `initialState()`.
 
 `syncMaterialMasterFormToDraft()` must preserve a pending ID while URL remains blank, and remove it when the user enters a manual URL. `saveMaterialMaster()` must accept a blank URL only when the pending ID exists in `state.pendingMaterialAssets`; it must not set `previewUrl` until upload resolves.
 
-- [ ] **Step 5: Prune only unreferenced pending bytes**
+- [x] **Step 5: Prune only unreferenced pending bytes**
 
 Implement `prunePendingMaterialAssets()` by collecting pending IDs from `state.materialDraft` and every stored material's `drawings`/`models3d`. Call it after a draft/row is discarded. `applyPayload()` clears all pending entries because cloud data contains no valid in-memory bytes.
 
-- [ ] **Step 6: Verify GREEN and commit**
+- [x] **Step 6: Verify GREEN and commit**
 
 Run:
 
