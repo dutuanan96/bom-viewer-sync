@@ -155,3 +155,52 @@ test('rejects malformed upload metadata without exposing the token', async () =>
       && !error.message.includes('do-not-expose'),
   );
 });
+
+test('recovers an exact immutable upload after a create conflict', async () => {
+  const bytes = new Uint8Array([1, 2, 3]);
+  const hash = await sha256Hex(bytes);
+  const path = `assets/pdfs/M1_${hash}_drawing.pdf`;
+  const requests = [];
+  const responses = [
+    jsonResponse({}, 422, 'Unprocessable Entity'),
+    jsonResponse({ path, size: bytes.byteLength }),
+    jsonResponse([{ sha: 'fedcba9876543210fedcba9876543210fedcba98' }]),
+  ];
+  const adapter = createGithubAssetStorageAdapter({
+    config,
+    fetchImpl: async (url, options = {}) => {
+      requests.push({ url, options });
+      return responses.shift();
+    },
+  });
+
+  const result = await adapter.uploadAsset({
+    token: 'token',
+    path,
+    contentType: 'application/pdf',
+    bytes,
+  });
+
+  assert.equal(result.reused, true);
+  assert.equal(result.commitSha, 'fedcba9876543210fedcba9876543210fedcba98');
+  assert.equal(requests.some(({ options }) => options.method === 'DELETE'), false);
+  assert.equal(JSON.parse(requests[0].options.body).sha, undefined);
+});
+
+test('rejects an existing path when size or hash identity does not match', async () => {
+  const bytes = new Uint8Array([1, 2, 3]);
+  const hash = await sha256Hex(bytes);
+  const path = `assets/models/M1_${hash}_model.glb`;
+  const adapter = createGithubAssetStorageAdapter({
+    config,
+    fetchImpl: async (_url, options = {}) => options.method === 'PUT'
+      ? jsonResponse({}, 409, 'Conflict')
+      : jsonResponse({ path, size: 999 }),
+  });
+
+  await assert.rejects(
+    adapter.uploadAsset({ token: 'token', path, contentType: 'model/gltf-binary', bytes }),
+    (error) => error instanceof GithubAssetStorageError
+      && error.code === 'GITHUB_ASSET_CONFLICT',
+  );
+});

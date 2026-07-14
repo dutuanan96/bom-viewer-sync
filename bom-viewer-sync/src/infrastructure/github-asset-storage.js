@@ -137,7 +137,72 @@ export function createGithubAssetStorageAdapter({ config, fetchImpl = globalThis
   const cleanConfig = normalizeConfig(config);
   const apiBase = `https://api.github.com/repos/${encodeURIComponent(cleanConfig.owner)}/${encodeURIComponent(cleanConfig.repo)}`;
 
+  async function requestJson(url, options, endpoint) {
+    let response;
+    try {
+      response = await fetchImpl(url, options);
+    } catch {
+      throw new GithubAssetStorageError(`GET ${endpoint} failed: network error`, { endpoint });
+    }
+    if (!response.ok) {
+      throw new GithubAssetStorageError(
+        `GET ${endpoint} failed: ${response.status} ${response.statusText}`,
+        { status: response.status, endpoint },
+      );
+    }
+    try {
+      return await response.json();
+    } catch {
+      throw new GithubAssetStorageError(`Invalid JSON response from ${endpoint}`, {
+        code: 'GITHUB_ASSET_INVALID_RESPONSE',
+        endpoint,
+      });
+    }
+  }
+
+  async function resolveExistingAsset({ token, path, expectedSize, contentHash }) {
+    if (!HASH_PATTERN.test(String(contentHash || '')) || !String(path).includes(`_${contentHash}_`)) {
+      throw new GithubAssetStorageError(`Existing asset identity mismatch: ${path}`, {
+        code: 'GITHUB_ASSET_CONFLICT',
+      });
+    }
+    const contentsEndpoint = `/contents/${encodePath(path)}?ref=${encodeURIComponent(cleanConfig.branch)}`;
+    const existing = await requestJson(
+      `${apiBase}${contentsEndpoint}`,
+      { headers: githubHeaders(token) },
+      contentsEndpoint,
+    );
+    if (existing?.path !== path || existing?.size !== expectedSize) {
+      throw new GithubAssetStorageError(`Existing asset does not match: ${path}`, {
+        code: 'GITHUB_ASSET_CONFLICT',
+        endpoint: contentsEndpoint,
+      });
+    }
+    const commitsEndpoint = `/commits?path=${encodeURIComponent(path)}&sha=${encodeURIComponent(cleanConfig.branch)}&per_page=1`;
+    const commits = await requestJson(
+      `${apiBase}${commitsEndpoint}`,
+      { headers: githubHeaders(token) },
+      commitsEndpoint,
+    );
+    const commitSha = String(commits?.[0]?.sha || '');
+    if (!COMMIT_PATTERN.test(commitSha)) {
+      throw new GithubAssetStorageError(`Invalid commit history for ${path}`, {
+        code: 'GITHUB_ASSET_INVALID_RESPONSE',
+        endpoint: commitsEndpoint,
+      });
+    }
+    return {
+      path,
+      size: expectedSize,
+      contentHash,
+      commitSha,
+      url: buildCdnUrl({ config: cleanConfig, commitSha, path }),
+      reused: true,
+    };
+  }
+
   return {
+    resolveExistingAsset,
     async uploadAsset({ token, path, contentType, bytes }) {
       validateUpload({ path, contentType, bytes });
       const contentHash = await sha256Hex(bytes);
@@ -158,6 +223,14 @@ export function createGithubAssetStorageAdapter({ config, fetchImpl = globalThis
         });
       } catch {
         throw new GithubAssetStorageError(`PUT ${endpoint} failed: network error`, { endpoint });
+      }
+      if (response.status === 409 || response.status === 422) {
+        return resolveExistingAsset({
+          token,
+          path,
+          expectedSize: bytes.byteLength,
+          contentHash,
+        });
       }
       if (!response.ok) {
         throw new GithubAssetStorageError(

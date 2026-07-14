@@ -471,7 +471,7 @@ git commit -m "feat: upload immutable GitHub assets"
 - Existing result: `{ path, size, contentHash, commitSha, url, reused: true }`
 - `uploadAsset` delegates status `409` and `422` to `resolveExistingAsset`
 
-- [ ] **Step 1: Add failing exact-retry and conflict tests**
+- [x] **Step 1: Add failing exact-retry and conflict tests**
 
 Append:
 
@@ -521,13 +521,13 @@ test('rejects an existing path when size or hash identity does not match', async
 });
 ```
 
-- [ ] **Step 2: Run the focused test and verify RED**
+- [x] **Step 2: Run the focused test and verify RED**
 
 Run `node --test tests/github-asset-storage.test.mjs`.
 
 Expected: the recovery test fails because `422` is thrown directly.
 
-- [ ] **Step 3: Implement exact-path recovery**
+- [x] **Step 3: Implement exact-path recovery**
 
 Inside `createGithubAssetStorageAdapter`, add this function before the returned object:
 
@@ -624,7 +624,7 @@ In `uploadAsset`, replace the non-OK branch with:
       }
 ```
 
-- [ ] **Step 4: Run focused and full unit tests**
+- [x] **Step 4: Run focused and full unit tests**
 
 Run:
 
@@ -635,7 +635,7 @@ npm test
 
 Expected: all tests pass, and recorded requests contain no DELETE or update `sha`.
 
-- [ ] **Step 5: Commit retry recovery**
+- [x] **Step 5: Commit retry recovery**
 
 ```powershell
 git add src/infrastructure/github-asset-storage.js tests/github-asset-storage.test.mjs
