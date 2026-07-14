@@ -346,7 +346,7 @@ function materialMasterAssetList(title, assets) {
     const draftAssets = this.state.materialDraft ? (this.state.materialDraft[typeKey] || []) : assets;
     const rows = draftAssets.map((asset, index) => {
       const name = asset.name || '';
-      const url = title === '2D' ? (asset.url || asset.path || '') : (asset.previewUrl || asset.url || '');
+      const url = title === '2D' ? (asset.url || asset.path || '') : (asset.url || asset.previewUrl || '');
       return `<div class="material-asset-edit-row" style="display:flex;gap:8px;margin-bottom:8px;">
         <input class="edit-input" style="flex:1" data-asset-edit="name" data-asset-type="${typeKey}" data-asset-index="${index}" placeholder="${escapeHTML(this.label('assetName'))}" value="${escapeHTML(name)}">
         <input class="edit-input" style="flex:2" data-asset-edit="url" data-asset-type="${typeKey}" data-asset-index="${index}" placeholder="${escapeHTML(this.label('assetUrl'))}" value="${escapeHTML(url)}">

@@ -45,7 +45,7 @@ function setupApp() {
   return { app, payload };
 }
 
-test('Add/Delete asset does not lose unsaved Material Master fields', () => {
+test('Add asset does not lose unsaved Material Master fields', () => {
   const { app } = setupApp();
   app.openMaterialMasterEditor('mat-1');
 
@@ -75,6 +75,56 @@ test('Add/Delete asset does not lose unsaved Material Master fields', () => {
   // DB remains untouched
   assert.equal(app.state.materialDb.materials['mat-1'].code, 'MAT-001');
   assert.equal(app.state.materialDb.materials['mat-1'].models3d.length, 1);
+});
+
+test('Delete asset does not lose unsaved Material Master fields or metadata', () => {
+  const { app } = setupApp();
+  app.openMaterialMasterEditor('mat-1');
+
+  app.queryAll = (sel) => {
+    if (sel.includes('[data-material-master-edit]')) {
+      return [
+        { dataset: { materialMasterEdit: 'code' }, value: 'MAT-001-DRAFT' },
+        { dataset: { materialMasterEdit: 'name', lang: 'vi' }, value: 'Draft Name' }
+      ];
+    }
+    if (sel.includes('#models3d-container')) {
+      return [
+        { querySelector: (q) => ({ value: q.includes('name') ? 'Edited Model' : 'https://cdn.example.com/edited.glb' }) },
+        { querySelector: (q) => ({ value: q.includes('name') ? 'Remove Me' : 'https://cdn.example.com/remove.glb' }) }
+      ];
+    }
+    if (sel.includes('#drawings-container')) return [];
+    return [];
+  };
+
+  app.deleteMaterialAssetRow({ dataset: { assetType: 'models3d', assetIndex: '1' } });
+
+  assert.equal(app.state.materialDraft.code, 'MAT-001-DRAFT');
+  assert.equal(app.state.materialDraft.name.vi, 'Draft Name');
+  assert.equal(app.state.materialDraft.models3d.length, 1);
+  assert.equal(app.state.materialDraft.models3d[0].url, 'https://cdn.example.com/edited.glb');
+  assert.equal(app.state.materialDraft.models3d[0].sourceUrl, 'original-source');
+  assert.equal(app.state.materialDb.materials['mat-1'].code, 'MAT-001');
+  assert.equal(app.state.materialDb.materials['mat-1'].models3d.length, 1);
+});
+
+test('3D draft rerender prefers the edited URL over stale previewUrl metadata', () => {
+  const { app } = setupApp();
+  app.state.materialDraft = {
+    ...app.state.materialDb.materials['mat-1'],
+    models3d: [
+      {
+        ...app.state.materialDb.materials['mat-1'].models3d[0],
+        url: 'https://cdn.example.com/edited.glb'
+      }
+    ]
+  };
+
+  const html = app.materialMasterAssetList('3D', app.state.materialDb.materials['mat-1'].models3d);
+
+  assert.match(html, /https:\/\/cdn\.example\.com\/edited\.glb/);
+  assert.doesNotMatch(html, /https:\/\/cdn\.example\.com\/original\.glb/);
 });
 
 test('Draft of material A doesn\'t leak into material B', () => {
@@ -115,7 +165,17 @@ test('Open uses just-typed URL and name', () => {
 test('Silent refresh is blocked by draft', async () => {
   const { app } = setupApp();
   app.openMaterialMasterEditor('mat-1');
-  app.state.materialDraft = { id: 'mat-1', code: 'DRAFT' };
+  app.queryAll = (sel) => {
+    if (sel.includes('[data-material-master-edit]')) {
+      return [{ dataset: { materialMasterEdit: 'code' }, value: 'DRAFT' }];
+    }
+    if (sel.includes('#models3d-container')) {
+      return [{ querySelector: (q) => ({ value: q.includes('name') ? 'Original Model' : 'https://cdn.example.com/original.glb' }) }];
+    }
+    if (sel.includes('#drawings-container')) return [];
+    return [];
+  };
+  app.syncMaterialMasterFormToDraft();
 
   app.githubData = { loadPublic: async () => ({}) };
   const loaded = await app.loadCloud({ silent: true });
@@ -159,9 +219,10 @@ test('Save preserves metadata and updates previewUrl', () => {
   assert.equal(saved.previewUrl, 'https://cdn.example.com/typed.glb');
   assert.equal(saved.name, 'Typed Name');
   assert.equal(saved.sourceUrl, 'original-source'); // Preserved metadata
+  assert.equal(app.state.materialDraft, null);
 });
 
-test('Invalid URL and duplicate URL blocked', () => {
+test('Invalid URL is blocked', () => {
   const { app } = setupApp();
   app.openMaterialMasterEditor('mat-1');
 
@@ -169,9 +230,7 @@ test('Invalid URL and duplicate URL blocked', () => {
     if (sel.includes('[data-material-master-edit]')) return [];
     if (sel.includes('#models3d-container')) {
       return [
-        { querySelector: (q) => ({ value: q.includes('name') ? 'N1' : 'invalid-url' }) },
-        { querySelector: (q) => ({ value: q.includes('name') ? 'N2' : 'https://example.com/valid.glb' }) },
-        { querySelector: (q) => ({ value: q.includes('name') ? 'N3' : 'https://example.com/valid.glb' }) }
+        { querySelector: (q) => ({ value: q.includes('name') ? 'N1' : 'invalid-url' }) }
       ];
     }
     if (sel.includes('#drawings-container')) return [];
@@ -187,6 +246,61 @@ test('Invalid URL and duplicate URL blocked', () => {
   app.saveMaterialMaster();
 
   assert.equal(statusState, 'error');
-  // First it finds invalid3DUrl, then duplicateUrl
-  assert.ok(statusMsg === 'invalid3DUrl' || statusMsg === 'duplicateUrl');
+  assert.equal(statusMsg, 'invalid3DUrl');
+});
+
+test('Duplicate URL is blocked independently from URL format validation', () => {
+  const { app } = setupApp();
+  app.openMaterialMasterEditor('mat-1');
+
+  app.queryAll = (sel) => {
+    if (sel.includes('[data-material-master-edit]')) return [];
+    if (sel.includes('#models3d-container')) {
+      return [
+        { querySelector: (q) => ({ value: q.includes('name') ? 'N1' : 'https://example.com/valid.glb' }) },
+        { querySelector: (q) => ({ value: q.includes('name') ? 'N2' : 'https://example.com/valid.glb' }) }
+      ];
+    }
+    if (sel.includes('#drawings-container')) return [];
+    return [];
+  };
+
+  let statusMsg = '';
+  let statusState = '';
+  app.setStatus = (msg, st) => { statusMsg = msg; statusState = st; };
+  app.label = (key) => key;
+
+  app.saveMaterialMaster();
+
+  assert.equal(statusState, 'error');
+  assert.equal(statusMsg, 'duplicateUrl');
+});
+
+test('Blank asset URL blocks save and leaves the database unchanged', () => {
+  const { app } = setupApp();
+  app.openMaterialMasterEditor('mat-1');
+
+  app.queryAll = (sel) => {
+    if (sel.includes('[data-material-master-edit]')) return [];
+    if (sel.includes('#models3d-container')) {
+      return [
+        { querySelector: (q) => ({ value: q.includes('name') ? 'Original Model' : 'https://cdn.example.com/original.glb' }) },
+        { querySelector: (q) => ({ value: q.includes('name') ? 'Missing URL' : '' }) }
+      ];
+    }
+    if (sel.includes('#drawings-container')) return [];
+    return [];
+  };
+
+  let statusMsg = '';
+  let statusState = '';
+  app.setStatus = (msg, st) => { statusMsg = msg; statusState = st; };
+  app.label = (key) => key;
+
+  app.saveMaterialMaster();
+
+  assert.equal(statusState, 'error');
+  assert.equal(statusMsg, 'invalid3DUrl');
+  assert.equal(app.state.materialDb.materials['mat-1'].models3d.length, 1);
+  assert.equal(app.state.materialDb.materials['mat-1'].models3d[0].previewUrl, 'https://cdn.example.com/original.glb');
 });

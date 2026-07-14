@@ -139,6 +139,25 @@ released effective revision (V3)
 
 `currentRevision` là latest design revision; `effectiveRevision` là revision duy nhất đang dùng trong sản xuất. Không được suy luận Draft mới là released/effective. Snapshot lịch sử hợp lệ là immutable và mọi released/historical view là read-only.
 
+### Notification và Payload Diffing
+
+```text
+admin save action
+  → get current remote payload (previous) and local state (next)
+  → features/notifications.js: describePayloadChanges(previous, next)
+  → compare Object.keys(bom) for new products
+  → compare materialDb.materials for added/deleted/modified materials
+    - LOCALIZED_MATERIAL_FIELDS (name, spec, etc.): check { zh, vi } objects
+    - Primitive fields (code): check strings directly
+  → compare materialDb.bomEntries cho BOM additions/deletions/qty changes
+    - parentType: 'product' (parent = productCode) hoặc 'material' (parent = materialCode)
+    - child ID: ưu tiên `childMaterialId`, fallback về `materialId`
+  → normalize thành array các thay đổi với giới hạn (ví dụ: 8 thay đổi)
+  → append vào list notifications cũ và lưu lên GitHub
+```
+
+Hệ thống diffing bắt buộc phải dùng đúng `childMaterialId || materialId` khi trích xuất mã con từ `bomEntries`, và `parentType` lưu trong data là `'product'` chứ không phải `'productRevision'`. Các trường đa ngôn ngữ và nguyên thuỷ (primitive) phải được tách biệt khi so sánh để tránh lỗi ép kiểu (cast error) sang object.
+
 ### Code update khác data update
 
 | Loại thay đổi | Cần build Viewer mới? | Người nhận Viewer cần làm gì? |

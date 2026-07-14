@@ -375,6 +375,12 @@ const global = globalThis;
     notificationGithubSaveTitle: 'GitHub 数据已更新',
     notificationGithubSaveBody: 'Admin 已保存 BOM/物料数据，Viewer 可同步最新版本。',
     notificationChangedItems: '已修改',
+    notificationMaterialAdded: '新增物料',
+    notificationMaterialDeleted: '删除物料',
+    notificationBomAdded: '新增 BOM 行',
+    notificationBomDeleted: '删除 BOM 行',
+    notificationBomQtyChanged: '更改数量',
+    notificationProductAdded: '新增产品',
     notificationUpdatedTitle: 'PDM 数据已更新',
     notificationUpdatedBody: '检测到新的 PDM 数据版本。',
     notificationUnread: '未读通知',
@@ -439,6 +445,12 @@ const global = globalThis;
     notificationGithubSaveTitle: 'Dữ liệu GitHub đã cập nhật',
     notificationGithubSaveBody: 'Admin đã lưu dữ liệu BOM/vật liệu, Viewer có thể đồng bộ bản mới nhất.',
     notificationChangedItems: 'Đã sửa',
+    notificationMaterialAdded: 'Thêm vật tư mới',
+    notificationMaterialDeleted: 'Xóa vật tư',
+    notificationBomAdded: 'Thêm dòng BOM',
+    notificationBomDeleted: 'Xóa dòng BOM',
+    notificationBomQtyChanged: 'Đổi số lượng',
+    notificationProductAdded: 'Thêm sản phẩm',
     notificationUpdatedTitle: 'Dữ liệu PDM đã cập nhật',
     notificationUpdatedBody: 'Phát hiện phiên bản dữ liệu PDM mới.',
     notificationUnread: 'Thông báo chưa đọc',
@@ -1292,6 +1304,7 @@ const global = globalThis;
 
     notificationFieldLabel(field) {
       const labelKeys = {
+        code: 'materialCode',
         name: 'materialName',
         spec: 'specification',
         material: 'materialComposition',
@@ -1304,7 +1317,23 @@ const global = globalThis;
     notificationChangeText(change) {
       const before = change.before || '-';
       const after = change.after || '-';
-      return `${change.code} · ${this.notificationFieldLabel(change.field)}: ${before} → ${after}`;
+      switch (change.kind) {
+        case 'material_added':
+          return `${change.code} · ${this.label('notificationMaterialAdded')}`;
+        case 'material_deleted':
+          return `${change.code} · ${this.label('notificationMaterialDeleted')}`;
+        case 'product_added':
+          return `${change.code} · ${this.label('notificationProductAdded')}`;
+        case 'bom_added':
+          return `${change.code} · ${this.label('notificationBomAdded')}: ${change.field}`;
+        case 'bom_deleted':
+          return `${change.code} · ${this.label('notificationBomDeleted')}: ${change.field}`;
+        case 'bom_qty_changed':
+          return `${change.code} · ${this.label('notificationBomQtyChanged')} (${change.field}): ${before} → ${after}`;
+        case 'material':
+        default:
+          return `${change.code} · ${this.notificationFieldLabel(change.field)}: ${before} → ${after}`;
+      }
     }
 
     notificationBody(notification) {
@@ -1313,8 +1342,8 @@ const global = globalThis;
         : this.label('notificationUpdatedBody');
       const changes = normalizeNotificationChanges(notification?.changes || []);
       if (!changes.length) return body;
-      const visible = changes.slice(0, 3).map((change) => this.notificationChangeText(change)).join('; ');
-      const more = changes.length > 3 ? ` +${changes.length - 3}` : '';
+      const visible = changes.slice(0, 5).map((change) => this.notificationChangeText(change)).join('; ');
+      const more = changes.length > 5 ? ` +${changes.length - 5}` : '';
       return `${body} ${this.label('notificationChangedItems')}: ${visible}${more}`;
     }
 
@@ -1662,7 +1691,6 @@ const global = globalThis;
       if (!this.isAdmin()) return;
       const record = this.selectedMaterialRecord();
       if (!record) return;
-      const wasDraft = this.state.materialDraft?.id === record.id;
       const patch = {};
       this.queryAll('[data-material-master-edit]').forEach((input) => {
         const field = input.dataset.materialMasterEdit;
@@ -1703,7 +1731,10 @@ const global = globalThis;
         const arr = [];
         (this.state.materialDraft[typeKey] || []).forEach((asset) => {
            const url = asset.url;
-           if (!url) return;
+           if (!url) {
+             validationError = this.label(errorLabel);
+             return;
+           }
            if (!validator(url)) {
              validationError = this.label(errorLabel);
            }
@@ -1734,7 +1765,7 @@ const global = globalThis;
       updateMaterialRecord(this.state.payload, record.id, patch);
       this.state.materialDb = this.state.payload.materialDb;
       this.state.payload.materialDb = this.state.materialDb;
-      if (wasDraft) this.state.materialDraft = null;
+      this.state.materialDraft = null;
       this.state.selectedMaterialId = record.id;
       this.markDirty();
       this.renderProductList();
