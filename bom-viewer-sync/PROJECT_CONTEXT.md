@@ -46,6 +46,20 @@ Phase A PR #5 integrated a create-only Contents API adapter for public repositor
 
 Phase B PR #6 was squash-merged as `6fcdaad` on 2026-07-14. The post-merge `origin/main` gate passed, and approved runtime publication synchronized outer runtime artifacts plus Desktop `admin.html`/`viewer.html`. `data.js` remained outside the publication flow.
 
+## Deferred GitHub-Only Architecture
+
+The integrated implementation is the upload workflow, not the complete sharding/Release Assets proposal.
+
+- Not implemented: `data/manifest.json`, `data/materials.json`, per-product `data/products/<ProductID>.json`, lazy product loading, migration tooling, and GitHub Git Trees migration.
+- Not implemented: GitHub Release Assets. Current PDF/GLB/portable-GLTF storage uses a public satellite repository through the create-only GitHub Contents API and returns commit-pinned jsDelivr URLs.
+- No canonical or remote data migration has run. `data.js` remains the production schema and save target.
+- The next feature should introduce a tested sharded read/data-access boundary with `data.js` fallback before changing writes or running migration.
+- Preserve the standalone Viewer contract explicitly. Network-only lazy loading must not silently remove the ability to send one usable HTML file to another machine.
+- Run migration as a dry run or on a feature branch first. Remote `main`, canonical `data.js`, `outputs/data.js`, and Desktop data are outside scope until a separate migration approval.
+- Evaluate Release Assets in a separate PR only after validating direct-browser API/CORS behavior, token permissions, duplicate asset names, replacement/deletion policy, download visibility, and retry behavior.
+
+The first sharding milestone is complete when compatibility tests cover both legacy and sharded inputs without migrating production data or publishing runtime copies.
+
 ## Notification Diff Coverage
 
 `src/features/notifications.js` now reports product additions, material additions/deletions/field edits and BOM additions/deletions/quantity changes. BOM child resolution must prefer `childMaterialId` and fall back to `materialId`; quantity serialization must use nullish fallback so numeric zero is preserved.

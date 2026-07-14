@@ -323,6 +323,8 @@ So sánh SHA-256 của canonical artifacts/docs với outer `outputs/`. Báo rõ
 
 Phase A was merged by PR #5 as `de35ea2`. Phase B PR #6 was squash-merged as `6fcdaad` on 2026-07-14. Admin imports the create-only adapter only for the explicit Save to GitHub boundary. The adapter still never sends an update `sha`, never deletes assets, limits every binary to 20,000,000 bytes, and returns jsDelivr URLs pinned to the full asset-repository commit SHA. `src/features/material-asset-upload.js` owns validation and targeted clone resolution; `src/application.js` owns pending bytes and save ordering. The post-merge gate passed 115/115 tests, and the approved runtime publication synchronized `outputs/` plus Desktop `admin.html`/`viewer.html` without copying `data.js`.
 
+This is not the complete GitHub-only architecture originally discussed. Product/material sharding (`data/manifest.json`, `data/materials.json`, and `data/products/<ProductID>.json`), GitHub Release Assets, and remote data migration have not been implemented. The integrated binary path uses the satellite repository through the GitHub Contents API, not Release Assets. Continue with sharding as a separate compatibility-first feature: introduce read boundaries with `data.js` fallback and tests before any remote migration or cutover. Keep Release Assets as a separate design decision and never migrate or overwrite canonical data during exploratory work.
+
 ## 7. Bẫy thường gặp
 
 ### Bell về 0 không có nghĩa mất notification

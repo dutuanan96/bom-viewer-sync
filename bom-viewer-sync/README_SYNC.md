@@ -20,6 +20,19 @@ Phase B lets Admin select validated PDF, GLB, or portable GLTF files from Materi
 
 The post-merge `main` gate passed and runtime publication was separately approved on 2026-07-14. Outer runtime artifacts and Desktop `admin.html`/`viewer.html` are synchronized; `data.js` was not copied or changed.
 
+## Remaining Architecture Work
+
+The current release does not include data sharding or GitHub Release Assets. `data.js` remains the production schema/save target, and binary assets use the satellite repository through the GitHub Contents API. No sharded migration has been run.
+
+Continue in separate stages:
+
+1. Add a tested sharded data-access/read layer with legacy `data.js` fallback and an explicit standalone Viewer strategy.
+2. Dry-run migration and validate all IDs, BOM links, notifications, revision/effectivity state, and asset metadata without writing production data.
+3. Cut over reads/writes only after review and explicit migration approval.
+4. Evaluate GitHub Release Assets separately; do not replace the working Contents API path without browser/API security and retry evidence.
+
+The first sharding PR must not change production `data.js`, `outputs/`, or Desktop release files.
+
 ## Sync Rules
 
 - Build generates `admin.html`, `app-admin.js`, `styles.css`, and standalone `viewer.html`.

@@ -67,3 +67,14 @@ Phase A adapter contracts remain unchanged: create-only Contents API requests wi
 Canonical `main` now contains the newer data-only commits and audits at 646 materials/1 notification. Outer `outputs/data.js` intentionally remains the older clean 643-material/6-notification snapshot because runtime publication does not copy data. Never resolve this by copying mirror data over canonical/GitHub data. Browser automation also blocks `file://`; perform one manual clean-profile check before sending `viewer.html` externally.
 
 Publication evidence: outer runtime artifacts match merged `main`; Desktop Admin and Viewer match the verified outer copies; `outputs/data.js` remained SHA-256 `D3D5C706D08FE11A8DD69B1F3D4E1B30E2B4E36BA5F28569965DE7950E8472E8`.
+
+## Next Review Scope
+
+Do not review the current system as if the original GitHub-only architecture were complete. Sharding and GitHub Release Assets are deferred:
+
+- `data.js` is still the production data schema and GitHub save target.
+- The current satellite binary adapter uses the GitHub Contents API, not Release Assets.
+- No migration script has written sharded files locally or remotely.
+- The next sharding PR should be compatibility-first: add a data-access/read boundary, legacy `data.js` fallback, integrity tests, and explicit standalone Viewer behavior. It must not migrate production data, replace `data.js`, or publish runtime copies.
+- Review sharded integrity for product/material counts, stable IDs, BOM references, notifications, revision snapshots/effectivity, and complete 2D/3D metadata preservation.
+- Treat Release Assets as a later independent review requiring evidence for CORS, PAT scope, duplicate names, replacement/deletion policy, public/private downloads, and retry safety.

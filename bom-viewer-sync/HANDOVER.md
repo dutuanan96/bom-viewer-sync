@@ -13,6 +13,7 @@ Read `AI_DEBUG_GUIDE.md` before project files.
 - Outer runtime artifacts have been rebuilt from integrated `main`. Outer `outputs/data.js` intentionally remains an older 643-material/6-notification snapshot because code publication must not overwrite runtime data.
 - Phase B connects the Phase A create-only adapter to Admin Material Master. Selected PDF/GLB/portable-GLTF bytes remain only in `state.pendingMaterialAssets`; Save Material is local-only; Save to GitHub performs binary upload, reads the current BOM payload/SHA, then writes BOM data. Upload failure prevents the BOM write, while a BOM-write retry reuses an already resolved immutable URL.
 - Phase B runtime publication was approved and completed on 2026-07-14. The four outer runtime artifacts match merged `main`; Desktop `admin.html` and `viewer.html` match the verified outer copies. No `data.js` was copied or changed.
+- The original GitHub-only proposal is only partially complete. Data sharding, GitHub Release Assets, and remote data migration have not started. Current binary storage is the create-only GitHub Contents API adapter for `dutuanan96/bom-viewer-assets`, with a 20,000,000-byte per-file limit.
 
 ## Continue This Flow
 
@@ -24,6 +25,20 @@ Read `AI_DEBUG_GUIDE.md` before project files.
 6. Do not copy `data.js` between canonical, `outputs/` or Desktop during code-only work. GitHub/main data is authoritative.
 7. For future publication, verify the target PR is merged and `origin/main` passes the complete gate before copying runtime artifacts.
 8. Run `npm run check`, `node --check app-admin.js`, `git diff --check`, and inspect any `data.js` diff before pushing.
+
+## Next Work: Compatibility-First Data Sharding
+
+Treat sharding and Release Assets as separate projects. The next implementation should address data sharding only unless the user explicitly combines the scopes.
+
+1. Start from the latest `main` on a new feature branch; do not reuse `codex/material-asset-upload` or this docs branch.
+2. Add a data-access boundary that can read `data/manifest.json`, `data/materials.json`, and `data/products/<ProductID>.json`, while retaining a tested fallback to the current `data.js` payload.
+3. Preserve Viewer standalone delivery. If lazy loading needs network access, define how the sent HTML behaves offline before removing embedded/current-data compatibility.
+4. Preserve draft isolation, asset metadata, revision/effectivity rules, notification diff behavior, and current GitHub save conflict handling.
+5. Build a migration dry run that validates counts, IDs, BOM references, notifications, and asset metadata in memory or on a feature branch. Do not write migrated files to `main` or replace `data.js` without explicit approval at the migration step.
+6. Cut over reads and writes only after both legacy and sharded paths pass the complete gate and browser smoke tests. Keep rollback possible until the sharded data is verified remotely.
+7. Evaluate GitHub Release Assets separately. The current Contents API upload is working and published; do not describe or replace it as Release Assets without validating browser CORS, PAT permissions, duplicate-name behavior, deletion/replacement policy, public/private download behavior, and retry semantics.
+
+Success for the first sharding PR means the compatibility layer and tests are integrated with no production data migration, no `data.js` rewrite, and no publication to `outputs/` or Desktop.
 
 ## Integrated Publication Flow
 
