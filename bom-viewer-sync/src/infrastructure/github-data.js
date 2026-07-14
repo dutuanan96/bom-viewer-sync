@@ -128,10 +128,77 @@ export function buildGithubUpdateRequest({ config, token, sha, source, message }
 
 export function createGithubDataAdapter({ config, fetchImpl = globalThis.fetch, now = Date.now }) {
   const cleanConfig = normalizeConfig(config);
+  const basePath = cleanConfig.path.includes('/') ? cleanConfig.path.substring(0, cleanConfig.path.lastIndexOf('/')) : '';
+  const dataDir = basePath ? `${basePath}/data` : 'data';
+
+  const fetchJsonPublic = async (filename, cacheBust) => {
+    const fileConfig = { ...cleanConfig, rawUrl: '', path: `${dataDir}/${filename}` };
+    const requests = [
+      rawContentsUrl(fileConfig) && {
+        url: `${rawContentsUrl(fileConfig)}&t=${cacheBust}`,
+        options: { cache: 'no-store', headers: { Accept: 'application/vnd.github.raw' } },
+      },
+      rawUrl(fileConfig) && {
+        url: `${rawUrl(fileConfig)}${rawUrl(fileConfig).includes('?') ? '&' : '?'}t=${cacheBust}`,
+        options: { cache: 'no-store' },
+      },
+    ].filter(Boolean);
+    let lastError;
+    for (const request of requests) {
+      try {
+        const response = await fetchImpl(request.url, request.options);
+        if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+        return await response.json();
+      } catch (error) {
+        lastError = error;
+      }
+    }
+    throw lastError || new Error(`Failed to load ${filename}`);
+  };
+
+  const fetchJsonForWrite = async (filename, token) => {
+    const fileConfig = { ...cleanConfig, path: `${dataDir}/${filename}` };
+    const response = await fetchImpl(`${contentsUrl(fileConfig)}?ref=${encodeURIComponent(fileConfig.branch)}`, {
+      headers: githubHeaders(token),
+    });
+    if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+    const data = await response.json();
+    if (!data.content) throw new Error('No content');
+    return JSON.parse(decodeBase64Utf8(data.content));
+  };
+
+  const assembleShardedPayload = async (manifest, materials, loadProduct) => {
+    const bom = {};
+    for (const productId of manifest.products || []) {
+      bom[productId] = await loadProduct(productId);
+    }
+    return normalizePayload({
+      version: manifest.version,
+      updatedAt: manifest.updatedAt,
+      productImages: manifest.productImages,
+      productRevisions: manifest.productRevisions,
+      notifications: manifest.notifications,
+      bom,
+      drawings: materials.drawings,
+      manuals: materials.manuals,
+      models3d: materials.models3d,
+      materialDb: materials.materialDb,
+    });
+  };
 
   return {
     async loadPublic() {
       const cacheBust = now();
+
+      try {
+        const manifest = await fetchJsonPublic('manifest.json', cacheBust);
+        const materials = await fetchJsonPublic('materials.json', cacheBust);
+        return await assembleShardedPayload(manifest, materials, (id) => fetchJsonPublic(`products/${id}.json`, cacheBust));
+      } catch (err) {
+        if (!err.message.includes('404')) throw err;
+        // Fallback to data.js only if manifest.json returns 404
+      }
+
       const requests = [
         rawContentsUrl(cleanConfig) && {
           url: `${rawContentsUrl(cleanConfig)}&t=${cacheBust}`,

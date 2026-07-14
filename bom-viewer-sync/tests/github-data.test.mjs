@@ -18,6 +18,7 @@ test('public load prefers cache-busted Contents API raw', async () => {
     config,
     now: () => 123,
     fetchImpl: async (url, options) => {
+      if (!url.includes('data.js')) return { ok: false, status: 404, statusText: 'Not Found' };
       requests.push({ url, options });
       return { ok: true, text: async () => serializeDataJs(payload) };
     },
@@ -34,6 +35,7 @@ test('public load uses raw GitHub only after the Contents API fails', async () =
     config,
     now: () => 123,
     fetchImpl: async (url, options) => {
+      if (!url.includes('data.js')) return { ok: false, status: 404, statusText: 'Not Found' };
       requests.push({ url, options });
       if (requests.length === 1) return { ok: false, status: 503, statusText: 'Unavailable' };
       return { ok: true, text: async () => serializeDataJs(payload) };
@@ -58,6 +60,7 @@ test('write baseline is decoded from the current authenticated remote file', asy
   const adapter = createGithubDataAdapter({
     config,
     fetchImpl: async (url, options) => {
+      if (!url.includes('data.js')) return { ok: false, status: 404, statusText: 'Not Found' };
       requests.push({ url, options });
       return {
       ok: true,
@@ -92,6 +95,7 @@ test('write sends the current SHA and UTF-8 source through the Contents API', as
   const adapter = createGithubDataAdapter({
     config,
     fetchImpl: async (url, options) => {
+      if (!url.includes('data.js')) return { ok: false, status: 404, statusText: 'Not Found' };
       requests.push({ url, options });
       return response;
     },
@@ -382,3 +386,40 @@ test('BOM write retry reuses an already resolved asset without uploading again',
   assert.equal(app.state.materialDb.materials.m1.drawings[0].url, pinnedUrl);
   assert.deepEqual(app.state.pendingMaterialAssets, {});
 });
+
+test('public load assembles sharded data if manifest exists', async () => {
+  const manifestPayload = {
+    version: 3,
+    updatedAt: '2026-07-14T00:00:00.000Z',
+    products: ['P1'],
+  };
+  const materialsPayload = {
+    materialDb: { materials: { m1: { id: 'm1' } }, bomEntries: [] }
+  };
+  const productPayload = { name: 'P1 Name' };
+  
+  const requests = [];
+  const adapter = createGithubDataAdapter({
+    config,
+    now: () => 123,
+    fetchImpl: async (url, options) => {
+      requests.push({ url });
+      if (url.includes('manifest.json')) {
+        return { ok: true, json: async () => manifestPayload };
+      }
+      if (url.includes('materials.json')) {
+        return { ok: true, json: async () => materialsPayload };
+      }
+      if (url.includes('products/P1.json')) {
+        return { ok: true, json: async () => productPayload };
+      }
+      return { ok: false, status: 404, statusText: 'Not Found' };
+    },
+  });
+  const payload = await adapter.loadPublic();
+  assert.equal(payload.version, 3);
+  assert.equal(payload.bom.P1.name, 'P1 Name');
+  assert.equal(payload.materialDb.materials.m1.id, 'm1');
+});
+
+
