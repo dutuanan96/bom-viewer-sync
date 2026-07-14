@@ -912,7 +912,7 @@ git add AI_DEBUG_GUIDE.md HANDOVER.md PROJECT_CONTEXT.md REVIEW_CONTEXT.md READM
 git commit -m "docs: record Contents asset browser gate"
 ```
 
-- [ ] **Step 5: Push and create a Draft PR**
+- [x] **Step 5: Push and create a Draft PR**
 
 ```powershell
 git push -u origin codex/github-contents-assets
