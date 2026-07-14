@@ -1,38 +1,57 @@
 # JinTai PDM System Handover
 
-AI debugging entrypoint: read `AI_DEBUG_GUIDE.md` first. It is self-contained; the remaining context files provide history and handoff detail only.
+Read `AI_DEBUG_GUIDE.md` before project files.
 
-## Working Rule
+## Current State
 
-Work in the canonical project root: `work/remote-bom-viewer-sync/bom-viewer-sync/`. Application source lives in `src/`; build scripts, tests, and project configuration remain editable source-of-truth files. The generated deliverables are `admin.html`, `app-admin.js`, `styles.css`, and `viewer.html`; never edit them directly.
+- Canonical checkout: `work/remote-bom-viewer-sync/bom-viewer-sync/`.
+- Active branch: `codex/product-bom-revisions`.
+- Draft PR: `#1`, mergeable into `main` at the last check.
+- Product revision/effectivity implementation is complete on the branch and generated build ID is `1f21d89ccd2a`.
+- Repository gate passed 71/71 tests; audit passed with 0 errors and 0 warnings.
+- `outputs/` and Desktop runtime files have not been upgraded to the feature build because the PR is not merged.
 
-Build with `npm run build`, then run the complete local gate with `npm run check`. The current generated build ID is `e20a4df8f465`, but it is a dynamic 12-character source hash rather than a release version. A changed program, stylesheet, or shell requires rebuilding and redistributing `viewer.html`.
+## Continue This Flow
 
-## Mirror And Compatibility Flow
+1. Run `git fetch origin --prune`, inspect `git status --short`, and inspect PR #1 before changing code.
+2. Work only in the canonical checkout and edit `src/`, tests, scripts, or context documents. Never hand-edit generated files.
+3. Preserve the PDM rule: latest design and effective production revision are separate concepts; exactly one valid revision is effective.
+4. Do not modify or copy `data.js` for this feature. `origin/main` currently contains newer data-only commits than the feature branch.
+5. Run `npm run check`, `node --check app-admin.js`, `git diff --check`, and verify `git diff -- data.js` is empty before pushing.
+6. Keep PR #1 as the integration path. Do not create a second revision PR for the same implementation.
 
-1. Verify the feature worktree first.
-2. Mirror only the four generated files and the four workflow documents to outer `outputs/`.
-3. Treat `outputs/` as a verified runtime mirror, never as the source tree.
-4. Do not copy `data.js` for a code-only change.
-5. Use the outer `work/*.mjs` compatibility wrappers only after the canonical main clone contains the integrated build; before merge, run their direct feature-worktree equivalents.
+## After PR #1 Is Merged
 
-Viewer reloads continue to fetch current GitHub/Drive data and assets. Admin saves must read the current remote payload and SHA before producing a GitHub Contents API write. The notification bell only clears local unread state.
-
-## Required Checks
+Only after canonical `main` contains the feature:
 
 ```powershell
-cd work\remote-bom-viewer-sync\bom-viewer-sync
+git fetch origin --prune
+git switch main
+git pull --ff-only origin main
 npm run build
 npm run check
-node --check app-admin.js
-git diff --check
 ```
 
-Expected baselines are 56 repository tests, Material Master 18/18, runtime 13/13, and audit 643 materials / 2725 BOM entries / 22 products / 0 errors / 0 warnings.
+Then run the outer compatibility/build flow from the outer project root:
 
-## Guardrails
+```powershell
+node work\build_standalone_viewer.mjs
+node work\material-master-editor.test.mjs
+node work\restructure.test.mjs
+node work\audit_data_integrity.mjs
+node --check outputs\app-admin.js
+```
 
-- Keep the BOM inspector hidden and empty for plain BOM-row clicks.
-- Do not hardcode UI translations outside the i18n dictionary.
-- Do not expose tokens or local paths in generated artifacts.
-- Do not push unless explicitly requested.
+Verify SHA-256 equality for generated artifacts and context documents, then replace the Desktop shareable `admin.html` and `viewer.html`. Do not copy `data.js` during this code release.
+
+## Environment Caveat
+
+The outer project folder contains an empty `.git` directory, but it is not a valid repository. The real Git repository root is `work/remote-bom-viewer-sync/`. Do not delete or initialize the outer marker without explicit user approval.
+
+## Suggested Skills For The Next AI
+
+- `pdm-workflow` for revision/BOM lifecycle work.
+- `systematic-debugging` when behavior or tests regress.
+- `i18n-checker` when changing PDM UI text.
+- `verification-before-completion` before reporting or publishing.
+- `finishing-a-development-branch` after PR approval and merge readiness.

@@ -66,8 +66,19 @@ test('Admin creation flows assign stable IDs and create their records', () => {
     currentSku: 'P1',
     currentColor: 'black',
     materialDb,
-    payload: { bom: {}, materialDb },
+    payload: {
+      bom: { P1: { code: 'P1', colors: ['black'], color_info: { black: { materials: [] } } } },
+      materialDb,
+      productRevisions: {
+        P1: {
+          currentRevision: 'V1',
+          currentRevisionInfo: { workflowState: 'draft' },
+          revisions: [],
+        },
+      },
+    },
     adminView: 'bom',
+    selectedRevision: 'V1',
     selectedMaterialId: '',
   };
   app.openMaterialSelector = (_title, select) => select(materialDb.materials.child);

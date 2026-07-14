@@ -36,6 +36,13 @@ import {
   hasChildMaterialRelation,
   syncLegacyBomFromMaterialDb,
 } from './domain/relationships.js';
+import {
+  createProductRevision,
+  isHistoricalProductRevision,
+  payloadForProductRevision,
+  productRevisionOptions as revisionOptionsForProduct,
+  releaseProductRevision,
+} from './domain/revisions.js';
 import { bomViewMethods } from './ui/bom-view.js';
 import { catalogViewMethods } from './ui/catalog-view.js';
 import { materialViewMethods } from './ui/material-view.js';
@@ -142,6 +149,16 @@ const global = globalThis;
       materialDeleted: '物料已删除',
       materialDeleteBlocked: '该物料已被 BOM 使用，不能删除',
       addMaterial: '新增物料',
+      add2D: '添加 2D',
+      add3D: '添加 3D',
+      assetName: '显示名称 (选填)',
+      assetUrl: 'URL (必填)',
+      openAsset: '打开',
+      deleteAsset: '删除',
+      invalid2DUrl: '2D 必须是 HTTPS PDF 或 Google Drive 文件',
+      invalid3DUrl: '3D 必须是 HTTPS GLB/GLTF 直链',
+      duplicateUrl: 'URL 已存在',
+      saveLocalOnly: '已更新本地状态，请点击【保存到 GitHub】生效',
       materialId: 'MaterialID',
       materialCode: '物料编码',
       materialName: '物料名称',
@@ -281,6 +298,16 @@ const global = globalThis;
       materialDeleted: 'Đã xóa vật liệu',
       materialDeleteBlocked: 'Vật liệu đang được BOM sử dụng, không thể xóa',
       addMaterial: 'Thêm vật liệu',
+      add2D: 'Thêm 2D',
+      add3D: 'Thêm 3D',
+      assetName: 'Tên hiển thị (không bắt buộc)',
+      assetUrl: 'URL (bắt buộc)',
+      openAsset: 'Mở',
+      deleteAsset: 'Xóa',
+      invalid2DUrl: '2D URL phải là HTTPS PDF hoặc Google Drive',
+      invalid3DUrl: '3D URL phải là HTTPS GLB/GLTF trực tiếp',
+      duplicateUrl: 'URL đã tồn tại',
+      saveLocalOnly: 'Đã cập nhật local, hãy bấm [Lưu lên GitHub] để đồng bộ',
       materialId: 'MaterialID',
       materialCode: 'Mã vật liệu',
       materialName: 'Tên vật liệu',
@@ -348,6 +375,12 @@ const global = globalThis;
     notificationGithubSaveTitle: 'GitHub 数据已更新',
     notificationGithubSaveBody: 'Admin 已保存 BOM/物料数据，Viewer 可同步最新版本。',
     notificationChangedItems: '已修改',
+    notificationMaterialAdded: '新增物料',
+    notificationMaterialDeleted: '删除物料',
+    notificationBomAdded: '新增 BOM 行',
+    notificationBomDeleted: '删除 BOM 行',
+    notificationBomQtyChanged: '更改数量',
+    notificationProductAdded: '新增产品',
     notificationUpdatedTitle: 'PDM 数据已更新',
     notificationUpdatedBody: '检测到新的 PDM 数据版本。',
     notificationUnread: '未读通知',
@@ -367,7 +400,32 @@ const global = globalThis;
     deleteBomRowConfirm: '删除这行 BOM？',
     addBomRow: '添加物料',
     bomCompCode: '部件编号',
-    bomQty: '数量'
+    bomQty: '数量',
+    createRevision: '新建版本',
+    currentRevision: '当前版本',
+    newRevision: '新版本',
+    changeReason: '变更原因',
+    revisionCreated: '新版本已创建',
+    revisionExists: '版本已存在',
+    revisionCreateFailed: '新建版本失败',
+    revisionDirtyBlocked: '请先保存或放弃当前更改',
+    historicalRevisionReadOnly: '历史版本只读',
+    releasedRevisionReadOnly: '\u5df2\u53d1\u5e03\u7248\u672c\u53ea\u8bfb',
+    draftStatus: '\u8349\u7a3f',
+    releasedStatus: '\u5df2\u53d1\u5e03',
+    revisionSource: '\u7248\u672c\u6765\u6e90',
+    revisionCreatedAt: '\u521b\u5efa\u65f6\u95f4',
+    effectiveStatus: '\u4f7f\u7528\u4e2d',
+    nonCurrentStatus: '\u975e\u73b0\u884c',
+    effectiveRevision: '\u4f7f\u7528\u4e2d\u7248\u672c',
+    releaseRevision: '\u53d1\u5e03\u7248\u672c',
+    releaseRevisionReason: '\u53d1\u5e03\u539f\u56e0',
+    revisionReleased: '\u7248\u672c\u5df2\u53d1\u5e03',
+    revisionReleaseDirtyBlocked: '\u8bf7\u5148\u4fdd\u5b58\u6216\u653e\u5f03\u5f53\u524d\u66f4\u6539',
+    revisionReleaseReasonRequired: '\u8bf7\u8f93\u5165\u53d1\u5e03\u539f\u56e0',
+    revisionReleaseCurrentOnly: '\u53ea\u80fd\u53d1\u5e03\u6700\u65b0\u7248\u672c',
+    revisionReleaseDraftOnly: '\u53ea\u80fd\u53d1\u5e03\u8349\u7a3f\u7248\u672c',
+    revisionReleaseFailed: '\u53d1\u5e03\u7248\u672c\u5931\u8d25'
   });
 
   Object.assign(TEXT.vi, {
@@ -387,6 +445,12 @@ const global = globalThis;
     notificationGithubSaveTitle: 'Dữ liệu GitHub đã cập nhật',
     notificationGithubSaveBody: 'Admin đã lưu dữ liệu BOM/vật liệu, Viewer có thể đồng bộ bản mới nhất.',
     notificationChangedItems: 'Đã sửa',
+    notificationMaterialAdded: 'Thêm vật tư mới',
+    notificationMaterialDeleted: 'Xóa vật tư',
+    notificationBomAdded: 'Thêm dòng BOM',
+    notificationBomDeleted: 'Xóa dòng BOM',
+    notificationBomQtyChanged: 'Đổi số lượng',
+    notificationProductAdded: 'Thêm sản phẩm',
     notificationUpdatedTitle: 'Dữ liệu PDM đã cập nhật',
     notificationUpdatedBody: 'Phát hiện phiên bản dữ liệu PDM mới.',
     notificationUnread: 'Thông báo chưa đọc',
@@ -406,7 +470,32 @@ const global = globalThis;
     deleteBomRowConfirm: 'Xóa dòng BOM này?',
     addBomRow: 'Thêm vật liệu',
     bomCompCode: 'Mã linh kiện',
-    bomQty: 'Số lượng'
+    bomQty: 'Số lượng',
+    createRevision: 'Tạo phiên bản',
+    currentRevision: 'Phiên bản hiện tại',
+    newRevision: 'Phiên bản mới',
+    changeReason: 'Lý do thay đổi',
+    revisionCreated: 'Đã tạo phiên bản mới',
+    revisionExists: 'Phiên bản đã tồn tại',
+    revisionCreateFailed: 'Không thể tạo phiên bản',
+    revisionDirtyBlocked: 'Hãy lưu hoặc bỏ các thay đổi hiện tại trước',
+    historicalRevisionReadOnly: 'Phiên bản cũ chỉ đọc',
+    releasedRevisionReadOnly: 'Phi\u00ean b\u1ea3n \u0111\u00e3 ph\u00e1t h\u00e0nh ch\u1ec9 \u0111\u1ecdc',
+    draftStatus: 'B\u1ea3n nh\u00e1p',
+    releasedStatus: '\u0110\u00e3 ph\u00e1t h\u00e0nh',
+    revisionSource: 'Ngu\u1ed3n phi\u00ean b\u1ea3n',
+    revisionCreatedAt: 'Th\u1eddi gian t\u1ea1o',
+    effectiveStatus: '\u0110ang s\u1eed d\u1ee5ng',
+    nonCurrentStatus: 'Kh\u00f4ng hi\u1ec7n h\u00e0nh',
+    effectiveRevision: 'Phi\u00ean b\u1ea3n s\u1eed d\u1ee5ng',
+    releaseRevision: 'Ph\u00e1t h\u00e0nh phi\u00ean b\u1ea3n',
+    releaseRevisionReason: 'L\u00fd do ph\u00e1t h\u00e0nh',
+    revisionReleased: '\u0110\u00e3 ph\u00e1t h\u00e0nh phi\u00ean b\u1ea3n',
+    revisionReleaseDirtyBlocked: 'H\u00e3y l\u01b0u ho\u1eb7c b\u1ecf c\u00e1c thay \u0111\u1ed5i hi\u1ec7n t\u1ea1i tr\u01b0\u1edbc',
+    revisionReleaseReasonRequired: 'H\u00e3y nh\u1eadp l\u00fd do ph\u00e1t h\u00e0nh',
+    revisionReleaseCurrentOnly: 'Ch\u1ec9 c\u00f3 th\u1ec3 ph\u00e1t h\u00e0nh phi\u00ean b\u1ea3n m\u1edbi nh\u1ea5t',
+    revisionReleaseDraftOnly: 'Ch\u1ec9 c\u00f3 th\u1ec3 ph\u00e1t h\u00e0nh b\u1ea3n nh\u00e1p',
+    revisionReleaseFailed: 'Kh\u00f4ng th\u1ec3 ph\u00e1t h\u00e0nh phi\u00ean b\u1ea3n'
   });
 
   const EDIT_FIELDS = ['mat_code', 'comp_code', 'name', 'spec', 'material', 'color', 'attr', 'qty'];
@@ -474,6 +563,7 @@ const global = globalThis;
         loadedPayload: clone(payload),
         currentSku: '',
         currentColor: '',
+        selectedRevision: '',
         bomDetailOpen: false,
         currentAttr: 'all',
         selectedMaterialId: '',
@@ -517,6 +607,60 @@ const global = globalThis;
       return this.mode === 'admin';
     }
 
+    productRevisionOptions(productCode) {
+      return revisionOptionsForProduct(this.state.payload, productCode || this.state.currentSku);
+    }
+
+    selectedProductRevision(productCode) {
+      const code = productCode || this.state.currentSku;
+      const options = this.productRevisionOptions(code);
+      const selected = code === this.state.currentSku ? this.state.selectedRevision : '';
+      return options.some((item) => item.revision === selected)
+        ? selected
+        : (options[0]?.revision || 'V1');
+    }
+
+    selectedProductRevisionInfo(productCode) {
+      const code = productCode || this.state.currentSku;
+      const selectedRevision = this.selectedProductRevision(code);
+      return this.productRevisionOptions(code).find((item) => item.revision === selectedRevision) || null;
+    }
+
+    activeProductPayload(productCode) {
+      const code = productCode || this.state.currentSku;
+      return payloadForProductRevision(this.state.payload, code, this.selectedProductRevision(code));
+    }
+
+    isHistoricalRevision() {
+      return isHistoricalProductRevision(
+        this.state.payload,
+        this.state.currentSku,
+        this.selectedProductRevision(),
+      );
+    }
+
+    canEditProductRevision() {
+      const revisionInfo = this.selectedProductRevisionInfo();
+      return this.isAdmin() &&
+        Boolean(revisionInfo?.current) &&
+        revisionInfo.workflowState === 'draft';
+    }
+
+    canCreateProductRevision() {
+      const revisionInfo = this.selectedProductRevisionInfo();
+      return this.isAdmin() &&
+        Boolean(revisionInfo?.current) &&
+        revisionInfo.workflowState === 'released';
+    }
+
+    canReleaseProductRevision() {
+      const revisionInfo = this.selectedProductRevisionInfo();
+      return this.isAdmin() &&
+        !this.state.dirty &&
+        Boolean(revisionInfo?.current) &&
+        revisionInfo.workflowState === 'draft';
+    }
+
     query(selector) {
       return global.document.querySelector(selector);
     }
@@ -533,7 +677,7 @@ const global = globalThis;
     }
 
     product() {
-      return this.state.bom[this.state.currentSku] || null;
+      return this.activeProductPayload().bom?.[this.state.currentSku] || null;
     }
 
     colorData() {
@@ -542,7 +686,8 @@ const global = globalThis;
     }
 
     bomRows(productCode, colorName) {
-      return buildBomTreeRows(this.state.payload, productCode || this.state.currentSku, colorName || this.state.currentColor);
+      const code = productCode || this.state.currentSku;
+      return buildBomTreeRows(this.activeProductPayload(code), code, colorName || this.state.currentColor);
     }
 
     pickFirstProduct() {
@@ -710,6 +855,7 @@ const global = globalThis;
           return;
         }
         if (editBomMaterial) {
+          if (!this.canEditProductRevision()) return;
           this.openMaterialMasterEditor(editBomMaterial.dataset.editBomMaterial);
           return;
         }
@@ -730,10 +876,12 @@ const global = globalThis;
           return;
         }
         if (deleteBom) {
+          if (!this.canEditProductRevision()) return;
           this.deleteBomRow(Number(deleteBom.dataset.deleteBomRow));
           return;
         }
         if (replaceBom) {
+          if (!this.canEditProductRevision()) return;
           this.startReplaceBomRow(Number(replaceBom.dataset.replaceBomRow));
           return;
         }
@@ -808,10 +956,22 @@ const global = globalThis;
 
     bindEditing() {
       this.query('#contentHeader').addEventListener('input', (event) => this.handleProductInput(event, false));
-      this.query('#contentHeader').addEventListener('change', (event) => this.handleProductInput(event, true));
+      this.query('#contentHeader').addEventListener('change', (event) => {
+        const revisionSelect = event.target.closest('[data-product-revision]');
+        if (revisionSelect) {
+          this.selectProductRevision(revisionSelect.value);
+          return;
+        }
+        this.handleProductInput(event, true);
+      });
       this.query('.content').addEventListener('input', (event) => this.handleMaterialInput(event, false));
       this.query('.content').addEventListener('change', (event) => this.handleMaterialInput(event, true));
       this.query('.content').addEventListener('input', (event) => this.handleMaterialDbInput(event));
+      this.query('.content').addEventListener('input', (event) => {
+        if (event.target.matches('[data-material-master-edit], [data-asset-edit]')) {
+          this.syncMaterialMasterFormToDraft();
+        }
+      });
       this.query('#inspectorPanel').addEventListener('input', (event) => this.handleInspectorInput(event));
       const tokenInput = this.query('#githubToken');
       if (tokenInput) tokenInput.addEventListener('change', () => this.storeToken(tokenInput.value.trim()));
@@ -870,7 +1030,7 @@ const global = globalThis;
     }
 
     runAction(action, actionElement) {
-      if (action === 'toggle-edit' && this.isAdmin()) this.toggleEdit();
+      if (action === 'toggle-edit' && this.canEditProductRevision()) this.toggleEdit();
       if (action === 'save' && this.isAdmin()) this.saveCloud();
       if (action === 'reload') this.loadCloud({ silent: false });
       if (action === 'discard' && this.isAdmin()) this.discard();
@@ -900,9 +1060,15 @@ const global = globalThis;
       if (action === 'back-material-list' && this.isAdmin()) this.backMaterialList();
       if (action === 'save-material-master' && this.isAdmin()) this.saveMaterialMaster();
       if (action === 'delete-material-master' && this.isAdmin()) this.deleteSelectedMaterialMaster();
+      if (action === 'add-2d-asset' && this.isAdmin()) this.addMaterialAssetRow('drawings');
+      if (action === 'add-3d-asset' && this.isAdmin()) this.addMaterialAssetRow('models3d');
+      if (action === 'delete-asset-row' && this.isAdmin()) this.deleteMaterialAssetRow(actionElement);
+      if (action === 'open-asset') this.openAsset(actionElement);
       if (action === 'copy') this.copyTable();
       if (action === 'exportExcel') this.exportExcel();
       if (action === 'add-product' && this.isAdmin()) this.addProduct();
+      if (action === 'create-product-revision' && this.isAdmin()) this.createProductRevisionFromPrompt();
+      if (action === 'release-product-revision' && this.isAdmin()) this.releaseProductRevisionFromPrompt();
     }
 
     addChildMaterialFromPrompt() {
@@ -982,6 +1148,7 @@ const global = globalThis;
       this.state.selectedEntryId = '';
       this.state.selectedParentId = '';
       this.state.bomDetailOpen = false;
+      this.state.selectedRevision = '';
       this._clearSearchBar();
       this.renderProductList();
       this.renderFilterBar();
@@ -1001,6 +1168,7 @@ const global = globalThis;
     selectProduct(sku) {
       if (!this.state.bom[sku]) return;
       this.state.currentSku = sku;
+      this.state.selectedRevision = '';
       this.state.materialDraft = null;
       this.state.selectedMaterialId = '';
       this.state.selectedEntryId = '';
@@ -1010,6 +1178,18 @@ const global = globalThis;
       this.ensureColor();
       this.renderProductList();
       this.renderFilterBar();
+      this.renderContent();
+      this.renderInspector();
+    }
+
+    selectProductRevision(revision) {
+      const option = this.productRevisionOptions().find((item) => item.revision === revision);
+      if (!option) return;
+      this.state.selectedRevision = option.revision;
+      this.state.selectedMaterialId = '';
+      this.state.selectedEntryId = '';
+      this.state.editMode = false;
+      this.ensureColor();
       this.renderContent();
       this.renderInspector();
     }
@@ -1064,6 +1244,7 @@ const global = globalThis;
     }
 
     toggleEdit() {
+      if (!this.canEditProductRevision()) return;
       this.state.editMode = !this.state.editMode;
       this.renderContent();
       this.renderInspector();
@@ -1123,6 +1304,7 @@ const global = globalThis;
 
     notificationFieldLabel(field) {
       const labelKeys = {
+        code: 'materialCode',
         name: 'materialName',
         spec: 'specification',
         material: 'materialComposition',
@@ -1135,7 +1317,23 @@ const global = globalThis;
     notificationChangeText(change) {
       const before = change.before || '-';
       const after = change.after || '-';
-      return `${change.code} · ${this.notificationFieldLabel(change.field)}: ${before} → ${after}`;
+      switch (change.kind) {
+        case 'material_added':
+          return `${change.code} · ${this.label('notificationMaterialAdded')}`;
+        case 'material_deleted':
+          return `${change.code} · ${this.label('notificationMaterialDeleted')}`;
+        case 'product_added':
+          return `${change.code} · ${this.label('notificationProductAdded')}`;
+        case 'bom_added':
+          return `${change.code} · ${this.label('notificationBomAdded')}: ${change.field}`;
+        case 'bom_deleted':
+          return `${change.code} · ${this.label('notificationBomDeleted')}: ${change.field}`;
+        case 'bom_qty_changed':
+          return `${change.code} · ${this.label('notificationBomQtyChanged')} (${change.field}): ${before} → ${after}`;
+        case 'material':
+        default:
+          return `${change.code} · ${this.notificationFieldLabel(change.field)}: ${before} → ${after}`;
+      }
     }
 
     notificationBody(notification) {
@@ -1144,8 +1342,8 @@ const global = globalThis;
         : this.label('notificationUpdatedBody');
       const changes = normalizeNotificationChanges(notification?.changes || []);
       if (!changes.length) return body;
-      const visible = changes.slice(0, 3).map((change) => this.notificationChangeText(change)).join('; ');
-      const more = changes.length > 3 ? ` +${changes.length - 3}` : '';
+      const visible = changes.slice(0, 5).map((change) => this.notificationChangeText(change)).join('; ');
+      const more = changes.length > 5 ? ` +${changes.length - 5}` : '';
       return `${body} ${this.label('notificationChangedItems')}: ${visible}${more}`;
     }
 
@@ -1295,6 +1493,7 @@ const global = globalThis;
     }
 
     startReplaceBomRow(index) {
+      if (!this.canEditProductRevision()) return;
       const material = this.state.lastRows[index];
       if (!material?._entryId) return;
       this.state.selectedEntryId = material._entryId;
@@ -1325,7 +1524,7 @@ const global = globalThis;
     }
 
     replaceSelectedBomRow() {
-      if (!this.isAdmin()) return;
+      if (!this.canEditProductRevision()) return;
       const selected = this.selectedBomRow();
       if (!selected?._entryId) {
         this.setStatus(this.label('bomRowNotFound'), 'error');
@@ -1352,7 +1551,7 @@ const global = globalThis;
 
     handleProductInput(event, refresh) {
       const input = event.target.closest('[data-product-edit]');
-      if (!input || !this.isAdmin()) return;
+      if (!input || !this.canEditProductRevision()) return;
       const colorData = this.colorData();
       const key = input.dataset.productEdit === 'name' ? (this.state.lang === 'vi' ? 'name_vi' : 'name_zh') : input.dataset.productEdit;
       colorData[key] = input.value;
@@ -1363,7 +1562,7 @@ const global = globalThis;
 
     handleMaterialInput(event, refresh) {
       const input = event.target.closest('[data-edit-field]');
-      if (!input || !this.isAdmin()) return;
+      if (!input || !this.canEditProductRevision()) return;
       this.updateMaterial(Number(input.dataset.rowIndex), input.dataset.editField, input.value);
       if (refresh) {
         this.renderProductList();
@@ -1422,11 +1621,76 @@ const global = globalThis;
       this.markDirty();
     }
 
+    openAsset(actionElement) {
+      const typeKey = actionElement.dataset.assetType;
+      const index = parseInt(actionElement.dataset.assetIndex, 10);
+      this.syncMaterialMasterFormToDraft();
+      const asset = this.state.materialDraft?.[typeKey]?.[index];
+      if (!asset || !asset.url) return;
+      const url = asset.url;
+      const fallbackName = this.label(typeKey === 'models3d' ? 'add3D' : 'add2D');
+      const name = asset.name || fallbackName;
+      if (typeKey === 'drawings') {
+        this.showModal(url, '2D', name);
+      } else if (typeKey === 'models3d') {
+        this.showModel3dModal({ previewUrl: url, name, path: url }, '3D');
+      }
+    }
+
+    syncMaterialMasterFormToDraft() {
+      const record = this.selectedMaterialRecord();
+      if (!record) return;
+
+      if (!this.state.materialDraft || this.state.materialDraft.id !== record.id) {
+        this.state.materialDraft = clone(record);
+      }
+
+      this.queryAll('[data-material-master-edit]').forEach((input) => {
+        const field = input.dataset.materialMasterEdit;
+        const lang = input.dataset.lang || 'zh';
+        if (field === 'code') {
+          this.state.materialDraft.code = input.value.trim();
+          return;
+        }
+        this.state.materialDraft[field] = this.state.materialDraft[field] || {};
+        this.state.materialDraft[field][lang] = input.value;
+      });
+
+      ['drawings', 'models3d'].forEach(typeKey => {
+        const arr = [];
+        this.queryAll(`#${typeKey}-container .material-asset-edit-row`).forEach((row, i) => {
+           const nameInput = row.querySelector('[data-asset-edit="name"]');
+           const urlInput = row.querySelector('[data-asset-edit="url"]');
+           const orig = (this.state.materialDraft[typeKey] || [])[i] || {};
+           arr.push({ ...orig, name: nameInput.value.trim(), url: urlInput.value.trim() });
+        });
+        this.state.materialDraft[typeKey] = arr;
+      });
+    }
+
+    addMaterialAssetRow(typeKey) {
+      if (!this.selectedMaterialRecord()) return;
+      this.syncMaterialMasterFormToDraft();
+      this.state.materialDraft[typeKey] = this.state.materialDraft[typeKey] || [];
+      this.state.materialDraft[typeKey].push({ url: '', name: '' });
+      this.renderContent();
+    }
+
+    deleteMaterialAssetRow(button) {
+      if (!this.selectedMaterialRecord()) return;
+      this.syncMaterialMasterFormToDraft();
+      const typeKey = button.dataset.assetType;
+      const index = parseInt(button.dataset.assetIndex, 10);
+      if (this.state.materialDraft[typeKey]) {
+        this.state.materialDraft[typeKey].splice(index, 1);
+      }
+      this.renderContent();
+    }
+
     saveMaterialMaster() {
       if (!this.isAdmin()) return;
       const record = this.selectedMaterialRecord();
       if (!record) return;
-      const wasDraft = this.state.materialDraft?.id === record.id;
       const patch = {};
       this.queryAll('[data-material-master-edit]').forEach((input) => {
         const field = input.dataset.materialMasterEdit;
@@ -1438,6 +1702,62 @@ const global = globalThis;
         patch[field] = patch[field] || {};
         patch[field][lang] = input.value;
       });
+
+      this.syncMaterialMasterFormToDraft();
+
+      let validationError = null;
+      const validate2D = (urlStr) => {
+        if (!urlStr) return false;
+        try {
+          const u = new URL(urlStr);
+          if (u.protocol !== 'https:') return false;
+          if (u.hostname === 'drive.google.com' || u.pathname.toLowerCase().endsWith('.pdf')) return true;
+        } catch(e) {}
+        return false;
+      };
+      const validate3D = (urlStr) => {
+        if (!urlStr) return false;
+        try {
+          const u = new URL(urlStr);
+          if (u.protocol !== 'https:') return false;
+          if (u.hostname === 'drive.google.com') return false;
+          if (u.pathname.toLowerCase().endsWith('.glb') || u.pathname.toLowerCase().endsWith('.gltf')) return true;
+        } catch(e) {}
+        return false;
+      };
+
+      const seenUrls = new Set();
+      const processAssets = (typeKey, validator, errorLabel) => {
+        const arr = [];
+        (this.state.materialDraft[typeKey] || []).forEach((asset) => {
+           const url = asset.url;
+           if (!url) {
+             validationError = this.label(errorLabel);
+             return;
+           }
+           if (!validator(url)) {
+             validationError = this.label(errorLabel);
+           }
+           if (seenUrls.has(url)) {
+             validationError = this.label('duplicateUrl');
+           }
+           seenUrls.add(url);
+           if (typeKey === 'models3d') {
+             asset.previewUrl = url;
+           }
+           arr.push(asset);
+        });
+        return arr;
+      };
+
+      patch.drawings = processAssets('drawings', validate2D, 'invalid2DUrl');
+      patch.models3d = processAssets('models3d', validate3D, 'invalid3DUrl');
+
+      if (validationError) {
+        this.setStatus(validationError, 'error');
+        return;
+      }
+
       if (this.state.materialDraft?.id === record.id) {
         this.state.materialDb.materials[record.id] = clone(record);
         this.state.payload.materialDb = this.state.materialDb;
@@ -1445,13 +1765,13 @@ const global = globalThis;
       updateMaterialRecord(this.state.payload, record.id, patch);
       this.state.materialDb = this.state.payload.materialDb;
       this.state.payload.materialDb = this.state.materialDb;
-      if (wasDraft) this.state.materialDraft = null;
+      this.state.materialDraft = null;
       this.state.selectedMaterialId = record.id;
       this.markDirty();
       this.renderProductList();
       this.renderContent();
       this.renderInspector();
-      this.setStatus(this.label('materialSaved'), 'dirty');
+      this.setStatus(this.label('saveLocalOnly'), 'dirty');
     }
 
     deleteSelectedMaterialMaster() {
@@ -1465,7 +1785,7 @@ const global = globalThis;
       this.deleteDatabaseMaterial(record.id);
     }
     deleteMaterialAsset(index, collectionName) {
-      if (!this.isAdmin()) return;
+      if (!this.canEditProductRevision()) return;
       const material = this.state.lastRows[index];
       if (!material) return;
       const collection = collectionName === 'models3d' ? this.state.models3d : this.state.drawings;
@@ -1499,7 +1819,7 @@ const global = globalThis;
     }
 
     deleteBomRow(index) {
-      if (!this.isAdmin()) return;
+      if (!this.canEditProductRevision()) return;
       const material = this.state.lastRows[index];
       if (!material?._entryId) return;
       this.openPdmConfirm(this.label('deleteBomRowConfirm'), () => {
@@ -1577,7 +1897,7 @@ const global = globalThis;
     }
 
     addBomRowFromPrompt() {
-      if (!this.isAdmin()) return;
+      if (!this.canEditProductRevision()) return;
       this.openMaterialSelector(this.label('addBomRow'), (record) => {
         this.openPdmPrompt(this.label('addBomRow'), [
           { key: 'comp_code', label: this.label('bomCompCode') },
@@ -1603,6 +1923,87 @@ const global = globalThis;
           this.markDirty();
           this.renderContent();
         });
+      });
+    }
+
+    createProductRevisionFromPrompt() {
+      if (!this.canCreateProductRevision()) return;
+      if (this.state.dirty) {
+        this.setStatus(this.label('revisionDirtyBlocked'), 'error');
+        return;
+      }
+      const fields = [];
+      if (!this.state.payload.productRevisions?.[this.state.currentSku]) {
+        fields.push({
+          key: 'currentRevision',
+          label: this.label('currentRevision'),
+          defaultValue: this.selectedProductRevision(),
+          required: true,
+        });
+      }
+      fields.push(
+        {
+          key: 'revision',
+          label: this.label('newRevision'),
+          placeholder: 'V4.1',
+          required: true,
+        },
+        {
+          key: 'changeReason',
+          label: this.label('changeReason'),
+          required: true,
+        },
+      );
+      this.openPdmPrompt(this.label('createRevision'), fields, (values) => {
+        try {
+          createProductRevision(this.state.payload, this.state.currentSku, values.revision, {
+            currentRevision: values.currentRevision,
+            changeReason: values.changeReason,
+          });
+          this.state.bom = this.state.payload.bom;
+          this.state.selectedRevision = values.revision.trim();
+          this.state.selectedMaterialId = '';
+          this.state.selectedEntryId = '';
+          this.markDirty();
+          this.renderAll();
+          this.setStatus(this.label('revisionCreated'), 'dirty');
+        } catch (error) {
+          const key = error.message === 'REVISION_EXISTS' ? 'revisionExists' : 'revisionCreateFailed';
+          this.setStatus(this.label(key), 'error');
+        }
+      });
+    }
+
+    releaseProductRevisionFromPrompt() {
+      const revisionInfo = this.selectedProductRevisionInfo();
+      if (!this.isAdmin() || !revisionInfo?.current || revisionInfo.workflowState !== 'draft') return;
+      if (this.state.dirty) {
+        this.setStatus(this.label('revisionReleaseDirtyBlocked'), 'error');
+        return;
+      }
+      this.openPdmPrompt(this.label('releaseRevision'), [{
+        key: 'releaseReason',
+        label: this.label('releaseRevisionReason'),
+        required: true,
+      }], (values) => {
+        try {
+          releaseProductRevision(
+            this.state.payload,
+            this.state.currentSku,
+            this.selectedProductRevision(),
+            { reason: values.releaseReason },
+          );
+          this.markDirty();
+          this.renderAll();
+          this.setStatus(this.label('revisionReleased'), 'dirty');
+        } catch (error) {
+          const errorKeys = {
+            RELEASE_REASON_REQUIRED: 'revisionReleaseReasonRequired',
+            REVISION_NOT_CURRENT: 'revisionReleaseCurrentOnly',
+            REVISION_NOT_DRAFT: 'revisionReleaseDraftOnly',
+          };
+          this.setStatus(this.label(errorKeys[error.message] || 'revisionReleaseFailed'), 'error');
+        }
       });
     }
 
@@ -1748,6 +2149,7 @@ const global = globalThis;
       const preserved = options?.preserveView ? {
         currentSku: this.state.currentSku,
         currentColor: this.state.currentColor,
+        selectedRevision: this.state.selectedRevision,
         currentAttr: this.state.currentAttr,
         adminView: this.state.adminView,
         bomDetailOpen: this.state.bomDetailOpen,
@@ -1770,10 +2172,12 @@ const global = globalThis;
       this.state.dirty = false;
       this.state.selectedMaterialId = '';
       this.state.selectedEntryId = '';
+      this.state.selectedRevision = '';
       this.state.bomDetailOpen = false;
       if (preserved) {
         this.state.currentSku = this.state.bom[preserved.currentSku] ? preserved.currentSku : '';
         this.state.currentColor = preserved.currentColor;
+        this.state.selectedRevision = preserved.selectedRevision;
         this.state.currentAttr = preserved.currentAttr;
         this.state.adminView = preserved.adminView;
         this.state.bomDetailOpen = preserved.bomDetailOpen;
@@ -1812,6 +2216,7 @@ const global = globalThis;
         manuals: this.state.manuals,
         models3d: this.state.models3d,
         productImages: this.state.productImages,
+        productRevisions: this.state.payload.productRevisions,
         materialDb: this.state.materialDb,
         notifications: this.state.payload.notifications
       });

@@ -90,12 +90,19 @@ function productCatalogRows() {
     .map((sku) => {
       const product = this.state.bom[sku];
       const firstColor = product?.color_info?.[product.colors?.[0]] || {};
+      const revisionOptions = this.productRevisionOptions(sku);
+      const revisionInfo = revisionOptions[0] || {};
+      const effectiveRevision = revisionOptions.find((item) => item.effective)?.revision || revisionInfo.revision;
       return {
         sku,
         product,
         name: stripProductColorName(this.productName(product), product, this.state.lang),
         size: firstColor.size || '-',
         colors: product.colors || [],
+        revision: revisionInfo.revision,
+        effectiveRevision,
+        effective: Boolean(revisionInfo.effective),
+        workflowState: revisionInfo.workflowState || 'released',
         disabled: this.productDisabled(product)
       };
     })
@@ -103,15 +110,22 @@ function productCatalogRows() {
 }
 
 function productCatalogRowHtml(row) {
-  const statusKey = row.disabled ? 'disabledStatus' : 'activeStatus';
-  const statusClass = row.disabled ? 'disabled' : 'active';
+  const isDraft = row.workflowState === 'draft';
+  const lifecycleKey = isDraft ? 'draftStatus' : 'releasedStatus';
+  const lifecycleClass = isDraft ? 'draft' : 'released';
+  const effectivityKey = row.effective ? 'effectiveStatus' : 'nonCurrentStatus';
+  const effectivityClass = row.effective ? 'effective' : 'non-current';
+  const statusHtml = row.disabled
+    ? `<span class="status-pill disabled">${escapeHTML(this.label('disabledStatus'))}</span>`
+    : `<span class="status-pill ${lifecycleClass}">${escapeHTML(this.label(lifecycleKey))}</span>
+      <span class="status-pill ${effectivityClass}">${escapeHTML(this.label(effectivityKey))}</span>`;
   return `<tr class="product-catalog-row">
     <td><span class="spu-code">${escapeHTML(row.sku)}</span></td>
     <td><span class="product-name-link" data-open-bom-product="${escapeHTML(row.sku)}">${escapeHTML(row.name)}</span></td>
     <td>${escapeHTML(row.size)}</td>
-    <td><span class="version-badge">${escapeHTML(this.getSpuVersion(row.sku))}</span></td>
+    <td><div class="catalog-revision-stack"><span class="version-badge">${escapeHTML(row.revision || this.getSpuVersion(row.sku))}</span><small>${escapeHTML(this.label('effectiveRevision'))}: ${escapeHTML(row.effectiveRevision)}</small></div></td>
     <td><div class="color-dot-list">${row.colors.map((color) => this.productColorDotHtml(row.product, color)).join('')}</div></td>
-    <td><span class="status-pill ${statusClass}">${escapeHTML(this.label(statusKey))}</span></td>
+    <td><div class="catalog-status-stack">${statusHtml}</div></td>
     <td><button class="drawing-btn primary" type="button" data-open-bom-product="${escapeHTML(row.sku)}">${escapeHTML(this.label('viewBom'))}</button></td>
   </tr>`;
 }
@@ -122,14 +136,19 @@ function productDisabled(product) {
 }
 
 function getSpuVersion(spuCode) {
-  const data = this.state.payload || window.BOM_VIEWER_DATA;
-  const manuals = data?.manuals?.[spuCode];
-  if (manuals && manuals.length > 0) {
-    const name = manuals[0].name || '';
-    const match = name.match(/-(v\d+)/i);
-    if (match) return match[1].toUpperCase();
-  }
-  return 'A.1';
+  return this.productRevisionOptions(spuCode)[0]?.revision || 'V1';
+}
+
+function revisionSelectorHtml() {
+  const selectedRevision = this.selectedProductRevision();
+  const options = this.productRevisionOptions().map((item) => {
+    const lifecycleKey = item.workflowState === 'draft' ? 'draftStatus' : 'releasedStatus';
+    const effectivityKey = item.effective ? 'effectiveStatus' : 'nonCurrentStatus';
+    const optionLabel = [item.revision, this.label(lifecycleKey), this.label(effectivityKey)].join(' · ');
+    return `<option value="${escapeHTML(item.revision)}"${item.revision === selectedRevision ? ' selected' : ''}>${escapeHTML(optionLabel)}</option>`;
+  })
+    .join('');
+  return `<select class="db-filter-select product-revision-select" data-product-revision aria-label="${escapeHTML(this.label('revision'))}">${options}</select>`;
 }
 
 function productColorDotHtml(product, color) {
@@ -149,16 +168,20 @@ function colorDotClass(label) {
 
 function contentHeaderHtml(product, colorData) {
   const name = this.localizedProductName(colorData);
-  const title = this.state.editMode ? this.productInput(name, 'name', 'edit-title') : `<h1>${escapeHTML(name)}</h1>`;
+  const revisionInfo = this.selectedProductRevisionInfo();
+  const title = this.canEditProductRevision() && this.state.editMode
+    ? this.productInput(name, 'name', 'edit-title')
+    : `<h1>${escapeHTML(name)}</h1>`;
   const sku = this.renderSku(colorData);
   return `<div class="bom-detail-header">
     <div>
-      <div class="pdm-title-row">${title}<span class="color-badge">${escapeHTML(this.colorLabel(colorData))}</span><span class="status-badge released">RELEASED</span></div>
+      <div class="pdm-title-row">${title}<span class="color-badge">${escapeHTML(this.colorLabel(colorData))}</span>${this.revisionStatusBadgesHtml(revisionInfo)}</div>
       <div class="pdm-meta-line">
         <span>SKU: ${sku}</span><span class="dot"></span>
-        <span>${escapeHTML(this.label('revision'))}: ${escapeHTML(this.getSpuVersion(product.code))}</span><span class="dot"></span>
+        <span class="revision-meta">${escapeHTML(this.label('revision'))}: ${this.revisionSelectorHtml()}</span><span class="dot"></span>
         <span>${escapeHTML(this.label('lastModified'))}: ${escapeHTML(this.formatDate(this.state.payload.updatedAt))}</span>
       </div>
+      ${this.revisionTransitionHtml(revisionInfo)}
     </div>
     <div class="header-actions">${this.headerActionsHtml()}</div>
   </div>
@@ -170,23 +193,53 @@ function contentHeaderHtml(product, colorData) {
   <div class="color-tabs">${this.colorTabsHtml(product)}</div>`;
 }
 
+function revisionStatusBadgesHtml(revisionInfo) {
+  const workflowState = revisionInfo?.workflowState === 'draft' ? 'draft' : 'released';
+  const labelKey = workflowState === 'draft' ? 'draftStatus' : 'releasedStatus';
+  const effectivityClass = revisionInfo?.effective ? 'effective' : 'non-current';
+  const effectivityKey = revisionInfo?.effective ? 'effectiveStatus' : 'nonCurrentStatus';
+  return `<span class="status-badge ${workflowState}">${escapeHTML(this.label(labelKey))}</span>
+    <span class="status-badge ${effectivityClass}">${escapeHTML(this.label(effectivityKey))}</span>`;
+}
+
+function revisionTransitionHtml(revisionInfo) {
+  if (!revisionInfo?.sourceRevision) return '';
+  const items = [
+    `<span><strong>${escapeHTML(this.label('revisionSource'))}:</strong> ${escapeHTML(revisionInfo.sourceRevision)} → ${escapeHTML(revisionInfo.revision)}</span>`,
+  ];
+  if (revisionInfo.changeReason) {
+    items.push(`<span><strong>${escapeHTML(this.label('changeReason'))}:</strong> ${escapeHTML(revisionInfo.changeReason)}</span>`);
+  }
+  if (revisionInfo.createdAt) {
+    items.push(`<span><strong>${escapeHTML(this.label('revisionCreatedAt'))}:</strong> ${escapeHTML(this.formatDate(revisionInfo.createdAt))}</span>`);
+  }
+  return `<div class="revision-transition-line">${items.join('<span class="dot"></span>')}</div>`;
+}
+
 function headerActionsHtml() {
   if (!this.isAdmin()) return '';
-  const editButton = this.isAdmin()
+  const revisionInfo = this.selectedProductRevisionInfo();
+  const readOnlyKey = this.isHistoricalRevision() ? 'historicalRevisionReadOnly' : 'releasedRevisionReadOnly';
+  const editButton = this.canEditProductRevision()
     ? `<button class="btn btn-outline ${this.state.editMode ? 'active' : ''}" type="button" data-action="toggle-edit"><span class="material-symbols-outlined">edit</span>${escapeHTML(this.state.editMode ? this.label('done') : this.label('edit'))}</button>`
-    : `<span class="read-only-note">${escapeHTML(this.label('readOnly'))}</span>`;
+    : `<span class="read-only-note">${escapeHTML(this.label(readOnlyKey))}</span>`;
   const assemblyButton = this.productModels3d().length
     ? `<button class="btn btn-outline" type="button" data-product-model3d-index="0"><span class="material-symbols-outlined">architecture</span>${escapeHTML(this.label('viewAssembly'))}</button>`
     : '';
+  const releaseButton = revisionInfo?.current && revisionInfo.workflowState === 'draft'
+    ? `<button class="btn btn-primary" type="button" data-action="release-product-revision"><span class="material-symbols-outlined">publish</span>${escapeHTML(this.label('releaseRevision'))}</button>`
+    : '';
   return `${editButton}
+    ${releaseButton}
     ${assemblyButton}
     <button class="btn btn-outline" type="button" data-action="copy"><span class="material-symbols-outlined">content_copy</span>${escapeHTML(this.label('copy'))}</button>
     <button class="btn btn-primary" type="button" data-action="exportExcel"><span class="material-symbols-outlined">download</span>${escapeHTML(this.label('export'))}</button>`;
 }
 
 function productSpecCardHtml(product, colorData) {
+  const editing = this.canEditProductRevision() && this.state.editMode;
   const rows = [
-    [this.label('size'), this.state.editMode ? this.productInput(colorData.size || '', 'size', 'edit-small') : escapeHTML(colorData.size || '-')],
+    [this.label('size'), editing ? this.productInput(colorData.size || '', 'size', 'edit-small') : escapeHTML(colorData.size || '-')],
     [this.label('colors'), escapeHTML(Object.keys(product.color_info || {}).length)],
     [this.label('total'), escapeHTML(this.bomRows().length)],
     [this.label('manual'), this.manualButtons()]
@@ -242,12 +295,15 @@ function productPreviewImage(colorData) {
 }
 
 function renderSku(colorData) {
-  return this.state.editMode ? this.productInput(colorData.sku || '', 'sku', 'edit-subtitle') : escapeHTML(colorData.sku || '');
+  return this.canEditProductRevision() && this.state.editMode
+    ? this.productInput(colorData.sku || '', 'sku', 'edit-subtitle')
+    : escapeHTML(colorData.sku || '');
 }
 
 function metaHtml(product, colorData) {
+  const editing = this.canEditProductRevision() && this.state.editMode;
   const items = [
-    this.metaItem('size', this.state.editMode ? this.productInput(colorData.size || '', 'size', 'edit-small') : escapeHTML(colorData.size || '')),
+    this.metaItem('size', editing ? this.productInput(colorData.size || '', 'size', 'edit-small') : escapeHTML(colorData.size || '')),
     this.metaItem('colors', Object.keys(product.color_info || {}).length),
     this.metaItem('total', this.bomRows().length),
     this.metaItem('manual', this.manualButtons())
@@ -313,6 +369,9 @@ export const catalogViewMethods = {
   productCatalogRowHtml,
   productDisabled,
   getSpuVersion,
+  revisionSelectorHtml,
+  revisionStatusBadgesHtml,
+  revisionTransitionHtml,
   productColorDotHtml,
   colorDotClass,
   contentHeaderHtml,

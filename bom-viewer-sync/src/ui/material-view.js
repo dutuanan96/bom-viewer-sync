@@ -340,8 +340,31 @@ function materialMasterAssetsHtml(record) {
 }
 
 function materialMasterAssetList(title, assets) {
+  const typeKey = title === '2D' ? 'drawings' : 'models3d';
+  if (this.isAdmin && this.isAdmin()) {
+    const addAction = title === '2D' ? 'add-2d-asset' : 'add-3d-asset';
+    const draftAssets = this.state.materialDraft ? (this.state.materialDraft[typeKey] || []) : assets;
+    const rows = draftAssets.map((asset, index) => {
+      const name = asset.name || '';
+      const url = title === '2D' ? (asset.url || asset.path || '') : (asset.url || asset.previewUrl || '');
+      return `<div class="material-asset-edit-row" style="display:flex;gap:8px;margin-bottom:8px;">
+        <input class="edit-input" style="flex:1" data-asset-edit="name" data-asset-type="${typeKey}" data-asset-index="${index}" placeholder="${escapeHTML(this.label('assetName'))}" value="${escapeHTML(name)}">
+        <input class="edit-input" style="flex:2" data-asset-edit="url" data-asset-type="${typeKey}" data-asset-index="${index}" placeholder="${escapeHTML(this.label('assetUrl'))}" value="${escapeHTML(url)}">
+        <button class="btn" type="button" data-action="open-asset" data-asset-type="${typeKey}" data-asset-index="${index}">${escapeHTML(this.label('openAsset'))}</button>
+        <button class="btn danger" type="button" data-action="delete-asset-row" data-asset-type="${typeKey}" data-asset-index="${index}">${escapeHTML(this.label('deleteAsset'))}</button>
+      </div>`;
+    }).join('');
+
+    return `<div class="material-master-asset-list">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+        <strong>${escapeHTML(title)}</strong>
+        <button class="btn btn-primary small" type="button" data-action="${addAction}">+ ${escapeHTML(this.label(title === '2D' ? 'add2D' : 'add3D'))}</button>
+      </div>
+      <div id="${typeKey}-container">${rows}</div>
+    </div>`;
+  }
   const rows = assets.length
-    ? assets.map((asset) => `<li><strong>${escapeHTML(asset.name || asset.path || asset.url || '-')}</strong><span>${escapeHTML(asset.path || asset.url || '')}</span></li>`).join('')
+    ? assets.map((asset) => `<li><strong>${escapeHTML(asset.name || asset.path || asset.url || '-')}</strong><span><a href="#" data-action="open-asset" data-asset-url="${escapeHTML(asset.url || asset.path || '')}">${escapeHTML(asset.path || asset.url || '')}</a></span></li>`).join('')
     : '<li class="mdb-empty">-</li>';
   return `<div class="material-master-asset-list"><strong>${escapeHTML(title)}</strong><ul>${rows}</ul></div>`;
 }

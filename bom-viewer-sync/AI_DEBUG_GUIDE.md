@@ -61,6 +61,7 @@ UI và application có thể gọi domain/infrastructure. Domain không được
 | `src/domain/bom.js` | Resolve BOM rows, sidebar index, navigation counts | DOM hoặc GitHub access |
 | `src/domain/materials.js` | Payload normalization, material database, localization helpers, where-used, updates | UI rendering |
 | `src/domain/relationships.js` | Parent-child tree, child grouping, legacy BOM synchronization | Network/storage |
+| `src/domain/revisions.js` | Product revision registry, immutable BOM snapshots, current/effective transitions | DOM, prompts hoặc GitHub access |
 | `src/features/notifications.js` | Material diff, notification normalization, append event | Notification panel HTML |
 | `src/infrastructure/github-data.js` | Config, GitHub public read, authenticated read/write, serialization | Product/domain decisions |
 | `src/infrastructure/assets.js` | Asset matching, Drive/PDF display URLs | BOM mutation |
@@ -124,6 +125,39 @@ admin.html + app-admin.js + styles.css + data.js
 
 Điểm quan trọng: save không được diff dựa trên stale local baseline. Remote-only notifications phải được giữ lại trước khi append event mới. Đây là lý do adapter và application save flow phải đọc current remote payload and SHA ngay trước PUT.
 
+### Product revision và effectivity
+
+```text
+released effective revision (V3)
+  → create revision with source metadata
+  → latest design becomes Draft (V3.1)
+  → V3 remains the single effective revision
+  → save the clean Draft
+  → release with a required reason
+  → V3.1 becomes released + effective; V3 remains historical released
+```
+
+`currentRevision` là latest design revision; `effectiveRevision` là revision duy nhất đang dùng trong sản xuất. Không được suy luận Draft mới là released/effective. Snapshot lịch sử hợp lệ là immutable và mọi released/historical view là read-only.
+
+### Notification và Payload Diffing
+
+```text
+admin save action
+  → get current remote payload (previous) and local state (next)
+  → features/notifications.js: describePayloadChanges(previous, next)
+  → compare Object.keys(bom) for new products
+  → compare materialDb.materials for added/deleted/modified materials
+    - LOCALIZED_MATERIAL_FIELDS (name, spec, etc.): check { zh, vi } objects
+    - Primitive fields (code): check strings directly
+  → compare materialDb.bomEntries cho BOM additions/deletions/qty changes
+    - parentType: 'product' (parent = productCode) hoặc 'material' (parent = materialCode)
+    - child ID: ưu tiên `childMaterialId`, fallback về `materialId`
+  → normalize thành array các thay đổi với giới hạn (ví dụ: 8 thay đổi)
+  → append vào list notifications cũ và lưu lên GitHub
+```
+
+Hệ thống diffing bắt buộc phải dùng đúng `childMaterialId || materialId` khi trích xuất mã con từ `bomEntries`, và `parentType` lưu trong data là `'product'` chứ không phải `'productRevision'`. Các trường đa ngôn ngữ và nguyên thuỷ (primitive) phải được tách biệt khi so sánh để tránh lỗi ép kiểu (cast error) sang object.
+
 ### Code update khác data update
 
 | Loại thay đổi | Cần build Viewer mới? | Người nhận Viewer cần làm gì? |
@@ -142,6 +176,9 @@ admin.html + app-admin.js + styles.css + data.js
 | Sai BOM row, số lượng hoặc màu | `src/domain/bom.js`, `src/domain/materials.js` | `resolveBomRows()` focused test với SKU/color cụ thể |
 | Sai cây hoặc thiếu child | `src/domain/relationships.js` | `buildBomTreeRows()`/`groupMaterialChildRows()` test; kiểm tra entry scope |
 | Sai where-used/material shared edit | `src/domain/materials.js` | `materialWhereUsed()` và shared MaterialID test |
+| Version cũ biến mất hoặc bị đổi thành V1 | `src/domain/revisions.js` | Revision registry migration và immutable snapshot tests |
+| Draft mới tự thành released/effective | `src/domain/revisions.js`, release orchestration | So sánh `currentRevision` với `effectiveRevision`; transition tests |
+| Có nhiều revision cùng effective | `src/domain/revisions.js` | Atomic release test và normalized revision registry |
 | PDF/Drive không mở | `src/infrastructure/assets.js` | Asset record, Drive ID, preview URL, browser console |
 | GLB không mở | Asset index/UI modal | URL tồn tại, model record, external request và console |
 | Ảnh sản phẩm sai | `src/ui/catalog-view.js`, product image index | Product/color selection và resolved URL |
@@ -238,6 +275,10 @@ So sánh SHA-256 của canonical artifacts/docs với outer `outputs/`. Báo rõ
 10. UI/domain không được gọi GitHub network/storage trực tiếp.
 11. Silent cloud refresh không được ghi đè dirty Admin state hoặc active Material Master draft.
 12. Outer `outputs/` chỉ được coi là hợp lệ sau build/test/hash verification.
+13. `currentRevision` là latest design; `effectiveRevision` là revision sản xuất duy nhất và hai giá trị có thể khác nhau khi latest design còn Draft.
+14. Tạo revision mới không tự release hoặc chuyển effectivity.
+15. Release chỉ áp dụng cho clean latest Draft, bắt buộc có reason và phải chuyển effectivity atomically.
+16. Released/historical revisions và BOM snapshots của chúng là read-only.
 
 ## 7. Bẫy thường gặp
 
@@ -268,6 +309,10 @@ Outer wrappers trỏ canonical main clone. Trước merge, chạy direct command
 ### Build code không đồng bộ docs/data tự động
 
 Build chỉ tạo bốn runtime artifacts. Workflow docs phải mirror riêng. `data.js` không được copy trong code-only flow.
+
+### Feature branch không phải runtime mirror
+
+Khi feature chưa merge, canonical feature checkout có thể mới hơn `outputs/` và Desktop. Không chạy outer build wrapper để phát hành feature từ branch. Chỉ mirror runtime sau khi canonical `main` chứa commit tích hợp và full gate đã pass; context documents có thể cập nhật trước để ghi rõ trạng thái pending này.
 
 ## 8. Verification và handoff
 

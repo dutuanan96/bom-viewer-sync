@@ -1,27 +1,37 @@
 # PDM BOM Viewer Review Context
 
-## Review Targets
+## Review Scope
 
-Review editable modules under `work/remote-bom-viewer-sync/bom-viewer-sync/src/` and the build scripts. `admin.html`, `app-admin.js`, `styles.css`, and `viewer.html` are generated artifacts, never manual edit targets.
+Review PR #1 on branch `codex/product-bom-revisions`. Editable code is under `src/`; `admin.html`, `app-admin.js`, `styles.css`, and `viewer.html` are generated evidence and must correspond to build ID `1f21d89ccd2a`.
 
-Build with `npm run build`; run `npm run check` for the complete local gate. The generated cache ID is a dynamic 12-character build hash (current output: `e20a4df8f465`), not a fixed version number. Viewer program changes require a rebuilt and redistributed `viewer.html`; Viewer reloads still receive GitHub/Drive data changes.
+## Required Revision Contracts
 
-## Required Contracts
+- Existing real product versions are preserved; legacy products are not reset to `V1`.
+- Creating a new revision stores an immutable snapshot of the previous BOM.
+- A new revision starts as Draft and records its source transition.
+- Creating Draft `V3.1` while `V3` is effective must not mark `V3.1` as released/effective.
+- Only the clean latest Draft can be released, and a release reason is required.
+- Release moves effectivity atomically so exactly one valid revision is effective.
+- Released current and historical revisions are read-only; a new revision can still be created from the current released revision.
+- Historical entries without a valid product snapshot are not inferred as effective.
+- Revision labels, badges, prompts, and errors use i18n keys; PDM user-facing UI remains zh-CN.
 
-- The BOM inspector stays hidden and empty when a plain BOM row is clicked.
-- Admin reads current remote data and SHA before saving through GitHub Contents API.
-- Public data reads prefer cache-busted Contents API raw responses, with raw GitHub only as fallback.
-- Notifications are GitHub-backed; opening the bell changes only local read state.
-- Generated artifacts must not contain tokens, `Authorization` secrets, local absolute paths, or inline source maps.
+## Existing System Contracts
 
-## Mirror Review
+- Public reads prefer cache-busted GitHub Contents API raw responses.
+- Admin saves read the current remote payload and SHA before diff/write and preserve remote notifications.
+- Plain BOM-row clicks do not open the removed inspector.
+- Generated artifacts contain no credentials, local absolute paths, or inline source maps.
+- Code-only work leaves `data.js` untouched.
 
-Outer `outputs/` is a verified runtime mirror, not editable source. For code-only work, mirror the four generated files and synchronized docs only; never copy `data.js`. Verify SHA-256 equality for every mirrored file, confirm obsolete runtime artifacts are absent, and preserve both clone and output `data.js` hashes.
+## Verified Gates (2026-07-13)
 
-Before integration, syntax-check the outer compatibility wrappers but do not execute them: they intentionally resolve to the canonical main clone. Run the equivalent build, UI-contract (16), runtime-contract (13), and data-audit commands directly from the feature worktree instead.
+- Repository: 71/71 tests passed.
+- Audit: 643 materials / 2725 BOM entries / 22 products / 0 errors / 0 warnings.
+- Outer Material Master/revision contracts: 23/23 passed.
+- Outer runtime contracts: 13/13 passed.
+- Generated freshness and JavaScript syntax checks passed.
 
-## Expected Gates
+## Integration Risk To Watch
 
-- Repository: 55 tests, audit 643/2725/22 with 0 errors and 0 warnings, generated check, and `app-admin.js` syntax.
-- Direct feature contracts: 16 UI tests and 13 runtime tests.
-- The non-gating `work/material-db.test.mjs` baseline remains 8/10.
+`origin/main` has newer data-only commits than the feature branch. The divergent file is `data.js`; do not resolve that difference by copying the branch snapshot over remote data. Merge the code feature, then rebuild from integrated `main` and synchronize runtime mirrors.
