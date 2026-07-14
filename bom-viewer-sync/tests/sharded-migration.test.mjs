@@ -91,10 +91,15 @@ test('Sharded Migration Data Logic', async (t) => {
   await t.test('Regression: Duplicate product ID in manifest', async () => {
     const { manifest, materials, products } = splitPayloadToShards(payload);
     manifest.products.push(manifest.products[0]);
+    let callCount = 0;
     await assert.rejects(
-      assembleShardedPayload(manifest, materials, async (id) => products.get(id)),
+      assembleShardedPayload(manifest, materials, async (id) => {
+        callCount++;
+        return products.get(id);
+      }),
       /Duplicate product ID in manifest/
     );
+    assert.strictEqual(callCount, 0, 'Loader should not be called if manifest has duplicates');
   });
 
   await t.test('Regression: Unsafe Product ID in payload.bom', async () => {

@@ -17,12 +17,15 @@ export async function assembleShardedPayload(manifest, materials, loadProduct) {
     throw new Error('Invalid materials');
   }
 
-  const bom = Object.create(null);
   const seenIds = new Set();
   for (const productId of manifest.products) {
     validateProductId(productId);
     if (seenIds.has(productId)) throw new Error(`Duplicate product ID in manifest: ${productId}`);
     seenIds.add(productId);
+  }
+
+  const bom = Object.create(null);
+  for (const productId of manifest.products) {
     const product = await loadProduct(productId);
     if (!isPlainObject(product)) throw new Error(`Invalid product ${productId}`);
     bom[productId] = product;
