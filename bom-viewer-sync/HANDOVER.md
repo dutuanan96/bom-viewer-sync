@@ -5,13 +5,14 @@ Read `AI_DEBUG_GUIDE.md` before project files.
 ## Current State
 
 - Canonical checkout: `work/remote-bom-viewer-sync/bom-viewer-sync/`.
-- PR #1, Phase A PR #5, and Phase B PR #6 are squash-merged to `main`.
-- Phase B.1 integration PR: #8 from `codex/sharded-data-compatibility` to `main` (supersedes PR #7).
+- PR #1, Phase A PR #5, Phase B PR #6, and Phase B.1 PR #8 are squash-merged to `main`.
+- Phase B.2 integration branch: `codex/sharded-migration-dry-run`.
 - Product revision/effectivity, draft-safe Material Master 2D/3D editing and expanded payload notifications are integrated.
-- Current Phase B.1 generated build ID is `431b891`.
-- The latest Phase B.1 repository gate passed 124/124 tests. Canonical audit: 646 materials, 2725 BOM entries, 22 products, 1 notification, 0 errors and 0 warnings.
-- Phase B.1 implements the Sharded Data Compatibility Layer. `loadPublic()` tries sharded manifest first and only falls back to `data.js` if the manifest is an HTTP 404. Schema errors and sub-file 404s throw errors without falling back. `loadForWrite()` and `write()` still ONLY use `data.js`. No data migration has occurred, and there is no sharded production data yet. The save target has not changed.
-- Phase B.1 publication has not been approved. `data.js`, `outputs/`, and Desktop remain unchanged.
+- Current Phase B.2 generated build ID is `94069c453df8`.
+- The latest Phase B.2 repository gate passed 132/132 tests. Canonical audit: 646 materials, 2725 BOM entries, 22 products, 1 notification, 0 errors and 0 warnings.
+- Phase B.2 implements an in-memory data migration dry-run. `scripts/migrate-data-dry-run.mjs` splits and re-assembles the legacy payload to prove structural integrity without loss. No actual files are created or uploaded to GitHub.
+- Phase B.1 Compatibility Layer remains: `loadPublic()` tries sharded manifest first and only falls back to `data.js` if the manifest is an HTTP 404. `loadForWrite()` and `write()` still ONLY use `data.js`.
+- Phase B.2 publication has not been approved. `data.js`, `outputs/`, and Desktop remain unchanged.
 
 ## Continue This Flow
 
@@ -21,7 +22,7 @@ Read `AI_DEBUG_GUIDE.md` before project files.
 4. Material Master edits use one isolated `state.materialDraft`; Add/Delete/Open assets must not mutate the stored material before Save Material.
 5. Preserve hidden asset metadata. For 3D editing, render `url` before fallback `previewUrl`, then update `previewUrl = url` only on successful save.
 6. Do not copy `data.js` between canonical, `outputs/` or Desktop during code-only work. GitHub/main data is authoritative.
-7. Verify PR #8 is merged and `origin/main` passes the complete gate before any publication work.
+7. Verify Phase B.2 is merged and `origin/main` passes the complete gate before any publication work.
 8. Run `npm run check`, `node --check app-admin.js`, `git diff --check`, and inspect any `data.js` diff before pushing.
 
 ## Integrated Publication Flow
@@ -58,6 +59,7 @@ Verify SHA-256 equality for generated artifacts and context documents, then repl
 - Phase A repository gate passed 100/100 tests; the canonical data audit still reports 646 materials, 2725 BOM entries, 22 products, 1 notification, 0 errors, and 0 warnings. Phase B merge is approved; publication still requires separate user approval.
 - Phase B Admin smoke selected a valid PDF, showed the localized pending filename with a blank draft URL, confirmed Back restored the original URL, and confirmed Save Material remained local-only.
 - Phase B.1 (PR #8) Admin browser smoke passed on local server. Viewer loaded 22 products and 646 materials from `data.js` fallback successfully. The repository gate passed 124/124 tests.
+- Phase B.2 repository gate passed 132/132 tests, including 8 new tests verifying the in-memory split and re-assembly logic. The `migrate:dry-run` script executed successfully on local `data.js`, reporting exactly 24 virtual files created and matching identical deepStrictEqual structures without loss.
 
 ## Environment Caveat
 
