@@ -64,6 +64,7 @@ UI và application có thể gọi domain/infrastructure. Domain không được
 | `src/domain/revisions.js` | Product revision registry, immutable BOM snapshots, current/effective transitions | DOM, prompts hoặc GitHub access |
 | `src/features/notifications.js` | Material diff, notification normalization, append event | Notification panel HTML |
 | `src/infrastructure/github-data.js` | Config, GitHub public read, authenticated read/write, serialization | Product/domain decisions |
+| `src/infrastructure/github-release.js` | Inactive Release Assets experiment: release lookup/create, raw upload, conflict handling | Runtime asset delivery or draft mutation |
 | `src/infrastructure/assets.js` | Asset matching, Drive/PDF display URLs | BOM mutation |
 | `src/ui/catalog-view.js` | Product catalog, sidebar navigation, product image/model presentation | Fetch logic |
 | `src/ui/bom-view.js` | BOM header/table/filter/asset actions | GitHub writes |
@@ -85,6 +86,7 @@ UI và application có thể gọi domain/infrastructure. Domain không được
 | `scripts/audit-data.mjs` | Validate material/BOM/data integrity |
 | `tests/domain.test.mjs` | Pure domain behavior và module seams |
 | `tests/github-data.test.mjs` | GitHub read/write, current SHA/payload và notification preservation |
+| `tests/github-release.test.mjs` | Release lifecycle, raw binary upload, pagination, duplicate/starter safety |
 | `tests/assets-notifications.test.mjs` | Asset matching và notification behavior |
 | `tests/material-assets.test.mjs` | Material Master draft isolation, asset metadata, URL validation và save/discard behavior |
 | `tests/notifications.test.mjs` | Product/material/BOM payload diff events và quantity edge cases |
@@ -306,6 +308,10 @@ So sánh SHA-256 của canonical artifacts/docs với outer `outputs/`. Báo rõ
 18. Save asset phải preserve metadata không hiển thị; 3D direct URL được đồng bộ vào `previewUrl`.
 19. URL 2D/3D trống, sai schema/extension hoặc trùng lặp phải chặn Save bằng i18n error.
 20. Save Material là local edit; Save to GitHub vẫn là hành động riêng và phải dùng current remote payload/SHA.
+
+### GitHub Release Assets experiment
+
+The public `dutuanan96/bom-viewer-assets` repository and `assets-v1` release exist, and `src/infrastructure/github-release.js` can upload immutable raw binary assets. The adapter is not connected to Admin or Viewer. Browser smoke on 2026-07-14 showed that PDF responses force attachment download with `application/octet-stream`, while GLB requests fail CORS because the final response has no `Access-Control-Allow-Origin`. Do not integrate this adapter into Material Master and do not translate Release Asset URLs to jsDelivr. Runtime asset delivery remains unchanged until a compatible delivery architecture is approved.
 
 ## 7. Bẫy thường gặp
 

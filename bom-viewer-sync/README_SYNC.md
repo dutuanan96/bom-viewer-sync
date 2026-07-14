@@ -14,6 +14,10 @@ PR #1 was squash-merged into `main` on 2026-07-14 as `72debab`. Product revision
 
 Runtime publication and data synchronization are separate operations. Never copy `outputs/data.js` over canonical or GitHub data.
 
+## Release Assets Experiment
+
+The public `dutuanan96/bom-viewer-assets` repository and release `assets-v1` were created for an adapter-only experiment. Binary upload works, but direct Viewer delivery does not: PDFs are forced to download and GLB fetches are blocked by missing CORS headers. The adapter is inactive, no Admin/Viewer flow changed, and no runtime or Desktop artifact should be published from this branch. Do not use jsDelivr repository paths for Release Asset objects.
+
 ## Sync Rules
 
 - Build generates `admin.html`, `app-admin.js`, `styles.css`, and standalone `viewer.html`.

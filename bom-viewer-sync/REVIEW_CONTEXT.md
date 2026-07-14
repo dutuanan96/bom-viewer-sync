@@ -32,6 +32,12 @@ PR #1 was squash-merged into `main` on 2026-07-14 as `72debab`. Review future re
 - Empty, invalid and duplicate URLs are rejected through i18n errors. Open reads the current input value, not a stale rendered attribute.
 - Successful local save clears the draft so later silent refresh is not permanently blocked.
 
+## Release Assets Review Gate
+
+`src/infrastructure/github-release.js` is an inactive adapter experiment only. It uploads raw bytes and never deletes or overwrites an existing asset; duplicate recovery must match an exact uploaded name. It must not be wired into Material Draft or payload save flow. The 2026-07-14 browser gate failed because PDF is served as an attachment with `application/octet-stream` and GLB lacks `Access-Control-Allow-Origin`. Any runtime integration is blocked until a replacement delivery path passes anonymous PDF inline and GLB CORS tests.
+
+The adapter branch gate passed 103/103 tests, data and generated checks, JavaScript syntax checks, `git diff --check`, an empty `data.js` diff, and zero-vulnerability `npm audit`.
+
 ## Notification Contracts
 
 - Payload diff covers product additions, material additions/deletions/field edits and BOM additions/deletions/quantity changes.

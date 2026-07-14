@@ -177,3 +177,14 @@ No browser smoke is required for the adapter-only PR because it is not wired int
 - Duplicate and upstream failure modes are explicit and do not delete historical assets.
 - The adapter-only PR changes no runtime flow and leaves `data.js` untouched.
 - Real PDF and GLB browser smoke passes before any Material Master integration is attempted.
+
+## Browser Smoke Outcome (2026-07-14)
+
+The public repository `dutuanan96/bom-viewer-assets` and published release `assets-v1` were created successfully. The adapter uploaded a generated PDF and an existing small GLB as raw binary data and returned public HTTPS download URLs.
+
+The browser compatibility gate failed:
+
+- The PDF redirect returned `Content-Disposition: attachment` and `Content-Type: application/octet-stream`, so direct inline viewing was replaced by a download.
+- A cross-origin GLB fetch was blocked because the final response did not include `Access-Control-Allow-Origin`.
+
+Therefore GitHub Release Assets are not compatible with the current standalone Viewer delivery contract. The adapter remains inactive and Material Master must not be connected to it. No jsDelivr conversion is added because repository CDN paths do not address Release Asset objects. The next architecture decision is either to retain Contents API plus jsDelivr for viewer-facing binaries or approve a CORS-capable storage/delivery service.

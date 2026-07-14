@@ -36,6 +36,10 @@ The main domain owner is `src/domain/revisions.js`; orchestration is in `src/app
 
 `src/features/notifications.js` now reports product additions, material additions/deletions/field edits and BOM additions/deletions/quantity changes. BOM child resolution must prefer `childMaterialId` and fall back to `materialId`; quantity serialization must use nullish fallback so numeric zero is preserved.
 
+## Inactive Release Assets Experiment
+
+Branch `codex/github-release-assets` adds a tested infrastructure adapter for raw binary uploads to the public `dutuanan96/bom-viewer-assets` release `assets-v1`. It does not change Material Master, application state, Viewer runtime, or `data.js`. Real browser smoke blocked integration: PDF delivery is forced as an attachment with `application/octet-stream`, and GLB delivery has no cross-origin permission. Release Asset URLs must not be converted to jsDelivr repository URLs. Keep the current asset flow until a CORS-capable viewer delivery path is approved and passes a new browser gate.
+
 ## Current Synchronization State
 
 | Surface | State | Rule |

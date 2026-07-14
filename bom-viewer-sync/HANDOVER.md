@@ -11,6 +11,8 @@ Read `AI_DEBUG_GUIDE.md` before project files.
 - Current generated build ID is `238032e12d0f`.
 - Repository gate passed 89/89 tests. Canonical audit: 646 materials, 2725 BOM entries, 22 products, 1 notification, 0 errors and 0 warnings.
 - Outer runtime artifacts have been rebuilt from integrated `main`. Outer `outputs/data.js` intentionally remains an older 643-material/6-notification snapshot because code publication must not overwrite runtime data.
+- Branch `codex/github-release-assets` contains an inactive Release Assets adapter and smoke utility. Raw upload to public release `dutuanan96/bom-viewer-assets@assets-v1` works, but browser delivery failed: PDF is forced to download and GLB lacks CORS. Admin/Viewer runtime and `data.js` remain unchanged.
+- The adapter branch gate passed 103/103 tests, zero-error data audit, generated checks, syntax checks, `git diff --check`, empty `data.js` diff, and zero-vulnerability `npm audit`.
 
 ## Continue This Flow
 
@@ -22,6 +24,7 @@ Read `AI_DEBUG_GUIDE.md` before project files.
 6. Do not copy `data.js` between canonical, `outputs/` or Desktop during code-only work. GitHub/main data is authoritative.
 7. Create a new feature branch and PR for future changes; PR #1 is closed and must not be reused.
 8. Run `npm run check`, `node --check app-admin.js`, `git diff --check`, and inspect any `data.js` diff before pushing.
+9. Do not connect `src/infrastructure/github-release.js` to Material Master unless the delivery architecture changes and a new PDF/GLB browser gate passes.
 
 ## Integrated Publication Flow
 
@@ -53,6 +56,7 @@ Verify SHA-256 equality for generated artifacts and context documents, then repl
 - Viewer smoke: loaded 22 products and 646 live GitHub materials, then rendered a real GLB in the model modal.
 - `file://` navigation was blocked by the automation policy; standalone structure is covered by repository contracts, but a clean-profile manual `file://` check is still required before external distribution.
 - Notification regression covers product/material/BOM additions, material/BOM deletion, quantity changes including `0`, and `childMaterialId` resolution.
+- Release Assets smoke: upload succeeded, but PDF returned `Content-Disposition: attachment` plus `application/octet-stream`; cross-origin GLB fetch failed without `Access-Control-Allow-Origin`. This is a deliberate integration blocker, not a Viewer regression.
 
 ## Environment Caveat
 
