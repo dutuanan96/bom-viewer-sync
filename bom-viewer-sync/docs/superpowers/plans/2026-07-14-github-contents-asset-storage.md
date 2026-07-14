@@ -855,11 +855,11 @@ git commit -m "chore: add Contents asset live smoke"
 
 Apply the following exact locations:
 
-- `AI_DEBUG_GUIDE.md`: add adapter/test ownership rows beside `github-data.js`, then add `### GitHub Contents asset storage experiment` immediately after the Release Assets experiment.
+- `AI_DEBUG_GUIDE.md`: add adapter/test ownership rows beside `github-data.js`, then add `### GitHub Contents asset storage experiment` immediately after the numbered invariants.
 - `HANDOVER.md`: add one Current State bullet and one Latest Debug Evidence bullet.
-- `PROJECT_CONTEXT.md`: add `## Inactive Contents Asset Storage Experiment` immediately after the Release Assets experiment.
-- `REVIEW_CONTEXT.md`: add `## Contents Asset Storage Review Gate` immediately after the Release Assets review gate.
-- `README_SYNC.md`: add `## Contents Asset Storage Experiment` immediately after the Release Assets experiment.
+- `PROJECT_CONTEXT.md`: add `## Inactive Contents Asset Storage Experiment` immediately after `## Material Master 2D/3D Editing`.
+- `REVIEW_CONTEXT.md`: add `## Contents Asset Storage Review Gate` immediately after `## Material Asset Contracts`.
+- `README_SYNC.md`: add `## Contents Asset Storage Experiment` immediately after `## Current Release State`.
 
 Each new status section must contain these exact facts:
 
