@@ -14,6 +14,22 @@ PR #1 was squash-merged into `main` on 2026-07-14 as `72debab`. Product revision
 
 Runtime publication and data synchronization are separate operations. Never copy `outputs/data.js` over canonical or GitHub data.
 
+## Sharding Preview
+
+The repository includes a non-runtime sharding foundation. Validate current data without writing files:
+
+```powershell
+npm run migrate:data
+```
+
+Create a local preview only with an explicit output directory:
+
+```powershell
+npm run migrate:data -- --write --out <preview-directory>
+```
+
+The command never updates GitHub and never overwrites `data.js`. Viewer/Admin continue using `data.js`; do not publish preview shards until an atomic sharded writer and compatibility cutover have been reviewed.
+
 ## Sync Rules
 
 - Build generates `admin.html`, `app-admin.js`, `styles.css`, and standalone `viewer.html`.

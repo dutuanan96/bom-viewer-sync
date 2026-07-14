@@ -11,6 +11,8 @@ Read `AI_DEBUG_GUIDE.md` before project files.
 - Current generated build ID is `238032e12d0f`.
 - Repository gate passed 89/89 tests. Canonical audit: 646 materials, 2725 BOM entries, 22 products, 1 notification, 0 errors and 0 warnings.
 - Outer runtime artifacts have been rebuilt from integrated `main`. Outer `outputs/data.js` intentionally remains an older 643-material/6-notification snapshot because code publication must not overwrite runtime data.
+- The sharding foundation branch adds a deterministic payload codec, a dry-run migration CLI, and a lazy repository adapter with legacy fallback. It does not switch runtime reads/writes and does not create committed shard data.
+- Foundation verification passes 100/100 tests. Current-data dry-run preserves 22 products, 646 materials, 2725 BOM entries, 1 notification, and produces an in-memory plan for 26 shard files.
 
 ## Continue This Flow
 
@@ -22,6 +24,15 @@ Read `AI_DEBUG_GUIDE.md` before project files.
 6. Do not copy `data.js` between canonical, `outputs/` or Desktop during code-only work. GitHub/main data is authoritative.
 7. Create a new feature branch and PR for future changes; PR #1 is closed and must not be reused.
 8. Run `npm run check`, `node --check app-admin.js`, `git diff --check`, and inspect any `data.js` diff before pushing.
+9. Use `npm run migrate:data` to validate current `data.js` in memory. Only use `--write --out <preview-directory>` for an explicit local preview; never target canonical runtime paths during code review.
+
+## Sharding Continuation Boundary
+
+- `data.js` remains the production source of truth and the Viewer/Admin runtime contract.
+- Product shards preserve product-scoped material-parent relationships, complete revision registries and immutable snapshots, and all asset metadata.
+- The repository falls back only when the manifest is absent. A corrupt or mixed-version shard must fail visibly.
+- Do not enable sharded reads until sharded Admin saves can update manifest, materials, indexes, notifications, and product shards in one optimistic Git tree commit.
+- Release Asset integration remains a separate follow-up and requires a public-download/CORS smoke test before real PDF/GLB data is moved.
 
 ## Integrated Publication Flow
 

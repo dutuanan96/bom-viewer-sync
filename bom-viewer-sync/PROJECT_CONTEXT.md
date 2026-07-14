@@ -49,6 +49,15 @@ The main domain owner is `src/domain/revisions.js`; orchestration is in `src/app
 
 The Viewer uses a cache-busted GitHub Contents API read, so remote data can be newer than the local `data.js`. Admin saves must read the current remote payload and SHA immediately before diffing and writing.
 
+## GitHub-Only Sharding Foundation
+
+- `src/domain/sharded-data.js` deterministically splits and recomposes the normalized payload without changing PDM semantics.
+- The preview schema separates a lightweight manifest, shared materials, compact where-used references, notifications, and product-scoped BOM/assets/revision data.
+- `scripts/migrate-data.mjs` is dry-run by default, derives a SHA-256 dataset version, and refuses output unless full payload parity succeeds. Explicit preview output requires `--write --out <directory>`.
+- `src/infrastructure/sharded-data.js` provides cached lazy reads and uses the legacy loader only when `data/manifest.json` is absent. Existing but invalid shards are errors, not fallback conditions.
+- This foundation is deliberately not wired into `src/application.js`; production Viewer/Admin still read and write `data.js` until the atomic writer and compatibility cutover are implemented.
+- Foundation branch verification passes 100/100 tests. The current-data dry-run validates 22 products, 646 materials, 2725 BOM entries, 1 notification, and 26 planned shard files.
+
 ## Verified Baseline (2026-07-14)
 
 - `npm run check`: 89/89 tests passed.

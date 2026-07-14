@@ -24,6 +24,14 @@ PR #1 was squash-merged into `main` on 2026-07-14 as `72debab`. Review future re
 - Generated artifacts contain no credentials, local absolute paths, or inline source maps.
 - Code-only work leaves `data.js` untouched.
 
+## Sharding Foundation Contracts
+
+- Splitting and recomposing the current normalized payload must preserve exact BOM entry order, notifications, product revisions/effectivity, historical snapshots, and hidden 2D/3D metadata.
+- Every BOM entry must have one valid product scope before it can be migrated; unsafe product codes must not become paths.
+- Migration is dry-run by default and performs no network writes. Preview files require explicit `--write --out <directory>`.
+- Shard reads are cached by path. Legacy fallback is allowed only when the manifest is missing; schema or dataset-version mismatches must be reported.
+- This PR must not change production load/save orchestration. Runtime cutover requires a separate review of atomic Git tree writes and backward compatibility.
+
 ## Material Asset Contracts
 
 - Material Master uses one draft for normal fields and asset arrays; Add/Delete must preserve unsaved field edits.
@@ -41,6 +49,7 @@ PR #1 was squash-merged into `main` on 2026-07-14 as `72debab`. Review future re
 ## Verified Gates (2026-07-14)
 
 - Repository: 89/89 tests passed.
+- Sharding foundation branch: 100/100 tests passed; dry-run parity validated 22 products, 646 materials, 2725 BOM entries, 1 notification, and 26 planned shard files.
 - Canonical audit: 646 materials / 2725 BOM entries / 22 products / 1 notification / 0 errors / 0 warnings.
 - Outer Material Master/revision contracts: 23/23 passed.
 - Outer runtime contracts: 13/13 passed.
