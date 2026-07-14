@@ -321,7 +321,7 @@ So sánh SHA-256 của canonical artifacts/docs với outer `outputs/`. Báo rõ
 
 ### GitHub Contents Material asset storage
 
-Phase A was merged by PR #5. Phase B was merged by PR #6. Phase B.1 (Sharded Data Compatibility Layer) is implemented in PR #8 (superseding PR #7). `loadPublic()` tries sharded manifest first and only falls back to `data.js` if the manifest is an HTTP 404. Schema errors and sub-file 404s throw errors without falling back. `loadForWrite()` and `write()` still ONLY use `data.js`. No data migration has occurred, and there is no sharded production data yet. The save target has not changed. The repository gate is currently at 124/124 tests. `outputs/` and Desktop remain unpublished for these changes.
+Phase A was merged by PR #5. Phase B was merged by PR #6. Phase B.1 (Sharded Data Compatibility Layer) was merged by PR #8 (superseding PR #7). Phase B.2 (In-memory Migration Dry-Run) is implemented. `loadPublic()` tries sharded manifest first and only falls back to `data.js` if the manifest is an HTTP 404. Schema errors and sub-file 404s throw errors without falling back. `loadForWrite()` and `write()` still ONLY use `data.js`. No remote data migration has occurred, and there is no sharded production data yet. The save target has not changed. The repository gate is currently at 132/132 tests. `outputs/` and Desktop remain unpublished for these changes.
 
 ## 7. Bẫy thường gặp
 

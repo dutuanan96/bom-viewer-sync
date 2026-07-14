@@ -1,6 +1,7 @@
 import { clone, normalizeMaterialDatabase } from '../domain/materials.js';
 import { normalizeProductRevisionRegistry } from '../domain/revisions.js';
 import { normalizeNotifications } from '../features/notifications.js';
+import { assembleShardedPayload } from '../domain/sharded-data.js';
 
 export function normalizeConfig(config) {
   const source = config || {};
@@ -162,36 +163,7 @@ export function createGithubDataAdapter({ config, fetchImpl = globalThis.fetch, 
     throw errors[errors.length - 1] || new Error(`Failed to load ${filename}`);
   };
 
-  const assembleShardedPayload = async (manifest, materials, loadProduct) => {
-    const isPlainObject = (val) => val && typeof val === 'object' && !Array.isArray(val);
 
-    if (!isPlainObject(manifest) || !Array.isArray(manifest.products)) {
-      throw new Error('Invalid manifest');
-    }
-    if (!isPlainObject(materials) || !isPlainObject(materials.materialDb) || !isPlainObject(materials.materialDb.materials) || !Array.isArray(materials.materialDb.bomEntries)) {
-      throw new Error('Invalid materials');
-    }
-
-    const bom = Object.create(null);
-    for (const productId of manifest.products) {
-      if (typeof productId !== 'string') throw new Error(`Invalid product ID type: ${typeof productId}`);
-      const product = await loadProduct(productId);
-      if (!isPlainObject(product)) throw new Error(`Invalid product ${productId}`);
-      bom[productId] = product;
-    }
-    return normalizePayload({
-      version: manifest.version,
-      updatedAt: manifest.updatedAt,
-      productImages: manifest.productImages,
-      productRevisions: manifest.productRevisions,
-      notifications: manifest.notifications,
-      bom,
-      drawings: materials.drawings,
-      manuals: materials.manuals,
-      models3d: materials.models3d,
-      materialDb: materials.materialDb,
-    });
-  };
 
   return {
     async loadPublic() {
@@ -208,10 +180,10 @@ export function createGithubDataAdapter({ config, fetchImpl = globalThis.fetch, 
 
       if (!manifest404) {
         const materials = await fetchJsonPublic('materials.json', cacheBust);
-        return await assembleShardedPayload(manifest, materials, (id) => {
+        return normalizePayload(await assembleShardedPayload(manifest, materials, (id) => {
           if (!/^[a-zA-Z0-9_-]+$/.test(id)) throw new Error(`Invalid product ID: ${id}`);
           return fetchJsonPublic(`products/${encodeURIComponent(id)}.json`, cacheBust);
-        });
+        }));
       }
 
       const requests = [
