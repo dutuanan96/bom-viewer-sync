@@ -5,12 +5,12 @@ AI debugging entrypoint: read `AI_DEBUG_GUIDE.md` first. It is self-contained; t
 ## Canonical Source And Build
 
 - Canonical project root: `work/remote-bom-viewer-sync/bom-viewer-sync/`; editable application source lives in `src/`.
-- Current integrated branch: `main`; active Phase B review branch: `codex/material-asset-upload`.
-- PR #1 (`codex/product-bom-revisions` -> `main`) was squash-merged on 2026-07-14 as `72debab`; Phase A PR #5 was squash-merged as `de35ea2`.
+- Current integrated branch: `main`; active Phase B.1 review branch: `codex/sharded-data-compatibility` (PR #8).
+- PR #1, Phase A PR #5, and Phase B PR #6 are squash-merged. Phase B.1 PR #8 implements the Sharded Data Compatibility Layer.
 - Build command: `npm run build`; complete repository gate: `npm run check`.
 - Generated files: `admin.html`, `app-admin.js`, `styles.css`, and `viewer.html`.
 - Never edit generated files directly. Edit source or build scripts, then rebuild.
-- Phase B generated build ID submitted in PR #6: `21ca427a7b66`.
+- Phase B.1 generated build ID submitted in PR #8: `431b891`.
 
 ## Product Revision And Effectivity Model
 
@@ -34,7 +34,7 @@ The main domain owner is `src/domain/revisions.js`; orchestration is in `src/app
 
 ## Material Master GitHub Asset Upload
 
-Phase A PR #5 integrated a create-only Contents API adapter for public repository `dutuanan96/bom-viewer-assets`. Phase B branch `codex/material-asset-upload` connects it to Admin Material Master without changing the Viewer schema. `src/features/material-asset-upload.js` validates selected files and resolves only asset records carrying a `pendingAssetId` in a cloned outgoing payload. `src/application.js` owns in-memory pending bytes and the remote save boundary.
+Phase A PR #5 and Phase B PR #6 integrated the Content API adapter. Phase B.1 PR #8 implements the Sharded Data Compatibility Layer. `src/features/material-asset-upload.js` validates selected files and resolves only asset records carrying a `pendingAssetId` in a cloned outgoing payload. `src/application.js` owns in-memory pending bytes and the remote save boundary.
 
 - PDF requires `.pdf`, `application/pdf`, and `%PDF-` bytes.
 - GLB requires `.glb` and `glTF` magic bytes.
@@ -44,7 +44,7 @@ Phase A PR #5 integrated a create-only Contents API adapter for public repositor
 - Save to GitHub uploads referenced binaries first, reads the current BOM payload/SHA second, and writes BOM data last. A binary failure prevents the BOM write; if only the BOM write fails, retry reuses the resolved immutable URL instead of re-uploading.
 - Existing `path`, `sourceUrl`, `driveId`, `previewUrl`, and unknown metadata are preserved; only the target URL and 3D `previewUrl` are replaced in the outgoing clone.
 
-Phase B PR #6 was approved for squash merge on 2026-07-14. Treat it as integrated only after GitHub reports the PR merged and the post-merge `origin/main` gate passes. `data.js`, `outputs/`, and Desktop remain unchanged.
+Phase B PR #6 was approved for squash merge on 2026-07-14. Phase B.1 (PR #8) implements a compatibility layer where `loadPublic()` tries sharded manifest first and only falls back to `data.js` if the manifest is HTTP 404. Schema errors and sub-file 404s throw errors. `loadForWrite()` and `write()` still ONLY use `data.js`. No data migration has occurred, and there is no sharded production data yet. `data.js`, `outputs/`, and Desktop remain unchanged.
 
 ## Notification Diff Coverage
 
@@ -74,8 +74,8 @@ The Viewer uses a cache-busted GitHub Contents API read, so remote data can be n
 
 Do not treat a hard-coded test count as permanent; always report the current command output.
 
-## Phase B Verification (2026-07-14)
+## Phase B.1 Verification (2026-07-14)
 
-- Latest repository gate: 115/115 tests; canonical data audit remains 646 materials, 2725 BOM entries, 22 products, 1 notification, 0 errors and 0 warnings.
-- Admin browser smoke selected a valid PDF, rendered the pending filename with a blank draft URL, restored the original URL after Back, and kept Save Material local-only. No token was entered and Save to GitHub was not clicked.
-- The standalone Viewer build artifact loaded 22 products and 646 materials on localhost. The only console resource error was the pre-existing missing `favicon.ico`; no application error occurred.
+- Latest repository gate: 124/124 tests; canonical data audit remains 646 materials, 2725 BOM entries, 22 products, 1 notification, 0 errors and 0 warnings.
+- Admin browser smoke passed on local server. Viewer loaded 22 products and 646 materials from `data.js` fallback successfully. No errors or fallback hiding occurred.
+- This supersedes PR #7 context to avoid conflicting states.

@@ -397,7 +397,7 @@ test('public load assembles sharded data if manifest exists', async () => {
     materialDb: { materials: { m1: { id: 'm1' } }, bomEntries: [] }
   };
   const productPayload = { name: 'P1 Name' };
-  
+
   const requests = [];
   const adapter = createGithubDataAdapter({
     config,
@@ -422,4 +422,127 @@ test('public load assembles sharded data if manifest exists', async () => {
   assert.equal(payload.materialDb.materials.m1.id, 'm1');
 });
 
+test('public load throws if manifest exists but materials returns 404', async () => {
+  const adapter = createGithubDataAdapter({
+    config,
+    fetchImpl: async (url) => {
+      if (url.includes('manifest.json')) {
+        return { ok: true, json: async () => ({ version: 3 }) };
+      }
+      return { ok: false, status: 404, statusText: 'Not Found' };
+    },
+  });
+  await assert.rejects(adapter.loadPublic(), /404 Not Found/);
+});
 
+test('public load throws if manifest contains invalid product ID', async () => {
+  const adapter = createGithubDataAdapter({
+    config,
+    fetchImpl: async (url) => {
+      if (url.includes('manifest.json')) {
+        return { ok: true, json: async () => ({ version: 3, products: ['../invalid'] }) };
+      }
+      if (url.includes('materials.json')) {
+        return { ok: true, json: async () => ({ materialDb: { materials: {}, bomEntries: [] } }) };
+      }
+      return { ok: false, status: 404, statusText: 'Not Found' };
+    },
+  });
+  await assert.rejects(adapter.loadPublic(), /Invalid product ID/);
+});
+
+test('public load throws if manifest JSON is invalid', async () => {
+  const adapter = createGithubDataAdapter({
+    config,
+    fetchImpl: async (url) => {
+      if (url.includes('manifest.json')) {
+        return { ok: true, json: async () => { throw new SyntaxError('Unexpected token'); } };
+      }
+      return { ok: false, status: 404, statusText: 'Not Found' };
+    },
+  });
+  await assert.rejects(adapter.loadPublic(), /Unexpected token/);
+});
+
+test('public load throws if manifest is not a plain object', async () => {
+  const adapter = createGithubDataAdapter({
+    config,
+    fetchImpl: async (url) => {
+      if (url.includes('manifest.json')) {
+        return { ok: true, json: async () => ([]) }; // Array is invalid
+      }
+      if (url.includes('materials.json')) {
+        return { ok: true, json: async () => ({}) };
+      }
+      return { ok: false, status: 404, statusText: 'Not Found' };
+    },
+  });
+  await assert.rejects(adapter.loadPublic(), /Invalid manifest/);
+});
+
+test('public load throws if materials is not a plain object', async () => {
+  const adapter = createGithubDataAdapter({
+    config,
+    fetchImpl: async (url) => {
+      if (url.includes('manifest.json')) {
+        return { ok: true, json: async () => ({ version: 3, products: [] }) };
+      }
+      if (url.includes('materials.json')) {
+        return { ok: true, json: async () => null }; // Null is invalid
+      }
+      return { ok: false, status: 404, statusText: 'Not Found' };
+    },
+  });
+  await assert.rejects(adapter.loadPublic(), /Invalid materials/);
+});
+
+test('public load throws if product ID is not a string', async () => {
+  const adapter = createGithubDataAdapter({
+    config,
+    fetchImpl: async (url) => {
+      if (url.includes('manifest.json')) {
+        return { ok: true, json: async () => ({ version: 3, products: [123] }) }; // Number is invalid
+      }
+      if (url.includes('materials.json')) {
+        return { ok: true, json: async () => ({ materialDb: { materials: {}, bomEntries: [] } }) };
+      }
+      return { ok: false, status: 404, statusText: 'Not Found' };
+    },
+  });
+  await assert.rejects(adapter.loadPublic(), /Invalid product ID type: number/);
+});
+
+test('public load throws if product shard is not a plain object', async () => {
+  const adapter = createGithubDataAdapter({
+    config,
+    fetchImpl: async (url) => {
+      if (url.includes('manifest.json')) {
+        return { ok: true, json: async () => ({ version: 3, products: ['P1'] }) };
+      }
+      if (url.includes('materials.json')) {
+        return { ok: true, json: async () => ({ materialDb: { materials: {}, bomEntries: [] } }) };
+      }
+      if (url.includes('products/P1.json')) {
+        return { ok: true, json: async () => 'Not an object' }; // String is invalid
+      }
+      return { ok: false, status: 404, statusText: 'Not Found' };
+    },
+  });
+  await assert.rejects(adapter.loadPublic(), /Invalid product P1/);
+});
+
+test('public load throws if manifest is null instead of 404', async () => {
+  const adapter = createGithubDataAdapter({
+    config,
+    fetchImpl: async (url) => {
+      if (url.includes('manifest.json')) {
+        return { ok: true, json: async () => null }; // Null manifest payload
+      }
+      if (url.includes('materials.json')) {
+        return { ok: true, json: async () => ({}) };
+      }
+      return { ok: false, status: 404, statusText: 'Not Found' };
+    },
+  });
+  await assert.rejects(adapter.loadPublic(), /Invalid manifest/);
+});
