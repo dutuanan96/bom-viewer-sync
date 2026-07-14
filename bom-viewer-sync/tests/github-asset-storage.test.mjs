@@ -9,6 +9,7 @@ import {
   encodeBase64Bytes,
   sha256Hex,
 } from '../src/infrastructure/github-asset-storage.js';
+import { buildSmokePdf } from '../scripts/smoke-github-contents-assets.mjs';
 
 const config = { owner: 'acme', repo: 'bom-viewer-assets', branch: 'main' };
 
@@ -203,4 +204,12 @@ test('rejects an existing path when size or hash identity does not match', async
     (error) => error instanceof GithubAssetStorageError
       && error.code === 'GITHUB_ASSET_CONFLICT',
   );
+});
+
+test('builds a valid self-contained PDF for live smoke', () => {
+  const source = new TextDecoder().decode(buildSmokePdf());
+  const startXref = Number(source.match(/startxref\n(\d+)\n%%EOF/)?.[1]);
+  assert.match(source, /^%PDF-1\.4/);
+  assert.equal(source.slice(startXref, startXref + 4), 'xref');
+  assert.match(source, /BOM Contents Asset Smoke/);
 });

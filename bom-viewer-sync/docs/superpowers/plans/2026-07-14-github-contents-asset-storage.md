@@ -655,7 +655,7 @@ git commit -m "fix: recover immutable asset retries"
 - Produces command: `npm run smoke:contents-assets`
 - Produces JSON fields: `pdf.url`, `pdf.commitSha`, `glb.url`, `glb.commitSha`; never token data
 
-- [ ] **Step 1: Add a failing smoke-PDF contract test**
+- [x] **Step 1: Add a failing smoke-PDF contract test**
 
 Append:
 
@@ -671,13 +671,13 @@ test('builds a valid self-contained PDF for live smoke', () => {
 });
 ```
 
-- [ ] **Step 2: Run the focused test and verify RED**
+- [x] **Step 2: Run the focused test and verify RED**
 
 Run `node --test tests/github-asset-storage.test.mjs`.
 
 Expected: module-not-found failure for `scripts/smoke-github-contents-assets.mjs`.
 
-- [ ] **Step 3: Create the smoke script and package command**
+- [x] **Step 3: Create the smoke script and package command**
 
 Create `scripts/smoke-github-contents-assets.mjs`:
 
@@ -774,7 +774,7 @@ Add to `package.json` scripts:
 "smoke:contents-assets": "node scripts/smoke-github-contents-assets.mjs"
 ```
 
-- [ ] **Step 4: Run unit and syntax checks**
+- [x] **Step 4: Run unit and syntax checks**
 
 Run:
 
@@ -786,7 +786,7 @@ npm test
 
 Expected: all commands exit `0`.
 
-- [ ] **Step 5: Run the real upload without printing the token**
+- [x] **Step 5: Run the real upload without printing the token**
 
 Run:
 
@@ -798,7 +798,7 @@ Remove-Item Env:\GH_TOKEN
 
 Expected: both results use `https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@<40-character-sha>/...` and contain no token.
 
-- [ ] **Step 6: Run the browser compatibility gate**
+- [x] **Step 6: Run the browser compatibility gate**
 
 Capture the smoke JSON and use Playwright CLI from a normal HTTPS origin:
 
@@ -832,7 +832,7 @@ npx --yes --package @playwright/cli playwright-cli -s=contents-smoke close
 
 Direct PDF navigation must remain on `$pdfUrl`, and the model result must contain `loaded: true`. If any assertion fails, close the session and stop without changing runtime code.
 
-- [ ] **Step 7: Commit the smoke utility after the gate passes**
+- [x] **Step 7: Commit the smoke utility after the gate passes**
 
 ```powershell
 git add package.json scripts/smoke-github-contents-assets.mjs tests/github-asset-storage.test.mjs
