@@ -5,24 +5,27 @@ Read `AI_DEBUG_GUIDE.md` before project files.
 ## Current State
 
 - Canonical checkout: `work/remote-bom-viewer-sync/bom-viewer-sync/`.
-- Active branch: `codex/product-bom-revisions`.
-- Draft PR: `#1`, mergeable into `main` at the last check.
-- Product revision/effectivity implementation is complete on the branch and generated build ID is `1f21d89ccd2a`.
-- Repository gate passed 71/71 tests; audit passed with 0 errors and 0 warnings.
-- `outputs/` and Desktop runtime files have not been upgraded to the feature build because the PR is not merged.
+- Active branch: `main`.
+- PR #1 was squash-merged on 2026-07-14 as `72debab`.
+- Product revision/effectivity, draft-safe Material Master 2D/3D editing and expanded payload notifications are integrated.
+- Current generated build ID is `238032e12d0f`.
+- Repository gate passed 89/89 tests. Canonical audit: 646 materials, 2725 BOM entries, 22 products, 1 notification, 0 errors and 0 warnings.
+- Outer runtime artifacts have been rebuilt from integrated `main`. Outer `outputs/data.js` intentionally remains an older 643-material/6-notification snapshot because code publication must not overwrite runtime data.
 
 ## Continue This Flow
 
-1. Run `git fetch origin --prune`, inspect `git status --short`, and inspect PR #1 before changing code.
+1. Run `git fetch origin --prune`, inspect `git status --short`, current branch and recent commits before changing code.
 2. Work only in the canonical checkout and edit `src/`, tests, scripts, or context documents. Never hand-edit generated files.
 3. Preserve the PDM rule: latest design and effective production revision are separate concepts; exactly one valid revision is effective.
-4. Do not modify or copy `data.js` for this feature. `origin/main` currently contains newer data-only commits than the feature branch.
-5. Run `npm run check`, `node --check app-admin.js`, `git diff --check`, and verify `git diff -- data.js` is empty before pushing.
-6. Keep PR #1 as the integration path. Do not create a second revision PR for the same implementation.
+4. Material Master edits use one isolated `state.materialDraft`; Add/Delete/Open assets must not mutate the stored material before Save Material.
+5. Preserve hidden asset metadata. For 3D editing, render `url` before fallback `previewUrl`, then update `previewUrl = url` only on successful save.
+6. Do not copy `data.js` between canonical, `outputs/` or Desktop during code-only work. GitHub/main data is authoritative.
+7. Create a new feature branch and PR for future changes; PR #1 is closed and must not be reused.
+8. Run `npm run check`, `node --check app-admin.js`, `git diff --check`, and inspect any `data.js` diff before pushing.
 
-## After PR #1 Is Merged
+## Integrated Publication Flow
 
-Only after canonical `main` contains the feature:
+After a future PR is merged, update canonical `main` first:
 
 ```powershell
 git fetch origin --prune
@@ -42,7 +45,14 @@ node work\audit_data_integrity.mjs
 node --check outputs\app-admin.js
 ```
 
-Verify SHA-256 equality for generated artifacts and context documents, then replace the Desktop shareable `admin.html` and `viewer.html`. Do not copy `data.js` during this code release.
+Verify SHA-256 equality for generated artifacts and context documents, then replace the Desktop shareable `admin.html` and `viewer.html`. Do not copy `data.js` during code release.
+
+## Latest Debug Evidence
+
+- Material Asset browser smoke: edited 3D URL survived Add/Delete re-render; blank URL was blocked; Back discarded the draft; reopening restored the original stored URL.
+- Viewer smoke: loaded 22 products and 646 live GitHub materials, then rendered a real GLB in the model modal.
+- `file://` navigation was blocked by the automation policy; standalone structure is covered by repository contracts, but a clean-profile manual `file://` check is still required before external distribution.
+- Notification regression covers product/material/BOM additions, material/BOM deletion, quantity changes including `0`, and `childMaterialId` resolution.
 
 ## Environment Caveat
 

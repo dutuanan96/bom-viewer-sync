@@ -86,6 +86,8 @@ UI và application có thể gọi domain/infrastructure. Domain không được
 | `tests/domain.test.mjs` | Pure domain behavior và module seams |
 | `tests/github-data.test.mjs` | GitHub read/write, current SHA/payload và notification preservation |
 | `tests/assets-notifications.test.mjs` | Asset matching và notification behavior |
+| `tests/material-assets.test.mjs` | Material Master draft isolation, asset metadata, URL validation và save/discard behavior |
+| `tests/notifications.test.mjs` | Product/material/BOM payload diff events và quantity edge cases |
 | `tests/ui-contract.test.mjs` | UI module contracts và browser-event behavior |
 | `tests/runtime-contract.test.mjs` | Viewer/Admin runtime and standalone contracts |
 | `tests/build.test.mjs` | Deterministic/atomic build behavior |
@@ -158,6 +160,22 @@ admin save action
 
 Hệ thống diffing bắt buộc phải dùng đúng `childMaterialId || materialId` khi trích xuất mã con từ `bomEntries`, và `parentType` lưu trong data là `'product'` chứ không phải `'productRevision'`. Các trường đa ngôn ngữ và nguyên thuỷ (primitive) phải được tách biệt khi so sánh để tránh lỗi ép kiểu (cast error) sang object.
 
+### Material Master và tài sản 2D/3D
+
+```text
+open Material Master
+  → clone toàn bộ material record vào state.materialDraft
+  → render text fields + drawings + models3d từ cùng draft
+  → Add/Delete/Open chỉ đọc hoặc thay đổi draft
+  → Save Material validate toàn bộ URL
+  → preserve metadata cũ bằng { ...originalAsset, name, url }
+  → models3d: cập nhật previewUrl = url khi save thành công
+  → commit draft vào local payload và clear materialDraft
+  → người dùng chủ động bấm Save to GitHub ở bước riêng
+```
+
+Với 3D, ô editor phải ưu tiên `asset.url` trước `asset.previewUrl`; nếu không URL vừa gõ sẽ bị URL cũ ghi đè sau Add/Delete và re-render. URL trống là lỗi vì giao diện ghi rõ bắt buộc. Back, đổi material hoặc đổi module phải discard draft; silent cloud refresh phải bị chặn khi draft đang active. Asset cũ phải giữ mọi metadata không hiển thị như `path`, `sourceUrl`, `driveId`, `previewUrl` và các field lạ khác.
+
 ### Code update khác data update
 
 | Loại thay đổi | Cần build Viewer mới? | Người nhận Viewer cần làm gì? |
@@ -181,6 +199,9 @@ Hệ thống diffing bắt buộc phải dùng đúng `childMaterialId || materi
 | Có nhiều revision cùng effective | `src/domain/revisions.js` | Atomic release test và normalized revision registry |
 | PDF/Drive không mở | `src/infrastructure/assets.js` | Asset record, Drive ID, preview URL, browser console |
 | GLB không mở | Asset index/UI modal | URL tồn tại, model record, external request và console |
+| URL 3D vừa sửa quay lại URL cũ sau Add/Delete | `src/ui/material-view.js`, Material draft sync | `asset.url` phải đứng trước `asset.previewUrl`; chạy `tests/material-assets.test.mjs` |
+| Save chấp nhận asset URL trống | `src/application.js` asset validation | Blank row phải báo i18n validation error và không mutate database |
+| Silent refresh bị chặn mãi sau Save Material | Material draft lifecycle | Save thành công phải clear `state.materialDraft` |
 | Ảnh sản phẩm sai | `src/ui/catalog-view.js`, product image index | Product/color selection và resolved URL |
 | UI text sai ngôn ngữ | `TEXT` trong `src/application.js`, caller trong `src/ui/` | Tìm hardcoded UI string; `tests/ui-contract.test.mjs` |
 | Click UI gây `ReferenceError` | Event binding trong `src/application.js` | Stack trace; contract test cho action tương ứng |
@@ -213,6 +234,8 @@ Ghi lại URL/file, mode Viewer/Admin, SKU/material, thao tác, expected/actual,
 node --test tests\github-data.test.mjs
 node --test tests\domain.test.mjs
 node --test tests\assets-notifications.test.mjs
+node --test tests\material-assets.test.mjs
+node --test tests\notifications.test.mjs
 node --test tests\ui-contract.test.mjs
 node --test tests\runtime-contract.test.mjs
 node --test tests\build.test.mjs
@@ -279,6 +302,10 @@ So sánh SHA-256 của canonical artifacts/docs với outer `outputs/`. Báo rõ
 14. Tạo revision mới không tự release hoặc chuyển effectivity.
 15. Release chỉ áp dụng cho clean latest Draft, bắt buộc có reason và phải chuyển effectivity atomically.
 16. Released/historical revisions và BOM snapshots của chúng là read-only.
+17. Add/Delete/Open asset không được mutate material record thật trước Save Material.
+18. Save asset phải preserve metadata không hiển thị; 3D direct URL được đồng bộ vào `previewUrl`.
+19. URL 2D/3D trống, sai schema/extension hoặc trùng lặp phải chặn Save bằng i18n error.
+20. Save Material là local edit; Save to GitHub vẫn là hành động riêng và phải dùng current remote payload/SHA.
 
 ## 7. Bẫy thường gặp
 
@@ -310,9 +337,9 @@ Outer wrappers trỏ canonical main clone. Trước merge, chạy direct command
 
 Build chỉ tạo bốn runtime artifacts. Workflow docs phải mirror riêng. `data.js` không được copy trong code-only flow.
 
-### Feature branch không phải runtime mirror
+### Branch publication boundary
 
-Khi feature chưa merge, canonical feature checkout có thể mới hơn `outputs/` và Desktop. Không chạy outer build wrapper để phát hành feature từ branch. Chỉ mirror runtime sau khi canonical `main` chứa commit tích hợp và full gate đã pass; context documents có thể cập nhật trước để ghi rõ trạng thái pending này.
+Không chạy outer build wrapper để phát hành code từ feature branch. Chỉ mirror runtime sau khi canonical `main` chứa commit tích hợp và full gate đã pass. PR #1 đã được tích hợp ngày 2026-07-14; với thay đổi tương lai vẫn phải lặp lại đúng boundary này trên một feature branch mới.
 
 ## 8. Verification và handoff
 

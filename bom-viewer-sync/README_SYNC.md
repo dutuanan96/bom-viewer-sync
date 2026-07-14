@@ -4,14 +4,15 @@ The canonical source is `work/remote-bom-viewer-sync/bom-viewer-sync/`. Build an
 
 ## Current Release State
 
-The product revision/effectivity feature is on `codex/product-bom-revisions` in draft PR #1. Its generated build ID is `1f21d89ccd2a`.
+PR #1 was squash-merged into `main` on 2026-07-14 as `72debab`. Product revision/effectivity, Material Master 2D/3D draft editing and expanded payload notifications are now integrated. Current generated build ID is `238032e12d0f`.
 
-- Canonical feature artifacts are current for PR review.
-- `outputs/` runtime artifacts are intentionally still the pre-feature build.
-- Desktop `admin.html` and `viewer.html` are older shareable copies.
-- Context documents in canonical and `outputs/` describe the current state even while runtime publication is pending.
+- Canonical `main` artifacts are the source of truth.
+- `outputs/` runtime artifacts have been rebuilt from integrated `main` and match canonical bytes.
+- Desktop `admin.html` and `viewer.html` are release copies from the verified integrated build.
+- Context documents in canonical and `outputs/` must remain byte-identical.
+- Canonical data audits at 646 materials/1 notification; `outputs/data.js` remains the older 643-material/6-notification snapshot by design.
 
-This is an intentional staged release, not an instruction to copy the feature artifacts before merge.
+Runtime publication and data synchronization are separate operations. Never copy `outputs/data.js` over canonical or GitHub data.
 
 ## Sync Rules
 
@@ -21,10 +22,11 @@ This is an intentional staged release, not an instruction to copy the feature ar
 - Remote GitHub data is authoritative; local `data.js` may be older than `origin/main`.
 - Verify SHA-256 equality after every approved mirror operation.
 - Replace Desktop shareable files only from the verified integrated build.
+- After changing source, rebuild and rerun the full gate before mirroring; after changing only cloud data, Viewer users only need reload.
 
-## Post-Merge Publication
+## Publication Flow
 
-1. Fast-forward canonical `main` from `origin/main`.
+1. Merge the approved feature PR and fast-forward canonical `main` from `origin/main`.
 2. Run `npm run build` and `npm run check` in the canonical checkout.
 3. Run `node work\build_standalone_viewer.mjs` from the outer project root.
 4. Run the outer compatibility tests and data audit.
