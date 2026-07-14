@@ -5,12 +5,12 @@ AI debugging entrypoint: read `AI_DEBUG_GUIDE.md` first. It is self-contained; t
 ## Canonical Source And Build
 
 - Canonical project root: `work/remote-bom-viewer-sync/bom-viewer-sync/`; editable application source lives in `src/`.
-- Current integration branch: `main`.
-- PR #1 (`codex/product-bom-revisions` -> `main`) was squash-merged on 2026-07-14 as `72debab`.
+- Current integrated branch: `main`; active Phase B review branch: `codex/material-asset-upload`.
+- PR #1 (`codex/product-bom-revisions` -> `main`) was squash-merged on 2026-07-14 as `72debab`; Phase A PR #5 was squash-merged as `de35ea2`.
 - Build command: `npm run build`; complete repository gate: `npm run check`.
 - Generated files: `admin.html`, `app-admin.js`, `styles.css`, and `viewer.html`.
 - Never edit generated files directly. Edit source or build scripts, then rebuild.
-- Current generated build ID on integrated `main`: `238032e12d0f`.
+- Current generated build ID on the unmerged Phase B branch: `21ca427a7b66`.
 
 ## Product Revision And Effectivity Model
 
@@ -32,9 +32,19 @@ The main domain owner is `src/domain/revisions.js`; orchestration is in `src/app
 - 2D requires HTTPS Drive/PDF; 3D requires a direct HTTPS GLB/GLTF URL. Empty, invalid and duplicate URLs block local save through i18n errors.
 - Save Material updates local payload only. Save to GitHub remains a separate explicit action using the current remote payload and SHA.
 
-## Inactive Contents Asset Storage Experiment
+## Material Master GitHub Asset Upload
 
-Branch `codex/github-contents-assets` adds a standalone infrastructure adapter for create-only binary writes to public repository `dutuanan96/bom-viewer-assets`. Paths contain the full SHA-256 content hash, files are limited to 20,000,000 bytes, and Viewer URLs are pinned to the full asset-repository commit SHA on jsDelivr. Real PDF and GLB smoke passed MIME, inline PDF, CORS and `<model-viewer>` loading. The adapter is not connected to Admin, Viewer or Material Draft; `data.js`, asset metadata, `outputs/`, and Desktop remain unchanged. Phase B requires separate approval.
+Phase A PR #5 integrated a create-only Contents API adapter for public repository `dutuanan96/bom-viewer-assets`. Phase B branch `codex/material-asset-upload` connects it to Admin Material Master without changing the Viewer schema. `src/features/material-asset-upload.js` validates selected files and resolves only asset records carrying a `pendingAssetId` in a cloned outgoing payload. `src/application.js` owns in-memory pending bytes and the remote save boundary.
+
+- PDF requires `.pdf`, `application/pdf`, and `%PDF-` bytes.
+- GLB requires `.glb` and `glTF` magic bytes.
+- GLTF requires `.gltf`, valid JSON, and only `data:` or absolute HTTPS buffer/image URIs.
+- Empty files and files larger than 20,000,000 bytes are rejected.
+- Selecting a file and Save Material perform no upload. Save Material may store an internal pending ID locally with a blank public URL.
+- Save to GitHub uploads referenced binaries first, reads the current BOM payload/SHA second, and writes BOM data last. A binary failure prevents the BOM write; if only the BOM write fails, retry reuses the resolved immutable URL instead of re-uploading.
+- Existing `path`, `sourceUrl`, `driveId`, `previewUrl`, and unknown metadata are preserved; only the target URL and 3D `previewUrl` are replaced in the outgoing clone.
+
+The Phase B PR is not integrated and must remain unmerged until explicit user approval. `data.js`, `outputs/`, and Desktop remain unchanged.
 
 ## Notification Diff Coverage
 
@@ -63,3 +73,9 @@ The Viewer uses a cache-busted GitHub Contents API read, so remote data can be n
 - Browser smoke verified Material Asset draft behavior and a real GLB render; manual clean-profile `file://` verification remains the final distribution check because automation blocks that protocol.
 
 Do not treat a hard-coded test count as permanent; always report the current command output.
+
+## Phase B Verification (2026-07-14)
+
+- Latest repository gate: 115/115 tests; canonical data audit remains 646 materials, 2725 BOM entries, 22 products, 1 notification, 0 errors and 0 warnings.
+- Admin browser smoke selected a valid PDF, rendered the pending filename with a blank draft URL, restored the original URL after Back, and kept Save Material local-only. No token was entered and Save to GitHub was not clicked.
+- The standalone Viewer build artifact loaded 22 products and 646 materials on localhost. The only console resource error was the pre-existing missing `favicon.ico`; no application error occurred.

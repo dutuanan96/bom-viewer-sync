@@ -446,7 +446,7 @@ git commit -m "feat: add Material Master upload controls"
 **Interfaces:**
 - Records the active Phase B flow, verification evidence, retry behavior, and publication boundary for the next AI.
 
-- [ ] **Step 1: Run a real Admin browser smoke without saving remote data**
+- [x] **Step 1: Run a real Admin browser smoke without saving remote data**
 
 Use a local HTTP server and Playwright. In Admin Material Master:
 
@@ -457,7 +457,9 @@ Use a local HTTP server and Playwright. In Admin Material Master:
 5. inject mocked asset/data adapters in a controlled browser harness or use unit evidence for the remote boundary; do not write production `data.js` during UI smoke;
 6. confirm zero browser console errors and Viewer still opens as a standalone build artifact.
 
-- [ ] **Step 2: Update context documents**
+Result: the pending filename and blank draft URL rendered correctly; Back restored the original URL; Save Material stayed local-only; Viewer loaded 22 products and 646 materials. No application error occurred. Chromium reported only the pre-existing missing `favicon.ico` resource, and no remote save was attempted.
+
+- [x] **Step 2: Update context documents**
 
 Record:
 
@@ -470,7 +472,7 @@ Record:
 - `data.js`, `outputs/`, and Desktop unchanged;
 - PR remains unmerged until user approval.
 
-- [ ] **Step 3: Run the complete verification gate**
+- [x] **Step 3: Run the complete verification gate**
 
 ```powershell
 npm run build
@@ -485,7 +487,7 @@ npm audit
 
 Expected: every command exits 0, data audit has zero errors/warnings, and audit has zero vulnerabilities.
 
-- [ ] **Step 4: Self-review the net diff**
+- [x] **Step 4: Self-review the net diff**
 
 ```powershell
 git fetch origin --prune
