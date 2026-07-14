@@ -5,7 +5,7 @@ AI debugging entrypoint: read `AI_DEBUG_GUIDE.md` first. It is self-contained; t
 ## Canonical Source And Build
 
 - Canonical project root: `work/remote-bom-viewer-sync/bom-viewer-sync/`; editable application source lives in `src/`.
-- Current integrated branch: `main`; active Phase B review branch: `codex/material-asset-upload`.
+- Current integrated branch: `main`; Phase B PR #6 was squash-merged as `6fcdaad` on 2026-07-14.
 - PR #1 (`codex/product-bom-revisions` -> `main`) was squash-merged on 2026-07-14 as `72debab`; Phase A PR #5 was squash-merged as `de35ea2`.
 - Build command: `npm run build`; complete repository gate: `npm run check`.
 - Generated files: `admin.html`, `app-admin.js`, `styles.css`, and `viewer.html`.
@@ -34,7 +34,7 @@ The main domain owner is `src/domain/revisions.js`; orchestration is in `src/app
 
 ## Material Master GitHub Asset Upload
 
-Phase A PR #5 integrated a create-only Contents API adapter for public repository `dutuanan96/bom-viewer-assets`. Phase B branch `codex/material-asset-upload` connects it to Admin Material Master without changing the Viewer schema. `src/features/material-asset-upload.js` validates selected files and resolves only asset records carrying a `pendingAssetId` in a cloned outgoing payload. `src/application.js` owns in-memory pending bytes and the remote save boundary.
+Phase A PR #5 integrated a create-only Contents API adapter for public repository `dutuanan96/bom-viewer-assets`. Phase B PR #6 connects it to Admin Material Master without changing the Viewer schema. `src/features/material-asset-upload.js` validates selected files and resolves only asset records carrying a `pendingAssetId` in a cloned outgoing payload. `src/application.js` owns in-memory pending bytes and the remote save boundary.
 
 - PDF requires `.pdf`, `application/pdf`, and `%PDF-` bytes.
 - GLB requires `.glb` and `glTF` magic bytes.
@@ -44,7 +44,7 @@ Phase A PR #5 integrated a create-only Contents API adapter for public repositor
 - Save to GitHub uploads referenced binaries first, reads the current BOM payload/SHA second, and writes BOM data last. A binary failure prevents the BOM write; if only the BOM write fails, retry reuses the resolved immutable URL instead of re-uploading.
 - Existing `path`, `sourceUrl`, `driveId`, `previewUrl`, and unknown metadata are preserved; only the target URL and 3D `previewUrl` are replaced in the outgoing clone.
 
-Phase B PR #6 was approved for squash merge on 2026-07-14. Treat it as integrated only after GitHub reports the PR merged and the post-merge `origin/main` gate passes. `data.js`, `outputs/`, and Desktop remain unchanged.
+Phase B PR #6 was squash-merged as `6fcdaad` on 2026-07-14. The post-merge `origin/main` gate passed, and approved runtime publication synchronized outer runtime artifacts plus Desktop `admin.html`/`viewer.html`. `data.js` remained outside the publication flow.
 
 ## Notification Diff Coverage
 
@@ -65,12 +65,12 @@ The Viewer uses a cache-busted GitHub Contents API read, so remote data can be n
 
 ## Verified Baseline (2026-07-14)
 
-- `npm run check`: 89/89 tests passed.
+- `npm run check`: 115/115 tests passed after the Phase B merge.
 - Canonical data audit: 646 materials, 2725 BOM entries, 22 products, 1 notification, 0 errors, 0 warnings.
 - Outer Material Master/revision contracts: 23/23 passed.
 - Outer runtime contracts: 13/13 passed.
 - Generated artifact check and JavaScript syntax check passed.
-- Browser smoke verified Material Asset draft behavior and a real GLB render; manual clean-profile `file://` verification remains the final distribution check because automation blocks that protocol.
+- Browser smoke verified Material Asset draft behavior and a real GLB render. Post-publication localhost smoke verified the exact Desktop Viewer copy and outer Admin upload controls; manual clean-profile `file://` verification remains the final external-distribution check because automation blocks that protocol.
 
 Do not treat a hard-coded test count as permanent; always report the current command output.
 
@@ -79,3 +79,4 @@ Do not treat a hard-coded test count as permanent; always report the current com
 - Latest repository gate: 115/115 tests; canonical data audit remains 646 materials, 2725 BOM entries, 22 products, 1 notification, 0 errors and 0 warnings.
 - Admin browser smoke selected a valid PDF, rendered the pending filename with a blank draft URL, restored the original URL after Back, and kept Save Material local-only. No token was entered and Save to GitHub was not clicked.
 - The standalone Viewer build artifact loaded 22 products and 646 materials on localhost. The only console resource error was the pre-existing missing `favicon.ico`; no application error occurred.
+- Approved publication preserved `outputs/data.js` at SHA-256 `D3D5C706D08FE11A8DD69B1F3D4E1B30E2B4E36BA5F28569965DE7950E8472E8`. Outer and Desktop Admin matched SHA-256 `2BBB40D86C50AD49226ECC20A262C61C1F736F4E65837DE65DDA81BE31FC4F46`; outer and Desktop Viewer matched `CBF642FF1CCECA776FBF91AAB2DA6217C637399C70CD2283FC21DD7AA90301EB`.

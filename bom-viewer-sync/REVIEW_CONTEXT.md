@@ -2,7 +2,7 @@
 
 ## Review Scope
 
-PR #1 was squash-merged into `main` on 2026-07-14 as `72debab`; Phase A PR #5 was squash-merged as `de35ea2`. Review Phase B branch `codex/material-asset-upload` against current `origin/main`. Editable code is under `src/`; `admin.html`, `app-admin.js`, `styles.css`, and `viewer.html` are generated evidence and must correspond to build ID `21ca427a7b66`.
+PR #1 was squash-merged into `main` on 2026-07-14 as `72debab`; Phase A PR #5 was squash-merged as `de35ea2`; Phase B PR #6 was squash-merged as `6fcdaad`. Editable code is under `src/`; `admin.html`, `app-admin.js`, `styles.css`, and `viewer.html` are generated evidence and must correspond to build ID `21ca427a7b66`.
 
 ## Required Revision Contracts
 
@@ -44,7 +44,7 @@ Phase A adapter contracts remain unchanged: create-only Contents API requests wi
 - Asset-upload failure must prevent any BOM write and retain pending bytes.
 - BOM-write failure after asset success may leave an immutable orphan, but retry must reuse `pending.resolved` and not upload again.
 - Successful BOM write alone may adopt resolved URLs into local state and clear completed pending entries. No serialized output may contain `pendingAssetId` or file bytes.
-- Phase B PR #6 received explicit merge approval on 2026-07-14. `data.js`, `outputs/`, and Desktop must remain unchanged until the post-merge `main` gate passes and publication is separately approved.
+- Phase B PR #6 was merged after explicit approval on 2026-07-14. The post-merge `main` gate and separately approved runtime publication both completed; `data.js` remained unchanged by publication.
 
 ## Notification Contracts
 
@@ -60,8 +60,10 @@ Phase A adapter contracts remain unchanged: create-only Contents API requests wi
 - Outer runtime contracts: 13/13 passed.
 - Generated freshness and JavaScript syntax checks passed.
 - Browser smoke verified 3D draft re-render, blank URL validation, Back discard, live Viewer counts and real GLB rendering.
-- Phase B gate passed 115/115 tests. Admin browser smoke verified pending PDF display, blank draft URL, Back discard/restoration, and local-only Save Material; Viewer loaded 22 products and 646 materials. The only browser resource error was the pre-existing missing `favicon.ico`.
+- Phase B gate passed 115/115 tests. Admin browser smoke verified pending PDF display, blank draft URL, Back discard/restoration, local-only Save Material, and post-publication 2D/3D upload controls; Viewer loaded 22 products and 646 materials. The only browser resource error was the pre-existing missing `favicon.ico`.
 
 ## Integration Risk To Watch
 
 Canonical `main` now contains the newer data-only commits and audits at 646 materials/1 notification. Outer `outputs/data.js` intentionally remains the older clean 643-material/6-notification snapshot because runtime publication does not copy data. Never resolve this by copying mirror data over canonical/GitHub data. Browser automation also blocks `file://`; perform one manual clean-profile check before sending `viewer.html` externally.
+
+Publication evidence: outer runtime artifacts match merged `main`; Desktop Admin and Viewer match the verified outer copies; `outputs/data.js` remained SHA-256 `D3D5C706D08FE11A8DD69B1F3D4E1B30E2B4E36BA5F28569965DE7950E8472E8`.
