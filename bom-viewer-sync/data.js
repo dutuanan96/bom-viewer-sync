@@ -1,7 +1,7 @@
 /* BOM cloud data. Update only through admin.html. */
 window.BOM_VIEWER_DATA = {
   "version": 2,
-  "updatedAt": "2026-07-14T02:28:26.882Z",
+  "updatedAt": "2026-07-14T02:36:54.935Z",
   "bom": {
     "LGS031": {
       "code": "LGS031",
@@ -69154,10 +69154,10 @@ window.BOM_VIEWER_DATA = {
   },
   "notifications": [
     {
-      "id": "notif_18l4fgw",
+      "id": "notif_pmpz06",
       "type": "github-save",
       "actor": "admin",
-      "createdAt": "2026-07-14T02:28:26.882Z",
+      "createdAt": "2026-07-14T02:36:54.935Z",
       "version": 2,
       "changes": [
         {
@@ -94265,7 +94265,7 @@ window.BOM_VIEWER_DATA = {
         },
         "drawings": [
           {
-            "url": "upload://1783996090108_LGS032-S-___.pdf",
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@670ba5cfc369de20a7bb2a68ae1b71d16300255f/assets/pdfs/1783996606760_LGS032-S-___.pdf",
             "name": "LGS032-S-右侧框.pdf"
           }
         ],
