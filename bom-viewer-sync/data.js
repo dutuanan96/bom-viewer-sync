@@ -1,7 +1,7 @@
 /* BOM cloud data. Update only through admin.html. */
 window.BOM_VIEWER_DATA = {
   "version": 2,
-  "updatedAt": "2026-07-13T04:09:45.370Z",
+  "updatedAt": "2026-07-14T02:28:26.882Z",
   "bom": {
     "LGS031": {
       "code": "LGS031",
@@ -63403,6 +63403,13 @@ window.BOM_VIEWER_DATA = {
   "productRevisions": {
     "LGS032": {
       "currentRevision": "V3.1",
+      "effectiveRevision": "V3",
+      "currentRevisionInfo": {
+        "sourceRevision": "V3",
+        "createdAt": "2026-07-13T03:32:51.309Z",
+        "changeReason": "产品高度变更679mm改为671",
+        "workflowState": "draft"
+      },
       "revisions": [
         {
           "revision": "V3",
@@ -69137,19 +69144,79 @@ window.BOM_VIEWER_DATA = {
                 }
               ]
             }
-          }
+          },
+          "sourceRevision": "",
+          "workflowState": "released"
         }
-      ]
+      ],
+      "effectivityEvents": []
     }
   },
   "notifications": [
     {
-      "id": "notif_yzg0ia",
+      "id": "notif_18l4fgw",
       "type": "github-save",
       "actor": "admin",
-      "createdAt": "2026-07-13T04:09:45.370Z",
+      "createdAt": "2026-07-14T02:28:26.882Z",
       "version": 2,
-      "changes": []
+      "changes": [
+        {
+          "kind": "product_added",
+          "code": "LGS031",
+          "field": "",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "product_added",
+          "code": "LGS032",
+          "field": "",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "product_added",
+          "code": "LGS033",
+          "field": "",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "product_added",
+          "code": "LGS043",
+          "field": "",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "product_added",
+          "code": "LGS101",
+          "field": "",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "product_added",
+          "code": "LGS111",
+          "field": "",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "product_added",
+          "code": "LGS131",
+          "field": "",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "product_added",
+          "code": "LGS132",
+          "field": "",
+          "before": "",
+          "after": ""
+        }
+      ]
     }
   ],
   "materialDb": {
@@ -94196,7 +94263,12 @@ window.BOM_VIEWER_DATA = {
           "zh": "零件",
           "vi": "linh kiện"
         },
-        "drawings": [],
+        "drawings": [
+          {
+            "url": "upload://1783996090108_LGS032-S-___.pdf",
+            "name": "LGS032-S-右侧框.pdf"
+          }
+        ],
         "models3d": []
       },
       "mat_fwib1i": {
