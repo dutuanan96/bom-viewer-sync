@@ -10,7 +10,7 @@ AI debugging entrypoint: read `AI_DEBUG_GUIDE.md` first. It is self-contained; t
 - Build command: `npm run build`; complete repository gate: `npm run check`.
 - Generated files: `admin.html`, `app-admin.js`, `styles.css`, and `viewer.html`.
 - Never edit generated files directly. Edit source or build scripts, then rebuild.
-- Current generated build ID on the unmerged Phase B branch: `21ca427a7b66`.
+- Phase B generated build ID submitted in PR #6: `21ca427a7b66`.
 
 ## Product Revision And Effectivity Model
 
@@ -44,7 +44,7 @@ Phase A PR #5 integrated a create-only Contents API adapter for public repositor
 - Save to GitHub uploads referenced binaries first, reads the current BOM payload/SHA second, and writes BOM data last. A binary failure prevents the BOM write; if only the BOM write fails, retry reuses the resolved immutable URL instead of re-uploading.
 - Existing `path`, `sourceUrl`, `driveId`, `previewUrl`, and unknown metadata are preserved; only the target URL and 3D `previewUrl` are replaced in the outgoing clone.
 
-The Phase B PR is not integrated and must remain unmerged until explicit user approval. `data.js`, `outputs/`, and Desktop remain unchanged.
+Phase B PR #6 was approved for squash merge on 2026-07-14. Treat it as integrated only after GitHub reports the PR merged and the post-merge `origin/main` gate passes. `data.js`, `outputs/`, and Desktop remain unchanged.
 
 ## Notification Diff Coverage
 

@@ -5,14 +5,14 @@ Read `AI_DEBUG_GUIDE.md` before project files.
 ## Current State
 
 - Canonical checkout: `work/remote-bom-viewer-sync/bom-viewer-sync/`.
-- Active Phase B branch: `codex/material-asset-upload`, created from current `origin/main`.
+- Phase B integration PR: #6 from `codex/material-asset-upload` to `main`, approved for squash merge on 2026-07-14.
 - PR #1 was squash-merged on 2026-07-14 as `72debab`; Phase A PR #5 was squash-merged as `de35ea2`.
 - Product revision/effectivity, draft-safe Material Master 2D/3D editing and expanded payload notifications are integrated.
 - Current Phase B generated build ID is `21ca427a7b66`.
 - The latest Phase B repository gate passed 115/115 tests. Canonical audit: 646 materials, 2725 BOM entries, 22 products, 1 notification, 0 errors and 0 warnings.
 - Outer runtime artifacts have been rebuilt from integrated `main`. Outer `outputs/data.js` intentionally remains an older 643-material/6-notification snapshot because code publication must not overwrite runtime data.
 - Phase B connects the Phase A create-only adapter to Admin Material Master. Selected PDF/GLB/portable-GLTF bytes remain only in `state.pendingMaterialAssets`; Save Material is local-only; Save to GitHub performs binary upload, reads the current BOM payload/SHA, then writes BOM data. Upload failure prevents the BOM write, while a BOM-write retry reuses an already resolved immutable URL.
-- The Phase B branch has not been merged or published. `data.js`, `outputs/`, and Desktop remain unchanged.
+- Phase B publication has not been approved. `data.js`, `outputs/`, and Desktop remain unchanged.
 
 ## Continue This Flow
 
@@ -22,7 +22,7 @@ Read `AI_DEBUG_GUIDE.md` before project files.
 4. Material Master edits use one isolated `state.materialDraft`; Add/Delete/Open assets must not mutate the stored material before Save Material.
 5. Preserve hidden asset metadata. For 3D editing, render `url` before fallback `previewUrl`, then update `previewUrl = url` only on successful save.
 6. Do not copy `data.js` between canonical, `outputs/` or Desktop during code-only work. GitHub/main data is authoritative.
-7. Continue only on `codex/material-asset-upload`; its Draft PR must not be merged before explicit user approval.
+7. Verify PR #6 is merged and `origin/main` passes the complete gate before any publication work.
 8. Run `npm run check`, `node --check app-admin.js`, `git diff --check`, and inspect any `data.js` diff before pushing.
 
 ## Integrated Publication Flow
@@ -56,7 +56,7 @@ Verify SHA-256 equality for generated artifacts and context documents, then repl
 - `file://` navigation was blocked by the automation policy; standalone structure is covered by repository contracts, but a clean-profile manual `file://` check is still required before external distribution.
 - Notification regression covers product/material/BOM additions, material/BOM deletion, quantity changes including `0`, and `childMaterialId` resolution.
 - Satellite asset smoke uploaded a 599-byte PDF at commit `fbca2d4ba3feb4ad7c210885102b82988ed7333f` and a 1288-byte GLB at commit `673a7f6b05106438a58335d04f2d685508a6d6c7`. jsDelivr returned correct MIME types, no attachment disposition, CORS `*`, and `<model-viewer>` loaded the GLB with zero browser errors or warnings. The deterministic second run reused both paths.
-- Phase A repository gate passed 100/100 tests; the canonical data audit still reports 646 materials, 2725 BOM entries, 22 products, 1 notification, 0 errors, and 0 warnings. Phase B implementation is approved, but merge and publication still require separate user approval.
+- Phase A repository gate passed 100/100 tests; the canonical data audit still reports 646 materials, 2725 BOM entries, 22 products, 1 notification, 0 errors, and 0 warnings. Phase B merge is approved; publication still requires separate user approval.
 - Phase B Admin smoke selected a valid PDF, showed the localized pending filename with a blank draft URL, confirmed Back restored the original URL, and confirmed Save Material remained local-only. The Viewer artifact loaded 22 products and 646 materials. The only browser resource error was the pre-existing missing `favicon.ico`; no application error occurred and no remote save was attempted.
 - Phase B unit coverage verifies PDF/GLB/GLTF signature and portability validation, the 20,000,000-byte limit, metadata-preserving targeted replacement, upload-before-BOM ordering, upload-failure isolation, and resolved-URL retry reuse.
 

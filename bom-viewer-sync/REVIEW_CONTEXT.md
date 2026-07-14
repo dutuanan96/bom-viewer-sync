@@ -44,7 +44,7 @@ Phase A adapter contracts remain unchanged: create-only Contents API requests wi
 - Asset-upload failure must prevent any BOM write and retain pending bytes.
 - BOM-write failure after asset success may leave an immutable orphan, but retry must reuse `pending.resolved` and not upload again.
 - Successful BOM write alone may adopt resolved URLs into local state and clear completed pending entries. No serialized output may contain `pendingAssetId` or file bytes.
-- `data.js`, `outputs/`, and Desktop must remain unchanged. The Phase B PR must remain unmerged until explicit user approval.
+- Phase B PR #6 received explicit merge approval on 2026-07-14. `data.js`, `outputs/`, and Desktop must remain unchanged until the post-merge `main` gate passes and publication is separately approved.
 
 ## Notification Contracts
 

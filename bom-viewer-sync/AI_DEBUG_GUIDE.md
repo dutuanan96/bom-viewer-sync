@@ -321,7 +321,7 @@ So sánh SHA-256 của canonical artifacts/docs với outer `outputs/`. Báo rõ
 
 ### GitHub Contents Material asset storage
 
-Phase A was merged by PR #5 as `de35ea2`. On Phase B branch `codex/material-asset-upload`, Admin imports the create-only adapter only for the explicit Save to GitHub boundary. The adapter still never sends an update `sha`, never deletes assets, limits every binary to 20,000,000 bytes, and returns jsDelivr URLs pinned to the full asset-repository commit SHA. `src/features/material-asset-upload.js` owns validation and targeted clone resolution; `src/application.js` owns pending bytes and save ordering. The Phase B PR must remain unmerged until user approval, and `data.js`, `outputs/`, and Desktop must remain unchanged.
+Phase A was merged by PR #5 as `de35ea2`. Phase B PR #6 was approved for squash merge on 2026-07-14. Admin imports the create-only adapter only for the explicit Save to GitHub boundary. The adapter still never sends an update `sha`, never deletes assets, limits every binary to 20,000,000 bytes, and returns jsDelivr URLs pinned to the full asset-repository commit SHA. `src/features/material-asset-upload.js` owns validation and targeted clone resolution; `src/application.js` owns pending bytes and save ordering. `data.js`, `outputs/`, and Desktop must remain unchanged until the merged `main` gate passes and publication is separately approved.
 
 ## 7. Bẫy thường gặp
 
