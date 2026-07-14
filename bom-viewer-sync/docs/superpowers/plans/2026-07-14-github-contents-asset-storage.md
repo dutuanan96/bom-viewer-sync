@@ -212,7 +212,7 @@ git commit -m "feat: add asset storage primitives"
 - Produces method: `uploadAsset({ token, path, contentType, bytes })`
 - Successful result: `{ path, size, contentHash, commitSha, url, reused: false }`
 
-- [ ] **Step 1: Add failing upload and validation tests**
+- [x] **Step 1: Add failing upload and validation tests**
 
 Append:
 
@@ -325,13 +325,13 @@ test('rejects malformed upload metadata without exposing the token', async () =>
 });
 ```
 
-- [ ] **Step 2: Run the focused test and verify RED**
+- [x] **Step 2: Run the focused test and verify RED**
 
 Run `node --test tests/github-asset-storage.test.mjs`.
 
 Expected: failures because `createGithubAssetStorageAdapter` is not exported.
 
-- [ ] **Step 3: Implement request validation and upload**
+- [x] **Step 3: Implement request validation and upload**
 
 Add to `src/infrastructure/github-asset-storage.js`:
 
@@ -442,7 +442,7 @@ export function createGithubAssetStorageAdapter({ config, fetchImpl = globalThis
 }
 ```
 
-- [ ] **Step 4: Run focused and full unit tests**
+- [x] **Step 4: Run focused and full unit tests**
 
 Run:
 
@@ -453,7 +453,7 @@ npm test
 
 Expected: all focused tests and the complete suite pass.
 
-- [ ] **Step 5: Commit create-only upload**
+- [x] **Step 5: Commit create-only upload**
 
 ```powershell
 git add src/infrastructure/github-asset-storage.js tests/github-asset-storage.test.mjs

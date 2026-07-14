@@ -3,6 +3,12 @@ export const MAX_ASSET_BYTES = 20_000_000;
 const HASH_PATTERN = /^[a-f0-9]{64}$/;
 const COMMIT_PATTERN = /^[a-f0-9]{40}$/i;
 const BASE64_CHUNK_SIZE = 0x8000;
+const MEDIA_PREFIX = {
+  'application/pdf': 'assets/pdfs/',
+  'model/gltf-binary': 'assets/models/',
+  'model/gltf+json': 'assets/models/',
+};
+const ASSET_PATH_PATTERN = /^assets\/(?:pdfs|models)\/[A-Za-z0-9._-]+$/;
 
 export class GithubAssetStorageError extends Error {
   constructor(message, { code, status, endpoint } = {}) {
@@ -32,6 +38,62 @@ function sanitizeSegment(value, label) {
 
 function encodePath(path) {
   return String(path).split('/').map(encodeURIComponent).join('/');
+}
+
+function normalizeConfig(config) {
+  return {
+    owner: sanitizeSegment(config?.owner, 'owner'),
+    repo: sanitizeSegment(config?.repo, 'repo'),
+    branch: sanitizeSegment(config?.branch || 'main', 'branch'),
+  };
+}
+
+function validateUpload({ path, contentType, bytes }) {
+  requireBytes(bytes);
+  if (bytes.byteLength === 0) throw new TypeError('bytes must not be empty');
+  if (bytes.byteLength > MAX_ASSET_BYTES) {
+    throw new TypeError(`bytes must not exceed ${MAX_ASSET_BYTES}`);
+  }
+  const prefix = MEDIA_PREFIX[contentType];
+  if (!prefix) throw new TypeError(`Unsupported contentType: ${contentType}`);
+  if (!String(path).startsWith(prefix) || !ASSET_PATH_PATTERN.test(String(path))) {
+    throw new TypeError('Invalid asset path');
+  }
+}
+
+function githubHeaders(token) {
+  return {
+    Accept: 'application/vnd.github+json',
+    Authorization: `Bearer ${token}`,
+    'Content-Type': 'application/json',
+    'X-GitHub-Api-Version': '2022-11-28',
+  };
+}
+
+function validateCreatedAsset(data, {
+  config,
+  path,
+  size,
+  contentHash,
+  endpoint,
+}) {
+  const commitSha = String(data?.commit?.sha || '');
+  if (data?.content?.path !== path
+    || data?.content?.size !== size
+    || !COMMIT_PATTERN.test(commitSha)) {
+    throw new GithubAssetStorageError(`Invalid GitHub asset response from ${endpoint}`, {
+      code: 'GITHUB_ASSET_INVALID_RESPONSE',
+      endpoint,
+    });
+  }
+  return {
+    path,
+    size,
+    contentHash,
+    commitSha,
+    url: buildCdnUrl({ config, commitSha, path }),
+    reused: false,
+  };
 }
 
 export function encodeBase64Bytes(value) {
@@ -69,4 +131,56 @@ export function buildCdnUrl({ config, commitSha, path }) {
   const owner = sanitizeSegment(config?.owner, 'owner');
   const repo = sanitizeSegment(config?.repo, 'repo');
   return `https://cdn.jsdelivr.net/gh/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}@${commitSha}/${encodePath(path)}`;
+}
+
+export function createGithubAssetStorageAdapter({ config, fetchImpl = globalThis.fetch }) {
+  const cleanConfig = normalizeConfig(config);
+  const apiBase = `https://api.github.com/repos/${encodeURIComponent(cleanConfig.owner)}/${encodeURIComponent(cleanConfig.repo)}`;
+
+  return {
+    async uploadAsset({ token, path, contentType, bytes }) {
+      validateUpload({ path, contentType, bytes });
+      const contentHash = await sha256Hex(bytes);
+      if (!String(path).includes(`_${contentHash}_`)) {
+        throw new TypeError('path must contain the full content hash');
+      }
+      const endpoint = `/contents/${encodePath(path)}`;
+      let response;
+      try {
+        response = await fetchImpl(`${apiBase}${endpoint}`, {
+          method: 'PUT',
+          headers: githubHeaders(token),
+          body: JSON.stringify({
+            message: `Upload BOM asset ${path}`,
+            content: encodeBase64Bytes(bytes),
+            branch: cleanConfig.branch,
+          }),
+        });
+      } catch {
+        throw new GithubAssetStorageError(`PUT ${endpoint} failed: network error`, { endpoint });
+      }
+      if (!response.ok) {
+        throw new GithubAssetStorageError(
+          `PUT ${endpoint} failed: ${response.status} ${response.statusText}`,
+          { status: response.status, endpoint },
+        );
+      }
+      let data;
+      try {
+        data = await response.json();
+      } catch {
+        throw new GithubAssetStorageError(`Invalid JSON response from ${endpoint}`, {
+          code: 'GITHUB_ASSET_INVALID_RESPONSE',
+          endpoint,
+        });
+      }
+      return validateCreatedAsset(data, {
+        config: cleanConfig,
+        path,
+        size: bytes.byteLength,
+        contentHash,
+        endpoint,
+      });
+    },
+  };
 }
