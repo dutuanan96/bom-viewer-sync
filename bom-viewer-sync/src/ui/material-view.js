@@ -346,12 +346,30 @@ function materialMasterAssetList(title, assets) {
     const draftAssets = this.state.materialDraft ? (this.state.materialDraft[typeKey] || []) : assets;
     const rows = draftAssets.map((asset, index) => {
       const name = asset.name || '';
-      const url = title === '2D' ? (asset.url || asset.path || '') : (asset.url || asset.previewUrl || '');
-      return `<div class="material-asset-edit-row" style="display:flex;gap:8px;margin-bottom:8px;">
-        <input class="edit-input" style="flex:1" data-asset-edit="name" data-asset-type="${typeKey}" data-asset-index="${index}" placeholder="${escapeHTML(this.label('assetName'))}" value="${escapeHTML(name)}">
-        <input class="edit-input" style="flex:2" data-asset-edit="url" data-asset-type="${typeKey}" data-asset-index="${index}" placeholder="${escapeHTML(this.label('assetUrl'))}" value="${escapeHTML(url)}">
-        <button class="btn" type="button" data-action="open-asset" data-asset-type="${typeKey}" data-asset-index="${index}">${escapeHTML(this.label('openAsset'))}</button>
-        <button class="btn danger" type="button" data-action="delete-asset-row" data-asset-type="${typeKey}" data-asset-index="${index}">${escapeHTML(this.label('deleteAsset'))}</button>
+      const url = asset.pendingAssetId
+        ? ''
+        : (title === '2D' ? (asset.url || asset.path || '') : (asset.url || asset.previewUrl || ''));
+      const pending = asset.pendingAssetId
+        ? this.state.pendingMaterialAssets?.[asset.pendingAssetId]
+        : null;
+      const accept = title === '2D'
+        ? '.pdf,application/pdf'
+        : '.glb,.gltf,model/gltf-binary,model/gltf+json';
+      const pendingStatus = pending
+        ? `<span class="asset-pending-upload">${escapeHTML(this.label('assetPendingUpload'))}: ${escapeHTML(pending.originalName)}</span>`
+        : '';
+      return `<div class="material-asset-edit-row">
+        <div class="material-asset-edit-fields">
+          <input class="edit-input" data-asset-edit="name" data-asset-type="${typeKey}" data-asset-index="${index}" placeholder="${escapeHTML(this.label('assetName'))}" value="${escapeHTML(name)}">
+          <input class="edit-input material-asset-url-input" data-asset-edit="url" data-asset-type="${typeKey}" data-asset-index="${index}" placeholder="${escapeHTML(this.label('assetUrl'))}" value="${escapeHTML(url)}">
+        </div>
+        <div class="material-asset-edit-actions">
+          <button class="btn" type="button" data-action="upload-asset-file" data-asset-type="${typeKey}" data-asset-index="${index}">${escapeHTML(this.label('uploadAsset'))}</button>
+          <input class="material-asset-file-input" type="file" hidden data-asset-file-input data-asset-type="${typeKey}" data-asset-index="${index}" accept="${accept}">
+          <button class="btn" type="button" data-action="open-asset" data-asset-type="${typeKey}" data-asset-index="${index}">${escapeHTML(this.label('openAsset'))}</button>
+          <button class="btn danger" type="button" data-action="delete-asset-row" data-asset-type="${typeKey}" data-asset-index="${index}">${escapeHTML(this.label('deleteAsset'))}</button>
+        </div>
+        ${pendingStatus}
       </div>`;
     }).join('');
 

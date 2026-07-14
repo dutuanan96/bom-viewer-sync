@@ -2974,11 +2974,43 @@ body.pdm-shell {
   overflow-wrap: anywhere;
 }
 
+.material-asset-edit-row {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.material-asset-edit-fields {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: minmax(120px, 1fr) minmax(180px, 2fr);
+}
+
+.material-asset-edit-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.material-asset-file-input {
+  display: none;
+}
+
+.asset-pending-upload {
+  color: #946200;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
 @media (max-width: 1100px) {
 
   .material-master-form,
   .material-master-relations,
   .material-master-assets {
+    grid-template-columns: 1fr;
+  }
+
+  .material-asset-edit-fields {
     grid-template-columns: 1fr;
   }
 }

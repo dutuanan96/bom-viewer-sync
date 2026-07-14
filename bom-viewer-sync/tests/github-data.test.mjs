@@ -241,3 +241,144 @@ test('save diffs the current remote payload before writing its SHA', async () =>
   assert.equal(app.state.loadedPayload.productRevisions.P1.effectivityEvents[0].reason, 'Approved for production');
   assert.equal(app.state.payload.materialDb.materials.m1.name.zh, 'Local new');
 });
+
+function pendingAssetSaveApp({ uploadAsset, write }) {
+  const contentHash = 'a'.repeat(64);
+  const pendingId = `assets/pdfs/M1_${contentHash}_drawing.pdf`;
+  const localPayload = coreUtils.normalizePayload({
+    bom: {},
+    materialDb: {
+      materials: {
+        m1: {
+          id: 'm1',
+          code: 'M1',
+          name: { zh: 'Material', vi: 'Material' },
+          drawings: [{
+            name: 'Drawing',
+            url: '',
+            sourceUrl: 'preserved-source',
+            pendingAssetId: pendingId,
+          }],
+          models3d: [],
+        },
+      },
+      bomEntries: [],
+    },
+  });
+  const remotePayload = coreUtils.normalizePayload({
+    bom: {},
+    materialDb: {
+      materials: {
+        m1: {
+          id: 'm1',
+          code: 'M1',
+          name: { zh: 'Material', vi: 'Material' },
+          drawings: [],
+          models3d: [],
+        },
+      },
+      bomEntries: [],
+    },
+  });
+  const calls = [];
+  const app = Object.create(BomApplication.prototype);
+  app.githubAssetStorage = {
+    async uploadAsset(input) {
+      calls.push({ type: 'uploadAsset', input });
+      return uploadAsset(input);
+    },
+  };
+  app.githubData = {
+    async loadForWrite(token) {
+      calls.push({ type: 'loadForWrite', token });
+      return { sha: 'current-remote-sha', payload: remotePayload };
+    },
+    async write(input) {
+      calls.push({ type: 'write', input });
+      return write(input);
+    },
+  };
+  app.state = {
+    payload: localPayload,
+    bom: localPayload.bom,
+    drawings: localPayload.drawings,
+    manuals: localPayload.manuals,
+    models3d: localPayload.models3d,
+    productImages: localPayload.productImages,
+    materialDb: localPayload.materialDb,
+    pendingMaterialAssets: {
+      [pendingId]: {
+        path: pendingId,
+        contentType: 'application/pdf',
+        contentHash,
+        originalName: 'drawing.pdf',
+        bytes: new Uint8Array([1, 2, 3]),
+      },
+    },
+    dirty: true,
+  };
+  app.label = (key) => key;
+  app.setStatus = () => {};
+  app.renderAll = () => {};
+  return { app, calls, pendingId };
+}
+
+test('Save to GitHub uploads referenced assets before reading the current BOM SHA', async () => {
+  const pinnedUrl = `https://cdn.jsdelivr.net/gh/acme/assets@${'b'.repeat(40)}/drawing.pdf`;
+  const { app, calls } = pendingAssetSaveApp({
+    uploadAsset: async () => ({ url: pinnedUrl }),
+    write: async () => {},
+  });
+
+  await app.writeGithubData('token');
+
+  assert.deepEqual(calls.map(({ type }) => type), ['uploadAsset', 'loadForWrite', 'write']);
+  assert.equal(calls[0].input.token, 'token');
+  assert.equal(calls[0].input.contentType, 'application/pdf');
+  assert.equal(calls[0].input.bytes instanceof Uint8Array, true);
+  assert.equal(calls[2].input.sha, 'current-remote-sha');
+  assert.match(calls[2].input.source, /cdn\.jsdelivr\.net/);
+  assert.match(calls[2].input.source, /preserved-source/);
+  assert.doesNotMatch(calls[2].input.source, /pendingAssetId/);
+  assert.equal(app.state.materialDb.materials.m1.drawings[0].url, pinnedUrl);
+  assert.deepEqual(app.state.pendingMaterialAssets, {});
+});
+
+test('asset upload failure leaves the remote BOM untouched and pending bytes available', async () => {
+  const { app, calls, pendingId } = pendingAssetSaveApp({
+    uploadAsset: async () => {
+      throw new Error('satellite unavailable');
+    },
+    write: async () => {},
+  });
+
+  await assert.rejects(app.writeGithubData('token'));
+
+  assert.deepEqual(calls.map(({ type }) => type), ['uploadAsset']);
+  assert.equal(app.state.materialDb.materials.m1.drawings[0].pendingAssetId, pendingId);
+  assert.equal(app.state.pendingMaterialAssets[pendingId].bytes instanceof Uint8Array, true);
+});
+
+test('BOM write retry reuses an already resolved asset without uploading again', async () => {
+  const pinnedUrl = `https://cdn.jsdelivr.net/gh/acme/assets@${'c'.repeat(40)}/drawing.pdf`;
+  let writeCount = 0;
+  const { app, calls, pendingId } = pendingAssetSaveApp({
+    uploadAsset: async () => ({ url: pinnedUrl }),
+    write: async () => {
+      writeCount += 1;
+      if (writeCount === 1) throw new Error('BOM write failed');
+    },
+  });
+
+  await assert.rejects(app.writeGithubData('token'), /BOM write failed/);
+  assert.equal(app.state.pendingMaterialAssets[pendingId].resolved.url, pinnedUrl);
+  assert.equal(app.state.materialDb.materials.m1.drawings[0].pendingAssetId, pendingId);
+
+  await app.writeGithubData('token');
+
+  assert.equal(calls.filter(({ type }) => type === 'uploadAsset').length, 1);
+  assert.equal(calls.filter(({ type }) => type === 'loadForWrite').length, 2);
+  assert.equal(calls.filter(({ type }) => type === 'write').length, 2);
+  assert.equal(app.state.materialDb.materials.m1.drawings[0].url, pinnedUrl);
+  assert.deepEqual(app.state.pendingMaterialAssets, {});
+});

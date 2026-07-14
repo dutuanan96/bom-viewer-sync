@@ -2,7 +2,7 @@
 
 ## Review Scope
 
-PR #1 was squash-merged into `main` on 2026-07-14 as `72debab`. Review future regressions from integrated `main`. Editable code is under `src/`; `admin.html`, `app-admin.js`, `styles.css`, and `viewer.html` are generated evidence and must correspond to build ID `238032e12d0f`.
+PR #1 was squash-merged into `main` on 2026-07-14 as `72debab`; Phase A PR #5 was squash-merged as `de35ea2`. Review Phase B branch `codex/material-asset-upload` against current `origin/main`. Editable code is under `src/`; `admin.html`, `app-admin.js`, `styles.css`, and `viewer.html` are generated evidence and must correspond to build ID `21ca427a7b66`.
 
 ## Required Revision Contracts
 
@@ -31,10 +31,20 @@ PR #1 was squash-merged into `main` on 2026-07-14 as `72debab`. Review future re
 - Existing 2D/3D metadata remains intact after save. For 3D, edited `url` wins over stale `previewUrl`, and successful save updates `previewUrl`.
 - Empty, invalid and duplicate URLs are rejected through i18n errors. Open reads the current input value, not a stale rendered attribute.
 - Successful local save clears the draft so later silent refresh is not permanently blocked.
+- Selecting a file changes only the draft plus application-memory pending state. Save Material remains local-only and must not call the asset adapter.
+- Pending asset rows may have a blank public URL only when their `pendingAssetId` resolves to in-memory bytes; manual URL entry removes the pending reference.
+- Existing hidden metadata must survive pending staging and targeted URL resolution. The resolver must not use global/string replacement.
 
-## Contents Asset Storage Review Gate
+## GitHub Asset Upload Review Gate
 
-`src/infrastructure/github-asset-storage.js` is inactive and must not be imported by Admin or Viewer in Phase A. Review requires create-only Contents API requests without an update `sha`, no DELETE path, a 20,000,000-byte maximum, full SHA-256 identity in each path, and jsDelivr URLs pinned to a full Git commit SHA. The 2026-07-14 satellite smoke returned correct PDF/GLB MIME types, no forced PDF download, CORS `*`, and a successful `<model-viewer>` load. `data.js`, Material Draft, existing asset metadata, `outputs/`, and Desktop must remain unchanged. Phase B requires separate user approval.
+Phase A adapter contracts remain unchanged: create-only Contents API requests without an update `sha`, no DELETE path, a 20,000,000-byte maximum, full SHA-256 identity in each path, and jsDelivr URLs pinned to a full Git commit SHA. In Phase B, only Admin may instantiate the adapter; Viewer remains read-only.
+
+- PDF validation requires `.pdf`, `application/pdf` and `%PDF-` signature. GLB requires `.glb` and `glTF` magic. GLTF requires `.gltf`, valid JSON and portable `data:` or absolute HTTPS buffer/image URIs.
+- Save to GitHub order must be asset upload, current BOM payload/SHA read, then BOM PUT.
+- Asset-upload failure must prevent any BOM write and retain pending bytes.
+- BOM-write failure after asset success may leave an immutable orphan, but retry must reuse `pending.resolved` and not upload again.
+- Successful BOM write alone may adopt resolved URLs into local state and clear completed pending entries. No serialized output may contain `pendingAssetId` or file bytes.
+- Phase B PR #6 received explicit merge approval on 2026-07-14. `data.js`, `outputs/`, and Desktop must remain unchanged until the post-merge `main` gate passes and publication is separately approved.
 
 ## Notification Contracts
 
@@ -50,6 +60,7 @@ PR #1 was squash-merged into `main` on 2026-07-14 as `72debab`. Review future re
 - Outer runtime contracts: 13/13 passed.
 - Generated freshness and JavaScript syntax checks passed.
 - Browser smoke verified 3D draft re-render, blank URL validation, Back discard, live Viewer counts and real GLB rendering.
+- Phase B gate passed 115/115 tests. Admin browser smoke verified pending PDF display, blank draft URL, Back discard/restoration, and local-only Save Material; Viewer loaded 22 products and 646 materials. The only browser resource error was the pre-existing missing `favicon.ico`.
 
 ## Integration Risk To Watch
 

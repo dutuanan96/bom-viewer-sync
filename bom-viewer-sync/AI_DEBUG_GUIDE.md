@@ -63,8 +63,9 @@ UI và application có thể gọi domain/infrastructure. Domain không được
 | `src/domain/relationships.js` | Parent-child tree, child grouping, legacy BOM synchronization | Network/storage |
 | `src/domain/revisions.js` | Product revision registry, immutable BOM snapshots, current/effective transitions | DOM, prompts hoặc GitHub access |
 | `src/features/notifications.js` | Material diff, notification normalization, append event | Notification panel HTML |
+| `src/features/material-asset-upload.js` | Selected-file validation and targeted pending-asset resolution in a cloned payload | DOM, GitHub transport or stored-material mutation |
 | `src/infrastructure/github-data.js` | Config, GitHub public read, authenticated read/write, serialization | Product/domain decisions |
-| `src/infrastructure/github-asset-storage.js` | Inactive satellite asset adapter: binary encoding, create-only upload, retry recovery, commit-pinned CDN URL | Material Draft or payload mutation |
+| `src/infrastructure/github-asset-storage.js` | Satellite binary encoding, create-only upload, conflict recovery, commit-pinned CDN URL | Material Draft or payload mutation |
 | `src/infrastructure/assets.js` | Asset matching, Drive/PDF display URLs | BOM mutation |
 | `src/ui/catalog-view.js` | Product catalog, sidebar navigation, product image/model presentation | Fetch logic |
 | `src/ui/bom-view.js` | BOM header/table/filter/asset actions | GitHub writes |
@@ -87,6 +88,7 @@ UI và application có thể gọi domain/infrastructure. Domain không được
 | `tests/domain.test.mjs` | Pure domain behavior và module seams |
 | `tests/github-data.test.mjs` | GitHub read/write, current SHA/payload và notification preservation |
 | `tests/github-asset-storage.test.mjs` | Binary identity, immutable Contents upload, conflict recovery and smoke PDF contract |
+| `tests/material-asset-upload.test.mjs` | PDF/GLB/GLTF validation, cloned targeted resolution and retry reuse |
 | `tests/assets-notifications.test.mjs` | Asset matching và notification behavior |
 | `tests/material-assets.test.mjs` | Material Master draft isolation, asset metadata, URL validation và save/discard behavior |
 | `tests/notifications.test.mjs` | Product/material/BOM payload diff events và quantity edge cases |
@@ -119,6 +121,7 @@ Viewer không chứa token và không ghi dữ liệu. Source code/style/shell t
 admin.html + app-admin.js + styles.css + data.js
   → load/normalize remote payload
   → edit local application state
+  → upload referenced pending Material assets into the satellite repository
   → read current remote payload and SHA
   → diff current remote materials against local state
   → preserve remote notification history
@@ -142,6 +145,8 @@ released effective revision (V3)
 ```
 
 `currentRevision` là latest design revision; `effectiveRevision` là revision duy nhất đang dùng trong sản xuất. Không được suy luận Draft mới là released/effective. Snapshot lịch sử hợp lệ là immutable và mọi released/historical view là read-only.
+
+Pending Material assets are the exception to normal URL validation: Save Material may store an internal `pendingAssetId` locally while keeping the public URL blank. The selected bytes stay only in `state.pendingMaterialAssets`. Save to GitHub resolves only referenced pending records in a cloned outgoing payload, uploads binaries first, reads the current BOM SHA second, and writes BOM data last. Local URLs are adopted and pending bytes are cleared only after the BOM write succeeds.
 
 ### Notification và Payload Diffing
 
@@ -308,10 +313,15 @@ So sánh SHA-256 của canonical artifacts/docs với outer `outputs/`. Báo rõ
 18. Save asset phải preserve metadata không hiển thị; 3D direct URL được đồng bộ vào `previewUrl`.
 19. URL 2D/3D trống, sai schema/extension hoặc trùng lặp phải chặn Save bằng i18n error.
 20. Save Material là local edit; Save to GitHub vẫn là hành động riêng và phải dùng current remote payload/SHA.
+21. Selecting a Material asset must not upload, mutate the stored material, or serialize bytes/blob URLs into `data.js`.
+22. PDF must pass `.pdf`, `application/pdf` and `%PDF-` signature checks; GLB must pass `.glb` and `glTF` magic; GLTF must pass `.gltf`, valid JSON and only `data:` or absolute HTTPS buffer/image URIs.
+23. Pending binaries are limited to 20,000,000 bytes and remain application-memory only until Save to GitHub.
+24. Save to GitHub ordering is binary upload, current BOM read/SHA, then BOM PUT. Binary failure must prevent the BOM PUT.
+25. If the binary upload succeeds but the BOM PUT fails, retain the resolved immutable URL so retry does not upload the binary again.
 
-### GitHub Contents asset storage experiment
+### GitHub Contents Material asset storage
 
-`src/infrastructure/github-asset-storage.js` is an inactive adapter and is not imported by Admin or Viewer. It creates content-addressed files through the GitHub Contents API in public repository `dutuanan96/bom-viewer-assets`, never sends an update `sha`, never deletes assets, limits every binary to 20,000,000 bytes, and returns jsDelivr URLs pinned to the full asset-repository commit SHA. Live smoke on 2026-07-14 returned `application/pdf` and `model/gltf-binary`, no attachment disposition, `Access-Control-Allow-Origin: *`, and a successful `<model-viewer>` load. `data.js`, Material Draft, asset metadata, `outputs/`, and Desktop remain unchanged. Phase B Material Master integration still requires separate approval.
+Phase A was merged by PR #5 as `de35ea2`. Phase B PR #6 was approved for squash merge on 2026-07-14. Admin imports the create-only adapter only for the explicit Save to GitHub boundary. The adapter still never sends an update `sha`, never deletes assets, limits every binary to 20,000,000 bytes, and returns jsDelivr URLs pinned to the full asset-repository commit SHA. `src/features/material-asset-upload.js` owns validation and targeted clone resolution; `src/application.js` owns pending bytes and save ordering. `data.js`, `outputs/`, and Desktop must remain unchanged until the merged `main` gate passes and publication is separately approved.
 
 ## 7. Bẫy thường gặp
 
