@@ -86,6 +86,7 @@ test('accepts portable GLTF and rejects relative external resources', async () =
 
   for (const content of [
     '{invalid-json',
+    JSON.stringify({ asset: { version: '2.0' }, buffers: {} }),
     JSON.stringify({ asset: { version: '2.0' }, buffers: [{ uri: 'buffer.bin' }] }),
     JSON.stringify({ asset: { version: '2.0' }, images: [{ uri: 'http://example.com/texture.png' }] }),
   ]) {

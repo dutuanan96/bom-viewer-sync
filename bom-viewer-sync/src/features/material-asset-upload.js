@@ -39,6 +39,8 @@ function isPortableGltf(source) {
     return false;
   }
   if (!document || typeof document !== 'object' || !document.asset?.version) return false;
+  if (document.buffers !== undefined && !Array.isArray(document.buffers)) return false;
+  if (document.images !== undefined && !Array.isArray(document.images)) return false;
   const resources = [...(document.buffers || []), ...(document.images || [])];
   return resources.every((resource) => !Object.prototype.hasOwnProperty.call(resource || {}, 'uri')
     || hasPortableUri(resource.uri));
