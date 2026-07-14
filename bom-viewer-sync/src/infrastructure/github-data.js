@@ -128,10 +128,92 @@ export function buildGithubUpdateRequest({ config, token, sha, source, message }
 
 export function createGithubDataAdapter({ config, fetchImpl = globalThis.fetch, now = Date.now }) {
   const cleanConfig = normalizeConfig(config);
+  const basePath = cleanConfig.path.includes('/') ? cleanConfig.path.substring(0, cleanConfig.path.lastIndexOf('/')) : '';
+  const dataDir = basePath ? `${basePath}/data` : 'data';
+
+  const fetchJsonPublic = async (filename, cacheBust) => {
+    const fileConfig = { ...cleanConfig, rawUrl: '', path: `${dataDir}/${filename}` };
+    const requests = [
+      rawContentsUrl(fileConfig) && {
+        url: `${rawContentsUrl(fileConfig)}&t=${cacheBust}`,
+        options: { cache: 'no-store', headers: { Accept: 'application/vnd.github.raw' } },
+      },
+      rawUrl(fileConfig) && {
+        url: `${rawUrl(fileConfig)}${rawUrl(fileConfig).includes('?') ? '&' : '?'}t=${cacheBust}`,
+        options: { cache: 'no-store' },
+      },
+    ].filter(Boolean);
+    const errors = [];
+    for (const request of requests) {
+      try {
+        const response = await fetchImpl(request.url, request.options);
+        if (!response.ok) {
+          const error = new Error(`${response.status} ${response.statusText}`);
+          error.status = response.status;
+          throw error;
+        }
+        return await response.json();
+      } catch (error) {
+        errors.push(error);
+      }
+    }
+    const non404 = errors.find((e) => e.status !== 404);
+    if (non404) throw non404;
+    throw errors[errors.length - 1] || new Error(`Failed to load ${filename}`);
+  };
+
+  const assembleShardedPayload = async (manifest, materials, loadProduct) => {
+    const isPlainObject = (val) => val && typeof val === 'object' && !Array.isArray(val);
+
+    if (!isPlainObject(manifest) || !Array.isArray(manifest.products)) {
+      throw new Error('Invalid manifest');
+    }
+    if (!isPlainObject(materials) || !isPlainObject(materials.materialDb) || !isPlainObject(materials.materialDb.materials) || !Array.isArray(materials.materialDb.bomEntries)) {
+      throw new Error('Invalid materials');
+    }
+
+    const bom = Object.create(null);
+    for (const productId of manifest.products) {
+      if (typeof productId !== 'string') throw new Error(`Invalid product ID type: ${typeof productId}`);
+      const product = await loadProduct(productId);
+      if (!isPlainObject(product)) throw new Error(`Invalid product ${productId}`);
+      bom[productId] = product;
+    }
+    return normalizePayload({
+      version: manifest.version,
+      updatedAt: manifest.updatedAt,
+      productImages: manifest.productImages,
+      productRevisions: manifest.productRevisions,
+      notifications: manifest.notifications,
+      bom,
+      drawings: materials.drawings,
+      manuals: materials.manuals,
+      models3d: materials.models3d,
+      materialDb: materials.materialDb,
+    });
+  };
 
   return {
     async loadPublic() {
       const cacheBust = now();
+
+      let manifest;
+      let manifest404 = false;
+      try {
+        manifest = await fetchJsonPublic('manifest.json', cacheBust);
+      } catch (err) {
+        if (err.status !== 404) throw err;
+        manifest404 = true;
+      }
+
+      if (!manifest404) {
+        const materials = await fetchJsonPublic('materials.json', cacheBust);
+        return await assembleShardedPayload(manifest, materials, (id) => {
+          if (!/^[a-zA-Z0-9_-]+$/.test(id)) throw new Error(`Invalid product ID: ${id}`);
+          return fetchJsonPublic(`products/${encodeURIComponent(id)}.json`, cacheBust);
+        });
+      }
+
       const requests = [
         rawContentsUrl(cleanConfig) && {
           url: `${rawContentsUrl(cleanConfig)}&t=${cacheBust}`,

@@ -2,7 +2,7 @@
 
 ## Review Scope
 
-PR #1 was squash-merged into `main` on 2026-07-14 as `72debab`; Phase A PR #5 was squash-merged as `de35ea2`. Review Phase B branch `codex/material-asset-upload` against current `origin/main`. Editable code is under `src/`; `admin.html`, `app-admin.js`, `styles.css`, and `viewer.html` are generated evidence and must correspond to build ID `21ca427a7b66`.
+PR #1 was squash-merged into `main` on 2026-07-14 as `72debab`; Phase A PR #5 was squash-merged as `de35ea2`; Phase B PR #6 was merged. Review Phase B.1 branch `codex/sharded-data-compatibility` (PR #8) against current `origin/main`. Editable code is under `src/`; `admin.html`, `app-admin.js`, `styles.css`, and `viewer.html` are generated evidence and must correspond to build ID `431b891`.
 
 ## Required Revision Contracts
 
@@ -44,7 +44,8 @@ Phase A adapter contracts remain unchanged: create-only Contents API requests wi
 - Asset-upload failure must prevent any BOM write and retain pending bytes.
 - BOM-write failure after asset success may leave an immutable orphan, but retry must reuse `pending.resolved` and not upload again.
 - Successful BOM write alone may adopt resolved URLs into local state and clear completed pending entries. No serialized output may contain `pendingAssetId` or file bytes.
-- Phase B PR #6 received explicit merge approval on 2026-07-14. `data.js`, `outputs/`, and Desktop must remain unchanged until the post-merge `main` gate passes and publication is separately approved.
+- Phase B.1 (PR #8) implements a compatibility layer where `loadPublic()` tries sharded manifest first and only falls back to `data.js` if the manifest is HTTP 404. Schema errors and sub-file 404s throw errors without falling back. `loadForWrite()` and `write()` still ONLY use `data.js`. No data migration has occurred, and there is no sharded production data yet.
+- `data.js`, `outputs/`, and Desktop must remain unchanged until the post-merge `main` gate passes and publication is separately approved.
 
 ## Notification Contracts
 
@@ -60,7 +61,7 @@ Phase A adapter contracts remain unchanged: create-only Contents API requests wi
 - Outer runtime contracts: 13/13 passed.
 - Generated freshness and JavaScript syntax checks passed.
 - Browser smoke verified 3D draft re-render, blank URL validation, Back discard, live Viewer counts and real GLB rendering.
-- Phase B gate passed 115/115 tests. Admin browser smoke verified pending PDF display, blank draft URL, Back discard/restoration, and local-only Save Material; Viewer loaded 22 products and 646 materials. The only browser resource error was the pre-existing missing `favicon.ico`.
+- Phase B.1 gate passed 124/124 tests. Admin browser smoke verified UI loading gracefully falling back to `data.js` with no missing data. Viewer loaded 22 products and 646 materials successfully. The only browser resource error was the pre-existing missing `favicon.ico`.
 
 ## Integration Risk To Watch
 

@@ -321,7 +321,7 @@ So sánh SHA-256 của canonical artifacts/docs với outer `outputs/`. Báo rõ
 
 ### GitHub Contents Material asset storage
 
-Phase A was merged by PR #5 as `de35ea2`. Phase B PR #6 was approved for squash merge on 2026-07-14. Admin imports the create-only adapter only for the explicit Save to GitHub boundary. The adapter still never sends an update `sha`, never deletes assets, limits every binary to 20,000,000 bytes, and returns jsDelivr URLs pinned to the full asset-repository commit SHA. `src/features/material-asset-upload.js` owns validation and targeted clone resolution; `src/application.js` owns pending bytes and save ordering. `data.js`, `outputs/`, and Desktop must remain unchanged until the merged `main` gate passes and publication is separately approved.
+Phase A was merged by PR #5. Phase B was merged by PR #6. Phase B.1 (Sharded Data Compatibility Layer) is implemented in PR #8 (superseding PR #7). `loadPublic()` tries sharded manifest first and only falls back to `data.js` if the manifest is an HTTP 404. Schema errors and sub-file 404s throw errors without falling back. `loadForWrite()` and `write()` still ONLY use `data.js`. No data migration has occurred, and there is no sharded production data yet. The save target has not changed. The repository gate is currently at 124/124 tests. `outputs/` and Desktop remain unpublished for these changes.
 
 ## 7. Bẫy thường gặp
 
