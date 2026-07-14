@@ -8,9 +8,11 @@
 
 - Canonical project root: `work/remote-bom-viewer-sync/bom-viewer-sync/`.
 - Editable source-of-truth: `src/`, `scripts/`, `tests/`, `package.json` và các tài liệu trong project root.
+- Current integrated branch: `main`; active Phase B.3 review branch: `codex/sharded-atomic-writer-phase-b3`.
 - Generated artifacts: `admin.html`, `app-admin.js`, `styles.css`, `viewer.html`.
 - Runtime data: `data.js`. Không ghi đè file này trong code-only work.
 - Portable mirror: outer `outputs/`. Đây là nơi nhận artifact đã verify, không phải source-of-truth.
+- Phase B.3 generated build ID: `94069c453df8` (build không thay đổi do writer inactive).
 - `viewer.html` là Viewer read-only một file để gửi sang máy khác.
 - `admin.html` dùng bundle và data file bên cạnh để chỉnh sửa rồi lưu lên GitHub.
 
@@ -321,7 +323,7 @@ So sánh SHA-256 của canonical artifacts/docs với outer `outputs/`. Báo rõ
 
 ### GitHub Contents Material asset storage
 
-Phase A was merged by PR #5. Phase B was merged by PR #6. Phase B.1 (Sharded Data Compatibility Layer) was merged by PR #8 (superseding PR #7). Phase B.2 (In-memory Migration Dry-Run) is implemented. `loadPublic()` tries sharded manifest first and only falls back to `data.js` if the manifest is an HTTP 404. Schema errors and sub-file 404s throw errors without falling back. `loadForWrite()` and `write()` still ONLY use `data.js`. No remote data migration has occurred, and there is no sharded production data yet. The save target has not changed. The repository gate is currently at 132/132 tests. `outputs/` and Desktop remain unpublished for these changes.
+Phase A was merged by PR #5. Phase B was merged by PR #6. Phase B.1 (Sharded Data Compatibility Layer) was merged by PR #8 (superseding PR #7). Phase B.2 (In-memory Migration Dry-Run) was merged by PR #9 at `8e9f221`. Phase B.3 (Atomic Sharded Writer Foundation) is implemented. `loadPublic()` tries sharded manifest first and only falls back to `data.js` if the manifest is an HTTP 404. Schema errors and sub-file 404s throw errors without falling back. `loadForWrite()` and `write()` still ONLY use `data.js`. No remote data migration has occurred, and there is no sharded production data yet. The save target has not changed. The repository gate is currently at 146/146 tests. `outputs/` and Desktop remain unpublished for these changes.
 
 ## 7. Bẫy thường gặp
 

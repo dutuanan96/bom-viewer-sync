@@ -4,7 +4,7 @@ The canonical source is `work/remote-bom-viewer-sync/bom-viewer-sync/`. Build an
 
 ## Current Release State
 
-PR #1 was squash-merged into `main` on 2026-07-14 as `72debab`; Phase A PR #5 was squash-merged as `de35ea2`; Phase B PR #6 was merged. Product revision/effectivity, Material Master draft editing, notifications, and the create-only satellite adapter are integrated. Phase B.1 PR #8 was merged. Phase B.2 implements In-memory Migration Dry-Run; its submitted generated build ID is `94069c453df8`.
+PR #1 was squash-merged into `main` on 2026-07-14 as `72debab`; Phase A PR #5 was squash-merged as `de35ea2`; Phase B PR #6 was merged. Product revision/effectivity, Material Master draft editing, notifications, and the create-only satellite adapter are integrated. Phase B.1 PR #8 was merged. Phase B.2 PR #9 was merged at `8e9f221`. Phase B.3 implements Atomic Sharded Writer Foundation.
 
 - Canonical `main` artifacts are the source of truth.
 - `outputs/` runtime artifacts have been rebuilt from integrated `main` and match canonical bytes.
@@ -19,8 +19,9 @@ Runtime publication and data synchronization are separate operations. Never copy
 Phase B lets Admin select validated PDF, GLB, or portable GLTF files from Material Master. Selection and Save Material are local-only: bytes remain in application memory and the stored draft carries an internal pending ID with no public URL. Save to GitHub uploads only referenced binaries to public repository `dutuanan96/bom-viewer-assets`, reads the current BOM payload/SHA, then writes BOM data with commit-pinned jsDelivr URLs. Upload failure prevents the BOM write; BOM-write retry reuses any already resolved immutable URL. Existing asset metadata is preserved.
 
 Phase B.1 (PR #8) adds a compatibility layer: `loadPublic()` tries sharded manifest first and only falls back to `data.js` if the manifest is HTTP 404. Schema errors and sub-file 404s throw errors without falling back. `loadForWrite()` and `write()` still ONLY use `data.js`. No data migration has occurred, and there is no sharded production data yet.
-Phase B.2 introduces an in-memory dry-run to prove data sharding integrity in memory. No actual migration has been pushed.
-`data.js`, `outputs/`, and Desktop remain unchanged. Do not publish them until PR #8 is verified merged, the post-merge `main` gate passes, and publication is separately approved.
+Phase B.2 (PR #9) introduces an in-memory dry-run to prove data sharding integrity in memory. No actual migration has been pushed.
+Phase B.3 introduces an Atomic Sharded Writer Foundation for concurrent multi-file writes. The writer remains inactive and no real remote writes happen yet.
+`data.js`, `outputs/`, and Desktop remain unchanged. Do not publish them until publication is separately approved.
 
 ## Sync Rules
 
