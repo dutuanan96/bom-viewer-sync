@@ -38,7 +38,7 @@
 - Produces: `buildAssetPath({ kind, materialCode, originalName, contentHash })`
 - Produces: `buildCdnUrl({ config, commitSha, path })`
 
-- [ ] **Step 1: Write failing primitive tests**
+- [x] **Step 1: Write failing primitive tests**
 
 Create `tests/github-asset-storage.test.mjs` with:
 
@@ -98,7 +98,7 @@ test('rejects unsupported kinds, invalid hashes, and non-commit refs', () => {
 });
 ```
 
-- [ ] **Step 2: Run the focused test and verify RED**
+- [x] **Step 2: Run the focused test and verify RED**
 
 Run:
 
@@ -108,7 +108,7 @@ node --test tests/github-asset-storage.test.mjs
 
 Expected: module-not-found failure for `src/infrastructure/github-asset-storage.js`.
 
-- [ ] **Step 3: Implement the primitive module**
+- [x] **Step 3: Implement the primitive module**
 
 Create `src/infrastructure/github-asset-storage.js` with:
 
@@ -183,7 +183,7 @@ export function buildCdnUrl({ config, commitSha, path }) {
 }
 ```
 
-- [ ] **Step 4: Run the focused test and verify GREEN**
+- [x] **Step 4: Run the focused test and verify GREEN**
 
 Run:
 
@@ -193,7 +193,7 @@ node --test tests/github-asset-storage.test.mjs
 
 Expected: 4 tests pass, 0 fail.
 
-- [ ] **Step 5: Commit the primitive boundary**
+- [x] **Step 5: Commit the primitive boundary**
 
 ```powershell
 git add src/infrastructure/github-asset-storage.js tests/github-asset-storage.test.mjs
