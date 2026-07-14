@@ -36,7 +36,7 @@
 - `validateMaterialAssetFile` returns `{ bytes, kind, contentType, originalName }`.
 - `resolvePendingMaterialAssets` returns `{ payload, completedPendingIds }` and stores successful upload metadata in `pending.resolved` for retry.
 
-- [ ] **Step 1: Write failing validation tests**
+- [x] **Step 1: Write failing validation tests**
 
 Add tests that construct browser-like file objects with `name`, `type`, `size`, and `arrayBuffer()` and assert:
 
@@ -57,7 +57,7 @@ await assert.rejects(
 
 Cover valid PDF, PDF MIME/signature mismatch, valid GLB `glTF` magic, invalid GLB, portable GLTF with `data:`/HTTPS URIs, relative GLTF URI rejection, empty files, and both sides of the 20,000,000-byte boundary.
 
-- [ ] **Step 2: Run validation tests and verify RED**
+- [x] **Step 2: Run validation tests and verify RED**
 
 Run:
 
@@ -67,7 +67,7 @@ node --test tests/material-asset-upload.test.mjs
 
 Expected: FAIL because `src/features/material-asset-upload.js` does not exist.
 
-- [ ] **Step 3: Implement minimal file validation**
+- [x] **Step 3: Implement minimal file validation**
 
 Create the feature module with these exact error codes and transport metadata:
 
@@ -101,7 +101,7 @@ export async function validateMaterialAssetFile({ file, typeKey }) {
 
 The comments above identify the three explicit branches; implement each branch directly without accepting other extensions or media types.
 
-- [ ] **Step 4: Add failing targeted-resolution tests**
+- [x] **Step 4: Add failing targeted-resolution tests**
 
 Use a payload with two materials and hidden metadata:
 
@@ -129,11 +129,11 @@ assert.equal(payload.materialDb.materials.m1.models3d[0].pendingAssetId, pending
 
 Also assert missing pending metadata throws `PENDING_ASSET_MISSING`, and a second call reuses `pending.resolved` without invoking `upload` again.
 
-- [ ] **Step 5: Run resolution tests and verify RED**
+- [x] **Step 5: Run resolution tests and verify RED**
 
 Run the focused test again. Expected: file validation tests pass and resolution tests fail because `resolvePendingMaterialAssets` is missing.
 
-- [ ] **Step 6: Implement targeted clone resolution**
+- [x] **Step 6: Implement targeted clone resolution**
 
 Implement only known Material Master arrays:
 
@@ -163,7 +163,7 @@ export async function resolvePendingMaterialAssets({ payload, pendingAssets, upl
 
 Do not stringify the payload and do not run global replacement.
 
-- [ ] **Step 7: Verify GREEN and commit**
+- [x] **Step 7: Verify GREEN and commit**
 
 Run:
 
