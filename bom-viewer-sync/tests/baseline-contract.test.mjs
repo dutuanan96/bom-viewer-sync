@@ -26,7 +26,7 @@ test('current data baseline remains clean enough to normalize', () => {
   const utils = coreUtils;
   const payload = utils.normalizePayload(loadDataPayload());
   assert.equal(Object.keys(payload.bom).length, 22);
-  assert.equal(Object.keys(payload.materialDb.materials).length, 643);
+  assert.equal(Object.keys(payload.materialDb.materials).length, 646);
   assert.equal(payload.materialDb.bomEntries.length, 2725);
 });
 
