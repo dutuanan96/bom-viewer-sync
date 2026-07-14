@@ -275,7 +275,7 @@ Expected: existing draft tests and new staging tests pass; no adapter upload occ
 - Consumes: `resolvePendingMaterialAssets()` and `this.githubAssetStorage.uploadAsset()`.
 - Produces: GitHub save ordering `asset upload -> load current BOM SHA -> BOM write`, with retry metadata retained after a failed BOM write.
 
-- [ ] **Step 1: Write failing save-boundary tests**
+- [x] **Step 1: Write failing save-boundary tests**
 
 Add application tests with injected adapters and call ordering:
 
@@ -306,7 +306,7 @@ Add two failure tests:
 - asset upload failure means `githubData.write` is never called and pending bytes remain;
 - BOM write failure after a successful upload retains `pending.resolved`, and retry performs no second binary upload.
 
-- [ ] **Step 2: Run the focused test and verify RED**
+- [x] **Step 2: Run the focused test and verify RED**
 
 Run:
 
@@ -316,7 +316,7 @@ node --test tests/github-data.test.mjs
 
 Expected: FAIL because `writeGithubData()` does not resolve pending assets.
 
-- [ ] **Step 3: Resolve a cloned outgoing payload before reading the remote SHA**
+- [x] **Step 3: Resolve a cloned outgoing payload before reading the remote SHA**
 
 In `writeGithubData(token)`:
 
@@ -344,7 +344,7 @@ Preserve the existing remote notification merge and current-SHA PUT. Only after 
 
 Do not mutate local asset URLs before the BOM write succeeds.
 
-- [ ] **Step 4: Verify GREEN and commit**
+- [x] **Step 4: Verify GREEN and commit**
 
 Run:
 

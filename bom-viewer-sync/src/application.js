@@ -28,6 +28,7 @@ import {
 } from './infrastructure/github-asset-storage.js';
 import {
   MaterialAssetUploadError,
+  resolvePendingMaterialAssets,
   validateMaterialAssetFile,
 } from './features/material-asset-upload.js';
 import { stableId } from './shared/primitives.js';
@@ -1716,6 +1717,7 @@ const global = globalThis;
         INVALID_GLB_FILE: 'invalidGlbFile',
         INVALID_GLTF_FILE: 'invalidGltfFile',
         PENDING_ASSET_MISSING: 'pendingAssetMissing',
+        ASSET_UPLOAD_FAILED: 'assetUploadFailed',
       };
       return this.label(labels[error?.code] || 'invalidAssetFile');
     }
@@ -2311,7 +2313,10 @@ const global = globalThis;
       try {
         await this.writeGithubData(token);
       } catch (error) {
-        this.setStatus(`${this.label('saveFailed')}: ${error.message}`, 'error');
+        const message = error instanceof MaterialAssetUploadError
+          ? this.materialAssetErrorLabel(error)
+          : error.message;
+        this.setStatus(`${this.label('saveFailed')}: ${message}`, 'error');
       }
     }
 
@@ -2319,7 +2324,7 @@ const global = globalThis;
       this.setStatus(this.label('saving'), '');
       const updatedAt = new Date().toISOString();
       this.syncLegacyBom();
-      let payload = normalizePayload({
+      const localPayload = normalizePayload({
         version: this.state.payload.version,
         updatedAt,
         bom: this.state.bom,
@@ -2331,7 +2336,28 @@ const global = globalThis;
         materialDb: this.state.materialDb,
         notifications: this.state.payload.notifications
       });
-      syncLegacyBomFromMaterialDb(payload);
+      syncLegacyBomFromMaterialDb(localPayload);
+      this.state.pendingMaterialAssets = this.state.pendingMaterialAssets || {};
+      if (Object.keys(this.state.pendingMaterialAssets).length) {
+        this.setStatus(this.label('uploadingAssets'), '');
+      }
+      let resolution;
+      try {
+        resolution = await resolvePendingMaterialAssets({
+          payload: localPayload,
+          pendingAssets: this.state.pendingMaterialAssets,
+          upload: (pending) => this.githubAssetStorage.uploadAsset({
+            token,
+            path: pending.path,
+            contentType: pending.contentType,
+            bytes: pending.bytes,
+          }),
+        });
+      } catch (error) {
+        if (error instanceof MaterialAssetUploadError) throw error;
+        throw new MaterialAssetUploadError('ASSET_UPLOAD_FAILED');
+      }
+      let payload = resolution.payload;
       const remoteFile = await this.githubData.loadForWrite(token);
       const changes = describePayloadChanges(remoteFile.payload, payload);
       payload.notifications = normalizeNotifications(
@@ -2340,8 +2366,17 @@ const global = globalThis;
       payload = appendNotificationEvent(payload, { type: 'github-save', actor: 'admin', createdAt: updatedAt, changes });
       const source = serializeDataJs(payload);
       await this.githubData.write({ token, sha: remoteFile.sha, source, message: `chore: update bom data ${updatedAt}` });
+      resolution.completedPendingIds.forEach((pendingId) => {
+        delete this.state.pendingMaterialAssets[pendingId];
+      });
       this.state.loadedPayload = clone(payload);
       this.state.payload = payload;
+      this.state.bom = payload.bom;
+      this.state.drawings = payload.drawings;
+      this.state.manuals = payload.manuals;
+      this.state.models3d = payload.models3d;
+      this.state.productImages = payload.productImages;
+      this.state.materialDb = payload.materialDb;
       this.state.dirty = false;
       this.renderAll();
       this.setStatus(this.label('saved'), 'saved');
