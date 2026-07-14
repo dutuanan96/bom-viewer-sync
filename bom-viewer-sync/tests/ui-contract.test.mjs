@@ -154,6 +154,28 @@ test('pagination and validation UI use dictionary labels', () => {
   assert.match(openPdmPrompt, /this\.label\('required'\)/);
 });
 
+test('Material asset upload controls use i18n and delegated file handling', () => {
+  const keys = [
+    'uploadAsset',
+    'assetPendingUpload',
+    'assetFileQueued',
+    'invalidAssetFile',
+    'assetFileTooLarge',
+    'invalidPdfFile',
+    'invalidGlbFile',
+    'invalidGltfFile',
+    'pendingAssetMissing',
+    'uploadingAssets',
+    'assetUploadFailed',
+  ];
+  keys.forEach((key) => assert.match(appSource, new RegExp(`${key}:`)));
+  assert.match(appSource, /data-action="upload-asset-file"/);
+  assert.match(appSource, /data-asset-file-input/);
+  assert.match(appSource, /this\.label\('uploadAsset'\)/);
+  assert.match(appSource, /this\.handleMaterialAssetFileInput\(input\)/);
+  assert.match(appSource, /this\.openMaterialAssetFilePicker\(actionElement\)/);
+});
+
 test('direct Material Database page actions do not depend on ambient browser events', () => {
   const app = Object.create(BomApplication.prototype);
   app.state = { materialDbPage: 1 };

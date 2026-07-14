@@ -440,7 +440,18 @@ const global = globalThis;
     revisionReleaseReasonRequired: '\u8bf7\u8f93\u5165\u53d1\u5e03\u539f\u56e0',
     revisionReleaseCurrentOnly: '\u53ea\u80fd\u53d1\u5e03\u6700\u65b0\u7248\u672c',
     revisionReleaseDraftOnly: '\u53ea\u80fd\u53d1\u5e03\u8349\u7a3f\u7248\u672c',
-    revisionReleaseFailed: '\u53d1\u5e03\u7248\u672c\u5931\u8d25'
+    revisionReleaseFailed: '\u53d1\u5e03\u7248\u672c\u5931\u8d25',
+    uploadAsset: '\u4e0a\u4f20\u6587\u4ef6',
+    assetPendingUpload: '\u5f85\u4e0a\u4f20',
+    assetFileQueued: '\u6587\u4ef6\u5df2\u52a0\u5165\u5f85\u4e0a\u4f20\u961f\u5217',
+    invalidAssetFile: '\u6587\u4ef6\u683c\u5f0f\u65e0\u6548',
+    assetFileTooLarge: '\u6587\u4ef6\u4e0d\u5f97\u8d85\u8fc7 20 MB',
+    invalidPdfFile: '\u65e0\u6548\u7684 PDF \u6587\u4ef6',
+    invalidGlbFile: '\u65e0\u6548\u7684 GLB \u6587\u4ef6',
+    invalidGltfFile: '\u65e0\u6548\u7684 GLTF \u6587\u4ef6\u6216\u5305\u542b\u975e HTTPS \u5916\u90e8\u8d44\u6e90',
+    pendingAssetMissing: '\u5f85\u4e0a\u4f20\u6587\u4ef6\u5df2\u4e22\u5931\uff0c\u8bf7\u91cd\u65b0\u9009\u62e9',
+    uploadingAssets: '\u6b63\u5728\u4e0a\u4f20 2D/3D \u6587\u4ef6...',
+    assetUploadFailed: '\u6587\u4ef6\u4e0a\u4f20\u5931\u8d25'
   });
 
   Object.assign(TEXT.vi, {
@@ -510,7 +521,18 @@ const global = globalThis;
     revisionReleaseReasonRequired: 'H\u00e3y nh\u1eadp l\u00fd do ph\u00e1t h\u00e0nh',
     revisionReleaseCurrentOnly: 'Ch\u1ec9 c\u00f3 th\u1ec3 ph\u00e1t h\u00e0nh phi\u00ean b\u1ea3n m\u1edbi nh\u1ea5t',
     revisionReleaseDraftOnly: 'Ch\u1ec9 c\u00f3 th\u1ec3 ph\u00e1t h\u00e0nh b\u1ea3n nh\u00e1p',
-    revisionReleaseFailed: 'Kh\u00f4ng th\u1ec3 ph\u00e1t h\u00e0nh phi\u00ean b\u1ea3n'
+    revisionReleaseFailed: 'Kh\u00f4ng th\u1ec3 ph\u00e1t h\u00e0nh phi\u00ean b\u1ea3n',
+    uploadAsset: 'T\u1ea3i t\u1ec7p l\u00ean',
+    assetPendingUpload: 'Ch\u1edd t\u1ea3i l\u00ean',
+    assetFileQueued: 'T\u1ec7p \u0111\u00e3 \u0111\u01b0\u1ee3c th\u00eam v\u00e0o h\u00e0ng \u0111\u1ee3i',
+    invalidAssetFile: 'T\u1ec7p kh\u00f4ng h\u1ee3p l\u1ec7',
+    assetFileTooLarge: 'T\u1ec7p kh\u00f4ng \u0111\u01b0\u1ee3c v\u01b0\u1ee3t qu\u00e1 20 MB',
+    invalidPdfFile: 'T\u1ec7p PDF kh\u00f4ng h\u1ee3p l\u1ec7',
+    invalidGlbFile: 'T\u1ec7p GLB kh\u00f4ng h\u1ee3p l\u1ec7',
+    invalidGltfFile: 'T\u1ec7p GLTF kh\u00f4ng h\u1ee3p l\u1ec7 ho\u1eb7c c\u00f3 t\u00e0i nguy\u00ean ngo\u00e0i kh\u00f4ng d\u00f9ng HTTPS',
+    pendingAssetMissing: 'T\u1ec7p ch\u1edd t\u1ea3i l\u00ean \u0111\u00e3 b\u1ecb m\u1ea5t, h\u00e3y ch\u1ecdn l\u1ea1i',
+    uploadingAssets: '\u0110ang t\u1ea3i t\u1ec7p 2D/3D l\u00ean...',
+    assetUploadFailed: 'T\u1ea3i t\u1ec7p l\u00ean th\u1ea5t b\u1ea1i'
   });
 
   const EDIT_FIELDS = ['mat_code', 'comp_code', 'name', 'spec', 'material', 'color', 'attr', 'qty'];
@@ -984,6 +1006,10 @@ const global = globalThis;
       });
       this.query('.content').addEventListener('input', (event) => this.handleMaterialInput(event, false));
       this.query('.content').addEventListener('change', (event) => this.handleMaterialInput(event, true));
+      this.query('.content').addEventListener('change', (event) => {
+        const input = event.target.closest?.('[data-asset-file-input]');
+        if (input) void this.handleMaterialAssetFileInput(input);
+      });
       this.query('.content').addEventListener('input', (event) => this.handleMaterialDbInput(event));
       this.query('.content').addEventListener('input', (event) => {
         if (event.target.matches('[data-material-master-edit], [data-asset-edit]')) {
@@ -1082,6 +1108,7 @@ const global = globalThis;
       if (action === 'add-3d-asset' && this.isAdmin()) this.addMaterialAssetRow('models3d');
       if (action === 'delete-asset-row' && this.isAdmin()) this.deleteMaterialAssetRow(actionElement);
       if (action === 'open-asset') this.openAsset(actionElement);
+      if (action === 'upload-asset-file' && this.isAdmin()) this.openMaterialAssetFilePicker(actionElement);
       if (action === 'copy') this.copyTable();
       if (action === 'exportExcel') this.exportExcel();
       if (action === 'add-product' && this.isAdmin()) this.addProduct();
@@ -1720,6 +1747,11 @@ const global = globalThis;
         ASSET_UPLOAD_FAILED: 'assetUploadFailed',
       };
       return this.label(labels[error?.code] || 'invalidAssetFile');
+    }
+
+    openMaterialAssetFilePicker(button) {
+      const input = button?.closest('.material-asset-edit-row')?.querySelector('[data-asset-file-input]');
+      if (input) input.click();
     }
 
     async handleMaterialAssetFileInput(input) {

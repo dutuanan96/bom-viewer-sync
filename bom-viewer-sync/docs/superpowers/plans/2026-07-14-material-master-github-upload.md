@@ -371,7 +371,7 @@ Expected: exact call ordering, failure atomicity, and retry reuse tests pass.
 **Interfaces:**
 - Produces: `data-action="upload-asset-file"`, hidden `data-asset-file-input`, localized pending filename/status, and per-type `accept` values.
 
-- [ ] **Step 1: Write failing UI contract tests**
+- [x] **Step 1: Write failing UI contract tests**
 
 Assert Material Master output contains:
 
@@ -385,7 +385,7 @@ assert.match(modelHtml, /asset-pending-upload/);
 
 Assert `runAction()` routes `upload-asset-file`, and delegated change handling routes the selected file input.
 
-- [ ] **Step 2: Run UI tests and verify RED**
+- [x] **Step 2: Run UI tests and verify RED**
 
 Run:
 
@@ -395,7 +395,7 @@ node --test tests/material-assets.test.mjs tests/ui-contract.test.mjs
 
 Expected: FAIL because Upload controls are absent.
 
-- [ ] **Step 3: Add i18n keys and controls**
+- [x] **Step 3: Add i18n keys and controls**
 
 Add matching zh/vi keys for:
 
@@ -407,11 +407,11 @@ pendingAssetMissing, uploadingAssets, assetUploadFailed
 
 Render one Upload button and hidden file input in each editable asset row. Use the pending map to render the selected filename without writing bytes or blob URLs into HTML. Add CSS classes for the row, actions, hidden input, and pending status; do not add new inline styles.
 
-- [ ] **Step 4: Bind picker and file change events**
+- [x] **Step 4: Bind picker and file change events**
 
 `openMaterialAssetFilePicker(button)` finds the input inside the same asset row and calls `click()`. The delegated change handler calls `handleMaterialAssetFileInput(input)` and resets `input.value` afterward so the same file can be reselected.
 
-- [ ] **Step 5: Run focused tests, build, and i18n scan**
+- [x] **Step 5: Run focused tests, build, and i18n scan**
 
 Run:
 
@@ -424,7 +424,7 @@ rg -n "uploadAsset|assetPendingUpload|assetFileQueued|invalidAssetFile|assetFile
 
 Expected: tests pass, generated artifacts are current, and each new UI string is reached through a dictionary key.
 
-- [ ] **Step 6: Commit localized UI**
+- [x] **Step 6: Commit localized UI**
 
 ```powershell
 git add src/application.js src/ui/material-view.js src/styles/app.css tests/material-assets.test.mjs tests/ui-contract.test.mjs admin.html app-admin.js styles.css viewer.html

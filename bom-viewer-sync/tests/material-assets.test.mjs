@@ -163,6 +163,50 @@ test('Back discards unreferenced staged bytes with the Material Draft', async ()
   assert.deepEqual(app.state.pendingMaterialAssets, {});
 });
 
+test('Material Master renders localized upload controls and a pending filename', () => {
+  const { app } = setupApp();
+  const pendingId = `assets/pdfs/MAT-001_${'a'.repeat(64)}_drawing.pdf`;
+  app.label = (key) => key;
+  app.state.pendingMaterialAssets = {
+    [pendingId]: { originalName: 'drawing.pdf' }
+  };
+  app.state.materialDraft = {
+    ...app.state.materialDb.materials['mat-1'],
+    drawings: [{
+      name: 'Drawing',
+      url: '',
+      path: 'legacy/drawing.pdf',
+      pendingAssetId: pendingId
+    }]
+  };
+
+  const drawingHtml = app.materialMasterAssetList('2D', []);
+  const modelHtml = app.materialMasterAssetList('3D', app.state.materialDraft.models3d);
+
+  assert.match(drawingHtml, /data-action="upload-asset-file"/);
+  assert.match(drawingHtml, /data-asset-file-input/);
+  assert.match(drawingHtml, /accept="\.pdf,application\/pdf"/);
+  assert.match(drawingHtml, /asset-pending-upload/);
+  assert.match(drawingHtml, /assetPendingUpload/);
+  assert.match(drawingHtml, /drawing\.pdf/);
+  assert.doesNotMatch(drawingHtml, /legacy\/drawing\.pdf/);
+  assert.match(modelHtml, /accept="\.glb,\.gltf,model\/gltf-binary,model\/gltf\+json"/);
+  assert.match(drawingHtml, />uploadAsset</);
+});
+
+test('Upload action opens only the hidden file input in its asset row', () => {
+  const { app } = setupApp();
+  let clickCount = 0;
+  const input = { click: () => { clickCount += 1; } };
+  const button = {
+    closest: () => ({ querySelector: (selector) => selector === '[data-asset-file-input]' ? input : null })
+  };
+
+  app.openMaterialAssetFilePicker(button);
+
+  assert.equal(clickCount, 1);
+});
+
 test('Add asset does not lose unsaved Material Master fields', () => {
   const { app } = setupApp();
   app.openMaterialMasterEditor('mat-1');
