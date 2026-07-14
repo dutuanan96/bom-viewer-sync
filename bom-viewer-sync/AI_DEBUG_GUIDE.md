@@ -64,6 +64,7 @@ UI và application có thể gọi domain/infrastructure. Domain không được
 | `src/domain/revisions.js` | Product revision registry, immutable BOM snapshots, current/effective transitions | DOM, prompts hoặc GitHub access |
 | `src/features/notifications.js` | Material diff, notification normalization, append event | Notification panel HTML |
 | `src/infrastructure/github-data.js` | Config, GitHub public read, authenticated read/write, serialization | Product/domain decisions |
+| `src/infrastructure/github-asset-storage.js` | Inactive satellite asset adapter: binary encoding, create-only upload, retry recovery, commit-pinned CDN URL | Material Draft or payload mutation |
 | `src/infrastructure/assets.js` | Asset matching, Drive/PDF display URLs | BOM mutation |
 | `src/ui/catalog-view.js` | Product catalog, sidebar navigation, product image/model presentation | Fetch logic |
 | `src/ui/bom-view.js` | BOM header/table/filter/asset actions | GitHub writes |
@@ -85,6 +86,7 @@ UI và application có thể gọi domain/infrastructure. Domain không được
 | `scripts/audit-data.mjs` | Validate material/BOM/data integrity |
 | `tests/domain.test.mjs` | Pure domain behavior và module seams |
 | `tests/github-data.test.mjs` | GitHub read/write, current SHA/payload và notification preservation |
+| `tests/github-asset-storage.test.mjs` | Binary identity, immutable Contents upload, conflict recovery and smoke PDF contract |
 | `tests/assets-notifications.test.mjs` | Asset matching và notification behavior |
 | `tests/material-assets.test.mjs` | Material Master draft isolation, asset metadata, URL validation và save/discard behavior |
 | `tests/notifications.test.mjs` | Product/material/BOM payload diff events và quantity edge cases |
@@ -306,6 +308,10 @@ So sánh SHA-256 của canonical artifacts/docs với outer `outputs/`. Báo rõ
 18. Save asset phải preserve metadata không hiển thị; 3D direct URL được đồng bộ vào `previewUrl`.
 19. URL 2D/3D trống, sai schema/extension hoặc trùng lặp phải chặn Save bằng i18n error.
 20. Save Material là local edit; Save to GitHub vẫn là hành động riêng và phải dùng current remote payload/SHA.
+
+### GitHub Contents asset storage experiment
+
+`src/infrastructure/github-asset-storage.js` is an inactive adapter and is not imported by Admin or Viewer. It creates content-addressed files through the GitHub Contents API in public repository `dutuanan96/bom-viewer-assets`, never sends an update `sha`, never deletes assets, limits every binary to 20,000,000 bytes, and returns jsDelivr URLs pinned to the full asset-repository commit SHA. Live smoke on 2026-07-14 returned `application/pdf` and `model/gltf-binary`, no attachment disposition, `Access-Control-Allow-Origin: *`, and a successful `<model-viewer>` load. `data.js`, Material Draft, asset metadata, `outputs/`, and Desktop remain unchanged. Phase B Material Master integration still requires separate approval.
 
 ## 7. Bẫy thường gặp
 

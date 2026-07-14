@@ -11,6 +11,7 @@ Read `AI_DEBUG_GUIDE.md` before project files.
 - Current generated build ID is `238032e12d0f`.
 - Repository gate passed 89/89 tests. Canonical audit: 646 materials, 2725 BOM entries, 22 products, 1 notification, 0 errors and 0 warnings.
 - Outer runtime artifacts have been rebuilt from integrated `main`. Outer `outputs/data.js` intentionally remains an older 643-material/6-notification snapshot because code publication must not overwrite runtime data.
+- Branch `codex/github-contents-assets` contains an inactive, create-only adapter for public satellite repository `dutuanan96/bom-viewer-assets`. Asset paths contain the full SHA-256 content hash, files are limited to 20,000,000 bytes, and jsDelivr URLs are pinned to the full asset-repository commit SHA. Admin, Viewer, Material Draft, asset metadata, `data.js`, `outputs/`, and Desktop remain unchanged.
 
 ## Continue This Flow
 
@@ -53,6 +54,8 @@ Verify SHA-256 equality for generated artifacts and context documents, then repl
 - Viewer smoke: loaded 22 products and 646 live GitHub materials, then rendered a real GLB in the model modal.
 - `file://` navigation was blocked by the automation policy; standalone structure is covered by repository contracts, but a clean-profile manual `file://` check is still required before external distribution.
 - Notification regression covers product/material/BOM additions, material/BOM deletion, quantity changes including `0`, and `childMaterialId` resolution.
+- Satellite asset smoke uploaded a 599-byte PDF at commit `fbca2d4ba3feb4ad7c210885102b82988ed7333f` and a 1288-byte GLB at commit `673a7f6b05106438a58335d04f2d685508a6d6c7`. jsDelivr returned correct MIME types, no attachment disposition, CORS `*`, and `<model-viewer>` loaded the GLB with zero browser errors or warnings. The deterministic second run reused both paths.
+- Phase A repository gate passed 100/100 tests; the canonical data audit still reports 646 materials, 2725 BOM entries, 22 products, 1 notification, 0 errors, and 0 warnings. Phase B still requires separate user approval.
 
 ## Environment Caveat
 

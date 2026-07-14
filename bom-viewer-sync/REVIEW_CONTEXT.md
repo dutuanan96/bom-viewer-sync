@@ -32,6 +32,10 @@ PR #1 was squash-merged into `main` on 2026-07-14 as `72debab`. Review future re
 - Empty, invalid and duplicate URLs are rejected through i18n errors. Open reads the current input value, not a stale rendered attribute.
 - Successful local save clears the draft so later silent refresh is not permanently blocked.
 
+## Contents Asset Storage Review Gate
+
+`src/infrastructure/github-asset-storage.js` is inactive and must not be imported by Admin or Viewer in Phase A. Review requires create-only Contents API requests without an update `sha`, no DELETE path, a 20,000,000-byte maximum, full SHA-256 identity in each path, and jsDelivr URLs pinned to a full Git commit SHA. The 2026-07-14 satellite smoke returned correct PDF/GLB MIME types, no forced PDF download, CORS `*`, and a successful `<model-viewer>` load. `data.js`, Material Draft, existing asset metadata, `outputs/`, and Desktop must remain unchanged. Phase B requires separate user approval.
+
 ## Notification Contracts
 
 - Payload diff covers product additions, material additions/deletions/field edits and BOM additions/deletions/quantity changes.

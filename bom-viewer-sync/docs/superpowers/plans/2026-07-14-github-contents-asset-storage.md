@@ -851,7 +851,7 @@ git commit -m "chore: add Contents asset live smoke"
 **Interfaces:**
 - Records: adapter inactive status, public repo/path contract, 20,000,000-byte limit, commit-pinned URL rule, browser evidence, and Phase B blocker.
 
-- [ ] **Step 1: Record the verified inactive adapter state**
+- [x] **Step 1: Record the verified inactive adapter state**
 
 Apply the following exact locations:
 
@@ -874,7 +874,7 @@ Each new status section must contain these exact facts:
 
 Keep `AI_DEBUG_GUIDE.md` operational by adding the new adapter and focused test to its ownership tables. Do not mark Phase B approved; state that UI integration requires separate user approval.
 
-- [ ] **Step 2: Run the complete verification gate**
+- [x] **Step 2: Run the complete verification gate**
 
 Run fresh:
 
@@ -891,7 +891,7 @@ npm audit
 
 Expected: every command exits `0`; all tests pass; data audit reports zero errors and warnings; `data.js` has no diff; audit reports zero vulnerabilities.
 
-- [ ] **Step 3: Self-review the complete branch diff**
+- [x] **Step 3: Self-review the complete branch diff**
 
 Run:
 
@@ -905,7 +905,7 @@ rg -n "gho_[A-Za-z0-9]{10,}|github_pat_[A-Za-z0-9_]{20,}" . --glob "!node_module
 
 Expected: only Phase A files and context documents differ; secret scan has no matches; runtime and data diff is empty.
 
-- [ ] **Step 4: Commit context evidence**
+- [x] **Step 4: Commit context evidence**
 
 ```powershell
 git add AI_DEBUG_GUIDE.md HANDOVER.md PROJECT_CONTEXT.md REVIEW_CONTEXT.md README_SYNC.md
