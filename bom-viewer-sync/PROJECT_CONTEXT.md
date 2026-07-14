@@ -32,6 +32,10 @@ The main domain owner is `src/domain/revisions.js`; orchestration is in `src/app
 - 2D requires HTTPS Drive/PDF; 3D requires a direct HTTPS GLB/GLTF URL. Empty, invalid and duplicate URLs block local save through i18n errors.
 - Save Material updates local payload only. Save to GitHub remains a separate explicit action using the current remote payload and SHA.
 
+## Inactive Contents Asset Storage Experiment
+
+Branch `codex/github-contents-assets` adds a standalone infrastructure adapter for create-only binary writes to public repository `dutuanan96/bom-viewer-assets`. Paths contain the full SHA-256 content hash, files are limited to 20,000,000 bytes, and Viewer URLs are pinned to the full asset-repository commit SHA on jsDelivr. Real PDF and GLB smoke passed MIME, inline PDF, CORS and `<model-viewer>` loading. The adapter is not connected to Admin, Viewer or Material Draft; `data.js`, asset metadata, `outputs/`, and Desktop remain unchanged. Phase B requires separate approval.
+
 ## Notification Diff Coverage
 
 `src/features/notifications.js` now reports product additions, material additions/deletions/field edits and BOM additions/deletions/quantity changes. BOM child resolution must prefer `childMaterialId` and fall back to `materialId`; quantity serialization must use nullish fallback so numeric zero is preserved.

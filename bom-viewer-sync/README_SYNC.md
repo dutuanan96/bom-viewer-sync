@@ -14,6 +14,10 @@ PR #1 was squash-merged into `main` on 2026-07-14 as `72debab`. Product revision
 
 Runtime publication and data synchronization are separate operations. Never copy `outputs/data.js` over canonical or GitHub data.
 
+## Contents Asset Storage Experiment
+
+Branch `codex/github-contents-assets` proves create-only PDF/GLB storage in public repository `dutuanan96/bom-viewer-assets` with full SHA-256 content identity and full-commit-pinned jsDelivr delivery. The adapter limits files to 20,000,000 bytes and is not connected to Admin, Viewer or Material Draft. Satellite browser smoke passed PDF inline delivery, PDF/GLB MIME, CORS and `<model-viewer>` loading. `data.js`, asset metadata, `outputs/`, and Desktop remain unchanged. Do not publish runtime files or begin Material Master integration until the separate Phase B is approved.
+
 ## Sync Rules
 
 - Build generates `admin.html`, `app-admin.js`, `styles.css`, and standalone `viewer.html`.
