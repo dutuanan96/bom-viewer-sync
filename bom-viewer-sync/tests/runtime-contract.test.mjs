@@ -137,7 +137,7 @@ test('viewer HTML is standalone for sharing to another computer', () => {
   assert.match(viewerHtml, /raw\.githubusercontent\.com\/dutuanan96\/bom-viewer-sync\/main\/bom-viewer-sync\/data\.js/);
 });
 
-test('core utilities serialize cloud data and build GitHub save requests', () => {
+test('core utilities serialize and parse cloud data', () => {
   const utils = loadCoreUtils();
   const config = {
     owner: 'dutuanan96',
@@ -165,20 +165,9 @@ test('core utilities serialize cloud data and build GitHub save requests', () =>
 
   const source = utils.serializeDataJs(payload);
   const parsed = utils.parseDataJsPayload(source);
-  const request = utils.buildGithubUpdateRequest({
-    config,
-    token: 'github_pat_example',
-    sha: 'abc123',
-    source,
-    message: 'chore: update bom data',
-  });
 
   assert.deepEqual(parsed.bom.LGS001.code, 'LGS001');
   assert.equal(parsed.models3d.LGS001['lgs001panel|panel'][0].name, 'LGS001-panel.glb');
-  assert.equal(request.url, 'https://api.github.com/repos/dutuanan96/bom-viewer-sync/contents/bom-viewer-sync/data.js');
-  assert.equal(request.options.method, 'PUT');
-  assert.equal(request.options.headers.Authorization, 'Bearer github_pat_example');
-  assert.equal(JSON.parse(request.options.body).sha, 'abc123');
 });
 
 test('cloud payload preserves PDM notification events', () => {
@@ -321,8 +310,6 @@ test('admin save and viewer UI include a PDM notification center', () => {
   assert.match(appCore, /renderNotifications/);
   assert.match(appCore, /notificationBadge/);
   assert.match(appCore, /NOTIFICATION_REFRESH_MS/);
-  assert.match(appCore, /application\/vnd\.github\.raw/);
-  assert.match(appCore, /createGithubDataAdapter/);
   assert.match(appCore, /describePayloadChanges\(remoteFile\.payload/);
 });
 

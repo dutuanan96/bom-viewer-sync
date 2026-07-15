@@ -9,7 +9,6 @@ test('application exports the behavior required by the modular migration', () =>
   const utils = coreUtils;
   for (const name of [
     'appendNotificationEvent',
-    'buildGithubUpdateRequest',
     'buildBomTreeRows',
     'createPdmNavigation',
     'describePayloadChanges',

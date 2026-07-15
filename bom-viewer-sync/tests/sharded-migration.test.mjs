@@ -4,6 +4,10 @@ import { parseDataJsPayload } from '../src/infrastructure/github-data.js';
 import { splitPayloadToShards, assembleShardedPayload } from '../src/domain/sharded-data.js';
 import fs from 'node:fs';
 import crypto from 'node:crypto';
+import path from 'node:path';
+import os from 'node:os';
+import { materializeShards } from '../scripts/materialize-shards.mjs';
+import { verifyRollback } from '../scripts/verify-rollback.mjs';
 
 test('Sharded Migration Data Logic', async (t) => {
   const source = fs.readFileSync('data.js', 'utf8');
@@ -132,4 +136,42 @@ test('Sharded Migration Data Logic', async (t) => {
 
     assert.notStrictEqual(computeHash(files1), computeHash(files2), 'Hashes should differ when boundaries shift');
   });
+});
+
+test('Materialize and Verify scripts preserve the full payload without legacy tools', async () => {
+  const tmpDir = await fs.promises.mkdtemp(path.join(os.tmpdir(), 'bom-sync-test-'));
+  
+  try {
+    const dataJsPath = path.join(tmpDir, 'data.js');
+    const dataDir = path.join(tmpDir, 'data');
+    
+    const payload = {
+      version: 2,
+      updatedAt: '2026-07-15T00:00:00.000Z',
+      bom: {
+        P1: { code: 'P1', name: 'Product 1' }
+      },
+      materialDb: {
+        materials: { m1: { id: 'm1', code: 'M1' } },
+        bomEntries: []
+      },
+      drawings: {},
+      manuals: {},
+      models3d: {},
+      productImages: {}
+    };
+    
+    const source = `window.BOM_VIEWER_DATA = ${JSON.stringify(payload, null, 2)};`;
+    await fs.promises.writeFile(dataJsPath, source, 'utf8');
+    
+    const size = await materializeShards(dataJsPath, 'data', tmpDir);
+    assert.strictEqual(size, 3);
+    
+    const recovered = await verifyRollback('data', tmpDir);
+    assert.strictEqual(recovered.version, 2);
+    assert.strictEqual(recovered.bom.P1.name, 'Product 1');
+    assert.strictEqual(recovered.materialDb.materials.m1.code, 'M1');
+  } finally {
+    await fs.promises.rm(tmpDir, { recursive: true, force: true });
+  }
 });
