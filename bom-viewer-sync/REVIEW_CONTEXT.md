@@ -2,7 +2,7 @@
 
 ## Review Scope
 
-PR #1 was squash-merged into `main` on 2026-07-14 as `72debab`; Phase A PR #5 was squash-merged as `de35ea2`; Phase B PR #6 was merged. Phase B.1 PR #8 was merged. Review Phase B.2 branch `codex/sharded-migration-dry-run` against current `origin/main`. Editable code is under `src/`; `admin.html`, `app-admin.js`, `styles.css`, and `viewer.html` are generated evidence and must correspond to build ID `94069c453df8`.
+PR #1 was squash-merged into `main` on 2026-07-14 as `72debab`; Phase A PR #5 was squash-merged as `de35ea2`; Phase B PR #6 was merged. Phase B.1 PR #8 was merged. Phase B.2 PR #9 was merged at `8e9f221`. Phase B.3 was independently reviewed, debugged, and integrated into `main`. Editable code is under `src/`; `admin.html`, `app-admin.js`, `styles.css`, and `viewer.html` are generated evidence.
 
 ## Required Revision Contracts
 
@@ -45,6 +45,8 @@ Phase A adapter contracts remain unchanged: create-only Contents API requests wi
 - BOM-write failure after asset success may leave an immutable orphan, but retry must reuse `pending.resolved` and not upload again.
 - Successful BOM write alone may adopt resolved URLs into local state and clear completed pending entries. No serialized output may contain `pendingAssetId` or file bytes.
 - Phase B.2 implements an in-memory dry-run to validate payload splitting/assembly without data loss. No actual files are created or uploaded.
+- Phase B.3 implements the Atomic Sharded Writer Foundation (`src/infrastructure/github-git-data.js`). It provides concurrency conflict handling (409/422 mapped to `GithubDataConflictError`) and blob/tree/commit/ref ordering. This writer is currently inactive. Warning: if ref update fails, orphan blob, tree, and commit Git objects might remain.
+- Phase B.4 remains outside this review. The user authorized it to begin after Phase B.3 merges, as a separate plan-first change.
 - Phase B.1 (PR #8) implements a compatibility layer where `loadPublic()` tries sharded manifest first and only falls back to `data.js` if the manifest is HTTP 404. Schema errors and sub-file 404s throw errors without falling back. `loadForWrite()` and `write()` still ONLY use `data.js`. No data migration has occurred, and there is no sharded production data yet.
 - Asset URLs use Content-Disposition rewriting; legacy blob conversion and raw asset logic remain supported until fully migrated.
 
@@ -62,7 +64,7 @@ Phase A adapter contracts remain unchanged: create-only Contents API requests wi
 - Outer runtime contracts: 13/13 passed.
 - Generated freshness and JavaScript syntax checks passed.
 - Browser smoke verified 3D draft re-render, blank URL validation, Back discard, live Viewer counts and real GLB rendering.
-- Phase B.2 gate passed 132/132 tests. Admin browser smoke verified UI loading gracefully falling back to `data.js` with no missing data. Viewer loaded 22 products and 646 materials successfully. The only browser resource error was the pre-existing missing `favicon.ico`.
+- Use fresh gate output for the current test count. The prior Admin browser smoke verified graceful `data.js` fallback, and Viewer loaded 22 products and 646 materials. The Phase B.2 dry-run aggregate hash is `d5261ad277be1fbe7b391ea2f0995de8b0f96fdb612d73e95ed5853b2903684e`.
 
 ## Integration Risk To Watch
 

@@ -5,12 +5,12 @@ AI debugging entrypoint: read `AI_DEBUG_GUIDE.md` first. It is self-contained; t
 ## Canonical Source And Build
 
 - Canonical project root: `work/remote-bom-viewer-sync/bom-viewer-sync/`; editable application source lives in `src/`.
-- Current integrated branch: `main`; active Phase B.2 review branch: `codex/sharded-migration-dry-run`.
-- PR #1, Phase A PR #5, Phase B PR #6, and Phase B.1 PR #8 are squash-merged. Phase B.2 implements In-memory Migration Dry-Run.
+- Current integrated branch: `main`; Phase B.3 is integrated after its independent review and debug gate.
+- PR #1, Phase A PR #5, Phase B PR #6, Phase B.1 PR #8, and Phase B.2 PR #9 are squash-merged. Phase B.3 implements Atomic Sharded Writer Foundation.
 - Build command: `npm run build`; complete repository gate: `npm run check`.
 - Generated files: `admin.html`, `app-admin.js`, `styles.css`, and `viewer.html`.
 - Never edit generated files directly. Edit source or build scripts, then rebuild.
-- Phase B.2 generated build ID: `94069c453df8`.
+- Current generated build ID: `9cf37d413370`. Phase B.3 is code-only infrastructure.
 
 ## Product Revision And Effectivity Model
 
@@ -34,7 +34,7 @@ The main domain owner is `src/domain/revisions.js`; orchestration is in `src/app
 
 ## Material Master GitHub Asset Upload
 
-Phase A PR #5 and Phase B PR #6 integrated the Content API adapter. Phase B.1 PR #8 implemented the Sharded Data Compatibility Layer. Phase B.2 implements an In-memory Migration Dry-Run. `src/features/material-asset-upload.js` validates selected files and resolves only asset records carrying a `pendingAssetId` in a cloned outgoing payload. `src/application.js` owns in-memory pending bytes and the remote save boundary.
+Phase A PR #5 and Phase B PR #6 integrated the Content API adapter. Phase B.1 PR #8 implemented the Sharded Data Compatibility Layer. Phase B.2 PR #9 implemented an In-memory Migration Dry-Run. Phase B.3 implemented an Atomic Sharded Writer Foundation. `src/features/material-asset-upload.js` validates selected files and resolves only asset records carrying a `pendingAssetId` in a cloned outgoing payload. `src/application.js` owns in-memory pending bytes and the remote save boundary.
 
 - PDF requires `.pdf`, `application/pdf`, and `%PDF-` bytes.
 - GLB requires `.glb` and `glTF` magic bytes.
@@ -44,7 +44,7 @@ Phase A PR #5 and Phase B PR #6 integrated the Content API adapter. Phase B.1 PR
 - Save to GitHub uploads referenced binaries first, reads the current BOM payload/SHA second, and writes BOM data last. A binary failure prevents the BOM write; if only the BOM write fails, retry reuses the resolved immutable URL instead of re-uploading.
 - Existing `path`, `sourceUrl`, `driveId`, `previewUrl`, and unknown metadata are preserved; only the target URL and 3D `previewUrl` are replaced in the outgoing clone.
 
-Phase B PR #6 was approved for squash merge on 2026-07-14. Phase B.1 (PR #8) compatibility layer is intact where `loadPublic()` tries sharded manifest first and only falls back to `data.js` if the manifest is HTTP 404. Phase B.2 introduces an in-memory dry-run to prove that `data.js` can be sharded and re-assembled without data loss. `loadForWrite()` and `write()` still ONLY use `data.js`. No data migration has occurred, and there is no sharded production data yet. `data.js`, `outputs/`, and Desktop remain unchanged.
+Phase B PR #6 was approved for squash merge on 2026-07-14. Phase B.1 (PR #8) compatibility layer is intact where `loadPublic()` tries sharded manifest first and only falls back to `data.js` if the manifest is HTTP 404. Phase B.2 introduces an in-memory dry-run to prove that `data.js` can be sharded and re-assembled without data loss. Phase B.3 integrates an Atomic Sharded Writer Foundation for concurrent multi-file writes. The writer remains inactive and no real remote writes happen yet. `loadForWrite()` and `write()` still ONLY use `data.js`. No data migration has occurred, and there is no sharded production data yet. `data.js`, `outputs/`, and Desktop remain unchanged from their last separately approved states. The user authorized Phase B.4 to begin after the Phase B.3 merge, as a separate plan-first change.
 
 ## Notification Diff Coverage
 
@@ -55,9 +55,9 @@ Phase B PR #6 was approved for squash merge on 2026-07-14. Phase B.1 (PR #8) com
 | Surface | State | Rule |
 |---|---|---|
 | Canonical `main` checkout | Integrated implementation, current data and generated artifacts | Source of truth |
-| Outer `outputs/` runtime artifacts | Rebuilt from integrated `main` | Portable runtime mirror |
-| Outer `outputs/` context documents | Current | Keep byte-identical to the canonical context documents |
-| Desktop `admin.html` / `viewer.html` | Release copies synchronized from the verified integrated build | Replace only after future integrated builds pass |
+| Outer `outputs/` runtime artifacts | Last approved portable release; not synchronized with Phase B.3 | Publish only after explicit approval |
+| Outer `outputs/` context documents | Last approved portable release; may lag this review branch | Synchronize only as part of an approved publication |
+| Desktop `admin.html` / `viewer.html` | Last approved shareable release; not synchronized with Phase B.3 | Replace only after explicit publication approval and complete verification |
 | Canonical `data.js` | Current merged GitHub/main data: 646 materials, 1 notification | Do not overwrite from mirrors |
 | Outer `outputs/data.js` | Older clean snapshot: 643 materials, 6 notifications | Intentional; never copy over canonical data |
 
@@ -74,8 +74,9 @@ The Viewer uses a cache-busted GitHub Contents API read, so remote data can be n
 
 Do not treat a hard-coded test count as permanent; always report the current command output.
 
-## Phase B.2 Verification
+## Phase B.3 Verification
 
-- Latest repository gate: 132/132 tests; canonical data audit remains 646 materials, 2725 BOM entries, 22 products, 1 notification, 0 errors and 0 warnings.
-- The `migrate:dry-run` script verified 24 virtual shards correctly split and re-assembled without losing any deep properties or stable identifiers.
+- Run `npm run check` fresh for the current test count; the last canonical data audit reported 646 materials, 2725 BOM entries, 22 products, 1 notification, 0 errors and 0 warnings.
+- The `migrate:dry-run` script verified 24 virtual shards correctly split and re-assembled without losing any deep properties or stable identifiers. The Phase B.2 dry-run aggregate hash is `d5261ad277be1fbe7b391ea2f0995de8b0f96fdb612d73e95ed5853b2903684e`.
 - Admin browser smoke legacy fallback still passed flawlessly with no missing data or unhandled errors.
+- The `github-git-data` module is confirmed isolated and completely inactive at runtime.

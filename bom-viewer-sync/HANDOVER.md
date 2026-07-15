@@ -5,14 +5,16 @@ Read `AI_DEBUG_GUIDE.md` before project files.
 ## Current State
 
 - Canonical checkout: `work/remote-bom-viewer-sync/bom-viewer-sync/`.
-- PR #1, Phase A PR #5, Phase B PR #6, and Phase B.1 PR #8 are squash-merged to `main`.
-- Phase B.2 integration branch: `codex/sharded-migration-dry-run`.
+- PR #1, Phase A PR #5, Phase B PR #6, Phase B.1 PR #8, and Phase B.2 PR #9 are squash-merged to `main`.
+- Phase B.3 is integrated after its independent review and debug gate.
 - Product revision/effectivity, draft-safe Material Master 2D/3D editing and expanded payload notifications are integrated.
-- Current Phase B.2 generated build ID is `94069c453df8`.
-- The latest Phase B.2 repository gate passed 132/132 tests. Canonical audit: 646 materials, 2725 BOM entries, 22 products, 1 notification, 0 errors and 0 warnings.
+- Current generated build ID is `9cf37d413370`. Phase B.3 is infrastructure only and does not change the build output.
+- Use a fresh `npm run check` result for the current test count. The last canonical audit reported 646 materials, 2725 BOM entries, 22 products, 1 notification, 0 errors and 0 warnings.
 - Phase B.2 implements an in-memory data migration dry-run. `scripts/migrate-data-dry-run.mjs` splits and re-assembles the legacy payload to prove structural integrity without loss. No actual files are created or uploaded to GitHub.
+- Phase B.3 implements an Atomic Sharded Writer Foundation (`src/infrastructure/github-git-data.js`). The writer is inactive and performs no actual remote writes yet.
 - Phase B.1 Compatibility Layer remains: `loadPublic()` tries sharded manifest first and only falls back to `data.js` if the manifest is an HTTP 404. `loadForWrite()` and `write()` still ONLY use `data.js`.
-- Phase B.2 publication has not been approved. `data.js`, `outputs/`, and Desktop remain unchanged.
+- Phase B.3 did not publish runtime or data. `data.js`, `outputs/`, and Desktop remain unchanged from their last separately approved states.
+- The user authorized Phase B.4 to begin after the Phase B.3 merge. Phase B.4 must remain a separate, plan-first change; no staging write, runtime wiring, migration, or publication belongs in the Phase B.3 merge.
 
 ## Continue This Flow
 
@@ -60,6 +62,7 @@ Verify SHA-256 equality for generated artifacts and context documents, then repl
 - Phase B Admin smoke selected a valid PDF, showed the localized pending filename with a blank draft URL, confirmed Back restored the original URL, and confirmed Save Material remained local-only.
 - Phase B.1 (PR #8) Admin browser smoke passed on local server. Viewer loaded 22 products and 646 materials from `data.js` fallback successfully. The repository gate passed 124/124 tests.
 - Phase B.2 repository gate passed 132/132 tests, including 8 new tests verifying the in-memory split and re-assembly logic. The `migrate:dry-run` script executed successfully on local `data.js`, reporting exactly 24 virtual files created and matching identical deepStrictEqual structures without loss.
+- Phase B.3 writer tests cover atomic ordering, strict shard paths, full expected-HEAD concurrency, 409/422 ref conflicts, response schemas, UTF-8 encoding, and token redaction. Treat only fresh command output as the current gate count. The module is entirely isolated and inactive at runtime.
 
 ## Environment Caveat
 
