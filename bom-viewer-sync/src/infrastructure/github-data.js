@@ -87,4 +87,3 @@ export function parseDataJsPayload(source) {
   if (!payload || !payload.bom) throw new Error('Invalid data.js payload');
   return normalizePayload(payload);
 }
-

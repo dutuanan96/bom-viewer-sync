@@ -140,11 +140,11 @@ test('Sharded Migration Data Logic', async (t) => {
 
 test('Materialize and Verify scripts preserve the full payload without legacy tools', async () => {
   const tmpDir = await fs.promises.mkdtemp(path.join(os.tmpdir(), 'bom-sync-test-'));
-  
+
   try {
     const dataJsPath = path.join(tmpDir, 'data.js');
     const dataDir = path.join(tmpDir, 'data');
-    
+
     const payload = {
       version: 2,
       updatedAt: '2026-07-15T00:00:00.000Z',
@@ -160,17 +160,55 @@ test('Materialize and Verify scripts preserve the full payload without legacy to
       models3d: {},
       productImages: {}
     };
-    
+
     const source = `window.BOM_VIEWER_DATA = ${JSON.stringify(payload, null, 2)};`;
     await fs.promises.writeFile(dataJsPath, source, 'utf8');
-    
-    const size = await materializeShards(dataJsPath, 'data', tmpDir);
+
+    const size = await materializeShards(dataJsPath, 'data', { rootDir: tmpDir });
     assert.strictEqual(size, 3);
-    
-    const recovered = await verifyRollback('data', tmpDir);
+
+    const recovered = await verifyRollback('data', 'data.js', { rootDir: tmpDir });
     assert.strictEqual(recovered.version, 2);
     assert.strictEqual(recovered.bom.P1.name, 'Product 1');
     assert.strictEqual(recovered.materialDb.materials.m1.code, 'M1');
+  } finally {
+    await fs.promises.rm(tmpDir, { recursive: true, force: true });
+  }
+});
+
+test('Materialize script rejects unexpected count and hash', async () => {
+  const tmpDir = await fs.promises.mkdtemp(path.join(os.tmpdir(), 'bom-sync-test-2-'));
+  try {
+    const dataJsPath = path.join(tmpDir, 'data.js');
+    const source = `window.BOM_VIEWER_DATA = ${JSON.stringify({
+      version: 2, bom: {}, materialDb: { materials: {}, bomEntries: [] },
+      drawings: {}, manuals: {}, models3d: {}, productImages: {}
+    })};`;
+    await fs.promises.writeFile(dataJsPath, source, 'utf8');
+
+    await assert.rejects(
+      materializeShards(dataJsPath, 'data', { rootDir: tmpDir, expectedCount: 24 }),
+      /Expected 24 shards, but got/
+    );
+
+    await assert.rejects(
+      materializeShards(dataJsPath, 'data', { rootDir: tmpDir, expectedHash: 'wrong-hash' }),
+      /Hash mismatch/
+    );
+  } finally {
+    await fs.promises.rm(tmpDir, { recursive: true, force: true });
+  }
+});
+
+test('Materialize script rejects transient data', async () => {
+  const tmpDir = await fs.promises.mkdtemp(path.join(os.tmpdir(), 'bom-sync-test-3-'));
+  try {
+    const dataJsPath = path.join(tmpDir, 'data.js');
+    await fs.promises.writeFile(dataJsPath, `window.BOM_VIEWER_DATA = {"pendingAssetId": "123"};`, 'utf8');
+    await assert.rejects(materializeShards(dataJsPath, 'data', { rootDir: tmpDir }), /Unsafe payload: contains pendingAssetId/);
+
+    await fs.promises.writeFile(dataJsPath, `window.BOM_VIEWER_DATA = {"url": "blob:foo"};`, 'utf8');
+    await assert.rejects(materializeShards(dataJsPath, 'data', { rootDir: tmpDir }), /Unsafe payload: contains blob URLs/);
   } finally {
     await fs.promises.rm(tmpDir, { recursive: true, force: true });
   }

@@ -11,19 +11,19 @@ export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.
   const shardRoot = basePath ? `${basePath}/data` : 'data';
 
   if (!owner || !repo || !branch) throw new Error('Invalid config');
-  
+
   const apiBase = `https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}`;
 
   function sanitizeError(error, token) {
     if (!token || typeof token !== 'string') return error;
     const redact = (str) => typeof str === 'string' ? str.replaceAll(token, '***') : str;
-    
+
     const newError = new Error(redact(error.message || ''));
     newError.name = error.name;
     if (error.status !== undefined) newError.status = error.status;
     if (error.code !== undefined) newError.code = error.code;
     if (error.stack) newError.stack = redact(error.stack);
-    
+
     // Do not attach the original cause to avoid leaking token in nested structures
     return newError;
   }
@@ -79,7 +79,7 @@ export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.
 
         const manifestContent = await fetchRaw('manifest.json');
         const materialsContent = await fetchRaw('materials.json');
-        
+
         let manifest;
         try {
           manifest = JSON.parse(manifestContent);
@@ -94,6 +94,9 @@ export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.
         if (!manifest || !Array.isArray(manifest.products)) throw new Error('Invalid manifest structure');
 
         await Promise.all(manifest.products.map(async (id) => {
+          if (typeof id !== 'string' || id.includes('../') || id.includes('..\\')) {
+            throw new Error(`Invalid product ID format traversal not allowed: ${id}`);
+          }
           const content = await fetchRaw(`products/${id}.json`);
           files.set(`products/${id}.json`, content);
         }));
@@ -111,13 +114,22 @@ export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.
         if (!refData || refData.ref !== `refs/heads/${branch}` || !refData.object?.sha) {
           throw new Error('Invalid ref response');
         }
+        if (refData.object.type !== 'commit') {
+          throw new Error('Ref object type must be commit');
+        }
         const commitSha = refData.object.sha;
+        if (!/^[0-9a-f]{40}$/i.test(commitSha)) {
+          throw new Error('Invalid commit SHA format from ref');
+        }
 
         const commitData = await githubJson(`${apiBase}/git/commits/${commitSha}`, { cache: 'no-store' }, token);
         if (!commitData || commitData.sha !== commitSha || !commitData.tree?.sha) {
           throw new Error('Invalid commit response');
         }
         const treeSha = commitData.tree.sha;
+        if (!/^[0-9a-f]{40}$/i.test(commitSha) || !/^[0-9a-f]{40}$/i.test(treeSha)) {
+          throw new Error('Invalid SHA format in commit object');
+        }
 
         const treeData = await githubJson(`${apiBase}/git/trees/${treeSha}?recursive=1`, { cache: 'no-store' }, token);
         if (treeData.truncated === true) throw new Error('Tree is truncated');
@@ -125,6 +137,20 @@ export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.
 
         const prefix = `${shardRoot}/`;
         const files = new Map();
+
+        const seenPaths = new Set();
+        for (const entry of treeData.tree) {
+          if (entry.path.startsWith(prefix) && entry.type === 'blob') {
+            const logicalPath = entry.path.slice(prefix.length);
+            if (seenPaths.has(logicalPath)) {
+              throw new Error(`Duplicate path in tree: ${logicalPath}`);
+            }
+            seenPaths.add(logicalPath);
+            if (!/^[0-9a-f]{40}$/i.test(entry.sha)) {
+              throw new Error(`Invalid SHA format in tree entry: ${entry.sha}`);
+            }
+          }
+        }
 
         await Promise.all(treeData.tree.map(async (entry) => {
           if (entry.path.startsWith(prefix) && entry.type === 'blob') {
@@ -149,7 +175,7 @@ export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.
       try {
         const logicalFiles = buildLogicalShardFiles(payload);
         const repoFiles = toRepositoryShardFiles(logicalFiles, shardRoot);
-        
+
         if (!writerFactory) throw new Error('writerFactory is required for write');
 
         const writer = writerFactory({

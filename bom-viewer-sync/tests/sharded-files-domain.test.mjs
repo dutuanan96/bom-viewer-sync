@@ -24,7 +24,7 @@ test('domain/sharded-files.js runs cleanly without node-specific libraries', asy
   };
 
   const files = buildLogicalShardFiles(payload);
-  
+
   assert.equal(files.size, 3);
   assert.ok(files.has('manifest.json'));
   assert.ok(files.has('materials.json'));
