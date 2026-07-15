@@ -9,31 +9,8 @@ export function normalizeConfig(config) {
     owner: String(source.owner || ''),
     repo: String(source.repo || ''),
     branch: String(source.branch || 'main'),
-    path: String(source.path || 'data.js'),
-    rawUrl: String(source.rawUrl || ''),
+    shardRoot: String(source.shardRoot || 'data'),
   };
-}
-
-function apiPath(pathValue) {
-  return String(pathValue || 'data.js').split('/').map(encodeURIComponent).join('/');
-}
-
-export function rawUrl(config) {
-  const clean = normalizeConfig(config);
-  if (clean.rawUrl) return clean.rawUrl;
-  if (!clean.owner || !clean.repo || !clean.branch || !clean.path) return '';
-  return `https://raw.githubusercontent.com/${clean.owner}/${clean.repo}/${clean.branch}/${clean.path}`;
-}
-
-export function contentsUrl(config) {
-  const clean = normalizeConfig(config);
-  return `https://api.github.com/repos/${encodeURIComponent(clean.owner)}/${encodeURIComponent(clean.repo)}/contents/${apiPath(clean.path)}`;
-}
-
-export function rawContentsUrl(config) {
-  const clean = normalizeConfig(config);
-  if (!clean.owner || !clean.repo || !clean.branch || !clean.path) return '';
-  return `${contentsUrl(clean)}?ref=${encodeURIComponent(clean.branch)}`;
 }
 
 export function encodeBase64Utf8(value) {
@@ -65,7 +42,7 @@ export function decodeBase64Utf8(value) {
   throw new Error('Base64 decoder unavailable');
 }
 
-export function normalizePayload(payload, fallbackProductImages = globalThis.BOM_VIEWER_DATA?.productImages || globalThis.PRODUCT_IMAGE_INDEX || {}) {
+export function normalizePayload(payload, fallbackProductImages = {}) {
   const source = payload || {};
   const normalized = {
     version: source.version != null ? source.version : 2,
@@ -96,137 +73,4 @@ export function parseDataJsPayload(source) {
   const payload = runner(sandbox);
   if (!payload || !payload.bom) throw new Error('Invalid data.js payload');
   return normalizePayload(payload);
-}
-
-function githubHeaders(token) {
-  return {
-    Accept: 'application/vnd.github+json',
-    Authorization: `Bearer ${token}`,
-    'X-GitHub-Api-Version': '2022-11-28',
-  };
-}
-
-export function buildGithubUpdateRequest({ config, token, sha, source, message }) {
-  const clean = normalizeConfig(config);
-  const body = {
-    message: message || 'chore: update bom data',
-    content: encodeBase64Utf8(source),
-    branch: clean.branch,
-  };
-  if (sha) body.sha = sha;
-  return {
-    url: contentsUrl(clean),
-    options: {
-      method: 'PUT',
-      headers: {
-        ...githubHeaders(token),
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(body),
-    },
-  };
-}
-
-export function createGithubDataAdapter({ config, fetchImpl = globalThis.fetch, now = Date.now }) {
-  const cleanConfig = normalizeConfig(config);
-  const basePath = cleanConfig.path.includes('/') ? cleanConfig.path.substring(0, cleanConfig.path.lastIndexOf('/')) : '';
-  const dataDir = basePath ? `${basePath}/data` : 'data';
-
-  const fetchJsonPublic = async (filename, cacheBust) => {
-    const fileConfig = { ...cleanConfig, rawUrl: '', path: `${dataDir}/${filename}` };
-    const requests = [
-      rawContentsUrl(fileConfig) && {
-        url: `${rawContentsUrl(fileConfig)}&t=${cacheBust}`,
-        options: { cache: 'no-store', headers: { Accept: 'application/vnd.github.raw' } },
-      },
-      rawUrl(fileConfig) && {
-        url: `${rawUrl(fileConfig)}${rawUrl(fileConfig).includes('?') ? '&' : '?'}t=${cacheBust}`,
-        options: { cache: 'no-store' },
-      },
-    ].filter(Boolean);
-    const errors = [];
-    for (const request of requests) {
-      try {
-        const response = await fetchImpl(request.url, request.options);
-        if (!response.ok) {
-          const error = new Error(`${response.status} ${response.statusText}`);
-          error.status = response.status;
-          throw error;
-        }
-        return await response.json();
-      } catch (error) {
-        errors.push(error);
-      }
-    }
-    const non404 = errors.find((e) => e.status !== 404);
-    if (non404) throw non404;
-    throw errors[errors.length - 1] || new Error(`Failed to load ${filename}`);
-  };
-
-
-
-  return {
-    async loadPublic() {
-      const cacheBust = now();
-
-      let manifest;
-      let manifest404 = false;
-      try {
-        manifest = await fetchJsonPublic('manifest.json', cacheBust);
-      } catch (err) {
-        if (err.status !== 404) throw err;
-        manifest404 = true;
-      }
-
-      if (!manifest404) {
-        const materials = await fetchJsonPublic('materials.json', cacheBust);
-        return normalizePayload(await assembleShardedPayload(manifest, materials, (id) => {
-          if (!/^[a-zA-Z0-9_-]+$/.test(id)) throw new Error(`Invalid product ID: ${id}`);
-          return fetchJsonPublic(`products/${encodeURIComponent(id)}.json`, cacheBust);
-        }));
-      }
-
-      const requests = [
-        rawContentsUrl(cleanConfig) && {
-          url: `${rawContentsUrl(cleanConfig)}&t=${cacheBust}`,
-          options: { cache: 'no-store', headers: { Accept: 'application/vnd.github.raw' } },
-        },
-        rawUrl(cleanConfig) && {
-          url: `${rawUrl(cleanConfig)}${rawUrl(cleanConfig).includes('?') ? '&' : '?'}t=${cacheBust}`,
-          options: { cache: 'no-store' },
-        },
-      ].filter(Boolean);
-      let lastError;
-      for (const request of requests) {
-        try {
-          const response = await fetchImpl(request.url, request.options);
-          if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
-          return parseDataJsPayload(await response.text());
-        } catch (error) {
-          lastError = error;
-        }
-      }
-      throw lastError || new Error('No cloud data source');
-    },
-
-    async loadForWrite(token) {
-      const response = await fetchImpl(`${contentsUrl(cleanConfig)}?ref=${encodeURIComponent(cleanConfig.branch)}`, {
-        headers: githubHeaders(token),
-      });
-      if (response.status === 404) return { sha: '', payload: null };
-      if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
-      const data = await response.json();
-      return {
-        sha: data.sha || '',
-        payload: data.content ? parseDataJsPayload(decodeBase64Utf8(data.content)) : null,
-      };
-    },
-
-    async write({ token, sha, source, message }) {
-      const request = buildGithubUpdateRequest({ config: cleanConfig, token, sha, source, message });
-      const response = await fetchImpl(request.url, request.options);
-      if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
-      return response;
-    },
-  };
 }

@@ -4,18 +4,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="pdm-build" content="9cf37d413370">
+  <meta name="pdm-build" content="f078e673e1d0">
   <title>BOM Admin</title>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=9cf37d413370">
+  <link rel="stylesheet" href="styles.css?v=f078e673e1d0">
   <script>
     window.BOM_REPO_CONFIG = {
       owner: 'dutuanan96',
       repo: 'bom-viewer-sync',
       branch: 'main',
-      path: 'bom-viewer-sync/data.js',
-      rawUrl: 'https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/data.js'
+      shardRoot: 'bom-viewer-sync/data'
     };
   </script>
 </head>
@@ -130,9 +129,9 @@
   </div>
 
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-  <script src="data.js?v=22"></script>
+  <!-- Runtime data is loaded from immutable GitHub shards. -->
   <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
-  <script src="app-admin.js?v=9cf37d413370"></script>
+  <script src="app-admin.js?v=f078e673e1d0"></script>
 </body>
 
 </html>

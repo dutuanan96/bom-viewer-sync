@@ -13,14 +13,11 @@ import {
   updateMaterialRecord,
 } from './domain/materials.js';
 import {
-  buildGithubUpdateRequest,
-  createGithubDataAdapter,
   normalizeConfig,
   normalizePayload,
-  parseDataJsPayload,
-  rawUrl,
-  serializeDataJs,
 } from './infrastructure/github-data.js';
+import { createGithubShardedDataAdapter } from './infrastructure/github-sharded-data.js';
+import { createGithubGitDataWriter } from './infrastructure/github-git-data.js';
 import {
   buildAssetPath,
   createGithubAssetStorageAdapter,
@@ -550,17 +547,8 @@ const global = globalThis;
 
 
 
-  function currentPayloadFromWindow() {
-    if (global.BOM_VIEWER_DATA && global.BOM_VIEWER_DATA.bom) {
-      return normalizePayload(global.BOM_VIEWER_DATA);
-    }
-    return normalizePayload({
-      bom: global.BOM_DATA || {},
-      drawings: global.DRAWING_INDEX || {},
-      manuals: global.MANUAL_INDEX || {},
-      models3d: global.MODEL3D_INDEX || {},
-      productImages: global.PRODUCT_IMAGE_INDEX || {}
-    });
+  function emptyInitialPayload() {
+    return normalizePayload({});
   }
 
 
@@ -580,7 +568,7 @@ const global = globalThis;
     constructor(options) {
       this.mode = options.mode === 'admin' ? 'admin' : 'viewer';
       this.config = normalizeConfig(options.config);
-      this.githubData = options.githubData || createGithubDataAdapter({ config: this.config });
+      this.githubData = options.githubData || createGithubShardedDataAdapter({ config: this.config, writerFactory: createGithubGitDataWriter });
       this.githubAssetStorage = options.githubAssetStorage
         || (this.mode === 'admin' ? createGithubAssetStorageAdapter({ config: ASSET_STORAGE_CONFIG }) : null);
       this.notificationToastTimer = null;
@@ -588,7 +576,7 @@ const global = globalThis;
     }
 
     initialState() {
-      const payload = currentPayloadFromWindow();
+      const payload = emptyInitialPayload();
       return {
         lang: 'zh',
         payload,
@@ -640,7 +628,8 @@ const global = globalThis;
     }
 
     dataSourceUrl() {
-      return rawUrl(this.config);
+      const clean = normalizeConfig(this.config);
+      return `https://github.com/${encodeURIComponent(clean.owner)}/${encodeURIComponent(clean.repo)}/tree/${encodeURIComponent(clean.branch)}/bom-viewer-sync/data`;
     }
 
     isAdmin() {
@@ -2393,11 +2382,10 @@ const global = globalThis;
       const remoteFile = await this.githubData.loadForWrite(token);
       const changes = describePayloadChanges(remoteFile.payload, payload);
       payload.notifications = normalizeNotifications(
-        remoteFile.sha ? remoteFile.payload?.notifications : payload.notifications
+        remoteFile.expectedHeadSha ? remoteFile.payload?.notifications : payload.notifications
       );
       payload = appendNotificationEvent(payload, { type: 'github-save', actor: 'admin', createdAt: updatedAt, changes });
-      const source = serializeDataJs(payload);
-      await this.githubData.write({ token, sha: remoteFile.sha, source, message: `chore: update bom data ${updatedAt}` });
+      await this.githubData.write({ token, expectedHeadSha: remoteFile.expectedHeadSha, payload, message: `chore: update sharded bom data ${updatedAt}` });
       resolution.completedPendingIds.forEach((pendingId) => {
         delete this.state.pendingMaterialAssets[pendingId];
       });
@@ -2560,7 +2548,6 @@ Object.assign(
 
 export const coreUtils = {
   appendNotificationEvent,
-  buildGithubUpdateRequest,
   createPdmNavigation,
   createSidebarIndex,
   describePayloadChanges,
@@ -2570,8 +2557,6 @@ export const coreUtils = {
   materialWhereUsed,
   normalizePayload,
   normalizeConfig,
-  parseDataJsPayload,
-  rawUrl,
   buildBomTreeRows,
   groupMaterialChildRows,
   hasChildMaterialRelation,
@@ -2579,7 +2564,6 @@ export const coreUtils = {
   resolveBomRows,
   syncLegacyBomFromMaterialDb,
   updateMaterialRecord,
-  serializeDataJs,
   stripProductColorName,
 };
 

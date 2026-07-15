@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import test from 'node:test';
 import { coreUtils } from '../src/application.js';
+import { parseDataJsPayload, serializeDataJs } from '../src/infrastructure/github-data.js';
 
 const rootDir = path.resolve(import.meta.dirname, '..');
 const outputDir = rootDir;
@@ -113,10 +114,15 @@ test('admin HTML uses shared files and viewer HTML keeps the same GitHub config'
   assert.equal(adminConfig.owner, 'dutuanan96');
   assert.equal(adminConfig.repo, 'bom-viewer-sync');
   assert.equal(adminConfig.branch, 'main');
-  assert.equal(adminConfig.path, 'bom-viewer-sync/data.js');
-  assert.equal(adminConfig.rawUrl, 'https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/data.js');
+  assert.equal(adminConfig.shardRoot, 'bom-viewer-sync/data');
+  assert.equal('path' in adminConfig, false);
+  assert.equal('rawUrl' in adminConfig, false);
 
   assert.match(adminHtml, /app-admin\.js\?v=[a-f0-9]{12}/);
+  assert.doesNotMatch(adminHtml, /<script\s+src=["']data\.js/);
+  assert.doesNotMatch(readOutput('app-admin.js'), /BOM_VIEWER_DATA|parseDataJsPayload|serializeDataJs/);
+  assert.equal('parseDataJsPayload' in coreUtils, false);
+  assert.equal('serializeDataJs' in coreUtils, false);
   assert.doesNotMatch(adminHtml, /app-core\.js|app-viewer\.js/);
   assert.doesNotMatch(viewerHtml, /app-admin\.js/);
   assert.match(viewerHtml, /<meta name="pdm-build" content="[a-f0-9]{12}">/);
@@ -134,18 +140,11 @@ test('viewer HTML is standalone for sharing to another computer', () => {
   assert.doesNotMatch(viewerHtml, /app-admin\.js/);
   assert.match(viewerHtml, /<meta name="pdm-build" content="[a-f0-9]{12}">/);
   assert.match(viewerHtml, /mode:\s*['"]viewer['"]/);
-  assert.match(viewerHtml, /raw\.githubusercontent\.com\/dutuanan96\/bom-viewer-sync\/main\/bom-viewer-sync\/data\.js/);
+  assert.doesNotMatch(viewerHtml, /bom-viewer-sync\/data\.js/);
+  assert.match(viewerHtml, /shardRoot:\s*['"]bom-viewer-sync\/data['"]/);
 });
 
-test('core utilities serialize cloud data and build GitHub save requests', () => {
-  const utils = loadCoreUtils();
-  const config = {
-    owner: 'dutuanan96',
-    repo: 'bom-viewer-sync',
-    branch: 'main',
-    path: 'bom-viewer-sync/data.js',
-    rawUrl: 'https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/data.js',
-  };
+test('offline rollback utilities serialize and parse legacy data', () => {
   const payload = {
     version: 1,
     updatedAt: '2026-06-30T00:00:00.000Z',
@@ -163,22 +162,11 @@ test('core utilities serialize cloud data and build GitHub save requests', () =>
     },
   };
 
-  const source = utils.serializeDataJs(payload);
-  const parsed = utils.parseDataJsPayload(source);
-  const request = utils.buildGithubUpdateRequest({
-    config,
-    token: 'github_pat_example',
-    sha: 'abc123',
-    source,
-    message: 'chore: update bom data',
-  });
+  const source = serializeDataJs(payload);
+  const parsed = parseDataJsPayload(source);
 
   assert.deepEqual(parsed.bom.LGS001.code, 'LGS001');
   assert.equal(parsed.models3d.LGS001['lgs001panel|panel'][0].name, 'LGS001-panel.glb');
-  assert.equal(request.url, 'https://api.github.com/repos/dutuanan96/bom-viewer-sync/contents/bom-viewer-sync/data.js');
-  assert.equal(request.options.method, 'PUT');
-  assert.equal(request.options.headers.Authorization, 'Bearer github_pat_example');
-  assert.equal(JSON.parse(request.options.body).sha, 'abc123');
 });
 
 test('cloud payload preserves PDM notification events', () => {
@@ -201,8 +189,8 @@ test('cloud payload preserves PDM notification events', () => {
   };
 
   const normalized = utils.normalizePayload(payload);
-  const source = utils.serializeDataJs(normalized);
-  const parsed = utils.parseDataJsPayload(source);
+  const source = serializeDataJs(normalized);
+  const parsed = parseDataJsPayload(source);
 
   assert.equal(parsed.notifications.length, 1);
   assert.equal(parsed.notifications[0].type, 'github-save');
@@ -246,7 +234,7 @@ test('admin save notification records changed material fields', () => {
     createdAt: next.updatedAt,
     changes
   });
-  const parsed = utils.parseDataJsPayload(utils.serializeDataJs(withNotification));
+  const parsed = parseDataJsPayload(serializeDataJs(withNotification));
 
   assert.deepEqual(JSON.parse(JSON.stringify(parsed.notifications[0].changes)), [{
     kind: 'material',
@@ -321,8 +309,6 @@ test('admin save and viewer UI include a PDM notification center', () => {
   assert.match(appCore, /renderNotifications/);
   assert.match(appCore, /notificationBadge/);
   assert.match(appCore, /NOTIFICATION_REFRESH_MS/);
-  assert.match(appCore, /application\/vnd\.github\.raw/);
-  assert.match(appCore, /createGithubDataAdapter/);
   assert.match(appCore, /describePayloadChanges\(remoteFile\.payload/);
 });
 

@@ -31,7 +31,7 @@ function setupApp() {
     }
   };
 
-  const app = new BomApplication({ mode: 'admin' });
+  const app = new BomApplication({ mode: 'admin', config: { owner: 'test', repo: 'test', branch: 'main' } });
   app.state.payload = payload;
   app.state.materialDb = payload.materialDb;
 

@@ -4,6 +4,10 @@ import { parseDataJsPayload } from '../src/infrastructure/github-data.js';
 import { splitPayloadToShards, assembleShardedPayload } from '../src/domain/sharded-data.js';
 import fs from 'node:fs';
 import crypto from 'node:crypto';
+import path from 'node:path';
+import os from 'node:os';
+import { materializeShards } from '../scripts/materialize-shards.mjs';
+import { verifyRollback } from '../scripts/verify-rollback.mjs';
 
 test('Sharded Migration Data Logic', async (t) => {
   const source = fs.readFileSync('data.js', 'utf8');
@@ -132,4 +136,195 @@ test('Sharded Migration Data Logic', async (t) => {
 
     assert.notStrictEqual(computeHash(files1), computeHash(files2), 'Hashes should differ when boundaries shift');
   });
+});
+
+test('Materialize and Verify scripts preserve the full payload without legacy tools', async () => {
+  const tmpDir = await fs.promises.mkdtemp(path.join(os.tmpdir(), 'bom-sync-test-'));
+
+  try {
+    const dataJsPath = path.join(tmpDir, 'data.js');
+    const dataDir = path.join(tmpDir, 'data');
+
+    const payload = {
+      version: 2,
+      updatedAt: '2026-07-15T00:00:00.000Z',
+      bom: {
+        P1: { code: 'P1', name: 'Product 1' }
+      },
+      materialDb: {
+        materials: { m1: { id: 'm1', code: 'M1' } },
+        bomEntries: []
+      },
+      drawings: {},
+      manuals: {},
+      models3d: {},
+      productImages: {}
+    };
+
+    const source = `window.BOM_VIEWER_DATA = ${JSON.stringify(payload, null, 2)};`;
+    await fs.promises.writeFile(dataJsPath, source, 'utf8');
+
+    const size = await materializeShards(dataJsPath, 'data', { rootDir: tmpDir });
+    assert.strictEqual(size, 3);
+
+    const recovered = await verifyRollback('data', 'data.js', { rootDir: tmpDir });
+    assert.strictEqual(recovered.version, 2);
+    assert.strictEqual(recovered.bom.P1.name, 'Product 1');
+    assert.strictEqual(recovered.materialDb.materials.m1.code, 'M1');
+  } finally {
+    await fs.promises.rm(tmpDir, { recursive: true, force: true });
+  }
+});
+
+test('Materialize script rejects unexpected count and hash', async () => {
+  const tmpDir = await fs.promises.mkdtemp(path.join(os.tmpdir(), 'bom-sync-test-2-'));
+  try {
+    const dataJsPath = path.join(tmpDir, 'data.js');
+    const source = `window.BOM_VIEWER_DATA = ${JSON.stringify({
+      version: 2, bom: {}, materialDb: { materials: {}, bomEntries: [] },
+      drawings: {}, manuals: {}, models3d: {}, productImages: {}
+    })};`;
+    await fs.promises.writeFile(dataJsPath, source, 'utf8');
+
+    await assert.rejects(
+      materializeShards(dataJsPath, 'data', { rootDir: tmpDir, expectedCount: 24 }),
+      /Expected 24 shards, but got/
+    );
+
+    await assert.rejects(
+      materializeShards(dataJsPath, 'data', { rootDir: tmpDir, expectedHash: 'wrong-hash' }),
+      /Hash mismatch/
+    );
+  } finally {
+    await fs.promises.rm(tmpDir, { recursive: true, force: true });
+  }
+});
+
+test('Materialize script rejects transient data', async () => {
+  const tmpDir = await fs.promises.mkdtemp(path.join(os.tmpdir(), 'bom-sync-test-3-'));
+  try {
+    const dataJsPath = path.join(tmpDir, 'data.js');
+    await fs.promises.writeFile(dataJsPath, `window.BOM_VIEWER_DATA = {"pendingAssetId": "123"};`, 'utf8');
+    await assert.rejects(materializeShards(dataJsPath, 'data', { rootDir: tmpDir }), /Unsafe payload: contains pendingAssetId/);
+
+    await fs.promises.writeFile(dataJsPath, `window.BOM_VIEWER_DATA = {"url": "blob:foo"};`, 'utf8');
+    await assert.rejects(materializeShards(dataJsPath, 'data', { rootDir: tmpDir }), /Unsafe payload: contains blob URLs/);
+  } finally {
+    await fs.promises.rm(tmpDir, { recursive: true, force: true });
+  }
+});
+
+test('Materialize script rejects absolute output paths outside rootDir', async () => {
+  const tmpDir = await fs.promises.mkdtemp(path.join(os.tmpdir(), 'bom-sync-output-root-'));
+  const outsideDir = await fs.promises.mkdtemp(path.join(os.tmpdir(), 'bom-sync-output-outside-'));
+  try {
+    const dataJsPath = path.join(tmpDir, 'data.js');
+    await fs.promises.writeFile(dataJsPath, `window.BOM_VIEWER_DATA = ${JSON.stringify({
+      version: 2,
+      bom: { P1: { id: 'P1' } },
+      materialDb: { materials: {}, bomEntries: [] },
+    })};`, 'utf8');
+
+    await assert.rejects(
+      materializeShards(dataJsPath, path.join(outsideDir, 'data'), { rootDir: tmpDir }),
+      /Output directory must be a safe repository-relative shard root/,
+    );
+    await assert.rejects(fs.promises.stat(path.join(outsideDir, 'data', 'manifest.json')), { code: 'ENOENT' });
+  } finally {
+    await fs.promises.rm(tmpDir, { recursive: true, force: true });
+    await fs.promises.rm(outsideDir, { recursive: true, force: true });
+  }
+});
+
+test('Materialize verification rejects unexpected existing shard files', async () => {
+  const tmpDir = await fs.promises.mkdtemp(path.join(os.tmpdir(), 'bom-sync-extra-shard-'));
+  try {
+    const dataJsPath = path.join(tmpDir, 'data.js');
+    await fs.promises.writeFile(dataJsPath, `window.BOM_VIEWER_DATA = ${JSON.stringify({
+      version: 2,
+      bom: { P1: { id: 'P1' } },
+      materialDb: { materials: {}, bomEntries: [] },
+    })};`, 'utf8');
+
+    await materializeShards(dataJsPath, 'data', { rootDir: tmpDir });
+    await fs.promises.writeFile(path.join(tmpDir, 'data', 'products', 'EXTRA.json'), '{}\n', 'utf8');
+
+    await assert.rejects(
+      materializeShards(dataJsPath, 'data', { rootDir: tmpDir, verify: true }),
+      /Unexpected existing file: data\/products\/EXTRA\.json/,
+    );
+  } finally {
+    await fs.promises.rm(tmpDir, { recursive: true, force: true });
+  }
+});
+
+test('Materialize script rejects symlinks inside the shard output tree', async (t) => {
+  const tmpDir = await fs.promises.mkdtemp(path.join(os.tmpdir(), 'bom-sync-symlink-root-'));
+  const outsideDir = await fs.promises.mkdtemp(path.join(os.tmpdir(), 'bom-sync-symlink-outside-'));
+  try {
+    const dataJsPath = path.join(tmpDir, 'data.js');
+    await fs.promises.writeFile(dataJsPath, `window.BOM_VIEWER_DATA = ${JSON.stringify({
+      version: 2,
+      bom: { P1: { id: 'P1' } },
+      materialDb: { materials: {}, bomEntries: [] },
+    })};`, 'utf8');
+    await fs.promises.mkdir(path.join(tmpDir, 'data'));
+    try {
+      await fs.promises.symlink(
+        outsideDir,
+        path.join(tmpDir, 'data', 'products'),
+        process.platform === 'win32' ? 'junction' : 'dir',
+      );
+    } catch (error) {
+      if (error.code === 'EPERM') {
+        t.skip('Creating a test symlink is not permitted on this machine');
+        return;
+      }
+      throw error;
+    }
+
+    await assert.rejects(
+      materializeShards(dataJsPath, 'data', { rootDir: tmpDir }),
+      /Symbolic links are not allowed in shard output: data\/products/,
+    );
+    await assert.rejects(fs.promises.stat(path.join(outsideDir, 'P1.json')), { code: 'ENOENT' });
+  } finally {
+    await fs.promises.rm(tmpDir, { recursive: true, force: true });
+    await fs.promises.rm(outsideDir, { recursive: true, force: true });
+  }
+});
+
+test('Materialize script rejects symlinks in an ancestor of a nested shard root', async (t) => {
+  const tmpDir = await fs.promises.mkdtemp(path.join(os.tmpdir(), 'bom-sync-ancestor-link-root-'));
+  const outsideDir = await fs.promises.mkdtemp(path.join(os.tmpdir(), 'bom-sync-ancestor-link-outside-'));
+  try {
+    const dataJsPath = path.join(tmpDir, 'data.js');
+    await fs.promises.writeFile(dataJsPath, `window.BOM_VIEWER_DATA = ${JSON.stringify({
+      version: 2,
+      bom: { P1: { id: 'P1' } },
+      materialDb: { materials: {}, bomEntries: [] },
+    })};`, 'utf8');
+    try {
+      await fs.promises.symlink(
+        outsideDir,
+        path.join(tmpDir, 'linked'),
+        process.platform === 'win32' ? 'junction' : 'dir',
+      );
+    } catch (error) {
+      if (error.code === 'EPERM') {
+        t.skip('Creating a test symlink is not permitted on this machine');
+        return;
+      }
+      throw error;
+    }
+
+    await assert.rejects(
+      materializeShards(dataJsPath, 'linked/data', { rootDir: tmpDir }),
+      /Symbolic links are not allowed in shard output: linked/,
+    );
+    await assert.rejects(fs.promises.stat(path.join(outsideDir, 'data', 'manifest.json')), { code: 'ENOENT' });
+  } finally {
+    await fs.promises.rm(tmpDir, { recursive: true, force: true });
+    await fs.promises.rm(outsideDir, { recursive: true, force: true });
+  }
 });

@@ -129,7 +129,7 @@ export async function generateArtifacts(outDir = repoRoot) {
     SYNC_CLASS: 'admin',
     ADMIN_HIDDEN: '',
     STYLE_TAG: `<link rel="stylesheet" href="styles.css?v=${buildId}">`,
-    DATA_SCRIPT: `<script src="data.js?v=22"></script>`,
+    DATA_SCRIPT: '<!-- Runtime data is loaded from immutable GitHub shards. -->',
     APP_SCRIPT: `<script src="app-admin.js?v=${buildId}"></script>`,
   });
   const viewerHtml = replaceTokens(shell, {
@@ -139,7 +139,7 @@ export async function generateArtifacts(outDir = repoRoot) {
     SYNC_CLASS: 'viewer',
     ADMIN_HIDDEN: ' hidden',
     STYLE_TAG: `<style>\n${css}\n</style>`,
-    DATA_SCRIPT: '<!-- data.js loaded from GitHub via loadCloud() -->',
+    DATA_SCRIPT: '<!-- Runtime data is loaded from immutable GitHub shards. -->',
     APP_SCRIPT: `<script>\n${viewerBundle.replaceAll('</script', '<\\/script')}\n</script>`,
   });
 
