@@ -8,13 +8,13 @@
 
 - Canonical project root: `work/remote-bom-viewer-sync/bom-viewer-sync/`.
 - Editable source-of-truth: `src/`, `scripts/`, `tests/`, `package.json` và các tài liệu trong project root.
-- Current integrated branch: `main`; Phase B.3 is integrated after its independent review and debug gate.
+- Current integrated branch: `main`; Phase B.5 PR #14 completed the sharded runtime cutover.
 - Generated artifacts: `admin.html`, `app-admin.js`, `styles.css`, `viewer.html`.
-- Runtime data: `data.js`. Không ghi đè file này trong code-only work.
+- Runtime data: 24 sharded files in `data/`. The tracked `data.js` remains rollback/migration input, not an application runtime read/write target.
 - Portable mirror: outer `outputs/`. Đây là nơi nhận artifact đã verify, không phải source-of-truth.
-- Current generated build ID: `9cf37d413370` (Phase B.3 does not change runtime output because the writer is inactive).
+- Generated build IDs are deterministic hashes of normalized shell, CSS, and bundles. Verify the current ID from generated artifacts instead of documenting a fixed value.
 - `viewer.html` là Viewer read-only một file để gửi sang máy khác.
-- `admin.html` dùng bundle và data file bên cạnh để chỉnh sửa rồi lưu lên GitHub.
+- `admin.html` dùng bundle cục bộ, đọc 24 GitHub shards và ghi chúng bằng atomic Git Data update sau hành động Save to GitHub rõ ràng.
 
 ### Ba lệnh đầu tiên
 
@@ -36,7 +36,7 @@ Nếu `git status` không sạch, coi mọi thay đổi chưa rõ nguồn gốc 
 | GitHub/asset access | `src/infrastructure/` | Adapter test → build → full check |
 | UI/render/browser behavior | `src/ui/` và khi cần `src/application.js` | UI test → build → browser smoke |
 | Shell/layout/style | `src/shell.html`, `src/styles/app.css` | Build → generated check → smoke |
-| Cloud BOM/material data | Admin flow hoặc `data.js` task riêng | Audit data; không trộn với code-only work |
+| Cloud BOM/material data | Admin sharded save flow; `data.js` only for explicit rollback/migration work | Audit all 24 shards; do not mix data mutation with code-only work |
 | Generated output | Không sửa tay | Sửa source rồi `npm run build` |
 
 ## 2. Bản đồ kiến trúc
@@ -66,7 +66,9 @@ UI và application có thể gọi domain/infrastructure. Domain không được
 | `src/domain/revisions.js` | Product revision registry, immutable BOM snapshots, current/effective transitions | DOM, prompts hoặc GitHub access |
 | `src/features/notifications.js` | Material diff, notification normalization, append event | Notification panel HTML |
 | `src/features/material-asset-upload.js` | Selected-file validation and targeted pending-asset resolution in a cloned payload | DOM, GitHub transport or stored-material mutation |
-| `src/infrastructure/github-data.js` | Config, GitHub public read, authenticated read/write, serialization | Product/domain decisions |
+| `src/infrastructure/github-sharded-data.js` | Public 24-shard load, authenticated tree/blob load, exact shard validation, writer delegation | Asset bytes or product/domain decisions |
+| `src/infrastructure/github-git-data.js` | Atomic blob/tree/commit creation and non-force ref update | Payload splitting, UI state or asset upload |
+| `src/infrastructure/github-data.js` | Shared config normalization, UTF-8/base64 helpers and legacy rollback parsing | Active runtime transport or product/domain decisions |
 | `src/infrastructure/github-asset-storage.js` | Satellite binary encoding, create-only upload, conflict recovery, commit-pinned CDN URL | Material Draft or payload mutation |
 | `src/infrastructure/assets.js` | Asset matching, Drive/PDF display URLs | BOM mutation |
 | `src/ui/catalog-view.js` | Product catalog, sidebar navigation, product image/model presentation | Fetch logic |
@@ -88,7 +90,9 @@ UI và application có thể gọi domain/infrastructure. Domain không được
 | `scripts/check-all.mjs` | Repository gate: tests, audit, generated check và syntax |
 | `scripts/audit-data.mjs` | Validate material/BOM/data integrity |
 | `tests/domain.test.mjs` | Pure domain behavior và module seams |
-| `tests/github-data.test.mjs` | GitHub read/write, current SHA/payload và notification preservation |
+| `tests/github-sharded-data.test.mjs` | Public/authenticated shard loading, exact-set validation, writer delegation and token redaction |
+| `tests/github-git-data.test.mjs` | Atomic ordering, expected HEAD, response validation, non-force ref update and conflict mapping |
+| `tests/application-sharded.test.mjs` | Current remote payload/head usage, notification preservation and asset-before-shard-save ordering |
 | `tests/github-asset-storage.test.mjs` | Binary identity, immutable Contents upload, conflict recovery and smoke PDF contract |
 | `tests/material-asset-upload.test.mjs` | PDF/GLB/GLTF validation, cloned targeted resolution and retry reuse |
 | `tests/assets-notifications.test.mjs` | Asset matching và notification behavior |
@@ -107,9 +111,9 @@ UI và application có thể gọi domain/infrastructure. Domain không được
 viewer.html
   → inline Viewer bundle + inline local CSS
   → create Viewer application
-  → GitHub Contents API raw response with cache bust
-  → raw GitHub fallback only when Contents API fails
-  → parse + normalize payload
+  → resolve the configured branch to an exact Git commit SHA
+  → fetch manifest, materials and 22 product shards from commit-pinned raw URLs
+  → validate the exact 24-file set, parse, assemble and normalize the payload
   → application state
   → catalog / BOM / materials / structure UI
   → remote Drive PDF, image and GLB URLs when requested
@@ -120,19 +124,20 @@ Viewer không chứa token và không ghi dữ liệu. Source code/style/shell t
 ### Admin load và save
 
 ```text
-admin.html + app-admin.js + styles.css + data.js
-  → load/normalize remote payload
+admin.html + app-admin.js + styles.css
+  → load the current ref, commit/tree and exact 24 shard blobs
+  → assemble/normalize the remote payload and retain expectedHeadSha
   → edit local application state
   → upload referenced pending Material assets into the satellite repository
-  → read current remote payload and SHA
+  → re-read the current remote shard payload and expected HEAD
   → diff current remote materials against local state
   → preserve remote notification history
   → append the new GitHub-save notification
-  → serialize UTF-8 data.js source
-  → GitHub Contents API PUT with current SHA
+  → split and serialize the exact 24 UTF-8 shards
+  → create blobs/tree/commit and PATCH the branch ref once with force:false
 ```
 
-Điểm quan trọng: save không được diff dựa trên stale local baseline. Remote-only notifications phải được giữ lại trước khi append event mới. Đây là lý do adapter và application save flow phải đọc current remote payload and SHA ngay trước PUT.
+Điểm quan trọng: save không được diff dựa trên stale local baseline. Remote-only notifications phải được giữ lại trước khi append event mới. Adapter và application save flow phải đọc current remote payload cùng expected HEAD ngay trước atomic non-force ref update.
 
 ### Product revision và effectivity
 
@@ -148,7 +153,7 @@ released effective revision (V3)
 
 `currentRevision` là latest design revision; `effectiveRevision` là revision duy nhất đang dùng trong sản xuất. Không được suy luận Draft mới là released/effective. Snapshot lịch sử hợp lệ là immutable và mọi released/historical view là read-only.
 
-Pending Material assets are the exception to normal URL validation: Save Material may store an internal `pendingAssetId` locally while keeping the public URL blank. The selected bytes stay only in `state.pendingMaterialAssets`. Save to GitHub resolves only referenced pending records in a cloned outgoing payload, uploads binaries first, reads the current BOM SHA second, and writes BOM data last. Local URLs are adopted and pending bytes are cleared only after the BOM write succeeds.
+Pending Material assets are the exception to normal URL validation: Save Material may store an internal `pendingAssetId` locally while keeping the public URL blank. The selected bytes stay only in `state.pendingMaterialAssets`. Save to GitHub resolves only referenced pending records in a cloned outgoing payload, uploads binaries first, reads the current shard payload/expected HEAD second, and commits all 24 shards last. Local URLs are adopted and pending bytes are cleared only after the shard write succeeds.
 
 ### Notification và Payload Diffing
 
@@ -198,8 +203,8 @@ Với 3D, ô editor phải ưu tiên `asset.url` trước `asset.previewUrl`; n�
 
 | Symptom | First owner | First evidence/check |
 |---|---|---|
-| Viewer có 0 sản phẩm/0 vật liệu | `src/infrastructure/github-data.js` | Network/console; Contents API response; `tests/github-data.test.mjs` |
-| Dữ liệu stale sau reload | GitHub adapter/cache | Kiểm tra cache-bust URL và current Contents API payload |
+| Viewer có 0 sản phẩm/0 vật liệu | `src/infrastructure/github-sharded-data.js` | Commit resolution, 24 shard responses, console; `tests/github-sharded-data.test.mjs` |
+| Dữ liệu stale sau reload | Sharded adapter/cache | Kiểm tra resolved commit SHA và commit-pinned shard URLs |
 | Sai BOM row, số lượng hoặc màu | `src/domain/bom.js`, `src/domain/materials.js` | `resolveBomRows()` focused test với SKU/color cụ thể |
 | Sai cây hoặc thiếu child | `src/domain/relationships.js` | `buildBomTreeRows()`/`groupMaterialChildRows()` test; kiểm tra entry scope |
 | Sai where-used/material shared edit | `src/domain/materials.js` | `materialWhereUsed()` và shared MaterialID test |
@@ -215,10 +220,10 @@ Với 3D, ô editor phải ưu tiên `asset.url` trước `asset.previewUrl`; n�
 | UI text sai ngôn ngữ | `TEXT` trong `src/application.js`, caller trong `src/ui/` | Tìm hardcoded UI string; `tests/ui-contract.test.mjs` |
 | Click UI gây `ReferenceError` | Event binding trong `src/application.js` | Stack trace; contract test cho action tương ứng |
 | Notification panel lỗi | `src/features/notifications.js`, `src/ui/shared-view.js` | Notification shape, normalization test, console |
-| Save làm mất notification cũ | Admin save orchestration | Remote-only notification regression trong `tests/github-data.test.mjs` |
-| Admin save 409/conflict | GitHub adapter/save flow | SHA dùng trong PUT có phải current remote SHA không |
+| Save làm mất notification cũ | Admin save orchestration | Remote-only notification regression trong `tests/application-sharded.test.mjs` |
+| Admin save 409/422 conflict | Sharded adapter/Git Data writer | `expectedHeadSha` có khớp current ref và ref update có giữ `force:false` không |
 | Source đã sửa nhưng Viewer không đổi | Build/mirror state | `npm run check`; đọc `pdm-build`; so sánh hash Viewer |
-| `check-generated` báo stale | `scripts/build.mjs` hoặc line endings | Chạy `npm run build`, không sửa artifact bằng tay |
+| `check-generated` báo stale | `scripts/build.mjs` hoặc source/artifact mismatch | Chạy `npm run build`, không sửa artifact bằng tay; LF/CRLF alone must not change output |
 | Canonical đúng nhưng `outputs/` sai | Outer mirror | SHA-256 canonical/output; chạy outer build wrapper |
 | Plain BOM row mở inspector | UI contract regression | `tests/ui-contract.test.mjs`; panel phải hidden/empty |
 
@@ -232,7 +237,7 @@ Ghi lại URL/file, mode Viewer/Admin, SKU/material, thao tác, expected/actual,
 
 - Data: payload/index/record sai dù resolver đúng.
 - Domain: cùng input nhưng normalized/result sai.
-- Infrastructure: fetch, decode, fallback, SHA hoặc asset URL sai.
+- Infrastructure: commit resolution, shard fetch/decode, expected HEAD, ref update hoặc asset URL sai.
 - UI: state đúng nhưng render/action sai.
 - Build: source đúng nhưng artifact stale hoặc bundle lỗi.
 - Mirror: canonical đúng nhưng `outputs/` hoặc file được gửi khác hash.
@@ -240,7 +245,9 @@ Ghi lại URL/file, mode Viewer/Admin, SKU/material, thao tác, expected/actual,
 ### Bước 3 — Chạy focused test
 
 ```powershell
-node --test tests\github-data.test.mjs
+node --test tests\github-sharded-data.test.mjs
+node --test tests\github-git-data.test.mjs
+node --test tests\application-sharded.test.mjs
 node --test tests\domain.test.mjs
 node --test tests\assets-notifications.test.mjs
 node --test tests\material-assets.test.mjs
@@ -297,13 +304,13 @@ So sánh SHA-256 của canonical artifacts/docs với outer `outputs/`. Báo rõ
 
 1. `viewer.html` luôn là một file shareable read-only; local program và CSS phải inline.
 2. Generated artifacts không bao giờ là manual edit target.
-3. Public data read ưu tiên cache-busted GitHub Contents API raw response; raw GitHub chỉ là fallback.
-4. Admin write luôn dùng current remote payload and SHA ngay trước PUT.
+3. Public read resolves an exact commit and loads the exact 24 shards from cache-busted commit-pinned raw URLs; there is no `data.js` fallback.
+4. Admin write loads the current remote shard payload and expected HEAD immediately before one atomic non-force ref update.
 5. Save phải preserve remote notification history trước khi append event mới.
 6. Token, credential và machine-specific path không được commit hoặc embed.
 7. User-facing zh-CN/vi text phải nằm trong i18n dictionary; domain identifiers không được dùng làm UI translation tùy tiện.
 8. Plain BOM-row click không mở inspector đã bị loại bỏ; panel phải hidden và empty.
-9. Code-only work không copy hoặc ghi đè `data.js`.
+9. Code-only work không copy hoặc ghi đè `data.js` hay `data/`.
 10. UI/domain không được gọi GitHub network/storage trực tiếp.
 11. Silent cloud refresh không được ghi đè dirty Admin state hoặc active Material Master draft.
 12. Outer `outputs/` chỉ được coi là hợp lệ sau build/test/hash verification.
@@ -315,15 +322,15 @@ So sánh SHA-256 của canonical artifacts/docs với outer `outputs/`. Báo rõ
 18. Save asset phải preserve metadata không hiển thị; 3D direct URL được đồng bộ vào `previewUrl`.
 19. URL 2D/3D trống, sai schema/extension hoặc trùng lặp phải chặn Save bằng i18n error.
 20. Save Material là local edit; Save to GitHub vẫn là hành động riêng và phải dùng current remote payload/SHA.
-21. Selecting a Material asset must not upload, mutate the stored material, or serialize bytes/blob URLs into `data.js`.
+21. Selecting a Material asset must not upload, mutate the stored material, or serialize pending IDs, bytes or blob URLs into any shard.
 22. PDF must pass `.pdf`, `application/pdf` and `%PDF-` signature checks; GLB must pass `.glb` and `glTF` magic; GLTF must pass `.gltf`, valid JSON and only `data:` or absolute HTTPS buffer/image URIs.
 23. Pending binaries are limited to 20,000,000 bytes and remain application-memory only until Save to GitHub.
-24. Save to GitHub ordering is binary upload, current BOM read/SHA, then BOM PUT. Binary failure must prevent the BOM PUT.
-25. If the binary upload succeeds but the BOM PUT fails, retain the resolved immutable URL so retry does not upload the binary again.
+24. Save to GitHub ordering is binary upload, current shard payload/HEAD read, then atomic 24-shard commit. Binary failure must prevent the shard write.
+25. If binary upload succeeds but the shard write fails, retain the resolved immutable URL so retry does not upload the binary again.
 
 ### GitHub Contents Material asset storage
 
-Phase A was merged by PR #5. Phase B was merged by PR #6. Phase B.1 (Sharded Data Compatibility Layer) was merged by PR #8 (superseding PR #7). Phase B.2 (In-memory Migration Dry-Run) was merged by PR #9 at `8e9f221`. Phase B.3 (Atomic Sharded Writer Foundation) is integrated but inactive at runtime. Phase B.4 was squash-merged by PR #11 at `db11b4a`; its one-time migration created staging branch `codex/phase-b4-shards-20260715T041629Z-db11b4a` at commit `227db46` with 24 verified shards and aggregate SHA-256 `d5261ad277be1fbe7b391ea2f0995de8b0f96fdb612d73e95ed5853b2903684e`. PR #12 fixed recursive-tree readback, after which the existing staging branch passed a complete read-only round trip. `loadPublic()` still falls back to `data.js` when the sharded manifest is HTTP 404, while `loadForWrite()` and `write()` still ONLY use `data.js`; no runtime or save cutover has occurred. The staging branch must remain intact for inspection. Always use a fresh `npm run check` result instead of this document for the current test count. See `docs/superpowers/reports/2026-07-15-phase-b4-staging-execution.md` for the execution evidence and safety boundary.
+Phase A was merged by PR #5 and Phase B by PR #6. Phase B.1 PR #8 introduced sharded compatibility, Phase B.2 PR #9 proved lossless split/reassembly, and Phase B.3 PR #10 added the hardened atomic writer. Phase B.4 PR #11 created staging branch `codex/phase-b4-shards-20260715T041629Z-db11b4a` at `227db46`; PR #12 fixed recursive-tree readback and the existing branch then passed full verification. Phase B.5 PR #14 activates the sharded adapter and Git Data writer in runtime: public and authenticated reads require the exact 24 shards, while writes create blobs/tree/commit and update the ref once with `force:false`. Tracked `data.js` is rollback/migration input only. Preserve the B.4 staging branch, and use fresh `npm run check` output rather than treating this document's historical counts as current.
 
 ## 7. Bẫy thường gặp
 
@@ -337,11 +344,11 @@ Viewer được thiết kế để mở bằng `file://`, nhưng browser automat
 
 ### GitHub cache
 
-Không kết luận dữ liệu stale chỉ từ `raw.githubusercontent.com`. Đọc GitHub Contents API với cache bust và so payload/updated time.
+Không kết luận dữ liệu stale từ một raw URL không pin. Kiểm tra commit SHA được resolve và các cache-busted shard URLs pin đúng commit đó.
 
-### Build hash phụ thuộc bytes
+### Build output deterministic across line endings
 
-Line endings khác nhau giữa worktree và canonical checkout có thể làm build hash đổi dù logic giống nhau. Build ở checkout sẽ được dùng để phát hành, chạy generated check, rồi mirror đúng bytes đó.
+Build normalizes LF/CRLF before hashing and HTML rendering. Identical Git source must produce the same build ID and artifact bytes across worktrees. Nếu hash khác nhau, coi đó là build/source drift và dừng publication; không chấp nhận line endings như lời giải thích.
 
 ### Worktree khác canonical
 
@@ -353,7 +360,7 @@ Outer wrappers trỏ canonical main clone. Trước merge, chạy direct command
 
 ### Build code không đồng bộ docs/data tự động
 
-Build chỉ tạo bốn runtime artifacts. Workflow docs phải mirror riêng. `data.js` không được copy trong code-only flow.
+Build chỉ tạo bốn runtime artifacts. Workflow docs phải mirror riêng. `data.js` và `data/` không được copy trong code-only flow.
 
 ### Branch publication boundary
 
@@ -399,11 +406,11 @@ Mọi `Match` phải là `True` đối với các file thuộc scope thay đổi
 ```powershell
 git status --short
 git diff --check
-git diff -- data.js
+git diff -- data.js data
 git log -3 --oneline
 ```
 
-`git diff -- data.js` phải rỗng cho documentation/code-only task. Chỉ push khi working tree sạch và user đã cho phép.
+`git diff -- data.js data` phải rỗng cho documentation/code-only task. Chỉ push khi working tree sạch và user đã cho phép.
 
 ### Evidence report template
 

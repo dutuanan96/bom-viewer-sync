@@ -37,6 +37,22 @@ function replaceTokens(template, values) {
   return result;
 }
 
+function normalizeNewlines(value) {
+  return value.replace(/\r\n?/g, '\n');
+}
+
+export function renderHtmlArtifact(template, values) {
+  return replaceTokens(normalizeNewlines(template), values);
+}
+
+export function computeBuildId({ shell, css, adminBundle, viewerBundle }) {
+  const hash = createHash('sha256');
+  for (const value of [shell, css, adminBundle, viewerBundle]) {
+    hash.update(normalizeNewlines(value));
+  }
+  return hash.digest('hex').slice(0, 12);
+}
+
 async function replaceFile(stagedPath, finalPath) {
   await rm(finalPath, { force: true });
   await rename(stagedPath, finalPath);
@@ -113,16 +129,10 @@ export async function generateArtifacts(outDir = repoRoot) {
     bundle('src/viewer-entry.js'),
   ]);
   const css = (await transform(cssSource, { loader: 'css', minify: true })).code.trim();
-  const buildId = createHash('sha256')
-    .update(shell)
-    .update(css)
-    .update(adminBundle)
-    .update(viewerBundle)
-    .digest('hex')
-    .slice(0, 12);
+  const buildId = computeBuildId({ shell, css, adminBundle, viewerBundle });
 
   const shared = { BUILD_ID: buildId };
-  const adminHtml = replaceTokens(shell, {
+  const adminHtml = renderHtmlArtifact(shell, {
     ...shared,
     TITLE: 'BOM Admin',
     MODE_LABEL: 'Admin',
@@ -132,7 +142,7 @@ export async function generateArtifacts(outDir = repoRoot) {
     DATA_SCRIPT: '<!-- Runtime data is loaded from immutable GitHub shards. -->',
     APP_SCRIPT: `<script src="app-admin.js?v=${buildId}"></script>`,
   });
-  const viewerHtml = replaceTokens(shell, {
+  const viewerHtml = renderHtmlArtifact(shell, {
     ...shared,
     TITLE: 'BOM Viewer',
     MODE_LABEL: 'Viewer',
