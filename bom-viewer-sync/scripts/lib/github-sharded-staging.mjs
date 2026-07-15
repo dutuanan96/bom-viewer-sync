@@ -226,6 +226,7 @@ export function createGithubShardedStagingMigration({ fetchImpl, writerFactory }
 
     for (const [path, entry] of snapshot.entriesByPath.entries()) {
       if (path.startsWith(prefix)) {
+        if (entry.type === 'tree') continue;
         if (entry.type !== 'blob') throw migrationError('INVALID_REMOTE_SHARD', `Expected blob at ${path}`);
 
         const blobData = await githubJson(`${apiBase}/git/blobs/${entry.sha}`, {}, token);

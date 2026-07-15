@@ -41,7 +41,7 @@ function createMockFetch(steps) {
   return { fetchImpl, calls };
 }
 
-function createReadbackHarness({ mutateRemoteBlob } = {}) {
+function createReadbackHarness({ includeRecursiveTreeEntries = false, mutateRemoteBlob } = {}) {
   const { sourcePayloadBase64, expectedHash, logicalFiles } = createValidPayloadAndHash();
   const testInput = { ...input, expectedAggregateSha256: expectedHash };
   const mockWriterSha = '3333333333333333333333333333333333333333';
@@ -63,6 +63,10 @@ function createReadbackHarness({ mutateRemoteBlob } = {}) {
     { url: `${apiBase}/git/commits/${mockWriterSha}`, json: { sha: mockWriterSha, tree: { sha: mockWriterSha } } },
     { url: `${apiBase}/git/trees/${mockWriterSha}?recursive=1`, json: { sha: mockWriterSha, truncated: false, tree: [
       { path: 'bom-viewer-sync/data.js', type: 'blob', sha: testInput.expectedSourceSha },
+      ...(includeRecursiveTreeEntries ? [
+        { path: 'bom-viewer-sync/data', type: 'tree', sha: 'dddddddddddddddddddddddddddddddddddddddd' },
+        { path: 'bom-viewer-sync/data/products', type: 'tree', sha: 'eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee' },
+      ] : []),
       ...shardEntries.map(({ path, sha }) => ({ path, type: 'blob', sha })),
     ] } },
     { url: `${apiBase}/git/blobs/${testInput.expectedSourceSha}`, json: { sha: testInput.expectedSourceSha, encoding: 'base64', content: sourcePayloadBase64 } },
@@ -433,6 +437,20 @@ test('happy path orchestration succeeds and returns verified status object', asy
   assert.equal(result.roundTripEqual, true);
   assert.equal(result.mainUnchanged, true);
   assert.equal(result.compareUrl, `https://github.com/${STAGING_PROJECT.owner}/${STAGING_PROJECT.repo}/compare/${harness.testInput.expectedSourceSha}...${harness.testInput.stagingBranch}`);
+  assert.equal(harness.calls.length, harness.stepCount);
+});
+
+test('readback accepts recursive tree directory entries alongside shard blobs', async () => {
+  const harness = createReadbackHarness({ includeRecursiveTreeEntries: true });
+  const migration = createGithubShardedStagingMigration({
+    fetchImpl: harness.fetchImpl,
+    writerFactory: harness.writerFactory,
+  });
+
+  const result = await migration.run(harness.testInput);
+
+  assert.equal(result.status, 'verified');
+  assert.equal(result.shardCount, 24);
   assert.equal(harness.calls.length, harness.stepCount);
 });
 
