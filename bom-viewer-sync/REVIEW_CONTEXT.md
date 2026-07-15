@@ -2,7 +2,7 @@
 
 ## Review Scope
 
-PR #1 was squash-merged into `main` on 2026-07-14 as `72debab`; Phase A PR #5 was squash-merged as `de35ea2`; Phase B PR #6 was merged. Phase B.1 PR #8 and Phase B.2 PR #9 were merged. Phase B.3 was independently reviewed, debugged, and integrated into `main`. Phase B.4 PR #11 and recursive-tree readback hotfix PR #12 were independently gated and merged. Editable code is under `src/`; `admin.html`, `app-admin.js`, `styles.css`, and `viewer.html` are generated evidence.
+PR #1 was squash-merged into `main` on 2026-07-14 as `72debab`; Phase A PR #5 was squash-merged as `de35ea2`; Phase B PR #6 was merged. Phase B.1 PR #8 and Phase B.2 PR #9 were merged. Phase B.3 was independently reviewed, debugged, and integrated into `main`. Phase B.4 PR #11 and recursive-tree readback hotfix PR #12 were independently gated and merged. Phase B.5 PR #14 was merged, completing the sharded cutover. Editable code is under `src/`; `admin.html`, `app-admin.js`, `styles.css`, and `viewer.html` are generated evidence.
 
 ## Required Revision Contracts
 
@@ -18,11 +18,11 @@ PR #1 was squash-merged into `main` on 2026-07-14 as `72debab`; Phase A PR #5 wa
 
 ## Existing System Contracts
 
-- Public reads prefer cache-busted GitHub Contents API raw responses.
-- Admin saves read the current remote payload and SHA before diff/write and preserve remote notifications.
+- Public reads resolve an exact commit and load the exact 24 files from cache-busted, commit-pinned raw URLs.
+- Admin saves read the current remote shard payload and expected HEAD before atomic diff/write and preserve remote notifications.
 - Plain BOM-row clicks do not open the removed inspector.
 - Generated artifacts contain no credentials, local absolute paths, or inline source maps.
-- Code-only work leaves `data.js` untouched.
+- Code-only work leaves both `data.js` and `data/` untouched.
 
 ## Material Asset Contracts
 
@@ -40,14 +40,14 @@ PR #1 was squash-merged into `main` on 2026-07-14 as `72debab`; Phase A PR #5 wa
 Phase A adapter contracts remain unchanged: create-only Contents API requests without an update `sha`, no DELETE path, a 20,000,000-byte maximum, full SHA-256 identity in each path, and jsDelivr URLs pinned to a full Git commit SHA. In Phase B, only Admin may instantiate the adapter; Viewer remains read-only.
 
 - PDF validation requires `.pdf`, `application/pdf` and `%PDF-` signature. GLB requires `.glb` and `glTF` magic. GLTF requires `.gltf`, valid JSON and portable `data:` or absolute HTTPS buffer/image URIs.
-- Save to GitHub order must be asset upload, current BOM payload/SHA read, then BOM PUT.
-- Asset-upload failure must prevent any BOM write and retain pending bytes.
-- BOM-write failure after asset success may leave an immutable orphan, but retry must reuse `pending.resolved` and not upload again.
-- Successful BOM write alone may adopt resolved URLs into local state and clear completed pending entries. No serialized output may contain `pendingAssetId` or file bytes.
+- Save to GitHub order must be asset upload, current shard payload/expected HEAD read, then one atomic 24-shard write.
+- Asset-upload failure must prevent any shard write and retain pending bytes.
+- Shard-write failure after asset success may leave an immutable orphan, but retry must reuse `pending.resolved` and not upload again.
+- Only a successful shard write may adopt resolved URLs into local state and clear completed pending entries. No serialized output may contain `pendingAssetId` or file bytes.
 - Phase B.2 implements an in-memory dry-run to validate payload splitting/assembly without data loss. No actual files are created or uploaded.
-- Phase B.3 implements the Atomic Sharded Writer Foundation (`src/infrastructure/github-git-data.js`). It provides concurrency conflict handling (409/422 mapped to `GithubDataConflictError`) and blob/tree/commit/ref ordering. This writer is currently inactive. Warning: if ref update fails, orphan blob, tree, and commit Git objects might remain.
-- Phase B.4 completed one staging-only migration on branch `codex/phase-b4-shards-20260715T041629Z-db11b4a`. It did not activate the writer in application runtime or change the `data.js` write target.
-- Phase B.1 (PR #8) implements a compatibility layer where `loadPublic()` tries sharded manifest first and only falls back to `data.js` if the manifest is HTTP 404. Schema errors and sub-file 404s throw errors without falling back. `loadForWrite()` and `write()` still ONLY use `data.js`.
+- Phase B.3 implements the Atomic Sharded Writer Foundation (`src/infrastructure/github-git-data.js`). It provides concurrency conflict handling (409/422 mapped to `GithubDataConflictError`) and blob/tree/commit/ref ordering. Phase B.5 activates it through the sharded runtime adapter. Warning: if ref update fails, orphan blob, tree, and commit Git objects might remain.
+- Phase B.4 completed one staging-only migration on branch `codex/phase-b4-shards-20260715T041629Z-db11b4a`.
+- Phase B.5 cutover is complete. Application runtime reads and writes the exact 24 JSON files in `data/`; tracked `data.js` is rollback/migration input only. The old local upload commits `1ad16cb` and `2db18d5` are superseded by the Phase A/B asset-storage and pending-asset implementation merged through PR #5 and PR #6, not by the sharding layer.
 - Asset URLs use Content-Disposition rewriting; legacy blob conversion and raw asset logic remain supported until fully migrated.
 
 ## Notification Contracts
@@ -58,16 +58,17 @@ Phase A adapter contracts remain unchanged: create-only Contents API requests wi
 
 ## Verified Gates (2026-07-15)
 
-- Repository: 177/177 tests passed after the Phase B.4 readback hotfix.
-- Focused migration suites: 42/42 tests passed.
+- Release-closure repository gate: 194/194 tests passed after adding the cross-worktree build-ID regression.
+- Phase B.4 focused migration suites: 42/42 tests passed.
 - Canonical audit: 646 materials / 2725 BOM entries / 22 products / 1 notification / 0 errors / 0 warnings.
-- Phase B.4 dry-run produced exactly 24 virtual shards with aggregate SHA-256 `d5261ad277be1fbe7b391ea2f0995de8b0f96fdb612d73e95ed5853b2903684e`.
-- Remote read-only verification reconstructed all 24 staging shards exactly and confirmed unchanged `data.js` on staging and current `main`.
+- Phase B.5 dry-run produced exactly 24 virtual shards with aggregate SHA-256 `d5261ad277be1fbe7b391ea2f0995de8b0f96fdb612d73e95ed5853b2903684e`.
+- Shard materialization and rollback verification passed.
+- Phase B.4 remote read-only verification reconstructed all 24 staging shards exactly and confirmed unchanged `data.js` on staging and `main`.
 - Outer Material Master/revision contracts: 23/23 passed.
 - Outer runtime contracts: 13/13 passed.
 - Generated freshness and JavaScript syntax checks passed.
-- Browser smoke verified 3D draft re-render, blank URL validation, Back discard, live Viewer counts and real GLB rendering.
-- Use fresh gate output for the current test count. The prior Admin browser smoke verified graceful `data.js` fallback, and Viewer loaded 22 products and 646 materials.
+- Antigravity browser evidence shows sharded Admin/Viewer counts and Material Master rendering. Independent browser automation remained blocked by the local Playwright/browser-controller runtime, so console-clean and `file://` checks remain explicit manual acceptance items before external distribution.
+- Use fresh gate output for the current test count. Phase B.5 browser acceptance must exercise shard loading directly; legacy `data.js` fallback is no longer a runtime contract.
 
 ## Integration Risk To Watch
 
@@ -78,5 +79,6 @@ For Phase B.4 staging migration:
 - The initial verifier exposed recursive tree directory entries after branch creation. The branch was neither retried nor deleted; PR #12 fixed readback and the existing branch passed a complete read-only round trip.
 - `main`, `data.js`, runtime save/read behavior, `outputs/`, and Desktop remained unchanged by the staging operation.
 - Keep the staging branch and possible orphan Git objects intact for inspection.
-- Runtime read/write cutover remains out of scope and requires a separate design, review, rollback plan, and explicit approval.
+- Phase B.5 runtime read/write cutover is complete.
 - Full execution evidence is recorded in `docs/superpowers/reports/2026-07-15-phase-b4-staging-execution.md`.
+- `outputs/` and Desktop remain non-canonical pre-Phase-B.5 mirrors until the publication flow is run and hash-verified; never treat mirror state as repository truth.

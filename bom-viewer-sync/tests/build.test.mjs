@@ -3,10 +3,32 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
-import { commitStagedArtifacts } from '../scripts/build.mjs';
+import {
+  commitStagedArtifacts,
+  computeBuildId,
+  renderHtmlArtifact,
+} from '../scripts/build.mjs';
 import { repoRoot } from './helpers/load-data.mjs';
 
 const artifactNames = ['admin.html', 'app-admin.js', 'styles.css', 'viewer.html'];
+
+test('build ID is stable across LF and CRLF worktrees', () => {
+  const inputs = {
+    shell: '<html>\n<body>{{BUILD_ID}}</body>\n</html>\n',
+    css: 'body{color:#000}\n',
+    adminBundle: '(()=>{console.log("admin")})();\n',
+    viewerBundle: '(()=>{console.log("viewer")})();\n',
+  };
+  const withCrLf = Object.fromEntries(
+    Object.entries(inputs).map(([name, value]) => [name, value.replaceAll('\n', '\r\n')]),
+  );
+
+  assert.equal(computeBuildId(inputs), computeBuildId(withCrLf));
+  assert.equal(
+    renderHtmlArtifact(inputs.shell, { BUILD_ID: 'abc123' }),
+    renderHtmlArtifact(withCrLf.shell, { BUILD_ID: 'abc123' }),
+  );
+});
 
 test('generated Viewer is one file with inline local code and CSS', () => {
   const viewer = fs.readFileSync(path.join(repoRoot, 'viewer.html'), 'utf8');
