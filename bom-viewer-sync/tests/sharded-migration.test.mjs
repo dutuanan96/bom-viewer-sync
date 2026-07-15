@@ -293,3 +293,38 @@ test('Materialize script rejects symlinks inside the shard output tree', async (
     await fs.promises.rm(outsideDir, { recursive: true, force: true });
   }
 });
+
+test('Materialize script rejects symlinks in an ancestor of a nested shard root', async (t) => {
+  const tmpDir = await fs.promises.mkdtemp(path.join(os.tmpdir(), 'bom-sync-ancestor-link-root-'));
+  const outsideDir = await fs.promises.mkdtemp(path.join(os.tmpdir(), 'bom-sync-ancestor-link-outside-'));
+  try {
+    const dataJsPath = path.join(tmpDir, 'data.js');
+    await fs.promises.writeFile(dataJsPath, `window.BOM_VIEWER_DATA = ${JSON.stringify({
+      version: 2,
+      bom: { P1: { id: 'P1' } },
+      materialDb: { materials: {}, bomEntries: [] },
+    })};`, 'utf8');
+    try {
+      await fs.promises.symlink(
+        outsideDir,
+        path.join(tmpDir, 'linked'),
+        process.platform === 'win32' ? 'junction' : 'dir',
+      );
+    } catch (error) {
+      if (error.code === 'EPERM') {
+        t.skip('Creating a test symlink is not permitted on this machine');
+        return;
+      }
+      throw error;
+    }
+
+    await assert.rejects(
+      materializeShards(dataJsPath, 'linked/data', { rootDir: tmpDir }),
+      /Symbolic links are not allowed in shard output: linked/,
+    );
+    await assert.rejects(fs.promises.stat(path.join(outsideDir, 'data', 'manifest.json')), { code: 'ENOENT' });
+  } finally {
+    await fs.promises.rm(tmpDir, { recursive: true, force: true });
+    await fs.promises.rm(outsideDir, { recursive: true, force: true });
+  }
+});

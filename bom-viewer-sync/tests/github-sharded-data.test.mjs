@@ -2,6 +2,24 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createGithubShardedDataAdapter } from '../src/infrastructure/github-sharded-data.js';
 
+const PRODUCT_IDS = Array.from({ length: 22 }, (_, index) => `P${index + 1}`);
+
+function cutoverShardContents() {
+  return new Map([
+    ['manifest.json', JSON.stringify({ version: 1, products: PRODUCT_IDS })],
+    ['materials.json', JSON.stringify({ materialDb: { materials: {}, bomEntries: [] }, drawings: {}, manuals: {}, models3d: {} })],
+    ...PRODUCT_IDS.map((id) => [`products/${id}.json`, JSON.stringify({ id, colors: [], materials: [] })]),
+  ]);
+}
+
+function treeEntries(contents, extra = []) {
+  return [...contents.keys(), ...extra].map((path, index) => ({
+    path: `data/${path}`,
+    type: 'blob',
+    sha: (index + 1).toString(16).padStart(40, '0'),
+  }));
+}
+
 test('github-sharded-data adapter tests', async (t) => {
   const config = { owner: 'test', repo: 'test', branch: 'main', shardRoot: 'data' };
 
@@ -13,13 +31,14 @@ test('github-sharded-data adapter tests', async (t) => {
         return { ok: true, json: async () => ({ sha: '1234567890abcdef1234567890abcdef12345678' }) };
       }
       if (url.includes('manifest.json')) {
-        return { ok: true, text: async () => JSON.stringify({ version: 1, products: ['P1'] }) };
+        return { ok: true, text: async () => JSON.stringify({ version: 1, products: PRODUCT_IDS }) };
       }
       if (url.includes('materials.json')) {
         return { ok: true, text: async () => JSON.stringify({ materialDb: { materials: {}, bomEntries: [] }, drawings: {}, manuals: {}, models3d: {} }) };
       }
-      if (url.includes('P1.json')) {
-        return { ok: true, text: async () => JSON.stringify({ id: 'P1', colors: [], materials: [] }) };
+      const productMatch = url.match(/products\/(P\d+)\.json/);
+      if (productMatch) {
+        return { ok: true, text: async () => JSON.stringify({ id: productMatch[1], colors: [], materials: [] }) };
       }
       return { ok: false, status: 404 };
     };
@@ -36,13 +55,12 @@ test('github-sharded-data adapter tests', async (t) => {
 
   await t.test('loadForWrite fetches tree and blobs', async () => {
     const fetchArgs = [];
+    const contents = cutoverShardContents();
+    const entries = treeEntries(contents);
     const fetchImpl = async (url) => {
       fetchArgs.push(url);
       const commitSha = 'c'.repeat(40);
       const treeSha = 'e'.repeat(40);
-      const blob1 = '1'.repeat(40);
-      const blob2 = '2'.repeat(40);
-      const blob3 = '3'.repeat(40);
 
       if (url.includes('/git/ref/heads/main')) {
         return { ok: true, json: async () => ({ ref: 'refs/heads/main', object: { type: 'commit', sha: commitSha } }) };
@@ -53,21 +71,13 @@ test('github-sharded-data adapter tests', async (t) => {
       if (url.includes(`/git/trees/${treeSha}`)) {
         return { ok: true, json: async () => ({
           sha: treeSha,
-          tree: [
-            { path: 'data/manifest.json', type: 'blob', sha: blob1 },
-            { path: 'data/materials.json', type: 'blob', sha: blob2 },
-            { path: 'data/products/P1.json', type: 'blob', sha: blob3 },
-          ]
+          tree: entries,
         }) };
       }
-      if (url.includes(`/git/blobs/${blob1}`)) {
-        return { ok: true, json: async () => ({ sha: blob1, encoding: 'base64', content: Buffer.from(JSON.stringify({ version: 1, products: ['P1'] })).toString('base64') }) };
-      }
-      if (url.includes(`/git/blobs/${blob2}`)) {
-        return { ok: true, json: async () => ({ sha: blob2, encoding: 'base64', content: Buffer.from(JSON.stringify({ materialDb: { materials: {}, bomEntries: [] } })).toString('base64') }) };
-      }
-      if (url.includes(`/git/blobs/${blob3}`)) {
-        return { ok: true, json: async () => ({ sha: blob3, encoding: 'base64', content: Buffer.from(JSON.stringify({ id: 'P1' })).toString('base64') }) };
+      const entry = entries.find(({ sha }) => url.includes(`/git/blobs/${sha}`));
+      if (entry) {
+        const logicalPath = entry.path.slice('data/'.length);
+        return { ok: true, json: async () => ({ sha: entry.sha, encoding: 'base64', content: Buffer.from(contents.get(logicalPath)).toString('base64') }) };
       }
       throw new Error(`Unexpected fetch call ${fetchArgs.length}: ${url}`);
     };
@@ -96,7 +106,7 @@ test('github-sharded-data adapter tests', async (t) => {
       productImages: {},
       productRevisions: {},
       notifications: [],
-      bom: { P1: { id: 'P1', colors: [], materials: [] } },
+      bom: Object.fromEntries(PRODUCT_IDS.map((id) => [id, { id, colors: [], materials: [] }])),
       drawings: {},
       manuals: {},
       models3d: {},
@@ -212,6 +222,45 @@ test('Adversarial Matrix: GitHub Sharded Adapter', async (t) => {
     assert.equal(fetchArgs.some((url) => url.includes('products/A/B.json')), false);
   });
 
+  await t.test('loadPublic rejects a reduced but internally consistent shard set', async () => {
+    const adapter = createGithubShardedDataAdapter({
+      config,
+      fetchImpl: async (url) => {
+        if (url.includes('commits/main')) return { ok: true, json: async () => ({ sha: 'a'.repeat(40) }) };
+        if (url.includes('manifest.json')) return { ok: true, text: async () => JSON.stringify({ version: 2, products: ['P1'] }) };
+        if (url.includes('materials.json')) return { ok: true, text: async () => JSON.stringify({ materialDb: { materials: {}, bomEntries: [] } }) };
+        if (url.includes('products/P1.json')) return { ok: true, text: async () => JSON.stringify({ id: 'P1' }) };
+        throw new Error(`Unexpected request: ${url}`);
+      },
+    });
+
+    await assert.rejects(adapter.loadPublic(), /Expected 24 logical shards, got 3/);
+  });
+
+  await t.test('loadForWrite rejects a reduced but internally consistent shard tree', async () => {
+    const commitSha = 'a'.repeat(40);
+    const treeSha = 'b'.repeat(40);
+    const contents = new Map([
+      ['manifest.json', JSON.stringify({ version: 2, products: ['P1'] })],
+      ['materials.json', JSON.stringify({ materialDb: { materials: {}, bomEntries: [] } })],
+      ['products/P1.json', JSON.stringify({ id: 'P1' })],
+    ]);
+    const entries = treeEntries(contents);
+    const adapter = createGithubShardedDataAdapter({
+      config,
+      fetchImpl: async (url) => {
+        if (url.includes('git/ref')) return { ok: true, json: async () => ({ ref: 'refs/heads/main', object: { type: 'commit', sha: commitSha } }) };
+        if (url.includes('git/commits/')) return { ok: true, json: async () => ({ sha: commitSha, tree: { sha: treeSha } }) };
+        if (url.includes('git/trees/')) return { ok: true, json: async () => ({ sha: treeSha, tree: entries }) };
+        const entry = entries.find(({ sha }) => url.includes(`/git/blobs/${sha}`));
+        if (entry) return { ok: true, json: async () => ({ sha: entry.sha, encoding: 'base64', content: Buffer.from(contents.get(entry.path.slice('data/'.length))).toString('base64') }) };
+        throw new Error(`Unexpected request: ${url}`);
+      },
+    });
+
+    await assert.rejects(adapter.loadForWrite('token'), /Expected 24 logical shards, got 3/);
+  });
+
   await t.test('loadForWrite binds the recursive tree response to the requested SHA', async () => {
     const commitSha = 'a'.repeat(40);
     const treeSha = 'b'.repeat(40);
@@ -231,24 +280,106 @@ test('Adversarial Matrix: GitHub Sharded Adapter', async (t) => {
   await t.test('loadForWrite rejects product shards not declared by the manifest', async () => {
     const commitSha = 'a'.repeat(40);
     const treeSha = 'b'.repeat(40);
-    const entries = [
-      { path: 'data/manifest.json', type: 'blob', sha: '1'.repeat(40), content: { version: 2, products: ['P1'] } },
-      { path: 'data/materials.json', type: 'blob', sha: '2'.repeat(40), content: { materialDb: { materials: {}, bomEntries: [] } } },
-      { path: 'data/products/P1.json', type: 'blob', sha: '3'.repeat(40), content: { id: 'P1' } },
-      { path: 'data/products/EXTRA.json', type: 'blob', sha: '4'.repeat(40), content: { id: 'EXTRA' } },
-    ];
+    const contents = cutoverShardContents();
+    contents.set('products/EXTRA.json', JSON.stringify({ id: 'EXTRA' }));
+    const entries = treeEntries(contents);
     const adapter = createGithubShardedDataAdapter({
       config,
       fetchImpl: async (url) => {
         if (url.includes('git/ref')) return { ok: true, json: async () => ({ ref: 'refs/heads/main', object: { type: 'commit', sha: commitSha } }) };
         if (url.includes('git/commits/')) return { ok: true, json: async () => ({ sha: commitSha, tree: { sha: treeSha } }) };
-        if (url.includes('git/trees/')) return { ok: true, json: async () => ({ sha: treeSha, tree: entries.map(({ content, ...entry }) => entry) }) };
+        if (url.includes('git/trees/')) return { ok: true, json: async () => ({ sha: treeSha, tree: entries }) };
         const entry = entries.find(({ sha }) => url.includes(`/git/blobs/${sha}`));
-        if (entry) return { ok: true, json: async () => ({ sha: entry.sha, encoding: 'base64', content: Buffer.from(JSON.stringify(entry.content)).toString('base64') }) };
+        if (entry) return { ok: true, json: async () => ({ sha: entry.sha, encoding: 'base64', content: Buffer.from(contents.get(entry.path.slice('data/'.length))).toString('base64') }) };
         throw new Error(`Unexpected request: ${url}`);
       },
     });
 
     await assert.rejects(adapter.loadForWrite('token'), /Unexpected logical shard: products\/EXTRA\.json/);
+  });
+
+  await t.test('loadForWrite validates unsafe logical paths before requesting any blob', async () => {
+    const commitSha = 'a'.repeat(40);
+    const treeSha = 'b'.repeat(40);
+    let blobRequests = 0;
+    const adapter = createGithubShardedDataAdapter({
+      config,
+      fetchImpl: async (url) => {
+        if (url.includes('git/ref')) return { ok: true, json: async () => ({ ref: 'refs/heads/main', object: { type: 'commit', sha: commitSha } }) };
+        if (url.includes('git/commits/')) return { ok: true, json: async () => ({ sha: commitSha, tree: { sha: treeSha } }) };
+        if (url.includes('git/trees/')) return { ok: true, json: async () => ({
+          sha: treeSha,
+          tree: [{ path: 'data/products/A/B.json', type: 'blob', sha: '1'.repeat(40) }],
+        }) };
+        if (url.includes('git/blobs/')) {
+          blobRequests += 1;
+          return { ok: true, json: async () => ({ sha: '1'.repeat(40), encoding: 'base64', content: 'e30=' }) };
+        }
+        throw new Error(`Unexpected request: ${url}`);
+      },
+    });
+
+    await assert.rejects(adapter.loadForWrite('token'), /Invalid logical shard path: products\/A\/B\.json/);
+    assert.equal(blobRequests, 0);
+  });
+
+  await t.test('loadForWrite redacts token occurrences from every exposed error field', async () => {
+    const token = 'secret-token-value';
+    const adapter = createGithubShardedDataAdapter({
+      config,
+      fetchImpl: async () => {
+        const error = new Error(`message ${token}`);
+        error.name = `name ${token}`;
+        error.code = `code ${token}`;
+        error.status = `status ${token}`;
+        error.cause = { token };
+        throw error;
+      },
+    });
+
+    const error = await adapter.loadForWrite(token).catch((caught) => caught);
+    assert.equal(error.cause, undefined);
+    assert.doesNotMatch(`${error.name}|${error.message}|${error.code}|${error.status}|${error.stack}`, new RegExp(token));
+  });
+
+  await t.test('loadForWrite safely redacts coercible message metadata', async () => {
+    const token = 'coercible-secret-token';
+    const adapter = createGithubShardedDataAdapter({
+      config,
+      fetchImpl: async () => {
+        throw {
+          message: { toString: () => `message ${token}` },
+          name: { toString: () => `name ${token}` },
+          code: { toString: () => `code ${token}` },
+          status: { toString: () => `status ${token}` },
+          stack: `stack ${token}`,
+        };
+      },
+    });
+
+    const error = await adapter.loadForWrite(token).catch((caught) => caught);
+    assert.doesNotMatch(`${error.name}|${error.message}|${error.code}|${error.status}|${error.stack}`, new RegExp(token));
+  });
+
+  await t.test('write rejects a reduced shard set before constructing a writer', async () => {
+    let writerFactoryCalled = false;
+    const adapter = createGithubShardedDataAdapter({
+      config,
+      writerFactory: () => {
+        writerFactoryCalled = true;
+        return { writeFiles: async () => ({ commitSha: 'unused' }) };
+      },
+    });
+    const payload = {
+      version: 2,
+      bom: { P1: { id: 'P1' } },
+      materialDb: { materials: {}, bomEntries: [] },
+    };
+
+    await assert.rejects(
+      adapter.write({ token: 'token', expectedHeadSha: 'a'.repeat(40), payload }),
+      /Expected 24 logical shards, got 3/,
+    );
+    assert.equal(writerFactoryCalled, false);
   });
 });

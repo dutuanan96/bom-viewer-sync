@@ -1,5 +1,8 @@
 import { assembleShardedPayload, splitPayloadToShards, validateProductId } from './sharded-data.js';
 
+export const CUTOVER_PRODUCT_SHARD_COUNT = 22;
+export const CUTOVER_LOGICAL_SHARD_COUNT = 24;
+
 function stringify(value) {
   return `${JSON.stringify(value, null, 2)}\n`;
 }
@@ -7,10 +10,23 @@ function stringify(value) {
 export function assertLogicalFiles(files) {
   if (!(files instanceof Map) || files.size === 0) throw new Error('Logical shard files are required');
   for (const [path, content] of files) {
-    if (!/^(manifest|materials)\.json$|^products\/[A-Za-z0-9_-]+\.json$/.test(path)) {
-      throw new Error(`Invalid logical shard path: ${path}`);
-    }
+    validateLogicalShardPath(path);
     if (typeof content !== 'string') throw new Error(`Invalid logical shard content: ${path}`);
+  }
+}
+
+export function validateLogicalShardPath(path) {
+  if (path === 'manifest.json' || path === 'materials.json') return path;
+  const match = typeof path === 'string' ? path.match(/^products\/([A-Za-z0-9_-]+)\.json$/) : null;
+  if (!match) throw new Error(`Invalid logical shard path: ${path}`);
+  validateProductId(match[1]);
+  return path;
+}
+
+export function assertCutoverShardCount(files) {
+  const count = files instanceof Map ? files.size : Number(files);
+  if (count !== CUTOVER_LOGICAL_SHARD_COUNT) {
+    throw new Error(`Expected ${CUTOVER_LOGICAL_SHARD_COUNT} logical shards, got ${count}`);
   }
 }
 

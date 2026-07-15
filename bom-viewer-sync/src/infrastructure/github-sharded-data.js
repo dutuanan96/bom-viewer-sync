@@ -1,4 +1,12 @@
-import { parseLogicalShardFiles, buildLogicalShardFiles, toRepositoryShardFiles, validateRepositoryShardRoot } from '../domain/sharded-files.js';
+import {
+  CUTOVER_PRODUCT_SHARD_COUNT,
+  assertCutoverShardCount,
+  buildLogicalShardFiles,
+  parseLogicalShardFiles,
+  toRepositoryShardFiles,
+  validateLogicalShardPath,
+  validateRepositoryShardRoot,
+} from '../domain/sharded-files.js';
 import { validateProductId } from '../domain/sharded-data.js';
 import { normalizePayload, decodeBase64Utf8 } from './github-data.js';
 
@@ -15,13 +23,28 @@ export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.
 
   function sanitizeError(error, token) {
     if (!token || typeof token !== 'string') return error;
-    const redact = (str) => typeof str === 'string' ? str.replaceAll(token, '***') : str;
+    const redactText = (value, fallback = '') => {
+      if (value === undefined || value === null) return fallback;
+      try {
+        return String(value).replaceAll(token, '***');
+      } catch {
+        return fallback;
+      }
+    };
+    const safeMetadata = (value) => {
+      if (typeof value === 'string') return redactText(value);
+      if (typeof value === 'number' && Number.isFinite(value)) return value;
+      if (typeof value === 'boolean') return value;
+      return undefined;
+    };
 
-    const newError = new Error(redact(error.message || ''));
-    newError.name = error.name;
-    if (error.status !== undefined) newError.status = error.status;
-    if (error.code !== undefined) newError.code = error.code;
-    if (error.stack) newError.stack = redact(error.stack);
+    const newError = new Error(redactText(error?.message));
+    newError.name = safeMetadata(error?.name) || 'Error';
+    const status = safeMetadata(error?.status);
+    const code = safeMetadata(error?.code);
+    if (status !== undefined) newError.status = status;
+    if (code !== undefined) newError.code = code;
+    if (error?.stack !== undefined) newError.stack = redactText(error.stack, newError.stack);
 
     // Do not attach the original cause to avoid leaking token in nested structures
     return newError;
@@ -77,7 +100,6 @@ export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.
         };
 
         const manifestContent = await fetchRaw('manifest.json');
-        const materialsContent = await fetchRaw('materials.json');
 
         let manifest;
         try {
@@ -85,10 +107,6 @@ export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.
         } catch {
           throw new Error('Malformed manifest JSON');
         }
-
-        const files = new Map();
-        files.set('manifest.json', manifestContent);
-        files.set('materials.json', materialsContent);
 
         if (!manifest || !Array.isArray(manifest.products)) throw new Error('Invalid manifest structure');
 
@@ -98,12 +116,22 @@ export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.
           if (seenProductIds.has(id)) throw new Error(`Duplicate product ID in manifest: ${id}`);
           seenProductIds.add(id);
         }
+        if (manifest.products.length !== CUTOVER_PRODUCT_SHARD_COUNT) {
+          assertCutoverShardCount(manifest.products.length + 2);
+        }
+
+        const materialsContent = await fetchRaw('materials.json');
+        const files = new Map([
+          ['manifest.json', manifestContent],
+          ['materials.json', materialsContent],
+        ]);
 
         await Promise.all(manifest.products.map(async (id) => {
           const content = await fetchRaw(`products/${id}.json`);
           files.set(`products/${id}.json`, content);
         }));
 
+        assertCutoverShardCount(files);
         const payload = await parseLogicalShardFiles(files);
         return normalizePayload(payload);
       } catch (err) {
@@ -140,34 +168,64 @@ export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.
         if (!Array.isArray(treeData.tree)) throw new Error('Invalid tree format');
 
         const prefix = `${shardRoot}/`;
-        const files = new Map();
-
-        const seenPaths = new Set();
+        const entriesByPath = new Map();
         for (const entry of treeData.tree) {
-          if (entry.path.startsWith(prefix) && entry.type === 'blob') {
+          if (entry.path.startsWith(prefix)) {
+            if (entry.type === 'tree') continue;
+            if (entry.type !== 'blob') throw new Error(`Expected blob in shard tree: ${entry.path}`);
             const logicalPath = entry.path.slice(prefix.length);
-            if (seenPaths.has(logicalPath)) {
+            validateLogicalShardPath(logicalPath);
+            if (entriesByPath.has(logicalPath)) {
               throw new Error(`Duplicate path in tree: ${logicalPath}`);
             }
-            seenPaths.add(logicalPath);
             if (!/^[0-9a-f]{40}$/i.test(entry.sha)) {
               throw new Error(`Invalid SHA format in tree entry: ${entry.sha}`);
             }
+            entriesByPath.set(logicalPath, entry);
           }
         }
 
-        await Promise.all(treeData.tree.map(async (entry) => {
-          if (entry.path.startsWith(prefix) && entry.type === 'blob') {
-            const logicalPath = entry.path.slice(prefix.length);
-            const blobData = await githubJson(`${apiBase}/git/blobs/${entry.sha}`, { cache: 'no-store' }, token);
-            if (!blobData || blobData.sha !== entry.sha || blobData.encoding !== 'base64') {
-               throw new Error('Invalid blob response or SHA mismatch');
-            }
-            const content = decodeBase64Utf8(blobData.content);
-            files.set(logicalPath, content);
+        const fetchBlob = async (entry) => {
+          const blobData = await githubJson(`${apiBase}/git/blobs/${entry.sha}`, { cache: 'no-store' }, token);
+          if (!blobData || blobData.sha !== entry.sha || blobData.encoding !== 'base64' || typeof blobData.content !== 'string') {
+            throw new Error('Invalid blob response or SHA mismatch');
           }
+          return decodeBase64Utf8(blobData.content);
+        };
+
+        const manifestEntry = entriesByPath.get('manifest.json');
+        if (!manifestEntry) throw new Error('Missing logical shard: manifest.json');
+        const manifestContent = await fetchBlob(manifestEntry);
+        let manifest;
+        try {
+          manifest = JSON.parse(manifestContent);
+        } catch {
+          throw new Error('Malformed manifest JSON');
+        }
+        if (!manifest || !Array.isArray(manifest.products)) throw new Error('Invalid manifest structure');
+
+        const expectedPaths = new Set(['manifest.json', 'materials.json']);
+        for (const id of manifest.products) {
+          validateProductId(id);
+          const productPath = `products/${id}.json`;
+          if (expectedPaths.has(productPath)) throw new Error(`Duplicate product ID in manifest: ${id}`);
+          expectedPaths.add(productPath);
+        }
+        assertCutoverShardCount(expectedPaths.size);
+
+        for (const logicalPath of entriesByPath.keys()) {
+          if (!expectedPaths.has(logicalPath)) throw new Error(`Unexpected logical shard: ${logicalPath}`);
+        }
+        for (const logicalPath of expectedPaths) {
+          if (!entriesByPath.has(logicalPath)) throw new Error(`Missing logical shard: ${logicalPath}`);
+        }
+
+        const files = new Map([['manifest.json', manifestContent]]);
+        await Promise.all([...expectedPaths].filter((logicalPath) => logicalPath !== 'manifest.json').map(async (logicalPath) => {
+          files.set(logicalPath, await fetchBlob(entriesByPath.get(logicalPath)));
         }));
 
+        assertCutoverShardCount(files);
         const payload = await parseLogicalShardFiles(files);
         return { expectedHeadSha: commitSha, payload: normalizePayload(payload) };
       } catch (err) {
@@ -178,6 +236,7 @@ export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.
     async write({ token, expectedHeadSha, payload, message }) {
       try {
         const logicalFiles = buildLogicalShardFiles(payload);
+        assertCutoverShardCount(logicalFiles);
         const repoFiles = toRepositoryShardFiles(logicalFiles, shardRoot);
 
         if (!writerFactory) throw new Error('writerFactory is required for write');

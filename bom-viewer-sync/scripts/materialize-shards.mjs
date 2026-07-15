@@ -42,13 +42,22 @@ export async function materializeShards(dataJsPath, outputDir, options = {}) {
   if (!relativeOutputDir || relativeOutputDir.startsWith('..') || path.isAbsolute(relativeOutputDir)) {
     throw new Error('Output directory must be a safe repository-relative shard root');
   }
-  try {
-    const outputStats = await fs.lstat(absoluteOutputDir);
-    if (outputStats.isSymbolicLink()) {
-      throw new Error(`Symbolic links are not allowed in shard output: ${outputDir}`);
+  let currentOutputPath = absoluteRoot;
+  for (const segment of outputDir.split('/')) {
+    currentOutputPath = path.join(currentOutputPath, segment);
+    try {
+      const outputStats = await fs.lstat(currentOutputPath);
+      if (outputStats.isSymbolicLink()) {
+        const relativePath = path.relative(absoluteRoot, currentOutputPath).replaceAll(path.sep, '/');
+        throw new Error(`Symbolic links are not allowed in shard output: ${relativePath}`);
+      }
+      if (!outputStats.isDirectory() && currentOutputPath !== absoluteOutputDir) {
+        throw new Error(`Shard output ancestor is not a directory: ${segment}`);
+      }
+    } catch (error) {
+      if (error.code === 'ENOENT') break;
+      throw error;
     }
-  } catch (error) {
-    if (error.code !== 'ENOENT') throw error;
   }
 
   const source = await fs.readFile(dataJsPath, 'utf8');
