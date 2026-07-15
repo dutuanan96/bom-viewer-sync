@@ -222,6 +222,31 @@ test('allows only the sharded data file grammar', async () => {
   assert.equal(calls.length, 0);
 });
 
+test('respects custom shardRoot in validateShardPath', async () => {
+  const { fetchImpl } = createMockFetch([]);
+  const writer = createGithubGitDataWriter({
+    config: { ...VALID_CONFIG, shardRoot: 'bom-viewer-sync/data' },
+    fetchImpl
+  });
+  const validFiles = {
+    'bom-viewer-sync/data/manifest.json': '{}',
+    'bom-viewer-sync/data/materials.json': '{}',
+    'bom-viewer-sync/data/products/test-product.json': '{}'
+  };
+  // It should not throw for valid paths matching shardRoot
+  // Note: Since we provided empty mockFetch, it will throw Unexpected fetch call 0, but NOT unsafe shard path
+  await assert.rejects(writer.writeFiles({ ...VALID_ARGS, files: validFiles }), /Unexpected fetch call 0/i);
+
+  // Now verify it rejects paths outside the custom shardRoot
+  const unsafePaths = [
+    'data/manifest.json', // Old path without prefix
+    'bom-viewer-sync/data/products/__proto__.json'
+  ];
+  for (const p of unsafePaths) {
+    await assert.rejects(writer.writeFiles({ ...VALID_ARGS, files: { [p]: '{}' } }), /unsafe shard path/i);
+  }
+});
+
 test('stops on an expected HEAD mismatch before creating objects', async () => {
   const { fetchImpl, calls } = createMockFetch([
     { json: { ref: REF_NAME, object: { type: 'commit', sha: SHA.otherHead } } },

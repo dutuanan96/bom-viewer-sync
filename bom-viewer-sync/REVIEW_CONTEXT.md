@@ -69,3 +69,10 @@ Phase A adapter contracts remain unchanged: create-only Contents API requests wi
 ## Integration Risk To Watch
 
 Canonical `main` now contains the newer data-only commits and audits at 646 materials/1 notification. Outer `outputs/data.js` intentionally remains the older clean 643-material/6-notification snapshot because runtime publication does not copy data. Never resolve this by copying mirror data over canonical/GitHub data. Browser automation also blocks `file://`; perform one manual clean-profile check before sending `viewer.html` externally.
+
+For Phase B.4 staging migration:
+- The implementation exists locally on its feature branch but has not executed a remote staging write.
+- The approved execution target is a one-time branch matching the required pattern.
+- `main`, `data.js`, runtime save/read behavior, `outputs/`, and Desktop remain strictly unchanged during this phase.
+- Real execution requires independent review plus the exact source SHA, aggregate hash, and branch command parameters.
+- On failure after branch creation, leave the branch and orphan Git objects intact for inspection.
