@@ -5,16 +5,17 @@ Read `AI_DEBUG_GUIDE.md` before project files.
 ## Current State
 
 - Canonical checkout: `work/remote-bom-viewer-sync/bom-viewer-sync/`.
-- PR #1, Phase A PR #5, Phase B PR #6, Phase B.1 PR #8, and Phase B.2 PR #9 are squash-merged to `main`.
-- Phase B.3 is integrated after its independent review and debug gate.
+- PR #1, Phase A PR #5, Phase B PR #6, Phase B.1 PR #8, Phase B.2 PR #9, Phase B.4 PR #11, and Phase B.4 readback hotfix PR #12 are squash-merged to `main`.
+- Phase B.3 is integrated after its independent review and debug gate; its atomic writer remains inactive at application runtime.
 - Product revision/effectivity, draft-safe Material Master 2D/3D editing and expanded payload notifications are integrated.
-- Current generated build ID is `9cf37d413370`. Phase B.3 is infrastructure only and does not change the build output.
+- Current generated build ID is `9cf37d413370`. Phase B.3 and the Phase B.4 staging tooling do not change the runtime build output.
 - Use a fresh `npm run check` result for the current test count. The last canonical audit reported 646 materials, 2725 BOM entries, 22 products, 1 notification, 0 errors and 0 warnings.
 - Phase B.2 implements an in-memory data migration dry-run. `scripts/migrate-data-dry-run.mjs` splits and re-assembles the legacy payload to prove structural integrity without loss. No actual files are created or uploaded to GitHub.
-- Phase B.3 implements an Atomic Sharded Writer Foundation (`src/infrastructure/github-git-data.js`). The writer is inactive and performs no actual remote writes yet.
+- Phase B.3 implements an Atomic Sharded Writer Foundation (`src/infrastructure/github-git-data.js`). The writer remains inactive in application runtime.
 - Phase B.1 Compatibility Layer remains: `loadPublic()` tries sharded manifest first and only falls back to `data.js` if the manifest is an HTTP 404. `loadForWrite()` and `write()` still ONLY use `data.js`.
-- Phase B.3 did not publish runtime or data. `data.js`, `outputs/`, and Desktop remain unchanged from their last separately approved states.
-- The user authorized Phase B.4 to begin after the Phase B.3 merge. Phase B.4 must remain a separate, plan-first change; no staging write, runtime wiring, migration, or publication belongs in the Phase B.3 merge.
+- Phase B.4 completed its one-time staging-only migration. Branch `codex/phase-b4-shards-20260715T041629Z-db11b4a` points to `227db46` and contains 24 verified shards with aggregate SHA-256 `d5261ad277be1fbe7b391ea2f0995de8b0f96fdb612d73e95ed5853b2903684e`.
+- The staging branch passed a full read-only reconstruction after PR #12 fixed recursive-tree directory handling. Keep that branch intact for inspection; do not rerun or delete it.
+- `main`, `data.js`, runtime save/read behavior, `outputs/`, and Desktop remain unchanged by the staging execution. Any runtime cutover is a separate phase requiring design, review, rollback planning, and explicit approval.
 
 ## Continue This Flow
 
@@ -24,7 +25,7 @@ Read `AI_DEBUG_GUIDE.md` before project files.
 4. Material Master edits use one isolated `state.materialDraft`; Add/Delete/Open assets must not mutate the stored material before Save Material.
 5. Preserve hidden asset metadata. For 3D editing, render `url` before fallback `previewUrl`, then update `previewUrl = url` only on successful save.
 6. Do not copy `data.js` between canonical, `outputs/` or Desktop during code-only work. GitHub/main data is authoritative.
-7. Verify Phase B.2 is merged and `origin/main` passes the complete gate before any publication work.
+7. Verify `origin/main` passes the complete gate and read the Phase B.4 execution report before planning any later publication or cutover work.
 8. Run `npm run check`, `node --check app-admin.js`, `git diff --check`, and inspect any `data.js` diff before pushing.
 
 ## Integrated Publication Flow
@@ -63,6 +64,7 @@ Verify SHA-256 equality for generated artifacts and context documents, then repl
 - Phase B.1 (PR #8) Admin browser smoke passed on local server. Viewer loaded 22 products and 646 materials from `data.js` fallback successfully. The repository gate passed 124/124 tests.
 - Phase B.2 repository gate passed 132/132 tests, including 8 new tests verifying the in-memory split and re-assembly logic. The `migrate:dry-run` script executed successfully on local `data.js`, reporting exactly 24 virtual files created and matching identical deepStrictEqual structures without loss.
 - Phase B.3 writer tests cover atomic ordering, strict shard paths, full expected-HEAD concurrency, 409/422 ref conflicts, response schemas, UTF-8 encoding, and token redaction. Treat only fresh command output as the current gate count. The module is entirely isolated and inactive at runtime.
+- Phase B.4 staging evidence: source `db11b4a`, staging commit `227db46`, 24 shards, exact aggregate match, full round-trip equality, and unchanged `data.js`. The complete record is `docs/superpowers/reports/2026-07-15-phase-b4-staging-execution.md`.
 
 ## Environment Caveat
 
