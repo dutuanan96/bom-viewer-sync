@@ -1,6 +1,5 @@
 const SHA_PATTERN = /^[0-9a-f]{40}$/i;
 const REPOSITORY_PART_PATTERN = /^[A-Za-z0-9_.-]+$/;
-const PRODUCT_SHARD_PATTERN = /^data\/products\/([A-Za-z0-9_-]+)\.json$/;
 const RESERVED_PRODUCT_IDS = new Set(['__proto__', 'constructor', 'prototype']);
 
 export class GithubDataConflictError extends Error {
@@ -57,12 +56,18 @@ function isPlainRecord(value) {
   return prototype === Object.prototype || prototype === null;
 }
 
-function validateShardPath(path) {
-  if (path === 'data/manifest.json' || path === 'data/materials.json') return;
-  const productMatch = PRODUCT_SHARD_PATTERN.exec(path);
-  if (!productMatch || RESERVED_PRODUCT_IDS.has(productMatch[1].toLowerCase())) {
-    throw new Error(`Invalid or unsafe shard path: ${path}`);
+function validateShardPath(path, shardRoot = 'data') {
+  const root = shardRoot.endsWith('/') ? shardRoot.slice(0, -1) : shardRoot;
+  if (path === `${root}/manifest.json` || path === `${root}/materials.json`) return;
+  const productPrefix = `${root}/products/`;
+  if (path.startsWith(productPrefix)) {
+    const productPath = path.slice(productPrefix.length);
+    const match = /^([A-Za-z0-9_-]+)\.json$/.exec(productPath);
+    if (match && !RESERVED_PRODUCT_IDS.has(match[1].toLowerCase())) {
+      return;
+    }
   }
+  throw new Error(`Invalid or unsafe shard path: ${path}`);
 }
 
 function requireSha(value, label) {
@@ -118,6 +123,7 @@ export function createGithubGitDataWriter({ config, fetchImpl }) {
   const owner = validateRepositoryPart(config.owner, 'owner');
   const repo = validateRepositoryPart(config.repo, 'repo');
   const branch = validateBranch(config.branch);
+  const shardRoot = config.shardRoot && typeof config.shardRoot === 'string' ? config.shardRoot : 'data';
   if (typeof fetchImpl !== 'function') throw new Error('fetchImpl function is required');
 
   const apiBase = `https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}`;
@@ -157,7 +163,7 @@ export function createGithubGitDataWriter({ config, fetchImpl }) {
 
       const paths = Object.keys(files).sort();
       for (const path of paths) {
-        validateShardPath(path);
+        validateShardPath(path, shardRoot);
         const content = files[path];
         if (typeof content !== 'string' && content !== null) {
           throw new Error(`Invalid content for path ${path}, must be string or null`);
