@@ -15,9 +15,6 @@ import {
 import {
   normalizeConfig,
   normalizePayload,
-  parseDataJsPayload,
-  rawUrl,
-  serializeDataJs,
 } from './infrastructure/github-data.js';
 import { createGithubShardedDataAdapter } from './infrastructure/github-sharded-data.js';
 import { createGithubGitDataWriter } from './infrastructure/github-git-data.js';
@@ -550,17 +547,8 @@ const global = globalThis;
 
 
 
-  function currentPayloadFromWindow() {
-    if (global.BOM_VIEWER_DATA && global.BOM_VIEWER_DATA.bom) {
-      return normalizePayload(global.BOM_VIEWER_DATA);
-    }
-    return normalizePayload({
-      bom: global.BOM_DATA || {},
-      drawings: global.DRAWING_INDEX || {},
-      manuals: global.MANUAL_INDEX || {},
-      models3d: global.MODEL3D_INDEX || {},
-      productImages: global.PRODUCT_IMAGE_INDEX || {}
-    });
+  function emptyInitialPayload() {
+    return normalizePayload({});
   }
 
 
@@ -588,7 +576,7 @@ const global = globalThis;
     }
 
     initialState() {
-      const payload = currentPayloadFromWindow();
+      const payload = emptyInitialPayload();
       return {
         lang: 'zh',
         payload,
@@ -2569,8 +2557,6 @@ export const coreUtils = {
   materialWhereUsed,
   normalizePayload,
   normalizeConfig,
-  parseDataJsPayload,
-  rawUrl,
   buildBomTreeRows,
   groupMaterialChildRows,
   hasChildMaterialRelation,
@@ -2578,7 +2564,6 @@ export const coreUtils = {
   resolveBomRows,
   syncLegacyBomFromMaterialDb,
   updateMaterialRecord,
-  serializeDataJs,
   stripProductColorName,
 };
 

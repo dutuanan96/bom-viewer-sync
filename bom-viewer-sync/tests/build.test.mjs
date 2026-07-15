@@ -18,7 +18,8 @@ test('generated Viewer is one file with inline local code and CSS', () => {
 
 test('generated Admin loads only the complete local Admin bundle', () => {
   const admin = fs.readFileSync(path.join(repoRoot, 'admin.html'), 'utf8');
-  assert.match(admin, /<script src="data\.js\?v=22"><\/script>/);
+  assert.doesNotMatch(admin, /<script src="data\.js/);
+  assert.match(admin, /shardRoot:\s*['"]bom-viewer-sync\/data['"]/);
   assert.match(admin, /<script src="app-admin\.js\?v=[a-f0-9]{12}"><\/script>/);
   assert.doesNotMatch(admin, /app-core\.js|app-viewer\.js/);
 });

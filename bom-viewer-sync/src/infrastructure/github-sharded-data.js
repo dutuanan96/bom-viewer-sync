@@ -1,16 +1,15 @@
-import { parseLogicalShardFiles, buildLogicalShardFiles, toRepositoryShardFiles } from '../domain/sharded-files.js';
+import { parseLogicalShardFiles, buildLogicalShardFiles, toRepositoryShardFiles, validateRepositoryShardRoot } from '../domain/sharded-files.js';
+import { validateProductId } from '../domain/sharded-data.js';
 import { normalizePayload, decodeBase64Utf8 } from './github-data.js';
 
 export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.fetch, writerFactory, now = Date.now }) {
   const owner = String(config?.owner || '');
   const repo = String(config?.repo || '');
   const branch = String(config?.branch || 'main');
-  const pathValue = String(config?.path || 'data.js');
-
-  const basePath = pathValue.includes('/') ? pathValue.substring(0, pathValue.lastIndexOf('/')) : '';
-  const shardRoot = basePath ? `${basePath}/data` : 'data';
+  const shardRoot = String(config?.shardRoot || 'data');
 
   if (!owner || !repo || !branch) throw new Error('Invalid config');
+  validateRepositoryShardRoot(shardRoot);
 
   const apiBase = `https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}`;
 
@@ -93,10 +92,14 @@ export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.
 
         if (!manifest || !Array.isArray(manifest.products)) throw new Error('Invalid manifest structure');
 
+        const seenProductIds = new Set();
+        for (const id of manifest.products) {
+          validateProductId(id);
+          if (seenProductIds.has(id)) throw new Error(`Duplicate product ID in manifest: ${id}`);
+          seenProductIds.add(id);
+        }
+
         await Promise.all(manifest.products.map(async (id) => {
-          if (typeof id !== 'string' || id.includes('../') || id.includes('..\\')) {
-            throw new Error(`Invalid product ID format traversal not allowed: ${id}`);
-          }
           const content = await fetchRaw(`products/${id}.json`);
           files.set(`products/${id}.json`, content);
         }));
@@ -132,6 +135,7 @@ export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.
         }
 
         const treeData = await githubJson(`${apiBase}/git/trees/${treeSha}?recursive=1`, { cache: 'no-store' }, token);
+        if (!treeData || treeData.sha !== treeSha) throw new Error('Tree response SHA mismatch');
         if (treeData.truncated === true) throw new Error('Tree is truncated');
         if (!Array.isArray(treeData.tree)) throw new Error('Invalid tree format');
 

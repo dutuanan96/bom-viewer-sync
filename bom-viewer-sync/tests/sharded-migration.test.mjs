@@ -213,3 +213,83 @@ test('Materialize script rejects transient data', async () => {
     await fs.promises.rm(tmpDir, { recursive: true, force: true });
   }
 });
+
+test('Materialize script rejects absolute output paths outside rootDir', async () => {
+  const tmpDir = await fs.promises.mkdtemp(path.join(os.tmpdir(), 'bom-sync-output-root-'));
+  const outsideDir = await fs.promises.mkdtemp(path.join(os.tmpdir(), 'bom-sync-output-outside-'));
+  try {
+    const dataJsPath = path.join(tmpDir, 'data.js');
+    await fs.promises.writeFile(dataJsPath, `window.BOM_VIEWER_DATA = ${JSON.stringify({
+      version: 2,
+      bom: { P1: { id: 'P1' } },
+      materialDb: { materials: {}, bomEntries: [] },
+    })};`, 'utf8');
+
+    await assert.rejects(
+      materializeShards(dataJsPath, path.join(outsideDir, 'data'), { rootDir: tmpDir }),
+      /Output directory must be a safe repository-relative shard root/,
+    );
+    await assert.rejects(fs.promises.stat(path.join(outsideDir, 'data', 'manifest.json')), { code: 'ENOENT' });
+  } finally {
+    await fs.promises.rm(tmpDir, { recursive: true, force: true });
+    await fs.promises.rm(outsideDir, { recursive: true, force: true });
+  }
+});
+
+test('Materialize verification rejects unexpected existing shard files', async () => {
+  const tmpDir = await fs.promises.mkdtemp(path.join(os.tmpdir(), 'bom-sync-extra-shard-'));
+  try {
+    const dataJsPath = path.join(tmpDir, 'data.js');
+    await fs.promises.writeFile(dataJsPath, `window.BOM_VIEWER_DATA = ${JSON.stringify({
+      version: 2,
+      bom: { P1: { id: 'P1' } },
+      materialDb: { materials: {}, bomEntries: [] },
+    })};`, 'utf8');
+
+    await materializeShards(dataJsPath, 'data', { rootDir: tmpDir });
+    await fs.promises.writeFile(path.join(tmpDir, 'data', 'products', 'EXTRA.json'), '{}\n', 'utf8');
+
+    await assert.rejects(
+      materializeShards(dataJsPath, 'data', { rootDir: tmpDir, verify: true }),
+      /Unexpected existing file: data\/products\/EXTRA\.json/,
+    );
+  } finally {
+    await fs.promises.rm(tmpDir, { recursive: true, force: true });
+  }
+});
+
+test('Materialize script rejects symlinks inside the shard output tree', async (t) => {
+  const tmpDir = await fs.promises.mkdtemp(path.join(os.tmpdir(), 'bom-sync-symlink-root-'));
+  const outsideDir = await fs.promises.mkdtemp(path.join(os.tmpdir(), 'bom-sync-symlink-outside-'));
+  try {
+    const dataJsPath = path.join(tmpDir, 'data.js');
+    await fs.promises.writeFile(dataJsPath, `window.BOM_VIEWER_DATA = ${JSON.stringify({
+      version: 2,
+      bom: { P1: { id: 'P1' } },
+      materialDb: { materials: {}, bomEntries: [] },
+    })};`, 'utf8');
+    await fs.promises.mkdir(path.join(tmpDir, 'data'));
+    try {
+      await fs.promises.symlink(
+        outsideDir,
+        path.join(tmpDir, 'data', 'products'),
+        process.platform === 'win32' ? 'junction' : 'dir',
+      );
+    } catch (error) {
+      if (error.code === 'EPERM') {
+        t.skip('Creating a test symlink is not permitted on this machine');
+        return;
+      }
+      throw error;
+    }
+
+    await assert.rejects(
+      materializeShards(dataJsPath, 'data', { rootDir: tmpDir }),
+      /Symbolic links are not allowed in shard output: data\/products/,
+    );
+    await assert.rejects(fs.promises.stat(path.join(outsideDir, 'P1.json')), { code: 'ENOENT' });
+  } finally {
+    await fs.promises.rm(tmpDir, { recursive: true, force: true });
+    await fs.promises.rm(outsideDir, { recursive: true, force: true });
+  }
+});

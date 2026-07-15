@@ -9,22 +9,9 @@ export function normalizeConfig(config) {
     owner: String(source.owner || ''),
     repo: String(source.repo || ''),
     branch: String(source.branch || 'main'),
-    path: String(source.path || 'data.js'),
-    rawUrl: String(source.rawUrl || ''),
+    shardRoot: String(source.shardRoot || 'data'),
   };
 }
-
-function apiPath(pathValue) {
-  return String(pathValue || 'data.js').split('/').map(encodeURIComponent).join('/');
-}
-
-export function rawUrl(config) {
-  const clean = normalizeConfig(config);
-  if (clean.rawUrl) return clean.rawUrl;
-  if (!clean.owner || !clean.repo || !clean.branch || !clean.path) return '';
-  return `https://raw.githubusercontent.com/${clean.owner}/${clean.repo}/${clean.branch}/${clean.path}`;
-}
-
 
 export function encodeBase64Utf8(value) {
   const bytes = new TextEncoder().encode(String(value));
@@ -55,7 +42,7 @@ export function decodeBase64Utf8(value) {
   throw new Error('Base64 decoder unavailable');
 }
 
-export function normalizePayload(payload, fallbackProductImages = globalThis.BOM_VIEWER_DATA?.productImages || globalThis.PRODUCT_IMAGE_INDEX || {}) {
+export function normalizePayload(payload, fallbackProductImages = {}) {
   const source = payload || {};
   const normalized = {
     version: source.version != null ? source.version : 2,

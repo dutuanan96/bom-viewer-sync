@@ -2,6 +2,27 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { BomApplication, coreUtils } from '../src/application.js';
 
+test('application does not bootstrap runtime state from the legacy BOM_VIEWER_DATA global', () => {
+  const previous = globalThis.BOM_VIEWER_DATA;
+  globalThis.BOM_VIEWER_DATA = {
+    version: 99,
+    bom: { LEGACY: { id: 'LEGACY' } },
+    materialDb: { materials: {}, bomEntries: [] },
+  };
+  try {
+    const app = new BomApplication({
+      mode: 'viewer',
+      config: { owner: 'test', repo: 'test', branch: 'main', shardRoot: 'data' },
+      githubData: {},
+    });
+    assert.deepEqual(Object.keys(app.state.bom), []);
+    assert.equal(app.state.payload.version, 2);
+  } finally {
+    if (previous === undefined) delete globalThis.BOM_VIEWER_DATA;
+    else globalThis.BOM_VIEWER_DATA = previous;
+  }
+});
+
 test('application normalizes current notifications and identifies incoming notifications', () => {
   const existing = {
     id: 'notification-existing',

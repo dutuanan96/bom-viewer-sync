@@ -1,4 +1,4 @@
-import { assembleShardedPayload, splitPayloadToShards } from './sharded-data.js';
+import { assembleShardedPayload, splitPayloadToShards, validateProductId } from './sharded-data.js';
 
 function stringify(value) {
   return `${JSON.stringify(value, null, 2)}\n`;
@@ -26,11 +26,21 @@ export function buildLogicalShardFiles(payload) {
   return files;
 }
 
-export function toRepositoryShardFiles(files, shardRoot) {
-  assertLogicalFiles(files);
-  if (typeof shardRoot !== 'string' || (shardRoot !== 'data' && !shardRoot.endsWith('/data'))) {
+export function validateRepositoryShardRoot(shardRoot) {
+  if (typeof shardRoot !== 'string' || !shardRoot || shardRoot.includes('\\')) {
     throw new Error('Valid repository shard root is required');
   }
+  const segments = shardRoot.split('/');
+  if (segments.at(-1) !== 'data'
+    || segments.some((segment) => !segment || segment === '.' || segment === '..' || !/^[A-Za-z0-9._-]+$/.test(segment))) {
+    throw new Error('Valid repository shard root is required');
+  }
+  return shardRoot;
+}
+
+export function toRepositoryShardFiles(files, shardRoot) {
+  assertLogicalFiles(files);
+  validateRepositoryShardRoot(shardRoot);
   return Object.fromEntries([...files.entries()].map(([path, content]) => [`${shardRoot}/${path}`, content]));
 }
 
@@ -43,6 +53,17 @@ export async function parseLogicalShardFiles(files) {
 
   const manifest = JSON.parse(manifestRaw);
   const materials = JSON.parse(materialsRaw);
+
+  if (Array.isArray(manifest?.products)) {
+    const expectedPaths = new Set(['manifest.json', 'materials.json']);
+    for (const id of manifest.products) {
+      validateProductId(id);
+      expectedPaths.add(`products/${id}.json`);
+    }
+    for (const path of [...files.keys()].sort()) {
+      if (!expectedPaths.has(path)) throw new Error(`Unexpected logical shard: ${path}`);
+    }
+  }
 
   return assembleShardedPayload(manifest, materials, async (id) => {
     const content = files.get(`products/${id}.json`);

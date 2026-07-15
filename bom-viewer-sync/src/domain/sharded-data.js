@@ -7,6 +7,9 @@ export function isPlainObject(val) {
 export function validateProductId(id) {
   if (typeof id !== 'string') throw new Error(`Invalid product ID type: ${typeof id}`);
   if (!/^[a-zA-Z0-9_-]+$/.test(id)) throw new Error(`Invalid product ID format: ${id}`);
+  if (['__proto__', 'constructor', 'prototype'].includes(id)) {
+    throw new Error(`Reserved product ID: ${id}`);
+  }
 }
 
 export async function assembleShardedPayload(manifest, materials, loadProduct) {

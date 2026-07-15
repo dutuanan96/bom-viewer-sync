@@ -37,3 +37,27 @@ test('domain/sharded-files.js runs cleanly without node-specific libraries', asy
   const repoFiles = toRepositoryShardFiles(files, 'data');
   assert.ok(repoFiles['data/manifest.json']);
 });
+
+test('parseLogicalShardFiles rejects product shards not declared by the manifest', async () => {
+  const files = new Map([
+    ['manifest.json', JSON.stringify({ version: 1, products: ['P1'] })],
+    ['materials.json', JSON.stringify({ materialDb: { materials: {}, bomEntries: [] } })],
+    ['products/P1.json', JSON.stringify({ id: 'P1' })],
+    ['products/EXTRA.json', JSON.stringify({ id: 'EXTRA' })],
+  ]);
+
+  await assert.rejects(
+    parseLogicalShardFiles(files),
+    /Unexpected logical shard: products\/EXTRA\.json/,
+  );
+});
+
+test('shard builders reject product IDs reserved by JavaScript object semantics', () => {
+  const payload = {
+    version: 1,
+    bom: Object.assign(Object.create(null), { constructor: { id: 'constructor' } }),
+    materialDb: { materials: {}, bomEntries: [] },
+  };
+
+  assert.throws(() => buildLogicalShardFiles(payload), /Reserved product ID: constructor/);
+});
