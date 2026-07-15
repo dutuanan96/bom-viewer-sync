@@ -25,21 +25,29 @@ function migrationError(code, message, metadata = {}) {
 }
 
 export function sanitizeMigrationError(error, tokenToRedact = '') {
-  let message = String(error?.message || 'Staging migration failed');
-  if (tokenToRedact && tokenToRedact.trim() !== '') {
-    message = message.replaceAll(tokenToRedact, '***');
-  }
+  const redactText = (value, fallback) => {
+    if (value === undefined || value === null) return fallback;
+    let text;
+    try {
+      text = String(value);
+    } catch {
+      return fallback;
+    }
+    if (!tokenToRedact || tokenToRedact.trim() === '') return text;
+    return text.replaceAll(tokenToRedact, '***');
+  };
   return Object.fromEntries(Object.entries({
-    name: error?.name || 'Error',
-    code: error?.code || 'STAGING_MIGRATION_FAILED',
-    message,
-    status: error?.status,
-    endpoint: error?.endpoint,
-    mutationStage: error?.mutationStage,
-    branchCreated: error?.branchCreated,
-    stagingBranch: error?.stagingBranch,
-    mainUnchanged: error?.mainUnchanged,
-  }).filter(([, value]) => value !== undefined));
+    name: redactText(error?.name, 'Error'),
+    code: redactText(error?.code, 'STAGING_MIGRATION_FAILED'),
+    message: redactText(error?.message, 'Staging migration failed'),
+    status: Number.isFinite(error?.status) ? error.status : undefined,
+    endpoint: typeof error?.endpoint === 'string' ? redactText(error.endpoint) : undefined,
+    mutationStage: typeof error?.mutationStage === 'string' ? redactText(error.mutationStage) : undefined,
+    branchCreated: typeof error?.branchCreated === 'boolean' ? error.branchCreated : undefined,
+    stagingBranch: typeof error?.stagingBranch === 'string' ? redactText(error.stagingBranch) : undefined,
+    mainUnchanged: typeof error?.mainUnchanged === 'boolean' ? error.mainUnchanged : undefined,
+  })
+    .filter(([, value]) => value !== undefined));
 }
 
 export function parseStagingArgs(argv, env) {
@@ -221,8 +229,8 @@ export function createGithubShardedStagingMigration({ fetchImpl, writerFactory }
         if (entry.type !== 'blob') throw migrationError('INVALID_REMOTE_SHARD', `Expected blob at ${path}`);
 
         const blobData = await githubJson(`${apiBase}/git/blobs/${entry.sha}`, {}, token);
-        if (blobData.encoding !== 'base64' || typeof blobData.content !== 'string') {
-           throw migrationError('INVALID_BLOB', 'Invalid blob response');
+        if (!blobData || blobData.sha !== entry.sha || !SHA_PATTERN.test(blobData.sha) || blobData.encoding !== 'base64' || typeof blobData.content !== 'string') {
+          throw migrationError('INVALID_BLOB', 'Invalid blob response or SHA mismatch');
         }
 
         const logicalPath = path.slice(prefix.length);
@@ -269,9 +277,10 @@ export function createGithubShardedStagingMigration({ fetchImpl, writerFactory }
           throw migrationError('AGGREGATE_HASH_MISMATCH', 'Logical shard aggregate hash changed');
         }
 
-        mutationStage = 'branch-create-uncertain';
+        mutationStage = 'branch-check';
         await assertBranchMissing(stagingBranch, token);
 
+        mutationStage = 'branch-create-uncertain';
         try {
           await createBranch(stagingBranch, expectedSourceSha, token);
         } catch (err) {

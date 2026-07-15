@@ -29,6 +29,8 @@ function createMockFetch(steps) {
     const step = steps[calls.length];
     calls.push({ url, method: options.method || 'GET', headers: options.headers, body: options.body });
     if (!step) throw new Error(`Unexpected fetch call ${calls.length - 1}: ${url}`);
+    if (step.url) assert.equal(url, step.url);
+    if (step.method) assert.equal(options.method || 'GET', step.method);
     if (step.networkError) throw step.networkError;
     return {
       ok: step.ok !== false,
@@ -37,6 +39,61 @@ function createMockFetch(steps) {
     };
   };
   return { fetchImpl, calls };
+}
+
+function createReadbackHarness({ mutateRemoteBlob } = {}) {
+  const { sourcePayloadBase64, expectedHash, logicalFiles } = createValidPayloadAndHash();
+  const testInput = { ...input, expectedAggregateSha256: expectedHash };
+  const mockWriterSha = '3333333333333333333333333333333333333333';
+  const shardEntries = Array.from(logicalFiles.entries()).map(([logicalPath, content], index) => ({
+    path: `bom-viewer-sync/data/${logicalPath}`,
+    logicalPath,
+    content,
+    sha: (index + 16).toString(16).padStart(40, '0'),
+  }));
+
+  const steps = [
+    { url: `${apiBase}/git/ref/heads/main`, json: { ref: 'refs/heads/main', object: { type: 'commit', sha: testInput.expectedSourceSha } } },
+    { url: `${apiBase}/git/commits/${testInput.expectedSourceSha}`, json: { sha: testInput.expectedSourceSha, tree: { sha: testInput.expectedSourceSha } } },
+    { url: `${apiBase}/git/trees/${testInput.expectedSourceSha}?recursive=1`, json: { sha: testInput.expectedSourceSha, truncated: false, tree: [{ path: 'bom-viewer-sync/data.js', type: 'blob', sha: testInput.expectedSourceSha }] } },
+    { url: `${apiBase}/git/blobs/${testInput.expectedSourceSha}`, json: { sha: testInput.expectedSourceSha, encoding: 'base64', content: sourcePayloadBase64 } },
+    { url: `${apiBase}/git/ref/heads/${testInput.stagingBranch}`, ok: false, status: 404, json: { message: 'Not Found' } },
+    { url: `${apiBase}/git/refs`, method: 'POST', ok: true, status: 201, json: { ref: `refs/heads/${testInput.stagingBranch}`, object: { type: 'commit', sha: testInput.expectedSourceSha } } },
+    { url: `${apiBase}/git/ref/heads/${testInput.stagingBranch}`, json: { ref: `refs/heads/${testInput.stagingBranch}`, object: { type: 'commit', sha: mockWriterSha } } },
+    { url: `${apiBase}/git/commits/${mockWriterSha}`, json: { sha: mockWriterSha, tree: { sha: mockWriterSha } } },
+    { url: `${apiBase}/git/trees/${mockWriterSha}?recursive=1`, json: { sha: mockWriterSha, truncated: false, tree: [
+      { path: 'bom-viewer-sync/data.js', type: 'blob', sha: testInput.expectedSourceSha },
+      ...shardEntries.map(({ path, sha }) => ({ path, type: 'blob', sha })),
+    ] } },
+    { url: `${apiBase}/git/blobs/${testInput.expectedSourceSha}`, json: { sha: testInput.expectedSourceSha, encoding: 'base64', content: sourcePayloadBase64 } },
+  ];
+
+  shardEntries.forEach((entry, index) => {
+    const response = {
+      sha: entry.sha,
+      encoding: 'base64',
+      content: Buffer.from(entry.content).toString('base64'),
+    };
+    steps.push({
+      url: `${apiBase}/git/blobs/${entry.sha}`,
+      json: mutateRemoteBlob ? mutateRemoteBlob(response, entry, index) : response,
+    });
+  });
+
+  steps.push({ url: `${apiBase}/git/ref/heads/main`, json: { ref: 'refs/heads/main', object: { type: 'commit', sha: testInput.expectedSourceSha } } });
+
+  const { fetchImpl, calls } = createMockFetch(steps);
+  const writerFactory = () => ({ writeFiles: async () => ({ commitSha: mockWriterSha }) });
+  return { testInput, mockWriterSha, fetchImpl, writerFactory, calls, shardEntries, stepCount: steps.length };
+}
+
+function createCliArgv(testInput) {
+  return [
+    '--execute', '--confirm', 'STAGE_24_SHARDS',
+    '--expected-source-sha', testInput.expectedSourceSha,
+    '--expected-aggregate-sha256', testInput.expectedAggregateSha256,
+    '--staging-branch', testInput.stagingBranch,
+  ];
 }
 
 const input = {
@@ -154,7 +211,7 @@ test('target non-404 error stops before POST (GITHUB_API_ERROR)', async () => {
 test('create-ref returning non-2xx throws and leaves branchCreated=false, mutationStage=branch-create-uncertain', async () => {
   const { sourcePayloadBase64, expectedHash } = createValidPayloadAndHash();
   const testInput = { ...input, expectedAggregateSha256: expectedHash };
-  const baseMocks = [
+  const getBaseMocks = () => [
     { json: { ref: 'refs/heads/main', object: { type: 'commit', sha: testInput.expectedSourceSha } } },
     { json: { sha: testInput.expectedSourceSha, tree: { sha: testInput.expectedSourceSha } } },
     { json: { sha: testInput.expectedSourceSha, truncated: false, tree: [{ path: 'bom-viewer-sync/data.js', type: 'blob', sha: testInput.expectedSourceSha }] } },
@@ -163,7 +220,7 @@ test('create-ref returning non-2xx throws and leaves branchCreated=false, mutati
   ];
 
   // Test 403
-  let migration = createGithubShardedStagingMigration({ fetchImpl: createMockFetch([...baseMocks, { ok: false, status: 403, json: { message: 'Forbidden' } }]).fetchImpl });
+  let migration = createGithubShardedStagingMigration({ fetchImpl: createMockFetch([...getBaseMocks(), { ok: false, status: 403, json: { message: 'Forbidden' } }]).fetchImpl });
   try {
     await migration.run(testInput);
     assert.fail('should throw');
@@ -174,7 +231,7 @@ test('create-ref returning non-2xx throws and leaves branchCreated=false, mutati
   }
 
   // Test 500
-  migration = createGithubShardedStagingMigration({ fetchImpl: createMockFetch([...baseMocks, { ok: false, status: 500, json: { message: 'Internal Server Error' } }]).fetchImpl });
+  migration = createGithubShardedStagingMigration({ fetchImpl: createMockFetch([...getBaseMocks(), { ok: false, status: 500, json: { message: 'Internal Server Error' } }]).fetchImpl });
   try {
     await migration.run(testInput);
     assert.fail('should throw');
@@ -185,7 +242,7 @@ test('create-ref returning non-2xx throws and leaves branchCreated=false, mutati
   }
 
   // Test timeout (network error)
-  migration = createGithubShardedStagingMigration({ fetchImpl: createMockFetch([...baseMocks, { networkError: new Error('fetch timeout') }]).fetchImpl });
+  migration = createGithubShardedStagingMigration({ fetchImpl: createMockFetch([...getBaseMocks(), { networkError: new Error('fetch timeout') }]).fetchImpl });
   try {
     await migration.run(testInput);
     assert.fail('should throw');
@@ -196,7 +253,7 @@ test('create-ref returning non-2xx throws and leaves branchCreated=false, mutati
   }
 
   // Test malformed 201
-  migration = createGithubShardedStagingMigration({ fetchImpl: createMockFetch([...baseMocks, { ok: true, status: 201, json: { ref: 'refs/heads/WRONG' } }]).fetchImpl });
+  migration = createGithubShardedStagingMigration({ fetchImpl: createMockFetch([...getBaseMocks(), { ok: true, status: 201, json: { ref: 'refs/heads/WRONG' } }]).fetchImpl });
   try {
     await migration.run(testInput);
     assert.fail('should throw');
@@ -317,80 +374,66 @@ test('main moved final step throws MAIN_MOVED_DURING_RUN', async () => {
   }
 });
 
-test('token is redacted from all error fields', async () => {
+test('token is redacted from every serialized error field', () => {
   const err = new Error(`secret ${input.token} exposed`);
+  const unsafeMetadata = { diagnostic: input.token };
+  unsafeMetadata.self = unsafeMetadata;
+  err.name = `name-${input.token}`;
+  err.code = `code-${input.token}`;
+  err.endpoint = `endpoint-${input.token}`;
+  err.mutationStage = `stage-${input.token}`;
+  err.stagingBranch = `branch-${input.token}`;
+  err.status = unsafeMetadata;
+  err.branchCreated = unsafeMetadata;
+  err.mainUnchanged = unsafeMetadata;
   err.cause = new Error(`cause ${input.token}`);
   err.stack = `stack ${input.token}`;
 
   const sanitized = sanitizeMigrationError(err, input.token);
-  assert.ok(!sanitized.message.includes(input.token));
-  assert.ok(!sanitized.stack); // stack not present
-  assert.ok(!sanitized.cause); // cause stripped
+  assert.ok(!JSON.stringify(sanitized).includes(input.token));
+  assert.equal(sanitized.message, 'secret *** exposed');
+  assert.equal(sanitized.status, undefined);
+  assert.equal(sanitized.branchCreated, undefined);
+  assert.equal(sanitized.mainUnchanged, undefined);
+  assert.ok(!sanitized.stack);
+  assert.ok(!sanitized.cause);
 });
 
-import { execSync } from 'node:child_process';
-test('CLI wrapper integration passes without executing real fetch', () => {
+test('CLI wrapper uses injected dependencies without accessing global fetch', async () => {
+  const harness = createReadbackHarness();
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = async () => { throw new Error('REAL_NETWORK_ESCAPE'); };
+
   try {
-    execSync('node scripts/migrate-data-staging.mjs --execute --confirm STAGE_24_SHARDS --expected-source-sha 39c396e59ff6324afb52d5335866f16411f33ae3 --expected-aggregate-sha256 d5261ad277be1fbe7b391ea2f0995de8b0f96fdb612d73e95ed5853b2903684e --staging-branch codex/phase-b4-shards-20260715T090000Z-39c396e', { env: { ...process.env, GH_TOKEN: 'fake' }, stdio: 'pipe' });
-    assert.fail('should exit 1');
-  } catch (error) {
-    const errOutput = error.stderr.toString();
-    // It should fail with GITHUB_API_ERROR because token is fake
-    assert.ok(errOutput.includes('GITHUB_API_ERROR') || errOutput.includes('Bad credentials') || errOutput.includes('Not Found') || errOutput.includes('fake'), errOutput);
+    const result = await cliRun(
+      createCliArgv(harness.testInput),
+      { GH_TOKEN: harness.testInput.token },
+      { fetchImpl: harness.fetchImpl, writerFactory: harness.writerFactory },
+    );
+    assert.equal(result.status, 'verified');
+    assert.equal(harness.calls.length, harness.stepCount);
+  } finally {
+    globalThis.fetch = originalFetch;
   }
 });
 
 test('happy path orchestration succeeds and returns verified status object', async () => {
-  const { sourcePayloadBase64, expectedHash, logicalFiles } = createValidPayloadAndHash();
-  const testInput = { ...input, expectedAggregateSha256: expectedHash };
-
-  const mockWriterSha = '3333333333333333333333333333333333333333';
-
-  const steps = [
-    { json: { ref: 'refs/heads/main', object: { type: 'commit', sha: testInput.expectedSourceSha } } },
-    { json: { sha: testInput.expectedSourceSha, tree: { sha: testInput.expectedSourceSha } } },
-    { json: { sha: testInput.expectedSourceSha, truncated: false, tree: [{ path: 'bom-viewer-sync/data.js', type: 'blob', sha: testInput.expectedSourceSha }] } },
-    { json: { sha: testInput.expectedSourceSha, encoding: 'base64', content: sourcePayloadBase64 } },
-    { ok: false, status: 404, json: { message: 'Not Found' } },
-    { ok: true, status: 201, json: { ref: `refs/heads/${testInput.stagingBranch}`, object: { type: 'commit', sha: testInput.expectedSourceSha } } },
-    { json: { ref: `refs/heads/${testInput.stagingBranch}`, object: { type: 'commit', sha: mockWriterSha } } },
-    { json: { sha: mockWriterSha, tree: { sha: mockWriterSha } } },
-    { json: { sha: mockWriterSha, truncated: false, tree: [
-        { path: 'bom-viewer-sync/data.js', type: 'blob', sha: testInput.expectedSourceSha },
-        { path: 'bom-viewer-sync/data/manifest.json', type: 'blob', sha: testInput.expectedSourceSha },
-        { path: 'bom-viewer-sync/data/materials.json', type: 'blob', sha: testInput.expectedSourceSha },
-        ...Array.from({length: 22}).map((_, i) => ({ path: `bom-viewer-sync/data/products/product-${i}.json`, type: 'blob', sha: testInput.expectedSourceSha }))
-      ] } },
-    { json: { sha: testInput.expectedSourceSha, encoding: 'base64', content: sourcePayloadBase64 } }
-  ];
-
-  for (const entry of [
-    { path: 'manifest.json' }, { path: 'materials.json' },
-    ...Array.from({length: 22}).map((_, i) => ({ path: `products/product-${i}.json` }))
-  ]) {
-    const content = logicalFiles.get(entry.path);
-    steps.push({ json: { sha: testInput.expectedSourceSha, encoding: 'base64', content: Buffer.from(content).toString('base64') } });
-  }
-
-  steps.push({ json: { ref: 'refs/heads/main', object: { type: 'commit', sha: testInput.expectedSourceSha } } });
-
-  const { fetchImpl } = createMockFetch(steps);
-
-  const writerFactory = () => ({
-    writeFiles: async () => ({ commitSha: mockWriterSha })
+  const harness = createReadbackHarness();
+  const migration = createGithubShardedStagingMigration({
+    fetchImpl: harness.fetchImpl,
+    writerFactory: harness.writerFactory,
   });
-
-  const migration = createGithubShardedStagingMigration({ fetchImpl, writerFactory });
-  const result = await migration.run(testInput);
+  const result = await migration.run(harness.testInput);
 
   assert.equal(result.status, 'verified');
   assert.equal(result.shardCount, 24);
-  assert.equal(result.stagingCommitSha, mockWriterSha);
-  assert.equal(result.aggregateSha256, testInput.expectedAggregateSha256);
+  assert.equal(result.stagingCommitSha, harness.mockWriterSha);
+  assert.equal(result.aggregateSha256, harness.testInput.expectedAggregateSha256);
   assert.equal(result.dataJsUnchanged, true);
   assert.equal(result.roundTripEqual, true);
   assert.equal(result.mainUnchanged, true);
-  assert.equal(result.compareUrl, `https://github.com/${STAGING_PROJECT.owner}/${STAGING_PROJECT.repo}/compare/${testInput.expectedSourceSha}...${testInput.stagingBranch}`);
+  assert.equal(result.compareUrl, `https://github.com/${STAGING_PROJECT.owner}/${STAGING_PROJECT.repo}/compare/${harness.testInput.expectedSourceSha}...${harness.testInput.stagingBranch}`);
+  assert.equal(harness.calls.length, harness.stepCount);
 });
 
 test('real writer factory integration succeeds with full orchestrator mock', async () => {
@@ -491,3 +534,30 @@ test('real writer factory integration succeeds with full orchestrator mock', asy
   assert.equal(result.shardCount, 24);
   assert.equal(result.stagingCommitSha, mockWriterSha);
 });
+
+for (const testCase of [
+  { name: 'missing', mutate: (response) => ({ ...response, sha: undefined }) },
+  { name: 'malformed', mutate: (response) => ({ ...response, sha: 'bad' }) },
+  { name: 'mismatched', mutate: (response) => ({ ...response, sha: 'ffffffffffffffffffffffffffffffffffffffff' }) },
+]) {
+  test(`remote shard readback rejects ${testCase.name} blob SHA`, async () => {
+    const harness = createReadbackHarness({
+      mutateRemoteBlob: (response, entry, index) => index === 0 ? testCase.mutate(response) : response,
+    });
+    const migration = createGithubShardedStagingMigration({
+      fetchImpl: harness.fetchImpl,
+      writerFactory: harness.writerFactory,
+    });
+
+    await assert.rejects(migration.run(harness.testInput), (error) => {
+      assert.equal(error.code, 'INVALID_BLOB');
+      assert.equal(error.mutationStage, 'readback');
+      assert.equal(error.branchCreated, true);
+      return true;
+    });
+
+    const firstRemoteShardCall = harness.calls[10];
+    assert.ok(firstRemoteShardCall.url.endsWith(`/git/blobs/${harness.shardEntries[0].sha}`));
+    assert.equal(harness.calls.length, 11);
+  });
+}
