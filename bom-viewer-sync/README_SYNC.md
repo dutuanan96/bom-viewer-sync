@@ -7,9 +7,9 @@ The canonical source is `work/remote-bom-viewer-sync/bom-viewer-sync/`. Build an
 PR #1 was squash-merged into `main` on 2026-07-14 as `72debab`; Phase A PR #5 was squash-merged as `de35ea2`; Phase B PR #6 was merged. Product revision/effectivity, Material Master draft editing, notifications, and the create-only satellite adapter are integrated. Phase B.1 PR #8 was merged. Phase B.2 PR #9 was merged at `8e9f221`. Phase B.3 implements Atomic Sharded Writer Foundation.
 
 - Canonical `main` artifacts are the source of truth.
-- `outputs/` runtime artifacts have been rebuilt from integrated `main` and match canonical bytes.
-- Desktop `admin.html` and `viewer.html` are release copies from the verified integrated build.
-- Context documents in canonical and `outputs/` must remain byte-identical.
+- `outputs/` runtime artifacts are the last approved portable release and are not synchronized with Phase B.3.
+- Desktop `admin.html` and `viewer.html` are the last approved shareable release and are not synchronized with Phase B.3.
+- Context documents in canonical and `outputs/` may differ while Phase B.3 remains unpublished; synchronize them only during an approved publication.
 - Canonical data audits at 646 materials/1 notification; `outputs/data.js` remains the older 643-material/6-notification snapshot by design.
 
 Runtime publication and data synchronization are separate operations. Never copy `outputs/data.js` over canonical or GitHub data.
@@ -22,6 +22,7 @@ Phase B.1 (PR #8) adds a compatibility layer: `loadPublic()` tries sharded manif
 Phase B.2 (PR #9) introduces an in-memory dry-run to prove data sharding integrity in memory. No actual migration has been pushed.
 Phase B.3 introduces an Atomic Sharded Writer Foundation for concurrent multi-file writes. The writer remains inactive and no real remote writes happen yet.
 `data.js`, `outputs/`, and Desktop remain unchanged. Do not publish them until publication is separately approved.
+The user authorized Phase B.4 to begin after the Phase B.3 merge. Keep it as a separate plan-first change; this Phase B.3 merge performs no remote staging, runtime wiring, migration, or publication.
 
 ## Sync Rules
 

@@ -1,169 +1,258 @@
+const SHA_PATTERN = /^[0-9a-f]{40}$/i;
+const REPOSITORY_PART_PATTERN = /^[A-Za-z0-9_.-]+$/;
+const PRODUCT_SHARD_PATTERN = /^data\/products\/([A-Za-z0-9_-]+)\.json$/;
+const RESERVED_PRODUCT_IDS = new Set(['__proto__', 'constructor', 'prototype']);
+
 export class GithubDataConflictError extends Error {
-  constructor(message) {
+  constructor(message, status, endpoint) {
     super(message);
     this.name = 'GithubDataConflictError';
+    if (status !== undefined) this.status = status;
+    if (endpoint !== undefined) this.endpoint = endpoint;
   }
 }
 
+function isNonEmptyString(value) {
+  return typeof value === 'string' && value.trim() !== '';
+}
+
+function validateRepositoryPart(value, label) {
+  if (!isNonEmptyString(value) || value !== value.trim() || !REPOSITORY_PART_PATTERN.test(value)) {
+    throw new Error(`Invalid GitHub ${label} config`);
+  }
+  if (value === '.' || value === '..') throw new Error(`Invalid GitHub ${label} config`);
+  return value;
+}
+
+function validateBranch(branch) {
+  if (!isNonEmptyString(branch) || branch !== branch.trim()) {
+    throw new Error('Invalid GitHub branch config');
+  }
+  if (
+    branch.startsWith('/')
+    || branch.endsWith('/')
+    || branch.endsWith('.')
+    || branch.includes('//')
+    || branch.includes('..')
+    || branch.includes('@{')
+    || branch === '@'
+    || /[\x00-\x20\x7f~^:?*[\\]/.test(branch)
+  ) {
+    throw new Error('Invalid GitHub branch config');
+  }
+  const segments = branch.split('/');
+  if (segments.some((segment) => segment === '.' || segment === '..' || segment.endsWith('.lock'))) {
+    throw new Error('Invalid GitHub branch config');
+  }
+  return branch;
+}
+
+function encodeRefPath(branch) {
+  return branch.split('/').map(encodeURIComponent).join('/');
+}
+
+function isPlainRecord(value) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return false;
+  const prototype = Object.getPrototypeOf(value);
+  return prototype === Object.prototype || prototype === null;
+}
+
+function validateShardPath(path) {
+  if (path === 'data/manifest.json' || path === 'data/materials.json') return;
+  const productMatch = PRODUCT_SHARD_PATTERN.exec(path);
+  if (!productMatch || RESERVED_PRODUCT_IDS.has(productMatch[1].toLowerCase())) {
+    throw new Error(`Invalid or unsafe shard path: ${path}`);
+  }
+}
+
+function requireSha(value, label) {
+  if (!SHA_PATTERN.test(value || '')) throw new Error(`Invalid ${label} response: missing SHA`);
+  return value;
+}
+
+function validateRefResponse(data, expectedRef, expectedSha, label) {
+  if (!data || data.ref !== expectedRef || data.object?.type !== 'commit') {
+    throw new Error(`Invalid ${label} response`);
+  }
+  const sha = requireSha(data.object.sha, label);
+  if (expectedSha && sha !== expectedSha) throw new Error(`Invalid ${label} response: unexpected SHA`);
+  return sha;
+}
+
+function validateCommitResponse(data, expectedSha) {
+  if (!data || requireSha(data.sha, 'commit') !== expectedSha) {
+    throw new Error('Invalid commit response');
+  }
+  return requireSha(data.tree?.sha, 'commit tree');
+}
+
+function sanitizeError(error, token) {
+  const source = error instanceof Error ? error : new Error(String(error));
+  const exposedText = `${source.message}\n${source.stack || ''}\n${String(source.cause || '')}`;
+  if (!exposedText.includes(token)) return source;
+
+  const safeMessage = String(source.message).split(token).join('***');
+  const safeError = source instanceof GithubDataConflictError
+    ? new GithubDataConflictError(safeMessage, source.status, source.endpoint)
+    : new Error(safeMessage);
+  if (!(safeError instanceof GithubDataConflictError)) {
+    safeError.name = source.name;
+    if (source.status !== undefined) safeError.status = source.status;
+    if (source.endpoint !== undefined) safeError.endpoint = source.endpoint;
+  }
+  return safeError;
+}
+
+function encodeBase64Utf8(content) {
+  if (typeof Buffer !== 'undefined') return Buffer.from(content, 'utf8').toString('base64');
+  const bytes = new TextEncoder().encode(content);
+  let binary = '';
+  for (const byte of bytes) binary += String.fromCharCode(byte);
+  return globalThis.btoa(binary);
+}
+
 export function createGithubGitDataWriter({ config, fetchImpl }) {
-  if (!config || typeof config !== 'object' || !config.owner || !config.repo || !config.branch) {
+  if (!config || typeof config !== 'object') {
     throw new Error('Config object with owner, repo, and branch is required');
   }
-  if (!fetchImpl || typeof fetchImpl !== 'function') {
-    throw new Error('fetchImpl function is required');
-  }
+  const owner = validateRepositoryPart(config.owner, 'owner');
+  const repo = validateRepositoryPart(config.repo, 'repo');
+  const branch = validateBranch(config.branch);
+  if (typeof fetchImpl !== 'function') throw new Error('fetchImpl function is required');
 
-  const apiBase = `https://api.github.com/repos/${config.owner}/${config.repo}`;
+  const apiBase = `https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}`;
+  const encodedBranch = encodeRefPath(branch);
+  const fullRef = `refs/heads/${branch}`;
 
   async function githubFetch(url, options = {}) {
-    const res = await fetchImpl(url, options);
+    const response = await fetchImpl(url, options);
     let json;
     try {
-      json = await res.json();
+      json = await response.json();
     } catch {
       json = {};
     }
-    
-    if (!res.ok) {
-      const err = new Error(json.message || `GitHub API error: ${res.status}`);
-      err.status = res.status;
-      err.endpoint = url;
-      throw err;
+
+    if (!response.ok) {
+      const error = new Error(json?.message || `GitHub API error: ${response.status}`);
+      error.status = response.status;
+      error.endpoint = url;
+      throw error;
     }
     return json;
   }
 
   return {
-    async writeFiles({ token, files, message, expectedHeadSha }) {
-      if (!token) throw new Error('token is required');
-      if (!files || Object.keys(files).length === 0) throw new Error('files object is required');
+    async writeFiles(input) {
+      if (!isPlainRecord(input)) throw new Error('writeFiles input object is required');
+      const { token, files, message, expectedHeadSha } = input;
+      if (!isNonEmptyString(token)) throw new Error('token is required');
+      if (!isNonEmptyString(message)) throw new Error('message is required');
+      if (!SHA_PATTERN.test(expectedHeadSha || '')) {
+        throw new Error('expectedHeadSha must be a full Git commit SHA');
+      }
+      if (!isPlainRecord(files) || Object.keys(files).length === 0) {
+        throw new Error('files object is required');
+      }
 
       const paths = Object.keys(files).sort();
-      for (const p of paths) {
-        if (!p || p.startsWith('/') || p.includes('\\') || p.includes('//') || p.includes('./') || p.includes('%2E')) {
-          throw new Error(`Invalid or unsafe path: ${p}`);
-        }
-        const content = files[p];
+      for (const path of paths) {
+        validateShardPath(path);
+        const content = files[path];
         if (typeof content !== 'string' && content !== null) {
-          throw new Error(`Invalid content for path ${p}, must be string or null`);
+          throw new Error(`Invalid content for path ${path}, must be string or null`);
         }
       }
 
       const headers = {
-        'Authorization': `Bearer ${token}`,
-        'Accept': 'application/vnd.github.v3+json',
+        Authorization: `Bearer ${token}`,
+        Accept: 'application/vnd.github.v3+json',
         'X-GitHub-Api-Version': '2022-11-28',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       };
 
       try {
-        // 1. Get branch ref
-        const refData = await githubFetch(`${apiBase}/git/ref/heads/${config.branch}`, { headers });
-        const currentHeadSha = refData.object.sha;
+        const refUrl = `${apiBase}/git/ref/heads/${encodedBranch}`;
+        const refData = await githubFetch(refUrl, { headers });
+        const currentHeadSha = validateRefResponse(refData, fullRef, undefined, 'branch ref');
 
-        if (expectedHeadSha && currentHeadSha !== expectedHeadSha) {
-          throw new GithubDataConflictError(`Expected HEAD ${expectedHeadSha} but found ${currentHeadSha}`);
+        if (currentHeadSha !== expectedHeadSha) {
+          throw new GithubDataConflictError(
+            `Expected HEAD ${expectedHeadSha} but found ${currentHeadSha}`,
+            409,
+            refUrl,
+          );
         }
 
-        // 2. Get current commit/tree
         const commitData = await githubFetch(`${apiBase}/git/commits/${currentHeadSha}`, { headers });
-        const baseTreeSha = commitData.tree.sha;
+        const baseTreeSha = validateCommitResponse(commitData, currentHeadSha);
 
-        // 3. Create blobs
         const treeItems = [];
-        for (const p of paths) {
-          const content = files[p];
+        for (const path of paths) {
+          const content = files[path];
           if (content === null) {
-            treeItems.push({
-              path: p,
-              mode: '100644',
-              type: 'blob',
-              sha: null
-            });
-          } else {
-            // Use base64 encoding to support arbitrary UTF-8 safely
-            // In Node/Browser agnostic way, we can use TextEncoder + btoa or just base64 if Buffer is available
-            // Wait, my tests expect base64 because of `Buffer.from(...).toString('base64')`
-            let base64Content = '';
-            if (typeof Buffer !== 'undefined') {
-              base64Content = Buffer.from(content, 'utf8').toString('base64');
-            } else {
-              // fallback for browser
-              const bytes = new TextEncoder().encode(content);
-              const binStr = Array.from(bytes).map(b => String.fromCharCode(b)).join('');
-              base64Content = globalThis.btoa(binStr);
-            }
-
-            const blobData = await githubFetch(`${apiBase}/git/blobs`, {
-              method: 'POST',
-              headers,
-              body: JSON.stringify({
-                content: base64Content,
-                encoding: 'base64'
-              })
-            });
-            
-            treeItems.push({
-              path: p,
-              mode: '100644',
-              type: 'blob',
-              sha: blobData.sha
-            });
+            treeItems.push({ path, mode: '100644', type: 'blob', sha: null });
+            continue;
           }
+
+          const blobData = await githubFetch(`${apiBase}/git/blobs`, {
+            method: 'POST',
+            headers,
+            body: JSON.stringify({
+              content: encodeBase64Utf8(content),
+              encoding: 'base64',
+            }),
+          });
+          treeItems.push({
+            path,
+            mode: '100644',
+            type: 'blob',
+            sha: requireSha(blobData?.sha, 'blob'),
+          });
         }
 
-        // 4. Create a tree
         const newTreeData = await githubFetch(`${apiBase}/git/trees`, {
           method: 'POST',
           headers,
-          body: JSON.stringify({
-            base_tree: baseTreeSha,
-            tree: treeItems
-          })
+          body: JSON.stringify({ base_tree: baseTreeSha, tree: treeItems }),
         });
+        const newTreeSha = requireSha(newTreeData?.sha, 'tree');
 
-        // 5. Create a commit
         const newCommitData = await githubFetch(`${apiBase}/git/commits`, {
           method: 'POST',
           headers,
           body: JSON.stringify({
             message,
-            tree: newTreeData.sha,
-            parents: [currentHeadSha]
-          })
+            tree: newTreeSha,
+            parents: [currentHeadSha],
+          }),
         });
+        const newCommitSha = requireSha(newCommitData?.sha, 'new commit');
 
-        // 6. Update branch ref
+        const updateRefUrl = `${apiBase}/git/refs/heads/${encodedBranch}`;
         let updateRefData;
         try {
-          updateRefData = await githubFetch(`${apiBase}/git/refs/heads/${config.branch}`, {
+          updateRefData = await githubFetch(updateRefUrl, {
             method: 'PATCH',
             headers,
-            body: JSON.stringify({
-              sha: newCommitData.sha,
-              force: false
-            })
+            body: JSON.stringify({ sha: newCommitSha, force: false }),
           });
-        } catch (err) {
-          if (err.status === 409 || err.status === 422) {
-            throw new GithubDataConflictError(`Reference update failed: ${err.message}`);
+        } catch (error) {
+          if (error.status === 409 || error.status === 422) {
+            throw new GithubDataConflictError(
+              `Reference update failed: ${error.message}`,
+              error.status,
+              error.endpoint,
+            );
           }
-          throw err;
+          throw error;
         }
 
-        return {
-          previousHeadSha: currentHeadSha,
-          commitSha: updateRefData.object.sha
-        };
-      } catch (err) {
-        if (err instanceof GithubDataConflictError) {
-          throw err;
-        }
-        if (err.message && token) {
-          err.message = err.message.replace(token, '***');
-        }
-        throw err;
+        const committedSha = validateRefResponse(updateRefData, fullRef, newCommitSha, 'updated ref');
+        return { previousHeadSha: currentHeadSha, commitSha: committedSha };
+      } catch (error) {
+        throw sanitizeError(error, token);
       }
-    }
+    },
   };
 }
