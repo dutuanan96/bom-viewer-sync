@@ -44,7 +44,7 @@ Phase A PR #5 and Phase B PR #6 integrated the Content API adapter. Phase B.1 PR
 - Save to GitHub uploads referenced binaries first, reads the current BOM payload/SHA second, and writes BOM data last. A binary failure prevents the BOM write; if only the BOM write fails, retry reuses the resolved immutable URL instead of re-uploading.
 - Existing `path`, `sourceUrl`, `driveId`, `previewUrl`, and unknown metadata are preserved; only the target URL and 3D `previewUrl` are replaced in the outgoing clone.
 
-Phase B PR #6 was approved for squash merge on 2026-07-14. Phase B.1 (PR #8) compatibility layer is intact where `loadPublic()` tries sharded manifest first and only falls back to `data.js` if the manifest is HTTP 404. Phase B.2 introduces an in-memory dry-run to prove that `data.js` can be sharded and re-assembled without data loss. Phase B.3 integrates an Atomic Sharded Writer Foundation for concurrent multi-file writes. The writer remains inactive and no real remote writes happen yet. `loadForWrite()` and `write()` still ONLY use `data.js`. No data migration has occurred, and there is no sharded production data yet. `data.js`, `outputs/`, and Desktop remain unchanged from their last separately approved states. The user authorized Phase B.4 to begin after the Phase B.3 merge, as a separate plan-first change.
+Phase B PR #6 was approved for squash merge on 2026-07-14. Phase B.1 (PR #8) compatibility layer is intact where `loadPublic()` tries sharded manifest first and only falls back to `data.js` if the manifest is HTTP 404. Phase B.2 proves in memory that `data.js` can be sharded and re-assembled without data loss. Phase B.3 integrates an Atomic Sharded Writer Foundation for concurrent multi-file writes. Phase B.4 (PR #11) used that foundation once to create staging branch `codex/phase-b4-shards-20260715T041629Z-db11b4a` at `227db46`; all 24 shards passed aggregate-hash and round-trip verification after the PR #12 readback hotfix. This is staging evidence only. The writer remains inactive at application runtime, and `loadForWrite()` and `write()` still ONLY use `data.js`. `main`, `data.js`, runtime behavior, `outputs/`, and Desktop were not cut over or published. Preserve the staging branch for inspection and treat any runtime read/write cutover as a separately designed and approved phase. See `docs/superpowers/reports/2026-07-15-phase-b4-staging-execution.md`.
 
 ## Notification Diff Coverage
 
@@ -55,9 +55,9 @@ Phase B PR #6 was approved for squash merge on 2026-07-14. Phase B.1 (PR #8) com
 | Surface | State | Rule |
 |---|---|---|
 | Canonical `main` checkout | Integrated implementation, current data and generated artifacts | Source of truth |
-| Outer `outputs/` runtime artifacts | Last approved portable release; not synchronized with Phase B.3 | Publish only after explicit approval |
+| Outer `outputs/` runtime artifacts | Last approved portable release; not synchronized with later code-only phases | Publish only after explicit approval |
 | Outer `outputs/` context documents | Last approved portable release; may lag this review branch | Synchronize only as part of an approved publication |
-| Desktop `admin.html` / `viewer.html` | Last approved shareable release; not synchronized with Phase B.3 | Replace only after explicit publication approval and complete verification |
+| Desktop `admin.html` / `viewer.html` | Last approved shareable release; not synchronized with later code-only phases | Replace only after explicit publication approval and complete verification |
 | Canonical `data.js` | Current merged GitHub/main data: 646 materials, 1 notification | Do not overwrite from mirrors |
 | Outer `outputs/data.js` | Older clean snapshot: 643 materials, 6 notifications | Intentional; never copy over canonical data |
 

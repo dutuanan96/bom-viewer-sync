@@ -4,12 +4,12 @@ The canonical source is `work/remote-bom-viewer-sync/bom-viewer-sync/`. Build an
 
 ## Current Release State
 
-PR #1 was squash-merged into `main` on 2026-07-14 as `72debab`; Phase A PR #5 was squash-merged as `de35ea2`; Phase B PR #6 was merged. Product revision/effectivity, Material Master draft editing, notifications, and the create-only satellite adapter are integrated. Phase B.1 PR #8 was merged. Phase B.2 PR #9 was merged at `8e9f221`. Phase B.3 implements Atomic Sharded Writer Foundation.
+PR #1 was squash-merged into `main` on 2026-07-14 as `72debab`; Phase A PR #5 was squash-merged as `de35ea2`; Phase B PR #6 was merged. Product revision/effectivity, Material Master draft editing, notifications, and the create-only satellite adapter are integrated. Phase B.1 PR #8 and Phase B.2 PR #9 were merged. Phase B.3 implements the Atomic Sharded Writer Foundation. Phase B.4 PR #11 and its PR #12 readback hotfix are merged.
 
 - Canonical `main` artifacts are the source of truth.
-- `outputs/` runtime artifacts are the last approved portable release and are not synchronized with Phase B.3.
-- Desktop `admin.html` and `viewer.html` are the last approved shareable release and are not synchronized with Phase B.3.
-- Context documents in canonical and `outputs/` may differ while Phase B.3 remains unpublished; synchronize them only during an approved publication.
+- `outputs/` runtime artifacts are the last approved portable release and are not synchronized with the later code-only phases.
+- Desktop `admin.html` and `viewer.html` are the last approved shareable release and are not synchronized with the later code-only phases.
+- Context documents in canonical and `outputs/` may differ while those runtime changes remain unpublished; synchronize them only during an approved publication.
 - Canonical data audits at 646 materials/1 notification; `outputs/data.js` remains the older 643-material/6-notification snapshot by design.
 
 Runtime publication and data synchronization are separate operations. Never copy `outputs/data.js` over canonical or GitHub data.
@@ -18,11 +18,9 @@ Runtime publication and data synchronization are separate operations. Never copy
 
 Phase B lets Admin select validated PDF, GLB, or portable GLTF files from Material Master. Selection and Save Material are local-only: bytes remain in application memory and the stored draft carries an internal pending ID with no public URL. Save to GitHub uploads only referenced binaries to public repository `dutuanan96/bom-viewer-assets`, reads the current BOM payload/SHA, then writes BOM data with commit-pinned jsDelivr URLs. Upload failure prevents the BOM write; BOM-write retry reuses any already resolved immutable URL. Existing asset metadata is preserved.
 
-Phase B.1 (PR #8) adds a compatibility layer: `loadPublic()` tries sharded manifest first and only falls back to `data.js` if the manifest is HTTP 404. Schema errors and sub-file 404s throw errors without falling back. `loadForWrite()` and `write()` still ONLY use `data.js`. No data migration has occurred, and there is no sharded production data yet.
-Phase B.2 (PR #9) introduces an in-memory dry-run to prove data sharding integrity in memory. No actual migration has been pushed.
-Phase B.3 introduces an Atomic Sharded Writer Foundation for concurrent multi-file writes. The writer remains inactive and no real remote writes happen yet.
-`data.js`, `outputs/`, and Desktop remain unchanged. Do not publish them until publication is separately approved.
-The user authorized Phase B.4 to begin after the Phase B.3 merge. Keep it as a separate plan-first change; this Phase B.3 merge performs no remote staging, runtime wiring, migration, or publication.
+Phase B.1 (PR #8) adds a compatibility layer: `loadPublic()` tries sharded manifest first and only falls back to `data.js` if the manifest is HTTP 404. Schema errors and sub-file 404s throw errors without falling back. `loadForWrite()` and `write()` still ONLY use `data.js`.
+Phase B.2 (PR #9) proves data sharding integrity in memory. Phase B.3 adds the Atomic Sharded Writer Foundation. Phase B.4 (PR #11) used it for one guarded write to staging branch `codex/phase-b4-shards-20260715T041629Z-db11b4a`; commit `227db46` contains 24 verified shards with aggregate SHA-256 `d5261ad277be1fbe7b391ea2f0995de8b0f96fdb612d73e95ed5853b2903684e`. PR #12 fixed recursive-tree readback, and the existing staging branch then passed full read-only reconstruction.
+This is not a runtime cutover. The writer remains inactive in application code, `loadForWrite()` and `write()` still use `data.js`, and `main`, `data.js`, `outputs/`, and Desktop remain unchanged. Preserve the staging branch and require a separately approved phase for runtime read/write cutover. See `docs/superpowers/reports/2026-07-15-phase-b4-staging-execution.md`.
 
 ## Sync Rules
 
