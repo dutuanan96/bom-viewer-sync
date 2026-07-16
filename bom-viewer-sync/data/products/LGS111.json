@@ -821,24 +821,6 @@
               "qty": "1"
             },
             {
-              "stt": "3",
-              "mat_code": "BCLS024019022BH",
-              "comp_code": "",
-              "name_zh": "圆把手",
-              "name_vi": "tay nắm",
-              "spec": "Ø24×Ø19×H22mm",
-              "spec_vi": "129x22x8mm",
-              "material_zh": "PP&GF40",
-              "material_vi": "PP&GF40",
-              "color_zh": "黑色",
-              "color_vi": "màu đen",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "白色",
-              "color_ver_vi": "白色",
-              "qty": "2"
-            },
-            {
               "stt": "4",
               "mat_code": "ZGLS4010WZ",
               "comp_code": "",
@@ -963,6 +945,24 @@
               "color_ver": "白色",
               "color_ver_vi": "白色",
               "qty": "8+2"
+            },
+            {
+              "stt": "",
+              "mat_code": "BCLS024019022WH",
+              "comp_code": "",
+              "name_zh": "圆把手",
+              "name_vi": "tay nắm",
+              "spec": "Ø24×Ø19×H22mm",
+              "spec_vi": "129x22x8mm",
+              "material_zh": "PP&GF40",
+              "material_vi": "PP&GF40",
+              "color_zh": "白色",
+              "color_vi": "màu trắng",
+              "attr_zh": "五金包",
+              "attr_vi": "túi ngũ kim",
+              "color_ver": "",
+              "color_ver_vi": "",
+              "qty": "1"
             }
           ]
         },

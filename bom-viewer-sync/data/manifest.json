@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-16T09:58:35.898Z",
+  "updatedAt": "2026-07-16T10:01:15.065Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6224,6 +6224,29 @@
     }
   },
   "notifications": [
+    {
+      "id": "notif_f7tcm2",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-16T10:01:15.065Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "bom_added",
+          "code": "LGS111WJBWH",
+          "field": "BCLS024019022WH",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "bom_deleted",
+          "code": "LGS111WJBWH",
+          "field": "BCLS024019022BH",
+          "before": "",
+          "after": ""
+        }
+      ]
+    },
     {
       "id": "notif_dmdkie",
       "type": "github-save",

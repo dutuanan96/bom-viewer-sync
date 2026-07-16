@@ -74327,21 +74327,6 @@
         "order": 1
       },
       {
-        "id": "bomc_wjbwh_LGS111_白色_2",
-        "parentType": "material",
-        "parentId": "mat_wjbwh_LGS111",
-        "productCode": "LGS111",
-        "color": "白色",
-        "materialId": "mat_1in3dp6",
-        "childMaterialId": "mat_1in3dp6",
-        "stt": "3",
-        "comp_code": "",
-        "qty": "2",
-        "color_ver": "白色",
-        "color_ver_vi": "白色",
-        "order": 2
-      },
-      {
         "id": "bomc_wjbwh_LGS111_白色_3",
         "parentType": "material",
         "parentId": "mat_wjbwh_LGS111",
@@ -74880,6 +74865,21 @@
         "color_ver": "",
         "color_ver_vi": "",
         "order": 1784195898798
+      },
+      {
+        "id": "bomc_1qat5cw",
+        "parentType": "material",
+        "parentId": "mat_wjbwh_LGS111",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_11qynpo",
+        "childMaterialId": "mat_11qynpo",
+        "stt": "",
+        "comp_code": "",
+        "qty": "1",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 1784196058153
       }
     ]
   }
