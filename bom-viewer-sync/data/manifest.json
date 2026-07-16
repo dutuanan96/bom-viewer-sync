@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-14T02:36:54.935Z",
+  "updatedAt": "2026-07-16T03:04:12.570Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6224,6 +6224,71 @@
     }
   },
   "notifications": [
+    {
+      "id": "notif_nvu974",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-16T03:04:12.570Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "BC300327188BH",
+          "field": "name",
+          "before": "LGS布抽30x32.5x14.8",
+          "after": "LGS布抽30x32.7x14.8"
+        },
+        {
+          "kind": "material",
+          "code": "BC300327188BH",
+          "field": "spec",
+          "before": "300x325x148mm",
+          "after": "300x327x148mm"
+        },
+        {
+          "kind": "material",
+          "code": "BC300327188KD",
+          "field": "name",
+          "before": "LGS布抽30x32.5x14.8",
+          "after": "LGS布抽30x32.7x14.8"
+        },
+        {
+          "kind": "material",
+          "code": "BC300327188KD",
+          "field": "spec",
+          "before": "300x325x148mm",
+          "after": "300x327x148mm"
+        },
+        {
+          "kind": "material",
+          "code": "BC338327166BH",
+          "field": "name",
+          "before": "LGS布抽34x32.5x16.8",
+          "after": "LGS布抽34x32.7x16.8"
+        },
+        {
+          "kind": "material",
+          "code": "BC338327166BH",
+          "field": "spec",
+          "before": "340x325x168mm",
+          "after": "340x327x168mm"
+        },
+        {
+          "kind": "material",
+          "code": "BC338327166WH",
+          "field": "name",
+          "before": "LGS布抽34x32.5x16.8",
+          "after": "LGS布抽34x32.7x16.8"
+        },
+        {
+          "kind": "material",
+          "code": "BC338327166WH",
+          "field": "spec",
+          "before": "340x325x168mm",
+          "after": "340x327x168mm"
+        }
+      ]
+    },
     {
       "id": "notif_pmpz06",
       "type": "github-save",
