@@ -51,6 +51,13 @@ It did not delete physical files from Google Drive, the local PDF folder, or
 Git. Physical deletion is intentionally deferred until viewer verification and
 an independent cleanup list are complete.
 
+The runtime shards contained 628 material records both before and after this
+migration. The rollback-only `data.js` was found to be stale at 646 materials
+and 1 notification while the active shards had 628 materials and 5
+notifications. `data.js` was regenerated from the exact 24 active shards, so no
+active runtime material was removed and rollback verification is consistent
+again.
+
 ## Safety checks
 
 - All 552 unique referenced asset locators were content-hashed.
@@ -61,6 +68,8 @@ an independent cleanup list are complete.
   JSON payload is byte-equivalent in structure and values to the pre-migration
   payload.
 - Top-level product drawings and product assembly models remain unchanged.
+- The synchronized 24-shard rollback aggregate SHA-256 is
+  `f1091eb786b0c989b2917655351d98568671c0f0f05a733e913b9847645ef49e`.
 
 ## Commands
 

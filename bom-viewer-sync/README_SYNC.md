@@ -9,13 +9,27 @@ PR #1 was squash-merged into `main` on 2026-07-14 as `72debab`; Phase A PR #5 wa
 - Canonical `main` artifacts are the source of truth.
 - `outputs/` contains the hash-verified Phase B.6 four-file runtime release and synchronized five-document context set.
 - Desktop contains the current four-file runtime set: `viewer.html`, `admin.html`, `app-admin.js`, and `styles.css`.
-- Canonical data audits at 646 materials/1 notification; `outputs/data.js` and `outputs/data/` are absent by design.
+- This material-owned-asset branch audits at 628 active runtime material
+  records and 5 notifications; `outputs/data.js` and `outputs/data/` are absent
+  by design.
 
 Runtime publication and data synchronization are separate operations. Never create or copy mirror `data.js`/`data/` over canonical GitHub shards.
 
 ## Material Master Asset Upload
 
 Phase B lets Admin select validated PDF, GLB, or portable GLTF files from Material Master. Selection and Save Material are local-only: bytes remain in application memory and the stored draft carries an internal pending ID with no public URL. Save to GitHub uploads only referenced binaries to public repository `dutuanan96/bom-viewer-assets`, reads the current shard payload/expected HEAD, then performs one atomic 24-shard write with commit-pinned jsDelivr URLs. Upload failure prevents the shard write; shard-write retry reuses any already resolved immutable URL. Existing asset metadata is preserved.
+
+Material PDF/GLB ownership is centralized in `materialDb.materials`: one active
+2D asset and one active 3D asset per `materialId`, shared by every LGS product
+that uses that material. Product assembly models stay separate. The offline
+product-aware audit uses:
+
+```powershell
+npm run audit:material-assets -- --pdf-root "D:\1.金汰产品\2D图纸_按LGS分组"
+```
+
+The canonical mapping removes duplicate references only. It does not delete
+physical files from Drive, the local PDF source, or Git.
 
 Phase B.1 (PR #8) adds a compatibility layer. Phase B.2 (PR #9) proves data sharding integrity in memory. Phase B.3 adds the Atomic Sharded Writer Foundation. Phase B.4 (PR #11) used it for one guarded write to staging branch `codex/phase-b4-shards-20260715T041629Z-db11b4a`; commit `227db46` contains 24 verified shards. Phase B.5 (PR #14) activates the sharded adapter and atomic writer in application runtime. The runtime now reads and writes the exact 24 files in `data/`; tracked `data.js` remains rollback/migration input only. The old local upload commits `1ad16cb` and `2db18d5` are superseded by the separately reviewed asset-storage and pending-asset work merged through PR #5 and PR #6.
 

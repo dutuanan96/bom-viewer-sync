@@ -91,6 +91,7 @@ UI và application có thể gọi domain/infrastructure. Domain không được
 | `scripts/check-generated.mjs` | Phát hiện generated artifacts stale |
 | `scripts/check-all.mjs` | Repository gate: tests, audit, generated check và syntax |
 | `scripts/audit-data.mjs` | Validate material/BOM/data integrity |
+| `scripts/audit-material-assets.mjs` | Hash and audit material-owned PDF/GLB references; apply only with the reviewed explicit mapping |
 | `tests/domain.test.mjs` | Pure domain behavior và module seams |
 | `tests/github-sharded-data.test.mjs` | Public/authenticated shard loading, exact-set validation, writer delegation and token redaction |
 | `tests/github-git-data.test.mjs` | Atomic ordering, expected HEAD, response validation, non-force ref update and conflict mapping |
@@ -177,6 +178,23 @@ admin save action
 Hệ thống diffing bắt buộc phải dùng đúng `childMaterialId || materialId` khi trích xuất mã con từ `bomEntries`, và `parentType` lưu trong data là `'product'` chứ không phải `'productRevision'`. Các trường đa ngôn ngữ và nguyên thuỷ (primitive) phải được tách biệt khi so sánh để tránh lỗi ép kiểu (cast error) sang object.
 
 ### Material Master và tài sản 2D/3D
+
+Mỗi `materialDb.materials[materialId]` sở hữu tối đa một PDF 2D và một GLB/GLTF
+3D. Mọi LGS dùng chung `materialId` phải dùng chung hai asset này; không fallback
+về PDF/GLB theo product. Các model lắp ráp toàn sản phẩm vẫn nằm riêng trong
+top-level `models3d`.
+
+Khi kiểm tra hoặc chọn canonical asset, bắt đầu từ `materialId` và toàn bộ
+`materialDb.bomEntries` đang dùng material đó. Tên folder/file LGS chỉ là bằng
+chứng phụ, không phải identity. Audit offline:
+
+```powershell
+npm run audit:material-assets -- --pdf-root "D:\1.金汰产品\2D图纸_按LGS分组"
+```
+
+Không xóa file vật lý khỏi Drive, thư mục PDF local hoặc Git chỉ vì reference đã
+được canonicalize. Chỉ xóa vật lý sau một cleanup audit riêng và viewer
+verification.
 
 ```text
 open Material Master
