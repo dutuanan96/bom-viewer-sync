@@ -18117,12 +18117,12 @@
           "vi": "129x22x8mm"
         },
         "material": {
-          "zh": "木",
-          "vi": "gỗ"
+          "zh": "PP&GF40",
+          "vi": "PP&GF40"
         },
         "color": {
-          "zh": "木色",
-          "vi": "màu gỗ"
+          "zh": "黑色",
+          "vi": "màu đen"
         },
         "attr": {
           "zh": "五金包",
@@ -18144,7 +18144,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-8d926653.glb",
             "matched_name": "圆把手",
             "score": 1300,
-            "bytes": 200376
+            "bytes": 200376,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-8d926653.glb"
           }
         ]
       },
@@ -36117,6 +36118,32 @@
         "attr": {
           "zh": "零件",
           "vi": "linh kiện"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_11qynpo": {
+        "id": "mat_11qynpo",
+        "code": "BCLS024019022WH",
+        "name": {
+          "zh": "圆把手",
+          "vi": "tay nắm"
+        },
+        "spec": {
+          "zh": "Ø24×Ø19×H22mm",
+          "vi": "129x22x8mm"
+        },
+        "material": {
+          "zh": "PP&GF40",
+          "vi": "PP&GF40"
+        },
+        "color": {
+          "zh": "白色",
+          "vi": "màu trắng"
+        },
+        "attr": {
+          "zh": "五金包",
+          "vi": "túi ngũ kim"
         },
         "drawings": [],
         "models3d": []

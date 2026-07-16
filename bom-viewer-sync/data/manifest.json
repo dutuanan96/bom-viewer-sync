@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-16T03:14:28.863Z",
+  "updatedAt": "2026-07-16T09:44:21.495Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6224,6 +6224,36 @@
     }
   },
   "notifications": [
+    {
+      "id": "notif_oyxhrk",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-16T09:44:21.495Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "BCLS024019022BH",
+          "field": "material",
+          "before": "木 / gỗ",
+          "after": "PP&GF40"
+        },
+        {
+          "kind": "material",
+          "code": "BCLS024019022BH",
+          "field": "color",
+          "before": "木色 / màu gỗ",
+          "after": "黑色 / màu đen"
+        },
+        {
+          "kind": "material_added",
+          "code": "BCLS024019022WH",
+          "field": "",
+          "before": "",
+          "after": ""
+        }
+      ]
+    },
     {
       "id": "notif_s70jie",
       "type": "github-save",
