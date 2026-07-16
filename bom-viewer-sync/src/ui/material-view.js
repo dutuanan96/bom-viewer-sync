@@ -372,11 +372,14 @@ function materialMasterAssetList(title, assets) {
         ${pendingStatus}
       </div>`;
     }).join('');
+    const addButton = draftAssets.length
+      ? ''
+      : `<button class="btn btn-primary small" type="button" data-action="${addAction}">+ ${escapeHTML(this.label(title === '2D' ? 'add2D' : 'add3D'))}</button>`;
 
     return `<div class="material-master-asset-list">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
         <strong>${escapeHTML(title)}</strong>
-        <button class="btn btn-primary small" type="button" data-action="${addAction}">+ ${escapeHTML(this.label(title === '2D' ? 'add2D' : 'add3D'))}</button>
+        ${addButton}
       </div>
       <div id="${typeKey}-container">${rows}</div>
     </div>`;

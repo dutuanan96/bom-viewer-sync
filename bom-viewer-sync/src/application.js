@@ -1793,6 +1793,7 @@ const global = globalThis;
       if (!this.selectedMaterialRecord()) return;
       this.syncMaterialMasterFormToDraft();
       this.state.materialDraft[typeKey] = this.state.materialDraft[typeKey] || [];
+      if (this.state.materialDraft[typeKey].length) return;
       this.state.materialDraft[typeKey].push({ url: '', name: '' });
       this.renderContent();
     }
@@ -1851,7 +1852,7 @@ const global = globalThis;
       const seenUrls = new Set();
       const processAssets = (typeKey, validator, errorLabel) => {
         const arr = [];
-        (this.state.materialDraft[typeKey] || []).forEach((asset) => {
+        (this.state.materialDraft[typeKey] || []).slice(0, 1).forEach((asset) => {
            if (asset.pendingAssetId) {
              if (!this.state.pendingMaterialAssets[asset.pendingAssetId]) {
                validationError = this.label('pendingAssetMissing');
