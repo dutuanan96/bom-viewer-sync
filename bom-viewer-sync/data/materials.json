@@ -26300,12 +26300,12 @@
         "id": "mat_hin4d7",
         "code": "BC548327171BH",
         "name": {
-          "zh": "LGS布抽55x32.5x17.3",
-          "vi": "LGS布抽55x32.5x17.3"
+          "zh": "LGS布抽55x32.7x17.3",
+          "vi": "LGS布抽55x32.7x17.3"
         },
         "spec": {
-          "zh": "550x325x173mm",
-          "vi": "550x325x173mm"
+          "zh": "550x327x173mm",
+          "vi": "550x327x173mm"
         },
         "material": {
           "zh": "MDF&纸板&无纺布",
@@ -26335,7 +26335,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-55x32-5x17-3-06810ff8.glb",
             "matched_name": "LGS布抽55x32.5x17.3",
             "score": 1100,
-            "bytes": 19732
+            "bytes": 19732,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-55x32-5x17-3-06810ff8.glb"
           }
         ]
       },
@@ -30079,12 +30080,12 @@
         "id": "mat_1f7665v",
         "code": "BC4603327188KD",
         "name": {
-          "zh": "LGS布抽46x32.5x18.7",
-          "vi": "LGS布抽46x32.5x18.7"
+          "zh": "LGS布抽46x32.7x18.7",
+          "vi": "LGS布抽46x32.7x18.7"
         },
         "spec": {
-          "zh": "460x325x187mm",
-          "vi": "460x325x187mm"
+          "zh": "460x327x187mm",
+          "vi": "460x327x187mm"
         },
         "material": {
           "zh": "MDF&纸板&无纺布",
@@ -30114,7 +30115,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-32-5x46x18-7-84948470.glb",
             "matched_name": "LGS布抽46x32.5x18.7",
             "score": 1300,
-            "bytes": 19736
+            "bytes": 19736,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-32-5x46x18-7-84948470.glb"
           }
         ]
       },
