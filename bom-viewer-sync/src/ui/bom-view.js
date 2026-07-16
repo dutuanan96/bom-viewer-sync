@@ -5,7 +5,7 @@ import {
   materialWhereUsed,
   sortMaterials,
 } from '../domain/materials.js';
-import { assetKey, findBomAssets } from '../infrastructure/assets.js';
+import { assetKey } from '../infrastructure/assets.js';
 import { escapeHTML } from './shared-view.js';
 
 function renderInspector() {
@@ -458,15 +458,11 @@ function deleteAssetLabel() {
 }
 
 function drawingsFor(material) {
-  if (material?._materialRecord?.drawings) return material._materialRecord.drawings;
-  const skuDrawings = this.state.drawings[this.state.currentSku] || {};
-  return findBomAssets(skuDrawings, material);
+  return material?._materialRecord?.drawings || [];
 }
 
 function models3dFor(material) {
-  if (material?._materialRecord?.models3d) return material._materialRecord.models3d;
-  const skuModels = this.state.models3d[this.state.currentSku] || {};
-  return findBomAssets(skuModels, material);
+  return material?._materialRecord?.models3d || [];
 }
 
 function productModels3d() {

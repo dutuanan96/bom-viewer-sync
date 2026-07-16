@@ -25,12 +25,23 @@ The main domain owner is `src/domain/revisions.js`; orchestration is in `src/app
 
 ## Material Master 2D/3D Editing
 
+- Each material record owns at most one active PDF and one active GLB/GLTF.
+  Every product that references the same `materialId` uses those same assets;
+  BOM material rows do not fall back to product-scoped asset maps.
+- Top-level product assembly models remain separate from material models.
 - Material text fields, `drawings` and `models3d` are edited through one isolated `state.materialDraft`.
 - Add/Delete/Open operate on the draft. Back, material switch and module switch discard it; silent refresh cannot replace an active draft.
+- The Add control is available only when that material asset type is empty.
+  Saving legacy multi-row data retains only the first active row.
 - Existing asset objects are spread before updating `name` and `url`, preserving `path`, `sourceUrl`, `driveId`, `previewUrl` and unknown metadata.
 - 3D rows render the edited `url` before stale `previewUrl`; successful save synchronizes `previewUrl = url` for `<model-viewer>`.
 - 2D requires HTTPS Drive/PDF; 3D requires a direct HTTPS GLB/GLTF URL. Empty, invalid and duplicate URLs block local save through i18n errors.
 - Save Material updates local payload only. Save to GitHub remains a separate explicit action using the current remote shard payload and expected HEAD.
+
+The product-aware migration and offline hash audit are documented in
+`docs/superpowers/reports/2026-07-16-material-assets-audit.md`. Superseded
+references were removed from material records, but physical Drive/local/Git
+files were intentionally not deleted.
 
 ## Material Master GitHub Asset Upload
 
@@ -58,7 +69,7 @@ Phase B PR #6 was approved for squash merge on 2026-07-14. Phase B.1 (PR #8) int
 | Outer `outputs/` runtime artifacts | Phase B.6 verified four-file portable release | Mirror only from a later verified integrated build |
 | Outer `outputs/` context documents | Phase B.6 synchronized five-document handoff set | Keep hash-equal with the canonical release docs |
 | Desktop runtime set | Current `viewer.html`, `admin.html`, `app-admin.js`, and `styles.css` | Keep these four adjacent; remove superseded review/build copies |
-| Canonical `data/` | Active runtime payload: exact 24 shards, 646 materials, 1 notification | Source of truth for application reads/writes |
+| Canonical `data/` | Active runtime payload on this branch: exact 24 shards, 628 material records, 5 notifications | Source of truth for application reads/writes |
 | Canonical `data.js` | Tracked rollback/migration snapshot | Never use as an application runtime target |
 | Outer `outputs/data.js` / `outputs/data/` | Absent by design | Never create them during runtime publication |
 
@@ -84,6 +95,8 @@ Do not treat a hard-coded test count as permanent; always report the current com
 
 ## Phase B.5 Verification
 
-- Run `npm run check` fresh for the current test count; the last canonical data audit reported 646 materials, 2725 BOM entries, 22 products, 1 notification, 0 errors and 0 warnings.
+- Run `npm run check` fresh for the current test count; this branch's latest
+  data audit reports 628 material records, 2725 BOM entries, 22 products, 5
+  notifications, 0 errors and 0 warnings.
 - The `migrate:dry-run` script verified 24 virtual shards correctly split and re-assembled without losing any deep properties or stable identifiers. The Phase B.5 dry-run aggregate hash is `d5261ad277be1fbe7b391ea2f0995de8b0f96fdb612d73e95ed5853b2903684e`.
 - The sharded runtime adapter `github-sharded-data.js` owns shard reads/writes and delegates atomic commits to `github-git-data.js`. Asset bytes remain owned by the separate `material-asset-upload.js` and `github-asset-storage.js` boundary.

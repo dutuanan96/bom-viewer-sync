@@ -59,6 +59,36 @@ test('Material Database rows expose per-material edit action', () => {
   }
 });
 
+test('material rows use only material-owned assets while product assembly models remain separate', () => {
+  const context = {
+    state: {
+      currentSku: 'LGS001',
+      drawings: {
+        LGS001: {
+          'mat001|panel': [{ name: 'legacy-product-panel.pdf' }],
+        },
+      },
+      models3d: {
+        LGS001: {
+          'mat001|panel': [{ name: 'legacy-product-panel.glb' }],
+          assembly: [{ name: 'LGS001-assembly.glb' }],
+        },
+      },
+    },
+  };
+  const materialWithoutOwnedAssets = {
+    mat_code: 'MAT001',
+    name_zh: 'Panel',
+  };
+
+  assert.deepEqual(bomViewMethods.drawingsFor.call(context, materialWithoutOwnedAssets), []);
+  assert.deepEqual(bomViewMethods.models3dFor.call(context, materialWithoutOwnedAssets), []);
+  assert.deepEqual(
+    bomViewMethods.productModels3d.call(context).map((asset) => asset.name),
+    ['LGS001-assembly.glb'],
+  );
+});
+
 test('Material Master editor uses a focused detail form with save and back actions', () => {
   assert.match(appSource, /renderMaterialMasterEditor/);
   assert.match(appSource, /data-material-master-edit=/);

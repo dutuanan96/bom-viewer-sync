@@ -207,7 +207,7 @@ test('Upload action opens only the hidden file input in its asset row', () => {
   assert.equal(clickCount, 1);
 });
 
-test('Add asset does not lose unsaved Material Master fields', () => {
+test('Add asset does not add a second material asset or lose unsaved fields', () => {
   const { app } = setupApp();
   app.openMaterialMasterEditor('mat-1');
 
@@ -232,11 +232,25 @@ test('Add asset does not lose unsaved Material Master fields', () => {
 
   assert.equal(app.state.materialDraft.code, 'MAT-001-DRAFT');
   assert.equal(app.state.materialDraft.name.vi, 'Draft Name');
-  assert.equal(app.state.materialDraft.models3d.length, 2);
+  assert.equal(app.state.materialDraft.models3d.length, 1);
+  assert.equal(app.state.materialDraft.models3d[0].url, 'https://cdn.example.com/original.glb');
 
   // DB remains untouched
   assert.equal(app.state.materialDb.materials['mat-1'].code, 'MAT-001');
   assert.equal(app.state.materialDb.materials['mat-1'].models3d.length, 1);
+});
+
+test('Material Master only renders an Add button when that asset type is empty', () => {
+  const { app } = setupApp();
+  app.label = (key) => key;
+  app.state.materialDraft = structuredClone(app.state.materialDb.materials['mat-1']);
+  app.state.materialDraft.drawings = [];
+
+  const drawingHtml = app.materialMasterAssetList('2D', app.state.materialDraft.drawings);
+  const modelHtml = app.materialMasterAssetList('3D', app.state.materialDraft.models3d);
+
+  assert.match(drawingHtml, /data-action="add-2d-asset"/);
+  assert.doesNotMatch(modelHtml, /data-action="add-3d-asset"/);
 });
 
 test('Delete asset does not lose unsaved Material Master fields or metadata', () => {
@@ -411,7 +425,7 @@ test('Invalid URL is blocked', () => {
   assert.equal(statusMsg, 'invalid3DUrl');
 });
 
-test('Duplicate URL is blocked independently from URL format validation', () => {
+test('Save collapses legacy multiple material assets to the first asset', () => {
   const { app } = setupApp();
   app.openMaterialMasterEditor('mat-1');
 
@@ -434,8 +448,10 @@ test('Duplicate URL is blocked independently from URL format validation', () => 
 
   app.saveMaterialMaster();
 
-  assert.equal(statusState, 'error');
-  assert.equal(statusMsg, 'duplicateUrl');
+  assert.equal(statusState, 'dirty');
+  assert.equal(statusMsg, 'saveLocalOnly');
+  assert.equal(app.state.materialDb.materials['mat-1'].models3d.length, 1);
+  assert.equal(app.state.materialDb.materials['mat-1'].models3d[0].name, 'N1');
 });
 
 test('Blank asset URL blocks save and leaves the database unchanged', () => {
@@ -446,7 +462,6 @@ test('Blank asset URL blocks save and leaves the database unchanged', () => {
     if (sel.includes('[data-material-master-edit]')) return [];
     if (sel.includes('#models3d-container')) {
       return [
-        { querySelector: (q) => ({ value: q.includes('name') ? 'Original Model' : 'https://cdn.example.com/original.glb' }) },
         { querySelector: (q) => ({ value: q.includes('name') ? 'Missing URL' : '' }) }
       ];
     }

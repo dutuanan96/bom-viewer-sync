@@ -7,9 +7,14 @@ Read `AI_DEBUG_GUIDE.md` before project files.
 - Canonical checkout: `work/remote-bom-viewer-sync/bom-viewer-sync/`.
 - PR #1, Phase A PR #5, Phase B PR #6, Phase B.1 PR #8, Phase B.2 PR #9, Phase B.4 PR #11, Phase B.4 readback hotfix PR #12, and Phase B.5 PR #14 are squash-merged to `main`.
 - Product revision/effectivity, draft-safe Material Master 2D/3D editing, asset publication, and expanded payload notifications are integrated.
+- Material assets are material-owned: each `materialId` has at most one active
+  2D PDF and one active 3D GLB/GLTF shared by every LGS that uses it. Product
+  assembly models remain separate.
 - Phase B.5 activates `createGithubShardedDataAdapter()` with the Git Data writer. Application runtime reads and writes the exact 24 JSON shards in `data/`; tracked `data.js` remains only rollback/migration input.
 - Phase B.6 release acceptance completed on 2026-07-15 against reviewed `main` commit `d477f884ccc572e3559f78220d0abe9cdcb6cb42`. Live UAT branch `codex/phase-b6-uat-2026-07-15T112949034Z-d477f88` is at `e843f276d1cedcfa30615b4177989a4e76170bd1`; its parent is the reviewed commit and its 24-shard aggregate SHA-256 is `d5261ad277be1fbe7b391ea2f0995de8b0f96fdb612d73e95ed5853b2903684e`.
-- Use a fresh `npm run check` result for the current test count. The last canonical audit reported 646 materials, 2725 BOM entries, 22 products, 1 notification, 0 errors and 0 warnings.
+- Use a fresh `npm run check` result for the current test count. The
+  material-owned-asset branch audits at 628 runtime material records, 2725 BOM
+  entries, 22 products, 5 notifications, 0 errors and 0 warnings.
 - Phase B.4 staging branch `codex/phase-b4-shards-20260715T041629Z-db11b4a` remains at `227db46` with verified aggregate SHA-256 `d5261ad277be1fbe7b391ea2f0995de8b0f96fdb612d73e95ed5853b2903684e`; do not rerun or delete it.
 - The old local upload commits `1ad16cb` and `2db18d5` are superseded by the independently reviewed Phase A/B asset-storage and pending-asset flow merged through PR #5 and PR #6. No code from those commits was ported.
 - Phase B.6 publication is complete. The four runtime artifacts and five context documents in outer `outputs/` match the reviewed build; Desktop contains only the current four-file runtime set (`viewer.html`, `admin.html`, `app-admin.js`, `styles.css`). `data.js` and `data/` are absent from the publication mirrors and must not be introduced there.
@@ -21,9 +26,13 @@ Read `AI_DEBUG_GUIDE.md` before project files.
 3. Preserve the PDM rule: latest design and effective production revision are separate concepts; exactly one valid revision is effective.
 4. Material Master edits use one isolated `state.materialDraft`; Add/Delete/Open assets must not mutate the stored material before Save Material.
 5. Preserve hidden asset metadata. For 3D editing, render `url` before fallback `previewUrl`, then update `previewUrl = url` only on successful save.
-6. Do not copy `data.js` or `data/` from mirrors during code-only work. Canonical GitHub/main shards are authoritative.
-7. Treat Phase B.6 as closed. Start a new phase only for a new feature or production issue; do not rerun the one-time staging/UAT migrations.
-8. Run `npm run check`, `node --check app-admin.js`, `git diff --check`, and inspect both `data.js` and `data/` diffs before pushing.
+6. Select a canonical PDF/GLB from `materialId -> products using it -> existing
+   sources`; never infer ownership from an LGS filename alone.
+7. Do not physically delete superseded Drive/local/Git files until the separate
+   cleanup list and viewer verification are approved.
+8. Do not copy `data.js` or `data/` from mirrors during code-only work. Canonical GitHub/main shards are authoritative.
+9. Treat Phase B.6 as closed. Start a new phase only for a new feature or production issue; do not rerun the one-time staging/UAT migrations.
+10. Run `npm run check`, `node --check app-admin.js`, `git diff --check`, and inspect both `data.js` and `data/` diffs before pushing.
 
 ## Integrated Publication Flow
 

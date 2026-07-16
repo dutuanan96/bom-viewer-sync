@@ -26,6 +26,12 @@ PR #1 was squash-merged into `main` on 2026-07-14 as `72debab`; Phase A PR #5 wa
 
 ## Material Asset Contracts
 
+- Each `materialId` owns at most one active 2D PDF and one active 3D GLB/GLTF,
+  shared by all products that reference that material.
+- Material-row asset lookup must use `_materialRecord` only. Product-scoped
+  assembly models remain available through the top-level product model map.
+- Legacy conversion must seed the first existing material asset and must not
+  accumulate one reference per LGS.
 - Material Master uses one draft for normal fields and asset arrays; Add/Delete must preserve unsaved field edits.
 - Add/Delete/Open do not mutate the stored record before Save Material, and Back/module/material switches discard the draft.
 - Existing 2D/3D metadata remains intact after save. For 3D, edited `url` wins over stale `previewUrl`, and successful save updates `previewUrl`.
@@ -34,6 +40,10 @@ PR #1 was squash-merged into `main` on 2026-07-14 as `72debab`; Phase A PR #5 wa
 - Selecting a file changes only the draft plus application-memory pending state. Save Material remains local-only and must not call the asset adapter.
 - Pending asset rows may have a blank public URL only when their `pendingAssetId` resolves to in-memory bytes; manual URL entry removes the pending reference.
 - Existing hidden metadata must survive pending staging and targeted URL resolution. The resolver must not use global/string replacement.
+- Canonical selection must be product-aware and content-verified. The reviewed
+  mapping and execution report are in
+  `docs/superpowers/reports/2026-07-16-material-assets-audit.md`.
+- No physical PDF/GLB deletion is part of this change.
 
 ## GitHub Asset Upload Review Gate
 
@@ -74,7 +84,10 @@ Phase A adapter contracts remain unchanged: create-only Contents API requests wi
 
 ## Integration Risk To Watch
 
-Canonical `main` audits at 646 materials/1 notification. Outer `outputs/data.js` and `outputs/data/` are absent by design; never create or copy mirror data over canonical GitHub shards. The required Phase B.6 manual clean-profile `file://` check has passed.
+The material-owned-asset branch audits at 628 active runtime material records
+and 5 notifications. The prior Phase B.6 `main` evidence remains historical.
+Outer `outputs/data.js` and `outputs/data/` are absent by design; never create
+or copy mirror data over canonical GitHub shards.
 
 For Phase B.4 staging migration:
 - The one-time remote write completed from source `db11b4a` to staging commit `227db46` with exactly 24 shards and aggregate SHA-256 `d5261ad277be1fbe7b391ea2f0995de8b0f96fdb612d73e95ed5853b2903684e`.

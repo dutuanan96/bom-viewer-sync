@@ -1,7 +1,7 @@
 /* BOM cloud data. Update only through admin.html. */
 window.BOM_VIEWER_DATA = {
   "version": 2,
-  "updatedAt": "2026-07-14T02:36:54.935Z",
+  "updatedAt": "2026-07-16T03:14:28.863Z",
   "bom": {
     "LGS031": {
       "code": "LGS031",
@@ -5609,10 +5609,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "12",
               "mat_code": "BC350327188KD",
               "comp_code": "Y14",
-              "name_zh": "LGS布抽35x32.5x18.7",
-              "name_vi": "LGS布抽35x32.5x18.7",
-              "spec": "350x325x187mm",
-              "spec_vi": "350x325x187mm",
+              "name_zh": "LGS布抽35x32.7x18.7",
+              "name_vi": "LGS布抽35x32.7x18.7",
+              "spec": "350x327x187mm",
+              "spec_vi": "350x327x187mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "复古色",
@@ -5645,10 +5645,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "14",
               "mat_code": "BC300327188KD",
               "comp_code": "Y15",
-              "name_zh": "LGS布抽30x32.5x14.8",
-              "name_vi": "LGS布抽30x32.5x14.8",
-              "spec": "300x325x148mm",
-              "spec_vi": "300x325x148mm",
+              "name_zh": "LGS布抽30x32.7x14.8",
+              "name_vi": "LGS布抽30x32.7x14.8",
+              "spec": "300x327x148mm",
+              "spec_vi": "300x327x148mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "复古色",
@@ -5663,10 +5663,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "15",
               "mat_code": "BC460327188KD",
               "comp_code": "Y06",
-              "name_zh": "LGS布抽46x32.5x18.7",
-              "name_vi": "LGS布抽46x32.5x18.7",
-              "spec": "460x325x187mm",
-              "spec_vi": "460x325x187mm",
+              "name_zh": "LGS布抽46x32.7x18.7",
+              "name_vi": "LGS布抽46x32.7x18.7",
+              "spec": "460x327x187mm",
+              "spec_vi": "460x327x187mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "复古色",
@@ -6702,10 +6702,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "12",
               "mat_code": "BC350327188BH",
               "comp_code": "Y14",
-              "name_zh": "LGS布抽35x32.5x18.7",
-              "name_vi": "LGS布抽35x32.5x18.7",
-              "spec": "350x325x187mm",
-              "spec_vi": "350x325x187mm",
+              "name_zh": "LGS布抽35x32.7x18.7",
+              "name_vi": "LGS布抽35x32.7x18.7",
+              "spec": "350x327x187mm",
+              "spec_vi": "350x327x187mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "黑色",
@@ -6738,10 +6738,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "14",
               "mat_code": "BC300327188BH",
               "comp_code": "Y15",
-              "name_zh": "LGS布抽30x32.5x14.8",
-              "name_vi": "LGS布抽30x32.5x14.8",
-              "spec": "300x325x148mm",
-              "spec_vi": "300x325x148mm",
+              "name_zh": "LGS布抽30x32.7x14.8",
+              "name_vi": "LGS布抽30x32.7x14.8",
+              "spec": "300x327x148mm",
+              "spec_vi": "300x327x148mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "黑色",
@@ -6756,10 +6756,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "15",
               "mat_code": "BC460327188BH",
               "comp_code": "Y06",
-              "name_zh": "LGS布抽46x32.5x18.7",
-              "name_vi": "LGS布抽46x32.5x18.7",
-              "spec": "460x325x187mm",
-              "spec_vi": "460x325x187mm",
+              "name_zh": "LGS布抽46x32.7x18.7",
+              "name_vi": "LGS布抽46x32.7x18.7",
+              "spec": "460x327x187mm",
+              "spec_vi": "460x327x187mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "黑色",
@@ -12427,10 +12427,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "10",
               "mat_code": "BC5503327188KD",
               "comp_code": "Y08",
-              "name_zh": "LGS布抽55x32.5x18.7",
-              "name_vi": "LGS布抽55x32.5x18.7",
-              "spec": "550x325x187mm",
-              "spec_vi": "550x325x187mm",
+              "name_zh": "LGS布抽55x32.7x18.7",
+              "name_vi": "LGS布抽55x32.7x18.7",
+              "spec": "550x327x187mm",
+              "spec_vi": "550x327x187mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "复古色",
@@ -13448,10 +13448,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "10",
               "mat_code": "BC5503327188WH",
               "comp_code": "Y08",
-              "name_zh": "LGS布抽55x32.5x18.7",
-              "name_vi": "LGS布抽55x32.5x18.7",
-              "spec": "550x325x187mm",
-              "spec_vi": "550x325x187mm",
+              "name_zh": "LGS布抽55x32.7x18.7",
+              "name_vi": "LGS布抽55x32.7x18.7",
+              "spec": "550x327x187mm",
+              "spec_vi": "550x327x187mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "白色",
@@ -14469,10 +14469,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "10",
               "mat_code": "BC550327188BH",
               "comp_code": "Y08",
-              "name_zh": "LGS布抽55x32.5x18.7",
-              "name_vi": "LGS布抽55x32.5x18.7",
-              "spec": "550x325x187mm",
-              "spec_vi": "550x325x187mm",
+              "name_zh": "LGS布抽55x32.7x18.7",
+              "name_vi": "LGS布抽55x32.7x18.7",
+              "spec": "550x327x187mm",
+              "spec_vi": "550x327x187mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "黑色",
@@ -15572,10 +15572,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "13",
               "mat_code": "BC460327188BH",
               "comp_code": "Y06",
-              "name_zh": "LGS布抽46x32.5x18.7",
-              "name_vi": "LGS布抽46x32.5x18.7",
-              "spec": "460x325x187mm",
-              "spec_vi": "460x325x187mm",
+              "name_zh": "LGS布抽46x32.7x18.7",
+              "name_vi": "LGS布抽46x32.7x18.7",
+              "spec": "460x327x187mm",
+              "spec_vi": "460x327x187mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "黑色",
@@ -16675,10 +16675,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "15",
               "mat_code": "BC458327171KD",
               "comp_code": "Y07",
-              "name_zh": "LGS布抽46x32.5x17.3",
-              "name_vi": "LGS布抽46x32.5x17.3",
-              "spec": "460x325x173mm",
-              "spec_vi": "460x325x173mm",
+              "name_zh": "LGS布抽46x32.7x17.3",
+              "name_vi": "LGS布抽46x32.7x17.3",
+              "spec": "460x327x173mm",
+              "spec_vi": "460x327x173mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "复古色",
@@ -16693,10 +16693,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "16",
               "mat_code": "BC458327186KD",
               "comp_code": "Y06",
-              "name_zh": "LGS布抽46x32.5x18.7",
-              "name_vi": "LGS布抽46x32.5x18.7",
-              "spec": "460x325x187mm",
-              "spec_vi": "460x325x187mm",
+              "name_zh": "LGS布抽46x32.7x18.7",
+              "name_vi": "LGS布抽46x32.7x18.7",
+              "spec": "460x327x187mm",
+              "spec_vi": "460x327x187mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "复古色",
@@ -17527,10 +17527,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "10",
               "mat_code": "BC5503327188KD",
               "comp_code": "Y08",
-              "name_zh": "LGS布抽55x32.5x18.7",
-              "name_vi": "LGS布抽55x32.5x18.7",
-              "spec": "550x325x187mm",
-              "spec_vi": "550x325x187mm",
+              "name_zh": "LGS布抽55x32.7x18.7",
+              "name_vi": "LGS布抽55x32.7x18.7",
+              "spec": "550x327x187mm",
+              "spec_vi": "550x327x187mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "复古色",
@@ -18584,10 +18584,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "10",
               "mat_code": "BC5503327188BH",
               "comp_code": "Y08",
-              "name_zh": "LGS布抽55x32.5x18.7",
-              "name_vi": "LGS布抽55x32.5x18.7",
-              "spec": "550x325x187mm",
-              "spec_vi": "550x325x187mm",
+              "name_zh": "LGS布抽55x32.7x18.7",
+              "name_vi": "LGS布抽55x32.7x18.7",
+              "spec": "550x327x187mm",
+              "spec_vi": "550x327x187mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "黑色",
@@ -19706,10 +19706,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "12",
               "mat_code": "BC5503327188KD",
               "comp_code": "Y08",
-              "name_zh": "LGS布抽55x32.5x18.7",
-              "name_vi": "LGS布抽55x32.5x18.7",
-              "spec": "550x325x187mm",
-              "spec_vi": "550x325x187mm",
+              "name_zh": "LGS布抽55x32.7x18.7",
+              "name_vi": "LGS布抽55x32.7x18.7",
+              "spec": "550x327x187mm",
+              "spec_vi": "550x327x187mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "复古色",
@@ -20835,10 +20835,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "12",
               "mat_code": "BC550327188BH",
               "comp_code": "Y08",
-              "name_zh": "LGS布抽55x32.5x18.7",
-              "name_vi": "LGS布抽55x32.5x18.7",
-              "spec": "550x325x187mm",
-              "spec_vi": "550x325x187mm",
+              "name_zh": "LGS布抽55x32.7x18.7",
+              "name_vi": "LGS布抽55x32.7x18.7",
+              "spec": "550x327x187mm",
+              "spec_vi": "550x327x187mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "黑色",
@@ -21976,10 +21976,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "15",
               "mat_code": "BC548327171KD",
               "comp_code": "Y09",
-              "name_zh": "LGS布抽55x32.5x17.3",
-              "name_vi": "LGS布抽55x32.5x17.3",
-              "spec": "550x325x173mm",
-              "spec_vi": "550x325x173mm",
+              "name_zh": "LGS布抽55x32.7x17.3",
+              "name_vi": "LGS布抽55x32.7x17.3",
+              "spec": "550x327x173mm",
+              "spec_vi": "550x327x173mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "复古色",
@@ -21994,10 +21994,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "16",
               "mat_code": "BC548327186KD",
               "comp_code": "Y08",
-              "name_zh": "LGS布抽55x32.5x18.7",
-              "name_vi": "LGS布抽55x32.5x18.7",
-              "spec": "550x325x187mm",
-              "spec_vi": "550x325x187mm",
+              "name_zh": "LGS布抽55x32.7x18.7",
+              "name_vi": "LGS布抽55x32.7x18.7",
+              "spec": "550x327x187mm",
+              "spec_vi": "550x327x187mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "复古色",
@@ -22853,10 +22853,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "15",
               "mat_code": "BC548327171WH",
               "comp_code": "Y09",
-              "name_zh": "LGS布抽55x32.5x17.3",
-              "name_vi": "LGS布抽55x32.5x17.3",
-              "spec": "550x325x173mm",
-              "spec_vi": "550x325x173mm",
+              "name_zh": "LGS布抽55x32.7x17.3",
+              "name_vi": "LGS布抽55x32.7x17.3",
+              "spec": "550x327x173mm",
+              "spec_vi": "550x327x173mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "白色",
@@ -22871,10 +22871,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "16",
               "mat_code": "BC548327186WH",
               "comp_code": "Y08",
-              "name_zh": "LGS布抽55x32.5x18.7",
-              "name_vi": "LGS布抽55x32.5x18.7",
-              "spec": "550x325x187mm",
-              "spec_vi": "550x325x187mm",
+              "name_zh": "LGS布抽55x32.7x18.7",
+              "name_vi": "LGS布抽55x32.7x18.7",
+              "spec": "550x327x187mm",
+              "spec_vi": "550x327x187mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "白色",
@@ -23730,10 +23730,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "15",
               "mat_code": "BC548327171BH",
               "comp_code": "Y09",
-              "name_zh": "LGS布抽55x32.5x17.3",
-              "name_vi": "LGS布抽55x32.5x17.3",
-              "spec": "550x325x173mm",
-              "spec_vi": "550x325x173mm",
+              "name_zh": "LGS布抽55x32.7x17.3",
+              "name_vi": "LGS布抽55x32.7x17.3",
+              "spec": "550x327x173mm",
+              "spec_vi": "550x327x173mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "黑色",
@@ -23748,10 +23748,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "16",
               "mat_code": "BC548327186BH",
               "comp_code": "Y08",
-              "name_zh": "LGS布抽55x32.5x18.7",
-              "name_vi": "LGS布抽55x32.5x18.7",
-              "spec": "550x325x187mm",
-              "spec_vi": "550x325x187mm",
+              "name_zh": "LGS布抽55x32.7x18.7",
+              "name_vi": "LGS布抽55x32.7x18.7",
+              "spec": "550x327x187mm",
+              "spec_vi": "550x327x187mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "黑色",
@@ -27206,10 +27206,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "18",
               "mat_code": "BC338327166BH",
               "comp_code": "Y11",
-              "name_zh": "LGS布抽34x32.5x16.8",
-              "name_vi": "LGS布抽34x32.5x16.8",
-              "spec": "340x325x168mm",
-              "spec_vi": "340x325x168mm",
+              "name_zh": "LGS布抽34x32.7x16.8",
+              "name_vi": "LGS布抽34x32.7x16.8",
+              "spec": "340x327x168mm",
+              "spec_vi": "340x327x168mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "黑色",
@@ -27224,10 +27224,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "19",
               "mat_code": "BC458327186BH",
               "comp_code": "Y06",
-              "name_zh": "LGS布抽46x32.5x18.7",
-              "name_vi": "LGS布抽46x32.5x18.7",
-              "spec": "460x325x187mm",
-              "spec_vi": "460x325x187mm",
+              "name_zh": "LGS布抽46x32.7x18.7",
+              "name_vi": "LGS布抽46x32.7x18.7",
+              "spec": "460x327x187mm",
+              "spec_vi": "460x327x187mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "黑色",
@@ -28077,10 +28077,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "10",
               "mat_code": "BC3503327188KD",
               "comp_code": "Y14",
-              "name_zh": "LGS布抽35x32.5x18.7",
-              "name_vi": "LGS布抽35x32.5x18.7",
-              "spec": "350x325x187mm",
-              "spec_vi": "350x325x187mm",
+              "name_zh": "LGS布抽35x32.7x18.7",
+              "name_vi": "LGS布抽35x32.7x18.7",
+              "spec": "350x327x187mm",
+              "spec_vi": "350x327x187mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "复古色",
@@ -29152,10 +29152,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "10",
               "mat_code": "BC3503327188WH",
               "comp_code": "Y14",
-              "name_zh": "LGS布抽35x32.5x18.7",
-              "name_vi": "LGS布抽35x32.5x18.7",
-              "spec": "350x325x187mm",
-              "spec_vi": "350x325x187mm",
+              "name_zh": "LGS布抽35x32.7x18.7",
+              "name_vi": "LGS布抽35x32.7x18.7",
+              "spec": "350x327x187mm",
+              "spec_vi": "350x327x187mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "白色",
@@ -30191,10 +30191,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "10",
               "mat_code": "BC350327188BH",
               "comp_code": "Y14",
-              "name_zh": "LGS布抽35x32.5x18.7",
-              "name_vi": "LGS布抽35x32.5x18.7",
-              "spec": "350x325x187mm",
-              "spec_vi": "350x325x187mm",
+              "name_zh": "LGS布抽35x32.7x18.7",
+              "name_vi": "LGS布抽35x32.7x18.7",
+              "spec": "350x327x187mm",
+              "spec_vi": "350x327x187mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "黑色",
@@ -31259,10 +31259,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "11",
               "mat_code": "BC4603327188KD",
               "comp_code": "Y06",
-              "name_zh": "LGS布抽46x32.5x18.7",
-              "name_vi": "LGS布抽46x32.5x18.7",
-              "spec": "460x325x187mm",
-              "spec_vi": "460x325x187mm",
+              "name_zh": "LGS布抽46x32.7x18.7",
+              "name_vi": "LGS布抽46x32.7x18.7",
+              "spec": "460x327x187mm",
+              "spec_vi": "460x327x187mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "复古色",
@@ -32298,10 +32298,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "11",
               "mat_code": "BC460327188BH",
               "comp_code": "Y06",
-              "name_zh": "LGS布抽46x32.5x18.7",
-              "name_vi": "LGS布抽46x32.5x18.7",
-              "spec": "460x325x187mm",
-              "spec_vi": "460x325x187mm",
+              "name_zh": "LGS布抽46x32.7x18.7",
+              "name_vi": "LGS布抽46x32.7x18.7",
+              "spec": "460x327x187mm",
+              "spec_vi": "460x327x187mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "黑色",
@@ -36621,10 +36621,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "25",
               "mat_code": "BC338327166WH",
               "comp_code": "Y11",
-              "name_zh": "LGS布抽34x32.5x16.8",
-              "name_vi": "LGS布抽34x32.5x16.8",
-              "spec": "340x325x168mm",
-              "spec_vi": "340x325x168mm",
+              "name_zh": "LGS布抽34x32.7x16.8",
+              "name_vi": "LGS布抽34x32.7x16.8",
+              "spec": "340x327x168mm",
+              "spec_vi": "340x327x168mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "白色",
@@ -36639,10 +36639,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "26",
               "mat_code": "BC458327186WH",
               "comp_code": "Y06",
-              "name_zh": "LGS布抽46x32.5x18.7",
-              "name_vi": "LGS布抽46x32.5x18.7",
-              "spec": "460x325x187mm",
-              "spec_vi": "460x325x187mm",
+              "name_zh": "LGS布抽46x32.7x18.7",
+              "name_vi": "LGS布抽46x32.7x18.7",
+              "spec": "460x327x187mm",
+              "spec_vi": "460x327x187mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "白色",
@@ -37876,10 +37876,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "25",
               "mat_code": "BC338327166BH",
               "comp_code": "Y11",
-              "name_zh": "LGS布抽34x32.5x16.8",
-              "name_vi": "LGS布抽34x32.5x16.8",
-              "spec": "340x325x168mm",
-              "spec_vi": "340x325x168mm",
+              "name_zh": "LGS布抽34x32.7x16.8",
+              "name_vi": "LGS布抽34x32.7x16.8",
+              "spec": "340x327x168mm",
+              "spec_vi": "340x327x168mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "黑色",
@@ -37894,10 +37894,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "26",
               "mat_code": "BC458327186BH",
               "comp_code": "Y06",
-              "name_zh": "LGS布抽46x32.5x18.7",
-              "name_vi": "LGS布抽46x32.5x18.7",
-              "spec": "460x325x187mm",
-              "spec_vi": "460x325x187mm",
+              "name_zh": "LGS布抽46x32.7x18.7",
+              "name_vi": "LGS布抽46x32.7x18.7",
+              "spec": "460x327x187mm",
+              "spec_vi": "460x327x187mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "黑色",
@@ -48241,10 +48241,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "19",
               "mat_code": "BC458327186WH",
               "comp_code": "Y06",
-              "name_zh": "LGS布抽46x32.5x18.7",
-              "name_vi": "LGS布抽46x32.5x18.7",
-              "spec": "460x325x187mm",
-              "spec_vi": "460x325x187mm",
+              "name_zh": "LGS布抽46x32.7x18.7",
+              "name_vi": "LGS布抽46x32.7x18.7",
+              "spec": "460x327x187mm",
+              "spec_vi": "460x327x187mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "白色",
@@ -49406,10 +49406,10 @@ window.BOM_VIEWER_DATA = {
               "stt": "19",
               "mat_code": "BC458327186BH",
               "comp_code": "Y06",
-              "name_zh": "LGS布抽46x32.5x18.7",
-              "name_vi": "LGS布抽46x32.5x18.7",
-              "spec": "460x325x187mm",
-              "spec_vi": "460x325x187mm",
+              "name_zh": "LGS布抽46x32.7x18.7",
+              "name_vi": "LGS布抽46x32.7x18.7",
+              "spec": "460x327x187mm",
+              "spec_vi": "460x327x187mm",
               "material_zh": "MDF&纸板&无纺布",
               "material_vi": "MDF&giấy&vải không dệt",
               "color_zh": "黑色",
@@ -69154,6 +69154,238 @@ window.BOM_VIEWER_DATA = {
   },
   "notifications": [
     {
+      "id": "notif_s70jie",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-16T03:14:28.863Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "BC548327171KD",
+          "field": "name",
+          "before": "LGS布抽55x32.5x17.3",
+          "after": "LGS布抽55x32.7x17.3"
+        },
+        {
+          "kind": "material",
+          "code": "BC548327171KD",
+          "field": "spec",
+          "before": "550x325x173mm",
+          "after": "550x327x173mm"
+        },
+        {
+          "kind": "material",
+          "code": "BC548327171WH",
+          "field": "name",
+          "before": "LGS布抽55x32.5x17.3",
+          "after": "LGS布抽55x32.7x17.3"
+        },
+        {
+          "kind": "material",
+          "code": "BC548327171WH",
+          "field": "spec",
+          "before": "550x325x173mm",
+          "after": "550x327x173mm"
+        },
+        {
+          "kind": "material",
+          "code": "BC548327186BH",
+          "field": "name",
+          "before": "LGS布抽55x32.5x18.7",
+          "after": "LGS布抽55x32.7x18.7"
+        },
+        {
+          "kind": "material",
+          "code": "BC548327186BH",
+          "field": "spec",
+          "before": "550x325x187mm",
+          "after": "550x327x187mm"
+        },
+        {
+          "kind": "material",
+          "code": "BC548327186KD",
+          "field": "name",
+          "before": "LGS布抽55x32.5x18.7",
+          "after": "LGS布抽55x32.7x18.7"
+        },
+        {
+          "kind": "material",
+          "code": "BC548327186KD",
+          "field": "spec",
+          "before": "550x325x187mm",
+          "after": "550x327x187mm"
+        }
+      ]
+    },
+    {
+      "id": "notif_miohd6",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-16T03:09:47.457Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "BC4603327188KD",
+          "field": "name",
+          "before": "LGS布抽46x32.5x18.7",
+          "after": "LGS布抽46x32.7x18.7"
+        },
+        {
+          "kind": "material",
+          "code": "BC4603327188KD",
+          "field": "spec",
+          "before": "460x325x187mm",
+          "after": "460x327x187mm"
+        },
+        {
+          "kind": "material",
+          "code": "BC548327171BH",
+          "field": "name",
+          "before": "LGS布抽55x32.5x17.3",
+          "after": "LGS布抽55x32.7x17.3"
+        },
+        {
+          "kind": "material",
+          "code": "BC548327171BH",
+          "field": "spec",
+          "before": "550x325x173mm",
+          "after": "550x327x173mm"
+        }
+      ]
+    },
+    {
+      "id": "notif_17lr5t4",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-16T03:08:33.096Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "BC3503327188KD",
+          "field": "name",
+          "before": "LGS布抽35x32.5x18.7",
+          "after": "LGS布抽35x32.7x18.7"
+        },
+        {
+          "kind": "material",
+          "code": "BC3503327188KD",
+          "field": "spec",
+          "before": "350x325x187mm",
+          "after": "350x327x187mm"
+        },
+        {
+          "kind": "material",
+          "code": "BC3503327188WH",
+          "field": "name",
+          "before": "LGS布抽35x32.5x18.7",
+          "after": "LGS布抽35x32.7x18.7"
+        },
+        {
+          "kind": "material",
+          "code": "BC3503327188WH",
+          "field": "spec",
+          "before": "350x325x187mm",
+          "after": "350x327x187mm"
+        },
+        {
+          "kind": "material",
+          "code": "BC458327171KD",
+          "field": "name",
+          "before": "LGS布抽46x32.5x17.3",
+          "after": "LGS布抽46x32.7x17.3"
+        },
+        {
+          "kind": "material",
+          "code": "BC458327171KD",
+          "field": "spec",
+          "before": "460x325x173mm",
+          "after": "460x327x173mm"
+        },
+        {
+          "kind": "material",
+          "code": "BC458327186BH",
+          "field": "name",
+          "before": "LGS布抽46x32.5x18.7",
+          "after": "LGS布抽46x32.7x18.7"
+        },
+        {
+          "kind": "material",
+          "code": "BC458327186BH",
+          "field": "spec",
+          "before": "460x325x187mm",
+          "after": "460x327x187mm"
+        }
+      ]
+    },
+    {
+      "id": "notif_nvu974",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-16T03:04:12.570Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "BC300327188BH",
+          "field": "name",
+          "before": "LGS布抽30x32.5x14.8",
+          "after": "LGS布抽30x32.7x14.8"
+        },
+        {
+          "kind": "material",
+          "code": "BC300327188BH",
+          "field": "spec",
+          "before": "300x325x148mm",
+          "after": "300x327x148mm"
+        },
+        {
+          "kind": "material",
+          "code": "BC300327188KD",
+          "field": "name",
+          "before": "LGS布抽30x32.5x14.8",
+          "after": "LGS布抽30x32.7x14.8"
+        },
+        {
+          "kind": "material",
+          "code": "BC300327188KD",
+          "field": "spec",
+          "before": "300x325x148mm",
+          "after": "300x327x148mm"
+        },
+        {
+          "kind": "material",
+          "code": "BC338327166BH",
+          "field": "name",
+          "before": "LGS布抽34x32.5x16.8",
+          "after": "LGS布抽34x32.7x16.8"
+        },
+        {
+          "kind": "material",
+          "code": "BC338327166BH",
+          "field": "spec",
+          "before": "340x325x168mm",
+          "after": "340x327x168mm"
+        },
+        {
+          "kind": "material",
+          "code": "BC338327166WH",
+          "field": "name",
+          "before": "LGS布抽34x32.5x16.8",
+          "after": "LGS布抽34x32.7x16.8"
+        },
+        {
+          "kind": "material",
+          "code": "BC338327166WH",
+          "field": "spec",
+          "before": "340x325x168mm",
+          "after": "340x327x168mm"
+        }
+      ]
+    },
+    {
       "id": "notif_pmpz06",
       "type": "github-save",
       "actor": "admin",
@@ -69310,139 +69542,6 @@ window.BOM_VIEWER_DATA = {
             "name": "把手.pdf",
             "path": "Google Drive > LGS031 > 把手.pdf",
             "url": "https://drive.google.com/file/d/17iRe22OzZBcqxeKDklynZPnKkHgAHT8U/view?usp=sharing",
-            "matched_name": "把手",
-            "score": 1002
-          },
-          {
-            "name": "把手.pdf",
-            "path": "Google Drive > LGS032-S > 把手.pdf",
-            "url": "https://drive.google.com/file/d/1r55O5-hvg599_nSAkvnTvAguR21-Ivfo/view?usp=sharing",
-            "matched_name": "把手",
-            "score": 1002
-          },
-          {
-            "name": "把手.pdf",
-            "path": "Google Drive > LGS033 > 把手.pdf",
-            "url": "https://drive.google.com/file/d/1li083nkUnbkfHRRwiA32CvKn0tx9fFay/view?usp=sharing",
-            "matched_name": "把手",
-            "score": 1002
-          },
-          {
-            "name": "把手.pdf",
-            "path": "Google Drive > LGS043-S > 把手.pdf",
-            "url": "https://drive.google.com/file/d/1SgWZD259NZLgTTGAmc3hvWvH4alMLduN/view?usp=sharing",
-            "matched_name": "把手",
-            "score": 1002
-          },
-          {
-            "name": "把手.pdf",
-            "path": "Google Drive > LGS131 > 把手.pdf",
-            "url": "https://drive.google.com/file/d/1eIpO-bmPeHwZjiOkMG7-TsUVg__bo1V7/view?usp=sharing",
-            "matched_name": "把手",
-            "score": 1002
-          },
-          {
-            "name": "把手.pdf",
-            "path": "Google Drive > LGS132-S > 把手.pdf",
-            "url": "https://drive.google.com/file/d/1TDB3sxhp35HiR7Er52Tro7CFBd7VQ6yF/view?usp=sharing",
-            "matched_name": "把手",
-            "score": 1002
-          },
-          {
-            "name": "把手.pdf",
-            "path": "Google Drive > LGS133 > 把手.pdf",
-            "url": "https://drive.google.com/file/d/14m-D8F_e3QIyRtJOpQlebXQDL9KnNtHP/view?usp=sharing",
-            "matched_name": "把手",
-            "score": 1002
-          },
-          {
-            "name": "把手.pdf",
-            "path": "Google Drive > LGS231 > 把手.pdf",
-            "url": "https://drive.google.com/file/d/1XsstgBaS3Vj4IkUzv-MXn0eGJxUdxDQO/view?usp=sharing",
-            "matched_name": "把手",
-            "score": 1002
-          },
-          {
-            "name": "把手.pdf",
-            "path": "Google Drive > LGS232-S > 把手.pdf",
-            "url": "https://drive.google.com/file/d/1Lm4dOv3H8k59h-XACgKmXzlq4dOziJW-/view?usp=sharing",
-            "matched_name": "把手",
-            "score": 1002
-          },
-          {
-            "name": "把手.pdf",
-            "path": "Google Drive > LGS233 > 把手.pdf",
-            "url": "https://drive.google.com/file/d/1fFJeSsbCzj34ZcXHE2DeYRO1rAV_NUzx/view?usp=sharing",
-            "matched_name": "把手",
-            "score": 1002
-          },
-          {
-            "name": "把手.pdf",
-            "path": "Google Drive > LGS333 > 把手.pdf",
-            "url": "https://drive.google.com/file/d/1W_j2bi86H7nuLmBXVv1-MM22R6exyReS/view?usp=sharing",
-            "matched_name": "把手",
-            "score": 1002
-          },
-          {
-            "name": "把手.pdf",
-            "path": "Google Drive > LGS334 > 把手.pdf",
-            "url": "https://drive.google.com/file/d/1L9zMGR8NIEZvfZikTIGaBV0vwH20WYkV/view?usp=sharing",
-            "matched_name": "把手",
-            "score": 1002
-          },
-          {
-            "name": "把手.pdf",
-            "path": "Google Drive > LGS420-S > 把手.pdf",
-            "url": "https://drive.google.com/file/d/1kHcESZ8qoTOWH3tq-zEOkWXnwFnfiT58/view?usp=sharing",
-            "matched_name": "把手",
-            "score": 1002
-          },
-          {
-            "name": "把手.pdf",
-            "path": "Google Drive > LGS421-S > 把手.pdf",
-            "url": "https://drive.google.com/file/d/1rwXYc0D6H72v7qfyXNPEHKTgViqrSCnY/view?usp=sharing",
-            "matched_name": "把手",
-            "score": 1002
-          },
-          {
-            "name": "把手.pdf",
-            "path": "Google Drive > LGS433 > 把手.pdf",
-            "url": "https://drive.google.com/file/d/19LbuVGah_hdbVZ8PQru77B1pDLx6cIfJ/view?usp=sharing",
-            "matched_name": "把手",
-            "score": 1002
-          },
-          {
-            "name": "把手.pdf",
-            "path": "Google Drive > LGS434 > 把手.pdf",
-            "url": "https://drive.google.com/file/d/1GHFkxqBgoPq-Pzb--SA9U0w-u2JCDx7Q/view?usp=sharing",
-            "matched_name": "把手",
-            "score": 1002
-          },
-          {
-            "name": "把手.pdf",
-            "path": "Google Drive > LGS723 > 把手.pdf",
-            "url": "https://drive.google.com/file/d/1iGcgBtkqqdqZhZ1zPqIEIOwboN9i0sVq/view?usp=sharing",
-            "matched_name": "把手",
-            "score": 1002
-          },
-          {
-            "name": "把手.pdf",
-            "path": "Google Drive > LGS733 > 把手.pdf",
-            "url": "https://drive.google.com/file/d/1t_IZiZF50bETxYJ0pqlCfTteiq3XtPXG/view?usp=sharing",
-            "matched_name": "把手",
-            "score": 1002
-          },
-          {
-            "name": "把手.pdf",
-            "path": "Google Drive > LGS833 > 把手.pdf",
-            "url": "https://drive.google.com/file/d/1AanaFuQl_Gnto0u4sLVOwDw_odeyt-Sd/view?usp=sharing",
-            "matched_name": "把手",
-            "score": 1002
-          },
-          {
-            "name": "把手.pdf",
-            "path": "Google Drive > LGS834 > 把手.pdf",
-            "url": "https://drive.google.com/file/d/1r8p7Nhh0SWIyaxS9TFcvqbBcaEPC_rIF/view?usp=sharing",
             "matched_name": "把手",
             "score": 1002
           }
@@ -69922,91 +70021,6 @@ window.BOM_VIEWER_DATA = {
         ],
         "spec_vi": "以实际为准"
       },
-      "mat_1mv7y4a": {
-        "id": "mat_1mv7y4a",
-        "code": "BCDB35027223BH",
-        "name": {
-          "zh": "LGS布抽底板34.5x27.5",
-          "vi": "LGS布抽底板34.5x27.5"
-        },
-        "spec": {
-          "zh": "345x275x3mm",
-          "vi": "345x275x3mm"
-        },
-        "material": {
-          "zh": "MDF&纸板&无纺布",
-          "vi": "MDF&giấy&vải không dệt"
-        },
-        "color": {
-          "zh": "黑色",
-          "vi": "màu đen"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [],
-        "models3d": [
-          {
-            "name": "LGS布抽底板28x35.glb",
-            "path": "models3d/catalog/LGS-28x35-7151de33.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-28x35-7151de33.glb",
-            "matched_name": "LGS布抽底板28X35",
-            "score": 1100,
-            "bytes": 1320
-          }
-        ]
-      },
-      "mat_inq04s": {
-        "id": "mat_inq04s",
-        "code": "BC350282188KD",
-        "name": {
-          "zh": "LGS布抽35x28x18.7",
-          "vi": "LGS布抽35x28x18.7"
-        },
-        "spec": {
-          "zh": "350x280x187mm",
-          "vi": "350x280x187mm"
-        },
-        "material": {
-          "zh": "MDF&纸板&无纺布",
-          "vi": "MDF&giấy&vải không dệt"
-        },
-        "color": {
-          "zh": "复古色",
-          "vi": "màu gỗ cổ"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [
-          {
-            "name": "LGS布抽28x35x18.7.pdf",
-            "path": "Google Drive > LGS031 > LGS布抽28x35x18.7.pdf",
-            "url": "https://drive.google.com/file/d/18cGn-jLKm8KHUg2s6OPAYi2e09RQjt6p/view?usp=sharing",
-            "matched_name": "LGS布抽35x28x18.7",
-            "score": 960
-          },
-          {
-            "name": "LGS布抽28x35x18.7.pdf",
-            "path": "Google Drive > LGS032-S > LGS布抽28x35x18.7.pdf",
-            "url": "https://drive.google.com/file/d/1ka9EzcDDbQAHEurM5Dpt0ZpuINiqyFVR/view?usp=sharing",
-            "matched_name": "LGS布抽35x28x18.7",
-            "score": 960
-          }
-        ],
-        "models3d": [
-          {
-            "name": "LGS布抽35x28x18.7.glb",
-            "path": "models3d/catalog/LGS-35x28x18-7-3549de43.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-35x28x18-7-3549de43.glb",
-            "matched_name": "LGS布抽35x28x18.7",
-            "score": 1100,
-            "bytes": 19736
-          }
-        ]
-      },
       "mat_fbtabe": {
         "id": "mat_fbtabe",
         "code": "LGS031YZKBH",
@@ -70078,62 +70092,6 @@ window.BOM_VIEWER_DATA = {
             "name": "300-R.pdf",
             "path": "Google Drive > LGS031 > 300-R.pdf",
             "url": "https://drive.google.com/file/d/1gDAa5IVJ_nClf1E3gKyVvsEiEx9uk5E6/view?usp=sharing",
-            "matched_name": "280mm布抽条右",
-            "score": 980
-          },
-          {
-            "name": "300-R.pdf",
-            "path": "Google Drive > LGS032-S > 300-R.pdf",
-            "url": "https://drive.google.com/file/d/1l7VtaPp_BHpPxOrryJKxmiBaTZs9EEcg/view?usp=sharing",
-            "matched_name": "280mm布抽条右",
-            "score": 980
-          },
-          {
-            "name": "300-R.pdf",
-            "path": "Google Drive > LGS033 > 300-R.pdf",
-            "url": "https://drive.google.com/file/d/1dXWWLZQToL4upFx0BKz0upyy2cjJuOXB/view?usp=sharing",
-            "matched_name": "280mm布抽条右",
-            "score": 980
-          },
-          {
-            "name": "300-R.pdf",
-            "path": "Google Drive > LGS101-111 > 300-R.pdf",
-            "url": "https://drive.google.com/file/d/13EDEIrg3GqEObdhwmLxmjrMuN5wGIHTA/view?usp=sharing",
-            "matched_name": "280mm布抽条右",
-            "score": 980
-          },
-          {
-            "name": "300-R.pdf",
-            "path": "Google Drive > LGS333 > 300-R.pdf",
-            "url": "https://drive.google.com/file/d/1uP19wxTblW3tQ6h1m5Y6xx7yxh7MnXam/view?usp=sharing",
-            "matched_name": "280mm布抽条右",
-            "score": 980
-          },
-          {
-            "name": "300-R.pdf",
-            "path": "Google Drive > LGS433 > 300-R.pdf",
-            "url": "https://drive.google.com/file/d/1wrYWaAUvFaoolaJvwpQ31Hi1j_AL4AJ0/view?usp=sharing",
-            "matched_name": "280mm布抽条右",
-            "score": 980
-          },
-          {
-            "name": "300-R.pdf",
-            "path": "Google Drive > LGS723 > 300-R.pdf",
-            "url": "https://drive.google.com/file/d/1Dga1yF0skybC7L_Cgh5KIM9npofgTZZ9/view?usp=sharing",
-            "matched_name": "280mm布抽条右",
-            "score": 980
-          },
-          {
-            "name": "300-R.pdf",
-            "path": "Google Drive > LGS733 > 300-R.pdf",
-            "url": "https://drive.google.com/file/d/1ETrmgJXYzGKy5qHbu3dWGFHYB28yzFsG/view?usp=sharing",
-            "matched_name": "280mm布抽条右",
-            "score": 980
-          },
-          {
-            "name": "300-R.pdf",
-            "path": "Google Drive > LGS833 > 300-R.pdf",
-            "url": "https://drive.google.com/file/d/127bWrns2nkw1ePn489dILwvFJ6-WI9wz/view?usp=sharing",
             "matched_name": "280mm布抽条右",
             "score": 980
           }
@@ -70306,62 +70264,6 @@ window.BOM_VIEWER_DATA = {
             "name": "300-L.pdf",
             "path": "Google Drive > LGS031 > 300-L.pdf",
             "url": "https://drive.google.com/file/d/1hnfo5kl0Ju2RF-_11o9XdZ0JI_J5WnPf/view?usp=sharing",
-            "matched_name": "280mm布抽条左",
-            "score": 980
-          },
-          {
-            "name": "300-L.pdf",
-            "path": "Google Drive > LGS032-S > 300-L.pdf",
-            "url": "https://drive.google.com/file/d/17aEVBHcR19u8reS8WlAXHDw-wtuATlkW/view?usp=sharing",
-            "matched_name": "280mm布抽条左",
-            "score": 980
-          },
-          {
-            "name": "300-L.pdf",
-            "path": "Google Drive > LGS033 > 300-L.pdf",
-            "url": "https://drive.google.com/file/d/1b4xTlS5Kbz8GyrGFPDkNcu-Qh_CP1yH8/view?usp=sharing",
-            "matched_name": "280mm布抽条左",
-            "score": 980
-          },
-          {
-            "name": "300-L.pdf",
-            "path": "Google Drive > LGS101-111 > 300-L.pdf",
-            "url": "https://drive.google.com/file/d/1BM3E6akJcBPBeLL1iDHsdH2N0riY4LMT/view?usp=sharing",
-            "matched_name": "280mm布抽条左",
-            "score": 980
-          },
-          {
-            "name": "300-L.pdf",
-            "path": "Google Drive > LGS333 > 300-L.pdf",
-            "url": "https://drive.google.com/file/d/1a1mBZ8uXNx4N1If_5zR2gw-16jBP8tX3/view?usp=sharing",
-            "matched_name": "280mm布抽条左",
-            "score": 980
-          },
-          {
-            "name": "300-L.pdf",
-            "path": "Google Drive > LGS433 > 300-L.pdf",
-            "url": "https://drive.google.com/file/d/1Wp1q0Ry5i-l_Jl-FV6rSrwq_IjMYBi5g/view?usp=sharing",
-            "matched_name": "280mm布抽条左",
-            "score": 980
-          },
-          {
-            "name": "300-L.pdf",
-            "path": "Google Drive > LGS723 > 300-L.pdf",
-            "url": "https://drive.google.com/file/d/13Ns2Nk_oFL-USx7SB46KFq36CLGL-iO3/view?usp=sharing",
-            "matched_name": "280mm布抽条左",
-            "score": 980
-          },
-          {
-            "name": "300-L.pdf",
-            "path": "Google Drive > LGS733 > 300-L.pdf",
-            "url": "https://drive.google.com/file/d/1HnIWvpynA_Wj8K6uGIpRAqLcykoYjOky/view?usp=sharing",
-            "matched_name": "280mm布抽条左",
-            "score": 980
-          },
-          {
-            "name": "300-L.pdf",
-            "path": "Google Drive > LGS833 > 300-L.pdf",
-            "url": "https://drive.google.com/file/d/1Y3xKheSZitTBUH0AmFz-bjyb0TU5ZOkx/view?usp=sharing",
             "matched_name": "280mm布抽条左",
             "score": 980
           }
@@ -70699,14 +70601,14 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_n9hhug": {
         "id": "mat_n9hhug",
-        "code": "BC350282188BH",
+        "code": "BC350282187BH",
         "name": {
-          "zh": "LGS布抽35x28x18.7",
-          "vi": "LGS布抽35x28x18.7"
+          "zh": "LGS布抽35x28.2x18.7",
+          "vi": "LGS布抽35x28.2x18.7"
         },
         "spec": {
-          "zh": "350x280x187mm",
-          "vi": "350x280x187mm"
+          "zh": "350x282x187mm",
+          "vi": "350x282x187mm"
         },
         "material": {
           "zh": "MDF&纸板&无纺布",
@@ -70725,13 +70627,6 @@ window.BOM_VIEWER_DATA = {
             "name": "LGS布抽28x35x18.7.pdf",
             "path": "Google Drive > LGS031 > LGS布抽28x35x18.7.pdf",
             "url": "https://drive.google.com/file/d/18cGn-jLKm8KHUg2s6OPAYi2e09RQjt6p/view?usp=sharing",
-            "matched_name": "LGS布抽35x28x18.7",
-            "score": 960
-          },
-          {
-            "name": "LGS布抽28x35x18.7.pdf",
-            "path": "Google Drive > LGS032-S > LGS布抽28x35x18.7.pdf",
-            "url": "https://drive.google.com/file/d/1ka9EzcDDbQAHEurM5Dpt0ZpuINiqyFVR/view?usp=sharing",
             "matched_name": "LGS布抽35x28x18.7",
             "score": 960
           }
@@ -71272,72 +71167,9 @@ window.BOM_VIEWER_DATA = {
         "drawings": [
           {
             "name": "51底脚.pdf",
-            "path": "Google Drive > LGS032-S > 51底脚.pdf",
-            "url": "https://drive.google.com/file/d/1pP0E8lqjsNRuRbg-oLSoMQKiihPWmbgG/view?usp=sharing",
-            "matched_name": "51底脚",
-            "score": 1004
-          },
-          {
-            "name": "54底脚.pdf",
-            "path": "Google Drive > LGS033 > 54底脚.pdf",
-            "url": "https://drive.google.com/file/d/1wtron5rMWGkFJf7ExlwRJZ738poWuHO6/view?usp=sharing",
-            "matched_name": "54底脚",
-            "score": 1004
-          },
-          {
-            "name": "51底脚.pdf",
             "path": "Google Drive > LGS132-S > 51底脚.pdf",
             "url": "https://drive.google.com/file/d/1TPqGlA-Czl-LqqmNi6wCwh2Pxgqv7CgA/view?usp=sharing",
             "matched_name": "51底脚",
-            "score": 1004
-          },
-          {
-            "name": "54底脚(螺纹长23mm).pdf",
-            "path": "Google Drive > LGS133 > 54底脚(螺纹长23mm).pdf",
-            "url": "https://drive.google.com/file/d/1URBurMk1wZ-7V4tCVGb-EZURj53GxkBr/view?usp=sharing",
-            "matched_name": "54底脚(螺纹长23mm)",
-            "score": 1011
-          },
-          {
-            "name": "51底脚.pdf",
-            "path": "Google Drive > LGS232-S > 51底脚.pdf",
-            "url": "https://drive.google.com/file/d/1AvcvZ8CFg7CaoyzebNsFWiD_xMmnXbgI/view?usp=sharing",
-            "matched_name": "51底脚",
-            "score": 1004
-          },
-          {
-            "name": "54底脚(螺纹长23mm).pdf",
-            "path": "Google Drive > LGS233 > 54底脚(螺纹长23mm).pdf",
-            "url": "https://drive.google.com/file/d/1bgLYdXFj5BxL1C0mVmbbBwpHKsyXkGZT/view?usp=sharing",
-            "matched_name": "54底脚(螺纹长23mm)",
-            "score": 1011
-          },
-          {
-            "name": "54底脚.pdf",
-            "path": "Google Drive > LGS333 > 54底脚.pdf",
-            "url": "https://drive.google.com/file/d/1EXel1U2eWKA9CCciihhVl_gbchVADxGa/view?usp=sharing",
-            "matched_name": "54底脚",
-            "score": 1004
-          },
-          {
-            "name": "54底脚.pdf",
-            "path": "Google Drive > LGS334 > 54底脚.pdf",
-            "url": "https://drive.google.com/file/d/1Fak3eBmddz-0X8Eq48ytEqWwSHoT1shY/view?usp=sharing",
-            "matched_name": "54底脚",
-            "score": 1004
-          },
-          {
-            "name": "54底脚.pdf",
-            "path": "Google Drive > LGS433 > 54底脚.pdf",
-            "url": "https://drive.google.com/file/d/1efYI7DVepuL6QyR9X_oIaIBGCL3YgyY3/view?usp=sharing",
-            "matched_name": "54底脚",
-            "score": 1004
-          },
-          {
-            "name": "54底脚.pdf",
-            "path": "Google Drive > LGS833 > 54底脚.pdf",
-            "url": "https://drive.google.com/file/d/16nEBzWtylTs2wkD2IYrD6WUekmMx7_tq/view?usp=sharing",
-            "matched_name": "54底脚",
             "score": 1004
           }
         ],
@@ -71349,22 +71181,6 @@ window.BOM_VIEWER_DATA = {
             "matched_name": "51底脚",
             "score": 1300,
             "bytes": 19716
-          },
-          {
-            "name": "54底脚.glb",
-            "path": "models3d/catalog/54-21ec9115.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/54-21ec9115.glb",
-            "matched_name": "54底脚",
-            "score": 1300,
-            "bytes": 349028
-          },
-          {
-            "name": "54底脚(螺纹长23mm).glb",
-            "path": "models3d/catalog/54-23mm-f24fa114.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/54-23mm-f24fa114.glb",
-            "matched_name": "54底脚(螺纹长23mm)",
-            "score": 1300,
-            "bytes": 703180
           }
         ]
       },
@@ -71396,118 +71212,6 @@ window.BOM_VIEWER_DATA = {
             "name": "254拉杆.pdf",
             "path": "Google Drive > LGS032-S > 254拉杆.pdf",
             "url": "https://drive.google.com/file/d/1Z6_Q10QmTVo5l_SkpcPgEN6FgJVV1OrB/view?usp=sharing",
-            "matched_name": "254拉杆",
-            "score": 1005
-          },
-          {
-            "name": "254拉杆.pdf",
-            "path": "Google Drive > LGS131 > 254拉杆.pdf",
-            "url": "https://drive.google.com/file/d/1b1jmcqx3m9r0aZdjyKqo3rKqmdTOFzZ_/view?usp=sharing",
-            "matched_name": "254拉杆",
-            "score": 1005
-          },
-          {
-            "name": "254拉杆.pdf",
-            "path": "Google Drive > LGS132-S > 254拉杆.pdf",
-            "url": "https://drive.google.com/file/d/1ibkL_9XfdtBwl6nPzXHzsbxEyTThOPR1/view?usp=sharing",
-            "matched_name": "254拉杆",
-            "score": 1005
-          },
-          {
-            "name": "254拉杆.pdf",
-            "path": "Google Drive > LGS133 > 254拉杆.pdf",
-            "url": "https://drive.google.com/file/d/10ecJF8umUePzxfGEs9QaFHLyRwComegs/view?usp=sharing",
-            "matched_name": "254拉杆",
-            "score": 1005
-          },
-          {
-            "name": "254拉杆.pdf",
-            "path": "Google Drive > LGS231 > 254拉杆.pdf",
-            "url": "https://drive.google.com/file/d/1AOatIJgm6CZQr7wpxs4j72jvWu0FJf2f/view?usp=sharing",
-            "matched_name": "254拉杆",
-            "score": 1005
-          },
-          {
-            "name": "254拉杆.pdf",
-            "path": "Google Drive > LGS232-S > 254拉杆.pdf",
-            "url": "https://drive.google.com/file/d/10Vq_opjI9cevnlMLEDmtTlxq7yKhvUY9/view?usp=sharing",
-            "matched_name": "254拉杆",
-            "score": 1005
-          },
-          {
-            "name": "254拉杆.pdf",
-            "path": "Google Drive > LGS233 > 254拉杆.pdf",
-            "url": "https://drive.google.com/file/d/1vGQTJusLEtOz4qI63vDlBxsNWENZ_D4S/view?usp=sharing",
-            "matched_name": "254拉杆",
-            "score": 1005
-          },
-          {
-            "name": "254拉杆.pdf",
-            "path": "Google Drive > LGS333 > 254拉杆.pdf",
-            "url": "https://drive.google.com/file/d/1xDp1_0gpueA5rztZQQNGXxzmtBhANdz3/view?usp=sharing",
-            "matched_name": "254拉杆",
-            "score": 1005
-          },
-          {
-            "name": "254拉杆.pdf",
-            "path": "Google Drive > LGS334 > 254拉杆.pdf",
-            "url": "https://drive.google.com/file/d/1kD6dqu86hbhoUcwHDsGHa4jLi3GkGane/view?usp=sharing",
-            "matched_name": "254拉杆",
-            "score": 1005
-          },
-          {
-            "name": "254拉杆.pdf",
-            "path": "Google Drive > LGS420-S > 254拉杆.pdf",
-            "url": "https://drive.google.com/file/d/1LyTBUZyaCEKsRUrinP4lZ1S0pUSKqyxK/view?usp=sharing",
-            "matched_name": "254拉杆",
-            "score": 1005
-          },
-          {
-            "name": "254拉杆.pdf",
-            "path": "Google Drive > LGS421-S > 254拉杆.pdf",
-            "url": "https://drive.google.com/file/d/1oV63enoAEjMdrKY8bAPU0z4gPWyJwGWo/view?usp=sharing",
-            "matched_name": "254拉杆",
-            "score": 1005
-          },
-          {
-            "name": "254拉杆.pdf",
-            "path": "Google Drive > LGS433 > 254拉杆.pdf",
-            "url": "https://drive.google.com/file/d/1oZd5Ft_XQALYrrwr4cMVUH7ltwFFoQHe/view?usp=sharing",
-            "matched_name": "254拉杆",
-            "score": 1005
-          },
-          {
-            "name": "254拉杆.pdf",
-            "path": "Google Drive > LGS434 > 254拉杆.pdf",
-            "url": "https://drive.google.com/file/d/1GGQCEz-E8vTZWIG6pkRZErl4y-YkNCql/view?usp=sharing",
-            "matched_name": "254拉杆",
-            "score": 1005
-          },
-          {
-            "name": "254拉杆.pdf",
-            "path": "Google Drive > LGS723 > 254拉杆.pdf",
-            "url": "https://drive.google.com/file/d/1FvXGSRfDkSYjGci5CYgAhip9tLhwF9iF/view?usp=sharing",
-            "matched_name": "254拉杆",
-            "score": 1005
-          },
-          {
-            "name": "254拉杆.pdf",
-            "path": "Google Drive > LGS733 > 254拉杆.pdf",
-            "url": "https://drive.google.com/file/d/1P37bCXp3fdRP5E2VU0jPP3A8YweuznDV/view?usp=sharing",
-            "matched_name": "254拉杆",
-            "score": 1005
-          },
-          {
-            "name": "254拉杆.pdf",
-            "path": "Google Drive > LGS833 > 254拉杆.pdf",
-            "url": "https://drive.google.com/file/d/1ZIRPVKrzyk5Dbrm_IB_00az6v3cpzNMo/view?usp=sharing",
-            "matched_name": "254拉杆",
-            "score": 1005
-          },
-          {
-            "name": "254拉杆.pdf",
-            "path": "Google Drive > LGS834 > 254拉杆.pdf",
-            "url": "https://drive.google.com/file/d/1c5NxZ2_JZcBf_CBAQlTzkjhEIflPexZJ/view?usp=sharing",
             "matched_name": "254拉杆",
             "score": 1005
           }
@@ -72013,20 +71717,6 @@ window.BOM_VIEWER_DATA = {
             "url": "https://drive.google.com/file/d/1DUGCZNLRo0fA6hUXmNuX4CFfh4mVviAW/view?usp=sharing",
             "matched_name": "595拉杆",
             "score": 1005
-          },
-          {
-            "name": "595拉杆.pdf",
-            "path": "Google Drive > LGS133 > 595拉杆.pdf",
-            "url": "https://drive.google.com/file/d/1EBEKDPeGwNXyLjzPkYu9f9F3YpWEb5vv/view?usp=sharing",
-            "matched_name": "595拉杆",
-            "score": 1005
-          },
-          {
-            "name": "595拉杆.pdf",
-            "path": "Google Drive > LGS233 > 595拉杆.pdf",
-            "url": "https://drive.google.com/file/d/1XEaBoh39DTbkEdrgOHgREm8_qWAMcKYP/view?usp=sharing",
-            "matched_name": "595拉杆",
-            "score": 1005
           }
         ],
         "models3d": [
@@ -72257,14 +71947,14 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_1c1n9dj": {
         "id": "mat_1c1n9dj",
-        "code": "BC348282186KD",
+        "code": "BC350282187KD",
         "name": {
-          "zh": "LGS布抽35x28x18.7",
-          "vi": "LGS布抽35x28x18.7"
+          "zh": "LGS布抽35x28.2x18.7",
+          "vi": "LGS布抽35x28.2x18.7"
         },
         "spec": {
-          "zh": "350x280x187mm",
-          "vi": "350x280x187mm"
+          "zh": "350x282x187mm",
+          "vi": "350x282x187mm"
         },
         "material": {
           "zh": "MDF&纸板&无纺布",
@@ -72285,34 +71975,6 @@ window.BOM_VIEWER_DATA = {
             "url": "https://drive.google.com/file/d/1iHEZ_ETbxTW7PmoE-ArCAf-zAemZTipL/view?usp=sharing",
             "matched_name": "LGS布抽35x28x18.7",
             "score": 960
-          },
-          {
-            "name": "LGS布抽28x35x18.7.pdf",
-            "path": "Google Drive > LGS333 > LGS布抽28x35x18.7.pdf",
-            "url": "https://drive.google.com/file/d/1JfK8Jy0QeiV8aUE4x30FFLQR-TjHApym/view?usp=sharing",
-            "matched_name": "LGS布抽35x28x18.7",
-            "score": 960
-          },
-          {
-            "name": "LGS布抽28x35x18.7.pdf",
-            "path": "Google Drive > LGS433 > LGS布抽28x35x18.7.pdf",
-            "url": "https://drive.google.com/file/d/1o6k6dcjqSiYRyaLOzt_4X8q2GRODZnkP/view?usp=sharing",
-            "matched_name": "LGS布抽35x28x18.7",
-            "score": 960
-          },
-          {
-            "name": "LGS布抽28x35x18.7.pdf",
-            "path": "Google Drive > LGS733 > LGS布抽28x35x18.7.pdf",
-            "url": "https://drive.google.com/file/d/15djmRvEatdWwlyfGxi64Rm0clrRbfx-1/view?usp=sharing",
-            "matched_name": "LGS布抽35x28x18.7",
-            "score": 960
-          },
-          {
-            "name": "LGS布抽28x35x18.7.pdf",
-            "path": "Google Drive > LGS833 > LGS布抽28x35x18.7.pdf",
-            "url": "https://drive.google.com/file/d/1mxbTXQUQoyWFQTB4mejTXMnLEc8HqEzT/view?usp=sharing",
-            "matched_name": "LGS布抽35x28x18.7",
-            "score": 960
           }
         ],
         "models3d": [
@@ -72328,13 +71990,13 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_1jrbb68": {
         "id": "mat_1jrbb68",
-        "code": "BCDB33827223BH",
+        "code": "BCDB350282003BH",
         "name": {
-          "zh": "LGS布抽底板34.5x27.5",
+          "zh": "LGS布抽底板35x28.2",
           "vi": "LGS布抽底板34.5x27.5"
         },
         "spec": {
-          "zh": "345x275x3mm",
+          "zh": "345x277x3mm",
           "vi": "345x275x3mm"
         },
         "material": {
@@ -72521,48 +72183,6 @@ window.BOM_VIEWER_DATA = {
             "url": "https://drive.google.com/file/d/1b4xTlS5Kbz8GyrGFPDkNcu-Qh_CP1yH8/view?usp=sharing",
             "matched_name": "280mm布抽条左",
             "score": 980
-          },
-          {
-            "name": "300-L.pdf",
-            "path": "Google Drive > LGS101-111 > 300-L.pdf",
-            "url": "https://drive.google.com/file/d/1BM3E6akJcBPBeLL1iDHsdH2N0riY4LMT/view?usp=sharing",
-            "matched_name": "280mm布抽条左",
-            "score": 980
-          },
-          {
-            "name": "300-L.pdf",
-            "path": "Google Drive > LGS333 > 300-L.pdf",
-            "url": "https://drive.google.com/file/d/1a1mBZ8uXNx4N1If_5zR2gw-16jBP8tX3/view?usp=sharing",
-            "matched_name": "280mm布抽条左",
-            "score": 980
-          },
-          {
-            "name": "300-L.pdf",
-            "path": "Google Drive > LGS433 > 300-L.pdf",
-            "url": "https://drive.google.com/file/d/1Wp1q0Ry5i-l_Jl-FV6rSrwq_IjMYBi5g/view?usp=sharing",
-            "matched_name": "280mm布抽条左",
-            "score": 980
-          },
-          {
-            "name": "300-L.pdf",
-            "path": "Google Drive > LGS723 > 300-L.pdf",
-            "url": "https://drive.google.com/file/d/13Ns2Nk_oFL-USx7SB46KFq36CLGL-iO3/view?usp=sharing",
-            "matched_name": "280mm布抽条左",
-            "score": 980
-          },
-          {
-            "name": "300-L.pdf",
-            "path": "Google Drive > LGS733 > 300-L.pdf",
-            "url": "https://drive.google.com/file/d/1HnIWvpynA_Wj8K6uGIpRAqLcykoYjOky/view?usp=sharing",
-            "matched_name": "280mm布抽条左",
-            "score": 980
-          },
-          {
-            "name": "300-L.pdf",
-            "path": "Google Drive > LGS833 > 300-L.pdf",
-            "url": "https://drive.google.com/file/d/1Y3xKheSZitTBUH0AmFz-bjyb0TU5ZOkx/view?usp=sharing",
-            "matched_name": "280mm布抽条左",
-            "score": 980
           }
         ],
         "models3d": [
@@ -72604,48 +72224,6 @@ window.BOM_VIEWER_DATA = {
             "name": "300-R.pdf",
             "path": "Google Drive > LGS033 > 300-R.pdf",
             "url": "https://drive.google.com/file/d/1dXWWLZQToL4upFx0BKz0upyy2cjJuOXB/view?usp=sharing",
-            "matched_name": "280mm布抽条右",
-            "score": 980
-          },
-          {
-            "name": "300-R.pdf",
-            "path": "Google Drive > LGS101-111 > 300-R.pdf",
-            "url": "https://drive.google.com/file/d/13EDEIrg3GqEObdhwmLxmjrMuN5wGIHTA/view?usp=sharing",
-            "matched_name": "280mm布抽条右",
-            "score": 980
-          },
-          {
-            "name": "300-R.pdf",
-            "path": "Google Drive > LGS333 > 300-R.pdf",
-            "url": "https://drive.google.com/file/d/1uP19wxTblW3tQ6h1m5Y6xx7yxh7MnXam/view?usp=sharing",
-            "matched_name": "280mm布抽条右",
-            "score": 980
-          },
-          {
-            "name": "300-R.pdf",
-            "path": "Google Drive > LGS433 > 300-R.pdf",
-            "url": "https://drive.google.com/file/d/1wrYWaAUvFaoolaJvwpQ31Hi1j_AL4AJ0/view?usp=sharing",
-            "matched_name": "280mm布抽条右",
-            "score": 980
-          },
-          {
-            "name": "300-R.pdf",
-            "path": "Google Drive > LGS723 > 300-R.pdf",
-            "url": "https://drive.google.com/file/d/1Dga1yF0skybC7L_Cgh5KIM9npofgTZZ9/view?usp=sharing",
-            "matched_name": "280mm布抽条右",
-            "score": 980
-          },
-          {
-            "name": "300-R.pdf",
-            "path": "Google Drive > LGS733 > 300-R.pdf",
-            "url": "https://drive.google.com/file/d/1ETrmgJXYzGKy5qHbu3dWGFHYB28yzFsG/view?usp=sharing",
-            "matched_name": "280mm布抽条右",
-            "score": 980
-          },
-          {
-            "name": "300-R.pdf",
-            "path": "Google Drive > LGS833 > 300-R.pdf",
-            "url": "https://drive.google.com/file/d/127bWrns2nkw1ePn489dILwvFJ6-WI9wz/view?usp=sharing",
             "matched_name": "280mm布抽条右",
             "score": 980
           }
@@ -72691,41 +72269,6 @@ window.BOM_VIEWER_DATA = {
             "url": "https://drive.google.com/file/d/1wtron5rMWGkFJf7ExlwRJZ738poWuHO6/view?usp=sharing",
             "matched_name": "54底脚",
             "score": 1004
-          },
-          {
-            "name": "54底脚.pdf",
-            "path": "Google Drive > LGS333 > 54底脚.pdf",
-            "url": "https://drive.google.com/file/d/1EXel1U2eWKA9CCciihhVl_gbchVADxGa/view?usp=sharing",
-            "matched_name": "54底脚",
-            "score": 1004
-          },
-          {
-            "name": "54底脚.pdf",
-            "path": "Google Drive > LGS433 > 54底脚.pdf",
-            "url": "https://drive.google.com/file/d/1efYI7DVepuL6QyR9X_oIaIBGCL3YgyY3/view?usp=sharing",
-            "matched_name": "54底脚",
-            "score": 1004
-          },
-          {
-            "name": "54底脚.pdf",
-            "path": "Google Drive > LGS434 > 54底脚.pdf",
-            "url": "https://drive.google.com/file/d/1lwSbdFkl4lBIEUZd5Yl5PhARwB2k36NT/view?usp=sharing",
-            "matched_name": "54底脚",
-            "score": 1004
-          },
-          {
-            "name": "54底脚.pdf",
-            "path": "Google Drive > LGS833 > 54底脚.pdf",
-            "url": "https://drive.google.com/file/d/16nEBzWtylTs2wkD2IYrD6WUekmMx7_tq/view?usp=sharing",
-            "matched_name": "54底脚",
-            "score": 1004
-          },
-          {
-            "name": "54底脚.pdf",
-            "path": "Google Drive > LGS834 > 54底脚.pdf",
-            "url": "https://drive.google.com/file/d/1csw09YKVo-pU4P_PkAT8lB63qONSBbcE/view?usp=sharing",
-            "matched_name": "54底脚",
-            "score": 1004
           }
         ],
         "models3d": [
@@ -72736,14 +72279,6 @@ window.BOM_VIEWER_DATA = {
             "matched_name": "54底脚",
             "score": 1100,
             "bytes": 349028
-          },
-          {
-            "name": "54底脚(螺纹长23mm).glb",
-            "path": "models3d/catalog/54-23mm-f24fa114.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/54-23mm-f24fa114.glb",
-            "matched_name": "54底脚(螺纹长23mm)",
-            "score": 1100,
-            "bytes": 703180
           }
         ]
       },
@@ -72775,13 +72310,6 @@ window.BOM_VIEWER_DATA = {
             "name": "595拉杆.pdf",
             "path": "Google Drive > LGS033 > 595拉杆.pdf",
             "url": "https://drive.google.com/file/d/1DUGCZNLRo0fA6hUXmNuX4CFfh4mVviAW/view?usp=sharing",
-            "matched_name": "595拉杆",
-            "score": 1005
-          },
-          {
-            "name": "595拉杆.pdf",
-            "path": "Google Drive > LGS233 > 595拉杆.pdf",
-            "url": "https://drive.google.com/file/d/1XEaBoh39DTbkEdrgOHgREm8_qWAMcKYP/view?usp=sharing",
             "matched_name": "595拉杆",
             "score": 1005
           }
@@ -73014,14 +72542,14 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_16qztuh": {
         "id": "mat_16qztuh",
-        "code": "BC348282186WH",
+        "code": "BC350282187WH",
         "name": {
-          "zh": "LGS布抽35x28x18.7",
-          "vi": "LGS布抽35x28x18.7"
+          "zh": "LGS布抽35x28.2x18.7",
+          "vi": "LGS布抽35x28.2x18.7"
         },
         "spec": {
-          "zh": "350x280x187mm",
-          "vi": "350x280x187mm"
+          "zh": "350x282x187mm",
+          "vi": "350x282x187mm"
         },
         "material": {
           "zh": "MDF&纸板&无纺布",
@@ -73042,34 +72570,6 @@ window.BOM_VIEWER_DATA = {
             "url": "https://drive.google.com/file/d/1iHEZ_ETbxTW7PmoE-ArCAf-zAemZTipL/view?usp=sharing",
             "matched_name": "LGS布抽35x28x18.7",
             "score": 960
-          },
-          {
-            "name": "LGS布抽28x35x18.7.pdf",
-            "path": "Google Drive > LGS333 > LGS布抽28x35x18.7.pdf",
-            "url": "https://drive.google.com/file/d/1JfK8Jy0QeiV8aUE4x30FFLQR-TjHApym/view?usp=sharing",
-            "matched_name": "LGS布抽35x28x18.7",
-            "score": 960
-          },
-          {
-            "name": "LGS布抽28x35x18.7.pdf",
-            "path": "Google Drive > LGS433 > LGS布抽28x35x18.7.pdf",
-            "url": "https://drive.google.com/file/d/1o6k6dcjqSiYRyaLOzt_4X8q2GRODZnkP/view?usp=sharing",
-            "matched_name": "LGS布抽35x28x18.7",
-            "score": 960
-          },
-          {
-            "name": "LGS布抽28x35x18.7.pdf",
-            "path": "Google Drive > LGS733 > LGS布抽28x35x18.7.pdf",
-            "url": "https://drive.google.com/file/d/15djmRvEatdWwlyfGxi64Rm0clrRbfx-1/view?usp=sharing",
-            "matched_name": "LGS布抽35x28x18.7",
-            "score": 960
-          },
-          {
-            "name": "LGS布抽28x35x18.7.pdf",
-            "path": "Google Drive > LGS833 > LGS布抽28x35x18.7.pdf",
-            "url": "https://drive.google.com/file/d/1mxbTXQUQoyWFQTB4mejTXMnLEc8HqEzT/view?usp=sharing",
-            "matched_name": "LGS布抽35x28x18.7",
-            "score": 960
           }
         ],
         "models3d": [
@@ -73080,41 +72580,6 @@ window.BOM_VIEWER_DATA = {
             "matched_name": "LGS布抽35x28x18.7",
             "score": 1100,
             "bytes": 19736
-          }
-        ]
-      },
-      "mat_x2mc": {
-        "id": "mat_x2mc",
-        "code": "BCDB33827223WH",
-        "name": {
-          "zh": "LGS布抽底板34.5x27.5",
-          "vi": "LGS布抽底板34.5x27.5"
-        },
-        "spec": {
-          "zh": "345x275x3mm",
-          "vi": "345x275x3mm"
-        },
-        "material": {
-          "zh": "MDF&无纺布",
-          "vi": "MDF&vải không dệt"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [],
-        "models3d": [
-          {
-            "name": "LGS布抽底板28x35.glb",
-            "path": "models3d/catalog/LGS-28x35-7151de33.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-28x35-7151de33.glb",
-            "matched_name": "LGS布抽底板28x35",
-            "score": 1100,
-            "bytes": 1320
           }
         ]
       },
@@ -73198,76 +72663,6 @@ window.BOM_VIEWER_DATA = {
             "name": "把手.pdf",
             "path": "Google Drive > LGS033 > 把手.pdf",
             "url": "https://drive.google.com/file/d/1li083nkUnbkfHRRwiA32CvKn0tx9fFay/view?usp=sharing",
-            "matched_name": "把手",
-            "score": 1002
-          },
-          {
-            "name": "把手.pdf",
-            "path": "Google Drive > LGS131 > 把手.pdf",
-            "url": "https://drive.google.com/file/d/1eIpO-bmPeHwZjiOkMG7-TsUVg__bo1V7/view?usp=sharing",
-            "matched_name": "把手",
-            "score": 1002
-          },
-          {
-            "name": "把手.pdf",
-            "path": "Google Drive > LGS233 > 把手.pdf",
-            "url": "https://drive.google.com/file/d/1fFJeSsbCzj34ZcXHE2DeYRO1rAV_NUzx/view?usp=sharing",
-            "matched_name": "把手",
-            "score": 1002
-          },
-          {
-            "name": "把手.pdf",
-            "path": "Google Drive > LGS333 > 把手.pdf",
-            "url": "https://drive.google.com/file/d/1W_j2bi86H7nuLmBXVv1-MM22R6exyReS/view?usp=sharing",
-            "matched_name": "把手",
-            "score": 1002
-          },
-          {
-            "name": "把手.pdf",
-            "path": "Google Drive > LGS420-S > 把手.pdf",
-            "url": "https://drive.google.com/file/d/1kHcESZ8qoTOWH3tq-zEOkWXnwFnfiT58/view?usp=sharing",
-            "matched_name": "把手",
-            "score": 1002
-          },
-          {
-            "name": "把手.pdf",
-            "path": "Google Drive > LGS433 > 把手.pdf",
-            "url": "https://drive.google.com/file/d/19LbuVGah_hdbVZ8PQru77B1pDLx6cIfJ/view?usp=sharing",
-            "matched_name": "把手",
-            "score": 1002
-          },
-          {
-            "name": "把手.pdf",
-            "path": "Google Drive > LGS434 > 把手.pdf",
-            "url": "https://drive.google.com/file/d/1GHFkxqBgoPq-Pzb--SA9U0w-u2JCDx7Q/view?usp=sharing",
-            "matched_name": "把手",
-            "score": 1002
-          },
-          {
-            "name": "把手.pdf",
-            "path": "Google Drive > LGS723 > 把手.pdf",
-            "url": "https://drive.google.com/file/d/1iGcgBtkqqdqZhZ1zPqIEIOwboN9i0sVq/view?usp=sharing",
-            "matched_name": "把手",
-            "score": 1002
-          },
-          {
-            "name": "把手.pdf",
-            "path": "Google Drive > LGS733 > 把手.pdf",
-            "url": "https://drive.google.com/file/d/1t_IZiZF50bETxYJ0pqlCfTteiq3XtPXG/view?usp=sharing",
-            "matched_name": "把手",
-            "score": 1002
-          },
-          {
-            "name": "把手.pdf",
-            "path": "Google Drive > LGS833 > 把手.pdf",
-            "url": "https://drive.google.com/file/d/1AanaFuQl_Gnto0u4sLVOwDw_odeyt-Sd/view?usp=sharing",
-            "matched_name": "把手",
-            "score": 1002
-          },
-          {
-            "name": "把手.pdf",
-            "path": "Google Drive > LGS834 > 把手.pdf",
-            "url": "https://drive.google.com/file/d/1r8p7Nhh0SWIyaxS9TFcvqbBcaEPC_rIF/view?usp=sharing",
             "matched_name": "把手",
             "score": 1002
           }
@@ -73635,83 +73030,6 @@ window.BOM_VIEWER_DATA = {
             "url": "https://drive.google.com/file/d/1BXe7v1NXe1cJsR6PLEBLaVxbOe_xi12B/view?usp=sharing",
             "matched_name": "325mm布抽条左",
             "score": 980
-          },
-          {
-            "name": "350-L.pdf",
-            "path": "Google Drive > LGS131 > 350-L.pdf",
-            "url": "https://drive.google.com/file/d/14SmzwKP_39sqvcaWsKhQoYoYnN5w62q4/view?usp=sharing",
-            "matched_name": "325mm布抽条左",
-            "score": 980
-          },
-          {
-            "name": "350-L.pdf",
-            "path": "Google Drive > LGS132-S > 350-L.pdf",
-            "url": "https://drive.google.com/file/d/1tayaM6LjJlC_jEGpSiS2oBPdYUfULopp/view?usp=sharing",
-            "matched_name": "325mm布抽条左",
-            "score": 980
-          },
-          {
-            "name": "350-L.pdf",
-            "path": "Google Drive > LGS133 > 350-L.pdf",
-            "url": "https://drive.google.com/file/d/1E-gKDjKH5msNR-ZGjck2G6kJ-LvvR2C7/view?usp=sharing",
-            "matched_name": "325mm布抽条左",
-            "score": 980
-          },
-          {
-            "name": "350-L.pdf",
-            "path": "Google Drive > LGS231 > 350-L.pdf",
-            "url": "https://drive.google.com/file/d/145ad-eX4aKfoHIB1ain3jBcWpbTtqTdl/view?usp=sharing",
-            "matched_name": "325mm布抽条左",
-            "score": 980
-          },
-          {
-            "name": "350-L.pdf",
-            "path": "Google Drive > LGS232-S > 350-L.pdf",
-            "url": "https://drive.google.com/file/d/1ksF6i8ZzHMkQwa8DCQmbmRi0GEPq-unS/view?usp=sharing",
-            "matched_name": "325mm布抽条左",
-            "score": 980
-          },
-          {
-            "name": "350-L.pdf",
-            "path": "Google Drive > LGS233 > 350-L.pdf",
-            "url": "https://drive.google.com/file/d/1vvv4Uplc-VQmTwRieobnEUSs5kHXn-sq/view?usp=sharing",
-            "matched_name": "325mm布抽条左",
-            "score": 980
-          },
-          {
-            "name": "350-L.pdf",
-            "path": "Google Drive > LGS334 > 350-L.pdf",
-            "url": "https://drive.google.com/file/d/1-5DNLsEP2afS4d_TnC8lEmP287-CVoI3/view?usp=sharing",
-            "matched_name": "325mm布抽条左",
-            "score": 980
-          },
-          {
-            "name": "350-L.pdf",
-            "path": "Google Drive > LGS420-S > 350-L.pdf",
-            "url": "https://drive.google.com/file/d/1ZoNIfzfB41KHDAJsh6yiWBu52woJFhxV/view?usp=sharing",
-            "matched_name": "325mm布抽条左",
-            "score": 980
-          },
-          {
-            "name": "350-L.pdf",
-            "path": "Google Drive > LGS421-S > 350-L.pdf",
-            "url": "https://drive.google.com/file/d/1tg9XwSo42dV8MNmHBuLBFO1z8pcF3wne/view?usp=sharing",
-            "matched_name": "325mm布抽条左",
-            "score": 980
-          },
-          {
-            "name": "350-L.pdf",
-            "path": "Google Drive > LGS434 > 350-L.pdf",
-            "url": "https://drive.google.com/file/d/1dR8q7zudBu0S-8dW4GPF0b15nIQg7QkN/view?usp=sharing",
-            "matched_name": "325mm布抽条左",
-            "score": 980
-          },
-          {
-            "name": "350-L.pdf",
-            "path": "Google Drive > LGS834 > 350-L.pdf",
-            "url": "https://drive.google.com/file/d/1KjJdsGpVndeiiXvN-QnarzW62sMvZtV_/view?usp=sharing",
-            "matched_name": "325mm布抽条左",
-            "score": 980
           }
         ],
         "models3d": [
@@ -73798,83 +73116,6 @@ window.BOM_VIEWER_DATA = {
             "url": "https://drive.google.com/file/d/19yAflIZHP7WrwZVc_eNLzDLe-7mlLJr1/view?usp=sharing",
             "matched_name": "325mm布抽条右",
             "score": 980
-          },
-          {
-            "name": "350-R.pdf",
-            "path": "Google Drive > LGS131 > 350-R.pdf",
-            "url": "https://drive.google.com/file/d/1hiMD90Rhbio0k82B0avKNa6Xk_pLgt0h/view?usp=sharing",
-            "matched_name": "325mm布抽条右",
-            "score": 980
-          },
-          {
-            "name": "350-R.pdf",
-            "path": "Google Drive > LGS132-S > 350-R.pdf",
-            "url": "https://drive.google.com/file/d/1-FFP15XgVfY2Gd574Exs0_tNy-VIuO3I/view?usp=sharing",
-            "matched_name": "325mm布抽条右",
-            "score": 980
-          },
-          {
-            "name": "350-R.pdf",
-            "path": "Google Drive > LGS133 > 350-R.pdf",
-            "url": "https://drive.google.com/file/d/1MDLc9ZTo_R_kIdyyLjDdFUPk2k0imH8q/view?usp=sharing",
-            "matched_name": "325mm布抽条右",
-            "score": 980
-          },
-          {
-            "name": "350-R.pdf",
-            "path": "Google Drive > LGS231 > 350-R.pdf",
-            "url": "https://drive.google.com/file/d/1VBn2CneHBL4cFdTdPtBhIvpdXzLkGi8e/view?usp=sharing",
-            "matched_name": "325mm布抽条右",
-            "score": 980
-          },
-          {
-            "name": "350-R.pdf",
-            "path": "Google Drive > LGS232-S > 350-R.pdf",
-            "url": "https://drive.google.com/file/d/1hzq-wXQOf7SA5SJFhYn1BUsYMg0bdAiJ/view?usp=sharing",
-            "matched_name": "325mm布抽条右",
-            "score": 980
-          },
-          {
-            "name": "350-R.pdf",
-            "path": "Google Drive > LGS233 > 350-R.pdf",
-            "url": "https://drive.google.com/file/d/1DLA32uustE3cRiqIXBatE3ExSATL_BzF/view?usp=sharing",
-            "matched_name": "325mm布抽条右",
-            "score": 980
-          },
-          {
-            "name": "350-R.pdf",
-            "path": "Google Drive > LGS334 > 350-R.pdf",
-            "url": "https://drive.google.com/file/d/1RzjweZ6UnjZGNC9ySTkrF1iQU_Jv2HU2/view?usp=sharing",
-            "matched_name": "325mm布抽条右",
-            "score": 980
-          },
-          {
-            "name": "350-R.pdf",
-            "path": "Google Drive > LGS420-S > 350-R.pdf",
-            "url": "https://drive.google.com/file/d/1PeUyfcL2BwYpwdxdXE4as4U6nl5DKg-X/view?usp=sharing",
-            "matched_name": "325mm布抽条右",
-            "score": 980
-          },
-          {
-            "name": "350-R.pdf",
-            "path": "Google Drive > LGS421-S > 350-R.pdf",
-            "url": "https://drive.google.com/file/d/1eSRuLhXVPAdmAX6hoUq2GWi3S1pnMpTz/view?usp=sharing",
-            "matched_name": "325mm布抽条右",
-            "score": 980
-          },
-          {
-            "name": "350-R.pdf",
-            "path": "Google Drive > LGS434 > 350-R.pdf",
-            "url": "https://drive.google.com/file/d/1amWV_XKeAHPVhncSFCLNa8QwQr9rUgF8/view?usp=sharing",
-            "matched_name": "325mm布抽条右",
-            "score": 980
-          },
-          {
-            "name": "350-R.pdf",
-            "path": "Google Drive > LGS834 > 350-R.pdf",
-            "url": "https://drive.google.com/file/d/1-NzRsoAYgvlCZgKGNkizdFVU8XryoOkc/view?usp=sharing",
-            "matched_name": "325mm布抽条右",
-            "score": 980
           }
         ],
         "models3d": [
@@ -73933,13 +73174,13 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_12jfji0": {
         "id": "mat_12jfji0",
-        "code": "BC350317188BH",
+        "code": "BCDB350327003BH",
         "name": {
-          "zh": "LGS布抽底板34.5x32",
+          "zh": "LGS布抽底板35x32.7",
           "vi": "LGS布抽底板34.5x32"
         },
         "spec": {
-          "zh": "345x320x3mm",
+          "zh": "345x322x3mm",
           "vi": "345x320x3mm"
         },
         "material": {
@@ -73966,57 +73207,15 @@ window.BOM_VIEWER_DATA = {
           }
         ]
       },
-      "mat_s67a18": {
-        "id": "mat_s67a18",
-        "code": "BC350327188KD",
-        "name": {
-          "zh": "LGS布抽35x32.5x18.7",
-          "vi": "LGS布抽35x32.5x18.7"
-        },
-        "spec": {
-          "zh": "350x325x187mm",
-          "vi": "350x325x187mm"
-        },
-        "material": {
-          "zh": "MDF&纸板&无纺布",
-          "vi": "MDF&giấy&vải không dệt"
-        },
-        "color": {
-          "zh": "复古色",
-          "vi": "màu gỗ cổ"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [
-          {
-            "name": "LGS布抽35x32.5x18.7.pdf",
-            "path": "Google Drive > LGS布抽35x32.5x18.7.pdf",
-            "url": "https://drive.google.com/file/d/1OrVYBYN38vg2spBjMB7iB3RyJqxnh-CP/view?usp=sharing",
-            "matched_name": "LGS布抽35x32.5x18.7"
-          }
-        ],
-        "models3d": [
-          {
-            "name": "LGS布抽35x32.5x18.7.glb",
-            "path": "models3d/catalog/LGS-35x32-5x18-7-0b6b8af7.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-35x32-5x18-7-0b6b8af7.glb",
-            "matched_name": "LGS布抽35x32.5x18.7",
-            "score": 1100,
-            "bytes": 19620
-          }
-        ]
-      },
       "mat_m0tg2h": {
         "id": "mat_m0tg2h",
-        "code": "BC300317188BH",
+        "code": "BCDB300327003BH",
         "name": {
-          "zh": "LGS布抽底板29.5x32",
+          "zh": "LGS布抽底板30x32.7",
           "vi": "LGS布抽底板29.5x32"
         },
         "spec": {
-          "zh": "295x320x3mm",
+          "zh": "295x322x3mm",
           "vi": "295x320x3mm"
         },
         "material": {
@@ -74045,14 +73244,14 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_2ck3el": {
         "id": "mat_2ck3el",
-        "code": "BC300327188KD",
+        "code": "BC300327148KD",
         "name": {
-          "zh": "LGS布抽30x32.5x14.8",
-          "vi": "LGS布抽30x32.5x14.8"
+          "zh": "LGS布抽30x32.7x14.8",
+          "vi": "LGS布抽30x32.7x14.8"
         },
         "spec": {
-          "zh": "300x325x148mm",
-          "vi": "300x325x148mm"
+          "zh": "300x327x148mm",
+          "vi": "300x327x148mm"
         },
         "material": {
           "zh": "MDF&纸板&无纺布",
@@ -74081,85 +73280,8 @@ window.BOM_VIEWER_DATA = {
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-30x32-5x14-8-7daf9fc4.glb",
             "matched_name": "LGS布抽30x32.5x14.8",
             "score": 1100,
-            "bytes": 19620
-          }
-        ]
-      },
-      "mat_m6jj46": {
-        "id": "mat_m6jj46",
-        "code": "BC460327188KD",
-        "name": {
-          "zh": "LGS布抽46x32.5x18.7",
-          "vi": "LGS布抽46x32.5x18.7"
-        },
-        "spec": {
-          "zh": "460x325x187mm",
-          "vi": "460x325x187mm"
-        },
-        "material": {
-          "zh": "MDF&纸板&无纺布",
-          "vi": "MDF&giấy&vải không dệt"
-        },
-        "color": {
-          "zh": "复古色",
-          "vi": "màu gỗ cổ"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [
-          {
-            "name": "LGS布抽32.5x46x18.7.pdf",
-            "path": "Google Drive > LGS043-S > LGS布抽32.5x46x18.7.pdf",
-            "url": "https://drive.google.com/file/d/1TBvRfcCOOc9VyWN9uHAkSIpfQXvElrVN/view?usp=sharing",
-            "matched_name": "LGS布抽46x32.5x18.7",
-            "score": 960
-          }
-        ],
-        "models3d": [
-          {
-            "name": "LGS布抽32.5x46x18.7.glb",
-            "path": "models3d/catalog/LGS-32-5x46x18-7-84948470.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-32-5x46x18-7-84948470.glb",
-            "matched_name": "LGS布抽46x32.5x18.7",
-            "score": 1300,
-            "bytes": 19736
-          }
-        ]
-      },
-      "mat_1qxnsrq": {
-        "id": "mat_1qxnsrq",
-        "code": "BC460317188BH",
-        "name": {
-          "zh": "LGS布抽底板45.5x32",
-          "vi": "LGS布抽底板45.5x32"
-        },
-        "spec": {
-          "zh": "455x320x3mm",
-          "vi": "455x320x3mm"
-        },
-        "material": {
-          "zh": "MDF&无纺布",
-          "vi": "MDF&vải không dệt"
-        },
-        "color": {
-          "zh": "黑色",
-          "vi": "màu đen"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [],
-        "models3d": [
-          {
-            "name": "LGS布抽底板32.5x46.glb",
-            "path": "models3d/catalog/LGS-32-5x46-80e69646.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-32-5x46-80e69646.glb",
-            "matched_name": "LGS布抽底板32.5X46",
-            "score": 1100,
-            "bytes": 1312
+            "bytes": 19620,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-30x32-5x14-8-7daf9fc4.glb"
           }
         ]
       },
@@ -74812,14 +73934,14 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_1830k8o": {
         "id": "mat_1830k8o",
-        "code": "BC350327188BH",
+        "code": "BC350327187BH",
         "name": {
-          "zh": "LGS布抽35x32.5x18.7",
-          "vi": "LGS布抽35x32.5x18.7"
+          "zh": "LGS布抽35x32.7x18.7",
+          "vi": "LGS布抽35x32.7x18.7"
         },
         "spec": {
-          "zh": "350x325x187mm",
-          "vi": "350x325x187mm"
+          "zh": "350x327x187mm",
+          "vi": "350x327x187mm"
         },
         "material": {
           "zh": "MDF&纸板&无纺布",
@@ -74848,20 +73970,21 @@ window.BOM_VIEWER_DATA = {
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-35x32-5x18-7-0b6b8af7.glb",
             "matched_name": "LGS布抽35x32.5x18.7",
             "score": 1100,
-            "bytes": 19620
+            "bytes": 19620,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-35x32-5x18-7-0b6b8af7.glb"
           }
         ]
       },
       "mat_nchy3z": {
         "id": "mat_nchy3z",
-        "code": "BC300327188BH",
+        "code": "BC300327148BH",
         "name": {
-          "zh": "LGS布抽30x32.5x14.8",
-          "vi": "LGS布抽30x32.5x14.8"
+          "zh": "LGS布抽30x32.7x14.8",
+          "vi": "LGS布抽30x32.7x14.8"
         },
         "spec": {
-          "zh": "300x325x148mm",
-          "vi": "300x325x148mm"
+          "zh": "300x327x148mm",
+          "vi": "300x327x148mm"
         },
         "material": {
           "zh": "MDF&纸板&无纺布",
@@ -74890,65 +74013,8 @@ window.BOM_VIEWER_DATA = {
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-30x32-5x14-8-7daf9fc4.glb",
             "matched_name": "LGS布抽30x32.5x14.8",
             "score": 1100,
-            "bytes": 19620
-          }
-        ]
-      },
-      "mat_si5pry": {
-        "id": "mat_si5pry",
-        "code": "BC460327188BH",
-        "name": {
-          "zh": "LGS布抽46x32.5x18.7",
-          "vi": "LGS布抽46x32.5x18.7"
-        },
-        "spec": {
-          "zh": "460x325x187mm",
-          "vi": "460x325x187mm"
-        },
-        "material": {
-          "zh": "MDF&纸板&无纺布",
-          "vi": "MDF&giấy&vải không dệt"
-        },
-        "color": {
-          "zh": "黑色",
-          "vi": "màu đen"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [
-          {
-            "name": "LGS布抽32.5x46x18.7.pdf",
-            "path": "Google Drive > LGS043-S > LGS布抽32.5x46x18.7.pdf",
-            "url": "https://drive.google.com/file/d/1TBvRfcCOOc9VyWN9uHAkSIpfQXvElrVN/view?usp=sharing",
-            "matched_name": "LGS布抽46x32.5x18.7",
-            "score": 960
-          },
-          {
-            "name": "LGS布抽32.5x46x18.7.pdf",
-            "path": "Google Drive > LGS132-S > LGS布抽32.5x46x18.7.pdf",
-            "url": "https://drive.google.com/file/d/1YI5_nIbKoSyS0ttH-LJziYXO8GM_b0a_/view?usp=sharing",
-            "matched_name": "LGS布抽46x32.5x18.7",
-            "score": 960
-          }
-        ],
-        "models3d": [
-          {
-            "name": "LGS布抽46x32.5x18.7.glb",
-            "path": "models3d/catalog/LGS-46x32-5x18-7-ce9722db.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-46x32-5x18-7-ce9722db.glb",
-            "matched_name": "LGS布抽46x32.5x18.7",
-            "score": 1100,
-            "bytes": 19736
-          },
-          {
-            "name": "LGS布抽32.5x46x18.7.glb",
-            "path": "models3d/catalog/LGS-32-5x46x18-7-84948470.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-32-5x46x18-7-84948470.glb",
-            "matched_name": "LGS布抽46x32.5x18.7",
-            "score": 1300,
-            "bytes": 19736
+            "bytes": 19620,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-30x32-5x14-8-7daf9fc4.glb"
           }
         ]
       },
@@ -75283,12 +74349,12 @@ window.BOM_VIEWER_DATA = {
         "id": "mat_1ak3o25",
         "code": "BC350282150KD",
         "name": {
-          "zh": "LGS布抽35x28x15",
-          "vi": "LGS布抽35x28x15"
+          "zh": "LGS布抽35x28.2x15",
+          "vi": "LGS布抽35x28.2x15"
         },
         "spec": {
-          "zh": "350x280x150mm",
-          "vi": "350x280x150mm"
+          "zh": "350x282x150mm",
+          "vi": "350x282x150mm"
         },
         "material": {
           "zh": "MDF&纸板&无纺布",
@@ -75319,41 +74385,6 @@ window.BOM_VIEWER_DATA = {
             "matched_name": "LGS布抽35x28x15",
             "score": 1100,
             "bytes": 13556
-          }
-        ]
-      },
-      "mat_54izrz": {
-        "id": "mat_54izrz",
-        "code": "BCDB34027223KD",
-        "name": {
-          "zh": "LGS布抽底板34.5x27.5",
-          "vi": "LGS布抽底板34.5x27.5"
-        },
-        "spec": {
-          "zh": "345x275x3mm",
-          "vi": "345x275x3mm"
-        },
-        "material": {
-          "zh": "MDF&无纺布",
-          "vi": "MDF&vải không dệt"
-        },
-        "color": {
-          "zh": "黑色",
-          "vi": "màu đen"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [],
-        "models3d": [
-          {
-            "name": "LGS布抽底板28x35.glb",
-            "path": "models3d/catalog/LGS-28x35-7151de33.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-28x35-7151de33.glb",
-            "matched_name": "LGS布抽底板28x35",
-            "score": 1100,
-            "bytes": 1320
           }
         ]
       },
@@ -75827,12 +74858,12 @@ window.BOM_VIEWER_DATA = {
         "id": "mat_ongyuj",
         "code": "BC350282150WH",
         "name": {
-          "zh": "LGS布抽35x28x15",
-          "vi": "LGS布抽35x28x15"
+          "zh": "LGS布抽35x28.2x15",
+          "vi": "LGS布抽35x28.2x15"
         },
         "spec": {
-          "zh": "350x280x150mm",
-          "vi": "350x280x150mm"
+          "zh": "350x282x150mm",
+          "vi": "350x282x150mm"
         },
         "material": {
           "zh": "MDF&纸板&无纺布",
@@ -75868,13 +74899,13 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_npcl6z": {
         "id": "mat_npcl6z",
-        "code": "BCDB34027223WH",
+        "code": "BCDB350282003WH",
         "name": {
-          "zh": "LGS布抽底板34.5x27.5",
+          "zh": "LGS布抽底板35x28.2",
           "vi": "LGS布抽底板34.5x27.5"
         },
         "spec": {
-          "zh": "345x275x3mm",
+          "zh": "345x277x3mm",
           "vi": "345x275x3mm"
         },
         "material": {
@@ -76018,12 +75049,12 @@ window.BOM_VIEWER_DATA = {
         "id": "mat_1hafqtb",
         "code": "BC350282150BH",
         "name": {
-          "zh": "LGS布抽35x28x15",
-          "vi": "LGS布抽35x28x15"
+          "zh": "LGS布抽35x28.2x15",
+          "vi": "LGS布抽35x28.2x15"
         },
         "spec": {
-          "zh": "350x280x150mm",
-          "vi": "350x280x150mm"
+          "zh": "350x282x150mm",
+          "vi": "350x282x150mm"
         },
         "material": {
           "zh": "MDF&纸板&无纺布",
@@ -76453,98 +75484,6 @@ window.BOM_VIEWER_DATA = {
             "matched_name": "LGS421_420-S_231_131-右中框",
             "score": 1300,
             "bytes": 165832
-          }
-        ]
-      },
-      "mat_1t1h86c": {
-        "id": "mat_1t1h86c",
-        "code": "BCDB55031723BH",
-        "name": {
-          "zh": "LGS布抽底板54.5x32",
-          "vi": "LGS布抽底板54.5x32"
-        },
-        "spec": {
-          "zh": "545x320x3mm",
-          "vi": "545x320x3mm"
-        },
-        "material": {
-          "zh": "MDF&纸板&无纺布",
-          "vi": "MDF&giấy&vải không dệt"
-        },
-        "color": {
-          "zh": "黑色",
-          "vi": "màu đen"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [],
-        "models3d": [
-          {
-            "name": "LGS布抽底板55x32.5.glb",
-            "path": "models3d/catalog/LGS-55x32-5-c1491f5c.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-55x32-5-c1491f5c.glb",
-            "matched_name": "LGS布抽底板32.5X55",
-            "score": 1000,
-            "bytes": 1312
-          }
-        ]
-      },
-      "mat_no3naz": {
-        "id": "mat_no3naz",
-        "code": "BC5503327188KD",
-        "name": {
-          "zh": "LGS布抽55x32.5x18.7",
-          "vi": "LGS布抽55x32.5x18.7"
-        },
-        "spec": {
-          "zh": "550x325x187mm",
-          "vi": "550x325x187mm"
-        },
-        "material": {
-          "zh": "MDF&纸板&无纺布",
-          "vi": "MDF&giấy&vải không dệt"
-        },
-        "color": {
-          "zh": "复古色",
-          "vi": "màu gỗ cổ"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [
-          {
-            "name": "LGS布抽32.5x55x18.7.pdf",
-            "path": "Google Drive > LGS131 > LGS布抽32.5x55x18.7.pdf",
-            "url": "https://drive.google.com/file/d/1eUEQjVvpilHUaalcGck4PkQKGRZIIYci/view?usp=sharing",
-            "matched_name": "LGS布抽55x32.5x18.7",
-            "score": 960
-          },
-          {
-            "name": "LGS布抽32.5x55x18.7.pdf",
-            "path": "Google Drive > LGS231 > LGS布抽32.5x55x18.7.pdf",
-            "url": "https://drive.google.com/file/d/12q_CqLRgMree018IeDd5t3XqW590be7G/view?usp=sharing",
-            "matched_name": "LGS布抽55x32.5x18.7",
-            "score": 960
-          },
-          {
-            "name": "LGS布抽32.5x55x18.7.pdf",
-            "path": "Google Drive > LGS232-S > LGS布抽32.5x55x18.7.pdf",
-            "url": "https://drive.google.com/file/d/1KEnW4Yfu7hO8j6mWYeAymXYP3kU1I37A/view?usp=sharing",
-            "matched_name": "LGS布抽55x32.5x18.7",
-            "score": 960
-          }
-        ],
-        "models3d": [
-          {
-            "name": "LGS布抽55x32.5x18.7.glb",
-            "path": "models3d/catalog/LGS-55x32-5x18-7-a957120a.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-55x32-5x18-7-a957120a.glb",
-            "matched_name": "LGS布抽55x32.5x18.7",
-            "score": 1100,
-            "bytes": 19732
           }
         ]
       },
@@ -77192,34 +76131,6 @@ window.BOM_VIEWER_DATA = {
             "url": "https://drive.google.com/file/d/1hiMD90Rhbio0k82B0avKNa6Xk_pLgt0h/view?usp=sharing",
             "matched_name": "325mm布抽条右",
             "score": 980
-          },
-          {
-            "name": "350-R.pdf",
-            "path": "Google Drive > LGS233 > 350-R.pdf",
-            "url": "https://drive.google.com/file/d/1DLA32uustE3cRiqIXBatE3ExSATL_BzF/view?usp=sharing",
-            "matched_name": "325mm布抽条右",
-            "score": 980
-          },
-          {
-            "name": "350-R.pdf",
-            "path": "Google Drive > LGS420-S > 350-R.pdf",
-            "url": "https://drive.google.com/file/d/1PeUyfcL2BwYpwdxdXE4as4U6nl5DKg-X/view?usp=sharing",
-            "matched_name": "325mm布抽条右",
-            "score": 980
-          },
-          {
-            "name": "350-R.pdf",
-            "path": "Google Drive > LGS434 > 350-R.pdf",
-            "url": "https://drive.google.com/file/d/1amWV_XKeAHPVhncSFCLNa8QwQr9rUgF8/view?usp=sharing",
-            "matched_name": "325mm布抽条右",
-            "score": 980
-          },
-          {
-            "name": "350-R.pdf",
-            "path": "Google Drive > LGS834 > 350-R.pdf",
-            "url": "https://drive.google.com/file/d/1-NzRsoAYgvlCZgKGNkizdFVU8XryoOkc/view?usp=sharing",
-            "matched_name": "325mm布抽条右",
-            "score": 980
           }
         ],
         "models3d": [
@@ -77235,13 +76146,13 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_e8hltc": {
         "id": "mat_e8hltc",
-        "code": "BCDB55031723WH",
+        "code": "BCDB550327003WH",
         "name": {
-          "zh": "LGS布抽底板54.5x32",
+          "zh": "LGS布抽底板55x32.7",
           "vi": "LGS布抽底板54.5x32"
         },
         "spec": {
-          "zh": "545x320x3mm",
+          "zh": "545x322x3mm",
           "vi": "545x320x3mm"
         },
         "material": {
@@ -77270,14 +76181,14 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_1gbo2nh": {
         "id": "mat_1gbo2nh",
-        "code": "BC5503327188WH",
+        "code": "BC550327187WH",
         "name": {
-          "zh": "LGS布抽55x32.5x18.7",
-          "vi": "LGS布抽55x32.5x18.7"
+          "zh": "LGS布抽55x32.7x18.7",
+          "vi": "LGS布抽55x32.7x18.7"
         },
         "spec": {
-          "zh": "550x325x187mm",
-          "vi": "550x325x187mm"
+          "zh": "550x327x187mm",
+          "vi": "550x327x187mm"
         },
         "material": {
           "zh": "MDF&纸板&无纺布",
@@ -77307,7 +76218,8 @@ window.BOM_VIEWER_DATA = {
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-55x32-5x18-7-a957120a.glb",
             "matched_name": "LGS布抽55x32.5x18.7",
             "score": 1100,
-            "bytes": 19732
+            "bytes": 19732,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-55x32-5x18-7-a957120a.glb"
           }
         ]
       },
@@ -77454,34 +76366,6 @@ window.BOM_VIEWER_DATA = {
             "url": "https://drive.google.com/file/d/14SmzwKP_39sqvcaWsKhQoYoYnN5w62q4/view?usp=sharing",
             "matched_name": "325mm布抽条左",
             "score": 980
-          },
-          {
-            "name": "350-L.pdf",
-            "path": "Google Drive > LGS233 > 350-L.pdf",
-            "url": "https://drive.google.com/file/d/1vvv4Uplc-VQmTwRieobnEUSs5kHXn-sq/view?usp=sharing",
-            "matched_name": "325mm布抽条左",
-            "score": 980
-          },
-          {
-            "name": "350-L.pdf",
-            "path": "Google Drive > LGS420-S > 350-L.pdf",
-            "url": "https://drive.google.com/file/d/1ZoNIfzfB41KHDAJsh6yiWBu52woJFhxV/view?usp=sharing",
-            "matched_name": "325mm布抽条左",
-            "score": 980
-          },
-          {
-            "name": "350-L.pdf",
-            "path": "Google Drive > LGS434 > 350-L.pdf",
-            "url": "https://drive.google.com/file/d/1dR8q7zudBu0S-8dW4GPF0b15nIQg7QkN/view?usp=sharing",
-            "matched_name": "325mm布抽条左",
-            "score": 980
-          },
-          {
-            "name": "350-L.pdf",
-            "path": "Google Drive > LGS834 > 350-L.pdf",
-            "url": "https://drive.google.com/file/d/1KjJdsGpVndeiiXvN-QnarzW62sMvZtV_/view?usp=sharing",
-            "matched_name": "325mm布抽条左",
-            "score": 980
           }
         ],
         "models3d": [
@@ -77584,62 +76468,6 @@ window.BOM_VIEWER_DATA = {
             "name": "254拉杆.pdf",
             "path": "Google Drive > LGS131 > 254拉杆.pdf",
             "url": "https://drive.google.com/file/d/1b1jmcqx3m9r0aZdjyKqo3rKqmdTOFzZ_/view?usp=sharing",
-            "matched_name": "254拉杆",
-            "score": 1005
-          },
-          {
-            "name": "254拉杆.pdf",
-            "path": "Google Drive > LGS233 > 254拉杆.pdf",
-            "url": "https://drive.google.com/file/d/1vGQTJusLEtOz4qI63vDlBxsNWENZ_D4S/view?usp=sharing",
-            "matched_name": "254拉杆",
-            "score": 1005
-          },
-          {
-            "name": "254拉杆.pdf",
-            "path": "Google Drive > LGS333 > 254拉杆.pdf",
-            "url": "https://drive.google.com/file/d/1xDp1_0gpueA5rztZQQNGXxzmtBhANdz3/view?usp=sharing",
-            "matched_name": "254拉杆",
-            "score": 1005
-          },
-          {
-            "name": "254拉杆.pdf",
-            "path": "Google Drive > LGS433 > 254拉杆.pdf",
-            "url": "https://drive.google.com/file/d/1oZd5Ft_XQALYrrwr4cMVUH7ltwFFoQHe/view?usp=sharing",
-            "matched_name": "254拉杆",
-            "score": 1005
-          },
-          {
-            "name": "254拉杆.pdf",
-            "path": "Google Drive > LGS434 > 254拉杆.pdf",
-            "url": "https://drive.google.com/file/d/1GGQCEz-E8vTZWIG6pkRZErl4y-YkNCql/view?usp=sharing",
-            "matched_name": "254拉杆",
-            "score": 1005
-          },
-          {
-            "name": "254拉杆.pdf",
-            "path": "Google Drive > LGS723 > 254拉杆.pdf",
-            "url": "https://drive.google.com/file/d/1FvXGSRfDkSYjGci5CYgAhip9tLhwF9iF/view?usp=sharing",
-            "matched_name": "254拉杆",
-            "score": 1005
-          },
-          {
-            "name": "254拉杆.pdf",
-            "path": "Google Drive > LGS733 > 254拉杆.pdf",
-            "url": "https://drive.google.com/file/d/1P37bCXp3fdRP5E2VU0jPP3A8YweuznDV/view?usp=sharing",
-            "matched_name": "254拉杆",
-            "score": 1005
-          },
-          {
-            "name": "254拉杆.pdf",
-            "path": "Google Drive > LGS833 > 254拉杆.pdf",
-            "url": "https://drive.google.com/file/d/1ZIRPVKrzyk5Dbrm_IB_00az6v3cpzNMo/view?usp=sharing",
-            "matched_name": "254拉杆",
-            "score": 1005
-          },
-          {
-            "name": "254拉杆.pdf",
-            "path": "Google Drive > LGS834 > 254拉杆.pdf",
-            "url": "https://drive.google.com/file/d/1c5NxZ2_JZcBf_CBAQlTzkjhEIflPexZJ/view?usp=sharing",
             "matched_name": "254拉杆",
             "score": 1005
           }
@@ -77773,48 +76601,6 @@ window.BOM_VIEWER_DATA = {
             "matched_name": "LGS131-右顶板",
             "score": 1100,
             "bytes": 73980
-          }
-        ]
-      },
-      "mat_1rw2hre": {
-        "id": "mat_1rw2hre",
-        "code": "BC550327188BH",
-        "name": {
-          "zh": "LGS布抽55x32.5x18.7",
-          "vi": "LGS布抽55x32.5x18.7"
-        },
-        "spec": {
-          "zh": "550x325x187mm",
-          "vi": "550x325x187mm"
-        },
-        "material": {
-          "zh": "MDF&纸板&无纺布",
-          "vi": "MDF&giấy&vải không dệt"
-        },
-        "color": {
-          "zh": "黑色",
-          "vi": "màu đen"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [
-          {
-            "name": "LGS布抽55x32.5x18.7.pdf",
-            "path": "Google Drive > LGS布抽55x32.5x18.7.pdf",
-            "url": "https://drive.google.com/file/d/12q_CqLRgMree018IeDd5t3XqW590be7G/view?usp=sharing",
-            "matched_name": "LGS布抽55x32.5x18.7"
-          }
-        ],
-        "models3d": [
-          {
-            "name": "LGS布抽55x32.5x18.7.glb",
-            "path": "models3d/catalog/LGS-55x32-5x18-7-a957120a.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-55x32-5x18-7-a957120a.glb",
-            "matched_name": "LGS布抽55x32.5x18.7",
-            "score": 1100,
-            "bytes": 19732
           }
         ]
       },
@@ -78282,41 +77068,6 @@ window.BOM_VIEWER_DATA = {
             "matched_name": "LGS132-S-底部横杆右-前",
             "score": 1300,
             "bytes": 104184
-          }
-        ]
-      },
-      "mat_d15yz8": {
-        "id": "mat_d15yz8",
-        "code": "BCDB46031723BH",
-        "name": {
-          "zh": "LGS布抽底板45.5x32",
-          "vi": "LGS布抽底板45.5x32"
-        },
-        "spec": {
-          "zh": "455x320x3mm",
-          "vi": "455x320x3mm"
-        },
-        "material": {
-          "zh": "MDF&无纺布",
-          "vi": "MDF&vải không dệt"
-        },
-        "color": {
-          "zh": "黑色",
-          "vi": "màu đen"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [],
-        "models3d": [
-          {
-            "name": "LGS布抽底板32.5x46.glb",
-            "path": "models3d/catalog/LGS-32-5x46-80e69646.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-32-5x46-80e69646.glb",
-            "matched_name": "LGS-布抽底板32.5X46",
-            "score": 1100,
-            "bytes": 1312
           }
         ]
       },
@@ -79192,14 +77943,14 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_173uydn": {
         "id": "mat_173uydn",
-        "code": "BC458327171KD",
+        "code": "BC460327173KD",
         "name": {
-          "zh": "LGS布抽46x32.5x17.3",
-          "vi": "LGS布抽46x32.5x17.3"
+          "zh": "LGS布抽46x32.7x17.3",
+          "vi": "LGS布抽46x32.7x17.3"
         },
         "spec": {
-          "zh": "460x325x173mm",
-          "vi": "460x325x173mm"
+          "zh": "460x327x173mm",
+          "vi": "460x327x173mm"
         },
         "material": {
           "zh": "MDF&纸板&无纺布",
@@ -79229,62 +77980,20 @@ window.BOM_VIEWER_DATA = {
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-32-5x46x17-3-6bbff05b.glb",
             "matched_name": "LGS布抽46x32.5x17.3",
             "score": 1300,
-            "bytes": 19736
-          }
-        ]
-      },
-      "mat_1pc7f6p": {
-        "id": "mat_1pc7f6p",
-        "code": "BC458327186KD",
-        "name": {
-          "zh": "LGS布抽46x32.5x18.7",
-          "vi": "LGS布抽46x32.5x18.7"
-        },
-        "spec": {
-          "zh": "460x325x187mm",
-          "vi": "460x325x187mm"
-        },
-        "material": {
-          "zh": "MDF&纸板&无纺布",
-          "vi": "MDF&giấy&vải không dệt"
-        },
-        "color": {
-          "zh": "复古色",
-          "vi": "màu gỗ cổ"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [
-          {
-            "name": "LGS布抽32.5x46x18.7.pdf",
-            "path": "Google Drive > LGS133 > LGS布抽32.5x46x18.7.pdf",
-            "url": "https://drive.google.com/file/d/1dAm4EFF40VNAnDK7zQrLFOkeRTaWKvkc/view?usp=sharing",
-            "matched_name": "LGS布抽46x32.5x18.7",
-            "score": 960
-          }
-        ],
-        "models3d": [
-          {
-            "name": "LGS布抽32.5x46x18.7.glb",
-            "path": "models3d/catalog/LGS-32-5x46x18-7-84948470.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-32-5x46x18-7-84948470.glb",
-            "matched_name": "LGS布抽46x32.5x18.7",
-            "score": 1300,
-            "bytes": 19736
+            "bytes": 19736,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-32-5x46x17-3-6bbff05b.glb"
           }
         ]
       },
       "mat_10fit6a": {
         "id": "mat_10fit6a",
-        "code": "BCDB44831723BH",
+        "code": "BCDB460327003BH",
         "name": {
-          "zh": "LGS布抽底板45.5x32",
+          "zh": "LGS布抽底板46x32.7",
           "vi": "LGS布抽底板45.5x32"
         },
         "spec": {
-          "zh": "455x320x3mm",
+          "zh": "455x322x3mm",
           "vi": "455x320x3mm"
         },
         "material": {
@@ -80212,14 +78921,14 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_14ndfbd": {
         "id": "mat_14ndfbd",
-        "code": "BC5503327188BH",
+        "code": "BC550327187BH",
         "name": {
-          "zh": "LGS布抽55x32.5x18.7",
-          "vi": "LGS布抽55x32.5x18.7"
+          "zh": "LGS布抽55x32.7x18.7",
+          "vi": "LGS布抽55x32.7x18.7"
         },
         "spec": {
-          "zh": "550x325x187mm",
-          "vi": "550x325x187mm"
+          "zh": "550x327x187mm",
+          "vi": "550x327x187mm"
         },
         "material": {
           "zh": "MDF&纸板&无纺布",
@@ -80249,7 +78958,8 @@ window.BOM_VIEWER_DATA = {
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-55x32-5x18-7-a957120a.glb",
             "matched_name": "LGS布抽55x32.5x18.7",
             "score": 1100,
-            "bytes": 19732
+            "bytes": 19732,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-55x32-5x18-7-a957120a.glb"
           }
         ]
       },
@@ -81720,14 +80430,14 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_hbnb0h": {
         "id": "mat_hbnb0h",
-        "code": "BC548327171KD",
+        "code": "BC550327173KD",
         "name": {
-          "zh": "LGS布抽55x32.5x17.3",
-          "vi": "LGS布抽55x32.5x17.3"
+          "zh": "LGS布抽55x32.7x17.3",
+          "vi": "LGS布抽55x32.7x17.3"
         },
         "spec": {
-          "zh": "550x325x173mm",
-          "vi": "550x325x173mm"
+          "zh": "550x327x173mm",
+          "vi": "550x327x173mm"
         },
         "material": {
           "zh": "MDF&纸板&无纺布",
@@ -81757,20 +80467,21 @@ window.BOM_VIEWER_DATA = {
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-55x32-5x17-3-06810ff8.glb",
             "matched_name": "LGS布抽55x32.5x17.3",
             "score": 1100,
-            "bytes": 19732
+            "bytes": 19732,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-55x32-5x17-3-06810ff8.glb"
           }
         ]
       },
       "mat_17pzu53": {
         "id": "mat_17pzu53",
-        "code": "BC548327186KD",
+        "code": "BC550327187KD",
         "name": {
-          "zh": "LGS布抽55x32.5x18.7",
-          "vi": "LGS布抽55x32.5x18.7"
+          "zh": "LGS布抽55x32.7x18.7",
+          "vi": "LGS布抽55x32.7x18.7"
         },
         "spec": {
-          "zh": "550x325x187mm",
-          "vi": "550x325x187mm"
+          "zh": "550x327x187mm",
+          "vi": "550x327x187mm"
         },
         "material": {
           "zh": "MDF&纸板&无纺布",
@@ -81800,19 +80511,20 @@ window.BOM_VIEWER_DATA = {
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-55x32-5x18-7-a957120a.glb",
             "matched_name": "LGS布抽55x32.5x18.7",
             "score": 1100,
-            "bytes": 19732
+            "bytes": 19732,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-55x32-5x18-7-a957120a.glb"
           }
         ]
       },
       "mat_1jrw8mg": {
         "id": "mat_1jrw8mg",
-        "code": "BCDB53831725BH",
+        "code": "BCDB550327003BH",
         "name": {
-          "zh": "LGS布抽底板54.5x32",
+          "zh": "LGS布抽底板55x32.7",
           "vi": "LGS布抽底板54.5x32"
         },
         "spec": {
-          "zh": "545x320x3mm",
+          "zh": "545x322x3mm",
           "vi": "545x320x3mm"
         },
         "material": {
@@ -82358,14 +81070,14 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_1wasq9b": {
         "id": "mat_1wasq9b",
-        "code": "BC548327171WH",
+        "code": "BC550327173WH",
         "name": {
-          "zh": "LGS布抽55x32.5x17.3",
-          "vi": "LGS布抽55x32.5x17.3"
+          "zh": "LGS布抽55x32.7x17.3",
+          "vi": "LGS布抽55x32.7x17.3"
         },
         "spec": {
-          "zh": "550x325x173mm",
-          "vi": "550x325x173mm"
+          "zh": "550x327x173mm",
+          "vi": "550x327x173mm"
         },
         "material": {
           "zh": "MDF&纸板&无纺布",
@@ -82395,85 +81107,8 @@ window.BOM_VIEWER_DATA = {
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-55x32-5x17-3-06810ff8.glb",
             "matched_name": "LGS布抽55x32.5x17.3",
             "score": 1100,
-            "bytes": 19732
-          }
-        ]
-      },
-      "mat_9g1dmh": {
-        "id": "mat_9g1dmh",
-        "code": "BC548327186WH",
-        "name": {
-          "zh": "LGS布抽55x32.5x18.7",
-          "vi": "LGS布抽55x32.5x18.7"
-        },
-        "spec": {
-          "zh": "550x325x187mm",
-          "vi": "550x325x187mm"
-        },
-        "material": {
-          "zh": "MDF&纸板&无纺布",
-          "vi": "MDF&giấy&vải không dệt"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [
-          {
-            "name": "LGS布抽32.5x55x18.7.pdf",
-            "path": "Google Drive > LGS233 > LGS布抽32.5x55x18.7.pdf",
-            "url": "https://drive.google.com/file/d/1AVVkQuKeEOEQfW2mdsjDrC5FqMOS85dj/view?usp=sharing",
-            "matched_name": "LGS布抽55x32.5x18.7",
-            "score": 960
-          }
-        ],
-        "models3d": [
-          {
-            "name": "LGS布抽55x32.5x18.7.glb",
-            "path": "models3d/catalog/LGS-55x32-5x18-7-a957120a.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-55x32-5x18-7-a957120a.glb",
-            "matched_name": "LGS布抽55x32.5x18.7",
-            "score": 1100,
-            "bytes": 19732
-          }
-        ]
-      },
-      "mat_hpdggc": {
-        "id": "mat_hpdggc",
-        "code": "BCDB53831725WH",
-        "name": {
-          "zh": "LGS布抽底板54.5x32",
-          "vi": "LGS布抽底板54.5x32"
-        },
-        "spec": {
-          "zh": "545x320x3mm",
-          "vi": "545x320x3mm"
-        },
-        "material": {
-          "zh": "MDF&无纺布",
-          "vi": "MDF&vải không dệt"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [],
-        "models3d": [
-          {
-            "name": "LGS布抽底板55x32.5.glb",
-            "path": "models3d/catalog/LGS-55x32-5-c1491f5c.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-55x32-5-c1491f5c.glb",
-            "matched_name": "LGS布抽底板32.5x55",
-            "score": 1000,
-            "bytes": 1312
+            "bytes": 19732,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-55x32-5x17-3-06810ff8.glb"
           }
         ]
       },
@@ -82522,14 +81157,14 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_hin4d7": {
         "id": "mat_hin4d7",
-        "code": "BC548327171BH",
+        "code": "BC550327173BH",
         "name": {
-          "zh": "LGS布抽55x32.5x17.3",
-          "vi": "LGS布抽55x32.5x17.3"
+          "zh": "LGS布抽55x32.7x17.3",
+          "vi": "LGS布抽55x32.7x17.3"
         },
         "spec": {
-          "zh": "550x325x173mm",
-          "vi": "550x325x173mm"
+          "zh": "550x327x173mm",
+          "vi": "550x327x173mm"
         },
         "material": {
           "zh": "MDF&纸板&无纺布",
@@ -82559,50 +81194,8 @@ window.BOM_VIEWER_DATA = {
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-55x32-5x17-3-06810ff8.glb",
             "matched_name": "LGS布抽55x32.5x17.3",
             "score": 1100,
-            "bytes": 19732
-          }
-        ]
-      },
-      "mat_9xd9el": {
-        "id": "mat_9xd9el",
-        "code": "BC548327186BH",
-        "name": {
-          "zh": "LGS布抽55x32.5x18.7",
-          "vi": "LGS布抽55x32.5x18.7"
-        },
-        "spec": {
-          "zh": "550x325x187mm",
-          "vi": "550x325x187mm"
-        },
-        "material": {
-          "zh": "MDF&纸板&无纺布",
-          "vi": "MDF&giấy&vải không dệt"
-        },
-        "color": {
-          "zh": "黑色",
-          "vi": "màu đen"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [
-          {
-            "name": "LGS布抽32.5x55x18.7.pdf",
-            "path": "Google Drive > LGS233 > LGS布抽32.5x55x18.7.pdf",
-            "url": "https://drive.google.com/file/d/1AVVkQuKeEOEQfW2mdsjDrC5FqMOS85dj/view?usp=sharing",
-            "matched_name": "LGS布抽55x32.5x18.7",
-            "score": 960
-          }
-        ],
-        "models3d": [
-          {
-            "name": "LGS布抽55x32.5x18.7.glb",
-            "path": "models3d/catalog/LGS-55x32-5x18-7-a957120a.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-55x32-5x18-7-a957120a.glb",
-            "matched_name": "LGS布抽55x32.5x18.7",
-            "score": 1100,
-            "bytes": 19732
+            "bytes": 19732,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-55x32-5x17-3-06810ff8.glb"
           }
         ]
       },
@@ -82748,13 +81341,6 @@ window.BOM_VIEWER_DATA = {
             "url": "https://drive.google.com/file/d/1RxbU5cDHPNjADbdDQUU6rBYFjQz8OkPw/view?usp=sharing",
             "matched_name": "LGS333_334_433_434中竖梁-前",
             "score": 1019
-          },
-          {
-            "name": "LGS723_733中竖梁-前.pdf",
-            "path": "Google Drive > LGS733 > LGS723_733中竖梁-前.pdf",
-            "url": "https://drive.google.com/file/d/1VsDkKeEjkxvyqS-TKITLGWrhAxysbDrX/view?usp=sharing",
-            "matched_name": "LGS723_733中竖梁-前",
-            "score": 1013
           }
         ],
         "models3d": [
@@ -82765,14 +81351,6 @@ window.BOM_VIEWER_DATA = {
             "matched_name": "LGS333_334_433_434中竖梁-前",
             "score": 1300,
             "bytes": 69588
-          },
-          {
-            "name": "LGS723_733中竖梁-前.glb",
-            "path": "models3d/catalog/LGS723-733-afa914dc.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS723-733-afa914dc.glb",
-            "matched_name": "LGS723_733中竖梁-前",
-            "score": 1300,
-            "bytes": 68964
           }
         ]
       },
@@ -82806,13 +81384,6 @@ window.BOM_VIEWER_DATA = {
             "url": "https://drive.google.com/file/d/1TaYHYCn02ngL7zDRuM_NX-O15zCr_njY/view?usp=sharing",
             "matched_name": "LGS333_334_433_434中竖梁-后",
             "score": 1019
-          },
-          {
-            "name": "LGS723_733中竖梁-后.pdf",
-            "path": "Google Drive > LGS733 > LGS723_733中竖梁-后.pdf",
-            "url": "https://drive.google.com/file/d/1fGStVnvdICd8JtVDfaDBVDpQ0vSHNmdj/view?usp=sharing",
-            "matched_name": "LGS723_733中竖梁-后",
-            "score": 1013
           }
         ],
         "models3d": [
@@ -82823,14 +81394,6 @@ window.BOM_VIEWER_DATA = {
             "matched_name": "LGS333_334_433_434中竖梁-后",
             "score": 1300,
             "bytes": 68776
-          },
-          {
-            "name": "LGS723_733中竖梁-后.glb",
-            "path": "models3d/catalog/LGS723-733-b0456735.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS723-733-b0456735.glb",
-            "matched_name": "LGS723_733中竖梁-后",
-            "score": 1300,
-            "bytes": 68560
           }
         ]
       },
@@ -82862,20 +81425,6 @@ window.BOM_VIEWER_DATA = {
             "name": "LGS333_433_733_833底部横杆后.pdf",
             "path": "Google Drive > LGS333 > LGS333_433_733_833底部横杆后.pdf",
             "url": "https://drive.google.com/file/d/1G7fe0aFjolbRYNgFQ_nbwabLkkydHFyQ/view?usp=sharing",
-            "matched_name": "LGS333_433_733_833底部横杆后",
-            "score": 1020
-          },
-          {
-            "name": "LGS333_433_733_833底部横杆后.pdf",
-            "path": "Google Drive > LGS733 > LGS333_433_733_833底部横杆后.pdf",
-            "url": "https://drive.google.com/file/d/12mzB_64ORMUa_5R_PswnMmAWrueuMpx7/view?usp=sharing",
-            "matched_name": "LGS333_433_733_833底部横杆后",
-            "score": 1020
-          },
-          {
-            "name": "LGS333_433_733_833底部横杆后.pdf",
-            "path": "Google Drive > LGS833 > LGS333_433_733_833底部横杆后.pdf",
-            "url": "https://drive.google.com/file/d/1po4dZYxvYtbUlrg9czruU6wDEkPpQsSV/view?usp=sharing",
             "matched_name": "LGS333_433_733_833底部横杆后",
             "score": 1020
           }
@@ -82921,13 +81470,6 @@ window.BOM_VIEWER_DATA = {
             "url": "https://drive.google.com/file/d/10RXHm8F4wtDRQ_fr0oYbL-aKJCQFH7kH/view?usp=sharing",
             "matched_name": "LGS333_723_733支撑框",
             "score": 1015
-          },
-          {
-            "name": "LGS333_723_733支撑框.pdf",
-            "path": "Google Drive > LGS733 > LGS333_723_733支撑框.pdf",
-            "url": "https://drive.google.com/file/d/1R-CsWKXmOxwD6JX9FQQ4-D1fvxA_nvfi/view?usp=sharing",
-            "matched_name": "LGS333_723_733支撑框",
-            "score": 1015
           }
         ],
         "models3d": [
@@ -82969,13 +81511,6 @@ window.BOM_VIEWER_DATA = {
             "name": "LGS333_733顶部横杆.pdf",
             "path": "Google Drive > LGS333 > LGS333_733顶部横杆.pdf",
             "url": "https://drive.google.com/file/d/1-D7T463FTt_x_jOAn_trU7G4AzZ0mY73/view?usp=sharing",
-            "matched_name": "LGS333_733顶部横杆",
-            "score": 1013
-          },
-          {
-            "name": "LGS333_733顶部横杆.pdf",
-            "path": "Google Drive > LGS733 > LGS333_733顶部横杆.pdf",
-            "url": "https://drive.google.com/file/d/1Y41eHT2IFzEgUriHZ_eNqg83wRZkh1cu/view?usp=sharing",
             "matched_name": "LGS333_733顶部横杆",
             "score": 1013
           }
@@ -83036,7 +81571,7 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_w8qr6q": {
         "id": "mat_w8qr6q",
-        "code": "BC255282166KD",
+        "code": "BC257282168KD",
         "name": {
           "zh": "LGS布抽25.7x28.2x16.8",
           "vi": "LGS布抽25.7x28.2x16.8"
@@ -83064,20 +81599,6 @@ window.BOM_VIEWER_DATA = {
             "url": "https://drive.google.com/file/d/1CHNhPQVkH9xA0PlVAhBcgjBjgzQbyVU4/view?usp=sharing",
             "matched_name": "LGS布抽25.7x28x16.8",
             "score": 960
-          },
-          {
-            "name": "LGS布抽28x25.7x16.8.pdf",
-            "path": "Google Drive > LGS433 > LGS布抽28x25.7x16.8.pdf",
-            "url": "https://drive.google.com/file/d/14A3lpEcW_0RdjppmC65DpTbp4QCqAnOu/view?usp=sharing",
-            "matched_name": "LGS布抽25.7x28x16.8",
-            "score": 960
-          },
-          {
-            "name": "LGS布抽28x25.7x16.8.pdf",
-            "path": "Google Drive > LGS733 > LGS布抽28x25.7x16.8.pdf",
-            "url": "https://drive.google.com/file/d/1hjqJ4fwTeBOkZTZmCakxn3q77_9Dd-bO/view?usp=sharing",
-            "matched_name": "LGS布抽25.7x28x16.8",
-            "score": 960
           }
         ],
         "models3d": [
@@ -83093,13 +81614,13 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_12wl5hj": {
         "id": "mat_12wl5hj",
-        "code": "BCDB24527223BH",
+        "code": "BCDB257282003BH",
         "name": {
-          "zh": "LGS布抽底板25.2x27.5",
+          "zh": "LGS布抽底板25.7x28.2",
           "vi": "LGS布抽底板25.2x27.5"
         },
         "spec": {
-          "zh": "252x275x3mm",
+          "zh": "252x277x3mm",
           "vi": "252x275x3mm"
         },
         "material": {
@@ -83374,14 +81895,6 @@ window.BOM_VIEWER_DATA = {
             "matched_name": "LGS333_334_433_434中竖梁-前",
             "score": 1100,
             "bytes": 69588
-          },
-          {
-            "name": "LGS723_733中竖梁-前.glb",
-            "path": "models3d/catalog/LGS723-733-afa914dc.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS723-733-afa914dc.glb",
-            "matched_name": "LGS723_733中竖梁-前",
-            "score": 1100,
-            "bytes": 68964
           }
         ]
       },
@@ -83417,14 +81930,6 @@ window.BOM_VIEWER_DATA = {
             "matched_name": "LGS333_334_433_434中竖梁-后",
             "score": 1100,
             "bytes": 68776
-          },
-          {
-            "name": "LGS723_733中竖梁-后.glb",
-            "path": "models3d/catalog/LGS723-733-b0456735.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS723-733-b0456735.glb",
-            "matched_name": "LGS723_733中竖梁-后",
-            "score": 1100,
-            "bytes": 68560
           }
         ]
       },
@@ -83456,20 +81961,6 @@ window.BOM_VIEWER_DATA = {
             "name": "LGS333_433_733_833底部横杆后.pdf",
             "path": "Google Drive > LGS333 > LGS333_433_733_833底部横杆后.pdf",
             "url": "https://drive.google.com/file/d/1G7fe0aFjolbRYNgFQ_nbwabLkkydHFyQ/view?usp=sharing",
-            "matched_name": "LGS333_433_733_833底部横杆后",
-            "score": 1020
-          },
-          {
-            "name": "LGS333_433_733_833底部横杆后.pdf",
-            "path": "Google Drive > LGS733 > LGS333_433_733_833底部横杆后.pdf",
-            "url": "https://drive.google.com/file/d/12mzB_64ORMUa_5R_PswnMmAWrueuMpx7/view?usp=sharing",
-            "matched_name": "LGS333_433_733_833底部横杆后",
-            "score": 1020
-          },
-          {
-            "name": "LGS333_433_733_833底部横杆后.pdf",
-            "path": "Google Drive > LGS833 > LGS333_433_733_833底部横杆后.pdf",
-            "url": "https://drive.google.com/file/d/1po4dZYxvYtbUlrg9czruU6wDEkPpQsSV/view?usp=sharing",
             "matched_name": "LGS333_433_733_833底部横杆后",
             "score": 1020
           }
@@ -83515,13 +82006,6 @@ window.BOM_VIEWER_DATA = {
             "url": "https://drive.google.com/file/d/10RXHm8F4wtDRQ_fr0oYbL-aKJCQFH7kH/view?usp=sharing",
             "matched_name": "LGS333_723_733支撑框",
             "score": 1015
-          },
-          {
-            "name": "LGS333_723_733支撑框.pdf",
-            "path": "Google Drive > LGS733 > LGS333_723_733支撑框.pdf",
-            "url": "https://drive.google.com/file/d/1R-CsWKXmOxwD6JX9FQQ4-D1fvxA_nvfi/view?usp=sharing",
-            "matched_name": "LGS333_723_733支撑框",
-            "score": 1015
           }
         ],
         "models3d": [
@@ -83563,13 +82047,6 @@ window.BOM_VIEWER_DATA = {
             "name": "LGS333_733顶部横杆.pdf",
             "path": "Google Drive > LGS333 > LGS333_733顶部横杆.pdf",
             "url": "https://drive.google.com/file/d/1-D7T463FTt_x_jOAn_trU7G4AzZ0mY73/view?usp=sharing",
-            "matched_name": "LGS333_733顶部横杆",
-            "score": 1013
-          },
-          {
-            "name": "LGS333_733顶部横杆.pdf",
-            "path": "Google Drive > LGS733 > LGS333_733顶部横杆.pdf",
-            "url": "https://drive.google.com/file/d/1Y41eHT2IFzEgUriHZ_eNqg83wRZkh1cu/view?usp=sharing",
             "matched_name": "LGS333_733顶部横杆",
             "score": 1013
           }
@@ -83630,7 +82107,7 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_1jr1p4e": {
         "id": "mat_1jr1p4e",
-        "code": "BC255282166WH",
+        "code": "BC257282168WH",
         "name": {
           "zh": "LGS布抽25.7x28.2x16.8",
           "vi": "LGS布抽25.7x28.2x16.8"
@@ -83658,20 +82135,6 @@ window.BOM_VIEWER_DATA = {
             "url": "https://drive.google.com/file/d/1CHNhPQVkH9xA0PlVAhBcgjBjgzQbyVU4/view?usp=sharing",
             "matched_name": "LGS布抽25.7x28x16.8",
             "score": 960
-          },
-          {
-            "name": "LGS布抽28x25.7x16.8.pdf",
-            "path": "Google Drive > LGS433 > LGS布抽28x25.7x16.8.pdf",
-            "url": "https://drive.google.com/file/d/14A3lpEcW_0RdjppmC65DpTbp4QCqAnOu/view?usp=sharing",
-            "matched_name": "LGS布抽25.7x28x16.8",
-            "score": 960
-          },
-          {
-            "name": "LGS布抽28x25.7x16.8.pdf",
-            "path": "Google Drive > LGS733 > LGS布抽28x25.7x16.8.pdf",
-            "url": "https://drive.google.com/file/d/1hjqJ4fwTeBOkZTZmCakxn3q77_9Dd-bO/view?usp=sharing",
-            "matched_name": "LGS布抽25.7x28x16.8",
-            "score": 960
           }
         ],
         "models3d": [
@@ -83687,13 +82150,13 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_1nlgdwj": {
         "id": "mat_1nlgdwj",
-        "code": "BCDB24527223WH",
+        "code": "BCDB257282003WH",
         "name": {
-          "zh": "LGS布抽底板25.2x27.5",
+          "zh": "LGS布抽底板25.7x28.2",
           "vi": "LGS布抽底板25.2x27.5"
         },
         "spec": {
-          "zh": "252x275x3mm",
+          "zh": "252x277x3mm",
           "vi": "252x275x3mm"
         },
         "material": {
@@ -83765,7 +82228,7 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_1aqkble": {
         "id": "mat_1aqkble",
-        "code": "BC255282166BH",
+        "code": "BC257282168BH",
         "name": {
           "zh": "LGS布抽25.7x28.2x16.8",
           "vi": "LGS布抽25.7x28.2x16.8"
@@ -83793,20 +82256,6 @@ window.BOM_VIEWER_DATA = {
             "url": "https://drive.google.com/file/d/1CHNhPQVkH9xA0PlVAhBcgjBjgzQbyVU4/view?usp=sharing",
             "matched_name": "LGS布抽25.7x28x16.8",
             "score": 960
-          },
-          {
-            "name": "LGS布抽28x25.7x16.8.pdf",
-            "path": "Google Drive > LGS433 > LGS布抽28x25.7x16.8.pdf",
-            "url": "https://drive.google.com/file/d/14A3lpEcW_0RdjppmC65DpTbp4QCqAnOu/view?usp=sharing",
-            "matched_name": "LGS布抽25.7x28x16.8",
-            "score": 960
-          },
-          {
-            "name": "LGS布抽28x25.7x16.8.pdf",
-            "path": "Google Drive > LGS733 > LGS布抽28x25.7x16.8.pdf",
-            "url": "https://drive.google.com/file/d/1hjqJ4fwTeBOkZTZmCakxn3q77_9Dd-bO/view?usp=sharing",
-            "matched_name": "LGS布抽25.7x28x16.8",
-            "score": 960
           }
         ],
         "models3d": [
@@ -83817,70 +82266,6 @@ window.BOM_VIEWER_DATA = {
             "matched_name": "LGS布抽25.7x28x16.8",
             "score": 1100,
             "bytes": 19740
-          }
-        ]
-      },
-      "mat_w4n0sd": {
-        "id": "mat_w4n0sd",
-        "code": "BC348282186BH",
-        "name": {
-          "zh": "LGS布抽35x28x18.7",
-          "vi": "LGS布抽35x28x18.7"
-        },
-        "spec": {
-          "zh": "350x280x187mm",
-          "vi": "350x280x187mm"
-        },
-        "material": {
-          "zh": "MDF&纸板&无纺布",
-          "vi": "MDF&giấy&vải không dệt"
-        },
-        "color": {
-          "zh": "黑色",
-          "vi": "màu đen"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [
-          {
-            "name": "LGS布抽28x35x18.7.pdf",
-            "path": "Google Drive > LGS333 > LGS布抽28x35x18.7.pdf",
-            "url": "https://drive.google.com/file/d/1JfK8Jy0QeiV8aUE4x30FFLQR-TjHApym/view?usp=sharing",
-            "matched_name": "LGS布抽35x28x18.7",
-            "score": 960
-          },
-          {
-            "name": "LGS布抽28x35x18.7.pdf",
-            "path": "Google Drive > LGS433 > LGS布抽28x35x18.7.pdf",
-            "url": "https://drive.google.com/file/d/1o6k6dcjqSiYRyaLOzt_4X8q2GRODZnkP/view?usp=sharing",
-            "matched_name": "LGS布抽35x28x18.7",
-            "score": 960
-          },
-          {
-            "name": "LGS布抽28x35x18.7.pdf",
-            "path": "Google Drive > LGS733 > LGS布抽28x35x18.7.pdf",
-            "url": "https://drive.google.com/file/d/15djmRvEatdWwlyfGxi64Rm0clrRbfx-1/view?usp=sharing",
-            "matched_name": "LGS布抽35x28x18.7",
-            "score": 960
-          },
-          {
-            "name": "LGS布抽28x35x18.7.pdf",
-            "path": "Google Drive > LGS833 > LGS布抽28x35x18.7.pdf",
-            "url": "https://drive.google.com/file/d/1mxbTXQUQoyWFQTB4mejTXMnLEc8HqEzT/view?usp=sharing",
-            "matched_name": "LGS布抽35x28x18.7",
-            "score": 960
-          }
-        ],
-        "models3d": [
-          {
-            "name": "LGS布抽35x28x18.7.glb",
-            "path": "models3d/catalog/LGS-35x28x18-7-3549de43.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-35x28x18-7-3549de43.glb",
-            "matched_name": "LGS布抽35x28x18.7",
-            "score": 1100,
-            "bytes": 19736
           }
         ]
       },
@@ -84122,14 +82507,6 @@ window.BOM_VIEWER_DATA = {
             "matched_name": "LGS334_434_834-底部横杆左-前",
             "score": 1300,
             "bytes": 94804
-          },
-          {
-            "name": "LGS334_434_834-底部横杆左-前.glb",
-            "path": "models3d/catalog/LGS334-434-834-f806e3c3.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-f806e3c3.glb",
-            "matched_name": "LGS334_434_834-底部横杆左-前",
-            "score": 1100,
-            "bytes": 94804
           }
         ]
       },
@@ -84172,14 +82549,6 @@ window.BOM_VIEWER_DATA = {
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-da84b3da.glb",
             "matched_name": "LGS334_434_834-底部横杆左-后",
             "score": 1300,
-            "bytes": 135540
-          },
-          {
-            "name": "LGS334_434_834-底部横杆左-后.glb",
-            "path": "models3d/catalog/LGS334-434-834-404054ab.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-404054ab.glb",
-            "matched_name": "LGS334_434_834-底部横杆左-后",
-            "score": 1100,
             "bytes": 135540
           }
         ]
@@ -84444,14 +82813,14 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_k8w6yo": {
         "id": "mat_k8w6yo",
-        "code": "BC338327166BH",
+        "code": "BC340327168BH",
         "name": {
-          "zh": "LGS布抽34x32.5x16.8",
-          "vi": "LGS布抽34x32.5x16.8"
+          "zh": "LGS布抽34x32.7x16.8",
+          "vi": "LGS布抽34x32.7x16.8"
         },
         "spec": {
-          "zh": "340x325x168mm",
-          "vi": "340x325x168mm"
+          "zh": "340x327x168mm",
+          "vi": "340x327x168mm"
         },
         "material": {
           "zh": "MDF&纸板&无纺布",
@@ -84472,13 +82841,6 @@ window.BOM_VIEWER_DATA = {
             "url": "https://drive.google.com/file/d/1wfAJEOTXrBux0cBwUX_t_8IVDIi2-PeR/view?usp=sharing",
             "matched_name": "LGS布抽34x32.5x16.8",
             "score": 960
-          },
-          {
-            "name": "LGS布抽32.5x34x16.8.pdf",
-            "path": "Google Drive > LGS434 > LGS布抽32.5x34x16.8.pdf",
-            "url": "https://drive.google.com/file/d/1HoT9LDDL3-AJ4hwxV14k1evewiLa5Mv5/view?usp=sharing",
-            "matched_name": "LGS布抽34x32.5x16.8",
-            "score": 960
           }
         ],
         "models3d": [
@@ -84488,20 +82850,21 @@ window.BOM_VIEWER_DATA = {
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-34x32-5x16-8-932464b7.glb",
             "matched_name": "LGS布抽34x32.5x16.8",
             "score": 1100,
-            "bytes": 19736
+            "bytes": 19736,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-34x32-5x16-8-932464b7.glb"
           }
         ]
       },
       "mat_1b7en7f": {
         "id": "mat_1b7en7f",
-        "code": "BC458327186BH",
+        "code": "BC460327187BH",
         "name": {
-          "zh": "LGS布抽46x32.5x18.7",
-          "vi": "LGS布抽46x32.5x18.7"
+          "zh": "LGS布抽46x32.7x18.7",
+          "vi": "LGS布抽46x32.7x18.7"
         },
         "spec": {
-          "zh": "460x325x187mm",
-          "vi": "460x325x187mm"
+          "zh": "460x327x187mm",
+          "vi": "460x327x187mm"
         },
         "material": {
           "zh": "MDF&纸板&无纺布",
@@ -84522,20 +82885,6 @@ window.BOM_VIEWER_DATA = {
             "url": "https://drive.google.com/file/d/1ATSPCjkDTcXK-FwPsd6RpyDyZTtQ9LaB/view?usp=sharing",
             "matched_name": "LGS布抽46x32.5x18.7",
             "score": 960
-          },
-          {
-            "name": "LGS布抽32.5x46x18.7.pdf",
-            "path": "Google Drive > LGS434 > LGS布抽32.5x46x18.7.pdf",
-            "url": "https://drive.google.com/file/d/1X6gf33bF-DTaV5dP3R7kVed1vuNH-24A/view?usp=sharing",
-            "matched_name": "LGS布抽46x32.5x18.7",
-            "score": 960
-          },
-          {
-            "name": "LGS布抽32.5x46x18.7.pdf",
-            "path": "Google Drive > LGS834 > LGS布抽32.5x46x18.7.pdf",
-            "url": "https://drive.google.com/file/d/1R1V3D5Bqu0Y5DlTZYOhRUC5Fqe05WrAC/view?usp=sharing",
-            "matched_name": "LGS布抽46x32.5x18.7",
-            "score": 960
           }
         ],
         "models3d": [
@@ -84545,27 +82894,20 @@ window.BOM_VIEWER_DATA = {
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-32-5x46x18-7-84948470.glb",
             "matched_name": "LGS布抽46x32.5x18.7",
             "score": 1300,
-            "bytes": 19736
-          },
-          {
-            "name": "LGS布抽46x32.5x18.7.glb",
-            "path": "models3d/catalog/LGS-46x32-5x18-7-ce9722db.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-46x32-5x18-7-ce9722db.glb",
-            "matched_name": "LGS布抽46x32.5x18.7",
-            "score": 1100,
-            "bytes": 19736
+            "bytes": 19736,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-32-5x46x18-7-84948470.glb"
           }
         ]
       },
       "mat_b833ce": {
         "id": "mat_b833ce",
-        "code": "BCDB32831723BH",
+        "code": "BCDB340327003BH",
         "name": {
-          "zh": "LGS布抽底板33.5x32",
+          "zh": "LGS布抽底板34x32.7",
           "vi": "LGS đáy túi vải 33.5x32"
         },
         "spec": {
-          "zh": "335x320x3mm",
+          "zh": "335x322x3mm",
           "vi": "335x320x3mm"
         },
         "material": {
@@ -84989,51 +83331,16 @@ window.BOM_VIEWER_DATA = {
           }
         ]
       },
-      "mat_v8wowy": {
-        "id": "mat_v8wowy",
-        "code": "BCDB35031723BH",
-        "name": {
-          "zh": "LGS布抽底板34.5x32",
-          "vi": "LGS布抽底板34.5x32"
-        },
-        "spec": {
-          "zh": "345x320x3mm",
-          "vi": "345x320x3mm"
-        },
-        "material": {
-          "zh": "MDF&纸板&无纺布",
-          "vi": "MDF&giấy&vải không dệt"
-        },
-        "color": {
-          "zh": "黑色",
-          "vi": "màu đen"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [],
-        "models3d": [
-          {
-            "name": "LGS布抽底板35x32.5.glb",
-            "path": "models3d/catalog/LGS-35x32-5-ad72669d.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-35x32-5-ad72669d.glb",
-            "matched_name": "LGS-布抽底板32.5X35",
-            "score": 1000,
-            "bytes": 1288
-          }
-        ]
-      },
       "mat_1nmpx5d": {
         "id": "mat_1nmpx5d",
-        "code": "BC3503327188KD",
+        "code": "BC350327187KD",
         "name": {
-          "zh": "LGS布抽35x32.5x18.7",
-          "vi": "LGS布抽35x32.5x18.7"
+          "zh": "LGS布抽35x32.7x18.7",
+          "vi": "LGS布抽35x32.7x18.7"
         },
         "spec": {
-          "zh": "350x325x187mm",
-          "vi": "350x325x187mm"
+          "zh": "350x327x187mm",
+          "vi": "350x327x187mm"
         },
         "material": {
           "zh": "MDF&纸板&无纺布",
@@ -85063,7 +83370,8 @@ window.BOM_VIEWER_DATA = {
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-35x32-5x18-7-0b6b8af7.glb",
             "matched_name": "LGS布抽35x32.5x18.7",
             "score": 1100,
-            "bytes": 19620
+            "bytes": 19620,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-35x32-5x18-7-0b6b8af7.glb"
           }
         ]
       },
@@ -85622,13 +83930,13 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_t3dlni": {
         "id": "mat_t3dlni",
-        "code": "BCDB35031723WH",
+        "code": "BCDB350327003WH",
         "name": {
-          "zh": "LGS布抽底板34.5x32",
+          "zh": "LGS布抽底板35x32.7",
           "vi": "LGS布抽底板34.5x32"
         },
         "spec": {
-          "zh": "345x320x3mm",
+          "zh": "345x322x3mm",
           "vi": "345x320x3mm"
         },
         "material": {
@@ -85657,14 +83965,14 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_1giutrz": {
         "id": "mat_1giutrz",
-        "code": "BC3503327188WH",
+        "code": "BC350327187WH",
         "name": {
-          "zh": "LGS布抽35x32.5x18.7",
-          "vi": "LGS布抽35x32.5x18.7"
+          "zh": "LGS布抽35x32.7x18.7",
+          "vi": "LGS布抽35x32.7x18.7"
         },
         "spec": {
-          "zh": "350x325x187mm",
-          "vi": "350x325x187mm"
+          "zh": "350x327x187mm",
+          "vi": "350x327x187mm"
         },
         "material": {
           "zh": "MDF&纸板&无纺布",
@@ -85694,7 +84002,8 @@ window.BOM_VIEWER_DATA = {
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-35x32-5x18-7-0b6b8af7.glb",
             "matched_name": "LGS布抽35x32.5x18.7",
             "score": 1100,
-            "bytes": 19620
+            "bytes": 19620,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-35x32-5x18-7-0b6b8af7.glb"
           }
         ]
       },
@@ -86296,14 +84605,14 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_1f7665v": {
         "id": "mat_1f7665v",
-        "code": "BC4603327188KD",
+        "code": "BC460327187KD",
         "name": {
-          "zh": "LGS布抽46x32.5x18.7",
-          "vi": "LGS布抽46x32.5x18.7"
+          "zh": "LGS布抽46x32.7x18.7",
+          "vi": "LGS布抽46x32.7x18.7"
         },
         "spec": {
-          "zh": "460x325x187mm",
-          "vi": "460x325x187mm"
+          "zh": "460x327x187mm",
+          "vi": "460x327x187mm"
         },
         "material": {
           "zh": "MDF&纸板&无纺布",
@@ -86333,7 +84642,8 @@ window.BOM_VIEWER_DATA = {
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-32-5x46x18-7-84948470.glb",
             "matched_name": "LGS布抽46x32.5x18.7",
             "score": 1300,
-            "bytes": 19736
+            "bytes": 19736,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-32-5x46x18-7-84948470.glb"
           }
         ]
       },
@@ -88241,13 +86551,6 @@ window.BOM_VIEWER_DATA = {
             "url": "https://drive.google.com/file/d/1Ua21tP07yUxArM0jITHefe5bK-DuICFb/view?usp=sharing",
             "matched_name": "LGS334_434_834-底部横杆右-前_组件",
             "score": 1018
-          },
-          {
-            "name": "LGS334_434_834-底部横杆右-前.pdf",
-            "path": "Google Drive > LGS834 > LGS334_434_834-底部横杆右-前.pdf",
-            "url": "https://drive.google.com/file/d/1FSNCe92XnEsFELLe94VKxFwOCxoaE-Qc/view?usp=sharing",
-            "matched_name": "LGS334_434_834-底部横杆右-前_组件",
-            "score": 1018
           }
         ],
         "models3d": [
@@ -88289,13 +86592,6 @@ window.BOM_VIEWER_DATA = {
             "name": "LGS334_434_834-底部横杆右-后.pdf",
             "path": "Google Drive > LGS434 > LGS334_434_834-底部横杆右-后.pdf",
             "url": "https://drive.google.com/file/d/1Mt78EQe6TiF2MdpGZd2NlJ-vC-NEhK2u/view?usp=sharing",
-            "matched_name": "LGS334_434_834-底部横杆右-后_组件",
-            "score": 1018
-          },
-          {
-            "name": "LGS334_434_834-底部横杆右-后.pdf",
-            "path": "Google Drive > LGS834 > LGS334_434_834-底部横杆右-后.pdf",
-            "url": "https://drive.google.com/file/d/12xyqWj-jpKGKv_Kpe6OTWw151n_7hqy6/view?usp=sharing",
             "matched_name": "LGS334_434_834-底部横杆右-后_组件",
             "score": 1018
           }
@@ -88341,13 +86637,6 @@ window.BOM_VIEWER_DATA = {
             "url": "https://drive.google.com/file/d/1q8LWlur9yHskIi9S10-UsxTNqhFigfn0/view?usp=sharing",
             "matched_name": "LGS334_434_834-底部横杆左-前",
             "score": 1018
-          },
-          {
-            "name": "LGS334_434_834-底部横杆左-前.pdf",
-            "path": "Google Drive > LGS834 > LGS334_434_834-底部横杆左-前.pdf",
-            "url": "https://drive.google.com/file/d/1yuHsx_eDMsncMNOn01DB5jmLkKjpplaS/view?usp=sharing",
-            "matched_name": "LGS334_434_834-底部横杆左-前",
-            "score": 1018
           }
         ],
         "models3d": [
@@ -88389,13 +86678,6 @@ window.BOM_VIEWER_DATA = {
             "name": "LGS334_434_834-底部横杆左-后.pdf",
             "path": "Google Drive > LGS434 > LGS334_434_834-底部横杆左-后.pdf",
             "url": "https://drive.google.com/file/d/1TknwDAthpknN3Y9S8xrvq4q-ot9cUVnv/view?usp=sharing",
-            "matched_name": "LGS334_434_834-底部横杆左-后",
-            "score": 1018
-          },
-          {
-            "name": "LGS334_434_834-底部横杆左-后.pdf",
-            "path": "Google Drive > LGS834 > LGS334_434_834-底部横杆左-后.pdf",
-            "url": "https://drive.google.com/file/d/1TyaTOAWezNlTt5BBIMp8DgrpmYlH1CaS/view?usp=sharing",
             "matched_name": "LGS334_434_834-底部横杆左-后",
             "score": 1018
           }
@@ -88886,14 +87168,14 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_1wpm92s": {
         "id": "mat_1wpm92s",
-        "code": "BC338327166WH",
+        "code": "BC340327168WH",
         "name": {
-          "zh": "LGS布抽34x32.5x16.8",
-          "vi": "LGS布抽34x32.5x16.8"
+          "zh": "LGS布抽34x32.7x16.8",
+          "vi": "LGS布抽34x32.7x16.8"
         },
         "spec": {
-          "zh": "340x325x168mm",
-          "vi": "340x325x168mm"
+          "zh": "340x327x168mm",
+          "vi": "340x327x168mm"
         },
         "material": {
           "zh": "MDF&纸板&无纺布",
@@ -88923,20 +87205,21 @@ window.BOM_VIEWER_DATA = {
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-34x32-5x16-8-932464b7.glb",
             "matched_name": "LGS布抽34x32.5x16.8",
             "score": 1100,
-            "bytes": 19736
+            "bytes": 19736,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-34x32-5x16-8-932464b7.glb"
           }
         ]
       },
       "mat_1lehgzz": {
         "id": "mat_1lehgzz",
-        "code": "BC458327186WH",
+        "code": "BC460327187WH",
         "name": {
-          "zh": "LGS布抽46x32.5x18.7",
-          "vi": "LGS布抽46x32.5x18.7"
+          "zh": "LGS布抽46x32.7x18.7",
+          "vi": "LGS布抽46x32.7x18.7"
         },
         "spec": {
-          "zh": "460x325x187mm",
-          "vi": "460x325x187mm"
+          "zh": "460x327x187mm",
+          "vi": "460x327x187mm"
         },
         "material": {
           "zh": "MDF&纸板&无纺布",
@@ -88957,13 +87240,6 @@ window.BOM_VIEWER_DATA = {
             "url": "https://drive.google.com/file/d/1X6gf33bF-DTaV5dP3R7kVed1vuNH-24A/view?usp=sharing",
             "matched_name": "LGS布抽46x32.5x18.7",
             "score": 960
-          },
-          {
-            "name": "LGS布抽32.5x46x18.7.pdf",
-            "path": "Google Drive > LGS834 > LGS布抽32.5x46x18.7.pdf",
-            "url": "https://drive.google.com/file/d/1R1V3D5Bqu0Y5DlTZYOhRUC5Fqe05WrAC/view?usp=sharing",
-            "matched_name": "LGS布抽46x32.5x18.7",
-            "score": 960
           }
         ],
         "models3d": [
@@ -88973,19 +87249,20 @@ window.BOM_VIEWER_DATA = {
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-32-5x46x18-7-84948470.glb",
             "matched_name": "LGS布抽46x32.5x18.7",
             "score": 1300,
-            "bytes": 19736
+            "bytes": 19736,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-32-5x46x18-7-84948470.glb"
           }
         ]
       },
       "mat_m6z0ft": {
         "id": "mat_m6z0ft",
-        "code": "BCDB32831723WH",
+        "code": "BCDB340327003WH",
         "name": {
-          "zh": "LGS布抽底板33.5x32",
+          "zh": "LGS布抽底板34x32.7",
           "vi": "LGS布抽底板33.5x32"
         },
         "spec": {
-          "zh": "335x320x3mm",
+          "zh": "335x322x3mm",
           "vi": "335x320x3mm"
         },
         "material": {
@@ -89014,13 +87291,13 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_5zydbi": {
         "id": "mat_5zydbi",
-        "code": "BCDB44831723WH",
+        "code": "BCDB460327003WH",
         "name": {
-          "zh": "LGS布抽底板45.5x32",
+          "zh": "LGS布抽底板46x32.7",
           "vi": "LGS布抽底板45.5x32"
         },
         "spec": {
-          "zh": "455x320x3mm",
+          "zh": "455x322x3mm",
           "vi": "455x320x3mm"
         },
         "material": {
@@ -90351,7 +88628,7 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_11onhu3": {
         "id": "mat_11onhu3",
-        "code": "BC298282166KD",
+        "code": "BC300282168KD",
         "name": {
           "zh": "LGS布抽30x28.2x16.8",
           "vi": "LGS布抽30x28.2x16.8"
@@ -90394,14 +88671,14 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_117swgv": {
         "id": "mat_117swgv",
-        "code": "BC458282186KD",
+        "code": "BC460282187KD",
         "name": {
-          "zh": "LGS布抽46x28x18.7",
-          "vi": "LGS布抽46x28x18.7"
+          "zh": "LGS布抽46x28.2x18.7",
+          "vi": "LGS布抽46x28.2x18.7"
         },
         "spec": {
-          "zh": "460x280x187mm",
-          "vi": "460x280x187mm"
+          "zh": "460x282x187mm",
+          "vi": "460x282x187mm"
         },
         "material": {
           "zh": "MDF&纸板&无纺布",
@@ -90437,13 +88714,13 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_1stu7v4": {
         "id": "mat_1stu7v4",
-        "code": "BCDB28827223BH",
+        "code": "BCDB300282003BH",
         "name": {
-          "zh": "LGS布抽底板29.5x27.5",
+          "zh": "LGS布抽底板30x28.2",
           "vi": "LGS布抽底板29.5x27.5"
         },
         "spec": {
-          "zh": "295x275x3mm",
+          "zh": "295x277x3mm",
           "vi": "295x275x3mm"
         },
         "material": {
@@ -90472,13 +88749,13 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_5e9lxq": {
         "id": "mat_5e9lxq",
-        "code": "BCDB44827223BH",
+        "code": "BCDB460282003BH",
         "name": {
-          "zh": "LGS布抽底板45.5x27.5",
+          "zh": "LGS布抽底板46x28.2",
           "vi": "LGS布抽底板45.5x27.5"
         },
         "spec": {
-          "zh": "455x275x3mm",
+          "zh": "455x277x3mm",
           "vi": "455x275x3mm"
         },
         "material": {
@@ -91146,7 +89423,7 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_qks5j1": {
         "id": "mat_qks5j1",
-        "code": "BC298282166WH",
+        "code": "BC300282168WH",
         "name": {
           "zh": "LGS布抽30x28.2x16.8",
           "vi": "LGS布抽30x28.2x16.8"
@@ -91189,14 +89466,14 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_1q3oqep": {
         "id": "mat_1q3oqep",
-        "code": "BC458282186WH",
+        "code": "BC460282187WH",
         "name": {
-          "zh": "LGS布抽46x28x18.7",
-          "vi": "LGS布抽46x28x18.7"
+          "zh": "LGS布抽46x28.2x18.7",
+          "vi": "LGS布抽46x28.2x18.7"
         },
         "spec": {
-          "zh": "460x280x187mm",
-          "vi": "460x280x187mm"
+          "zh": "460x282x187mm",
+          "vi": "460x282x187mm"
         },
         "material": {
           "zh": "MDF&纸板&无纺布",
@@ -91232,13 +89509,13 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_1x7fvd0": {
         "id": "mat_1x7fvd0",
-        "code": "BCDB28827223WH",
+        "code": "BCDB300282003WH",
         "name": {
-          "zh": "LGS布抽底板29.5x27.5",
+          "zh": "LGS布抽底板30x28.2",
           "vi": "LGS布抽底板29.5x27.5"
         },
         "spec": {
-          "zh": "295x275x3mm",
+          "zh": "295x277x3mm",
           "vi": "295x275x3mm"
         },
         "material": {
@@ -91267,13 +89544,13 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_cvvqhe": {
         "id": "mat_cvvqhe",
-        "code": "BCDB44827223WH",
+        "code": "BCDB460282003WH",
         "name": {
-          "zh": "LGS布抽底板45.5x27.5",
+          "zh": "LGS布抽底板46x28.2",
           "vi": "LGS布抽底板45.5x27.5"
         },
         "spec": {
-          "zh": "455x275x3mm",
+          "zh": "455x277x3mm",
           "vi": "455x275x3mm"
         },
         "material": {
@@ -91388,7 +89665,7 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_tr0vtl": {
         "id": "mat_tr0vtl",
-        "code": "BC298282166BH",
+        "code": "BC300282168BH",
         "name": {
           "zh": "LGS布抽30x28.2x16.8",
           "vi": "LGS布抽30x28.2x16.8"
@@ -91431,14 +89708,14 @@ window.BOM_VIEWER_DATA = {
       },
       "mat_oyn5dx": {
         "id": "mat_oyn5dx",
-        "code": "BC458282186BH",
+        "code": "BC460282187BH",
         "name": {
-          "zh": "LGS布抽46x28x18.7",
-          "vi": "LGS布抽46x28x18.7"
+          "zh": "LGS布抽46x28.2x18.7",
+          "vi": "LGS布抽46x28.2x18.7"
         },
         "spec": {
-          "zh": "460x280x187mm",
-          "vi": "460x280x187mm"
+          "zh": "460x282x187mm",
+          "vi": "460x282x187mm"
         },
         "material": {
           "zh": "MDF&纸板&无纺布",
@@ -91526,13 +89803,6 @@ window.BOM_VIEWER_DATA = {
             "name": "LGS333_433_733_833底部横杆前.pdf",
             "path": "Google Drive > LGS733 > LGS333_433_733_833底部横杆前.pdf",
             "url": "https://drive.google.com/file/d/1JOGXDXUdQrWeQrkGi4FRiO0CUtmRQCo7/view?usp=sharing",
-            "matched_name": "LGS333_433_733_833底部横杆前",
-            "score": 1020
-          },
-          {
-            "name": "LGS333_433_733_833底部横杆前.pdf",
-            "path": "Google Drive > LGS833 > LGS333_433_733_833底部横杆前.pdf",
-            "url": "https://drive.google.com/file/d/1nOOKNFZiweUCVbbbJrUzS-C7gshJyJ1h/view?usp=sharing",
             "matched_name": "LGS333_433_733_833底部横杆前",
             "score": 1020
           }
@@ -91861,13 +90131,6 @@ window.BOM_VIEWER_DATA = {
             "name": "LGS333_433_733_833底部横杆前.pdf",
             "path": "Google Drive > LGS733 > LGS333_433_733_833底部横杆前.pdf",
             "url": "https://drive.google.com/file/d/1JOGXDXUdQrWeQrkGi4FRiO0CUtmRQCo7/view?usp=sharing",
-            "matched_name": "LGS333_433_733_833底部横杆前",
-            "score": 1020
-          },
-          {
-            "name": "LGS333_433_733_833底部横杆前.pdf",
-            "path": "Google Drive > LGS833 > LGS333_433_733_833底部横杆前.pdf",
-            "url": "https://drive.google.com/file/d/1nOOKNFZiweUCVbbbJrUzS-C7gshJyJ1h/view?usp=sharing",
             "matched_name": "LGS333_433_733_833底部横杆前",
             "score": 1020
           }
@@ -94555,7 +92818,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS031",
         "productCode": "LGS031",
         "color": "复古色",
-        "materialId": "mat_1mv7y4a",
+        "materialId": "mat_1jrbb68",
         "stt": "5",
         "comp_code": "Z05",
         "qty": "1",
@@ -94569,7 +92832,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS031",
         "productCode": "LGS031",
         "color": "复古色",
-        "materialId": "mat_inq04s",
+        "materialId": "mat_1c1n9dj",
         "stt": "6",
         "comp_code": "Y05",
         "qty": "1",
@@ -95031,7 +93294,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS031",
         "productCode": "LGS031",
         "color": "黑色",
-        "materialId": "mat_1mv7y4a",
+        "materialId": "mat_1jrbb68",
         "stt": "5",
         "comp_code": "Z05",
         "qty": "1",
@@ -95507,7 +93770,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS032",
         "productCode": "LGS032",
         "color": "复古色",
-        "materialId": "mat_inq04s",
+        "materialId": "mat_1c1n9dj",
         "stt": "16",
         "comp_code": "Y05",
         "qty": "6",
@@ -95521,7 +93784,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS032",
         "productCode": "LGS032",
         "color": "复古色",
-        "materialId": "mat_1mv7y4a",
+        "materialId": "mat_1jrbb68",
         "stt": "17",
         "comp_code": "Z05",
         "qty": "6",
@@ -96123,7 +94386,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS032",
         "productCode": "LGS032",
         "color": "黑色",
-        "materialId": "mat_1mv7y4a",
+        "materialId": "mat_1jrbb68",
         "stt": "17",
         "comp_code": "Z05",
         "qty": "6",
@@ -97061,7 +95324,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS033",
         "productCode": "LGS033",
         "color": "白色",
-        "materialId": "mat_x2mc",
+        "materialId": "mat_npcl6z",
         "stt": "11",
         "comp_code": "Z05",
         "qty": "9",
@@ -97509,7 +95772,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS043",
         "productCode": "LGS043",
         "color": "复古色",
-        "materialId": "mat_s67a18",
+        "materialId": "mat_1nmpx5d",
         "stt": "12",
         "comp_code": "Y14",
         "qty": "6",
@@ -97551,7 +95814,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS043",
         "productCode": "LGS043",
         "color": "复古色",
-        "materialId": "mat_m6jj46",
+        "materialId": "mat_1f7665v",
         "stt": "15",
         "comp_code": "Y06",
         "qty": "2",
@@ -97565,7 +95828,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS043",
         "productCode": "LGS043",
         "color": "复古色",
-        "materialId": "mat_1qxnsrq",
+        "materialId": "mat_10fit6a",
         "stt": "16",
         "comp_code": "Z08",
         "qty": "2",
@@ -98237,7 +96500,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS043",
         "productCode": "LGS043",
         "color": "黑色",
-        "materialId": "mat_si5pry",
+        "materialId": "mat_1b7en7f",
         "stt": "15",
         "comp_code": "Y06",
         "qty": "2",
@@ -98251,7 +96514,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS043",
         "productCode": "LGS043",
         "color": "黑色",
-        "materialId": "mat_1qxnsrq",
+        "materialId": "mat_10fit6a",
         "stt": "16",
         "comp_code": "Z08",
         "qty": "2",
@@ -98811,7 +97074,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS101",
         "productCode": "LGS101",
         "color": "复古色",
-        "materialId": "mat_54izrz",
+        "materialId": "mat_1jrbb68",
         "stt": "8.0",
         "comp_code": "Z05",
         "qty": "1",
@@ -99707,7 +97970,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS101",
         "productCode": "LGS101",
         "color": "黑色",
-        "materialId": "mat_54izrz",
+        "materialId": "mat_1jrbb68",
         "stt": "8.0",
         "comp_code": "Z05",
         "qty": "1",
@@ -100155,7 +98418,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS111",
         "productCode": "LGS111",
         "color": "复古色",
-        "materialId": "mat_54izrz",
+        "materialId": "mat_1jrbb68",
         "stt": "8.0",
         "comp_code": "Z05",
         "qty": "2",
@@ -100575,7 +98838,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS111",
         "productCode": "LGS111",
         "color": "白色",
-        "materialId": "mat_54izrz",
+        "materialId": "mat_1jrbb68",
         "stt": "8.0",
         "comp_code": "Z05",
         "qty": "2",
@@ -100995,7 +99258,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS111",
         "productCode": "LGS111",
         "color": "黑色",
-        "materialId": "mat_54izrz",
+        "materialId": "mat_1jrbb68",
         "stt": "8.0",
         "comp_code": "Z05",
         "qty": "2",
@@ -101443,7 +99706,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS131",
         "productCode": "LGS131",
         "color": "复古色",
-        "materialId": "mat_1t1h86c",
+        "materialId": "mat_1jrw8mg",
         "stt": "9",
         "comp_code": "Z09",
         "qty": "1",
@@ -101457,7 +99720,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS131",
         "productCode": "LGS131",
         "color": "复古色",
-        "materialId": "mat_no3naz",
+        "materialId": "mat_17pzu53",
         "stt": "10",
         "comp_code": "Y08",
         "qty": "1",
@@ -102661,7 +100924,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS131",
         "productCode": "LGS131",
         "color": "黑色",
-        "materialId": "mat_1t1h86c",
+        "materialId": "mat_1jrw8mg",
         "stt": "9",
         "comp_code": "Z09",
         "qty": "1",
@@ -102675,7 +100938,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS131",
         "productCode": "LGS131",
         "color": "黑色",
-        "materialId": "mat_1rw2hre",
+        "materialId": "mat_14ndfbd",
         "stt": "10",
         "comp_code": "Y08",
         "qty": "1",
@@ -103319,7 +101582,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS132",
         "productCode": "LGS132",
         "color": "黑色",
-        "materialId": "mat_d15yz8",
+        "materialId": "mat_10fit6a",
         "stt": "12",
         "comp_code": "Z08",
         "qty": "6",
@@ -103333,7 +101596,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS132",
         "productCode": "LGS132",
         "color": "黑色",
-        "materialId": "mat_si5pry",
+        "materialId": "mat_1b7en7f",
         "stt": "13",
         "comp_code": "Y06",
         "qty": "6",
@@ -104047,7 +102310,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS133",
         "productCode": "LGS133",
         "color": "复古色",
-        "materialId": "mat_1pc7f6p",
+        "materialId": "mat_1f7665v",
         "stt": "16",
         "comp_code": "Y06",
         "qty": "8",
@@ -104495,7 +102758,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS231",
         "productCode": "LGS231",
         "color": "复古色",
-        "materialId": "mat_1t1h86c",
+        "materialId": "mat_1jrw8mg",
         "stt": "9",
         "comp_code": "Z09",
         "qty": "1",
@@ -104509,7 +102772,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS231",
         "productCode": "LGS231",
         "color": "复古色",
-        "materialId": "mat_no3naz",
+        "materialId": "mat_17pzu53",
         "stt": "10",
         "comp_code": "Y08",
         "qty": "1",
@@ -105139,7 +103402,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS231",
         "productCode": "LGS231",
         "color": "黑色",
-        "materialId": "mat_1t1h86c",
+        "materialId": "mat_1jrw8mg",
         "stt": "9",
         "comp_code": "Z09",
         "qty": "1",
@@ -105811,7 +104074,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS232",
         "productCode": "LGS232",
         "color": "复古色",
-        "materialId": "mat_1t1h86c",
+        "materialId": "mat_1jrw8mg",
         "stt": "11",
         "comp_code": "Z09",
         "qty": "6",
@@ -105825,7 +104088,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS232",
         "productCode": "LGS232",
         "color": "复古色",
-        "materialId": "mat_no3naz",
+        "materialId": "mat_17pzu53",
         "stt": "12",
         "comp_code": "Y08",
         "qty": "6",
@@ -106497,7 +104760,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS232",
         "productCode": "LGS232",
         "color": "黑色",
-        "materialId": "mat_1t1h86c",
+        "materialId": "mat_1jrw8mg",
         "stt": "11",
         "comp_code": "Z09",
         "qty": "6",
@@ -106511,7 +104774,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS232",
         "productCode": "LGS232",
         "color": "黑色",
-        "materialId": "mat_1rw2hre",
+        "materialId": "mat_14ndfbd",
         "stt": "12",
         "comp_code": "Y08",
         "qty": "6",
@@ -107785,7 +106048,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS233",
         "productCode": "LGS233",
         "color": "白色",
-        "materialId": "mat_9g1dmh",
+        "materialId": "mat_1gbo2nh",
         "stt": "16",
         "comp_code": "Y08",
         "qty": "8",
@@ -107799,7 +106062,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS233",
         "productCode": "LGS233",
         "color": "白色",
-        "materialId": "mat_hpdggc",
+        "materialId": "mat_e8hltc",
         "stt": "17",
         "comp_code": "Z09",
         "qty": "9",
@@ -108317,7 +106580,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS233",
         "productCode": "LGS233",
         "color": "黑色",
-        "materialId": "mat_9xd9el",
+        "materialId": "mat_14ndfbd",
         "stt": "16",
         "comp_code": "Y08",
         "qty": "8",
@@ -109381,7 +107644,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS333",
         "productCode": "LGS333",
         "color": "白色",
-        "materialId": "mat_x2mc",
+        "materialId": "mat_npcl6z",
         "stt": "17",
         "comp_code": "Z05",
         "qty": "6",
@@ -109871,7 +108134,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS333",
         "productCode": "LGS333",
         "color": "黑色",
-        "materialId": "mat_w4n0sd",
+        "materialId": "mat_n9hhug",
         "stt": "15",
         "comp_code": "Y05",
         "qty": "6",
@@ -110907,7 +109170,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS420",
         "productCode": "LGS420",
         "color": "复古色",
-        "materialId": "mat_v8wowy",
+        "materialId": "mat_12jfji0",
         "stt": "9",
         "comp_code": "Z06",
         "qty": "2",
@@ -112153,7 +110416,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS420",
         "productCode": "LGS420",
         "color": "黑色",
-        "materialId": "mat_v8wowy",
+        "materialId": "mat_12jfji0",
         "stt": "9",
         "comp_code": "Z06",
         "qty": "2",
@@ -112797,7 +111060,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS421",
         "productCode": "LGS421",
         "color": "复古色",
-        "materialId": "mat_d15yz8",
+        "materialId": "mat_10fit6a",
         "stt": "10",
         "comp_code": "Z08",
         "qty": "2",
@@ -113427,7 +111690,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS421",
         "productCode": "LGS421",
         "color": "黑色",
-        "materialId": "mat_d15yz8",
+        "materialId": "mat_10fit6a",
         "stt": "10",
         "comp_code": "Z08",
         "qty": "2",
@@ -113441,7 +111704,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS421",
         "productCode": "LGS421",
         "color": "黑色",
-        "materialId": "mat_si5pry",
+        "materialId": "mat_1b7en7f",
         "stt": "11",
         "comp_code": "Y06",
         "qty": "2",
@@ -114841,7 +113104,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS433",
         "productCode": "LGS433",
         "color": "白色",
-        "materialId": "mat_x2mc",
+        "materialId": "mat_npcl6z",
         "stt": "21",
         "comp_code": "Z05",
         "qty": "6",
@@ -115443,7 +113706,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS433",
         "productCode": "LGS433",
         "color": "黑色",
-        "materialId": "mat_w4n0sd",
+        "materialId": "mat_n9hhug",
         "stt": "19",
         "comp_code": "Y05",
         "qty": "6",
@@ -120189,7 +118452,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS733",
         "productCode": "LGS733",
         "color": "白色",
-        "materialId": "mat_x2mc",
+        "materialId": "mat_npcl6z",
         "stt": "21",
         "comp_code": "Z05",
         "qty": "3",
@@ -120805,7 +119068,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS733",
         "productCode": "LGS733",
         "color": "黑色",
-        "materialId": "mat_w4n0sd",
+        "materialId": "mat_n9hhug",
         "stt": "19",
         "comp_code": "Y05",
         "qty": "3",
@@ -121995,7 +120258,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS833",
         "productCode": "LGS833",
         "color": "白色",
-        "materialId": "mat_x2mc",
+        "materialId": "mat_npcl6z",
         "stt": "16",
         "comp_code": "Z05",
         "qty": "6",
@@ -122569,7 +120832,7 @@ window.BOM_VIEWER_DATA = {
         "parentId": "LGS833",
         "productCode": "LGS833",
         "color": "黑色",
-        "materialId": "mat_w4n0sd",
+        "materialId": "mat_n9hhug",
         "stt": "15",
         "comp_code": "Y05",
         "qty": "6",

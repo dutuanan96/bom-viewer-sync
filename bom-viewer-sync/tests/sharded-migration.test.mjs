@@ -26,9 +26,9 @@ test('Sharded Migration Data Logic', async (t) => {
 
     assert.deepStrictEqual(assembled.bom, payload.bom);
     assert.deepStrictEqual(assembled.materialDb, payload.materialDb);
-    assert.strictEqual(Object.keys(payload.materialDb.materials).length, 646);
+    assert.strictEqual(Object.keys(payload.materialDb.materials).length, 628);
     assert.strictEqual(payload.materialDb.bomEntries.length, 2725);
-    assert.strictEqual(payload.notifications.length, 1);
+    assert.strictEqual(payload.notifications.length, 5);
 
     // Immutable snapshots and metadata preservation
     assert.deepStrictEqual(assembled.productRevisions, payload.productRevisions);

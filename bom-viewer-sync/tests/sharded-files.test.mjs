@@ -24,7 +24,7 @@ test('logical shard helpers preserve exact aggregate hash and round-trip', async
 
   assert.equal(
     computeShardAggregateHash(files),
-    'd5261ad277be1fbe7b391ea2f0995de8b0f96fdb612d73e95ed5853b2903684e',
+    'f1091eb786b0c989b2917655351d98568671c0f0f05a733e913b9847645ef49e',
   );
 
   const repoFiles = toRepositoryShardFiles(files, 'bom-viewer-sync/data');

@@ -133,7 +133,7 @@ export async function materializeShards(dataJsPath, outputDir, options = {}) {
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  const EXPECTED_HASH = 'd5261ad277be1fbe7b391ea2f0995de8b0f96fdb612d73e95ed5853b2903684e';
+  const EXPECTED_HASH = 'f1091eb786b0c989b2917655351d98568671c0f0f05a733e913b9847645ef49e';
   const EXPECTED_COUNT = 24;
   const isVerify = process.argv.includes('--verify');
   const args = process.argv.slice(2).filter(a => a !== '--verify');
