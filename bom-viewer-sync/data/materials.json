@@ -13689,41 +13689,6 @@
         ],
         "spec_vi": "以实际为准"
       },
-      "mat_1mv7y4a": {
-        "id": "mat_1mv7y4a",
-        "code": "BCDB35027223BH",
-        "name": {
-          "zh": "LGS布抽底板34.5x27.5",
-          "vi": "LGS布抽底板34.5x27.5"
-        },
-        "spec": {
-          "zh": "345x275x3mm",
-          "vi": "345x275x3mm"
-        },
-        "material": {
-          "zh": "MDF&纸板&无纺布",
-          "vi": "MDF&giấy&vải không dệt"
-        },
-        "color": {
-          "zh": "黑色",
-          "vi": "màu đen"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [],
-        "models3d": [
-          {
-            "name": "LGS布抽底板28x35.glb",
-            "path": "models3d/catalog/LGS-28x35-7151de33.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-28x35-7151de33.glb",
-            "matched_name": "LGS布抽底板28X35",
-            "score": 1100,
-            "bytes": 1320
-          }
-        ]
-      },
       "mat_fbtabe": {
         "id": "mat_fbtabe",
         "code": "LGS031YZKBH",
@@ -16045,13 +16010,13 @@
       },
       "mat_1jrbb68": {
         "id": "mat_1jrbb68",
-        "code": "BCDB33827223BH",
+        "code": "BCDB350282003BH",
         "name": {
-          "zh": "LGS布抽底板34.5x27.5",
+          "zh": "LGS布抽底板35x28.2",
           "vi": "LGS布抽底板34.5x27.5"
         },
         "spec": {
-          "zh": "345x275x3mm",
+          "zh": "345x277x3mm",
           "vi": "345x275x3mm"
         },
         "material": {
@@ -16797,41 +16762,6 @@
             "matched_name": "LGS布抽35x28x18.7",
             "score": 1100,
             "bytes": 19736
-          }
-        ]
-      },
-      "mat_x2mc": {
-        "id": "mat_x2mc",
-        "code": "BCDB33827223WH",
-        "name": {
-          "zh": "LGS布抽底板34.5x27.5",
-          "vi": "LGS布抽底板34.5x27.5"
-        },
-        "spec": {
-          "zh": "345x275x3mm",
-          "vi": "345x275x3mm"
-        },
-        "material": {
-          "zh": "MDF&无纺布",
-          "vi": "MDF&vải không dệt"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [],
-        "models3d": [
-          {
-            "name": "LGS布抽底板28x35.glb",
-            "path": "models3d/catalog/LGS-28x35-7151de33.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-28x35-7151de33.glb",
-            "matched_name": "LGS布抽底板28x35",
-            "score": 1100,
-            "bytes": 1320
           }
         ]
       },
@@ -17650,13 +17580,13 @@
       },
       "mat_12jfji0": {
         "id": "mat_12jfji0",
-        "code": "BC350317188BH",
+        "code": "BCDB350327003BH",
         "name": {
-          "zh": "LGS布抽底板34.5x32",
+          "zh": "LGS布抽底板35x32.7",
           "vi": "LGS布抽底板34.5x32"
         },
         "spec": {
-          "zh": "345x320x3mm",
+          "zh": "345x322x3mm",
           "vi": "345x320x3mm"
         },
         "material": {
@@ -17685,13 +17615,13 @@
       },
       "mat_m0tg2h": {
         "id": "mat_m0tg2h",
-        "code": "BC300317188BH",
+        "code": "BCDB300327003BH",
         "name": {
-          "zh": "LGS布抽底板29.5x32",
+          "zh": "LGS布抽底板30x32.7",
           "vi": "LGS布抽底板29.5x32"
         },
         "spec": {
-          "zh": "295x320x3mm",
+          "zh": "295x322x3mm",
           "vi": "295x320x3mm"
         },
         "material": {
@@ -17758,41 +17688,6 @@
             "score": 1100,
             "bytes": 19620,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-30x32-5x14-8-7daf9fc4.glb"
-          }
-        ]
-      },
-      "mat_1qxnsrq": {
-        "id": "mat_1qxnsrq",
-        "code": "BC460317188BH",
-        "name": {
-          "zh": "LGS布抽底板45.5x32",
-          "vi": "LGS布抽底板45.5x32"
-        },
-        "spec": {
-          "zh": "455x320x3mm",
-          "vi": "455x320x3mm"
-        },
-        "material": {
-          "zh": "MDF&无纺布",
-          "vi": "MDF&vải không dệt"
-        },
-        "color": {
-          "zh": "黑色",
-          "vi": "màu đen"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [],
-        "models3d": [
-          {
-            "name": "LGS布抽底板32.5x46.glb",
-            "path": "models3d/catalog/LGS-32-5x46-80e69646.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-32-5x46-80e69646.glb",
-            "matched_name": "LGS布抽底板32.5X46",
-            "score": 1100,
-            "bytes": 1312
           }
         ]
       },
@@ -18899,41 +18794,6 @@
           }
         ]
       },
-      "mat_54izrz": {
-        "id": "mat_54izrz",
-        "code": "BCDB34027223KD",
-        "name": {
-          "zh": "LGS布抽底板34.5x27.5",
-          "vi": "LGS布抽底板34.5x27.5"
-        },
-        "spec": {
-          "zh": "345x275x3mm",
-          "vi": "345x275x3mm"
-        },
-        "material": {
-          "zh": "MDF&无纺布",
-          "vi": "MDF&vải không dệt"
-        },
-        "color": {
-          "zh": "黑色",
-          "vi": "màu đen"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [],
-        "models3d": [
-          {
-            "name": "LGS布抽底板28x35.glb",
-            "path": "models3d/catalog/LGS-28x35-7151de33.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-28x35-7151de33.glb",
-            "matched_name": "LGS布抽底板28x35",
-            "score": 1100,
-            "bytes": 1320
-          }
-        ]
-      },
       "mat_3b1sho": {
         "id": "mat_3b1sho",
         "code": "LGS101ZFXKD",
@@ -19445,13 +19305,13 @@
       },
       "mat_npcl6z": {
         "id": "mat_npcl6z",
-        "code": "BCDB34027223WH",
+        "code": "BCDB350282003WH",
         "name": {
-          "zh": "LGS布抽底板34.5x27.5",
+          "zh": "LGS布抽底板35x28.2",
           "vi": "LGS布抽底板34.5x27.5"
         },
         "spec": {
-          "zh": "345x275x3mm",
+          "zh": "345x277x3mm",
           "vi": "345x275x3mm"
         },
         "material": {
@@ -20030,41 +19890,6 @@
             "matched_name": "LGS421_420-S_231_131-右中框",
             "score": 1300,
             "bytes": 165832
-          }
-        ]
-      },
-      "mat_1t1h86c": {
-        "id": "mat_1t1h86c",
-        "code": "BCDB55031723BH",
-        "name": {
-          "zh": "LGS布抽底板54.5x32",
-          "vi": "LGS布抽底板54.5x32"
-        },
-        "spec": {
-          "zh": "545x320x3mm",
-          "vi": "545x320x3mm"
-        },
-        "material": {
-          "zh": "MDF&纸板&无纺布",
-          "vi": "MDF&giấy&vải không dệt"
-        },
-        "color": {
-          "zh": "黑色",
-          "vi": "màu đen"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [],
-        "models3d": [
-          {
-            "name": "LGS布抽底板55x32.5.glb",
-            "path": "models3d/catalog/LGS-55x32-5-c1491f5c.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-55x32-5-c1491f5c.glb",
-            "matched_name": "LGS布抽底板32.5X55",
-            "score": 1000,
-            "bytes": 1312
           }
         ]
       },
@@ -20755,13 +20580,13 @@
       },
       "mat_e8hltc": {
         "id": "mat_e8hltc",
-        "code": "BCDB55031723WH",
+        "code": "BCDB550327003WH",
         "name": {
-          "zh": "LGS布抽底板54.5x32",
+          "zh": "LGS布抽底板55x32.7",
           "vi": "LGS布抽底板54.5x32"
         },
         "spec": {
-          "zh": "545x320x3mm",
+          "zh": "545x322x3mm",
           "vi": "545x320x3mm"
         },
         "material": {
@@ -21764,41 +21589,6 @@
           }
         ]
       },
-      "mat_d15yz8": {
-        "id": "mat_d15yz8",
-        "code": "BCDB46031723BH",
-        "name": {
-          "zh": "LGS布抽底板45.5x32",
-          "vi": "LGS布抽底板45.5x32"
-        },
-        "spec": {
-          "zh": "455x320x3mm",
-          "vi": "455x320x3mm"
-        },
-        "material": {
-          "zh": "MDF&无纺布",
-          "vi": "MDF&vải không dệt"
-        },
-        "color": {
-          "zh": "黑色",
-          "vi": "màu đen"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [],
-        "models3d": [
-          {
-            "name": "LGS布抽底板32.5x46.glb",
-            "path": "models3d/catalog/LGS-32-5x46-80e69646.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-32-5x46-80e69646.glb",
-            "matched_name": "LGS-布抽底板32.5X46",
-            "score": 1100,
-            "bytes": 1312
-          }
-        ]
-      },
       "mat_124asps": {
         "id": "mat_124asps",
         "code": "LGS132CBXBH",
@@ -22715,13 +22505,13 @@
       },
       "mat_10fit6a": {
         "id": "mat_10fit6a",
-        "code": "BCDB44831723BH",
+        "code": "BCDB460327003BH",
         "name": {
-          "zh": "LGS布抽底板45.5x32",
+          "zh": "LGS布抽底板46x32.7",
           "vi": "LGS布抽底板45.5x32"
         },
         "spec": {
-          "zh": "455x320x3mm",
+          "zh": "455x322x3mm",
           "vi": "455x320x3mm"
         },
         "material": {
@@ -25246,13 +25036,13 @@
       },
       "mat_1jrw8mg": {
         "id": "mat_1jrw8mg",
-        "code": "BCDB53831725BH",
+        "code": "BCDB550327003BH",
         "name": {
-          "zh": "LGS布抽底板54.5x32",
+          "zh": "LGS布抽底板55x32.7",
           "vi": "LGS布抽底板54.5x32"
         },
         "spec": {
-          "zh": "545x320x3mm",
+          "zh": "545x322x3mm",
           "vi": "545x320x3mm"
         },
         "material": {
@@ -25840,41 +25630,6 @@
           }
         ]
       },
-      "mat_hpdggc": {
-        "id": "mat_hpdggc",
-        "code": "BCDB53831725WH",
-        "name": {
-          "zh": "LGS布抽底板54.5x32",
-          "vi": "LGS布抽底板54.5x32"
-        },
-        "spec": {
-          "zh": "545x320x3mm",
-          "vi": "545x320x3mm"
-        },
-        "material": {
-          "zh": "MDF&无纺布",
-          "vi": "MDF&vải không dệt"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [],
-        "models3d": [
-          {
-            "name": "LGS布抽底板55x32.5.glb",
-            "path": "models3d/catalog/LGS-55x32-5-c1491f5c.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-55x32-5-c1491f5c.glb",
-            "matched_name": "LGS布抽底板32.5x55",
-            "score": 1000,
-            "bytes": 1312
-          }
-        ]
-      },
       "mat_11f5sua": {
         "id": "mat_11f5sua",
         "code": "LGS233DB201BH",
@@ -26449,13 +26204,13 @@
       },
       "mat_12wl5hj": {
         "id": "mat_12wl5hj",
-        "code": "BCDB24527223BH",
+        "code": "BCDB257282003BH",
         "name": {
-          "zh": "LGS布抽底板25.2x27.5",
+          "zh": "LGS布抽底板25.7x28.2",
           "vi": "LGS布抽底板25.2x27.5"
         },
         "spec": {
-          "zh": "252x275x3mm",
+          "zh": "252x277x3mm",
           "vi": "252x275x3mm"
         },
         "material": {
@@ -27043,13 +26798,13 @@
       },
       "mat_1nlgdwj": {
         "id": "mat_1nlgdwj",
-        "code": "BCDB24527223WH",
+        "code": "BCDB257282003WH",
         "name": {
-          "zh": "LGS布抽底板25.2x27.5",
+          "zh": "LGS布抽底板25.7x28.2",
           "vi": "LGS布抽底板25.2x27.5"
         },
         "spec": {
-          "zh": "252x275x3mm",
+          "zh": "252x277x3mm",
           "vi": "252x275x3mm"
         },
         "material": {
@@ -27854,13 +27609,13 @@
       },
       "mat_b833ce": {
         "id": "mat_b833ce",
-        "code": "BCDB32831723BH",
+        "code": "BCDB340327003BH",
         "name": {
-          "zh": "LGS布抽底板33.5x32",
+          "zh": "LGS布抽底板34x32.7",
           "vi": "LGS đáy túi vải 33.5x32"
         },
         "spec": {
-          "zh": "335x320x3mm",
+          "zh": "335x322x3mm",
           "vi": "335x320x3mm"
         },
         "material": {
@@ -28281,41 +28036,6 @@
             "matched_name": "LGS421_420-S_231_131-右中框",
             "score": 1300,
             "bytes": 165832
-          }
-        ]
-      },
-      "mat_v8wowy": {
-        "id": "mat_v8wowy",
-        "code": "BCDB35031723BH",
-        "name": {
-          "zh": "LGS布抽底板34.5x32",
-          "vi": "LGS布抽底板34.5x32"
-        },
-        "spec": {
-          "zh": "345x320x3mm",
-          "vi": "345x320x3mm"
-        },
-        "material": {
-          "zh": "MDF&纸板&无纺布",
-          "vi": "MDF&giấy&vải không dệt"
-        },
-        "color": {
-          "zh": "黑色",
-          "vi": "màu đen"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [],
-        "models3d": [
-          {
-            "name": "LGS布抽底板35x32.5.glb",
-            "path": "models3d/catalog/LGS-35x32-5-ad72669d.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-35x32-5-ad72669d.glb",
-            "matched_name": "LGS-布抽底板32.5X35",
-            "score": 1000,
-            "bytes": 1288
           }
         ]
       },
@@ -28918,13 +28638,13 @@
       },
       "mat_t3dlni": {
         "id": "mat_t3dlni",
-        "code": "BCDB35031723WH",
+        "code": "BCDB350327003WH",
         "name": {
-          "zh": "LGS布抽底板34.5x32",
+          "zh": "LGS布抽底板35x32.7",
           "vi": "LGS布抽底板34.5x32"
         },
         "spec": {
-          "zh": "345x320x3mm",
+          "zh": "345x322x3mm",
           "vi": "345x320x3mm"
         },
         "material": {
@@ -32279,13 +31999,13 @@
       },
       "mat_m6z0ft": {
         "id": "mat_m6z0ft",
-        "code": "BCDB32831723WH",
+        "code": "BCDB340327003WH",
         "name": {
-          "zh": "LGS布抽底板33.5x32",
+          "zh": "LGS布抽底板34x32.7",
           "vi": "LGS布抽底板33.5x32"
         },
         "spec": {
-          "zh": "335x320x3mm",
+          "zh": "335x322x3mm",
           "vi": "335x320x3mm"
         },
         "material": {
@@ -32314,13 +32034,13 @@
       },
       "mat_5zydbi": {
         "id": "mat_5zydbi",
-        "code": "BCDB44831723WH",
+        "code": "BCDB460327003WH",
         "name": {
-          "zh": "LGS布抽底板45.5x32",
+          "zh": "LGS布抽底板46x32.7",
           "vi": "LGS布抽底板45.5x32"
         },
         "spec": {
-          "zh": "455x320x3mm",
+          "zh": "455x322x3mm",
           "vi": "455x320x3mm"
         },
         "material": {
@@ -33737,13 +33457,13 @@
       },
       "mat_1stu7v4": {
         "id": "mat_1stu7v4",
-        "code": "BCDB28827223BH",
+        "code": "BCDB300282003BH",
         "name": {
-          "zh": "LGS布抽底板29.5x27.5",
+          "zh": "LGS布抽底板30x28.2",
           "vi": "LGS布抽底板29.5x27.5"
         },
         "spec": {
-          "zh": "295x275x3mm",
+          "zh": "295x277x3mm",
           "vi": "295x275x3mm"
         },
         "material": {
@@ -33772,13 +33492,13 @@
       },
       "mat_5e9lxq": {
         "id": "mat_5e9lxq",
-        "code": "BCDB44827223BH",
+        "code": "BCDB460282003BH",
         "name": {
-          "zh": "LGS布抽底板45.5x27.5",
+          "zh": "LGS布抽底板46x28.2",
           "vi": "LGS布抽底板45.5x27.5"
         },
         "spec": {
-          "zh": "455x275x3mm",
+          "zh": "455x277x3mm",
           "vi": "455x275x3mm"
         },
         "material": {
@@ -34532,13 +34252,13 @@
       },
       "mat_1x7fvd0": {
         "id": "mat_1x7fvd0",
-        "code": "BCDB28827223WH",
+        "code": "BCDB300282003WH",
         "name": {
-          "zh": "LGS布抽底板29.5x27.5",
+          "zh": "LGS布抽底板30x28.2",
           "vi": "LGS布抽底板29.5x27.5"
         },
         "spec": {
-          "zh": "295x275x3mm",
+          "zh": "295x277x3mm",
           "vi": "295x275x3mm"
         },
         "material": {
@@ -34567,13 +34287,13 @@
       },
       "mat_cvvqhe": {
         "id": "mat_cvvqhe",
-        "code": "BCDB44827223WH",
+        "code": "BCDB460282003WH",
         "name": {
-          "zh": "LGS布抽底板45.5x27.5",
+          "zh": "LGS布抽底板46x28.2",
           "vi": "LGS布抽底板45.5x27.5"
         },
         "spec": {
-          "zh": "455x275x3mm",
+          "zh": "455x277x3mm",
           "vi": "455x275x3mm"
         },
         "material": {
@@ -37855,7 +37575,7 @@
         "parentId": "LGS031",
         "productCode": "LGS031",
         "color": "复古色",
-        "materialId": "mat_1mv7y4a",
+        "materialId": "mat_1jrbb68",
         "stt": "5",
         "comp_code": "Z05",
         "qty": "1",
@@ -38331,7 +38051,7 @@
         "parentId": "LGS031",
         "productCode": "LGS031",
         "color": "黑色",
-        "materialId": "mat_1mv7y4a",
+        "materialId": "mat_1jrbb68",
         "stt": "5",
         "comp_code": "Z05",
         "qty": "1",
@@ -38821,7 +38541,7 @@
         "parentId": "LGS032",
         "productCode": "LGS032",
         "color": "复古色",
-        "materialId": "mat_1mv7y4a",
+        "materialId": "mat_1jrbb68",
         "stt": "17",
         "comp_code": "Z05",
         "qty": "6",
@@ -39423,7 +39143,7 @@
         "parentId": "LGS032",
         "productCode": "LGS032",
         "color": "黑色",
-        "materialId": "mat_1mv7y4a",
+        "materialId": "mat_1jrbb68",
         "stt": "17",
         "comp_code": "Z05",
         "qty": "6",
@@ -40361,7 +40081,7 @@
         "parentId": "LGS033",
         "productCode": "LGS033",
         "color": "白色",
-        "materialId": "mat_x2mc",
+        "materialId": "mat_npcl6z",
         "stt": "11",
         "comp_code": "Z05",
         "qty": "9",
@@ -40865,7 +40585,7 @@
         "parentId": "LGS043",
         "productCode": "LGS043",
         "color": "复古色",
-        "materialId": "mat_1qxnsrq",
+        "materialId": "mat_10fit6a",
         "stt": "16",
         "comp_code": "Z08",
         "qty": "2",
@@ -41551,7 +41271,7 @@
         "parentId": "LGS043",
         "productCode": "LGS043",
         "color": "黑色",
-        "materialId": "mat_1qxnsrq",
+        "materialId": "mat_10fit6a",
         "stt": "16",
         "comp_code": "Z08",
         "qty": "2",
@@ -42111,7 +41831,7 @@
         "parentId": "LGS101",
         "productCode": "LGS101",
         "color": "复古色",
-        "materialId": "mat_54izrz",
+        "materialId": "mat_1jrbb68",
         "stt": "8.0",
         "comp_code": "Z05",
         "qty": "1",
@@ -43007,7 +42727,7 @@
         "parentId": "LGS101",
         "productCode": "LGS101",
         "color": "黑色",
-        "materialId": "mat_54izrz",
+        "materialId": "mat_1jrbb68",
         "stt": "8.0",
         "comp_code": "Z05",
         "qty": "1",
@@ -43455,7 +43175,7 @@
         "parentId": "LGS111",
         "productCode": "LGS111",
         "color": "复古色",
-        "materialId": "mat_54izrz",
+        "materialId": "mat_1jrbb68",
         "stt": "8.0",
         "comp_code": "Z05",
         "qty": "2",
@@ -43875,7 +43595,7 @@
         "parentId": "LGS111",
         "productCode": "LGS111",
         "color": "白色",
-        "materialId": "mat_54izrz",
+        "materialId": "mat_1jrbb68",
         "stt": "8.0",
         "comp_code": "Z05",
         "qty": "2",
@@ -44295,7 +44015,7 @@
         "parentId": "LGS111",
         "productCode": "LGS111",
         "color": "黑色",
-        "materialId": "mat_54izrz",
+        "materialId": "mat_1jrbb68",
         "stt": "8.0",
         "comp_code": "Z05",
         "qty": "2",
@@ -44743,7 +44463,7 @@
         "parentId": "LGS131",
         "productCode": "LGS131",
         "color": "复古色",
-        "materialId": "mat_1t1h86c",
+        "materialId": "mat_1jrw8mg",
         "stt": "9",
         "comp_code": "Z09",
         "qty": "1",
@@ -45961,7 +45681,7 @@
         "parentId": "LGS131",
         "productCode": "LGS131",
         "color": "黑色",
-        "materialId": "mat_1t1h86c",
+        "materialId": "mat_1jrw8mg",
         "stt": "9",
         "comp_code": "Z09",
         "qty": "1",
@@ -46619,7 +46339,7 @@
         "parentId": "LGS132",
         "productCode": "LGS132",
         "color": "黑色",
-        "materialId": "mat_d15yz8",
+        "materialId": "mat_10fit6a",
         "stt": "12",
         "comp_code": "Z08",
         "qty": "6",
@@ -47795,7 +47515,7 @@
         "parentId": "LGS231",
         "productCode": "LGS231",
         "color": "复古色",
-        "materialId": "mat_1t1h86c",
+        "materialId": "mat_1jrw8mg",
         "stt": "9",
         "comp_code": "Z09",
         "qty": "1",
@@ -48439,7 +48159,7 @@
         "parentId": "LGS231",
         "productCode": "LGS231",
         "color": "黑色",
-        "materialId": "mat_1t1h86c",
+        "materialId": "mat_1jrw8mg",
         "stt": "9",
         "comp_code": "Z09",
         "qty": "1",
@@ -49111,7 +48831,7 @@
         "parentId": "LGS232",
         "productCode": "LGS232",
         "color": "复古色",
-        "materialId": "mat_1t1h86c",
+        "materialId": "mat_1jrw8mg",
         "stt": "11",
         "comp_code": "Z09",
         "qty": "6",
@@ -49797,7 +49517,7 @@
         "parentId": "LGS232",
         "productCode": "LGS232",
         "color": "黑色",
-        "materialId": "mat_1t1h86c",
+        "materialId": "mat_1jrw8mg",
         "stt": "11",
         "comp_code": "Z09",
         "qty": "6",
@@ -51099,7 +50819,7 @@
         "parentId": "LGS233",
         "productCode": "LGS233",
         "color": "白色",
-        "materialId": "mat_hpdggc",
+        "materialId": "mat_e8hltc",
         "stt": "17",
         "comp_code": "Z09",
         "qty": "9",
@@ -52681,7 +52401,7 @@
         "parentId": "LGS333",
         "productCode": "LGS333",
         "color": "白色",
-        "materialId": "mat_x2mc",
+        "materialId": "mat_npcl6z",
         "stt": "17",
         "comp_code": "Z05",
         "qty": "6",
@@ -54207,7 +53927,7 @@
         "parentId": "LGS420",
         "productCode": "LGS420",
         "color": "复古色",
-        "materialId": "mat_v8wowy",
+        "materialId": "mat_12jfji0",
         "stt": "9",
         "comp_code": "Z06",
         "qty": "2",
@@ -55453,7 +55173,7 @@
         "parentId": "LGS420",
         "productCode": "LGS420",
         "color": "黑色",
-        "materialId": "mat_v8wowy",
+        "materialId": "mat_12jfji0",
         "stt": "9",
         "comp_code": "Z06",
         "qty": "2",
@@ -56097,7 +55817,7 @@
         "parentId": "LGS421",
         "productCode": "LGS421",
         "color": "复古色",
-        "materialId": "mat_d15yz8",
+        "materialId": "mat_10fit6a",
         "stt": "10",
         "comp_code": "Z08",
         "qty": "2",
@@ -56727,7 +56447,7 @@
         "parentId": "LGS421",
         "productCode": "LGS421",
         "color": "黑色",
-        "materialId": "mat_d15yz8",
+        "materialId": "mat_10fit6a",
         "stt": "10",
         "comp_code": "Z08",
         "qty": "2",
@@ -58141,7 +57861,7 @@
         "parentId": "LGS433",
         "productCode": "LGS433",
         "color": "白色",
-        "materialId": "mat_x2mc",
+        "materialId": "mat_npcl6z",
         "stt": "21",
         "comp_code": "Z05",
         "qty": "6",
@@ -63489,7 +63209,7 @@
         "parentId": "LGS733",
         "productCode": "LGS733",
         "color": "白色",
-        "materialId": "mat_x2mc",
+        "materialId": "mat_npcl6z",
         "stt": "21",
         "comp_code": "Z05",
         "qty": "3",
@@ -65295,7 +65015,7 @@
         "parentId": "LGS833",
         "productCode": "LGS833",
         "color": "白色",
-        "materialId": "mat_x2mc",
+        "materialId": "mat_npcl6z",
         "stt": "16",
         "comp_code": "Z05",
         "qty": "6",
