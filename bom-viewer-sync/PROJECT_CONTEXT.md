@@ -5,7 +5,7 @@ AI debugging entrypoint: read `AI_DEBUG_GUIDE.md` first. It is self-contained; t
 ## Canonical Source And Build
 
 - Canonical project root: `work/remote-bom-viewer-sync/bom-viewer-sync/`; editable application source lives in `src/`.
-- Current integrated branch: `main`; Phase B.5 cutover is complete.
+- Current integrated branch: `main` at reviewed commit `d477f884ccc572e3559f78220d0abe9cdcb6cb42`; Phase B.6 release acceptance is complete.
 - PR #1, Phase A PR #5, Phase B PR #6, Phase B.1 PR #8, Phase B.2 PR #9, Phase B.4 PR #11, Phase B.4 readback hotfix PR #12, and Phase B.5 PR #14 are squash-merged.
 - Build command: `npm run build`; complete repository gate: `npm run check`.
 - Generated files: `admin.html`, `app-admin.js`, `styles.css`, and `viewer.html`.
@@ -55,12 +55,12 @@ Phase B PR #6 was approved for squash merge on 2026-07-14. Phase B.1 (PR #8) int
 | Surface | State | Rule |
 |---|---|---|
 | Canonical `main` checkout | Integrated implementation, current data and generated artifacts | Source of truth |
-| Outer `outputs/` runtime artifacts | Last approved portable release; not synchronized with later code-only phases | Publish only after explicit approval |
-| Outer `outputs/` context documents | Last approved portable release; may lag this review branch | Synchronize only as part of an approved publication |
-| Desktop `admin.html` / `viewer.html` | Last approved shareable release; not synchronized with later code-only phases | Replace only after explicit publication approval and complete verification |
+| Outer `outputs/` runtime artifacts | Phase B.6 verified four-file portable release | Mirror only from a later verified integrated build |
+| Outer `outputs/` context documents | Phase B.6 synchronized five-document handoff set | Keep hash-equal with the canonical release docs |
+| Desktop runtime set | Current `viewer.html`, `admin.html`, `app-admin.js`, and `styles.css` | Keep these four adjacent; remove superseded review/build copies |
 | Canonical `data/` | Active runtime payload: exact 24 shards, 646 materials, 1 notification | Source of truth for application reads/writes |
 | Canonical `data.js` | Tracked rollback/migration snapshot | Never use as an application runtime target |
-| Outer `outputs/data.js` | Older clean legacy snapshot: 643 materials, 6 notifications | Intentional; never copy over canonical shards |
+| Outer `outputs/data.js` / `outputs/data/` | Absent by design | Never create them during runtime publication |
 
 Viewer resolves the configured branch to an exact commit and reads cache-busted, commit-pinned shards. Admin loads the current ref/tree/blob set and must re-read the remote payload and expected HEAD immediately before diffing and performing one atomic non-force ref update.
 
@@ -71,7 +71,14 @@ Viewer resolves the configured branch to an exact commit and reads cache-busted,
 - Outer Material Master/revision contracts: 23/23 passed.
 - Outer runtime contracts: 13/13 passed.
 - Generated artifact check and JavaScript syntax check passed.
-- Antigravity browser evidence shows sharded Admin/Viewer counts and Material Master rendering. Independent console-clean and clean-profile `file://` verification remain final distribution checks because the local automation runtime was unavailable.
+- Manual clean-profile `file://` acceptance passed for Viewer and Admin: 22 products, 646 materials, zero console errors, zero `data.js` requests, and no GitHub save.
+
+## Phase B.6 Final Acceptance
+
+- Reviewed `main`: `d477f884ccc572e3559f78220d0abe9cdcb6cb42`.
+- Live UAT branch: `codex/phase-b6-uat-2026-07-15T112949034Z-d477f88` at `e843f276d1cedcfa30615b4177989a4e76170bd1`.
+- Authenticated and public readbacks matched the expected payload, exact 24-shard set, and aggregate SHA-256 `d5261ad277be1fbe7b391ea2f0995de8b0f96fdb612d73e95ed5853b2903684e`.
+- Phase B.6 is closed. The next AI should begin from canonical source, inspect current Git state, and treat any new request as a separate feature or maintenance phase.
 
 Do not treat a hard-coded test count as permanent; always report the current command output.
 

@@ -9,9 +9,11 @@
 - Canonical project root: `work/remote-bom-viewer-sync/bom-viewer-sync/`.
 - Editable source-of-truth: `src/`, `scripts/`, `tests/`, `package.json` và các tài liệu trong project root.
 - Current integrated branch: `main`; Phase B.5 PR #14 completed the sharded runtime cutover.
+- Phase B.6 release acceptance is complete against reviewed `main` commit `d477f884ccc572e3559f78220d0abe9cdcb6cb42`. The verified UAT commit is `e843f276d1cedcfa30615b4177989a4e76170bd1`; do not rerun the one-time UAT flow for ordinary maintenance.
 - Generated artifacts: `admin.html`, `app-admin.js`, `styles.css`, `viewer.html`.
 - Runtime data: 24 sharded files in `data/`. The tracked `data.js` remains rollback/migration input, not an application runtime read/write target.
 - Portable mirror: outer `outputs/`. Đây là nơi nhận artifact đã verify, không phải source-of-truth.
+- Phase B.6 publication synchronized the four runtime artifacts plus five context documents to `outputs/`, and the four runtime artifacts to Desktop. Publication mirrors intentionally contain no `data.js` or `data/`.
 - Generated build IDs are deterministic hashes of normalized shell, CSS, and bundles. Verify the current ID from generated artifacts instead of documenting a fixed value.
 - `viewer.html` là Viewer read-only một file để gửi sang máy khác.
 - `admin.html` dùng bundle cục bộ, đọc 24 GitHub shards và ghi chúng bằng atomic Git Data update sau hành động Save to GitHub rõ ràng.

@@ -2,7 +2,7 @@
 
 ## Review Scope
 
-PR #1 was squash-merged into `main` on 2026-07-14 as `72debab`; Phase A PR #5 was squash-merged as `de35ea2`; Phase B PR #6 was merged. Phase B.1 PR #8 and Phase B.2 PR #9 were merged. Phase B.3 was independently reviewed, debugged, and integrated into `main`. Phase B.4 PR #11 and recursive-tree readback hotfix PR #12 were independently gated and merged. Phase B.5 PR #14 was merged, completing the sharded cutover. Editable code is under `src/`; `admin.html`, `app-admin.js`, `styles.css`, and `viewer.html` are generated evidence.
+PR #1 was squash-merged into `main` on 2026-07-14 as `72debab`; Phase A PR #5 was squash-merged as `de35ea2`; Phase B PR #6 was merged. Phase B.1 PR #8 and Phase B.2 PR #9 were merged. Phase B.3 was independently reviewed, debugged, and integrated into `main`. Phase B.4 PR #11 and recursive-tree readback hotfix PR #12 were independently gated and merged. Phase B.5 PR #14 completed the sharded cutover. Phase B.6 release acceptance passed against reviewed `main` commit `d477f884ccc572e3559f78220d0abe9cdcb6cb42`. Editable code is under `src/`; `admin.html`, `app-admin.js`, `styles.css`, and `viewer.html` are generated evidence.
 
 ## Required Revision Contracts
 
@@ -69,10 +69,12 @@ Phase A adapter contracts remain unchanged: create-only Contents API requests wi
 - Generated freshness and JavaScript syntax checks passed.
 - Antigravity browser evidence shows sharded Admin/Viewer counts and Material Master rendering. Independent browser automation remained blocked by the local Playwright/browser-controller runtime, so console-clean and `file://` checks remain explicit manual acceptance items before external distribution.
 - Use fresh gate output for the current test count. Phase B.5 browser acceptance must exercise shard loading directly; legacy `data.js` fallback is no longer a runtime contract.
+- Phase B.6 live UAT passed on branch `codex/phase-b6-uat-2026-07-15T112949034Z-d477f88` at `e843f276d1cedcfa30615b4177989a4e76170bd1`. Its parent is the reviewed `main` commit; authenticated/public readbacks matched all 24 shards and aggregate SHA-256 `d5261ad277be1fbe7b391ea2f0995de8b0f96fdb612d73e95ed5853b2903684e`.
+- Manual clean-profile Viewer/Admin acceptance passed with 22 products, 646 materials, zero console errors, zero `data.js` requests, and no GitHub save.
 
 ## Integration Risk To Watch
 
-Canonical `main` now contains the newer data-only commits and audits at 646 materials/1 notification. Outer `outputs/data.js` intentionally remains the older clean 643-material/6-notification snapshot because runtime publication does not copy data. Never resolve this by copying mirror data over canonical/GitHub data. Browser automation also blocks `file://`; perform one manual clean-profile check before sending `viewer.html` externally.
+Canonical `main` audits at 646 materials/1 notification. Outer `outputs/data.js` and `outputs/data/` are absent by design; never create or copy mirror data over canonical GitHub shards. The required Phase B.6 manual clean-profile `file://` check has passed.
 
 For Phase B.4 staging migration:
 - The one-time remote write completed from source `db11b4a` to staging commit `227db46` with exactly 24 shards and aggregate SHA-256 `d5261ad277be1fbe7b391ea2f0995de8b0f96fdb612d73e95ed5853b2903684e`.
@@ -81,4 +83,4 @@ For Phase B.4 staging migration:
 - Keep the staging branch and possible orphan Git objects intact for inspection.
 - Phase B.5 runtime read/write cutover is complete.
 - Full execution evidence is recorded in `docs/superpowers/reports/2026-07-15-phase-b4-staging-execution.md`.
-- `outputs/` and Desktop remain non-canonical pre-Phase-B.5 mirrors until the publication flow is run and hash-verified; never treat mirror state as repository truth.
+- `outputs/` and Desktop are non-canonical but now contain the hash-verified Phase B.6 release artifacts. Never treat mirror state as repository truth.

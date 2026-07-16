@@ -4,15 +4,14 @@ The canonical source is `work/remote-bom-viewer-sync/bom-viewer-sync/`. Build an
 
 ## Current Release State
 
-PR #1 was squash-merged into `main` on 2026-07-14 as `72debab`; Phase A PR #5 was squash-merged as `de35ea2`; Phase B PR #6 was merged. Product revision/effectivity, Material Master draft editing, notifications, and the create-only satellite adapter are integrated. Phase B.1 PR #8 and Phase B.2 PR #9 were merged. Phase B.3 implements the Atomic Sharded Writer Foundation. Phase B.4 PR #11 and its PR #12 readback hotfix are merged. Phase B.5 PR #14 was merged, completing the sharded runtime cutover.
+PR #1 was squash-merged into `main` on 2026-07-14 as `72debab`; Phase A PR #5 was squash-merged as `de35ea2`; Phase B PR #6 was merged. Product revision/effectivity, Material Master draft editing, notifications, and the create-only satellite adapter are integrated. Phase B.1 PR #8 and Phase B.2 PR #9 were merged. Phase B.3 implements the Atomic Sharded Writer Foundation. Phase B.4 PR #11 and its PR #12 readback hotfix are merged. Phase B.5 PR #14 completed the sharded runtime cutover. Phase B.6 release acceptance passed against `main` commit `d477f884ccc572e3559f78220d0abe9cdcb6cb42`.
 
 - Canonical `main` artifacts are the source of truth.
-- `outputs/` runtime artifacts are the last approved portable release and are not synchronized with the later code-only phases.
-- Desktop `admin.html` and `viewer.html` are the last approved shareable release and are not synchronized with the later code-only phases.
-- Context documents in canonical and `outputs/` may differ while those runtime changes remain unpublished; synchronize them only during an approved publication.
-- Canonical data audits at 646 materials/1 notification; `outputs/data.js` remains the older 643-material/6-notification snapshot by design.
+- `outputs/` contains the hash-verified Phase B.6 four-file runtime release and synchronized five-document context set.
+- Desktop contains the current four-file runtime set: `viewer.html`, `admin.html`, `app-admin.js`, and `styles.css`.
+- Canonical data audits at 646 materials/1 notification; `outputs/data.js` and `outputs/data/` are absent by design.
 
-Runtime publication and data synchronization are separate operations. Never copy `outputs/data.js` over canonical or GitHub data.
+Runtime publication and data synchronization are separate operations. Never create or copy mirror `data.js`/`data/` over canonical GitHub shards.
 
 ## Material Master Asset Upload
 
@@ -37,6 +36,12 @@ Phase B.1 (PR #8) adds a compatibility layer. Phase B.2 (PR #9) proves data shar
 3. Run `node work\build_standalone_viewer.mjs` from the outer project root.
 4. Run the outer compatibility tests and data audit.
 5. Compare hashes for the four runtime artifacts and five context documents.
-6. Copy the verified `admin.html` and `viewer.html` to the Desktop release location.
+6. Copy the verified `admin.html`, `app-admin.js`, `styles.css`, and `viewer.html` to the Desktop release location.
+
+## Phase B.6 Acceptance Record
+
+- Live UAT branch `codex/phase-b6-uat-2026-07-15T112949034Z-d477f88` is at `e843f276d1cedcfa30615b4177989a4e76170bd1` with 24 shards and aggregate SHA-256 `d5261ad277be1fbe7b391ea2f0995de8b0f96fdb612d73e95ed5853b2903684e`.
+- Authenticated/public readbacks matched; manual clean-profile Viewer/Admin acceptance passed with zero console errors and zero `data.js` requests.
+- Phase B.6 is closed. Do not rerun its one-time UAT flow unless a new independently scoped phase explicitly requires it.
 
 Viewer reloads fetch current remote data through cache-busted, commit-pinned GitHub shard requests. Admin writes must use the current remote shard payload and expected HEAD, and credentials must never be committed.
