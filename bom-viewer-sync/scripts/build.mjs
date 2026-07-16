@@ -37,7 +37,7 @@ function replaceTokens(template, values) {
   return result;
 }
 
-function normalizeNewlines(value) {
+export function normalizeNewlines(value) {
   return value.replace(/\r\n?/g, '\n');
 }
 

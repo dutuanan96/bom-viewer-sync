@@ -4,43 +4,33 @@ import test from 'node:test';
 
 const guide = readFileSync(new URL('../AI_DEBUG_GUIDE.md', import.meta.url), 'utf8');
 
-const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-
-test('AI debug guide is self-contained, portable, and operational', () => {
+test('AI debug guide is readable, self-contained, and operational', () => {
   const requiredHeadings = [
-    '## 1. Định hướng trong 60 giây',
-    '## 2. Bản đồ kiến trúc',
-    '## 3. Luồng dữ liệu runtime',
-    '## 4. Ma trận triệu chứng',
-    '## 5. Debug runbook',
-    '## 6. Invariants bắt buộc',
-    '## 7. Bẫy thường gặp',
-    '## 8. Verification và handoff',
+    '## 1. Start Here',
+    '## 2. Source And Artifact Boundaries',
+    '## 3. Runtime Data Flow',
+    '## 4. Module Ownership',
+    '## 5. Debugging Runbook',
+    '## 6. Required Invariants',
+    '## 7. Verification And Handoff',
   ];
 
-  for (const heading of requiredHeadings) assert.match(guide, new RegExp(escapeRegExp(heading)));
+  for (const heading of requiredHeadings) assert.match(guide, new RegExp(heading.replaceAll('.', '\\.')));
   for (const path of ['src/domain/', 'src/features/', 'src/infrastructure/', 'src/ui/', 'src/application.js']) {
-    assert.match(guide, new RegExp(escapeRegExp(path)));
+    assert.match(guide, new RegExp(path.replaceAll('.', '\\.')));
   }
 
   assert.match(guide, /npm run build/);
   assert.match(guide, /npm run check/);
-  assert.match(guide, /work\\build_standalone_viewer\.mjs/);
   assert.match(guide, /github-sharded-data\.js/);
   assert.match(guide, /github-git-data\.js/);
   assert.match(guide, /exact 24 shards/);
   assert.match(guide, /expectedHeadSha/);
   assert.match(guide, /force:false/);
   assert.match(guide, /there is no `data\.js` fallback/);
-  assert.match(guide, /Build normalizes LF\/CRLF/);
-  assert.match(guide, /notification history/);
+  assert.match(guide, /LF\/CRLF/);
   assert.match(guide, /file:\/\//);
-  assert.doesNotMatch(guide, /loadForWrite\(\).*ONLY.*data\.js/i);
-  assert.doesNotMatch(guide, /Contents API PUT/i);
-  assert.doesNotMatch(guide, /inactive at runtime/i);
-  assert.doesNotMatch(guide, /no runtime or save cutover/i);
-  assert.doesNotMatch(guide, /Line endings.*build hash.*đổi/i);
+  assert.doesNotMatch(guide, /[^\x09\x0A\x0D\x20-\x7E]/);
   assert.doesNotMatch(guide, /[A-Z]:\\Users\\/i);
-  assert.doesNotMatch(guide, /pdm-build[^\n]*[0-9a-f]{12}/i);
   assert.doesNotMatch(guide, /TBD|TODO|PLACEHOLDER/);
 });

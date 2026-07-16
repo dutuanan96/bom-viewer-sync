@@ -6,6 +6,7 @@ import test from 'node:test';
 import {
   commitStagedArtifacts,
   computeBuildId,
+  normalizeNewlines,
   renderHtmlArtifact,
 } from '../scripts/build.mjs';
 import { repoRoot } from './helpers/load-data.mjs';
@@ -28,6 +29,13 @@ test('build ID is stable across LF and CRLF worktrees', () => {
     renderHtmlArtifact(inputs.shell, { BUILD_ID: 'abc123' }),
     renderHtmlArtifact(withCrLf.shell, { BUILD_ID: 'abc123' }),
   );
+});
+
+test('generated artifact verification ignores LF and CRLF differences', () => {
+  const lf = '<html>\n<body>stable</body>\n</html>\n';
+  const crlf = lf.replaceAll('\n', '\r\n');
+
+  assert.equal(normalizeNewlines(lf), normalizeNewlines(crlf));
 });
 
 test('generated Viewer is one file with inline local code and CSS', () => {
