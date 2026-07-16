@@ -2,7 +2,11 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
 import { buildBomTreeRows, groupMaterialChildRows } from '../src/domain/relationships.js';
-import { materialWhereUsed, updateMaterialRecord } from '../src/domain/materials.js';
+import {
+  createMaterialDatabase,
+  materialWhereUsed,
+  updateMaterialRecord,
+} from '../src/domain/materials.js';
 import { createPdmNavigation, createSidebarIndex, resolveBomRows } from '../src/domain/bom.js';
 import {
   createProductRevision,
@@ -14,6 +18,78 @@ import { coreUtils } from '../src/application.js';
 import { loadDataPayload } from './helpers/load-data.mjs';
 
 const { normalizePayload } = coreUtils;
+
+function legacySharedMaterialPayload(productCodes, drawingForProduct) {
+  const material = {
+    stt: '1',
+    mat_code: 'MAT001',
+    comp_code: 'COMP001',
+    name_zh: 'Panel',
+    name_vi: 'Panel',
+    attr_zh: 'component',
+    attr_vi: 'component',
+    qty: '1',
+  };
+  return {
+    bom: Object.fromEntries(productCodes.map((productCode) => [
+      productCode,
+      {
+        colors: ['black'],
+        color_info: {
+          black: {
+            materials: [material],
+          },
+        },
+      },
+    ])),
+    drawings: Object.fromEntries(productCodes.map((productCode, index) => [
+      productCode,
+      {
+        'mat001|panel': drawingForProduct(productCode, index),
+      },
+    ])),
+  };
+}
+
+test('legacy conversion does not accumulate one shared material PDF per product', () => {
+  const productCodes = Array.from({ length: 20 }, (_, index) => `LGS${String(index + 1).padStart(3, '0')}`);
+  const payload = legacySharedMaterialPayload(productCodes, (productCode) => [{
+    name: `${productCode}-panel.pdf`,
+    url: `https://example.test/${productCode}-panel.pdf`,
+  }]);
+  payload.models3d = Object.fromEntries(productCodes.map((productCode) => [
+    productCode,
+    {
+      'mat001|panel': [{
+        name: `${productCode}-panel.glb`,
+        path: `models3d/${productCode}-panel.glb`,
+      }],
+    },
+  ]));
+
+  const database = createMaterialDatabase(payload);
+  const [material] = Object.values(database.materials);
+
+  assert.equal(database.bomEntries.length, 20);
+  assert.equal(material.drawings.length, 1);
+  assert.equal(material.drawings[0].name, 'LGS001-panel.pdf');
+  assert.equal(material.models3d.length, 1);
+  assert.equal(material.models3d[0].name, 'LGS001-panel.glb');
+});
+
+test('legacy conversion seeds a material asset from the first product that has one', () => {
+  const payload = legacySharedMaterialPayload(['LGS001', 'LGS002'], (productCode) => (
+    productCode === 'LGS001'
+      ? []
+      : [{ name: 'shared-panel.pdf', url: 'https://example.test/shared-panel.pdf' }]
+  ));
+
+  const database = createMaterialDatabase(payload);
+  const [material] = Object.values(database.materials);
+
+  assert.equal(material.drawings.length, 1);
+  assert.equal(material.drawings[0].name, 'shared-panel.pdf');
+});
 
 test('shared MaterialID edits update every resolved BOM row', () => {
   const payload = normalizePayload(loadDataPayload());

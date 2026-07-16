@@ -62,14 +62,14 @@ function materialIdFor(material, productCode) {
   return stableId('mat', materialIdentity(material, productCode));
 }
 
-function mergeAssets(target, assets) {
-  const seen = new Set((target || []).map((item) => item.url || item.previewUrl || item.path || item.name));
-  (assets || []).forEach((asset) => {
-    const key = asset.url || asset.previewUrl || asset.path || asset.name;
-    if (!key || seen.has(key)) return;
-    seen.add(key);
+function seedAsset(target, ...assetGroups) {
+  if ((target || []).length) return;
+  for (const assets of assetGroups) {
+    const asset = (assets || []).find((item) => item?.url || item?.previewUrl || item?.path || item?.name);
+    if (!asset) continue;
     target.push(clone(asset));
-  });
+    return;
+  }
 }
 
 function materialRecordFromLegacy(material, productCode) {
@@ -131,10 +131,16 @@ function createMaterialDatabase(payload) {
         const materialId = materialIdFor(canonical, productCode);
         if (!db.materials[materialId]) db.materials[materialId] = materialRecordFromLegacy(canonical, productCode);
         const record = db.materials[materialId];
-        mergeAssets(record.drawings, findBomAssets((source.drawings || {})[productCode], material));
-        mergeAssets(record.drawings, findBomAssets((source.drawings || {})[productCode], canonical));
-        mergeAssets(record.models3d, findBomAssets((source.models3d || {})[productCode], material));
-        mergeAssets(record.models3d, findBomAssets((source.models3d || {})[productCode], canonical));
+        seedAsset(
+          record.drawings,
+          findBomAssets((source.drawings || {})[productCode], material),
+          findBomAssets((source.drawings || {})[productCode], canonical),
+        );
+        seedAsset(
+          record.models3d,
+          findBomAssets((source.models3d || {})[productCode], material),
+          findBomAssets((source.models3d || {})[productCode], canonical),
+        );
         const entry = {
           id: stableId('bom', `${productCode}|${colorName}|${index}|${materialId}|${material.comp_code || ''}`),
           parentType: 'product',
