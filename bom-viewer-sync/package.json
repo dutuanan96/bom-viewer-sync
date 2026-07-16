@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "audit:data": "node scripts/audit-data.mjs",
-    "audit:material-assets": "node scripts/audit-material-assets.mjs",
+    "audit:material-assets": "node scripts/audit-material-assets.mjs --mapping scripts/material-asset-mapping.json",
     "build": "node scripts/build.mjs",
     "check": "node scripts/check-all.mjs",
     "check:generated": "node scripts/check-generated.mjs",
