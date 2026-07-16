@@ -4,10 +4,12 @@
   "type": "module",
   "scripts": {
     "audit:data": "node scripts/audit-data.mjs",
+    "audit:material-assets": "node scripts/audit-material-assets.mjs",
     "build": "node scripts/build.mjs",
     "check": "node scripts/check-all.mjs",
     "check:generated": "node scripts/check-generated.mjs",
     "migrate:dry-run": "node scripts/migrate-data-dry-run.mjs",
+    "migrate:material-assets": "node scripts/audit-material-assets.mjs --mapping scripts/material-asset-mapping.json",
     "migrate:staging": "node scripts/migrate-data-staging.mjs",
     "smoke:contents-assets": "node scripts/smoke-github-contents-assets.mjs",
     "test": "node --test tests/*.test.mjs"

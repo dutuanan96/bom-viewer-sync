@@ -3,7 +3,7 @@ function clone(value) {
 }
 
 export function assetLocator(asset) {
-  return String(asset?.url || asset?.previewUrl || asset?.path || asset?.name || '').trim();
+  return String(asset?.url || asset?.path || asset?.previewUrl || asset?.name || '').trim();
 }
 
 export function indexMaterialUsage(payload) {

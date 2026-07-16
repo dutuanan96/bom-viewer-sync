@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "sources": {
+    "https://drive.google.com/file/d/1DYQHdWN33Nfexhp7OE8q-c-u6K8kQ-ja/view?usp=sharing": [
+      "LGS043-S/LGS-布抽32.5x30x14.8.pdf"
+    ],
+    "https://drive.google.com/file/d/1OrVYBYN38vg2spBjMB7iB3RyJqxnh-CP/view?usp=sharing": [
+      "LGS043-S/LGS-布抽32.5x35x18.7.pdf",
+      "LGS420-S/LGS布抽32.5x35x18.7.pdf"
+    ],
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@670ba5cfc369de20a7bb2a68ae1b71d16300255f/assets/pdfs/1783996606760_LGS032-S-___.pdf": {
+      "type": "git",
+      "spec": "670ba5cfc369de20a7bb2a68ae1b71d16300255f:assets/pdfs/1783996606760_LGS032-S-___.pdf"
+    }
+  },
+  "materials": {}
+}
