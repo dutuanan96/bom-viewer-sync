@@ -1,0 +1,12 @@
+[
+  {
+    "id": "SKU_EXACT_ALIAS_1",
+    "description": "Resolve exact marketplace alias to internal SKU",
+    "input": "ULGS433BH02S",
+    "expected": {
+      "internalSku": "LGS433BH02S",
+      "productCode": "LGS433",
+      "resolution": "exact-prefix-alias"
+    }
+  }
+]

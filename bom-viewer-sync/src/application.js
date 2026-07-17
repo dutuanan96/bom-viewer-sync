@@ -653,6 +653,21 @@ const global = globalThis;
       global.setInterval(() => this.loadCloud({ silent: true }), this.isAdmin() ? REFRESH_MS : NOTIFICATION_REFRESH_MS);
     }
 
+    getSnapshot() {
+      return {
+        payload: clone(this.state.payload),
+        sourceMetadata: this.githubData.getSourceMetadata ? this.githubData.getSourceMetadata() : null,
+        selection: {
+          productCode: this.state.currentSku,
+          color: this.state.currentColor,
+          revision: this.selectedProductRevision(),
+          materialId: this.state.selectedMaterialId
+        },
+        lang: this.state.lang,
+        dirty: this.state.dirty
+      };
+    }
+
     label(key) {
       return (TEXT[this.state.lang] && TEXT[this.state.lang][key]) || TEXT.zh[key] || key;
     }
