@@ -38,9 +38,15 @@
     </div>
     <div class="product-list" id="productList"></div>
     <div class="sidebar-credit" data-i18n="developedBy">Developed by</div>
-    <div class="sidebar-footer">
-      <span class="material-symbols-outlined" aria-hidden="true">settings</span>
-      <span>Settings</span>
+    <div class="sidebar-footer" id="sidebarFooter">
+      <button class="sidebar-footer-btn" id="btnAiWorkspace" type="button">
+        <span class="material-symbols-outlined" aria-hidden="true">smart_toy</span>
+        <span data-i18n="aiAssistant">AI Assistant</span>
+      </button>
+      <button class="sidebar-footer-btn" id="btnSettings" type="button">
+        <span class="material-symbols-outlined" aria-hidden="true">settings</span>
+        <span data-i18n="settings">Settings</span>
+      </button>
     </div>
   </aside>
 
@@ -111,6 +117,16 @@
         <div class="content-header" id="contentHeader"></div>
       </section>
     </main>
+
+    <aside class="ai-drawer" id="aiDrawer" hidden>
+      <div class="ai-drawer-header">
+        <h3 id="aiDrawerTitle">AI Assistant</h3>
+        <button id="aiDrawerClose" type="button" class="nav-icon" aria-label="Close">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <div class="ai-drawer-content" id="aiDrawerContent"></div>
+    </aside>
   </div>
 
   <div class="pdf-modal" id="pdfModal" aria-hidden="true">
