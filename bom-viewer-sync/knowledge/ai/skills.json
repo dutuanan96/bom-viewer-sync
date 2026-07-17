@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "packVersion": "1.0.0",
+  "updatedAt": "2026-07-17T00:00:00Z",
+  "description": "AI skill definitions for R1 PDM read-only intelligence. Tool IDs must match contracts.js ALLOWED_TOOLS.",
+  "skills": [
+    {
+      "id": "search_products",
+      "description": "Search products by name or code. Returns bounded, normalized results. Max 50 results.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": { "type": "string", "maxLength": 1000 }
+        }
+      },
+      "readonly": true
+    },
+    {
+      "id": "get_product",
+      "description": "Get a product summary by productCode.",
+      "inputSchema": {
+        "type": "object",
+        "required": ["productId"],
+        "properties": {
+          "productId": { "type": "string", "maxLength": 20 }
+        }
+      },
+      "readonly": true
+    },
+    {
+      "id": "resolve_sku",
+      "description": "Resolve an external SKU alias to internal SKU. Validates product exists in snapshot. Only user-confirmed aliases are supported.",
+      "inputSchema": {
+        "type": "object",
+        "required": ["alias"],
+        "properties": {
+          "alias": { "type": "string", "maxLength": 100 }
+        }
+      },
+      "readonly": true
+    },
+    {
+      "id": "get_bom",
+      "description": "Get BOM rows for a product and color. Returns bounded normalized rows.",
+      "inputSchema": {
+        "type": "object",
+        "required": ["productId"],
+        "properties": {
+          "productId": { "type": "string", "maxLength": 20 },
+          "color": { "type": "string", "maxLength": 50 }
+        }
+      },
+      "readonly": true
+    },
+    {
+      "id": "compare_boms",
+      "description": "Compare BOM rows between two products.",
+      "inputSchema": {
+        "type": "object",
+        "required": ["productId1", "productId2"],
+        "properties": {
+          "productId1": { "type": "string", "maxLength": 20 },
+          "color1": { "type": "string", "maxLength": 50 },
+          "productId2": { "type": "string", "maxLength": 20 },
+          "color2": { "type": "string", "maxLength": 50 }
+        }
+      },
+      "readonly": true
+    },
+    {
+      "id": "get_material",
+      "description": "Get a material summary by materialId.",
+      "inputSchema": {
+        "type": "object",
+        "required": ["materialId"],
+        "properties": {
+          "materialId": { "type": "string", "maxLength": 50 }
+        }
+      },
+      "readonly": true
+    },
+    {
+      "id": "where_used",
+      "description": "Find all products that use a given material.",
+      "inputSchema": {
+        "type": "object",
+        "required": ["materialId"],
+        "properties": {
+          "materialId": { "type": "string", "maxLength": 50 }
+        }
+      },
+      "readonly": true
+    },
+    {
+      "id": "get_revision_history",
+      "description": "Get revision history for a product. Returns currentRevision, effectiveRevision, and list of historical revisions.",
+      "inputSchema": {
+        "type": "object",
+        "required": ["productId"],
+        "properties": {
+          "productId": { "type": "string", "maxLength": 20 }
+        }
+      },
+      "readonly": true
+    },
+    {
+      "id": "audit_product_data",
+      "description": "Audit product data quality. Returns bounded statistics.",
+      "inputSchema": {
+        "type": "object",
+        "required": ["productId"],
+        "properties": {
+          "productId": { "type": "string", "maxLength": 20 }
+        }
+      },
+      "readonly": true
+    }
+  ],
+  "forbiddenTools": [
+    "github_write",
+    "save_to_github",
+    "delete_product",
+    "delete_material",
+    "release_revision",
+    "create_proposal"
+  ],
+  "notes": [
+    "All tools in this pack are read-only.",
+    "Tool IDs must exactly match ALLOWED_TOOLS in contracts.js.",
+    "No mutation, no GitHub write, no API key access."
+  ]
+}

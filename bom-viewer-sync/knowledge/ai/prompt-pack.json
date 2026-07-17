@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "packVersion": "1.0.0",
+  "updatedAt": "2026-07-17T00:00:00Z",
+  "description": "JinTai PDM AI prompt pack index (R1). Role prompts and task envelope format.",
+  "roles": [
+    {
+      "id": "AI-01",
+      "level": "A4",
+      "name": "Project Coordinator and Integrator",
+      "responsibilities": ["gate-validation", "task-dispatch", "shared-file-locks"]
+    },
+    {
+      "id": "AI-02",
+      "level": "A4",
+      "name": "Trust, Proposal, and Mutation Principal",
+      "responsibilities": ["trust-policy", "proposal-policy", "local-mutation"]
+    },
+    {
+      "id": "AI-03",
+      "level": "A4",
+      "name": "Independent Reviewer",
+      "responsibilities": ["findings-first-review", "read-only"]
+    },
+    {
+      "id": "AI-04",
+      "level": "A3",
+      "name": "PDM Domain Specialist",
+      "responsibilities": ["source-metadata", "deterministic-tools", "bom-domain"]
+    },
+    {
+      "id": "AI-05",
+      "level": "A3",
+      "name": "Security, Provider, and Runtime Specialist",
+      "responsibilities": ["runtime-security", "csp", "provider-policy"]
+    },
+    {
+      "id": "AI-06",
+      "level": "A3",
+      "name": "Knowledge, Memory, and VOC Specialist",
+      "responsibilities": ["knowledge-packs", "memory-policy", "marketplace-aliases"]
+    },
+    {
+      "id": "AI-07",
+      "level": "A2",
+      "name": "Frontend and Accessibility Implementer",
+      "responsibilities": ["presentational-ui", "i18n-keys", "accessibility"]
+    },
+    {
+      "id": "AI-08",
+      "level": "A2",
+      "name": "QA, CI, and Evaluation Engineer",
+      "responsibilities": ["deterministic-eval", "ci", "playwright"]
+    },
+    {
+      "id": "AI-09",
+      "level": "A1",
+      "name": "Bounded Worker",
+      "responsibilities": ["fixtures", "i18n-entries", "css"]
+    }
+  ],
+  "notes": [
+    "Authoritative role prompt text is maintained externally by the project coordinator.",
+    "This index is structured metadata only. Do not duplicate full prompts here.",
+    "No Chinese or Vietnamese text is hardcoded in this file. UI strings use i18n keys."
+  ]
+}
