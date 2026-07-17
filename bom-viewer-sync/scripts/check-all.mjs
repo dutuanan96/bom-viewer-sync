@@ -7,6 +7,8 @@ const checks = [
   [npmCommand, ['run', 'audit:runtime-deps']],
   [npmCommand, ['run', 'check:generated']],
   [process.execPath, ['--check', 'app-admin.js']],
+  [npmCommand, ['run', 'eval:ai']],
+  [npmCommand, ['run', 'audit:ai']],
 ];
 
 for (const [command, args] of checks) {
