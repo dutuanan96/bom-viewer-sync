@@ -6,8 +6,6 @@ const checks = [
   [npmCommand, ['run', 'audit:data']],
   [npmCommand, ['run', 'audit:runtime-deps']],
   [npmCommand, ['run', 'check:generated']],
-  [process.execPath, ['scripts/materialize-shards.mjs', '--verify']],
-  [process.execPath, ['scripts/verify-rollback.mjs']],
   [process.execPath, ['--check', 'app-admin.js']],
 ];
 

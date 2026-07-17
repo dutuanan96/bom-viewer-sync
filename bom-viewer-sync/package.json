@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "audit:data": "node scripts/audit-data.mjs",
+    "audit:rollback": "node scripts/audit-data.mjs --data data.js",
     "audit:material-assets": "node scripts/audit-material-assets.mjs --mapping scripts/material-asset-mapping.json",
     "audit:runtime-deps": "node scripts/audit-runtime-dependencies.mjs",
     "build": "node scripts/build.mjs",
