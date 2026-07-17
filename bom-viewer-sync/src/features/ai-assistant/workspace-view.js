@@ -10,19 +10,18 @@ export function createWorkspaceView({ onSend, onClear }) {
   const inputDiv = document.createElement('div');
   inputDiv.className = 'ai-input-area';
   
-  const input = document.createElement('textarea');
+  const input = document.createElement('input');
+  input.type = 'text';
   input.placeholder = t('ai.workspace.placeholder');
-  input.className = 'pdm-input ai-textarea';
+  input.className = 'ai-chat-input';
   input.setAttribute('aria-label', t('ai.workspace.placeholder'));
-  input.rows = 2;
   
   const sendBtn = document.createElement('button');
-  sendBtn.textContent = t('ai.workspace.send');
-  sendBtn.className = 'btn btn-primary';
-  
-  const clearBtn = document.createElement('button');
-  clearBtn.textContent = t('ai.workspace.clear');
-  clearBtn.className = 'btn';
+  sendBtn.className = 'ai-send-btn';
+  const sendIcon = document.createElement('span');
+  sendIcon.className = 'material-symbols-outlined';
+  sendIcon.textContent = 'send';
+  sendBtn.appendChild(sendIcon);
   
   const loadingIndicator = document.createElement('div');
   loadingIndicator.className = 'ai-loading-indicator';
@@ -47,15 +46,13 @@ export function createWorkspaceView({ onSend, onClear }) {
     }
   });
   
-  clearBtn.addEventListener('click', () => {
-    messagesDiv.replaceChildren();
-    if (onClear) onClear();
-    input.focus();
-  });
+  // Wrap input and send button in a relative container
+  const inputWrapper = document.createElement('div');
+  inputWrapper.className = 'ai-input-wrapper';
+  inputWrapper.appendChild(input);
+  inputWrapper.appendChild(sendBtn);
   
-  inputDiv.appendChild(input);
-  inputDiv.appendChild(sendBtn);
-  inputDiv.appendChild(clearBtn);
+  inputDiv.appendChild(inputWrapper);
   
   container.appendChild(messagesDiv);
   container.appendChild(loadingIndicator);
