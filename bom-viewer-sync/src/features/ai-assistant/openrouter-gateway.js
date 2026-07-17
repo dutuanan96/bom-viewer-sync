@@ -6,6 +6,7 @@
 // - Key is NEVER included in errors, logs, diagnostics, or exported state.
 // - This file is the ONLY one that references openrouter.ai or sets Authorization.
 // - No import of github-git-data.js, github-asset-storage.js, or githubData.write.
+// - No browser storage APIs are used. Key stays in closure RAM only.
 //
 // ROUTING DEFAULTS (fail-closed):
 // - provider.data_collection = "deny"
@@ -62,14 +63,12 @@ function redactKey(text, key) {
 /**
  * Create an OpenRouter gateway factory.
  *
- * @param {{ fetchImpl, localStorage?, sessionStorage?, clock?, paidFallbackConsent? }} opts
+ * @param {{ fetchImpl, clock?, paidFallbackConsent? }} opts
  * @returns gateway object
  */
 export function createOpenRouterGateway(opts = {}) {
   const {
     fetchImpl = globalThis.fetch,
-    localStorage: _localStorage = null, // injected for test spying — never written to with key
-    sessionStorage: _sessionStorage = null, // injected for test spying — never written to with key
     clock = { now: () => Date.now() },
     paidFallbackConsent = false
   } = opts;

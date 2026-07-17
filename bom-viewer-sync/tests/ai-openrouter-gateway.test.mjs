@@ -83,23 +83,21 @@ function makeStorageSpy() {
 // ── P0: Key never persists to any storage ────────────────────────────────────
 
 test('R2.1 P0: key is never written to localStorage or sessionStorage', async () => {
-  const localSpy = makeStorageSpy();
-  const sessionSpy = makeStorageSpy();
+  // The gateway takes no storage params — it simply never uses browser storage.
+  // This test verifies the source has no storage API calls.
+  const src = readFileSync(resolve('src/features/ai-assistant/openrouter-gateway.js'), 'utf-8');
+  assert.ok(!src.includes('.setItem('), 'source must not call setItem');
+  assert.ok(!src.includes('.getItem('), 'source must not call getItem');
+
+  // Also verify a connected gateway diagnostics does not contain the key
   const fetchImpl = mockFetchSuccess({
     '/api/v1/key': VALID_KEY_RESPONSE,
     '/api/v1/models': MODELS_RESPONSE
   });
-
-  const gateway = createOpenRouterGateway({
-    fetchImpl,
-    localStorage: localSpy,
-    sessionStorage: sessionSpy
-  });
-
+  const gateway = createOpenRouterGateway({ fetchImpl });
   await gateway.connect(TEST_KEY);
-
-  localSpy.assertNoKeyLeak(TEST_KEY);
-  sessionSpy.assertNoKeyLeak(TEST_KEY);
+  const diag = JSON.stringify(gateway.diagnostics());
+  assert.ok(!diag.includes(TEST_KEY), `diagnostics must not contain key: ${diag.substring(0, 200)}`);
 });
 
 test('R2.1 P0: key is not present in gateway diagnostics output', async () => {
