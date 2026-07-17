@@ -674,13 +674,13 @@ const global = globalThis;
           throw new Error('Tool not implemented locally: ' + call.name);
         }
       });
-      
+
       const drawerContent = this.query('#aiDrawerContent');
       if (drawerContent) {
         drawerContent.appendChild(this.aiFeature.ui.settingsElement);
         drawerContent.appendChild(this.aiFeature.ui.workspaceElement);
       }
-      
+
       const drawer = this.query('#aiDrawer');
       this.query('#btnAiWorkspace')?.addEventListener('click', () => {
         drawer.hidden = false;

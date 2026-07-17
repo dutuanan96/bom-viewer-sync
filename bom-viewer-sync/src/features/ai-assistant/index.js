@@ -9,7 +9,7 @@ export function createAiAssistantFeature({ runTool, getSnapshot, fetchImpl = glo
   const gateway = createOpenRouterGateway({ fetchImpl });
   const trustPolicy = createTrustPolicy();
   const runtime = createRuntime({ gateway, trustPolicy, runTool });
-  
+
   let currentModel = 'openrouter/auto';
 
   const workspace = createWorkspaceView({

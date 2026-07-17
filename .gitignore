@@ -3,3 +3,5 @@
 node_modules/
 .build-tmp/
 *.tmp
+playwright-report/
+test-results/
