@@ -11,6 +11,27 @@ export function escapeHTML(value) {
   }[char]));
 }
 
+const CHANGE_KIND_LABELS = {
+  material_added: 'diffKindMaterialAdded',
+  material_deleted: 'diffKindMaterialDeleted',
+  material: 'diffKindMaterial',
+  bom_added: 'diffKindBomAdded',
+  bom_deleted: 'diffKindBomDeleted',
+  bom_qty_changed: 'diffKindBomQty',
+  product_added: 'diffKindProductAdded',
+};
+
+const CHANGE_FIELD_LABELS = {
+  code: 'materialCode',
+  name: 'materialName',
+  spec: 'specification',
+  material: 'materialComposition',
+  color: 'materialColor',
+  attr: 'materialAttribute',
+};
+
+const CHANGE_PREVIEW_LIMIT = 8;
+
 
 
 
@@ -47,6 +68,80 @@ function renderStatus() {
   if (versionDisplay) {
     versionDisplay.textContent = `V${this.state.payload.version || 1}`;
   }
+}
+
+function changePreviewActionHtml() {
+  return `<button class="btn" type="button" data-dirty-action data-action="view-changes">${escapeHTML(this.label('viewChanges'))}</button>`;
+}
+
+function syncDirtyVisibility() {
+  this.queryAll('[data-action="save"]').forEach((saveAction) => {
+    saveAction.setAttribute('data-dirty-action', '');
+    let previewAction = saveAction.parentElement?.querySelector('[data-action="view-changes"]');
+    if (!previewAction) {
+      saveAction.insertAdjacentHTML('afterend', changePreviewActionHtml.call(this));
+      previewAction = saveAction.parentElement?.querySelector('[data-action="view-changes"]');
+    }
+    if (previewAction) {
+      previewAction.setAttribute('data-dirty-action', '');
+      previewAction.textContent = this.label('viewChanges');
+    }
+  });
+  this.queryAll('[data-action="discard"]').forEach((discardAction) => {
+    discardAction.setAttribute('data-dirty-action', '');
+  });
+  this.queryAll('[data-dirty-action]').forEach((action) => {
+    action.hidden = !this.state.dirty;
+  });
+}
+
+function observeDirtyActions() {
+  if (!this.isAdmin() || !globalThis.MutationObserver || this.dirtyActionObserver) return;
+  const content = this.query('.content');
+  if (!content) return;
+  this.dirtyActionObserver = new globalThis.MutationObserver(() => this.syncDirtyVisibility());
+  this.dirtyActionObserver.observe(content, { childList: true, subtree: true });
+}
+
+function changePreviewHtml() {
+  const changes = this.pendingPayloadChanges();
+  let rows;
+  if (!this.state.dirty) {
+    rows = `<tr><td colspan="5" class="diff-empty">${escapeHTML(this.label('noDirtySummary'))}</td></tr>`;
+  } else if (!changes.length) {
+    rows = `<tr><td colspan="5" class="diff-empty">${escapeHTML(this.label('noChangesSummary'))}</td></tr>`;
+  } else {
+    rows = changes.slice(0, CHANGE_PREVIEW_LIMIT).map((change) => {
+      const kind = this.label(CHANGE_KIND_LABELS[change.kind] || change.kind);
+      const field = change.field ? this.label(CHANGE_FIELD_LABELS[change.field] || change.field) : '';
+      return `<tr><td>${escapeHTML(kind)}</td><td>${escapeHTML(change.code || '')}</td><td>${escapeHTML(field)}</td><td>${escapeHTML(change.before || '')}</td><td>${escapeHTML(change.after || '')}</td></tr>`;
+    }).join('');
+  }
+
+  return `<div class="pdm-modal-content diff-modal" role="dialog" aria-modal="true" aria-labelledby="diffModalTitle">
+    <div class="pdm-modal-header">
+      <h2 id="diffModalTitle">${escapeHTML(this.label('diffSummary'))}</h2>
+      <button class="pdm-modal-close" type="button" data-close-diff aria-label="${escapeHTML(this.label('close'))}">&times;</button>
+    </div>
+    <div class="pdm-modal-body">
+      <table class="diff-table"><thead><tr><th>${escapeHTML(this.label('diffColType'))}</th><th>${escapeHTML(this.label('diffColCode'))}</th><th>${escapeHTML(this.label('diffColField'))}</th><th>${escapeHTML(this.label('diffColBefore'))}</th><th>${escapeHTML(this.label('diffColAfter'))}</th></tr></thead><tbody>${rows}</tbody></table>
+    </div>
+  </div>`;
+}
+
+function showDiffModal() {
+  let overlay = this.query('#diffModalOverlay');
+  if (overlay) overlay.remove();
+  globalThis.document.body.insertAdjacentHTML(
+    'beforeend',
+    `<div id="diffModalOverlay" class="pdm-modal-overlay diff-modal-overlay open">${this.changePreviewHtml()}</div>`,
+  );
+  overlay = this.query('#diffModalOverlay');
+  const closeModal = () => overlay.remove();
+  overlay.addEventListener('click', (event) => {
+    if (event.target === overlay) closeModal();
+  });
+  overlay.querySelector('[data-close-diff]').addEventListener('click', closeModal);
 }
 
 function renderStats() {
@@ -382,6 +477,10 @@ function openMaterialSelector(title, onSelect) {
 export const sharedViewMethods = {
   renderStaticText,
   renderStatus,
+  syncDirtyVisibility,
+  observeDirtyActions,
+  changePreviewHtml,
+  showDiffModal,
   renderStats,
   renderNotifications,
   renderFilterBar,

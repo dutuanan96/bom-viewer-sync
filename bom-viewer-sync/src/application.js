@@ -91,7 +91,22 @@ const global = globalThis;
       noDrawing: '未匹配',
       edit: '编辑',
       done: '完成',
-      save: '保存到 GitHub',
+      save: '\u63d0\u4ea4\u66f4\u6539',
+      viewChanges: '\u67e5\u770b\u66f4\u6539',
+      noChangesSummary: '\u6709\u672a\u63d0\u4ea4\u7684\u66f4\u6539\uff0c\u4f46\u4e0d\u5728\u6458\u8981\u8303\u56f4\u5185',
+      diffSummary: '\u53d8\u66f4\u6458\u8981\uff08\u6700\u591a\u663e\u793a 8 \u9879\uff09',
+      diffColType: '\u7c7b\u578b',
+      diffColCode: '\u7f16\u7801',
+      diffColField: '\u5b57\u6bb5',
+      diffColBefore: '\u4fee\u6539\u524d',
+      diffColAfter: '\u4fee\u6539\u540e',
+      diffKindMaterial: '\u7269\u6599\u5c5e\u6027',
+      diffKindMaterialAdded: '\u65b0\u589e\u7269\u6599',
+      diffKindMaterialDeleted: '\u5220\u9664\u7269\u6599',
+      diffKindBomAdded: '\u7236\u9879\u65b0\u589e\u5b50\u9879',
+      diffKindBomDeleted: '\u7236\u9879\u79fb\u9664\u5b50\u9879',
+      diffKindBomQty: '\u6570\u91cf\u53d8\u66f4',
+      diffKindProductAdded: '\u65b0\u589e\u4ea7\u54c1',
       reload: '重新加载',
       discard: '放弃更改',
       copy: '复制',
@@ -240,7 +255,22 @@ const global = globalThis;
       noDrawing: 'Chưa khớp',
       edit: 'Sửa',
       done: 'Xong',
-      save: 'Lưu lên GitHub',
+      save: 'G\u1eedi thay \u0111\u1ed5i',
+      viewChanges: 'Xem thay \u0111\u1ed5i',
+      noChangesSummary: 'C\u00f3 thay \u0111\u1ed5i ch\u01b0a g\u1eedi, nh\u01b0ng kh\u00f4ng n\u1eb1m trong ph\u1ea7n t\u00f3m t\u1eaft',
+      diffSummary: 'T\u00f3m t\u1eaft thay \u0111\u1ed5i (t\u1ed1i \u0111a 8 m\u1ee5c)',
+      diffColType: 'Lo\u1ea1i',
+      diffColCode: 'M\u00e3',
+      diffColField: 'Tr\u01b0\u1eddng',
+      diffColBefore: 'Tr\u01b0\u1edbc',
+      diffColAfter: 'Sau',
+      diffKindMaterial: 'Thu\u1ed9c t\u00ednh v\u1eadt li\u1ec7u',
+      diffKindMaterialAdded: 'Th\u00eam v\u1eadt li\u1ec7u',
+      diffKindMaterialDeleted: 'X\u00f3a v\u1eadt li\u1ec7u',
+      diffKindBomAdded: 'Th\u00eam con v\u00e0o ph\u1ee5 huynh',
+      diffKindBomDeleted: 'X\u00f3a con kh\u1ecfi ph\u1ee5 huynh',
+      diffKindBomQty: '\u0110\u1ed5i s\u1ed1 l\u01b0\u1ee3ng',
+      diffKindProductAdded: 'Th\u00eam s\u1ea3n ph\u1ea9m',
       reload: 'Tải lại',
       discard: 'Bỏ thay đổi',
       copy: 'Copy',
@@ -618,6 +648,7 @@ const global = globalThis;
       this.pickFirstProduct();
       this.ensureInspectorPanel();
       this.bindEvents();
+      this.observeDirtyActions();
       this.renderAll();
       this.loadCloud({ silent: true });
       global.setInterval(() => this.loadCloud({ silent: true }), this.isAdmin() ? REFRESH_MS : NOTIFICATION_REFRESH_MS);
@@ -1065,6 +1096,7 @@ const global = globalThis;
     runAction(action, actionElement) {
       if (action === 'toggle-edit' && this.canEditProductRevision()) this.toggleEdit();
       if (action === 'save' && this.isAdmin()) this.saveCloud();
+      if (action === 'view-changes' && this.isAdmin()) this.showDiffModal();
       if (action === 'reload') this.loadCloud({ silent: false });
       if (action === 'discard' && this.isAdmin()) this.discard();
       if (action === 'material-db' && this.isAdmin()) { this.state.materialDbPage = 1; this.openMaterialDatabase(); }
@@ -1298,6 +1330,7 @@ const global = globalThis;
       this.renderProductList();
       this.renderContent();
       this.renderInspector();
+      this.syncDirtyVisibility();
     }
 
     notifications() {
@@ -2247,6 +2280,11 @@ const global = globalThis;
     markDirty() {
       this.state.dirty = true;
       this.renderStatus();
+      this.syncDirtyVisibility();
+    }
+
+    pendingPayloadChanges() {
+      return describePayloadChanges(this.state.loadedPayload, this.state.payload);
     }
 
     discard() {

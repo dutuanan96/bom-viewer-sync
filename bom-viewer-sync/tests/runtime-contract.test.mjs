@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import test from 'node:test';
-import { coreUtils } from '../src/application.js';
+import { BomApplication, coreUtils } from '../src/application.js';
 import { parseDataJsPayload, serializeDataJs } from '../src/infrastructure/github-data.js';
 
 const rootDir = path.resolve(import.meta.dirname, '..');
@@ -127,6 +127,31 @@ test('admin HTML uses shared files and viewer HTML keeps the same GitHub config'
   assert.doesNotMatch(viewerHtml, /app-admin\.js/);
   assert.match(viewerHtml, /<meta name="pdm-build" content="[a-f0-9]{12}">/);
   assert.match(viewerHtml, /mode:\s*['"]viewer['"]/);
+});
+
+test('Admin submit and View Changes behavior is localized and action-routed', () => {
+  const app = new BomApplication({ mode: 'admin', githubData: {}, githubAssetStorage: {} });
+
+  app.state.lang = 'zh';
+  assert.equal(app.label('save'), '\u63d0\u4ea4\u66f4\u6539');
+  assert.equal(app.label('viewChanges'), '\u67e5\u770b\u66f4\u6539');
+
+  app.state.lang = 'vi';
+  assert.equal(app.label('save'), 'G\u1eedi thay \u0111\u1ed5i');
+  assert.equal(app.label('viewChanges'), 'Xem thay \u0111\u1ed5i');
+
+  let previewOpened = false;
+  app.showDiffModal = () => { previewOpened = true; };
+  app.runAction('view-changes');
+  assert.equal(previewOpened, true);
+});
+
+test('Admin change preview styling is owned by canonical CSS source', () => {
+  const cssSource = fs.readFileSync(path.join(rootDir, 'src', 'styles', 'app.css'), 'utf8');
+
+  assert.match(cssSource, /\.diff-modal/);
+  assert.match(cssSource, /\.diff-table/);
+  assert.match(cssSource, /\.diff-empty/);
 });
 
 test('viewer HTML is standalone for sharing to another computer', () => {

@@ -3414,6 +3414,36 @@ body.pdm-shell {
   width: 420px;
 }
 
+.diff-modal {
+  width: min(900px, 90vw);
+}
+
+.diff-table {
+  border-collapse: collapse;
+  font-size: 13px;
+  width: 100%;
+}
+
+.diff-table th,
+.diff-table td {
+  border: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.diff-table th {
+  background: var(--parchment);
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.diff-empty {
+  color: var(--muted);
+  padding: 18px;
+  text-align: center;
+}
+
 .pdm-pagination {
   display: flex;
   justify-content: flex-end;

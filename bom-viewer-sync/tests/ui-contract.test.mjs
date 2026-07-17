@@ -216,6 +216,94 @@ test('direct Material Database page actions do not depend on ambient browser eve
   assert.equal(app.state.materialDbPage, 3);
 });
 
+test('Admin change preview renders the exact localized payload diff', () => {
+  const previous = coreUtils.normalizePayload({
+    materialDb: {
+      materials: {
+        mat_001: {
+          id: 'mat_001',
+          code: 'MAT-001',
+          name: { zh: 'Panel', vi: 'Panel' },
+          spec: { zh: '100 mm', vi: '100 mm' },
+        },
+      },
+      bomEntries: [],
+    },
+  });
+  const next = coreUtils.normalizePayload(JSON.parse(JSON.stringify(previous)));
+  next.materialDb.materials.mat_001.spec = { zh: '120 mm', vi: '120 mm' };
+
+  const app = new BomApplication({ mode: 'admin', githubData: {}, githubAssetStorage: {} });
+  app.state.loadedPayload = previous;
+  app.state.payload = next;
+  app.state.dirty = true;
+
+  assert.equal(typeof app.changePreviewHtml, 'function');
+
+  app.state.lang = 'zh';
+  const zhHtml = app.changePreviewHtml();
+  assert.match(zhHtml, /\u53d8\u66f4\u6458\u8981/);
+  assert.match(zhHtml, /\u7269\u6599\u5c5e\u6027/);
+  assert.match(zhHtml, /MAT-001/);
+  assert.match(zhHtml, /\u89c4\u683c\u578b\u53f7/);
+  assert.match(zhHtml, /100 mm/);
+  assert.match(zhHtml, /120 mm/);
+
+  app.state.lang = 'vi';
+  const viHtml = app.changePreviewHtml();
+  assert.match(viHtml, /T\u00f3m t\u1eaft thay \u0111\u1ed5i/);
+  assert.match(viHtml, /Thu\u1ed9c t\u00ednh v\u1eadt li\u1ec7u/);
+  assert.match(viHtml, /Quy c\u00e1ch/);
+  assert.match(viHtml, /100 mm/);
+  assert.match(viHtml, /120 mm/);
+});
+
+test('Admin dirty actions add View Changes once and stay synchronized with dirty state', () => {
+  const actions = [];
+  const parentElement = {
+    querySelector(selector) {
+      if (selector !== '[data-action="view-changes"]') return null;
+      return actions.find((action) => action.dataset.action === 'view-changes') || null;
+    },
+  };
+  const createAction = (actionName) => ({
+    dataset: { action: actionName },
+    hidden: false,
+    parentElement,
+    setAttribute(name, value) {
+      if (name === 'data-dirty-action') this.dataset.dirtyAction = value;
+    },
+    insertAdjacentHTML(position, html) {
+      assert.equal(position, 'afterend');
+      assert.match(html, /data-action="view-changes"/);
+      const previewAction = createAction('view-changes');
+      previewAction.dataset.dirtyAction = '';
+      actions.splice(actions.indexOf(this) + 1, 0, previewAction);
+    },
+  });
+  actions.push(createAction('save'), createAction('discard'));
+
+  const app = new BomApplication({ mode: 'admin', githubData: {}, githubAssetStorage: {} });
+  app.queryAll = (selector) => {
+    if (selector === '[data-action="save"]') return actions.filter((action) => action.dataset.action === 'save');
+    if (selector === '[data-action="discard"]') return actions.filter((action) => action.dataset.action === 'discard');
+    if (selector === '[data-dirty-action]') return actions.filter((action) => 'dirtyAction' in action.dataset);
+    return [];
+  };
+
+  assert.equal(typeof app.syncDirtyVisibility, 'function');
+
+  app.state.dirty = false;
+  app.syncDirtyVisibility();
+  assert.deepEqual(actions.map((action) => action.dataset.action), ['save', 'view-changes', 'discard']);
+  assert.equal(actions.every((action) => action.hidden), true);
+
+  app.state.dirty = true;
+  app.syncDirtyVisibility();
+  assert.equal(actions.filter((action) => action.dataset.action === 'view-changes').length, 1);
+  assert.equal(actions.every((action) => !action.hidden), true);
+});
+
 test('new Material Master draft is not inserted into database before save', () => {
   const addDatabaseMaterial = methodSource('addDatabaseMaterial');
 
