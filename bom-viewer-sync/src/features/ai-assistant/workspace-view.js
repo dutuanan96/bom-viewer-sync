@@ -18,11 +18,11 @@ export function createWorkspaceView({ onSend, onClear }) {
   
   const sendBtn = document.createElement('button');
   sendBtn.textContent = t('ai.workspace.send');
-  sendBtn.className = 'pdm-btn pdm-btn-primary';
+  sendBtn.className = 'btn btn-primary';
   
   const clearBtn = document.createElement('button');
   clearBtn.textContent = t('ai.workspace.clear');
-  clearBtn.className = 'pdm-btn';
+  clearBtn.className = 'btn';
   
   const loadingIndicator = document.createElement('div');
   loadingIndicator.className = 'ai-loading-indicator';
@@ -116,16 +116,16 @@ export function createSettingsView({ onConnect, onDisconnect, getDiagnostics }) 
   const keyInput = document.createElement('input');
   keyInput.type = 'password';
   keyInput.placeholder = t('ai.settings.apiKey');
-  keyInput.className = 'pdm-input';
+  keyInput.className = 'edit-input';
   keyInput.setAttribute('aria-label', t('ai.settings.apiKey'));
   
   const connectBtn = document.createElement('button');
   connectBtn.textContent = t('ai.settings.connect');
-  connectBtn.className = 'pdm-btn pdm-btn-primary';
+  connectBtn.className = 'btn btn-primary';
   
   const disconnectBtn = document.createElement('button');
   disconnectBtn.textContent = t('ai.settings.disconnect');
-  disconnectBtn.className = 'pdm-btn';
+  disconnectBtn.className = 'btn';
   
   const statusEl = document.createElement('div');
   statusEl.textContent = t('ai.settings.statusDisconnected');
