@@ -696,12 +696,20 @@ const global = globalThis;
         }
       };
 
-      aiFab?.addEventListener('click', toggleChat);
-      this.query('#btnAiWorkspace')?.addEventListener('click', () => {
-        chatWidget.hidden = false;
+      aiFab?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleChat();
       });
+      
       this.query('#aiDrawerClose')?.addEventListener('click', () => {
         chatWidget.hidden = true;
+      });
+
+      // Click outside to close the chat widget
+      document.addEventListener('click', (e) => {
+        if (chatWidget && !chatWidget.hidden && !chatWidget.contains(e.target)) {
+          chatWidget.hidden = true;
+        }
       });
 
       this.query('#btnSettings')?.addEventListener('click', () => {
