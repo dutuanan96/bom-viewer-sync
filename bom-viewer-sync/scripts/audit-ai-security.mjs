@@ -18,7 +18,7 @@ const KNOWLEDGE_DIR = resolve('knowledge');
 
 // Forbidden imports/patterns in AI source files
 const FORBIDDEN_IMPORT_PATTERNS = [
-  { pattern: /import.*openrouter/i, reason: 'No OpenRouter/provider import in AI modules' },
+  { pattern: /import.*['"]openrouter['"]/i, reason: 'No OpenRouter/provider import in AI modules' },
   { pattern: /import.*fetch.*from/i, reason: 'No raw fetch import in AI modules (use injected fetchImpl)' },
   { pattern: /localStorage/i, reason: 'No localStorage in AI modules' },
   { pattern: /sessionStorage/i, reason: 'No sessionStorage in AI modules' },

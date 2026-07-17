@@ -43,6 +43,8 @@ import {
   hasChildMaterialRelation,
   syncLegacyBomFromMaterialDb,
 } from './domain/relationships.js';
+import { createAiAssistantFeature } from './features/ai-assistant/index.js';
+import { PdmKnowledge } from './features/ai-assistant/pdm-knowledge.js';
 import {
   createProductRevision,
   isHistoricalProductRevision,
@@ -651,6 +653,47 @@ const global = globalThis;
       this.renderAll();
       this.loadCloud({ silent: true });
       global.setInterval(() => this.loadCloud({ silent: true }), this.isAdmin() ? REFRESH_MS : NOTIFICATION_REFRESH_MS);
+
+      // R2.4 AI Integration (safe init)
+      try {
+        this._initAiAssistant();
+      } catch (err) {
+        console.warn('AI Assistant initialization failed (Core PDM continues):', err);
+      }
+    }
+
+    _initAiAssistant() {
+      this.aiFeature = createAiAssistantFeature({
+        getSnapshot: () => this.getSnapshot(),
+        runTool: async (call) => {
+          const knowledge = new PdmKnowledge(this.getSnapshot());
+          const methodName = call.name.replace(/_([a-z])/g, g => g[1].toUpperCase());
+          if (typeof knowledge[methodName] === 'function') {
+            return knowledge[methodName](call.arguments);
+          }
+          throw new Error('Tool not implemented locally: ' + call.name);
+        }
+      });
+
+      const drawerContent = this.query('#aiDrawerContent');
+      if (drawerContent) {
+        drawerContent.appendChild(this.aiFeature.ui.settingsElement);
+        drawerContent.appendChild(this.aiFeature.ui.workspaceElement);
+      }
+
+      const drawer = this.query('#aiDrawer');
+      this.query('#btnAiWorkspace')?.addEventListener('click', () => {
+        drawer.hidden = false;
+        drawer.classList.add('open');
+      });
+      this.query('#btnSettings')?.addEventListener('click', () => {
+        drawer.hidden = false;
+        drawer.classList.add('open');
+      });
+      this.query('#aiDrawerClose')?.addEventListener('click', () => {
+        drawer.hidden = true;
+        drawer.classList.remove('open');
+      });
     }
 
     getSnapshot() {

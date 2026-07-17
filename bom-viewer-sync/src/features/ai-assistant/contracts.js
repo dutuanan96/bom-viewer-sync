@@ -9,7 +9,7 @@ export const ERROR_CODES = Object.freeze({
   AI_STALE_SOURCE: 'AI_STALE_SOURCE',
 });
 
-const ALLOWED_TOOLS = Object.freeze(new Set([
+export const ALLOWED_TOOLS = Object.freeze(new Set([
   'search_products',
   'get_product',
   'resolve_sku',
