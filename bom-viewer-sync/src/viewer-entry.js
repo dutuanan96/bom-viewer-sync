@@ -1,3 +1,4 @@
+import './runtime-dependencies.js';
 import { createApp } from './application.js';
 
 createApp({

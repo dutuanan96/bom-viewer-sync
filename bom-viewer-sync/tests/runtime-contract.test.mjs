@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import test from 'node:test';
+import * as XLSX from 'xlsx';
 import { BomApplication, coreUtils } from '../src/application.js';
 import { parseDataJsPayload, serializeDataJs } from '../src/infrastructure/github-data.js';
 
@@ -11,6 +12,22 @@ const outputDir = rootDir;
 function readOutput(fileName) {
   return fs.readFileSync(path.join(outputDir, fileName), 'utf8');
 }
+
+test('source and generated artifacts load no remote executable scripts', () => {
+  const files = new Map([
+    ['src/shell.html', fs.readFileSync(path.join(rootDir, 'src', 'shell.html'), 'utf8')],
+    ['admin.html', readOutput('admin.html')],
+    ['viewer.html', readOutput('viewer.html')],
+  ]);
+
+  for (const [name, html] of files) {
+    assert.doesNotMatch(
+      html,
+      /<script\b[^>]*\bsrc=["']https?:\/\//i,
+      `${name} must not load executable JavaScript from a network origin`,
+    );
+  }
+});
 
 function readSourceTree() {
   return fs.readdirSync(path.join(rootDir, 'src'), { recursive: true })
@@ -338,16 +355,34 @@ test('admin save and viewer UI include a PDM notification center', () => {
   assert.match(appCore, /describePayloadChanges\(remoteFile\.payload/);
 });
 
-test('viewer and core include browser-native 3D model support', () => {
+test('bundled runtime dependencies preserve 3D model and Excel support', () => {
   const viewerHtml = readOutput('viewer.html');
-  const adminHtml = readOutput('admin.html');
+  const adminBundle = readOutput('app-admin.js');
   const appCore = readSourceTree();
+  const runtimeDependencies = fs.readFileSync(
+    path.join(rootDir, 'src', 'runtime-dependencies.js'),
+    'utf8',
+  );
+  const packageJson = JSON.parse(fs.readFileSync(path.join(rootDir, 'package.json'), 'utf8'));
   const dataJs = readOutput('data.js');
   const sandbox = { window: {} };
   Function('window', dataJs)(sandbox.window);
 
-  assert.match(viewerHtml, /@google\/model-viewer/);
-  assert.match(adminHtml, /@google\/model-viewer/);
+  assert.equal(packageJson.dependencies['@google/model-viewer'], '4.3.1');
+  assert.equal(packageJson.dependencies.xlsx, 'file:vendor/runtime/xlsx-0.20.3.tgz');
+  assert.match(runtimeDependencies, /import '@google\/model-viewer';/);
+  assert.match(runtimeDependencies, /import \* as XLSX from 'xlsx';/);
+  assert.match(runtimeDependencies, /globalThis\.XLSX = XLSX;/);
+  for (const bundle of [viewerHtml, adminBundle]) {
+    assert.match(bundle, /customElements\.define/);
+    assert.match(bundle, /0\.20\.3/);
+    assert.match(bundle, /book_new/);
+    assert.match(bundle, /writeFile/);
+  }
+  assert.equal(XLSX.version, '0.20.3');
+  const workbook = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(workbook, XLSX.utils.aoa_to_sheet([['R0.3']]), 'Runtime');
+  assert.deepEqual(workbook.SheetNames, ['Runtime']);
   assert.match(appCore, /models3dFor/);
   assert.match(appCore, /data-model3d-row/);
   assert.match(appCore, /createElement\('model-viewer'\)/);

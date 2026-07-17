@@ -21,6 +21,7 @@ async function bundle(entryPoint) {
     legalComments: 'none',
     minify: true,
     platform: 'browser',
+    supported: { 'template-literal': false },
     target: ['es2020'],
     write: false,
   });
@@ -43,6 +44,40 @@ export function normalizeNewlines(value) {
 
 export function renderHtmlArtifact(template, values) {
   return replaceTokens(normalizeNewlines(template), values);
+}
+
+function inlineScriptHashes(html) {
+  return [...html.matchAll(/<script\b(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/gi)]
+    .map((match) => `'sha256-${createHash('sha256').update(match[1]).digest('base64')}'`);
+}
+
+function contentSecurityPolicy(html, { allowLocalScript }) {
+  const scriptSources = [
+    ...(allowLocalScript ? ["'self'"] : []),
+    "'wasm-unsafe-eval'",
+    ...inlineScriptHashes(html),
+  ];
+  return [
+    "default-src 'none'",
+    `script-src ${scriptSources.join(' ')}`,
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+    'font-src https://fonts.gstatic.com',
+    "img-src 'self' data: blob: https://drive.google.com https://lh3.googleusercontent.com https://raw.githubusercontent.com https://cdn.jsdelivr.net",
+    'connect-src https://api.github.com https://raw.githubusercontent.com https://cdn.jsdelivr.net https://openrouter.ai',
+    "frame-src 'self' blob: https://drive.google.com https://raw.githubusercontent.com https://cdn.jsdelivr.net",
+    "object-src 'none'",
+    "base-uri 'none'",
+    "form-action 'none'",
+  ].join('; ');
+}
+
+function renderHtmlWithCsp(template, values, options) {
+  const htmlWithoutCsp = renderHtmlArtifact(template, { ...values, CSP_META: '' });
+  const policy = contentSecurityPolicy(htmlWithoutCsp, options);
+  return renderHtmlArtifact(template, {
+    ...values,
+    CSP_META: `<meta http-equiv="Content-Security-Policy" content="${policy}">`,
+  });
 }
 
 export function computeBuildId({ shell, css, adminBundle, viewerBundle }) {
@@ -132,7 +167,7 @@ export async function generateArtifacts(outDir = repoRoot) {
   const buildId = computeBuildId({ shell, css, adminBundle, viewerBundle });
 
   const shared = { BUILD_ID: buildId };
-  const adminHtml = renderHtmlArtifact(shell, {
+  const adminHtml = renderHtmlWithCsp(shell, {
     ...shared,
     TITLE: 'BOM Admin',
     MODE_LABEL: 'Admin',
@@ -141,8 +176,8 @@ export async function generateArtifacts(outDir = repoRoot) {
     STYLE_TAG: `<link rel="stylesheet" href="styles.css?v=${buildId}">`,
     DATA_SCRIPT: '<!-- Runtime data is loaded from immutable GitHub shards. -->',
     APP_SCRIPT: `<script src="app-admin.js?v=${buildId}"></script>`,
-  });
-  const viewerHtml = renderHtmlArtifact(shell, {
+  }, { allowLocalScript: true });
+  const viewerHtml = renderHtmlWithCsp(shell, {
     ...shared,
     TITLE: 'BOM Viewer',
     MODE_LABEL: 'Viewer',
@@ -151,7 +186,7 @@ export async function generateArtifacts(outDir = repoRoot) {
     STYLE_TAG: `<style>\n${css}\n</style>`,
     DATA_SCRIPT: '<!-- Runtime data is loaded from immutable GitHub shards. -->',
     APP_SCRIPT: `<script>\n${viewerBundle.replaceAll('</script', '<\\/script')}\n</script>`,
-  });
+  }, { allowLocalScript: false });
 
   await mkdir(outDir, { recursive: true });
   const tempDir = path.join(outDir, '.build-tmp');

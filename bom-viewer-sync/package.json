@@ -5,6 +5,7 @@
   "scripts": {
     "audit:data": "node scripts/audit-data.mjs",
     "audit:material-assets": "node scripts/audit-material-assets.mjs --mapping scripts/material-asset-mapping.json",
+    "audit:runtime-deps": "node scripts/audit-runtime-dependencies.mjs",
     "build": "node scripts/build.mjs",
     "check": "node scripts/check-all.mjs",
     "check:generated": "node scripts/check-generated.mjs",
@@ -16,5 +17,9 @@
   },
   "devDependencies": {
     "esbuild": "0.28.1"
+  },
+  "dependencies": {
+    "@google/model-viewer": "4.3.1",
+    "xlsx": "file:vendor/runtime/xlsx-0.20.3.tgz"
   }
 }
