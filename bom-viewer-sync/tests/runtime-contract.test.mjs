@@ -140,10 +140,11 @@ test('Admin submit and View Changes behavior is localized and action-routed', ()
   assert.equal(app.label('save'), 'G\u1eedi thay \u0111\u1ed5i');
   assert.equal(app.label('viewChanges'), 'Xem thay \u0111\u1ed5i');
 
-  let previewOpened = false;
-  app.showDiffModal = () => { previewOpened = true; };
-  app.runAction('view-changes');
-  assert.equal(previewOpened, true);
+  const actionElement = {};
+  let previewTrigger = null;
+  app.showDiffModal = (trigger) => { previewTrigger = trigger; };
+  app.runAction('view-changes', actionElement);
+  assert.equal(previewTrigger, actionElement);
 });
 
 test('Admin change preview styling is owned by canonical CSS source', () => {

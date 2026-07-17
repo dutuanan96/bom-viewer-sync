@@ -648,7 +648,6 @@ const global = globalThis;
       this.pickFirstProduct();
       this.ensureInspectorPanel();
       this.bindEvents();
-      this.observeDirtyActions();
       this.renderAll();
       this.loadCloud({ silent: true });
       global.setInterval(() => this.loadCloud({ silent: true }), this.isAdmin() ? REFRESH_MS : NOTIFICATION_REFRESH_MS);
@@ -1096,7 +1095,7 @@ const global = globalThis;
     runAction(action, actionElement) {
       if (action === 'toggle-edit' && this.canEditProductRevision()) this.toggleEdit();
       if (action === 'save' && this.isAdmin()) this.saveCloud();
-      if (action === 'view-changes' && this.isAdmin()) this.showDiffModal();
+      if (action === 'view-changes' && this.isAdmin()) this.showDiffModal(actionElement);
       if (action === 'reload') this.loadCloud({ silent: false });
       if (action === 'discard' && this.isAdmin()) this.discard();
       if (action === 'material-db' && this.isAdmin()) { this.state.materialDbPage = 1; this.openMaterialDatabase(); }

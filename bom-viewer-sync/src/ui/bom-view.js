@@ -246,11 +246,13 @@ function tableColgroupHtml() {
 }
 
 function bomActionsHtml() {
+  const dirtyHidden = this.state.dirty ? '' : ' hidden';
   const createRevisionAction = this.canCreateProductRevision()
     ? `<button class="btn" type="button" data-action="create-product-revision">${escapeHTML(this.label('createRevision'))}</button>`
     : '';
-  return `<button class="btn btn-primary" type="button" data-action="save">${escapeHTML(this.label('save'))}</button>
-    <button class="btn" type="button" data-action="discard">${escapeHTML(this.label('discard'))}</button>
+  return `<button class="btn btn-primary" type="button" data-dirty-action data-action="save"${dirtyHidden}>${escapeHTML(this.label('save'))}</button>
+    <button class="btn" type="button" data-dirty-action data-action="view-changes"${dirtyHidden}>${escapeHTML(this.label('viewChanges'))}</button>
+    <button class="btn" type="button" data-dirty-action data-action="discard"${dirtyHidden}>${escapeHTML(this.label('discard'))}</button>
     <button class="btn" type="button" data-action="reload">${escapeHTML(this.label('reload'))}</button>
     ${createRevisionAction}
     <button class="btn" type="button" data-action="material-db">${escapeHTML(this.label('materialDatabase'))}</button>`;
@@ -268,6 +270,7 @@ function toolbarHtml(rows) {
 }
 
 function adminActionsHtml() {
+  const dirtyHidden = this.state.dirty ? '' : ' hidden';
   const viewAction = this.state.adminView === 'materials'
     ? `<button class="btn" type="button" data-action="bom-view">BOM</button>`
     : `<button class="btn" type="button" data-action="material-db">\u7269\u6599\u6570\u636e\u5e93</button>`;
@@ -281,8 +284,9 @@ function adminActionsHtml() {
     ? `<button class="btn" type="button" data-action="add-child-material">\u6dfb\u52a0\u5b50\u9879</button>`
     : '';
   return `<button class="btn ${this.state.editMode ? 'active' : ''}" type="button" data-action="toggle-edit">${escapeHTML(this.state.editMode ? this.label('done') : this.label('edit'))}</button>
-    <button class="btn btn-primary" type="button" data-action="save">${escapeHTML(this.label('save'))}</button>
-    <button class="btn" type="button" data-action="discard">${escapeHTML(this.label('discard'))}</button>
+    <button class="btn btn-primary" type="button" data-dirty-action data-action="save"${dirtyHidden}>${escapeHTML(this.label('save'))}</button>
+    <button class="btn" type="button" data-dirty-action data-action="view-changes"${dirtyHidden}>${escapeHTML(this.label('viewChanges'))}</button>
+    <button class="btn" type="button" data-dirty-action data-action="discard"${dirtyHidden}>${escapeHTML(this.label('discard'))}</button>
     <button class="btn" type="button" data-action="reload">${escapeHTML(this.label('reload'))}</button>
     ${viewAction}${bomAdd}${dbAdd}${strAdd}`;
 }

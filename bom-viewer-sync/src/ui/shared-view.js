@@ -70,37 +70,10 @@ function renderStatus() {
   }
 }
 
-function changePreviewActionHtml() {
-  return `<button class="btn" type="button" data-dirty-action data-action="view-changes">${escapeHTML(this.label('viewChanges'))}</button>`;
-}
-
 function syncDirtyVisibility() {
-  this.queryAll('[data-action="save"]').forEach((saveAction) => {
-    saveAction.setAttribute('data-dirty-action', '');
-    let previewAction = saveAction.parentElement?.querySelector('[data-action="view-changes"]');
-    if (!previewAction) {
-      saveAction.insertAdjacentHTML('afterend', changePreviewActionHtml.call(this));
-      previewAction = saveAction.parentElement?.querySelector('[data-action="view-changes"]');
-    }
-    if (previewAction) {
-      previewAction.setAttribute('data-dirty-action', '');
-      previewAction.textContent = this.label('viewChanges');
-    }
-  });
-  this.queryAll('[data-action="discard"]').forEach((discardAction) => {
-    discardAction.setAttribute('data-dirty-action', '');
-  });
   this.queryAll('[data-dirty-action]').forEach((action) => {
     action.hidden = !this.state.dirty;
   });
-}
-
-function observeDirtyActions() {
-  if (!this.isAdmin() || !globalThis.MutationObserver || this.dirtyActionObserver) return;
-  const content = this.query('.content');
-  if (!content) return;
-  this.dirtyActionObserver = new globalThis.MutationObserver(() => this.syncDirtyVisibility());
-  this.dirtyActionObserver.observe(content, { childList: true, subtree: true });
 }
 
 function changePreviewHtml() {
@@ -129,19 +102,32 @@ function changePreviewHtml() {
   </div>`;
 }
 
-function showDiffModal() {
-  let overlay = this.query('#diffModalOverlay');
-  if (overlay) overlay.remove();
+function showDiffModal(actionElement) {
+  if (this.closeDiffModal) this.closeDiffModal(false);
+  else this.query('#diffModalOverlay')?.remove();
   globalThis.document.body.insertAdjacentHTML(
     'beforeend',
     `<div id="diffModalOverlay" class="pdm-modal-overlay diff-modal-overlay open">${this.changePreviewHtml()}</div>`,
   );
-  overlay = this.query('#diffModalOverlay');
-  const closeModal = () => overlay.remove();
+  const overlay = this.query('#diffModalOverlay');
+  const closeControl = overlay.querySelector('[data-close-diff]');
+  let handleKeyDown;
+  const closeModal = (restoreFocus = true) => {
+    globalThis.document.removeEventListener('keydown', handleKeyDown);
+    overlay.remove();
+    if (this.closeDiffModal === closeModal) this.closeDiffModal = null;
+    if (restoreFocus && typeof actionElement?.focus === 'function') actionElement.focus();
+  };
+  handleKeyDown = (event) => {
+    if (event.key === 'Escape') closeModal();
+  };
   overlay.addEventListener('click', (event) => {
     if (event.target === overlay) closeModal();
   });
-  overlay.querySelector('[data-close-diff]').addEventListener('click', closeModal);
+  closeControl.addEventListener('click', () => closeModal());
+  globalThis.document.addEventListener('keydown', handleKeyDown);
+  this.closeDiffModal = closeModal;
+  closeControl.focus();
 }
 
 function renderStats() {
@@ -478,7 +464,6 @@ export const sharedViewMethods = {
   renderStaticText,
   renderStatus,
   syncDirtyVisibility,
-  observeDirtyActions,
   changePreviewHtml,
   showDiffModal,
   renderStats,
