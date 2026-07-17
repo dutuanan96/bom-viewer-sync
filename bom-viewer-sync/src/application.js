@@ -675,28 +675,42 @@ const global = globalThis;
         }
       });
 
-      const drawerContent = this.query('#aiDrawerContent');
-      if (drawerContent) {
-        drawerContent.appendChild(this.aiFeature.ui.settingsElement);
-        drawerContent.appendChild(this.aiFeature.ui.workspaceElement);
+      const chatWidgetContent = this.query('#aiDrawerContent');
+      const settingsModalContent = this.query('#settingsModalContent');
+      if (chatWidgetContent) {
+        chatWidgetContent.appendChild(this.aiFeature.ui.workspaceElement);
+      }
+      if (settingsModalContent) {
+        settingsModalContent.appendChild(this.aiFeature.ui.settingsElement);
       }
 
-      const drawer = this.query('#aiDrawer');
+      const chatWidget = this.query('#aiChatWidget');
+      const aiFab = this.query('#aiFab');
+      const settingsModal = this.query('#settingsModal');
+
+      const toggleChat = () => {
+        if (chatWidget.hidden) {
+          chatWidget.hidden = false;
+        } else {
+          chatWidget.hidden = true;
+        }
+      };
+
+      aiFab?.addEventListener('click', toggleChat);
       this.query('#btnAiWorkspace')?.addEventListener('click', () => {
-        this.aiFeature.ui.settingsElement.style.display = 'none';
-        this.aiFeature.ui.workspaceElement.style.display = 'flex';
-        drawer.hidden = false;
-        drawer.classList.add('open');
-      });
-      this.query('#btnSettings')?.addEventListener('click', () => {
-        this.aiFeature.ui.workspaceElement.style.display = 'none';
-        this.aiFeature.ui.settingsElement.style.display = 'flex';
-        drawer.hidden = false;
-        drawer.classList.add('open');
+        chatWidget.hidden = false;
       });
       this.query('#aiDrawerClose')?.addEventListener('click', () => {
-        drawer.hidden = true;
-        drawer.classList.remove('open');
+        chatWidget.hidden = true;
+      });
+
+      this.query('#btnSettings')?.addEventListener('click', () => {
+        settingsModal.setAttribute('aria-hidden', 'false');
+        settingsModal.classList.add('open');
+      });
+      this.query('#closeSettingsModal')?.addEventListener('click', () => {
+        settingsModal.setAttribute('aria-hidden', 'true');
+        settingsModal.classList.remove('open');
       });
     }
 
