@@ -12,24 +12,45 @@ export function createWorkspaceView({ onSend, onClear }) {
   
   const input = document.createElement('textarea');
   input.placeholder = t('ai.workspace.placeholder');
+  input.className = 'pdm-input ai-textarea';
+  input.setAttribute('aria-label', t('ai.workspace.placeholder'));
+  input.rows = 2;
   
   const sendBtn = document.createElement('button');
   sendBtn.textContent = t('ai.workspace.send');
+  sendBtn.className = 'pdm-btn pdm-btn-primary';
   
   const clearBtn = document.createElement('button');
   clearBtn.textContent = t('ai.workspace.clear');
+  clearBtn.className = 'pdm-btn';
   
-  sendBtn.addEventListener('click', () => {
+  const loadingIndicator = document.createElement('div');
+  loadingIndicator.className = 'ai-loading-indicator';
+  loadingIndicator.textContent = 'AI is typing...';
+  loadingIndicator.style.display = 'none';
+
+  const handleSend = () => {
     const text = input.value.trim();
     if (text) {
       onSend(text);
       input.value = '';
+      input.focus();
+    }
+  };
+
+  sendBtn.addEventListener('click', handleSend);
+  
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSend();
     }
   });
   
   clearBtn.addEventListener('click', () => {
     messagesDiv.replaceChildren();
     if (onClear) onClear();
+    input.focus();
   });
   
   inputDiv.appendChild(input);
@@ -37,6 +58,7 @@ export function createWorkspaceView({ onSend, onClear }) {
   inputDiv.appendChild(clearBtn);
   
   container.appendChild(messagesDiv);
+  container.appendChild(loadingIndicator);
   container.appendChild(inputDiv);
   
   function renderMessage(msg) {
@@ -65,7 +87,13 @@ export function createWorkspaceView({ onSend, onClear }) {
     }
     
     messagesDiv.appendChild(msgEl);
-    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    messagesDiv.scrollTo({ top: messagesDiv.scrollHeight, behavior: 'smooth' });
+  }
+  
+  function toggleLoading(isLoading) {
+    loadingIndicator.style.display = isLoading ? 'block' : 'none';
+    sendBtn.disabled = isLoading;
+    input.disabled = isLoading;
   }
   
   function clear() {
@@ -76,6 +104,7 @@ export function createWorkspaceView({ onSend, onClear }) {
     element: container,
     renderMessage,
     clear,
+    toggleLoading,
     messagesContainer: messagesDiv // exposed for testing
   };
 }
@@ -87,15 +116,20 @@ export function createSettingsView({ onConnect, onDisconnect, getDiagnostics }) 
   const keyInput = document.createElement('input');
   keyInput.type = 'password';
   keyInput.placeholder = t('ai.settings.apiKey');
+  keyInput.className = 'pdm-input';
+  keyInput.setAttribute('aria-label', t('ai.settings.apiKey'));
   
   const connectBtn = document.createElement('button');
   connectBtn.textContent = t('ai.settings.connect');
+  connectBtn.className = 'pdm-btn pdm-btn-primary';
   
   const disconnectBtn = document.createElement('button');
   disconnectBtn.textContent = t('ai.settings.disconnect');
+  disconnectBtn.className = 'pdm-btn';
   
   const statusEl = document.createElement('div');
   statusEl.textContent = t('ai.settings.statusDisconnected');
+  statusEl.className = 'ai-status-text';
   
   connectBtn.addEventListener('click', () => {
     const key = keyInput.value.trim();

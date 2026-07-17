@@ -15,6 +15,7 @@ export function createAiAssistantFeature({ runTool, getSnapshot, fetchImpl = glo
   const workspace = createWorkspaceView({
     onSend: async (text) => {
       workspace.renderMessage({ role: 'user', text });
+      if (workspace.toggleLoading) workspace.toggleLoading(true);
       try {
         const result = await runtime.runTurn({
           query: text,
@@ -26,6 +27,8 @@ export function createAiAssistantFeature({ runTool, getSnapshot, fetchImpl = glo
         workspace.renderMessage({ role: 'assistant', text: result.text, citations: result.citations });
       } catch (err) {
         workspace.renderMessage({ role: 'assistant', text: t('ai.message.error') + ': ' + err.message });
+      } finally {
+        if (workspace.toggleLoading) workspace.toggleLoading(false);
       }
     },
     onClear: () => {

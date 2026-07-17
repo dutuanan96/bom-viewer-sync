@@ -17,7 +17,10 @@ global.document = {
       replaceChildren(...nodes) { this.children = nodes; },
       querySelector() { return null; },
       querySelectorAll() { return []; },
-      remove() {}
+      remove() {},
+      setAttribute() {},
+      focus() {},
+      scrollTo() {}
     };
   }
 };

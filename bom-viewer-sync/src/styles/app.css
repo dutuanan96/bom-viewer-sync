@@ -3589,6 +3589,7 @@ body.pdm-shell {
   display: flex;
   flex-direction: column;
   height: 100%;
+  background-color: var(--card, #ffffff);
 }
 .ai-messages {
   flex: 1;
@@ -3596,27 +3597,31 @@ body.pdm-shell {
   padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 .ai-message {
-  max-width: 85%;
+  max-width: 88%;
   padding: 10px 14px;
-  border-radius: 12px;
+  border-radius: 8px;
   font-size: 13px;
   line-height: 1.4;
-  word-break: break-word;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word; 
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 .ai-message.user {
   align-self: flex-end;
-  background: var(--blue);
-  color: white;
-  border-bottom-right-radius: 4px;
+  background-color: var(--blue, #0052cc);
+  color: #ffffff;
+  border-bottom-right-radius: 2px;
 }
 .ai-message.assistant {
   align-self: flex-start;
-  background: var(--parchment);
-  color: var(--ink);
-  border-bottom-left-radius: 4px;
+  background-color: var(--parchment, #f3f4f6);
+  color: var(--ink, #191c1e);
+  border: 1px solid var(--border, #c3c6d6);
+  border-bottom-left-radius: 2px;
 }
 .ai-citation-badge {
   display: inline-block;
@@ -3635,23 +3640,26 @@ body.pdm-shell {
   gap: 8px;
   background: var(--card);
 }
-.ai-input-area textarea {
-  grid-column: 1 / -1;
+.ai-textarea {
+  resize: none;
+  flex: 1;
+  font-family: inherit;
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 8px 12px;
-  font-family: inherit;
   font-size: 13px;
-  resize: none;
   min-height: 64px;
 }
-.ai-input-area button {
-  padding: 6px 12px;
-  border-radius: 6px;
-  border: 1px solid var(--border);
-  background: var(--parchment);
-  cursor: pointer;
-  font-weight: 500;
+.ai-loading-indicator {
+  padding: 0 16px 8px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-style: italic;
+  animation: pulse 1.5s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
 }
 
 /* AI Settings */
@@ -3661,9 +3669,7 @@ body.pdm-shell {
   flex-direction: column;
   gap: 12px;
 }
-.ai-settings input {
-  padding: 8px;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  width: 100%;
+.ai-status-text {
+  font-size: 13px;
+  color: var(--muted);
 }
