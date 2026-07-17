@@ -80,7 +80,15 @@ export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.
     return json;
   }
 
+  let lastSourceMetadata = null;
+
   return {
+    getSourceMetadata() {
+      if (!lastSourceMetadata) return null;
+      // Return a shallow copy — caller must not mutate internal state
+      return { ...lastSourceMetadata };
+    },
+
     async loadPublic() {
       try {
         const cacheBust = now();
@@ -133,6 +141,21 @@ export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.
 
         assertCutoverShardCount(files);
         const payload = await parseLogicalShardFiles(files);
+
+        // Priority: manifest.updatedAt > commit.committer.date > commit.author.date > null
+        // Do NOT fall back to new Date() — an absent date must be represented as null.
+        const updatedAt = manifest.updatedAt ||
+          commitData.commit?.committer?.date ||
+          commitData.commit?.author?.date ||
+          null;
+
+        lastSourceMetadata = Object.freeze({
+          commitSha,
+          shardRoot,
+          manifestVersion: manifest.schemaVersion || manifest.version || 1,
+          updatedAt,
+        });
+
         return normalizePayload(payload);
       } catch (err) {
         throw err; // Public load does not have token to sanitize
@@ -227,6 +250,20 @@ export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.
 
         assertCutoverShardCount(files);
         const payload = await parseLogicalShardFiles(files);
+
+        // Same priority as loadPublic — no new Date() fallback.
+        const updatedAt = manifest.updatedAt ||
+          commitData.commit?.committer?.date ||
+          commitData.commit?.author?.date ||
+          null;
+
+        lastSourceMetadata = Object.freeze({
+          commitSha,
+          shardRoot,
+          manifestVersion: manifest.schemaVersion || manifest.version || 1,
+          updatedAt,
+        });
+
         return { expectedHeadSha: commitSha, payload: normalizePayload(payload) };
       } catch (err) {
         throw sanitizeError(err, token);
