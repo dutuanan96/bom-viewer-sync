@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "packVersion": "1.0.0",
+  "updatedAt": "2026-07-17T00:00:00Z",
+  "description": "User-confirmed external SKU alias mappings. Only includes aliases explicitly approved by the user.",
+  "governance": {
+    "rule": "No alias may be added without explicit user confirmation.",
+    "asinPolicy": "ASIN codes are NOT included in this file. External identifiers require separate user approval.",
+    "trustLevel": "user-confirmed"
+  },
+  "aliases": {
+    "ULGS433BH02S": {
+      "internalSku": "LGS433BH02S",
+      "productCode": "LGS433",
+      "resolution": "exact-u-prefix-alias",
+      "confirmedColor": "black",
+      "confirmedBy": "user",
+      "confirmedAt": "2026-07-17T00:00:00Z",
+      "note": "User-confirmed alias. No ASIN or external marketplace ID included — those require separate approval."
+    }
+  }
+}

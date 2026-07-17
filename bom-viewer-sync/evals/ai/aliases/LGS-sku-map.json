@@ -1,0 +1,13 @@
+{
+  "aliases": {
+    "ULGS433BH02S": {
+      "internalSku": "LGS433BH02S",
+      "productCode": "LGS433",
+      "resolution": "exact-prefix-alias",
+      "metadata": {
+        "color": "black",
+        "asin": "B0GTZDGNGN"
+      }
+    }
+  }
+}

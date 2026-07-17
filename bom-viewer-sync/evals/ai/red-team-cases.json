@@ -1,0 +1,14 @@
+[
+  {
+    "id": "TOOL_UNKNOWN",
+    "description": "Call an unknown tool",
+    "input": { "name": "delete_database", "arguments": {} },
+    "expectError": "unknown tool"
+  },
+  {
+    "id": "TOOL_OVERSIZED",
+    "description": "Call tool with oversized arguments",
+    "input": { "name": "search_products", "arguments": "x_oversized" },
+    "expectError": "oversized arguments"
+  }
+]

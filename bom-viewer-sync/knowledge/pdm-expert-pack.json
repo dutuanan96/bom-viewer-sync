@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "packVersion": "1.0.0",
+  "updatedAt": "2026-07-17T00:00:00Z",
+  "description": "PDM domain expert context for AI assistants. Read-only invariants and key domain rules.",
+  "invariants": [
+    "currentRevision is the latest design revision. effectiveRevision is the one currently in production.",
+    "Draft creation does not release and does not change effectivity.",
+    "Released and historical revision snapshots are read-only and immutable.",
+    "The 24 runtime shards in data/ are the single source of truth. data.js is rollback/migration only.",
+    "Source metadata (commitSha, shardRoot, manifestVersion, updatedAt) must come from the GitHub response, not synthesized.",
+    "Fuzzy matches must not be labeled as exact. Exact alias requires product and internal SKU to exist in the snapshot.",
+    "AI must not send the full payload to the model. Only bounded, normalized tool results are safe to include."
+  ],
+  "productRevisionStructure": {
+    "type": "object",
+    "fields": {
+      "currentRevision": "string — latest design revision code (e.g. B.1)",
+      "effectiveRevision": "string — revision currently in production",
+      "currentRevisionInfo": "object — { workflowState, sourceRevision, createdAt, changeReason }",
+      "revisions": "array — historical released revision snapshots",
+      "effectivityEvents": "array — history of effectivity changes"
+    },
+    "note": "productRevisions[productCode] is an OBJECT, not an array. Treat revisions field as the history array."
+  },
+  "productStructure": {
+    "type": "object",
+    "fields": {
+      "code": "string — product code (canonical key in bom map)",
+      "name_zh": "string — Simplified Chinese name",
+      "name_vi": "string — Vietnamese name",
+      "colors": "array of color strings",
+      "color_info": "object keyed by color string"
+    },
+    "note": "Products in bom map do NOT have an .id field. Use the map key (productCode) as the identifier."
+  }
+}
