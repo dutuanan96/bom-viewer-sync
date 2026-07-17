@@ -683,10 +683,14 @@ const global = globalThis;
 
       const drawer = this.query('#aiDrawer');
       this.query('#btnAiWorkspace')?.addEventListener('click', () => {
+        this.aiFeature.ui.settingsElement.style.display = 'none';
+        this.aiFeature.ui.workspaceElement.style.display = 'flex';
         drawer.hidden = false;
         drawer.classList.add('open');
       });
       this.query('#btnSettings')?.addEventListener('click', () => {
+        this.aiFeature.ui.workspaceElement.style.display = 'none';
+        this.aiFeature.ui.settingsElement.style.display = 'flex';
         drawer.hidden = false;
         drawer.classList.add('open');
       });
