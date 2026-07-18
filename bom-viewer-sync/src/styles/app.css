@@ -3592,11 +3592,11 @@ body.pdm-shell {
 
 .ai-chat-widget {
   position: fixed;
-  bottom: 80px;
+  bottom: 24px;
   right: 24px;
-  width: 600px;
-  height: calc(100vh - 120px);
-  max-height: 900px;
+  width: 700px;
+  height: calc(100vh - 48px);
+  max-height: 1200px;
   background-color: #ffffff;
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
