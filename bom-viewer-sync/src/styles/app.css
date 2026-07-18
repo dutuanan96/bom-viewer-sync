@@ -3594,9 +3594,9 @@ body.pdm-shell {
   position: fixed;
   bottom: 80px;
   right: 24px;
-  width: 450px;
-  height: 650px;
-  max-height: calc(100vh - 100px);
+  width: 600px;
+  height: calc(100vh - 120px);
+  max-height: 900px;
   background-color: #ffffff;
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
@@ -3720,6 +3720,7 @@ body.pdm-shell {
   word-wrap: break-word;
   overflow-wrap: break-word;
   word-break: break-word; 
+  white-space: pre-wrap;
 }
 .ai-message-row.user .ai-message {
   background-color: #e8f0fe;
