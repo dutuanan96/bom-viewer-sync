@@ -3,9 +3,8 @@ import { createTrustPolicy } from './trust-policy.js';
 import { createRuntime } from './runtime.js';
 import { createWorkspaceView, createSettingsView } from './workspace-view.js';
 import { ALLOWED_TOOLS } from './contracts.js';
-import { t } from './i18n.js';
 
-export function createAiAssistantFeature({ runTool, getSnapshot, fetchImpl = globalThis.fetch }) {
+export function createAiAssistantFeature({ runTool, getSnapshot, fetchImpl = globalThis.fetch, t = (k) => k }) {
   const gateway = createOpenRouterGateway({ fetchImpl });
   const trustPolicy = createTrustPolicy();
   const runtime = createRuntime({ gateway, trustPolicy, runTool });
@@ -13,6 +12,7 @@ export function createAiAssistantFeature({ runTool, getSnapshot, fetchImpl = glo
   let currentModel = 'openrouter/auto';
 
   const workspace = createWorkspaceView({
+    t,
     onSend: async (text) => {
       workspace.renderMessage({ role: 'user', text });
       if (workspace.toggleLoading) workspace.toggleLoading(true);
@@ -37,6 +37,7 @@ export function createAiAssistantFeature({ runTool, getSnapshot, fetchImpl = glo
   });
 
   const settings = createSettingsView({
+    t,
     onConnect: async (key) => {
       try {
         await gateway.connect(key);

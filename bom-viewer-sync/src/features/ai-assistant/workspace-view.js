@@ -1,6 +1,4 @@
-import { t } from './i18n.js';
-
-export function createWorkspaceView({ onSend, onClear }) {
+export function createWorkspaceView({ onSend, onClear, t = (k) => k }) {
   const container = document.createElement('div');
   container.className = 'ai-workspace';
   
@@ -143,7 +141,7 @@ export function createWorkspaceView({ onSend, onClear }) {
   };
 }
 
-export function createSettingsView({ onConnect, onDisconnect, getDiagnostics }) {
+export function createSettingsView({ onConnect, onDisconnect, getDiagnostics, t = (k) => k }) {
   const container = document.createElement('div');
   container.className = 'ai-settings';
   
