@@ -116,11 +116,23 @@ export function createWorkspaceView({ onSend, onClear, t = (k) => k }) {
     messagesDiv.scrollTo({ top: messagesDiv.scrollHeight, behavior: 'smooth' });
   }
   
+  function updateLanguage() {
+    input.placeholder = t('ai.workspace.placeholder');
+    input.setAttribute('aria-label', t('ai.workspace.placeholder'));
+    sendBtn.innerHTML = `<span class="material-symbols-outlined" aria-hidden="true">send</span><span class="sr-only">${t('ai.workspace.send')}</span>`;
+  }
+  
+  updateLanguage();
+
   // Add a default greeting message so the chat is never completely empty
-  renderMessage({
-    role: 'ai',
-    text: t('ai.workspace.greeting')
-  });
+  function renderGreeting() {
+    renderMessage({
+      role: 'ai',
+      text: t('ai.workspace.greeting')
+    });
+  }
+  
+  renderGreeting();
   
   function toggleLoading(isLoading) {
     loadingIndicator.style.display = isLoading ? 'block' : 'none';
@@ -137,6 +149,7 @@ export function createWorkspaceView({ onSend, onClear, t = (k) => k }) {
     renderMessage,
     clear,
     toggleLoading,
+    updateLanguage,
     messagesContainer: messagesDiv // exposed for testing
   };
 }
@@ -147,21 +160,28 @@ export function createSettingsView({ onConnect, onDisconnect, getDiagnostics, t 
   
   const keyInput = document.createElement('input');
   keyInput.type = 'password';
-  keyInput.placeholder = t('ai.settings.apiKey');
   keyInput.className = 'edit-input';
-  keyInput.setAttribute('aria-label', t('ai.settings.apiKey'));
   
   const connectBtn = document.createElement('button');
-  connectBtn.textContent = t('ai.settings.connect');
   connectBtn.className = 'btn btn-primary';
   
   const disconnectBtn = document.createElement('button');
-  disconnectBtn.textContent = t('ai.settings.disconnect');
   disconnectBtn.className = 'btn';
   
   const statusEl = document.createElement('div');
-  statusEl.textContent = t('ai.settings.statusDisconnected');
   statusEl.className = 'ai-status-text';
+  
+  let isConnected = false;
+  
+  function updateLanguage() {
+    keyInput.placeholder = t('ai.settings.apiKey');
+    keyInput.setAttribute('aria-label', t('ai.settings.apiKey'));
+    connectBtn.textContent = t('ai.settings.connect');
+    disconnectBtn.textContent = t('ai.settings.disconnect');
+    statusEl.textContent = isConnected ? t('ai.settings.statusConnected') : t('ai.settings.statusDisconnected');
+  }
+  
+  updateLanguage();
   
   connectBtn.addEventListener('click', () => {
     const key = keyInput.value.trim();
@@ -176,7 +196,8 @@ export function createSettingsView({ onConnect, onDisconnect, getDiagnostics, t 
   });
   
   function updateState(connected) {
-    statusEl.textContent = connected ? t('ai.settings.statusConnected') : t('ai.settings.statusDisconnected');
+    isConnected = connected;
+    updateLanguage();
   }
   
   container.appendChild(statusEl);
@@ -186,6 +207,7 @@ export function createSettingsView({ onConnect, onDisconnect, getDiagnostics, t 
   
   return {
     element: container,
-    updateState
+    updateState,
+    updateLanguage
   };
 }

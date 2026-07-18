@@ -65,6 +65,10 @@ export function createAiAssistantFeature({ runTool, getSnapshot, fetchImpl = glo
       settings.updateState(false);
       workspace.clear();
     },
+    updateLanguage: () => {
+      workspace.updateLanguage();
+      settings.updateLanguage();
+    },
     ui: {
       workspaceElement: workspace.element,
       settingsElement: settings.element,
