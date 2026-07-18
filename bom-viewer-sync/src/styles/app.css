@@ -3592,32 +3592,28 @@ body.pdm-shell {
 
 .ai-chat-widget {
   position: fixed;
-  bottom: 96px;
+  bottom: 80px;
   right: 24px;
-  width: 380px;
-  height: 550px;
-  max-height: calc(100vh - 120px);
-  background-color: var(--card);
+  width: 450px;
+  height: 650px;
+  max-height: calc(100vh - 100px);
+  background-color: #ffffff;
   border-radius: 16px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-  border: 1px solid var(--border);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   display: flex;
   flex-direction: column;
   z-index: 1000;
-  overflow: hidden;
-  transition: opacity 0.2s, transform 0.2s;
-  transform-origin: bottom right;
+  transition: opacity 0.3s, transform 0.3s;
 }
 .ai-chat-widget[hidden] {
-  display: flex !important;
+  display: none !important;
   opacity: 0;
-  transform: scale(0.9);
+  transform: translateY(20px);
   pointer-events: none;
 }
 .ai-chat-widget-header {
-  background-color: #f8fafc;
-  padding: 16px;
-  border-bottom: 1px solid var(--border);
+  background-color: transparent;
+  padding: 16px 16px 0 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -3648,7 +3644,7 @@ body.pdm-shell {
 #aiDrawerClose {
   background: transparent;
   border: none;
-  color: #9ca3af;
+  color: var(--blue);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -3657,8 +3653,7 @@ body.pdm-shell {
   border-radius: 4px;
 }
 #aiDrawerClose:hover {
-  color: #4b5563;
-  background-color: rgba(0,0,0,0.05);
+  background-color: rgba(0, 82, 204, 0.1);
 }
 .ai-chat-widget-content {
   flex: 1;
