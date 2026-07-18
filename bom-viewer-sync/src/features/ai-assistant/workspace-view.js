@@ -121,7 +121,7 @@ export function createWorkspaceView({ onSend, onClear }) {
   // Add a default greeting message so the chat is never completely empty
   renderMessage({
     role: 'ai',
-    text: '👋 Xin chào! Tôi là Trợ lý AI của JinTai PDM.\n\nHãy nhập câu hỏi của bạn xuống bên dưới, tôi đã sẵn sàng hỗ trợ bạn bất cứ lúc nào! 🤩'
+    text: t('ai.workspace.greeting')
   });
   
   function toggleLoading(isLoading) {

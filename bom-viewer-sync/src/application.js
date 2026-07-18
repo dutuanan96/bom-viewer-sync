@@ -1170,6 +1170,7 @@ const global = globalThis;
       this.queryAll('.lang-btn').forEach((button) => {
         button.addEventListener('click', () => {
           this.state.lang = button.dataset.lang;
+          if (global.document) global.document.documentElement.lang = this.state.lang;
           this.state.dbFilters = { attr: 'all', material: 'all', color: 'all', has2D: 'all', has3D: 'all' };
           this.renderAll();
         });
