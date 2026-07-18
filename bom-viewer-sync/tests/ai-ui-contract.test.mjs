@@ -80,8 +80,9 @@ test('R2.4: workspace uses textContent to prevent HTML injection', () => {
   const msgElements = messagesContainer.children;
   const lastMsg = msgElements[msgElements.length - 1];
   
-  // lastMsg is the .ai-message div, its first child is the .ai-message-text
-  const textDiv = lastMsg.children[0];
+  // lastMsg is the .ai-message-row div. We need to find the text container inside it.
+  const msgBody = lastMsg.children.find(c => c.className === 'ai-message') || lastMsg.children[0];
+  const textDiv = msgBody.children.find(c => c.className === 'ai-message-text') || msgBody.children[0];
   
   assert.equal(textDiv.textContent, '<script>alert("hack")</script>', 'Must use textContent for text');
   assert.ok(!textDiv.innerHTML.includes('<script>'), 'Must not inject HTML');

@@ -10,12 +10,16 @@ export function createWorkspaceView({ onSend, onClear }) {
   const inputDiv = document.createElement('div');
   inputDiv.className = 'ai-input-area';
   
-  const input = document.createElement('input');
-  input.type = 'text';
+  const input = document.createElement('textarea');
   input.placeholder = t('ai.workspace.placeholder');
   input.className = 'ai-chat-input';
   input.setAttribute('aria-label', t('ai.workspace.placeholder'));
+  input.rows = 2;
   
+  const charCounter = document.createElement('div');
+  charCounter.className = 'ai-char-counter';
+  charCounter.textContent = '0/500';
+
   const sendBtn = document.createElement('button');
   sendBtn.className = 'ai-send-btn';
   const sendIcon = document.createElement('span');
@@ -28,11 +32,23 @@ export function createWorkspaceView({ onSend, onClear }) {
   loadingIndicator.textContent = 'AI is typing...';
   loadingIndicator.style.display = 'none';
 
+  input.addEventListener('input', () => {
+    const len = input.value.length;
+    charCounter.textContent = `${len}/500`;
+    if (len > 0) {
+      sendBtn.classList.add('active');
+    } else {
+      sendBtn.classList.remove('active');
+    }
+  });
+
   const handleSend = () => {
     const text = input.value.trim();
     if (text) {
       onSend(text);
       input.value = '';
+      charCounter.textContent = '0/500';
+      sendBtn.classList.remove('active');
       input.focus();
     }
   };
@@ -46,12 +62,16 @@ export function createWorkspaceView({ onSend, onClear }) {
     }
   });
   
-  // Wrap input and send button in a relative container
   const inputWrapper = document.createElement('div');
   inputWrapper.className = 'ai-input-wrapper';
   inputWrapper.appendChild(input);
-  inputWrapper.appendChild(sendBtn);
-  
+
+  const inputFooter = document.createElement('div');
+  inputFooter.className = 'ai-input-footer';
+  inputFooter.appendChild(charCounter);
+  inputFooter.appendChild(sendBtn);
+
+  inputWrapper.appendChild(inputFooter);
   inputDiv.appendChild(inputWrapper);
   
   container.appendChild(messagesDiv);
@@ -59,8 +79,18 @@ export function createWorkspaceView({ onSend, onClear }) {
   container.appendChild(inputDiv);
   
   function renderMessage(msg) {
+    const rowEl = document.createElement('div');
+    rowEl.className = `ai-message-row ${msg.role}`;
+    
+    if (msg.role === 'ai' || msg.role === 'assistant') {
+      const avatar = document.createElement('div');
+      avatar.className = 'ai-avatar';
+      avatar.innerHTML = '<span class="material-symbols-outlined">smart_toy</span>';
+      rowEl.appendChild(avatar);
+    }
+    
     const msgEl = document.createElement('div');
-    msgEl.className = `ai-message ${msg.role}`;
+    msgEl.className = 'ai-message';
     
     // SAFE RENDERING: Only use textContent
     if (msg.text) {
@@ -83,7 +113,8 @@ export function createWorkspaceView({ onSend, onClear }) {
       msgEl.appendChild(citEl);
     }
     
-    messagesDiv.appendChild(msgEl);
+    rowEl.appendChild(msgEl);
+    messagesDiv.appendChild(rowEl);
     messagesDiv.scrollTo({ top: messagesDiv.scrollHeight, behavior: 'smooth' });
   }
   
