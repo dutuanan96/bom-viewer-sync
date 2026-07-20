@@ -213,6 +213,7 @@ function structureToolbar(count, label, options = {}) {
 }
 
 function structureActionsHtml(options = {}) {
+  const dirtyHidden = this.state.dirty ? '' : ' hidden';
   const addChild = options.addChild
     ? `<button class="btn" type="button" data-action="add-child-material">${escapeHTML(this.label('addChildMaterial'))}</button>`
     : '';
@@ -227,8 +228,9 @@ function structureActionsHtml(options = {}) {
   }
 
   return `${addParent}${addChild}
-    <button class="btn btn-primary" type="button" data-action="save">${escapeHTML(this.label('save'))}</button>
-    <button class="btn" type="button" data-action="discard">${escapeHTML(this.label('discard'))}</button>
+    <button class="btn btn-primary" type="button" data-dirty-action data-action="save"${dirtyHidden}>${escapeHTML(this.label('save'))}</button>
+    <button class="btn" type="button" data-dirty-action data-action="view-changes"${dirtyHidden}>${escapeHTML(this.label('viewChanges'))}</button>
+    <button class="btn" type="button" data-dirty-action data-action="discard"${dirtyHidden}>${escapeHTML(this.label('discard'))}</button>
     <button class="btn" type="button" data-action="reload">${escapeHTML(this.label('reload'))}</button>
     <button class="btn" type="button" data-action="material-db">${escapeHTML(this.label('materialDatabase'))}</button>`;
 }

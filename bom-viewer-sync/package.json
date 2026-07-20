@@ -4,17 +4,28 @@
   "type": "module",
   "scripts": {
     "audit:data": "node scripts/audit-data.mjs",
+    "audit:rollback": "node scripts/audit-data.mjs --data data.js",
     "audit:material-assets": "node scripts/audit-material-assets.mjs --mapping scripts/material-asset-mapping.json",
+    "audit:runtime-deps": "node scripts/audit-runtime-dependencies.mjs",
+    "audit:ai": "node scripts/audit-ai-security.mjs",
     "build": "node scripts/build.mjs",
     "check": "node scripts/check-all.mjs",
     "check:generated": "node scripts/check-generated.mjs",
+    "eval:ai": "node scripts/live-eval-ai.mjs",
     "migrate:dry-run": "node scripts/migrate-data-dry-run.mjs",
     "migrate:material-assets": "node scripts/audit-material-assets.mjs --mapping scripts/material-asset-mapping.json",
     "migrate:staging": "node scripts/migrate-data-staging.mjs",
     "smoke:contents-assets": "node scripts/smoke-github-contents-assets.mjs",
-    "test": "node --test tests/*.test.mjs"
+    "test:node": "node --test tests/*.test.mjs",
+    "test:e2e": "playwright test",
+    "test": "npm run test:node && npm run test:e2e"
   },
   "devDependencies": {
+    "@playwright/test": "^1.61.1",
     "esbuild": "0.28.1"
+  },
+  "dependencies": {
+    "@google/model-viewer": "4.3.1",
+    "xlsx": "file:vendor/runtime/xlsx-0.20.3.tgz"
   }
 }

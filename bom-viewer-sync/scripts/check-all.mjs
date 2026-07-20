@@ -4,10 +4,11 @@ const npmCommand = process.platform === 'win32' ? 'npm.cmd' : 'npm';
 const checks = [
   [npmCommand, ['run', 'test']],
   [npmCommand, ['run', 'audit:data']],
+  [npmCommand, ['run', 'audit:runtime-deps']],
   [npmCommand, ['run', 'check:generated']],
-  [process.execPath, ['scripts/materialize-shards.mjs', '--verify']],
-  [process.execPath, ['scripts/verify-rollback.mjs']],
   [process.execPath, ['--check', 'app-admin.js']],
+  [npmCommand, ['run', 'eval:ai']],
+  [npmCommand, ['run', 'audit:ai']],
 ];
 
 for (const [command, args] of checks) {

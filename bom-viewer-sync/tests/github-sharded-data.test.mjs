@@ -51,6 +51,13 @@ test('github-sharded-data adapter tests', async (t) => {
 
     assert.equal(fetchArgs[0], 'https://api.github.com/repos/test/test/commits/main');
     assert.ok(fetchArgs[1].startsWith('https://raw.githubusercontent.com/test/test/1234567890abcdef1234567890abcdef12345678/data/manifest.json'));
+
+    const metadata = adapter.getSourceMetadata();
+    assert.equal(metadata.commitSha, '1234567890abcdef1234567890abcdef12345678');
+    assert.equal(metadata.shardRoot, 'data');
+    assert.equal(metadata.manifestVersion, 1);
+    // Commit mock has no date, manifest has no updatedAt, so updatedAt should be null (no new Date() fallback)
+    assert.equal(metadata.updatedAt, null);
   });
 
   await t.test('loadForWrite fetches tree and blobs', async () => {
@@ -88,6 +95,13 @@ test('github-sharded-data adapter tests', async (t) => {
     assert.equal(result.expectedHeadSha, 'c'.repeat(40));
     assert.equal(result.payload.version, 1);
     assert.ok(result.payload.bom.P1);
+
+    const metadata = adapter.getSourceMetadata();
+    assert.equal(metadata.commitSha, 'c'.repeat(40));
+    assert.equal(metadata.shardRoot, 'data');
+    assert.equal(metadata.manifestVersion, 1);
+    // loadForWrite mock commit also has no date; updatedAt should be null
+    assert.equal(metadata.updatedAt, null);
   });
 
   await t.test('write delegates to writerFactory', async () => {
@@ -382,4 +396,131 @@ test('Adversarial Matrix: GitHub Sharded Adapter', async (t) => {
     );
     assert.equal(writerFactoryCalled, false);
   });
+});
+
+// ── R1.2: getSourceMetadata contract ────────────────────────────────────────
+
+test('R1.2: getSourceMetadata returns null before any load', () => {
+  const adapter = createGithubShardedDataAdapter({
+    config: { owner: 'test', repo: 'test', branch: 'main', shardRoot: 'data' },
+    fetchImpl: async () => { throw new Error('should not fetch'); }
+  });
+  assert.equal(adapter.getSourceMetadata(), null);
+});
+
+test('R1.2: getSourceMetadata updatedAt comes from manifest.updatedAt field, not new Date()', async () => {
+  // The commit response has NO date. Manifest has updatedAt. Source metadata must use manifest updatedAt.
+  const EXPECTED_UPDATED_AT = '2026-06-01T00:00:00Z';
+  const PRODUCT_IDS_22 = Array.from({ length: 22 }, (_, i) => `P${i + 1}`);
+
+  const fetchImpl = async (url) => {
+    if (url.includes('/commits/main')) {
+      // Deliberately omit commit date to verify no new Date() fallback
+      return { ok: true, json: async () => ({ sha: 'a'.repeat(40), commit: {} }) };
+    }
+    if (url.includes('manifest.json')) {
+      return {
+        ok: true,
+        text: async () => JSON.stringify({
+          version: 2,
+          updatedAt: EXPECTED_UPDATED_AT,
+          products: PRODUCT_IDS_22
+        })
+      };
+    }
+    if (url.includes('materials.json')) {
+      return { ok: true, text: async () => JSON.stringify({ materialDb: { materials: {}, bomEntries: [] }, drawings: {}, manuals: {}, models3d: {} }) };
+    }
+    const productMatch = url.match(/products\/(P\d+)\.json/);
+    if (productMatch) {
+      return { ok: true, text: async () => JSON.stringify({ code: productMatch[1], colors: [], color_info: {} }) };
+    }
+    return { ok: false, status: 404, text: async () => 'not found' };
+  };
+
+  const adapter = createGithubShardedDataAdapter({
+    config: { owner: 'test', repo: 'test', branch: 'main', shardRoot: 'data' },
+    fetchImpl,
+    now: () => 999
+  });
+
+  await adapter.loadPublic();
+  const meta = adapter.getSourceMetadata();
+
+  assert.equal(meta.commitSha, 'a'.repeat(40));
+  assert.equal(meta.shardRoot, 'data');
+  assert.equal(meta.manifestVersion, 2);
+  // Must be the manifest updatedAt, NOT a fresh new Date()
+  assert.equal(meta.updatedAt, EXPECTED_UPDATED_AT);
+});
+
+test('R1.2: getSourceMetadata updatedAt is absent (null) when neither commit nor manifest has a date', async () => {
+  const PRODUCT_IDS_22 = Array.from({ length: 22 }, (_, i) => `P${i + 1}`);
+
+  const fetchImpl = async (url) => {
+    if (url.includes('/commits/main')) {
+      return { ok: true, json: async () => ({ sha: 'b'.repeat(40), commit: {} }) };
+    }
+    if (url.includes('manifest.json')) {
+      return {
+        ok: true,
+        text: async () => JSON.stringify({ version: 1, products: PRODUCT_IDS_22 }) // no updatedAt
+      };
+    }
+    if (url.includes('materials.json')) {
+      return { ok: true, text: async () => JSON.stringify({ materialDb: { materials: {}, bomEntries: [] }, drawings: {}, manuals: {}, models3d: {} }) };
+    }
+    const productMatch = url.match(/products\/(P\d+)\.json/);
+    if (productMatch) {
+      return { ok: true, text: async () => JSON.stringify({ code: productMatch[1], colors: [], color_info: {} }) };
+    }
+    return { ok: false, status: 404, text: async () => 'not found' };
+  };
+
+  const adapter = createGithubShardedDataAdapter({
+    config: { owner: 'test', repo: 'test', branch: 'main', shardRoot: 'data' },
+    fetchImpl,
+    now: () => 999
+  });
+
+  await adapter.loadPublic();
+  const meta = adapter.getSourceMetadata();
+  // No fallback new Date() — must be absent/null
+  assert.equal(meta.updatedAt, null);
+});
+
+test('R1.2: getSourceMetadata returns a copy (immutable — mutation does not affect internal state)', async () => {
+  const PRODUCT_IDS_22 = Array.from({ length: 22 }, (_, i) => `P${i + 1}`);
+
+  const fetchImpl = async (url) => {
+    if (url.includes('/commits/main')) {
+      return { ok: true, json: async () => ({ sha: 'c'.repeat(40), commit: { committer: { date: '2026-01-01T00:00:00Z' } } }) };
+    }
+    if (url.includes('manifest.json')) {
+      return { ok: true, text: async () => JSON.stringify({ version: 1, products: PRODUCT_IDS_22 }) };
+    }
+    if (url.includes('materials.json')) {
+      return { ok: true, text: async () => JSON.stringify({ materialDb: { materials: {}, bomEntries: [] }, drawings: {}, manuals: {}, models3d: {} }) };
+    }
+    const productMatch = url.match(/products\/(P\d+)\.json/);
+    if (productMatch) {
+      return { ok: true, text: async () => JSON.stringify({ code: productMatch[1], colors: [], color_info: {} }) };
+    }
+    return { ok: false, status: 404, text: async () => 'not found' };
+  };
+
+  const adapter = createGithubShardedDataAdapter({
+    config: { owner: 'test', repo: 'test', branch: 'main', shardRoot: 'data' },
+    fetchImpl,
+    now: () => 999
+  });
+
+  await adapter.loadPublic();
+  const meta1 = adapter.getSourceMetadata();
+  meta1.commitSha = 'TAMPERED';
+  meta1.extra = 'injected';
+
+  const meta2 = adapter.getSourceMetadata();
+  assert.equal(meta2.commitSha, 'c'.repeat(40));
+  assert.equal(meta2.extra, undefined);
 });

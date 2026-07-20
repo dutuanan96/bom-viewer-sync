@@ -3,12 +3,13 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'wasm-unsafe-eval' 'sha256-w/QBJe1XksecJYgW6nZKghCJWdv7uwEMfTIIS5Oanxk='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob: https://drive.google.com https://lh3.googleusercontent.com https://raw.githubusercontent.com https://cdn.jsdelivr.net; connect-src https://api.github.com https://raw.githubusercontent.com https://cdn.jsdelivr.net https://openrouter.ai; frame-src 'self' blob: https://drive.google.com https://raw.githubusercontent.com https://cdn.jsdelivr.net; object-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="pdm-build" content="e478f66e9bbb">
+  <meta name="pdm-build" content="59311dddb6a9">
   <title>BOM Admin</title>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=e478f66e9bbb">
+  <link rel="stylesheet" href="styles.css?v=59311dddb6a9">
   <script>
     window.BOM_REPO_CONFIG = {
       owner: 'dutuanan96',
@@ -37,9 +38,12 @@
     </div>
     <div class="product-list" id="productList"></div>
     <div class="sidebar-credit" data-i18n="developedBy">Developed by</div>
-    <div class="sidebar-footer">
-      <span class="material-symbols-outlined" aria-hidden="true">settings</span>
-      <span>Settings</span>
+    <div class="sidebar-footer" id="sidebarFooter">
+
+      <button class="sidebar-footer-btn" id="btnSettings" type="button">
+        <span class="material-symbols-outlined" aria-hidden="true">settings</span>
+        <span data-i18n="settings">Settings</span>
+      </button>
     </div>
   </aside>
 
@@ -110,6 +114,35 @@
         <div class="content-header" id="contentHeader"></div>
       </section>
     </main>
+
+    <div class="ai-chat-widget" id="aiChatWidget" role="dialog" aria-modal="true" aria-label="AI Assistant">
+      <div class="ai-chat-widget-header">
+        <div style="flex: 1"></div>
+        <button id="aiDrawerClose" type="button">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <div class="ai-chat-widget-content" id="aiDrawerContent"></div>
+    </div>
+
+    <button class="ai-fab" id="aiFab" type="button">
+      <span class="material-symbols-outlined">smart_toy</span>
+    </button>
+  </div>
+
+  <div class="pdm-modal-overlay" id="settingsModal" aria-hidden="true">
+    <div class="pdm-modal-content pdm-modal-sm">
+      <div class="pdm-modal-header">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span class="material-symbols-outlined" style="color: var(--blue);">settings</span>
+          <h2>System Settings</h2>
+        </div>
+        <button class="pdm-modal-close" id="closeSettingsModal" type="button" aria-label="Close">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <div class="pdm-modal-body" id="settingsModalContent"></div>
+    </div>
   </div>
 
   <div class="pdf-modal" id="pdfModal" aria-hidden="true">
@@ -128,10 +161,8 @@
     </div>
   </div>
 
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <!-- Runtime data is loaded from immutable GitHub shards. -->
-  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
-  <script src="app-admin.js?v=e478f66e9bbb"></script>
+  <script src="app-admin.js?v=59311dddb6a9"></script>
 </body>
 
 </html>

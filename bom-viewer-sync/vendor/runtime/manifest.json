@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "dependencies": [
+    {
+      "packageId": "@google/model-viewer",
+      "version": "4.3.1",
+      "license": "Apache-2.0",
+      "source": "https://registry.npmjs.org/@google/model-viewer/-/model-viewer-4.3.1.tgz",
+      "delivery": "npm-lock",
+      "packageSpecifier": "4.3.1",
+      "lockResolved": "https://registry.npmjs.org/@google/model-viewer/-/model-viewer-4.3.1.tgz",
+      "integrity": "sha512-GP+inXhAtY31E8rILVmByA6z8CZZjdlNajddppyI1/j1eIaSQiZcMRaUqTFe7+jv4mzRzwKIOiKBud0apiv+WQ==",
+      "sha256": "33bb64ac99b83e40dfbfc39f896ecbdc301264fad198a91f37e1847c7ec6c644"
+    },
+    {
+      "packageId": "xlsx",
+      "version": "0.20.3",
+      "license": "Apache-2.0",
+      "source": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz",
+      "delivery": "vendored-tarball",
+      "packageSpecifier": "file:vendor/runtime/xlsx-0.20.3.tgz",
+      "lockResolved": "file:vendor/runtime/xlsx-0.20.3.tgz",
+      "integrity": "sha512-oLDq3jw7AcLqKWH2AhCpVTZl8mf6X2YReP+Neh0SJUzV/BdZYjth94tG5toiMB1PPrYtxOCfaoUCkvtuH+3AJA==",
+      "sha256": "8dc73fc3b00203e72d176e85b50938627c7b086e607c682e8d3c22c02bb99fe8",
+      "vendorPath": "vendor/runtime/xlsx-0.20.3.tgz"
+    }
+  ]
+}

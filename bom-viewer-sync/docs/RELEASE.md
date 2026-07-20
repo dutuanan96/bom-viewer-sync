@@ -71,6 +71,12 @@ git diff -- data.js data
 
 The final two commands must show no unintended runtime data change.
 
+## Branch Protection
+
+Require the `quality` workflow job in GitHub branch protection for `main`. This
+is a GitHub repository setting and requires repository-owner approval; do not
+change it as part of a code release.
+
 ## Mirror Publication
 
 Copy all four generated runtime files together. Do not mix files from different

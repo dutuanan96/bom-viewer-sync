@@ -3,17 +3,43 @@
  * Checks for: duplicate materials, orphan entries, missing fields,
  * parent-child inconsistencies, BOM entry issues.
  */
-import { readFileSync } from 'node:fs';
+import { lstatSync, readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { resolveBomRows } from '../src/domain/bom.js';
 import { parseDataJsPayload } from '../src/infrastructure/github-data.js';
+import { assertCutoverShardCount, parseLogicalShardFiles } from '../src/domain/sharded-files.js';
 
 const repoRoot = path.resolve(import.meta.dirname, '..');
 const dataArgumentIndex = process.argv.indexOf('--data');
-const dataPath = dataArgumentIndex >= 0
-  ? path.resolve(process.argv[dataArgumentIndex + 1])
-  : path.join(repoRoot, 'data.js');
-const payload = parseDataJsPayload(readFileSync(dataPath, 'utf8'));
+const dataPath = dataArgumentIndex >= 0 ? process.argv[dataArgumentIndex + 1] : null;
+
+function readCanonicalShardPayload() {
+  const logicalFiles = new Map();
+  const dataRoot = path.join(repoRoot, 'data');
+  for (const logicalPath of ['manifest.json', 'materials.json']) {
+    const absolutePath = path.join(dataRoot, logicalPath);
+    if (!lstatSync(absolutePath).isFile()) throw new Error(`Canonical shard is not a file: ${logicalPath}`);
+    logicalFiles.set(logicalPath, readFileSync(absolutePath, 'utf8'));
+  }
+
+  const productsRoot = path.join(dataRoot, 'products');
+  for (const entry of readdirSync(productsRoot, { withFileTypes: true })) {
+    if (!entry.isFile()) throw new Error(`Canonical product shard is not a file: ${entry.name}`);
+    const logicalPath = `products/${entry.name}`;
+    logicalFiles.set(logicalPath, readFileSync(path.join(productsRoot, entry.name), 'utf8'));
+  }
+
+  assertCutoverShardCount(logicalFiles);
+  return parseLogicalShardFiles(logicalFiles);
+}
+
+if (dataArgumentIndex >= 0 && !dataPath) throw new Error('--data requires a data.js rollback snapshot path');
+const payload = dataPath
+  ? parseDataJsPayload(readFileSync(path.resolve(dataPath), 'utf8'))
+  : await readCanonicalShardPayload();
+console.log(dataPath
+  ? 'Audit source: rollback snapshot (not canonical runtime data)'
+  : 'Audit source: canonical runtime shards (24)');
 
 const issues = [];
 function report(severity, category, message, detail) {

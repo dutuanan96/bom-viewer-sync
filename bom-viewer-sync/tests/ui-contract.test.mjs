@@ -216,6 +216,149 @@ test('direct Material Database page actions do not depend on ambient browser eve
   assert.equal(app.state.materialDbPage, 3);
 });
 
+test('Admin change preview renders the exact localized payload diff', () => {
+  const previous = coreUtils.normalizePayload({
+    materialDb: {
+      materials: {
+        mat_001: {
+          id: 'mat_001',
+          code: 'MAT-001',
+          name: { zh: 'Panel', vi: 'Panel' },
+          spec: { zh: '100 mm', vi: '100 mm' },
+        },
+      },
+      bomEntries: [],
+    },
+  });
+  const next = coreUtils.normalizePayload(JSON.parse(JSON.stringify(previous)));
+  next.materialDb.materials.mat_001.spec = { zh: '120 mm', vi: '120 mm' };
+
+  const app = new BomApplication({ mode: 'admin', githubData: {}, githubAssetStorage: {} });
+  app.state.loadedPayload = previous;
+  app.state.payload = next;
+  app.state.dirty = true;
+
+  assert.equal(typeof app.changePreviewHtml, 'function');
+
+  app.state.lang = 'zh';
+  const zhHtml = app.changePreviewHtml();
+  assert.match(zhHtml, /\u53d8\u66f4\u6458\u8981/);
+  assert.match(zhHtml, /\u7269\u6599\u5c5e\u6027/);
+  assert.match(zhHtml, /MAT-001/);
+  assert.match(zhHtml, /\u89c4\u683c\u578b\u53f7/);
+  assert.match(zhHtml, /100 mm/);
+  assert.match(zhHtml, /120 mm/);
+
+  app.state.lang = 'vi';
+  const viHtml = app.changePreviewHtml();
+  assert.match(viHtml, /T\u00f3m t\u1eaft thay \u0111\u1ed5i/);
+  assert.match(viHtml, /Thu\u1ed9c t\u00ednh v\u1eadt li\u1ec7u/);
+  assert.match(viHtml, /Quy c\u00e1ch/);
+  assert.match(viHtml, /100 mm/);
+  assert.match(viHtml, /120 mm/);
+});
+
+test('all Admin toolbar sources own dirty save, View Changes, and discard actions directly', () => {
+  const context = {
+    state: { adminView: 'bom', editMode: false, selectedParentId: null },
+    label: (key) => key,
+    canCreateProductRevision: () => false,
+  };
+  const toolbarSurfaces = [
+    bomViewMethods.bomActionsHtml.call(context),
+    bomViewMethods.adminActionsHtml.call(context),
+    materialViewMethods.materialDbActionsHtml.call(context),
+    structureViewMethods.structureActionsHtml.call(context),
+  ];
+
+  for (const toolbarHtml of toolbarSurfaces) {
+    for (const action of ['save', 'view-changes', 'discard']) {
+      assert.match(
+        toolbarHtml,
+        new RegExp(`<button[^>]*data-dirty-action[^>]*data-action="${action}"[^>]*>`),
+      );
+    }
+    assert.equal(toolbarHtml.match(/data-action="view-changes"/g)?.length, 1);
+  }
+
+  assert.doesNotMatch(appSource, /MutationObserver|observeDirtyActions|changePreviewActionHtml/);
+});
+
+test('Admin dirty action visibility uses existing toolbar markup only', () => {
+  const actions = [{ hidden: false }, { hidden: false }, { hidden: false }];
+
+  const app = new BomApplication({ mode: 'admin', githubData: {}, githubAssetStorage: {} });
+  app.queryAll = (selector) => selector === '[data-dirty-action]' ? actions : [];
+
+  assert.equal(typeof app.syncDirtyVisibility, 'function');
+
+  app.state.dirty = false;
+  app.syncDirtyVisibility();
+  assert.equal(actions.every((action) => action.hidden), true);
+
+  app.state.dirty = true;
+  app.syncDirtyVisibility();
+  assert.equal(actions.every((action) => !action.hidden), true);
+});
+
+test('Admin change preview modal manages focus and its temporary Escape listener', () => {
+  let inserted = false;
+  let overlayRemoved = 0;
+  let closeFocused = 0;
+  let triggerFocused = 0;
+  const documentListeners = new Map();
+  const closeButton = {
+    addEventListener() {},
+    focus() { closeFocused += 1; },
+  };
+  const overlay = {
+    addEventListener() {},
+    querySelector(selector) {
+      assert.equal(selector, '[data-close-diff]');
+      return closeButton;
+    },
+    remove() { overlayRemoved += 1; },
+  };
+  const documentStub = {
+    body: {
+      insertAdjacentHTML(position) {
+        assert.equal(position, 'beforeend');
+        inserted = true;
+      },
+    },
+    addEventListener(type, listener) { documentListeners.set(type, listener); },
+    removeEventListener(type, listener) {
+      if (documentListeners.get(type) === listener) documentListeners.delete(type);
+    },
+  };
+  const trigger = { focus() { triggerFocused += 1; } };
+  const context = {
+    query(selector) {
+      assert.equal(selector, '#diffModalOverlay');
+      return inserted ? overlay : null;
+    },
+    changePreviewHtml: () => '<div>preview</div>',
+  };
+  const originalDocument = globalThis.document;
+
+  globalThis.document = documentStub;
+  try {
+    sharedViewMethods.showDiffModal.call(context, trigger);
+
+    assert.equal(closeFocused, 1);
+    assert.equal(typeof documentListeners.get('keydown'), 'function');
+
+    documentListeners.get('keydown')({ key: 'Escape' });
+
+    assert.equal(overlayRemoved, 1);
+    assert.equal(documentListeners.has('keydown'), false);
+    assert.equal(triggerFocused, 1);
+  } finally {
+    if (originalDocument === undefined) delete globalThis.document;
+    else globalThis.document = originalDocument;
+  }
+});
+
 test('new Material Master draft is not inserted into database before save', () => {
   const addDatabaseMaterial = methodSource('addDatabaseMaterial');
 

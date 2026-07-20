@@ -11,6 +11,28 @@ export function escapeHTML(value) {
   }[char]));
 }
 
+const CHANGE_KIND_LABELS = {
+  material_added: 'diffKindMaterialAdded',
+  material_deleted: 'diffKindMaterialDeleted',
+  material: 'diffKindMaterial',
+  bom_added: 'diffKindBomAdded',
+  bom_deleted: 'diffKindBomDeleted',
+  bom_qty_changed: 'diffKindBomQty',
+  product_added: 'diffKindProductAdded',
+};
+
+const CHANGE_FIELD_LABELS = {
+  code: 'materialCode',
+  name: 'materialName',
+  spec: 'specification',
+  material: 'materialComposition',
+  color: 'materialColor',
+  attr: 'materialAttribute',
+  unit: 'unit',
+};
+
+const CHANGE_PREVIEW_LIMIT = 8;
+
 
 
 
@@ -31,6 +53,12 @@ function renderStaticText() {
     button.classList.toggle('active', button.dataset.lang === this.state.lang);
   });
   this.query('#modeBadge').textContent = this.isAdmin() ? 'Admin' : 'Viewer';
+
+  const aiDrawerClose = this.query('#aiDrawerClose');
+  if (aiDrawerClose) aiDrawerClose.setAttribute('aria-label', this.label('ai.workspace.close') || 'Close');
+
+  const aiFab = this.query('#aiFab');
+  if (aiFab) aiFab.setAttribute('aria-label', this.label('ai.workspace.open') || 'Open AI Assistant');
 }
 
 function renderStatus() {
@@ -47,6 +75,66 @@ function renderStatus() {
   if (versionDisplay) {
     versionDisplay.textContent = `V${this.state.payload.version || 1}`;
   }
+}
+
+function syncDirtyVisibility() {
+  this.queryAll('[data-dirty-action]').forEach((action) => {
+    action.hidden = !this.state.dirty;
+  });
+}
+
+function changePreviewHtml() {
+  const changes = this.pendingPayloadChanges();
+  let rows;
+  if (!this.state.dirty) {
+    rows = `<tr><td colspan="5" class="diff-empty">${escapeHTML(this.label('noDirtySummary'))}</td></tr>`;
+  } else if (!changes.length) {
+    rows = `<tr><td colspan="5" class="diff-empty">${escapeHTML(this.label('noChangesSummary'))}</td></tr>`;
+  } else {
+    rows = changes.slice(0, CHANGE_PREVIEW_LIMIT).map((change) => {
+      const kind = this.label(CHANGE_KIND_LABELS[change.kind] || change.kind);
+      const field = change.field ? this.label(CHANGE_FIELD_LABELS[change.field] || change.field) : '';
+      return `<tr><td>${escapeHTML(kind)}</td><td>${escapeHTML(change.code || '')}</td><td>${escapeHTML(field)}</td><td>${escapeHTML(change.before || '')}</td><td>${escapeHTML(change.after || '')}</td></tr>`;
+    }).join('');
+  }
+
+  return `<div class="pdm-modal-content diff-modal" role="dialog" aria-modal="true" aria-labelledby="diffModalTitle">
+    <div class="pdm-modal-header">
+      <h2 id="diffModalTitle">${escapeHTML(this.label('diffSummary'))}</h2>
+      <button class="pdm-modal-close" type="button" data-close-diff aria-label="${escapeHTML(this.label('close'))}">&times;</button>
+    </div>
+    <div class="pdm-modal-body">
+      <table class="diff-table"><thead><tr><th>${escapeHTML(this.label('diffColType'))}</th><th>${escapeHTML(this.label('diffColCode'))}</th><th>${escapeHTML(this.label('diffColField'))}</th><th>${escapeHTML(this.label('diffColBefore'))}</th><th>${escapeHTML(this.label('diffColAfter'))}</th></tr></thead><tbody>${rows}</tbody></table>
+    </div>
+  </div>`;
+}
+
+function showDiffModal(actionElement) {
+  if (this.closeDiffModal) this.closeDiffModal(false);
+  else this.query('#diffModalOverlay')?.remove();
+  globalThis.document.body.insertAdjacentHTML(
+    'beforeend',
+    `<div id="diffModalOverlay" class="pdm-modal-overlay diff-modal-overlay open">${this.changePreviewHtml()}</div>`,
+  );
+  const overlay = this.query('#diffModalOverlay');
+  const closeControl = overlay.querySelector('[data-close-diff]');
+  let handleKeyDown;
+  const closeModal = (restoreFocus = true) => {
+    globalThis.document.removeEventListener('keydown', handleKeyDown);
+    overlay.remove();
+    if (this.closeDiffModal === closeModal) this.closeDiffModal = null;
+    if (restoreFocus && typeof actionElement?.focus === 'function') actionElement.focus();
+  };
+  handleKeyDown = (event) => {
+    if (event.key === 'Escape') closeModal();
+  };
+  overlay.addEventListener('click', (event) => {
+    if (event.target === overlay) closeModal();
+  });
+  closeControl.addEventListener('click', () => closeModal());
+  globalThis.document.addEventListener('keydown', handleKeyDown);
+  this.closeDiffModal = closeModal;
+  closeControl.focus();
 }
 
 function renderStats() {
@@ -382,6 +470,9 @@ function openMaterialSelector(title, onSelect) {
 export const sharedViewMethods = {
   renderStaticText,
   renderStatus,
+  syncDirtyVisibility,
+  changePreviewHtml,
+  showDiffModal,
   renderStats,
   renderNotifications,
   renderFilterBar,

@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "packVersion": "1.2.0",
+  "updatedAt": "2026-07-20T00:00:00Z",
+  "description": "JinTai PDM AI prompt pack index with evidence-bound specialist routing.",
+  "roles": [
+    {
+      "id": "AI-01",
+      "level": "A4",
+      "name": "Project Coordinator and Integrator",
+      "responsibilities": ["gate-validation", "task-dispatch", "shared-file-locks"]
+    },
+    {
+      "id": "AI-02",
+      "level": "A4",
+      "name": "Trust, Proposal, and Mutation Principal",
+      "responsibilities": ["trust-policy", "proposal-policy", "local-mutation"]
+    },
+    {
+      "id": "AI-03",
+      "level": "A4",
+      "name": "Independent Reviewer",
+      "responsibilities": ["findings-first-review", "read-only"]
+    },
+    {
+      "id": "AI-04",
+      "level": "A3",
+      "name": "PDM Domain Specialist",
+      "responsibilities": ["source-metadata", "deterministic-tools", "bom-domain"]
+    },
+    {
+      "id": "AI-05",
+      "level": "A3",
+      "name": "Security, Provider, and Runtime Specialist",
+      "responsibilities": ["runtime-security", "csp", "provider-policy"]
+    },
+    {
+      "id": "AI-06",
+      "level": "A3",
+      "name": "Knowledge, Memory, and VOC Specialist",
+      "responsibilities": ["knowledge-packs", "memory-policy", "marketplace-aliases"]
+    },
+    {
+      "id": "AI-07",
+      "level": "A2",
+      "name": "Frontend and Accessibility Implementer",
+      "responsibilities": ["presentational-ui", "i18n-keys", "accessibility"]
+    },
+    {
+      "id": "AI-08",
+      "level": "A2",
+      "name": "QA, CI, and Evaluation Engineer",
+      "responsibilities": ["deterministic-eval", "ci", "playwright"]
+    },
+    {
+      "id": "AI-09",
+      "level": "A1",
+      "name": "Bounded Worker",
+      "responsibilities": ["fixtures", "i18n-entries", "css"]
+    }
+  ],
+  "specialists": [
+    {
+      "id": "revision",
+      "allowedTools": ["get_revision_history", "get_product"],
+      "evidenceRequired": true,
+      "doNotUse": "Do not infer revision status from the product list or UI badges.",
+      "instructions": ["Read current and effective revision separately.", "Explain draft versus released effectivity from tool evidence."],
+      "verification": ["Name the exact product and both revision states when available."]
+    },
+    {
+      "id": "bom_lookup",
+      "allowedTools": ["get_bom"],
+      "evidenceRequired": true,
+      "doNotUse": "Do not substitute a product search result for BOM rows.",
+      "instructions": ["Use canonical BOM rows for the exact product and color.", "State when rows are bounded or truncated."],
+      "verification": ["Name the product, color, revision scope, and row count."]
+    },
+    {
+      "id": "bom_comparison",
+      "allowedTools": ["compare_boms"],
+      "evidenceRequired": true,
+      "doNotUse": "Do not compare unaggregated raw rows manually.",
+      "instructions": ["Use exact materialId as BOM identity.", "Separate common, unique, quantity, attribute, and material-family findings."],
+      "verification": ["Name both products, colors, counts, and any unknown classification."]
+    },
+    {
+      "id": "material_usage",
+      "allowedTools": ["get_material", "where_used"],
+      "evidenceRequired": true,
+      "doNotUse": "Do not infer where-used relationships from material names.",
+      "instructions": ["Resolve the canonical materialId before material or where-used analysis."],
+      "verification": ["Name the materialId and evidence-backed product usage."]
+    },
+    {
+      "id": "proposal",
+      "allowedTools": ["submit_proposal"],
+      "evidenceRequired": true,
+      "doNotUse": "Do not mutate, save, or publish PDM data directly.",
+      "instructions": ["Create only an exact proposal for human review."],
+      "verification": ["Require an authorized canonical target and preserve approval gates."]
+    },
+    {
+      "id": "marketplace",
+      "allowedTools": ["resolve_sku", "get_marketplace_insights"],
+      "evidenceRequired": true,
+      "doNotUse": "Do not claim review evidence or root causes without imported evidence or explicit web consent.",
+      "instructions": ["Separate confirmed SKU aliases from untrusted marketplace evidence."],
+      "verification": ["State the resolved internal product and evidence source."]
+    }
+  ],
+  "notes": [
+    "Authoritative role prompt text is maintained externally by the project coordinator.",
+    "This index is structured metadata only. Do not duplicate full prompts here.",
+    "No Chinese or Vietnamese text is hardcoded in this file. UI strings use i18n keys."
+  ]
+}

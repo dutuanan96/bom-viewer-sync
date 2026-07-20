@@ -175,8 +175,10 @@ function materialDbToolbar(records) {
 }
 
 function materialDbActionsHtml() {
-  return `<button class="btn btn-primary" type="button" data-action="save">${escapeHTML(this.label('save'))}</button>
-    <button class="btn" type="button" data-action="discard">${escapeHTML(this.label('discard'))}</button>
+  const dirtyHidden = this.state.dirty ? '' : ' hidden';
+  return `<button class="btn btn-primary" type="button" data-dirty-action data-action="save"${dirtyHidden}>${escapeHTML(this.label('save'))}</button>
+    <button class="btn" type="button" data-dirty-action data-action="view-changes"${dirtyHidden}>${escapeHTML(this.label('viewChanges'))}</button>
+    <button class="btn" type="button" data-dirty-action data-action="discard"${dirtyHidden}>${escapeHTML(this.label('discard'))}</button>
     <button class="btn" type="button" data-action="reload">${escapeHTML(this.label('reload'))}</button>
     <button class="btn" type="button" data-action="bom-view">BOM</button>
     <button class="btn" type="button" data-action="add-db-material">${escapeHTML(this.label('addMaterial'))}</button>

@@ -43,6 +43,15 @@ import {
   hasChildMaterialRelation,
   syncLegacyBomFromMaterialDb,
 } from './domain/relationships.js';
+import { AI_PROMPT_PACK_VERSION, createAiAssistantFeature } from './features/ai-assistant/index.js';
+import { PdmKnowledge } from './features/ai-assistant/pdm-knowledge.js';
+import { createProposalPreview, applyApprovedProposal } from './features/ai-assistant/proposal-engine.js';
+import { createLocalAiStore } from './features/ai-assistant/local-store.js';
+import {
+  CONFIRMED_MARKETPLACE_ALIASES,
+  getMarketplaceInsights,
+  validateMarketplaceSearch,
+} from './features/ai-assistant/marketplace-insights.js';
 import {
   createProductRevision,
   isHistoricalProductRevision,
@@ -91,7 +100,22 @@ const global = globalThis;
       noDrawing: '未匹配',
       edit: '编辑',
       done: '完成',
-      save: '保存到 GitHub',
+      save: '\u63d0\u4ea4\u66f4\u6539',
+      viewChanges: '\u67e5\u770b\u66f4\u6539',
+      noChangesSummary: '\u6709\u672a\u63d0\u4ea4\u7684\u66f4\u6539\uff0c\u4f46\u4e0d\u5728\u6458\u8981\u8303\u56f4\u5185',
+      diffSummary: '\u53d8\u66f4\u6458\u8981\uff08\u6700\u591a\u663e\u793a 8 \u9879\uff09',
+      diffColType: '\u7c7b\u578b',
+      diffColCode: '\u7f16\u7801',
+      diffColField: '\u5b57\u6bb5',
+      diffColBefore: '\u4fee\u6539\u524d',
+      diffColAfter: '\u4fee\u6539\u540e',
+      diffKindMaterial: '\u7269\u6599\u5c5e\u6027',
+      diffKindMaterialAdded: '\u65b0\u589e\u7269\u6599',
+      diffKindMaterialDeleted: '\u5220\u9664\u7269\u6599',
+      diffKindBomAdded: '\u7236\u9879\u65b0\u589e\u5b50\u9879',
+      diffKindBomDeleted: '\u7236\u9879\u79fb\u9664\u5b50\u9879',
+      diffKindBomQty: '\u6570\u91cf\u53d8\u66f4',
+      diffKindProductAdded: '\u65b0\u589e\u4ea7\u54c1',
       reload: '重新加载',
       discard: '放弃更改',
       copy: '复制',
@@ -217,7 +241,60 @@ const global = globalThis;
       has2D: '2D图纸',
       has3D: '3D模型',
       download: '下载',
-      close: '关闭'
+      close: '关闭',
+      'ai.title': 'AI 助手',
+      'ai.settings.title': 'AI 设置',
+      'ai.settings.connection': '连接',
+      'ai.settings.privacy': '隐私',
+      'ai.settings.diagnostics': '诊断',
+      'ai.settings.apiKey': 'OpenRouter API 密钥',
+      'ai.settings.modelLabel': 'AI 模型选择',
+      'ai.settings.connect': '连接',
+      'ai.settings.disconnect': '断开连接',
+      'ai.settings.consentLabel': '允许回退到付费模型',
+      'ai.settings.statusConnected': '已连接',
+      'ai.settings.statusDisconnected': '未连接',
+      'ai.workspace.placeholder': '输入您的问题...',
+      'ai.workspace.send': '发送',
+      'ai.workspace.clear': '清除对话',
+      'ai.workspace.close': '关闭',
+      'ai.workspace.open': '打开 AI 助手',
+      'ai.workspace.loading': 'AI 正在输入...',
+      'ai.workspace.conversationLabel': '对话记录',
+      'ai.settings.keyNotPersisted': '⚠ 出于安全原因，API 密钥仅保存在当前会话内存中，刷新页面后需要重新连接。',
+      'ai.memory.title': '记忆与知识',
+      'ai.memory.confirm': '确认',
+      'ai.memory.reject': '拒绝',
+      'ai.memory.delete': '删除',
+      'ai.memory.export': '导出记忆与审计',
+      'ai.memory.persistent': '记忆保存在此浏览器中。',
+      'ai.memory.sessionOnly': '浏览器存储不可用；当前为仅会话模式。',
+      'ai.knowledge.import': '导入 JSON、CSV、TXT 或 Markdown 知识文件',
+      'ai.knowledge.importedCandidate': '已导入为待确认的非可信知识。',
+      'ai.knowledge.importFailed': '知识导入失败',
+      'ai.mapping.clarification': '该名称可能对应多个标准对象，请选择正确的产品或物料。',
+      'ai.mapping.choose': '选择此对象',
+      'ai.mapping.candidateCreated': '已保存为个人映射候选项，请在设置中确认后使用。',
+      'ai.mapping.exportPromotion': '导出公司映射候选',
+      'ai.marketplace.webConsent': '允许一次仅限 Amazon 的联网搜索（可能产生 OpenRouter 搜索费用）',
+      'ai.proposal.title': '建议更改',
+      'ai.proposal.noChanges': '未检测到更改。',
+      'ai.proposal.type': '类型',
+      'ai.proposal.code': '编码',
+      'ai.proposal.field': '字段',
+      'ai.proposal.before': '更改前',
+      'ai.proposal.after': '更改后',
+      'ai.proposal.reject': '拒绝',
+      'ai.proposal.rejected': '已拒绝建议。',
+      'ai.proposal.approve': '批准并应用到本地',
+      'ai.proposal.approved': '已批准建议。',
+      'ai.proposal.prepared': '我已准备好一个更改建议，请在下方审核。',
+      'ai.proposal.applyError': '应用建议失败',
+      'ai.proposal.applied': '建议已应用到本地工作区。请检查更改，然后单独点击保存。',
+      'ai.message.fallback': 'AI 助手暂时不可用。请稍后再试。',
+      'ai.message.error': '发生错误',
+      'ai.error.budgetExceeded': '本轮模型重复调用过多，请重试或更换模型。',
+      'ai.workspace.greeting': '👋 您好！我是 JinTai PDM 的 AI 助手。\n\n请在下方输入您的问题，我随时准备为您提供帮助！🤩'
     },
     vi: {
       brand: 'Jintai BOM',
@@ -240,7 +317,22 @@ const global = globalThis;
       noDrawing: 'Chưa khớp',
       edit: 'Sửa',
       done: 'Xong',
-      save: 'Lưu lên GitHub',
+      save: 'G\u1eedi thay \u0111\u1ed5i',
+      viewChanges: 'Xem thay \u0111\u1ed5i',
+      noChangesSummary: 'C\u00f3 thay \u0111\u1ed5i ch\u01b0a g\u1eedi, nh\u01b0ng kh\u00f4ng n\u1eb1m trong ph\u1ea7n t\u00f3m t\u1eaft',
+      diffSummary: 'T\u00f3m t\u1eaft thay \u0111\u1ed5i (t\u1ed1i \u0111a 8 m\u1ee5c)',
+      diffColType: 'Lo\u1ea1i',
+      diffColCode: 'M\u00e3',
+      diffColField: 'Tr\u01b0\u1eddng',
+      diffColBefore: 'Tr\u01b0\u1edbc',
+      diffColAfter: 'Sau',
+      diffKindMaterial: 'Thu\u1ed9c t\u00ednh v\u1eadt li\u1ec7u',
+      diffKindMaterialAdded: 'Th\u00eam v\u1eadt li\u1ec7u',
+      diffKindMaterialDeleted: 'X\u00f3a v\u1eadt li\u1ec7u',
+      diffKindBomAdded: 'Th\u00eam con v\u00e0o ph\u1ee5 huynh',
+      diffKindBomDeleted: 'X\u00f3a con kh\u1ecfi ph\u1ee5 huynh',
+      diffKindBomQty: '\u0110\u1ed5i s\u1ed1 l\u01b0\u1ee3ng',
+      diffKindProductAdded: 'Th\u00eam s\u1ea3n ph\u1ea9m',
       reload: 'Tải lại',
       discard: 'Bỏ thay đổi',
       copy: 'Copy',
@@ -366,11 +458,69 @@ const global = globalThis;
       has2D: 'Bản vẽ 2D',
       has3D: 'Mô hình 3D',
       download: 'Tải xuống',
-      close: 'Đóng'
+      close: 'Đóng',
+      'ai.title': 'Trợ lý AI',
+      'ai.settings.title': 'Cài đặt AI',
+      'ai.settings.connection': 'Kết nối',
+      'ai.settings.privacy': 'Quyền riêng tư',
+      'ai.settings.diagnostics': 'Chẩn đoán',
+      'ai.settings.apiKey': 'Khóa API OpenRouter',
+      'ai.settings.modelLabel': 'Chọn mô hình AI',
+      'ai.settings.connect': 'Kết nối',
+      'ai.settings.disconnect': 'Ngắt kết nối',
+      'ai.settings.consentLabel': 'Cho phép chuyển sang mô hình trả phí',
+      'ai.settings.statusConnected': 'Đã kết nối',
+      'ai.settings.statusDisconnected': 'Chưa kết nối',
+      'ai.workspace.placeholder': 'Nhập câu hỏi của bạn...',
+      'ai.workspace.send': 'Gửi',
+      'ai.workspace.clear': 'Xóa trò chuyện',
+      'ai.workspace.close': 'Đóng',
+      'ai.workspace.open': 'Mở Trợ lý AI',
+      'ai.workspace.loading': 'AI đang nhập...',
+      'ai.workspace.conversationLabel': 'Lịch sử trò chuyện',
+      'ai.settings.keyNotPersisted': '⚠ Vì lý do bảo mật, khóa API chỉ được lưu trong bộ nhớ phiên hiện tại. Bạn cần kết nối lại sau khi tải lại trang.',
+      'ai.memory.title': 'Bộ nhớ và kiến thức',
+      'ai.memory.confirm': 'Xác nhận',
+      'ai.memory.reject': 'Từ chối',
+      'ai.memory.delete': 'Xóa',
+      'ai.memory.export': 'Xuất bộ nhớ và audit',
+      'ai.memory.persistent': 'Bộ nhớ được lưu trong trình duyệt này.',
+      'ai.memory.sessionOnly': 'Không thể dùng lưu trữ trình duyệt; đang chạy ở chế độ chỉ trong phiên.',
+      'ai.knowledge.import': 'Nhập file kiến thức JSON, CSV, TXT hoặc Markdown',
+      'ai.knowledge.importedCandidate': 'Đã nhập dưới dạng kiến thức không tin cậy chờ xác nhận.',
+      'ai.knowledge.importFailed': 'Nhập kiến thức thất bại',
+      'ai.mapping.clarification': 'Tên này có thể khớp nhiều đối tượng chuẩn. Hãy chọn đúng sản phẩm hoặc vật liệu.',
+      'ai.mapping.choose': 'Chọn đối tượng này',
+      'ai.mapping.candidateCreated': 'Đã lưu dưới dạng mapping cá nhân chờ xác nhận. Hãy xác nhận trong Cài đặt trước khi dùng.',
+      'ai.mapping.exportPromotion': 'Xuất ứng viên mapping công ty',
+      'ai.marketplace.webConsent': 'Cho phép một lượt tìm kiếm web chỉ trên Amazon (có thể phát sinh phí tìm kiếm OpenRouter)',
+      'ai.proposal.title': 'Đề xuất thay đổi',
+      'ai.proposal.noChanges': 'Không phát hiện thay đổi.',
+      'ai.proposal.type': 'Loại',
+      'ai.proposal.code': 'Mã',
+      'ai.proposal.field': 'Trường',
+      'ai.proposal.before': 'Trước',
+      'ai.proposal.after': 'Sau',
+      'ai.proposal.reject': 'Từ chối',
+      'ai.proposal.rejected': 'Đã từ chối đề xuất.',
+      'ai.proposal.approve': 'Duyệt và áp dụng cục bộ',
+      'ai.proposal.approved': 'Đã duyệt đề xuất.',
+      'ai.proposal.prepared': 'Tôi đã chuẩn bị một đề xuất thay đổi. Vui lòng kiểm tra bên dưới.',
+      'ai.proposal.applyError': 'Không thể áp dụng đề xuất',
+      'ai.proposal.applied': 'Đề xuất đã được áp dụng vào workspace cục bộ. Hãy kiểm tra thay đổi rồi bấm Lưu riêng.',
+      'ai.message.fallback': 'Trợ lý AI tạm thời không khả dụng. Vui lòng thử lại sau.',
+      'ai.message.error': 'Đã xảy ra lỗi',
+      'ai.error.budgetExceeded': 'Mô hình đã gọi lặp quá nhiều trong lượt này. Hãy thử lại hoặc đổi mô hình.',
+      'ai.workspace.greeting': '👋 Xin chào! Tôi là Trợ lý AI của JinTai PDM.\n\nHãy nhập câu hỏi của bạn xuống bên dưới, tôi đã sẵn sàng hỗ trợ bạn bất cứ lúc nào! 🤩'
     }
   };
 
   Object.assign(TEXT.zh, {
+    'ai.trace.title': '\u8fd0\u884c\u8ffd\u8e2a',
+    'ai.trace.empty': '\u6682\u65e0 AI \u8fd0\u884c\u8ffd\u8e2a\u3002',
+    'ai.trace.events': '\u4e8b\u4ef6',
+    'ai.trace.copy': '\u590d\u5236\u8ffd\u8e2a',
+    'ai.trace.copied': '\u5df2\u590d\u5236',
     productBom: '产品 BOM',
     paginationTotal: '共',
     paginationItems: '条',
@@ -452,6 +602,11 @@ const global = globalThis;
   });
 
   Object.assign(TEXT.vi, {
+    'ai.trace.title': 'Nh\u1eadt k\u00fd v\u1eadn h\u00e0nh',
+    'ai.trace.empty': 'Ch\u01b0a c\u00f3 nh\u1eadt k\u00fd v\u1eadn h\u00e0nh AI.',
+    'ai.trace.events': 'S\u1ef1 ki\u1ec7n',
+    'ai.trace.copy': 'Sao ch\u00e9p nh\u1eadt k\u00fd',
+    'ai.trace.copied': '\u0110\u00e3 sao ch\u00e9p',
     productBom: 'BOM sản phẩm',
     paginationTotal: 'Tổng',
     paginationItems: 'mục',
@@ -621,6 +776,237 @@ const global = globalThis;
       this.renderAll();
       this.loadCloud({ silent: true });
       global.setInterval(() => this.loadCloud({ silent: true }), this.isAdmin() ? REFRESH_MS : NOTIFICATION_REFRESH_MS);
+
+      // R2.4 AI Integration (safe init)
+      try {
+        this._initAiAssistant();
+      } catch (err) {
+        console.warn('AI Assistant initialization failed (Core PDM continues):', err);
+      }
+    }
+
+    _initAiAssistant() {
+      // Clean up previous event listeners if re-initializing
+      if (this.aiFeature && typeof this.aiFeature.destroy === 'function') {
+        this.aiFeature.destroy();
+      }
+      if (this._handleAiDocClick) {
+        document.removeEventListener('click', this._handleAiDocClick);
+      }
+      if (this._handleAiKeydown) {
+        document.removeEventListener('keydown', this._handleAiKeydown);
+      }
+
+      if (this._handleAiFabClick) {
+        this.query('#aiFab')?.removeEventListener('click', this._handleAiFabClick);
+      }
+      if (this._handleAiDrawerCloseClick) {
+        this.query('#aiDrawerClose')?.removeEventListener('click', this._handleAiDrawerCloseClick);
+      }
+
+      this.aiLocalStore ||= createLocalAiStore();
+      this.aiFeature = createAiAssistantFeature({
+        getSnapshot: () => this.getSnapshot(),
+        t: (key) => this.label(key),
+        localStore: this.aiLocalStore,
+        runTool: async (call, snapshot) => {
+          if (call.name === 'submit_proposal') {
+            const preview = createProposalPreview(snapshot, call.arguments);
+
+            // Render the proposal directly into the chat and pause execution
+            this.aiFeature.ui.renderMessage({
+              role: 'ai',
+              text: this.label('ai.proposal.prepared'),
+              proposal: preview.proposal,
+              approval: preview,
+              diff: preview.changes,
+              onApprove: (approvedPreview) => {
+                try {
+                  this.applyAiProposal(approvedPreview);
+                } catch (e) {
+                  this.aiFeature.ui.renderMessage({ role: 'assistant', text: `${this.label('ai.proposal.applyError')}: ${e.message}` });
+                }
+              }
+            });
+
+            return 'Proposal presented to user for review. Stop using tools and let the user respond.';
+          }
+
+          if (call.name === 'store_memory') {
+            const memory = this.aiLocalStore.createCandidate({
+              scope: {
+                project: 'jintai-pdm',
+                key: call.arguments.key,
+                productCode: snapshot.selection?.productCode || null,
+                materialId: snapshot.selection?.materialId || null,
+              },
+              fact: call.arguments.value,
+              provenance: [{
+                sourceType: 'model-proposed',
+                sourceRef: call.arguments.key,
+                capturedAt: new Date().toISOString(),
+              }],
+              sourceCommit: snapshot.sourceMetadata?.commitSha || null,
+              promptPackVersion: AI_PROMPT_PACK_VERSION,
+            });
+            return { status: 'candidate', memoryId: memory.id, requiresUserConfirmation: true };
+          }
+          if (call.name === 'retrieve_memory') {
+            const memories = this.aiLocalStore.listConfirmed({ currentSourceCommit: snapshot.sourceMetadata?.commitSha });
+            return memories.find((memory) => memory.scope?.key === call.arguments.key) || { found: false };
+          }
+          if (call.name === 'get_marketplace_insights') {
+            const productCode = call.arguments.productId;
+            return {
+              ...getMarketplaceInsights({ productCode, evidence: [] }),
+              webSearchRequest: validateMarketplaceSearch({
+                domain: 'amazon.com',
+                query: `${productCode} Amazon product reviews customer feedback`,
+                maxResults: 5,
+              }),
+            };
+          }
+
+          const knowledge = new PdmKnowledge(snapshot, { aliasMap: CONFIRMED_MARKETPLACE_ALIASES });
+          const methodName = call.name.replace(/_([a-z])/g, g => g[1].toUpperCase());
+          if (typeof knowledge[methodName] === 'function') {
+            return knowledge[methodName](call.arguments);
+          }
+          throw new Error('Tool not implemented locally: ' + call.name);
+        }
+      });
+
+      const chatWidgetContent = this.query('#aiDrawerContent');
+      const settingsModalContent = this.query('#settingsModalContent');
+      if (chatWidgetContent) {
+        chatWidgetContent.replaceChildren(this.aiFeature.ui.workspaceElement);
+      }
+      if (settingsModalContent) {
+        settingsModalContent.replaceChildren(this.aiFeature.ui.settingsElement);
+      }
+
+      const chatWidget = this.query('#aiChatWidget');
+      const aiFab = this.query('#aiFab');
+
+      const toggleChat = (open) => {
+        if (!chatWidget) return;
+        const isOpen = open !== undefined ? open : !chatWidget.classList.contains('is-open');
+        if (isOpen) {
+          chatWidget.classList.add('is-open');
+          aiFab?.classList.add('is-hidden');
+          chatWidget.setAttribute('aria-modal', 'true');
+          const firstFocusable = chatWidget.querySelector('textarea, button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])');
+          if (firstFocusable) firstFocusable.focus();
+        } else {
+          chatWidget.classList.remove('is-open');
+          aiFab?.classList.remove('is-hidden');
+          chatWidget.removeAttribute('aria-modal');
+          aiFab?.focus();
+        }
+      };
+
+      this._handleAiFabClick = (e) => {
+        e.stopPropagation();
+        toggleChat();
+      };
+      aiFab?.addEventListener('click', this._handleAiFabClick);
+
+      this._handleAiDrawerCloseClick = () => {
+        toggleChat(false);
+      };
+      this.query('#aiDrawerClose')?.addEventListener('click', this._handleAiDrawerCloseClick);
+
+      this._handleAiDocClick = (e) => {
+        if (chatWidget && chatWidget.classList.contains('is-open') && !chatWidget.contains(e.target) && !aiFab.contains(e.target)) {
+          toggleChat(false);
+        }
+      };
+      document.addEventListener('click', this._handleAiDocClick);
+
+      this._handleAiKeydown = (e) => {
+        if (!chatWidget || !chatWidget.classList.contains('is-open')) return;
+
+        if (e.key === 'Escape') {
+          toggleChat(false);
+          return;
+        }
+
+        if (e.key === 'Tab') {
+          const focusables = [...chatWidget.querySelectorAll('button:not([disabled]), textarea:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])')];
+          if (focusables.length === 0) return;
+          const first = focusables[0];
+          const last = focusables[focusables.length - 1];
+
+          if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      };
+      document.addEventListener('keydown', this._handleAiKeydown);
+
+      this.query('#btnSettings')?.addEventListener('click', () => {
+        settingsModal.setAttribute('aria-hidden', 'false');
+        settingsModal.classList.add('open');
+      });
+      this.query('#closeSettingsModal')?.addEventListener('click', () => {
+        settingsModal.setAttribute('aria-hidden', 'true');
+        settingsModal.classList.remove('open');
+      });
+    }
+
+    applyAiProposal(preview) {
+      const currentSnapshot = this.getSnapshot();
+      const applied = applyApprovedProposal(currentSnapshot, preview);
+      const evt = {
+        type: 'ai-proposal',
+        actor: 'ai',
+        changes: applied.changes,
+        sourceCommit: preview.binding.sourceCommit,
+        operationType: preview.proposal.operationType,
+        targetId: preview.proposal.targetId,
+        createdAt: new Date().toISOString(),
+      };
+      this.state.payload = appendNormalizedNotificationEvent(applied.payload, evt);
+
+      // Update references
+      this.state.bom = this.state.payload.bom;
+      this.state.drawings = this.state.payload.drawings;
+      this.state.manuals = this.state.payload.manuals;
+      this.state.models3d = this.state.payload.models3d;
+      this.state.productImages = this.state.payload.productImages;
+      this.state.materialDb = this.state.payload.materialDb;
+
+      this.markDirty();
+      this.renderAll();
+
+      this.aiFeature.ui.renderMessage({ role: 'assistant', text: this.label('ai.proposal.applied') });
+    }
+
+    getSnapshot() {
+        const currentView = this.state.adminView === 'bom' && !this.state.bomDetailOpen ? 'ProductList'
+                     : this.state.adminView === 'bom' && this.state.bomDetailOpen ? 'BomDetail'
+                     : this.state.adminView === 'materials' ? 'MaterialDatabase'
+                     : this.state.adminView === 'structure' ? 'ParentChildStructure'
+                     : this.state.adminView;
+        return {
+          isAdmin: this.isAdmin(),
+          canEditRevision: this.canEditProductRevision(),
+          dirty: this.state.dirty,
+          payload: clone(this.state.payload),
+          sourceMetadata: this.githubData.getSourceMetadata ? this.githubData.getSourceMetadata() : null,
+          selection: {
+            currentView,
+            productCode: currentView !== 'ProductList' ? this.state.currentSku : null,
+            color: currentView !== 'ProductList' ? this.state.currentColor : null,
+            revision: currentView !== 'ProductList' ? this.selectedProductRevision() : null,
+            materialId: this.state.selectedMaterialId
+          },
+          lang: this.state.lang
+        };
     }
 
     label(key) {
@@ -1056,6 +1442,7 @@ const global = globalThis;
       this.queryAll('.lang-btn').forEach((button) => {
         button.addEventListener('click', () => {
           this.state.lang = button.dataset.lang;
+          if (global.document) global.document.documentElement.lang = this.state.lang;
           this.state.dbFilters = { attr: 'all', material: 'all', color: 'all', has2D: 'all', has3D: 'all' };
           this.renderAll();
         });
@@ -1065,6 +1452,7 @@ const global = globalThis;
     runAction(action, actionElement) {
       if (action === 'toggle-edit' && this.canEditProductRevision()) this.toggleEdit();
       if (action === 'save' && this.isAdmin()) this.saveCloud();
+      if (action === 'view-changes' && this.isAdmin()) this.showDiffModal(actionElement);
       if (action === 'reload') this.loadCloud({ silent: false });
       if (action === 'discard' && this.isAdmin()) this.discard();
       if (action === 'material-db' && this.isAdmin()) { this.state.materialDbPage = 1; this.openMaterialDatabase(); }
@@ -1298,6 +1686,10 @@ const global = globalThis;
       this.renderProductList();
       this.renderContent();
       this.renderInspector();
+      this.syncDirtyVisibility();
+      if (this.aiFeature && this.aiFeature.updateLanguage) {
+        this.aiFeature.updateLanguage();
+      }
     }
 
     notifications() {
@@ -2247,6 +2639,11 @@ const global = globalThis;
     markDirty() {
       this.state.dirty = true;
       this.renderStatus();
+      this.syncDirtyVisibility();
+    }
+
+    pendingPayloadChanges() {
+      return describePayloadChanges(this.state.loadedPayload, this.state.payload);
     }
 
     discard() {
