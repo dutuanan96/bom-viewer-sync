@@ -343,6 +343,7 @@ export function createOpenRouterGateway(opts = {}) {
     headers: _headers,
     plugins: _plugins,
     response_format: _responseFormat,
+    parallel_tool_calls: _parallel_tool_calls,
     ...rest
   }) {
     if (!_connected || !_key) throw new Error('Gateway not connected');

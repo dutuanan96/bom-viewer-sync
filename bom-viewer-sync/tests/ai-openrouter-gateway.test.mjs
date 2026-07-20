@@ -631,3 +631,28 @@ test('R2.1: caller cancellation aborts an in-flight request', async () => {
   controller.abort();
   await assert.rejects(() => pending, /abort/i);
 });
+
+test('bugfix: gateway strips parallel_tool_calls when tools are empty to prevent OpenRouter 404 routing failure', async () => {
+  let capturedBody;
+  const fetchImpl = async (url, options) => {
+    if (url.includes('/api/v1/key')) return { ok: true, status: 200, json: async () => VALID_KEY_RESPONSE, text: async () => '' };
+    if (url.includes('/api/v1/models')) return { ok: true, status: 200, json: async () => MODELS_RESPONSE, text: async () => '' };
+    if (url.includes('/api/v1/chat')) {
+      capturedBody = JSON.parse(options.body);
+      return { ok: true, status: 200, json: async () => ({ choices: [{ message: { content: 'ok' } }] }), text: async () => '' };
+    }
+    throw new Error(`Unexpected: ${url}`);
+  };
+  const gateway = createOpenRouterGateway({ fetchImpl });
+  await gateway.connect(TEST_KEY);
+  
+  await gateway.chat({
+    model: 'openai/gpt-4o-mini',
+    messages: [{ role: 'user', content: 'hello' }],
+    tools: [],
+    parallel_tool_calls: false
+  });
+
+  assert.equal(capturedBody.parallel_tool_calls, undefined, 'parallel_tool_calls should be stripped when tools are empty');
+  assert.equal(capturedBody.tools, undefined, 'tools should not be sent when empty');
+});
