@@ -244,6 +244,49 @@ test('R2.3: deterministic BOM comparison preserves every bounded evidence citati
   assert.equal(result.usage.toolCalls, 1);
 });
 
+test('R2.3: deterministic evidence safely accepts a Grade B plain-text answer', async () => {
+  const availableTools = [{ type: 'function', function: { name: 'compare_boms' } }];
+  const query = '帮我看一下LGS723和LGS733有什么铁件共用';
+  const gateway = createMockGateway({
+    chatResponses: [{ choices: [{ message: {
+      role: 'assistant',
+      content: 'LGS723 和 LGS733 共用 20 个相同物料编码。'
+    } }] }]
+  });
+  const runtime = createRuntime({
+    gateway,
+    trustPolicy: createTrustPolicy(),
+    runTool: async () => createGroundedComparison('LGS723', 'LGS733', {
+      summary: {
+        commonCount: 20,
+        onlyProduct1Count: 0,
+        onlyProduct2Count: 0,
+        quantityOrUnitDifferenceCount: 0,
+        similarityScore: 1,
+        commonByAttribute: {},
+        commonByMaterialFamily: {},
+      },
+      evidence: [
+        { id: 'bom:LGS723', type: 'bom', recordId: 'LGS723' },
+        { id: 'bom:LGS733', type: 'bom', recordId: 'LGS733' }
+      ]
+    })
+  });
+  const route = routePdmIntent({ query, availableTools });
+
+  const result = await runtime.runTurn({
+    query,
+    route,
+    snapshot: VALID_SNAPSHOT,
+    model: 'grade-b-model',
+    availableTools
+  });
+
+  assert.equal(result.text, 'LGS723 和 LGS733 共用 20 个相同物料编码。');
+  assert.deepEqual(result.citations, ['bom:LGS723', 'bom:LGS733']);
+  assert.equal(result.usage.toolCalls, 1);
+});
+
 test('R2.3: deterministic prefetch prevents the model from repeating the same tool loop', async () => {
   let capturedRequest;
   const availableTools = [{ type: 'function', function: { name: 'compare_boms' } }];

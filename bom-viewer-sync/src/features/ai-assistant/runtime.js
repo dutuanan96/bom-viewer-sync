@@ -556,7 +556,20 @@ export function createRuntime({ gateway, trustPolicy, runTool }) {
           try {
             parsedOutput = JSON.parse(rawOutput);
           } catch {
-            throw new Error('Invalid structured model output: expected JSON');
+            const plainText = rawOutput.trim();
+            const evidenceIds = [...new Set(accumulatedEvidence.map(item => item?.id).filter(Boolean))];
+            const canUseGroundedPlainText = (
+              deterministicPrefetchUsed &&
+              evidenceIds.length > 0 &&
+              plainText.length > 0 &&
+              !plainText.startsWith('{') &&
+              !plainText.startsWith('[') &&
+              !plainText.startsWith('```')
+            );
+            if (!canUseGroundedPlainText) {
+              throw new Error('Invalid structured model output: expected JSON');
+            }
+            parsedOutput = { text: plainText, citations: evidenceIds };
           }
           finalAnswer = trustPolicy.validateModelOutput(parsedOutput, { evidence: accumulatedEvidence });
           trace.add('answer_validated', {

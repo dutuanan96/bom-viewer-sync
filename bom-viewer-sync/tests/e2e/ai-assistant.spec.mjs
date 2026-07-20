@@ -206,6 +206,13 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
     const followUp = '\u5de6/\u53f3\u4fa7\u6846\u5171\u7528\u4e3a\u4ec0\u4e48\u4f60\u6709\u7edf\u8ba1\u5462\uff1f\uff0c\u8fd8\u6709\u591a\u7684\u5176\u4ed6';
     let requestCount = 0;
 
+    await page.unroute('https://openrouter.ai/api/v1/models?supported_parameters=tools');
+    await page.route('https://openrouter.ai/api/v1/models?supported_parameters=tools', async route => {
+      await route.fulfill({
+        json: { data: [{ id: 'nvidia/nemotron-3-ultra-550b-a55b:free', supported_parameters: ['tools', 'tool_choice'] }] }
+      });
+    });
+
     await page.route('https://openrouter.ai/api/v1/chat/completions', async route => {
       requestCount += 1;
       const body = route.request().postDataJSON();
@@ -219,7 +226,7 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
 
       if (requestCount === 1) {
         await route.fulfill({
-          json: { choices: [{ message: { role: 'assistant', content: '{"text":"**\u8303\u56f4\uff1a** \u590d\u53e4\u8272\uff0c\u517120\u4e2a\u76f8\u540cmaterialId\uff1b\u4e94\u91d1\u530511\u3001\u5305\u67505\u3001\u96f6\u4ef64\u3002","citations":[]}' } }] }
+          json: { choices: [{ message: { role: 'assistant', content: '\u8303\u56f4\uff1a\u590d\u53e4\u8272\uff0c\u517120\u4e2a\u76f8\u540cmaterialId\uff1b\u4e94\u91d1\u530511\u3001\u5305\u67505\u3001\u96f6\u4ef64\u3002' } }] }
         });
         return;
       }
@@ -227,7 +234,7 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
       expect(JSON.stringify(body.messages)).toContain(firstQuery);
       expect(JSON.stringify(body.messages)).toContain(followUp);
       await route.fulfill({
-        json: { choices: [{ message: { role: 'assistant', content: '{"text":"\u5de6\u53f3\u5e03\u62bd\u6761\u662f\u4e24\u4e2a\u4e0d\u540cmaterialId\uff0c\u5747\u5c5e\u4e8e\u96f6\u4ef6\uff0c\u4e0d\u662f\u4e94\u91d1\u5305\u3002","citations":[]}' } }] }
+        json: { choices: [{ message: { role: 'assistant', content: '\u5de6\u53f3\u5e03\u62bd\u6761\u662f\u4e24\u4e2a\u4e0d\u540cmaterialId\uff0c\u5747\u5c5e\u4e8e\u96f6\u4ef6\uff0c\u4e0d\u662f\u4e94\u91d1\u5305\u3002' } }] }
       });
     });
 
