@@ -6,6 +6,7 @@ const MAX_CANDIDATES = 3;
 const AUTO_RESOLVE_SCORE = 0.90;
 const AUTO_RESOLVE_MARGIN = 0.15;
 const COLOR_EQUIVALENTS = Object.freeze({
+  antique: Object.freeze(['antique', 'vintage', 'rustic', '复古色', 'màu gỗ cổ', 'màu cổ điển']),
   black: Object.freeze(['black', '黑色', 'màu đen', 'đen']),
   white: Object.freeze(['white', '白色', 'màu trắng', 'trắng']),
 });
@@ -100,7 +101,8 @@ const COLOR_KEYWORDS = Object.freeze([
 // True when the query contains any known color keyword (used to distinguish
 // "unknown/unoffered color" from "no color mentioned").
 function queryMentionsColor(normalizedQuery) {
-  return COLOR_KEYWORDS.some(alias => phraseOccurs(normalizedQuery, normalizeAlias(alias)));
+  return queryMentionsAnyColor(normalizedQuery)
+    || COLOR_KEYWORDS.some(alias => phraseOccurs(normalizedQuery, normalizeAlias(alias)));
 }
 
 // True when the query contains any known color alias (used to distinguish

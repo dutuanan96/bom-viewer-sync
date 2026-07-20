@@ -72,6 +72,14 @@ test('R2.2: buildContext returns a data-to-be-sent summary for user consent', ()
     'context must include dataSummary for user consent');
 });
 
+test('R2.2: buildContext preserves the exact bounded Unicode query', () => {
+  const policy = createTrustPolicy();
+  const query = '为什么LGS032有状态是草稿呢？';
+  const context = policy.buildContext({ snapshot: VALID_SNAPSHOT, query });
+
+  assert.equal(context.query, query);
+});
+
 // ── R2.2.2: Prompt injection — direct ────────────────────────────────────────
 
 test('R2.2: direct prompt injection attempt via user query is treated as user input, not policy', () => {

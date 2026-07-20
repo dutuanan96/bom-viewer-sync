@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "packVersion": "1.0.0",
-  "updatedAt": "2026-07-17T00:00:00Z",
-  "description": "AI skill definitions for R1 PDM read-only intelligence. Tool IDs must match contracts.js ALLOWED_TOOLS.",
+  "packVersion": "1.2.0",
+  "updatedAt": "2026-07-20T00:00:00Z",
+  "description": "AI skill definitions for evidence-bound PDM specialist tools. Tool IDs must match contracts.js ALLOWED_TOOLS.",
   "skills": [
     {
       "id": "search_products",
@@ -29,6 +29,7 @@
     },
     {
       "id": "resolve_sku",
+      "specialistId": "marketplace",
       "description": "Resolve an external SKU alias to internal SKU. Validates product exists in snapshot. Only user-confirmed aliases are supported.",
       "inputSchema": {
         "type": "object",
@@ -41,6 +42,7 @@
     },
     {
       "id": "get_bom",
+      "specialistId": "bom_lookup",
       "description": "Get BOM rows for a product and color. Returns bounded normalized rows.",
       "inputSchema": {
         "type": "object",
@@ -54,6 +56,7 @@
     },
     {
       "id": "compare_boms",
+      "specialistId": "bom_comparison",
       "description": "Compare BOM rows between two products.",
       "inputSchema": {
         "type": "object",
@@ -69,6 +72,7 @@
     },
     {
       "id": "get_material",
+      "specialistId": "material_usage",
       "description": "Get a material summary by materialId.",
       "inputSchema": {
         "type": "object",
@@ -81,6 +85,7 @@
     },
     {
       "id": "where_used",
+      "specialistId": "material_usage",
       "description": "Find all products that use a given material.",
       "inputSchema": {
         "type": "object",
@@ -93,6 +98,7 @@
     },
     {
       "id": "get_revision_history",
+      "specialistId": "revision",
       "description": "Get revision history for a product. Returns currentRevision, effectiveRevision, and list of historical revisions.",
       "inputSchema": {
         "type": "object",
@@ -112,6 +118,20 @@
         "properties": {
           "productId": { "type": "string", "maxLength": 20 }
         }
+      },
+      "readonly": true
+    },
+    {
+      "id": "get_marketplace_insights",
+      "specialistId": "marketplace",
+      "description": "Get bounded marketplace evidence and consent-gated Amazon search instructions for one product.",
+      "inputSchema": {
+        "type": "object",
+        "required": ["productId"],
+        "properties": {
+          "productId": { "type": "string", "pattern": "^LGS\\d{3,4}$" }
+        },
+        "additionalProperties": false
       },
       "readonly": true
     }

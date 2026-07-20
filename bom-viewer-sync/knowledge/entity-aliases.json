@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "packVersion": "1.0.0",
+  "updatedAt": "2026-07-20T00:00:00Z",
+  "description": "Owner-reviewed company entity aliases. Canonical shards remain authoritative.",
+  "mappings": []
+}

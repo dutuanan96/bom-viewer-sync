@@ -31,6 +31,7 @@ test('R1.5: eval-ai.mjs runs and all metrics pass thresholds', () => {
   assert.ok(report.metrics.exactSku?.pass, `Exact SKU must pass: ${JSON.stringify(report.metrics.exactSku)}`);
   assert.ok(report.metrics.rejectionRate?.pass, `Rejection rate must pass: ${JSON.stringify(report.metrics.rejectionRate)}`);
   assert.ok(report.metrics.citationCompleteness?.pass, `Citation completeness must pass: ${JSON.stringify(report.metrics.citationCompleteness)}`);
+  assert.ok(report.metrics.specialistRegression?.pass, `Specialist regressions must pass: ${JSON.stringify(report.metrics.specialistRegression)}`);
   assert.equal(report.evalSummary?.fail, 0, `No eval failures: ${JSON.stringify(report.failures)}`);
 });
 

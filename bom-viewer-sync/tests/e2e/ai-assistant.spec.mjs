@@ -2,6 +2,16 @@ import { test, expect } from '@playwright/test';
 import { resolve } from 'node:path';
 
 const VIEWER_URL = `file://${resolve('viewer.html')}`;
+const ADMIN_URL = `file://${resolve('admin.html')}`;
+
+async function waitForViewerReady(page) {
+  await expect(page.locator('.product-catalog-view')).toContainText('LGS032', { timeout: 30000 });
+}
+
+async function blockRemotePdmData(page) {
+  await page.route('https://api.github.com/**', route => route.abort());
+  await page.route('https://raw.githubusercontent.com/**', route => route.abort());
+}
 
 test.describe('R2.5 AI Assistant UI Flow', () => {
   test.beforeEach(async ({ page }) => {
@@ -10,25 +20,32 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
       const json = { data: { label: 'mock-key', usage: 0, limit: 100, is_free_tier: false } };
       await route.fulfill({ json });
     });
-    
+
     // Mock OpenRouter model list
     await page.route('https://openrouter.ai/api/v1/models?supported_parameters=tools', async route => {
-      const json = { data: [{ id: 'openrouter/auto', supported_parameters: ['tools', 'tool_choice'] }] };
+      const json = { data: [{ id: 'nvidia/nemotron-3-ultra-550b-a55b:free', supported_parameters: ['tools', 'tool_choice', 'structured_outputs'] }] };
       await route.fulfill({ json });
     });
   });
 
   test('Connect, Run 1 Tool Loop, Citations, and Core App Survival', async ({ page }) => {
+    test.setTimeout(90000);
+    await blockRemotePdmData(page);
     await page.goto(VIEWER_URL);
-    
+
     // Open Drawer via AI Button
-    await page.click('#btnAiWorkspace');
-    await expect(page.locator('#aiDrawer')).toBeVisible();
+    await page.click('#aiFab');
+    await expect(page.locator('#aiChatWidget')).toBeVisible();
 
     // Connect Settings
+    await page.click('#btnSettings');
     await page.fill('.ai-settings input', 'sk-or-mock-1234');
-    await page.click('.ai-settings button:has-text("连接")');
-    await expect(page.locator('.ai-settings div:has-text("已连接")')).toBeVisible();
+    await page.click('.ai-settings > button.btn-primary');
+    await expect(page.locator('.ai-status-text.connected')).toBeVisible();
+    await page.click('#closeSettingsModal');
+
+    // Re-open chat widget as clicking outside closed it
+    await page.click('#aiFab');
 
     // Mock chat completion (1 tool loop)
     let chatCallCount = 0;
@@ -57,7 +74,7 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
             choices: [{
               message: {
                 role: 'assistant',
-                content: '{"text": "Found it."}'
+                content: '{"text": "Found it.", "citations": []}'
               }
             }]
           }
@@ -67,29 +84,37 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
 
     // Run query
     await page.fill('.ai-input-area textarea', 'Find LGS');
-    await page.click('.ai-input-area button:has-text("发送")');
+    await page.press('.ai-input-area textarea', 'Enter');
 
     // Wait for the final answer
-    await expect(page.locator('.ai-message.assistant .ai-message-text').last()).toContainText('Found it.');
-    
-    // Disconnect and Verify Core App Survival
-    await page.click('.ai-settings button:has-text("断开连接")');
-    await expect(page.locator('.ai-settings div:has-text("未连接")')).toBeVisible();
+    await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('Found it.');
 
-    // Core PDM is still alive, we can close the drawer and interact
-    await page.click('#aiDrawerClose');
-    await expect(page.locator('#aiDrawer')).toHaveAttribute('hidden', '');
-    
+    // Disconnect and Verify Core App Survival
+    await page.click('#btnSettings', { force: true });
+    await page.click('.ai-settings > button.btn:not(.btn-primary)');
+    await expect(page.locator('.ai-status-text.disconnected')).toBeVisible();
+    await page.click('#closeSettingsModal');
+
+    // Core PDM is still alive, and the drawer should be closed (because clicking outside closed it)
+    await expect(page.locator('#aiChatWidget')).not.toHaveClass(/is-open/);
+
     // Verify product list is intact
     await expect(page.locator('.product-list')).toBeVisible();
   });
 
   test('Provider Error triggers local fallback', async ({ page }) => {
+    test.setTimeout(90000);
+    await blockRemotePdmData(page);
     await page.goto(VIEWER_URL);
-    await page.click('#btnAiWorkspace');
-    
+    await page.click('#aiFab');
+
+    await page.click('#btnSettings', { force: true });
     await page.fill('.ai-settings input', 'sk-or-mock-1234');
-    await page.click('.ai-settings button:has-text("连接")');
+    await page.click('.ai-settings > button.btn-primary');
+    await page.click('#closeSettingsModal');
+
+    // Re-open chat widget
+    await page.click('#aiFab');
 
     // Mock 503 error
     await page.route('https://openrouter.ai/api/v1/chat/completions', async route => {
@@ -97,9 +122,285 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
     });
 
     await page.fill('.ai-input-area textarea', 'Hello');
-    await page.click('.ai-input-area button:has-text("发送")');
+    await page.press('.ai-input-area textarea', 'Enter');
 
     // Expect fallback message
-    await expect(page.locator('.ai-message.assistant .ai-message-text').last()).toContainText('AI assistant is currently unavailable');
+    await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('AI assistant is currently unavailable');
   });
+
+  test('LGS032 revision question is prefetched and Clear Chat removes follow-up context', async ({ page }) => {
+    test.setTimeout(90000);
+    const firstQuery = '为什么LGS032有状态是草稿呢？';
+    let requestCount = 0;
+
+    await page.route('https://openrouter.ai/api/v1/chat/completions', async route => {
+      requestCount += 1;
+      const body = route.request().postDataJSON();
+      const messagesText = JSON.stringify(body.messages);
+
+      if (requestCount === 1) {
+        const trustedMessage = body.messages.find(message => message.content?.startsWith('TRUSTED_LOCAL_PDM_RESULT'));
+        expect(body.messages.some(message => message.role === 'user' && message.content === firstQuery)).toBe(true);
+        expect(trustedMessage?.content).toContain('get_revision_history');
+        expect(trustedMessage?.content).toContain('V3.1');
+        expect(trustedMessage?.content).toContain('"effectiveRevision":"V3"');
+        expect(messagesText).not.toContain('22 products');
+        await route.fulfill({
+          json: {
+            choices: [{ message: {
+              role: 'assistant',
+              content: '{"text":"LGS032 的最新设计修订版 V3.1 仍是草稿，因此不是现行生产版本；当前生效且已发布的是 V3。","citations":[]}'
+            } }]
+          }
+        });
+        return;
+      }
+
+      if (requestCount === 2) {
+        expect(messagesText).toContain(firstQuery);
+        expect(messagesText).toContain('最新设计修订版 V3.1');
+        expect(messagesText).toContain('为什么它不是现行版？');
+        await route.fulfill({
+          json: { choices: [{ message: { role: 'assistant', content: '{"text":"因为 V3.1 尚未发布，生产仍使用 V3。","citations":[]}' } }] }
+        });
+        return;
+      }
+
+      expect(messagesText).not.toContain(firstQuery);
+      expect(messagesText).not.toContain('为什么它不是现行版？');
+      await route.fulfill({
+        json: { choices: [{ message: { role: 'assistant', content: '{"text":"请说明要继续查询的产品编号。","citations":[]}' } }] }
+      });
+    });
+
+    await page.goto(VIEWER_URL);
+    await waitForViewerReady(page);
+    await page.click('#btnSettings');
+    await page.fill('.ai-settings input', 'sk-or-mock-1234');
+    await page.click('.ai-settings > button.btn-primary');
+    await expect(page.locator('.ai-status-text.connected')).toBeVisible();
+    await page.click('#closeSettingsModal');
+    await page.click('#aiFab');
+
+    await page.fill('.ai-input-area textarea', firstQuery);
+    await page.press('.ai-input-area textarea', 'Enter');
+    await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('V3.1');
+    await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('V3');
+
+    await page.fill('.ai-input-area textarea', '为什么它不是现行版？');
+    await page.press('.ai-input-area textarea', 'Enter');
+    await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('尚未发布');
+
+    await page.click('.ai-clear-btn');
+    await expect(page.locator('.ai-message-row.user')).toHaveCount(0);
+
+    await page.fill('.ai-input-area textarea', '继续');
+    await page.press('.ai-input-area textarea', 'Enter');
+    await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('产品编号');
+    expect(requestCount).toBe(3);
+  });
+
+  test('LGS723/LGS733 comparison is scoped, categorized, and reusable in a follow-up', async ({ page }) => {
+    test.setTimeout(90000);
+    const firstQuery = '\u5e2e\u6211\u770b\u4e00\u4e0bLGS723\u548cLGS733\u6709\u4ec0\u4e48\u94c1\u4ef6\u5171\u7528';
+    const followUp = '\u5de6/\u53f3\u4fa7\u6846\u5171\u7528\u4e3a\u4ec0\u4e48\u4f60\u6709\u7edf\u8ba1\u5462\uff1f\uff0c\u8fd8\u6709\u591a\u7684\u5176\u4ed6';
+    let requestCount = 0;
+
+    await page.route('https://openrouter.ai/api/v1/chat/completions', async route => {
+      requestCount += 1;
+      const body = route.request().postDataJSON();
+      const trustedMessage = body.messages.find(message => message.content?.startsWith('TRUSTED_LOCAL_PDM_RESULT'));
+      expect(body.tools || []).toHaveLength(0);
+      expect(trustedMessage?.content).toContain('compare_boms');
+      expect(trustedMessage?.content).toContain('"commonCount":20');
+      expect(trustedMessage?.content).toContain('"\u4e94\u91d1\u5305":11');
+      expect(trustedMessage?.content).toContain('"\u5305\u6750":5');
+      expect(trustedMessage?.content).toContain('"\u96f6\u4ef6":4');
+
+      if (requestCount === 1) {
+        await route.fulfill({
+          json: { choices: [{ message: { role: 'assistant', content: '{"text":"**\u8303\u56f4\uff1a** \u590d\u53e4\u8272\uff0c\u517120\u4e2a\u76f8\u540cmaterialId\uff1b\u4e94\u91d1\u530511\u3001\u5305\u67505\u3001\u96f6\u4ef64\u3002","citations":[]}' } }] }
+        });
+        return;
+      }
+
+      expect(JSON.stringify(body.messages)).toContain(firstQuery);
+      expect(JSON.stringify(body.messages)).toContain(followUp);
+      await route.fulfill({
+        json: { choices: [{ message: { role: 'assistant', content: '{"text":"\u5de6\u53f3\u5e03\u62bd\u6761\u662f\u4e24\u4e2a\u4e0d\u540cmaterialId\uff0c\u5747\u5c5e\u4e8e\u96f6\u4ef6\uff0c\u4e0d\u662f\u4e94\u91d1\u5305\u3002","citations":[]}' } }] }
+      });
+    });
+
+    await page.goto(VIEWER_URL);
+    await waitForViewerReady(page);
+    await page.click('#btnSettings');
+    await page.fill('.ai-settings input', 'sk-or-mock-1234');
+    await page.click('.ai-settings > button.btn-primary');
+    await expect(page.locator('.ai-status-text.connected')).toBeVisible();
+    await page.click('#closeSettingsModal');
+    await page.click('#aiFab');
+
+    await page.fill('.ai-input-area textarea', firstQuery);
+    await page.press('.ai-input-area textarea', 'Enter');
+    const firstAnswer = page.locator('.ai-message-row.assistant .ai-message-text').last();
+    await expect(firstAnswer).toContainText('\u4e94\u91d1\u530511');
+    await expect(firstAnswer).not.toContainText('**');
+
+    await page.fill('.ai-input-area textarea', followUp);
+    await page.press('.ai-input-area textarea', 'Enter');
+    await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('\u4e24\u4e2a\u4e0d\u540cmaterialId');
+    expect(requestCount).toBe(2);
+  });
+
+  test('explicit LGS433 color reaches deterministic BOM while an unavailable color stays local', async ({ page }) => {
+    test.setTimeout(90000);
+    let requestCount = 0;
+
+    await page.route('https://openrouter.ai/api/v1/chat/completions', async route => {
+      requestCount += 1;
+      const body = route.request().postDataJSON();
+      const trustedMessage = body.messages.find(message => message.content?.startsWith('TRUSTED_LOCAL_PDM_RESULT'));
+      expect(trustedMessage?.content).toContain('get_bom');
+      expect(trustedMessage?.content).toContain('"productCode":"LGS433"');
+      expect(trustedMessage?.content).toContain('"color":"黑色"');
+      await route.fulfill({
+        json: { choices: [{ message: { role: 'assistant', content: '{"text":"LGS433 黑色 BOM 已按指定颜色读取。","citations":[]}' } }] }
+      });
+    });
+
+    await page.goto(VIEWER_URL);
+    await waitForViewerReady(page);
+    await page.click('#btnSettings');
+    await page.fill('.ai-settings input', 'sk-or-mock-1234');
+    await page.click('.ai-settings > button.btn-primary');
+    await page.click('#closeSettingsModal');
+    await page.click('#aiFab');
+
+    await page.fill('.ai-input-area textarea', '查看 LGS433 黑色 BOM');
+    await page.press('.ai-input-area textarea', 'Enter');
+    await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('LGS433 黑色');
+    expect(requestCount).toBe(1);
+
+    await page.fill('.ai-input-area textarea', '查看 LGS433 blue BOM');
+    await page.press('.ai-input-area textarea', 'Enter');
+    await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('请选择');
+    expect(requestCount).toBe(1);
+  });
+
+  test('R4/R5 proposal preview escapes model text and approval marks the draft dirty', async ({ page }) => {
+    await page.route('https://api.github.com/**', route => route.abort());
+    await page.route('https://raw.githubusercontent.com/**', route => route.abort());
+    await page.goto(ADMIN_URL);
+
+    await page.evaluate(() => {
+      // Replace the original app DOM so this deterministic fixture has only one
+      // set of element-bound event listeners.
+      document.body.replaceWith(document.body.cloneNode(true));
+      const payload = window.BomCoreUtils.normalizePayload({
+        bom: {
+          P1: {
+            code: 'P1',
+            revision: 'V1.1',
+            colors: ['Black'],
+            color_info: {
+              Black: {
+                sku: 'P1-BK',
+                name_zh: 'Test product',
+                name_vi: 'Test product',
+                materials: [{ mat_code: 'M1', qty: '1' }]
+              }
+            }
+          }
+        },
+        materialDb: {
+          version: 1,
+          materials: {
+            M1: {
+              id: 'M1',
+              code: 'M1',
+              name: { zh: 'Material 1', vi: 'Material 1' },
+              unit: 'pcs'
+            }
+          },
+          bomEntries: []
+        },
+        productRevisions: {
+          P1: {
+            currentRevision: 'V1.1',
+            effectiveRevision: 'V1',
+            currentRevisionInfo: {
+              sourceRevision: 'V1',
+              workflowState: 'draft',
+              createdAt: '2026-07-20T00:00:00.000Z',
+              changeReason: 'E2E test'
+            },
+            revisions: [],
+            effectivityEvents: []
+          }
+        }
+      });
+      const githubData = {
+        loadPublic: async () => payload,
+        getSourceMetadata: () => ({ commitSha: 'a'.repeat(40) })
+      };
+      window.__aiTestApp = window.BomApp.createApp({ mode: 'admin', githubData });
+    });
+    await page.waitForFunction(() => Boolean(window.__aiTestApp?.state.lastLoadAt));
+
+    await page.click('#btnSettings');
+    await page.fill('.ai-settings input', 'sk-or-mock-1234');
+    await page.click('.ai-settings > button.btn-primary');
+    await expect(page.locator('.ai-status-text.connected')).toBeVisible();
+    await page.click('#closeSettingsModal');
+    await page.click('#aiFab');
+
+    const untrustedValue = '<img src=x onerror="window.__proposalInjected=true">';
+    let chatCallCount = 0;
+    await page.route('https://openrouter.ai/api/v1/chat/completions', async route => {
+      chatCallCount += 1;
+      if (chatCallCount === 1) {
+        await route.fulfill({
+          json: {
+            choices: [{
+              message: {
+                role: 'assistant',
+                tool_calls: [{
+                  id: 'proposal_1',
+                  type: 'function',
+                  function: {
+                    name: 'submit_proposal',
+                    arguments: JSON.stringify({
+                      operationType: 'update_material_field',
+                      targetId: 'M1',
+                      payload: { field: 'unit', value: untrustedValue }
+                    })
+                  }
+                }]
+              }
+            }]
+          }
+        });
+        return;
+      }
+      await route.fulfill({
+        json: {
+          choices: [{ message: { role: 'assistant', content: '{"text":"Review the proposal.","citations":[]}' } }]
+        }
+      });
+    });
+
+    await page.fill('.ai-input-area textarea', 'Update material M1 unit');
+    await page.press('.ai-input-area textarea', 'Enter');
+
+    const proposalCard = page.locator('.ai-proposal-card');
+    await expect(proposalCard).toContainText(untrustedValue);
+    await expect(proposalCard.locator('img')).toHaveCount(0);
+    await expect.poll(() => page.evaluate(() => window.__proposalInjected || false)).toBe(false);
+
+    await proposalCard.locator('.ai-proposal-actions button').last().click();
+    await expect.poll(() => page.evaluate(() => window.__aiTestApp.state.dirty)).toBe(true);
+    await expect.poll(() => page.evaluate(() => window.__aiTestApp.state.materialDb.materials.M1.unit)).toBe(untrustedValue);
+    await expect(page.locator('#syncStatus[data-state="dirty"]')).toBeVisible();
+  });
+
 });

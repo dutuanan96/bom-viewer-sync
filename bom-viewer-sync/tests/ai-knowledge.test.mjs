@@ -8,6 +8,20 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { PdmKnowledge } from '../src/features/ai-assistant/pdm-knowledge.js';
 
+test('AI prompt pack defines the six evidence-bound PDM specialists', () => {
+  const promptPack = JSON.parse(readFileSync(resolve('knowledge/ai/prompt-pack.json'), 'utf-8'));
+  const expected = ['revision', 'bom_lookup', 'bom_comparison', 'material_usage', 'proposal', 'marketplace'];
+  const byId = new Map((promptPack.specialists || []).map(specialist => [specialist.id, specialist]));
+
+  for (const id of expected) {
+    const specialist = byId.get(id);
+    assert.ok(specialist, `missing specialist: ${id}`);
+    assert.equal(specialist.evidenceRequired, true, `${id} must require evidence`);
+    assert.ok(Array.isArray(specialist.allowedTools) && specialist.allowedTools.length > 0, `${id} must name allowed tools`);
+    assert.ok(typeof specialist.doNotUse === 'string' && specialist.doNotUse.length > 0, `${id} must define doNotUse`);
+  }
+});
+
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
 /**
@@ -178,6 +192,7 @@ test('R1.3: get_revision_history works on productRevisions record structure', ()
   // effectiveRevision: domain logic may resolve to currentRevision when no released snapshot has product data
   assert.ok(typeof result.effectiveRevision === 'string', 'effectiveRevision must be a string');
   assert.ok(result.revisions.length > 0, 'must have at least one historical revision');
+  assert.equal(result.revisions.some(revision => 'snapshot' in revision), false, 'must not expose revision snapshots');
 });
 
 test('R1.3: get_revision_history for product without history returns default', () => {
@@ -203,6 +218,71 @@ test('R1.3: get_bom returns bounded row array', () => {
 test('R1.3: get_bom throws on unknown product', () => {
   const kb = new PdmKnowledge(UNIT_SNAPSHOT);
   assert.throws(() => kb.getBom({ productId: 'UNKNOWN' }), /not found/i);
+});
+
+// ── R1.3.X: compare_boms ───────────────────────────────────────────────────────
+
+test('R1.3: compareBoms throws on unknown productId1', () => {
+  const kb = new PdmKnowledge(UNIT_SNAPSHOT);
+  assert.throws(() => kb.compareBoms({ productId1: 'UNKNOWN', productId2: 'LGS433' }), /not found/i);
+});
+
+test('R1.3: compareBoms throws on unknown productId2', () => {
+  const kb = new PdmKnowledge(UNIT_SNAPSHOT);
+  assert.throws(() => kb.compareBoms({ productId1: 'LGS433', productId2: 'UNKNOWN' }), /not found/i);
+});
+
+test('R1.3: compareBoms aggregates duplicate materials and reports structured differences', () => {
+  const snapshot = {
+    sourceMetadata: UNIT_SNAPSHOT.sourceMetadata,
+    payload: {
+      bom: {
+        LGS031: {
+          colors: ['C1'],
+          color_info: {
+            C1: { materials: [
+              { mat_code: 'M-SHARED', name_zh: 'M6x22内六角螺丝', qty: '1', unit: 'pcs', attr_zh: '\u4e94\u91d1\u5305', material_zh: '#10', spec: 'M6x22mm' },
+              { mat_code: 'M-SHARED', name_zh: 'M6x22内六角螺丝', qty: '2', unit: 'pcs', attr_zh: '\u4e94\u91d1\u5305', material_zh: '#10', spec: 'M6x22mm' },
+              { mat_code: 'M-ONLY-1', name_zh: 'Only one', qty: '1', unit: 'pcs' }
+            ] }
+          }
+        },
+        LGS032: {
+          colors: ['C2'],
+          color_info: {
+            C2: { materials: [
+              { mat_code: 'M-SHARED', name_zh: 'M6x22内六角螺丝', qty: '4', unit: 'set', attr_zh: '\u4e94\u91d1\u5305', material_zh: '#10', spec: 'M6x22mm' },
+              { mat_code: 'M-ONLY-2', name_zh: 'Only two', qty: '1', unit: 'pcs' }
+            ] }
+          }
+        }
+      }
+    }
+  };
+  const result = new PdmKnowledge(snapshot).compareBoms({
+    productId1: 'LGS031',
+    color1: 'C1',
+    productId2: 'LGS032',
+    color2: 'C2'
+  });
+
+  assert.equal(result.summary.commonCount, 1);
+  assert.equal(result.summary.onlyProduct1Count, 1);
+  assert.equal(result.summary.onlyProduct2Count, 1);
+  assert.equal(result.summary.quantityOrUnitDifferenceCount, 1);
+  assert.equal(result.summary.similarityScore, 1 / 3);
+  assert.deepEqual(result.summary.commonByAttribute, { '\u4e94\u91d1\u5305': 1 });
+  assert.deepEqual(result.summary.commonByMaterialFamily.metal, { total: 1, explicit: 0, inferred: 1 });
+  assert.equal(result.truncated, false);
+  assert.equal(result.common[0].product1.quantity, 3);
+  assert.equal(result.common[0].product1.rowCount, 2);
+  assert.equal(result.common[0].attributeZh, '\u4e94\u91d1\u5305');
+  assert.equal(result.common[0].materialZh, '#10');
+  assert.equal(result.common[0].spec, 'M6x22mm');
+  assert.deepEqual(result.common[0].materialFamily, { family: 'metal', confidence: 'inferred', evidence: 'M6x22内六角螺丝' });
+  assert.equal(result.evidence.length, 2);
+  assert.equal(result.evidence[0].recordId, 'LGS031');
+  assert.equal(result.evidence[1].recordId, 'LGS032');
 });
 
 // ── R1.3.5: Integration test against canonical 24-shard data ─────────────────

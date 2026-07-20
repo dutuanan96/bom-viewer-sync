@@ -66,12 +66,12 @@ export function createTrustPolicy() {
     const productCount = snapshot.payload?.bom ? Object.keys(snapshot.payload.bom).length : 0;
     const dataSummary = {
       willSend: ['selection (product/color/revision)', 'source commit SHA', 'query text'],
-      willNotSend: ['full BOM payload', 'material database', 'revision history', 'admin state'],
+      willNotSend: ['full BOM payload', 'material database', 'full revision snapshots', 'admin state'],
       selectedProduct: selection.productCode || null,
       totalProducts: productCount
     };
 
-    return { selection, sourceMetadata, estimatedTokens, dataSummary };
+    return { ...contextPayload, estimatedTokens, dataSummary, lang: snapshot.lang || 'en' };
   }
 
   // ── User query sanitization ───────────────────────────────────────────────

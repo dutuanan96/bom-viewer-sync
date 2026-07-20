@@ -92,9 +92,16 @@ export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.
     async loadPublic() {
       try {
         const cacheBust = now();
-        const commitData = await githubJson(`${apiBase}/commits/${encodeURIComponent(branch)}`, { cache: 'no-store' });
-        const commitSha = commitData.sha;
-        if (!/^[0-9a-f]{40}$/i.test(commitSha)) throw new Error('Invalid commit SHA resolved');
+        let commitSha = branch;
+        let commitData = null;
+        try {
+          commitData = await githubJson(`${apiBase}/commits/${encodeURIComponent(branch)}`, { cache: 'no-store' });
+          if (commitData.sha && /^[0-9a-f]{40}$/i.test(commitData.sha)) {
+            commitSha = commitData.sha;
+          }
+        } catch (error) {
+          console.warn('GitHub API failed (possibly rate limited), falling back to branch-based fetching.', error);
+        }
 
         const fetchRaw = async (logicalPath) => {
           const url = `https://raw.githubusercontent.com/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/${commitSha}/${shardRoot}/${logicalPath}?t=${cacheBust}`;
@@ -145,8 +152,8 @@ export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.
         // Priority: manifest.updatedAt > commit.committer.date > commit.author.date > null
         // Do NOT fall back to new Date() — an absent date must be represented as null.
         const updatedAt = manifest.updatedAt ||
-          commitData.commit?.committer?.date ||
-          commitData.commit?.author?.date ||
+          commitData?.commit?.committer?.date ||
+          commitData?.commit?.author?.date ||
           null;
 
         lastSourceMetadata = Object.freeze({

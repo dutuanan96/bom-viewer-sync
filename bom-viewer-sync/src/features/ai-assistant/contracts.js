@@ -19,12 +19,18 @@ export const ALLOWED_TOOLS = Object.freeze(new Set([
   'where_used',
   'get_revision_history',
   'audit_product_data',
+  'submit_proposal',
+  'get_marketplace_insights',
+  'store_memory',
+  'retrieve_memory',
 ]));
 
 const ALLOWED_PROPOSAL_OPERATIONS = Object.freeze(new Set([
   'update_material_field',
   'update_bom_quantity',
 ]));
+
+const ALLOWED_MATERIAL_FIELDS = Object.freeze(new Set(['name_zh', 'name_vi', 'spec', 'spec_vi', 'unit']));
 
 // Max string length anywhere in tool arguments (prevents prompt injection via long strings)
 const MAX_ARG_STRING_LEN = 1000;
@@ -34,6 +40,29 @@ const MAX_ARG_ARRAY_LEN = 100;
 const MAX_ARG_TOTAL_LEN = 5000;
 // Max answer text
 const MAX_ANSWER_TEXT_LEN = 5000;
+const PRODUCT_ID_PATTERN = /^LGS\d{3,4}$/i;
+
+const TOOL_ARGUMENT_RULES = Object.freeze({
+  search_products: { required: ['query'], allowed: ['query'] },
+  get_product: { required: ['productId'], allowed: ['productId'] },
+  resolve_sku: { required: ['alias'], allowed: ['alias'] },
+  get_bom: { required: ['productId'], allowed: ['productId', 'color'] },
+  compare_boms: {
+    required: ['productId1', 'productId2'],
+    allowed: ['productId1', 'color1', 'productId2', 'color2']
+  },
+  get_material: { required: ['materialId'], allowed: ['materialId'] },
+  where_used: { required: ['materialId'], allowed: ['materialId'] },
+  get_revision_history: { required: ['productId'], allowed: ['productId'] },
+  audit_product_data: { required: ['productId'], allowed: ['productId'] },
+  submit_proposal: {
+    required: ['operationType', 'targetId', 'payload'],
+    allowed: ['operationType', 'targetId', 'payload']
+  },
+  get_marketplace_insights: { required: ['productId'], allowed: ['productId'] },
+  store_memory: { required: ['key', 'value'], allowed: ['key', 'value'] },
+  retrieve_memory: { required: ['key'], allowed: ['key'] }
+});
 
 function policyError(message) {
   const err = new Error(message);
@@ -72,6 +101,41 @@ function checkArgsDepth(value, path) {
   }
 }
 
+function validateToolArguments(toolName, args) {
+  if (!args || typeof args !== 'object' || Array.isArray(args)) {
+    throw policyError(`${toolName} arguments must be an object`);
+  }
+
+  const rules = TOOL_ARGUMENT_RULES[toolName];
+  for (const key of Object.keys(args)) {
+    if (!rules.allowed.includes(key)) {
+      throw policyError(`unexpected argument field for ${toolName}: ${key}`);
+    }
+  }
+
+  for (const field of rules.required) {
+    if (!(field in args)) {
+      throw policyError(`${toolName}.${field} is required`);
+    }
+  }
+
+  for (const field of rules.allowed) {
+    if (!(field in args) || field === 'payload') continue;
+    if (typeof args[field] !== 'string') throw policyError(`${toolName}.${field} must be a string`);
+    if (args[field].trim().length === 0) throw policyError(`${toolName}.${field} must not be empty`);
+  }
+
+  if ('payload' in args && (!args.payload || typeof args.payload !== 'object' || Array.isArray(args.payload))) {
+    throw policyError(`${toolName}.payload must be an object`);
+  }
+
+  for (const field of ['productId', 'productId1', 'productId2']) {
+    if (field in args && !PRODUCT_ID_PATTERN.test(args[field])) {
+      throw policyError(`${toolName}.${field} must match LGS followed by 3 or 4 digits`);
+    }
+  }
+}
+
 export function validateToolCall(call) {
   if (!call || typeof call !== 'object' || Array.isArray(call)) {
     throw new Error('missing tool name');
@@ -100,6 +164,8 @@ export function validateToolCall(call) {
       checkArgsDepth(args, 'arguments');
     }
   }
+
+  validateToolArguments(call.name, call.arguments);
 
   return call;
 }
@@ -196,5 +262,44 @@ export function validateProposal(proposal) {
   if (!ALLOWED_PROPOSAL_OPERATIONS.has(proposal.operationType)) {
     throw policyError(`disallowed operationType: "${proposal.operationType}"`);
   }
+  if (!proposal.payload || typeof proposal.payload !== 'object') {
+    throw new Error('missing or invalid payload');
+  }
+
+  const topLevelKeys = Object.keys(proposal).sort();
+  if (JSON.stringify(topLevelKeys) !== JSON.stringify(['operationType', 'payload', 'targetId'])) {
+    throw policyError('proposal contains missing or extra fields');
+  }
+  if (typeof proposal.targetId !== 'string' || !proposal.targetId.trim() || proposal.targetId.length > 100) {
+    throw new Error('invalid targetId');
+  }
+
+  if (proposal.operationType === 'update_bom_quantity') {
+    const payloadKeys = Object.keys(proposal.payload).sort();
+    if (JSON.stringify(payloadKeys) !== JSON.stringify(['childId', 'color', 'quantity'])) {
+      throw policyError('update_bom_quantity payload contains missing or extra fields');
+    }
+    if (typeof proposal.payload.color !== 'string' || !proposal.payload.color.trim()) throw new Error('invalid color');
+    if (typeof proposal.payload.childId !== 'string' || !proposal.payload.childId.trim()) throw new Error('invalid childId');
+    const qty = proposal.payload.quantity;
+    if (!Number.isInteger(qty) || qty < 1 || qty > 1_000_000) {
+      throw new Error(`invalid quantity for update_bom_quantity: ${proposal.payload.quantity}`);
+    }
+  } else if (proposal.operationType === 'update_material_field') {
+    const payloadKeys = Object.keys(proposal.payload).sort();
+    if (JSON.stringify(payloadKeys) !== JSON.stringify(['field', 'value'])) {
+      throw policyError('update_material_field payload contains missing or extra fields');
+    }
+    if (!proposal.payload.field || typeof proposal.payload.field !== 'string') {
+      throw new Error('missing or invalid field for update_material_field');
+    }
+    if (!ALLOWED_MATERIAL_FIELDS.has(proposal.payload.field)) {
+      throw new Error(`Field ${proposal.payload.field} is not allowed to be updated by AI`);
+    }
+    if (proposal.payload.value === undefined || typeof proposal.payload.value !== 'string' || proposal.payload.value.length > 1000) {
+      throw new Error('missing or invalid string value for update_material_field');
+    }
+  }
+
   return proposal;
 }

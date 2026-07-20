@@ -23,9 +23,10 @@ const CIRCUIT_OPEN_DURATION_MS = 60 * 1000; // 60 seconds
 const MAX_RETRIES = 1; // retry once for transient errors
 
 // Error codes used by this module
-const ERR_INCOMPATIBLE = 'AI_MODEL_INCOMPATIBLE';
-const ERR_CIRCUIT_OPEN = 'AI_CIRCUIT_OPEN';
-const ERR_POLICY = 'AI_POLICY_BLOCKED';
+export const ERR_INCOMPATIBLE = 'AI_MODEL_INCOMPATIBLE';
+export const ERR_CIRCUIT_OPEN = 'AI_CIRCUIT_OPEN';
+export const ERR_POLICY = 'AI_POLICY_BLOCKED';
+export const ERR_NO_COMPATIBLE_ENDPOINT = 'AI_NO_COMPATIBLE_ENDPOINT';
 
 // Non-retryable HTTP status codes
 const NO_RETRY_STATUSES = new Set([400, 401, 403, 404, 422]);
@@ -70,7 +71,8 @@ export function createOpenRouterGateway(opts = {}) {
   const {
     fetchImpl = globalThis.fetch,
     clock = { now: () => Date.now() },
-    paidFallbackConsent = false
+    paidFallbackConsent = false,
+    requestTimeoutMs = 45_000
   } = opts;
 
   // ── Private closure state ──────────────────────────────────────────────────
@@ -93,7 +95,8 @@ export function createOpenRouterGateway(opts = {}) {
   async function authorizedFetch(path, options = {}) {
     if (!_key) throw new Error('Gateway not connected');
 
-    const url = path.startsWith('http') ? path : `${OPENROUTER_BASE}${path}`;
+    if (typeof path !== 'string' || !path.startsWith('/api/v1/')) throw new Error('OpenRouter path is not allowlisted');
+    const url = `${OPENROUTER_BASE}${path}`;
     const headers = {
       'Authorization': `Bearer ${_key}`,
       'Content-Type': 'application/json',
@@ -112,6 +115,7 @@ export function createOpenRouterGateway(opts = {}) {
       try {
         response = await fetchImpl(url, { ...options, headers });
       } catch (networkErr) {
+        if (networkErr?.name === 'AbortError' || options.signal?.aborted) throw networkErr;
         // Network-level error (e.g., timeout) — treat as transient
         lastError = new Error(redactKey(networkErr.message, _key));
         if (attempts >= maxAttempts) throw lastError;
@@ -131,7 +135,11 @@ export function createOpenRouterGateway(opts = {}) {
         } catch { /* ignore parse error */ }
         const err = new Error(msg);
         err.status = response.status;
-        err.code = response.status === 401 || response.status === 403 ? ERR_POLICY : undefined;
+        if (response.status === 401 || response.status === 403) {
+          err.code = ERR_POLICY;
+        } else if (response.status === 404 || /no endpoints found/i.test(msg) || /no available model provider/i.test(msg) || /requested parameters/i.test(msg)) {
+          err.code = ERR_NO_COMPATIBLE_ENDPOINT;
+        }
         throw err;
       }
 
@@ -164,6 +172,9 @@ export function createOpenRouterGateway(opts = {}) {
     _recentFailures.push(now);
     // Keep only failures within the window
     _recentFailures = _recentFailures.filter(t => now - t < CIRCUIT_WINDOW_MS);
+    if (_recentFailures.length > 20) {
+      _recentFailures = _recentFailures.slice(-20); // strict cap to prevent memory leak
+    }
     if (_recentFailures.length >= CIRCUIT_FAILURE_THRESHOLD) {
       _circuitState = 'open';
       _circuitOpenedAt = now;
@@ -216,26 +227,27 @@ export function createOpenRouterGateway(opts = {}) {
     _key = apiKey;
     _connected = false;
 
-    // Validate key
-    let keyResponse;
     try {
+      // Validate key
       const resp = await authorizedFetch('/api/v1/key', { noRetry: true });
-      keyResponse = await resp.json();
+      const keyResponse = await resp.json();
+      _keyInfo = {
+        label: keyResponse?.data?.label,
+        usage: keyResponse?.data?.usage,
+        limit: keyResponse?.data?.limit,
+        limitRequests: keyResponse?.data?.limit_requests,
+        isFreeTier: keyResponse?.data?.is_free_tier
+      };
+
+      // A connection is valid only when both key validation and registry loading succeed.
+      await _refreshModels();
     } catch (err) {
       _key = null;
+      _keyInfo = null;
+      _models = [];
+      _modelsCachedAt = 0;
       throw err;
     }
-
-    _keyInfo = {
-      label: keyResponse?.data?.label,
-      usage: keyResponse?.data?.usage,
-      limit: keyResponse?.data?.limit,
-      limitRequests: keyResponse?.data?.limit_requests,
-      isFreeTier: keyResponse?.data?.is_free_tier
-    };
-
-    // Load model registry
-    await _refreshModels();
 
     _connected = true;
 
@@ -303,36 +315,88 @@ export function createOpenRouterGateway(opts = {}) {
    * Enforces privacy routing defaults, parallel_tool_calls=false.
    * Rejects incompatible models for tool use.
    */
-  async function chat({ model, messages, tools = [], maxTokens = 1200, ...rest }) {
+  async function chat({
+    model,
+    messages,
+    tools = [],
+    maxTokens = 1200,
+    signal,
+    webSearch = false,
+    provider: _provider,
+    headers: _headers,
+    plugins: _plugins,
+    ...rest
+  }) {
     if (!_connected || !_key) throw new Error('Gateway not connected');
 
     // Find model grade
     const modelMeta = _models.find(m => m.id === model);
-    if (tools.length > 0 && modelMeta && modelMeta.grade === 'Unsupported') {
-      const err = new Error(`Model ${model} does not support tool calling (grade: Unsupported)`);
+    if (!modelMeta) {
+      const err = new Error(`Model ${model} not found in registry`);
       err.code = ERR_INCOMPATIBLE;
       throw err;
     }
 
-    const body = JSON.stringify({
+    if (tools.length > 0 && modelMeta.grade === 'Unsupported') {
+      const err = new Error(`Model ${model} does not support tool calling (grade: Unsupported)`);
+      err.code = ERR_INCOMPATIBLE;
+      throw err;
+    }
+    if (tools.some((tool) => tool?.function?.name === 'submit_proposal') && modelMeta.grade !== 'A') {
+      const err = new Error(`Model ${model} must be Grade A to submit proposals`);
+      err.code = ERR_INCOMPATIBLE;
+      throw err;
+    }
+
+    const bodyObj = {
       model,
       messages,
-      tools: tools.length > 0 ? tools : undefined,
       max_tokens: maxTokens,
-      parallel_tool_calls: false,
+      ...rest,
       provider: {
-        require_parameters: true,
         data_collection: 'deny',
         zdr: true,
         allow_fallbacks: true
-      },
-      ...rest
-    });
+      }
+    };
 
-    const response = await protectedFetch('/api/v1/chat/completions', {
-      method: 'POST',
-      body
-    });
+    const requestTools = [...tools];
+    if (webSearch === true) {
+      requestTools.push({
+        type: 'openrouter:web_search',
+        parameters: {
+          engine: 'exa',
+          max_results: 5,
+          max_total_results: 5,
+          search_context_size: 'low',
+          allowed_domains: ['amazon.com'],
+        },
+      });
+    }
+
+    if (requestTools.length > 0) {
+      bodyObj.provider.require_parameters = true;
+      bodyObj.tools = requestTools;
+      bodyObj.tool_choice = 'auto';
+      bodyObj.parallel_tool_calls = false;
+    }
+
+    const controller = new AbortController();
+    const requestSignal = signal
+      ? AbortSignal.any([signal, controller.signal])
+      : controller.signal;
+    const timeoutId = setTimeout(() => controller.abort(), requestTimeoutMs);
+
+    let response;
+    try {
+      response = await protectedFetch('/api/v1/chat/completions', {
+        method: 'POST',
+        body: JSON.stringify(bodyObj),
+        signal: requestSignal
+      });
+    } finally {
+      clearTimeout(timeoutId);
+    }
 
     return response.json();
   }

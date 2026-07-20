@@ -80,9 +80,28 @@ test('validateToolCall accepts valid tool with object args', () => {
   assert.equal(valid.name, 'search_products');
 });
 
-test('validateToolCall accepts valid tool without args', () => {
-  const valid = validateToolCall({ name: 'search_products' });
-  assert.equal(valid.name, 'search_products');
+test('validateToolCall rejects missing required arguments', () => {
+  assert.throws(() => validateToolCall({ name: 'search_products' }), /arguments.*object/i);
+  assert.throws(() => validateToolCall({ name: 'search_products', arguments: {} }), /query.*required/i);
+  assert.throws(() => validateToolCall({ name: 'compare_boms', arguments: { productId1: 'LGS031' } }), /productId2.*required/i);
+});
+
+test('validateToolCall rejects blank queries and malformed product IDs', () => {
+  assert.throws(() => validateToolCall({ name: 'search_products', arguments: { query: '   ' } }), /query.*empty/i);
+  assert.throws(() => validateToolCall({ name: 'get_revision_history', arguments: { productId: '032' } }), /productId.*LGS/i);
+  assert.throws(() => validateToolCall({ name: 'get_bom', arguments: { productId: 'LGS032', color: 42 } }), /color.*string/i);
+});
+
+test('validateToolCall rejects unexpected argument fields', () => {
+  assert.throws(
+    () => validateToolCall({ name: 'search_products', arguments: { query: 'LGS', extra: true } }),
+    /unexpected argument field.*extra/i
+  );
+});
+
+test('validateToolCall accepts a valid canonical product ID', () => {
+  const valid = validateToolCall({ name: 'get_product', arguments: { productId: 'LGS032' } });
+  assert.equal(valid.arguments.productId, 'LGS032');
 });
 
 // ── R1.1-C: validateEvidence ─────────────────────────────────────────────────
@@ -215,6 +234,6 @@ test('validateProposal rejects disallowed operationType', () => {
 });
 
 test('validateProposal accepts allowed operations', () => {
-  const p = validateProposal({ targetId: 'P1', operationType: 'update_material_field', field: 'name_zh', value: 'test' });
+  const p = validateProposal({ targetId: 'P1', operationType: 'update_material_field', payload: { field: 'name_zh', value: 'test' } });
   assert.equal(p.operationType, 'update_material_field');
 });

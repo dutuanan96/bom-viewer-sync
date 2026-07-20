@@ -28,6 +28,7 @@ const CHANGE_FIELD_LABELS = {
   material: 'materialComposition',
   color: 'materialColor',
   attr: 'materialAttribute',
+  unit: 'unit',
 };
 
 const CHANGE_PREVIEW_LIMIT = 8;
@@ -52,6 +53,12 @@ function renderStaticText() {
     button.classList.toggle('active', button.dataset.lang === this.state.lang);
   });
   this.query('#modeBadge').textContent = this.isAdmin() ? 'Admin' : 'Viewer';
+
+  const aiDrawerClose = this.query('#aiDrawerClose');
+  if (aiDrawerClose) aiDrawerClose.setAttribute('aria-label', this.label('ai.workspace.close') || 'Close');
+
+  const aiFab = this.query('#aiFab');
+  if (aiFab) aiFab.setAttribute('aria-label', this.label('ai.workspace.open') || 'Open AI Assistant');
 }
 
 function renderStatus() {

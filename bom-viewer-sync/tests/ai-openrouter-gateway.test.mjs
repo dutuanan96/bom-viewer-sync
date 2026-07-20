@@ -284,10 +284,69 @@ test('R2.1: chat request includes strict privacy defaults', async () => {
   await gateway.chat({ model: 'openai/gpt-4o-mini', messages: [{ role: 'user', content: 'hi' }], tools: [] });
 
   assert.ok(capturedBody, 'fetch body must be captured');
-  assert.equal(capturedBody.provider?.data_collection, 'deny', 'must set data_collection=deny');
-  assert.equal(capturedBody.provider?.zdr, true, 'must set zdr=true');
-  assert.equal(capturedBody.provider?.require_parameters, true, 'must set require_parameters=true');
-  assert.equal(capturedBody.parallel_tool_calls, false, 'must set parallel_tool_calls=false');
+  assert.strictEqual(capturedBody.provider?.require_parameters, undefined, 'must not require parameters when no tools');
+  assert.strictEqual(capturedBody.provider?.data_collection, 'deny', 'must deny data collection');
+  assert.strictEqual(capturedBody.provider?.zdr, true, 'must require zero data retention');
+});
+
+test('R3.3: consented marketplace search adds one bounded Amazon server tool', async () => {
+  let capturedBody;
+  const fetchImpl = async (url, options) => {
+    if (url.includes('/api/v1/key')) return { ok: true, status: 200, json: async () => VALID_KEY_RESPONSE, text: async () => '' };
+    if (url.includes('/api/v1/models')) return { ok: true, status: 200, json: async () => MODELS_RESPONSE, text: async () => '' };
+    if (url.includes('/api/v1/chat')) {
+      capturedBody = JSON.parse(options.body);
+      return { ok: true, status: 200, json: async () => ({ choices: [{ message: { content: '{"text":"ok","citations":[]}' } }] }), text: async () => '' };
+    }
+    throw new Error(`Unexpected: ${url}`);
+  };
+  const gateway = createOpenRouterGateway({ fetchImpl });
+  await gateway.connect(TEST_KEY);
+
+  await gateway.chat({
+    model: 'anthropic/claude-3-5-sonnet',
+    messages: [{ role: 'user', content: 'review LGS433' }],
+    tools: [],
+    webSearch: true,
+  });
+
+  assert.deepEqual(capturedBody.tools, [{
+    type: 'openrouter:web_search',
+    parameters: {
+      engine: 'exa',
+      max_results: 5,
+      max_total_results: 5,
+      search_context_size: 'low',
+      allowed_domains: ['amazon.com'],
+    },
+  }]);
+  assert.equal(capturedBody.parallel_tool_calls, false);
+  assert.equal(capturedBody.provider.require_parameters, true);
+});
+
+test('R3.3: caller cannot inject arbitrary plugins or enable web search without consent', async () => {
+  let capturedBody;
+  const fetchImpl = async (url, options) => {
+    if (url.includes('/api/v1/key')) return { ok: true, status: 200, json: async () => VALID_KEY_RESPONSE, text: async () => '' };
+    if (url.includes('/api/v1/models')) return { ok: true, status: 200, json: async () => MODELS_RESPONSE, text: async () => '' };
+    if (url.includes('/api/v1/chat')) {
+      capturedBody = JSON.parse(options.body);
+      return { ok: true, status: 200, json: async () => ({ choices: [{ message: { content: '{"text":"ok","citations":[]}' } }] }), text: async () => '' };
+    }
+    throw new Error(`Unexpected: ${url}`);
+  };
+  const gateway = createOpenRouterGateway({ fetchImpl });
+  await gateway.connect(TEST_KEY);
+
+  await gateway.chat({
+    model: 'anthropic/claude-3-5-sonnet',
+    messages: [{ role: 'user', content: 'hello' }],
+    tools: [],
+    plugins: [{ id: 'web' }],
+  });
+
+  assert.equal(capturedBody.plugins, undefined);
+  assert.equal(capturedBody.tools, undefined);
 });
 
 test('R2.1: chat rejects if provider routing fails', async () => {
@@ -469,4 +528,62 @@ test('R2.1: model metadata is refreshed when cache is older than 6 hours', async
   currentTime += 7 * 60 * 60 * 1000;
   await gateway.refreshModels({ forceRefresh: false });
   assert.ok(modelFetchCount > fetchAfterConnect, 'models must be re-fetched after 6h cache expiry');
+});
+
+test('R2.1: failed model refresh clears the captured API key', async () => {
+  let modelAttempts = 0;
+  const authorizations = [];
+  const fetchImpl = async (url, options = {}) => {
+    authorizations.push(options.headers?.Authorization);
+    if (url.includes('/api/v1/key')) return { ok: true, status: 200, json: async () => VALID_KEY_RESPONSE };
+    if (url.includes('/api/v1/models')) {
+      modelAttempts += 1;
+      if (modelAttempts <= 2) return { ok: false, status: 500, json: async () => ({ error: { message: 'unavailable' } }) };
+      return { ok: true, status: 200, json: async () => MODELS_RESPONSE };
+    }
+    throw new Error(`Unexpected: ${url}`);
+  };
+  const gateway = createOpenRouterGateway({ fetchImpl });
+  await assert.rejects(() => gateway.connect(TEST_KEY), /unavailable/);
+  await assert.rejects(() => gateway.refreshModels({ forceRefresh: true }), /not connected/i);
+  assert.equal(gateway.diagnostics().connected, false);
+  assert.equal(authorizations.at(-1), `Bearer ${TEST_KEY}`);
+});
+
+test('R2.1: caller cannot override privacy or Authorization defaults', async () => {
+  let captured;
+  const fetchImpl = async (url, options = {}) => {
+    if (url.includes('/api/v1/key')) return { ok: true, status: 200, json: async () => VALID_KEY_RESPONSE };
+    if (url.includes('/api/v1/models')) return { ok: true, status: 200, json: async () => MODELS_RESPONSE };
+    captured = options;
+    return { ok: true, status: 200, json: async () => ({ choices: [{ message: { content: '{"text":"ok","citations":[]}' } }] }) };
+  };
+  const gateway = createOpenRouterGateway({ fetchImpl });
+  await gateway.connect(TEST_KEY);
+  await gateway.chat({
+    model: 'openai/gpt-4o-mini', messages: [], tools: [{ type: 'function', function: { name: 'search_products' } }],
+    provider: { data_collection: 'allow', zdr: false }, headers: { Authorization: 'Bearer attacker' },
+  });
+  const body = JSON.parse(captured.body);
+  assert.deepEqual(body.provider, {
+    data_collection: 'deny', zdr: true, allow_fallbacks: true, require_parameters: true,
+  });
+  assert.equal(captured.headers.Authorization, `Bearer ${TEST_KEY}`);
+  assert.equal('headers' in body, false);
+});
+
+test('R2.1: caller cancellation aborts an in-flight request', async () => {
+  const fetchImpl = async (url, options = {}) => {
+    if (url.includes('/api/v1/key')) return { ok: true, status: 200, json: async () => VALID_KEY_RESPONSE };
+    if (url.includes('/api/v1/models')) return { ok: true, status: 200, json: async () => MODELS_RESPONSE };
+    return new Promise((resolve, reject) => {
+      options.signal.addEventListener('abort', () => reject(new DOMException('Aborted', 'AbortError')), { once: true });
+    });
+  };
+  const gateway = createOpenRouterGateway({ fetchImpl, requestTimeoutMs: 10_000 });
+  await gateway.connect(TEST_KEY);
+  const controller = new AbortController();
+  const pending = gateway.chat({ model: 'openai/gpt-4o-mini', messages: [], signal: controller.signal });
+  controller.abort();
+  await assert.rejects(() => pending, /abort/i);
 });

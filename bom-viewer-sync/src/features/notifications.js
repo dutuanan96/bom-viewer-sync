@@ -4,7 +4,7 @@ import { stableId } from '../shared/primitives.js';
 const NOTIFICATION_LIMIT = 30;
 const NOTIFICATION_CHANGE_LIMIT = 8;
 const LOCALIZED_MATERIAL_FIELDS = ['name', 'spec', 'material', 'color', 'attr'];
-const MATERIAL_CHANGE_FIELDS = ['code', ...LOCALIZED_MATERIAL_FIELDS];
+const MATERIAL_CHANGE_FIELDS = ['code', ...LOCALIZED_MATERIAL_FIELDS, 'unit'];
 
 export function normalizeNotificationChanges(changes) {
   if (!Array.isArray(changes)) return [];

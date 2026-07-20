@@ -6,7 +6,7 @@ const SOURCE_SHA = 'a'.repeat(40);
 const snapshot = {
   payload: {
     bom: {
-      LGS433: { code: 'LGS433', name_zh: '八抽屉黑色斗柜', name_vi: 'tủ 8 ngăn màu đen', name_en: '8 drawer dresser black', colors: ['黑色'] },
+      LGS433: { code: 'LGS433', name_zh: '八抽屉黑色斗柜', name_vi: 'tủ 8 ngăn màu đen', name_en: '8 drawer dresser black', colors: ['复古色', '白色', '黑色'] },
       LGS434: { code: 'LGS434', name_zh: '八抽屉白色斗柜', name_vi: 'tủ 8 ngăn màu trắng', name_en: '8 drawer dresser white', colors: ['白色'] },
     },
     materialDb: {
@@ -128,6 +128,14 @@ test('P1 regression: product code + valid color becomes a product-variant', () =
     assert.equal(result.status, 'resolved', `query=${query}`);
     assert.deepEqual(result.target, { type: 'product-variant', productCode: 'LGS433', color: '黑色' }, `query=${query}`);
     assert.equal(result.requiresConfirmation, false, `query=${query}`);
+  }
+});
+
+test('P1 regression: actual antique color aliases resolve to the canonical PDM color', () => {
+  for (const query of ['LGS433 复古色', 'LGS433 antique', 'LGS433 vintage', 'LGS433 màu gỗ cổ', 'LGS433 màu cổ điển']) {
+    const result = resolver().resolve({ query });
+    assert.equal(result.status, 'resolved', `query=${query}`);
+    assert.deepEqual(result.target, { type: 'product-variant', productCode: 'LGS433', color: '复古色' }, `query=${query}`);
   }
 });
 

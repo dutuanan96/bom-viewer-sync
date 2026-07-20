@@ -6,11 +6,13 @@
 
 import { buildBomTreeRows } from '../../domain/relationships.js';
 import { normalizeProductRevisionRegistry } from '../../domain/revisions.js';
+import { classifyMaterialFamily, summarizeMaterialFamilies } from './pdm-ontology.js';
 
 // Maximum results returned by search operations
 const MAX_SEARCH_RESULTS = 50;
 // Maximum BOM rows returned
 const MAX_BOM_ROWS = 200;
+const MAX_COMPARISON_RESULTS = 100;
 
 /**
  * Build a safe evidence object from source metadata + record context.
@@ -45,10 +47,99 @@ function toProductSummary(productCode, product) {
 function toBomRowSummary(row) {
   return {
     matCode: row.comp_code || row.mat_code || row._materialId || '',
+    materialId: row._materialId || '',
     nameZh: row.name_zh || row.name || '',
+    spec: row.spec || '',
+    attributeZh: row.attr_zh || '',
+    materialZh: row.material_zh || '',
     qty: row.qty || row.quantity || '',
     unit: row.unit || '',
     level: row._level || 1,
+  };
+}
+
+function normalizedQuantity(value) {
+  const text = String(value ?? '').trim();
+  if (!text) return null;
+  const normalized = text.replace(',', '.');
+  return /^-?\d+(?:\.\d+)?$/.test(normalized) ? Number(normalized) : null;
+}
+
+function aggregateBomRows(rows) {
+  const grouped = new Map();
+  for (const row of rows) {
+    const matCode = String(row.matCode || '').trim();
+    if (!matCode) continue;
+    const materialId = String(row.materialId || '').trim();
+    const level = Number(row.level || 1);
+    const matchKey = `${materialId || matCode}|${level}`;
+    if (!grouped.has(matchKey)) {
+      grouped.set(matchKey, {
+        matCode,
+        materialId: materialId || null,
+        level,
+        nameZh: row.nameZh || '',
+        spec: row.spec || '',
+        attributeZh: row.attributeZh || '',
+        materialZh: row.materialZh || '',
+        quantities: [],
+        units: new Set(),
+        rowCount: 0
+      });
+    }
+    const group = grouped.get(matchKey);
+    group.rowCount += 1;
+    const quantityText = String(row.qty ?? '').trim();
+    if (quantityText) group.quantities.push(quantityText);
+    const unit = String(row.unit || '').trim();
+    if (unit) group.units.add(unit);
+  }
+
+  return new Map([...grouped.entries()]
+    .sort(([left], [right]) => left.localeCompare(right))
+    .map(([matchKey, group]) => {
+      const numericQuantities = group.quantities.map(normalizedQuantity);
+      const allNumeric = numericQuantities.length > 0 && numericQuantities.every(value => value !== null);
+      const quantity = allNumeric
+        ? Number(numericQuantities.reduce((sum, value) => sum + value, 0).toFixed(6))
+        : null;
+      const units = [...group.units].sort();
+      return [matchKey, {
+        matCode: group.matCode,
+        materialId: group.materialId,
+        level: group.level,
+        nameZh: group.nameZh,
+        spec: group.spec,
+        attributeZh: group.attributeZh,
+        materialZh: group.materialZh,
+        quantity,
+        quantityText: allNumeric ? String(quantity) : group.quantities.join(' + '),
+        units,
+        rowCount: group.rowCount
+      }];
+    }));
+}
+
+function comparableBomValue(item) {
+  return `${item.quantityText}|${item.units.join('|')}`;
+}
+
+function toRevisionSummary(revision) {
+  return {
+    revision: revision?.revision || '',
+    sourceRevision: revision?.sourceRevision || '',
+    workflowState: revision?.workflowState || '',
+    createdAt: revision?.createdAt || null,
+    changeReason: revision?.changeReason || ''
+  };
+}
+
+function toEffectivityEventSummary(event) {
+  return {
+    revision: event?.revision || event?.effectiveRevision || '',
+    previousRevision: event?.previousRevision || '',
+    effectiveAt: event?.effectiveAt || event?.createdAt || null,
+    reason: event?.reason || event?.changeReason || ''
   };
 }
 
@@ -219,9 +310,9 @@ export class PdmKnowledge {
       productCode: productId,
       currentRevision: record.currentRevision,
       effectiveRevision: record.effectiveRevision,
-      currentRevisionInfo: record.currentRevisionInfo,
-      revisions: record.revisions,
-      effectivityEvents: record.effectivityEvents || [],
+      currentRevisionInfo: toRevisionSummary({ revision: record.currentRevision, ...record.currentRevisionInfo }),
+      revisions: (record.revisions || []).slice(0, 50).map(toRevisionSummary),
+      effectivityEvents: (record.effectivityEvents || []).slice(0, 50).map(toEffectivityEventSummary),
       evidence: buildEvidence(this._sourceMetadata, productId, 'data/manifest.json'),
     };
   }
@@ -277,12 +368,91 @@ export class PdmKnowledge {
     if (!bom[productId1]) throw new Error(`Not found: product ${productId1}`);
     if (!bom[productId2]) throw new Error(`Not found: product ${productId2}`);
 
-    const rows1 = buildBomTreeRows(this._payload, productId1, color1 || bom[productId1]?.colors?.[0] || '').slice(0, MAX_BOM_ROWS).map(toBomRowSummary);
-    const rows2 = buildBomTreeRows(this._payload, productId2, color2 || bom[productId2]?.colors?.[0] || '').slice(0, MAX_BOM_ROWS).map(toBomRowSummary);
+    const resolvedColor1 = color1 || bom[productId1]?.colors?.[0] || '';
+    const resolvedColor2 = color2 || bom[productId2]?.colors?.[0] || '';
+    const fullRows1 = buildBomTreeRows(this._payload, productId1, resolvedColor1);
+    const fullRows2 = buildBomTreeRows(this._payload, productId2, resolvedColor2);
+    const rows1 = fullRows1.slice(0, MAX_BOM_ROWS).map(toBomRowSummary);
+    const rows2 = fullRows2.slice(0, MAX_BOM_ROWS).map(toBomRowSummary);
+    const aggregated1 = aggregateBomRows(rows1);
+    const aggregated2 = aggregateBomRows(rows2);
+    const common = [];
+    const onlyProduct1 = [];
+    const onlyProduct2 = [];
+
+    for (const [matchKey, product1] of aggregated1) {
+      const product2 = aggregated2.get(matchKey);
+      if (!product2) {
+        onlyProduct1.push({ ...product1, materialFamily: classifyMaterialFamily(product1) });
+        continue;
+      }
+      const commonItem = {
+        matCode: product1.matCode,
+        materialId: product1.materialId || product2.materialId,
+        level: product1.level,
+        nameZh: product1.nameZh || product2.nameZh,
+        spec: product1.spec || product2.spec,
+        attributeZh: product1.attributeZh || product2.attributeZh,
+        materialZh: product1.materialZh || product2.materialZh,
+        product1,
+        product2,
+        quantityOrUnitDifferent: comparableBomValue(product1) !== comparableBomValue(product2)
+      };
+      common.push({ ...commonItem, materialFamily: classifyMaterialFamily(commonItem) });
+    }
+    for (const [matchKey, product2] of aggregated2) {
+      if (!aggregated1.has(matchKey)) onlyProduct2.push({ ...product2, materialFamily: classifyMaterialFamily(product2) });
+    }
+
+    const quantityOrUnitDifferences = common.filter(item => item.quantityOrUnitDifferent);
+    const commonByAttribute = {};
+    for (const item of common) {
+      const attribute = item.attributeZh || 'unclassified';
+      commonByAttribute[attribute] = (commonByAttribute[attribute] || 0) + 1;
+    }
+    const commonByMaterialFamily = summarizeMaterialFamilies(common);
+    const unionCount = aggregated1.size + aggregated2.size - common.length;
+    const similarityScore = unionCount === 0 ? 1 : common.length / unionCount;
+    const truncated = fullRows1.length > MAX_BOM_ROWS ||
+      fullRows2.length > MAX_BOM_ROWS ||
+      common.length > MAX_COMPARISON_RESULTS ||
+      onlyProduct1.length > MAX_COMPARISON_RESULTS ||
+      onlyProduct2.length > MAX_COMPARISON_RESULTS ||
+      quantityOrUnitDifferences.length > MAX_COMPARISON_RESULTS;
 
     return {
-      product1: { productCode: productId1, color: color1, rows: rows1 },
-      product2: { productCode: productId2, color: color2, rows: rows2 },
+      product1: {
+        productCode: productId1,
+        color: resolvedColor1,
+        totalRows: fullRows1.length,
+        materialCount: aggregated1.size,
+        truncated: fullRows1.length > MAX_BOM_ROWS
+      },
+      product2: {
+        productCode: productId2,
+        color: resolvedColor2,
+        totalRows: fullRows2.length,
+        materialCount: aggregated2.size,
+        truncated: fullRows2.length > MAX_BOM_ROWS
+      },
+      summary: {
+        commonCount: common.length,
+        onlyProduct1Count: onlyProduct1.length,
+        onlyProduct2Count: onlyProduct2.length,
+        quantityOrUnitDifferenceCount: quantityOrUnitDifferences.length,
+        similarityScore,
+        commonByAttribute,
+        commonByMaterialFamily
+      },
+      common: common.slice(0, MAX_COMPARISON_RESULTS),
+      onlyProduct1: onlyProduct1.slice(0, MAX_COMPARISON_RESULTS),
+      onlyProduct2: onlyProduct2.slice(0, MAX_COMPARISON_RESULTS),
+      quantityOrUnitDifferences: quantityOrUnitDifferences.slice(0, MAX_COMPARISON_RESULTS),
+      truncated,
+      evidence: [
+        buildEvidence(this._sourceMetadata, productId1, `data/products/${productId1}.json`),
+        buildEvidence(this._sourceMetadata, productId2, `data/products/${productId2}.json`)
+      ]
     };
   }
 

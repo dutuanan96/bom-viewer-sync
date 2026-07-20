@@ -14,6 +14,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { PdmKnowledge } from '../src/features/ai-assistant/pdm-knowledge.js';
 import { validateToolCall } from '../src/features/ai-assistant/contracts.js';
+import { PDM_INTENTS, routePdmIntent } from '../src/features/ai-assistant/intent-router.js';
 
 // ── Load canonical snapshot ───────────────────────────────────────────────────
 
@@ -66,6 +67,7 @@ const metrics = {
   exactSku: { hits: 0, total: 0 },
   rejectionRate: { hits: 0, total: 0 },
   citationCompleteness: { hits: 0, total: 0 },
+  specialistRegression: { hits: 0, total: 0 },
 };
 
 function evalCase(id, description, fn) {
@@ -147,7 +149,7 @@ const RED_TEAM_CASES = [
   { name: 'search_products', args: 'x'.repeat(6000), expectError: true },
   { name: 'search_products', args: { query: 'x'.repeat(10001) }, expectError: true },
   { name: 'unknown_tool_xyz', args: {}, expectError: true },
-  { name: 'search_products', args: { extra: 'bad', query: 'test' }, expectError: false }, // extra arg doesn't reach here (validateToolCall blocks at call layer)
+  { name: 'search_products', args: { extra: 'bad', query: 'test' }, expectError: true },
 ];
 
 for (const rc of RED_TEAM_CASES) {
@@ -180,12 +182,68 @@ evalCase('REV-LGS032', 'get_revision_history LGS032', () => {
   }
 });
 
+const ROUTER_TOOLS = [
+  'search_products',
+  'resolve_sku',
+  'get_bom',
+  'compare_boms',
+  'get_revision_history',
+  'get_marketplace_insights'
+];
+
+function specialistCase(id, description, fn) {
+  metrics.specialistRegression.total++;
+  evalCase(id, description, () => {
+    fn();
+    metrics.specialistRegression.hits++;
+  });
+}
+
+specialistCase('SPECIALIST-REV-LGS032', 'LGS032 draft and effective revision distinction', () => {
+  const route = routePdmIntent({
+    query: '为什么LGS032有状态是草稿呢？',
+    availableTools: ROUTER_TOOLS
+  });
+  if (route.intent !== PDM_INTENTS.REVISION_STATUS || route.preferredTool !== 'get_revision_history') {
+    throw new Error(`Unexpected revision route: ${JSON.stringify(route)}`);
+  }
+  const result = kb.getRevisionHistory({ productId: 'LGS032' });
+  if (result.currentRevision !== 'V3.1' || result.currentRevisionInfo.workflowState !== 'draft') {
+    throw new Error(`Expected current draft V3.1, got ${JSON.stringify(result.currentRevisionInfo)}`);
+  }
+  if (result.effectiveRevision !== 'V3') throw new Error(`Expected effective V3, got ${result.effectiveRevision}`);
+});
+
+specialistCase('SPECIALIST-COMPARE', 'LGS031 and LGS032 structured comparison', () => {
+  const route = routePdmIntent({ query: 'Compare LGS031 vs LGS032 BOM', availableTools: ROUTER_TOOLS });
+  if (route.intent !== PDM_INTENTS.BOM_COMPARE) throw new Error(`Unexpected comparison route: ${route.intent}`);
+  const result = kb.compareBoms({ productId1: 'LGS031', productId2: 'LGS032' });
+  if (!result.summary || result.evidence?.length !== 2) throw new Error('Comparison is missing summary or two-source evidence');
+});
+
+specialistCase('SPECIALIST-ALIAS', 'LGS433 external alias resolution', () => {
+  const route = routePdmIntent({ query: 'Resolve SKU ULGS433BH02S', availableTools: ROUTER_TOOLS });
+  if (route.intent !== PDM_INTENTS.SKU_ALIAS) throw new Error(`Unexpected alias route: ${route.intent}`);
+  const result = kb.resolveSku({ alias: 'ULGS433BH02S' });
+  if (result.productCode !== 'LGS433') throw new Error(`Unexpected alias product: ${result.productCode}`);
+});
+
+specialistCase('SPECIALIST-AMBIGUOUS', 'ambiguous request asks model for clarification', () => {
+  const route = routePdmIntent({ query: 'Please check this', availableTools: ROUTER_TOOLS });
+  if (route.intent !== PDM_INTENTS.AMBIGUOUS || route.preferredTool !== null) {
+    throw new Error(`Ambiguous request routed to ${route.preferredTool}`);
+  }
+});
+
 // ── Output ────────────────────────────────────────────────────────────────────
 
 const recall5Pct = metrics.recall5.total ? (metrics.recall5.hits / metrics.recall5.total) * 100 : 0;
 const exactSkuPct = metrics.exactSku.total ? (metrics.exactSku.hits / metrics.exactSku.total) * 100 : 0;
 const rejectionPct = metrics.rejectionRate.total ? (metrics.rejectionRate.hits / metrics.rejectionRate.total) * 100 : 0;
 const citationPct = metrics.citationCompleteness.total ? (metrics.citationCompleteness.hits / metrics.citationCompleteness.total) * 100 : 0;
+const specialistRegressionPct = metrics.specialistRegression.total
+  ? (metrics.specialistRegression.hits / metrics.specialistRegression.total) * 100
+  : 0;
 
 const report = {
   timestamp: new Date().toISOString(),
@@ -195,6 +253,7 @@ const report = {
     exactSku: { pct: exactSkuPct.toFixed(1), threshold: 100, pass: exactSkuPct >= 100 },
     rejectionRate: { pct: rejectionPct.toFixed(1), threshold: 100, pass: rejectionPct >= 100 },
     citationCompleteness: { pct: citationPct.toFixed(1), threshold: 100, pass: citationPct >= 100 },
+    specialistRegression: { pct: specialistRegressionPct.toFixed(1), threshold: 100, pass: specialistRegressionPct >= 100 },
   },
   evalSummary: { total: pass + fail, pass, fail },
   failures: failures,

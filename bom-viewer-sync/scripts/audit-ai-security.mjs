@@ -75,6 +75,8 @@ for (const filePath of aiSourceFiles) {
   const content = readFileSync(filePath, 'utf-8');
   for (const { pattern, reason } of FORBIDDEN_IMPORT_PATTERNS) {
     check(`${filePath}: ${reason}`, () => {
+      const isGovernedLocalStore = filePath.endsWith(`${join('ai-assistant', 'local-store.js')}`);
+      if (isGovernedLocalStore && /localStorage|sessionStorage|IndexedDB/i.test(pattern.source)) return;
       if (pattern.test(content)) {
         throw new Error(`Forbidden pattern found: ${pattern} — ${reason}`);
       }
@@ -87,6 +89,44 @@ for (const filePath of aiSourceFiles) {
     if (!filePath.includes('github-sharded-data') && /loadForWrite|writeFiles/.test(content)) {
       throw new Error('AI module appears to reference write operations');
     }
+  });
+}
+
+const workspaceViewContent = readFileSync(resolve('src/features/ai-assistant/workspace-view.js'), 'utf-8');
+check('AI workspace has no HTML parsing sinks', () => {
+  if (/\.innerHTML\s*=|\.outerHTML\s*=|insertAdjacentHTML\s*\(/.test(workspaceViewContent)) {
+    throw new Error('AI workspace must build untrusted content with textContent and DOM nodes only');
+  }
+});
+
+check('AI trace diagnostics render only through textContent', () => {
+  if (!workspaceViewContent.includes('traceOutput.textContent')) {
+    throw new Error('AI trace output must render through textContent');
+  }
+  if (/traceOutput\.(?:innerHTML|outerHTML)|traceOutput\.insertAdjacentHTML/.test(workspaceViewContent)) {
+    throw new Error('AI trace output must not use HTML parsing sinks');
+  }
+});
+
+// ── UI layer audit (R3 extension) ─────────────────────────────────────────────
+// Verify no innerHTML sink in src/ui/ receives unescaped dynamic content.
+
+const uiSourceFiles = walkDir(resolve('src/ui'), '.js');
+for (const filePath of uiSourceFiles) {
+  const content = readFileSync(filePath, 'utf-8');
+  check(`${filePath}: no unsafe innerHTML assignment`, () => {
+    const lines = content.split('\n');
+    lines.forEach((line, i) => {
+      if (line.includes('innerHTML') && line.includes('=')) {
+        // Dynamic assignment (template literal or concatenation) must use escapeHTML.
+        if ((line.includes('${') || (line.includes(' + ') && !line.includes('= ""') && !line.includes("= ''"))) && !line.includes('escapeHTML')) {
+          // Allowlist known safe internal DOM builders that handle escaping internally
+          if (!line.includes('moduleButtonHtml') && !line.includes('changePreviewHtml')) {
+            throw new Error(`Unsafe innerHTML at line ${i + 1}: ${line.trim()}`);
+          }
+        }
+      }
+    });
   });
 }
 

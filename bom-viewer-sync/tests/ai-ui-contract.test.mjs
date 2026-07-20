@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 
 // Mock DOM
 global.document = {
@@ -34,6 +35,22 @@ global.window = {
 };
 
 import { createAiAssistantFeature } from '../src/features/ai-assistant/index.js';
+import { createSettingsView } from '../src/features/ai-assistant/workspace-view.js';
+
+function findByClass(node, className) {
+  if (node?.className === className) return node;
+  for (const child of node?.children || []) {
+    const found = findByClass(child, className);
+    if (found) return found;
+  }
+  return null;
+}
+
+function findAll(node, predicate, output = []) {
+  if (predicate(node)) output.push(node);
+  for (const child of node?.children || []) findAll(child, predicate, output);
+  return output;
+}
 
 test('R2.4: feature initializes safely and returns UI component', async () => {
   const feature = createAiAssistantFeature({
@@ -88,6 +105,22 @@ test('R2.4: workspace uses textContent to prevent HTML injection', () => {
   assert.ok(!textDiv.innerHTML.includes('<script>'), 'Must not inject HTML');
 });
 
+test('R2.4: assistant Markdown markers are normalized to readable plain text', () => {
+  const feature = createAiAssistantFeature({
+    runTool: async () => {},
+    getSnapshot: () => ({ selection: {} })
+  });
+
+  feature.ui.renderMessage({ role: 'assistant', text: '**\u5171\u7528\u94c1\u4ef6\uff1a**\n* **M6x22\u87ba\u4e1d**', citations: [] });
+
+  const messagesContainer = feature.ui.workspaceElement.children[0];
+  const row = messagesContainer.children[messagesContainer.children.length - 1];
+  const body = row.children.find(child => child.className === 'ai-message');
+  const textDiv = body.children.find(child => child.className === 'ai-message-text');
+  assert.equal(textDiv.textContent, '\u5171\u7528\u94c1\u4ef6\uff1a\n- M6x22\u87ba\u4e1d');
+  assert.equal(textDiv.innerHTML, '');
+});
+
 test('R2.4: clearing connection clears gateway and workspace', async () => {
   const feature = createAiAssistantFeature({
     runTool: async () => {},
@@ -99,4 +132,74 @@ test('R2.4: clearing connection clears gateway and workspace', async () => {
   const messagesContainer = feature.ui.workspaceElement.children[0];
   const msgElements = messagesContainer.children;
   assert.equal(msgElements.length, 0, 'Workspace must be cleared');
+});
+
+test('R2.4: settings renders the latest safe trace with textContent', () => {
+  const settings = createSettingsView({
+    getDiagnostics: () => ({ connected: true }),
+    t: key => key
+  });
+  settings.updateTrace(Object.freeze([
+    Object.freeze({ type: 'route_selected', offsetMs: 0, intent: 'revision_status' }),
+    Object.freeze({ type: 'answer_validated', offsetMs: 12, status: 'success' })
+  ]));
+
+  const output = findByClass(settings.element, 'ai-trace-output');
+  assert.ok(output);
+  assert.match(output.textContent, /revision_status/);
+  assert.equal(output.innerHTML, '');
+});
+
+test('settings renders governed mapping details and disables promotion until confirmation', () => {
+  const baseMapping = {
+    schemaVersion: 1,
+    id: 'mapping_candidate_bellah',
+    mappingType: 'entity-alias',
+    scope: 'personal',
+    phrase: 'con BellaH',
+    normalizedPhrase: 'con bellah',
+    target: { type: 'product', productCode: 'LGS433' },
+    status: 'candidate',
+    confidence: 0.95,
+    provenance: [{ sourceType: 'user-proposed', sourceRef: 'chat', capturedAt: '2026-07-20T00:00:00.000Z' }],
+    sourceCommit: 'a'.repeat(40),
+  };
+  const localStore = {
+    listMemories: () => [{ id: 'memory_1', status: 'candidate', fact: 'con BellaH -> LGS433', entityMapping: baseMapping }],
+    diagnostics: () => ({ persistence: 'persistent' }),
+    confirm() {}, reject() {}, deleteMemory() {},
+  };
+  const settings = createSettingsView({ localStore, t: key => key, onExportMapping: () => '{}' });
+  const detail = findByClass(settings.element, 'ai-mapping-details');
+  assert.match(detail.textContent, /con BellaH/);
+  assert.match(detail.textContent, /LGS433/);
+  assert.match(detail.textContent, /0\.95/);
+  assert.equal(detail.innerHTML, '');
+
+  const buttons = findAll(settings.element, node => node?.tagName === 'button');
+  const exportButton = buttons.find(button => button.textContent === 'ai.mapping.exportPromotion');
+  assert.ok(exportButton);
+  assert.equal(exportButton.disabled, true);
+  assert.ok(buttons.some(button => button.textContent === 'ai.memory.confirm'));
+  assert.ok(buttons.some(button => button.textContent === 'ai.memory.reject'));
+});
+
+test('workspace renders bounded canonical mapping choices with safe text nodes', () => {
+  const feature = createAiAssistantFeature({ runTool: async () => {}, getSnapshot: () => ({ selection: {} }) });
+  feature.ui.renderMessage({
+    role: 'assistant',
+    text: 'Choose a product',
+    mappingCandidates: [{ target: { type: 'product', productCode: 'LGS433' }, confidence: 0.94, source: 'fuzzy-canonical' }],
+  });
+  const card = findByClass(feature.ui.workspaceElement, 'ai-mapping-candidates');
+  assert.ok(card);
+  assert.match(card.textContent + card.children.map(child => child.textContent).join(' '), /LGS433/);
+  assert.equal(card.innerHTML, '');
+});
+
+test('R2.4: per-turn budget message does not tell the user to start a new conversation', () => {
+  const applicationSource = readFileSync(new URL('../src/application.js', import.meta.url), 'utf8');
+  const budgetLine = applicationSource.split('\n').find(line => line.includes("'ai.error.budgetExceeded'"));
+  assert.ok(budgetLine);
+  assert.doesNotMatch(budgetLine, /\u65b0\u5efa\u5bf9\u8bdd/);
 });

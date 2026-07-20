@@ -43,6 +43,15 @@ test('describePayloadChanges detects material modified', () => {
   assert.equal(nameChange.after, 'B');
 });
 
+test('describePayloadChanges detects material unit modified', () => {
+  const previous = { materialDb: { materials: { M1: { id: 'M1', code: 'M1', unit: 'pcs' } } } };
+  const next = { materialDb: { materials: { M1: { id: 'M1', code: 'M1', unit: 'set' } } } };
+
+  assert.deepEqual(describePayloadChanges(previous, next), [{
+    kind: 'material', code: 'M1', field: 'unit', before: 'pcs', after: 'set'
+  }]);
+});
+
 test('describePayloadChanges detects bom entry added', () => {
   const previous = { materialDb: { materials: { 'M1': { id: 'M1', code: 'C1' } }, bomEntries: [] } };
   const next = {

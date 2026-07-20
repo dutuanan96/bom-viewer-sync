@@ -865,7 +865,7 @@ tr:last-child td {
 .pdf-modal {
   position: fixed;
   inset: 0;
-  z-index: 1000;
+  z-index: 2000;
   display: none;
   align-items: center;
   justify-content: center;
@@ -3578,13 +3578,16 @@ body.pdm-shell {
   border: none;
   cursor: pointer;
   z-index: 1001;
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s;
 }
 .ai-fab:hover {
-  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 86, 210, 0.4);
+  transform: translateY(-2px);
 }
-.ai-fab:active {
-  transform: scale(0.95);
+.ai-fab.is-hidden {
+  transform: scale(0);
+  pointer-events: none;
+  visibility: hidden;
 }
 .ai-fab .material-symbols-outlined {
   font-size: 28px;
@@ -3594,7 +3597,8 @@ body.pdm-shell {
   position: fixed;
   bottom: 24px;
   right: 24px;
-  width: 700px;
+  width: 400px;
+  max-width: 35vw;
   height: calc(100vh - 48px);
   max-height: 1200px;
   background-color: #ffffff;
@@ -3603,13 +3607,22 @@ body.pdm-shell {
   display: flex;
   flex-direction: column;
   z-index: 1000;
-  transition: opacity 0.3s, transform 0.3s;
-}
-.ai-chat-widget[hidden] {
-  display: none !important;
+  resize: horizontal;
+  overflow: auto;
+  transform: translateX(120%);
   opacity: 0;
-  transform: translateY(20px);
-  pointer-events: none;
+  visibility: hidden;
+  transition: transform 280ms cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 280ms ease,
+              visibility 0s linear 280ms;
+}
+.ai-chat-widget.is-open {
+  transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
+  transition: transform 280ms cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 280ms ease,
+              visibility 0s linear 0s;
 }
 .ai-chat-widget-header {
   background-color: transparent;
@@ -3687,6 +3700,23 @@ body.pdm-shell {
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+.ai-workspace-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 6px 16px;
+  border-top: 1px solid #eef0f4;
+}
+.ai-clear-btn {
+  background: transparent;
+  border: 0;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 12px;
+  padding: 4px 8px;
+}
+.ai-clear-btn:hover {
+  color: var(--blue);
 }
 .ai-message-row {
   display: flex;
@@ -3799,16 +3829,7 @@ body.pdm-shell {
 .ai-send-btn .material-symbols-outlined {
   font-size: 18px;
 }
-.ai-textarea {
-  resize: none;
-  flex: 1;
-  font-family: inherit;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 8px 12px;
-  font-size: 13px;
-  min-height: 64px;
-}
+
 .ai-loading-indicator {
   padding: 0 16px 8px;
   font-size: 0.85rem;
@@ -3829,6 +3850,100 @@ body.pdm-shell {
   gap: 12px;
 }
 .ai-status-text {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--muted);
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+.ai-status-text.connected {
+  background-color: #e6f4ea;
+  color: #137333;
+  border: 1px solid #ceead6;
+}
+.ai-status-text.disconnected {
+  background-color: #fce8e6;
+  color: #c5221f;
+  border: 1px solid #fad2cf;
+}
+.ai-trace-settings {
+  border-top: 1px solid #e5e7eb;
+  display: grid;
+  gap: 8px;
+  padding-top: 12px;
+}
+.ai-trace-settings h3 {
+  font-size: 14px;
+  margin: 0;
+}
+.ai-trace-output {
+  background: #f6f8fa;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 11px;
+  margin: 0;
+  max-height: 220px;
+  overflow: auto;
+  padding: 10px;
+  white-space: pre-wrap;
+}
+
+/* Proposal Card */
+.ai-proposal-card {
+  margin-top: 12px;
+  padding: 12px;
+  background: var(--surface-2, #f5f5f5);
+  border: 1px solid var(--border-color, #e0e0e0);
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.ai-proposal-card strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-primary, #333);
+}
+
+.ai-diff-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+.ai-diff-table th, .ai-diff-table td {
+  border: 1px solid var(--border-color, #e0e0e0);
+  padding: 4px 6px;
+  text-align: left;
+}
+
+.ai-diff-table th {
+  background: var(--surface-3, #eee);
+  font-weight: 600;
+}
+
+.ai-diff-empty {
+  color: var(--text-secondary, #666);
+  font-style: italic;
+  padding: 8px 0;
+}
+
+.diff-removed {
+  background-color: #ffeef0;
+  color: #b30000;
+  text-decoration: line-through;
+}
+
+.diff-added {
+  background-color: #e6ffed;
+  color: #005f00;
+}
+
+.ai-proposal-actions {
+  display: flex;
+  justify-content: flex-end;
 }

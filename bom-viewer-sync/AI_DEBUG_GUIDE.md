@@ -214,6 +214,66 @@ For local portable acceptance, open Viewer and Admin through the required
 14. Credentials and local absolute paths never enter tracked or generated files.
 15. PDM UI text is supplied through i18n keys.
 16. Mirrors are not repository truth.
+17. AI API keys and chat history are RAM-only and cleared on disconnect or page reload. User-confirmed knowledge memory may use the governed local AI store; secret-like fields and values are rejected. The `sessionStorage` usage under `TOKEN_KEY` in `application.js` is strictly for the Admin GitHub PAT.
+
+## 6.1 AI Assistant Debugging
+
+The AI answer path is deterministic before it is generative:
+
+```text
+exact user query
+  -> multilingual intent router
+  -> strict read-only tool prefetch when intent is deterministic
+  -> bounded trusted tool result and RAM-only conversation context
+  -> OpenRouter model synthesis
+  -> structured answer and citation validation
+  -> safe operational trace in Settings
+```
+
+For revision questions, confirm that the first provider request contains the
+exact query, `get_revision_history`, and the bounded revision result. For
+`LGS032`, the canonical regression is latest Draft `V3.1` versus effective
+Released `V3`; the assistant must not replace this answer with a list of all
+products.
+
+Useful focused commands:
+
+```powershell
+node --test tests\ai-intent-router.test.mjs tests\ai-contracts.test.mjs
+node --test tests\ai-runtime.test.mjs tests\ai-conversation-session.test.mjs
+node --test tests\ai-knowledge.test.mjs tests\ai-safe-trace.test.mjs
+node --test tests\ai-evaluation.test.mjs
+node scripts\audit-ai-security.mjs
+npx playwright test tests\e2e\ai-assistant.spec.mjs
+```
+
+Settings trace is deliberately metadata-only: intent, model ID, tool name,
+stable status/code, latency, evidence IDs, and numeric usage. It must never
+contain the API key, authorization headers, raw prompts, raw tool payloads, or
+provider error bodies. Clear Chat and Disconnect must remove retained
+conversation context.
+
+Entity-name resolution runs locally before intent routing. Exact canonical IDs,
+owner-reviewed company aliases, confirmed marketplace aliases, and confirmed
+personal aliases may resolve directly. Fuzzy matching is bounded to three
+candidates and auto-resolves read-only questions only at score `>= 0.90` with
+margin `>= 0.15`; it never authorizes `submit_proposal`. Choosing a candidate
+creates a personal browser candidate, and Settings confirmation is required
+before reuse. A confirmed personal mapping can be exported for owner review,
+but the runtime never edits `knowledge/entity-aliases.json`.
+
+Focused mapping checks:
+
+```powershell
+node --test tests\ai-entity-mapping.test.mjs tests\ai-entity-resolver.test.mjs
+node --test tests\ai-intent-router.test.mjs tests\ai-runtime.test.mjs
+node --test tests\ai-ui-contract.test.mjs tests\ai-local-store.test.mjs
+```
+
+For a live smoke test, enter a newly rotated key directly in Settings. Never
+paste a real key into chat, shell commands, files, screenshots, test fixtures,
+or trace output. Live OpenRouter results are supplemental evidence and do not
+replace deterministic tests.
 
 ## 7. Verification And Handoff
 
