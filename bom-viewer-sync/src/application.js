@@ -294,6 +294,7 @@ const global = globalThis;
       'ai.message.fallback': 'AI 助手暂时不可用。请稍后再试。',
       'ai.message.error': '发生错误',
       'ai.error.budgetExceeded': '本轮模型重复调用过多，请重试或更换模型。',
+      'ai.message.greetingResponse': '您好！有什么我可以帮您的？',
       'ai.workspace.greeting': '👋 您好！我是 JinTai PDM 的 AI 助手。\n\n请在下方输入您的问题，我随时准备为您提供帮助！🤩'
     },
     vi: {
@@ -511,6 +512,7 @@ const global = globalThis;
       'ai.message.fallback': 'Trợ lý AI tạm thời không khả dụng. Vui lòng thử lại sau.',
       'ai.message.error': 'Đã xảy ra lỗi',
       'ai.error.budgetExceeded': 'Mô hình đã gọi lặp quá nhiều trong lượt này. Hãy thử lại hoặc đổi mô hình.',
+      'ai.message.greetingResponse': 'Xin chào! Tôi có thể giúp gì cho bạn?',
       'ai.workspace.greeting': '👋 Xin chào! Tôi là Trợ lý AI của JinTai PDM.\n\nHãy nhập câu hỏi của bạn xuống bên dưới, tôi đã sẵn sàng hỗ trợ bạn bất cứ lúc nào! 🤩'
     }
   };

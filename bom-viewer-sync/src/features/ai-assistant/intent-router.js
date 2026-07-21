@@ -24,8 +24,11 @@ export const PDM_INTENTS = Object.freeze({
   MARKETPLACE: 'marketplace',
   SKU_ALIAS: 'sku_alias',
   DISCOVERY: 'discovery',
+  GREETING: 'greeting',
   AMBIGUOUS: 'ambiguous',
 });
+
+const GREETING_PATTERN = /^(hi|hello|hey|你好|xin ch[aà]o|ch[aà]o)(\s|!|\.|。|$)/iu;
 
 function toolNames(availableTools) {
   return new Set((Array.isArray(availableTools) ? availableTools : [])
@@ -135,6 +138,10 @@ export function routePdmIntent({ query, history = [], selection = {}, availableT
 
   if (INTENT_PATTERNS.discovery.test(text) && tools.has('search_products')) {
     return result(PDM_INTENTS.DISCOVERY, entities, 'search_products');
+  }
+
+  if (GREETING_PATTERN.test(text) && Object.keys(entities).every(k => !entities[k] || entities[k].length === 0)) {
+    return result(PDM_INTENTS.GREETING, entities, null, 'greeting');
   }
 
   return ambiguous(entities);

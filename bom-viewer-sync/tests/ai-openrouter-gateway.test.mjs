@@ -645,7 +645,7 @@ test('bugfix: gateway strips parallel_tool_calls when tools are empty to prevent
   };
   const gateway = createOpenRouterGateway({ fetchImpl });
   await gateway.connect(TEST_KEY);
-  
+
   await gateway.chat({
     model: 'openai/gpt-4o-mini',
     messages: [{ role: 'user', content: 'hello' }],

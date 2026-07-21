@@ -77,7 +77,7 @@ test('uses the selected product only for an explicit current-product reference',
 });
 
 test('returns ambiguous when intent, identifiers, or required tool are insufficient', () => {
-  const noIntent = routePdmIntent({ query: 'Xin chào', availableTools: READ_TOOLS });
+  const noIntent = routePdmIntent({ query: 'I need some help', availableTools: READ_TOOLS });
   assert.equal(noIntent.intent, PDM_INTENTS.AMBIGUOUS);
   assert.equal(noIntent.preferredTool, null);
 
@@ -158,4 +158,16 @@ test('explicit canonical IDs override inferred aliases and unresolved candidates
     availableTools: READ_TOOLS,
   });
   assert.equal(unresolved.confidence, 'ambiguous');
+});
+
+test('routes simple social greetings to GREETING intent when no entities exist', () => {
+  for (const query of ['你好', 'Xin chào', 'Hello', 'hi', 'chào']) {
+    const route = routePdmIntent({ query, availableTools: READ_TOOLS });
+    assert.equal(route.intent, PDM_INTENTS.GREETING);
+    assert.equal(route.preferredTool, null);
+  }
+
+  // Regression: if an entity exists, it should not be a greeting
+  const withEntity = routePdmIntent({ query: 'Hello LGS723', availableTools: READ_TOOLS });
+  assert.notEqual(withEntity.intent, PDM_INTENTS.GREETING);
 });

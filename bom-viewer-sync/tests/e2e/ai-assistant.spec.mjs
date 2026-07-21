@@ -121,7 +121,7 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
       await route.fulfill({ status: 503, json: { error: { message: 'Overloaded' } } });
     });
 
-    await page.fill('.ai-input-area textarea', 'Hello');
+    await page.fill('.ai-input-area textarea', 'Tell me a joke.');
     await page.press('.ai-input-area textarea', 'Enter');
 
     // Expect fallback message

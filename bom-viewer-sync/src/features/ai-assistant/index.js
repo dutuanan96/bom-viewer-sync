@@ -140,6 +140,15 @@ export function createAiAssistantFeature({ runTool, getSnapshot, localStore, fet
           ? [entityResolution.target]
           : [];
         const route = routePdmIntent({ query: text, history, selection: snapshot.selection, availableTools, resolvedEntities });
+
+        if (route.intent === 'greeting') {
+          const reply = t('ai.message.greetingResponse');
+          workspace.renderMessage({ role: 'assistant', text: reply });
+          try { conversationSession.record({ userText: text, assistantText: reply }); } catch {}
+          if (workspace.toggleLoading) workspace.toggleLoading(false);
+          return;
+        }
+
         const skill = skillRegistry.select(route);
         const confirmedMemories = selectScopedMemories({
           localStore,
