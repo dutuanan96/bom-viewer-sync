@@ -8,7 +8,7 @@ import {
   validateSkill,
   validateMemory,
   validateAudit,
-  validateProposal
+  validateMutation
 } from '../src/features/ai-assistant/contracts.js';
 
 /**
@@ -216,24 +216,24 @@ test('validateAudit accepts valid audit', () => {
   assert.equal(a.productId, 'LGS433');
 });
 
-// ── R1.1-H: validateProposal ─────────────────────────────────────────────────
+// ── R1.1-H: validateMutation ─────────────────────────────────────────────────
 
-test('validateProposal rejects empty object', () => {
-  assert.throws(() => validateProposal({}), /missing/);
+test('validateMutation rejects empty object', () => {
+  assert.throws(() => validateMutation({}), /missing/);
 });
 
-test('validateProposal rejects missing operationType', () => {
-  assert.throws(() => validateProposal({ targetId: 'P1' }), /missing operationType/);
+test('validateMutation rejects missing operationType', () => {
+  assert.throws(() => validateMutation({ targetId: 'P1' }), /missing operationType/);
 });
 
-test('validateProposal rejects disallowed operationType', () => {
+test('validateMutation rejects disallowed operationType', () => {
   assert.throws(
-    () => validateProposal({ targetId: 'P1', operationType: 'delete_product' }),
+    () => validateMutation({ targetId: 'P1', operationType: 'delete_product' }),
     /disallowed operationType/
   );
 });
 
-test('validateProposal accepts allowed operations', () => {
-  const p = validateProposal({ targetId: 'P1', operationType: 'update_material_field', payload: { field: 'name_zh', value: 'test' } });
+test('validateMutation accepts allowed operations', () => {
+  const p = validateMutation({ targetId: 'P1', operationType: 'update_material_field', payload: { field: 'name_zh', value: 'test' } });
   assert.equal(p.operationType, 'update_material_field');
 });

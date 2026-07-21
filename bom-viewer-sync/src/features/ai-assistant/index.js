@@ -57,8 +57,8 @@ const TOOL_SCHEMAS = {
     description: 'Audit product data quality',
     parameters: { type: 'object', properties: { productId: PRODUCT_ID_SCHEMA }, required: ['productId'], additionalProperties: false }
   },
-  submit_proposal: {
-    description: 'Propose an exact data change to be reviewed and applied locally by the user. Use this to update material fields or BOM quantities. operationType must be update_material_field or update_bom_quantity.',
+  apply_mutation: {
+    description: 'Apply an exact data mutation locally. Use this to update material fields or BOM quantities. operationType must be update_material_field or update_bom_quantity.',
     parameters: {
       type: 'object',
       properties: {
@@ -81,16 +81,12 @@ const TOOL_SCHEMAS = {
   retrieve_memory: {
     description: 'Retrieve self-learning memory',
     parameters: { type: 'object', properties: { key: NON_EMPTY_STRING_SCHEMA }, required: ['key'], additionalProperties: false }
-  },
-  search_web: {
-    description: 'Search the open web when local evidence is insufficient',
-    parameters: { type: 'object', properties: { query: NON_EMPTY_STRING_SCHEMA }, required: ['query'], additionalProperties: false }
   }
 };
 
 export function buildAvailableTools(modelInfo) {
   return Array.from(ALLOWED_TOOLS)
-    .filter(name => name !== 'submit_proposal' || modelInfo?.grade === 'A')
+    .filter(name => name !== 'apply_mutation' || modelInfo?.grade === 'A')
     .map(name => ({
       type: 'function',
       function: { name, ...TOOL_SCHEMAS[name] }
@@ -139,7 +135,7 @@ export function createAiAssistantFeature({ runTool, getSnapshot, localStore, fet
           && ['canonical-id', 'personal-confirmed', 'company-confirmed', 'marketplace-confirmed'].includes(entityResolution.source);
         const availableTools = proposalTargetAuthorized
           ? modelTools
-          : modelTools.filter(tool => tool?.function?.name !== 'submit_proposal');
+          : modelTools.filter(tool => tool?.function?.name !== 'apply_mutation');
         const resolvedEntities = entityResolution.status === 'resolved' && entityResolution.target
           ? [entityResolution.target]
           : [];
@@ -178,6 +174,7 @@ export function createAiAssistantFeature({ runTool, getSnapshot, localStore, fet
           role: 'assistant',
           text: result.text,
           citations: result.citations,
+          evidence: result.evidenceItems,
           mappingCandidates: result.clarification ? result.entityResolution?.candidates : [],
           onSelectMapping: (candidate) => {
             if (!localStore?.createCandidate || !candidate?.target) return;

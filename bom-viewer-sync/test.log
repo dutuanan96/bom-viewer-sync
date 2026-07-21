@@ -1,0 +1,3051 @@
+
+> test
+> npm run test:node && npm run test:e2e
+
+
+> test:node
+> node --test tests/*.test.mjs
+
+TAP version 13
+# Subtest: agent-controller: routes intent to OpenRouter webSearch and maps citations
+ok 1 - agent-controller: routes intent to OpenRouter webSearch and maps citations
+  ---
+  duration_ms: 4.8088
+  type: 'test'
+  ...
+# Subtest: agent-controller: runs tools and collects evidence
+ok 2 - agent-controller: runs tools and collects evidence
+  ---
+  duration_ms: 1.0564
+  type: 'test'
+  ...
+# Subtest: AI error codes are frozen and complete
+ok 3 - AI error codes are frozen and complete
+  ---
+  duration_ms: 2.0008
+  type: 'test'
+  ...
+# Subtest: validateToolCall rejects missing/null/non-object
+ok 4 - validateToolCall rejects missing/null/non-object
+  ---
+  duration_ms: 0.3967
+  type: 'test'
+  ...
+# Subtest: validateToolCall rejects unknown tools with stable code
+ok 5 - validateToolCall rejects unknown tools with stable code
+  ---
+  duration_ms: 0.3962
+  type: 'test'
+  ...
+# Subtest: validateToolCall rejects extra fields
+ok 6 - validateToolCall rejects extra fields
+  ---
+  duration_ms: 0.2344
+  type: 'test'
+  ...
+# Subtest: validateToolCall rejects oversized string arguments (>5000 chars)
+ok 7 - validateToolCall rejects oversized string arguments (>5000 chars)
+  ---
+  duration_ms: 0.3327
+  type: 'test'
+  ...
+# Subtest: validateToolCall rejects oversized nested string in object (>1000 chars)
+ok 8 - validateToolCall rejects oversized nested string in object (>1000 chars)
+  ---
+  duration_ms: 0.2725
+  type: 'test'
+  ...
+# Subtest: validateToolCall rejects oversized array in object
+ok 9 - validateToolCall rejects oversized array in object
+  ---
+  duration_ms: 0.3102
+  type: 'test'
+  ...
+# Subtest: validateToolCall accepts valid tool with object args
+ok 10 - validateToolCall accepts valid tool with object args
+  ---
+  duration_ms: 0.3123
+  type: 'test'
+  ...
+# Subtest: validateToolCall rejects missing required arguments
+ok 11 - validateToolCall rejects missing required arguments
+  ---
+  duration_ms: 0.8323
+  type: 'test'
+  ...
+# Subtest: validateToolCall rejects blank queries and malformed product IDs
+ok 12 - validateToolCall rejects blank queries and malformed product IDs
+  ---
+  duration_ms: 0.9298
+  type: 'test'
+  ...
+# Subtest: validateToolCall rejects unexpected argument fields
+ok 13 - validateToolCall rejects unexpected argument fields
+  ---
+  duration_ms: 0.3836
+  type: 'test'
+  ...
+# Subtest: validateToolCall accepts a valid canonical product ID
+ok 14 - validateToolCall accepts a valid canonical product ID
+  ---
+  duration_ms: 0.2083
+  type: 'test'
+  ...
+# Subtest: validateEvidence rejects empty object
+ok 15 - validateEvidence rejects empty object
+  ---
+  duration_ms: 0.1986
+  type: 'test'
+  ...
+# Subtest: validateEvidence rejects id-only object — missing required fields
+ok 16 - validateEvidence rejects id-only object — missing required fields
+  ---
+  duration_ms: 0.1507
+  type: 'test'
+  ...
+# Subtest: validateEvidence rejects missing sourceType
+ok 17 - validateEvidence rejects missing sourceType
+  ---
+  duration_ms: 0.1728
+  type: 'test'
+  ...
+# Subtest: validateEvidence rejects missing sourceCommit
+ok 18 - validateEvidence rejects missing sourceCommit
+  ---
+  duration_ms: 0.1301
+  type: 'test'
+  ...
+# Subtest: validateEvidence rejects short sourceCommit (not 40 hex chars)
+ok 19 - validateEvidence rejects short sourceCommit (not 40 hex chars)
+  ---
+  duration_ms: 0.1629
+  type: 'test'
+  ...
+# Subtest: validateEvidence accepts fully-specified evidence
+ok 20 - validateEvidence accepts fully-specified evidence
+  ---
+  duration_ms: 0.1484
+  type: 'test'
+  ...
+# Subtest: validateAnswer rejects missing text
+ok 21 - validateAnswer rejects missing text
+  ---
+  duration_ms: 0.2202
+  type: 'test'
+  ...
+# Subtest: validateAnswer rejects oversized text
+ok 22 - validateAnswer rejects oversized text
+  ---
+  duration_ms: 0.1472
+  type: 'test'
+  ...
+# Subtest: validateAnswer accepts valid answer with citation evidence
+ok 23 - validateAnswer accepts valid answer with citation evidence
+  ---
+  duration_ms: 0.0953
+  type: 'test'
+  ...
+# Subtest: validateSkill rejects missing schemaVersion
+ok 24 - validateSkill rejects missing schemaVersion
+  ---
+  duration_ms: 0.1539
+  type: 'test'
+  ...
+# Subtest: validateSkill rejects missing packVersion
+ok 25 - validateSkill rejects missing packVersion
+  ---
+  duration_ms: 0.1116
+  type: 'test'
+  ...
+# Subtest: validateSkill rejects missing updatedAt
+ok 26 - validateSkill rejects missing updatedAt
+  ---
+  duration_ms: 0.111
+  type: 'test'
+  ...
+# Subtest: validateSkill accepts valid skill pack
+ok 27 - validateSkill accepts valid skill pack
+  ---
+  duration_ms: 0.0982
+  type: 'test'
+  ...
+# Subtest: validateMemory rejects missing status
+ok 28 - validateMemory rejects missing status
+  ---
+  duration_ms: 0.1642
+  type: 'test'
+  ...
+# Subtest: validateMemory rejects invalid status values
+ok 29 - validateMemory rejects invalid status values
+  ---
+  duration_ms: 0.1843
+  type: 'test'
+  ...
+# Subtest: validateMemory rejects missing provenance
+ok 30 - validateMemory rejects missing provenance
+  ---
+  duration_ms: 0.1122
+  type: 'test'
+  ...
+# Subtest: validateMemory accepts all valid statuses
+ok 31 - validateMemory accepts all valid statuses
+  ---
+  duration_ms: 0.1264
+  type: 'test'
+  ...
+# Subtest: validateAudit rejects empty object
+ok 32 - validateAudit rejects empty object
+  ---
+  duration_ms: 0.15
+  type: 'test'
+  ...
+# Subtest: validateAudit rejects missing productId
+ok 33 - validateAudit rejects missing productId
+  ---
+  duration_ms: 0.1031
+  type: 'test'
+  ...
+# Subtest: validateAudit accepts valid audit
+ok 34 - validateAudit accepts valid audit
+  ---
+  duration_ms: 0.0775
+  type: 'test'
+  ...
+# Subtest: validateMutation rejects empty object
+ok 35 - validateMutation rejects empty object
+  ---
+  duration_ms: 0.2332
+  type: 'test'
+  ...
+# Subtest: validateMutation rejects missing operationType
+ok 36 - validateMutation rejects missing operationType
+  ---
+  duration_ms: 0.1045
+  type: 'test'
+  ...
+# Subtest: validateMutation rejects disallowed operationType
+ok 37 - validateMutation rejects disallowed operationType
+  ---
+  duration_ms: 0.186
+  type: 'test'
+  ...
+# Subtest: validateMutation accepts allowed operations
+ok 38 - validateMutation accepts allowed operations
+  ---
+  duration_ms: 0.1372
+  type: 'test'
+  ...
+# Subtest: conversation session retains only the newest bounded turns
+ok 39 - conversation session retains only the newest bounded turns
+  ---
+  duration_ms: 2.8924
+  type: 'test'
+  ...
+# Subtest: conversation session evicts oldest turns to satisfy the character budget
+ok 40 - conversation session evicts oldest turns to satisfy the character budget
+  ---
+  duration_ms: 0.4441
+  type: 'test'
+  ...
+# Subtest: conversation session returns immutable cloned messages
+ok 41 - conversation session returns immutable cloned messages
+  ---
+  duration_ms: 0.7414
+  type: 'test'
+  ...
+# Subtest: conversation session omits empty turns and clears all retained context
+ok 42 - conversation session omits empty turns and clears all retained context
+  ---
+  duration_ms: 0.3493
+  type: 'test'
+  ...
+# Subtest: conversation session rejects secret-like text instead of retaining it
+ok 43 - conversation session rejects secret-like text instead of retaining it
+  ---
+  duration_ms: 0.4769
+  type: 'test'
+  ...
+# Subtest: conversation session retains only allowlisted tool event metadata
+ok 44 - conversation session retains only allowlisted tool event metadata
+  ---
+  duration_ms: 0.4187
+  type: 'test'
+  ...
+# Subtest: AI debug guide is readable, self-contained, and operational
+ok 45 - AI debug guide is readable, self-contained, and operational
+  ---
+  duration_ms: 1.3891
+  type: 'test'
+  ...
+# Subtest: validates and deeply freezes a confirmed personal product variant mapping
+ok 46 - validates and deeply freezes a confirmed personal product variant mapping
+  ---
+  duration_ms: 5.5312
+  type: 'test'
+  ...
+# Subtest: rejects invalid targets, company candidates, and extra target fields
+ok 47 - rejects invalid targets, company candidates, and extra target fields
+  ---
+  duration_ms: 2.0025
+  type: 'test'
+  ...
+# Subtest: rejects malformed metadata, secret-like values, and model auto-confirmation
+ok 48 - rejects malformed metadata, secret-like values, and model auto-confirmation
+  ---
+  duration_ms: 1.0576
+  type: 'test'
+  ...
+# Subtest: normalizes aliases and candidate creation never accepts confirmed state
+ok 49 - normalizes aliases and candidate creation never accepts confirmed state
+  ---
+  duration_ms: 0.7744
+  type: 'test'
+  ...
+# Subtest: reads only confirmed typed personal mappings for the current commit
+ok 50 - reads only confirmed typed personal mappings for the current commit
+  ---
+  duration_ms: 0.5271
+  type: 'test'
+  ...
+# Subtest: exports one reviewed company promotion without browser-local fields
+ok 51 - exports one reviewed company promotion without browser-local fields
+  ---
+  duration_ms: 0.7912
+  type: 'test'
+  ...
+# Subtest: resolves canonical product and material identifiers with NFKC normalization
+ok 52 - resolves canonical product and material identifiers with NFKC normalization
+  ---
+  duration_ms: 11.9106
+  type: 'test'
+  ...
+# Subtest: resolves exact personal, company, and marketplace aliases
+ok 53 - resolves exact personal, company, and marketplace aliases
+  ---
+  duration_ms: 3.042
+  type: 'test'
+  ...
+# Subtest: auto-resolves only a high-score fuzzy read match with sufficient margin
+ok 54 - auto-resolves only a high-score fuzzy read match with sufficient margin
+  ---
+  duration_ms: 3.2833
+  type: 'test'
+  ...
+# Subtest: returns at most three candidates when fuzzy evidence is ambiguous
+ok 55 - returns at most three candidates when fuzzy evidence is ambiguous
+  ---
+  duration_ms: 13.7843
+  type: 'test'
+  ...
+# Subtest: fails closed for same-scope collisions, stale targets, wrong types, and unknown colors
+ok 56 - fails closed for same-scope collisions, stale targets, wrong types, and unknown colors
+  ---
+  duration_ms: 3.2029
+  type: 'test'
+  ...
+# Subtest: keeps query, labels, and result candidates bounded
+ok 57 - keeps query, labels, and result candidates bounded
+  ---
+  duration_ms: 1.0132
+  type: 'test'
+  ...
+# Subtest: P1 regression: product code + valid color becomes a product-variant
+ok 58 - P1 regression: product code + valid color becomes a product-variant
+  ---
+  duration_ms: 4.2975
+  type: 'test'
+  ...
+# Subtest: P1 regression: actual antique color aliases resolve to the canonical PDM color
+ok 59 - P1 regression: actual antique color aliases resolve to the canonical PDM color
+  ---
+  duration_ms: 3.8663
+  type: 'test'
+  ...
+# Subtest: P1 regression: product code + unoffered color asks instead of silently defaulting
+ok 60 - P1 regression: product code + unoffered color asks instead of silently defaulting
+  ---
+  duration_ms: 1.6239
+  type: 'test'
+  ...
+# Subtest: P1 regression: color lift works end-to-end when no explicit expectedTypes
+ok 61 - P1 regression: color lift works end-to-end when no explicit expectedTypes
+  ---
+  duration_ms: 1.3348
+  type: 'test'
+  ...
+# Subtest: R1.5: eval-ai.mjs runs and all metrics pass thresholds
+ok 62 - R1.5: eval-ai.mjs runs and all metrics pass thresholds
+  ---
+  duration_ms: 335.0181
+  type: 'test'
+  ...
+# Subtest: R1.5: audit-ai-security.mjs runs with no findings
+ok 63 - R1.5: audit-ai-security.mjs runs with no findings
+  ---
+  duration_ms: 165.6077
+  type: 'test'
+  ...
+# Subtest: evidence-ledger: normalizes and tracks unique evidence
+ok 64 - evidence-ledger: normalizes and tracks unique evidence
+  ---
+  duration_ms: 4.1598
+  type: 'test'
+  ...
+# Subtest: evidence-ledger: enforces correct provenance mapping
+ok 65 - evidence-ledger: enforces correct provenance mapping
+  ---
+  duration_ms: 0.3662
+  type: 'test'
+  ...
+# Subtest: runtime memory provenance uses the active prompt pack version
+ok 66 - runtime memory provenance uses the active prompt pack version
+  ---
+  duration_ms: 2.027
+  type: 'test'
+  ...
+# Subtest: Grade B models receive read-only tools without apply_mutation
+ok 67 - Grade B models receive read-only tools without apply_mutation
+  ---
+  duration_ms: 0.4673
+  type: 'test'
+  ...
+# Subtest: Grade A models receive apply_mutation
+ok 68 - Grade A models receive apply_mutation
+  ---
+  duration_ms: 0.3923
+  type: 'test'
+  ...
+# Subtest: unknown model capability fails closed to read-only tools
+ok 69 - unknown model capability fails closed to read-only tools
+  ---
+  duration_ms: 1.4713
+  type: 'test'
+  ...
+# Subtest: provider-visible tool schemas reject additional properties
+ok 70 - provider-visible tool schemas reject additional properties
+  ---
+  duration_ms: 0.4352
+  type: 'test'
+  ...
+# Subtest: provider-visible schemas require a non-empty query and canonical product IDs
+ok 71 - provider-visible schemas require a non-empty query and canonical product IDs
+  ---
+  duration_ms: 2.0434
+  type: 'test'
+  ...
+# Subtest: returns bounded answer requirements for a valid BOM comparison
+ok 72 - returns bounded answer requirements for a valid BOM comparison
+  ---
+  duration_ms: 1.8927
+  type: 'test'
+  ...
+# Subtest: rejects wrong-product comparison evidence
+ok 73 - rejects wrong-product comparison evidence
+  ---
+  duration_ms: 1.2736
+  type: 'test'
+  ...
+# Subtest: rejects missing evidence and ontology coverage
+ok 74 - rejects missing evidence and ontology coverage
+  ---
+  duration_ms: 2.2472
+  type: 'test'
+  ...
+# Subtest: rejects unbounded arrays and mismatched preferred tools
+ok 75 - rejects unbounded arrays and mismatched preferred tools
+  ---
+  duration_ms: 0.6169
+  type: 'test'
+  ...
+# Subtest: accepts a bounded deterministic product-search array
+ok 76 - accepts a bounded deterministic product-search array
+  ---
+  duration_ms: 0.5321
+  type: 'test'
+  ...
+# Subtest: routes an explicit Chinese draft-status question to revision history
+ok 77 - routes an explicit Chinese draft-status question to revision history
+  ---
+  duration_ms: 4.9124
+  type: 'test'
+  ...
+# Subtest: recognizes Vietnamese and English revision questions
+ok 78 - recognizes Vietnamese and English revision questions
+  ---
+  duration_ms: 2.424
+  type: 'test'
+  ...
+# Subtest: routes a two-product comparison with normalized unique product IDs
+ok 79 - routes a two-product comparison with normalized unique product IDs
+  ---
+  duration_ms: 0.3872
+  type: 'test'
+  ...
+# Subtest: routes a Chinese shared-parts question with two explicit products to BOM comparison
+ok 80 - routes a Chinese shared-parts question with two explicit products to BOM comparison
+  ---
+  duration_ms: 0.3896
+  type: 'test'
+  ...
+# Subtest: routes exact BOM, marketplace, and alias questions
+ok 81 - routes exact BOM, marketplace, and alias questions
+  ---
+  duration_ms: 0.7802
+  type: 'test'
+  ...
+# Subtest: uses the selected product only for an explicit current-product reference
+ok 82 - uses the selected product only for an explicit current-product reference
+  ---
+  duration_ms: 0.7014
+  type: 'test'
+  ...
+# Subtest: returns ambiguous when intent, identifiers, or required tool are insufficient
+ok 83 - returns ambiguous when intent, identifiers, or required tool are insufficient
+  ---
+  duration_ms: 1.2534
+  type: 'test'
+  ...
+# Subtest: never routes deterministic read questions to submit_proposal
+ok 84 - never routes deterministic read questions to submit_proposal
+  ---
+  duration_ms: 0.2891
+  type: 'test'
+  ...
+# Subtest: routes canonical material detail and where-used questions
+ok 85 - routes canonical material detail and where-used questions
+  ---
+  duration_ms: 0.6211
+  type: 'test'
+  ...
+# Subtest: routes a comparison follow-up using the two product IDs from bounded history
+ok 86 - routes a comparison follow-up using the two product IDs from bounded history
+  ---
+  duration_ms: 0.7097
+  type: 'test'
+  ...
+# Subtest: routes a confirmed informal product variant to its canonical BOM target
+ok 87 - routes a confirmed informal product variant to its canonical BOM target
+  ---
+  duration_ms: 0.5234
+  type: 'test'
+  ...
+# Subtest: explicit canonical IDs override inferred aliases and unresolved candidates do not route
+ok 88 - explicit canonical IDs override inferred aliases and unresolved candidates do not route
+  ---
+  duration_ms: 0.3103
+  type: 'test'
+  ...
+# Subtest: routes simple social greetings to GREETING intent when no entities exist
+ok 89 - routes simple social greetings to GREETING intent when no entities exist
+  ---
+  duration_ms: 3.5565
+  type: 'test'
+  ...
+# Subtest: R3.2: supported files become untrusted candidates with provenance
+ok 90 - R3.2: supported files become untrusted candidates with provenance
+  ---
+  duration_ms: 1.8547
+  type: 'test'
+  ...
+# Subtest: R3.2: malformed, binary, oversized, duplicate, and unsupported files fail closed
+ok 91 - R3.2: malformed, binary, oversized, duplicate, and unsupported files fail closed
+  ---
+  duration_ms: 2.9606
+  type: 'test'
+  ...
+# Subtest: R3.2: repository references are explicit and domain allowlisted
+ok 92 - R3.2: repository references are explicit and domain allowlisted
+  ---
+  duration_ms: 1.5721
+  type: 'test'
+  ...
+# Subtest: knowledge/ai/skills.json has schemaVersion, packVersion, updatedAt
+ok 93 - knowledge/ai/skills.json has schemaVersion, packVersion, updatedAt
+  ---
+  duration_ms: 1.5423
+  type: 'test'
+  ...
+# Subtest: knowledge/ai/skills.json tool IDs all exist in contracts.js ALLOWED_TOOLS
+ok 94 - knowledge/ai/skills.json tool IDs all exist in contracts.js ALLOWED_TOOLS
+  ---
+  duration_ms: 0.341
+  type: 'test'
+  ...
+# Subtest: knowledge/ai/skills.json all skills are marked readonly
+ok 95 - knowledge/ai/skills.json all skills are marked readonly
+  ---
+  duration_ms: 0.3232
+  type: 'test'
+  ...
+# Subtest: knowledge/ai/skills.json has no mutation tools
+ok 96 - knowledge/ai/skills.json has no mutation tools
+  ---
+  duration_ms: 0.3014
+  type: 'test'
+  ...
+# Subtest: knowledge/ai/prompt-pack.json has required metadata fields
+ok 97 - knowledge/ai/prompt-pack.json has required metadata fields
+  ---
+  duration_ms: 0.2513
+  type: 'test'
+  ...
+# Subtest: knowledge/ai/prompt-pack.json roles array is non-empty
+ok 98 - knowledge/ai/prompt-pack.json roles array is non-empty
+  ---
+  duration_ms: 0.1778
+  type: 'test'
+  ...
+# Subtest: knowledge/pdm-expert-pack.json has schemaVersion, packVersion, updatedAt
+ok 99 - knowledge/pdm-expert-pack.json has schemaVersion, packVersion, updatedAt
+  ---
+  duration_ms: 0.2841
+  type: 'test'
+  ...
+# Subtest: knowledge/pdm-expert-pack.json documents that productRevisions is an object, not an array
+ok 100 - knowledge/pdm-expert-pack.json documents that productRevisions is an object, not an array
+  ---
+  duration_ms: 0.1956
+  type: 'test'
+  ...
+# Subtest: knowledge/pdm-expert-pack.json documents that bom products have no .id field
+ok 101 - knowledge/pdm-expert-pack.json documents that bom products have no .id field
+  ---
+  duration_ms: 0.8428
+  type: 'test'
+  ...
+# Subtest: knowledge/marketplace-aliases.json has schemaVersion, packVersion, updatedAt, governance
+ok 102 - knowledge/marketplace-aliases.json has schemaVersion, packVersion, updatedAt, governance
+  ---
+  duration_ms: 0.713
+  type: 'test'
+  ...
+# Subtest: knowledge/marketplace-aliases.json governance blocks ASIN without approval
+ok 103 - knowledge/marketplace-aliases.json governance blocks ASIN without approval
+  ---
+  duration_ms: 0.2786
+  type: 'test'
+  ...
+# Subtest: knowledge/marketplace-aliases.json does NOT include B0GTZDGNGN ASIN in alias entries
+ok 104 - knowledge/marketplace-aliases.json does NOT include B0GTZDGNGN ASIN in alias entries
+  ---
+  duration_ms: 0.1587
+  type: 'test'
+  ...
+# Subtest: knowledge/marketplace-aliases.json alias ULGS433BH02S maps to correct internal SKU and product
+ok 105 - knowledge/marketplace-aliases.json alias ULGS433BH02S maps to correct internal SKU and product
+  ---
+  duration_ms: 0.1367
+  type: 'test'
+  ...
+# Subtest: knowledge/marketplace-aliases.json all aliases have required fields
+ok 106 - knowledge/marketplace-aliases.json all aliases have required fields
+  ---
+  duration_ms: 0.1785
+  type: 'test'
+  ...
+# Subtest: AI prompt pack defines the six evidence-bound PDM specialists
+ok 107 - AI prompt pack defines the six evidence-bound PDM specialists
+  ---
+  duration_ms: 2.9097
+  type: 'test'
+  ...
+# Subtest: R1.3: search_products does not crash on unit fixture
+ok 108 - R1.3: search_products does not crash on unit fixture
+  ---
+  duration_ms: 1.1853
+  type: 'test'
+  ...
+# Subtest: R1.3: search_products returns sorted results
+ok 109 - R1.3: search_products returns sorted results
+  ---
+  duration_ms: 14.0294
+  type: 'test'
+  ...
+# Subtest: R1.3: search_products results are bounded (max 50)
+ok 110 - R1.3: search_products results are bounded (max 50)
+  ---
+  duration_ms: 0.8254
+  type: 'test'
+  ...
+# Subtest: R1.3: search_products result does NOT include full payload
+ok 111 - R1.3: search_products result does NOT include full payload
+  ---
+  duration_ms: 0.2851
+  type: 'test'
+  ...
+# Subtest: R1.3: search_products includes source metadata in evidence
+ok 112 - R1.3: search_products includes source metadata in evidence
+  ---
+  duration_ms: 0.4009
+  type: 'test'
+  ...
+# Subtest: R1.3: resolve_sku rejects when snapshot has no matching product
+ok 113 - R1.3: resolve_sku rejects when snapshot has no matching product
+  ---
+  duration_ms: 0.8972
+  type: 'test'
+  ...
+# Subtest: R1.3: resolve_sku resolves exact U-prefix alias when product and SKU exist
+ok 114 - R1.3: resolve_sku resolves exact U-prefix alias when product and SKU exist
+  ---
+  duration_ms: 0.2643
+  type: 'test'
+  ...
+# Subtest: R1.3: resolve_sku must not resolve when snapshot is empty
+ok 115 - R1.3: resolve_sku must not resolve when snapshot is empty
+  ---
+  duration_ms: 0.549
+  type: 'test'
+  ...
+# Subtest: R1.3: resolve_sku alias from knowledge pack respected if product exists
+ok 116 - R1.3: resolve_sku alias from knowledge pack respected if product exists
+  ---
+  duration_ms: 0.7415
+  type: 'test'
+  ...
+# Subtest: R1.3: get_revision_history works on productRevisions record structure
+ok 117 - R1.3: get_revision_history works on productRevisions record structure
+  ---
+  duration_ms: 0.6681
+  type: 'test'
+  ...
+# Subtest: R1.3: get_revision_history for product without history returns default
+ok 118 - R1.3: get_revision_history for product without history returns default
+  ---
+  duration_ms: 0.237
+  type: 'test'
+  ...
+# Subtest: R1.3: get_bom returns bounded row array
+ok 119 - R1.3: get_bom returns bounded row array
+  ---
+  duration_ms: 1.0424
+  type: 'test'
+  ...
+# Subtest: R1.3: get_bom throws on unknown product
+ok 120 - R1.3: get_bom throws on unknown product
+  ---
+  duration_ms: 0.2422
+  type: 'test'
+  ...
+# Subtest: R1.3: compareBoms throws on unknown productId1
+ok 121 - R1.3: compareBoms throws on unknown productId1
+  ---
+  duration_ms: 0.6707
+  type: 'test'
+  ...
+# Subtest: R1.3: compareBoms throws on unknown productId2
+ok 122 - R1.3: compareBoms throws on unknown productId2
+  ---
+  duration_ms: 0.2556
+  type: 'test'
+  ...
+# Subtest: R1.3: compareBoms aggregates duplicate materials and reports structured differences
+ok 123 - R1.3: compareBoms aggregates duplicate materials and reports structured differences
+  ---
+  duration_ms: 5.6229
+  type: 'test'
+  ...
+# Subtest: R1.3 integration: search_products does not crash on 22 canonical products
+ok 124 - R1.3 integration: search_products does not crash on 22 canonical products
+  ---
+  duration_ms: 56.0029
+  type: 'test'
+  ...
+# Subtest: R1.3 integration: LGS032 revision history is correct
+ok 125 - R1.3 integration: LGS032 revision history is correct
+  ---
+  duration_ms: 65.2959
+  type: 'test'
+  ...
+# Subtest: R1.3 integration: resolve_sku throws when product not in canonical data
+ok 126 - R1.3 integration: resolve_sku throws when product not in canonical data
+  ---
+  duration_ms: 54.9658
+  type: 'test'
+  ...
+# Subtest: R1.3 integration: all results are bounded and have evidence
+ok 127 - R1.3 integration: all results are bounded and have evidence
+  ---
+  duration_ms: 63.0251
+  type: 'test'
+  ...
+# Subtest: R3.1: memory is candidate until a user confirms it
+ok 128 - R3.1: memory is candidate until a user confirms it
+  ---
+  duration_ms: 5.1044
+  type: 'test'
+  ...
+# Subtest: R3.1: confirmed PDM memory becomes stale when source commit changes
+ok 129 - R3.1: confirmed PDM memory becomes stale when source commit changes
+  ---
+  duration_ms: 0.551
+  type: 'test'
+  ...
+# Subtest: R3.1: reject and delete remain explicit user actions
+ok 130 - R3.1: reject and delete remain explicit user actions
+  ---
+  duration_ms: 1.6226
+  type: 'test'
+  ...
+# Subtest: R3.1: storage failure falls back to visible session-only mode
+ok 131 - R3.1: storage failure falls back to visible session-only mode
+  ---
+  duration_ms: 0.4242
+  type: 'test'
+  ...
+# Subtest: R3.1: secret-like fields and values are excluded from memory and audit
+ok 132 - R3.1: secret-like fields and values are excluded from memory and audit
+  ---
+  duration_ms: 1.1383
+  type: 'test'
+  ...
+# Subtest: R3.1: export/import preserves governed records and retention is bounded
+ok 133 - R3.1: export/import preserves governed records and retention is bounded
+  ---
+  duration_ms: 1.2329
+  type: 'test'
+  ...
+# Subtest: R3.1: legacy schema is migrated without auto-confirming memory
+ok 134 - R3.1: legacy schema is migrated without auto-confirming memory
+  ---
+  duration_ms: 0.6031
+  type: 'test'
+  ...
+# Subtest: typed entity mappings remain candidates until confirmation and survive persistence
+ok 135 - typed entity mappings remain candidates until confirmation and survive persistence
+  ---
+  duration_ms: 5.1305
+  type: 'test'
+  ...
+# Subtest: R3.3: exact user-confirmed LGS433 marketplace alias resolves
+ok 136 - R3.3: exact user-confirmed LGS433 marketplace alias resolves
+  ---
+  duration_ms: 1.8929
+  type: 'test'
+  ...
+# Subtest: R3.3: user-confirmed ASIN lookup remains external evidence
+ok 137 - R3.3: user-confirmed ASIN lookup remains external evidence
+  ---
+  duration_ms: 0.3798
+  type: 'test'
+  ...
+# Subtest: R3.3: marketplace web search is Amazon-only and bounded
+ok 138 - R3.3: marketplace web search is Amazon-only and bounded
+  ---
+  duration_ms: 1.9701
+  type: 'test'
+  ...
+# Subtest: R3.3: review import deduplicates evidence and classifies repeated issues
+ok 139 - R3.3: review import deduplicates evidence and classifies repeated issues
+  ---
+  duration_ms: 2.4799
+  type: 'test'
+  ...
+# Subtest: R3.3: AI insight labels BOM correlations as hypotheses, never verified root cause
+ok 140 - R3.3: AI insight labels BOM correlations as hypotheses, never verified root cause
+  ---
+  duration_ms: 0.5256
+  type: 'test'
+  ...
+# Subtest: memory-manager: stores memory with confidence, expiry, lastUsedAt
+ok 141 - memory-manager: stores memory with confidence, expiry, lastUsedAt
+  ---
+  duration_ms: 5.1641
+  type: 'test'
+  ...
+# Subtest: memory-manager: supersedes existing memory and tracks history
+ok 142 - memory-manager: supersedes existing memory and tracks history
+  ---
+  duration_ms: 1.6254
+  type: 'test'
+  ...
+# Subtest: memory-manager: duplicate merge
+ok 143 - memory-manager: duplicate merge
+  ---
+  duration_ms: 0.4224
+  type: 'test'
+  ...
+# Subtest: memory-manager: rejects secrets
+ok 144 - memory-manager: rejects secrets
+  ---
+  duration_ms: 0.7681
+  type: 'test'
+  ...
+# Subtest: memory-manager: summarizes task closure
+ok 145 - memory-manager: summarizes task closure
+  ---
+  duration_ms: 0.8236
+  type: 'test'
+  ...
+# Subtest: mutation-engine: applyMutationTransaction validates admin mode and editability
+ok 146 - mutation-engine: applyMutationTransaction validates admin mode and editability
+  ---
+  duration_ms: 2.7487
+  type: 'test'
+  ...
+# Subtest: mutation-engine: applyMutationTransaction rejects mutations on dirty state
+ok 147 - mutation-engine: applyMutationTransaction rejects mutations on dirty state
+  ---
+  duration_ms: 0.303
+  type: 'test'
+  ...
+# Subtest: mutation-engine: applyMutationTransaction updates material field
+ok 148 - mutation-engine: applyMutationTransaction updates material field
+  ---
+  duration_ms: 1.0645
+  type: 'test'
+  ...
+# Subtest: mutation-engine: computeMutationDiff computes diff without mutating snapshot
+ok 149 - mutation-engine: computeMutationDiff computes diff without mutating snapshot
+  ---
+  duration_ms: 0.2843
+  type: 'test'
+  ...
+# Subtest: R2.1 P0: key is never written to localStorage or sessionStorage
+ok 150 - R2.1 P0: key is never written to localStorage or sessionStorage
+  ---
+  duration_ms: 2.9268
+  type: 'test'
+  ...
+# Subtest: R2.1 P0: key is not present in gateway diagnostics output
+ok 151 - R2.1 P0: key is not present in gateway diagnostics output
+  ---
+  duration_ms: 0.3618
+  type: 'test'
+  ...
+# Subtest: R2.1 P0: key is redacted from provider error messages
+ok 152 - R2.1 P0: key is redacted from provider error messages
+  ---
+  duration_ms: 0.3405
+  type: 'test'
+  ...
+# Subtest: R2.1: openrouter-gateway.js source contains no localStorage/sessionStorage/IndexedDB usage
+ok 153 - R2.1: openrouter-gateway.js source contains no localStorage/sessionStorage/IndexedDB usage
+  ---
+  duration_ms: 1.4246
+  type: 'test'
+  ...
+# Subtest: R2.1: openrouter-gateway.js is the only source referencing openrouter.ai URL
+ok 154 - R2.1: openrouter-gateway.js is the only source referencing openrouter.ai URL
+  ---
+  duration_ms: 1.9843
+  type: 'test'
+  ...
+# Subtest: R2.1: connect validates key via /api/v1/key and returns safe fields only
+ok 155 - R2.1: connect validates key via /api/v1/key and returns safe fields only
+  ---
+  duration_ms: 0.4569
+  type: 'test'
+  ...
+# Subtest: R2.1: connect throws on 401 without retrying
+ok 156 - R2.1: connect throws on 401 without retrying
+  ---
+  duration_ms: 1.2037
+  type: 'test'
+  ...
+# Subtest: R2.1: connect throws on 403 without retrying
+ok 157 - R2.1: connect throws on 403 without retrying
+  ---
+  duration_ms: 0.4141
+  type: 'test'
+  ...
+# Subtest: R2.1: model with tools+tool_choice+structured_outputs is graded A
+ok 158 - R2.1: model with tools+tool_choice+structured_outputs is graded A
+  ---
+  duration_ms: 0.7928
+  type: 'test'
+  ...
+# Subtest: R2.1: model with only tools+tool_choice (no structured_outputs) is graded B
+ok 159 - R2.1: model with only tools+tool_choice (no structured_outputs) is graded B
+  ---
+  duration_ms: 0.6908
+  type: 'test'
+  ...
+# Subtest: R2.1: model with no tool support is graded Unsupported
+ok 160 - R2.1: model with no tool support is graded Unsupported
+  ---
+  duration_ms: 0.6346
+  type: 'test'
+  ...
+# Subtest: R2.1: Unsupported model cannot be used for agent mode
+ok 161 - R2.1: Unsupported model cannot be used for agent mode
+  ---
+  duration_ms: 0.7802
+  type: 'test'
+  ...
+# Subtest: R2.1: chat request includes strict privacy defaults
+ok 162 - R2.1: chat request includes strict privacy defaults
+  ---
+  duration_ms: 2.5236
+  type: 'test'
+  ...
+# Subtest: R2.1: Grade A chat permits natural final answer without JSON schema
+ok 163 - R2.1: Grade A chat permits natural final answer without JSON schema
+  ---
+  duration_ms: 0.4924
+  type: 'test'
+  ...
+# Subtest: R3.3: consented marketplace search adds one bounded Amazon server tool
+ok 164 - R3.3: consented marketplace search adds one bounded Amazon server tool
+  ---
+  duration_ms: 1.4759
+  type: 'test'
+  ...
+# Subtest: R3.3: caller cannot inject arbitrary plugins or enable web search without consent
+ok 165 - R3.3: caller cannot inject arbitrary plugins or enable web search without consent
+  ---
+  duration_ms: 0.5282
+  type: 'test'
+  ...
+# Subtest: R2.1: chat rejects if provider routing fails
+ok 166 - R2.1: chat rejects if provider routing fails
+  ---
+  duration_ms: 0.7161
+  type: 'test'
+  ...
+# Subtest: R2.1: 5xx error is retried once then fails
+ok 167 - R2.1: 5xx error is retried once then fails
+  ---
+  duration_ms: 0.6584
+  type: 'test'
+  ...
+# Subtest: R2.1: circuit opens after 3 transient failures within 2 minutes
+ok 168 - R2.1: circuit opens after 3 transient failures within 2 minutes
+  ---
+  duration_ms: 2.1379
+  type: 'test'
+  ...
+# Subtest: R2.1: circuit closed state is reported in diagnostics
+ok 169 - R2.1: circuit closed state is reported in diagnostics
+  ---
+  duration_ms: 2.0982
+  type: 'test'
+  ...
+# Subtest: R2.1: paid fallback chain does not activate without explicit consent
+ok 170 - R2.1: paid fallback chain does not activate without explicit consent
+  ---
+  duration_ms: 0.3896
+  type: 'test'
+  ...
+# Subtest: R2.1: clearKey() disconnects and diagnostics shows not connected
+ok 171 - R2.1: clearKey() disconnects and diagnostics shows not connected
+  ---
+  duration_ms: 0.2377
+  type: 'test'
+  ...
+# Subtest: R2.1: model metadata is cached and not re-fetched within 6 hours
+ok 172 - R2.1: model metadata is cached and not re-fetched within 6 hours
+  ---
+  duration_ms: 0.461
+  type: 'test'
+  ...
+# Subtest: R2.1: model metadata is refreshed when cache is older than 6 hours
+ok 173 - R2.1: model metadata is refreshed when cache is older than 6 hours
+  ---
+  duration_ms: 0.3526
+  type: 'test'
+  ...
+# Subtest: R2.1: failed model refresh clears the captured API key
+ok 174 - R2.1: failed model refresh clears the captured API key
+  ---
+  duration_ms: 0.5893
+  type: 'test'
+  ...
+# Subtest: R2.1: caller cannot override privacy or Authorization defaults
+ok 175 - R2.1: caller cannot override privacy or Authorization defaults
+  ---
+  duration_ms: 0.9638
+  type: 'test'
+  ...
+# Subtest: R2.1: caller cancellation aborts an in-flight request
+ok 176 - R2.1: caller cancellation aborts an in-flight request
+  ---
+  duration_ms: 1.0898
+  type: 'test'
+  ...
+# Subtest: bugfix: gateway strips parallel_tool_calls when tools are empty to prevent OpenRouter 404 routing failure
+ok 177 - bugfix: gateway strips parallel_tool_calls when tools are empty to prevent OpenRouter 404 routing failure
+  ---
+  duration_ms: 0.5048
+  type: 'test'
+  ...
+# Subtest: classifies explicit metal from the material field
+ok 178 - classifies explicit metal from the material field
+  ---
+  duration_ms: 4.8432
+  type: 'test'
+  ...
+# Subtest: infers metal hardware from a name only when material is absent
+ok 179 - infers metal hardware from a name only when material is absent
+  ---
+  duration_ms: 1.3846
+  type: 'test'
+  ...
+# Subtest: explicit non-metal material overrides a metal-sounding name
+ok 180 - explicit non-metal material overrides a metal-sounding name
+  ---
+  duration_ms: 0.4493
+  type: 'test'
+  ...
+# Subtest: hardware-pack attribute alone does not prove physical metal
+ok 181 - hardware-pack attribute alone does not prove physical metal
+  ---
+  duration_ms: 0.3007
+  type: 'test'
+  ...
+# Subtest: reports conflicting explicit material evidence as unknown
+ok 182 - reports conflicting explicit material evidence as unknown
+  ---
+  duration_ms: 0.7005
+  type: 'test'
+  ...
+# Subtest: summarizes family and confidence without dropping unknown rows
+ok 183 - summarizes family and confidence without dropping unknown rows
+  ---
+  duration_ms: 0.8258
+  type: 'test'
+  ...
+# Subtest: getPdmPromptContext returns valid context without network calls
+ok 184 - getPdmPromptContext returns valid context without network calls
+  ---
+  duration_ms: 1.0992
+  type: 'test'
+  ...
+# Subtest: R2.3: runtime handles a simple no-tool answer
+ok 185 - R2.3: runtime handles a simple no-tool answer
+  ---
+  duration_ms: 5.028
+  type: 'test'
+  ...
+# Subtest: R2.3: runtime sends the exact bounded Unicode query to the provider
+ok 186 - R2.3: runtime sends the exact bounded Unicode query to the provider
+  ---
+  duration_ms: 2.0127
+  type: 'test'
+  ...
+# Subtest: runtime injects one selected specialist and bounded confirmed memory
+ok 187 - runtime injects one selected specialist and bounded confirmed memory
+  ---
+  duration_ms: 1.3704
+  type: 'test'
+  ...
+# Subtest: R2.3: deterministic revision route prefetches LGS032 before the first model call
+ok 188 - R2.3: deterministic revision route prefetches LGS032 before the first model call
+  ---
+  duration_ms: 3.5157
+  type: 'test'
+  ...
+# Subtest: R2.3: deterministic BOM comparison preserves every bounded evidence citation
+ok 189 - R2.3: deterministic BOM comparison preserves every bounded evidence citation
+  ---
+  duration_ms: 2.1629
+  type: 'test'
+  ...
+# Subtest: R2.3: deterministic evidence safely accepts a Grade B plain-text answer
+ok 190 - R2.3: deterministic evidence safely accepts a Grade B plain-text answer
+  ---
+  duration_ms: 1.8506
+  type: 'test'
+  ...
+# Subtest: R2.3: deterministic prefetch prevents the model from repeating the same tool loop
+ok 191 - R2.3: deterministic prefetch prevents the model from repeating the same tool loop
+  ---
+  duration_ms: 0.9345
+  type: 'test'
+  ...
+# Subtest: deterministic grounding fails before a provider call when comparison evidence is malformed
+ok 192 - deterministic grounding fails before a provider call when comparison evidence is malformed
+  ---
+  duration_ms: 1.1688
+  type: 'test'
+  ...
+# Subtest: runtime discloses only the selected personal mapping in the grounded provider context
+ok 193 - runtime discloses only the selected personal mapping in the grounded provider context
+  ---
+  duration_ms: 1.2689
+  type: 'test'
+  ...
+# Subtest: runtime returns local clarification for ambiguous mappings without calling the provider
+ok 194 - runtime returns local clarification for ambiguous mappings without calling the provider
+  ---
+  duration_ms: 0.7981
+  type: 'test'
+  ...
+# Subtest: runtime rejects a model-selected tool that was not exposed for the turn
+ok 195 - runtime rejects a model-selected tool that was not exposed for the turn
+  ---
+  duration_ms: 0.6618
+  type: 'test'
+  ...
+# Subtest: R2.3: PDM answer rules require scope and explicit category interpretation
+ok 196 - R2.3: PDM answer rules require scope and explicit category interpretation
+  ---
+  duration_ms: 1.5775
+  type: 'test'
+  ...
+# Subtest: R2.3: bounded history precedes the latest follow-up query
+ok 197 - R2.3: bounded history precedes the latest follow-up query
+  ---
+  duration_ms: 0.5586
+  type: 'test'
+  ...
+# Subtest: R2.3: runtime executes a complete tool loop
+ok 198 - R2.3: runtime executes a complete tool loop
+  ---
+  duration_ms: 0.554
+  type: 'test'
+  ...
+# Subtest: R2.3: runtime enforces parallel_tool_calls=false
+ok 199 - R2.3: runtime enforces parallel_tool_calls=false
+  ---
+  duration_ms: 0.2541
+  type: 'test'
+  ...
+# Subtest: R2.3: runtime fails closed on budget exceed (max model calls)
+ok 200 - R2.3: runtime fails closed on budget exceed (max model calls)
+  ---
+  duration_ms: 0.7049
+  type: 'test'
+  ...
+# Subtest: R2.3: runtime provides deterministic local fallback on provider error
+ok 201 - R2.3: runtime provides deterministic local fallback on provider error
+  ---
+  duration_ms: 0.3638
+  type: 'test'
+  ...
+# Subtest: R2.3: runtime supports cancellation
+ok 202 - R2.3: runtime supports cancellation
+  ---
+  duration_ms: 0.3188
+  type: 'test'
+  ...
+# Subtest: R2.3: fails closed on invalid structured output
+ok 203 - R2.3: fails closed on invalid structured output
+  ---
+  duration_ms: 0.403
+  type: 'test'
+  ...
+# Subtest: R3.3: marketplace tool enables one consented web-search request and returns Amazon annotations
+ok 204 - R3.3: marketplace tool enables one consented web-search request and returns Amazon annotations
+  ---
+  duration_ms: 0.7866
+  type: 'test'
+  ...
+# Subtest: R3.3: marketplace web search remains disabled without explicit consent
+ok 205 - R3.3: marketplace web search remains disabled without explicit consent
+  ---
+  duration_ms: 0.4276
+  type: 'test'
+  ...
+# Subtest: R2.3: plain unstructured final output fails closed
+ok 206 - R2.3: plain unstructured final output fails closed
+  ---
+  duration_ms: 0.4385
+  type: 'test'
+  ...
+# Subtest: R2.3: provider fallback never exposes provider error details
+ok 207 - R2.3: provider fallback never exposes provider error details
+  ---
+  duration_ms: 0.2766
+  type: 'test'
+  ...
+# Subtest: R2.3: invalid gateway response does not dump raw provider payload
+ok 208 - R2.3: invalid gateway response does not dump raw provider payload
+  ---
+  duration_ms: 0.2793
+  type: 'test'
+  ...
+# Subtest: R2.3: cancellation signal is forwarded to the gateway
+ok 209 - R2.3: cancellation signal is forwarded to the gateway
+  ---
+  duration_ms: 0.2295
+  type: 'test'
+  ...
+# Subtest: R2.3: repeated malformed emulated output returns only a safe local fallback
+ok 210 - R2.3: repeated malformed emulated output returns only a safe local fallback
+  ---
+  duration_ms: 0.7561
+  type: 'test'
+  ...
+# Subtest: R4: emulated tools mode cannot execute submit_proposal
+ok 211 - R4: emulated tools mode cannot execute submit_proposal
+  ---
+  duration_ms: 0.6025
+  type: 'test'
+  ...
+# Subtest: safe trace keeps only allowlisted operational fields and redacts secrets
+ok 212 - safe trace keeps only allowlisted operational fields and redacts secrets
+  ---
+  duration_ms: 3.4371
+  type: 'test'
+  ...
+# Subtest: safe trace is bounded to 32 deeply frozen events
+ok 213 - safe trace is bounded to 32 deeply frozen events
+  ---
+  duration_ms: 2.1487
+  type: 'test'
+  ...
+# Subtest: safe trace rejects unknown event types
+ok 214 - safe trace rejects unknown event types
+  ---
+  duration_ms: 0.3503
+  type: 'test'
+  ...
+# Subtest: ranks exact product and intent memory before unrelated records
+ok 215 - ranks exact product and intent memory before unrelated records
+  ---
+  duration_ms: 6.31
+  type: 'test'
+  ...
+# Subtest: never returns candidate, stale, or unrelated global memory
+ok 216 - never returns candidate, stale, or unrelated global memory
+  ---
+  duration_ms: 0.3578
+  type: 'test'
+  ...
+# Subtest: bounds confirmed memory to four complete records and 1600 characters
+ok 217 - bounds confirmed memory to four complete records and 1600 characters
+  ---
+  duration_ms: 15.4838
+  type: 'test'
+  ...
+# Subtest: requires two meaningful overlaps before selecting global imported knowledge
+ok 218 - requires two meaningful overlaps before selecting global imported knowledge
+  ---
+  duration_ms: 0.43
+  type: 'test'
+  ...
+# Subtest: selects one deterministic specialist and emits compact guidance
+ok 219 - selects one deterministic specialist and emits compact guidance
+  ---
+  duration_ms: 3.3
+  type: 'test'
+  ...
+# Subtest: does not inject a specialist for ambiguous turns
+ok 220 - does not inject a specialist for ambiguous turns
+  ---
+  duration_ms: 0.8659
+  type: 'test'
+  ...
+# Subtest: rejects specialist tools outside the governed tool pack
+ok 221 - rejects specialist tools outside the governed tool pack
+  ---
+  duration_ms: 0.7824
+  type: 'test'
+  ...
+# Subtest: fails closed when specialist instructions are absent
+ok 222 - fails closed when specialist instructions are absent
+  ---
+  duration_ms: 0.4252
+  type: 'test'
+  ...
+# Subtest: R2.2: buildContext must not include the full BOM payload
+ok 223 - R2.2: buildContext must not include the full BOM payload
+  ---
+  duration_ms: 2.0099
+  type: 'test'
+  ...
+# Subtest: R2.2: buildContext returns only the selected record summary
+ok 224 - R2.2: buildContext returns only the selected record summary
+  ---
+  duration_ms: 0.3057
+  type: 'test'
+  ...
+# Subtest: R2.2: buildContext returns a data-to-be-sent summary for user consent
+ok 225 - R2.2: buildContext returns a data-to-be-sent summary for user consent
+  ---
+  duration_ms: 0.2004
+  type: 'test'
+  ...
+# Subtest: R2.2: buildContext preserves the exact bounded Unicode query
+ok 226 - R2.2: buildContext preserves the exact bounded Unicode query
+  ---
+  duration_ms: 0.1978
+  type: 'test'
+  ...
+# Subtest: R2.2: direct prompt injection attempt via user query is treated as user input, not policy
+ok 227 - R2.2: direct prompt injection attempt via user query is treated as user input, not policy
+  ---
+  duration_ms: 0.3959
+  type: 'test'
+  ...
+# Subtest: R2.2: user query exceeding 1000 chars is rejected
+ok 228 - R2.2: user query exceeding 1000 chars is rejected
+  ---
+  duration_ms: 0.6903
+  type: 'test'
+  ...
+# Subtest: R2.2: external evidence content cannot become a system instruction
+ok 229 - R2.2: external evidence content cannot become a system instruction
+  ---
+  duration_ms: 0.4433
+  type: 'test'
+  ...
+# Subtest: R2.2: external evidence exceeding 5 items is rejected
+ok 230 - R2.2: external evidence exceeding 5 items is rejected
+  ---
+  duration_ms: 0.3255
+  type: 'test'
+  ...
+# Subtest: R2.2: authorized tool call passes policy check
+ok 231 - R2.2: authorized tool call passes policy check
+  ---
+  duration_ms: 0.9622
+  type: 'test'
+  ...
+# Subtest: R2.2: unknown tool call is rejected by trust policy
+ok 232 - R2.2: unknown tool call is rejected by trust policy
+  ---
+  duration_ms: 0.7625
+  type: 'test'
+  ...
+# Subtest: R2.2: tool call with extra fields is rejected
+ok 233 - R2.2: tool call with extra fields is rejected
+  ---
+  duration_ms: 0.6137
+  type: 'test'
+  ...
+# Subtest: R2.2: tool call with oversized arguments is rejected
+ok 234 - R2.2: tool call with oversized arguments is rejected
+  ---
+  duration_ms: 0.3103
+  type: 'test'
+  ...
+# Subtest: R2.2: citation referencing evidence generated in current turn is accepted
+ok 235 - R2.2: citation referencing evidence generated in current turn is accepted
+  ---
+  duration_ms: 0.1895
+  type: 'test'
+  ...
+# Subtest: R2.2: citation referencing unknown evidence ID is rejected
+ok 236 - R2.2: citation referencing unknown evidence ID is rejected
+  ---
+  duration_ms: 0.2109
+  type: 'test'
+  ...
+# Subtest: R2.2: citation with empty string ID is rejected
+ok 237 - R2.2: citation with empty string ID is rejected
+  ---
+  duration_ms: 0.175
+  type: 'test'
+  ...
+# Subtest: R2.2: model output containing HTML tags is rejected
+ok 238 - R2.2: model output containing HTML tags is rejected
+  ---
+  duration_ms: 0.2809
+  type: 'test'
+  ...
+# Subtest: R2.2: model output containing script tag is rejected
+ok 239 - R2.2: model output containing script tag is rejected
+  ---
+  duration_ms: 0.2131
+  type: 'test'
+  ...
+# Subtest: R2.2: model output containing img tag is rejected
+ok 240 - R2.2: model output containing img tag is rejected
+  ---
+  duration_ms: 0.1573
+  type: 'test'
+  ...
+# Subtest: R2.2: model output containing external URL is flagged or rejected
+ok 241 - R2.2: model output containing external URL is flagged or rejected
+  ---
+  duration_ms: 0.1084
+  type: 'test'
+  ...
+# Subtest: R2.2: model output with valid plain text passes
+ok 242 - R2.2: model output with valid plain text passes
+  ---
+  duration_ms: 0.1231
+  type: 'test'
+  ...
+# Subtest: R2.2: model output with citation ID not in current evidence is rejected
+ok 243 - R2.2: model output with citation ID not in current evidence is rejected
+  ---
+  duration_ms: 0.1821
+  type: 'test'
+  ...
+# Subtest: R2.2: exceeding max model calls (3) throws
+ok 244 - R2.2: exceeding max model calls (3) throws
+  ---
+  duration_ms: 0.3271
+  type: 'test'
+  ...
+# Subtest: R2.2: exceeding max tool calls (6) throws
+ok 245 - R2.2: exceeding max tool calls (6) throws
+  ---
+  duration_ms: 0.2993
+  type: 'test'
+  ...
+# Subtest: R2.2: budget defaults match master plan constraints
+ok 246 - R2.2: budget defaults match master plan constraints
+  ---
+  duration_ms: 0.1157
+  type: 'test'
+  ...
+# Subtest: R2.2: budget expiry after maxTurnMs throws
+ok 247 - R2.2: budget expiry after maxTurnMs throws
+  ---
+  duration_ms: 0.2809
+  type: 'test'
+  ...
+# Subtest: R2.2: malformed model output (null) fails closed
+ok 248 - R2.2: malformed model output (null) fails closed
+  ---
+  duration_ms: 0.1941
+  type: 'test'
+  ...
+# Subtest: R2.2: model output missing text field fails closed
+ok 249 - R2.2: model output missing text field fails closed
+  ---
+  duration_ms: 0.1753
+  type: 'test'
+  ...
+# Subtest: R2.2: model output with non-array citations fails closed
+ok 250 - R2.2: model output with non-array citations fails closed
+  ---
+  duration_ms: 0.2011
+  type: 'test'
+  ...
+# Subtest: R2.4: feature initializes safely and returns UI component
+ok 251 - R2.4: feature initializes safely and returns UI component
+  ---
+  duration_ms: 5.1897
+  type: 'test'
+  ...
+# Subtest: R2.4: key lifecycle is delegated to gateway, never stored in localStorage
+ok 252 - R2.4: key lifecycle is delegated to gateway, never stored in localStorage
+  ---
+  duration_ms: 1.6215
+  type: 'test'
+  ...
+# Subtest: R2.4: workspace uses textContent to prevent HTML injection
+ok 253 - R2.4: workspace uses textContent to prevent HTML injection
+  ---
+  duration_ms: 0.608
+  type: 'test'
+  ...
+# Subtest: R2.4: assistant Markdown markers are normalized to readable plain text
+ok 254 - R2.4: assistant Markdown markers are normalized to readable plain text
+  ---
+  duration_ms: 1.3556
+  type: 'test'
+  ...
+# Subtest: R2.4: clearing connection clears gateway and workspace
+ok 255 - R2.4: clearing connection clears gateway and workspace
+  ---
+  duration_ms: 0.7654
+  type: 'test'
+  ...
+# Subtest: R2.4: settings renders the latest safe trace with textContent
+ok 256 - R2.4: settings renders the latest safe trace with textContent
+  ---
+  duration_ms: 0.6665
+  type: 'test'
+  ...
+# Subtest: settings renders governed mapping details and disables promotion until confirmation
+ok 257 - settings renders governed mapping details and disables promotion until confirmation
+  ---
+  duration_ms: 0.9724
+  type: 'test'
+  ...
+# Subtest: workspace renders bounded canonical mapping choices with safe text nodes
+ok 258 - workspace renders bounded canonical mapping choices with safe text nodes
+  ---
+  duration_ms: 1.3192
+  type: 'test'
+  ...
+# Subtest: R2.4: per-turn budget message does not tell the user to start a new conversation
+ok 259 - R2.4: per-turn budget message does not tell the user to start a new conversation
+  ---
+  duration_ms: 2.2409
+  type: 'test'
+  ...
+# Subtest: application does not bootstrap runtime state from the legacy BOM_VIEWER_DATA global
+ok 260 - application does not bootstrap runtime state from the legacy BOM_VIEWER_DATA global
+  ---
+  duration_ms: 2.8665
+  type: 'test'
+  ...
+# Subtest: application normalizes current notifications and identifies incoming notifications
+ok 261 - application normalizes current notifications and identifies incoming notifications
+  ---
+  duration_ms: 17.4981
+  type: 'test'
+  ...
+# Subtest: save diffs the current remote payload before writing its expectedHeadSha and payload
+ok 262 - save diffs the current remote payload before writing its expectedHeadSha and payload
+  ---
+  duration_ms: 4.6799
+  type: 'test'
+  ...
+# Subtest: Save to GitHub uploads referenced assets before reading the current BOM expectedHeadSha
+ok 263 - Save to GitHub uploads referenced assets before reading the current BOM expectedHeadSha
+  ---
+  duration_ms: 1.3853
+  type: 'test'
+  ...
+# Subtest: asset upload failure leaves the remote BOM untouched and pending bytes available
+ok 264 - asset upload failure leaves the remote BOM untouched and pending bytes available
+  ---
+  duration_ms: 1.0486
+  type: 'test'
+  ...
+# Subtest: BOM write retry reuses an already resolved asset without uploading again
+ok 265 - BOM write retry reuses an already resolved asset without uploading again
+  ---
+  duration_ms: 1.2262
+  type: 'test'
+  ...
+# Subtest: asset matching remains color-neutral and Drive-aware
+ok 266 - asset matching remains color-neutral and Drive-aware
+  ---
+  duration_ms: 5.1755
+  type: 'test'
+  ...
+# Subtest: material diffs become persistent GitHub-save notifications
+ok 267 - material diffs become persistent GitHub-save notifications
+  ---
+  duration_ms: 2.6067
+  type: 'test'
+  ...
+# Subtest: notification body renders normalized material changes
+ok 268 - notification body renders normalized material changes
+  ---
+  duration_ms: 0.5863
+  type: 'test'
+  ...
+# Subtest: Admin creation flows assign stable IDs and create their records
+ok 269 - Admin creation flows assign stable IDs and create their records
+  ---
+  duration_ms: 2.3732
+  type: 'test'
+  ...
+# Subtest: application exports the behavior required by the modular migration
+ok 270 - application exports the behavior required by the modular migration
+  ---
+  duration_ms: 2.4502
+  type: 'test'
+  ...
+# Subtest: current data baseline remains clean enough to normalize
+ok 271 - current data baseline remains clean enough to normalize
+  ---
+  duration_ms: 238.0156
+  type: 'test'
+  ...
+# Subtest: current Viewer is standalone and current Admin uses the shared runtime chain
+ok 272 - current Viewer is standalone and current Admin uses the shared runtime chain
+  ---
+  duration_ms: 10.2205
+  type: 'test'
+  ...
+# Subtest: build ID is stable across LF and CRLF worktrees
+ok 273 - build ID is stable across LF and CRLF worktrees
+  ---
+  duration_ms: 2.8854
+  type: 'test'
+  ...
+# Subtest: generated artifact verification ignores LF and CRLF differences
+ok 274 - generated artifact verification ignores LF and CRLF differences
+  ---
+  duration_ms: 0.2197
+  type: 'test'
+  ...
+# Subtest: generated Viewer is one file with inline local code and CSS
+ok 275 - generated Viewer is one file with inline local code and CSS
+  ---
+  duration_ms: 14.814
+  type: 'test'
+  ...
+# Subtest: generated Admin loads only the complete local Admin bundle
+ok 276 - generated Admin loads only the complete local Admin bundle
+  ---
+  duration_ms: 0.646
+  type: 'test'
+  ...
+# Subtest: generated CSP governs resources and exactly hashes every inline script
+ok 277 - generated CSP governs resources and exactly hashes every inline script
+  ---
+  duration_ms: 17.9104
+  type: 'test'
+  ...
+# Subtest: artifact commit rolls back the complete set after a partial failure
+ok 278 - artifact commit rolls back the complete set after a partial failure
+  ---
+  duration_ms: 150.5283
+  type: 'test'
+  ...
+# Subtest: repository keeps one minimal durable documentation set
+ok 279 - repository keeps one minimal durable documentation set
+  ---
+  duration_ms: 2.6131
+  type: 'test'
+  ...
+# Subtest: durable documents remain portable and free of volatile snapshots
+ok 280 - durable documents remain portable and free of volatile snapshots
+  ---
+  duration_ms: 2.0018
+  type: 'test'
+  ...
+# Subtest: durable documents have distinct responsibilities and navigation
+ok 281 - durable documents have distinct responsibilities and navigation
+  ---
+  duration_ms: 0.4551
+  type: 'test'
+  ...
+# Subtest: documentation preserves source, data, and mirror safety boundaries
+ok 282 - documentation preserves source, data, and mirror safety boundaries
+  ---
+  duration_ms: 0.4461
+  type: 'test'
+  ...
+# Subtest: legacy conversion does not accumulate one shared material PDF per product
+ok 283 - legacy conversion does not accumulate one shared material PDF per product
+  ---
+  duration_ms: 4.9194
+  type: 'test'
+  ...
+# Subtest: legacy conversion seeds a material asset from the first product that has one
+ok 284 - legacy conversion seeds a material asset from the first product that has one
+  ---
+  duration_ms: 0.5301
+  type: 'test'
+  ...
+# Subtest: shared MaterialID edits update every resolved BOM row
+ok 285 - shared MaterialID edits update every resolved BOM row
+  ---
+  duration_ms: 213.0965
+  type: 'test'
+  ...
+# Subtest: BOM tree expands recursive material parents
+ok 286 - BOM tree expands recursive material parents
+  ---
+  duration_ms: 1.0806
+  type: 'test'
+  ...
+# Subtest: where-used remains a pure domain query
+ok 287 - where-used remains a pure domain query
+  ---
+  duration_ms: 115.9285
+  type: 'test'
+  ...
+# Subtest: BOM navigation normalizes legacy payloads at the domain seam
+ok 288 - BOM navigation normalizes legacy payloads at the domain seam
+  ---
+  duration_ms: 1.6499
+  type: 'test'
+  ...
+# Subtest: material relationship scopes use the translated shared label supplied by the caller
+ok 289 - material relationship scopes use the translated shared label supplied by the caller
+  ---
+  duration_ms: 0.4766
+  type: 'test'
+  ...
+# Subtest: materials domain does not import BOM or relationship modules
+ok 290 - materials domain does not import BOM or relationship modules
+  ---
+  duration_ms: 0.6653
+  type: 'test'
+  ...
+# Subtest: creating a product revision preserves the previous BOM as an immutable snapshot
+ok 291 - creating a product revision preserves the previous BOM as an immutable snapshot
+  ---
+  duration_ms: 1.6822
+  type: 'test'
+  ...
+# Subtest: product revisions preserve the legacy A.1 fallback and reject duplicate revision codes
+ok 292 - product revisions preserve the legacy A.1 fallback and reject duplicate revision codes
+  ---
+  duration_ms: 2.1975
+  type: 'test'
+  ...
+# Subtest: legacy products preserve manual-derived versions until a revision registry exists
+ok 293 - legacy products preserve manual-derived versions until a revision registry exists
+  ---
+  duration_ms: 0.54
+  type: 'test'
+  ...
+# Subtest: legacy released revision is both current and effective
+ok 294 - legacy released revision is both current and effective
+  ---
+  duration_ms: 0.2452
+  type: 'test'
+  ...
+# Subtest: the first revision can initialize an existing product at its real current revision
+ok 295 - the first revision can initialize an existing product at its real current revision
+  ---
+  duration_ms: 0.2777
+  type: 'test'
+  ...
+# Subtest: a new product revision starts as draft and records its source transition
+ok 296 - a new product revision starts as draft and records its source transition
+  ---
+  duration_ms: 0.2609
+  type: 'test'
+  ...
+# Subtest: releasing the current draft moves effectivity and records the transition
+ok 297 - releasing the current draft moves effectivity and records the transition
+  ---
+  duration_ms: 0.5087
+  type: 'test'
+  ...
+# Subtest: invalid release transitions are atomic
+ok 298 - invalid release transitions are atomic
+  ---
+  duration_ms: 0.8485
+  type: 'test'
+  ...
+# Subtest: old revision records migrate their transition metadata to the current revision
+ok 299 - old revision records migrate their transition metadata to the current revision
+  ---
+  duration_ms: 0.3293
+  type: 'test'
+  ...
+# Subtest: effectivity inference skips historical revisions without a product snapshot
+ok 300 - effectivity inference skips historical revisions without a product snapshot
+  ---
+  duration_ms: 0.3442
+  type: 'test'
+  ...
+# Subtest: encodes arbitrary binary bytes without UTF-8 conversion
+ok 301 - encodes arbitrary binary bytes without UTF-8 conversion
+  ---
+  duration_ms: 1.5686
+  type: 'test'
+  ...
+# Subtest: builds a deterministic content-addressed PDF path
+ok 302 - builds a deterministic content-addressed PDF path
+  ---
+  duration_ms: 21.5457
+  type: 'test'
+  ...
+# Subtest: builds an encoded commit-pinned jsDelivr URL
+ok 303 - builds an encoded commit-pinned jsDelivr URL
+  ---
+  duration_ms: 0.4014
+  type: 'test'
+  ...
+# Subtest: rejects unsupported kinds, invalid hashes, and non-commit refs
+ok 304 - rejects unsupported kinds, invalid hashes, and non-commit refs
+  ---
+  duration_ms: 0.835
+  type: 'test'
+  ...
+# Subtest: uploads binary as a create-only Contents API request
+ok 305 - uploads binary as a create-only Contents API request
+  ---
+  duration_ms: 2.5833
+  type: 'test'
+  ...
+# Subtest: rejects invalid upload input before a network call
+ok 306 - rejects invalid upload input before a network call
+  ---
+  duration_ms: 0.8065
+  type: 'test'
+  ...
+# Subtest: accepts portable GLTF content in the models folder
+ok 307 - accepts portable GLTF content in the models folder
+  ---
+  duration_ms: 1.7904
+  type: 'test'
+  ...
+# Subtest: rejects malformed upload metadata without exposing the token
+ok 308 - rejects malformed upload metadata without exposing the token
+  ---
+  duration_ms: 2.2285
+  type: 'test'
+  ...
+# Subtest: recovers an exact immutable upload after a create conflict
+ok 309 - recovers an exact immutable upload after a create conflict
+  ---
+  duration_ms: 5.6973
+  type: 'test'
+  ...
+# Subtest: rejects an existing path when size or hash identity does not match
+ok 310 - rejects an existing path when size or hash identity does not match
+  ---
+  duration_ms: 1.9193
+  type: 'test'
+  ...
+# Subtest: builds a valid self-contained PDF for live smoke
+ok 311 - builds a valid self-contained PDF for live smoke
+  ---
+  duration_ms: 0.7982
+  type: 'test'
+  ...
+# Subtest: writes sorted UTF-8 shards in one non-force ref update
+ok 312 - writes sorted UTF-8 shards in one non-force ref update
+  ---
+  duration_ms: 5.4485
+  type: 'test'
+  ...
+# Subtest: uses the browser UTF-8 base64 fallback without Buffer
+ok 313 - uses the browser UTF-8 base64 fallback without Buffer
+  ---
+  duration_ms: 0.6768
+  type: 'test'
+  ...
+# Subtest: rejects invalid constructor config
+ok 314 - rejects invalid constructor config
+  ---
+  duration_ms: 0.9673
+  type: 'test'
+  ...
+# Subtest: rejects invalid write inputs before any network request
+ok 315 - rejects invalid write inputs before any network request
+  ---
+  duration_ms: 2.9959
+  type: 'test'
+  ...
+# Subtest: allows only the sharded data file grammar
+ok 316 - allows only the sharded data file grammar
+  ---
+  duration_ms: 1.3344
+  type: 'test'
+  ...
+# Subtest: respects custom shardRoot in validateShardPath
+ok 317 - respects custom shardRoot in validateShardPath
+  ---
+  duration_ms: 2.4436
+  type: 'test'
+  ...
+# Subtest: stops on an expected HEAD mismatch before creating objects
+ok 318 - stops on an expected HEAD mismatch before creating objects
+  ---
+  duration_ms: 0.6506
+  type: 'test'
+  ...
+# Subtest: maps only ref update 409 to GithubDataConflictError
+ok 319 - maps only ref update 409 to GithubDataConflictError
+  ---
+  duration_ms: 0.7182
+  type: 'test'
+  ...
+# Subtest: maps only ref update 422 to GithubDataConflictError
+ok 320 - maps only ref update 422 to GithubDataConflictError
+  ---
+  duration_ms: 1.5615
+  type: 'test'
+  ...
+# Subtest: does not classify a non-ref 409 as a concurrency conflict
+ok 321 - does not classify a non-ref 409 as a concurrency conflict
+  ---
+  duration_ms: 1.0012
+  type: 'test'
+  ...
+# Subtest: redacts every token occurrence without retaining a raw cause
+ok 322 - redacts every token occurrence without retaining a raw cause
+  ---
+  duration_ms: 1.0197
+  type: 'test'
+  ...
+# Subtest: preserves safe API status and endpoint metadata
+ok 323 - preserves safe API status and endpoint metadata
+  ---
+  duration_ms: 0.4578
+  type: 'test'
+  ...
+# Subtest: rejects a malformed successful branch ref response
+ok 324 - rejects a malformed successful branch ref response
+  ---
+  duration_ms: 0.3367
+  type: 'test'
+  ...
+# Subtest: rejects a malformed successful commit response
+ok 325 - rejects a malformed successful commit response
+  ---
+  duration_ms: 0.3701
+  type: 'test'
+  ...
+# Subtest: rejects a malformed successful blob response
+ok 326 - rejects a malformed successful blob response
+  ---
+  duration_ms: 0.3897
+  type: 'test'
+  ...
+# Subtest: rejects a malformed successful tree response
+ok 327 - rejects a malformed successful tree response
+  ---
+  duration_ms: 0.4426
+  type: 'test'
+  ...
+# Subtest: rejects a malformed successful new commit response
+ok 328 - rejects a malformed successful new commit response
+  ---
+  duration_ms: 0.3653
+  type: 'test'
+  ...
+# Subtest: rejects a malformed successful updated ref response
+ok 329 - rejects a malformed successful updated ref response
+  ---
+  duration_ms: 0.4173
+  type: 'test'
+  ...
+# Subtest: rejects a malformed successful wrong ref response
+ok 330 - rejects a malformed successful wrong ref response
+  ---
+  duration_ms: 0.3402
+  type: 'test'
+  ...
+# Subtest: github-sharded-data adapter tests
+    # Subtest: loadPublic resolves commit and fetches pinned raw URLs
+    ok 1 - loadPublic resolves commit and fetches pinned raw URLs
+      ---
+      duration_ms: 5.8688
+      type: 'test'
+      ...
+    # Subtest: loadForWrite fetches tree and blobs
+    ok 2 - loadForWrite fetches tree and blobs
+      ---
+      duration_ms: 4.7669
+      type: 'test'
+      ...
+    # Subtest: write delegates to writerFactory
+    ok 3 - write delegates to writerFactory
+      ---
+      duration_ms: 16.9755
+      type: 'test'
+      ...
+    1..3
+ok 331 - github-sharded-data adapter tests
+  ---
+  duration_ms: 49.0422
+  type: 'test'
+  ...
+# Subtest: Adversarial Matrix: GitHub Sharded Adapter
+    # Subtest: loadPublic rejects traversal IDs
+    ok 1 - loadPublic rejects traversal IDs
+      ---
+      duration_ms: 0.9423
+      type: 'test'
+      ...
+    # Subtest: constructor rejects unsafe shard roots before any request
+    ok 2 - constructor rejects unsafe shard roots before any request
+      ---
+      duration_ms: 0.55
+      type: 'test'
+      ...
+    # Subtest: loadForWrite enforces 40-hex commit SHA from ref
+    ok 3 - loadForWrite enforces 40-hex commit SHA from ref
+      ---
+      duration_ms: 0.7666
+      type: 'test'
+      ...
+    # Subtest: loadForWrite enforces ref type === commit
+    ok 4 - loadForWrite enforces ref type === commit
+      ---
+      duration_ms: 0.9368
+      type: 'test'
+      ...
+    # Subtest: loadForWrite enforces 40-hex tree SHA in commit
+    ok 5 - loadForWrite enforces 40-hex tree SHA in commit
+      ---
+      duration_ms: 0.9443
+      type: 'test'
+      ...
+    # Subtest: loadForWrite rejects duplicate paths in tree
+    ok 6 - loadForWrite rejects duplicate paths in tree
+      ---
+      duration_ms: 0.9832
+      type: 'test'
+      ...
+    # Subtest: loadPublic rejects unsafe product IDs before requesting product shards
+    ok 7 - loadPublic rejects unsafe product IDs before requesting product shards
+      ---
+      duration_ms: 0.7428
+      type: 'test'
+      ...
+    # Subtest: loadPublic rejects a reduced but internally consistent shard set
+    ok 8 - loadPublic rejects a reduced but internally consistent shard set
+      ---
+      duration_ms: 1.29
+      type: 'test'
+      ...
+    # Subtest: loadForWrite rejects a reduced but internally consistent shard tree
+    ok 9 - loadForWrite rejects a reduced but internally consistent shard tree
+      ---
+      duration_ms: 1.1623
+      type: 'test'
+      ...
+    # Subtest: loadForWrite binds the recursive tree response to the requested SHA
+    ok 10 - loadForWrite binds the recursive tree response to the requested SHA
+      ---
+      duration_ms: 0.732
+      type: 'test'
+      ...
+    # Subtest: loadForWrite rejects product shards not declared by the manifest
+    ok 11 - loadForWrite rejects product shards not declared by the manifest
+      ---
+      duration_ms: 1.4609
+      type: 'test'
+      ...
+    # Subtest: loadForWrite validates unsafe logical paths before requesting any blob
+    ok 12 - loadForWrite validates unsafe logical paths before requesting any blob
+      ---
+      duration_ms: 0.6695
+      type: 'test'
+      ...
+    # Subtest: loadForWrite redacts token occurrences from every exposed error field
+    ok 13 - loadForWrite redacts token occurrences from every exposed error field
+      ---
+      duration_ms: 0.9484
+      type: 'test'
+      ...
+    # Subtest: loadForWrite safely redacts coercible message metadata
+    ok 14 - loadForWrite safely redacts coercible message metadata
+      ---
+      duration_ms: 0.4484
+      type: 'test'
+      ...
+    # Subtest: write rejects a reduced shard set before constructing a writer
+    ok 15 - write rejects a reduced shard set before constructing a writer
+      ---
+      duration_ms: 0.5675
+      type: 'test'
+      ...
+    1..15
+ok 332 - Adversarial Matrix: GitHub Sharded Adapter
+  ---
+  duration_ms: 17.4029
+  type: 'test'
+  ...
+# Subtest: R1.2: getSourceMetadata returns null before any load
+ok 333 - R1.2: getSourceMetadata returns null before any load
+  ---
+  duration_ms: 0.1671
+  type: 'test'
+  ...
+# Subtest: R1.2: getSourceMetadata updatedAt comes from manifest.updatedAt field, not new Date()
+ok 334 - R1.2: getSourceMetadata updatedAt comes from manifest.updatedAt field, not new Date()
+  ---
+  duration_ms: 1.7983
+  type: 'test'
+  ...
+# Subtest: R1.2: getSourceMetadata updatedAt is absent (null) when neither commit nor manifest has a date
+ok 335 - R1.2: getSourceMetadata updatedAt is absent (null) when neither commit nor manifest has a date
+  ---
+  duration_ms: 1.8424
+  type: 'test'
+  ...
+# Subtest: R1.2: getSourceMetadata returns a copy (immutable — mutation does not affect internal state)
+ok 336 - R1.2: getSourceMetadata returns a copy (immutable — mutation does not affect internal state)
+  ---
+  duration_ms: 1.7639
+  type: 'test'
+  ...
+# Subtest: parseStagingArgs rejects invalid inputs without network calls
+ok 337 - parseStagingArgs rejects invalid inputs without network calls
+  ---
+  duration_ms: 3.1281
+  type: 'test'
+  ...
+# Subtest: migration.run validates inputs immediately (zero I/O)
+ok 338 - migration.run validates inputs immediately (zero I/O)
+  ---
+  duration_ms: 1.7904
+  type: 'test'
+  ...
+# Subtest: malformed JSON response throws MALFORMED_JSON
+ok 339 - malformed JSON response throws MALFORMED_JSON
+  ---
+  duration_ms: 0.7135
+  type: 'test'
+  ...
+# Subtest: wrong exact ref throws INVALID_REF
+ok 340 - wrong exact ref throws INVALID_REF
+  ---
+  duration_ms: 0.3416
+  type: 'test'
+  ...
+# Subtest: invalid object type throws INVALID_REF
+ok 341 - invalid object type throws INVALID_REF
+  ---
+  duration_ms: 0.5165
+  type: 'test'
+  ...
+# Subtest: wrong exact commit SHA throws INVALID_COMMIT
+ok 342 - wrong exact commit SHA throws INVALID_COMMIT
+  ---
+  duration_ms: 0.6953
+  type: 'test'
+  ...
+# Subtest: duplicate tree path throws DUPLICATE_TREE_PATH
+ok 343 - duplicate tree path throws DUPLICATE_TREE_PATH
+  ---
+  duration_ms: 0.5085
+  type: 'test'
+  ...
+# Subtest: target returning 200 stops before POST (BRANCH_EXISTS)
+ok 344 - target returning 200 stops before POST (BRANCH_EXISTS)
+  ---
+  duration_ms: 20.8312
+  type: 'test'
+  ...
+# Subtest: target non-404 error stops before POST (GITHUB_API_ERROR)
+ok 345 - target non-404 error stops before POST (GITHUB_API_ERROR)
+  ---
+  duration_ms: 35.0378
+  type: 'test'
+  ...
+# Subtest: create-ref returning non-2xx throws and leaves branchCreated=false, mutationStage=branch-create-uncertain
+ok 346 - create-ref returning non-2xx throws and leaves branchCreated=false, mutationStage=branch-create-uncertain
+  ---
+  duration_ms: 5.8214
+  type: 'test'
+  ...
+# Subtest: shard count mismatch before mutation
+ok 347 - shard count mismatch before mutation
+  ---
+  duration_ms: 1.7725
+  type: 'test'
+  ...
+# Subtest: writer failure preserves branchCreated=true and does no retries
+ok 348 - writer failure preserves branchCreated=true and does no retries
+  ---
+  duration_ms: 2.9689
+  type: 'test'
+  ...
+# Subtest: staging ref mismatch after writer throws STAGING_REF_MISMATCH
+ok 349 - staging ref mismatch after writer throws STAGING_REF_MISMATCH
+  ---
+  duration_ms: 2.0327
+  type: 'test'
+  ...
+# Subtest: main moved final step throws MAIN_MOVED_DURING_RUN
+ok 350 - main moved final step throws MAIN_MOVED_DURING_RUN
+  ---
+  duration_ms: 3.7244
+  type: 'test'
+  ...
+# Subtest: token is redacted from every serialized error field
+ok 351 - token is redacted from every serialized error field
+  ---
+  duration_ms: 0.3343
+  type: 'test'
+  ...
+# Subtest: CLI wrapper uses injected dependencies without accessing global fetch
+ok 352 - CLI wrapper uses injected dependencies without accessing global fetch
+  ---
+  duration_ms: 3.8559
+  type: 'test'
+  ...
+# Subtest: happy path orchestration succeeds and returns verified status object
+ok 353 - happy path orchestration succeeds and returns verified status object
+  ---
+  duration_ms: 4.8151
+  type: 'test'
+  ...
+# Subtest: readback accepts recursive tree directory entries alongside shard blobs
+ok 354 - readback accepts recursive tree directory entries alongside shard blobs
+  ---
+  duration_ms: 3.8729
+  type: 'test'
+  ...
+# Subtest: real writer factory integration succeeds with full orchestrator mock
+ok 355 - real writer factory integration succeeds with full orchestrator mock
+  ---
+  duration_ms: 21.3368
+  type: 'test'
+  ...
+# Subtest: remote shard readback rejects missing blob SHA
+ok 356 - remote shard readback rejects missing blob SHA
+  ---
+  duration_ms: 2.921
+  type: 'test'
+  ...
+# Subtest: remote shard readback rejects malformed blob SHA
+ok 357 - remote shard readback rejects malformed blob SHA
+  ---
+  duration_ms: 2.2483
+  type: 'test'
+  ...
+# Subtest: remote shard readback rejects mismatched blob SHA
+ok 358 - remote shard readback rejects mismatched blob SHA
+  ---
+  duration_ms: 1.6988
+  type: 'test'
+  ...
+# Subtest: indexes every product that uses one shared material
+ok 359 - indexes every product that uses one shared material
+  ---
+  duration_ms: 19.8666
+  type: 'test'
+  ...
+# Subtest: classifies byte-identical assets as duplicates
+ok 360 - classifies byte-identical assets as duplicates
+  ---
+  duration_ms: 1.5831
+  type: 'test'
+  ...
+# Subtest: classifies different content as a conflict and absent hashes as missing
+ok 361 - classifies different content as a conflict and absent hashes as missing
+  ---
+  duration_ms: 0.3188
+  type: 'test'
+  ...
+# Subtest: audits material assets without treating product assembly models as material models
+ok 362 - audits material assets without treating product assembly models as material models
+  ---
+  duration_ms: 0.8418
+  type: 'test'
+  ...
+# Subtest: applies explicit canonical assets to a clone and leaves unrelated payload data unchanged
+ok 363 - applies explicit canonical assets to a clone and leaves unrelated payload data unchanged
+  ---
+  duration_ms: 1.1687
+  type: 'test'
+  ...
+# Subtest: rejects a canonical locator that is not already owned by the material
+ok 364 - rejects a canonical locator that is not already owned by the material
+  ---
+  duration_ms: 0.6647
+  type: 'test'
+  ...
+# Subtest: dry-run hashes assets deterministically without writing materials.json
+ok 365 - dry-run hashes assets deterministically without writing materials.json
+  ---
+  duration_ms: 96.902
+  type: 'test'
+  ...
+# Subtest: apply requires a mapping and is idempotent
+ok 366 - apply requires a mapping and is idempotent
+  ---
+  duration_ms: 59.8131
+  type: 'test'
+  ...
+# Subtest: offline audit fails instead of downloading an unresolved PDF
+ok 367 - offline audit fails instead of downloading an unresolved PDF
+  ---
+  duration_ms: 20.3859
+  type: 'test'
+  ...
+# Subtest: mapped product sources must all have identical content
+ok 368 - mapped product sources must all have identical content
+  ---
+  duration_ms: 20.6991
+  type: 'test'
+  ...
+# Subtest: validates PDF extension, MIME type, signature, and size
+ok 369 - validates PDF extension, MIME type, signature, and size
+  ---
+  duration_ms: 2.9598
+  type: 'test'
+  ...
+# Subtest: validates GLB magic and rejects unsupported model files
+ok 370 - validates GLB magic and rejects unsupported model files
+  ---
+  duration_ms: 0.4835
+  type: 'test'
+  ...
+# Subtest: accepts portable GLTF and rejects relative external resources
+ok 371 - accepts portable GLTF and rejects relative external resources
+  ---
+  duration_ms: 1.1076
+  type: 'test'
+  ...
+# Subtest: rejects empty and oversized files before reading oversized bytes
+ok 372 - rejects empty and oversized files before reading oversized bytes
+  ---
+  duration_ms: 9.2431
+  type: 'test'
+  ...
+# Subtest: resolves only targeted pending material assets in a clone
+ok 373 - resolves only targeted pending material assets in a clone
+  ---
+  duration_ms: 2.0622
+  type: 'test'
+  ...
+# Subtest: rejects a pending asset reference without in-memory bytes
+ok 374 - rejects a pending asset reference without in-memory bytes
+  ---
+  duration_ms: 0.4641
+  type: 'test'
+  ...
+# Subtest: selecting a PDF stages bytes in the draft without uploading or mutating the database
+ok 375 - selecting a PDF stages bytes in the draft without uploading or mutating the database
+  ---
+  duration_ms: 123.72
+  type: 'test'
+  ...
+# Subtest: Save Material commits a pending reference locally without uploading
+ok 376 - Save Material commits a pending reference locally without uploading
+  ---
+  duration_ms: 2.034
+  type: 'test'
+  ...
+# Subtest: Back discards unreferenced staged bytes with the Material Draft
+ok 377 - Back discards unreferenced staged bytes with the Material Draft
+  ---
+  duration_ms: 2.5802
+  type: 'test'
+  ...
+# Subtest: Material Master renders localized upload controls and a pending filename
+ok 378 - Material Master renders localized upload controls and a pending filename
+  ---
+  duration_ms: 0.9752
+  type: 'test'
+  ...
+# Subtest: Upload action opens only the hidden file input in its asset row
+ok 379 - Upload action opens only the hidden file input in its asset row
+  ---
+  duration_ms: 0.4358
+  type: 'test'
+  ...
+# Subtest: Add asset does not add a second material asset or lose unsaved fields
+ok 380 - Add asset does not add a second material asset or lose unsaved fields
+  ---
+  duration_ms: 0.5954
+  type: 'test'
+  ...
+# Subtest: Material Master only renders an Add button when that asset type is empty
+ok 381 - Material Master only renders an Add button when that asset type is empty
+  ---
+  duration_ms: 0.4061
+  type: 'test'
+  ...
+# Subtest: Delete asset does not lose unsaved Material Master fields or metadata
+ok 382 - Delete asset does not lose unsaved Material Master fields or metadata
+  ---
+  duration_ms: 0.4561
+  type: 'test'
+  ...
+# Subtest: 3D draft rerender prefers the edited URL over stale previewUrl metadata
+ok 383 - 3D draft rerender prefers the edited URL over stale previewUrl metadata
+  ---
+  duration_ms: 0.7325
+  type: 'test'
+  ...
+# Subtest: Draft of material A doesn't leak into material B
+ok 384 - Draft of material A doesn't leak into material B
+  ---
+  duration_ms: 0.7154
+  type: 'test'
+  ...
+# Subtest: Open uses just-typed URL and name
+ok 385 - Open uses just-typed URL and name
+  ---
+  duration_ms: 0.5052
+  type: 'test'
+  ...
+# Subtest: Silent refresh is blocked by draft
+ok 386 - Silent refresh is blocked by draft
+  ---
+  duration_ms: 0.3883
+  type: 'test'
+  ...
+# Subtest: Back/module switch destroys draft
+ok 387 - Back/module switch destroys draft
+  ---
+  duration_ms: 0.3117
+  type: 'test'
+  ...
+# Subtest: Save preserves metadata and updates previewUrl
+ok 388 - Save preserves metadata and updates previewUrl
+  ---
+  duration_ms: 0.4191
+  type: 'test'
+  ...
+# Subtest: Invalid URL is blocked
+ok 389 - Invalid URL is blocked
+  ---
+  duration_ms: 0.3743
+  type: 'test'
+  ...
+# Subtest: Save collapses legacy multiple material assets to the first asset
+ok 390 - Save collapses legacy multiple material assets to the first asset
+  ---
+  duration_ms: 0.414
+  type: 'test'
+  ...
+# Subtest: Blank asset URL blocks save and leaves the database unchanged
+ok 391 - Blank asset URL blocks save and leaves the database unchanged
+  ---
+  duration_ms: 0.2649
+  type: 'test'
+  ...
+# Subtest: describePayloadChanges detects product added
+ok 392 - describePayloadChanges detects product added
+  ---
+  duration_ms: 1.8675
+  type: 'test'
+  ...
+# Subtest: describePayloadChanges detects material added
+ok 393 - describePayloadChanges detects material added
+  ---
+  duration_ms: 0.3403
+  type: 'test'
+  ...
+# Subtest: describePayloadChanges detects material deleted
+ok 394 - describePayloadChanges detects material deleted
+  ---
+  duration_ms: 0.3571
+  type: 'test'
+  ...
+# Subtest: describePayloadChanges detects material modified
+ok 395 - describePayloadChanges detects material modified
+  ---
+  duration_ms: 0.5092
+  type: 'test'
+  ...
+# Subtest: describePayloadChanges detects material unit modified
+ok 396 - describePayloadChanges detects material unit modified
+  ---
+  duration_ms: 1.4164
+  type: 'test'
+  ...
+# Subtest: describePayloadChanges detects bom entry added
+ok 397 - describePayloadChanges detects bom entry added
+  ---
+  duration_ms: 0.5116
+  type: 'test'
+  ...
+# Subtest: describePayloadChanges detects bom entry qty changed
+ok 398 - describePayloadChanges detects bom entry qty changed
+  ---
+  duration_ms: 0.2807
+  type: 'test'
+  ...
+# Subtest: describePayloadChanges detects bom entry deleted through childMaterialId
+ok 399 - describePayloadChanges detects bom entry deleted through childMaterialId
+  ---
+  duration_ms: 26.5179
+  type: 'test'
+  ...
+# Subtest: audit:data defaults to the canonical local shard set
+ok 400 - audit:data defaults to the canonical local shard set
+  ---
+  duration_ms: 477.874
+  type: 'test'
+  ...
+# Subtest: general check audits shards without requiring rollback equality
+ok 401 - general check audits shards without requiring rollback equality
+  ---
+  duration_ms: 0.444
+  type: 'test'
+  ...
+# Subtest: quality workflow is pinned, least-privilege, and executes the repository gate
+ok 402 - quality workflow is pinned, least-privilege, and executes the repository gate
+  ---
+  duration_ms: 0.6124
+  type: 'test'
+  ...
+# Subtest: source and generated artifacts load no remote executable scripts
+ok 403 - source and generated artifacts load no remote executable scripts
+  ---
+  duration_ms: 9.526
+  type: 'test'
+  ...
+# Subtest: core resolves BOM assets without depending on material color suffix
+ok 404 - core resolves BOM assets without depending on material color suffix
+  ---
+  duration_ms: 0.9624
+  type: 'test'
+  ...
+# Subtest: core does not map BOM assets by code suffix or component number alone
+ok 405 - core does not map BOM assets by code suffix or component number alone
+  ---
+  duration_ms: 0.5926
+  type: 'test'
+  ...
+# Subtest: catalog product names omit color-specific terms
+ok 406 - catalog product names omit color-specific terms
+  ---
+  duration_ms: 71.2876
+  type: 'test'
+  ...
+# Subtest: viewer hides raw GitHub data source while admin can manage linked assets
+ok 407 - viewer hides raw GitHub data source while admin can manage linked assets
+  ---
+  duration_ms: 13.8968
+  type: 'test'
+  ...
+# Subtest: admin HTML uses shared files and viewer HTML keeps the same GitHub config
+ok 408 - admin HTML uses shared files and viewer HTML keeps the same GitHub config
+  ---
+  duration_ms: 13.8348
+  type: 'test'
+  ...
+# Subtest: Admin submit and View Changes behavior is localized and action-routed
+ok 409 - Admin submit and View Changes behavior is localized and action-routed
+  ---
+  duration_ms: 0.9517
+  type: 'test'
+  ...
+# Subtest: Admin change preview styling is owned by canonical CSS source
+ok 410 - Admin change preview styling is owned by canonical CSS source
+  ---
+  duration_ms: 0.6537
+  type: 'test'
+  ...
+# Subtest: viewer HTML is standalone for sharing to another computer
+ok 411 - viewer HTML is standalone for sharing to another computer
+  ---
+  duration_ms: 11.2265
+  type: 'test'
+  ...
+# Subtest: offline rollback utilities serialize and parse legacy data
+ok 412 - offline rollback utilities serialize and parse legacy data
+  ---
+  duration_ms: 1.4173
+  type: 'test'
+  ...
+# Subtest: cloud payload preserves PDM notification events
+ok 413 - cloud payload preserves PDM notification events
+  ---
+  duration_ms: 0.5831
+  type: 'test'
+  ...
+# Subtest: admin save notification records changed material fields
+ok 414 - admin save notification records changed material fields
+  ---
+  duration_ms: 1.4162
+  type: 'test'
+  ...
+# Subtest: admin save diff records multi-color drawer material changes
+ok 415 - admin save diff records multi-color drawer material changes
+  ---
+  duration_ms: 10.6651
+  type: 'test'
+  ...
+# Subtest: admin save and viewer UI include a PDM notification center
+ok 416 - admin save and viewer UI include a PDM notification center
+  ---
+  duration_ms: 10.0913
+  type: 'test'
+  ...
+# Subtest: bundled runtime dependencies preserve 3D model and Excel support
+ok 417 - bundled runtime dependencies preserve 3D model and Excel support
+  ---
+  duration_ms: 110.0155
+  type: 'test'
+  ...
+# Subtest: parent-child structure parent list extracts localized fields and prevents [object Object]
+ok 418 - parent-child structure parent list extracts localized fields and prevents [object Object]
+  ---
+  duration_ms: 9.3277
+  type: 'test'
+  ...
+# Subtest: runtime dependency audit accepts exact inputs and fails closed on tampering
+ok 419 - runtime dependency audit accepts exact inputs and fails closed on tampering
+  ---
+  duration_ms: 299.2084
+  type: 'test'
+  ...
+# Subtest: domain/sharded-files.js runs cleanly without node-specific libraries
+ok 420 - domain/sharded-files.js runs cleanly without node-specific libraries
+  ---
+  duration_ms: 2.6076
+  type: 'test'
+  ...
+# Subtest: parseLogicalShardFiles rejects product shards not declared by the manifest
+ok 421 - parseLogicalShardFiles rejects product shards not declared by the manifest
+  ---
+  duration_ms: 1.0097
+  type: 'test'
+  ...
+# Subtest: shard builders reject product IDs reserved by JavaScript object semantics
+ok 422 - shard builders reject product IDs reserved by JavaScript object semantics
+  ---
+  duration_ms: 0.2682
+  type: 'test'
+  ...
+# Subtest: logical shard helpers preserve exact aggregate hash and round-trip
+ok 423 - logical shard helpers preserve exact aggregate hash and round-trip
+  ---
+  duration_ms: 255.0105
+  type: 'test'
+  ...
+# Subtest: Sharded Migration Data Logic
+    # Subtest: Happy path: split and assemble exact match
+    ok 1 - Happy path: split and assemble exact match
+      ---
+      duration_ms: 68.0068
+      type: 'test'
+      ...
+    # Subtest: Regression: Missing product shard
+    ok 2 - Regression: Missing product shard
+      ---
+      duration_ms: 23.2411
+      type: 'test'
+      ...
+    # Subtest: Regression: Extraneous product ID in manifest
+    ok 3 - Regression: Extraneous product ID in manifest
+      ---
+      duration_ms: 25.2142
+      type: 'test'
+      ...
+    # Subtest: Regression: Invalid schema for manifest
+    ok 4 - Regression: Invalid schema for manifest
+      ---
+      duration_ms: 24.979
+      type: 'test'
+      ...
+    # Subtest: Regression: Invalid schema for materials
+    ok 5 - Regression: Invalid schema for materials
+      ---
+      duration_ms: 19.1742
+      type: 'test'
+      ...
+    # Subtest: Regression: Invalid product ID format
+    ok 6 - Regression: Invalid product ID format
+      ---
+      duration_ms: 20.0179
+      type: 'test'
+      ...
+    # Subtest: Invariant: No pendingAssetId or blob URLs in shards
+    ok 7 - Invariant: No pendingAssetId or blob URLs in shards
+      ---
+      duration_ms: 27.8939
+      type: 'test'
+      ...
+    # Subtest: Regression: Duplicate product ID in manifest
+    ok 8 - Regression: Duplicate product ID in manifest
+      ---
+      duration_ms: 17.9514
+      type: 'test'
+      ...
+    # Subtest: Regression: Unsafe Product ID in payload.bom
+    ok 9 - Regression: Unsafe Product ID in payload.bom
+      ---
+      duration_ms: 22.3818
+      type: 'test'
+      ...
+    # Subtest: Regression: Aggregate hash depends on framing
+    ok 10 - Regression: Aggregate hash depends on framing
+      ---
+      duration_ms: 0.6077
+      type: 'test'
+      ...
+    1..10
+ok 424 - Sharded Migration Data Logic
+  ---
+  duration_ms: 362.158
+  type: 'test'
+  ...
+# Subtest: Materialize and Verify scripts preserve the full payload without legacy tools
+ok 425 - Materialize and Verify scripts preserve the full payload without legacy tools
+  ---
+  duration_ms: 20.3438
+  type: 'test'
+  ...
+# Subtest: Materialize script rejects unexpected count and hash
+ok 426 - Materialize script rejects unexpected count and hash
+  ---
+  duration_ms: 33.0049
+  type: 'test'
+  ...
+# Subtest: Materialize script rejects transient data
+ok 427 - Materialize script rejects transient data
+  ---
+  duration_ms: 30.8557
+  type: 'test'
+  ...
+# Subtest: Materialize script rejects absolute output paths outside rootDir
+ok 428 - Materialize script rejects absolute output paths outside rootDir
+  ---
+  duration_ms: 3.619
+  type: 'test'
+  ...
+# Subtest: Materialize verification rejects unexpected existing shard files
+ok 429 - Materialize verification rejects unexpected existing shard files
+  ---
+  duration_ms: 11.0861
+  type: 'test'
+  ...
+# Subtest: Materialize script rejects symlinks inside the shard output tree
+ok 430 - Materialize script rejects symlinks inside the shard output tree
+  ---
+  duration_ms: 5.4751
+  type: 'test'
+  ...
+# Subtest: Materialize script rejects symlinks in an ancestor of a nested shard root
+ok 431 - Materialize script rejects symlinks in an ancestor of a nested shard root
+  ---
+  duration_ms: 3.888
+  type: 'test'
+  ...
+# Subtest: Material Database rows expose per-material edit action
+ok 432 - Material Database rows expose per-material edit action
+  ---
+  duration_ms: 1.4846
+  type: 'test'
+  ...
+# Subtest: material rows use only material-owned assets while product assembly models remain separate
+ok 433 - material rows use only material-owned assets while product assembly models remain separate
+  ---
+  duration_ms: 0.7389
+  type: 'test'
+  ...
+# Subtest: Material Master editor uses a focused detail form with save and back actions
+ok 434 - Material Master editor uses a focused detail form with save and back actions
+  ---
+  duration_ms: 0.377
+  type: 'test'
+  ...
+# Subtest: Material Master edits are scoped to the selected MaterialID record
+ok 435 - Material Master edits are scoped to the selected MaterialID record
+  ---
+  duration_ms: 0.3057
+  type: 'test'
+  ...
+# Subtest: Material Master view suppresses the floating selected-material inspector
+ok 436 - Material Master view suppresses the floating selected-material inspector
+  ---
+  duration_ms: 0.1821
+  type: 'test'
+  ...
+# Subtest: BOM view suppresses the redundant floating inspector panel
+ok 437 - BOM view suppresses the redundant floating inspector panel
+  ---
+  duration_ms: 0.7263
+  type: 'test'
+  ...
+# Subtest: Parent-child structure uses per-row edit actions instead of a global edit toolbar
+ok 438 - Parent-child structure uses per-row edit actions instead of a global edit toolbar
+  ---
+  duration_ms: 1.0684
+  type: 'test'
+  ...
+# Subtest: BOM table uses per-row material actions instead of a global edit toolbar
+ok 439 - BOM table uses per-row material actions instead of a global edit toolbar
+  ---
+  duration_ms: 1.2081
+  type: 'test'
+  ...
+# Subtest: Material Database edit action is explicit and compact
+ok 440 - Material Database edit action is explicit and compact
+  ---
+  duration_ms: 0.4575
+  type: 'test'
+  ...
+# Subtest: Material Database rows do not open Material Master on plain row click
+ok 441 - Material Database rows do not open Material Master on plain row click
+  ---
+  duration_ms: 0.2806
+  type: 'test'
+  ...
+# Subtest: Material Database headers use localized labels instead of hardcoded Chinese strings
+ok 442 - Material Database headers use localized labels instead of hardcoded Chinese strings
+  ---
+  duration_ms: 0.4777
+  type: 'test'
+  ...
+# Subtest: pagination and validation UI use dictionary labels
+ok 443 - pagination and validation UI use dictionary labels
+  ---
+  duration_ms: 1.2025
+  type: 'test'
+  ...
+# Subtest: Material asset upload controls use i18n and delegated file handling
+ok 444 - Material asset upload controls use i18n and delegated file handling
+  ---
+  duration_ms: 0.6119
+  type: 'test'
+  ...
+# Subtest: direct Material Database page actions do not depend on ambient browser events
+ok 445 - direct Material Database page actions do not depend on ambient browser events
+  ---
+  duration_ms: 0.4048
+  type: 'test'
+  ...
+# Subtest: Admin change preview renders the exact localized payload diff
+ok 446 - Admin change preview renders the exact localized payload diff
+  ---
+  duration_ms: 1.9544
+  type: 'test'
+  ...
+# Subtest: all Admin toolbar sources own dirty save, View Changes, and discard actions directly
+ok 447 - all Admin toolbar sources own dirty save, View Changes, and discard actions directly
+  ---
+  duration_ms: 1.3514
+  type: 'test'
+  ...
+# Subtest: Admin dirty action visibility uses existing toolbar markup only
+ok 448 - Admin dirty action visibility uses existing toolbar markup only
+  ---
+  duration_ms: 0.2901
+  type: 'test'
+  ...
+# Subtest: Admin change preview modal manages focus and its temporary Escape listener
+ok 449 - Admin change preview modal manages focus and its temporary Escape listener
+  ---
+  duration_ms: 1.0592
+  type: 'test'
+  ...
+# Subtest: new Material Master draft is not inserted into database before save
+ok 450 - new Material Master draft is not inserted into database before save
+  ---
+  duration_ms: 0.663
+  type: 'test'
+  ...
+# Subtest: Material Master save commits a draft and back discards unsaved draft
+ok 451 - Material Master save commits a draft and back discards unsaved draft
+  ---
+  duration_ms: 0.2816
+  type: 'test'
+  ...
+# Subtest: Material Master editor exposes delete material action
+ok 452 - Material Master editor exposes delete material action
+  ---
+  duration_ms: 0.2044
+  type: 'test'
+  ...
+# Subtest: Material delete protects BOM references and deletes only orphan material records
+ok 453 - Material delete protects BOM references and deletes only orphan material records
+  ---
+  duration_ms: 0.4937
+  type: 'test'
+  ...
+# Subtest: silent cloud refresh does not overwrite an active Material Master draft
+ok 454 - silent cloud refresh does not overwrite an active Material Master draft
+  ---
+  duration_ms: 0.1613
+  type: 'test'
+  ...
+# Subtest: Parent-child structure detail edits update dirty status immediately
+ok 455 - Parent-child structure detail edits update dirty status immediately
+  ---
+  duration_ms: 0.9806
+  type: 'test'
+  ...
+# Subtest: BOM revision selector uses product revision state and historical snapshots are read-only
+ok 456 - BOM revision selector uses product revision state and historical snapshots are read-only
+  ---
+  duration_ms: 4.636
+  type: 'test'
+  ...
+# Subtest: admin creates the next live revision from the current product snapshot
+ok 457 - admin creates the next live revision from the current product snapshot
+  ---
+  duration_ms: 1.4632
+  type: 'test'
+  ...
+# Subtest: released current revision is read-only but can start a new revision
+ok 458 - released current revision is read-only but can start a new revision
+  ---
+  duration_ms: 0.5997
+  type: 'test'
+  ...
+# Subtest: admin releases only the clean latest draft revision with a required reason
+ok 459 - admin releases only the clean latest draft revision with a required reason
+  ---
+  duration_ms: 0.7062
+  type: 'test'
+  ...
+# Subtest: release command reports unsaved changes without opening the prompt
+ok 460 - release command reports unsaved changes without opening the prompt
+  ---
+  duration_ms: 0.2354
+  type: 'test'
+  ...
+1..460
+# tests 488
+# suites 0
+# pass 488
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1495.1003
+
+> test:e2e
+> playwright test
+
+
+Running 6 tests using 6 workers
+
+[1/6] [chromium] › tests\e2e\ai-assistant.spec.mjs:105:3 › R2.5 AI Assistant UI Flow › Provider Error triggers local fallback
+[2/6] [chromium] › tests\e2e\ai-assistant.spec.mjs:262:3 › R2.5 AI Assistant UI Flow › explicit LGS433 color reaches deterministic BOM while an unavailable color stays local
+[3/6] [chromium] › tests\e2e\ai-assistant.spec.mjs:31:3 › R2.5 AI Assistant UI Flow › Connect, Run 1 Tool Loop, Citations, and Core App Survival
+[4/6] [chromium] › tests\e2e\ai-assistant.spec.mjs:131:3 › R2.5 AI Assistant UI Flow › LGS032 revision question is prefetched and Clear Chat removes follow-up context
+[5/6] [chromium] › tests\e2e\ai-assistant.spec.mjs:203:3 › R2.5 AI Assistant UI Flow › LGS723/LGS733 comparison is scoped, categorized, and reusable in a follow-up
+[6/6] [chromium] › tests\e2e\ai-assistant.spec.mjs:297:3 › R2.5 AI Assistant UI Flow › R4/R5 proposal preview escapes model text and approval marks the draft dirty
+[7/6] (retries) [chromium] › tests\e2e\ai-assistant.spec.mjs:297:3 › R2.5 AI Assistant UI Flow › R4/R5 proposal preview escapes model text and approval marks the draft dirty (retry #1)
+[8/6] (retries) [chromium] › tests\e2e\ai-assistant.spec.mjs:297:3 › R2.5 AI Assistant UI Flow › R4/R5 proposal preview escapes model text and approval marks the draft dirty (retry #2)
+  1) [chromium] › tests\e2e\ai-assistant.spec.mjs:297:3 › R2.5 AI Assistant UI Flow › R4/R5 proposal preview escapes model text and approval marks the draft dirty 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('.ai-proposal-card')
+    Expected substring: "<img src=x onerror=\"window.__proposalInjected=true\">"
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toContainText" with timeout 5000ms
+      - waiting for locator('.ai-proposal-card')
+
+
+      401 |
+      402 |     const proposalCard = page.locator('.ai-proposal-card');
+    > 403 |     await expect(proposalCard).toContainText(untrustedValue);
+          |                                ^
+      404 |     await expect(proposalCard.locator('img')).toHaveCount(0);
+      405 |     await expect.poll(() => page.evaluate(() => window.__proposalInjected || false)).toBe(false);
+      406 |
+        at C:\Users\HP\Documents\Codex\2026-06-30\ew-html-and-add-real-time\work\remote-bom-viewer-sync\bom-viewer-sync\tests\e2e\ai-assistant.spec.mjs:403:32
+
+    Error Context: test-results\ai-assistant-R2-5-AI-Assis-9320c-roval-marks-the-draft-dirty-chromium\error-context.md
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('.ai-proposal-card')
+    Expected substring: "<img src=x onerror=\"window.__proposalInjected=true\">"
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toContainText" with timeout 5000ms
+      - waiting for locator('.ai-proposal-card')
+
+
+      401 |
+      402 |     const proposalCard = page.locator('.ai-proposal-card');
+    > 403 |     await expect(proposalCard).toContainText(untrustedValue);
+          |                                ^
+      404 |     await expect(proposalCard.locator('img')).toHaveCount(0);
+      405 |     await expect.poll(() => page.evaluate(() => window.__proposalInjected || false)).toBe(false);
+      406 |
+        at C:\Users\HP\Documents\Codex\2026-06-30\ew-html-and-add-real-time\work\remote-bom-viewer-sync\bom-viewer-sync\tests\e2e\ai-assistant.spec.mjs:403:32
+
+    Error Context: test-results\ai-assistant-R2-5-AI-Assis-9320c-roval-marks-the-draft-dirty-chromium-retry1\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\ai-assistant-R2-5-AI-Assis-9320c-roval-marks-the-draft-dirty-chromium-retry1\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\ai-assistant-R2-5-AI-Assis-9320c-roval-marks-the-draft-dirty-chromium-retry1\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #2 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('.ai-proposal-card')
+    Expected substring: "<img src=x onerror=\"window.__proposalInjected=true\">"
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toContainText" with timeout 5000ms
+      - waiting for locator('.ai-proposal-card')
+
+
+      401 |
+      402 |     const proposalCard = page.locator('.ai-proposal-card');
+    > 403 |     await expect(proposalCard).toContainText(untrustedValue);
+          |                                ^
+      404 |     await expect(proposalCard.locator('img')).toHaveCount(0);
+      405 |     await expect.poll(() => page.evaluate(() => window.__proposalInjected || false)).toBe(false);
+      406 |
+        at C:\Users\HP\Documents\Codex\2026-06-30\ew-html-and-add-real-time\work\remote-bom-viewer-sync\bom-viewer-sync\tests\e2e\ai-assistant.spec.mjs:403:32
+
+    Error Context: test-results\ai-assistant-R2-5-AI-Assis-9320c-roval-marks-the-draft-dirty-chromium-retry2\error-context.md
+
+
+  1 failed
+    [chromium] › tests\e2e\ai-assistant.spec.mjs:297:3 › R2.5 AI Assistant UI Flow › R4/R5 proposal preview escapes model text and approval marks the draft dirty 
+  5 passed (47.7s)

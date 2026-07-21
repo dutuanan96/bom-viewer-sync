@@ -1,8 +1,8 @@
-// pdm-knowledge.js â€” R1.3: Deterministic PDM indexes and read-only tools.
+// pdm-knowledge.js â€?R1.3: Deterministic PDM indexes and read-only tools.
 //
 // All queries are read-only against a frozen snapshot. No mutations.
 // Results are bounded, normalized, and carry evidence/source metadata.
-// Only the keys needed for the AI response are included â€” no full payload leakage.
+// Only the keys needed for the AI response are included â€?no full payload leakage.
 
 import { buildBomTreeRows } from '../../domain/relationships.js';
 import { normalizeProductRevisionRegistry } from '../../domain/revisions.js';
@@ -25,7 +25,7 @@ function buildEvidence(sourceMetadata, recordId, sourcePath) {
     sourcePath: sourcePath || `data/${recordId}`,
     recordId,
     sourceCommit: sourceMetadata?.commitSha || '',
-    capturedAt: sourceMetadata?.updatedAt || null,
+    capturedAt: sourceMetadata?.updatedAt || new Date().toISOString(),
   };
 }
 
@@ -292,7 +292,7 @@ export class PdmKnowledge {
   getRevisionHistory({ productId } = {}) {
     const record = this._revisionRegistry[productId] || null;
     if (!record) {
-      // Product has no explicit revision history â€” return default state
+      // Product has no explicit revision history â€?return default state
       const bom = this._payload.bom || {};
       if (!bom[productId]) throw new Error(`Not found: product ${productId}`);
       return {
@@ -457,7 +457,7 @@ export class PdmKnowledge {
   }
 
   /**
-   * Audit product data quality â€” returns bounded stats, not raw payload.
+   * Audit product data quality â€?returns bounded stats, not raw payload.
    */
   auditProductData({ productId } = {}) {
     const bom = this._payload.bom || {};

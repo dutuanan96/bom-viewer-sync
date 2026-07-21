@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'wasm-unsafe-eval' 'sha256-w/QBJe1XksecJYgW6nZKghCJWdv7uwEMfTIIS5Oanxk='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob: https://drive.google.com https://lh3.googleusercontent.com https://raw.githubusercontent.com https://cdn.jsdelivr.net; connect-src https://api.github.com https://raw.githubusercontent.com https://cdn.jsdelivr.net https://openrouter.ai; frame-src 'self' blob: https://drive.google.com https://raw.githubusercontent.com https://cdn.jsdelivr.net; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="pdm-build" content="731f3063f8f6">
+  <title>BOM Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=731f3063f8f6">
+  <script>
+    window.BOM_REPO_CONFIG = {
+      owner: 'dutuanan96',
+      repo: 'bom-viewer-sync',
+      branch: 'main',
+      shardRoot: 'bom-viewer-sync/data'
+    };
+  </script>
+</head>
+
+<body class="pdm-shell">
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-logo"><img
+          src="https://drive.google.com/thumbnail?id=1Yb3OmD0IbFp4sQjybsO8gBxyeVL63CQ9&amp;sz=w160" alt="JinTai logo">
+      </div>
+      <div>
+        <div class="sidebar-brand-title" data-i18n="brandTitle">JinTai Furniture</div>
+        <div class="sidebar-brand-subtitle" data-i18n="brandSubtitle">PDM System</div>
+        <div class="sidebar-brand-version" id="sidebarVersionDisplay"></div>
+      </div>
+    </div>
+    <h3 data-i18n="sidebarTitle">PDM</h3>
+    <div class="sidebar-search">
+      <input type="text" class="sidebar-search-input" id="sidebarSearch" data-i18n-placeholder="sidebarSearch">
+    </div>
+    <div class="product-list" id="productList"></div>
+    <div class="sidebar-credit" data-i18n="developedBy">Developed by</div>
+    <div class="sidebar-footer" id="sidebarFooter">
+
+      <button class="sidebar-footer-btn" id="btnSettings" type="button">
+        <span class="material-symbols-outlined" aria-hidden="true">settings</span>
+        <span data-i18n="settings">Settings</span>
+      </button>
+    </div>
+  </aside>
+
+  <div class="app-frame">
+    <nav class="nav">
+      <div class="search-wrapper">
+        <span class="material-symbols-outlined search-icon" aria-hidden="true">search</span>
+        <input type="text" class="search-input" id="searchInput" data-i18n-placeholder="search">
+        <button class="search-clear" id="searchClear" type="button" aria-label="Clear search">×</button>
+      </div>
+      <div class="filter-bar" id="filterBar"></div>
+      <div class="nav-right">
+        <div class="notification-center" id="notificationCenter">
+          <button class="notification-button nav-icon" id="notificationButton" type="button" aria-haspopup="true"
+            aria-expanded="false">
+            <span class="material-symbols-outlined" aria-hidden="true">notifications</span>
+            <span class="notification-badge" id="notificationBadge" hidden>0</span>
+          </button>
+          <div class="notification-panel" id="notificationPanel" hidden>
+            <div class="notification-panel-header">
+              <strong id="notificationTitle"></strong>
+              <button class="notification-read-btn" id="notificationReadBtn" type="button"></button>
+            </div>
+            <div class="notification-list" id="notificationList"></div>
+          </div>
+        </div>
+        <span class="material-symbols-outlined nav-icon" aria-hidden="true">help</span>
+        <span class="mode-badge" id="modeBadge">Admin</span>
+        <div class="nav-stats">
+          <div><span class="stat-val" id="statProducts">0</span> <span class="stat-label"
+              data-i18n="products">Products</span></div>
+          <div><span class="stat-val" id="statMaterials">0</span> <span class="stat-label"
+              data-i18n="materials">Materials</span></div>
+        </div>
+        <div class="lang-toggle">
+          <button class="lang-btn active" type="button" data-lang="zh">中</button>
+          <button class="lang-btn" type="button" data-lang="vi">VI</button>
+        </div>
+      </div>
+    </nav>
+
+    <section class="sync-panel admin" id="syncPanel">
+      <div class="sync-summary">
+        <div data-sync-source-row>
+          <div class="sync-label" data-i18n="source">GitHub data source</div>
+          <div class="sync-source" id="syncSource">-</div>
+        </div>
+        <div>
+          <div class="sync-label" data-i18n="updated">Data updated</div>
+          <div class="sync-value" id="lastSync">-</div>
+        </div>
+        <div>
+          <div class="sync-label" data-i18n="localRefresh">Local refresh</div>
+          <div class="sync-value" id="lastLocalRefresh">-</div>
+        </div>
+        <div class="sync-status" id="syncStatus"></div>
+      </div>
+      <div class="admin-config" id="adminControls">
+        <label class="wide">
+          <span data-i18n="token">GitHub token</span>
+          <input type="password" id="githubToken" autocomplete="off">
+        </label>
+      </div>
+    </section>
+
+    <main class="main">
+      <section class="content">
+        <div class="content-header" id="contentHeader"></div>
+      </section>
+    </main>
+
+    <div class="ai-chat-widget" id="aiChatWidget" role="dialog" aria-modal="true" aria-label="AI Assistant">
+      <div class="ai-chat-widget-header">
+        <div style="flex: 1"></div>
+        <button id="aiDrawerClose" type="button">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <div class="ai-chat-widget-content" id="aiDrawerContent"></div>
+    </div>
+
+    <button class="ai-fab" id="aiFab" type="button">
+      <span class="material-symbols-outlined">smart_toy</span>
+    </button>
+  </div>
+
+  <div class="pdm-modal-overlay" id="settingsModal" aria-hidden="true">
+    <div class="pdm-modal-content pdm-modal-sm">
+      <div class="pdm-modal-header">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span class="material-symbols-outlined" style="color: var(--blue);">settings</span>
+          <h2>System Settings</h2>
+        </div>
+        <button class="pdm-modal-close" id="closeSettingsModal" type="button" aria-label="Close">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <div class="pdm-modal-body" id="settingsModalContent"></div>
+    </div>
+  </div>
+
+  <div class="pdf-modal" id="pdfModal" aria-hidden="true">
+    <div class="pdf-dialog">
+      <div class="pdf-modal-bar">
+        <div>
+          <div class="pdf-modal-title" id="pdfModalTitle">2D</div>
+          <div class="pdf-modal-subtitle" id="pdfModalSubtitle"></div>
+        </div>
+        <div class="pdf-modal-actions">
+          <a class="drawing-btn primary" id="pdfOpenLink" href="#" target="_blank" rel="noopener" download></a>
+          <button class="drawing-btn" id="pdfCloseBtn" type="button" data-close-modal></button>
+        </div>
+      </div>
+      <iframe class="pdf-frame" id="pdfFrame" src="about:blank" title="2D drawing"></iframe>
+    </div>
+  </div>
+
+  <!-- Runtime data is loaded from immutable GitHub shards. -->
+  <script src="app-admin.js?v=731f3063f8f6"></script>
+</body>
+
+</html>

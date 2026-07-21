@@ -1,0 +1,3 @@
+﻿Command: Start-Process "chrome.exe" -ArgumentList "--user-data-dir=$env:TEMP\chrome_test_profile_b6", "file:///C:/Users/HP/Documents/Codex/2026-06-30/ew-html-and-add-real-time/work/remote-bom-viewer-sync/.worktrees/antigravity-phase-b6-acceptance/bom-viewer-sync/viewer.html", "file:///C:/Users/HP/Documents/Codex/2026-06-30/ew-html-and-add-real-time/work/remote-bom-viewer-sync/.worktrees/antigravity-phase-b6-acceptance/bom-viewer-sync/admin.html"
+Exit Code: 0
+Status: Launched successfully, awaiting manual user screenshots and verification.

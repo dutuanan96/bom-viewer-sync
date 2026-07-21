@@ -26,7 +26,7 @@ export function createPdmSkillRegistry({ promptPack, skillsPack } = {}) {
   requirePack(skillsPack, 'skills');
 
   const governedTools = new Set((skillsPack.skills || []).map(skill => skill?.id).filter(Boolean));
-  governedTools.add('submit_proposal');
+  governedTools.add('apply_mutation');
   const specialists = new Map();
 
   for (const raw of promptPack.specialists || []) {

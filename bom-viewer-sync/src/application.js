@@ -44,9 +44,8 @@ import {
   syncLegacyBomFromMaterialDb,
 } from './domain/relationships.js';
 import { AI_PROMPT_PACK_VERSION, createAiAssistantFeature } from './features/ai-assistant/index.js';
-import { createResearchTool } from './features/ai-assistant/research-tool.js';
 import { PdmKnowledge } from './features/ai-assistant/pdm-knowledge.js';
-import { createProposalPreview, applyApprovedProposal } from './features/ai-assistant/proposal-engine.js';
+import { applyMutationTransaction } from './features/ai-assistant/mutation-engine.js';
 import { createLocalAiStore } from './features/ai-assistant/local-store.js';
 import { createMemoryManager } from './features/ai-assistant/memory-manager.js';
 import {
@@ -810,35 +809,43 @@ const global = globalThis;
 
       this.aiLocalStore ||= createLocalAiStore();
       this.memoryManager ||= createMemoryManager({ localStore: this.aiLocalStore });
-      this.researchTool ||= createResearchTool();
       this.aiFeature = createAiAssistantFeature({
         getSnapshot: () => this.getSnapshot(),
         t: (key) => this.label(key),
         localStore: this.aiLocalStore,
         runTool: async (call, snapshot) => {
-          if (call.name === 'search_web') {
-            return this.researchTool.search(call.arguments.query);
-          }
-          if (call.name === 'submit_proposal') {
-            const preview = createProposalPreview(snapshot, call.arguments);
-
+          if (call.name === 'apply_mutation') {
+            try {
+              console.log("Applying mutation!", call.arguments);
+              const { payload, changes } = applyMutationTransaction(snapshot, call.arguments);
+              console.log("Mutation changes:", changes);
+            
             // Render the proposal directly into the chat and pause execution
             this.aiFeature.ui.renderMessage({
-              role: 'ai',
-              text: this.label('ai.proposal.prepared'),
-              proposal: preview.proposal,
-              approval: preview,
-              diff: preview.changes,
-              onApprove: (approvedPreview) => {
+              role: 'assistant',
+              text: this.label('ai.proposal.prepared') || 'Proposal prepared for review.',
+              proposal: call.arguments,
+              approval: { mutation: call.arguments, payload, changes },
+              diff: changes,
+              onApprove: (approvalState) => {
                 try {
-                  this.applyAiProposal(approvedPreview);
+                  this.applyAiMutation({
+                     mutation: approvalState.mutation,
+                     changes: approvalState.changes,
+                     payload: approvalState.payload,
+                     sourceCommit: snapshot.sourceMetadata?.commitSha
+                  });
                 } catch (e) {
-                  this.aiFeature.ui.renderMessage({ role: 'assistant', text: `${this.label('ai.proposal.applyError')}: ${e.message}` });
+                  this.aiFeature.ui.renderMessage({ role: 'assistant', text: `${this.label('ai.proposal.applyError') || 'Error applying proposal'}: ${e.message}` });
                 }
               }
             });
 
-            return 'Proposal presented to user for review. Stop using tools and let the user respond.';
+            return 'Mutation presented to user for review. Stop using tools and wait for authorization.';
+            } catch (err) {
+              console.error("Mutation failed!", err);
+              throw err;
+            }
           }
 
           if (call.name === 'store_memory') {
@@ -956,19 +963,17 @@ const global = globalThis;
       });
     }
 
-    applyAiProposal(preview) {
-      const currentSnapshot = this.getSnapshot();
-      const applied = applyApprovedProposal(currentSnapshot, preview);
+    applyAiMutation({ mutation, changes, payload, sourceCommit }) {
       const evt = {
-        type: 'ai-proposal',
+        type: 'ai-mutation',
         actor: 'ai',
-        changes: applied.changes,
-        sourceCommit: preview.binding.sourceCommit,
-        operationType: preview.proposal.operationType,
-        targetId: preview.proposal.targetId,
+        changes: changes,
+        sourceCommit: sourceCommit,
+        operationType: mutation.operationType,
+        targetId: mutation.targetId,
         createdAt: new Date().toISOString(),
       };
-      this.state.payload = appendNormalizedNotificationEvent(applied.payload, evt);
+      this.state.payload = appendNormalizedNotificationEvent(payload, evt);
 
       // Update references
       this.state.bom = this.state.payload.bom;
@@ -981,7 +986,7 @@ const global = globalThis;
       this.markDirty();
       this.renderAll();
 
-      this.aiFeature.ui.renderMessage({ role: 'assistant', text: this.label('ai.proposal.applied') });
+      this.aiFeature.ui.renderMessage({ role: 'assistant', text: this.label('ai.proposal.applied') || 'Local draft mutated successfully.' });
     }
 
     getSnapshot() {

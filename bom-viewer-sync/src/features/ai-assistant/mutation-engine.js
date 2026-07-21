@@ -1,65 +1,48 @@
-// src/features/ai-assistant/proposal-engine.js
-import { ERROR_CODES, validateProposal } from './contracts.js';
+import { ERROR_CODES, validateMutation } from './contracts.js';
 import { describePayloadChanges } from '../notifications.js';
 import { syncLegacyBomFromMaterialDb } from '../../domain/relationships.js';
+
 function clone(value) {
   return JSON.parse(JSON.stringify(value || {}));
 }
 
-function staleError(message) {
-  const error = new Error(message);
-  error.code = ERROR_CODES.AI_STALE_SOURCE;
-  return error;
-}
-
-function stableJson(value) {
-  if (Array.isArray(value)) return `[${value.map(stableJson).join(',')}]`;
-  if (value && typeof value === 'object') {
-    return `{${Object.keys(value).sort().map((key) => `${JSON.stringify(key)}:${stableJson(value[key])}`).join(',')}}`;
-  }
-  return JSON.stringify(value);
-}
-
-export function validateProposalContext(snapshot, proposal) {
-  validateProposal(proposal);
+export function validateMutationContext(snapshot, mutation) {
+  validateMutation(mutation);
 
   if (!snapshot.isAdmin) {
-    const err = new Error('Proposals can only be made in Admin mode.');
+    const err = new Error('Mutations can only be applied in Admin mode.');
     err.code = ERROR_CODES.AI_POLICY_BLOCKED;
     throw err;
   }
   if (snapshot.dirty) {
-    const err = new Error('Cannot propose changes while there are unsaved human edits. Please save or discard your changes first.');
+    const err = new Error('Cannot apply mutations while there are unsaved human edits. Please save or discard your changes first.');
     err.code = ERROR_CODES.AI_POLICY_BLOCKED;
     throw err;
   }
 
   const canEdit = snapshot.canEditRevision;
-  if (!canEdit) {
-    const err = new Error('Proposals can only be applied to the current Draft revision. AI cannot modify released or historical revisions.');
+  if (!canEdit && mutation.operationType !== 'update_material_field') {
+    const err = new Error('Mutations can only be applied to the current Draft revision. AI cannot modify released or historical revisions.');
     err.code = ERROR_CODES.AI_POLICY_BLOCKED;
     throw err;
   }
+  
   if (
-    proposal.operationType === 'update_bom_quantity' &&
+    mutation.operationType === 'update_bom_quantity' &&
     (
-      snapshot.selection?.productCode !== proposal.targetId ||
-      snapshot.selection?.color !== proposal.payload.color
+      snapshot.selection?.productCode !== mutation.targetId ||
+      snapshot.selection?.color !== mutation.payload.color
     )
   ) {
-    const err = new Error('BOM proposal target must match the selected product and color.');
+    const err = new Error('BOM mutation target must match the selected product and color.');
     err.code = ERROR_CODES.AI_POLICY_BLOCKED;
     throw err;
   }
 }
 
-/**
- * Apply a proposal to a payload object (mutates the payload).
- * Used for both dry-run (on a clone) and actual apply.
- */
-export function applyProposalToPayload(payload, proposal) {
-  validateProposal(proposal);
-  const { operationType, targetId, payload: opPayload } = proposal;
+export function applyMutationToPayload(payload, mutation) {
+  validateMutation(mutation);
+  const { operationType, targetId, payload: opPayload } = mutation;
 
   if (operationType === 'update_material_field') {
     const mat = payload.materialDb?.materials?.[targetId];
@@ -73,7 +56,6 @@ export function applyProposalToPayload(payload, proposal) {
     else throw new Error(`Field ${opPayload.field} is not allowed to be updated by AI.`);
 
   } else if (operationType === 'update_bom_quantity') {
-    // targetId is productId
     const product = payload.bom?.[targetId];
     if (!product) throw new Error(`Product ${targetId} not found.`);
 
@@ -103,7 +85,6 @@ export function applyProposalToPayload(payload, proposal) {
       }
     }
 
-    // Legacy fallback for pre-cutover payloads without canonical BOM entries.
     function updateQty(materials) {
       if (!materials) return false;
       for (const m of materials) {
@@ -125,62 +106,24 @@ export function applyProposalToPayload(payload, proposal) {
   }
 }
 
-/**
- * Compute the exact differences a proposal would make to the snapshot's payload.
- * Returns an array of change objects using the same logic as human edits.
- */
-export function computeProposalDiff(snapshot, proposal) {
-  validateProposalContext(snapshot, proposal);
+export function computeMutationDiff(snapshot, mutation) {
+  validateMutationContext(snapshot, mutation);
 
   const clonedPayload = clone(snapshot.payload);
-  applyProposalToPayload(clonedPayload, proposal);
+  applyMutationToPayload(clonedPayload, mutation);
 
   return describePayloadChanges(snapshot.payload, clonedPayload);
 }
 
-export function createProposalPreview(snapshot, proposal) {
-  const sourceCommit = snapshot?.sourceMetadata?.commitSha;
-  if (!/^[0-9a-f]{40}$/i.test(sourceCommit || '')) {
-    throw staleError('Proposal preview requires an exact source commit');
-  }
-  const changes = computeProposalDiff(snapshot, proposal);
+export function applyMutationTransaction(snapshot, mutation) {
+  const changes = computeMutationDiff(snapshot, mutation);
   if (changes.length === 0) {
-    const error = new Error('Proposal produces no changes');
+    const error = new Error('Mutation produces no changes');
     error.code = ERROR_CODES.AI_POLICY_BLOCKED;
     throw error;
   }
-  return {
-    schemaVersion: 1,
-    proposal: clone(proposal),
-    changes: clone(changes),
-    binding: {
-      sourceCommit,
-      selection: stableJson(snapshot.selection || {}),
-      payload: stableJson(snapshot.payload || {}),
-    },
-  };
-}
-
-export function applyApprovedProposal(snapshot, preview) {
-  if (!preview || preview.schemaVersion !== 1 || !preview.binding || !Array.isArray(preview.changes)) {
-    throw staleError('Invalid or missing proposal approval state');
-  }
-  validateProposalContext(snapshot, preview.proposal);
-  if (snapshot.sourceMetadata?.commitSha !== preview.binding.sourceCommit) {
-    throw staleError('Proposal is stale because the source commit changed');
-  }
-  if (stableJson(snapshot.selection || {}) !== preview.binding.selection) {
-    throw staleError('Proposal is stale because the selection changed');
-  }
-  if (stableJson(snapshot.payload || {}) !== preview.binding.payload) {
-    throw staleError('Proposal is stale because the payload changed');
-  }
-
-  const changes = computeProposalDiff(snapshot, preview.proposal);
-  if (stableJson(changes) !== stableJson(preview.changes)) {
-    throw staleError('Proposal is stale because the exact diff changed');
-  }
+  
   const payload = clone(snapshot.payload);
-  applyProposalToPayload(payload, preview.proposal);
+  applyMutationToPayload(payload, mutation);
   return { payload, changes };
 }

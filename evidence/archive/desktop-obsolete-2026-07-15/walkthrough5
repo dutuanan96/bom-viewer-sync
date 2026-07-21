@@ -1,0 +1,48 @@
+# Phase B.5 Release Closure / RC1 Walkthrough
+
+This document summarizes the steps taken to successfully close Phase B.5 and prepare the RC1 release.
+
+## 1. Audit of Unmerged Commits (`1ad16cb`, `2db18d5`)
+An independent audit was conducted on the two unmerged commits on the dirty branch `feature/upload-2d-3d-github`.
+- **Finding:** The commits implemented 2D/3D asset uploads using `pendingUploads` and deferred GitHub API execution.
+- **Resolution: Superseded.** The current `origin/main` (Phase B.5) already implements a native and superior architecture. The new `pendingMaterialAssets` flow securely isolates pending bytes, deduplicates uploads via SHA-256 cryptographic hashing, and natively uses `githubAssetStorage` to execute CDN resolution directly at the boundary.
+- **Action:** No legacy code was ported. The old commits remain isolated on their branch.
+
+## 2. Updated Context Documentation
+All primary reference documents have been updated to reflect the completed B.5 cutover:
+- `AI_DEBUG_GUIDE.md`
+- `HANDOVER.md`
+- `PROJECT_CONTEXT.md`
+- `REVIEW_CONTEXT.md`
+- `README_SYNC.md`
+These documents now formally declare that `data.js` is no longer the read/write target, and the application strictly uses the 24 sharded JSON files inside `data/`.
+
+## 3. Full Verification Matrix Passed
+The complete release gate was executed on the canonical worktree:
+- **`npm run check`:** 193/193 tests passed.
+- **`audit:data`:** 646 materials, 2725 BOM entries, 22 products, 1 notification, 0 errors, 0 warnings.
+- **`migrate:dry-run`:** Exactly 24 virtual shards created with aggregate SHA-256 `d5261ad277be1fbe7b391ea2f0995de8b0f96fdb612d73e95ed5853b2903684e`.
+
+## 4. Browser Smoke Test Success
+A comprehensive automated browser smoke test was conducted via the browser subagent.
+The subagent successfully:
+1. Loaded `admin.html`.
+2. Opened the Material Database.
+3. Edited the first Material Master row.
+4. Verified the 2D/3D Asset section was present and fully functional.
+5. Loaded `viewer.html` and verified BOM rendering.
+
+> [!NOTE]
+> The browser test confirms the new sharded build correctly initializes the client application and renders localized translations and UI modules.
+
+**Screenshots:**
+- Material Database: ![Material Database](file:///C:/Users/HP/.gemini/antigravity-ide/brain/8a060bc4-67c8-4234-ac39-1652ce2ffb4a/material_database_1784106301506.png)
+- Detail View: ![Detail View](file:///C:/Users/HP/.gemini/antigravity-ide/brain/8a060bc4-67c8-4234-ac39-1652ce2ffb4a/detail_view_1784106358856.png)
+- Viewer Page: ![Viewer Page](file:///C:/Users/HP/.gemini/antigravity-ide/brain/8a060bc4-67c8-4234-ac39-1652ce2ffb4a/viewer_page_1784106369964.png)
+- Video Recording: ![Browser Subagent Video](file:///C:/Users/HP/.gemini/antigravity-ide/brain/8a060bc4-67c8-4234-ac39-1652ce2ffb4a/b5_cutover_smoke_1784106130212.webp)
+
+## 5. Independent Review & Next Steps
+The worktree is clean (apart from generated artifacts and context docs). All CI gates are 100% green.
+The branch is ready to be committed and merged to `main` as the final Phase B.5 Release Candidate (RC1).
+
+Please verify the changes and proceed to commit and squash-merge!

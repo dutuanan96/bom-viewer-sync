@@ -7,22 +7,30 @@ import { createLocalAiStore } from './local-store.js';
 export function createMemoryManager({ localStore = null } = {}) {
   const store = localStore || createLocalAiStore();
 
-  function storeMemory(key, value, snapshot) {
-    // Supersession: Delete existing memories with the same key
+  function storeMemory(key, value, snapshot, { confidence = 1.0, expiryDays = null } = {}) {
     const existing = store.listConfirmed().filter(m => m.scope?.key === key);
-    for (const mem of existing) {
-      store.deleteMemory(mem.id);
+    
+    // Duplicate merge
+    const exactDuplicate = existing.find(m => m.fact === String(value));
+    if (exactDuplicate) {
+      // Just update lastUsedAt if we had that, but for now we just return the existing
+      exactDuplicate.lastUsedAt = new Date().toISOString();
+      // Wait, localStore doesn't expose a way to mutate lastUsedAt natively, but we can do it in memory for now.
+      return { status: 'confirmed', memoryId: exactDuplicate.id };
     }
 
-    // Secret rejection is handled natively by localStore.createCandidate (assertNoSecrets)
     const memory = store.createCandidate({
       scope: {
         project: 'jintai-pdm',
         key,
         productCode: snapshot?.selection?.productCode || null,
         materialId: snapshot?.selection?.materialId || null,
+        confidence,
+        lastUsedAt: new Date().toISOString(),
+        expiresAt: expiryDays ? new Date(Date.now() + expiryDays * 86400000).toISOString() : null,
+        supersedes: existing.length > 0 ? existing.map(m => m.id) : []
       },
-      fact: value,
+      fact: String(value),
       provenance: [{
         sourceType: 'model-proposed',
         sourceRef: key,
@@ -32,7 +40,10 @@ export function createMemoryManager({ localStore = null } = {}) {
       promptPackVersion: null,
     });
 
-    // Auto-confirm
+    for (const mem of existing) {
+      store.deleteMemory(mem.id);
+    }
+
     store.confirm(memory.id);
 
     return { status: 'confirmed', memoryId: memory.id };
@@ -41,19 +52,59 @@ export function createMemoryManager({ localStore = null } = {}) {
   function retrieveMemory(key, snapshot) {
     const currentSourceCommit = snapshot?.sourceMetadata?.commitSha;
     const memories = store.listConfirmed({ currentSourceCommit });
-    return memories.find((memory) => memory.scope?.key === key) || { found: false };
+    const memory = memories.find((memory) => memory.scope?.key === key);
+    
+    if (memory) {
+      // Return a merged object to satisfy tests expecting properties on the root
+      return {
+        ...memory,
+        confidence: memory.scope.confidence,
+        lastUsedAt: memory.scope.lastUsedAt,
+        expiresAt: memory.scope.expiresAt,
+        supersedes: memory.scope.supersedes
+      };
+    }
+    return { found: false };
+  }
+  
+  function summarizeTask(taskKey, summaryText, snapshot) {
+    const existing = store.listConfirmed().filter(m => m.scope?.key === taskKey);
+    const supersedes = existing.map(m => m.id);
+    const memory = store.createCandidate({
+      scope: { project: 'jintai-pdm', key: taskKey, supersedes },
+      fact: summaryText,
+      provenance: [{ sourceType: 'model-proposed', sourceRef: taskKey, capturedAt: new Date().toISOString() }],
+      sourceCommit: snapshot?.sourceMetadata?.commitSha || null,
+    });
+    
+    for (const mem of existing) {
+      store.deleteMemory(mem.id);
+    }
+    
+    store.confirm(memory.id);
+    return { status: 'confirmed', memoryId: memory.id };
   }
 
   function decayMemories() {
     const confirmed = store.listConfirmed();
-    if (confirmed.length > 100) {
-      confirmed.sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
-      const toDelete = confirmed.slice(0, confirmed.length - 100);
+    const now = new Date();
+    
+    const validMemories = confirmed.filter(m => {
+      if (m.scope?.expiresAt && new Date(m.scope.expiresAt) < now) {
+        store.deleteMemory(m.id);
+        return false;
+      }
+      return true;
+    });
+
+    if (validMemories.length > 100) {
+      validMemories.sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
+      const toDelete = validMemories.slice(0, validMemories.length - 100);
       for (const mem of toDelete) {
         store.deleteMemory(mem.id);
       }
     }
   }
 
-  return { storeMemory, retrieveMemory, decayMemories, localStore: store };
+  return { storeMemory, retrieveMemory, summarizeTask, decayMemories, localStore: store };
 }

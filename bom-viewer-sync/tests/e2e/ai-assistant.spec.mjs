@@ -375,7 +375,7 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
                   id: 'proposal_1',
                   type: 'function',
                   function: {
-                    name: 'submit_proposal',
+                    name: 'apply_mutation',
                     arguments: JSON.stringify({
                       operationType: 'update_material_field',
                       targetId: 'M1',

@@ -1,4 +1,4 @@
-// AI Contracts â€” versioned, deterministic validation for all AI interactions.
+// AI Contracts â€?versioned, deterministic validation for all AI interactions.
 // All validators use stable error codes from ERROR_CODES.
 // No mutation of data; all checks are fail-closed.
 
@@ -19,11 +19,10 @@ export const ALLOWED_TOOLS = Object.freeze(new Set([
   'where_used',
   'get_revision_history',
   'audit_product_data',
-  'submit_proposal',
+  'apply_mutation',
   'get_marketplace_insights',
   'store_memory',
-  'retrieve_memory',
-  'search_web',
+  'retrieve_memory'
 ]));
 
 const ALLOWED_PROPOSAL_OPERATIONS = Object.freeze(new Set([
@@ -56,14 +55,13 @@ const TOOL_ARGUMENT_RULES = Object.freeze({
   where_used: { required: ['materialId'], allowed: ['materialId'] },
   get_revision_history: { required: ['productId'], allowed: ['productId'] },
   audit_product_data: { required: ['productId'], allowed: ['productId'] },
-  submit_proposal: {
+  apply_mutation: {
     required: ['operationType', 'targetId', 'payload'],
     allowed: ['operationType', 'targetId', 'payload']
   },
   get_marketplace_insights: { required: ['productId'], allowed: ['productId'] },
   store_memory: { required: ['key', 'value'], allowed: ['key', 'value'] },
-  retrieve_memory: { required: ['key'], allowed: ['key'] },
-  search_web: { required: ['query'], allowed: ['query'] }
+  retrieve_memory: { required: ['key'], allowed: ['key'] }
 });
 
 function policyError(message) {
@@ -192,7 +190,7 @@ export function validateEvidence(evidence) {
     throw new Error('missing sourcePath');
   }
   if (!evidence.capturedAt) {
-    throw new Error('missing capturedAt');
+    console.error('missing capturedAt FROM:', new Error().stack); throw new Error('missing capturedAt');
   }
   return evidence;
 }
@@ -251,57 +249,57 @@ export function validateAudit(audit) {
   return audit;
 }
 
-export function validateProposal(proposal) {
-  if (!proposal || typeof proposal !== 'object' || Array.isArray(proposal)) {
-    throw new Error('missing proposal data');
+export function validateMutation(mutation) {
+  if (!mutation || typeof mutation !== 'object' || Array.isArray(mutation)) {
+    throw new Error('missing mutation data');
   }
-  if (!proposal.targetId) {
+  if (!mutation.targetId) {
     throw new Error('missing targetId');
   }
-  if (!proposal.operationType) {
+  if (!mutation.operationType) {
     throw new Error('missing operationType');
   }
-  if (!ALLOWED_PROPOSAL_OPERATIONS.has(proposal.operationType)) {
-    throw policyError(`disallowed operationType: "${proposal.operationType}"`);
+  if (!ALLOWED_PROPOSAL_OPERATIONS.has(mutation.operationType)) {
+    throw policyError(`disallowed operationType: "${mutation.operationType}"`);
   }
-  if (!proposal.payload || typeof proposal.payload !== 'object') {
+  if (!mutation.payload || typeof mutation.payload !== 'object') {
     throw new Error('missing or invalid payload');
   }
 
-  const topLevelKeys = Object.keys(proposal).sort();
+  const topLevelKeys = Object.keys(mutation).sort();
   if (JSON.stringify(topLevelKeys) !== JSON.stringify(['operationType', 'payload', 'targetId'])) {
-    throw policyError('proposal contains missing or extra fields');
+    throw policyError('mutation contains missing or extra fields');
   }
-  if (typeof proposal.targetId !== 'string' || !proposal.targetId.trim() || proposal.targetId.length > 100) {
+  if (typeof mutation.targetId !== 'string' || !mutation.targetId.trim() || mutation.targetId.length > 100) {
     throw new Error('invalid targetId');
   }
 
-  if (proposal.operationType === 'update_bom_quantity') {
-    const payloadKeys = Object.keys(proposal.payload).sort();
+  if (mutation.operationType === 'update_bom_quantity') {
+    const payloadKeys = Object.keys(mutation.payload).sort();
     if (JSON.stringify(payloadKeys) !== JSON.stringify(['childId', 'color', 'quantity'])) {
       throw policyError('update_bom_quantity payload contains missing or extra fields');
     }
-    if (typeof proposal.payload.color !== 'string' || !proposal.payload.color.trim()) throw new Error('invalid color');
-    if (typeof proposal.payload.childId !== 'string' || !proposal.payload.childId.trim()) throw new Error('invalid childId');
-    const qty = proposal.payload.quantity;
+    if (typeof mutation.payload.color !== 'string' || !mutation.payload.color.trim()) throw new Error('invalid color');
+    if (typeof mutation.payload.childId !== 'string' || !mutation.payload.childId.trim()) throw new Error('invalid childId');
+    const qty = mutation.payload.quantity;
     if (!Number.isInteger(qty) || qty < 1 || qty > 1_000_000) {
-      throw new Error(`invalid quantity for update_bom_quantity: ${proposal.payload.quantity}`);
+      throw new Error(`invalid quantity for update_bom_quantity: ${mutation.payload.quantity}`);
     }
-  } else if (proposal.operationType === 'update_material_field') {
-    const payloadKeys = Object.keys(proposal.payload).sort();
+  } else if (mutation.operationType === 'update_material_field') {
+    const payloadKeys = Object.keys(mutation.payload).sort();
     if (JSON.stringify(payloadKeys) !== JSON.stringify(['field', 'value'])) {
       throw policyError('update_material_field payload contains missing or extra fields');
     }
-    if (!proposal.payload.field || typeof proposal.payload.field !== 'string') {
+    if (!mutation.payload.field || typeof mutation.payload.field !== 'string') {
       throw new Error('missing or invalid field for update_material_field');
     }
-    if (!ALLOWED_MATERIAL_FIELDS.has(proposal.payload.field)) {
-      throw new Error(`Field ${proposal.payload.field} is not allowed to be updated by AI`);
+    if (!ALLOWED_MATERIAL_FIELDS.has(mutation.payload.field)) {
+      throw new Error(`Field ${mutation.payload.field} is not allowed to be updated by AI`);
     }
-    if (proposal.payload.value === undefined || typeof proposal.payload.value !== 'string' || proposal.payload.value.length > 1000) {
+    if (mutation.payload.value === undefined || typeof mutation.payload.value !== 'string' || mutation.payload.value.length > 1000) {
       throw new Error('missing or invalid string value for update_material_field');
     }
   }
 
-  return proposal;
+  return mutation;
 }

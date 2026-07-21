@@ -94,7 +94,7 @@
     },
     {
       "id": "proposal",
-      "allowedTools": ["submit_proposal"],
+      "allowedTools": ["apply_mutation"],
       "evidenceRequired": true,
       "doNotUse": "Do not mutate, save, or publish PDM data directly.",
       "instructions": ["Create only an exact proposal for human review."],

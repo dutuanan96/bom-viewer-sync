@@ -9,23 +9,23 @@ test('runtime memory provenance uses the active prompt pack version', () => {
   assert.equal(AI_PROMPT_PACK_VERSION, promptPack.packVersion);
 });
 
-test('Grade B models receive read-only tools without submit_proposal', () => {
+test('Grade B models receive read-only tools without apply_mutation', () => {
   const tools = buildAvailableTools({ grade: 'B' });
 
-  assert.equal(tools.some(tool => tool.function.name === 'submit_proposal'), false);
+  assert.equal(tools.some(tool => tool.function.name === 'apply_mutation'), false);
   assert.equal(tools.some(tool => tool.function.name === 'search_products'), true);
 });
 
-test('Grade A models receive submit_proposal', () => {
+test('Grade A models receive apply_mutation', () => {
   const tools = buildAvailableTools({ grade: 'A' });
 
-  assert.equal(tools.some(tool => tool.function.name === 'submit_proposal'), true);
+  assert.equal(tools.some(tool => tool.function.name === 'apply_mutation'), true);
 });
 
 test('unknown model capability fails closed to read-only tools', () => {
   const tools = buildAvailableTools(undefined);
 
-  assert.equal(tools.some(tool => tool.function.name === 'submit_proposal'), false);
+  assert.equal(tools.some(tool => tool.function.name === 'apply_mutation'), false);
 });
 
 test('provider-visible tool schemas reject additional properties', () => {

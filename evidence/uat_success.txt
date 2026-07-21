@@ -1,0 +1,48 @@
+﻿1. Verifying main and staging HEAD...
+[HTTP 200] https://api.github.com/repos/dutuanan96/bom-viewer-sync/git/ref/heads/main
+[HTTP 200] https://api.github.com/repos/dutuanan96/bom-viewer-sync/git/ref/heads/codex%2Fphase-b6-uat-2026-07-15T112949034Z-d477f88
+2. Instantiating adapters...
+3. Calling loadForWrite...
+4. Asserting expectedHeadSha and payload counts...
+5. Calling adapter.write()...
+6. Asserting previousHeadSha and commitSha...
+7. Calling loadForWrite() again...
+8. Asserting new expectedHeadSha and deep equality...
+9. Calling loadPublic()...
+10. Verifying 24 shard blobs...
+[HTTP 200] https://api.github.com/repos/dutuanan96/bom-viewer-sync/git/commits/e843f276d1cedcfa30615b4177989a4e76170bd1
+[HTTP 200] https://api.github.com/repos/dutuanan96/bom-viewer-sync/git/trees/91e92ba5775c82aa1f95a8e43920bd9d05337eda?recursive=1
+11. Verifying aggregate SHA-256...
+[HTTP 200] https://api.github.com/repos/dutuanan96/bom-viewer-sync/git/blobs/e79e74a130e63f0905c468dbbc441d4a242ae4f4
+[HTTP 200] https://api.github.com/repos/dutuanan96/bom-viewer-sync/git/blobs/5a71de5362cbaa0fe821e602b8e9eb71c2599dac
+[HTTP 200] https://api.github.com/repos/dutuanan96/bom-viewer-sync/git/blobs/0d7025e0f11e189b40727ab2bad05e1934e17787
+[HTTP 200] https://api.github.com/repos/dutuanan96/bom-viewer-sync/git/blobs/d14de5ad1c1671f4ecc3dc197315fdc1a4c0152b
+[HTTP 200] https://api.github.com/repos/dutuanan96/bom-viewer-sync/git/blobs/c0a295a23273e4b2d5c811a16f9ef995789530f2
+[HTTP 200] https://api.github.com/repos/dutuanan96/bom-viewer-sync/git/blobs/cabc29d8797009f45a18068618c23dadbfefe4a1
+[HTTP 200] https://api.github.com/repos/dutuanan96/bom-viewer-sync/git/blobs/e93df7fefe54c350516afc7bd4f271e8f710fe50
+[HTTP 200] https://api.github.com/repos/dutuanan96/bom-viewer-sync/git/blobs/60b3f5a877284c5710b1fc865de081d31f4c11a4
+[HTTP 200] https://api.github.com/repos/dutuanan96/bom-viewer-sync/git/blobs/0e15ee7b68197081225c593ee023b0b7846314ed
+[HTTP 200] https://api.github.com/repos/dutuanan96/bom-viewer-sync/git/blobs/8c0eaf8c6a578f532687f8871d59e7bb36ff41fb
+[HTTP 200] https://api.github.com/repos/dutuanan96/bom-viewer-sync/git/blobs/ac3b8c54cc02b39dedf61f9341fcbf52195596a0
+[HTTP 200] https://api.github.com/repos/dutuanan96/bom-viewer-sync/git/blobs/fce3cc0ca338a5cb23ae1707cd9dba487c9e543c
+[HTTP 200] https://api.github.com/repos/dutuanan96/bom-viewer-sync/git/blobs/5d91b84bcab0048a40069da1545975d1ab2adafe
+[HTTP 200] https://api.github.com/repos/dutuanan96/bom-viewer-sync/git/blobs/e7ffe1d844e245917d28303da7ddab3e2e6bd104
+[HTTP 200] https://api.github.com/repos/dutuanan96/bom-viewer-sync/git/blobs/2d15db12c45de6ce1e6c6c613390c8f467e20030
+[HTTP 200] https://api.github.com/repos/dutuanan96/bom-viewer-sync/git/blobs/03c875d3ff165f42d9cb9af5c34dc4ed5e4ba921
+[HTTP 200] https://api.github.com/repos/dutuanan96/bom-viewer-sync/git/blobs/b44bc45257d6c201dd43c4f5ccf490d0a38be55e
+[HTTP 200] https://api.github.com/repos/dutuanan96/bom-viewer-sync/git/blobs/07ef073c5c24faa43de00d78651ba287a67b7677
+[HTTP 200] https://api.github.com/repos/dutuanan96/bom-viewer-sync/git/blobs/116c02142e8763797eb1b8b82cccea626afc10c0
+[HTTP 200] https://api.github.com/repos/dutuanan96/bom-viewer-sync/git/blobs/590c52711301147badafaf8e00878a1f90bac558
+[HTTP 200] https://api.github.com/repos/dutuanan96/bom-viewer-sync/git/blobs/0d72c22c9b47adde1dcd6959076b4a3e2da38cea
+[HTTP 200] https://api.github.com/repos/dutuanan96/bom-viewer-sync/git/blobs/c10fb24fd614916e1993d22108b6a194511b6905
+[HTTP 200] https://api.github.com/repos/dutuanan96/bom-viewer-sync/git/blobs/cb82dff57b4a2a82d04ac2ca4d266d07d5741471
+[HTTP 200] https://api.github.com/repos/dutuanan96/bom-viewer-sync/git/blobs/652666980124344f11a03500322768de2cfc6b9e
+12. Verifying data.js is unchanged...
+[HTTP 200] https://api.github.com/repos/dutuanan96/bom-viewer-sync/git/trees/d477f884ccc572e3559f78220d0abe9cdcb6cb42?recursive=1
+13. Verifying main still equals expected SHA...
+[HTTP 200] https://api.github.com/repos/dutuanan96/bom-viewer-sync/git/ref/heads/main
+14. Verifying ref update was non-force and occurred once...
+SUCCESS!
+Branch: codex/phase-b6-uat-2026-07-15T112949034Z-d477f88
+Commit SHA: e843f276d1cedcfa30615b4177989a4e76170bd1
+

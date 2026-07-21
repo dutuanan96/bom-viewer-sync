@@ -1,62 +1,45 @@
 // src/features/ai-assistant/evidence-ledger.js
-// R2.4 — Evidence Ledger
-// Collects evidence produced during one turn and assigns provenance.
-// Canonical PDM evidence always wins conflicts.
 
-const VALID_PROVENANCES = new Set([
-  'canonical-pdm',
-  'company-knowledge',
-  'personal-memory',
-  'official-web',
-  'marketplace',
-  'community-web',
-  'agent-inference'
-]);
+import { validateEvidence } from './contracts.js';
 
-export function createEvidenceLedger() {
-  const ledger = [];
+export function createEvidenceLedger(localStore) {
+  let evidenceList = [];
 
-  function addEvidence(provenance, data) {
-    if (!VALID_PROVENANCES.has(provenance)) {
-      provenance = 'agent-inference';
+  function mapProvenance(sourceType, sourceRef) {
+    if (sourceType === 'pdm' || sourceType === 'pdm-tool' || sourceType === 'search_products' || sourceType === 'get_product' || sourceType === 'get_bom') {
+      return 'canonical-pdm';
     }
-    const items = Array.isArray(data) ? data : data ? [data] : [];
-    for (const item of items) {
-      ledger.push({ provenance, data: item });
+    if (sourceType === 'memory' || sourceType === 'retrieve_memory') {
+      return 'personal-memory';
     }
+    if (sourceType === 'web-search' || sourceType === 'search_web') {
+      if (/jintai-official\.com/.test(sourceRef)) return 'official-web';
+      if (/marketplace|alibaba|taobao|amazon/.test(sourceRef)) return 'marketplace';
+      return 'community-web';
+    }
+    return sourceType;
   }
 
-  function getRaw() {
-    return [...ledger];
-  }
-
-  function formatForPrompt() {
-    if (ledger.length === 0) return '';
-    
-    let text = '=== ACCUMULATED EVIDENCE ===\n';
-    text += 'Canonical PDM evidence always wins conflicts about BOM, material, revision, or workflow state.\n\n';
-
-    const grouped = {};
-    for (const prov of VALID_PROVENANCES) {
-      grouped[prov] = [];
-    }
-
-    for (const entry of ledger) {
-      grouped[entry.provenance].push(entry.data);
-    }
-
-    for (const prov of VALID_PROVENANCES) {
-      if (grouped[prov].length > 0) {
-        text += `--- ${prov.toUpperCase()} ---\n`;
-        for (const item of grouped[prov]) {
-          text += (typeof item === 'string' ? item : JSON.stringify(item)) + '\n';
-        }
-        text += '\n';
+  function trackEvidence(evidence) {
+    const valid = validateEvidence({ ...evidence, sourceType: mapProvenance(evidence.sourceType, evidence.sourceRef) });
+    const existing = evidenceList.find(e => e.id === valid.id);
+    if (!existing) {
+      evidenceList.push(valid);
+      if (localStore) {
+        localStore.appendAudit({ action: 'evidence-tracked', evidenceId: valid.id });
       }
+      return valid;
     }
-
-    return text.trim();
+    return existing;
   }
 
-  return { addEvidence, getRaw, formatForPrompt };
+  function getEvidence() {
+    return [...evidenceList];
+  }
+
+  function clear() {
+    evidenceList = [];
+  }
+
+  return { trackEvidence, getEvidence, clear };
 }

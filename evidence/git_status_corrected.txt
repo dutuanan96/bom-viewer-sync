@@ -1,0 +1,15 @@
+﻿git update-index --refresh
+git status --porcelain
+M bom-viewer-sync/admin.html
+M bom-viewer-sync/app-admin.js
+M bom-viewer-sync/styles.css
+M bom-viewer-sync/viewer.html
+
+git diff --raw
+(empty)
+
+git diff --quiet
+Exit code: 0
+
+git diff --exit-code -- data.js data
+Exit code: 0

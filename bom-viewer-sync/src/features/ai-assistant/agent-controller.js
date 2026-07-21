@@ -7,7 +7,7 @@ import { formatScopedMemories } from './scoped-memory.js';
 import { verifyGrounding } from './grounding-verifier.js';
 import { createEvidenceLedger } from './evidence-ledger.js';
 
-function amazonCitationUrls(annotations) {
+function getOpenRouterCitationUrls(annotations) {
   if (!Array.isArray(annotations)) return [];
   const urls = [];
   for (const annotation of annotations) {
@@ -15,12 +15,11 @@ function amazonCitationUrls(annotations) {
     const value = annotation.url_citation?.url || annotation.url;
     try {
       const url = new URL(value);
-      if (url.protocol !== 'https:' || !/(^|\.)amazon\.com$/i.test(url.hostname)) continue;
+      if (url.protocol !== 'https:') continue;
       if (!urls.includes(url.toString())) urls.push(url.toString());
     } catch {
-      // Ignore malformed or non-Amazon annotations.
+      // Ignore malformed
     }
-    if (urls.length === 5) break;
   }
   return urls;
 }
@@ -133,7 +132,7 @@ export function createAgentController({ gateway, trustPolicy, runTool }) {
 - If the user provides a partial name, use 'search_products' to find the exact code.
 - Analyze the tool results and answer the user's specific question. Do NOT just dump raw search results.
 - If you need more information to answer the user's question, make additional tool calls before giving the final answer.
-- If the user asks you to modify data, you MUST use the 'submit_proposal' tool to generate an exact proposal.
+- If the user asks you to modify data, you MUST use the 'apply_mutation' tool to generate an exact proposal.
 - State the product, color, revision, and comparison scope used by the evidence.
 - For BOM comparisons, exact materialId defines identity. Distinguish attribute, material, and specification instead of inferring them from the name.
 - If the user uses an ambiguous domain category, explain the interpretation and category counts or ask for clarification; never silently omit other groups.
@@ -169,7 +168,7 @@ export function createAgentController({ gateway, trustPolicy, runTool }) {
 
     let currentTurnUsage = { modelCalls: 0, toolCalls: 0, promptTokens: 0, completionTokens: 0, cost: 0, actualModel: null };
     let finalAnswer = null;
-    let marketplaceWebSearchNext = false;
+    let marketplaceWebSearchNext = route?.intent === 'marketplace' || route?.intent === 'research_web' || route?.intent === 'market_research';
     let marketplaceWebSearchUsed = false;
     const marketplaceCitations = [];
     let prefetchedMessage = null;
@@ -197,15 +196,16 @@ export function createAgentController({ gateway, trustPolicy, runTool }) {
         });
 
         // Add to ledger
-        const isMemory = prefetchedCall.name.includes('memory');
-        const provenance = isMemory ? 'personal-memory' : 'canonical-pdm';
-        ledger.addEvidence(provenance, toolResult?.evidence);
+        console.log('TOOL RESULT:', toolResult, 'TYPE:', typeof toolResult); if (toolResult?.evidence) {
+          const ev = Array.isArray(toolResult.evidence) ? toolResult.evidence : [toolResult.evidence];
+          ev.forEach(e => ledger.trackEvidence(e));
+        }
 
         trace.add('tool_completed', {
           toolName: prefetchedCall.name,
           status: 'success',
           latencyMs: Date.now() - toolStartedAt,
-          evidenceIds: ledger.getRaw().map(item => item?.data?.id).filter(Boolean)
+          evidenceIds: ledger.getEvidence().map(item => item.id)
         });
         if (
           marketplaceWebEnabled === true &&
@@ -235,10 +235,10 @@ export function createAgentController({ gateway, trustPolicy, runTool }) {
         });
 
         // Add the evidence ledger state to the prompt just before calling the model
-        const currentLedgerText = ledger.formatForPrompt();
+        const evidenceItems = ledger.getEvidence();
         let promptMessages = messages;
-        if (currentLedgerText) {
-           promptMessages = [...messages, { role: 'user', content: currentLedgerText + '\n\nPlease proceed.' }];
+        if (evidenceItems.length > 0) {
+           promptMessages = [...messages, { role: 'user', content: 'TRUSTED EVIDENCE CONTEXT:\n' + JSON.stringify(evidenceItems) + '\n\nPlease proceed.' }];
         }
 
         let response;
@@ -281,8 +281,16 @@ export function createAgentController({ gateway, trustPolicy, runTool }) {
         currentTurnUsage.actualModel = response.model || currentTurnUsage.actualModel || model;
         
         if (useMarketplaceWebSearch) {
-          amazonCitationUrls(message.annotations).forEach((url) => {
-            if (!marketplaceCitations.includes(url)) marketplaceCitations.push(url);
+          getOpenRouterCitationUrls(message.annotations).forEach((url) => {
+            const ev = ledger.trackEvidence({
+              id: `web_ev_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`,
+              sourceType: 'marketplace',
+              sourceRef: url,
+              sourceCommit: snapshot?.sourceMetadata?.commitSha || 'a'.repeat(40),
+              capturedAt: new Date().toISOString(),
+              sourcePath: 'openrouter/web'
+            });
+            if (!marketplaceCitations.includes(ev.id)) marketplaceCitations.push(ev.id);
           });
         }
 
@@ -329,15 +337,16 @@ export function createAgentController({ gateway, trustPolicy, runTool }) {
             }
 
             // Add to ledger
-            const isMemory = call.function.name.includes('memory');
-            const provenance = isMemory ? 'personal-memory' : 'canonical-pdm';
-            ledger.addEvidence(provenance, toolResult?.evidence);
+            console.log('TOOL RESULT:', toolResult, 'TYPE:', typeof toolResult); if (toolResult?.evidence) {
+              const ev = Array.isArray(toolResult.evidence) ? toolResult.evidence : [toolResult.evidence];
+              ev.forEach(e => ledger.trackEvidence(e));
+            }
 
             trace.add('tool_completed', {
               toolName: call.function.name,
               status: toolStatus,
               latencyMs: Date.now() - toolStartedAt,
-              evidenceIds: ledger.getRaw().map(item => item?.data?.id).filter(Boolean)
+              evidenceIds: ledger.getEvidence().map(item => item.id)
             });
 
             if (
@@ -361,7 +370,7 @@ export function createAgentController({ gateway, trustPolicy, runTool }) {
         } else {
           // Final natural language answer
           const rawOutput = message.content || '';
-          const evidenceIds = [...new Set(ledger.getRaw().map(item => item?.data?.id).filter(Boolean))];
+          const evidenceIds = [...new Set(ledger.getEvidence().map(item => item.id))];
           
           let parsedOutput;
           try {
@@ -375,7 +384,7 @@ export function createAgentController({ gateway, trustPolicy, runTool }) {
              parsedOutput = { text: rawOutput.trim(), citations: evidenceIds };
           }
 
-          finalAnswer = trustPolicy.validateModelOutput(parsedOutput, { evidence: ledger.getRaw().map(item => item.data).filter(Boolean) });
+          finalAnswer = trustPolicy.validateModelOutput(parsedOutput, { evidence: ledger.getEvidence() });
           trace.add('answer_validated', {
             status: 'success',
             evidenceIds: finalAnswer.citations,
@@ -395,8 +404,10 @@ export function createAgentController({ gateway, trustPolicy, runTool }) {
 
     return {
       text: finalAnswer.text,
-      citations: [...(finalAnswer.citations || []), ...marketplaceCitations],
+      citations: [...new Set([...(finalAnswer.citations || []), ...marketplaceCitations])],
+      evidenceItems: ledger.getEvidence(),
       usage: currentTurnUsage,
+      clarification: false,
       trace: trace.finish()
     };
   }
