@@ -48,6 +48,7 @@ import { createResearchTool } from './features/ai-assistant/research-tool.js';
 import { PdmKnowledge } from './features/ai-assistant/pdm-knowledge.js';
 import { createProposalPreview, applyApprovedProposal } from './features/ai-assistant/proposal-engine.js';
 import { createLocalAiStore } from './features/ai-assistant/local-store.js';
+import { createMemoryManager } from './features/ai-assistant/memory-manager.js';
 import {
   CONFIRMED_MARKETPLACE_ALIASES,
   getMarketplaceInsights,
@@ -808,6 +809,7 @@ const global = globalThis;
       }
 
       this.aiLocalStore ||= createLocalAiStore();
+      this.memoryManager ||= createMemoryManager({ localStore: this.aiLocalStore });
       this.researchTool ||= createResearchTool();
       this.aiFeature = createAiAssistantFeature({
         getSnapshot: () => this.getSnapshot(),
@@ -840,27 +842,16 @@ const global = globalThis;
           }
 
           if (call.name === 'store_memory') {
-            const memory = this.aiLocalStore.createCandidate({
-              scope: {
-                project: 'jintai-pdm',
-                key: call.arguments.key,
-                productCode: snapshot.selection?.productCode || null,
-                materialId: snapshot.selection?.materialId || null,
-              },
-              fact: call.arguments.value,
-              provenance: [{
-                sourceType: 'model-proposed',
-                sourceRef: call.arguments.key,
-                capturedAt: new Date().toISOString(),
-              }],
-              sourceCommit: snapshot.sourceMetadata?.commitSha || null,
-              promptPackVersion: AI_PROMPT_PACK_VERSION,
-            });
-            return { status: 'candidate', memoryId: memory.id, requiresUserConfirmation: true };
+            try {
+              const res = this.memoryManager.storeMemory(call.arguments.key, call.arguments.value, snapshot);
+              this.memoryManager.decayMemories();
+              return res;
+            } catch (err) {
+              return { error: err.message };
+            }
           }
           if (call.name === 'retrieve_memory') {
-            const memories = this.aiLocalStore.listConfirmed({ currentSourceCommit: snapshot.sourceMetadata?.commitSha });
-            return memories.find((memory) => memory.scope?.key === call.arguments.key) || { found: false };
+            return this.memoryManager.retrieveMemory(call.arguments.key, snapshot);
           }
           if (call.name === 'get_marketplace_insights') {
             const productCode = call.arguments.productId;
