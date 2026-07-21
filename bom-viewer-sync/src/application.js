@@ -44,6 +44,7 @@ import {
   syncLegacyBomFromMaterialDb,
 } from './domain/relationships.js';
 import { AI_PROMPT_PACK_VERSION, createAiAssistantFeature } from './features/ai-assistant/index.js';
+import { createResearchTool } from './features/ai-assistant/research-tool.js';
 import { PdmKnowledge } from './features/ai-assistant/pdm-knowledge.js';
 import { createProposalPreview, applyApprovedProposal } from './features/ai-assistant/proposal-engine.js';
 import { createLocalAiStore } from './features/ai-assistant/local-store.js';
@@ -807,11 +808,15 @@ const global = globalThis;
       }
 
       this.aiLocalStore ||= createLocalAiStore();
+      this.researchTool ||= createResearchTool();
       this.aiFeature = createAiAssistantFeature({
         getSnapshot: () => this.getSnapshot(),
         t: (key) => this.label(key),
         localStore: this.aiLocalStore,
         runTool: async (call, snapshot) => {
+          if (call.name === 'search_web') {
+            return this.researchTool.search(call.arguments.query);
+          }
           if (call.name === 'submit_proposal') {
             const preview = createProposalPreview(snapshot, call.arguments);
 

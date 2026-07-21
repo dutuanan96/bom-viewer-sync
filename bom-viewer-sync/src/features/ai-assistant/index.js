@@ -81,6 +81,10 @@ const TOOL_SCHEMAS = {
   retrieve_memory: {
     description: 'Retrieve self-learning memory',
     parameters: { type: 'object', properties: { key: NON_EMPTY_STRING_SCHEMA }, required: ['key'], additionalProperties: false }
+  },
+  search_web: {
+    description: 'Search the open web when local evidence is insufficient',
+    parameters: { type: 'object', properties: { query: NON_EMPTY_STRING_SCHEMA }, required: ['query'], additionalProperties: false }
   }
 };
 

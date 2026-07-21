@@ -23,6 +23,7 @@ export const ALLOWED_TOOLS = Object.freeze(new Set([
   'get_marketplace_insights',
   'store_memory',
   'retrieve_memory',
+  'search_web',
 ]));
 
 const ALLOWED_PROPOSAL_OPERATIONS = Object.freeze(new Set([
@@ -61,7 +62,8 @@ const TOOL_ARGUMENT_RULES = Object.freeze({
   },
   get_marketplace_insights: { required: ['productId'], allowed: ['productId'] },
   store_memory: { required: ['key', 'value'], allowed: ['key', 'value'] },
-  retrieve_memory: { required: ['key'], allowed: ['key'] }
+  retrieve_memory: { required: ['key'], allowed: ['key'] },
+  search_web: { required: ['query'], allowed: ['query'] }
 });
 
 function policyError(message) {
