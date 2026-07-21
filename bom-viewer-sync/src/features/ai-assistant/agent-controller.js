@@ -250,7 +250,7 @@ export function createAgentController({ gateway, trustPolicy, runTool }) {
           response = await gateway.chat({
             model,
             messages: promptMessages,
-            tools: modelSupportsTools ? availableTools : [],
+            tools: (modelSupportsTools && !deterministicPrefetchUsed) ? availableTools : [],
             maxTokens: 1200,
             parallel_tool_calls: false,
             signal,
