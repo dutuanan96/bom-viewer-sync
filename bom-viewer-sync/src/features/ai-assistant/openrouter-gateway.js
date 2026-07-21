@@ -22,23 +22,7 @@ const CIRCUIT_WINDOW_MS = 2 * 60 * 1000; // 2 minutes
 const CIRCUIT_OPEN_DURATION_MS = 60 * 1000; // 60 seconds
 const MAX_RETRIES = 1; // retry once for transient errors
 
-const FINAL_ANSWER_RESPONSE_FORMAT = {
-  type: 'json_schema',
-  json_schema: {
-    name: 'pdm_answer',
-    strict: true,
-    schema: {
-      type: 'object',
-      properties: {
-        text: { type: 'string' },
-        citations: { type: 'array', items: { type: 'string' } }
-      },
-      required: ['text', 'citations'],
-      additionalProperties: false
-    }
-  }
-};
-
+// Removed FINAL_ANSWER_RESPONSE_FORMAT as per Phase 2 design (natural final text)
 // Error codes used by this module
 export const ERR_INCOMPATIBLE = 'AI_MODEL_INCOMPATIBLE';
 export const ERR_CIRCUIT_OPEN = 'AI_CIRCUIT_OPEN';
@@ -394,7 +378,7 @@ export function createOpenRouterGateway(opts = {}) {
     }
 
     if (modelMeta.grade === 'A') {
-      bodyObj.response_format = FINAL_ANSWER_RESPONSE_FORMAT;
+      // Natural text is allowed, no response_format enforced here.
       bodyObj.provider.require_parameters = true;
     }
 

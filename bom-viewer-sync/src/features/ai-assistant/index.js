@@ -1,6 +1,6 @@
 import { createOpenRouterGateway } from './openrouter-gateway.js';
 import { createTrustPolicy } from './trust-policy.js';
-import { createRuntime } from './runtime.js';
+import { createAgentController } from './agent-controller.js';
 import { createWorkspaceView, createSettingsView } from './workspace-view.js';
 import { ALLOWED_TOOLS } from './contracts.js';
 import { createKnowledgeImporter } from './knowledge-import.js';
@@ -96,7 +96,7 @@ export function buildAvailableTools(modelInfo) {
 export function createAiAssistantFeature({ runTool, getSnapshot, localStore, fetchImpl = globalThis.fetch, t = (k) => k }) {
   const gateway = createOpenRouterGateway({ fetchImpl });
   const trustPolicy = createTrustPolicy();
-  const runtime = createRuntime({ gateway, trustPolicy, runTool });
+  const runtime = createAgentController({ gateway, trustPolicy, runTool });
   const knowledgeImporter = createKnowledgeImporter();
   const conversationSession = createConversationSession();
   const skillRegistry = createPdmSkillRegistry({ promptPack, skillsPack });

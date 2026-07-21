@@ -289,14 +289,14 @@ test('R2.1: chat request includes strict privacy defaults', async () => {
   assert.strictEqual(capturedBody.provider?.zdr, true, 'must require zero data retention');
 });
 
-test('R2.1: Grade A chat enforces the final answer JSON schema', async () => {
+test('R2.1: Grade A chat permits natural final answer without JSON schema', async () => {
   let capturedBody = null;
   const fetchImpl = async (url, opts) => {
     if (url.includes('/api/v1/chat')) {
       capturedBody = JSON.parse(opts.body);
       return {
         ok: true, status: 200,
-        json: async () => ({ choices: [{ message: { role: 'assistant', content: '{"text":"ok","citations":[]}' } }] }),
+        json: async () => ({ choices: [{ message: { role: 'assistant', content: 'Natural text answer' } }] }),
         text: async () => ''
       };
     }
@@ -315,22 +315,7 @@ test('R2.1: Grade A chat enforces the final answer JSON schema', async () => {
   });
 
   assert.equal(capturedBody.provider.require_parameters, true);
-  assert.deepEqual(capturedBody.response_format, {
-    type: 'json_schema',
-    json_schema: {
-      name: 'pdm_answer',
-      strict: true,
-      schema: {
-        type: 'object',
-        properties: {
-          text: { type: 'string' },
-          citations: { type: 'array', items: { type: 'string' } }
-        },
-        required: ['text', 'citations'],
-        additionalProperties: false
-      }
-    }
-  });
+  assert.equal(capturedBody.response_format, undefined); // Allows natural text, no forced JSON schema
 });
 
 test('R3.3: consented marketplace search adds one bounded Amazon server tool', async () => {
