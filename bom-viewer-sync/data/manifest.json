@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-22T10:25:03.521Z",
+  "updatedAt": "2026-07-22T11:14:27.346Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6221,9 +6221,38 @@
         }
       ],
       "effectivityEvents": []
+    },
+    "LGS733": {
+      "currentRevision": "V4",
+      "effectiveRevision": "V4",
+      "currentRevisionInfo": {
+        "sourceRevision": "",
+        "createdAt": "",
+        "changeReason": "",
+        "workflowState": "draft"
+      },
+      "revisions": [],
+      "effectivityEvents": [
+        {
+          "id": "effectivity_mrvzfk04",
+          "action": "withdraw",
+          "revision": "V4",
+          "previousRevision": "V4",
+          "occurredAt": "2026-07-22T11:11:36.964Z",
+          "reason": "更改物料"
+        }
+      ]
     }
   },
   "notifications": [
+    {
+      "id": "notif_fuqieo",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-22T11:14:27.346Z",
+      "version": 2,
+      "changes": []
+    },
     {
       "id": "notif_ne4coo",
       "type": "github-save",
