@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-16T10:01:15.065Z",
+  "updatedAt": "2026-07-22T10:25:03.521Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6224,6 +6224,43 @@
     }
   },
   "notifications": [
+    {
+      "id": "notif_ne4coo",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-22T10:25:03.521Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "LGS723XZHSLBH",
+          "field": "name",
+          "before": "LGS723_733-后 / LGS723_733-sau",
+          "after": "LGS723_733-中竖梁-后 / LGS723_733-thanh đứng giữa-sau"
+        },
+        {
+          "kind": "material",
+          "code": "LGS723XZHSLWH",
+          "field": "name",
+          "before": "LGS723_733-后 / LGS723_733-sau",
+          "after": "LGS723_733-中竖梁-后 / LGS723_733-thanh đứng giữa-sau"
+        },
+        {
+          "kind": "material",
+          "code": "LGS723XZQSLBH",
+          "field": "name",
+          "before": "LGS723_733-前 / LGS723_733-trước",
+          "after": "LGS723_733-中竖梁-前 / LGS723_733-thanh đứng giữa-trước"
+        },
+        {
+          "kind": "material",
+          "code": "LGS723XZQSLWH",
+          "field": "name",
+          "before": "LGS723_733-前 / LGS723_733-trước",
+          "after": "LGS723_733-中竖梁-前 / LGS723_733-Thanh đứng giữa-trước"
+        }
+      ]
+    },
     {
       "id": "notif_f7tcm2",
       "type": "github-save",

@@ -31822,8 +31822,8 @@
         "id": "mat_14qtlh3",
         "code": "LGS723XZQSLBH",
         "name": {
-          "zh": "LGS723_733-前",
-          "vi": "LGS723_733-trước"
+          "zh": "LGS723_733-中竖梁-前",
+          "vi": "LGS723_733-thanh đứng giữa-trước"
         },
         "spec": {
           "zh": "198x15x15mm",
@@ -31857,7 +31857,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS723-733-afa914dc.glb",
             "matched_name": "LGS723_733中竖梁-前",
             "score": 1300,
-            "bytes": 68964
+            "bytes": 68964,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS723-733-afa914dc.glb"
           }
         ]
       },
@@ -31865,8 +31866,8 @@
         "id": "mat_156bb4x",
         "code": "LGS723XZHSLBH",
         "name": {
-          "zh": "LGS723_733-后",
-          "vi": "LGS723_733-sau"
+          "zh": "LGS723_733-中竖梁-后",
+          "vi": "LGS723_733-thanh đứng giữa-sau"
         },
         "spec": {
           "zh": "198x15x15mm",
@@ -31900,7 +31901,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS723-733-b0456735.glb",
             "matched_name": "LGS723_733中竖梁-后",
             "score": 1300,
-            "bytes": 68560
+            "bytes": 68560,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS723-733-b0456735.glb"
           }
         ]
       },
@@ -32633,8 +32635,8 @@
         "id": "mat_xdi0eb",
         "code": "LGS723XZQSLWH",
         "name": {
-          "zh": "LGS723_733-前",
-          "vi": "LGS723_733-trước"
+          "zh": "LGS723_733-中竖梁-前",
+          "vi": "LGS723_733-Thanh đứng giữa-trước"
         },
         "spec": {
           "zh": "198x15x15mm",
@@ -32660,7 +32662,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS723-733-afa914dc.glb",
             "matched_name": "LGS723_733中竖梁-前",
             "score": 1100,
-            "bytes": 68964
+            "bytes": 68964,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS723-733-afa914dc.glb"
           }
         ]
       },
@@ -32668,8 +32671,8 @@
         "id": "mat_pficjp",
         "code": "LGS723XZHSLWH",
         "name": {
-          "zh": "LGS723_733-后",
-          "vi": "LGS723_733-sau"
+          "zh": "LGS723_733-中竖梁-后",
+          "vi": "LGS723_733-thanh đứng giữa-sau"
         },
         "spec": {
           "zh": "198x15x15mm",
@@ -32695,7 +32698,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS723-733-b0456735.glb",
             "matched_name": "LGS723_733中竖梁-后",
             "score": 1100,
-            "bytes": 68560
+            "bytes": 68560,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS723-733-b0456735.glb"
           }
         ]
       },
