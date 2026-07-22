@@ -45,27 +45,34 @@ const VALID_SNAPSHOT = {
 };
 
 function createGroundedComparison(productCode1, productCode2, overrides = {}) {
+  const defaultSummary = {
+    commonCount: 0,
+    probableCommonCount: 0,
+    dataQualityWarningCount: 0,
+    onlyProduct1Count: 0,
+    onlyProduct2Count: 0,
+    quantityOrUnitDifferenceCount: 0,
+    similarityScore: 1,
+    commonByAttribute: {},
+    commonByMaterialFamily: {},
+  };
   return {
     product1: { productCode: productCode1 },
     product2: { productCode: productCode2 },
-    summary: {
-      commonCount: 0,
-      onlyProduct1Count: 0,
-      onlyProduct2Count: 0,
-      quantityOrUnitDifferenceCount: 0,
-      similarityScore: 1,
-      commonByAttribute: {},
-      commonByMaterialFamily: {},
-    },
+    summary: defaultSummary,
     common: [],
+    probableCommon: [],
+    dataQualityWarnings: [],
     onlyProduct1: [],
     onlyProduct2: [],
     quantityOrUnitDifferences: [],
+    truncated: false,
     evidence: [
       { id: `bom:${productCode1}`, type: 'bom', recordId: productCode1 },
       { id: `bom:${productCode2}`, type: 'bom', recordId: productCode2 },
     ],
     ...overrides,
+    summary: { ...defaultSummary, ...(overrides.summary || {}) },
   };
 }
 
@@ -550,6 +557,11 @@ test('R2.3: runtime fails closed on budget exceed (max model calls)', async () =
       { choices: [{ message: { role: 'assistant', tool_calls: [{ id: '1', type: 'function', function: { name: 'search_products', arguments: '{}' } }] } }] },
       { choices: [{ message: { role: 'assistant', tool_calls: [{ id: '2', type: 'function', function: { name: 'search_products', arguments: '{}' } }] } }] },
       { choices: [{ message: { role: 'assistant', tool_calls: [{ id: '3', type: 'function', function: { name: 'search_products', arguments: '{}' } }] } }] },
+      { choices: [{ message: { role: 'assistant', tool_calls: [{ id: '4', type: 'function', function: { name: 'search_products', arguments: '{}' } }] } }] },
+      { choices: [{ message: { role: 'assistant', tool_calls: [{ id: '5', type: 'function', function: { name: 'search_products', arguments: '{}' } }] } }] },
+      { choices: [{ message: { role: 'assistant', tool_calls: [{ id: '6', type: 'function', function: { name: 'search_products', arguments: '{}' } }] } }] },
+      { choices: [{ message: { role: 'assistant', tool_calls: [{ id: '7', type: 'function', function: { name: 'search_products', arguments: '{}' } }] } }] },
+      { choices: [{ message: { role: 'assistant', tool_calls: [{ id: '8', type: 'function', function: { name: 'search_products', arguments: '{}' } }] } }] },
       { choices: [{ message: { role: 'assistant', content: '{"text":"Answer","citations":[]}' } }] }
     ]
   });

@@ -1,6 +1,23 @@
 import { isRenderableProductEntry, resolveBomRows } from './bom.js';
 import { clone, legacyRowFromRecord } from './materials.js';
 
+const materialEntryIndexCache = new WeakMap();
+
+function materialEntriesByParent(entries) {
+  if (!Array.isArray(entries)) return new Map();
+  const cached = materialEntryIndexCache.get(entries);
+  if (cached) return cached;
+  const index = new Map();
+  for (const entry of entries) {
+    if (entry?.parentType !== 'material' || !entry.parentId) continue;
+    if (!index.has(entry.parentId)) index.set(entry.parentId, []);
+    index.get(entry.parentId).push(entry);
+  }
+  for (const rows of index.values()) rows.sort((left, right) => (left.order ?? 0) - (right.order ?? 0));
+  materialEntryIndexCache.set(entries, index);
+  return index;
+}
+
 function childMaterialId(entry) {
   return entry?.childMaterialId || entry?.materialId || '';
 }
@@ -12,12 +29,9 @@ function relationMatchesScope(entry, productCode, colorName) {
 }
 
 function materialChildEntries(payload, parentId, productCode, colorName) {
-  return (payload?.materialDb?.bomEntries || [])
-    .filter((entry) => entry.parentType === 'material' &&
-      entry.parentId === parentId &&
-      childMaterialId(entry) &&
-      relationMatchesScope(entry, productCode, colorName))
-    .sort((left, right) => (left.order ?? 0) - (right.order ?? 0));
+  const entries = payload?.materialDb?.bomEntries || [];
+  return (materialEntriesByParent(entries).get(parentId) || [])
+    .filter((entry) => childMaterialId(entry) && relationMatchesScope(entry, productCode, colorName));
 }
 
 function syncLegacyBomFromMaterialDb(payload) {

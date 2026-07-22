@@ -134,6 +134,23 @@
         "additionalProperties": false
       },
       "readonly": true
+    },
+    {
+      "id": "analyze_pdm",
+      "specialistId": "catalog_analysis",
+      "description": "Perform catalog-wide aggregation, counting, listing, ranking, and concept/dimension filtering across PDM products and materials.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": { "type": "string", "maxLength": 1000 },
+          "scope": { "type": "string", "maxLength": 100 },
+          "countMode": { "type": "string", "maxLength": 100 },
+          "componentFamily": { "type": "string", "maxLength": 100 },
+          "dimensionFilter": { "type": "string", "maxLength": 100 }
+        },
+        "additionalProperties": false
+      },
+      "readonly": true
     }
   ],
   "forbiddenTools": [

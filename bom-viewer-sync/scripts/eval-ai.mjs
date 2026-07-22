@@ -13,6 +13,7 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { PdmKnowledge } from '../src/features/ai-assistant/pdm-knowledge.js';
+import { PdmDiscovery } from '../src/features/ai-assistant/pdm-discovery.js';
 import { validateToolCall } from '../src/features/ai-assistant/contracts.js';
 import { PDM_INTENTS, routePdmIntent } from '../src/features/ai-assistant/intent-router.js';
 
@@ -188,7 +189,9 @@ const ROUTER_TOOLS = [
   'get_bom',
   'compare_boms',
   'get_revision_history',
-  'get_marketplace_insights'
+  'get_marketplace_insights',
+  'compare_revisions',
+  'search_pdm',
 ];
 
 function specialistCase(id, description, fn) {
@@ -232,6 +235,46 @@ specialistCase('SPECIALIST-AMBIGUOUS', 'ambiguous request asks model for clarifi
   const route = routePdmIntent({ query: 'Please check this', availableTools: ROUTER_TOOLS });
   if (route.intent !== PDM_INTENTS.AMBIGUOUS || route.preferredTool !== null) {
     throw new Error(`Ambiguous request routed to ${route.preferredTool}`);
+  }
+});
+
+specialistCase('SPECIALIST-REVISION-FOLLOWUPS', 'multilingual revision follow-ups use structured context', () => {
+  const conversationContext = { productIds: ['LGS032'], revisions: ['V3', 'V3.1'] };
+  const queries = [
+    '\u4e24\u4e2a\u7248\u672c\u6709\u4ec0\u4e48\u533a\u522b',
+    'Hai phi\u00ean b\u1ea3n kh\u00e1c nhau th\u1ebf n\u00e0o?',
+    'What is different between those two versions?',
+  ];
+  for (const query of queries) {
+    const route = routePdmIntent({ query, conversationContext, availableTools: ROUTER_TOOLS });
+    if (route.preferredTool !== 'compare_revisions') {
+      throw new Error(`Unexpected follow-up route for ${query}: ${JSON.stringify(route)}`);
+    }
+  }
+});
+
+specialistCase('SPECIALIST-CROSS-PDM-SEARCH', 'mixed-language dimensional search resolves actual BOM usage', () => {
+  const result = new PdmDiscovery(snapshot).searchPdm({
+    query: 'T\u00ecm ng\u0103n k\u00e9o 460\u00d7282\u00d7187 d\u00f9ng cho s\u1ea3n ph\u1ea9m n\u00e0o?',
+  });
+  const found = result.materials.some(material => (
+    Object.values(material.spec || {}).includes('460x282x187mm') &&
+    material.usedBy.some(usage => usage.productCode === 'LGS723')
+  ));
+  if (!found) throw new Error('Expected specification 460x282x187mm to resolve to LGS723');
+});
+
+specialistCase('SPECIALIST-SEARCH-FOLLOWUPS', 'multilingual result-set follow-ups reuse the original search', () => {
+  const conversationContext = {
+    productIds: ['LGS723'],
+    materialIds: ['mat_drawer'],
+    searchQuery: '460x282x187',
+  };
+  for (const query of ['Is LGS723 the only one?', 'Chỉ LGS723 dùng thôi à?', '\u53ea\u6709LGS723\u7528\u5417?']) {
+    const route = routePdmIntent({ query, conversationContext, availableTools: ROUTER_TOOLS });
+    if (route.preferredTool !== 'search_pdm' || route.entities.searchQuery !== conversationContext.searchQuery) {
+      throw new Error(`Unexpected search follow-up route for ${query}: ${JSON.stringify(route)}`);
+    }
   }
 });
 

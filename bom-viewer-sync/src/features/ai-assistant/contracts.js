@@ -1,4 +1,4 @@
-// AI Contracts â€?versioned, deterministic validation for all AI interactions.
+// AI Contracts â€” versioned, deterministic validation for all AI interactions.
 // All validators use stable error codes from ERROR_CODES.
 // No mutation of data; all checks are fail-closed.
 
@@ -22,7 +22,13 @@ export const ALLOWED_TOOLS = Object.freeze(new Set([
   'apply_mutation',
   'get_marketplace_insights',
   'store_memory',
-  'retrieve_memory'
+  'retrieve_memory',
+  'compare_revisions',
+  'search_pdm',
+  'list_recent_changes',
+  'inspect_pdm_schema',
+  'get_pdm_help',
+  'analyze_pdm'
 ]));
 
 const ALLOWED_PROPOSAL_OPERATIONS = Object.freeze(new Set([
@@ -61,7 +67,16 @@ const TOOL_ARGUMENT_RULES = Object.freeze({
   },
   get_marketplace_insights: { required: ['productId'], allowed: ['productId'] },
   store_memory: { required: ['key', 'value'], allowed: ['key', 'value'] },
-  retrieve_memory: { required: ['key'], allowed: ['key'] }
+  retrieve_memory: { required: ['key'], allowed: ['key'] },
+  compare_revisions: {
+    required: ['productId', 'revision1', 'revision2'],
+    allowed: ['productId', 'revision1', 'revision2']
+  },
+  search_pdm: { required: ['query'], allowed: ['query', 'productId', 'materialId'] },
+  list_recent_changes: { required: [], allowed: [] },
+  inspect_pdm_schema: { required: [], allowed: [] },
+  get_pdm_help: { required: [], allowed: ['topic'] },
+  analyze_pdm: { required: ['query'], allowed: ['query', 'scope', 'countMode', 'componentFamily', 'dimensionFilter'] }
 });
 
 function policyError(message) {
@@ -134,6 +149,10 @@ function validateToolArguments(toolName, args) {
       throw policyError(`${toolName}.${field} must match LGS followed by 3 or 4 digits`);
     }
   }
+
+  if (toolName === 'search_pdm' && 'materialId' in args && !('productId' in args)) {
+    throw policyError('search_pdm.materialId requires productId scope');
+  }
 }
 
 export function validateToolCall(call) {
@@ -190,7 +209,7 @@ export function validateEvidence(evidence) {
     throw new Error('missing sourcePath');
   }
   if (!evidence.capturedAt) {
-    console.error('missing capturedAt FROM:', new Error().stack); throw new Error('missing capturedAt');
+    throw new Error('missing capturedAt');
   }
   return evidence;
 }

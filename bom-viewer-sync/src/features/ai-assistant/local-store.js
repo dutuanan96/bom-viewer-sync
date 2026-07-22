@@ -158,6 +158,14 @@ export function createLocalAiStore({
     const record = findMemory(id);
     record.status = status;
     record.confirmedAt = status === 'confirmed' ? nowIso(clock) : null;
+    if (status === 'confirmed' && Array.isArray(record.scope?.supersedes)) {
+      const supersededIds = new Set(record.scope.supersedes);
+      for (const previous of state.memories) {
+        if (previous.id === record.id || !supersededIds.has(previous.id)) continue;
+        previous.status = 'stale';
+        previous.confirmedAt = null;
+      }
+    }
     if (record.entityMapping) {
       record.entityMapping.status = status;
       if (status === 'confirmed') {
@@ -243,6 +251,16 @@ export function createLocalAiStore({
     listAudit,
     exportData,
     importData,
+    getGithubSyncPack: () => clone(state.settings?.githubSyncPack || null),
+    setGithubSyncPack: (pack) => {
+      assertNoSecrets(pack, 'githubSyncPack');
+      state.settings.githubSyncPack = clone(pack);
+      persist();
+    },
+    clearGithubSyncPack: () => {
+      delete state.settings.githubSyncPack;
+      persist();
+    },
     clear,
     diagnostics: () => ({ persistence, schemaVersion: SCHEMA_VERSION, memoryCount: state.memories.length, auditCount: state.audit.length }),
   };

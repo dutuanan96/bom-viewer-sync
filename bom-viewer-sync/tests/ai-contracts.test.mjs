@@ -84,6 +84,7 @@ test('validateToolCall rejects missing required arguments', () => {
   assert.throws(() => validateToolCall({ name: 'search_products' }), /arguments.*object/i);
   assert.throws(() => validateToolCall({ name: 'search_products', arguments: {} }), /query.*required/i);
   assert.throws(() => validateToolCall({ name: 'compare_boms', arguments: { productId1: 'LGS031' } }), /productId2.*required/i);
+  assert.throws(() => validateToolCall({ name: 'analyze_pdm', arguments: {} }), /query.*required/i);
 });
 
 test('validateToolCall rejects blank queries and malformed product IDs', () => {
@@ -102,6 +103,32 @@ test('validateToolCall rejects unexpected argument fields', () => {
 test('validateToolCall accepts a valid canonical product ID', () => {
   const valid = validateToolCall({ name: 'get_product', arguments: { productId: 'LGS032' } });
   assert.equal(valid.arguments.productId, 'LGS032');
+});
+
+test('validateToolCall accepts all read-only discovery tools with exact arguments', () => {
+  assert.doesNotThrow(() => validateToolCall({
+    name: 'compare_revisions',
+    arguments: { productId: 'LGS032', revision1: 'V3', revision2: 'V3.1' }
+  }));
+  assert.doesNotThrow(() => validateToolCall({
+    name: 'search_pdm',
+    arguments: { query: 'handle', productId: 'LGS043', materialId: 'mat_vz636a' },
+  }));
+  assert.throws(
+    () => validateToolCall({ name: 'search_pdm', arguments: { query: 'drawer', productId: '043' } }),
+    /productId.*LGS/i,
+  );
+  assert.throws(
+    () => validateToolCall({ name: 'search_pdm', arguments: { query: 'handle', materialId: 'mat_vz636a' } }),
+    /materialId.*productId/i,
+  );
+  assert.doesNotThrow(() => validateToolCall({ name: 'list_recent_changes', arguments: {} }));
+  assert.doesNotThrow(() => validateToolCall({ name: 'inspect_pdm_schema', arguments: {} }));
+  assert.doesNotThrow(() => validateToolCall({ name: 'get_pdm_help', arguments: { topic: 'revision' } }));
+  assert.throws(
+    () => validateToolCall({ name: 'inspect_pdm_schema', arguments: { includeSecrets: true } }),
+    /unexpected argument field/i,
+  );
 });
 
 // ── R1.1-C: validateEvidence ─────────────────────────────────────────────────

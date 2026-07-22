@@ -45,6 +45,7 @@ import {
 } from './domain/relationships.js';
 import { AI_PROMPT_PACK_VERSION, createAiAssistantFeature } from './features/ai-assistant/index.js';
 import { PdmKnowledge } from './features/ai-assistant/pdm-knowledge.js';
+import { PdmDiscovery } from './features/ai-assistant/pdm-discovery.js';
 import { applyMutationTransaction } from './features/ai-assistant/mutation-engine.js';
 import { createLocalAiStore } from './features/ai-assistant/local-store.js';
 import { createMemoryManager } from './features/ai-assistant/memory-manager.js';
@@ -295,8 +296,24 @@ const global = globalThis;
       'ai.message.fallback': 'AI 助手暂时不可用。请稍后再试。',
       'ai.message.error': '发生错误',
       'ai.error.budgetExceeded': '本轮模型重复调用过多，请重试或更换模型。',
+      'ai.error.no_compatible_endpoint': '当前没有兼容的模型服务端点。请选择其他模型或稍后重试。',
+      'ai.error.circuit_open': '近期请求过多，请稍候再试。',
+      'ai.error.model_incompatible': '当前模型不支持所需功能，请选择其他模型。',
+      'ai.error.policy_blocked': '请求被安全策略阻止。',
+      'ai.error.rate_limited': '请求已达到速率限制，请稍候再试。',
+      'ai.error.server_error': '模型服务发生错误，请稍后重试。',
+      'ai.error.timeout': '请求超时，请重试。',
+      'ai.error.provider_error': 'AI 助手暂时不可用，请稍后重试。',
       'ai.message.greetingResponse': '您好！有什么我可以帮您的？',
-      'ai.workspace.greeting': '👋 您好！我是 JinTai PDM 的 AI 助手。\n\n请在下方输入您的问题，我随时准备为您提供帮助！🤩'
+      'ai.workspace.greeting': '👋 您好！我是 JinTai PDM 的 AI 助手。\n\n请在下方输入您的问题，我随时准备为您提供帮助！🤩',
+      'ai.sync.title': 'GitHub 技能与知识同步',
+      'ai.sync.status': '同步状态',
+      'ai.sync.refresh': '手动刷新',
+      'ai.sync.rollback': '回滚',
+      'ai.sync.synced': '已从 GitHub 同步',
+      'ai.sync.cached': '使用本地缓存',
+      'ai.sync.fallback': '使用内置默认版本',
+      'ai.sync.error': '同步失败',
     },
     vi: {
       brand: 'Jintai BOM',
@@ -513,12 +530,51 @@ const global = globalThis;
       'ai.message.fallback': 'Trợ lý AI tạm thời không khả dụng. Vui lòng thử lại sau.',
       'ai.message.error': 'Đã xảy ra lỗi',
       'ai.error.budgetExceeded': 'Mô hình đã gọi lặp quá nhiều trong lượt này. Hãy thử lại hoặc đổi mô hình.',
+      'ai.error.no_compatible_endpoint': 'Hiện không có endpoint model tương thích. Hãy chọn model khác hoặc thử lại sau.',
+      'ai.error.circuit_open': 'Gần đây có quá nhiều yêu cầu. Vui lòng chờ một chút rồi thử lại.',
+      'ai.error.model_incompatible': 'Model hiện tại không hỗ trợ tính năng cần thiết. Hãy chọn model khác.',
+      'ai.error.policy_blocked': 'Yêu cầu đã bị chính sách bảo mật chặn.',
+      'ai.error.rate_limited': 'Đã vượt giới hạn tốc độ. Vui lòng chờ rồi thử lại.',
+      'ai.error.server_error': 'Dịch vụ model gặp lỗi. Vui lòng thử lại sau.',
+      'ai.error.timeout': 'Yêu cầu đã hết thời gian chờ. Vui lòng thử lại.',
+      'ai.error.provider_error': 'Trợ lý AI tạm thời không khả dụng. Vui lòng thử lại sau.',
       'ai.message.greetingResponse': 'Xin chào! Tôi có thể giúp gì cho bạn?',
       'ai.workspace.greeting': '👋 Xin chào! Tôi là Trợ lý AI của JinTai PDM.\n\nHãy nhập câu hỏi của bạn xuống bên dưới, tôi đã sẵn sàng hỗ trợ bạn bất cứ lúc nào! 🤩'
     }
   };
 
   Object.assign(TEXT.zh, {
+    'ai.localFallback.notice': '模型服务暂时不可用，以下是本地 PDM 工具返回的确定结果：',
+    'ai.localFallback.scope': '范围',
+    'ai.localFallback.currentRevision': '当前版本',
+    'ai.localFallback.effectiveRevision': '生效版本',
+    'ai.localFallback.added': '新增',
+    'ai.localFallback.removed': '删除',
+    'ai.localFallback.modified': '修改',
+    'ai.localFallback.matches': '匹配结果',
+    'ai.localFallback.usedProducts': '使用产品',
+    'ai.localFallback.recentChanges': '最近变更',
+    'ai.localFallback.interpretation': '解析',
+    'ai.localFallback.clarificationPrompt': '需要确认',
+    'ai.localFallback.totalMatches': '总计/数量',
+    'ai.localFallback.exactCommon': '完全相同',
+    'ai.localFallback.probableCommon': '可能相同',
+    'ai.localFallback.dataQualityWarnings': '数据质量警告',
+    'ai.localFallback.onlyProduct': '仅',
+    'ai.localFallback.clarifyComponent': '\u672a\u80fd\u4ece\u95ee\u9898\u4e2d\u786e\u5b9a\u5177\u4f53\u96f6\u90e8\u4ef6\u3002\u8bf7\u8bf4\u660e\u8981\u67e5\u8be2\u7684\u96f6\u4ef6\u7c7b\u522b\u3001\u540d\u79f0\u3001\u89c4\u683c\u3001\u989c\u8272\u6216\u7528\u9014\u3002',
+    'ai.localFallback.noScopedData': '\u5f53\u524d\u4ea7\u54c1\u8303\u56f4\u5185\u6ca1\u6709\u53ef\u68c0\u7d22\u7684 BOM \u6570\u636e\u3002\u8bf7\u786e\u8ba4\u4ea7\u54c1\u3001\u989c\u8272\u6216\u7248\u672c\u3002',
+    'ai.localFallback.mappingConflict': '\u5df2\u627e\u5230\u53ef\u80fd\u7684\u540d\u79f0\u6620\u5c04\uff0c\u4f46\u6620\u5c04\u7684\u7269\u6599\u4e0d\u5728\u5f53\u524d\u4ea7\u54c1 BOM \u4e2d\u3002\u8bf7\u786e\u8ba4\u96f6\u4ef6\u540d\u79f0\u3001\u4ea7\u54c1\u6216\u7248\u672c\u3002',
+    'ai.localFallback.attributeConflict': 'BOM 属性存在冲突，需人工核对',
+    'ai.localFallback.confirmProduct': '您的意思是',
+    'ai.localFallback.noExactDimension': '未找到精确尺寸',
+    'ai.localFallback.nearDimensions': '接近尺寸',
+    'ai.localFallback.choosePartsMetric': '请确认要按“唯一物料种类”还是“BOM 总用量”排名。',
+    'ai.localFallback.materialTypes': '种物料',
+    'ai.localFallback.totalQuantity': '总用量',
+    'ai.localFallback.colorNotDefined': '该颜色版本未在当前产品中定义',
+    'ai.localFallback.availableColors': '现有颜色',
+    'ai.intent.clarification': '\u6211\u8fd8\u4e0d\u80fd\u786e\u5b9a\u60a8\u8981\u67e5\u8be2\u4ea7\u54c1\u3001BOM\u3001\u7269\u6599\u8fd8\u662f\u7248\u672c\u3002\u8bf7\u8865\u5145\u4ea7\u54c1\u7f16\u53f7\u3001\u89c4\u683c\u6216\u8981\u6bd4\u8f83\u7684\u5bf9\u8c61\u3002',
+    'ai.intent.recognized': '\u5df2\u8bc6\u522b',
     'ai.trace.title': '\u8fd0\u884c\u8ffd\u8e2a',
     'ai.trace.empty': '\u6682\u65e0 AI \u8fd0\u884c\u8ffd\u8e2a\u3002',
     'ai.trace.events': '\u4e8b\u4ef6',
@@ -605,6 +661,37 @@ const global = globalThis;
   });
 
   Object.assign(TEXT.vi, {
+    'ai.localFallback.notice': 'Dịch vụ model tạm thời không khả dụng; dưới đây là kết quả xác định từ công cụ PDM cục bộ:',
+    'ai.localFallback.scope': 'Phạm vi',
+    'ai.localFallback.currentRevision': 'Phiên bản hiện tại',
+    'ai.localFallback.effectiveRevision': 'Phiên bản đang hiệu lực',
+    'ai.localFallback.added': 'Thêm',
+    'ai.localFallback.removed': 'Xóa',
+    'ai.localFallback.modified': 'Sửa đổi',
+    'ai.localFallback.matches': 'Kết quả khớp',
+    'ai.localFallback.usedProducts': 'Sản phẩm sử dụng',
+    'ai.localFallback.recentChanges': 'Thay đổi gần đây',
+    'ai.localFallback.interpretation': 'Giải thích',
+    'ai.localFallback.clarificationPrompt': 'Cần xác nhận',
+    'ai.localFallback.totalMatches': 'Tổng số/Số lượng',
+    'ai.localFallback.exactCommon': 'Khớp hoàn toàn',
+    'ai.localFallback.probableCommon': 'Có khả năng trùng',
+    'ai.localFallback.dataQualityWarnings': 'Cảnh báo chất lượng dữ liệu',
+    'ai.localFallback.onlyProduct': 'Chỉ có ở',
+    'ai.localFallback.clarifyComponent': 'Ch\u01b0a x\u00e1c \u0111\u1ecbnh \u0111\u01b0\u1ee3c linh ki\u1ec7n c\u1ee5 th\u1ec3 t\u1eeb c\u00e2u h\u1ecfi. Vui l\u00f2ng cho bi\u1ebft lo\u1ea1i, t\u00ean, quy c\u00e1ch, m\u00e0u ho\u1eb7c c\u00f4ng d\u1ee5ng c\u1ee7a linh ki\u1ec7n c\u1ea7n t\u00ecm.',
+    'ai.localFallback.noScopedData': 'Kh\u00f4ng c\u00f3 d\u1eef li\u1ec7u BOM c\u00f3 th\u1ec3 t\u00ecm ki\u1ebfm trong ph\u1ea1m vi s\u1ea3n ph\u1ea9m hi\u1ec7n t\u1ea1i. Vui l\u00f2ng x\u00e1c nh\u1eadn s\u1ea3n ph\u1ea9m, m\u00e0u ho\u1eb7c phi\u00ean b\u1ea3n.',
+    'ai.localFallback.mappingConflict': '\u0110\u00e3 t\u00ecm th\u1ea5y mapping t\u00ean c\u00f3 th\u1ec3 ph\u00f9 h\u1ee3p, nh\u01b0ng v\u1eadt li\u1ec7u \u0111\u01b0\u1ee3c mapping kh\u00f4ng thu\u1ed9c BOM s\u1ea3n ph\u1ea9m hi\u1ec7n t\u1ea1i. Vui l\u00f2ng x\u00e1c nh\u1eadn t\u00ean linh ki\u1ec7n, s\u1ea3n ph\u1ea9m ho\u1eb7c phi\u00ean b\u1ea3n.',
+    'ai.localFallback.attributeConflict': 'thuộc tính BOM xung đột, cần kiểm tra thủ công',
+    'ai.localFallback.confirmProduct': 'Ý của bạn là',
+    'ai.localFallback.noExactDimension': 'Không tìm thấy kích thước chính xác',
+    'ai.localFallback.nearDimensions': 'Kích thước gần nhất',
+    'ai.localFallback.choosePartsMetric': 'Vui lòng chọn xếp hạng theo số loại vật liệu duy nhất hoặc tổng số lượng BOM.',
+    'ai.localFallback.materialTypes': 'loại vật liệu',
+    'ai.localFallback.totalQuantity': 'tổng số lượng',
+    'ai.localFallback.colorNotDefined': 'biến thể màu này chưa được định nghĩa cho sản phẩm hiện tại',
+    'ai.localFallback.availableColors': 'Màu hiện có',
+    'ai.intent.clarification': 'T\u00f4i ch\u01b0a x\u00e1c \u0111\u1ecbnh b\u1ea1n mu\u1ed1n tra c\u1ee9u s\u1ea3n ph\u1ea9m, BOM, v\u1eadt li\u1ec7u hay phi\u00ean b\u1ea3n. H\u00e3y b\u1ed5 sung m\u00e3 s\u1ea3n ph\u1ea9m, quy c\u00e1ch ho\u1eb7c c\u00e1c \u0111\u1ed1i t\u01b0\u1ee3ng c\u1ea7n so s\u00e1nh.',
+    'ai.intent.recognized': '\u0110\u00e3 nh\u1eadn di\u1ec7n',
     'ai.trace.title': 'Nh\u1eadt k\u00fd v\u1eadn h\u00e0nh',
     'ai.trace.empty': 'Ch\u01b0a c\u00f3 nh\u1eadt k\u00fd v\u1eadn h\u00e0nh AI.',
     'ai.trace.events': 'S\u1ef1 ki\u1ec7n',
@@ -816,9 +903,7 @@ const global = globalThis;
         runTool: async (call, snapshot) => {
           if (call.name === 'apply_mutation') {
             try {
-              console.log("Applying mutation!", call.arguments);
               const { payload, changes } = applyMutationTransaction(snapshot, call.arguments);
-              console.log("Mutation changes:", changes);
             
             // Render the proposal directly into the chat and pause execution
             this.aiFeature.ui.renderMessage({
@@ -836,15 +921,14 @@ const global = globalThis;
                      sourceCommit: snapshot.sourceMetadata?.commitSha
                   });
                 } catch (e) {
-                  this.aiFeature.ui.renderMessage({ role: 'assistant', text: `${this.label('ai.proposal.applyError') || 'Error applying proposal'}: ${e.message}` });
+                  this.aiFeature.ui.renderMessage({ role: 'assistant', text: this.label('ai.proposal.applyError') || 'Error applying proposal' });
                 }
               }
             });
 
             return 'Mutation presented to user for review. Stop using tools and wait for authorization.';
-            } catch (err) {
-              console.error("Mutation failed!", err);
-              throw err;
+            } catch (error) {
+              throw error;
             }
           }
 
@@ -870,6 +954,12 @@ const global = globalThis;
                 maxResults: 5,
               }),
             };
+          }
+
+          const discovery = new PdmDiscovery(snapshot);
+          const discoveryMethodName = call.name.replace(/_([a-z])/g, (_match, letter) => letter.toUpperCase());
+          if (typeof discovery[discoveryMethodName] === 'function') {
+            return discovery[discoveryMethodName](call.arguments);
           }
 
           const knowledge = new PdmKnowledge(snapshot, { aliasMap: CONFIRMED_MARKETPLACE_ALIASES });

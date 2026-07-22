@@ -322,3 +322,46 @@ test('R1.3 integration: all results are bounded and have evidence', () => {
   assert.ok(results.length <= 50);
   assert.ok(evidence.sourceCommit, 'must have sourceCommit in evidence');
 });
+
+test('R1.3 integration: LGS723/LGS733 comparison uses shared assets and reports BOM conflicts', () => {
+  const result = new PdmKnowledge(loadCanonicalSnapshot()).compareBoms({
+    productId1: 'LGS723',
+    productId2: 'LGS733',
+  });
+  const probableNames = result.probableCommon.map(item => item.product1.nameZh);
+  assert.ok(probableNames.includes('LGS333_723_733支撑框'));
+  assert.ok(probableNames.includes('LGS723_733右侧框'));
+  assert.ok(probableNames.includes('LGS723_733左侧框'));
+  assert.ok(result.dataQualityWarnings.some(warning => warning.item1 === 'LGS723_733-前'));
+  assert.ok(result.dataQualityWarnings.some(warning => warning.item1 === 'LGS723_733-后'));
+  assert.equal(result.dataQualityWarnings.some(warning => warning.item1 === 'LGS723底部横杆-前'), false);
+});
+
+test('R1.3 integration: shared hardware bags are detected by identical child composition', () => {
+  const result = new PdmKnowledge(loadCanonicalSnapshot()).analyzePdm({
+    query: '帮我看一下所有的五金包有哪一个产品共用吗?',
+  });
+  assert.ok(result.results.some(group => (
+    group.matchingBasis === 'identical_composition' &&
+    group.usedInProducts.includes('LGS131') &&
+    group.usedInProducts.includes('LGS231')
+  )));
+});
+
+test('R1.3 integration: variant gaps and frame dimensions are derived from canonical data', () => {
+  const knowledge = new PdmKnowledge(loadCanonicalSnapshot());
+  const variant = knowledge.analyzePdm({ query: '为什么LGS031五金包的白色没有?' });
+  assert.equal(variant.countMode, 'variant_coverage');
+  assert.equal(variant.requestedVariantExists, false);
+  assert.deepEqual(variant.dataQualityWarnings[0].availableColors, ['复古色', '黑色']);
+
+  const exactHeight = knowledge.analyzePdm({ query: '那有几个铁框有高度657mm' });
+  assert.equal(exactHeight.needsClarification, false);
+  assert.ok(exactHeight.results.length > 0);
+  assert.ok(exactHeight.results.every(item => item.spec.startsWith('657x')));
+
+  const nearHeight = knowledge.analyzePdm({ query: '那有几个铁框有高度660mm' });
+  assert.equal(nearHeight.needsClarification, true);
+  assert.equal(nearHeight.clarificationCode, 'dimension_near_match');
+  assert.ok(nearHeight.clarificationData.nearValues.includes(659));
+});

@@ -1,8 +1,24 @@
 import { test, expect } from '@playwright/test';
+import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 const VIEWER_URL = `file://${resolve('viewer.html')}`;
 const ADMIN_URL = `file://${resolve('admin.html')}`;
+
+function loadCanonicalPayload() {
+  const manifest = JSON.parse(readFileSync(resolve('data/manifest.json'), 'utf8'));
+  const materialData = JSON.parse(readFileSync(resolve('data/materials.json'), 'utf8'));
+  const bom = Object.fromEntries(manifest.products.map(productCode => [
+    productCode,
+    JSON.parse(readFileSync(resolve(`data/products/${productCode}.json`), 'utf8')),
+  ]));
+  return {
+    bom,
+    productRevisions: manifest.productRevisions || {},
+    notifications: manifest.notifications || [],
+    ...materialData,
+  };
+}
 
 async function waitForViewerReady(page) {
   await expect(page.locator('.product-catalog-view')).toContainText('LGS032', { timeout: 30000 });
@@ -121,11 +137,11 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
       await route.fulfill({ status: 503, json: { error: { message: 'Overloaded' } } });
     });
 
-    await page.fill('.ai-input-area textarea', 'Tell me a joke.');
+    await page.fill('.ai-input-area textarea', 'Find LGS');
     await page.press('.ai-input-area textarea', 'Enter');
 
     // Expect fallback message
-    await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('AI assistant is currently unavailable');
+    await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('模型服务发生错误');
   });
 
   test('LGS032 revision question is prefetched and Clear Chat removes follow-up context', async ({ page }) => {
@@ -198,6 +214,130 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
     await page.press('.ai-input-area textarea', 'Enter');
     await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('产品编号');
     expect(requestCount).toBe(3);
+  });
+
+  test('natural two-revision follow-up uses structured context and keeps local facts when provider fails', async ({ page }) => {
+    test.setTimeout(90000);
+    let requestCount = 0;
+    await page.route('https://openrouter.ai/api/v1/chat/completions', async route => {
+      requestCount += 1;
+      if (requestCount === 1) {
+        const body = route.request().postDataJSON();
+        expect(JSON.stringify(body.messages)).toContain('get_revision_history');
+        await route.fulfill({
+          json: { choices: [{ message: { role: 'assistant', content: '{"text":"LGS032 当前版本 V3.1 是草稿，生效版本是 V3。","citations":[]}' } }] },
+        });
+        return;
+      }
+      const body = route.request().postDataJSON();
+      expect(JSON.stringify(body.messages)).toContain('compare_revisions');
+      await route.fulfill({ status: 503, json: { error: { message: 'Overloaded' } } });
+    });
+
+    await page.goto(VIEWER_URL);
+    await waitForViewerReady(page);
+    await page.click('#btnSettings');
+    await page.fill('.ai-settings input', 'sk-or-mock-1234');
+    await page.click('.ai-settings > button.btn-primary');
+    await expect(page.locator('.ai-status-text.connected')).toBeVisible();
+    await page.click('#closeSettingsModal');
+    await page.click('#aiFab');
+
+    await page.fill('.ai-input-area textarea', '为什么LGS032状态是草稿非现行');
+    await page.press('.ai-input-area textarea', 'Enter');
+    await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('V3.1');
+
+    await page.fill('.ai-input-area textarea', '两个版本有什么区别');
+    await page.press('.ai-input-area textarea', 'Enter');
+    const answer = page.locator('.ai-message-row.assistant .ai-message-text').last();
+    await expect(answer).toContainText('本地 PDM');
+    await expect(answer).toContainText('LGS032 V3 → V3.1');
+    await expect(answer).toContainText('新增');
+    await expect(answer).not.toContainText('currently unavailable');
+    expect(requestCount).toBeGreaterThanOrEqual(2);
+  });
+
+  test('search follow-ups preserve global and product-scoped result sets when the provider fails', async ({ page }) => {
+    test.setTimeout(90000);
+    const payload = loadCanonicalPayload();
+    const firstQuery = '\u6211\u95ee\u4e00\u4e0b\u662f\u5e03\u62bd\u89c4\u683c460x282\u00d7187\u54ea\u4e00\u4e2a\u4ea7\u54c1\u7528\u7684?';
+    const followUp = '\u53ea\u6709LGS723\u7528\u5417?';
+    const scopedQuery = '\u597d\uff0c\u90a3LGS043\u7528\u4ec0\u4e48\u5e03\u62bd?';
+    let requestCount = 0;
+
+    await page.route('https://openrouter.ai/api/v1/chat/completions', async route => {
+      requestCount += 1;
+      const body = route.request().postDataJSON();
+      const trustedMessage = body.messages.find(message => message.content?.startsWith('TRUSTED_LOCAL_PDM_RESULT'));
+      expect(trustedMessage?.content).toContain('search_pdm');
+      if (trustedMessage?.content.includes('LGS043')) {
+        expect(trustedMessage.content).toContain('\u5e03\u62bd');
+        expect(trustedMessage.content).not.toContain('LGS031');
+      } else {
+        expect(trustedMessage?.content).toContain('460x282\u00d7187');
+        expect(trustedMessage?.content).toContain('LGS723');
+      }
+
+      if (requestCount === 1) {
+        await route.fulfill({
+          json: {
+            choices: [{ message: {
+              role: 'assistant',
+              content: '{"text":"\u8be5\u89c4\u683c\u5339\u914d\u5230 LGS723\u3002","citations":[]}',
+            } }],
+          },
+        });
+        return;
+      }
+      await route.fulfill({ status: 503, json: { error: { message: 'Overloaded' } } });
+    });
+
+    await blockRemotePdmData(page);
+    await page.goto(VIEWER_URL);
+    await page.evaluate(canonicalPayload => {
+      document.body.replaceWith(document.body.cloneNode(true));
+      const githubData = {
+        loadPublic: async () => canonicalPayload,
+        getSourceMetadata: () => ({ commitSha: 'a'.repeat(40) }),
+      };
+      window.__aiSearchTestApp = window.BomApp.createApp({ mode: 'viewer', githubData });
+    }, payload);
+    await page.waitForFunction(() => Boolean(window.__aiSearchTestApp?.state.lastLoadAt));
+    await waitForViewerReady(page);
+    await page.click('#btnSettings');
+    await page.fill('.ai-settings input', 'sk-or-mock-1234');
+    await page.click('.ai-settings > button.btn-primary');
+    await expect(page.locator('.ai-status-text.connected')).toBeVisible();
+    await page.click('#closeSettingsModal');
+    await page.click('#aiFab');
+
+    await page.fill('.ai-input-area textarea', firstQuery);
+    await page.press('.ai-input-area textarea', 'Enter');
+    await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('LGS723');
+
+    await page.fill('.ai-input-area textarea', followUp);
+    await page.press('.ai-input-area textarea', 'Enter');
+    const answer = page.locator('.ai-message-row.assistant .ai-message-text').last();
+    await expect(answer).toContainText('\u672c\u5730 PDM');
+    await expect(answer).toContainText('\u4f7f\u7528\u4ea7\u54c1: LGS723');
+    await expect(answer).not.toContainText('No compatible model endpoint');
+
+    await page.fill('.ai-input-area textarea', scopedQuery);
+    await page.press('.ai-input-area textarea', 'Enter');
+    const scopedAnswer = page.locator('.ai-message-row.assistant .ai-message-text').last();
+    await expect(scopedAnswer).toContainText('\u672c\u5730 PDM');
+    await expect(scopedAnswer).toContainText('LGS043');
+    await expect(scopedAnswer).toContainText('BC300327148');
+    await expect(scopedAnswer).not.toContainText('LGS031');
+    await expect(scopedAnswer).not.toContainText('LGS723');
+
+    await page.fill('.ai-input-area textarea', 'Which frobnicator does LGS043 use?');
+    await page.press('.ai-input-area textarea', 'Enter');
+    const clarification = page.locator('.ai-message-row.assistant .ai-message-text').last();
+    await expect(clarification).toContainText('\u672a\u80fd\u4ece\u95ee\u9898\u4e2d\u786e\u5b9a\u5177\u4f53\u96f6\u90e8\u4ef6');
+    await expect(clarification).toContainText('LGS043');
+    await expect(clarification).not.toContainText('BCLS129228BH');
+    expect(requestCount).toBeGreaterThanOrEqual(2);
   });
 
   test('LGS723/LGS733 comparison is scoped, categorized, and reusable in a follow-up', async ({ page }) => {

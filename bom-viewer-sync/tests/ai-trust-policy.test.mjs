@@ -95,9 +95,9 @@ test('R2.2: direct prompt injection attempt via user query is treated as user in
   assert.equal(result.trim(), injectionAttempt.trim(), 'query text must be preserved as-is (not expanded)');
 });
 
-test('R2.2: user query exceeding 1000 chars is rejected', () => {
+test('R2.2: user query exceeding 2000 chars is rejected', () => {
   const policy = createTrustPolicy();
-  const longQuery = 'x'.repeat(1001);
+  const longQuery = 'x'.repeat(2001);
   assert.throws(() => policy.sanitizeUserQuery(longQuery), /too long|limit|oversized/i);
 });
 
@@ -126,9 +126,9 @@ test('R2.2: external evidence content cannot become a system instruction', () =>
     'injection content must not appear in system role');
 });
 
-test('R2.2: external evidence exceeding 5 items is rejected', () => {
+test('R2.2: external evidence exceeding 10 items is rejected', () => {
   const policy = createTrustPolicy();
-  const tooMany = Array.from({ length: 6 }, (_, i) => ({
+  const tooMany = Array.from({ length: 11 }, (_, i) => ({
     id: `EXT-${i}`,
     sourceType: 'external',
     sourcePath: `https://example.com/${i}`,
@@ -136,7 +136,7 @@ test('R2.2: external evidence exceeding 5 items is rejected', () => {
     capturedAt: '2026-07-01T00:00:00Z'
   }));
 
-  assert.throws(() => policy.wrapExternalEvidence(tooMany), /too many|limit|5|external/i);
+  assert.throws(() => policy.wrapExternalEvidence(tooMany), /too many|limit|10|external/i);
 });
 
 // ── R2.2.4: Tool allowlist enforcement ───────────────────────────────────────
@@ -234,10 +234,15 @@ test('R2.2: model output with citation ID not in current evidence is rejected', 
 
 // ── R2.2.7: Budget enforcement ────────────────────────────────────────────────
 
-test('R2.2: exceeding max model calls (3) throws', () => {
+test('R2.2: exceeding max model calls (8) throws', () => {
   const policy = createTrustPolicy();
   const budget = policy.createBudget();
 
+  budget.recordModelCall();
+  budget.recordModelCall();
+  budget.recordModelCall();
+  budget.recordModelCall();
+  budget.recordModelCall();
   budget.recordModelCall();
   budget.recordModelCall();
   budget.recordModelCall();
@@ -245,26 +250,26 @@ test('R2.2: exceeding max model calls (3) throws', () => {
   assert.throws(() => budget.recordModelCall(), /model call|budget|limit|exceeded/i);
 });
 
-test('R2.2: exceeding max tool calls (6) throws', () => {
+test('R2.2: exceeding max tool calls (15) throws', () => {
   const policy = createTrustPolicy();
   const budget = policy.createBudget();
 
-  for (let i = 0; i < 6; i++) budget.recordToolCall('search_products');
+  for (let i = 0; i < 15; i++) budget.recordToolCall('search_products');
   assert.throws(() => budget.recordToolCall('search_products'), /tool call|budget|limit|exceeded/i);
 });
 
 test('R2.2: budget defaults match master plan constraints', () => {
-  assert.equal(BUDGET_DEFAULTS.maxModelCalls, 3);
-  assert.equal(BUDGET_DEFAULTS.maxToolCalls, 6);
-  assert.equal(BUDGET_DEFAULTS.maxExternalEvidence, 5);
-  assert.equal(BUDGET_DEFAULTS.maxOutputTokens, 1200);
+  assert.equal(BUDGET_DEFAULTS.maxModelCalls, 8);
+  assert.equal(BUDGET_DEFAULTS.maxToolCalls, 15);
+  assert.equal(BUDGET_DEFAULTS.maxExternalEvidence, 10);
+  assert.equal(BUDGET_DEFAULTS.maxOutputTokens, 3000);
   assert.ok(BUDGET_DEFAULTS.maxTurnMs >= 90000, 'max turn must be at least 90s');
 });
 
 test('R2.2: budget expiry after maxTurnMs throws', () => {
   const policy = createTrustPolicy();
   // Start budget with a fake clock in the past
-  const startTime = Date.now() - 91000; // 91 seconds ago
+  const startTime = Date.now() - 181000; // 181 seconds ago
   const budget = policy.createBudget({ startedAt: startTime });
 
   assert.throws(() => budget.checkExpiry(), /timeout|expired|time limit/i);

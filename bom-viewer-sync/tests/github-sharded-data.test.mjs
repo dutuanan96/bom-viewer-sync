@@ -60,6 +60,37 @@ test('github-sharded-data adapter tests', async (t) => {
     assert.equal(metadata.updatedAt, null);
   });
 
+  await t.test('loadPublic uses an immutable content snapshot SHA when commit resolution fails', async () => {
+    const fetchArgs = [];
+    const fetchImpl = async (url) => {
+      fetchArgs.push(url);
+      if (url.includes('/commits/main')) {
+        return { ok: false, status: 429, json: async () => ({ message: 'rate limited' }) };
+      }
+      if (url.includes('manifest.json')) {
+        return { ok: true, text: async () => JSON.stringify({ version: 1, products: PRODUCT_IDS }) };
+      }
+      if (url.includes('materials.json')) {
+        return { ok: true, text: async () => JSON.stringify({ materialDb: { materials: {}, bomEntries: [] }, drawings: {}, manuals: {}, models3d: {} }) };
+      }
+      const productMatch = url.match(/products\/(P\d+)\.json/);
+      if (productMatch) {
+        return { ok: true, text: async () => JSON.stringify({ id: productMatch[1], colors: [], materials: [] }) };
+      }
+      return { ok: false, status: 404 };
+    };
+
+    const adapter = createGithubShardedDataAdapter({ config, fetchImpl, now: () => 1000 });
+    await adapter.loadPublic();
+
+    const metadata = adapter.getSourceMetadata();
+    assert.match(metadata.commitSha, /^[0-9a-f]{40}$/);
+    assert.notEqual(metadata.commitSha, 'main');
+    assert.equal(metadata.provenanceKind, 'content-snapshot');
+    assert.equal(metadata.sourceRef, 'main');
+    assert.ok(fetchArgs.some(url => url.includes('/main/data/manifest.json')));
+  });
+
   await t.test('loadForWrite fetches tree and blobs', async () => {
     const fetchArgs = [];
     const contents = cutoverShardContents();

@@ -10,6 +10,16 @@ import {
 import { validateProductId } from '../domain/sharded-data.js';
 import { normalizePayload, decodeBase64Utf8 } from './github-data.js';
 
+async function contentSnapshotSha(files) {
+  const framed = [...files.entries()]
+    .sort(([left], [right]) => left.localeCompare(right))
+    .map(([path, content]) => `${path.length}:${path}${content.length}:${content}`)
+    .join('');
+  const bytes = new TextEncoder().encode(framed);
+  const digest = await globalThis.crypto.subtle.digest('SHA-1', bytes);
+  return Array.from(new Uint8Array(digest), byte => byte.toString(16).padStart(2, '0')).join('');
+}
+
 export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.fetch, writerFactory, now = Date.now }) {
   const owner = String(config?.owner || '');
   const repo = String(config?.repo || '');
@@ -92,19 +102,21 @@ export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.
     async loadPublic() {
       try {
         const cacheBust = now();
-        let commitSha = branch;
+        let commitSha = null;
+        let fetchRef = branch;
         let commitData = null;
         try {
           commitData = await githubJson(`${apiBase}/commits/${encodeURIComponent(branch)}`, { cache: 'no-store' });
           if (commitData.sha && /^[0-9a-f]{40}$/i.test(commitData.sha)) {
             commitSha = commitData.sha;
+            fetchRef = commitSha;
           }
         } catch (error) {
           console.warn('GitHub API failed (possibly rate limited), falling back to branch-based fetching.', error);
         }
 
         const fetchRaw = async (logicalPath) => {
-          const url = `https://raw.githubusercontent.com/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/${commitSha}/${shardRoot}/${logicalPath}?t=${cacheBust}`;
+          const url = `https://raw.githubusercontent.com/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/${fetchRef}/${shardRoot}/${logicalPath}?t=${cacheBust}`;
           const response = await fetchImpl(url, { cache: 'no-store' });
           if (!response.ok) {
             const error = new Error(`Failed to load ${logicalPath}`);
@@ -148,6 +160,7 @@ export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.
 
         assertCutoverShardCount(files);
         const payload = await parseLogicalShardFiles(files);
+        const sourceCommit = commitSha || await contentSnapshotSha(files);
 
         // Priority: manifest.updatedAt > commit.committer.date > commit.author.date > null
         // Do NOT fall back to new Date() — an absent date must be represented as null.
@@ -157,7 +170,9 @@ export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.
           null;
 
         lastSourceMetadata = Object.freeze({
-          commitSha,
+          commitSha: sourceCommit,
+          provenanceKind: commitSha ? 'github-commit' : 'content-snapshot',
+          sourceRef: fetchRef,
           shardRoot,
           manifestVersion: manifest.schemaVersion || manifest.version || 1,
           updatedAt,

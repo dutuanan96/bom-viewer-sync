@@ -142,7 +142,18 @@ function materialEntries(snapshot) {
     : Object.entries(materials && typeof materials === 'object' ? materials : {});
   return pairs.map(([key, material]) => {
     const materialId = String(material?.id || key);
-    const labels = [materialId, material?.mat_code, material?.materialCode, material?.name_zh, material?.name_vi, material?.name_en]
+    const labels = [
+      materialId,
+      material?.code,
+      material?.mat_code,
+      material?.materialCode,
+      material?.name?.zh,
+      material?.name?.vi,
+      material?.name?.en,
+      material?.name_zh,
+      material?.name_vi,
+      material?.name_en,
+    ]
       .filter(value => typeof value === 'string' && value.trim())
       .map(normalizeAlias)
       .filter(Boolean)

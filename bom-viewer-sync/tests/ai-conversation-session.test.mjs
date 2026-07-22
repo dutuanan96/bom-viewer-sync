@@ -76,3 +76,27 @@ test('conversation session retains only allowlisted tool event metadata', () => 
     /tool event.*field/i
   );
 });
+
+test('conversation session retains bounded structured PDM context across vague turns and clears it explicitly', () => {
+  const session = createConversationSession();
+  session.record({
+    userText: 'Why is LGS032 a draft?',
+    assistantText: 'Current V3.1; effective V3.',
+    context: { productIds: ['LGS032'], revisions: ['V3', 'V3.1'], searchQuery: '460x282x187' },
+  });
+  session.record({ userText: 'Thanks', assistantText: 'You are welcome.' });
+
+  assert.deepEqual(session.latestContext(), {
+    productIds: ['LGS032'],
+    revisions: ['V3', 'V3.1'],
+    searchQuery: '460x282x187',
+  });
+  assert.equal(Object.isFrozen(session.latestContext()), true);
+  assert.throws(
+    () => session.record({ userText: 'x', assistantText: 'y', context: { apiKey: ['secret'] } }),
+    /non-allowlisted/i,
+  );
+
+  session.clear();
+  assert.deepEqual(session.latestContext(), {});
+});

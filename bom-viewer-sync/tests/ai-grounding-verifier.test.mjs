@@ -16,6 +16,8 @@ function validResult(overrides = {}) {
     product2: { productCode: 'LGS733', color: '复古色', totalRows: 46, materialCount: 46 },
     summary: {
       commonCount: 20,
+      probableCommonCount: 3,
+      dataQualityWarningCount: 2,
       onlyProduct1Count: 24,
       onlyProduct2Count: 26,
       quantityOrUnitDifferenceCount: 6,
@@ -27,6 +29,8 @@ function validResult(overrides = {}) {
       },
     },
     common: [],
+    probableCommon: [],
+    dataQualityWarnings: [],
     onlyProduct1: [],
     onlyProduct2: [],
     quantityOrUnitDifferences: [],

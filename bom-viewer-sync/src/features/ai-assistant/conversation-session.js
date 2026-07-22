@@ -1,5 +1,6 @@
 const SECRET_TEXT_PATTERN = /api.?key|authorization|password|secret|token|credential|\b(?:sk-or-|sk-|ghp_|github_pat_|bearer\s+)[a-z0-9._-]{10,}/i;
 const TOOL_EVENT_STATUSES = Object.freeze(new Set(['success', 'error', 'blocked']));
+const CONTEXT_KEYS = Object.freeze(new Set(['productIds', 'materialIds', 'revisions', 'searchQuery']));
 
 function assertPositiveInteger(value, name) {
   if (!Number.isInteger(value) || value <= 0) {
@@ -31,6 +32,29 @@ function sanitizeToolEvents(toolEvents) {
     }
     return Object.freeze({ name: event.name, status: event.status });
   });
+}
+
+function sanitizeContext(context) {
+  if (!context || typeof context !== 'object' || Array.isArray(context)) return Object.freeze({});
+  if (Object.keys(context).some(key => !CONTEXT_KEYS.has(key))) {
+    throw new Error('Conversation context contains a non-allowlisted field');
+  }
+  const limits = { productIds: 2, materialIds: 3, revisions: 4 };
+  const result = {};
+  for (const key of CONTEXT_KEYS) {
+    if (!(key in context)) continue;
+    if (key === 'searchQuery') {
+      if (typeof context[key] !== 'string') throw new Error('Conversation context searchQuery must be a string');
+      const value = context[key].trim();
+      if (value) result[key] = value.slice(0, 500);
+      continue;
+    }
+    if (!Array.isArray(context[key])) throw new Error(`Conversation context ${key} must be an array`);
+    result[key] = Object.freeze([...new Set(context[key]
+      .filter(value => typeof value === 'string' && value.trim().length > 0 && value.length <= 100)
+      .map(value => value.trim()))].slice(0, limits[key]));
+  }
+  return Object.freeze(result);
 }
 
 export function createConversationSession({ maxTurns = 8, maxChars = 12000 } = {}) {
@@ -66,7 +90,7 @@ export function createConversationSession({ maxTurns = 8, maxChars = 12000 } = {
     return Object.freeze(messages);
   }
 
-  function record({ userText, assistantText, toolEvents = [] } = {}) {
+  function record({ userText, assistantText, toolEvents = [], context = {} } = {}) {
     if (typeof userText !== 'string' || typeof assistantText !== 'string') return false;
     const normalizedUserText = userText.trim();
     const normalizedAssistantText = assistantText.trim();
@@ -75,6 +99,7 @@ export function createConversationSession({ maxTurns = 8, maxChars = 12000 } = {
     assertNoSecrets(normalizedUserText, 'userText');
     assertNoSecrets(normalizedAssistantText, 'assistantText');
     const safeToolEvents = sanitizeToolEvents(toolEvents);
+    const safeContext = sanitizeContext(context);
     const turnCharCount = normalizedUserText.length + normalizedAssistantText.length;
 
     if (turnCharCount > maxChars) {
@@ -87,11 +112,22 @@ export function createConversationSession({ maxTurns = 8, maxChars = 12000 } = {
       userText: normalizedUserText,
       assistantText: normalizedAssistantText,
       toolEvents: Object.freeze(safeToolEvents),
+      context: safeContext,
       charCount: turnCharCount
     }));
     charCount += turnCharCount;
     evictToBudget();
     return true;
+  }
+
+  function latestContext() {
+    for (let index = turns.length - 1; index >= 0; index -= 1) {
+      const context = turns[index].context;
+      if (context && Object.values(context).some(value => value.length > 0)) {
+        return sanitizeContext(context);
+      }
+    }
+    return Object.freeze({});
   }
 
   function clear() {
@@ -103,5 +139,5 @@ export function createConversationSession({ maxTurns = 8, maxChars = 12000 } = {
     return Object.freeze({ turnCount: turns.length, charCount, maxTurns, maxChars });
   }
 
-  return Object.freeze({ contextFor, record, clear, diagnostics });
+  return Object.freeze({ contextFor, latestContext, record, clear, diagnostics });
 }

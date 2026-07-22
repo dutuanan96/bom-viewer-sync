@@ -12,6 +12,12 @@ const READ_TOOLS = [
   'where_used',
   'compare_boms',
   'get_marketplace_insights',
+  'compare_revisions',
+  'search_pdm',
+  'list_recent_changes',
+  'inspect_pdm_schema',
+  'get_pdm_help',
+  'analyze_pdm',
 ];
 
 test('routes an explicit Chinese draft-status question to revision history', () => {
@@ -170,4 +176,135 @@ test('routes simple social greetings to GREETING intent when no entities exist',
   // Regression: if an entity exists, it should not be a greeting
   const withEntity = routePdmIntent({ query: 'Hello LGS723', availableTools: READ_TOOLS });
   assert.notEqual(withEntity.intent, PDM_INTENTS.GREETING);
+});
+
+test('routes revision follow-ups, shorthand comparisons, recent changes, and specification searches', () => {
+  const revision = routePdmIntent({
+    query: '那帮我看一下是V3.1有什么改变的?',
+    history: [
+      { role: 'user', content: '为什么LGS032状态是草稿非现行' },
+      { role: 'assistant', content: 'LGS032 current V3.1 draft; effective V3 released.' },
+    ],
+    availableTools: READ_TOOLS,
+  });
+  assert.equal(revision.preferredTool, 'compare_revisions');
+  assert.deepEqual(revision.entities.productIds, ['LGS032']);
+  assert.deepEqual(revision.entities.revisions, ['V3', 'V3.1']);
+
+  const statusFollowUp = routePdmIntent({
+    query: '为什么它不是现行版？',
+    history: [{ role: 'user', content: '为什么LGS032是草稿？' }],
+    availableTools: READ_TOOLS,
+  });
+  assert.equal(statusFollowUp.preferredTool, 'get_revision_history');
+  assert.deepEqual(statusFollowUp.entities.productIds, ['LGS032']);
+
+  assert.equal(routePdmIntent({ query: '帮我看一下LGS723和733', availableTools: READ_TOOLS }).preferredTool, 'compare_boms');
+  assert.equal(routePdmIntent({ query: '帮我统计一下最近的变更', availableTools: READ_TOOLS }).preferredTool, 'list_recent_changes');
+  assert.equal(routePdmIntent({ query: 'Tìm ngăn kéo 460×282×187 dùng cho sản phẩm nào?', availableTools: READ_TOOLS }).preferredTool, 'search_pdm');
+  assert.equal(routePdmIntent({ query: 'Find LGS', availableTools: READ_TOOLS }).preferredTool, 'search_products');
+});
+
+test('routes explicit usage help and schema questions but keeps vague help ambiguous', () => {
+  assert.equal(routePdmIntent({ query: 'Hướng dẫn sử dụng AI PDM', availableTools: READ_TOOLS }).preferredTool, 'get_pdm_help');
+  assert.equal(routePdmIntent({ query: 'AI có thể xem cấu trúc dữ liệu HTML không?', availableTools: READ_TOOLS }).preferredTool, 'inspect_pdm_schema');
+  assert.equal(routePdmIntent({ query: 'giúp tôi với', availableTools: READ_TOOLS }).confidence, 'ambiguous');
+});
+
+test('uses structured conversation context for natural multilingual revision follow-ups', () => {
+  const conversationContext = { productIds: ['LGS032'], revisions: ['V3', 'V3.1'] };
+  for (const query of [
+    '两个版本有什么区别',
+    '这两个版本有什么差别？',
+    'Hai phiên bản khác nhau thế nào?',
+    'What is different between those two versions?',
+  ]) {
+    const route = routePdmIntent({ query, conversationContext, availableTools: READ_TOOLS });
+    assert.equal(route.preferredTool, 'compare_revisions', query);
+    assert.deepEqual(route.entities.productIds, ['LGS032']);
+    assert.deepEqual(route.entities.revisions, ['V3', 'V3.1']);
+  }
+
+  const newProduct = routePdmIntent({
+    query: 'Compare two versions of LGS733',
+    conversationContext,
+    availableTools: READ_TOOLS,
+  });
+  assert.notEqual(newProduct.preferredTool, 'compare_revisions');
+  assert.deepEqual(newProduct.entities.productIds, ['LGS733']);
+  assert.equal(newProduct.entities.revisions, undefined);
+});
+
+test('re-runs the original PDM search for multilingual result-set follow-ups', () => {
+  const conversationContext = {
+    productIds: ['LGS723'],
+    materialIds: ['mat_drawer'],
+    searchQuery: '460x282x187',
+  };
+  for (const query of [
+    'Is LGS723 the only one?',
+    'Chỉ LGS723 dùng thôi à?',
+    '\u53ea\u6709LGS723\u7528\u5417?',
+    '\u8fd8\u6709\u5176\u4ed6\u4ea7\u54c1\u7528\u5417?',
+  ]) {
+    const route = routePdmIntent({ query, conversationContext, availableTools: READ_TOOLS });
+    assert.equal(route.intent, PDM_INTENTS.PDM_SEARCH, query);
+    assert.equal(route.preferredTool, 'search_pdm', query);
+    assert.equal(route.entities.searchQuery, '460x282x187', query);
+    assert.equal(route.entities.searchProductId, undefined, query);
+  }
+
+  const unrelatedRevision = routePdmIntent({
+    query: 'What other revisions does LGS032 have?',
+    conversationContext,
+    availableTools: READ_TOOLS,
+  });
+  assert.equal(unrelatedRevision.preferredTool, 'get_revision_history');
+});
+
+test('scopes general component questions to the explicitly named product', () => {
+  for (const query of [
+    '\u597d\uff0c\u90a3LGS043\u7528\u4ec0\u4e48\u5e03\u62bd',
+    '\u90a3LGS043\u7528\u4ec0\u4e48\u628a\u624b?',
+    'Which handle does LGS043 use?',
+    'LGS043 d\u00f9ng lo\u1ea1i \u1ed1c n\u00e0o?',
+    'Show the specification for LGS043',
+  ]) {
+    const route = routePdmIntent({
+      query,
+      conversationContext: {
+        productIds: ['LGS723'],
+        searchQuery: '460x282x187',
+      },
+      availableTools: READ_TOOLS.filter(tool => tool !== 'get_bom'),
+    });
+
+    assert.equal(route.intent, PDM_INTENTS.PDM_SEARCH, query);
+    assert.equal(route.preferredTool, 'search_pdm', query);
+    assert.deepEqual(route.entities.productIds, ['LGS043'], query);
+    assert.equal(route.entities.searchQuery, query, query);
+    assert.equal(route.entities.searchProductId, 'LGS043', query);
+  }
+});
+
+test('routes shorthand, variant gaps, and catalog hardware questions to deterministic analysis', () => {
+  const shorthand = routePdmIntent({ query: '帮我看一下723用什么布抽', availableTools: READ_TOOLS });
+  assert.equal(shorthand.preferredTool, 'analyze_pdm');
+  assert.equal(shorthand.intent, PDM_INTENTS.CATALOG_ANALYSIS);
+
+  const variant = routePdmIntent({ query: '为什么LGS031五金包的白色没有?', availableTools: READ_TOOLS });
+  assert.equal(variant.preferredTool, 'analyze_pdm');
+  assert.deepEqual(variant.entities.productIds, ['LGS031']);
+
+  const shared = routePdmIntent({ query: '帮我看一下所有的五金包有哪一个产品共用吗?', availableTools: READ_TOOLS });
+  assert.equal(shared.preferredTool, 'analyze_pdm');
+});
+
+test('routes generic frame dimension follow-ups without hardcoded values', () => {
+  const route = routePdmIntent({
+    query: '那有几个铁框有高度660mm',
+    history: [{ role: 'user', content: '帮我统计一下所有LGS有几种铁框' }],
+    availableTools: READ_TOOLS,
+  });
+  assert.equal(route.preferredTool, 'analyze_pdm');
 });

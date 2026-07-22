@@ -30,6 +30,11 @@ function buildPreferredToolCall(route, query) {
   const aliases = Array.isArray(route.entities?.aliases) ? route.entities.aliases : [];
   const materialIds = Array.isArray(route.entities?.materialIds) ? route.entities.materialIds : [];
   const colors = Array.isArray(route.entities?.colors) ? route.entities.colors : [];
+  const revisions = Array.isArray(route.entities?.revisions) ? route.entities.revisions : [];
+  const contextualSearchQuery = typeof route.entities?.searchQuery === 'string' ? route.entities.searchQuery.trim() : '';
+  const searchProductId = typeof route.entities?.searchProductId === 'string'
+    ? route.entities.searchProductId.trim()
+    : '';
 
   switch (route.preferredTool) {
     case 'get_revision_history':
@@ -43,7 +48,14 @@ function buildPreferredToolCall(route, query) {
         : null;
     case 'compare_boms':
       return productIds.length >= 2
-        ? { name: 'compare_boms', arguments: { productId1: productIds[0], productId2: productIds[1] } }
+        ? {
+            name: 'compare_boms',
+            arguments: {
+              productId1: productIds[0],
+              productId2: productIds[1],
+              ...(colors[0] ? { color1: colors[0], color2: colors[1] || colors[0] } : {}),
+            },
+          }
         : null;
     case 'resolve_sku':
       return aliases[0] ? { name: 'resolve_sku', arguments: { alias: aliases[0] } } : null;
@@ -52,9 +64,123 @@ function buildPreferredToolCall(route, query) {
       return materialIds[0] ? { name: route.preferredTool, arguments: { materialId: materialIds[0] } } : null;
     case 'search_products':
       return query?.trim() ? { name: 'search_products', arguments: { query } } : null;
+    case 'search_pdm':
+      return contextualSearchQuery || query?.trim()
+        ? {
+            name: 'search_pdm',
+            arguments: {
+              query: contextualSearchQuery || query,
+              ...(searchProductId ? { productId: searchProductId } : {}),
+              ...(searchProductId && materialIds[0] ? { materialId: materialIds[0] } : {}),
+            },
+          }
+        : null;
+    case 'compare_revisions':
+      return productIds[0] && revisions.length >= 2
+        ? { name: 'compare_revisions', arguments: { productId: productIds[0], revision1: revisions[0], revision2: revisions[1] } }
+        : null;
+    case 'list_recent_changes':
+    case 'inspect_pdm_schema':
+      return { name: route.preferredTool, arguments: {} };
+    case 'get_pdm_help':
+      return { name: 'get_pdm_help', arguments: query?.trim() ? { topic: query } : {} };
+    case 'analyze_pdm':
+      return { name: 'analyze_pdm', arguments: query?.trim() ? { query } : {} };
     default:
       return null;
   }
+}
+
+const CASE_INSENSITIVE_ARGUMENTS = new Set([
+  'alias', 'color', 'color1', 'color2', 'materialId', 'productId', 'productId1',
+  'productId2', 'query', 'revision1', 'revision2',
+]);
+
+function normalizeFingerprintValue(value, key = '') {
+  if (typeof value === 'string') {
+    const normalized = value.normalize('NFKC').trim().replace(/\s+/g, ' ');
+    return CASE_INSENSITIVE_ARGUMENTS.has(key) ? normalized.toLocaleLowerCase('und') : normalized;
+  }
+  if (Array.isArray(value)) return value.map(item => normalizeFingerprintValue(item, key));
+  if (value && typeof value === 'object') {
+    return Object.keys(value).sort().reduce((result, nestedKey) => {
+      result[nestedKey] = normalizeFingerprintValue(value[nestedKey], nestedKey);
+      return result;
+    }, {});
+  }
+  return value;
+}
+
+function toolFingerprint(name, args) {
+  const normalized = args && typeof args === 'object'
+    ? JSON.stringify(normalizeFingerprintValue(args))
+    : String(args || '').normalize('NFKC').trim();
+  return `${name}:${normalized}`;
+}
+
+function prefetchNeedsInvestigation(toolResult) {
+  if (!toolResult || typeof toolResult !== 'object' || toolResult.error) return true;
+  if (Array.isArray(toolResult)) return toolResult.length === 0;
+  if (['scoped-candidates', 'scoped-empty', 'mapping-miss'].includes(toolResult.matchMode)) return true;
+  if (toolResult.truncated === true) return true;
+  if (Number.isFinite(toolResult.totalMatches) && toolResult.totalMatches === 0) return true;
+  return false;
+}
+
+function boundedUniqueStrings(values, limit) {
+  return [...new Set(values
+    .filter(value => typeof value === 'string')
+    .map(value => value.trim())
+    .filter(Boolean))].slice(0, limit);
+}
+
+function contextFromToolResult(toolCall, toolResult) {
+  if (!toolCall?.name || !toolResult || typeof toolResult !== 'object' || toolResult.error) return {};
+  const args = toolCall.arguments && typeof toolCall.arguments === 'object' ? toolCall.arguments : {};
+  const products = Array.isArray(toolResult.products) ? toolResult.products : [];
+  const materials = Array.isArray(toolResult.materials) ? toolResult.materials : [];
+  const usage = Array.isArray(toolResult.usage) ? toolResult.usage : [];
+  const productIds = boundedUniqueStrings([
+    args.productId,
+    args.productId1,
+    args.productId2,
+    toolResult.productId,
+    toolResult.productCode,
+    ...products.map(item => item?.productCode),
+    ...materials.flatMap(item => Array.isArray(item?.usedBy) ? item.usedBy.map(value => value?.productCode) : []),
+    ...usage.map(item => item?.productCode),
+  ], 2);
+  const materialIds = boundedUniqueStrings([
+    args.materialId,
+    toolResult.materialId,
+    ...materials.map(item => item?.materialId),
+  ], 3);
+  const revisions = boundedUniqueStrings([
+    args.revision1,
+    args.revision2,
+    toolResult.currentRevision,
+    toolResult.effectiveRevision,
+    toolResult.revision1?.revision,
+    toolResult.revision2?.revision,
+  ], 4);
+  const context = { productIds, materialIds, revisions };
+  if (toolCall.name === 'search_pdm') {
+    const searchQuery = String(toolResult.query || args.query || '').trim();
+    if (searchQuery) context.searchQuery = searchQuery.slice(0, 500);
+  }
+  return Object.fromEntries(Object.entries(context).filter(([, value]) => (
+    typeof value === 'string' ? value.length > 0 : value.length > 0
+  )));
+}
+
+function mergeToolContext(current, next) {
+  return {
+    ...current,
+    ...next,
+    productIds: boundedUniqueStrings([...(current.productIds || []), ...(next.productIds || [])], 2),
+    materialIds: boundedUniqueStrings([...(current.materialIds || []), ...(next.materialIds || [])], 3),
+    revisions: boundedUniqueStrings([...(current.revisions || []), ...(next.revisions || [])], 4),
+  };
 }
 
 function formatEntityResolution(entityResolution) {
@@ -94,9 +220,9 @@ function cloneConversationHistory(history) {
   return bounded;
 }
 
-export function createAgentController({ gateway, trustPolicy, runTool }) {
+export function createAgentController({ gateway, trustPolicy, runTool, formatToolFallback, formatProviderError }) {
 
-  async function runTurn({ query, history = [], route, snapshot, model, availableTools = [], signal, marketplaceWebEnabled = false, specialistPrompt = '', confirmedMemories = [], entityResolution = null, clarificationText = '' }) {
+  async function runTurn({ query, history = [], route, snapshot, model, availableTools = [], signal, marketplaceWebEnabled = false, specialistPrompt = '', confirmedMemories = [], entityResolution = null, clarificationText = '', conversationContext = {} }) {
     if (signal?.aborted) throw new Error('Turn aborted');
     const trace = createSafeTrace();
     const ledger = createEvidenceLedger();
@@ -128,15 +254,21 @@ export function createAgentController({ gateway, trustPolicy, runTool }) {
     const budget = trustPolicy.createBudget();
 
     const workflowStrategy = `WORKFLOW STRATEGY:
-- To answer questions about a product's draft/publish status or history, use the 'get_revision_history' or 'get_product' tool.
-- If the user provides a partial name, use 'search_products' to find the exact code.
-- Analyze the tool results and answer the user's specific question. Do NOT just dump raw search results.
-- If you need more information to answer the user's question, make additional tool calls before giving the final answer.
-- If the user asks you to modify data, you MUST use the 'apply_mutation' tool to generate an exact proposal.
+Use the smallest sufficient investigation.
+1. Prefer one deterministic read-only PDM tool when it can answer fully.
+2. Reuse structured conversation context only for referential follow-ups.
+3. Call another tool only when it adds missing scope, evidence, or detail.
+4. Do not repeat the same tool with equivalent arguments.
+5. If results are truncated, do not make exhaustive claims like "only", "all", or "exclusive".
+6. Ask for clarification only when materially different interpretations remain.
+7. Current PDM snapshot overrides memory for factual BOM/material/revision claims. Memory cannot authorize mutation or replace database facts.
+8. User corrections to PDM facts require a candidate or approved proposal; do not silently replace database data with memory.
+9. Distinguish fact from inference: state clearly when a claim is inferred rather than directly backed by PDM evidence.
+10. If a PDM search returns matchMode "scoped-candidates", reason over the bounded bilingual candidates. Answer only when one interpretation is clearly supported and label it as a semantic inference; otherwise ask one concise clarification scoped to that product, using clarificationHints and asking for a part name, category, specification, color, or purpose. Never dump candidate rows.
+11. If a PDM search returns matchMode "scoped-empty", state that the current product scope has no searchable BOM data and ask the user to confirm the product, color, or revision.
+12. A confirmed phrase mapping may select a material only when that material exists in the requested product BOM. If matchMode is "mapping-miss", disclose the conflict and ask for confirmation; never override the current BOM with the mapping.
 - State the product, color, revision, and comparison scope used by the evidence.
 - For BOM comparisons, exact materialId defines identity. Distinguish attribute, material, and specification instead of inferring them from the name.
-- If the user uses an ambiguous domain category, explain the interpretation and category counts or ask for clarification; never silently omit other groups.
-- State when a result is truncated or bounded.
 - Write readable plain text without Markdown or HTML syntax.`;
 
     const memoryText = formatScopedMemories(confirmedMemories);
@@ -157,7 +289,7 @@ export function createAgentController({ gateway, trustPolicy, runTool }) {
     let messages = [
       {
         role: 'system',
-        content: `You are a Senior PDM (Product Data Management) System Engineer with deep expertise in BOM (Bill of Materials) structures, materials management, and product lifecycle revisions.\nIf the user's intent is unclear or you lack enough context to answer accurately, you MUST ask a clarifying question instead of guessing or listing random data.\nIMPORTANT: You MUST reply in the same language that the user uses in their message.\n\n${workflowStrategy}\n\n${intelligencePrompt}\n\nContext:\n${JSON.stringify(context, null, 2)}`
+        content: `You are a Senior PDM (Product Data Management) System Engineer with deep expertise in BOM (Bill of Materials) structures, materials management, and product lifecycle revisions.\nIf the user's intent is unclear or you lack enough context to answer accurately, you MUST ask a clarifying question instead of guessing or listing random data.\nIMPORTANT: You MUST reply in the same language that the user uses in their message.\n\n${workflowStrategy}\n\n${intelligencePrompt}\n\nContext:\n${JSON.stringify(context, null, 2)}\n\nSTRUCTURED_CONVERSATION_CONTEXT:\n${JSON.stringify(conversationContext, null, 2)}`
       },
       ...historyMessages,
       {
@@ -173,20 +305,33 @@ export function createAgentController({ gateway, trustPolicy, runTool }) {
     const marketplaceCitations = [];
     let prefetchedMessage = null;
     let deterministicPrefetchUsed = false;
+    let postPrefetchInvestigationRemaining = 0;
+    let deterministicFallbackText = '';
+    let toolConversationContext = {};
+    const executedFingerprints = new Set();
+    let consecutiveNoProgress = 0;
 
     // Check model grade to see if we should fallback to deterministic prefetch only
-    const modelMeta = gateway.listModels().find(m => m.id === model) || { grade: 'Unsupported' };
-    const modelSupportsTools = modelMeta.grade !== 'Unsupported';
+    let activeModel = model;
+    let modelMeta = gateway.listModels().find(m => m.id === activeModel) || { grade: 'Unsupported' };
+    let modelSupportsTools = modelMeta.grade !== 'Unsupported';
+    let compatibleEndpointFallbackUsed = false;
 
     try {
       const prefetchedCall = buildPreferredToolCall(route, context.query);
       if (prefetchedCall && runTool) {
+        executedFingerprints.add(toolFingerprint(prefetchedCall.name, prefetchedCall.arguments));
+
         const toolStartedAt = Date.now();
         trace.add('tool_requested', { toolName: prefetchedCall.name, status: 'prefetch' });
         budget.recordToolCall(prefetchedCall.name);
         currentTurnUsage.toolCalls += 1;
         const safeCall = trustPolicy.authorizeToolCall(prefetchedCall);
         const toolResult = await runTool(safeCall, snapshot);
+        toolConversationContext = mergeToolContext(toolConversationContext, contextFromToolResult(safeCall, toolResult));
+        if (typeof formatToolFallback === 'function') {
+          deterministicFallbackText = String(formatToolFallback({ toolCall: safeCall, toolResult, snapshot }) || '');
+        }
         
         const grounding = verifyGrounding({
           route,
@@ -196,7 +341,7 @@ export function createAgentController({ gateway, trustPolicy, runTool }) {
         });
 
         // Add to ledger
-        console.log('TOOL RESULT:', toolResult, 'TYPE:', typeof toolResult); if (toolResult?.evidence) {
+        if (toolResult?.evidence) {
           const ev = Array.isArray(toolResult.evidence) ? toolResult.evidence : [toolResult.evidence];
           ev.forEach(e => ledger.trackEvidence(e));
         }
@@ -220,6 +365,14 @@ export function createAgentController({ gateway, trustPolicy, runTool }) {
         };
         messages.push(prefetchedMessage);
         deterministicPrefetchUsed = true;
+        if (prefetchNeedsInvestigation(toolResult)) {
+          deterministicPrefetchUsed = false;
+          postPrefetchInvestigationRemaining = 1;
+          messages.push({
+            role: 'user',
+            content: 'PDM_INVESTIGATION_REQUIRED: The first bounded lookup was empty, incomplete, or truncated. Use at most one broader or complementary read-only tool call. Do not repeat an equivalent call.',
+          });
+        }
       }
 
       while (!finalAnswer) {
@@ -229,7 +382,7 @@ export function createAgentController({ gateway, trustPolicy, runTool }) {
         currentTurnUsage.modelCalls++;
         budget.checkExpiry();
         trace.add('model_requested', {
-          modelId: model,
+          modelId: activeModel,
           intent: route?.intent || 'ambiguous',
           usage: currentTurnUsage
         });
@@ -245,30 +398,110 @@ export function createAgentController({ gateway, trustPolicy, runTool }) {
         const useMarketplaceWebSearch = marketplaceWebSearchNext && !marketplaceWebSearchUsed;
         marketplaceWebSearchNext = false;
         if (useMarketplaceWebSearch) marketplaceWebSearchUsed = true;
+        const requestTools = postPrefetchInvestigationRemaining > 0
+          ? availableTools.filter(tool => (tool?.function?.name || tool) !== 'apply_mutation')
+          : availableTools;
 
         try {
           response = await gateway.chat({
-            model,
+            model: activeModel,
             messages: promptMessages,
-            tools: (modelSupportsTools && !deterministicPrefetchUsed) ? availableTools : [],
-            maxTokens: 1200,
+            tools: (modelSupportsTools && !deterministicPrefetchUsed) ? requestTools : [],
+            maxTokens: budget.summary?.().limits?.maxOutputTokens || 1200,
             parallel_tool_calls: false,
             signal,
             webSearch: useMarketplaceWebSearch,
           });
         } catch (err) {
+          if (err.code === 'AI_NO_COMPATIBLE_ENDPOINT' && !compatibleEndpointFallbackUsed) {
+            const fallback = gateway.listModels().find(candidate => (
+              candidate.id !== activeModel &&
+              candidate.id.endsWith(':free') &&
+              (deterministicPrefetchUsed || candidate.grade !== 'Unsupported')
+            ));
+            if (fallback) {
+              compatibleEndpointFallbackUsed = true;
+              budget.recordModelCall();
+              currentTurnUsage.modelCalls++;
+              activeModel = fallback.id;
+              modelMeta = fallback;
+              modelSupportsTools = modelMeta.grade !== 'Unsupported';
+              trace.add('fallback_used', {
+                modelId: activeModel,
+                status: 'compatible_free_endpoint',
+                code: 'AI_NO_COMPATIBLE_ENDPOINT',
+              });
+              try {
+                response = await gateway.chat({
+                  model: activeModel,
+                  messages: promptMessages,
+                  tools: (modelSupportsTools && !deterministicPrefetchUsed) ? requestTools : [],
+                  maxTokens: budget.summary?.().limits?.maxOutputTokens || 1200,
+                  parallel_tool_calls: false,
+                  signal,
+                  webSearch: useMarketplaceWebSearch,
+                });
+              } catch (fallbackError) {
+                err = fallbackError;
+              }
+            }
+          }
+
+          if (!response) {
+          const errCode = err.code || '';
+          const errStatus = err.status || 0;
+          let userMessage;
+          let traceStatus;
+
+          if (errCode === 'AI_NO_COMPATIBLE_ENDPOINT') {
+            userMessage = 'No compatible model endpoint is currently available. Please select another free model or try again later.';
+            traceStatus = 'no_compatible_endpoint';
+          } else if (errCode === 'AI_CIRCUIT_OPEN') {
+            userMessage = 'Too many requests recently. Please wait a moment and try again.';
+            traceStatus = 'circuit_open';
+          } else if (errCode === 'AI_MODEL_INCOMPATIBLE') {
+            userMessage = 'This model does not support the required features. Please select a different model.';
+            traceStatus = 'model_incompatible';
+          } else if (errCode === 'AI_POLICY_BLOCKED') {
+            userMessage = 'Request blocked by security policy.';
+            traceStatus = 'policy_blocked';
+          } else if (errStatus === 429) {
+            userMessage = 'Rate limit exceeded. Please wait a moment and try again.';
+            traceStatus = 'rate_limited';
+          } else if (errStatus >= 500) {
+            userMessage = 'Server error. Please try again later.';
+            traceStatus = 'server_error';
+          } else if (err.message?.includes('timeout') || err.name === 'AbortError') {
+            userMessage = 'Request timed out. Please try again.';
+            traceStatus = 'timeout';
+          } else if (err.message?.includes('budget exceeded')) {
+            throw err;
+          } else {
+            userMessage = 'AI assistant is currently unavailable. Please try again later.';
+            traceStatus = 'provider_error';
+          }
+
+          if (typeof formatProviderError === 'function') {
+            const localizedMessage = formatProviderError({ code: traceStatus, errorCode: errCode, httpStatus: errStatus });
+            if (typeof localizedMessage === 'string' && localizedMessage.trim()) userMessage = localizedMessage.trim();
+          }
+
           trace.add('fallback_used', {
-            modelId: model,
-            status: 'provider_error',
-            code: 'AI_PROVIDER_UNAVAILABLE'
+            modelId: activeModel,
+            status: traceStatus,
+            code: errCode || 'AI_PROVIDER_UNAVAILABLE',
+            httpStatus: errStatus || undefined
           });
           return {
-            text: 'AI assistant is currently unavailable. Please try again later.',
-            citations: [],
+            text: deterministicFallbackText || userMessage,
+            citations: deterministicFallbackText ? ledger.getEvidence().map(item => item.id) : [],
+            evidenceItems: deterministicFallbackText ? ledger.getEvidence() : [],
             fallback: true,
             usage: currentTurnUsage,
+            conversationContext: toolConversationContext,
             trace: trace.finish()
           };
+          }
         }
 
         const message = response.choices?.[0]?.message;
@@ -278,7 +511,7 @@ export function createAgentController({ gateway, trustPolicy, runTool }) {
         currentTurnUsage.promptTokens += Number(response.usage?.prompt_tokens || 0);
         currentTurnUsage.completionTokens += Number(response.usage?.completion_tokens || 0);
         currentTurnUsage.cost += Number(response.usage?.cost || response.cost || 0);
-        currentTurnUsage.actualModel = response.model || currentTurnUsage.actualModel || model;
+        currentTurnUsage.actualModel = response.model || currentTurnUsage.actualModel || activeModel;
         
         if (useMarketplaceWebSearch) {
           getOpenRouterCitationUrls(message.annotations).forEach((url) => {
@@ -300,11 +533,21 @@ export function createAgentController({ gateway, trustPolicy, runTool }) {
           // Process tool calls
           for (const call of message.tool_calls) {
             if (signal?.aborted) throw new Error('Turn aborted');
-            if (!exposedToolNames.has(call.function.name)) {
+            const mutationBlockedDuringInvestigation = postPrefetchInvestigationRemaining > 0
+              && call.function.name === 'apply_mutation';
+            if (!exposedToolNames.has(call.function.name) || mutationBlockedDuringInvestigation) {
               const error = new Error(`Tool is not available for this turn: ${call.function.name}`);
               error.code = 'AI_TOOL_NOT_EXPOSED';
               throw error;
             }
+
+            let args;
+            try {
+              args = JSON.parse(call.function.arguments);
+            } catch (e) {
+              args = call.function.arguments;
+            }
+            const fingerprint = toolFingerprint(call.function.name, args);
 
             budget.recordToolCall(call.function.name);
             currentTurnUsage.toolCalls++;
@@ -312,32 +555,59 @@ export function createAgentController({ gateway, trustPolicy, runTool }) {
             trace.add('tool_requested', { toolName: call.function.name, status: 'model_selected' });
 
             let toolResult;
+            let executedCall = null;
             let toolStatus = 'success';
-            try {
-              let args;
+
+            if (executedFingerprints.has(fingerprint)) {
+              toolResult = { error: 'Equivalent tool call suppressed to prevent an investigation loop.' };
+              toolStatus = 'blocked';
+              consecutiveNoProgress++;
+            } else {
+              executedFingerprints.add(fingerprint);
+              const evidenceBeforeCount = ledger.getEvidence().length;
+              const contextBefore = JSON.stringify(normalizeFingerprintValue(toolConversationContext));
+
               try {
-                args = JSON.parse(call.function.arguments);
-              } catch (e) {
-                args = call.function.arguments;
+                const safeCall = trustPolicy.authorizeToolCall({
+                  name: call.function.name,
+                  arguments: args
+                });
+                executedCall = safeCall;
+
+                if (runTool) {
+                  toolResult = await runTool(safeCall, snapshot);
+                } else {
+                  toolResult = { error: 'Tool execution not provided' };
+                }
+              } catch (err) {
+                toolResult = { error: err.message };
+                toolStatus = 'error';
               }
 
-              const safeCall = trustPolicy.authorizeToolCall({
-                name: call.function.name,
-                arguments: args
-              });
+              if (executedCall) {
+                const contextAfter = mergeToolContext(
+                  toolConversationContext,
+                  contextFromToolResult(executedCall, toolResult),
+                );
+                if (toolResult?.evidence) {
+                  const evidenceItems = Array.isArray(toolResult.evidence) ? toolResult.evidence : [toolResult.evidence];
+                  evidenceItems.forEach(item => ledger.trackEvidence(item));
+                }
+                const contextAfterValue = JSON.stringify(normalizeFingerprintValue(contextAfter));
+                const evidenceAfterCount = ledger.getEvidence().length;
 
-              if (runTool) {
-                toolResult = await runTool(safeCall, snapshot);
-              } else {
-                toolResult = { error: 'Tool execution not provided' };
+                if (evidenceAfterCount === evidenceBeforeCount && contextAfterValue === contextBefore) {
+                  consecutiveNoProgress++;
+                } else {
+                  consecutiveNoProgress = 0;
+                }
+                toolConversationContext = contextAfter;
               }
-            } catch (err) {
-              toolResult = { error: err.message };
-              toolStatus = 'error';
             }
 
-            // Add to ledger
-            console.log('TOOL RESULT:', toolResult, 'TYPE:', typeof toolResult); if (toolResult?.evidence) {
+            // Prefetched evidence is tracked earlier; dynamic evidence without an executed call
+            // is still accepted here for compatibility with blocked/error tool adapters.
+            if (!executedCall && toolResult?.evidence) {
               const ev = Array.isArray(toolResult.evidence) ? toolResult.evidence : [toolResult.evidence];
               ev.forEach(e => ledger.trackEvidence(e));
             }
@@ -366,6 +636,25 @@ export function createAgentController({ gateway, trustPolicy, runTool }) {
               name: call.function.name,
               content: contentString
             });
+
+            if (postPrefetchInvestigationRemaining > 0) {
+              postPrefetchInvestigationRemaining--;
+              if (postPrefetchInvestigationRemaining === 0) {
+                modelSupportsTools = false;
+                messages.push({
+                  role: 'user',
+                  content: 'SYSTEM_INVESTIGATION_LIMIT: The single complementary lookup is complete. Answer from current evidence or ask the user for clarification without calling more tools.',
+                });
+              }
+            }
+
+            if (consecutiveNoProgress >= 2) {
+              messages.push({
+                role: 'user',
+                content: 'SYSTEM_INVESTIGATION_LIMIT: 2 consecutive tool calls produced no new PDM evidence or context. Provide your final answer from current evidence or ask for clarification without calling more tools.'
+              });
+              modelSupportsTools = false;
+            }
           }
         } else {
           // Final natural language answer
@@ -406,6 +695,7 @@ export function createAgentController({ gateway, trustPolicy, runTool }) {
       text: finalAnswer.text,
       citations: [...new Set([...(finalAnswer.citations || []), ...marketplaceCitations])],
       evidenceItems: ledger.getEvidence(),
+      conversationContext: toolConversationContext,
       usage: currentTurnUsage,
       clarification: false,
       trace: trace.finish()

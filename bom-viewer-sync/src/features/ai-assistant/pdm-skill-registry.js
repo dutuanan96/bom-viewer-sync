@@ -22,39 +22,54 @@ function requirePack(pack, label) {
 }
 
 export function createPdmSkillRegistry({ promptPack, skillsPack } = {}) {
-  requirePack(promptPack, 'prompt');
-  requirePack(skillsPack, 'skills');
-
-  const governedTools = new Set((skillsPack.skills || []).map(skill => skill?.id).filter(Boolean));
-  governedTools.add('apply_mutation');
+  let activePromptPack = promptPack;
+  let activeSkillsPack = skillsPack;
   const specialists = new Map();
 
-  for (const raw of promptPack.specialists || []) {
-    if (!raw?.id || specialists.has(raw.id)) throw new Error('Specialist IDs must be present and unique');
-    if (!Array.isArray(raw.instructions) || raw.instructions.length === 0 || raw.instructions.some(item => !String(item).trim())) {
-      throw new Error(`Specialist ${raw.id} instructions are required`);
-    }
-    if (!Array.isArray(raw.verification) || raw.verification.length === 0) {
-      throw new Error(`Specialist ${raw.id} verification rules are required`);
-    }
-    if (!Array.isArray(raw.allowedTools) || raw.allowedTools.length === 0) {
-      throw new Error(`Specialist ${raw.id} allowedTools are required`);
-    }
-    for (const toolName of raw.allowedTools) {
-      if (!governedTools.has(toolName) || !ALLOWED_TOOLS.has(toolName)) {
-        throw new Error(`Specialist ${raw.id} references unauthorized tool: ${toolName}`);
+  function loadPack(pPack, sPack) {
+    requirePack(pPack, 'prompt');
+    requirePack(sPack, 'skills');
+
+    const governedTools = new Set((sPack.skills || []).map(skill => skill?.id).filter(Boolean));
+    governedTools.add('apply_mutation');
+    const newSpecialists = new Map();
+
+    for (const raw of pPack.specialists || []) {
+      if (!raw?.id || newSpecialists.has(raw.id)) throw new Error('Specialist IDs must be present and unique');
+      if (!Array.isArray(raw.instructions) || raw.instructions.length === 0 || raw.instructions.some(item => !String(item).trim())) {
+        throw new Error(`Specialist ${raw.id} instructions are required`);
       }
+      if (!Array.isArray(raw.verification) || raw.verification.length === 0) {
+        throw new Error(`Specialist ${raw.id} verification rules are required`);
+      }
+      if (!Array.isArray(raw.allowedTools) || raw.allowedTools.length === 0) {
+        throw new Error(`Specialist ${raw.id} allowedTools are required`);
+      }
+      for (const toolName of raw.allowedTools) {
+        if (!governedTools.has(toolName) || !ALLOWED_TOOLS.has(toolName)) {
+          throw new Error(`Specialist ${raw.id} references unauthorized tool: ${toolName}`);
+        }
+      }
+      newSpecialists.set(raw.id, deepFreeze({
+        id: raw.id,
+        allowedTools: [...raw.allowedTools],
+        evidenceRequired: raw.evidenceRequired === true,
+        doNotUse: String(raw.doNotUse || ''),
+        instructions: raw.instructions.map(String),
+        verification: raw.verification.map(String),
+        packVersion: pPack.packVersion,
+      }));
     }
-    specialists.set(raw.id, deepFreeze({
-      id: raw.id,
-      allowedTools: [...raw.allowedTools],
-      evidenceRequired: raw.evidenceRequired === true,
-      doNotUse: String(raw.doNotUse || ''),
-      instructions: raw.instructions.map(String),
-      verification: raw.verification.map(String),
-      packVersion: promptPack.packVersion,
-    }));
+
+    specialists.clear();
+    for (const [id, value] of newSpecialists.entries()) {
+      specialists.set(id, value);
+    }
+    activePromptPack = pPack;
+    activeSkillsPack = sPack;
   }
+
+  loadPack(promptPack, skillsPack);
 
   function select(route) {
     if (route?.confidence !== 'deterministic') return null;
@@ -78,6 +93,7 @@ export function createPdmSkillRegistry({ promptPack, skillsPack } = {}) {
   return Object.freeze({
     select,
     promptFor,
-    diagnostics: () => Object.freeze({ packVersion: promptPack.packVersion, specialistCount: specialists.size }),
+    reloadPack: (pPack, sPack) => loadPack(pPack, sPack),
+    diagnostics: () => Object.freeze({ packVersion: activePromptPack.packVersion, specialistCount: specialists.size }),
   });
 }

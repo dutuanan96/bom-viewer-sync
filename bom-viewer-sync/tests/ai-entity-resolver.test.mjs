@@ -61,6 +61,42 @@ test('resolves canonical product and material identifiers with NFKC normalizatio
   assert.equal(resolver().resolve({ query: 'chi tiết zg001', expectedTypes: ['material'] }).target.materialId, 'mat_001');
 });
 
+test('resolves nested canonical material names used by the current material database schema', () => {
+  const nestedResolver = createEntityResolver({
+    snapshot: {
+      payload: {
+        bom: { LGS043: { code: 'LGS043' } },
+        materialDb: {
+          materials: {
+            mat_handle: {
+              id: 'mat_handle',
+              code: 'BCLS129228BH',
+              name: { zh: '\u628a\u624b', vi: 'tay n\u1eafm' },
+            },
+          },
+        },
+      },
+    },
+    companyMappings: [mapping({
+      id: 'mapping_company_handle',
+      scope: 'company',
+      phrase: 'handle',
+      target: { type: 'material', materialId: 'mat_handle' },
+    })],
+  });
+
+  const result = nestedResolver.resolve({
+    query: 'LGS043 d\u00f9ng tay n\u1eafm n\u00e0o?',
+    expectedTypes: ['material'],
+  });
+  assert.equal(result.status, 'resolved');
+  assert.equal(result.target.materialId, 'mat_handle');
+  const mapped = nestedResolver.resolve({ query: 'Which handle does LGS043 use?', expectedTypes: ['material'] });
+  assert.equal(mapped.status, 'resolved');
+  assert.equal(mapped.source, 'company-confirmed');
+  assert.equal(mapped.target.materialId, 'mat_handle');
+});
+
 test('resolves exact personal, company, and marketplace aliases', () => {
   const personal = resolver().resolve({ query: 'xem BOM con BellaH màu đen', expectedTypes: ['product-variant'] });
   assert.equal(personal.status, 'resolved');

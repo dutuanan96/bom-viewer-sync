@@ -354,6 +354,9 @@ export function createSettingsView({
   onKnowledgeImport,
   onMarketplaceWebChange,
   onExportMapping,
+  onGithubSync,
+  onGithubRollback,
+  getGithubSyncStatus,
   t = (k) => k,
 }) {
   const container = document.createElement('div');
@@ -583,6 +586,44 @@ export function createSettingsView({
     URL.revokeObjectURL(url);
   });
 
+  const syncSection = document.createElement('section');
+  syncSection.className = 'ai-sync-settings';
+  const syncTitle = document.createElement('h3');
+  const syncStatusEl = document.createElement('div');
+  syncStatusEl.className = 'ai-settings-warning';
+  const syncRefreshBtn = document.createElement('button');
+  syncRefreshBtn.type = 'button';
+  syncRefreshBtn.className = 'btn';
+  const syncRollbackBtn = document.createElement('button');
+  syncRollbackBtn.type = 'button';
+  syncRollbackBtn.className = 'btn';
+
+  function renderSyncStatus() {
+    const info = getGithubSyncStatus?.() || { status: 'fallback', activeCommitSha: null };
+    const statusText = t(`ai.sync.${info.status}`) || info.status;
+    const shaText = info.activeCommitSha ? ` (${info.activeCommitSha.slice(0, 7)})` : '';
+    syncStatusEl.textContent = `${t('ai.sync.status')}: ${statusText}${shaText}${info.lastError ? ` - ${info.lastError}` : ''}`;
+  }
+
+  syncRefreshBtn.addEventListener('click', async () => {
+    if (!onGithubSync) return;
+    syncRefreshBtn.disabled = true;
+    try {
+      await onGithubSync();
+    } catch {
+      // Handled internally by sync module
+    } finally {
+      syncRefreshBtn.disabled = false;
+      renderSyncStatus();
+    }
+  });
+
+  syncRollbackBtn.addEventListener('click', () => {
+    if (!onGithubRollback) return;
+    onGithubRollback();
+    renderSyncStatus();
+  });
+
   function updateLanguage() {
     keyInput.placeholder = t('ai.settings.apiKey');
     keyInput.setAttribute('aria-label', t('ai.settings.apiKey'));
@@ -598,8 +639,12 @@ export function createSettingsView({
     exportButton.textContent = t('ai.memory.export');
     traceTitle.textContent = t('ai.trace.title');
     traceCopyButton.textContent = t('ai.trace.copy');
+    syncTitle.textContent = t('ai.sync.title');
+    syncRefreshBtn.textContent = t('ai.sync.refresh');
+    syncRollbackBtn.textContent = t('ai.sync.rollback');
     renderTrace();
     refreshMemories();
+    renderSyncStatus();
   }
 
   updateLanguage();
@@ -634,6 +679,7 @@ export function createSettingsView({
   traceSection.appendChild(traceOutput);
   traceSection.appendChild(traceCopyButton);
   container.appendChild(traceSection);
+
   memorySection.appendChild(memoryTitle);
   memorySection.appendChild(persistenceStatus);
   memorySection.appendChild(knowledgeInput);
@@ -641,6 +687,11 @@ export function createSettingsView({
   memorySection.appendChild(exportButton);
   memorySection.appendChild(memoryList);
   container.appendChild(memorySection);
+  syncSection.appendChild(syncTitle);
+  syncSection.appendChild(syncStatusEl);
+  syncSection.appendChild(syncRefreshBtn);
+  syncSection.appendChild(syncRollbackBtn);
+  container.appendChild(syncSection);
 
   return {
     element: container,

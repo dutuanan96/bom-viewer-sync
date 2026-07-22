@@ -8,15 +8,14 @@ export function createMemoryManager({ localStore = null } = {}) {
   const store = localStore || createLocalAiStore();
 
   function storeMemory(key, value, snapshot, { confidence = 1.0, expiryDays = null } = {}) {
+    const related = store.listMemories().filter(memory => (
+      memory.scope?.key === key && !['rejected', 'stale'].includes(memory.status)
+    ));
     const existing = store.listConfirmed().filter(m => m.scope?.key === key);
-    
-    // Duplicate merge
-    const exactDuplicate = existing.find(m => m.fact === String(value));
+
+    const exactDuplicate = related.find(m => m.fact === String(value));
     if (exactDuplicate) {
-      // Just update lastUsedAt if we had that, but for now we just return the existing
-      exactDuplicate.lastUsedAt = new Date().toISOString();
-      // Wait, localStore doesn't expose a way to mutate lastUsedAt natively, but we can do it in memory for now.
-      return { status: 'confirmed', memoryId: exactDuplicate.id };
+      return { status: exactDuplicate.status, memoryId: exactDuplicate.id };
     }
 
     const memory = store.createCandidate({
@@ -40,13 +39,7 @@ export function createMemoryManager({ localStore = null } = {}) {
       promptPackVersion: null,
     });
 
-    for (const mem of existing) {
-      store.deleteMemory(mem.id);
-    }
-
-    store.confirm(memory.id);
-
-    return { status: 'confirmed', memoryId: memory.id };
+    return { status: 'candidate', memoryId: memory.id };
   }
 
   function retrieveMemory(key, snapshot) {
@@ -77,12 +70,7 @@ export function createMemoryManager({ localStore = null } = {}) {
       sourceCommit: snapshot?.sourceMetadata?.commitSha || null,
     });
     
-    for (const mem of existing) {
-      store.deleteMemory(mem.id);
-    }
-    
-    store.confirm(memory.id);
-    return { status: 'confirmed', memoryId: memory.id };
+    return { status: 'candidate', memoryId: memory.id };
   }
 
   function decayMemories() {
