@@ -24851,8 +24851,8 @@
         "id": "mat_q6iqc0",
         "code": "LGS333XZQSLBH",
         "name": {
-          "zh": "LGS333_334_433_434-前",
-          "vi": "LGS333_334_433_434-trước"
+          "zh": "LGS333_334_433_434-中竖梁-前",
+          "vi": "LGS333_334_433_434-thanh đứng giữa-trước"
         },
         "spec": {
           "zh": "391x15x15mm",
@@ -24886,7 +24886,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS333-334-433-434-a9dc54e9.glb",
             "matched_name": "LGS333_334_433_434中竖梁-前",
             "score": 1300,
-            "bytes": 69588
+            "bytes": 69588,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS333-334-433-434-a9dc54e9.glb"
           }
         ]
       },
@@ -24894,8 +24895,8 @@
         "id": "mat_1iy168m",
         "code": "LGS333XZHSLBH",
         "name": {
-          "zh": "LGS333_334_433_434-后",
-          "vi": "LGS333_334_433_434-sau"
+          "zh": "LGS333_334_433_434中竖梁-后",
+          "vi": "LGS333_334_433_434-thanh đứng giữa-sau"
         },
         "spec": {
           "zh": "391x15x15mm",
@@ -24929,7 +24930,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS333-334-433-434-60bd1d2e.glb",
             "matched_name": "LGS333_334_433_434中竖梁-后",
             "score": 1300,
-            "bytes": 68776
+            "bytes": 68776,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS333-334-433-434-60bd1d2e.glb"
           }
         ]
       },
