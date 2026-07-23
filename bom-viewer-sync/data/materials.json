@@ -23781,9 +23781,9 @@
         },
         "drawings": [
           {
-            "name": "LGS233-底部横杆左-后.pdf",
+            "name": "LGS233-底部横杆左-后_组件",
             "path": "Google Drive > LGS233 > LGS233-底部横杆左-后.pdf",
-            "url": "https://drive.google.com/file/d/1I89eUenJArzlBIY1vo4v_CBeiB3fT6lK/view?usp=sharing",
+            "url": "https://drive.google.com/file/d/1L0h2tZgp_FmAt-Yq5QLPmm57RQ1c2ARh/view?usp=sharing",
             "matched_name": "LGS233-底部横杆左-后_组件",
             "score": 1012
           }
@@ -23795,7 +23795,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS233-925d3bc7.glb",
             "matched_name": "LGS233-底部横杆左-后_组件",
             "score": 1300,
-            "bytes": 345944
+            "bytes": 345944,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS233-925d3bc7.glb"
           }
         ]
       },
