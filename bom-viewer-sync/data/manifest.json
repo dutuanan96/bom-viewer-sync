@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-23T08:47:49.316Z",
+  "updatedAt": "2026-07-23T09:02:52.198Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6402,6 +6402,14 @@
   },
   "notifications": [
     {
+      "id": "notif_1cx7khc",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-23T09:02:52.198Z",
+      "version": 2,
+      "changes": []
+    },
+    {
       "id": "notif_78c46k",
       "type": "github-save",
       "actor": "admin",
@@ -6843,14 +6851,6 @@
           "after": "LGS333_334_433_434-中竖梁-前 / LGS333_334_433_434-thanh đứng giữa-trước"
         }
       ]
-    },
-    {
-      "id": "notif_xal7oe",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-22T11:19:18.841Z",
-      "version": 2,
-      "changes": []
     }
   ]
 }

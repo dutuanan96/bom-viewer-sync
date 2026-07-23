@@ -19964,7 +19964,15 @@
           "zh": "零件",
           "vi": "linh kiện"
         },
-        "drawings": [],
+        "drawings": [
+          {
+            "name": "LGS231_131-顶部横杆后.pdf",
+            "path": "Google Drive > LGS131 > LGS231_131-顶部横杆后.pdf",
+            "url": "https://drive.google.com/file/d/1xWBTxNZQ7qj6qASICWaE0NqYmxgU10i_/view?usp=sharing",
+            "matched_name": "LGS231_131-顶部横杆后",
+            "score": 1014
+          }
+        ],
         "models3d": [
           {
             "name": "LGS231_131-顶部横杆后.glb",
@@ -19972,7 +19980,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS231-131-593b50c9.glb",
             "matched_name": "LGS231_131-顶部横杆后",
             "score": 1100,
-            "bytes": 174732
+            "bytes": 174732,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS231-131-593b50c9.glb"
           }
         ]
       },
