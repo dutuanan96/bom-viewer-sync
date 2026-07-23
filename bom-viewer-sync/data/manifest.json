@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-23T08:20:00.783Z",
+  "updatedAt": "2026-07-23T08:21:12.595Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6253,12 +6253,12 @@
     },
     "LGS433": {
       "currentRevision": "V4",
-      "effectiveRevision": "",
+      "effectiveRevision": "V4",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6285,6 +6285,14 @@
           "previousRevision": "V4",
           "occurredAt": "2026-07-23T04:24:39.777Z",
           "reason": "更改"
+        },
+        {
+          "id": "effectivity_mrx8s8fc",
+          "action": "release",
+          "revision": "V4",
+          "previousRevision": "",
+          "occurredAt": "2026-07-23T08:21:11.208Z",
+          "reason": "更新"
         }
       ]
     },
@@ -6377,6 +6385,14 @@
     }
   },
   "notifications": [
+    {
+      "id": "notif_ov9ctu",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-23T08:21:12.595Z",
+      "version": 2,
+      "changes": []
+    },
     {
       "id": "notif_1x9pxs4",
       "type": "github-save",
@@ -6829,29 +6845,6 @@
         {
           "kind": "bom_deleted",
           "code": "LGS111WJBWH",
-          "field": "BCLS024019022BH",
-          "before": "",
-          "after": ""
-        }
-      ]
-    },
-    {
-      "id": "notif_dmdkie",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-16T09:58:35.898Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "bom_added",
-          "code": "LGS101WJBWH",
-          "field": "BCLS024019022WH",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "bom_deleted",
-          "code": "LGS101WJBWH",
           "field": "BCLS024019022BH",
           "before": "",
           "after": ""
