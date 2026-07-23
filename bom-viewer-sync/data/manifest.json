@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-23T06:08:37.880Z",
+  "updatedAt": "2026-07-23T06:11:27.192Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6332,12 +6332,12 @@
     },
     "LGS434": {
       "currentRevision": "V5",
-      "effectiveRevision": "",
+      "effectiveRevision": "V5",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6348,11 +6348,27 @@
           "previousRevision": "V5",
           "occurredAt": "2026-07-23T04:28:01.030Z",
           "reason": "更改"
+        },
+        {
+          "id": "effectivity_mrx45ale",
+          "action": "release",
+          "revision": "V5",
+          "previousRevision": "",
+          "occurredAt": "2026-07-23T06:11:22.466Z",
+          "reason": "更新"
         }
       ]
     }
   },
   "notifications": [
+    {
+      "id": "notif_14gvu2i",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-23T06:11:27.192Z",
+      "version": 2,
+      "changes": []
+    },
     {
       "id": "notif_1qbblv4",
       "type": "github-save",
