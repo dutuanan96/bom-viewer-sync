@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-23T08:23:47.717Z",
+  "updatedAt": "2026-07-23T08:47:49.316Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6402,6 +6402,43 @@
   },
   "notifications": [
     {
+      "id": "notif_78c46k",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-23T08:47:49.316Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "3911515XZHSLBH",
+          "field": "code",
+          "before": "LGS333XZHSLBH",
+          "after": "3911515XZHSLBH"
+        },
+        {
+          "kind": "material",
+          "code": "3911515XZHSLWH",
+          "field": "code",
+          "before": "LGS333XZHSLWH",
+          "after": "3911515XZHSLWH"
+        },
+        {
+          "kind": "material",
+          "code": "3911515XZQSLBH",
+          "field": "code",
+          "before": "LGS333XZQSLBH",
+          "after": "3911515XZQSLBH"
+        },
+        {
+          "kind": "material",
+          "code": "391515XZQSLWH",
+          "field": "code",
+          "before": "LGS333XZQSLWH",
+          "after": "391515XZQSLWH"
+        }
+      ]
+    },
+    {
       "id": "notif_1sjnlze",
       "type": "github-save",
       "actor": "admin",
@@ -6812,14 +6849,6 @@
       "type": "github-save",
       "actor": "admin",
       "createdAt": "2026-07-22T11:19:18.841Z",
-      "version": 2,
-      "changes": []
-    },
-    {
-      "id": "notif_fuqieo",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-22T11:14:27.346Z",
       "version": 2,
       "changes": []
     }
