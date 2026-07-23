@@ -20675,9 +20675,9 @@
         },
         "drawings": [
           {
-            "name": "LGS132-S底部横杆左-前.pdf",
+            "name": "LGS132-S底部横杆左-前_组件",
             "path": "Google Drive > LGS132-S > LGS132-S底部横杆左-前.pdf",
-            "url": "https://drive.google.com/file/d/11u9FSnQm3D7iQR4GF01ldLwyOdD6A3L7/view?usp=sharing",
+            "url": "https://drive.google.com/file/d/1bwwrFJWK_i8M33olvSD7YIYVSdad0Lgg/view?usp=sharing",
             "matched_name": "LGS132-S底部横杆左-前_组件",
             "score": 1013
           }
@@ -20689,7 +20689,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS132-S-ceab0d0c.glb",
             "matched_name": "LGS132-S底部横杆左-前_组件",
             "score": 1300,
-            "bytes": 310352
+            "bytes": 310352,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS132-S-ceab0d0c.glb"
           }
         ]
       },
@@ -20718,9 +20719,9 @@
         },
         "drawings": [
           {
-            "name": "LGS132-S底部横杆左-后.pdf",
+            "name": "LGS132-S底部横杆左-后_组件",
             "path": "Google Drive > LGS132-S > LGS132-S底部横杆左-后.pdf",
-            "url": "https://drive.google.com/file/d/12yzyNtGCMVVlWIwrW0BCDk2dSfHgnuAC/view?usp=sharing",
+            "url": "https://drive.google.com/file/d/1UhPWYA7X6--YwWwVfWwHqQDxrKGK650S/view?usp=sharing",
             "matched_name": "LGS132-S底部横杆左-后_组件",
             "score": 1013
           }
@@ -20732,7 +20733,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS132-S-caec5e17.glb",
             "matched_name": "LGS132-S底部横杆左-后_组件",
             "score": 1300,
-            "bytes": 351792
+            "bytes": 351792,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS132-S-caec5e17.glb"
           }
         ]
       },
@@ -21244,9 +21246,9 @@
         },
         "drawings": [
           {
-            "name": "LGS133-底部横杆左-后.pdf",
+            "name": "LGS133-底部横杆左-后_组件",
             "path": "Google Drive > LGS133 > LGS133-底部横杆左-后.pdf",
-            "url": "https://drive.google.com/file/d/1fiLDYDKKZKN7MxCAjTSrWEBp-qubtvtd/view?usp=sharing",
+            "url": "https://drive.google.com/file/d/1SN0xq5Q6cSKuqSXmMTusyTTQ5T5pfCC3/view?usp=sharing",
             "matched_name": "LGS133-底部横杆左-后_组件",
             "score": 1012
           }
@@ -21258,7 +21260,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS133-3291193a.glb",
             "matched_name": "LGS133-底部横杆左-后_组件",
             "score": 1300,
-            "bytes": 345944
+            "bytes": 345944,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS133-3291193a.glb"
           }
         ]
       },

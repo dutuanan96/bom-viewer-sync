@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-23T07:37:48.436Z",
+  "updatedAt": "2026-07-23T07:42:11.738Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6370,6 +6370,14 @@
   },
   "notifications": [
     {
+      "id": "notif_12zpof2",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-23T07:42:11.738Z",
+      "version": 2,
+      "changes": []
+    },
+    {
       "id": "notif_1te163w",
       "type": "github-save",
       "actor": "admin",
@@ -7046,71 +7054,6 @@
           "field": "spec",
           "before": "340x325x168mm",
           "after": "340x327x168mm"
-        }
-      ]
-    },
-    {
-      "id": "notif_pmpz06",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-14T02:36:54.935Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "product_added",
-          "code": "LGS031",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "product_added",
-          "code": "LGS032",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "product_added",
-          "code": "LGS033",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "product_added",
-          "code": "LGS043",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "product_added",
-          "code": "LGS101",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "product_added",
-          "code": "LGS111",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "product_added",
-          "code": "LGS131",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "product_added",
-          "code": "LGS132",
-          "field": "",
-          "before": "",
-          "after": ""
         }
       ]
     }
