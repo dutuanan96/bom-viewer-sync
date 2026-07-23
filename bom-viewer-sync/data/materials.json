@@ -30365,9 +30365,9 @@
         },
         "drawings": [
           {
-            "name": "LGS434-中部横杆左-前.pdf",
+            "name": "LGS434-中部横杆左-前_组件",
             "path": "Google Drive > LGS434 > LGS434-中部横杆左-前.pdf",
-            "url": "https://drive.google.com/file/d/1qg1rZazcFSycJdjMnO4Ty7I3ArZnAbGQ/view?usp=sharing",
+            "url": "https://drive.google.com/file/d/1ZBfOss7skHNMOpC7HVQzWqNb5xBFdOIB/view?usp=sharing",
             "matched_name": "LGS434-中部横杆左-前_组件",
             "score": 1012
           }
@@ -30379,7 +30379,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS434-0debe9f9.glb",
             "matched_name": "LGS434-中部横杆左-前_组件",
             "score": 1300,
-            "bytes": 326120
+            "bytes": 326120,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS434-0debe9f9.glb"
           }
         ]
       },
@@ -31369,9 +31370,9 @@
         },
         "drawings": [
           {
-            "name": "LGS434-中部横杆左-后.pdf",
+            "name": "LGS434-中部横杆左-后_组件",
             "path": "Google Drive > LGS434 > LGS434-中部横杆左-后.pdf",
-            "url": "https://drive.google.com/file/d/1uKGP3X0QRm_bbYzWcP0xyIXNqTjOKnF-/view?usp=sharing",
+            "url": "https://drive.google.com/file/d/1AM_ZonQmW1YECIi3sLpJPRXoDD93Q19W/view?usp=sharing",
             "matched_name": "LGS434-中部横杆左-后_组件",
             "score": 1012
           }
@@ -31383,7 +31384,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS434-a307927e.glb",
             "matched_name": "LGS434-中部横杆左-后_组件",
             "score": 1100,
-            "bytes": 326120
+            "bytes": 326120,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS434-a307927e.glb"
           }
         ]
       },
