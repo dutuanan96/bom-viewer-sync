@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-23T04:14:57.990Z",
+  "updatedAt": "2026-07-23T04:25:06.821Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6253,12 +6253,12 @@
     },
     "LGS433": {
       "currentRevision": "V4",
-      "effectiveRevision": "V4",
+      "effectiveRevision": "",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "released"
+        "workflowState": "draft"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6277,6 +6277,14 @@
           "previousRevision": "",
           "occurredAt": "2026-07-23T03:07:18.647Z",
           "reason": "更新物料"
+        },
+        {
+          "id": "effectivity_mrx0c28x",
+          "action": "withdraw",
+          "revision": "V4",
+          "previousRevision": "V4",
+          "occurredAt": "2026-07-23T04:24:39.777Z",
+          "reason": "更改"
         }
       ]
     },
@@ -6324,6 +6332,29 @@
     }
   },
   "notifications": [
+    {
+      "id": "notif_1fme100",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-23T04:25:06.821Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS433",
+          "field": "",
+          "before": "LGS433XZQSLBH",
+          "after": "LGS333XZQSLBH"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS433",
+          "field": "",
+          "before": "LGS433XZHSLBH",
+          "after": "LGS333XZHSLBH"
+        }
+      ]
+    },
     {
       "id": "notif_170esu6",
       "type": "github-save",
