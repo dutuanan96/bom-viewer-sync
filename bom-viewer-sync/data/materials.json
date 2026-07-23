@@ -26070,8 +26070,8 @@
         "id": "mat_1df0gky",
         "code": "LGS334XHZHLBH",
         "name": {
-          "zh": "LGS334_434_834-后",
-          "vi": "LGS334_434_834-sau"
+          "zh": "LGS334_434_834-底部横杆左-后",
+          "vi": "LGS334_434_834-thanh dưới trái-sau"
         },
         "spec": {
           "zh": "760x15x15mm",
@@ -26105,7 +26105,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-da84b3da.glb",
             "matched_name": "LGS334_434_834-底部横杆左-后",
             "score": 1300,
-            "bytes": 135540
+            "bytes": 135540,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-da84b3da.glb"
           }
         ]
       },
@@ -26177,7 +26178,7 @@
         },
         "drawings": [
           {
-            "url": "https://drive.google.com/drive/folders/1OpL2F-H5IogmaeBOcvqixU8OmXuLXKb6",
+            "url": "https://drive.google.com/file/d/1_VjJQDfHzQRde_7En4irqRfRrtGpfV7x/view?usp=sharing",
             "name": "LGS334_434_834-底部横杆右-后_组件"
           }
         ],
