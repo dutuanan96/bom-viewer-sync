@@ -359,14 +359,14 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
       const trustedMessage = body.messages.find(message => message.content?.startsWith('TRUSTED_LOCAL_PDM_RESULT'));
       expect(body.tools || []).toHaveLength(0);
       expect(trustedMessage?.content).toContain('compare_boms');
-      expect(trustedMessage?.content).toContain('"commonCount":20');
+      expect(trustedMessage?.content).toContain('"commonCount":22');
       expect(trustedMessage?.content).toContain('"\u4e94\u91d1\u5305":11');
       expect(trustedMessage?.content).toContain('"\u5305\u6750":5');
-      expect(trustedMessage?.content).toContain('"\u96f6\u4ef6":4');
+      expect(trustedMessage?.content).toContain('"\u96f6\u4ef6":6');
 
       if (requestCount === 1) {
         await route.fulfill({
-          json: { choices: [{ message: { role: 'assistant', content: '\u8303\u56f4\uff1a\u590d\u53e4\u8272\uff0c\u517120\u4e2a\u76f8\u540cmaterialId\uff1b\u4e94\u91d1\u530511\u3001\u5305\u67505\u3001\u96f6\u4ef64\u3002' } }] }
+          json: { choices: [{ message: { role: 'assistant', content: '\u8303\u56f4\uff1a\u590d\u53e4\u8272\uff0c\u517122\u4e2a\u76f8\u540cmaterialId\uff1b\u4e94\u91d1\u530511\u3001\u5305\u67505\u3001\u96f6\u4ef66\u3002' } }] }
         });
         return;
       }

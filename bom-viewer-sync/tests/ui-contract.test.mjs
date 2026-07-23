@@ -137,7 +137,7 @@ test('Parent-child structure uses per-row edit actions instead of a global edit 
   assert.doesNotMatch(renderStructureDetail, /markDirty\(\)/);
 });
 
-test('BOM table uses per-row material actions instead of a global edit toolbar', () => {
+test('BOM table gates inline and per-row actions behind edit mode', () => {
   const bomActionsHtml = methodSource('bomActionsHtml');
   const toolbarHtml = methodSource('toolbarHtml');
   const rowHtml = methodSource('rowHtml');
@@ -147,7 +147,26 @@ test('BOM table uses per-row material actions instead of a global edit toolbar',
   assert.match(bomActionsHtml, /this\.label\('materialDatabase'\)/);
   assert.match(rowHtml, /this\.label\('editMaterial'\)/);
   assert.doesNotMatch(toolbarHtml, /adminActionsHtml\(\)/);
-  assert.doesNotMatch(rowHtml, /this\.state\.editMode\s*\?/);
+  assert.match(rowHtml, /this\.canEditProductRevision\(\) && this\.state\.editMode/);
+});
+
+test('BOM toolbar exposes edit first and add material only after edit mode is enabled', () => {
+  const context = {
+    state: { dirty: false, editMode: false },
+    label: (key) => key,
+    canCreateProductRevision: () => false,
+    canWithdrawProductRevision: () => false,
+    canEditProductRevision: () => true,
+  };
+
+  const readHtml = bomViewMethods.bomActionsHtml.call(context);
+  assert.match(readHtml, /data-action="toggle-edit"/);
+  assert.doesNotMatch(readHtml, /data-action="add-bom-row"/);
+
+  context.state.editMode = true;
+  const editHtml = bomViewMethods.bomActionsHtml.call(context);
+  assert.match(editHtml, /data-action="toggle-edit"/);
+  assert.match(editHtml, /data-action="add-bom-row"/);
 });
 
 test('Material Database edit action is explicit and compact', () => {
@@ -187,6 +206,12 @@ test('pagination and validation UI use dictionary labels', () => {
 test('Material asset upload controls use i18n and delegated file handling', () => {
   const keys = [
     'uploadAsset',
+    'replaceAsset',
+    'selectExistingAsset',
+    'selectExisting2D',
+    'selectExisting3D',
+    'assetUploaded',
+    'assetTokenRequired',
     'assetPendingUpload',
     'assetFileQueued',
     'invalidAssetFile',
@@ -200,10 +225,13 @@ test('Material asset upload controls use i18n and delegated file handling', () =
   ];
   keys.forEach((key) => assert.match(appSource, new RegExp(`${key}:`)));
   assert.match(appSource, /data-action="upload-asset-file"/);
+  assert.match(appSource, /data-action="select-existing-asset"/);
   assert.match(appSource, /data-asset-file-input/);
   assert.match(appSource, /this\.label\('uploadAsset'\)/);
   assert.match(appSource, /this\.handleMaterialAssetFileInput\(input\)/);
   assert.match(appSource, /this\.openMaterialAssetFilePicker\(actionElement\)/);
+  assert.match(appSource, /this\.selectExistingMaterialAsset\(actionElement\)/);
+  assert.match(appSource, /openMaterialAssetSelector/);
 });
 
 test('direct Material Database page actions do not depend on ambient browser events', () => {
@@ -263,6 +291,8 @@ test('all Admin toolbar sources own dirty save, View Changes, and discard action
     state: { adminView: 'bom', editMode: false, selectedParentId: null },
     label: (key) => key,
     canCreateProductRevision: () => false,
+    canWithdrawProductRevision: () => false,
+    canEditProductRevision: () => false,
   };
   const toolbarSurfaces = [
     bomViewMethods.bomActionsHtml.call(context),
@@ -636,4 +666,154 @@ test('release command reports unsaved changes without opening the prompt', () =>
 
   assert.equal(opened, false);
   assert.deepEqual(status, { message: 'revisionReleaseDirtyBlocked', state: 'error' });
+});
+
+test('unsaved BOM replacements survive navigation across multiple products', async () => {
+  assert.doesNotMatch(appSource, /switchProductWithWarning/);
+  const payload = coreUtils.normalizePayload({
+    bom: {
+      P1: { code: 'P1', colors: ['black'], color_info: { black: { materials: [] } } },
+      P2: { code: 'P2', colors: ['black'], color_info: { black: { materials: [] } } },
+    },
+    materialDb: {
+      version: 1,
+      materials: {
+        old1: { id: 'old1', code: 'OLD-1', name: { zh: 'Old 1', vi: 'Old 1' } },
+        old2: { id: 'old2', code: 'OLD-2', name: { zh: 'Old 2', vi: 'Old 2' } },
+        new1: { id: 'new1', code: 'NEW-1', name: { zh: 'New 1', vi: 'New 1' } },
+        new2: { id: 'new2', code: 'NEW-2', name: { zh: 'New 2', vi: 'New 2' } },
+      },
+      bomEntries: [
+        { id: 'entry-p1', parentType: 'product', parentId: 'P1', productCode: 'P1', color: 'black', materialId: 'old1', qty: '1' },
+        { id: 'entry-p2', parentType: 'product', parentId: 'P2', productCode: 'P2', color: 'black', materialId: 'old2', qty: '1' },
+      ],
+    },
+    productRevisions: {
+      P1: { currentRevision: 'V1.1', currentRevisionInfo: { sourceRevision: 'V1', workflowState: 'draft' }, revisions: [] },
+      P2: { currentRevision: 'V2.1', currentRevisionInfo: { sourceRevision: 'V2', workflowState: 'draft' }, revisions: [] },
+    },
+  });
+  const app = Object.create(BomApplication.prototype);
+  app.mode = 'admin';
+  app.state = {
+    payload,
+    bom: payload.bom,
+    materialDb: payload.materialDb,
+    currentSku: 'P1',
+    currentColor: 'black',
+    selectedRevision: '',
+    selectedMaterialId: '',
+    selectedEntryId: '',
+    materialDraft: null,
+    dirty: false,
+  };
+  app.markDirty = () => { app.state.dirty = true; };
+  app.renderProductList = () => {};
+  app.renderFilterBar = () => {};
+  app.renderContent = () => {};
+  app.renderInspector = () => {};
+  app.prunePendingMaterialAssets = () => {};
+  app._clearSearchBar = () => {};
+
+  let replacementId = 'new1';
+  app.openMaterialSelector = (_title, onSelect) => {
+    onSelect(app.state.payload.materialDb.materials[replacementId]);
+  };
+
+  app.state.lastRows = app.bomRows();
+  app.startReplaceBomRow(0);
+  app.selectProduct('P2');
+  replacementId = 'new2';
+  app.state.lastRows = app.bomRows();
+  app.startReplaceBomRow(0);
+  app.selectProduct('P1');
+
+  assert.equal(app.bomRows()[0]._materialId, 'new1');
+  assert.equal(app.bomRows('P2', 'black')[0]._materialId, 'new2');
+  assert.equal(app.state.dirty, true);
+  assert.equal(app.state.materialDb, app.state.payload.materialDb);
+
+  let cloudLoads = 0;
+  app.githubData = { loadPublic: async () => { cloudLoads += 1; return payload; } };
+  assert.equal(await app.loadCloud({ silent: true }), false);
+  assert.equal(cloudLoads, 0);
+});
+
+test('edit row updates only the selected BOM entry and uses the localized title', () => {
+  const payload = coreUtils.normalizePayload({
+    bom: { P1: { code: 'P1', colors: ['black'], color_info: { black: { materials: [] } } } },
+    materialDb: {
+      version: 1,
+      materials: { mat1: { id: 'mat1', code: 'MAT-1', name: { zh: 'Material', vi: 'Material' } } },
+      bomEntries: [{ id: 'entry-p1', parentType: 'product', parentId: 'P1', productCode: 'P1', color: 'black', materialId: 'mat1', comp_code: 'A', qty: '1' }],
+    },
+    productRevisions: {
+      P1: { currentRevision: 'V1.1', currentRevisionInfo: { sourceRevision: 'V1', workflowState: 'draft' }, revisions: [] },
+    },
+  });
+  const app = Object.create(BomApplication.prototype);
+  app.mode = 'admin';
+  app.state = {
+    payload,
+    materialDb: payload.materialDb,
+    currentSku: 'P1',
+    currentColor: 'black',
+    selectedRevision: '',
+    dirty: false,
+  };
+  app.state.lastRows = app.bomRows();
+  app.label = (key) => key;
+  app.markDirty = () => { app.state.dirty = true; };
+  app.renderContent = () => {};
+  let promptTitle = null;
+  app.openPdmPrompt = (title, _fields, onConfirm) => {
+    promptTitle = title;
+    onConfirm({ comp_code: 'B', qty: '3' });
+  };
+
+  app.editBomRowFromPrompt(0);
+
+  assert.equal(promptTitle, 'editRow');
+  assert.equal(payload.materialDb.bomEntries[0].comp_code, 'B');
+  assert.equal(payload.materialDb.bomEntries[0].qty, '3');
+  assert.equal(app.state.dirty, true);
+});
+
+test('admin can withdraw a released product while another draft change is pending', () => {
+  const payload = coreUtils.normalizePayload({
+    bom: { P2: { code: 'P2', revision: 'V2', colors: [], color_info: {} } },
+    materialDb: { version: 1, materials: {}, bomEntries: [] },
+    productRevisions: {
+      P2: {
+        currentRevision: 'V2',
+        effectiveRevision: 'V2',
+        currentRevisionInfo: { sourceRevision: 'V1', workflowState: 'released' },
+        revisions: [{
+          revision: 'V1',
+          workflowState: 'released',
+          snapshot: { product: { code: 'P2', revision: 'V1', colors: [], color_info: {} }, materialDb: { version: 1, materials: {}, bomEntries: [] } },
+        }],
+        effectivityEvents: [{ id: 'release-v2', action: 'release', revision: 'V2', previousRevision: 'V1' }],
+      },
+    },
+  });
+  const app = Object.create(BomApplication.prototype);
+  app.mode = 'admin';
+  app.state = { payload, currentSku: 'P2', selectedRevision: 'V2', dirty: true };
+  app.label = (key) => key;
+  app.markDirty = () => { app.state.dirty = true; };
+  app.renderAll = () => {};
+  app.openPdmPrompt = (_title, _fields, onConfirm) => onConfirm({ withdrawReason: 'Correction required' });
+  let status = null;
+  app.setStatus = (message, state) => { status = { message, state }; };
+
+  app.withdrawProductRevisionFromPrompt();
+
+  const [current, previous] = app.productRevisionOptions();
+  assert.equal(current.workflowState, 'draft');
+  assert.equal(current.effective, false);
+  assert.equal(previous.revision, 'V1');
+  assert.equal(previous.effective, true);
+  assert.equal(app.state.dirty, true);
+  assert.deepEqual(status, { message: 'revisionWithdrawn', state: 'dirty' });
 });

@@ -352,6 +352,79 @@ test('releasing the current draft moves effectivity and records the transition',
   }]);
 });
 
+test('withdrawing the current release restores the previous effective revision', () => {
+  const payload = normalizePayload({
+    bom: { P1: { code: 'P1', colors: [], color_info: {} } },
+    manuals: { P1: [{ name: 'P1-S-A4-manual-V3.pdf' }] },
+    materialDb: { version: 1, materials: {}, bomEntries: [] },
+  });
+  createProductRevision(payload, 'P1', 'V3.1', {
+    createdAt: '2026-07-13T01:02:03.000Z',
+    changeReason: 'Reduce height by 10mm',
+  });
+  revisionDomain.releaseProductRevision(payload, 'P1', 'V3.1', {
+    eventId: 'effectivity_release_v3_1',
+    occurredAt: '2026-07-13T02:03:04.000Z',
+    reason: 'Approved for production',
+  });
+
+  revisionDomain.withdrawProductRevision(payload, 'P1', 'V3.1', {
+    eventId: 'effectivity_withdraw_v3_1',
+    occurredAt: '2026-07-13T03:04:05.000Z',
+    reason: 'Correction required',
+  });
+
+  const [current, previous] = productRevisionOptions(payload, 'P1');
+  assert.equal(current.workflowState, 'draft');
+  assert.equal(current.effective, false);
+  assert.equal(previous.revision, 'V3');
+  assert.equal(previous.effective, true);
+  assert.deepEqual(payload.productRevisions.P1.effectivityEvents.at(-1), {
+    id: 'effectivity_withdraw_v3_1',
+    action: 'withdraw',
+    revision: 'V3.1',
+    previousRevision: 'V3.1',
+    occurredAt: '2026-07-13T03:04:05.000Z',
+    reason: 'Correction required',
+  });
+});
+
+test('withdrawing a legacy initial release records an explicit no-effective state', () => {
+  const payload = normalizePayload({
+    bom: { P1: { code: 'P1', revision: 'V1', colors: [], color_info: {} } },
+    materialDb: { version: 1, materials: {}, bomEntries: [] },
+  });
+
+  revisionDomain.withdrawProductRevision(payload, 'P1', 'V1', {
+    eventId: 'effectivity_withdraw_v1',
+    occurredAt: '2026-07-13T03:04:05.000Z',
+    reason: 'Correction required',
+  });
+
+  const [current] = productRevisionOptions(payload, 'P1');
+  assert.equal(current.workflowState, 'draft');
+  assert.equal(current.effective, false);
+  assert.equal(payload.productRevisions.P1.effectiveRevision, '');
+  assert.equal(
+    revisionDomain.normalizeProductRevisionRegistry(payload).P1.effectiveRevision,
+    '',
+  );
+});
+
+test('invalid withdrawal is atomic', () => {
+  const payload = normalizePayload({
+    bom: { P1: { code: 'P1', revision: 'V1', colors: [], color_info: {} } },
+    materialDb: { version: 1, materials: {}, bomEntries: [] },
+  });
+  const before = structuredClone(payload);
+
+  assert.throws(
+    () => revisionDomain.withdrawProductRevision(payload, 'P1', 'V1', { reason: '  ' }),
+    /WITHDRAW_REASON_REQUIRED/,
+  );
+  assert.deepEqual(payload, before);
+});
+
 test('invalid release transitions are atomic', () => {
   const payload = normalizePayload({
     bom: { P1: { code: 'P1', colors: [], color_info: {} } },

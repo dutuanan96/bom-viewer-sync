@@ -60,6 +60,7 @@ import {
   payloadForProductRevision,
   productRevisionOptions as revisionOptionsForProduct,
   releaseProductRevision,
+  withdrawProductRevision,
 } from './domain/revisions.js';
 import { bomViewMethods } from './ui/bom-view.js';
 import { catalogViewMethods } from './ui/catalog-view.js';
@@ -620,6 +621,7 @@ const global = globalThis;
     confirmBtn: '确认',
     deleteBomRowConfirm: '删除这行 BOM？',
     addBomRow: '添加物料',
+    editRow: '编辑行',
     bomCompCode: '部件编号',
     bomQty: '数量',
     createRevision: '新建版本',
@@ -641,6 +643,13 @@ const global = globalThis;
     effectiveRevision: '\u4f7f\u7528\u4e2d\u7248\u672c',
     releaseRevision: '\u53d1\u5e03\u7248\u672c',
     releaseRevisionReason: '\u53d1\u5e03\u539f\u56e0',
+    withdrawRevision: '\u64a4\u9500\u53d1\u5e03',
+    withdrawReasonPrompt: '\u64a4\u9500\u53d1\u5e03\u539f\u56e0',
+    revisionWithdrawn: '\u5df2\u64a4\u9500\u53d1\u5e03\uff0c\u8bf7\u4fdd\u5b58\u66f4\u6539',
+    revisionWithdrawReasonRequired: '\u8bf7\u8f93\u5165\u64a4\u9500\u53d1\u5e03\u539f\u56e0',
+    revisionWithdrawCurrentOnly: '\u53ea\u80fd\u64a4\u9500\u6700\u65b0\u7248\u672c',
+    revisionWithdrawReleasedOnly: '\u53ea\u80fd\u64a4\u9500\u5df2\u53d1\u5e03\u7248\u672c',
+    revisionWithdrawFailed: '\u64a4\u9500\u53d1\u5e03\u5931\u8d25',
     revisionReleased: '\u7248\u672c\u5df2\u53d1\u5e03',
     revisionReleaseDirtyBlocked: '\u8bf7\u5148\u4fdd\u5b58\u6216\u653e\u5f03\u5f53\u524d\u66f4\u6539',
     revisionReleaseReasonRequired: '\u8bf7\u8f93\u5165\u53d1\u5e03\u539f\u56e0',
@@ -648,6 +657,14 @@ const global = globalThis;
     revisionReleaseDraftOnly: '\u53ea\u80fd\u53d1\u5e03\u8349\u7a3f\u7248\u672c',
     revisionReleaseFailed: '\u53d1\u5e03\u7248\u672c\u5931\u8d25',
     uploadAsset: '\u4e0a\u4f20\u6587\u4ef6',
+    replaceAsset: '\u66ff\u6362\u6587\u4ef6',
+    selectExistingAsset: '\u9009\u62e9\u5df2\u6709',
+    selectExisting2D: '\u9009\u62e9\u5176\u4ed6\u7269\u6599\u7684 2D \u56fe\u7eb8',
+    selectExisting3D: '\u9009\u62e9\u5176\u4ed6\u7269\u6599\u7684 3D \u6a21\u578b',
+    noReusableAssets: '\u6ca1\u6709\u53ef\u590d\u7528\u7684\u5176\u4ed6\u7269\u6599\u6587\u4ef6',
+    assetReused: '\u5df2\u9009\u62e9\u5df2\u6709\u6587\u4ef6\uff0c\u8bf7\u4fdd\u5b58\u7269\u6599',
+    assetUploaded: '\u6587\u4ef6\u5df2\u4e0a\u4f20\u5230 GitHub\uff0c\u8bf7\u4fdd\u5b58\u7269\u6599',
+    assetTokenRequired: '\u8bf7\u5148\u8fde\u63a5 GitHub \u518d\u4e0a\u4f20\u6587\u4ef6',
     assetPendingUpload: '\u5f85\u4e0a\u4f20',
     assetFileQueued: '\u6587\u4ef6\u5df2\u52a0\u5165\u5f85\u4e0a\u4f20\u961f\u5217',
     invalidAssetFile: '\u6587\u4ef6\u683c\u5f0f\u65e0\u6548',
@@ -737,6 +754,7 @@ const global = globalThis;
     confirmBtn: 'Xác nhận',
     deleteBomRowConfirm: 'Xóa dòng BOM này?',
     addBomRow: 'Thêm vật liệu',
+    editRow: 'Sửa dòng',
     bomCompCode: 'Mã linh kiện',
     bomQty: 'Số lượng',
     createRevision: 'Tạo phiên bản',
@@ -758,6 +776,13 @@ const global = globalThis;
     effectiveRevision: 'Phi\u00ean b\u1ea3n s\u1eed d\u1ee5ng',
     releaseRevision: 'Ph\u00e1t h\u00e0nh phi\u00ean b\u1ea3n',
     releaseRevisionReason: 'L\u00fd do ph\u00e1t h\u00e0nh',
+    withdrawRevision: 'T\u1ea1m ng\u01b0ng ph\u00e1t h\u00e0nh',
+    withdrawReasonPrompt: 'L\u00fd do t\u1ea1m ng\u01b0ng',
+    revisionWithdrawn: '\u0110\u00e3 t\u1ea1m ng\u01b0ng ph\u00e1t h\u00e0nh, h\u00e3y l\u01b0u thay \u0111\u1ed5i',
+    revisionWithdrawReasonRequired: 'H\u00e3y nh\u1eadp l\u00fd do t\u1ea1m ng\u01b0ng',
+    revisionWithdrawCurrentOnly: 'Ch\u1ec9 c\u00f3 th\u1ec3 t\u1ea1m ng\u01b0ng phi\u00ean b\u1ea3n m\u1edbi nh\u1ea5t',
+    revisionWithdrawReleasedOnly: 'Ch\u1ec9 c\u00f3 th\u1ec3 t\u1ea1m ng\u01b0ng phi\u00ean b\u1ea3n \u0111\u00e3 ph\u00e1t h\u00e0nh',
+    revisionWithdrawFailed: 'Kh\u00f4ng th\u1ec3 t\u1ea1m ng\u01b0ng ph\u00e1t h\u00e0nh',
     revisionReleased: '\u0110\u00e3 ph\u00e1t h\u00e0nh phi\u00ean b\u1ea3n',
     revisionReleaseDirtyBlocked: 'H\u00e3y l\u01b0u ho\u1eb7c b\u1ecf c\u00e1c thay \u0111\u1ed5i hi\u1ec7n t\u1ea1i tr\u01b0\u1edbc',
     revisionReleaseReasonRequired: 'H\u00e3y nh\u1eadp l\u00fd do ph\u00e1t h\u00e0nh',
@@ -765,6 +790,14 @@ const global = globalThis;
     revisionReleaseDraftOnly: 'Ch\u1ec9 c\u00f3 th\u1ec3 ph\u00e1t h\u00e0nh b\u1ea3n nh\u00e1p',
     revisionReleaseFailed: 'Kh\u00f4ng th\u1ec3 ph\u00e1t h\u00e0nh phi\u00ean b\u1ea3n',
     uploadAsset: 'T\u1ea3i t\u1ec7p l\u00ean',
+    replaceAsset: 'Thay th\u1ebf t\u1ec7p',
+    selectExistingAsset: 'Ch\u1ecdn t\u1ec7p c\u00f3 s\u1eb5n',
+    selectExisting2D: 'Ch\u1ecdn b\u1ea3n v\u1ebd 2D c\u1ee7a v\u1eadt li\u1ec7u kh\u00e1c',
+    selectExisting3D: 'Ch\u1ecdn m\u00f4 h\u00ecnh 3D c\u1ee7a v\u1eadt li\u1ec7u kh\u00e1c',
+    noReusableAssets: 'Kh\u00f4ng c\u00f3 t\u1ec7p c\u1ee7a v\u1eadt li\u1ec7u kh\u00e1c \u0111\u1ec3 t\u00e1i s\u1eed d\u1ee5ng',
+    assetReused: '\u0110\u00e3 ch\u1ecdn t\u1ec7p c\u00f3 s\u1eb5n, h\u00e3y l\u01b0u v\u1eadt li\u1ec7u',
+    assetUploaded: 'T\u1ec7p \u0111\u00e3 \u0111\u01b0\u1ee3c t\u1ea3i l\u00ean GitHub, h\u00e3y l\u01b0u v\u1eadt li\u1ec7u',
+    assetTokenRequired: 'H\u00e3y k\u1ebft n\u1ed1i GitHub tr\u01b0\u1edbc khi t\u1ea3i t\u1ec7p l\u00ean',
     assetPendingUpload: 'Ch\u1edd t\u1ea3i l\u00ean',
     assetFileQueued: 'T\u1ec7p \u0111\u00e3 \u0111\u01b0\u1ee3c th\u00eam v\u00e0o h\u00e0ng \u0111\u1ee3i',
     invalidAssetFile: 'T\u1ec7p kh\u00f4ng h\u1ee3p l\u1ec7',
@@ -816,6 +849,7 @@ const global = globalThis;
       this.githubData = options.githubData || createGithubShardedDataAdapter({ config: this.config, writerFactory: createGithubGitDataWriter });
       this.githubAssetStorage = options.githubAssetStorage
         || (this.mode === 'admin' ? createGithubAssetStorageAdapter({ config: ASSET_STORAGE_CONFIG }) : null);
+      this.materialAssetUploadVersions = new Map();
       this.notificationToastTimer = null;
       this.state = this.initialState();
     }
@@ -1161,6 +1195,13 @@ const global = globalThis;
         revisionInfo.workflowState === 'released';
     }
 
+    canWithdrawProductRevision() {
+      const revisionInfo = this.selectedProductRevisionInfo();
+      return this.isAdmin() &&
+        Boolean(revisionInfo?.current) &&
+        revisionInfo.workflowState === 'released';
+    }
+
     canReleaseProductRevision() {
       const revisionInfo = this.selectedProductRevisionInfo();
       return this.isAdmin() &&
@@ -1388,6 +1429,12 @@ const global = globalThis;
           this.deleteBomRow(Number(deleteBom.dataset.deleteBomRow));
           return;
         }
+        const editBomRow = event.target.closest('[data-edit-bom-row]');
+        if (editBomRow) {
+          if (!this.canEditProductRevision()) return;
+          this.editBomRowFromPrompt(Number(editBomRow.dataset.editBomRow));
+          return;
+        }
         if (replaceBom) {
           if (!this.canEditProductRevision()) return;
           this.startReplaceBomRow(Number(replaceBom.dataset.replaceBomRow));
@@ -1579,11 +1626,13 @@ const global = globalThis;
       if (action === 'delete-asset-row' && this.isAdmin()) this.deleteMaterialAssetRow(actionElement);
       if (action === 'open-asset') this.openAsset(actionElement);
       if (action === 'upload-asset-file' && this.isAdmin()) this.openMaterialAssetFilePicker(actionElement);
+      if (action === 'select-existing-asset' && this.isAdmin()) this.selectExistingMaterialAsset(actionElement);
       if (action === 'copy') this.copyTable();
       if (action === 'exportExcel') this.exportExcel();
       if (action === 'add-product' && this.isAdmin()) this.addProduct();
       if (action === 'create-product-revision' && this.isAdmin()) this.createProductRevisionFromPrompt();
       if (action === 'release-product-revision' && this.isAdmin()) this.releaseProductRevisionFromPrompt();
+      if (action === 'withdraw-revision' && this.isAdmin()) this.withdrawProductRevisionFromPrompt();
     }
 
     addChildMaterialFromPrompt() {
@@ -2217,6 +2266,7 @@ const global = globalThis;
         INVALID_PDF_FILE: 'invalidPdfFile',
         INVALID_GLB_FILE: 'invalidGlbFile',
         INVALID_GLTF_FILE: 'invalidGltfFile',
+        ASSET_TOKEN_REQUIRED: 'assetTokenRequired',
         PENDING_ASSET_MISSING: 'pendingAssetMissing',
         ASSET_UPLOAD_FAILED: 'assetUploadFailed',
       };
@@ -2237,8 +2287,14 @@ const global = globalThis;
       this.syncMaterialMasterFormToDraft();
       const draftAsset = this.state.materialDraft?.[typeKey]?.[index];
       if (!draftAsset) return;
+      const materialId = this.state.materialDraft.id;
+      const uploadKey = `${materialId}:${typeKey}:${index}`;
+      const uploadVersion = (this.materialAssetUploadVersions.get(uploadKey) || 0) + 1;
+      this.materialAssetUploadVersions.set(uploadKey, uploadVersion);
       try {
         const validated = await validateMaterialAssetFile({ file, typeKey });
+        const token = this.readToken();
+        if (!token) throw new MaterialAssetUploadError('ASSET_TOKEN_REQUIRED');
         const contentHash = await sha256Hex(validated.bytes);
         const path = buildAssetPath({
           kind: validated.kind,
@@ -2246,32 +2302,65 @@ const global = globalThis;
           originalName: validated.originalName,
           contentHash,
         });
-        const previousPendingId = draftAsset.pendingAssetId;
-        this.state.pendingMaterialAssets[path] = {
-          ...validated,
+        this.setStatus(this.label('uploadingAssets'), '');
+        const resolved = await this.githubAssetStorage.uploadAsset({
+          token,
           path,
-          contentHash,
+          contentType: validated.contentType,
+          bytes: validated.bytes,
+        });
+        if (this.materialAssetUploadVersions.get(uploadKey) !== uploadVersion
+          || this.state.materialDraft?.id !== materialId) return;
+        this.syncMaterialMasterFormToDraft();
+        const currentAsset = this.state.materialDraft?.[typeKey]?.[index];
+        if (!currentAsset) return;
+        const previousPendingId = currentAsset.pendingAssetId;
+        const nextAsset = {
+          ...currentAsset,
+          name: currentAsset.name || validated.originalName,
+          url: resolved.url,
+          path: resolved.path,
+          contentHash: resolved.contentHash,
+          commitSha: resolved.commitSha,
         };
-        this.state.materialDraft[typeKey][index] = {
-          ...draftAsset,
-          name: draftAsset.name || validated.originalName,
-          url: '',
-          pendingAssetId: path,
-        };
-        if (previousPendingId && previousPendingId !== path) {
-          delete this.state.pendingMaterialAssets[previousPendingId];
-        }
+        delete nextAsset.pendingAssetId;
+        if (typeKey === 'models3d') nextAsset.previewUrl = resolved.url;
+        this.state.materialDraft[typeKey][index] = nextAsset;
+        if (previousPendingId) delete this.state.pendingMaterialAssets[previousPendingId];
         this.prunePendingMaterialAssets();
         this.renderContent();
-        this.setStatus(this.label('assetFileQueued'), 'saved');
+        this.setStatus(this.label('assetUploaded'), 'saved');
       } catch (error) {
+        if (this.materialAssetUploadVersions.get(uploadKey) !== uploadVersion) return;
         const validationError = error instanceof MaterialAssetUploadError
           ? error
-          : new MaterialAssetUploadError('INVALID_ASSET_FILE');
+          : new MaterialAssetUploadError('ASSET_UPLOAD_FAILED');
         this.setStatus(this.materialAssetErrorLabel(validationError), 'error');
       } finally {
         input.value = '';
       }
+    }
+
+    selectExistingMaterialAsset(button) {
+      if (!this.isAdmin()) return;
+      const typeKey = button?.dataset?.assetType;
+      const index = Number.parseInt(button?.dataset?.assetIndex, 10);
+      if (!['drawings', 'models3d'].includes(typeKey) || !Number.isInteger(index)) return;
+      this.syncMaterialMasterFormToDraft();
+      const materialId = this.state.materialDraft?.id;
+      if (!materialId || !this.state.materialDraft?.[typeKey]?.[index]) return;
+      this.openMaterialAssetSelector(typeKey, (selected) => {
+        if (this.state.materialDraft?.id !== materialId) return;
+        const previousPendingId = this.state.materialDraft[typeKey][index]?.pendingAssetId;
+        const nextAsset = clone(selected.asset);
+        delete nextAsset.pendingAssetId;
+        if (typeKey === 'models3d') nextAsset.previewUrl = nextAsset.url || nextAsset.previewUrl || '';
+        this.state.materialDraft[typeKey][index] = nextAsset;
+        if (previousPendingId) delete this.state.pendingMaterialAssets[previousPendingId];
+        this.prunePendingMaterialAssets();
+        this.renderContent();
+        this.setStatus(this.label('assetReused'), 'saved');
+      });
     }
 
     addMaterialAssetRow(typeKey) {
@@ -2512,6 +2601,25 @@ const global = globalThis;
       });
     }
 
+    editBomRowFromPrompt(index) {
+      if (!this.canEditProductRevision()) return;
+      const material = this.state.lastRows[index];
+      if (!material?._entryId) return;
+      this.openPdmPrompt(this.label('editRow'), [
+        { key: 'comp_code', label: this.label('bomCompCode'), defaultValue: material.comp_code || '' },
+        { key: 'qty', label: this.label('bomQty'), defaultValue: material.qty || '1', required: true }
+      ], (values) => {
+        const entry = this.state.payload.materialDb.bomEntries.find(e => e.id === material._entryId);
+        if (entry) {
+          entry.comp_code = values.comp_code || '';
+          entry.qty = values.qty || '1';
+          this.state.materialDb = this.state.payload.materialDb;
+          this.markDirty();
+          this.renderContent();
+        }
+      });
+    }
+
     addBomRowFromPrompt() {
       if (!this.canEditProductRevision()) return;
       this.openMaterialSelector(this.label('addBomRow'), (record) => {
@@ -2539,6 +2647,35 @@ const global = globalThis;
           this.markDirty();
           this.renderContent();
         });
+      });
+    }
+
+    withdrawProductRevisionFromPrompt() {
+      const revisionInfo = this.selectedProductRevisionInfo();
+      if (!this.isAdmin() || !revisionInfo?.current || revisionInfo.workflowState !== 'released') return;
+      this.openPdmPrompt(this.label('withdrawRevision'), [{
+        key: 'withdrawReason',
+        label: this.label('withdrawReasonPrompt'),
+        required: true,
+      }], (values) => {
+        try {
+          withdrawProductRevision(
+            this.state.payload,
+            this.state.currentSku,
+            this.selectedProductRevision(),
+            { reason: values.withdrawReason },
+          );
+          this.markDirty();
+          this.renderAll();
+          this.setStatus(this.label('revisionWithdrawn'), 'dirty');
+        } catch (error) {
+          const errorKeys = {
+            WITHDRAW_REASON_REQUIRED: 'revisionWithdrawReasonRequired',
+            REVISION_NOT_CURRENT: 'revisionWithdrawCurrentOnly',
+            REVISION_NOT_RELEASED: 'revisionWithdrawReleasedOnly',
+          };
+          this.setStatus(this.label(errorKeys[error.message] || 'revisionWithdrawFailed'), 'error');
+        }
       });
     }
 

@@ -360,14 +360,18 @@ function materialMasterAssetList(title, assets) {
       const pendingStatus = pending
         ? `<span class="asset-pending-upload">${escapeHTML(this.label('assetPendingUpload'))}: ${escapeHTML(pending.originalName)}</span>`
         : '';
+      const uploadLabel = url || pending
+        ? this.label('replaceAsset')
+        : this.label('uploadAsset');
       return `<div class="material-asset-edit-row">
         <div class="material-asset-edit-fields">
           <input class="edit-input" data-asset-edit="name" data-asset-type="${typeKey}" data-asset-index="${index}" placeholder="${escapeHTML(this.label('assetName'))}" value="${escapeHTML(name)}">
           <input class="edit-input material-asset-url-input" data-asset-edit="url" data-asset-type="${typeKey}" data-asset-index="${index}" placeholder="${escapeHTML(this.label('assetUrl'))}" value="${escapeHTML(url)}">
         </div>
         <div class="material-asset-edit-actions">
-          <button class="btn" type="button" data-action="upload-asset-file" data-asset-type="${typeKey}" data-asset-index="${index}">${escapeHTML(this.label('uploadAsset'))}</button>
+          <button class="btn" type="button" data-action="upload-asset-file" data-asset-type="${typeKey}" data-asset-index="${index}">${escapeHTML(uploadLabel)}</button>
           <input class="material-asset-file-input" type="file" hidden data-asset-file-input data-asset-type="${typeKey}" data-asset-index="${index}" accept="${accept}">
+          <button class="btn" type="button" data-action="select-existing-asset" data-asset-type="${typeKey}" data-asset-index="${index}">${escapeHTML(this.label('selectExistingAsset'))}</button>
           <button class="btn" type="button" data-action="open-asset" data-asset-type="${typeKey}" data-asset-index="${index}">${escapeHTML(this.label('openAsset'))}</button>
           <button class="btn danger" type="button" data-action="delete-asset-row" data-asset-type="${typeKey}" data-asset-index="${index}">${escapeHTML(this.label('deleteAsset'))}</button>
         </div>

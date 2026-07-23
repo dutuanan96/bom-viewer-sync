@@ -467,6 +467,105 @@ function openMaterialSelector(title, onSelect) {
   });
 }
 
+function openMaterialAssetSelector(typeKey, onSelect) {
+  if (!['drawings', 'models3d'].includes(typeKey)) return;
+  let modalOverlay = this.query('#materialAssetSelectorOverlay');
+  if (modalOverlay) modalOverlay.remove();
+
+  const titleKey = typeKey === 'drawings' ? 'selectExisting2D' : 'selectExisting3D';
+  const overlayHtml = `<div id="materialAssetSelectorOverlay" class="pdm-modal-overlay">
+    <div class="pdm-modal-content">
+      <div class="pdm-modal-header">
+        <h2>${escapeHTML(this.label(titleKey))}</h2>
+        <button class="pdm-modal-close" data-action="close-asset-selector">&times;</button>
+      </div>
+      <div class="pdm-modal-body">
+        <input type="text" class="pdm-modal-search" placeholder="${escapeHTML(this.label('searchPlaceholder'))}">
+        <ul class="pdm-modal-list"></ul>
+      </div>
+      <div class="pdm-modal-footer">
+        <button class="btn" data-action="close-asset-selector">${escapeHTML(this.label('cancelBtn'))}</button>
+        <button class="btn btn-primary" data-action="confirm-asset-selector" disabled>${escapeHTML(this.label('selectBtn'))}</button>
+      </div>
+    </div>
+  </div>`;
+
+  document.body.insertAdjacentHTML('beforeend', overlayHtml);
+  modalOverlay = this.query('#materialAssetSelectorOverlay');
+  const searchInput = modalOverlay.querySelector('.pdm-modal-search');
+  const listEl = modalOverlay.querySelector('.pdm-modal-list');
+  const confirmBtn = modalOverlay.querySelector('[data-action="confirm-asset-selector"]');
+  const currentMaterialId = this.state.materialDraft?.id || this.state.selectedMaterialId;
+  const candidates = Object.values(this.state.materialDb?.materials || {})
+    .filter((material) => material.id !== currentMaterialId)
+    .flatMap((material) => (material[typeKey] || []).map((asset) => ({
+      material,
+      asset: {
+        ...asset,
+        url: asset.url || (typeKey === 'models3d' ? asset.previewUrl : '') || '',
+      },
+    })))
+    .filter((candidate) => candidate.asset.url);
+  let selectedIndex = -1;
+
+  const renderList = (query = '') => {
+    const normalizedQuery = query.toLowerCase().trim();
+    const rows = candidates
+      .map((candidate, index) => ({ candidate, index }))
+      .filter(({ candidate }) => {
+        const { material, asset } = candidate;
+        const searchable = [
+          material.code,
+          localizedValue(material.name, this.state.lang),
+          localizedValue(material.spec, this.state.lang),
+          asset.name,
+          asset.url,
+        ].join(' ').toLowerCase();
+        return searchable.includes(normalizedQuery);
+      });
+    listEl.innerHTML = rows.length
+      ? rows.map(({ candidate, index }) => {
+        const materialName = localizedValue(candidate.material.name, this.state.lang);
+        const assetName = candidate.asset.name || candidate.asset.url;
+        return `<li class="pdm-modal-list-item ${index === selectedIndex ? 'selected' : ''}" data-index="${index}">
+          <span class="pdm-modal-list-item-code">${escapeHTML(candidate.material.code || candidate.material.id)}</span>
+          <span class="pdm-modal-list-item-name">${escapeHTML(assetName)}${materialName ? ` · ${escapeHTML(materialName)}` : ''}</span>
+        </li>`;
+      }).join('')
+      : `<li class="pdm-modal-list-item">${escapeHTML(this.label('noReusableAssets'))}</li>`;
+  };
+
+  const closeModal = () => {
+    modalOverlay.classList.remove('open');
+    setTimeout(() => modalOverlay.remove(), 200);
+  };
+
+  renderList();
+  listEl.addEventListener('click', (event) => {
+    const item = event.target.closest('[data-index]');
+    if (!item) return;
+    selectedIndex = Number.parseInt(item.dataset.index, 10);
+    confirmBtn.disabled = !Number.isInteger(selectedIndex) || !candidates[selectedIndex];
+    renderList(searchInput.value);
+  });
+  searchInput.addEventListener('input', (event) => renderList(event.target.value));
+  modalOverlay.querySelectorAll('[data-action="close-asset-selector"]')
+    .forEach((button) => button.addEventListener('click', closeModal));
+  modalOverlay.addEventListener('click', (event) => {
+    if (event.target === modalOverlay) closeModal();
+  });
+  confirmBtn.addEventListener('click', () => {
+    const selected = candidates[selectedIndex];
+    if (!selected) return;
+    onSelect(selected);
+    closeModal();
+  });
+  requestAnimationFrame(() => {
+    modalOverlay.classList.add('open');
+    searchInput.focus();
+  });
+}
+
 export const sharedViewMethods = {
   renderStaticText,
   renderStatus,
@@ -486,4 +585,5 @@ export const sharedViewMethods = {
   openPdmPrompt,
   openPdmConfirm,
   openMaterialSelector,
+  openMaterialAssetSelector,
 };

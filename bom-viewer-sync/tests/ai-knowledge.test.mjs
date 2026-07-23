@@ -328,12 +328,14 @@ test('R1.3 integration: LGS723/LGS733 comparison uses shared assets and reports 
     productId1: 'LGS723',
     productId2: 'LGS733',
   });
+  const commonNames = result.common.map(item => item.product1.nameZh);
   const probableNames = result.probableCommon.map(item => item.product1.nameZh);
+  assert.ok(commonNames.includes('LGS723_733-中竖梁-前'));
+  assert.ok(commonNames.includes('LGS723_733-中竖梁-后'));
   assert.ok(probableNames.includes('LGS333_723_733支撑框'));
   assert.ok(probableNames.includes('LGS723_733右侧框'));
   assert.ok(probableNames.includes('LGS723_733左侧框'));
-  assert.ok(result.dataQualityWarnings.some(warning => warning.item1 === 'LGS723_733-前'));
-  assert.ok(result.dataQualityWarnings.some(warning => warning.item1 === 'LGS723_733-后'));
+  assert.ok(result.dataQualityWarnings.some(warning => warning.item1 === '900-灯带'));
   assert.equal(result.dataQualityWarnings.some(warning => warning.item1 === 'LGS723底部横杆-前'), false);
 });
 

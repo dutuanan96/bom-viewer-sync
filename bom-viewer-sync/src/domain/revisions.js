@@ -77,7 +77,12 @@ function hasProductSnapshot(revision) {
 }
 
 function inferredEffectiveRevision(record, currentRevision, currentRevisionInfo, revisions) {
+  const hasExplicitEffectiveRevision = Object.prototype.hasOwnProperty.call(
+    record || {},
+    'effectiveRevision',
+  );
   const explicitRevision = revisionCode(record?.effectiveRevision);
+  if (hasExplicitEffectiveRevision && !explicitRevision) return '';
   if (explicitRevision === currentRevision) return currentRevision;
   if (revisions.some((item) => item.revision === explicitRevision && hasProductSnapshot(item))) {
     return explicitRevision;
@@ -295,6 +300,52 @@ function releaseProductRevision(payload, productCode, selectedRevision, options)
   return nextRecord;
 }
 
+function withdrawProductRevision(payload, productCode, selectedRevision, options) {
+  if (!payload?.bom?.[productCode]) throw new Error('PRODUCT_NOT_FOUND');
+  const record = productRevisionRecord(payload, productCode);
+  const selected = revisionCode(selectedRevision, record.currentRevision);
+  const reason = String(options?.reason || '').trim();
+  if (!reason) throw new Error('WITHDRAW_REASON_REQUIRED');
+  if (selected !== record.currentRevision) throw new Error('REVISION_NOT_CURRENT');
+  if (record.currentRevisionInfo.workflowState !== DEFAULT_REVISION_WORKFLOW_STATE) {
+    throw new Error('REVISION_NOT_RELEASED');
+  }
+
+  const occurredAt = String(options?.occurredAt || new Date().toISOString());
+  const eventId = String(options?.eventId || `effectivity_${Date.now().toString(36)}`);
+  payload.productRevisions = normalizeProductRevisionRegistry(payload);
+  if (!payload.productRevisions[productCode]) {
+    payload.productRevisions[productCode] = productRevisionRecord(payload, productCode);
+  }
+  const nextRecord = payload.productRevisions[productCode];
+  const previousEffectiveRevision = nextRecord.effectiveRevision;
+  const lastReleaseEvent = [...nextRecord.effectivityEvents]
+    .reverse()
+    .find((event) => event.action === 'release' && event.revision === nextRecord.currentRevision);
+  const restoredEffectiveRevision = lastReleaseEvent?.previousRevision ||
+    nextRecord.currentRevisionInfo.sourceRevision ||
+    nextRecord.revisions.find((item) => item.workflowState === DEFAULT_REVISION_WORKFLOW_STATE)?.revision ||
+    '';
+
+  nextRecord.currentRevisionInfo = {
+    ...nextRecord.currentRevisionInfo,
+    workflowState: NEW_REVISION_WORKFLOW_STATE,
+  };
+  nextRecord.effectiveRevision = restoredEffectiveRevision;
+  nextRecord.effectivityEvents = [
+    ...nextRecord.effectivityEvents,
+    {
+      id: eventId,
+      action: 'withdraw',
+      revision: nextRecord.currentRevision,
+      previousRevision: previousEffectiveRevision,
+      occurredAt,
+      reason,
+    },
+  ];
+  return nextRecord;
+}
+
 function payloadForProductRevision(payload, productCode, selectedRevision) {
   const record = productRevisionRecord(payload, productCode);
   const selected = revisionCode(selectedRevision, record.currentRevision);
@@ -322,4 +373,5 @@ export {
   payloadForProductRevision,
   productRevisionOptions,
   releaseProductRevision,
+  withdrawProductRevision,
 };
