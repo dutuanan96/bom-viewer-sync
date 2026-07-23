@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-23T08:21:12.595Z",
+  "updatedAt": "2026-07-23T08:22:38.620Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6319,12 +6319,12 @@
     },
     "LGS334": {
       "currentRevision": "V4",
-      "effectiveRevision": "",
+      "effectiveRevision": "V4",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6335,6 +6335,14 @@
           "previousRevision": "V4",
           "occurredAt": "2026-07-23T04:14:18.030Z",
           "reason": "更改物料"
+        },
+        {
+          "id": "effectivity_mrx8tner",
+          "action": "release",
+          "revision": "V4",
+          "previousRevision": "",
+          "occurredAt": "2026-07-23T08:22:17.283Z",
+          "reason": "更新"
         }
       ]
     },
@@ -6385,6 +6393,14 @@
     }
   },
   "notifications": [
+    {
+      "id": "notif_p1ilre",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-23T08:22:38.620Z",
+      "version": 2,
+      "changes": []
+    },
     {
       "id": "notif_ov9ctu",
       "type": "github-save",
@@ -6825,29 +6841,6 @@
           "field": "name",
           "before": "LGS723_733-前 / LGS723_733-trước",
           "after": "LGS723_733-中竖梁-前 / LGS723_733-Thanh đứng giữa-trước"
-        }
-      ]
-    },
-    {
-      "id": "notif_f7tcm2",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-16T10:01:15.065Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "bom_added",
-          "code": "LGS111WJBWH",
-          "field": "BCLS024019022WH",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "bom_deleted",
-          "code": "LGS111WJBWH",
-          "field": "BCLS024019022BH",
-          "before": "",
-          "after": ""
         }
       ]
     }
