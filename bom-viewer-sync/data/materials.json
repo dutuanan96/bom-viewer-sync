@@ -30103,9 +30103,9 @@
         },
         "drawings": [
           {
-            "name": "LGS334_434_834-底部横杆右-前.pdf",
+            "name": "LGS334_434_834-底部横杆右-前_组件",
             "path": "Google Drive > LGS434 > LGS334_434_834-底部横杆右-前.pdf",
-            "url": "https://drive.google.com/file/d/1Ua21tP07yUxArM0jITHefe5bK-DuICFb/view?usp=sharing",
+            "url": "https://drive.google.com/file/d/1imeKcm7ssrOR0jEG5kqN7eN6UmRjGRyA/view?usp=sharing",
             "matched_name": "LGS334_434_834-底部横杆右-前_组件",
             "score": 1018
           }
@@ -35116,9 +35116,9 @@
         },
         "drawings": [
           {
-            "name": "LGS834顶部横杆右.pdf",
+            "name": "LGS834顶部横杆右_组件",
             "path": "Google Drive > LGS834 > LGS834顶部横杆右.pdf",
-            "url": "https://drive.google.com/file/d/1gj37rgxeD9Zcjg1-BBgLKYGoCe6NpJl_/view?usp=sharing",
+            "url": "https://drive.google.com/file/d/1y8q0X4FyIc_gOlGkkZU0MTbnl8R9fqY1/view?usp=sharing",
             "matched_name": "LGS834顶部横杆右_组件",
             "score": 1011
           }
@@ -35130,7 +35130,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS834-b3b7dce0.glb",
             "matched_name": "LGS834顶部横杆右_组件",
             "score": 1300,
-            "bytes": 500088
+            "bytes": 500088,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS834-b3b7dce0.glb"
           }
         ]
       },
