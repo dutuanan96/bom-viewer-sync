@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-23T03:07:35.799Z",
+  "updatedAt": "2026-07-23T03:11:24.794Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6282,6 +6282,29 @@
     }
   },
   "notifications": [
+    {
+      "id": "notif_vgww62",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-23T03:11:24.794Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "LGS333XZHSLWH",
+          "field": "name",
+          "before": "LGS333_334_433_434-后 / LGS333_334_433_434-sau",
+          "after": "LGS333_334_433_434中竖梁-后 / LGS333_334_433_434 thanh đứng giữa-sau"
+        },
+        {
+          "kind": "material",
+          "code": "LGS333XZQSLWH",
+          "field": "name",
+          "before": "LGS333_334_433_434-前 / LGS333_334_433_434-trước",
+          "after": "LGS333_334_433_434中竖梁-前 / LGS333_334_433_434 thanh đứng giữa-trước"
+        }
+      ]
+    },
     {
       "id": "notif_1l883e",
       "type": "github-save",

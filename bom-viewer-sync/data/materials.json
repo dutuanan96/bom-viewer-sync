@@ -25405,8 +25405,8 @@
         "id": "mat_599nfo",
         "code": "LGS333XZQSLWH",
         "name": {
-          "zh": "LGS333_334_433_434-前",
-          "vi": "LGS333_334_433_434-trước"
+          "zh": "LGS333_334_433_434中竖梁-前",
+          "vi": "LGS333_334_433_434 thanh đứng giữa-trước"
         },
         "spec": {
           "zh": "391x15x15mm",
@@ -25424,7 +25424,15 @@
           "zh": "零件",
           "vi": "linh kiện"
         },
-        "drawings": [],
+        "drawings": [
+          {
+            "name": "LGS333_334_433_434中竖梁-前.pdf",
+            "path": "Google Drive > LGS333 > LGS333_334_433_434中竖梁-前.pdf",
+            "url": "https://drive.google.com/file/d/1RxbU5cDHPNjADbdDQUU6rBYFjQz8OkPw/view?usp=sharing",
+            "matched_name": "LGS333_334_433_434中竖梁-前",
+            "score": 1019
+          }
+        ],
         "models3d": [
           {
             "name": "LGS333_334_433_434中竖梁-前.glb",
@@ -25432,7 +25440,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS333-334-433-434-a9dc54e9.glb",
             "matched_name": "LGS333_334_433_434中竖梁-前",
             "score": 1100,
-            "bytes": 69588
+            "bytes": 69588,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS333-334-433-434-a9dc54e9.glb"
           }
         ]
       },
@@ -25440,8 +25449,8 @@
         "id": "mat_4ri0yq",
         "code": "LGS333XZHSLWH",
         "name": {
-          "zh": "LGS333_334_433_434-后",
-          "vi": "LGS333_334_433_434-sau"
+          "zh": "LGS333_334_433_434中竖梁-后",
+          "vi": "LGS333_334_433_434 thanh đứng giữa-sau"
         },
         "spec": {
           "zh": "391x15x15mm",
@@ -25459,7 +25468,15 @@
           "zh": "零件",
           "vi": "linh kiện"
         },
-        "drawings": [],
+        "drawings": [
+          {
+            "name": "LGS333_334_433_434中竖梁-后.pdf",
+            "path": "Google Drive > LGS333 > LGS333_334_433_434中竖梁-后.pdf",
+            "url": "https://drive.google.com/file/d/1TaYHYCn02ngL7zDRuM_NX-O15zCr_njY/view?usp=sharing",
+            "matched_name": "LGS333_334_433_434中竖梁-后",
+            "score": 1019
+          }
+        ],
         "models3d": [
           {
             "name": "LGS333_334_433_434中竖梁-后.glb",
@@ -25467,7 +25484,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS333-334-433-434-60bd1d2e.glb",
             "matched_name": "LGS333_334_433_434中竖梁-后",
             "score": 1100,
-            "bytes": 68776
+            "bytes": 68776,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS333-334-433-434-60bd1d2e.glb"
           }
         ]
       },
