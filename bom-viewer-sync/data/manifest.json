@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-23T07:55:27.962Z",
+  "updatedAt": "2026-07-23T08:02:12.038Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6370,6 +6370,14 @@
   },
   "notifications": [
     {
+      "id": "notif_akpkfo",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-23T08:02:12.038Z",
+      "version": 2,
+      "changes": []
+    },
+    {
       "id": "notif_1qst37a",
       "type": "github-save",
       "actor": "admin",
@@ -6932,71 +6940,6 @@
           "field": "spec",
           "before": "550x325x173mm",
           "after": "550x327x173mm"
-        }
-      ]
-    },
-    {
-      "id": "notif_17lr5t4",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-16T03:08:33.096Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "BC3503327188KD",
-          "field": "name",
-          "before": "LGS布抽35x32.5x18.7",
-          "after": "LGS布抽35x32.7x18.7"
-        },
-        {
-          "kind": "material",
-          "code": "BC3503327188KD",
-          "field": "spec",
-          "before": "350x325x187mm",
-          "after": "350x327x187mm"
-        },
-        {
-          "kind": "material",
-          "code": "BC3503327188WH",
-          "field": "name",
-          "before": "LGS布抽35x32.5x18.7",
-          "after": "LGS布抽35x32.7x18.7"
-        },
-        {
-          "kind": "material",
-          "code": "BC3503327188WH",
-          "field": "spec",
-          "before": "350x325x187mm",
-          "after": "350x327x187mm"
-        },
-        {
-          "kind": "material",
-          "code": "BC458327171KD",
-          "field": "name",
-          "before": "LGS布抽46x32.5x17.3",
-          "after": "LGS布抽46x32.7x17.3"
-        },
-        {
-          "kind": "material",
-          "code": "BC458327171KD",
-          "field": "spec",
-          "before": "460x325x173mm",
-          "after": "460x327x173mm"
-        },
-        {
-          "kind": "material",
-          "code": "BC458327186BH",
-          "field": "name",
-          "before": "LGS布抽46x32.5x18.7",
-          "after": "LGS布抽46x32.7x18.7"
-        },
-        {
-          "kind": "material",
-          "code": "BC458327186BH",
-          "field": "spec",
-          "before": "460x325x187mm",
-          "after": "460x327x187mm"
         }
       ]
     }
