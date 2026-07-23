@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-23T08:18:14.838Z",
+  "updatedAt": "2026-07-23T08:20:00.783Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6332,12 +6332,12 @@
     },
     "LGS434": {
       "currentRevision": "V5",
-      "effectiveRevision": "",
+      "effectiveRevision": "V5",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6364,11 +6364,27 @@
           "previousRevision": "V5",
           "occurredAt": "2026-07-23T06:17:05.033Z",
           "reason": "更改"
+        },
+        {
+          "id": "effectivity_mrx8qowl",
+          "action": "release",
+          "revision": "V5",
+          "previousRevision": "",
+          "occurredAt": "2026-07-23T08:19:59.253Z",
+          "reason": "更新"
         }
       ]
     }
   },
   "notifications": [
+    {
+      "id": "notif_1x9pxs4",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-23T08:20:00.783Z",
+      "version": 2,
+      "changes": []
+    },
     {
       "id": "notif_1aooiuy",
       "type": "github-save",
@@ -6837,36 +6853,6 @@
           "kind": "bom_deleted",
           "code": "LGS101WJBWH",
           "field": "BCLS024019022BH",
-          "before": "",
-          "after": ""
-        }
-      ]
-    },
-    {
-      "id": "notif_oyxhrk",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-16T09:44:21.495Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "BCLS024019022BH",
-          "field": "material",
-          "before": "木 / gỗ",
-          "after": "PP&GF40"
-        },
-        {
-          "kind": "material",
-          "code": "BCLS024019022BH",
-          "field": "color",
-          "before": "木色 / màu gỗ",
-          "after": "黑色 / màu đen"
-        },
-        {
-          "kind": "material_added",
-          "code": "BCLS024019022WH",
-          "field": "",
           "before": "",
           "after": ""
         }
