@@ -26114,8 +26114,8 @@
         "id": "mat_14esgeh",
         "code": "LGS334XQYHLBH",
         "name": {
-          "zh": "LGS334_434_834-前_组件",
-          "vi": "LGS334_434_834-trước_tổ hợp"
+          "zh": "LGS334_434_834-底部横杆右-前_组件",
+          "vi": "LGS334_434_834-thanh dưới phải-trước_tổ hợp"
         },
         "spec": {
           "zh": "708x15x15mm",
@@ -26135,9 +26135,9 @@
         },
         "drawings": [
           {
-            "name": "LGS334_434_834-底部横杆右-前.pdf",
+            "name": "LGS334_434_834-底部横杆右-前_组件",
             "path": "Google Drive > LGS334 > LGS334_434_834-底部横杆右-前.pdf",
-            "url": "https://drive.google.com/file/d/1Zczq81yUSOkiUeX4Ojks0Yz4zw4jG3t9/view?usp=sharing",
+            "url": "https://drive.google.com/file/d/1imeKcm7ssrOR0jEG5kqN7eN6UmRjGRyA/view?usp=sharing",
             "matched_name": "LGS334_434_834-底部横杆右-前_组件",
             "score": 1018
           }
@@ -26149,7 +26149,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-80df7708.glb",
             "matched_name": "LGS334_434_834-底部横杆右-前_组件",
             "score": 1300,
-            "bytes": 304528
+            "bytes": 304528,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-80df7708.glb"
           }
         ]
       },

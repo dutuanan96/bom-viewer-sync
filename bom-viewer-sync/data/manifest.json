@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-23T03:55:00.996Z",
+  "updatedAt": "2026-07-23T04:03:59.697Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6303,6 +6303,22 @@
     }
   },
   "notifications": [
+    {
+      "id": "notif_y97qpu",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-23T04:03:59.697Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "LGS334XQYHLBH",
+          "field": "name",
+          "before": "LGS334_434_834-前_组件 / LGS334_434_834-trước_tổ hợp",
+          "after": "LGS334_434_834-底部横杆右-前_组件 / LGS334_434_834-thanh dưới phải-trước_tổ hợp"
+        }
+      ]
+    },
     {
       "id": "notif_oobl9y",
       "type": "github-save",
