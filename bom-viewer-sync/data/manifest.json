@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-23T06:37:38.402Z",
+  "updatedAt": "2026-07-23T07:01:49.602Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6369,6 +6369,22 @@
     }
   },
   "notifications": [
+    {
+      "id": "notif_11o9gta",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-23T07:01:49.602Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "LGS334XHYHLWH",
+          "field": "name",
+          "before": "LGS334_434_834-底部横杆右-后 / LGS334_434_834-thanh dưới phải-sau_tổ hợp",
+          "after": "LGS334_434_834-底部横杆右-后_组件 / LGS334_434_834-thanh dưới phải-sau_tổ hợp"
+        }
+      ]
+    },
     {
       "id": "notif_199srg6",
       "type": "github-save",
