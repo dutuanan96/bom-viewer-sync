@@ -36202,6 +36202,58 @@
         },
         "drawings": [],
         "models3d": []
+      },
+      "mat_2d65p2": {
+        "id": "mat_2d65p2",
+        "code": "ZHJ5050105",
+        "name": {
+          "zh": "纸护角",
+          "vi": "giấy nẹp"
+        },
+        "spec": {
+          "zh": "50x50x105mm",
+          "vi": "50x50x105mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_wv88e4": {
+        "id": "mat_wv88e4",
+        "code": "1100310ZK",
+        "name": {
+          "zh": "纸卡",
+          "vi": "giấy lót"
+        },
+        "spec": {
+          "zh": "单瓦1100x60mm",
+          "vi": "sóng đơn 1100x60mm"
+        },
+        "material": {
+          "zh": "瓦楞纸单瓦",
+          "vi": "giấy carton sóng đơn"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": []
       }
     },
     "bomEntries": [

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-25T07:55:53.894Z",
+  "updatedAt": "2026-07-25T08:02:06.199Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6402,6 +6402,29 @@
   },
   "notifications": [
     {
+      "id": "notif_1deiyim",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-25T08:02:06.199Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material_added",
+          "code": "1100310ZK",
+          "field": "",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "material_added",
+          "code": "ZHJ5050105",
+          "field": "",
+          "before": "",
+          "after": ""
+        }
+      ]
+    },
+    {
       "id": "notif_1lwikps",
       "type": "github-save",
       "actor": "admin",
@@ -6835,22 +6858,6 @@
       "createdAt": "2026-07-23T03:05:14.612Z",
       "version": 2,
       "changes": []
-    },
-    {
-      "id": "notif_1re71ac",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-22T11:29:30.029Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "LGS333XZQSLBH",
-          "field": "name",
-          "before": "LGS333_334_433_434-中竖梁-前 / LGS333_334_433_434-thanh đứng giữa-trước",
-          "after": "LGS333_334_433_434中竖梁-前 / LGS333_334_433_434-thanh đứng giữa-trước"
-        }
-      ]
     }
   ]
 }
