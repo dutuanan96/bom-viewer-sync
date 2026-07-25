@@ -15612,14 +15612,14 @@
       },
       "mat_1riroct": {
         "id": "mat_1riroct",
-        "code": "LGS033PM001",
+        "code": "32210511PM",
         "name": {
           "zh": "泡沫",
           "vi": "mút xốp"
         },
         "spec": {
-          "zh": "20Kg,320x100x8mm",
-          "vi": "20Kg,320x100x8mm"
+          "zh": "20Kg, 322x105x11mm",
+          "vi": "20Kg, 322x105x11mm"
         },
         "material": {
           "zh": "EPS泡沫",

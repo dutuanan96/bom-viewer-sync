@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-23T09:02:52.198Z",
+  "updatedAt": "2026-07-25T07:55:53.894Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6402,6 +6402,29 @@
   },
   "notifications": [
     {
+      "id": "notif_1lwikps",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-25T07:55:53.894Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "32210511PM",
+          "field": "code",
+          "before": "LGS033PM001",
+          "after": "32210511PM"
+        },
+        {
+          "kind": "material",
+          "code": "32210511PM",
+          "field": "spec",
+          "before": "20Kg,320x100x8mm",
+          "after": "20Kg, 322x105x11mm"
+        }
+      ]
+    },
+    {
       "id": "notif_1cx7khc",
       "type": "github-save",
       "actor": "admin",
@@ -6826,29 +6849,6 @@
           "field": "name",
           "before": "LGS333_334_433_434-中竖梁-前 / LGS333_334_433_434-thanh đứng giữa-trước",
           "after": "LGS333_334_433_434中竖梁-前 / LGS333_334_433_434-thanh đứng giữa-trước"
-        }
-      ]
-    },
-    {
-      "id": "notif_jfj148",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-22T11:25:26.758Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "LGS333XZHSLBH",
-          "field": "name",
-          "before": "LGS333_334_433_434-后 / LGS333_334_433_434-sau",
-          "after": "LGS333_334_433_434中竖梁-后 / LGS333_334_433_434-thanh đứng giữa-sau"
-        },
-        {
-          "kind": "material",
-          "code": "LGS333XZQSLBH",
-          "field": "name",
-          "before": "LGS333_334_433_434-前 / LGS333_334_433_434-trước",
-          "after": "LGS333_334_433_434-中竖梁-前 / LGS333_334_433_434-thanh đứng giữa-trước"
         }
       ]
     }
