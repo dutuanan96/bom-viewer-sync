@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-25T08:07:02.592Z",
+  "updatedAt": "2026-07-25T08:08:10.143Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6402,6 +6402,22 @@
   },
   "notifications": [
     {
+      "id": "notif_3tcouu",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-25T08:08:10.143Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "LGS033ZK",
+          "field": "spec",
+          "before": "单瓦1100x60mm / sóng ØØn 1100x60mm",
+          "after": "单瓦1100x60mm / sóng đơn 1100x60mm"
+        }
+      ]
+    },
+    {
       "id": "notif_1l30qzy",
       "type": "github-save",
       "actor": "admin",
@@ -6858,14 +6874,6 @@
           "after": "LGS333_334_433_434中竖梁-前 / LGS333_334_433_434 thanh đứng giữa-trước"
         }
       ]
-    },
-    {
-      "id": "notif_1l883e",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-23T03:07:35.799Z",
-      "version": 2,
-      "changes": []
     }
   ]
 }
