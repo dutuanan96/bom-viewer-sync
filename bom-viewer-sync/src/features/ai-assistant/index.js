@@ -12,6 +12,16 @@ import { createEntityResolver } from './entity-resolver.js';
 import { createMappingCandidate, exportCompanyPromotion, personalMappingsFromStore } from './entity-mapping.js';
 import { productRevisionOptions } from '../../domain/revisions.js';
 import { createGithubKnowledgeSync } from './github-knowledge-sync.js';
+import { createMemoryManager } from './memory-manager.js';
+import { parseReviewerResponse, reviewerMessages } from './improvement-cycle.js';
+import {
+  buildDrawingAnalysisMessages,
+  buildSingleDrawingAnalysisMessages,
+  parseDrawingAnalysisResponse,
+  parseSingleDrawingAnalysisResponse,
+  runDrawingCommonalityCheck,
+  runSingleDrawingAnalysis,
+} from './engineering-drawing-commonality.js';
 import promptPack from '../../../knowledge/ai/prompt-pack.json' with { type: 'json' };
 import skillsPack from '../../../knowledge/ai/skills.json' with { type: 'json' };
 import companyEntityAliases from '../../../knowledge/entity-aliases.json' with { type: 'json' };
@@ -46,7 +56,7 @@ function contextForRoute(route, snapshot, fallback = {}, query = '') {
     materialIds: materialIds.length > 0 ? materialIds : (sameProductScope ? (fallback.materialIds || []) : []),
     revisions: revisions.length > 0 ? revisions : (sameProductScope ? (fallback.revisions || []) : []),
   };
-  const routeSearchQuery = route?.preferredTool === 'search_pdm'
+  const routeSearchQuery = ['search_pdm', 'analyze_pdm'].includes(route?.preferredTool)
     ? String(entities.searchQuery || query || '').trim()
     : '';
   const searchQuery = routeSearchQuery || String(fallback.searchQuery || '').trim();
@@ -95,6 +105,19 @@ export function formatLocalToolFallback(t, { toolCall, toolResult } = {}) {
     lines.push(`${tr('ai.localFallback.currentRevision', 'Current Revision')}: ${toolResult.currentRevision || ''}`);
     lines.push(`${tr('ai.localFallback.effectiveRevision', 'Effective Revision')}: ${toolResult.effectiveRevision || ''}`);
     if (toolResult.currentRevisionInfo?.changeReason) lines.push(toolResult.currentRevisionInfo.changeReason);
+    return lines.join('\n').slice(0, 5000);
+  }
+
+  if (toolCall.name === 'get_bom') {
+    const scope = [toolResult.productCode, toolResult.color].filter(Boolean).join(' / ');
+    lines.push(`${tr('ai.localFallback.scope', 'Scope')}: ${scope}`);
+    lines.push(`${tr('ai.localFallback.matches', 'Matches')}: ${toolResult.matchedRows ?? toolResult.totalRows ?? 0}`);
+    lines.push(...(toolResult.rows || []).slice(0, 12).map(row => (
+      `- ${tr('ai.localFallback.bomLevel', 'BOM level')} ${row.level || 1}: `
+      + `${row.matCode || row.materialId || ''} `
+      + `${[row.nameZh, row.nameVi].filter(Boolean).join(' / ')} `
+      + `${row.spec || ''} x${row.qty || ''}`.trim()
+    )));
     return lines.join('\n').slice(0, 5000);
   }
 
@@ -201,6 +224,39 @@ export function formatLocalToolFallback(t, { toolCall, toolResult } = {}) {
     return lines.join('\n').slice(0, 5000);
   }
 
+  if (toolCall.name === 'check_drawing_commonality') {
+    lines.push(`${tr('ai.drawing.status', 'Drawing commonality status')}: ${toolResult.status}`);
+    for (const pair of (toolResult.pairs || []).slice(0, 4)) {
+      lines.push(`${pair.orientation}: ${pair.left?.material_code || ''} <=> ${pair.right?.material_code || ''}`);
+      lines.push(`${tr('ai.drawing.pairStatus', 'Pair status')}: ${pair.status}`);
+      lines.push(`${tr('ai.drawing.leftDocument', 'Left drawing')}: ${pair.left_asset?.name || tr('ai.drawing.missingDocument', 'missing')}`);
+      lines.push(`${tr('ai.drawing.rightDocument', 'Right drawing')}: ${pair.right_asset?.name || tr('ai.drawing.missingDocument', 'missing')}`);
+      for (const comparison of (pair.analysis?.comparisons || []).slice(0, 12)) {
+        lines.push(`- ${comparison.check}: ${comparison.status} | ${comparison.left_value || '?'} <=> ${comparison.right_value || '?'}`);
+      }
+    }
+    lines.push(tr('ai.drawing.engineeringApproval', 'Engineering confirmation is required before material or BOM consolidation.'));
+    return lines.join('\n').slice(0, 5000);
+  }
+
+  if (toolCall.name === 'analyze_engineering_drawing') {
+    lines.push(`${tr('ai.drawing.analysisStatus', 'Drawing analysis status')}: ${toolResult.status}`);
+    lines.push(`${tr('ai.drawing.materialCode', 'Material code')}: ${toolResult.document?.material_code || '?'}`);
+    lines.push(`${tr('ai.drawing.document', 'Drawing')}: ${toolResult.document?.file_name || tr('ai.drawing.missingDocument', 'missing')}`);
+    const dimensions = toolResult.overall_dimensions || {};
+    const dimensionText = ['length_mm', 'width_mm', 'height_mm']
+      .map(key => dimensions[key]?.value_mm)
+      .map(value => value === null || value === undefined ? '?' : value)
+      .join(' x ');
+    lines.push(`${tr('ai.drawing.dimensions', 'Overall dimensions')}: ${dimensionText} mm`);
+    for (const feature of (toolResult.features || []).slice(0, 12)) {
+      lines.push(`- ${feature.type}: ${feature.quantity ?? '?'} | Ø ${feature.diameter_mm ?? '?'} mm | confidence ${feature.confidence}`);
+    }
+    for (const warning of (toolResult.warnings || []).slice(0, 8)) lines.push(`! ${warning}`);
+    lines.push(tr('ai.drawing.singleApproval', 'Engineering confirmation is required before production decisions.'));
+    return lines.join('\n').slice(0, 5000);
+  }
+
   return '';
 }
 
@@ -222,7 +278,7 @@ const TOOL_SCHEMAS = {
   },
   get_bom: {
     description: 'Get BOM rows for a product',
-    parameters: { type: 'object', properties: { productId: PRODUCT_ID_SCHEMA, color: NON_EMPTY_STRING_SCHEMA }, required: ['productId'], additionalProperties: false }
+    parameters: { type: 'object', properties: { productId: PRODUCT_ID_SCHEMA, color: NON_EMPTY_STRING_SCHEMA, query: NON_EMPTY_STRING_SCHEMA }, required: ['productId'], additionalProperties: false }
   },
   get_revision_history: {
     description: 'Get revision history and status (draft, released) for a product',
@@ -245,15 +301,71 @@ const TOOL_SCHEMAS = {
     parameters: { type: 'object', properties: { productId: PRODUCT_ID_SCHEMA }, required: ['productId'], additionalProperties: false }
   },
   apply_mutation: {
-    description: 'Apply an exact data mutation locally. Use this to update material fields or BOM quantities. operationType must be update_material_field or update_bom_quantity.',
+    description: [
+      'Prepare a reviewed local PDM proposal using only allowlisted Admin actions.',
+      'Never write code or upload to GitHub. Submit 1-50 ordered operations for deterministic validation and human selection.',
+      'Use these exact button-equivalent patterns:',
+      'create_product targetId=product code payload={name:{zh,vi},color:{zh,vi},size,sku};',
+      'update_product targetId=product code payload={color,patch:{optional name:{zh,vi},size,sku}};',
+      'create_product_revision targetId=product code payload={revision,changeReason};',
+      'release_product_revision or withdraw_product_revision targetId=product code payload={reason};',
+      'create_material targetId=new material ID payload={material:{code,name:{zh,vi}, optional spec/material/color/attr localized pairs, unit, drawings, models3d}};',
+      'update_material targetId=material ID payload={patch:{same editable material fields}};',
+      'update_material_field targetId=material ID payload={field,value};',
+      'delete_material targetId=unused material ID payload={};',
+      'add_bom_item targetId=product code payload={color,materialId,comp_code,quantity};',
+      'update_bom_item targetId=BOM entry ID payload={comp_code,quantity};',
+      'update_bom_quantity targetId=product code payload={color,childId,quantity};',
+      'replace_bom_item targetId=BOM entry ID payload={materialId};',
+      'remove_bom_item targetId=BOM entry ID payload={}.',
+      'add_material_child targetId=parent material ID payload={materialId,quantity};',
+      'update_material_child_quantity targetId=parent material ID payload={childId,originalQuantity,quantity};',
+      'remove_material_child targetId=child BOM entry ID payload={};',
+      'delete_material_structure targetId=parent material ID payload={}.',
+    ].join(' '),
     parameters: {
       type: 'object',
       properties: {
-        operationType: { type: 'string' },
-        targetId: { type: 'string' },
-        payload: { type: 'object' }
+        summary: { type: 'string', maxLength: 1000 },
+        operations: {
+          type: 'array',
+          minItems: 1,
+          maxItems: 50,
+          items: {
+            type: 'object',
+            properties: {
+              operationType: {
+                type: 'string',
+                enum: [
+                  'create_product',
+                  'update_product',
+                  'create_product_revision',
+                  'release_product_revision',
+                  'withdraw_product_revision',
+                  'create_material',
+                  'update_material',
+                  'update_material_field',
+                  'delete_material',
+                  'add_bom_item',
+                  'update_bom_item',
+                  'update_bom_quantity',
+                  'replace_bom_item',
+                  'remove_bom_item',
+                  'add_material_child',
+                  'update_material_child_quantity',
+                  'remove_material_child',
+                  'delete_material_structure',
+                ],
+              },
+              targetId: { type: 'string', minLength: 1, maxLength: 100 },
+              payload: { type: 'object' },
+            },
+            required: ['operationType', 'targetId', 'payload'],
+            additionalProperties: false,
+          },
+        },
       },
-      required: ['operationType', 'targetId', 'payload'],
+      required: ['operations'],
       additionalProperties: false
     }
   },
@@ -308,19 +420,46 @@ const TOOL_SCHEMAS = {
       required: ['query'],
       additionalProperties: false
     }
+  },
+  analyze_engineering_drawing: {
+    description: 'Resolve and inspect one exact PDM PDF engineering drawing. Returns evidence-bound title block, dimensions, features, tolerances, notes, warnings, and readability status without changing PDM data.',
+    parameters: {
+      type: 'object',
+      properties: { query: NON_EMPTY_STRING_SCHEMA, productId: PRODUCT_ID_SCHEMA },
+      required: ['query', 'productId'],
+      additionalProperties: false,
+    },
+  },
+  check_drawing_commonality: {
+    description: 'Inspect exact PDM PDF drawings and assess whether matched front/front or rear/rear parts are candidates for common use. Read-only and engineering approval remains required.',
+    parameters: {
+      type: 'object',
+      properties: { query: NON_EMPTY_STRING_SCHEMA },
+      required: ['query'],
+      additionalProperties: false,
+    },
   }
 };
 
 export function buildAvailableTools(modelInfo) {
   return Array.from(ALLOWED_TOOLS)
-    .filter(name => name !== 'apply_mutation' || modelInfo?.grade === 'A')
+    .filter(name => name !== 'apply_mutation' || ['A', 'B'].includes(modelInfo?.grade))
     .map(name => ({
       type: 'function',
       function: { name, ...TOOL_SCHEMAS[name] }
     }));
 }
 
-export function createAiAssistantFeature({ runTool, getSnapshot, localStore, fetchImpl = globalThis.fetch, t = (k) => k, githubSyncConfig = {} }) {
+export function createAiAssistantFeature({
+  runTool,
+  getSnapshot,
+  getImprovementEvidence,
+  mode = 'viewer',
+  localStore,
+  fetchImpl = globalThis.fetch,
+  t = (k) => k,
+  githubSyncConfig = {},
+}) {
   let settings = null;
   const gateway = createOpenRouterGateway({ fetchImpl });
   const trustPolicy = createTrustPolicy();
@@ -328,6 +467,47 @@ export function createAiAssistantFeature({ runTool, getSnapshot, localStore, fet
     gateway,
     trustPolicy,
     runTool: async (call, snapshot) => {
+      if (call?.name === 'analyze_engineering_drawing') {
+        const drawingModel = modelRegistry.find(model => model.id === 'xiaomi/mimo-v2.5')?.id || '';
+        return runSingleDrawingAnalysis({
+          query: call.arguments.query,
+          productId: call.arguments.productId,
+          snapshot,
+          model: drawingModel,
+          analyzeDocument: drawingModel
+            ? async (part, asset) => {
+                const response = await gateway.chat({
+                  model: drawingModel,
+                  messages: buildSingleDrawingAnalysisMessages(part, asset),
+                  tools: [],
+                  maxTokens: 3200,
+                  pdfProcessing: { engine: 'native' },
+                });
+                return parseSingleDrawingAnalysisResponse(response?.choices?.[0]?.message?.content);
+              }
+            : null,
+        });
+      }
+      if (call?.name === 'check_drawing_commonality') {
+        const drawingModel = modelRegistry.find(model => model.id === 'xiaomi/mimo-v2.5')?.id || '';
+        return runDrawingCommonalityCheck({
+          query: call.arguments.query,
+          snapshot,
+          model: drawingModel,
+          analyzePair: drawingModel
+            ? async (pair, leftAsset, rightAsset) => {
+                const response = await gateway.chat({
+                  model: drawingModel,
+                  messages: buildDrawingAnalysisMessages(pair, leftAsset, rightAsset),
+                  tools: [],
+                  maxTokens: 2600,
+                  pdfProcessing: { engine: 'native' },
+                });
+                return parseDrawingAnalysisResponse(response?.choices?.[0]?.message?.content);
+              }
+            : null,
+        });
+      }
       const result = typeof runTool === 'function'
         ? await runTool(call, snapshot)
         : { error: 'Tool execution not provided' };
@@ -344,6 +524,7 @@ export function createAiAssistantFeature({ runTool, getSnapshot, localStore, fet
   const knowledgeImporter = createKnowledgeImporter();
   const conversationSession = createConversationSession();
   const skillRegistry = createPdmSkillRegistry({ promptPack, skillsPack });
+  const memoryManager = createMemoryManager({ localStore });
   const githubSync = createGithubKnowledgeSync({
     config: { owner: 'dutuanan96', repo: 'bom-viewer-sync', path: 'knowledge/ai', ref: 'main', ...githubSyncConfig },
     defaultPack: {
@@ -380,6 +561,7 @@ export function createAiAssistantFeature({ runTool, getSnapshot, localStore, fet
   let currentModel = 'nvidia/nemotron-3-ultra-550b-a55b:free';
   let modelRegistry = [];
   let marketplaceWebEnabled = false;
+  let pendingTeachingQuery = '';
 
   const refreshModels = () => {
     modelRegistry = gateway.listModels();
@@ -408,10 +590,13 @@ export function createAiAssistantFeature({ runTool, getSnapshot, localStore, fet
         });
         const entityResolution = entityResolver.resolve({ query: text });
         const materialResolution = entityResolver.resolve({ query: text, expectedTypes: ['material'] });
-        const proposalTargetAuthorized = entityResolution.status === 'resolved'
-          && entityResolution.requiresConfirmation === false
-          && ['canonical-id', 'personal-confirmed', 'company-confirmed', 'marketplace-confirmed'].includes(entityResolution.source);
-        const availableTools = proposalTargetAuthorized
+        const proposalRequested = mode === 'admin' && (
+          /\b(?:add|create|update|edit|delete|remove|replace|change|modify)\b|thêm|tạo|sửa|chỉnh|xóa|thay|cập nhật|添加|创建|修改|编辑|删除|移除|替换|更新/iu.test(text)
+        );
+        const lifecycleProposalRequested = mode === 'admin' && (
+          /\b(?:release|publish|withdraw|link|attach)\b|ph\u00e1t h\u00e0nh|r\u00fat ph\u00e1t h\u00e0nh|\u53d1\u5e03|\u64a4\u56de/iu.test(text)
+        );
+        const availableTools = proposalRequested || lifecycleProposalRequested
           ? modelTools
           : modelTools.filter(tool => tool?.function?.name !== 'apply_mutation');
         const resolvedEntities = [];
@@ -425,10 +610,51 @@ export function createAiAssistantFeature({ runTool, getSnapshot, localStore, fet
           ));
           if (!duplicate) resolvedEntities.push(materialResolution.target);
         }
-        const route = routePdmIntent({ query: text, history, conversationContext, selection: snapshot.selection, availableTools, resolvedEntities });
-        const turnEntityResolution = materialResolution.status === 'resolved'
-          ? materialResolution
-          : entityResolution;
+        const learnedStrategies = localStore?.listConfirmed?.({ currentSourceCommit })
+          .filter(memory => memory.scope?.memoryType === 'procedure') || [];
+        const route = routePdmIntent({
+          query: text,
+          history,
+          conversationContext,
+          selection: snapshot.selection,
+          availableTools,
+          resolvedEntities,
+          learnedStrategies,
+        });
+        if (pendingTeachingQuery && route.confidence === 'ambiguous') {
+          const teaching = memoryManager.storeUserTeaching(pendingTeachingQuery, text, snapshot);
+          localStore?.createImprovementCandidate?.({
+            issueType: 'user-teaching',
+            userQuestion: pendingTeachingQuery,
+            userCorrection: text,
+            route,
+            context: contextForRoute(route, snapshot),
+            evidence: { sourceCommit: currentSourceCommit },
+          });
+          pendingTeachingQuery = '';
+          settings.refreshMemories();
+          settings.refreshImprovements?.();
+          const reply = teaching.status === 'confirmed'
+            ? t('ai.learning.teachingSaved')
+            : t('ai.message.error');
+          workspace.renderMessage({ role: 'assistant', text: reply });
+          try { conversationSession.record({ userText: text, assistantText: reply }); } catch {}
+          if (workspace.toggleLoading) workspace.toggleLoading(false);
+          return;
+        }
+        if (pendingTeachingQuery && route.confidence !== 'ambiguous') pendingTeachingQuery = '';
+        const hasDeterministicProductScope = ['deterministic', 'learned'].includes(route.confidence)
+          && Array.isArray(route.entities?.productIds)
+          && route.entities.productIds.length > 0;
+        const hasExactResolutionConflict = entityResolution.requiresConfirmation === true
+          && entityResolution.confidence === 1;
+        const turnEntityResolution = hasExactResolutionConflict
+          ? entityResolution
+          : hasDeterministicProductScope
+          ? null
+          : materialResolution.status === 'resolved'
+            ? materialResolution
+            : entityResolution;
 
         if (route.intent === 'greeting') {
           const reply = t('ai.message.greetingResponse');
@@ -459,6 +685,26 @@ export function createAiAssistantFeature({ runTool, getSnapshot, localStore, fet
           clarificationText: t('ai.mapping.clarification'),
           conversationContext,
         });
+        if (result.needsTeaching) {
+          pendingTeachingQuery = text;
+          result.text = t('ai.learning.requestTeaching');
+        }
+        try {
+          const successfulTools = result.learning?.successfulTools || [];
+          const learnedTool = route.preferredTool || (
+            route.confidence === 'ambiguous' && successfulTools.length === 1
+              ? successfulTools[0]
+              : ''
+          );
+          memoryManager.learnSuccessfulStrategy({
+            query: text,
+            intent: route.confidence === 'ambiguous' ? 'learned_read' : route.intent,
+            preferredTool: learnedTool,
+            successfulTools,
+          });
+        } catch {
+          // Learning must never block a grounded answer.
+        }
 
         workspace.renderMessage({
           role: 'assistant',
@@ -489,11 +735,34 @@ export function createAiAssistantFeature({ runTool, getSnapshot, localStore, fet
               promptPackVersion: AI_PROMPT_PACK_VERSION,
               entityMapping: mapping,
             });
+            localStore.createImprovementCandidate?.({
+              issueType: 'entity-alias',
+              userQuestion: result.entityResolution.phrase,
+              userCorrection: canonicalTarget,
+              route,
+              context: contextForRoute(route, snapshot),
+              evidence: { sourceCommit: currentSourceCommit },
+            });
             settings.refreshMemories();
+            settings.refreshImprovements?.();
             workspace.renderMessage({ role: 'assistant', text: t('ai.mapping.candidateCreated') });
           },
         });
         settings.updateTrace(result.trace);
+        if (result.fallback) {
+          localStore?.createImprovementCandidate?.({
+            issueType: 'provider-failure',
+            userQuestion: text,
+            assistantAnswer: result.text,
+            route,
+            context: contextForRoute(route, snapshot, result.conversationContext, text),
+            evidence: {
+              sourceCommit: currentSourceCommit,
+              evidenceIds: (result.evidenceItems || []).map(item => item?.id || item?.sourceRef).filter(Boolean),
+            },
+          });
+          settings.refreshImprovements?.();
+        }
         try {
           const resultContext = result.conversationContext || {};
           const retainedContext = Object.keys(resultContext).length > 0 && !resultContext.searchQuery
@@ -521,11 +790,13 @@ export function createAiAssistantFeature({ runTool, getSnapshot, localStore, fet
       }
     },
     onClear: () => {
+      pendingTeachingQuery = '';
       conversationSession.clear();
     }
   });
 
   settings = createSettingsView({
+    mode,
     t,
     onConnect: async (key) => {
       try {
@@ -539,6 +810,7 @@ export function createAiAssistantFeature({ runTool, getSnapshot, localStore, fet
     },
     onDisconnect: () => {
       gateway.clearKey();
+      pendingTeachingQuery = '';
       conversationSession.clear();
       settings.updateState(false);
       workspace.clear();
@@ -583,6 +855,47 @@ export function createAiAssistantFeature({ runTool, getSnapshot, localStore, fet
       }
     },
     getGithubSyncStatus: () => githubSync.getStatus(),
+    onImprovementImport: async (file) => localStore.importImprovementBundle(await file.text()),
+    onImprovementExport: () => localStore.exportImprovementBundle(),
+    onImprovementReview: async (id) => {
+      if (mode !== 'admin') throw new Error('Admin mode is required');
+      const candidate = localStore.listImprovementCandidates().find(item => item.id === id);
+      if (!candidate) throw new Error('Improvement candidate not found');
+      const reviewerModel = modelRegistry
+        .filter(model => model.id !== currentModel && (model.grade === 'A' || model.grade === 'B'))
+        .sort((left, right) => (
+          Number(right.id === 'xiaomi/mimo-v2.5') - Number(left.id === 'xiaomi/mimo-v2.5')
+        ))[0]?.id;
+      if (!reviewerModel) throw new Error('A separate compatible reviewer model is required');
+      const evidence = typeof getImprovementEvidence === 'function'
+        ? await getImprovementEvidence(candidate, getSnapshot())
+        : {};
+      const response = await gateway.chat({
+        model: reviewerModel,
+        messages: reviewerMessages(candidate, evidence),
+        tools: [],
+        maxTokens: 800,
+      });
+      const review = parseReviewerResponse(response?.choices?.[0]?.message?.content, {
+        reviewerModel,
+        reviewedAt: new Date().toISOString(),
+      });
+      return localStore.setImprovementReview(id, review);
+    },
+    onImprovementApprove: (id) => {
+      if (mode !== 'admin') throw new Error('Admin mode is required');
+      return localStore.approveImprovement(id);
+    },
+    onImprovementReject: (id) => {
+      if (mode !== 'admin') throw new Error('Admin mode is required');
+      return localStore.rejectImprovement(id);
+    },
+    onApprovedKnowledgeExport: () => {
+      if (mode !== 'admin') throw new Error('Admin mode is required');
+      const snapshot = getSnapshot();
+      const sourceCommit = snapshot?.sourceMetadata?.commitSha || snapshot?.payload?.sourceMetadata?.commitSha || '';
+      return localStore.exportApprovedKnowledge({ sourceCommit });
+    },
   });
 
   return {
@@ -594,6 +907,7 @@ export function createAiAssistantFeature({ runTool, getSnapshot, localStore, fet
     },
     disconnect: () => {
       gateway.clearKey();
+      pendingTeachingQuery = '';
       conversationSession.clear();
       settings.updateState(false);
       workspace.clear();
@@ -609,6 +923,7 @@ export function createAiAssistantFeature({ runTool, getSnapshot, localStore, fet
     },
     destroy: () => {
       gateway.clearKey();
+      pendingTeachingQuery = '';
       conversationSession.clear();
       if (typeof workspace.destroy === 'function') workspace.destroy();
       settings.element.remove();

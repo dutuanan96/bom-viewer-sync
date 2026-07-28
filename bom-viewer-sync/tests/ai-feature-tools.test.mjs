@@ -9,11 +9,12 @@ test('runtime memory provenance uses the active prompt pack version', () => {
   assert.equal(AI_PROMPT_PACK_VERSION, promptPack.packVersion);
 });
 
-test('Grade B models receive read-only tools without apply_mutation', () => {
+test('Grade B models may prepare validated proposals without receiving any GitHub write tool', () => {
   const tools = buildAvailableTools({ grade: 'B' });
 
-  assert.equal(tools.some(tool => tool.function.name === 'apply_mutation'), false);
+  assert.equal(tools.some(tool => tool.function.name === 'apply_mutation'), true);
   assert.equal(tools.some(tool => tool.function.name === 'search_products'), true);
+  assert.equal(tools.some(tool => /github|save|upload/i.test(tool.function.name)), false);
 });
 
 test('Grade A models receive apply_mutation', () => {

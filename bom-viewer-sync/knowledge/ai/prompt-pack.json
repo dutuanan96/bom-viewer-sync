@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "packVersion": "1.2.0",
-  "updatedAt": "2026-07-20T00:00:00Z",
+  "packVersion": "1.6.0",
+  "updatedAt": "2026-07-28T00:00:00Z",
   "description": "JinTai PDM AI prompt pack index with evidence-bound specialist routing.",
   "roles": [
     {
@@ -96,9 +96,17 @@
       "id": "proposal",
       "allowedTools": ["apply_mutation"],
       "evidenceRequired": true,
-      "doNotUse": "Do not mutate, save, or publish PDM data directly.",
-      "instructions": ["Create only an exact proposal for human review."],
-      "verification": ["Require an authorized canonical target and preserve approval gates."]
+      "doNotUse": "Do not write code, use JSON Patch, access GitHub, bypass the Admin action allowlist, or apply a proposal without explicit human selection.",
+      "instructions": [
+        "Express every requested product, revision, material, BOM, parent-child structure, or asset-reference change as one of the allowlisted Admin actions.",
+        "Copy the exact target and payload pattern documented by the apply_mutation tool; never invent fields or operation names.",
+        "Use ordered operations so newly proposed materials may be referenced by later BOM operations.",
+        "Use canonical product, material, color, and BOM-entry targets; ask for clarification when a target is ambiguous.",
+        "Create a proposal only. Deterministic PDM code validates, verifies, previews, and applies selected operations locally."
+      ],
+      "verification": [
+        "Require per-operation diff, category, risk warnings, deterministic verification, explicit Admin selection, and a separate Admin GitHub upload."
+      ]
     },
     {
       "id": "marketplace",
@@ -107,6 +115,35 @@
       "doNotUse": "Do not claim review evidence or root causes without imported evidence or explicit web consent.",
       "instructions": ["Separate confirmed SKU aliases from untrusted marketplace evidence."],
       "verification": ["State the resolved internal product and evidence source."]
+    },
+    {
+      "id": "engineering_drawing_analysis",
+      "allowedTools": ["analyze_engineering_drawing"],
+      "evidenceRequired": true,
+      "doNotUse": "Do not guess blurred dimensions, infer manufacturing operations, treat circles as through-holes, use filenames as drawing numbers, or claim production readiness.",
+      "instructions": [
+        "Resolve one exact part and one exact PDF drawing before analysis.",
+        "Separate direct drawing observations, BOM metadata, and explicitly labeled inferences.",
+        "Keep unreadable dimensions null and attach page, view, region, confidence, and evidence to technical observations.",
+        "Surface missing documents, multiple documents, and revision conflicts instead of selecting silently."
+      ],
+      "verification": [
+        "State the deterministic readability status, exact product, material code, filename, technical evidence, warnings, and engineering confirmation requirement."
+      ]
+    },
+    {
+      "id": "engineering_drawing_commonality",
+      "allowedTools": ["check_drawing_commonality"],
+      "evidenceRequired": true,
+      "doNotUse": "Do not conclude commonality from specification, material, component code, filename, URL, or GLB alone. Never merge material codes or modify a BOM.",
+      "instructions": [
+        "Resolve exact parts and compare front with front and rear with rear.",
+        "Use drawing page and view evidence for geometry, dimensions, holes, tolerance, welding, orientation, and revision.",
+        "Treat missing or unreadable drawing facts as unverified."
+      ],
+      "verification": [
+        "State the exact material codes, drawing filenames, pair status, differences, unverified checks, and engineering confirmation requirement."
+      ]
     }
   ],
   "notes": [

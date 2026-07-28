@@ -8,6 +8,9 @@ const INTENT_TO_SPECIALIST = Object.freeze({
   material_usage: 'material_usage',
   marketplace: 'marketplace',
   sku_alias: 'marketplace',
+  proposal: 'proposal',
+  drawing_analysis: 'engineering_drawing_analysis',
+  drawing_commonality: 'engineering_drawing_commonality',
 });
 
 function deepFreeze(value) {

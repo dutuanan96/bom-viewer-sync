@@ -184,6 +184,37 @@ test('settings renders governed mapping details and disables promotion until con
   assert.ok(buttons.some(button => button.textContent === 'ai.memory.reject'));
 });
 
+test('improvement settings separate viewer export from admin review and approval controls', () => {
+  const localStore = {
+    listMemories: () => [],
+    listImprovementCandidates: () => [{
+      id: 'improvement_1',
+      status: 'reviewed',
+      userQuestion: 'Which product uses this part?',
+      userCorrection: 'LGS433',
+      review: {
+        decision: 'recommend-approve',
+        evidenceStatus: 'supported',
+        summary: 'Supported by PDM.',
+      },
+    }],
+    diagnostics: () => ({ persistence: 'persistent' }),
+  };
+  const viewer = createSettingsView({ mode: 'viewer', localStore, t: key => key });
+  const viewerButtons = findAll(viewer.element, node => node?.tagName === 'button');
+  assert.ok(viewerButtons.some(button => button.textContent === 'ai.improvement.export'));
+  assert.ok(!viewerButtons.some(button => button.textContent === 'ai.improvement.approve'));
+  assert.equal(findAll(viewer.element, node => node?.tagName === 'input' && node.accept === '.json').length, 0);
+
+  const admin = createSettingsView({ mode: 'admin', localStore, t: key => key });
+  const adminButtons = findAll(admin.element, node => node?.tagName === 'button');
+  assert.ok(adminButtons.some(button => button.textContent === 'ai.improvement.review'));
+  assert.ok(adminButtons.some(button => button.textContent === 'ai.improvement.approve'));
+  assert.ok(adminButtons.some(button => button.textContent === 'ai.improvement.reject'));
+  assert.ok(adminButtons.some(button => button.textContent === 'ai.improvement.exportApproved'));
+  assert.equal(findAll(admin.element, node => node?.tagName === 'input' && node.accept === '.json').length, 1);
+});
+
 test('workspace renders bounded canonical mapping choices with safe text nodes', () => {
   const feature = createAiAssistantFeature({ runTool: async () => {}, getSnapshot: () => ({ selection: {} }) });
   feature.ui.renderMessage({

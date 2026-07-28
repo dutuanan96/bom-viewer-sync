@@ -1,3 +1,9 @@
 playwright-report/
 test-results/
+debug.log
+.ai_diff.txt
+.git_diff.txt
+.git_working_diff.txt
+review_diff*.txt
+.agents-cli-spec.md
 

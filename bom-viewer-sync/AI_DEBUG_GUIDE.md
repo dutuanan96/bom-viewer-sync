@@ -3,7 +3,8 @@
 Operational debugging guide for the canonical PDM/BOM Viewer repository.
 Read this file before changing code. Stable architecture is documented in
 `docs/ARCHITECTURE.md`; build and publication are documented in
-`docs/RELEASE.md`.
+`docs/RELEASE.md`. Current AI capabilities and extension contracts are
+documented in `docs/PDM_AI_MAINTENANCE.md`.
 
 ## 1. Start Here
 
@@ -274,6 +275,15 @@ For a live smoke test, enter a newly rotated key directly in Settings. Never
 paste a real key into chat, shell commands, files, screenshots, test fixtures,
 or trace output. Live OpenRouter results are supplemental evidence and do not
 replace deterministic tests.
+
+Admin mutation debugging must start from the exact operation allowlist in
+`src/features/ai-assistant/contracts.js`. Follow the matching context guard,
+transaction, risk, warning, and verification path in
+`src/features/ai-assistant/mutation-engine.js`. The model may propose product,
+revision, material, BOM, structure, and asset-reference changes, but it cannot
+execute arbitrary code or invoke the final GitHub save. Add new Admin
+capabilities by extending the exact schema and deterministic executor, never by
+adding a generic browser or code tool.
 
 ## 7. Verification And Handoff
 

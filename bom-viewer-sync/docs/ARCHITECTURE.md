@@ -24,6 +24,10 @@ keeps edits local, and performs an explicit GitHub save only after user action.
 | `src/domain/relationships.js` | Parent-child material relationships |
 | `src/domain/revisions.js` | Revision history, snapshots, and effectivity |
 | `src/features/notifications.js` | Payload diff and notification events |
+| `src/features/ai-assistant/contracts.js` | Exact AI tool and mutation schemas |
+| `src/features/ai-assistant/mutation-engine.js` | Admin proposal transaction, risk, and verification |
+| `src/features/ai-assistant/engineering-drawing-commonality.js` | Evidence-bound drawing analysis |
+| `src/features/ai-assistant/improvement-cycle.js` | Viewer candidate and Admin review workflow |
 | `src/features/material-asset-upload.js` | Pending file validation and resolution |
 | `src/infrastructure/github-sharded-data.js` | Exact shard reads and writer delegation |
 | `src/infrastructure/github-git-data.js` | Atomic Git Data write sequence |
@@ -132,9 +136,23 @@ payload loaded at the start of the editing session. The ref update uses
 ## Notifications
 
 Payload diff covers product additions, material additions or deletions,
-material field changes, and BOM additions, deletions, or quantity changes.
+product-variant and revision changes, material fields and assets, and BOM or
+parent-child additions, deletions, replacements, or quantity changes.
 Remote notification history is preserved before the current save notification
 is appended.
+
+## AI Assistant
+
+The assistant uses canonical PDM retrieval before model synthesis. Viewer is
+read-only. Admin may receive exact structured mutation proposals for products,
+revisions, materials, BOM rows, parent-child structures, and material asset
+references.
+
+The deterministic mutation engine validates context, applies operations to a
+clone, calculates the diff, detects graph cycles and domain violations, assigns
+risk and warnings, and presents selectable operations for Admin review. It does
+not execute model-authored code or call the GitHub save flow. See
+`docs/PDM_AI_MAINTENANCE.md` for the current allowlist and extension workflow.
 
 ## Localization And Security
 

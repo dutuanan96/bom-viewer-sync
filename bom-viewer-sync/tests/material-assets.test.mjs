@@ -69,15 +69,6 @@ function localGlbFile() {
   };
 }
 
-function uploadedPdfResult() {
-  return {
-    url: `https://cdn.jsdelivr.net/gh/test/assets@${'a'.repeat(40)}/assets/pdfs/drawing.pdf`,
-    path: `assets/pdfs/MAT-001_${'b'.repeat(64)}_drawing_final.pdf`,
-    contentHash: 'b'.repeat(64),
-    commitSha: 'a'.repeat(40)
-  };
-}
-
 function configurePendingDrawingForm(app) {
   app.queryAll = (selector) => {
     if (selector.includes('[data-material-master-edit]')) return [];
@@ -101,18 +92,13 @@ function configurePendingDrawingForm(app) {
   };
 }
 
-test('selecting a PDF uploads immediately and updates only the Material Draft', async () => {
+test('selecting a PDF stages it immediately without a GitHub token or stored material mutation', async () => {
   const { app } = setupApp();
   let uploadCount = 0;
-  const uploaded = uploadedPdfResult();
-  app.readToken = () => 'github-token';
   app.githubAssetStorage = {
-    async uploadAsset(input) {
+    async uploadAsset() {
       uploadCount += 1;
-      assert.equal(input.token, 'github-token');
-      assert.equal(input.contentType, 'application/pdf');
-      assert.match(input.path, /^assets\/pdfs\/MAT-001_[a-f0-9]{64}_drawing_final\.pdf$/);
-      return uploaded;
+      return {};
     }
   };
   app.openMaterialMasterEditor('mat-1');
@@ -129,55 +115,63 @@ test('selecting a PDF uploads immediately and updates only the Material Draft', 
   });
 
   const draftAsset = app.state.materialDraft.drawings[0];
-  assert.equal(uploadCount, 1);
+  assert.equal(uploadCount, 0);
   assert.equal((app.state.materialDb.materials['mat-1'].drawings || []).length, 0);
-  assert.equal(draftAsset.url, uploaded.url);
+  assert.equal(draftAsset.url, '');
   assert.equal(draftAsset.name, 'drawing final.pdf');
   assert.equal(draftAsset.driveId, 'preserved-drive-id');
-  assert.equal(draftAsset.path, uploaded.path);
-  assert.equal(draftAsset.contentHash, uploaded.contentHash);
-  assert.equal('pendingAssetId' in draftAsset, false);
-  assert.deepEqual(app.state.pendingMaterialAssets, {});
+  assert.match(draftAsset.pendingAssetId, /^assets\/pdfs\/MAT-001_[a-f0-9]{64}_drawing_final\.pdf$/);
+  assert.equal(app.state.pendingMaterialAssets[draftAsset.pendingAssetId].bytes instanceof Uint8Array, true);
+  assert.equal(app.state.materialAssetFeedback, null);
 });
 
-test('local upload requires a connected GitHub token and preserves the existing asset', async () => {
+test('invalid local replacement preserves the existing asset and renders inline feedback', async () => {
   const { app } = setupApp();
-  let uploadCount = 0;
   let status = null;
-  app.readToken = () => '';
-  app.githubAssetStorage = {
-    async uploadAsset() {
-      uploadCount += 1;
-      return uploadedPdfResult();
-    }
-  };
+  let renderCount = 0;
   app.openMaterialMasterEditor('mat-1');
   app.state.materialDraft = structuredClone(app.state.materialDb.materials['mat-1']);
   app.state.materialDraft.drawings = [{ name: 'Existing', url: 'https://example.com/existing.pdf' }];
   configurePendingDrawingForm(app);
   app.label = (key) => key;
   app.setStatus = (message, state) => { status = { message, state }; };
+  app.renderContent = () => { renderCount += 1; };
 
   await app.handleMaterialAssetFileInput({
     dataset: { assetType: 'drawings', assetIndex: '0' },
-    files: [pendingPdfFile()],
+    files: [{
+      name: 'not-a-pdf.txt',
+      type: 'text/plain',
+      size: 4,
+      async arrayBuffer() {
+        return new TextEncoder().encode('text').buffer;
+      }
+    }],
     value: 'selected'
   });
 
-  assert.equal(uploadCount, 0);
   assert.equal(app.state.materialDraft.drawings[0].url, 'https://example.com/existing.pdf');
-  assert.deepEqual(status, { message: 'assetTokenRequired', state: 'error' });
+  assert.deepEqual(app.state.materialAssetFeedback, {
+    typeKey: 'drawings',
+    index: 0,
+    message: 'invalidPdfFile',
+    state: 'error'
+  });
+  assert.deepEqual(status, { message: 'invalidPdfFile', state: 'error' });
+  assert.equal(renderCount, 1);
+
+  const html = app.materialMasterAssetList('2D', app.state.materialDraft.drawings);
+  assert.match(html, /asset-inline-feedback error/);
+  assert.match(html, /invalidPdfFile/);
 });
 
-test('Save Material commits an already uploaded URL without uploading twice', async () => {
+test('Save Material commits a pending local reference without uploading', async () => {
   const { app } = setupApp();
   let uploadCount = 0;
-  const uploaded = uploadedPdfResult();
-  app.readToken = () => 'github-token';
   app.githubAssetStorage = {
     async uploadAsset() {
       uploadCount += 1;
-      return uploaded;
+      return {};
     }
   };
   app.openMaterialMasterEditor('mat-1');
@@ -195,23 +189,21 @@ test('Save Material commits an already uploaded URL without uploading twice', as
   app.saveMaterialMaster();
 
   const saved = app.state.materialDb.materials['mat-1'].drawings[0];
-  assert.equal(uploadCount, 1);
-  assert.equal(saved.url, uploaded.url);
+  assert.equal(uploadCount, 0);
+  assert.equal(saved.url, '');
   assert.equal(saved.sourceUrl, 'preserved-source');
-  assert.equal(saved.path, uploaded.path);
-  assert.equal('pendingAssetId' in saved, false);
+  assert.match(saved.pendingAssetId, /^assets\/pdfs\//);
   assert.equal(app.state.materialDraft, null);
-  assert.deepEqual(app.state.pendingMaterialAssets, {});
+  assert.equal(app.state.pendingMaterialAssets[saved.pendingAssetId].originalName, 'drawing final.pdf');
 });
 
-test('Back discards the draft reference after the binary was uploaded', async () => {
+test('Back discards the staged replacement and its pending bytes', async () => {
   const { app } = setupApp();
   let uploadCount = 0;
-  app.readToken = () => 'github-token';
   app.githubAssetStorage = {
     async uploadAsset() {
       uploadCount += 1;
-      return uploadedPdfResult();
+      return {};
     }
   };
   app.openMaterialMasterEditor('mat-1');
@@ -226,8 +218,8 @@ test('Back discards the draft reference after the binary was uploaded', async ()
     files: [pendingPdfFile()],
     value: 'selected'
   });
-  assert.equal(uploadCount, 1);
-  assert.equal(app.state.materialDraft.drawings[0].url, uploadedPdfResult().url);
+  assert.equal(uploadCount, 0);
+  assert.equal(Object.keys(app.state.pendingMaterialAssets).length, 1);
 
   app.backMaterialList();
 
@@ -235,16 +227,8 @@ test('Back discards the draft reference after the binary was uploaded', async ()
   assert.deepEqual(app.state.pendingMaterialAssets, {});
 });
 
-test('uploading on an existing 3D row replaces the draft model immediately', async () => {
+test('selecting a local GLB stages a replacement while preserving the stored model', async () => {
   const { app } = setupApp();
-  const replacement = {
-    url: `https://cdn.jsdelivr.net/gh/test/assets@${'c'.repeat(40)}/assets/models/replacement.glb`,
-    path: `assets/models/MAT-001_${'d'.repeat(64)}_replacement.glb`,
-    contentHash: 'd'.repeat(64),
-    commitSha: 'c'.repeat(40)
-  };
-  app.readToken = () => 'github-token';
-  app.githubAssetStorage = { uploadAsset: async () => replacement };
   app.openMaterialMasterEditor('mat-1');
   app.queryAll = (selector) => {
     if (selector.includes('[data-material-master-edit]')) return [];
@@ -264,9 +248,10 @@ test('uploading on an existing 3D row replaces the draft model immediately', asy
     value: 'selected'
   });
 
-  assert.equal(app.state.materialDraft.models3d[0].url, replacement.url);
-  assert.equal(app.state.materialDraft.models3d[0].previewUrl, replacement.url);
-  assert.equal(app.state.materialDraft.models3d[0].path, replacement.path);
+  const draftModel = app.state.materialDraft.models3d[0];
+  assert.equal(draftModel.url, '');
+  assert.match(draftModel.pendingAssetId, /^assets\/models\/MAT-001_[a-f0-9]{64}_replacement\.glb$/);
+  assert.equal(app.state.pendingMaterialAssets[draftModel.pendingAssetId].bytes instanceof Uint8Array, true);
   assert.equal(app.state.materialDb.materials['mat-1'].models3d[0].previewUrl, 'https://cdn.example.com/original.glb');
 });
 

@@ -169,20 +169,20 @@ function materialDbFilterBar() {
 function materialDbToolbar(records) {
   const actions = this.isAdmin()
     ? this.materialDbActionsHtml()
-    : `<button class="btn btn-primary" type="button" data-action="exportExcel">${escapeHTML(this.label('exportExcel'))}</button>`;
-  return `<div class="count"><strong>${records.length}</strong> ${escapeHTML(this.label('materials'))}</div>
+    : `<button class="btn btn-primary" type="button" data-action="exportExcel"><span class="material-symbols-outlined">download</span> ${escapeHTML(this.label('exportExcel'))}</button>`;
+  return `<div class="table-title"><span class="material-symbols-outlined">dataset</span><strong>${escapeHTML(this.label('materialDatabase'))}</strong><span class="count">${records.length} ${escapeHTML(this.label('materials'))}</span></div>
     <div class="table-actions">${actions}</div>`;
 }
 
 function materialDbActionsHtml() {
   const dirtyHidden = this.state.dirty ? '' : ' hidden';
-  return `<button class="btn btn-primary" type="button" data-dirty-action data-action="save"${dirtyHidden}>${escapeHTML(this.label('save'))}</button>
-    <button class="btn" type="button" data-dirty-action data-action="view-changes"${dirtyHidden}>${escapeHTML(this.label('viewChanges'))}</button>
-    <button class="btn" type="button" data-dirty-action data-action="discard"${dirtyHidden}>${escapeHTML(this.label('discard'))}</button>
-    <button class="btn" type="button" data-action="reload">${escapeHTML(this.label('reload'))}</button>
-    <button class="btn" type="button" data-action="bom-view">BOM</button>
-    <button class="btn" type="button" data-action="add-db-material">${escapeHTML(this.label('addMaterial'))}</button>
-    <button class="btn btn-primary" type="button" data-action="exportExcel">${escapeHTML(this.label('exportExcel'))}</button>`;
+  return `<button class="btn btn-primary" type="button" data-dirty-action data-action="save"${dirtyHidden}><span class="material-symbols-outlined">save</span> ${escapeHTML(this.label('save'))}</button>
+    <button class="btn" type="button" data-dirty-action data-action="view-changes"${dirtyHidden}><span class="material-symbols-outlined">difference</span> ${escapeHTML(this.label('viewChanges'))}</button>
+    <button class="btn" type="button" data-dirty-action data-action="discard"${dirtyHidden}><span class="material-symbols-outlined">delete</span> ${escapeHTML(this.label('discard'))}</button>
+    <button class="btn" type="button" data-action="reload"><span class="material-symbols-outlined">refresh</span> ${escapeHTML(this.label('reload'))}</button>
+    <button class="btn" type="button" data-action="bom-view"><span class="material-symbols-outlined">account_tree</span> BOM</button>
+    <button class="btn" type="button" data-action="add-db-material"><span class="material-symbols-outlined">add</span> ${escapeHTML(this.label('addMaterial'))}</button>
+    <button class="btn btn-primary" type="button" data-action="exportExcel"><span class="material-symbols-outlined">download</span> ${escapeHTML(this.label('exportExcel'))}</button>`;
 }
 
 function filteredMaterialRecords() {
@@ -221,7 +221,7 @@ function materialDbRowHtml(record) {
   const spuPills = usedProducts.length
     ? usedProducts.map((s) => `<span class="spu-pill">${escapeHTML(s)}</span>`).join('')
     : '<span class="mdb-empty">-</span>';
-  const editButton = `<button class="drawing-btn" type="button" data-edit-db-material="${escapeHTML(record.id)}">${escapeHTML(this.label('editMaterial'))}</button>`;
+  const editButton = `<button class="drawing-btn" title="${escapeHTML(this.label('editMaterial'))}" type="button" data-edit-db-material="${escapeHTML(record.id)}"><span class="material-symbols-outlined" style="font-size: 16px;">edit</span></button>`;
   return `<tr data-material-row="${escapeHTML(record.id)}">
     <td class="mdb-col-code"><span class="mat-code">${this.highlight(escapeHTML(record.code || ''))}</span></td>
     <td><div>${this.highlight(localized(record.name))}</div></td>
@@ -229,19 +229,19 @@ function materialDbRowHtml(record) {
     <td><div>${this.highlight(localized(record.material))}</div></td>
     <td><div>${this.renderColorDot(localized(record.color))}</div></td>
     <td><div>${this.renderAttrBadge(localized(record.attr))}</div></td>
-    <td class="mdb-center">${(record.drawings || []).length ? `<button class="drawing-btn primary" type="button" data-drawing-material="${escapeHTML(record.id)}">${escapeHTML(this.label('viewDrawing'))}</button>` : '<span class="mdb-empty">-</span>'}</td>
-    <td class="mdb-center">${(record.models3d || []).length ? `<button class="drawing-btn primary" type="button" data-model3d-material="${escapeHTML(record.id)}">${escapeHTML(this.label('viewDrawing'))}</button>` : '<span class="mdb-empty">-</span>'}</td>
+    <td class="mdb-center">${(record.drawings || []).length ? `<button class="drawing-btn primary" type="button" data-drawing-material="${escapeHTML(record.id)}"><span class="material-symbols-outlined" style="font-size: 16px;">image</span></button>` : '<span class="mdb-empty">-</span>'}</td>
+    <td class="mdb-center">${(record.models3d || []).length ? `<button class="drawing-btn primary" type="button" data-model3d-material="${escapeHTML(record.id)}"><span class="material-symbols-outlined" style="font-size: 16px;">3d_rotation</span></button>` : '<span class="mdb-empty">-</span>'}</td>
     <td><div class="spu-pill-list">${spuPills}</div></td>
     <td class="mdb-center">${whereUsed.parentEntries.length}</td>
     <td class="mdb-center">${whereUsed.childEntries.length}</td>
-    ${showActions ? `<td>${editButton}</td>` : ''}
+    ${showActions ? `<td><div style="display:flex; justify-content:center;">${editButton}</div></td>` : ''}
   </tr>`;
 }
 
 function renderMaterialMasterEditor(record) {
   const deleteButton = this.isNewMaterialDraft(record)
     ? ''
-    : `<button class="btn danger" type="button" data-action="delete-material-master">${escapeHTML(this.label('deleteMaterial'))}</button>`;
+    : `<button class="btn danger" type="button" data-action="delete-material-master"><span class="material-symbols-outlined">delete</span> ${escapeHTML(this.label('deleteMaterial'))}</button>`;
   const content = this.query('.content');
   this.query('#contentHeader').innerHTML = `<h1>${escapeHTML(this.label('materialMaster'))}</h1>
     <div class="subtitle">${escapeHTML(record.code || record.id)}</div>`;
@@ -360,6 +360,10 @@ function materialMasterAssetList(title, assets) {
       const pendingStatus = pending
         ? `<span class="asset-pending-upload">${escapeHTML(this.label('assetPendingUpload'))}: ${escapeHTML(pending.originalName)}</span>`
         : '';
+      const feedback = this.state.materialAssetFeedback;
+      const inlineFeedback = feedback?.typeKey === typeKey && feedback.index === index
+        ? `<span class="asset-inline-feedback ${escapeHTML(feedback.state)}">${escapeHTML(feedback.message)}</span>`
+        : '';
       const uploadLabel = url || pending
         ? this.label('replaceAsset')
         : this.label('uploadAsset');
@@ -375,7 +379,7 @@ function materialMasterAssetList(title, assets) {
           <button class="btn" type="button" data-action="open-asset" data-asset-type="${typeKey}" data-asset-index="${index}">${escapeHTML(this.label('openAsset'))}</button>
           <button class="btn danger" type="button" data-action="delete-asset-row" data-asset-type="${typeKey}" data-asset-index="${index}">${escapeHTML(this.label('deleteAsset'))}</button>
         </div>
-        ${pendingStatus}
+        ${pendingStatus}${inlineFeedback}
       </div>`;
     }).join('');
     const addButton = draftAssets.length

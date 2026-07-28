@@ -185,17 +185,8 @@ function renderNotifications() {
 }
 
 function renderFilterBar() {
-  const showFilterBar = (this.state.adminView === 'bom' && this.state.bomDetailOpen) || this.state.adminView === 'structure';
-  if (!showFilterBar) {
-    this.query('#filterBar').innerHTML = '';
-    return;
-  }
-  const attrs = this.collectAttrs();
-  const items = [{ value: 'all', label: this.label('all') }].concat(attrs);
-  this.query('#filterBar').innerHTML = items.map((item) => {
-    const active = item.value === this.state.currentAttr ? 'active' : '';
-    return `<button class="filter-chip ${active}" type="button" data-attr="${escapeHTML(item.value)}">${escapeHTML(item.label)}</button>`;
-  }).join('');
+  const el = this.query('#filterBar');
+  if (el) el.innerHTML = '';
 }
 
 function clearContentTable() {

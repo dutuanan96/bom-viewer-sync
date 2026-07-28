@@ -276,6 +276,34 @@ test('agent-controller: returns trusted local facts when prefetch succeeded but 
   });
 });
 
+test('agent-controller: requests user teaching when an ambiguous turn has no local or model answer', async () => {
+  const providerError = new Error('Overloaded');
+  providerError.status = 503;
+  const controller = createAgentController({
+    gateway: {
+      listModels: () => [{ id: 'only:free', grade: 'B' }],
+      chat: async () => { throw providerError; },
+    },
+    trustPolicy: {
+      buildContext: ({ query }) => ({ query }),
+      createBudget: () => ({ recordToolCall: () => {}, recordModelCall: () => {}, checkExpiry: () => {} }),
+      authorizeToolCall: call => call,
+      validateModelOutput: output => output,
+    },
+  });
+
+  const result = await controller.runTurn({
+    query: '火星架是什么意思?',
+    route: { intent: 'ambiguous', confidence: 'ambiguous', entities: {} },
+    snapshot: {},
+    model: 'only:free',
+    availableTools: [],
+  });
+
+  assert.equal(result.fallback, true);
+  assert.equal(result.needsTeaching, true);
+});
+
 test('agent-controller: passes an explicit product scope to deterministic PDM search', async () => {
   const mockGateway = {
     listModels: () => [{ id: 'reasoning:free', grade: 'B' }],

@@ -3,7 +3,7 @@
 
 const SHORTHAND_PRODUCT_PATTERN = /(?:^|[^\w])(\d{3,4})(?:[^\w]|$)/;
 const DIMENSION_PATTERN = /(\d+(?:\.\d+)?)\s*(?:x|\u00d7|\*)\s*(\d+(?:\.\d+)?)(?:\s*(?:x|\u00d7|\*)\s*(\d+(?:\.\d+)?))?\s*(?:mm)?/gi;
-const SINGLE_AXIS_PATTERN = /(?:(width|height|depth|长度|宽度|高度|厚度)\s*)?(\d+(?:\.\d+)?)\s*mm/gi;
+const SINGLE_AXIS_PATTERN = /(?:(width|height|depth|长度|宽度|高度|厚度)\s*(\d+(?:\.\d+)?)\s*(?:mm)?|(\d+(?:\.\d+)?)\s*(mm|宽|高|深|长))/gi;
 
 const CONCEPT_SYNONYMS = Object.freeze({
   bottom_crossbar: {
@@ -11,6 +11,12 @@ const CONCEPT_SYNONYMS = Object.freeze({
     canonicalVi: 'thanh ngang dưới',
     canonicalEn: 'bottom crossbar',
     aliases: ['下横梁', '底部横杆', '下横杆', '底部横梁', 'thanh ngang duoi'],
+  },
+  upper_crossbar: {
+    canonicalZh: '上横梁',
+    canonicalVi: 'thanh ngang trên',
+    canonicalEn: 'upper crossbar',
+    aliases: ['上横梁', '顶部横梁', '顶部横杆', '上横杆', 'upper crossbar', 'thanh ngang trên'],
   },
   drawer_fabric: {
     canonicalZh: '布抽',
@@ -29,6 +35,18 @@ const CONCEPT_SYNONYMS = Object.freeze({
     canonicalVi: 'khung sắt',
     canonicalEn: 'metal frame',
     aliases: ['铁框', '金属框', '支撑框', '侧框', 'khung sắt'],
+  },
+  vertical_beam: {
+    canonicalZh: '竖梁',
+    canonicalVi: 'thanh đứng',
+    canonicalEn: 'vertical beam',
+    aliases: ['竖梁', '中竖梁', '竖零件', 'vertical beam', 'thanh đứng'],
+  },
+  packaging_carton: {
+    canonicalZh: '纸箱',
+    canonicalVi: 'thùng carton',
+    canonicalEn: 'carton',
+    aliases: ['纸箱', '纸盒', 'carton', 'cardboard box', 'thùng carton'],
   },
   cabinet: {
     canonicalZh: '柜子',
@@ -108,13 +126,13 @@ export function parseDimensions(query = '') {
   // Match single axis dimension e.g. 宽度290mm or 高度657mm or 290mm
   const singleRegex = new RegExp(SINGLE_AXIS_PATTERN);
   while ((match = singleRegex.exec(text)) !== null) {
-    const axisName = match[1] ? match[1].toLowerCase() : null;
-    const value = Number(match[2]);
+    const axisName = (match[1] || match[4] || '').toLowerCase() || null;
+    const value = Number(match[2] || match[3]);
     let axis = 'unspecified';
     if (axisName) {
-      if (['width', '宽度'].includes(axisName)) axis = 'width';
-      else if (['height', '高度'].includes(axisName)) axis = 'height';
-      else if (['depth', '厚度', '长度'].includes(axisName)) axis = 'depth';
+      if (['width', '宽度', '宽'].includes(axisName)) axis = 'width';
+      else if (['height', '高度', '高'].includes(axisName)) axis = 'height';
+      else if (['depth', '厚度', '长度', '深', '长'].includes(axisName)) axis = 'depth';
     }
     results.push({
       raw: match[0],

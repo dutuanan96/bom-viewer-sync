@@ -91,6 +91,63 @@ function verifyPdmSearch(result) {
   return 'Explain which normalized PDM entities matched, their BOM usage scope, and whether results are truncated.';
 }
 
+function verifyDrawingCommonality(result) {
+  requireObject(result, 'drawing commonality result');
+  if (!['CONFIRMED_COMMON', 'LIKELY_COMMON_NEEDS_CONFIRMATION', 'NOT_COMMON', 'INSUFFICIENT_EVIDENCE'].includes(result.status)) {
+    throw invalid('drawing commonality status is invalid');
+  }
+  if (!Array.isArray(result.pairs) || result.pairs.length > 4) throw invalid('drawing comparison pairs are missing or not bounded');
+  if (!Array.isArray(result.evidence) || result.evidence.length > 10) throw invalid('drawing evidence is missing or not bounded');
+  if (result.engineering_confirmation_required !== true) throw invalid('engineering confirmation must remain required');
+  for (const pair of result.pairs) {
+    if (!pair?.left?.material_code || !pair?.right?.material_code) throw invalid('drawing pair material identity is missing');
+    if (!['front', 'rear'].includes(pair.orientation)) throw invalid('drawing pair orientation is not verified');
+    if (!Array.isArray(pair.analysis?.comparisons) || pair.analysis.comparisons.length > 20) {
+      throw invalid('drawing pair comparisons are missing or not bounded');
+    }
+  }
+  return [
+    'State the exact front/front or rear/rear comparison scope and material codes.',
+    'Separate drawing-confirmed matches, functional differences, and unverified checks.',
+    'Cite drawing filenames plus page/view observations from the result.',
+    'Do not upgrade the deterministic status or imply that engineering approval has occurred.',
+  ].join('\n');
+}
+
+function verifySingleDrawing(route, result) {
+  requireObject(result, 'single drawing result');
+  const statuses = [
+    'SUCCESS',
+    'SUCCESS_WITH_WARNINGS',
+    'PARTIALLY_READABLE',
+    'INSUFFICIENT_EVIDENCE',
+    'DOCUMENT_NOT_FOUND',
+    'MULTIPLE_DOCUMENTS_FOUND',
+    'REVISION_CONFLICT',
+  ];
+  if (!statuses.includes(result.status)) throw invalid('single drawing status is invalid');
+  requireObject(result.document, 'single drawing document');
+  const expectedProduct = route.entities?.productIds?.[0];
+  if (!expectedProduct || result.document.product_code !== expectedProduct) {
+    throw invalid('single drawing product identity does not match the route');
+  }
+  if (!Array.isArray(result.features) || result.features.length > 50) throw invalid('drawing features are missing or not bounded');
+  if (!Array.isArray(result.tolerances) || result.tolerances.length > 30) throw invalid('drawing tolerances are missing or not bounded');
+  if (!Array.isArray(result.manufacturing_notes) || result.manufacturing_notes.length > 30) {
+    throw invalid('drawing manufacturing notes are missing or not bounded');
+  }
+  if (!Array.isArray(result.warnings) || result.warnings.length > 30) throw invalid('drawing warnings are missing or not bounded');
+  if (!Array.isArray(result.evidence) || result.evidence.length > 1) throw invalid('single drawing evidence is missing or not bounded');
+  if (result.engineering_confirmation_required !== true) throw invalid('engineering confirmation must remain required');
+  return [
+    `State the exact product, material code, part name, drawing filename, and deterministic status for ${expectedProduct}.`,
+    'Distinguish direct drawing observations, BOM metadata, inferences, unreadable regions, and warnings.',
+    'For every technical value cite its page and view or region evidence.',
+    'Do not fill null values, reinterpret low-confidence observations as facts, or claim production readiness.',
+    'State that engineering confirmation is still required.',
+  ].join('\n');
+}
+
 export function verifyGrounding({ route, toolCall, toolResult } = {}) {
   if (route?.confidence !== 'deterministic') return Object.freeze({ valid: true, requirements: '' });
   if (!toolCall?.name || toolCall.name !== route.preferredTool) throw invalid('preferred tool does not match the executed tool');
@@ -102,6 +159,8 @@ export function verifyGrounding({ route, toolCall, toolResult } = {}) {
   else if (toolCall.name === 'get_revision_history') requirements = verifyRevision(route, toolResult);
   else if (toolCall.name === 'get_bom') requirements = verifyBom(route, toolResult);
   else if (toolCall.name === 'search_pdm') requirements = verifyPdmSearch(toolResult);
+  else if (toolCall.name === 'analyze_engineering_drawing') requirements = verifySingleDrawing(route, toolResult);
+  else if (toolCall.name === 'check_drawing_commonality') requirements = verifyDrawingCommonality(toolResult);
   else if (toolCall.name === 'analyze_pdm') {
     requireObject(toolResult, 'tool result');
     if (!Array.isArray(toolResult.results) || toolResult.results.length > 50) throw invalid('catalog analysis results are missing or not bounded');

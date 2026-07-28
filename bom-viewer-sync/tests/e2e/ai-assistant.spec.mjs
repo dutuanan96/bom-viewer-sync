@@ -39,7 +39,10 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
 
     // Mock OpenRouter model list
     await page.route('https://openrouter.ai/api/v1/models?supported_parameters=tools', async route => {
-      const json = { data: [{ id: 'nvidia/nemotron-3-ultra-550b-a55b:free', supported_parameters: ['tools', 'tool_choice', 'structured_outputs'] }] };
+      const json = { data: [
+        { id: 'nvidia/nemotron-3-ultra-550b-a55b:free', supported_parameters: ['tools', 'tool_choice', 'structured_outputs'] },
+        { id: 'xiaomi/mimo-v2.5', supported_parameters: ['tools', 'tool_choice', 'structured_outputs'] },
+      ] };
       await route.fulfill({ json });
     });
   });
@@ -142,6 +145,284 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
 
     // Expect fallback message
     await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('模型服务发生错误');
+
+    await page.fill('.ai-input-area textarea', '火星架是什么意思?');
+    await page.press('.ai-input-area textarea', 'Enter');
+    await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('请告诉我这个问题应如何理解');
+
+    await page.fill('.ai-input-area textarea', '火星架是内部测试名称');
+    await page.press('.ai-input-area textarea', 'Enter');
+    await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('已记住您的说明');
+
+    await page.click('#btnSettings', { force: true });
+    await expect(page.locator('.ai-memory-row')).toContainText('[confirmed] 火星架是什么意思?');
+  });
+
+  test('viewer exports candidates while only admin receives review and approval controls', async ({ page }) => {
+    const capturedAt = '2026-07-27T00:00:00.000Z';
+    await page.addInitScript(({ capturedAt }) => {
+      localStorage.setItem('jintai.pdm.ai.local.v1', JSON.stringify({
+        schemaVersion: 1,
+        memories: [],
+        audit: [],
+        settings: {},
+        improvementCandidates: [{
+          schemaVersion: 1,
+          id: 'improvement_e2e',
+          status: 'reviewed',
+          issueType: 'user-teaching',
+          userQuestion: 'Which product uses this component?',
+          userCorrection: 'LGS433',
+          assistantAnswer: '',
+          route: { intent: 'search', preferredTool: 'search_pdm', confidence: 'ambiguous' },
+          context: { productIds: ['LGS433'], materialIds: [] },
+          evidence: { sourceCommit: '', evidenceIds: [] },
+          occurrences: 1,
+          capturedAt,
+          lastSeenAt: capturedAt,
+          review: {
+            schemaVersion: 1,
+            decision: 'recommend-approve',
+            evidenceStatus: 'supported',
+            confidence: 0.9,
+            category: 'terminology',
+            summary: 'Supported by current PDM evidence.',
+            proposedKnowledge: 'This component is used by LGS433.',
+            risks: [],
+            reviewerModel: 'reviewer/model',
+            reviewedAt: capturedAt,
+          },
+          approvedAt: null,
+          rejectedAt: null,
+        }],
+      }));
+    }, { capturedAt });
+
+    await blockRemotePdmData(page);
+    await page.goto(VIEWER_URL);
+    await page.click('#btnSettings');
+    await expect(page.locator('.ai-improvement-settings')).toContainText('Which product uses this component?');
+    await expect(page.locator('.ai-improvement-settings input[type="file"]')).toHaveCount(0);
+    await expect(page.locator('.ai-improvement-settings').getByText('批准', { exact: true })).toHaveCount(0);
+
+    await page.goto(ADMIN_URL);
+    await page.click('#btnSettings');
+    await expect(page.locator('.ai-improvement-settings input[type="file"]')).toHaveCount(1);
+    await expect(page.locator('.ai-improvement-settings')).toContainText('AI 对照审核');
+    await expect(page.locator('.ai-improvement-settings')).toContainText('批准');
+    await expect(page.locator('.ai-improvement-settings')).toContainText('拒绝');
+  });
+
+  test('engineering drawing skill sends exact front/rear PDFs to MiMo and preserves engineering approval', async ({ page }) => {
+    test.setTimeout(90000);
+    const payload = loadCanonicalPayload();
+    await blockRemotePdmData(page);
+    const pdfRequests = [];
+    await page.route('https://openrouter.ai/api/v1/chat/completions', async route => {
+      const body = route.request().postDataJSON();
+      const fileParts = (body.messages || []).flatMap(message => (
+        Array.isArray(message.content) ? message.content.filter(part => part.type === 'file') : []
+      ));
+      if (fileParts.length > 0) {
+        pdfRequests.push({
+          model: body.model,
+          files: fileParts.map(part => part.file),
+          plugins: body.plugins,
+        });
+        const comparisons = [
+          'geometry',
+          'dimensions',
+          'holes',
+          'material',
+          'surface_finish',
+          'tolerance',
+          'welding',
+          'orientation',
+          'revision',
+        ].map(check => ({
+          check,
+          status: ['tolerance', 'revision'].includes(check) ? 'UNVERIFIED' : 'MATCH',
+          left_value: check === 'dimensions' ? '198x15x15mm' : 'left',
+          right_value: check === 'dimensions' ? '198x15x15mm' : 'right',
+          confidence: 0.95,
+          evidence: ['tolerance', 'revision'].includes(check) ? [] : [{
+            side: 'left',
+            page: 1,
+            view: 'main view',
+            observation: `${check} is visible in the drawing`,
+          }],
+        }));
+        await route.fulfill({
+          json: {
+            choices: [{ message: {
+              role: 'assistant',
+              content: JSON.stringify({
+                documents_analyzed: true,
+                title_blocks: { left: {}, right: {} },
+                comparisons,
+                summary_zh: '主要几何和孔位一致，但公差与版本仍需工程确认。',
+                summary_vi: 'Hình học và vị trí lỗ chính giống nhau, nhưng vẫn cần xác nhận dung sai và revision.',
+              }),
+            } }],
+          },
+        });
+        return;
+      }
+
+      const messages = JSON.stringify(body.messages);
+      expect(messages).toContain('check_drawing_commonality');
+      expect(messages).toContain('LIKELY_COMMON_NEEDS_CONFIRMATION');
+      expect(messages).toContain('engineering_confirmation_required');
+      await route.fulfill({
+        json: { choices: [{ message: {
+          role: 'assistant',
+          content: JSON.stringify({
+            text: '图纸已核对：前件 LGS043XZQSLBH 与 LGS723XZQSLBH、后件 LGS043XZHSLBH 与 LGS723XZHSLBH 的主要几何和孔位相符，但公差与版本未完全确认。结论：LIKELY_COMMON_NEEDS_CONFIRMATION，合并物料编码或 BOM 前仍需工程负责人确认。',
+            citations: [],
+          }),
+        } }] },
+      });
+    });
+
+    await page.goto(VIEWER_URL);
+    await page.evaluate(canonicalPayload => {
+      document.body.replaceWith(document.body.cloneNode(true));
+      const githubData = {
+        loadPublic: async () => canonicalPayload,
+        getSourceMetadata: () => ({ commitSha: 'a'.repeat(40) }),
+      };
+      window.__aiDrawingTestApp = window.BomApp.createApp({ mode: 'viewer', githubData });
+    }, payload);
+    await page.waitForFunction(() => Boolean(window.__aiDrawingTestApp?.state.lastLoadAt));
+    await waitForViewerReady(page);
+    await page.click('#btnSettings');
+    await page.fill('.ai-settings input', 'sk-or-mock-1234');
+    await page.click('.ai-settings > button.btn-primary');
+    await page.click('#closeSettingsModal');
+    await page.click('#aiFab');
+    await page.fill('.ai-input-area textarea', '检查 LGS043-S 底部竖杆前后和 LGS723/733 中竖梁前后的图纸能不能共用');
+    await page.press('.ai-input-area textarea', 'Enter');
+
+    await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('LIKELY_COMMON_NEEDS_CONFIRMATION');
+    await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('工程负责人确认');
+    expect(pdfRequests).toHaveLength(2);
+    expect(pdfRequests.every(request => request.model === 'xiaomi/mimo-v2.5')).toBe(true);
+    expect(pdfRequests.flatMap(request => request.files).map(file => file.filename)).toEqual([
+      'LGS043-S-底部竖杆前.pdf',
+      'LGS723_733中竖梁-前.pdf',
+      'LGS043-S-底部竖杆后.pdf',
+      'LGS723_733中竖梁-后.pdf',
+    ]);
+    expect(pdfRequests.every(request => request.plugins?.[0]?.pdf?.engine === 'native')).toBe(true);
+  });
+
+  test('single drawing analysis sends one exact PDF to MiMo and keeps unreadable dimensions unverified', async ({ page }) => {
+    test.setTimeout(90000);
+    const payload = loadCanonicalPayload();
+    await blockRemotePdmData(page);
+    const pdfRequests = [];
+    await page.route('https://openrouter.ai/api/v1/chat/completions', async route => {
+      const body = route.request().postDataJSON();
+      const fileParts = (body.messages || []).flatMap(message => (
+        Array.isArray(message.content) ? message.content.filter(part => part.type === 'file') : []
+      ));
+      if (fileParts.length === 1) {
+        pdfRequests.push({
+          model: body.model,
+          file: fileParts[0].file,
+          plugins: body.plugins,
+        });
+        const evidence = [{
+          page: 1,
+          view: 'main view',
+          region: 'lower right',
+          observation: 'Visible drawing annotation',
+        }];
+        await route.fulfill({
+          json: {
+            choices: [{ message: {
+              role: 'assistant',
+              content: JSON.stringify({
+                documents_analyzed: true,
+                document: {
+                  drawing_number: '043-FRONT',
+                  revision: '',
+                  pages: 1,
+                  title_block_evidence: evidence,
+                },
+                overall_dimensions: {
+                  length_mm: { value_mm: 198, source_type: 'drawing_text', confidence: 0.98, evidence },
+                  width_mm: { value_mm: 15, source_type: 'drawing_text', confidence: 0.98, evidence },
+                  height_mm: { value_mm: 15, source_type: 'drawing_text', confidence: 0.98, evidence },
+                },
+                material: { value: 'Q195', source_type: 'drawing_text', confidence: 0.95, evidence },
+                surface_finish: { value: null, source_type: 'drawing_text', confidence: 0, evidence: [] },
+                features: [{
+                  type: 'hole',
+                  quantity: 2,
+                  diameter_mm: null,
+                  positions: [],
+                  details: 'Two circular features are visible; through condition is unverified',
+                  source_type: 'drawing_geometry',
+                  confidence: 0.72,
+                  evidence,
+                }],
+                tolerances: [],
+                manufacturing_notes: [],
+                warnings: ['Hole diameter is unreadable'],
+                unreadable_regions: [],
+                inferences: [],
+                summary_zh: '\u5b54\u5f84\u65e0\u6cd5\u786e\u8ba4\u3002',
+                summary_vi: 'Kh\u00f4ng \u0111\u1ecdc r\u00f5 \u0111\u01b0\u1eddng k\u00ednh l\u1ed7.',
+              }),
+            } }],
+          },
+        });
+        return;
+      }
+
+      const messages = JSON.stringify(body.messages);
+      const trustedMessage = body.messages.find(message => message.content?.startsWith('TRUSTED_LOCAL_PDM_RESULT'));
+      expect(messages).toContain('analyze_engineering_drawing');
+      expect(messages).toContain('SUCCESS_WITH_WARNINGS');
+      expect(trustedMessage?.content).toContain('"diameter_mm":null');
+      await route.fulfill({
+        json: { choices: [{ message: {
+          role: 'assistant',
+          content: JSON.stringify({
+            text: '\u5df2\u5206\u6790 LGS043XZQSLBH \u56fe\u7eb8\uff1a\u5916\u5f62\u5c3a\u5bf8 198 x 15 x 15 mm\uff0c\u53ef\u89c1 2 \u4e2a\u5706\u5f62\u7279\u5f81\uff0c\u4f46\u5b54\u5f84\u65e0\u6cd5\u4ece\u5f53\u524d\u56fe\u7eb8\u786e\u8ba4\u3002\u72b6\u6001\uff1aSUCCESS_WITH_WARNINGS\u3002\u751f\u4ea7\u51b3\u7b56\u524d\u9700\u5de5\u7a0b\u8d1f\u8d23\u4eba\u786e\u8ba4\u3002',
+            citations: [],
+          }),
+        } }] },
+      });
+    });
+
+    await page.goto(VIEWER_URL);
+    await page.evaluate(canonicalPayload => {
+      document.body.replaceWith(document.body.cloneNode(true));
+      const githubData = {
+        loadPublic: async () => canonicalPayload,
+        getSourceMetadata: () => ({ commitSha: 'a'.repeat(40) }),
+      };
+      window.__aiSingleDrawingTestApp = window.BomApp.createApp({ mode: 'viewer', githubData });
+    }, payload);
+    await page.waitForFunction(() => Boolean(window.__aiSingleDrawingTestApp?.state.lastLoadAt));
+    await waitForViewerReady(page);
+    await page.click('#btnSettings');
+    await page.fill('.ai-settings input', 'sk-or-mock-1234');
+    await page.click('.ai-settings > button.btn-primary');
+    await page.click('#closeSettingsModal');
+    await page.click('#aiFab');
+    await page.fill('.ai-input-area textarea', '\u5e2e\u6211\u770b\u4e00\u4e0bLGS043-S\u5e95\u90e8\u524d\u7ad6\u6746\u7684\u56fe\u7eb8\u3002');
+    await page.press('.ai-input-area textarea', 'Enter');
+
+    const answer = page.locator('.ai-message-row.assistant .ai-message-text').last();
+    await expect(answer).toContainText('SUCCESS_WITH_WARNINGS');
+    await expect(answer).toContainText('LGS043XZQSLBH');
+    expect(pdfRequests).toHaveLength(1);
+    expect(pdfRequests[0].model).toBe('xiaomi/mimo-v2.5');
+    expect(pdfRequests[0].file.filename).toBe('LGS043-S-\u5e95\u90e8\u7ad6\u6746\u524d.pdf');
+    expect(pdfRequests[0].plugins?.[0]?.pdf?.engine).toBe('native');
   });
 
   test('LGS032 revision question is prefetched and Clear Chat removes follow-up context', async ({ page }) => {
@@ -434,7 +715,55 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
     expect(requestCount).toBe(1);
   });
 
-  test('R4/R5 proposal preview escapes model text and approval marks the draft dirty', async ({ page }) => {
+  test('shorthand confirmation and shared-component expansion remain local across follow-ups', async ({ page }) => {
+    const payload = loadCanonicalPayload();
+    await page.route('https://openrouter.ai/api/v1/chat/completions', route => (
+      route.fulfill({ status: 503, json: { error: { message: 'Overloaded' } } })
+    ));
+
+    await blockRemotePdmData(page);
+    await page.goto(VIEWER_URL);
+    await page.evaluate(canonicalPayload => {
+      document.body.replaceWith(document.body.cloneNode(true));
+      const githubData = {
+        loadPublic: async () => canonicalPayload,
+        getSourceMetadata: () => ({ commitSha: 'a'.repeat(40) }),
+      };
+      window.__aiFollowUpTestApp = window.BomApp.createApp({ mode: 'viewer', githubData });
+    }, payload);
+    await page.waitForFunction(() => Boolean(window.__aiFollowUpTestApp?.state.lastLoadAt));
+    await waitForViewerReady(page);
+    await page.click('#btnSettings');
+    await page.fill('.ai-settings input', 'sk-or-mock-1234');
+    await page.click('.ai-settings > button.btn-primary');
+    await page.click('#closeSettingsModal');
+    await page.click('#aiFab');
+
+    await page.fill('.ai-input-area textarea', '那个834上横梁有和哪一个产品共用吗？还是只有它独用');
+    await page.press('.ai-input-area textarea', 'Enter');
+    await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('LGS834');
+
+    await page.fill('.ai-input-area textarea', '是的');
+    await page.press('.ai-input-area textarea', 'Enter');
+    const confirmedAnswer = page.locator('.ai-message-row.assistant .ai-message-text').last();
+    await expect(confirmedAnswer).toContainText('本地 PDM');
+    await expect(confirmedAnswer).toContainText('LGS834QSYHL');
+    await expect(confirmedAnswer).not.toContainText('当前没有兼容的模型服务端点');
+
+    await page.fill('.ai-input-area textarea', 'LGS433和LGS434那个竖梁有共用吗?');
+    await page.press('.ai-input-area textarea', 'Enter');
+    await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('LGS333');
+
+    await page.fill('.ai-input-area textarea', '除外那个两产品还有什么产品也用吗?');
+    await page.press('.ai-input-area textarea', 'Enter');
+    const expandedAnswer = page.locator('.ai-message-row.assistant .ai-message-text').last();
+    await expect(expandedAnswer).toContainText('LGS333');
+    await expect(expandedAnswer).toContainText('LGS334');
+    await expect(expandedAnswer).toContainText('LGS733');
+    await expect(expandedAnswer).not.toContainText('当前没有兼容的模型服务端点');
+  });
+
+  test('R4/R5 proposal review selects exact Admin actions and escapes model text', async ({ page }) => {
     await page.route('https://api.github.com/**', route => route.abort());
     await page.route('https://raw.githubusercontent.com/**', route => route.abort());
     await page.goto(ADMIN_URL);
@@ -445,13 +774,13 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
       document.body.replaceWith(document.body.cloneNode(true));
       const payload = window.BomCoreUtils.normalizePayload({
         bom: {
-          P1: {
-            code: 'P1',
+          LGS001: {
+            code: 'LGS001',
             revision: 'V1.1',
             colors: ['Black'],
             color_info: {
               Black: {
-                sku: 'P1-BK',
+                sku: 'LGS001-BK',
                 name_zh: 'Test product',
                 name_vi: 'Test product',
                 materials: [{ mat_code: 'M1', qty: '1' }]
@@ -467,12 +796,26 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
               code: 'M1',
               name: { zh: 'Material 1', vi: 'Material 1' },
               unit: 'pcs'
+            },
+            M2: {
+              id: 'M2',
+              code: 'M2',
+              name: { zh: 'Material 2', vi: 'Material 2' },
+              unit: 'pcs'
             }
           },
-          bomEntries: []
+          bomEntries: [{
+            id: 'E1',
+            parentType: 'product',
+            parentId: 'LGS001',
+            productCode: 'LGS001',
+            color: 'Black',
+            materialId: 'M1',
+            qty: '1'
+          }]
         },
         productRevisions: {
-          P1: {
+          LGS001: {
             currentRevision: 'V1.1',
             effectiveRevision: 'V1',
             currentRevisionInfo: {
@@ -493,6 +836,7 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
       window.__aiTestApp = window.BomApp.createApp({ mode: 'admin', githubData });
     });
     await page.waitForFunction(() => Boolean(window.__aiTestApp?.state.lastLoadAt));
+    await page.evaluate(() => window.__aiTestApp.selectProduct('LGS001'));
 
     await page.click('#btnSettings');
     await page.fill('.ai-settings input', 'sk-or-mock-1234');
@@ -517,9 +861,41 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
                   function: {
                     name: 'apply_mutation',
                     arguments: JSON.stringify({
-                      operationType: 'update_material_field',
-                      targetId: 'M1',
-                      payload: { field: 'unit', value: untrustedValue }
+                      summary: 'Update material and BOM',
+                      operations: [
+                        {
+                          operationType: 'update_material_field',
+                          targetId: 'M1',
+                          payload: { field: 'unit', value: untrustedValue }
+                        },
+                        {
+                          operationType: 'update_bom_quantity',
+                          targetId: 'LGS001',
+                          payload: {
+                            color: 'Black',
+                            childId: 'M1',
+                            quantity: 2
+                          }
+                        },
+                        {
+                          operationType: 'update_product',
+                          targetId: 'LGS001',
+                          payload: {
+                            color: 'Black',
+                            patch: { name: { zh: 'Updated product' }, size: '200mm', sku: 'LGS001-NEW' }
+                          }
+                        },
+                        {
+                          operationType: 'add_material_child',
+                          targetId: 'M1',
+                          payload: { materialId: 'M2', quantity: 3 }
+                        },
+                        {
+                          operationType: 'release_product_revision',
+                          targetId: 'LGS001',
+                          payload: { reason: 'E2E approved' }
+                        }
+                      ]
                     })
                   }
                 }]
@@ -543,10 +919,29 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
     await expect(proposalCard).toContainText(untrustedValue);
     await expect(proposalCard.locator('img')).toHaveCount(0);
     await expect.poll(() => page.evaluate(() => window.__proposalInjected || false)).toBe(false);
+    await expect(proposalCard.locator('.ai-proposal-verification.is-valid')).toBeVisible();
+    await expect(proposalCard.locator('.ai-proposal-category')).toHaveCount(5);
+    await expect(proposalCard.locator('.ai-proposal-operation')).toHaveCount(5);
 
-    await proposalCard.locator('.ai-proposal-actions button').last().click();
+    await proposalCard.locator('[data-proposal-operation-id="change-2"] .ai-proposal-delete-change').click();
+    await expect(proposalCard.locator('.ai-proposal-operation')).toHaveCount(4);
+    await proposalCard.locator('.ai-proposal-actions button').last().evaluate((button) => button.click());
     await expect.poll(() => page.evaluate(() => window.__aiTestApp.state.dirty)).toBe(true);
     await expect.poll(() => page.evaluate(() => window.__aiTestApp.state.materialDb.materials.M1.unit)).toBe(untrustedValue);
+    await expect.poll(() => page.evaluate(() => (
+      window.__aiTestApp.state.bom.LGS001.color_info.Black.materials[0].qty
+    ))).toBe('1');
+    await expect.poll(() => page.evaluate(() => (
+      window.__aiTestApp.state.bom.LGS001.color_info.Black.name_zh
+    ))).toBe('Updated product');
+    await expect.poll(() => page.evaluate(() => (
+      window.__aiTestApp.state.materialDb.bomEntries.some(entry => (
+        entry.parentType === 'material' && entry.parentId === 'M1' && entry.childMaterialId === 'M2'
+      ))
+    ))).toBe(true);
+    await expect.poll(() => page.evaluate(() => (
+      window.__aiTestApp.state.payload.productRevisions.LGS001.currentRevisionInfo.workflowState
+    ))).toBe('released');
     await expect(page.locator('#syncStatus[data-state="dirty"]')).toBeVisible();
   });
 

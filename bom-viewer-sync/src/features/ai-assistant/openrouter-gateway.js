@@ -323,6 +323,7 @@ export function createOpenRouterGateway(opts = {}) {
     maxTokens = 1200,
     signal,
     webSearch = false,
+    pdfProcessing,
     provider: _provider,
     headers: _headers,
     plugins: _plugins,
@@ -363,6 +364,14 @@ export function createOpenRouterGateway(opts = {}) {
       }
     };
 
+    if (pdfProcessing !== undefined) {
+      const engine = pdfProcessing?.engine;
+      if (!['native', 'cloudflare-ai'].includes(engine)) {
+        throw new Error('Unsupported PDF processing engine');
+      }
+      bodyObj.plugins = [{ id: 'file-parser', pdf: { engine } }];
+    }
+
     const requestTools = [...tools];
     if (webSearch === true) {
       requestTools.push({
@@ -377,13 +386,14 @@ export function createOpenRouterGateway(opts = {}) {
       });
     }
 
-    if (modelMeta.grade === 'A') {
+    const requiresExactProviderParameters = model !== 'xiaomi/mimo-v2.5';
+    if (modelMeta.grade === 'A' && requiresExactProviderParameters) {
       // Natural text is allowed, no response_format enforced here.
       bodyObj.provider.require_parameters = true;
     }
 
     if (requestTools.length > 0) {
-      bodyObj.provider.require_parameters = true;
+      if (requiresExactProviderParameters) bodyObj.provider.require_parameters = true;
       bodyObj.tools = requestTools;
       bodyObj.tool_choice = 'auto';
       bodyObj.parallel_tool_calls = false;
@@ -393,20 +403,27 @@ export function createOpenRouterGateway(opts = {}) {
     const requestSignal = signal
       ? AbortSignal.any([signal, controller.signal])
       : controller.signal;
-    const timeoutId = setTimeout(() => controller.abort(), requestTimeoutMs);
+    let timeoutId;
+    const timeout = new Promise((resolve, reject) => {
+      timeoutId = setTimeout(() => {
+        controller.abort();
+        reject(new DOMException('Request timed out', 'AbortError'));
+      }, requestTimeoutMs);
+    });
 
-    let response;
     try {
-      response = await protectedFetch('/api/v1/chat/completions', {
-        method: 'POST',
-        body: JSON.stringify(bodyObj),
-        signal: requestSignal
-      });
+      const response = await Promise.race([
+        protectedFetch('/api/v1/chat/completions', {
+          method: 'POST',
+          body: JSON.stringify(bodyObj),
+          signal: requestSignal
+        }),
+        timeout,
+      ]);
+      return await Promise.race([response.json(), timeout]);
     } finally {
       clearTimeout(timeoutId);
     }
-
-    return response.json();
   }
 
   /**

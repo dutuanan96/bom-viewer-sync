@@ -11,6 +11,10 @@ application.
   domain rules, and runtime data flow.
 - [`docs/RELEASE.md`](docs/RELEASE.md) - build, verification, and approved
   publication procedure.
+- [`docs/PDM_AI_MAINTENANCE.md`](docs/PDM_AI_MAINTENANCE.md) - current AI
+  capabilities, mutation contracts, evaluation, and future-agent handoff.
+- [`AGENTS.md`](AGENTS.md) - repository rules loaded by compatible coding
+  agents.
 - `docs/superpowers/specs/`, `docs/superpowers/plans/`, and
   `docs/superpowers/reports/` - historical design and execution evidence.
 

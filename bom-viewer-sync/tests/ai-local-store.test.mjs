@@ -118,3 +118,50 @@ test('typed entity mappings remain candidates until confirmation and survive per
   assert.equal(confirmed[0].entityMapping.target.productCode, 'LGS433');
   assert.equal(confirmed[0].entityMapping.status, 'confirmed');
 });
+
+test('viewer improvement candidates require AI review before admin approval', () => {
+  const store = createLocalAiStore({
+    storage: new MemoryStorage(),
+    clock: () => '2026-07-27T00:00:00.000Z',
+  });
+  const record = store.createImprovementCandidate({
+    issueType: 'user-teaching',
+    userQuestion: 'Which product uses this part?',
+    userCorrection: 'LGS433',
+    context: { productIds: ['LGS433'] },
+  });
+
+  assert.throws(() => store.approveImprovement(record.id), /review is required/i);
+  store.setImprovementReview(record.id, {
+    decision: 'recommend-approve',
+    evidenceStatus: 'supported',
+    confidence: 0.9,
+    category: 'terminology',
+    summary: 'Supported by current PDM evidence.',
+    proposedKnowledge: 'This part is used by LGS433.',
+    risks: [],
+    reviewerModel: 'reviewer/model',
+    reviewedAt: '2026-07-27T00:00:00.000Z',
+  });
+  assert.equal(store.approveImprovement(record.id).status, 'approved');
+  const exported = JSON.parse(store.exportApprovedKnowledge({ sourceCommit: COMMIT_A }));
+  assert.equal(exported.entries.length, 1);
+});
+
+test('improvement bundles import once and repeated observations are deduplicated', () => {
+  const viewer = createLocalAiStore({
+    storage: new MemoryStorage(),
+    clock: () => '2026-07-27T00:00:00.000Z',
+  });
+  const input = {
+    issueType: 'provider-failure',
+    userQuestion: 'Compare LGS433 and LGS434.',
+  };
+  viewer.createImprovementCandidate(input);
+  assert.equal(viewer.createImprovementCandidate(input).occurrences, 2);
+
+  const admin = createLocalAiStore({ storage: new MemoryStorage() });
+  const bundle = viewer.exportImprovementBundle();
+  assert.equal(admin.importImprovementBundle(bundle).importedCount, 1);
+  assert.equal(admin.importImprovementBundle(bundle).importedCount, 0);
+});
