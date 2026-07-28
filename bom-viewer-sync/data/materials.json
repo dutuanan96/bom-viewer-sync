@@ -36254,6 +36254,32 @@
         },
         "drawings": [],
         "models3d": []
+      },
+      "mat_1vl94so": {
+        "id": "mat_1vl94so",
+        "code": "750380ZK",
+        "name": {
+          "zh": "纸卡",
+          "vi": "Giấy lót"
+        },
+        "spec": {
+          "zh": "单瓦750x380mm",
+          "vi": "Sóng đơn 750x380mm"
+        },
+        "material": {
+          "zh": "瓦楞纸单瓦",
+          "vi": "giấy carton sóng đơn"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": []
       }
     },
     "bomEntries": [

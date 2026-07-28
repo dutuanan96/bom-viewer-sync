@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-28T02:23:56.105Z",
+  "updatedAt": "2026-07-28T03:14:44.773Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6431,6 +6431,22 @@
   },
   "notifications": [
     {
+      "id": "notif_63s63o",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-28T03:14:44.773Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material_added",
+          "code": "750380ZK",
+          "field": "",
+          "before": "",
+          "after": ""
+        }
+      ]
+    },
+    {
       "id": "notif_6n6i4m",
       "type": "github-save",
       "actor": "admin",
@@ -6928,22 +6944,6 @@
           "field": "name",
           "before": "LGS334_434_834-后 / LGS334_434_834-sau",
           "after": "LGS334_434_834-底部横杆左-后 / LGS334_434_834-thanh dưới trái-sau"
-        }
-      ]
-    },
-    {
-      "id": "notif_10xyvh8",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-23T03:52:35.077Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "LGS334XHYHLBH",
-          "field": "name",
-          "before": "LGS334_434_834-后_组件 / LGS334_434_834-sau_tổ hợp",
-          "after": "LGS334_434_834-底部横杆右-后_组件 / LGS334_434_834-thanh dưới sau_tổ hợp"
         }
       ]
     }
