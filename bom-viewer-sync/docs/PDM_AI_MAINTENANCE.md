@@ -178,6 +178,42 @@ npm run eval:pdm-ai
 Remove-Item Env:OPENROUTER_API_KEY
 ```
 
+The multi-turn workflow evaluation corpus lives in
+`knowledge/ai/pdm-workflow-eval-corpus.json`. Its deterministic source is
+`scripts/build-pdm-workflow-eval-corpus.mjs`. The corpus contains 60 distinct
+semantic transitions, 300 Vietnamese, Chinese, and mixed-language variants,
+and explicit reducer, evidence, authority, action, and safety expectations.
+
+Regenerate and verify it with:
+
+```powershell
+npm run build:workflow-corpus
+node scripts/build-pdm-workflow-eval-corpus.mjs --check
+```
+
+Run the strict schema validator, reducer, scorer, and negative dry-run
+fixtures without a provider key:
+
+```powershell
+npm run eval:pdm-workflow -- --dry-run
+```
+
+Run the live baseline three times per variant using a short-lived key supplied
+only through the process environment:
+
+```powershell
+$env:OPENROUTER_API_KEY = '<rotated key>'
+$env:PDM_WORKFLOW_EVAL_MODEL = 'xiaomi/mimo-v2.5'
+npm run eval:pdm-workflow
+Remove-Item Env:OPENROUTER_API_KEY
+Remove-Item Env:PDM_WORKFLOW_EVAL_MODEL
+```
+
+The live runner stores no raw prompts, provider payloads, hidden reasoning, or
+credentials. It exits non-zero below the configured overall, clear-turn state
+advance, or safety thresholds. Without a key it reports
+`READY_FOR_LIVE_BASELINE` and performs no provider call.
+
 Never place a real key in chat, source, fixtures, logs, screenshots, or shell
 history intended for publication.
 

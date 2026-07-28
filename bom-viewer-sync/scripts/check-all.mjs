@@ -8,6 +8,8 @@ const checks = [
   [npmCommand, ['run', 'check:generated']],
   [process.execPath, ['--check', 'app-admin.js']],
   [npmCommand, ['run', 'eval:ai']],
+  [process.execPath, ['scripts/build-pdm-workflow-eval-corpus.mjs', '--check']],
+  [npmCommand, ['run', 'eval:pdm-workflow', '--', '--dry-run']],
   [npmCommand, ['run', 'audit:ai']],
 ];
 
