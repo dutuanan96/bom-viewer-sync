@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-28T03:14:44.773Z",
+  "updatedAt": "2026-07-28T07:57:57.207Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6327,12 +6327,12 @@
     },
     "LGS334": {
       "currentRevision": "V4",
-      "effectiveRevision": "V4",
+      "effectiveRevision": "",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "released"
+        "workflowState": "draft"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6351,6 +6351,14 @@
           "previousRevision": "",
           "occurredAt": "2026-07-23T08:22:17.283Z",
           "reason": "更新"
+        },
+        {
+          "id": "effectivity_ms4d3mee",
+          "action": "withdraw",
+          "revision": "V4",
+          "previousRevision": "V4",
+          "occurredAt": "2026-07-28T07:56:24.230Z",
+          "reason": "Tôi cần đổi 纸护角 của BOM LGS334 từ 50x50x130mm thành 50x50x125mm, và 泡沫 từ 20kg,402x130x10mm thành 20kg,402x125x10mm， thêm vật liệu 750380ZK 纸卡 vào số lượng là 1 và 编号 là 无"
         }
       ]
     },
@@ -6430,6 +6438,50 @@
     }
   },
   "notifications": [
+    {
+      "id": "notif_mpfc62",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-28T07:57:57.207Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "LGS334PM001",
+          "field": "spec",
+          "before": "20kg,402x130x10mm",
+          "after": "20kg,402x125x10mm"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS334",
+          "field": "effectiveRevision",
+          "before": "V4",
+          "after": ""
+        },
+        {
+          "kind": "revision",
+          "code": "LGS334",
+          "field": "workflowState",
+          "before": "released",
+          "after": "draft"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS334",
+          "field": "",
+          "before": "ZHJ5050130",
+          "after": "ZHJ5050125"
+        },
+        {
+          "kind": "bom_added",
+          "code": "LGS334",
+          "field": "750380ZK",
+          "before": "",
+          "after": ""
+        }
+      ]
+    },
     {
       "id": "notif_63s63o",
       "type": "github-save",
@@ -6928,22 +6980,6 @@
           "field": "name",
           "before": "LGS334_434_834-前_组件 / LGS334_434_834-trước_tổ hợp",
           "after": "LGS334_434_834-底部横杆右-前_组件 / LGS334_434_834-thanh dưới phải-trước_tổ hợp"
-        }
-      ]
-    },
-    {
-      "id": "notif_oobl9y",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-23T03:55:00.996Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "LGS334XHZHLBH",
-          "field": "name",
-          "before": "LGS334_434_834-后 / LGS334_434_834-sau",
-          "after": "LGS334_434_834-底部横杆左-后 / LGS334_434_834-thanh dưới trái-sau"
         }
       ]
     }

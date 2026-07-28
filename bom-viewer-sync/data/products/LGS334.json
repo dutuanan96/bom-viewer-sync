@@ -611,12 +611,12 @@
         },
         {
           "stt": "23",
-          "mat_code": "ZHJ5050130",
+          "mat_code": "ZHJ5050125",
           "comp_code": "无",
           "name_zh": "纸护角",
           "name_vi": "giấy nẹp",
-          "spec": "50x50x130mm",
-          "spec_vi": "50x50x130mm",
+          "spec": "50x50x125mm",
+          "spec_vi": "50x50x125mm",
           "material_zh": "瓦楞纸",
           "material_vi": "giấy carton",
           "color_zh": "纸色",
@@ -651,8 +651,8 @@
           "comp_code": "无",
           "name_zh": "泡沫",
           "name_vi": "mút xốp",
-          "spec": "20kg,402x130x10mm",
-          "spec_vi": "20kg,402x130x10mm",
+          "spec": "20kg,402x125x10mm",
+          "spec_vi": "20kg,402x125x10mm",
           "material_zh": "EPS泡沫",
           "material_vi": "EPS mút xốp",
           "color_zh": "白色",
@@ -968,6 +968,24 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "3"
+        },
+        {
+          "stt": "54",
+          "mat_code": "750380ZK",
+          "comp_code": "无",
+          "name_zh": "纸卡",
+          "name_vi": "Giấy lót",
+          "spec": "单瓦750x380mm",
+          "spec_vi": "Sóng đơn 750x380mm",
+          "material_zh": "瓦楞纸单瓦",
+          "material_vi": "giấy carton sóng đơn",
+          "color_zh": "纸色",
+          "color_vi": "màu giấy",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "黑色",
+          "color_ver_vi": "黑色",
+          "qty": "1"
         }
       ]
     }

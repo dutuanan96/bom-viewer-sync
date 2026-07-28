@@ -26571,8 +26571,8 @@
           "vi": "mút xốp"
         },
         "spec": {
-          "zh": "20kg,402x130x10mm",
-          "vi": "20kg,402x130x10mm"
+          "zh": "20kg,402x125x10mm",
+          "vi": "20kg,402x125x10mm"
         },
         "material": {
           "zh": "EPS泡沫",
@@ -52459,7 +52459,7 @@
         "parentId": "LGS334",
         "productCode": "LGS334",
         "color": "黑色",
-        "materialId": "mat_632u7i",
+        "materialId": "mat_b91fei",
         "stt": "23",
         "comp_code": "无",
         "qty": "4",
@@ -75041,6 +75041,20 @@
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
         "order": 32
+      },
+      {
+        "id": "bom_1exzhl9",
+        "parentType": "product",
+        "parentId": "LGS334",
+        "productCode": "LGS334",
+        "color": "黑色",
+        "materialId": "mat_1vl94so",
+        "stt": "54",
+        "comp_code": "无",
+        "qty": "1",
+        "color_ver": "黑色",
+        "color_ver_vi": "黑色",
+        "order": 53
       }
     ]
   }
