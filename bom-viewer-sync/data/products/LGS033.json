@@ -414,12 +414,12 @@
         },
         {
           "stt": "13",
-          "mat_code": "ZHJ5050100",
+          "mat_code": "ZHJ5050105",
           "comp_code": "无",
           "name_zh": "纸护角",
           "name_vi": "giấy nẹp",
-          "spec": "50x50x100mm",
-          "spec_vi": "50x50x100mm",
+          "spec": "50x50x105mm",
+          "spec_vi": "50x50x105mm",
           "material_zh": "瓦楞纸",
           "material_vi": "giấy carton",
           "color_zh": "纸色",
@@ -482,7 +482,7 @@
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
-          "qty": "2"
+          "qty": "1"
         },
         {
           "stt": "17",
@@ -735,6 +735,42 @@
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
           "qty": "2"
+        },
+        {
+          "stt": "32",
+          "mat_code": "LGS434005",
+          "comp_code": "无",
+          "name_zh": "泡沫",
+          "name_vi": "mút xốp",
+          "spec": "16kg,610x310x6mm",
+          "spec_vi": "16kg,610x310x6mm",
+          "material_zh": "EPS泡沫",
+          "material_vi": "EPS mút xốp",
+          "color_zh": "白色",
+          "color_vi": "màu trắng",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "复古色",
+          "color_ver_vi": "复古色",
+          "qty": "1"
+        },
+        {
+          "stt": "33",
+          "mat_code": "1100310ZK",
+          "comp_code": "无",
+          "name_zh": "纸卡",
+          "name_vi": "giấy lót",
+          "spec": "单瓦1100x310mm",
+          "spec_vi": "sóng đơn 1100x310mm",
+          "material_zh": "瓦楞纸单瓦",
+          "material_vi": "giấy carton sóng đơn",
+          "color_zh": "纸色",
+          "color_vi": "màu giấy",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "复古色",
+          "color_ver_vi": "复古色",
+          "qty": "1"
         }
       ]
     },

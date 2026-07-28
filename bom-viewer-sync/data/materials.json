@@ -38601,7 +38601,7 @@
         "parentId": "LGS033",
         "productCode": "LGS033",
         "color": "复古色",
-        "materialId": "mat_18i5rbs",
+        "materialId": "mat_2d65p2",
         "stt": "13",
         "comp_code": "无",
         "qty": "4",
@@ -38646,7 +38646,7 @@
         "materialId": "mat_rkasfe",
         "stt": "16",
         "comp_code": "无",
-        "qty": "2",
+        "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 16
@@ -74987,6 +74987,34 @@
         "color_ver": "",
         "color_ver_vi": "",
         "order": 1784196058153
+      },
+      {
+        "id": "bom_11ycrzi",
+        "parentType": "product",
+        "parentId": "LGS033",
+        "productCode": "LGS033",
+        "color": "复古色",
+        "materialId": "mat_1dtk1c3",
+        "stt": "32",
+        "comp_code": "无",
+        "qty": "1",
+        "color_ver": "复古色",
+        "color_ver_vi": "复古色",
+        "order": 31
+      },
+      {
+        "id": "bom_1hd6xlk",
+        "parentType": "product",
+        "parentId": "LGS033",
+        "productCode": "LGS033",
+        "color": "复古色",
+        "materialId": "mat_wv88e4",
+        "stt": "33",
+        "comp_code": "无",
+        "qty": "1",
+        "color_ver": "复古色",
+        "color_ver_vi": "复古色",
+        "order": 32
       }
     ]
   }

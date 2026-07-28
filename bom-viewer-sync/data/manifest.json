@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-25T08:08:10.143Z",
+  "updatedAt": "2026-07-28T02:22:52.047Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6398,9 +6398,81 @@
           "reason": "更新"
         }
       ]
+    },
+    "LGS033": {
+      "currentRevision": "V4",
+      "effectiveRevision": "",
+      "currentRevisionInfo": {
+        "sourceRevision": "",
+        "createdAt": "",
+        "changeReason": "",
+        "workflowState": "draft"
+      },
+      "revisions": [],
+      "effectivityEvents": [
+        {
+          "id": "effectivity_ms412rrn",
+          "action": "withdraw",
+          "revision": "V4",
+          "previousRevision": "V4",
+          "occurredAt": "2026-07-28T02:19:49.139Z",
+          "reason": "更新"
+        }
+      ]
     }
   },
   "notifications": [
+    {
+      "id": "notif_1503tby",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-28T02:22:52.047Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS033",
+          "field": "currentRevision",
+          "before": "",
+          "after": "V4"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS033",
+          "field": "workflowState",
+          "before": "",
+          "after": "draft"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS033",
+          "field": "",
+          "before": "ZHJ5050100",
+          "after": "ZHJ5050105"
+        },
+        {
+          "kind": "bom_qty_changed",
+          "code": "LGS033",
+          "field": "LGS033ZK",
+          "before": "2",
+          "after": "1"
+        },
+        {
+          "kind": "bom_added",
+          "code": "LGS033",
+          "field": "LGS434005",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "bom_added",
+          "code": "LGS033",
+          "field": "1100310ZK",
+          "before": "",
+          "after": ""
+        }
+      ]
+    },
     {
       "id": "notif_3tcouu",
       "type": "github-save",
@@ -6851,29 +6923,6 @@
       "createdAt": "2026-07-23T03:14:47.053Z",
       "version": 2,
       "changes": []
-    },
-    {
-      "id": "notif_vgww62",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-23T03:11:24.794Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "LGS333XZHSLWH",
-          "field": "name",
-          "before": "LGS333_334_433_434-后 / LGS333_334_433_434-sau",
-          "after": "LGS333_334_433_434中竖梁-后 / LGS333_334_433_434 thanh đứng giữa-sau"
-        },
-        {
-          "kind": "material",
-          "code": "LGS333XZQSLWH",
-          "field": "name",
-          "before": "LGS333_334_433_434-前 / LGS333_334_433_434-trước",
-          "after": "LGS333_334_433_434中竖梁-前 / LGS333_334_433_434 thanh đứng giữa-trước"
-        }
-      ]
     }
   ]
 }
