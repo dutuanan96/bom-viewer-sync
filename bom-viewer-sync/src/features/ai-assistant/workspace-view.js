@@ -178,8 +178,129 @@ export function createWorkspaceView({ onSend, onClear, t = (k) => k }) {
       title.textContent = t('ai.proposal.title');
       propEl.appendChild(title);
 
-      // Render Exact Diff
-      if (msg.diff.length === 0) {
+      const reviewOperations = Array.isArray(msg.proposalReview?.operations)
+        ? msg.proposalReview.operations
+        : [];
+      const selectedOperationIds = new Set(reviewOperations.map(operation => operation.id));
+      const verification = msg.proposalReview?.verification;
+      if (verification) {
+        const verificationEl = document.createElement('div');
+        verificationEl.className = `ai-proposal-verification ${verification.valid ? 'is-valid' : 'is-invalid'}`;
+        verificationEl.textContent = verification.valid
+          ? t('ai.proposal.verified')
+          : t('ai.proposal.verifyFailed');
+        propEl.appendChild(verificationEl);
+        (verification.warnings || []).forEach((warning) => {
+          const warningEl = document.createElement('div');
+          warningEl.className = 'ai-proposal-warning';
+          warningEl.textContent = warning;
+          propEl.appendChild(warningEl);
+        });
+      }
+
+      if (reviewOperations.length > 0) {
+        const categories = [
+          ['product', t('ai.proposal.categoryProduct')],
+          ['revision', t('ai.proposal.categoryRevision')],
+          ['material', t('ai.proposal.categoryMaterial')],
+          ['bom', t('ai.proposal.categoryBom')],
+          ['structure', t('ai.proposal.categoryStructure')],
+        ];
+        for (const [category, label] of categories) {
+          const categoryOperations = reviewOperations.filter(operation => operation.category === category);
+          if (categoryOperations.length === 0) continue;
+          const section = document.createElement('section');
+          section.className = 'ai-proposal-category';
+          const heading = document.createElement('h4');
+          heading.textContent = label;
+          section.appendChild(heading);
+          for (const operation of categoryOperations) {
+            const operationEl = document.createElement('div');
+            operationEl.className = 'ai-proposal-operation';
+            operationEl.dataset.proposalOperationId = operation.id;
+
+            const operationHeader = document.createElement('div');
+            operationHeader.className = 'ai-proposal-operation-header';
+            const selectionLabel = document.createElement('label');
+            selectionLabel.className = 'ai-proposal-operation-select';
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.checked = true;
+            checkbox.setAttribute('aria-label', t('ai.proposal.selectChange'));
+            checkbox.addEventListener('change', () => {
+              if (checkbox.checked) selectedOperationIds.add(operation.id);
+              else selectedOperationIds.delete(operation.id);
+              approveBtn.disabled = selectedOperationIds.size === 0;
+            });
+            const operationName = document.createElement('span');
+            operationName.textContent = `${operation.mutation.operationType} · ${operation.mutation.targetId}`;
+            selectionLabel.append(checkbox, operationName);
+
+            const risk = document.createElement('span');
+            risk.className = `ai-proposal-risk risk-${operation.risk}`;
+            risk.textContent = `${t('ai.proposal.risk')}: ${t(`ai.proposal.risk.${operation.risk}`)}`;
+            const deleteButton = document.createElement('button');
+            deleteButton.type = 'button';
+            deleteButton.className = 'btn ai-proposal-delete-change';
+            deleteButton.textContent = t('ai.proposal.deleteChange');
+            deleteButton.addEventListener('click', () => {
+              selectedOperationIds.delete(operation.id);
+              operationEl.remove();
+              if (!section.querySelector('.ai-proposal-operation')) section.remove();
+              approveBtn.disabled = selectedOperationIds.size === 0;
+              messagesDiv.scrollTo({ top: messagesDiv.scrollHeight });
+            });
+            operationHeader.append(selectionLabel, risk, deleteButton);
+            operationEl.appendChild(operationHeader);
+
+            for (const warning of operation.warnings || []) {
+              const warningEl = document.createElement('div');
+              warningEl.className = 'ai-proposal-warning';
+              warningEl.textContent = warning;
+              operationEl.appendChild(warningEl);
+            }
+
+            const diffTable = document.createElement('table');
+            diffTable.className = 'ai-diff-table diff-table';
+            const thead = document.createElement('thead');
+            const headerRow = document.createElement('tr');
+            [
+              t('ai.proposal.type'),
+              t('ai.proposal.code'),
+              t('ai.proposal.field'),
+              t('ai.proposal.before'),
+              t('ai.proposal.after'),
+            ].forEach((headerLabel) => {
+              const th = document.createElement('th');
+              th.textContent = headerLabel;
+              headerRow.appendChild(th);
+            });
+            thead.appendChild(headerRow);
+            diffTable.appendChild(thead);
+            const tbody = document.createElement('tbody');
+            for (const diff of operation.diff || []) {
+              const tr = document.createElement('tr');
+              for (const [value, className] of [
+                [diff.kind, ''],
+                [diff.code, ''],
+                [diff.field, ''],
+                [diff.before, 'diff-removed'],
+                [diff.after, 'diff-added'],
+              ]) {
+                const td = document.createElement('td');
+                td.className = className;
+                td.textContent = value;
+                tr.appendChild(td);
+              }
+              tbody.appendChild(tr);
+            }
+            diffTable.appendChild(tbody);
+            operationEl.appendChild(diffTable);
+            section.appendChild(operationEl);
+          }
+          propEl.appendChild(section);
+        }
+      } else if (msg.diff.length === 0) {
         const noDiff = document.createElement('div');
         noDiff.className = 'ai-diff-empty';
         noDiff.textContent = t('ai.proposal.noChanges');
@@ -253,12 +374,17 @@ export function createWorkspaceView({ onSend, onClear, t = (k) => k }) {
       const approveBtn = document.createElement('button');
       approveBtn.className = 'btn btn-primary';
       approveBtn.textContent = t('ai.proposal.approve');
-      approveBtn.style.marginLeft = '8px';
       approveBtn.onclick = () => {
         rejectBtn.disabled = true;
         approveBtn.disabled = true;
         renderMessage({ role: 'user', text: t('ai.proposal.approved') });
-        if (msg.onApprove) msg.onApprove(msg.approval || msg.proposal);
+        const selectedOperations = reviewOperations
+          .filter(operation => selectedOperationIds.has(operation.id))
+          .map(operation => operation.mutation);
+        const selectedProposal = reviewOperations.length > 0
+          ? { summary: msg.proposalReview?.summary || '', operations: selectedOperations }
+          : msg.approval || msg.proposal;
+        if (msg.onApprove) msg.onApprove(selectedProposal);
       };
 
       actionRow.appendChild(rejectBtn);
@@ -346,6 +472,7 @@ export function createWorkspaceView({ onSend, onClear, t = (k) => k }) {
 }
 
 export function createSettingsView({
+  mode = 'viewer',
   onConnect,
   onDisconnect,
   onModelChange,
@@ -357,6 +484,12 @@ export function createSettingsView({
   onGithubSync,
   onGithubRollback,
   getGithubSyncStatus,
+  onImprovementImport,
+  onImprovementReview,
+  onImprovementApprove,
+  onImprovementReject,
+  onImprovementExport,
+  onApprovedKnowledgeExport,
   t = (k) => k,
 }) {
   const container = document.createElement('div');
@@ -460,6 +593,127 @@ export function createSettingsView({
   exportButton.type = 'button';
   exportButton.className = 'btn';
 
+  const improvementSection = document.createElement('section');
+  improvementSection.className = 'ai-improvement-settings';
+  const improvementTitle = document.createElement('h3');
+  const improvementDescription = document.createElement('div');
+  improvementDescription.className = 'ai-settings-warning';
+  const improvementStatus = document.createElement('div');
+  improvementStatus.className = 'ai-settings-warning';
+  const improvementList = document.createElement('div');
+  improvementList.className = 'ai-memory-list';
+  const improvementImport = document.createElement('input');
+  improvementImport.type = 'file';
+  improvementImport.accept = '.json';
+  improvementImport.className = 'edit-input';
+  const improvementExport = document.createElement('button');
+  improvementExport.type = 'button';
+  improvementExport.className = 'btn';
+  const approvedKnowledgeExport = document.createElement('button');
+  approvedKnowledgeExport.type = 'button';
+  approvedKnowledgeExport.className = 'btn';
+
+  function downloadJson(serialized, filename) {
+    const blob = new Blob([serialized], { type: 'application/json' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    link.href = url;
+    link.download = filename;
+    link.click();
+    URL.revokeObjectURL(url);
+  }
+
+  function refreshImprovements() {
+    improvementList.replaceChildren();
+    const records = localStore?.listImprovementCandidates?.() || [];
+    improvementStatus.textContent = `${t('ai.improvement.count')}: ${records.length}`;
+    records.forEach((record) => {
+      const row = document.createElement('div');
+      row.className = 'ai-improvement-row';
+      const summary = document.createElement('span');
+      summary.textContent = `[${record.status}] ${record.userQuestion}`;
+      row.appendChild(summary);
+      if (record.userCorrection) {
+        const correction = document.createElement('div');
+        correction.className = 'ai-mapping-details';
+        correction.textContent = record.userCorrection;
+        row.appendChild(correction);
+      }
+      if (record.review) {
+        const review = document.createElement('div');
+        review.className = 'ai-mapping-details';
+        review.textContent = `${record.review.decision} · ${record.review.evidenceStatus} · ${record.review.summary}`;
+        row.appendChild(review);
+      }
+      if (mode === 'admin') {
+        const reviewButton = document.createElement('button');
+        reviewButton.type = 'button';
+        reviewButton.className = 'btn';
+        reviewButton.textContent = t('ai.improvement.review');
+        reviewButton.disabled = record.status === 'approved' || record.status === 'rejected';
+        reviewButton.addEventListener('click', async () => {
+          if (!onImprovementReview) return;
+          reviewButton.disabled = true;
+          improvementStatus.textContent = t('ai.improvement.reviewing');
+          try {
+            await onImprovementReview(record.id);
+            improvementStatus.textContent = t('ai.improvement.reviewed');
+          } catch {
+            improvementStatus.textContent = t('ai.improvement.reviewFailed');
+          } finally {
+            refreshImprovements();
+          }
+        });
+        row.appendChild(reviewButton);
+        const approveButton = document.createElement('button');
+        approveButton.type = 'button';
+        approveButton.className = 'btn';
+        approveButton.textContent = t('ai.improvement.approve');
+        approveButton.disabled = !record.review || record.status === 'approved' || record.status === 'rejected';
+        approveButton.addEventListener('click', () => {
+          onImprovementApprove?.(record.id);
+          refreshImprovements();
+        });
+        row.appendChild(approveButton);
+        const rejectButton = document.createElement('button');
+        rejectButton.type = 'button';
+        rejectButton.className = 'btn';
+        rejectButton.textContent = t('ai.improvement.reject');
+        rejectButton.disabled = record.status === 'approved' || record.status === 'rejected';
+        rejectButton.addEventListener('click', () => {
+          onImprovementReject?.(record.id);
+          refreshImprovements();
+        });
+        row.appendChild(rejectButton);
+      }
+      improvementList.appendChild(row);
+    });
+  }
+
+  improvementImport.addEventListener('change', async () => {
+    const file = improvementImport.files?.[0];
+    if (!file || !onImprovementImport) return;
+    try {
+      await onImprovementImport(file);
+      improvementStatus.textContent = t('ai.improvement.imported');
+    } catch {
+      improvementStatus.textContent = t('ai.improvement.importFailed');
+    } finally {
+      improvementImport.value = '';
+      refreshImprovements();
+    }
+  });
+
+  improvementExport.addEventListener('click', () => {
+    const serialized = onImprovementExport?.();
+    if (serialized) downloadJson(serialized, 'jintai-pdm-improvement-candidates.json');
+  });
+
+  approvedKnowledgeExport.addEventListener('click', () => {
+    const serialized = onApprovedKnowledgeExport?.();
+    if (serialized) downloadJson(serialized, 'reviewed-improvements.json');
+  });
+
   const traceSection = document.createElement('section');
   traceSection.className = 'ai-trace-settings';
   const traceTitle = document.createElement('h3');
@@ -497,7 +751,8 @@ export function createSettingsView({
 
   function refreshMemories() {
     memoryList.replaceChildren();
-    const records = localStore?.listMemories?.() || [];
+    const records = (localStore?.listMemories?.() || [])
+      .filter(record => record.scope?.memoryType !== 'procedure');
     records.forEach((record) => {
       const row = document.createElement('div');
       row.className = 'ai-memory-row';
@@ -637,6 +892,13 @@ export function createSettingsView({
     memoryTitle.textContent = t('ai.memory.title');
     knowledgeInput.setAttribute('aria-label', t('ai.knowledge.import'));
     exportButton.textContent = t('ai.memory.export');
+    improvementTitle.textContent = t('ai.improvement.title');
+    improvementDescription.textContent = t(mode === 'admin'
+      ? 'ai.improvement.adminDescription'
+      : 'ai.improvement.viewerDescription');
+    improvementImport.setAttribute('aria-label', t('ai.improvement.import'));
+    improvementExport.textContent = t('ai.improvement.export');
+    approvedKnowledgeExport.textContent = t('ai.improvement.exportApproved');
     traceTitle.textContent = t('ai.trace.title');
     traceCopyButton.textContent = t('ai.trace.copy');
     syncTitle.textContent = t('ai.sync.title');
@@ -644,6 +906,7 @@ export function createSettingsView({
     syncRollbackBtn.textContent = t('ai.sync.rollback');
     renderTrace();
     refreshMemories();
+    refreshImprovements();
     renderSyncStatus();
   }
 
@@ -687,6 +950,14 @@ export function createSettingsView({
   memorySection.appendChild(exportButton);
   memorySection.appendChild(memoryList);
   container.appendChild(memorySection);
+  improvementSection.appendChild(improvementTitle);
+  improvementSection.appendChild(improvementDescription);
+  if (mode === 'admin') improvementSection.appendChild(improvementImport);
+  improvementSection.appendChild(improvementStatus);
+  improvementSection.appendChild(improvementExport);
+  if (mode === 'admin') improvementSection.appendChild(approvedKnowledgeExport);
+  improvementSection.appendChild(improvementList);
+  container.appendChild(improvementSection);
   syncSection.appendChild(syncTitle);
   syncSection.appendChild(syncStatusEl);
   syncSection.appendChild(syncRefreshBtn);
@@ -699,6 +970,7 @@ export function createSettingsView({
     updateLanguage,
     updateModels,
     refreshMemories,
+    refreshImprovements,
     updateTrace
   };
 }

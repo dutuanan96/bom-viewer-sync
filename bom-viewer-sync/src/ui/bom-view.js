@@ -223,8 +223,9 @@ function emptyTableHtml() {
 }
 
 function tableHtml(rows) {
+  const editClass = this.canEditProductRevision() && this.state.editMode ? ' editing' : '';
   return `<div class="table-container"><div class="table-toolbar">${this.toolbarHtml(rows)}</div>
-    <table class="bom-table">${this.tableColgroupHtml()}<thead>${this.tableHeadHtml()}</thead><tbody>${rows.map((row, index) => this.rowHtml(row, index)).join('')}</tbody></table></div>`;
+    <table class="bom-table${editClass}">${this.tableColgroupHtml()}<thead>${this.tableHeadHtml()}</thead><tbody>${rows.map((row, index) => this.rowHtml(row, index)).join('')}</tbody></table></div>`;
 }
 
 function tableColgroupHtml() {
@@ -248,25 +249,25 @@ function tableColgroupHtml() {
 function bomActionsHtml() {
   const dirtyHidden = this.state.dirty ? '' : ' hidden';
   const createRevisionAction = this.canCreateProductRevision()
-    ? `<button class="btn" type="button" data-action="create-product-revision">${escapeHTML(this.label('createRevision'))}</button>`
+    ? `<button class="btn" type="button" data-action="create-product-revision"><span class="material-symbols-outlined">add_circle</span> ${escapeHTML(this.label('createRevision'))}</button>`
     : '';
   const withdrawRevisionAction = this.canWithdrawProductRevision()
-    ? `<button class="btn" type="button" data-action="withdraw-revision">${escapeHTML(this.label('withdrawRevision'))}</button>`
+    ? `<button class="btn" type="button" data-action="withdraw-revision"><span class="material-symbols-outlined">undo</span> ${escapeHTML(this.label('withdrawRevision'))}</button>`
     : '';
   const bomAdd = this.canEditProductRevision() && this.state.editMode
-    ? `<button class="btn" type="button" data-action="add-bom-row">${escapeHTML(this.label('addMaterial'))}</button>`
+    ? `<button class="btn" type="button" data-action="add-bom-row"><span class="material-symbols-outlined">add</span> ${escapeHTML(this.label('addMaterial'))}</button>`
     : '';
   const editToggle = this.canEditProductRevision()
-    ? `<button class="btn btn-outline ${this.state.editMode ? 'active' : ''}" type="button" data-action="toggle-edit">${escapeHTML(this.state.editMode ? this.label('done') : this.label('edit'))}</button>`
+    ? `<button class="btn btn-outline ${this.state.editMode ? 'active' : ''}" type="button" data-action="toggle-edit"><span class="material-symbols-outlined">${this.state.editMode ? 'check' : 'edit'}</span> ${escapeHTML(this.state.editMode ? this.label('done') : this.label('edit'))}</button>`
     : '';
   return `<button class="btn btn-primary" type="button" data-dirty-action data-action="save"${dirtyHidden}>${escapeHTML(this.label('save'))}</button>
     <button class="btn" type="button" data-dirty-action data-action="view-changes"${dirtyHidden}>${escapeHTML(this.label('viewChanges'))}</button>
     <button class="btn" type="button" data-dirty-action data-action="discard"${dirtyHidden}>${escapeHTML(this.label('discard'))}</button>
-    <button class="btn" type="button" data-action="reload">${escapeHTML(this.label('reload'))}</button>
+    <button class="btn btn-icon" title="${escapeHTML(this.label('reload'))}" type="button" data-action="reload"><span class="material-symbols-outlined">refresh</span></button>
     ${createRevisionAction}
     ${withdrawRevisionAction}
     ${editToggle}
-    <button class="btn" type="button" data-action="material-db">${escapeHTML(this.label('materialDatabase'))}</button>
+    <button class="btn" type="button" data-action="material-db"><span class="material-symbols-outlined">database</span> ${escapeHTML(this.label('materialDatabase'))}</button>
     ${bomAdd}`;
 }
 
@@ -274,11 +275,11 @@ function toolbarHtml(rows) {
   const readOnlyLabel = this.isHistoricalRevision() ? 'historicalRevisionReadOnly' : 'readOnly';
   const adminActions = this.isAdmin() && !this.isHistoricalRevision()
     ? this.bomActionsHtml()
-    : `<span class="read-only-note">${escapeHTML(this.label(readOnlyLabel))}</span>`;
-  return `<div class="table-title"><span class="material-symbols-outlined">view_list</span><strong>${escapeHTML(this.label('billOfMaterials'))}</strong><span class="count">${rows.length} ${escapeHTML(this.label('materials'))}</span></div>
+    : `<span class="read-only-note"><span class="material-symbols-outlined" style="font-size: 14px; vertical-align: middle;">lock</span> ${escapeHTML(this.label(readOnlyLabel))}</span>`;
+  return `<div class="table-title"><span class="material-symbols-outlined">account_tree</span><strong>${escapeHTML(this.label('billOfMaterials'))}</strong><span class="count">${rows.length} ${escapeHTML(this.label('materials'))}</span></div>
     <div class="table-actions">${adminActions}
-    <button class="btn" type="button" data-action="copy">${escapeHTML(this.label('copy'))}</button>
-    <button class="btn btn-primary" type="button" data-action="exportExcel">${escapeHTML(this.label('exportExcel'))}</button></div>`;
+    <button class="btn btn-icon" title="${escapeHTML(this.label('copy'))}" type="button" data-action="copy"><span class="material-symbols-outlined">content_copy</span></button>
+    <button class="btn btn-primary btn-icon" title="${escapeHTML(this.label('exportExcel'))}" type="button" data-action="exportExcel"><span class="material-symbols-outlined">download</span></button></div>`;
 }
 
 function adminActionsHtml() {
@@ -322,11 +323,11 @@ function tableHeadHtml() {
 
 function rowHtml(material, index) {
   const editAction = this.canEditProductRevision() && this.state.editMode
-    ? `<td><div class="drawing-tools">
-      <button class="drawing-btn" type="button" data-edit-bom-row="${index}">${escapeHTML(this.label('editRow'))}</button>
-      <button class="drawing-btn" type="button" data-edit-bom-material="${escapeHTML(material._materialId || '')}">${escapeHTML(this.label('editMaterial'))}</button>
-      <button class="drawing-btn" type="button" data-replace-bom-row="${index}">${escapeHTML(this.label('replaceMaterial'))}</button>
-      <button class="drawing-btn danger" type="button" data-delete-bom-row="${index}">${escapeHTML(this.deleteAssetLabel())}</button>
+    ? `<td><div class="bom-row-actions" style="display:flex; gap:4px; justify-content:center;">
+      <button class="drawing-btn" title="${escapeHTML(this.label('editRow'))}" type="button" data-edit-bom-row="${index}"><span class="material-symbols-outlined" style="font-size: 14px;">edit</span></button>
+      <button class="drawing-btn" title="${escapeHTML(this.label('editBomMaterial'))}" type="button" data-edit-bom-material="${escapeHTML(material._materialId || '')}"><span class="material-symbols-outlined" style="font-size: 14px;">tune</span></button>
+      <button class="drawing-btn" title="${escapeHTML(this.label('replaceMaterial'))}" type="button" data-replace-bom-row="${index}"><span class="material-symbols-outlined" style="font-size: 14px;">find_replace</span></button>
+      <button class="drawing-btn danger" title="${escapeHTML(this.deleteAssetLabel())}" type="button" data-delete-bom-row="${index}"><span class="material-symbols-outlined" style="font-size: 14px;">delete</span></button>
     </div></td>`
     : '';
   const active = material._entryId && material._entryId === this.state.selectedEntryId ? 'selected-row' : '';
@@ -361,9 +362,6 @@ function rowHtml(material, index) {
 }
 
 function partNumberCellHtml(material, index) {
-  if (this.canEditProductRevision() && this.state.editMode) {
-    return `<td>${this.editInput(materialText(material, 'mat_code', this.state.lang), 'mat_code', index)}</td>`;
-  }
   return `<td><span class="mat-code">${this.highlight(materialText(material, 'mat_code', this.state.lang))}</span></td>`;
 }
 
@@ -375,15 +373,12 @@ function componentNumberCellHtml(material, index) {
 }
 
 function materialStackCellHtml(material, index) {
-  if (this.canEditProductRevision() && this.state.editMode) {
-    return `<td><div class="stack-cell">${this.editInput(materialText(material, 'material', this.state.lang), 'material', index)}${this.editInput(materialText(material, 'color', this.state.lang), 'color', index)}</div></td>`;
-  }
   return `<td><div class="stack-cell"><span>${this.highlight(materialText(material, 'material', this.state.lang))}</span><span class="muted-line">${this.renderColorDot(materialText(material, 'color', this.state.lang))}</span></div></td>`;
 }
 
 function cellHtml(material, field, index) {
   const value = materialText(material, field, this.state.lang);
-  if (this.canEditProductRevision() && this.state.editMode) return `<td>${this.editInput(value, field, index)}</td>`;
+  if (this.canEditProductRevision() && this.state.editMode && field === 'qty') return `<td>${this.editInput(value, field, index)}</td>`;
   if (field === 'attr') {
     return `<td>${this.renderAttrBadge(value)}</td>`;
   }
@@ -453,21 +448,13 @@ function highlight(value) {
 function drawingCellHtml(material, index) {
   const drawings = this.drawingsFor(material);
   if (!drawings.length) return `<div class="drawing-note">${escapeHTML(this.label('noDrawing'))}</div>`;
-  const deleteButton = this.assetDeleteButton('drawing', index);
-  return `<div class="drawing-tools"><button class="drawing-btn primary" type="button" data-drawing-row="${index}">${escapeHTML(this.label('viewDrawing'))}</button>${deleteButton}</div>`;
+  return `<div class="drawing-tools"><button class="drawing-btn primary" type="button" data-drawing-row="${index}">${escapeHTML(this.label('viewDrawing'))}</button></div>`;
 }
 
 function model3dCellHtml(material, index) {
   const models = this.models3dFor(material);
   if (!models.length) return `<div class="drawing-note">${escapeHTML(this.label('noDrawing'))}</div>`;
-  const deleteButton = this.assetDeleteButton('model3d', index);
-  return `<div class="drawing-tools"><button class="drawing-btn primary" type="button" data-model3d-row="${index}">${escapeHTML(this.label('viewDrawing'))}</button>${deleteButton}</div>`;
-}
-
-function assetDeleteButton(type, index) {
-  if (!this.canEditProductRevision() || !this.state.editMode) return '';
-  const attr = type === 'drawing' ? 'data-delete-drawing-row' : 'data-delete-model3d-row';
-  return `<button class="drawing-btn danger" type="button" ${attr}="${index}">${escapeHTML(this.deleteAssetLabel())}</button>`;
+  return `<div class="drawing-tools"><button class="drawing-btn primary" type="button" data-model3d-row="${index}">${escapeHTML(this.label('viewDrawing'))}</button></div>`;
 }
 
 function deleteAssetLabel() {
@@ -529,7 +516,6 @@ export const bomViewMethods = {
   highlight,
   drawingCellHtml,
   model3dCellHtml,
-  assetDeleteButton,
   deleteAssetLabel,
   drawingsFor,
   models3dFor,

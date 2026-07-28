@@ -264,3 +264,103 @@ test('validateMutation accepts allowed operations', () => {
   const p = validateMutation({ targetId: 'P1', operationType: 'update_material_field', payload: { field: 'name_zh', value: 'test' } });
   assert.equal(p.operationType, 'update_material_field');
 });
+
+test('apply_mutation accepts a bounded batch of button-equivalent operations', () => {
+  const call = validateToolCall({
+    name: 'apply_mutation',
+    arguments: {
+      summary: 'Update material and BOM',
+      operations: [
+        {
+          operationType: 'update_material_field',
+          targetId: 'M1',
+          payload: { field: 'unit', value: 'pcs' }
+        },
+        {
+          operationType: 'update_bom_quantity',
+          targetId: 'P1',
+          payload: {
+            color: 'Black',
+            childId: 'M1',
+            quantity: 2
+          }
+        }
+      ]
+    }
+  });
+
+  assert.equal(call.arguments.operations.length, 2);
+});
+
+test('apply_mutation rejects arbitrary code and unexpected payload fields', () => {
+  assert.throws(() => validateToolCall({
+    name: 'apply_mutation',
+    arguments: {
+      operations: [{
+        operationType: 'execute_code',
+        targetId: 'admin',
+        payload: { code: 'delete everything' }
+      }]
+    }
+  }), /disallowed operationType/);
+
+  assert.throws(() => validateToolCall({
+    name: 'apply_mutation',
+    arguments: {
+      operations: [{
+        operationType: 'update_material_field',
+        targetId: 'M1',
+        payload: { field: 'unit', value: 'pcs', code: 'delete everything' }
+      }]
+    }
+  }), /missing or extra fields/);
+});
+
+test('apply_mutation validates product, revision, structure, and asset patterns', () => {
+  const operations = [
+    {
+      operationType: 'create_product',
+      targetId: 'LGS999',
+      payload: {
+        name: { zh: '测试', vi: 'Thử nghiệm' },
+        color: { zh: '黑色', vi: 'Đen' },
+        size: '100mm',
+        sku: 'LGS999-B',
+      },
+    },
+    {
+      operationType: 'create_product_revision',
+      targetId: 'LGS999',
+      payload: { revision: 'V2', changeReason: 'Change' },
+    },
+    {
+      operationType: 'add_material_child',
+      targetId: 'M1',
+      payload: { materialId: 'M2', quantity: 2 },
+    },
+    {
+      operationType: 'update_material',
+      targetId: 'M1',
+      payload: {
+        patch: {
+          drawings: [{ name: 'drawing', url: 'https://example.com/drawing.pdf' }],
+          models3d: [{ name: 'model', url: 'https://example.com/model.glb' }],
+        },
+      },
+    },
+  ];
+  assert.doesNotThrow(() => validateToolCall({
+    name: 'apply_mutation',
+    arguments: { operations },
+  }));
+  assert.throws(() => validateToolCall({
+    name: 'apply_mutation',
+    arguments: {
+      operations: [{
+        operationType: 'update_material',
+        targetId: 'M1',
+        payload: { patch: { drawings: [{ url: 'http://example.com/not-a-pdf' }] } },
+      }],
+    },
+  }), /https|PDF/i);
+});

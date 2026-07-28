@@ -12,10 +12,12 @@ function deepFreeze(value) {
 }
 
 function tokens(value) {
-  return new Set(String(value || '')
-    .normalize('NFKC')
-    .toLocaleLowerCase('und')
-    .match(/[\p{L}\p{N}]{2,}/gu) || []);
+  const text = String(value || '').normalize('NFKC').toLocaleLowerCase('und');
+  const result = new Set(text.match(/[\p{L}\p{N}]{2,}/gu) || []);
+  for (const run of text.match(/[\p{Script=Han}]{2,}/gu) || []) {
+    for (let index = 0; index < run.length - 1; index++) result.add(run.slice(index, index + 2));
+  }
+  return result;
 }
 
 function overlapCount(left, right) {

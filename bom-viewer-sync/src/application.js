@@ -2,7 +2,6 @@ import {
   clone,
   createMaterialDatabase,
   filterMaterials,
-  findBomAssetEntry,
   findBomAssets,
   localizedValue,
   materialText,
@@ -46,7 +45,10 @@ import {
 import { AI_PROMPT_PACK_VERSION, createAiAssistantFeature } from './features/ai-assistant/index.js';
 import { PdmKnowledge } from './features/ai-assistant/pdm-knowledge.js';
 import { PdmDiscovery } from './features/ai-assistant/pdm-discovery.js';
-import { applyMutationTransaction } from './features/ai-assistant/mutation-engine.js';
+import {
+  applyMutationProposalTransaction,
+  buildMutationProposalReview,
+} from './features/ai-assistant/mutation-engine.js';
 import { createLocalAiStore } from './features/ai-assistant/local-store.js';
 import { createMemoryManager } from './features/ai-assistant/memory-manager.js';
 import {
@@ -179,6 +181,7 @@ const global = globalThis;
       openBom: '打开 BOM',
       viewMaterial: '查看物料',
       editMaterial: '编辑',
+      editBomMaterial: '编辑物料',
       materialMaster: '物料主数据',
       backToMaterialList: '返回物料列表',
       saveMaterial: '保存物料',
@@ -272,6 +275,32 @@ const global = globalThis;
       'ai.memory.export': '导出记忆与审计',
       'ai.memory.persistent': '记忆保存在此浏览器中。',
       'ai.memory.sessionOnly': '浏览器存储不可用；当前为仅会话模式。',
+      'ai.improvement.title': '反馈改进候选',
+      'ai.improvement.viewerDescription': '这里仅收集待审核候选，不会直接修改 PDM 或共享知识。请导出后交给管理员审核。',
+      'ai.improvement.adminDescription': '导入查看者候选，使用独立模型对照当前 PDM 证据审核，再由管理员决定是否批准。',
+      'ai.improvement.count': '候选数量',
+      'ai.improvement.import': '导入改进候选包',
+      'ai.improvement.imported': '候选包已导入',
+      'ai.improvement.importFailed': '候选包导入失败',
+      'ai.improvement.export': '导出改进候选',
+      'ai.improvement.exportApproved': '导出已批准共享知识',
+      'ai.improvement.review': 'AI 对照审核',
+      'ai.improvement.reviewing': '正在使用独立模型对照当前 PDM 证据审核…',
+      'ai.improvement.reviewed': 'AI 审核完成，等待管理员决定。',
+      'ai.improvement.reviewFailed': 'AI 审核失败，请检查连接和可用模型。',
+      'ai.improvement.approve': '批准',
+      'ai.improvement.reject': '拒绝',
+      'ai.drawing.status': '图纸共用评估状态',
+      'ai.drawing.pairStatus': '配对评估',
+      'ai.drawing.leftDocument': '左侧图纸',
+      'ai.drawing.rightDocument': '右侧图纸',
+      'ai.drawing.missingDocument': '缺少图纸',
+      'ai.drawing.engineeringApproval': '合并物料编码或 BOM 前仍需工程负责人确认。',
+      'ai.drawing.analysisStatus': '单张图纸分析状态',
+      'ai.drawing.materialCode': '物料编码',
+      'ai.drawing.document': '图纸',
+      'ai.drawing.dimensions': '外形尺寸',
+      'ai.drawing.singleApproval': '用于生产决策前仍需工程负责人确认。',
       'ai.knowledge.import': '导入 JSON、CSV、TXT 或 Markdown 知识文件',
       'ai.knowledge.importedCandidate': '已导入为待确认的非可信知识。',
       'ai.knowledge.importFailed': '知识导入失败',
@@ -294,6 +323,19 @@ const global = globalThis;
       'ai.proposal.prepared': '我已准备好一个更改建议，请在下方审核。',
       'ai.proposal.applyError': '应用建议失败',
       'ai.proposal.applied': '建议已应用到本地工作区。请检查更改，然后单独点击保存。',
+      'ai.proposal.verified': '校验通过：所选变更符合 PDM 数据规则。',
+      'ai.proposal.verifyFailed': '校验失败，不能应用这些变更。',
+      'ai.proposal.categoryMaterial': '物料变更',
+      'ai.proposal.categoryBom': 'BOM 变更',
+      'ai.proposal.categoryProduct': '产品变更',
+      'ai.proposal.categoryRevision': '版本变更',
+      'ai.proposal.categoryStructure': '父子结构变更',
+      'ai.proposal.selectChange': '选择此变更',
+      'ai.proposal.deleteChange': '移除此变更',
+      'ai.proposal.risk': '风险',
+      'ai.proposal.risk.low': '低',
+      'ai.proposal.risk.medium': '中',
+      'ai.proposal.risk.high': '高',
       'ai.message.fallback': 'AI 助手暂时不可用。请稍后再试。',
       'ai.message.error': '发生错误',
       'ai.error.budgetExceeded': '本轮模型重复调用过多，请重试或更换模型。',
@@ -305,6 +347,8 @@ const global = globalThis;
       'ai.error.server_error': '模型服务发生错误，请稍后重试。',
       'ai.error.timeout': '请求超时，请重试。',
       'ai.error.provider_error': 'AI 助手暂时不可用，请稍后重试。',
+      'ai.learning.requestTeaching': '我目前无法从本地 PDM 确定答案，模型服务也不可用。请告诉我这个问题应如何理解或正确答案；我会记住您的说明，并在以后遇到类似问题时使用。',
+      'ai.learning.teachingSaved': '已记住您的说明。该记忆仅用于辅助理解，不会直接修改 PDM 或 BOM 数据。',
       'ai.message.greetingResponse': '您好！有什么我可以帮您的？',
       'ai.workspace.greeting': '👋 您好！我是 JinTai PDM 的 AI 助手。\n\n请在下方输入您的问题，我随时准备为您提供帮助！🤩',
       'ai.sync.title': 'GitHub 技能与知识同步',
@@ -413,6 +457,7 @@ const global = globalThis;
       openBom: 'Mở BOM',
       viewMaterial: 'Xem vật liệu',
       editMaterial: 'Sửa',
+      editBomMaterial: 'Sửa vật liệu',
       materialMaster: 'Dữ liệu chủ vật liệu',
       backToMaterialList: 'Quay lại danh sách vật liệu',
       saveMaterial: 'Lưu vật liệu',
@@ -506,6 +551,32 @@ const global = globalThis;
       'ai.memory.export': 'Xuất bộ nhớ và audit',
       'ai.memory.persistent': 'Bộ nhớ được lưu trong trình duyệt này.',
       'ai.memory.sessionOnly': 'Không thể dùng lưu trữ trình duyệt; đang chạy ở chế độ chỉ trong phiên.',
+      'ai.improvement.title': 'Ứng viên cải tiến từ phản hồi',
+      'ai.improvement.viewerDescription': 'Mục này chỉ thu thập ứng viên chờ duyệt, không trực tiếp sửa PDM hay kiến thức dùng chung. Hãy xuất gói và chuyển cho admin.',
+      'ai.improvement.adminDescription': 'Nhập ứng viên của viewer, dùng model độc lập đối chiếu bằng dữ liệu PDM hiện tại, sau đó admin quyết định.',
+      'ai.improvement.count': 'Số ứng viên',
+      'ai.improvement.import': 'Nhập gói ứng viên cải tiến',
+      'ai.improvement.imported': 'Đã nhập gói ứng viên',
+      'ai.improvement.importFailed': 'Nhập gói ứng viên thất bại',
+      'ai.improvement.export': 'Xuất ứng viên cải tiến',
+      'ai.improvement.exportApproved': 'Xuất kiến thức dùng chung đã duyệt',
+      'ai.improvement.review': 'AI đối chiếu',
+      'ai.improvement.reviewing': 'Đang dùng model độc lập đối chiếu với dữ liệu PDM hiện tại…',
+      'ai.improvement.reviewed': 'AI đã review, đang chờ quyết định của admin.',
+      'ai.improvement.reviewFailed': 'AI review thất bại; hãy kiểm tra kết nối và model khả dụng.',
+      'ai.improvement.approve': 'Duyệt',
+      'ai.improvement.reject': 'Từ chối',
+      'ai.drawing.status': 'Trạng thái đánh giá dùng chung bản vẽ',
+      'ai.drawing.pairStatus': 'Đánh giá cặp',
+      'ai.drawing.leftDocument': 'Bản vẽ bên trái',
+      'ai.drawing.rightDocument': 'Bản vẽ bên phải',
+      'ai.drawing.missingDocument': 'Thiếu bản vẽ',
+      'ai.drawing.engineeringApproval': 'Vẫn cần kỹ sư xác nhận trước khi hợp nhất mã vật liệu hoặc BOM.',
+      'ai.drawing.analysisStatus': 'Trạng thái phân tích một bản vẽ',
+      'ai.drawing.materialCode': 'Mã vật liệu',
+      'ai.drawing.document': 'Bản vẽ',
+      'ai.drawing.dimensions': 'Kích thước bao',
+      'ai.drawing.singleApproval': 'Vẫn cần kỹ sư xác nhận trước khi đưa ra quyết định sản xuất.',
       'ai.knowledge.import': 'Nhập file kiến thức JSON, CSV, TXT hoặc Markdown',
       'ai.knowledge.importedCandidate': 'Đã nhập dưới dạng kiến thức không tin cậy chờ xác nhận.',
       'ai.knowledge.importFailed': 'Nhập kiến thức thất bại',
@@ -528,6 +599,19 @@ const global = globalThis;
       'ai.proposal.prepared': 'Tôi đã chuẩn bị một đề xuất thay đổi. Vui lòng kiểm tra bên dưới.',
       'ai.proposal.applyError': 'Không thể áp dụng đề xuất',
       'ai.proposal.applied': 'Đề xuất đã được áp dụng vào workspace cục bộ. Hãy kiểm tra thay đổi rồi bấm Lưu riêng.',
+      'ai.proposal.verified': 'Verify đạt: các thay đổi đã chọn phù hợp quy tắc dữ liệu PDM.',
+      'ai.proposal.verifyFailed': 'Verify thất bại, không thể áp dụng các thay đổi này.',
+      'ai.proposal.categoryMaterial': 'Thay đổi vật liệu',
+      'ai.proposal.categoryBom': 'Thay đổi BOM',
+      'ai.proposal.categoryProduct': 'Thay đổi sản phẩm',
+      'ai.proposal.categoryRevision': 'Thay đổi phiên bản',
+      'ai.proposal.categoryStructure': 'Thay đổi cấu trúc cha-con',
+      'ai.proposal.selectChange': 'Chọn thay đổi này',
+      'ai.proposal.deleteChange': 'Loại thay đổi này',
+      'ai.proposal.risk': 'Rủi ro',
+      'ai.proposal.risk.low': 'Thấp',
+      'ai.proposal.risk.medium': 'Trung bình',
+      'ai.proposal.risk.high': 'Cao',
       'ai.message.fallback': 'Trợ lý AI tạm thời không khả dụng. Vui lòng thử lại sau.',
       'ai.message.error': 'Đã xảy ra lỗi',
       'ai.error.budgetExceeded': 'Mô hình đã gọi lặp quá nhiều trong lượt này. Hãy thử lại hoặc đổi mô hình.',
@@ -539,6 +623,8 @@ const global = globalThis;
       'ai.error.server_error': 'Dịch vụ model gặp lỗi. Vui lòng thử lại sau.',
       'ai.error.timeout': 'Yêu cầu đã hết thời gian chờ. Vui lòng thử lại.',
       'ai.error.provider_error': 'Trợ lý AI tạm thời không khả dụng. Vui lòng thử lại sau.',
+      'ai.learning.requestTeaching': 'Tôi chưa thể xác định câu trả lời từ PDM cục bộ và dịch vụ model cũng không khả dụng. Hãy cho tôi biết cách hiểu hoặc câu trả lời đúng; tôi sẽ ghi nhớ để dùng cho câu hỏi tương tự.',
+      'ai.learning.teachingSaved': 'Tôi đã ghi nhớ lời giải thích. Bộ nhớ này chỉ hỗ trợ hiểu câu hỏi và không trực tiếp sửa dữ liệu PDM hoặc BOM.',
       'ai.message.greetingResponse': 'Xin chào! Tôi có thể giúp gì cho bạn?',
       'ai.workspace.greeting': '👋 Xin chào! Tôi là Trợ lý AI của JinTai PDM.\n\nHãy nhập câu hỏi của bạn xuống bên dưới, tôi đã sẵn sàng hỗ trợ bạn bất cứ lúc nào! 🤩'
     }
@@ -553,6 +639,7 @@ const global = globalThis;
     'ai.localFallback.removed': '删除',
     'ai.localFallback.modified': '修改',
     'ai.localFallback.matches': '匹配结果',
+    'ai.localFallback.bomLevel': 'BOM 层级',
     'ai.localFallback.usedProducts': '使用产品',
     'ai.localFallback.recentChanges': '最近变更',
     'ai.localFallback.interpretation': '解析',
@@ -622,6 +709,7 @@ const global = globalThis;
     deleteBomRowConfirm: '删除这行 BOM？',
     addBomRow: '添加物料',
     editRow: '编辑行',
+    bomRowUpdated: 'BOM 行已更新，请保存更改',
     bomCompCode: '部件编号',
     bomQty: '数量',
     createRevision: '新建版本',
@@ -686,6 +774,7 @@ const global = globalThis;
     'ai.localFallback.removed': 'Xóa',
     'ai.localFallback.modified': 'Sửa đổi',
     'ai.localFallback.matches': 'Kết quả khớp',
+    'ai.localFallback.bomLevel': 'Cấp BOM',
     'ai.localFallback.usedProducts': 'Sản phẩm sử dụng',
     'ai.localFallback.recentChanges': 'Thay đổi gần đây',
     'ai.localFallback.interpretation': 'Giải thích',
@@ -755,6 +844,7 @@ const global = globalThis;
     deleteBomRowConfirm: 'Xóa dòng BOM này?',
     addBomRow: 'Thêm vật liệu',
     editRow: 'Sửa dòng',
+    bomRowUpdated: 'Đã cập nhật dòng BOM, hãy lưu thay đổi',
     bomCompCode: 'Mã linh kiện',
     bomQty: 'Số lượng',
     createRevision: 'Tạo phiên bản',
@@ -867,6 +957,7 @@ const global = globalThis;
         materialDb: payload.materialDb,
         materialDraft: null,
         pendingMaterialAssets: {},
+        materialAssetFeedback: null,
         loadedPayload: clone(payload),
         currentSku: '',
         currentColor: '',
@@ -931,28 +1022,58 @@ const global = globalThis;
       this.aiLocalStore ||= createLocalAiStore();
       this.memoryManager ||= createMemoryManager({ localStore: this.aiLocalStore });
       this.aiFeature = createAiAssistantFeature({
+        mode: this.mode,
         getSnapshot: () => this.getSnapshot(),
+        getImprovementEvidence: async (candidate, snapshot) => {
+          const discovery = new PdmDiscovery(snapshot);
+          const productId = candidate?.context?.productIds?.[0];
+          const result = discovery.searchPdm({
+            query: candidate?.userCorrection || candidate?.userQuestion || '',
+            ...(productId ? { productId } : {}),
+          });
+          return {
+            productId: result.productId || productId || '',
+            matchMode: result.matchMode || '',
+            totalMatches: Number(result.totalMatches) || 0,
+            products: (result.products || []).slice(0, 5).map(item => ({
+              productCode: item.productCode,
+              nameZh: item.nameZh,
+              nameVi: item.nameVi,
+            })),
+            materials: (result.materials || []).slice(0, 8).map(item => ({
+              materialId: item.materialId,
+              code: item.code,
+              nameZh: item.nameZh,
+              nameVi: item.nameVi,
+              spec: item.spec,
+              usedBy: (item.usedBy || []).slice(0, 5),
+            })),
+            evidence: (result.evidence || []).slice(0, 10),
+          };
+        },
         t: (key) => this.label(key),
         localStore: this.aiLocalStore,
         runTool: async (call, snapshot) => {
           if (call.name === 'apply_mutation') {
             try {
-              const { payload, changes } = applyMutationTransaction(snapshot, call.arguments);
+              const review = buildMutationProposalReview(snapshot, call.arguments);
             
             // Render the proposal directly into the chat and pause execution
             this.aiFeature.ui.renderMessage({
               role: 'assistant',
               text: this.label('ai.proposal.prepared') || 'Proposal prepared for review.',
               proposal: call.arguments,
-              approval: { mutation: call.arguments, payload, changes },
-              diff: changes,
-              onApprove: (approvalState) => {
+              proposalReview: review,
+              diff: review.finalDiff,
+              onApprove: (selectedProposal) => {
                 try {
+                  const currentSnapshot = this.getSnapshot();
+                  const transaction = applyMutationProposalTransaction(currentSnapshot, selectedProposal);
                   this.applyAiMutation({
-                     mutation: approvalState.mutation,
-                     changes: approvalState.changes,
-                     payload: approvalState.payload,
-                     sourceCommit: snapshot.sourceMetadata?.commitSha
+                     proposal: selectedProposal,
+                     changes: transaction.changes,
+                     payload: transaction.payload,
+                     sourceCommit: currentSnapshot.sourceMetadata?.commitSha
                   });
                 } catch (e) {
                   this.aiFeature.ui.renderMessage({ role: 'assistant', text: this.label('ai.proposal.applyError') || 'Error applying proposal' });
@@ -1087,14 +1208,19 @@ const global = globalThis;
       });
     }
 
-    applyAiMutation({ mutation, changes, payload, sourceCommit }) {
+    applyAiMutation({ proposal, changes, payload, sourceCommit }) {
+      const operations = Array.isArray(proposal?.operations)
+        ? proposal.operations
+        : proposal?.operationType
+          ? [proposal]
+          : [];
       const evt = {
         type: 'ai-mutation',
         actor: 'ai',
         changes: changes,
         sourceCommit: sourceCommit,
-        operationType: mutation.operationType,
-        targetId: mutation.targetId,
+        operationTypes: operations.map(operation => operation.operationType),
+        targetIds: operations.map(operation => operation.targetId),
         createdAt: new Date().toISOString(),
       };
       this.state.payload = appendNormalizedNotificationEvent(payload, evt);
@@ -1316,7 +1442,7 @@ const global = globalThis;
         const select = event.target.closest('[data-product-select]');
         if (select) this.selectProduct(select.value);
       });
-      this.query('#filterBar').addEventListener('click', (event) => this.handleFilterClick(event));
+      this.query('#filterBar')?.addEventListener('click', (event) => this.handleFilterClick(event));
       this.query('.content').addEventListener('change', (event) => {
         const jumpInput = event.target.closest('[data-action="mdb-jump-page"]');
         if (jumpInput) {
@@ -1360,8 +1486,6 @@ const global = globalThis;
       const handleClick = (event) => {
         const action = event.target.closest('[data-action]');
         const sort = event.target.closest('[data-sort]');
-        const deleteDrawing = event.target.closest('[data-delete-drawing-row]');
-        const deleteModel3d = event.target.closest('[data-delete-model3d-row]');
         const deleteBom = event.target.closest('[data-delete-bom-row]');
         const replaceBom = event.target.closest('[data-replace-bom-row]');
         const deleteDbMaterial = event.target.closest('[data-delete-db-material]');
@@ -1440,15 +1564,6 @@ const global = globalThis;
           this.startReplaceBomRow(Number(replaceBom.dataset.replaceBomRow));
           return;
         }
-        if (deleteDrawing) {
-          this.deleteMaterialAsset(Number(deleteDrawing.dataset.deleteDrawingRow), 'drawings');
-          return;
-        }
-        if (deleteModel3d) {
-          this.deleteMaterialAsset(Number(deleteModel3d.dataset.deleteModel3dRow), 'models3d');
-          return;
-        }
-
         const filterChip = event.target.closest('.db-filter-chip');
         if (filterChip) {
           const type = filterChip.dataset.filterType;
@@ -1773,6 +1888,7 @@ const global = globalThis;
       if (!this.state.materialDb?.materials?.[materialId]) return;
       this.state.adminView = 'materials';
       this.state.materialDraft = null;
+      this.state.materialAssetFeedback = null;
       this.prunePendingMaterialAssets();
       this.state.selectedMaterialId = materialId;
       this.state.searchQuery = '';
@@ -1799,6 +1915,7 @@ const global = globalThis;
 
     backMaterialList() {
       this.state.materialDraft = null;
+      this.state.materialAssetFeedback = null;
       this.prunePendingMaterialAssets();
       this.state.selectedMaterialId = '';
       this.renderProductList();
@@ -2145,15 +2262,11 @@ const global = globalThis;
 
     updateMaterial(index, field, value) {
       const material = this.state.lastRows[index];
-      if (!material) return;
+      if (!material || (field !== 'comp_code' && field !== 'qty')) return;
       if (material._materialId && this.state.materialDb?.materials?.[material._materialId]) {
         this.updateMaterialDbBackedRow(material, field, value);
-      } else if (field === 'mat_code') {
-        this.replaceMaterialCode(material.mat_code, value);
-      } else if (field === 'comp_code' || field === 'qty') {
-        material[field] = value;
       } else {
-        this.updateSharedMaterialField(material.mat_code, this.materialEditKey(field), value);
+        material[field] = value;
       }
       this.markDirty();
       this.renderInspector();
@@ -2293,8 +2406,6 @@ const global = globalThis;
       this.materialAssetUploadVersions.set(uploadKey, uploadVersion);
       try {
         const validated = await validateMaterialAssetFile({ file, typeKey });
-        const token = this.readToken();
-        if (!token) throw new MaterialAssetUploadError('ASSET_TOKEN_REQUIRED');
         const contentHash = await sha256Hex(validated.bytes);
         const path = buildAssetPath({
           kind: validated.kind,
@@ -2302,40 +2413,42 @@ const global = globalThis;
           originalName: validated.originalName,
           contentHash,
         });
-        this.setStatus(this.label('uploadingAssets'), '');
-        const resolved = await this.githubAssetStorage.uploadAsset({
-          token,
-          path,
-          contentType: validated.contentType,
-          bytes: validated.bytes,
-        });
         if (this.materialAssetUploadVersions.get(uploadKey) !== uploadVersion
           || this.state.materialDraft?.id !== materialId) return;
         this.syncMaterialMasterFormToDraft();
         const currentAsset = this.state.materialDraft?.[typeKey]?.[index];
         if (!currentAsset) return;
         const previousPendingId = currentAsset.pendingAssetId;
+        this.state.pendingMaterialAssets[path] = {
+          path,
+          contentType: validated.contentType,
+          bytes: validated.bytes,
+          originalName: validated.originalName,
+        };
         const nextAsset = {
           ...currentAsset,
           name: currentAsset.name || validated.originalName,
-          url: resolved.url,
-          path: resolved.path,
-          contentHash: resolved.contentHash,
-          commitSha: resolved.commitSha,
+          url: '',
+          pendingAssetId: path,
         };
-        delete nextAsset.pendingAssetId;
-        if (typeKey === 'models3d') nextAsset.previewUrl = resolved.url;
+        if (typeKey === 'models3d') delete nextAsset.previewUrl;
         this.state.materialDraft[typeKey][index] = nextAsset;
-        if (previousPendingId) delete this.state.pendingMaterialAssets[previousPendingId];
+        if (previousPendingId && previousPendingId !== path) {
+          delete this.state.pendingMaterialAssets[previousPendingId];
+        }
+        this.state.materialAssetFeedback = null;
         this.prunePendingMaterialAssets();
         this.renderContent();
-        this.setStatus(this.label('assetUploaded'), 'saved');
+        this.setStatus(this.label('assetFileQueued'), 'dirty');
       } catch (error) {
         if (this.materialAssetUploadVersions.get(uploadKey) !== uploadVersion) return;
         const validationError = error instanceof MaterialAssetUploadError
           ? error
           : new MaterialAssetUploadError('ASSET_UPLOAD_FAILED');
-        this.setStatus(this.materialAssetErrorLabel(validationError), 'error');
+        const message = this.materialAssetErrorLabel(validationError);
+        this.state.materialAssetFeedback = { typeKey, index, message, state: 'error' };
+        this.renderContent();
+        this.setStatus(message, 'error');
       } finally {
         input.value = '';
       }
@@ -2357,6 +2470,7 @@ const global = globalThis;
         if (typeKey === 'models3d') nextAsset.previewUrl = nextAsset.url || nextAsset.previewUrl || '';
         this.state.materialDraft[typeKey][index] = nextAsset;
         if (previousPendingId) delete this.state.pendingMaterialAssets[previousPendingId];
+        this.state.materialAssetFeedback = null;
         this.prunePendingMaterialAssets();
         this.renderContent();
         this.setStatus(this.label('assetReused'), 'saved');
@@ -2369,6 +2483,7 @@ const global = globalThis;
       this.state.materialDraft[typeKey] = this.state.materialDraft[typeKey] || [];
       if (this.state.materialDraft[typeKey].length) return;
       this.state.materialDraft[typeKey].push({ url: '', name: '' });
+      this.state.materialAssetFeedback = null;
       this.renderContent();
     }
 
@@ -2380,6 +2495,7 @@ const global = globalThis;
       if (this.state.materialDraft[typeKey]) {
         this.state.materialDraft[typeKey].splice(index, 1);
       }
+      this.state.materialAssetFeedback = null;
       this.prunePendingMaterialAssets();
       this.renderContent();
     }
@@ -2489,40 +2605,6 @@ const global = globalThis;
       }
       this.deleteDatabaseMaterial(record.id);
     }
-    deleteMaterialAsset(index, collectionName) {
-      if (!this.canEditProductRevision()) return;
-      const material = this.state.lastRows[index];
-      if (!material) return;
-      const collection = collectionName === 'models3d' ? this.state.models3d : this.state.drawings;
-      if (material._materialRecord) {
-        const assetField = collectionName === 'models3d' ? 'models3d' : 'drawings';
-        const confirmKey = collectionName === 'models3d'
-          ? 'deleteModel3dConfirm'
-          : 'deleteDrawingConfirm';
-        this.openPdmConfirm(this.deleteAssetConfirmText(confirmKey), () => {
-          updateMaterialRecord(this.state.payload, material._materialId, { [assetField]: [] });
-          this.state.materialDb = this.state.payload.materialDb;
-          this.markDirty();
-          this.renderTable();
-          this.renderInspector();
-        });
-        return;
-      }
-      const skuAssets = collection[this.state.currentSku] || {};
-      const entry = findBomAssetEntry(skuAssets, material);
-      if (!entry) return;
-      const confirmKey = collectionName === 'models3d'
-        ? 'deleteModel3dConfirm'
-        : 'deleteDrawingConfirm';
-      this.openPdmConfirm(this.deleteAssetConfirmText(confirmKey), () => {
-        delete skuAssets[entry.key];
-        collection[this.state.currentSku] = skuAssets;
-        this.markDirty();
-        this.renderTable();
-        this.renderInspector();
-      });
-    }
-
     deleteBomRow(index) {
       if (!this.canEditProductRevision()) return;
       const material = this.state.lastRows[index];
@@ -2616,6 +2698,7 @@ const global = globalThis;
           this.state.materialDb = this.state.payload.materialDb;
           this.markDirty();
           this.renderContent();
+          this.setStatus(this.label('bomRowUpdated'), 'dirty');
         }
       });
     }

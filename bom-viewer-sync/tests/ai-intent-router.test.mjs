@@ -20,6 +20,26 @@ const READ_TOOLS = [
   'analyze_pdm',
 ];
 
+test('routes explicit Admin edit requests to the governed proposal tool', () => {
+  const route = routePdmIntent({
+    query: 'Update material M1 unit to pcs',
+    availableTools: [...READ_TOOLS, 'apply_mutation'],
+  });
+
+  assert.equal(route.intent, PDM_INTENTS.PROPOSAL);
+  assert.equal(route.preferredTool, 'apply_mutation');
+  assert.equal(route.confidence, 'deterministic');
+});
+
+test('does not route an edit request when the model has no proposal capability', () => {
+  const route = routePdmIntent({
+    query: 'Update material M1 unit to pcs',
+    availableTools: READ_TOOLS,
+  });
+
+  assert.notEqual(route.preferredTool, 'apply_mutation');
+});
+
 test('routes an explicit Chinese draft-status question to revision history', () => {
   assert.deepEqual(routePdmIntent({
     query: '为什么LGS032有状态是草稿呢？',
@@ -307,4 +327,77 @@ test('routes generic frame dimension follow-ups without hardcoded values', () =>
     availableTools: READ_TOOLS,
   });
   assert.equal(route.preferredTool, 'analyze_pdm');
+});
+
+test('routes general catalog component questions to local analysis', () => {
+  const queries = [
+    '所有产品有哪一个产品用竖梁',
+    '有哪一个SKU用竖零件',
+    '竖梁用哪一个产品',
+    '哪一个产品用最大的纸箱',
+  ];
+
+  for (const query of queries) {
+    const route = routePdmIntent({ query, availableTools: READ_TOOLS });
+    assert.equal(route.intent, PDM_INTENTS.CATALOG_ANALYSIS, query);
+    assert.equal(route.preferredTool, 'analyze_pdm', query);
+    assert.equal(route.confidence, 'deterministic', query);
+  }
+});
+
+test('reuses a confirmed read-only strategy for a similar unknown query', () => {
+  const route = routePdmIntent({
+    query: '查一下哪些型号装这个特殊托架',
+    availableTools: READ_TOOLS,
+    learnedStrategies: [{
+      status: 'confirmed',
+      scope: {
+        memoryType: 'procedure',
+        intent: PDM_INTENTS.CATALOG_ANALYSIS,
+        preferredTool: 'analyze_pdm',
+        exampleQuery: '哪些型号使用这个特殊托架',
+      },
+    }],
+  });
+
+  assert.equal(route.intent, PDM_INTENTS.CATALOG_ANALYSIS);
+  assert.equal(route.preferredTool, 'analyze_pdm');
+  assert.equal(route.confidence, 'learned');
+});
+
+test('continues a confirmed shorthand question without calling the model for intent recovery', () => {
+  const originalQuery = '那个834上横梁有和哪一个产品共用吗？还是只有它独用';
+  const route = routePdmIntent({
+    query: '是的',
+    conversationContext: {
+      productIds: ['LGS834'],
+      searchQuery: originalQuery,
+    },
+    availableTools: READ_TOOLS,
+  });
+
+  assert.equal(route.intent, PDM_INTENTS.CATALOG_ANALYSIS);
+  assert.equal(route.preferredTool, 'analyze_pdm');
+  assert.deepEqual(route.entities.productIds, ['LGS834']);
+  assert.ok(route.entities.searchQuery.includes('LGS834'));
+  assert.ok(!route.entities.searchQuery.includes('那个834'));
+});
+
+test('expands a prior component comparison to other products using local analysis', () => {
+  const originalQuery = 'LGS433和434那个竖梁有共用吗?';
+  const followUp = '除外那个两产品还有什么产品也用吗?';
+  const route = routePdmIntent({
+    query: followUp,
+    conversationContext: {
+      productIds: ['LGS433', 'LGS434'],
+      searchQuery: originalQuery,
+    },
+    availableTools: READ_TOOLS,
+  });
+
+  assert.equal(route.intent, PDM_INTENTS.CATALOG_ANALYSIS);
+  assert.equal(route.preferredTool, 'analyze_pdm');
+  assert.deepEqual(route.entities.productIds, ['LGS433', 'LGS434']);
+  assert.ok(route.entities.searchQuery.includes(originalQuery));
+  assert.ok(route.entities.searchQuery.includes(followUp));
 });

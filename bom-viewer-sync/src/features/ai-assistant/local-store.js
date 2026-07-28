@@ -1,4 +1,11 @@
 import { validateEntityMapping } from './entity-mapping.js';
+import {
+  createImprovementBundle,
+  createImprovementCandidate as normalizeImprovementCandidate,
+  createReviewedKnowledgePack,
+  parseImprovementBundle,
+  validateImprovementReview,
+} from './improvement-cycle.js';
 
 const SCHEMA_VERSION = 1;
 const DEFAULT_STORAGE_KEY = 'jintai.pdm.ai.local.v1';
@@ -11,7 +18,7 @@ function nowIso(clock) {
 }
 
 function emptyState() {
-  return { schemaVersion: SCHEMA_VERSION, memories: [], audit: [], settings: {} };
+  return { schemaVersion: SCHEMA_VERSION, memories: [], improvementCandidates: [], audit: [], settings: {} };
 }
 
 function clone(value) {
@@ -41,6 +48,7 @@ function migrateState(raw, capturedAt) {
     return {
       schemaVersion: SCHEMA_VERSION,
       memories: Array.isArray(raw.memories) ? raw.memories : [],
+      improvementCandidates: Array.isArray(raw.improvementCandidates) ? raw.improvementCandidates : [],
       audit: Array.isArray(raw.audit) ? raw.audit : [],
       settings: raw.settings && typeof raw.settings === 'object' ? raw.settings : {},
     };
@@ -84,6 +92,7 @@ export function createLocalAiStore({
   storageKey = DEFAULT_STORAGE_KEY,
   clock = () => new Date().toISOString(),
   maxMemories = 200,
+  maxImprovements = 200,
   maxAudit = 500,
 } = {}) {
   let persistence = 'persistent';
@@ -103,6 +112,7 @@ export function createLocalAiStore({
 
   function persist() {
     state.memories = state.memories.slice(-maxMemories);
+    state.improvementCandidates = state.improvementCandidates.slice(-maxImprovements);
     state.audit = state.audit.slice(-maxAudit);
     if (persistence !== 'persistent') return;
     try {
@@ -220,8 +230,111 @@ export function createLocalAiStore({
 
   function listAudit() { return clone(state.audit); }
 
+  function createImprovementCandidate(input) {
+    assertNoSecrets(input, 'improvementCandidate');
+    const capturedAt = nowIso(clock);
+    const normalized = normalizeImprovementCandidate(input, {
+      id: `improvement_${Date.now()}_${++sequence}`,
+      capturedAt,
+    });
+    const duplicate = state.improvementCandidates.find(item => (
+      item.issueType === normalized.issueType
+      && item.userQuestion === normalized.userQuestion
+      && item.userCorrection === normalized.userCorrection
+      && item.status !== 'approved'
+      && item.status !== 'rejected'
+    ));
+    if (duplicate) {
+      duplicate.occurrences = Math.min(9999, (Number(duplicate.occurrences) || 1) + 1);
+      duplicate.lastSeenAt = capturedAt;
+      appendAudit({ action: 'improvement-candidate-observed', improvementId: duplicate.id });
+      return clone(duplicate);
+    }
+    state.improvementCandidates.push(normalized);
+    appendAudit({ action: 'improvement-candidate-created', improvementId: normalized.id });
+    return clone(normalized);
+  }
+
+  function findImprovement(id) {
+    const record = state.improvementCandidates.find(item => item.id === id);
+    if (!record) throw new Error(`Improvement candidate not found: ${id}`);
+    return record;
+  }
+
+  function listImprovementCandidates() {
+    return clone(state.improvementCandidates);
+  }
+
+  function importImprovementBundle(serialized) {
+    const bundle = parseImprovementBundle(serialized);
+    assertNoSecrets(bundle, 'improvementBundle');
+    let importedCount = 0;
+    for (const candidate of bundle.candidates) {
+      const existing = state.improvementCandidates.find(item => item.id === candidate.id);
+      if (existing) continue;
+      state.improvementCandidates.push(candidate);
+      importedCount += 1;
+    }
+    appendAudit({ action: 'improvement-bundle-imported', importedCount });
+    return { importedCount, totalCount: state.improvementCandidates.length };
+  }
+
+  function exportImprovementBundle() {
+    const bundle = createImprovementBundle(state.improvementCandidates, {
+      sourceMode: 'viewer',
+      exportedAt: nowIso(clock),
+    });
+    assertNoSecrets(bundle, 'improvementBundle');
+    return JSON.stringify(bundle, null, 2);
+  }
+
+  function setImprovementReview(id, review) {
+    assertNoSecrets(review, 'improvementReview');
+    const record = findImprovement(id);
+    record.review = validateImprovementReview(review);
+    record.status = 'reviewed';
+    record.approvedAt = null;
+    record.rejectedAt = null;
+    appendAudit({ action: 'improvement-reviewed', improvementId: id, decision: record.review.decision });
+    return clone(record);
+  }
+
+  function approveImprovement(id) {
+    const record = findImprovement(id);
+    if (!record.review) throw new Error('Improvement review is required before approval');
+    record.status = 'approved';
+    record.approvedAt = nowIso(clock);
+    record.rejectedAt = null;
+    appendAudit({ action: 'improvement-approved', improvementId: id });
+    return clone(record);
+  }
+
+  function rejectImprovement(id) {
+    const record = findImprovement(id);
+    record.status = 'rejected';
+    record.rejectedAt = nowIso(clock);
+    record.approvedAt = null;
+    appendAudit({ action: 'improvement-rejected', improvementId: id });
+    return clone(record);
+  }
+
+  function exportApprovedKnowledge({ sourceCommit = '' } = {}) {
+    const pack = createReviewedKnowledgePack(state.improvementCandidates, {
+      exportedAt: nowIso(clock),
+      sourceCommit,
+    });
+    assertNoSecrets(pack, 'reviewedKnowledge');
+    return JSON.stringify(pack, null, 2);
+  }
+
   function exportData() {
-    const exported = { schemaVersion: SCHEMA_VERSION, memories: state.memories, audit: state.audit, settings: state.settings };
+    const exported = {
+      schemaVersion: SCHEMA_VERSION,
+      memories: state.memories,
+      improvementCandidates: state.improvementCandidates,
+      audit: state.audit,
+      settings: state.settings,
+    };
     assertNoSecrets(exported);
     return JSON.stringify(exported, null, 2);
   }
@@ -232,7 +345,11 @@ export function createLocalAiStore({
     assertNoSecrets(imported);
     state = imported;
     persist();
-    return { memoryCount: state.memories.length, auditCount: state.audit.length };
+    return {
+      memoryCount: state.memories.length,
+      improvementCount: state.improvementCandidates.length,
+      auditCount: state.audit.length,
+    };
   }
 
   function clear() {
@@ -247,6 +364,14 @@ export function createLocalAiStore({
     deleteMemory,
     listMemories,
     listConfirmed,
+    createImprovementCandidate,
+    listImprovementCandidates,
+    importImprovementBundle,
+    exportImprovementBundle,
+    setImprovementReview,
+    approveImprovement,
+    rejectImprovement,
+    exportApprovedKnowledge,
     appendAudit,
     listAudit,
     exportData,
@@ -262,7 +387,13 @@ export function createLocalAiStore({
       persist();
     },
     clear,
-    diagnostics: () => ({ persistence, schemaVersion: SCHEMA_VERSION, memoryCount: state.memories.length, auditCount: state.audit.length }),
+    diagnostics: () => ({
+      persistence,
+      schemaVersion: SCHEMA_VERSION,
+      memoryCount: state.memories.length,
+      improvementCount: state.improvementCandidates.length,
+      auditCount: state.audit.length,
+    }),
   };
 }
 

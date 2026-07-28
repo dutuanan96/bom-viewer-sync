@@ -4,7 +4,8 @@ import { stableId } from '../shared/primitives.js';
 const NOTIFICATION_LIMIT = 30;
 const NOTIFICATION_CHANGE_LIMIT = 8;
 const LOCALIZED_MATERIAL_FIELDS = ['name', 'spec', 'material', 'color', 'attr'];
-const MATERIAL_CHANGE_FIELDS = ['code', ...LOCALIZED_MATERIAL_FIELDS, 'unit'];
+const MATERIAL_CHANGE_FIELDS = ['code', ...LOCALIZED_MATERIAL_FIELDS, 'unit', 'drawings', 'models3d'];
+const PRODUCT_CHANGE_FIELDS = ['sku', 'name_zh', 'name_vi', 'size'];
 
 export function normalizeNotificationChanges(changes) {
   if (!Array.isArray(changes)) return [];
@@ -31,6 +32,9 @@ function localizedPairSummary(pair) {
 function materialChangeValue(record, field) {
   if (!record) return '';
   if (LOCALIZED_MATERIAL_FIELDS.includes(field)) return localizedPairSummary(record[field]);
+  if (field === 'drawings' || field === 'models3d') {
+    return (record[field] || []).map(asset => `${asset?.name || ''}|${asset?.url || asset?.path || ''}`).join(';');
+  }
   return String(record[field] ?? '');
 }
 
@@ -56,6 +60,36 @@ export function describePayloadChanges(previousPayload, nextPayload) {
     if (!previousBomKeys.includes(code)) {
       changes.push({ kind: 'product_added', code: String(code), field: '', before: '', after: '' });
       if (changes.length >= NOTIFICATION_CHANGE_LIMIT) return changes;
+    }
+  }
+  for (const code of nextBomKeys.filter(productCode => previousBomKeys.includes(productCode))) {
+    const previousProduct = previous.bom[code] || {};
+    const nextProduct = next.bom[code] || {};
+    if (String(previousProduct.revision || '') !== String(nextProduct.revision || '')) {
+      changes.push({
+        kind: 'product',
+        code: String(code),
+        field: 'revision',
+        before: String(previousProduct.revision || ''),
+        after: String(nextProduct.revision || ''),
+      });
+      if (changes.length >= NOTIFICATION_CHANGE_LIMIT) return changes;
+    }
+    const colorNames = new Set([
+      ...Object.keys(previousProduct.color_info || {}),
+      ...Object.keys(nextProduct.color_info || {}),
+    ]);
+    for (const color of colorNames) {
+      const previousColor = previousProduct.color_info?.[color] || {};
+      const nextColor = nextProduct.color_info?.[color] || {};
+      for (const field of PRODUCT_CHANGE_FIELDS) {
+        const before = String(previousColor[field] || '');
+        const after = String(nextColor[field] || '');
+        if (before !== after) {
+          changes.push({ kind: 'product', code: String(code), field: `${color}.${field}`, before, after });
+          if (changes.length >= NOTIFICATION_CHANGE_LIMIT) return changes;
+        }
+      }
     }
   }
 
@@ -90,6 +124,31 @@ export function describePayloadChanges(previousPayload, nextPayload) {
     }
   }
 
+  const revisionProducts = new Set([
+    ...Object.keys(previous.productRevisions || {}),
+    ...Object.keys(next.productRevisions || {}),
+  ]);
+  for (const code of revisionProducts) {
+    const previousRecord = previous.productRevisions?.[code] || {};
+    const nextRecord = next.productRevisions?.[code] || {};
+    const revisionFields = {
+      currentRevision: [previousRecord.currentRevision, nextRecord.currentRevision],
+      effectiveRevision: [previousRecord.effectiveRevision, nextRecord.effectiveRevision],
+      workflowState: [
+        previousRecord.currentRevisionInfo?.workflowState,
+        nextRecord.currentRevisionInfo?.workflowState,
+      ],
+    };
+    for (const [field, [beforeValue, afterValue]] of Object.entries(revisionFields)) {
+      const before = String(beforeValue || '');
+      const after = String(afterValue || '');
+      if (before !== after) {
+        changes.push({ kind: 'revision', code: String(code), field, before, after });
+        if (changes.length >= NOTIFICATION_CHANGE_LIMIT) return changes;
+      }
+    }
+  }
+
   const prevEntries = previous.materialDb?.bomEntries || [];
   const nextEntries = next.materialDb?.bomEntries || [];
   const prevEntriesById = prevEntries.reduce((acc, e) => { acc[e.id] = e; return acc; }, {});
@@ -107,6 +166,28 @@ export function describePayloadChanges(previousPayload, nextPayload) {
       changes.push({ kind: 'bom_added', code: parentLabel, field: childLabel, before: '', after: '' });
       if (changes.length >= NOTIFICATION_CHANGE_LIMIT) return changes;
     } else {
+      const previousChildId = prevEntry.childMaterialId || prevEntry.materialId || '';
+      if (String(previousChildId) !== String(childId)) {
+        const previousChildCode = previousMaterials[previousChildId]?.code || previousChildId;
+        changes.push({
+          kind: 'bom_material_changed',
+          code: parentLabel,
+          field: '',
+          before: String(previousChildCode || ''),
+          after: childLabel
+        });
+        if (changes.length >= NOTIFICATION_CHANGE_LIMIT) return changes;
+      }
+      if (String(prevEntry.comp_code ?? '') !== String(nextEntry.comp_code ?? '')) {
+        changes.push({
+          kind: 'bom_comp_code_changed',
+          code: parentLabel,
+          field: childLabel,
+          before: String(prevEntry.comp_code ?? ''),
+          after: String(nextEntry.comp_code ?? '')
+        });
+        if (changes.length >= NOTIFICATION_CHANGE_LIMIT) return changes;
+      }
       if (String(prevEntry.qty) !== String(nextEntry.qty)) {
         changes.push({ kind: 'bom_qty_changed', code: parentLabel, field: childLabel, before: String(prevEntry.qty ?? ''), after: String(nextEntry.qty ?? '') });
         if (changes.length >= NOTIFICATION_CHANGE_LIMIT) return changes;

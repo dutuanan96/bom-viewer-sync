@@ -50,6 +50,25 @@ test('notification body renders normalized material changes', () => {
   assert.match(body, /New/);
 });
 
+test('notification body identifies BOM edits and material replacements', () => {
+  const app = Object.create(BomApplication.prototype);
+  app.state = { lang: 'zh' };
+
+  const body = app.notificationBody({
+    type: 'github-save',
+    changes: [
+      { kind: 'bom_comp_code_changed', code: 'P1', field: 'M1', before: 'A', after: 'B' },
+      { kind: 'bom_material_changed', code: 'P1', before: 'M1', after: 'M2' }
+    ],
+  });
+
+  assert.match(body, /P1/);
+  assert.match(body, /A/);
+  assert.match(body, /B/);
+  assert.match(body, /M1/);
+  assert.match(body, /M2/);
+});
+
 test('Admin creation flows assign stable IDs and create their records', () => {
   const app = Object.create(BomApplication.prototype);
   const materialDb = {

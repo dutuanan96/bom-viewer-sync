@@ -43,6 +43,10 @@ const mockSnapshot = {
         name_zh: '双抽支撑柜733',
         colors: ['白色', '黑色'],
       },
+      LGS834: {
+        name_zh: '四抽小柜834',
+        colors: ['黑色'],
+      },
     },
     materialDb: {
       materials: {
@@ -120,6 +124,51 @@ const mockSnapshot = {
           spec: { zh: '300mm' },
           spec_zh: '300mm',
         },
+        mat_vertical: {
+          id: 'mat_vertical',
+          code: 'MAT-VERTICAL-01',
+          mat_code: 'MAT-VERTICAL-01',
+          name: { zh: '中竖梁' },
+          name_zh: '中竖梁',
+          spec: { zh: '500x20x20mm' },
+          spec_zh: '500x20x20mm',
+        },
+        mat_carton_small: {
+          id: 'mat_carton_small',
+          code: 'MAT-CARTON-S',
+          mat_code: 'MAT-CARTON-S',
+          name: { zh: '纸箱' },
+          name_zh: '纸箱',
+          spec: { zh: '400x300x200mm' },
+          spec_zh: '400x300x200mm',
+        },
+        mat_carton_large: {
+          id: 'mat_carton_large',
+          code: 'MAT-CARTON-L',
+          mat_code: 'MAT-CARTON-L',
+          name: { zh: '纸箱' },
+          name_zh: '纸箱',
+          spec: { zh: '600x400x300mm' },
+          spec_zh: '600x400x300mm',
+        },
+        mat_vertical_equivalent: {
+          id: 'mat_vertical_equivalent',
+          code: 'MAT-VERTICAL-02',
+          mat_code: 'MAT-VERTICAL-02',
+          name: { zh: '中竖梁' },
+          name_zh: '中竖梁',
+          spec: { zh: '500x20x20mm' },
+          spec_zh: '500x20x20mm',
+        },
+        mat_upper: {
+          id: 'mat_upper',
+          code: 'MAT-UPPER-01',
+          mat_code: 'MAT-UPPER-01',
+          name: { zh: '上横梁' },
+          name_zh: '上横梁',
+          spec: { zh: '400x20x20mm' },
+          spec_zh: '400x20x20mm',
+        },
       },
       bomEntries: [
         { parentType: 'product', productCode: 'LGS033', color: '木色', materialId: 'mat_bot_cross', qty: 2 },
@@ -131,6 +180,13 @@ const mockSnapshot = {
         { parentType: 'product', productCode: 'LGS723', color: '白色', materialId: 'mat_front_1', name_zh: '前横杆', spec: '290mm', qty: 2 },
         { parentType: 'product', productCode: 'LGS733', color: '白色', materialId: 'mat_front_2', name_zh: '前横杆', spec: '300mm', qty: 2 },
         { parentType: 'product', productCode: 'LGS723', color: '白色', materialId: 'mat_rear_1', name_zh: '后横杆', spec: '300mm', qty: 2 },
+        { parentType: 'product', productCode: 'LGS723', color: '白色', materialId: 'mat_vertical', qty: 1 },
+        { parentType: 'product', productCode: 'LGS733', color: '白色', materialId: 'mat_vertical', qty: 1 },
+        { parentType: 'product', productCode: 'LGS031', color: '白色', materialId: 'mat_carton_small', qty: 1 },
+        { parentType: 'product', productCode: 'LGS033', color: '木色', materialId: 'mat_carton_large', qty: 1 },
+        { parentType: 'product', productCode: 'LGS033', color: '木色', materialId: 'mat_vertical_equivalent', qty: 1 },
+        { parentType: 'product', productCode: 'LGS033', color: '木色', materialId: 'mat_upper', qty: 1 },
+        { parentType: 'product', productCode: 'LGS834', color: '黑色', materialId: 'mat_upper', qty: 1 },
       ],
     },
     productRevisions: {},
@@ -148,6 +204,41 @@ test('2. Synonyms mapping for 下横梁 -> 底部横杆', () => {
   const concept = resolveConcept('LGS033下横梁用什么编号');
   assert.equal(concept.conceptId, 'bottom_crossbar');
   assert.equal(concept.canonicalZh, '底部横杆');
+});
+
+test('2b. Catalog component usage recognizes vertical-beam terminology', () => {
+  const knowledge = new PdmKnowledge(mockSnapshot);
+
+  for (const query of ['所有产品有哪一个产品用竖梁', '有哪一个SKU用竖零件', '竖梁用哪一个产品']) {
+    const result = knowledge.analyzePdm({ query });
+    assert.equal(result.countMode, 'component_usage', query);
+    assert.deepEqual(result.results[0].usedInProducts, ['LGS723', 'LGS733'], query);
+  }
+});
+
+test('2c. Catalog component size ranking finds the product using the largest carton', () => {
+  const result = new PdmKnowledge(mockSnapshot).analyzePdm({ query: '哪一个产品用最大的纸箱' });
+
+  assert.equal(result.countMode, 'rank_component_size');
+  assert.equal(result.results.length, 1);
+  assert.equal(result.results[0].materialCode, 'MAT-CARTON-L');
+  assert.deepEqual(result.results[0].usedInProducts, ['LGS033']);
+});
+
+test('2d. Confirmed upper-crossbar and comparison follow-ups include other using products', () => {
+  const knowledge = new PdmKnowledge(mockSnapshot);
+  const upper = knowledge.analyzePdm({
+    query: '那个LGS834上横梁有和哪一个产品共用吗？还是只有它独用',
+  });
+  const vertical = knowledge.analyzePdm({
+    query: 'LGS723和LGS733那个竖梁有共用吗？除外那个两产品还有什么产品也用吗？',
+  });
+
+  assert.equal(upper.countMode, 'component_usage');
+  assert.deepEqual(upper.results[0].usedInProducts, ['LGS033', 'LGS834']);
+  assert.equal(vertical.countMode, 'component_usage');
+  assert.deepEqual(vertical.results[0].usedInProducts, ['LGS033', 'LGS723', 'LGS733']);
+  assert.deepEqual(vertical.results[0].materialCodes, ['MAT-VERTICAL-01', 'MAT-VERTICAL-02']);
 });
 
 test('3. Color & variant coverage analysis', () => {
@@ -185,7 +276,7 @@ test('7. Canonical product count (柜子)', () => {
   const knowledge = new PdmKnowledge(mockSnapshot);
   const res = knowledge.analyzePdm({ query: '帮我统计一下所有LGS有几个柜子' });
   assert.equal(res.countMode, 'unique_products');
-  assert.equal(res.totalCount, 4); // LGS031, LGS033, LGS723, LGS733
+  assert.equal(res.totalCount, 5); // LGS031, LGS033, LGS723, LGS733, LGS834
 });
 
 test('8. Unique metal-frame type count', () => {
@@ -283,6 +374,66 @@ test('13. Local fallback when provider endpoint is unavailable after prefetch', 
   assert.ok(result.text.includes('Probable Common'));
   assert.ok(result.text.includes('Warnings'));
   assert.ok(!result.text.includes('No compatible model endpoint'));
+});
+
+test('13b. Exact catalog question returns local BOM evidence and a learnable strategy', async () => {
+  const gateway = {
+    listModels: () => [{ id: 'test-model', grade: 'A' }],
+    chat: async () => {
+      const error = new Error('No compatible model endpoint is currently available.');
+      error.code = 'AI_NO_COMPATIBLE_ENDPOINT';
+      throw error;
+    },
+  };
+  const knowledge = new PdmKnowledge(mockSnapshot);
+  const query = '哪一个产品用最大的纸箱';
+  const availableTools = ['analyze_pdm', 'search_pdm'];
+  const route = routePdmIntent({ query, availableTools });
+  const controller = createAgentController({
+    gateway,
+    trustPolicy: createTrustPolicy(),
+    runTool: async call => knowledge.analyzePdm(call.arguments),
+    formatToolFallback: context => formatLocalToolFallback(null, context),
+  });
+
+  const result = await controller.runTurn({
+    query,
+    route,
+    snapshot: mockSnapshot,
+    model: 'test-model',
+    availableTools,
+  });
+
+  assert.equal(result.fallback, true);
+  assert.ok(result.text.includes('MAT-CARTON-L'));
+  assert.ok(result.text.includes('LGS033'));
+  assert.deepEqual(result.learning.successfulTools, ['analyze_pdm']);
+  assert.ok(!result.text.includes('No compatible model endpoint'));
+});
+
+test('13c. Focused BOM fallback preserves material, quantity, and nesting level', () => {
+  const text = formatLocalToolFallback(null, {
+    toolCall: { name: 'get_bom', arguments: { productId: 'LGS733' } },
+    toolResult: {
+      productCode: 'LGS733',
+      color: '复古色',
+      matchedRows: 1,
+      rows: [{
+        matCode: 'TZJD629825BH',
+        nameZh: '10-底脚',
+        nameVi: '10-chân đế',
+        spec: 'M6x10mm',
+        qty: '6',
+        level: 2,
+      }],
+    },
+  });
+
+  assert.match(text, /LGS733/);
+  assert.match(text, /TZJD629825BH/);
+  assert.match(text, /M6x10mm/);
+  assert.match(text, /x6/);
+  assert.match(text, /BOM level 2/);
 });
 
 test('Contract validation for analyze_pdm', () => {

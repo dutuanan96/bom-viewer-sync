@@ -617,6 +617,25 @@ test('R2.1: caller cancellation aborts an in-flight request', async () => {
   await assert.rejects(() => pending, /abort/i);
 });
 
+test('R2.1: request timeout remains active while the response body is streaming', async () => {
+  const fetchImpl = async (url, options = {}) => {
+    if (url.includes('/api/v1/key')) return { ok: true, status: 200, json: async () => VALID_KEY_RESPONSE };
+    if (url.includes('/api/v1/models')) return { ok: true, status: 200, json: async () => MODELS_RESPONSE };
+    return {
+      ok: true,
+      status: 200,
+      json: () => new Promise(() => {}),
+    };
+  };
+  const gateway = createOpenRouterGateway({ fetchImpl, requestTimeoutMs: 20 });
+  await gateway.connect(TEST_KEY);
+
+  await assert.rejects(
+    () => gateway.chat({ model: 'openai/gpt-4o-mini', messages: [] }),
+    /abort/i,
+  );
+});
+
 test('bugfix: gateway strips parallel_tool_calls when tools are empty to prevent OpenRouter 404 routing failure', async () => {
   let capturedBody;
   const fetchImpl = async (url, options) => {
@@ -640,4 +659,76 @@ test('bugfix: gateway strips parallel_tool_calls when tools are empty to prevent
 
   assert.equal(capturedBody.parallel_tool_calls, undefined, 'parallel_tool_calls should be stripped when tools are empty');
   assert.equal(capturedBody.tools, undefined, 'tools should not be sent when empty');
+});
+
+test('MiMo tool calls keep privacy defaults without require_parameters routing', async () => {
+  let capturedBody;
+  const fetchImpl = async (url, options = {}) => {
+    if (url.includes('/api/v1/key')) {
+      return { ok: true, status: 200, json: async () => VALID_KEY_RESPONSE };
+    }
+    if (url.includes('/api/v1/models')) {
+      return {
+        ok: true,
+        status: 200,
+        json: async () => ({
+          data: [{
+            id: 'xiaomi/mimo-v2.5',
+            supported_parameters: ['tools', 'tool_choice', 'structured_outputs'],
+          }],
+        }),
+      };
+    }
+    capturedBody = JSON.parse(options.body);
+    return {
+      ok: true,
+      status: 200,
+      json: async () => ({ choices: [{ message: { content: 'ok' } }] }),
+    };
+  };
+  const gateway = createOpenRouterGateway({ fetchImpl });
+  await gateway.connect(TEST_KEY);
+  await gateway.chat({
+    model: 'xiaomi/mimo-v2.5',
+    messages: [{ role: 'user', content: 'find LGS723' }],
+    tools: [{ type: 'function', function: { name: 'search_products' } }],
+  });
+
+  assert.equal(capturedBody.provider.data_collection, 'deny');
+  assert.equal(capturedBody.provider.zdr, true);
+  assert.equal(capturedBody.provider.require_parameters, undefined);
+  assert.equal(capturedBody.tools.length, 1);
+});
+
+test('controlled native PDF processing cannot be replaced by caller plugins', async () => {
+  let capturedBody;
+  const fetchImpl = async (url, opts) => {
+    if (url.includes('/api/v1/chat')) {
+      capturedBody = JSON.parse(opts.body);
+      return {
+        ok: true,
+        status: 200,
+        json: async () => ({ choices: [{ message: { role: 'assistant', content: '{}' } }] }),
+        text: async () => '',
+      };
+    }
+    if (url.includes('/api/v1/key')) return { ok: true, status: 200, json: async () => VALID_KEY_RESPONSE, text: async () => '' };
+    if (url.includes('/api/v1/models')) return { ok: true, status: 200, json: async () => MODELS_RESPONSE, text: async () => '' };
+    throw new Error(`Unexpected: ${url}`);
+  };
+  const gateway = createOpenRouterGateway({ fetchImpl });
+  await gateway.connect(TEST_KEY);
+  await gateway.chat({
+    model: 'openai/gpt-4o-mini',
+    messages: [{ role: 'user', content: 'inspect' }],
+    pdfProcessing: { engine: 'native' },
+    plugins: [{ id: 'web' }],
+  });
+
+  assert.deepEqual(capturedBody.plugins, [{ id: 'file-parser', pdf: { engine: 'native' } }]);
+  await assert.rejects(() => gateway.chat({
+    model: 'openai/gpt-4o-mini',
+    messages: [],
+    pdfProcessing: { engine: 'mistral-ocr' },
+  }), /unsupported PDF processing engine/i);
 });

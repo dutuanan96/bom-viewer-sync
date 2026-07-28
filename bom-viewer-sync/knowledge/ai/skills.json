@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "packVersion": "1.2.0",
-  "updatedAt": "2026-07-20T00:00:00Z",
+  "packVersion": "1.6.0",
+  "updatedAt": "2026-07-28T00:00:00Z",
   "description": "AI skill definitions for evidence-bound PDM specialist tools. Tool IDs must match contracts.js ALLOWED_TOOLS.",
   "skills": [
     {
@@ -147,6 +147,35 @@
           "countMode": { "type": "string", "maxLength": 100 },
           "componentFamily": { "type": "string", "maxLength": 100 },
           "dimensionFilter": { "type": "string", "maxLength": 100 }
+        },
+        "additionalProperties": false
+      },
+      "readonly": true
+    },
+    {
+      "id": "analyze_engineering_drawing",
+      "specialistId": "engineering_drawing_analysis",
+      "description": "Resolve one exact PDM part and PDF drawing, then return evidence-bound title block, dimensions, features, tolerances, notes, readability warnings, and revision conflicts without changing PDM data.",
+      "inputSchema": {
+        "type": "object",
+        "required": ["query", "productId"],
+        "properties": {
+          "query": { "type": "string", "maxLength": 1000 },
+          "productId": { "type": "string", "pattern": "^LGS\\d{3,4}$" }
+        },
+        "additionalProperties": false
+      },
+      "readonly": true
+    },
+    {
+      "id": "check_drawing_commonality",
+      "specialistId": "engineering_drawing_commonality",
+      "description": "Resolve exact PDM parts, inspect their PDF engineering drawings, and return an evidence-bound commonality assessment without changing material codes or BOMs.",
+      "inputSchema": {
+        "type": "object",
+        "required": ["query"],
+        "properties": {
+          "query": { "type": "string", "maxLength": 1000 }
         },
         "additionalProperties": false
       },

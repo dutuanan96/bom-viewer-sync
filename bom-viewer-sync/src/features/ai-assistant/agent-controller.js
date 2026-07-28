@@ -25,13 +25,14 @@ function getOpenRouterCitationUrls(annotations) {
 }
 
 function buildPreferredToolCall(route, query) {
-  if (route?.confidence !== 'deterministic') return null;
+  if (!['deterministic', 'learned'].includes(route?.confidence)) return null;
   const productIds = Array.isArray(route.entities?.productIds) ? route.entities.productIds : [];
   const aliases = Array.isArray(route.entities?.aliases) ? route.entities.aliases : [];
   const materialIds = Array.isArray(route.entities?.materialIds) ? route.entities.materialIds : [];
   const colors = Array.isArray(route.entities?.colors) ? route.entities.colors : [];
   const revisions = Array.isArray(route.entities?.revisions) ? route.entities.revisions : [];
   const contextualSearchQuery = typeof route.entities?.searchQuery === 'string' ? route.entities.searchQuery.trim() : '';
+  const componentQuery = typeof route.entities?.componentQuery === 'string' ? route.entities.componentQuery.trim() : '';
   const searchProductId = typeof route.entities?.searchProductId === 'string'
     ? route.entities.searchProductId.trim()
     : '';
@@ -44,7 +45,14 @@ function buildPreferredToolCall(route, query) {
       return productIds[0] ? { name: route.preferredTool, arguments: { productId: productIds[0] } } : null;
     case 'get_bom':
       return productIds[0]
-        ? { name: 'get_bom', arguments: { productId: productIds[0], ...(colors[0] ? { color: colors[0] } : {}) } }
+        ? {
+            name: 'get_bom',
+            arguments: {
+              productId: productIds[0],
+              ...(colors[0] ? { color: colors[0] } : {}),
+              ...(componentQuery ? { query: componentQuery } : {}),
+            },
+          }
         : null;
     case 'compare_boms':
       return productIds.length >= 2
@@ -85,7 +93,20 @@ function buildPreferredToolCall(route, query) {
     case 'get_pdm_help':
       return { name: 'get_pdm_help', arguments: query?.trim() ? { topic: query } : {} };
     case 'analyze_pdm':
-      return { name: 'analyze_pdm', arguments: query?.trim() ? { query } : {} };
+      return {
+        name: 'analyze_pdm',
+        arguments: contextualSearchQuery || query?.trim()
+          ? { query: contextualSearchQuery || query }
+          : {},
+      };
+    case 'check_drawing_commonality':
+      return query?.trim()
+        ? { name: 'check_drawing_commonality', arguments: { query } }
+        : null;
+    case 'analyze_engineering_drawing':
+      return query?.trim() && productIds[0]
+        ? { name: 'analyze_engineering_drawing', arguments: { query, productId: productIds[0] } }
+        : null;
     default:
       return null;
   }
@@ -149,6 +170,7 @@ function contextFromToolResult(toolCall, toolResult) {
     ...products.map(item => item?.productCode),
     ...materials.flatMap(item => Array.isArray(item?.usedBy) ? item.usedBy.map(value => value?.productCode) : []),
     ...usage.map(item => item?.productCode),
+    toolResult.clarificationData?.candidateProductId,
   ], 2);
   const materialIds = boundedUniqueStrings([
     args.materialId,
@@ -166,6 +188,10 @@ function contextFromToolResult(toolCall, toolResult) {
   const context = { productIds, materialIds, revisions };
   if (toolCall.name === 'search_pdm') {
     const searchQuery = String(toolResult.query || args.query || '').trim();
+    if (searchQuery) context.searchQuery = searchQuery.slice(0, 500);
+  }
+  if (toolResult.clarificationCode === 'confirm_product_shorthand') {
+    const searchQuery = String(args.query || '').trim();
     if (searchQuery) context.searchQuery = searchQuery.slice(0, 500);
   }
   return Object.fromEntries(Object.entries(context).filter(([, value]) => (
@@ -309,6 +335,7 @@ Use the smallest sufficient investigation.
     let deterministicFallbackText = '';
     let toolConversationContext = {};
     const executedFingerprints = new Set();
+    const successfulReadOnlyTools = new Set();
     let consecutiveNoProgress = 0;
 
     // Check model grade to see if we should fallback to deterministic prefetch only
@@ -328,6 +355,9 @@ Use the smallest sufficient investigation.
         currentTurnUsage.toolCalls += 1;
         const safeCall = trustPolicy.authorizeToolCall(prefetchedCall);
         const toolResult = await runTool(safeCall, snapshot);
+        if (!toolResult?.error && !['apply_mutation', 'store_memory'].includes(safeCall.name)) {
+          successfulReadOnlyTools.add(safeCall.name);
+        }
         toolConversationContext = mergeToolContext(toolConversationContext, contextFromToolResult(safeCall, toolResult));
         if (typeof formatToolFallback === 'function') {
           deterministicFallbackText = String(formatToolFallback({ toolCall: safeCall, toolResult, snapshot }) || '');
@@ -499,6 +529,8 @@ Use the smallest sufficient investigation.
             fallback: true,
             usage: currentTurnUsage,
             conversationContext: toolConversationContext,
+            learning: { successfulTools: [...successfulReadOnlyTools] },
+            needsTeaching: !deterministicFallbackText && route?.confidence === 'ambiguous',
             trace: trace.finish()
           };
           }
@@ -585,6 +617,13 @@ Use the smallest sufficient investigation.
               }
 
               if (executedCall) {
+                if (
+                  toolStatus === 'success'
+                  && !toolResult?.error
+                  && !['apply_mutation', 'store_memory'].includes(executedCall.name)
+                ) {
+                  successfulReadOnlyTools.add(executedCall.name);
+                }
                 const contextAfter = mergeToolContext(
                   toolConversationContext,
                   contextFromToolResult(executedCall, toolResult),
@@ -696,6 +735,7 @@ Use the smallest sufficient investigation.
       citations: [...new Set([...(finalAnswer.citations || []), ...marketplaceCitations])],
       evidenceItems: ledger.getEvidence(),
       conversationContext: toolConversationContext,
+      learning: { successfulTools: [...successfulReadOnlyTools] },
       usage: currentTurnUsage,
       clarification: false,
       trace: trace.finish()

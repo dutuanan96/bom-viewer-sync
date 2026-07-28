@@ -66,7 +66,7 @@ function renderProductCatalog() {
   const existing = content.querySelectorAll('.table-container');
   if (existing) existing.forEach(el => el.remove());
   const rows = this.productCatalogRows();
-  const addProductBtn = this.isAdmin() ? `<div class="table-actions"><button class="btn btn-primary" type="button" data-action="add-product"><span class="material-symbols-outlined">add</span>${escapeHTML(this.label('addProduct'))}</button></div>` : '';
+  const addProductBtn = this.isAdmin() ? `<div class="table-actions"><button class="btn btn-primary" type="button" data-action="add-product"><span class="material-symbols-outlined">add</span> ${escapeHTML(this.label('addProduct'))}</button></div>` : '';
   content.insertAdjacentHTML('beforeend', `<div class="table-container product-catalog-view">
     <div class="table-toolbar">
       <div class="table-title"><span class="material-symbols-outlined">inventory_2</span><strong>${escapeHTML(this.label('productCatalogTitle'))}</strong><span class="count">${rows.length} ${escapeHTML(this.label('products'))}</span></div>
@@ -126,7 +126,7 @@ function productCatalogRowHtml(row) {
     <td><div class="catalog-revision-stack"><span class="version-badge">${escapeHTML(row.revision || this.getSpuVersion(row.sku))}</span><small>${escapeHTML(this.label('effectiveRevision'))}: ${escapeHTML(row.effectiveRevision)}</small></div></td>
     <td><div class="color-dot-list">${row.colors.map((color) => this.productColorDotHtml(row.product, color)).join('')}</div></td>
     <td><div class="catalog-status-stack">${statusHtml}</div></td>
-    <td><button class="drawing-btn primary" type="button" data-open-bom-product="${escapeHTML(row.sku)}">${escapeHTML(this.label('viewBom'))}</button></td>
+    <td><button class="drawing-btn primary" type="button" data-open-bom-product="${escapeHTML(row.sku)}"><span class="material-symbols-outlined" style="font-size: 16px; vertical-align: middle;">visibility</span> <span style="margin-left: 4px;">${escapeHTML(this.label('viewBom'))}</span></button></td>
   </tr>`;
 }
 

@@ -12,6 +12,7 @@
     "check": "node scripts/check-all.mjs",
     "check:generated": "node scripts/check-generated.mjs",
     "eval:ai": "node scripts/live-eval-ai.mjs",
+    "eval:pdm-ai": "node scripts/eval-pdm-ai.mjs",
     "migrate:dry-run": "node scripts/migrate-data-dry-run.mjs",
     "migrate:material-assets": "node scripts/audit-material-assets.mjs --mapping scripts/material-asset-mapping.json",
     "migrate:staging": "node scripts/migrate-data-staging.mjs",

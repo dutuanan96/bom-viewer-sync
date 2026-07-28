@@ -111,14 +111,15 @@ test('catalog product names omit color-specific terms', () => {
   assert.equal(utils.stripProductColorName(lgs334Name, lgs334, 'zh'), '3列3层基础款10抽斗柜-57inch');
 });
 
-test('viewer hides raw GitHub data source while admin can manage linked assets', () => {
+test('viewer hides raw GitHub data source and BOM rows cannot delete material assets', () => {
   const viewerHtml = readOutput('viewer.html');
   const appCore = readSourceTree();
 
   assert.match(viewerHtml, /data-sync-source-row/);
   assert.match(appCore, /syncSourceRow\.hidden\s*=\s*!this\.isAdmin\(\)/);
-  assert.match(appCore, /data-delete-drawing-row/);
-  assert.match(appCore, /data-delete-model3d-row/);
+  assert.doesNotMatch(appCore, /data-delete-drawing-row/);
+  assert.doesNotMatch(appCore, /data-delete-model3d-row/);
+  assert.match(appCore, /data-action="delete-asset-row"/);
 });
 
 test('admin HTML uses shared files and viewer HTML keeps the same GitHub config', () => {

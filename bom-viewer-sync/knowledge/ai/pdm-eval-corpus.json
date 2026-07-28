@@ -1,0 +1,172 @@
+{
+  "schemaVersion": 1,
+  "packVersion": "1.0.0",
+  "updatedAt": "2026-07-27T00:00:00Z",
+  "name": "PDM bilingual grounded evaluation",
+  "facts": {
+    "catalog_count": {
+      "product_count": 22
+    },
+    "lgs723_product": {
+      "product_code": "LGS723",
+      "colors": ["复古色", "白色", "黑色"],
+      "sku": "LGS723KD05S",
+      "width_mm": 987
+    },
+    "lgs733_product": {
+      "product_code": "LGS733",
+      "colors": ["复古色", "白色", "黑色"],
+      "sku": "LGS733KD05S",
+      "width_mm": 1138
+    },
+    "width_comparison": {
+      "product_codes": ["LGS723", "LGS733"],
+      "widths_mm": [987, 1138],
+      "difference_mm": 151
+    },
+    "lgs723_m6x22": {
+      "product_code": "LGS723",
+      "material_code": "NLPLS6022BZ",
+      "material_id": "mat_1112bk6",
+      "specification": "M6x22mm",
+      "quantity_raw": "30+2",
+      "quantity_normal": 30,
+      "quantity_spare": 2,
+      "bom_level": 2
+    },
+    "lgs733_m6x22": {
+      "product_code": "LGS733",
+      "material_code": "NLPLS6022BZ",
+      "material_id": "mat_1112bk6",
+      "specification": "M6x22mm",
+      "quantity_raw": "39+2",
+      "quantity_normal": 39,
+      "quantity_spare": 2,
+      "bom_level": 2
+    },
+    "lgs723_handle": {
+      "product_code": "LGS723",
+      "material_code": "BCLS129228BH",
+      "material_id": "mat_vz636a",
+      "specification": "112x22x8mm",
+      "quantity_raw": "5",
+      "bom_level": 2
+    },
+    "lgs733_handle": {
+      "product_code": "LGS733",
+      "material_code": "BCLS129228BH",
+      "material_id": "mat_vz636a",
+      "specification": "112x22x8mm",
+      "quantity_raw": "7",
+      "bom_level": 2
+    },
+    "lgs723_hardware_foot": {
+      "product_code": "LGS723",
+      "material_code": "TZJD629825BH",
+      "material_id": "mat_gm18ar",
+      "specification": "M6x10mm",
+      "quantity_raw": "4",
+      "bom_level": 2
+    },
+    "lgs733_hardware_foot": {
+      "product_code": "LGS733",
+      "material_code": "TZJD629825BH",
+      "material_id": "mat_gm18ar",
+      "specification": "M6x10mm",
+      "quantity_raw": "6",
+      "bom_level": 2
+    },
+    "lgs723_hardware_bag": {
+      "product_code": "LGS723",
+      "material_code": "LGS723WJBBH",
+      "material_id": "mat_1i95gjy",
+      "quantity_raw": "1",
+      "bom_level": 1
+    },
+    "lgs101_product": {
+      "product_code": "LGS101",
+      "colors": ["复古色", "白色", "黑色"],
+      "width_mm": 396
+    },
+    "missing_price": {
+      "product_code": "LGS723",
+      "not_found": true,
+      "missing_field": "price"
+    },
+    "missing_supplier": {
+      "product_code": "LGS723",
+      "not_found": true,
+      "missing_field": "supplier"
+    },
+    "missing_inventory": {
+      "product_code": "LGS723",
+      "not_found": true,
+      "missing_field": "inventory"
+    },
+    "wrong_m6x20": {
+      "product_code": "LGS723",
+      "suggested_specification": "M6x22mm",
+      "suggested_quantity_raw": "30+2",
+      "not_found": true,
+      "needs_confirmation": true
+    }
+  },
+  "cases": [
+    {"id":"VI-001","group":"product","userType":"exact-code","language":"VI","input":"LGS723 rộng bao nhiêu?","expectedRef":"lgs723_product","assertFields":["product_code","width_mm"]},
+    {"id":"VI-002","group":"product","userType":"partial-code","language":"VI","input":"Cái tủ 723 năm ngăn rộng cỡ nào ấy nhỉ?","expectedRef":"lgs723_product","assertFields":["product_code","width_mm"]},
+    {"id":"VI-003","group":"product","userType":"exact-code","language":"VI","input":"Cho tôi kích thước chiều rộng của LGS733.","expectedRef":"lgs733_product","assertFields":["product_code","width_mm"]},
+    {"id":"VI-004","group":"comparison","userType":"natural","language":"VI","input":"723 với 733 cái nào rộng hơn, hơn mấy ly?","expectedRef":"width_comparison","assertFields":["product_codes","widths_mm","difference_mm"]},
+    {"id":"VI-005","group":"component","userType":"exact-code","language":"VI","input":"LGS723 dùng bao nhiêu con M6x22? Giữ nguyên cách ghi số lượng trong BOM.","expectedRef":"lgs723_m6x22","assertFields":["product_code","material_code","specification","quantity_raw","bom_level"]},
+    {"id":"VI-006","group":"component","userType":"colloquial","language":"VI","input":"Con ốc M6 dài của cái tủ 5 ngăn có mấy con?","expectedRef":"lgs723_m6x22","assertFields":["product_code","material_code","quantity_raw"]},
+    {"id":"VI-007","group":"component","userType":"exact-code","language":"VI","input":"Cái tủ 733 bảy ngăn ấy, con M6x22 có bao nhiêu con?","expectedRef":"lgs733_m6x22","assertFields":["product_code","material_code","specification","quantity_raw","bom_level"]},
+    {"id":"VI-008","group":"component","userType":"colloquial","language":"VI","input":"Tủ 723 có mấy cái tay nắm?","expectedRef":"lgs723_handle","assertFields":["product_code","material_code","quantity_raw"]},
+    {"id":"VI-009","group":"component","userType":"colloquial","language":"VI","input":"Bên 733 thì tay kéo có bảy cái phải không?","expectedRef":"lgs733_handle","assertFields":["product_code","material_code","quantity_raw"]},
+    {"id":"VI-010","group":"nested-bom","userType":"natural","language":"VI","input":"Trong túi ngũ kim LGS723 có mấy chân đế loại M6x10?","expectedRef":"lgs723_hardware_foot","assertFields":["product_code","material_code","specification","quantity_raw","bom_level"]},
+    {"id":"VI-011","group":"nested-bom","userType":"natural","language":"VI","input":"Túi phụ kiện của 733 có bao nhiêu chân nhựa số 10?","expectedRef":"lgs733_hardware_foot","assertFields":["product_code","material_code","quantity_raw","bom_level"]},
+    {"id":"VI-012","group":"nested-bom","userType":"natural","language":"VI","input":"Mã vật liệu của túi ngũ kim cha trong BOM LGS723 là gì?","expectedRef":"lgs723_hardware_bag","assertFields":["product_code","material_code","material_id","bom_level"]},
+    {"id":"VI-013","group":"anti-hallucination","userType":"natural","language":"VI","input":"LGS723 giá bao nhiêu tiền?","expectedRef":"missing_price","assertFields":["product_code","not_found"]},
+    {"id":"VI-014","group":"anti-hallucination","userType":"natural","language":"VI","input":"Nhà cung cấp của LGS723 là công ty nào?","expectedRef":"missing_supplier","assertFields":["product_code","not_found"]},
+    {"id":"VI-015","group":"ambiguous","userType":"misremembered","language":"VI","input":"Ốc M6x20 của 723 có phải 39+2 không?","expectedRef":"wrong_m6x20","assertFields":["product_code","suggested_specification","suggested_quantity_raw","not_found","needs_confirmation"]},
+
+    {"id":"ZH-001","group":"product","userType":"exact-code","language":"ZH","input":"LGS723的宽度是多少？","expectedRef":"lgs723_product","assertFields":["product_code","width_mm"]},
+    {"id":"ZH-002","group":"product","userType":"partial-code","language":"ZH","input":"723那个五抽柜有多宽？","expectedRef":"lgs723_product","assertFields":["product_code","width_mm"]},
+    {"id":"ZH-003","group":"product","userType":"exact-code","language":"ZH","input":"请告诉我LGS733的宽度。","expectedRef":"lgs733_product","assertFields":["product_code","width_mm"]},
+    {"id":"ZH-004","group":"comparison","userType":"natural","language":"ZH","input":"723和733哪个更宽，差多少毫米？","expectedRef":"width_comparison","assertFields":["product_codes","widths_mm","difference_mm"]},
+    {"id":"ZH-005","group":"component","userType":"exact-code","language":"ZH","input":"LGS723的M6x22螺丝有多少？请保留BOM原始数量。","expectedRef":"lgs723_m6x22","assertFields":["product_code","material_code","specification","quantity_raw","bom_level"]},
+    {"id":"ZH-006","group":"component","userType":"colloquial","language":"ZH","input":"五抽那个柜子里面长一点的M6黑螺丝有几个？","expectedRef":"lgs723_m6x22","assertFields":["product_code","material_code","quantity_raw"]},
+    {"id":"ZH-007","group":"component","userType":"exact-code","language":"ZH","input":"733那个七抽柜里面，M6x22的螺丝有多少？","expectedRef":"lgs733_m6x22","assertFields":["product_code","material_code","specification","quantity_raw","bom_level"]},
+    {"id":"ZH-008","group":"component","userType":"colloquial","language":"ZH","input":"723柜子有几个把手？","expectedRef":"lgs723_handle","assertFields":["product_code","material_code","quantity_raw"]},
+    {"id":"ZH-009","group":"component","userType":"misremembered","language":"ZH","input":"733的把手是不是只有5个？","expectedRef":"lgs733_handle","assertFields":["product_code","material_code","quantity_raw"]},
+    {"id":"ZH-010","group":"nested-bom","userType":"natural","language":"ZH","input":"LGS723五金包里面M6x10的10-底脚有几个？","expectedRef":"lgs723_hardware_foot","assertFields":["product_code","material_code","specification","quantity_raw","bom_level"]},
+    {"id":"ZH-011","group":"nested-bom","userType":"natural","language":"ZH","input":"733五金包里的10-底脚数量是多少？","expectedRef":"lgs733_hardware_foot","assertFields":["product_code","material_code","quantity_raw","bom_level"]},
+    {"id":"ZH-012","group":"nested-bom","userType":"natural","language":"ZH","input":"LGS723的父级五金包物料编码和MaterialID是什么？","expectedRef":"lgs723_hardware_bag","assertFields":["product_code","material_code","material_id","bom_level"]},
+    {"id":"ZH-013","group":"anti-hallucination","userType":"natural","language":"ZH","input":"LGS723现在卖多少钱？","expectedRef":"missing_price","assertFields":["product_code","not_found"]},
+    {"id":"ZH-014","group":"anti-hallucination","userType":"natural","language":"ZH","input":"LGS723的供应商是哪家公司？","expectedRef":"missing_supplier","assertFields":["product_code","not_found"]},
+    {"id":"ZH-015","group":"ambiguous","userType":"misremembered","language":"ZH","input":"723那个M6x20是不是39+2？","expectedRef":"wrong_m6x20","assertFields":["product_code","suggested_specification","suggested_quantity_raw","not_found","needs_confirmation"]},
+
+    {"id":"MX-001","group":"component","userType":"mixed-language","language":"Mixed","input":"723的ốc lục giác dài M6x22 có bao nhiêu？","expectedRef":"lgs723_m6x22","assertFields":["product_code","material_code","quantity_raw"]},
+    {"id":"MX-002","group":"component","userType":"mixed-language","language":"Mixed","input":"LGS733那个tay nắm有几个？","expectedRef":"lgs733_handle","assertFields":["product_code","material_code","quantity_raw"]},
+    {"id":"MX-003","group":"product","userType":"mixed-language","language":"Mixed","input":"Cái 723 宽度是多少 mm?","expectedRef":"lgs723_product","assertFields":["product_code","width_mm"]},
+    {"id":"MX-004","group":"nested-bom","userType":"mixed-language","language":"Mixed","input":"五金包 của LGS733 có mấy cái 10-底脚?","expectedRef":"lgs733_hardware_foot","assertFields":["product_code","material_code","quantity_raw","bom_level"]},
+    {"id":"MX-005","group":"anti-hallucination","userType":"mixed-language","language":"Mixed","input":"LGS723 的 tồn kho còn bao nhiêu?","expectedRef":"missing_inventory","assertFields":["product_code","not_found"]}
+  ],
+  "smokeIds": [
+    "VI-001","ZH-001","VI-003","ZH-003","VI-004",
+    "VI-005","ZH-005","VI-007","ZH-007","VI-008",
+    "ZH-009","VI-010","ZH-010","VI-011","ZH-011",
+    "VI-012","ZH-012","VI-013","ZH-013","VI-014",
+    "ZH-014","VI-015","ZH-015","MX-001","MX-005"
+  ],
+  "bilingualPairs": [
+    {"id":"BI-001","vi":"VI-001","zh":"ZH-001"},
+    {"id":"BI-002","vi":"VI-002","zh":"ZH-002"},
+    {"id":"BI-003","vi":"VI-003","zh":"ZH-003"},
+    {"id":"BI-004","vi":"VI-004","zh":"ZH-004"},
+    {"id":"BI-005","vi":"VI-005","zh":"ZH-005"},
+    {"id":"BI-006","vi":"VI-006","zh":"ZH-006"},
+    {"id":"BI-007","vi":"VI-007","zh":"ZH-007"},
+    {"id":"BI-008","vi":"VI-008","zh":"ZH-008"},
+    {"id":"BI-009","vi":"VI-010","zh":"ZH-010"},
+    {"id":"BI-010","vi":"VI-011","zh":"ZH-011"}
+  ]
+}

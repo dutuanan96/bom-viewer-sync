@@ -52,6 +52,88 @@ test('describePayloadChanges detects material unit modified', () => {
   }]);
 });
 
+test('describePayloadChanges detects material asset references modified', () => {
+  const previous = {
+    materialDb: {
+      materials: {
+        M1: {
+          id: 'M1',
+          code: 'M1',
+          drawings: [{ name: 'Old', url: 'https://example.com/old.pdf' }],
+          models3d: [],
+        },
+      },
+    },
+  };
+  const next = structuredClone(previous);
+  next.materialDb.materials.M1.drawings = [{
+    name: 'Current',
+    url: 'https://example.com/current.pdf',
+  }];
+
+  assert.deepEqual(describePayloadChanges(previous, next), [{
+    kind: 'material',
+    code: 'M1',
+    field: 'drawings',
+    before: 'Old|https://example.com/old.pdf',
+    after: 'Current|https://example.com/current.pdf',
+  }]);
+});
+
+test('describePayloadChanges detects product variant fields modified', () => {
+  const previous = {
+    bom: {
+      LGS001: {
+        color_info: {
+          black: { sku: 'LGS001-OLD', name_zh: '旧名称', name_vi: 'Tên cũ', size: '100mm' },
+        },
+      },
+    },
+  };
+  const next = structuredClone(previous);
+  next.bom.LGS001.color_info.black.sku = 'LGS001-NEW';
+
+  assert.deepEqual(describePayloadChanges(previous, next), [{
+    kind: 'product',
+    code: 'LGS001',
+    field: 'black.sku',
+    before: 'LGS001-OLD',
+    after: 'LGS001-NEW',
+  }]);
+});
+
+test('describePayloadChanges detects revision workflow modified', () => {
+  const previous = {
+    productRevisions: {
+      LGS001: {
+        currentRevision: 'V2',
+        effectiveRevision: 'V1',
+        currentRevisionInfo: { workflowState: 'draft' },
+      },
+    },
+  };
+  const next = structuredClone(previous);
+  next.productRevisions.LGS001.effectiveRevision = 'V2';
+  next.productRevisions.LGS001.currentRevisionInfo.workflowState = 'released';
+
+  assert.deepEqual(describePayloadChanges(previous, next), [
+    {
+      kind: 'revision',
+      code: 'LGS001',
+      field: 'effectiveRevision',
+      before: 'V1',
+      after: 'V2',
+    },
+    {
+      kind: 'revision',
+      code: 'LGS001',
+      field: 'workflowState',
+      before: 'draft',
+      after: 'released',
+    },
+  ]);
+});
+
 test('describePayloadChanges detects bom entry added', () => {
   const previous = { materialDb: { materials: { 'M1': { id: 'M1', code: 'C1' } }, bomEntries: [] } };
   const next = {
@@ -91,6 +173,53 @@ test('describePayloadChanges detects bom entry qty changed', () => {
   assert.equal(changes[0].kind, 'bom_qty_changed');
   assert.equal(changes[0].before, '0');
   assert.equal(changes[0].after, '2');
+});
+
+test('describePayloadChanges detects BOM component number changes', () => {
+  const materials = { M1: { id: 'M1', code: 'C1' } };
+  const previous = {
+    materialDb: {
+      materials,
+      bomEntries: [
+        { id: 'E1', parentType: 'product', parentId: 'P1', materialId: 'M1', comp_code: 'A', qty: '1' }
+      ]
+    }
+  };
+  const next = structuredClone(previous);
+  next.materialDb.bomEntries[0].comp_code = 'B';
+
+  assert.deepEqual(describePayloadChanges(previous, next), [{
+    kind: 'bom_comp_code_changed',
+    code: 'P1',
+    field: 'C1',
+    before: 'A',
+    after: 'B'
+  }]);
+});
+
+test('describePayloadChanges detects BOM material replacements', () => {
+  const materials = {
+    M1: { id: 'M1', code: 'OLD' },
+    M2: { id: 'M2', code: 'NEW' }
+  };
+  const previous = {
+    materialDb: {
+      materials,
+      bomEntries: [
+        { id: 'E1', parentType: 'product', parentId: 'P1', materialId: 'M1', comp_code: 'A', qty: '1' }
+      ]
+    }
+  };
+  const next = structuredClone(previous);
+  next.materialDb.bomEntries[0].materialId = 'M2';
+
+  assert.deepEqual(describePayloadChanges(previous, next), [{
+    kind: 'bom_material_changed',
+    code: 'P1',
+    field: '',
+    before: 'OLD',
+    after: 'NEW'
+  }]);
 });
 
 test('describePayloadChanges detects bom entry deleted through childMaterialId', () => {

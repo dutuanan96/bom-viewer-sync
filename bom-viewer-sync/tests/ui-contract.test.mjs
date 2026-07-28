@@ -137,17 +137,32 @@ test('Parent-child structure uses per-row edit actions instead of a global edit 
   assert.doesNotMatch(renderStructureDetail, /markDirty\(\)/);
 });
 
-test('BOM table gates inline and per-row actions behind edit mode', () => {
+test('BOM table keeps material master data read-only and gates relationship actions behind edit mode', () => {
   const bomActionsHtml = methodSource('bomActionsHtml');
   const toolbarHtml = methodSource('toolbarHtml');
   const rowHtml = methodSource('rowHtml');
+  const partNumberCellHtml = methodSource('partNumberCellHtml');
+  const componentNumberCellHtml = methodSource('componentNumberCellHtml');
+  const cellHtml = methodSource('cellHtml');
+  const drawingCellHtml = methodSource('drawingCellHtml');
+  const model3dCellHtml = methodSource('model3dCellHtml');
 
   assert.match(appSource, /data-edit-bom-material=/);
   assert.match(appSource, /bomActionsHtml/);
   assert.match(bomActionsHtml, /this\.label\('materialDatabase'\)/);
-  assert.match(rowHtml, /this\.label\('editMaterial'\)/);
+  assert.match(rowHtml, /this\.label\('editBomMaterial'\)/);
+  assert.match(rowHtml, /class="bom-row-actions"/);
   assert.doesNotMatch(toolbarHtml, /adminActionsHtml\(\)/);
   assert.match(rowHtml, /this\.canEditProductRevision\(\) && this\.state\.editMode/);
+  for (const readOnlyCell of [
+    partNumberCellHtml,
+    componentNumberCellHtml,
+    cellHtml,
+    drawingCellHtml,
+    model3dCellHtml,
+  ]) {
+    assert.doesNotMatch(readOnlyCell, /data-edit-field|data-delete-drawing-row|data-delete-model3d-row/);
+  }
 });
 
 test('BOM toolbar exposes edit first and add material only after edit mode is enabled', () => {
@@ -170,8 +185,11 @@ test('BOM toolbar exposes edit first and add material only after edit mode is en
 });
 
 test('Material Database edit action is explicit and compact', () => {
-  assert.match(appSource, /editMaterial: '编辑'/);
-  assert.doesNotMatch(appSource, /editMaterial: '编辑物料'/);
+  const app = Object.create(BomApplication.prototype);
+  app.state = { lang: 'zh' };
+
+  assert.equal(app.label('editMaterial'), '\u7f16\u8f91');
+  assert.equal(app.label('editBomMaterial'), '\u7f16\u8f91\u7269\u6599');
   assert.match(appSource, /data-edit-db-material=/);
 });
 
@@ -765,6 +783,8 @@ test('edit row updates only the selected BOM entry and uses the localized title'
   app.label = (key) => key;
   app.markDirty = () => { app.state.dirty = true; };
   app.renderContent = () => {};
+  let status = null;
+  app.setStatus = (message, type) => { status = { message, type }; };
   let promptTitle = null;
   app.openPdmPrompt = (title, _fields, onConfirm) => {
     promptTitle = title;
@@ -777,6 +797,28 @@ test('edit row updates only the selected BOM entry and uses the localized title'
   assert.equal(payload.materialDb.bomEntries[0].comp_code, 'B');
   assert.equal(payload.materialDb.bomEntries[0].qty, '3');
   assert.equal(app.state.dirty, true);
+  assert.deepEqual(status, { message: 'bomRowUpdated', type: 'dirty' });
+});
+
+test('BOM row update boundary rejects material master fields', () => {
+  const app = Object.create(BomApplication.prototype);
+  const material = { _materialId: 'mat1', _entryId: 'entry1', name: 'Original' };
+  app.state = {
+    lastRows: [material],
+    materialDb: {
+      materials: { mat1: { id: 'mat1', name: { zh: 'Original' } } },
+      bomEntries: [{ id: 'entry1', materialId: 'mat1', comp_code: 'A', qty: '1' }],
+    },
+    payload: {},
+  };
+  let dirty = false;
+  app.markDirty = () => { dirty = true; };
+  app.renderInspector = () => {};
+
+  app.updateMaterial(0, 'name', 'Changed from BOM');
+
+  assert.equal(app.state.materialDb.materials.mat1.name.zh, 'Original');
+  assert.equal(dirty, false);
 });
 
 test('admin can withdraw a released product while another draft change is pending', () => {

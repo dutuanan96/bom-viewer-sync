@@ -4,6 +4,23 @@
 
 import { createLocalAiStore } from './local-store.js';
 
+const LEARNABLE_READ_ONLY_TOOLS = new Set([
+  'analyze_pdm',
+  'audit_product_data',
+  'compare_boms',
+  'compare_revisions',
+  'get_bom',
+  'get_material',
+  'get_product',
+  'get_revision_history',
+  'inspect_pdm_schema',
+  'list_recent_changes',
+  'resolve_sku',
+  'search_pdm',
+  'search_products',
+  'where_used',
+]);
+
 export function createMemoryManager({ localStore = null } = {}) {
   const store = localStore || createLocalAiStore();
 
@@ -94,5 +111,95 @@ export function createMemoryManager({ localStore = null } = {}) {
     }
   }
 
-  return { storeMemory, retrieveMemory, summarizeTask, decayMemories, localStore: store };
+  function learnSuccessfulStrategy({
+    query = '',
+    intent = '',
+    preferredTool = '',
+    successfulTools = [],
+  } = {}) {
+    const normalizedQuery = String(query).normalize('NFKC').trim().replace(/\s+/g, ' ').slice(0, 500);
+    if (
+      !normalizedQuery
+      || !intent
+      || !LEARNABLE_READ_ONLY_TOOLS.has(preferredTool)
+      || !successfulTools.includes(preferredTool)
+    ) {
+      return { status: 'ignored' };
+    }
+
+    const existing = store.listMemories().find(memory => (
+      memory.scope?.memoryType === 'procedure'
+      && memory.scope?.intent === intent
+      && memory.scope?.preferredTool === preferredTool
+      && memory.scope?.exampleQuery === normalizedQuery
+      && !['rejected', 'stale'].includes(memory.status)
+    ));
+    if (existing) return { status: existing.status, memoryId: existing.id };
+
+    const capturedAt = new Date().toISOString();
+    const memory = store.createCandidate({
+      scope: {
+        project: 'jintai-pdm',
+        memoryType: 'procedure',
+        intent,
+        preferredTool,
+        exampleQuery: normalizedQuery,
+        confidence: 1,
+        lastUsedAt: capturedAt,
+      },
+      fact: `Use ${preferredTool} for a verified query pattern.`,
+      provenance: [{
+        sourceType: 'verified-tool-strategy',
+        sourceRef: preferredTool,
+        capturedAt,
+      }],
+      sourceCommit: null,
+      promptPackVersion: null,
+    });
+    store.confirm(memory.id);
+    return { status: 'confirmed', memoryId: memory.id };
+  }
+
+  function storeUserTeaching(question, answer, snapshot) {
+    const normalizedQuestion = String(question).normalize('NFKC').trim().replace(/\s+/g, ' ').slice(0, 500);
+    const normalizedAnswer = String(answer).normalize('NFKC').trim().replace(/\s+/g, ' ').slice(0, 1000);
+    if (!normalizedQuestion || !normalizedAnswer) return { status: 'ignored' };
+    const fact = `${normalizedQuestion}\n${normalizedAnswer}`;
+    const existing = store.listMemories().find(memory => (
+      memory.scope?.memoryType === 'user-teaching'
+      && memory.fact === fact
+      && !['rejected', 'stale'].includes(memory.status)
+    ));
+    if (existing) return { status: existing.status, memoryId: existing.id };
+
+    const memory = store.createCandidate({
+      scope: {
+        project: 'jintai-pdm',
+        memoryType: 'user-teaching',
+        key: normalizedQuestion,
+        confidence: 1,
+        lastUsedAt: new Date().toISOString(),
+      },
+      fact,
+      provenance: [{
+        sourceType: 'user-taught',
+        sourceRef: 'conversation-clarification',
+        capturedAt: new Date().toISOString(),
+      }],
+      sourceCommit: snapshot?.sourceMetadata?.commitSha || null,
+      promptPackVersion: null,
+    });
+    store.confirm(memory.id);
+    return { status: 'confirmed', memoryId: memory.id };
+  }
+
+  return {
+    storeMemory,
+    retrieveMemory,
+    summarizeTask,
+    decayMemories,
+    learnSuccessfulStrategy,
+    storeUserTeaching,
+    localStore: store,
+  };
 }
