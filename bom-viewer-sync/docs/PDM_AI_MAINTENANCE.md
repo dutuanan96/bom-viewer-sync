@@ -101,6 +101,20 @@ Capability behavior is based on provider metadata, not parameter count:
 When improving a small model, simplify its exact operation examples and
 deterministic prefetch before weakening validation.
 
+## Bilingual Material Master values
+
+Material name, composition, color, attribute, and specification suggestions
+are derived from the current `materialDb.materials` records. The shared
+dictionary resolver is deterministic and is used by both the Admin Material
+Master form and `create_material` proposal review.
+
+Only a unique bilingual pair may auto-fill the opposite language. Ambiguous
+values remain unselected and require Admin confirmation. User-edited form
+values are never overwritten by a later blur-based suggestion. Reusing a
+localized name does not make two material records duplicates; material codes
+remain unique while a new code or specification may reuse canonical
+classification values.
+
 ## Memory and improvement cycle
 
 Personal memory is browser-local, governed, bounded, and subordinate to current

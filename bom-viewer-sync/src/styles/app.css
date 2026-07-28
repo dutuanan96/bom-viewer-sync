@@ -31,6 +31,86 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Bilingual Material Master fields */
+.material-field-combobox {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+}
+
+.material-field-combobox .edit-input {
+  min-width: 0;
+  flex: 1;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.field-picker-btn {
+  min-width: 38px;
+  border: 1px solid var(--border);
+  border-left: 0;
+  border-radius: 0 8px 8px 0;
+  background: var(--card);
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.field-picker-btn:hover,
+.field-picker-btn:focus-visible {
+  color: var(--blue);
+  outline: 2px solid rgba(0, 82, 204, 0.2);
+  outline-offset: -2px;
+}
+
+.field-picker-dropdown {
+  position: absolute;
+  z-index: 120;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  max-height: 260px;
+  overflow-y: auto;
+  list-style: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  box-shadow: 0 8px 24px rgba(23, 43, 77, 0.18);
+}
+
+.field-picker-option,
+.field-picker-no-results {
+  padding: 8px 10px;
+}
+
+.field-picker-option {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  cursor: pointer;
+}
+
+.field-picker-option small {
+  color: var(--muted);
+}
+
+.field-picker-option:hover,
+.field-picker-option:focus,
+.field-picker-option[aria-selected='true'] {
+  outline: none;
+  background: rgba(0, 82, 204, 0.08);
+}
+
+.field-picker-no-results,
+.bilingual-hint {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.bilingual-hint {
+  display: block;
+  margin-top: 4px;
+}
+
 /* Navigation */
 .table-container th {
   position: sticky;

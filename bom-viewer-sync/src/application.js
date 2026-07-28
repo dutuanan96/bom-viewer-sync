@@ -69,6 +69,10 @@ import { catalogViewMethods } from './ui/catalog-view.js';
 import { materialViewMethods } from './ui/material-view.js';
 import { escapeHTML, sharedViewMethods } from './ui/shared-view.js';
 import { structureViewMethods } from './ui/structure-view.js';
+import {
+  buildBilingualDictionary,
+  findCanonicalCandidates,
+} from './domain/bilingual-dictionary.js';
 
   'use strict';
 
@@ -359,6 +363,12 @@ const global = globalThis;
       'ai.sync.cached': '使用本地缓存',
       'ai.sync.fallback': '使用内置默认版本',
       'ai.sync.error': '同步失败',
+      bilingualMappedToCanonical: '已映射到标准值',
+      bilingualAmbiguousMapping: '存在多个双语映射，请从列表中选择。',
+      bilingualPickerPlaceholder: '搜索或输入...',
+      fieldPickerNoResults: '无匹配结果',
+      fieldPickerOpen: '选择已有双语值',
+      materialCodeExists: '该物料编码已存在',
     },
     vi: {
       brand: 'Jintai BOM',
@@ -405,6 +415,12 @@ const global = globalThis;
       readOnly: 'Viewer chỉ được xem',
       token: 'GitHub token',
       loaded: 'Đã tải dữ liệu GitHub',
+      bilingualMappedToCanonical: 'Đã ánh xạ sang giá trị chuẩn',
+      bilingualAmbiguousMapping: 'Có nhiều ánh xạ song ngữ; hãy chọn trong danh sách.',
+      bilingualPickerPlaceholder: 'Tìm hoặc nhập...',
+      fieldPickerNoResults: 'Không có kết quả',
+      fieldPickerOpen: 'Chọn giá trị song ngữ đã có',
+      materialCodeExists: 'Mã vật liệu này đã tồn tại',
       loadFailed: 'Tải dữ liệu GitHub thất bại',
       saving: 'Đang lưu lên GitHub...',
       saved: 'Đã lưu lên GitHub',
@@ -1642,13 +1658,28 @@ const global = globalThis;
       });
       this.query('.content').addEventListener('input', (event) => this.handleMaterialDbInput(event));
       this.query('.content').addEventListener('input', (event) => {
-        if (event.target.matches('[data-material-master-edit], [data-asset-edit]')) {
+        if (event.target.matches('[data-material-master-edit]')) {
+          if (!this.bilingualProgrammaticUpdate && event.target.dataset.lang) {
+            event.target.dataset.bilingualProvenance = 'user-edited';
+          }
+          this.filterOpenFieldPicker(event.target);
+          this.syncMaterialMasterFormToDraft();
+          return;
+        }
+        if (event.target.matches('[data-asset-edit]')) {
           this.syncMaterialMasterFormToDraft();
         }
       });
       this.query('#inspectorPanel').addEventListener('input', (event) => this.handleInspectorInput(event));
       const tokenInput = this.query('#githubToken');
       if (tokenInput) tokenInput.addEventListener('change', () => this.storeToken(tokenInput.value.trim()));
+      // Bilingual auto-fill on blur (capture mode so blur bubbles)
+      this.query('.content').addEventListener('blur', (event) => {
+        this.handleBilingualBlur(event);
+      }, true);
+      this.query('.content').addEventListener('keydown', (event) => {
+        this.handleFieldPickerKeydown(event);
+      });
     }
 
     bindModal() {
@@ -1734,6 +1765,8 @@ const global = globalThis;
       if (action === 'add-bom-row' && this.isAdmin()) this.addBomRowFromPrompt();
       if (action === 'add-child-material' && this.isAdmin()) this.addChildMaterialFromPrompt();
       if (action === 'back-material-list' && this.isAdmin()) this.backMaterialList();
+      if (action === 'open-field-picker' && this.isAdmin()) this.openFieldPicker(actionElement);
+      if (action === 'select-field-option' && this.isAdmin()) this.selectFieldOption(actionElement);
       if (action === 'save-material-master' && this.isAdmin()) this.saveMaterialMaster();
       if (action === 'delete-material-master' && this.isAdmin()) this.deleteSelectedMaterialMaster();
       if (action === 'add-2d-asset' && this.isAdmin()) this.addMaterialAssetRow('drawings');
@@ -1924,6 +1957,187 @@ const global = globalThis;
       this.renderInspector();
     }
 
+    rebuildBilingualDict() {
+      this.bilingualDict = buildBilingualDictionary(this.state.materialDb?.materials || {});
+    }
+
+    handleBilingualBlur(event) {
+      if (!this.isAdmin()) return;
+      const input = event.target;
+      if (!input.matches('[data-material-master-edit][data-lang]')) return;
+      const field = input.dataset.materialMasterEdit;
+      const lang = input.dataset.lang;
+      if (!field || !lang || field === 'code') return;
+      const dict = this.bilingualDict;
+      if (!dict) return;
+      const value = input.value.trim();
+      if (!value) return;
+
+      // Try canonical mapping
+      const candidates = findCanonicalCandidates(dict, field, value);
+      const canonical = candidates.length === 1 ? candidates[0] : null;
+      if (candidates.length > 1) {
+        this.showBilingualHint(input, this.label('bilingualAmbiguousMapping'));
+        return;
+      }
+      if (canonical) {
+        const canonicalValue = lang === 'zh' ? canonical.zh : canonical.vi;
+        const partnerValue = lang === 'zh' ? canonical.vi : canonical.zh;
+        const partnerLang = lang === 'zh' ? 'vi' : 'zh';
+        const partnerInput = input.closest('.material-master-form')?.querySelector(
+          `[data-material-master-edit="${field}"][data-lang="${partnerLang}"]`
+        );
+        const partnerProvenance = partnerInput?.dataset.bilingualProvenance;
+        if (
+          partnerInput
+          && partnerValue
+          && (!partnerInput.value.trim() || partnerProvenance === 'auto-filled')
+        ) {
+          this.setBilingualInputValue(partnerInput, partnerValue, 'auto-filled');
+        }
+        if (canonicalValue && canonicalValue !== value) {
+          this.setBilingualInputValue(input, canonicalValue, 'selected-existing');
+          this.showBilingualHint(input, this.label('bilingualMappedToCanonical'));
+        }
+      }
+    }
+
+    setBilingualInputValue(input, value, provenance) {
+      input.value = value;
+      input.dataset.bilingualProvenance = provenance;
+      this.bilingualProgrammaticUpdate = true;
+      try {
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+      } finally {
+        this.bilingualProgrammaticUpdate = false;
+      }
+    }
+
+    showBilingualHint(input, text) {
+      const existing = input.parentElement?.querySelector('.bilingual-hint');
+      if (existing) existing.remove();
+      const hint = global.document.createElement('span');
+      hint.className = 'bilingual-hint';
+      hint.textContent = text;
+      input.parentElement?.appendChild(hint);
+      setTimeout(() => hint.remove(), 3000);
+    }
+
+    openFieldPicker(button) {
+      if (!button) return;
+      const field = button.dataset.field;
+      const lang = button.dataset.lang;
+      if (!field || !lang) return;
+      this.closeAllFieldPickers();
+
+      const combobox = button.closest('[data-combobox]');
+      if (!combobox) return;
+      const dropdown = global.document.createElement('ul');
+      dropdown.className = 'field-picker-dropdown';
+      dropdown.setAttribute('role', 'listbox');
+      dropdown.id = `field-picker-${field}-${lang}`;
+      combobox.appendChild(dropdown);
+      button.setAttribute('aria-expanded', 'true');
+      this.renderFieldPickerOptions(combobox);
+    }
+
+    renderFieldPickerOptions(combobox) {
+      const field = combobox?.dataset.field;
+      const lang = combobox?.dataset.lang;
+      const dropdown = combobox?.querySelector('.field-picker-dropdown');
+      const input = combobox?.querySelector('[data-material-master-edit]');
+      if (!field || !lang || !dropdown || !input) return;
+
+      const query = input.value.trim().toLocaleLowerCase();
+      const pairs = this.bilingualDict?.[field]?.pairs || [];
+      const options = pairs.filter((pair) => {
+        if (!query) return true;
+        return pair.zh.toLocaleLowerCase().includes(query) || pair.vi.toLocaleLowerCase().includes(query);
+      });
+      dropdown.innerHTML = options.length
+        ? options.map((pair) => {
+          const value = lang === 'zh' ? pair.zh : pair.vi;
+          const partnerValue = lang === 'zh' ? pair.vi : pair.zh;
+          const usage = pair.count > 1 ? ` · ${pair.count}` : '';
+          const examples = pair.materialCodes.length ? ` · ${pair.materialCodes.join(', ')}` : '';
+          return `<li role="option" tabindex="-1" aria-selected="false" class="field-picker-option" data-action="select-field-option" data-field="${escapeHTML(field)}" data-lang="${escapeHTML(lang)}" data-value="${escapeHTML(value)}" data-partner-value="${escapeHTML(partnerValue)}"><span>${escapeHTML(value)}</span><small>${escapeHTML(partnerValue)}${escapeHTML(usage)}${escapeHTML(examples)}</small></li>`;
+        }).join('')
+        : `<li class="field-picker-no-results">${escapeHTML(this.label('fieldPickerNoResults'))}</li>`;
+    }
+
+    filterOpenFieldPicker(input) {
+      const combobox = input.closest?.('[data-combobox]');
+      if (combobox?.querySelector('.field-picker-dropdown')) this.renderFieldPickerOptions(combobox);
+    }
+
+    selectFieldOption(element) {
+      if (!element) return;
+      const field = element.dataset.field;
+      const lang = element.dataset.lang;
+      const value = element.dataset.value;
+      const partnerValue = element.dataset.partnerValue;
+      if (!field || !lang || value === undefined) return;
+
+      const combobox = element.closest('[data-combobox]');
+      const inputEl = combobox?.querySelector('[data-material-master-edit]');
+      if (inputEl) {
+        this.setBilingualInputValue(inputEl, value, 'selected-existing');
+        const partnerLang = lang === 'zh' ? 'vi' : 'zh';
+        const partnerInput = inputEl.closest('.material-master-form')?.querySelector(
+          `[data-material-master-edit="${field}"][data-lang="${partnerLang}"]`
+        );
+        if (partnerInput && partnerValue !== undefined) {
+          this.setBilingualInputValue(partnerInput, partnerValue, 'selected-existing');
+        }
+      }
+      this.closeAllFieldPickers();
+      inputEl?.focus();
+    }
+
+    handleFieldPickerKeydown(event) {
+      const input = event.target.closest?.('[data-combobox] [data-material-master-edit]');
+      const option = event.target.closest?.('.field-picker-option');
+      if (input && event.key === 'ArrowDown') {
+        event.preventDefault();
+        const combobox = input.closest('[data-combobox]');
+        if (!combobox.querySelector('.field-picker-dropdown')) {
+          this.openFieldPicker(combobox.querySelector('[data-action="open-field-picker"]'));
+        }
+        combobox.querySelector('.field-picker-option')?.focus();
+        return;
+      }
+      if (!option) {
+        if (input && event.key === 'Escape') this.closeAllFieldPickers();
+        return;
+      }
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        this.selectFieldOption(option);
+        return;
+      }
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        const combobox = option.closest('[data-combobox]');
+        this.closeAllFieldPickers();
+        combobox?.querySelector('[data-material-master-edit]')?.focus();
+        return;
+      }
+      if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+        event.preventDefault();
+        const options = Array.from(option.parentElement.querySelectorAll('.field-picker-option'));
+        const index = options.indexOf(option);
+        const offset = event.key === 'ArrowDown' ? 1 : -1;
+        options[(index + offset + options.length) % options.length]?.focus();
+      }
+    }
+
+    closeAllFieldPickers() {
+      this.queryAll('.field-picker-dropdown').forEach(el => el.remove());
+      this.queryAll('[data-action="open-field-picker"]').forEach(button => {
+        button.setAttribute('aria-expanded', 'false');
+      });
+    }
+
     openBomView() {
       this.openModuleView('bom');
     }
@@ -2091,6 +2305,7 @@ const global = globalThis;
       if (existingFilterBars) existingFilterBars.forEach(el => el.remove());
 
       if (this.state.adminView === 'materials') {
+        this.rebuildBilingualDict();
         this.renderMaterialDatabase();
         return;
       }
@@ -2518,6 +2733,20 @@ const global = globalThis;
 
       this.syncMaterialMasterFormToDraft();
 
+      const normalizedCode = String(patch.code || '').trim().toLocaleLowerCase();
+      const duplicateCode = normalizedCode && Object.values(this.state.materialDb?.materials || {})
+        .some((material) =>
+          material.id !== record.id
+          && String(material.code || '').trim().toLocaleLowerCase() === normalizedCode);
+      if (duplicateCode) {
+        this.setStatus(this.label('materialCodeExists'), 'error');
+        return;
+      }
+
+      this._performSaveMaterialMaster(record, patch);
+    }
+
+    _performSaveMaterialMaster(record, patch) {
       let validationError = null;
       const validate2D = (urlStr) => {
         if (!urlStr) return false;
