@@ -51,8 +51,8 @@ test('quality workflow is pinned, least-privilege, and executes the repository g
   assert.match(workflow, /node-version:\s*22/);
   assert.match(workflow, /cache-dependency-path:\s*bom-viewer-sync\/package-lock\.json/);
   assert.match(workflow, /working-directory:\s*bom-viewer-sync/);
-  assert.match(workflow, /actions\/checkout@11bd71901bbe5b1630ceea73d27597364c9af683\s+# v4\.2\.2/);
-  assert.match(workflow, /actions\/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020\s+# v4\.4\.0/);
+  assert.match(workflow, /actions\/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1\s+# v7\.0\.1/);
+  assert.match(workflow, /actions\/setup-node@820762786026740c76f36085b0efc47a31fe5020\s+# v7\.0\.0/);
   assert.match(workflow, /npm ci/);
   assert.match(workflow, /npm run check/);
   assert.match(workflow, /npm audit --audit-level=high/);
