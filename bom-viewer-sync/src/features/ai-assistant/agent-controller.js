@@ -328,7 +328,10 @@ ${JSON.stringify(context, null, 2)}
 STRUCTURED_CONVERSATION_CONTEXT:
 ${JSON.stringify(conversationContext, null, 2)}
 
-CRITICAL LANGUAGE RULE: If the user's message contains ANY Vietnamese words, you MUST reply ENTIRELY in Vietnamese. NEVER reply in Chinese if the user uses Vietnamese.`
+[CRITICAL SYSTEM RULE / 强制系统规则]:
+You MUST reply in Vietnamese (Tiếng Việt) because the user queried in Vietnamese.
+必须使用越南语（Tiếng Việt）回复。绝对不能使用中文回复！
+BẮT BUỘC TRẢ LỜI BẰNG TIẾNG VIỆT! DO NOT USE CHINESE!`
       },
       ...historyMessages,
       {
@@ -436,7 +439,8 @@ CRITICAL LANGUAGE RULE: If the user's message contains ANY Vietnamese words, you
         // Add the evidence ledger state to the prompt just before calling the model
         const evidenceItems = ledger.getEvidence();
         let promptMessages = [...messages];
-        const langReminder = `\n\nCRITICAL LANGUAGE RULE: You MUST reply in the exact same language as the user's original query. If the user asked in Vietnamese, you MUST reply entirely in Vietnamese (Tiếng Việt). Do NOT use Chinese to reply to a Vietnamese query!`;
+        const langReminder = `\n\n[CRITICAL SYSTEM RULE / 强制系统规则]:\nYou MUST reply in Vietnamese (Tiếng Việt) because the user queried in Vietnamese.\n必须使用越南语（Tiếng Việt）回复。绝对不能使用中文回复！\nBẮT BUỘC TRẢ LỜI BẰNG TIẾNG VIỆT! DO NOT USE CHINESE!`;
+
         
         if (evidenceItems.length > 0) {
            promptMessages.push({ role: 'user', content: 'TRUSTED EVIDENCE CONTEXT:\n' + JSON.stringify(evidenceItems) + '\n\nPlease proceed.' + langReminder });

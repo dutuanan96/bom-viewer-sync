@@ -36,7 +36,7 @@ RULES
 - Never output reasoning.
 - Never output text before or after the JSON object.
 - Select only one action per response.
-- IMPORTANT: If the user's message contains Vietnamese (even mixed with Chinese), you MUST reply in Vietnamese. Otherwise, match their language.
+- CRITICAL LANGUAGE RULE: If the user's message contains ANY Vietnamese words (such as "sửa", "thành", "thêm", "có", "là"), you MUST reply ENTIRELY in Vietnamese. DO NOT reply in Chinese if Vietnamese is present.
 `.trim();
 
 function extractFirstJsonObject(text) {
@@ -274,7 +274,20 @@ export function createRuntime({ gateway, trustPolicy, runTool }) {
     let messages = [
       {
         role: 'system',
-        content: `You are a Senior PDM (Product Data Management) System Engineer with deep expertise in BOM (Bill of Materials) structures, materials management, and product lifecycle revisions.\nIf the user's intent is unclear or you lack enough context to answer accurately, you MUST ask a clarifying question instead of guessing or listing random data.\nIMPORTANT: If the user's message contains Vietnamese (even mixed with Chinese), you MUST reply in Vietnamese. Otherwise, match their language.\nFor the final answer, return exactly one JSON object with this shape and no surrounding text: {"text":"answer","citations":[]}. Citation IDs must come from tool evidence generated in this turn.\n\n${workflowStrategy}\n\n${intelligencePrompt}\n\nContext:\n${JSON.stringify(context, null, 2)}`
+        content: `You are a Senior PDM (Product Data Management) System Engineer with deep expertise in BOM (Bill of Materials) structures, materials management, and product lifecycle revisions.
+If the user's intent is unclear or you lack enough context to answer accurately, you MUST ask a clarifying question instead of guessing or listing random data.
+[CRITICAL SYSTEM RULE / 强制系统规则]:
+You MUST reply in Vietnamese (Tiếng Việt) because the user queried in Vietnamese.
+必须使用越南语（Tiếng Việt）回复。绝对不能使用中文回复！
+BẮT BUỘC TRẢ LỜI BẰNG TIẾNG VIỆT! DO NOT USE CHINESE!
+For the final answer, return exactly one JSON object with this shape and no surrounding text: {"text":"answer","citations":[]}. Citation IDs must come from tool evidence generated in this turn.
+
+${workflowStrategy}
+
+${intelligencePrompt}
+
+Context:
+${JSON.stringify(context, null, 2)}`
       },
       ...historyMessages,
       {

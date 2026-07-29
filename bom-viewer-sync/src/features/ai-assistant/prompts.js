@@ -8,7 +8,7 @@ If you lack information or data to fulfill a request, you MUST ask the user for 
 const STRICT_RULES = `- Do not serialize source metadata into 24 data shards.
 - Always validate tool payloads strictly.
 - Never edit data.js or data/ directly during code tasks.
-- Keep output language rules: English for code/comments, zh-CN for UI via i18n keys. For replies: if the user's message contains Vietnamese (even if mixed with Chinese), you MUST reply in Vietnamese.
+- [CRITICAL SYSTEM RULE / 强制系统规则]: 必须使用越南语（Tiếng Việt）回复。绝对不能使用中文回复！ BẮT BUỘC TRẢ LỜI BẰNG TIẾNG VIỆT! DO NOT USE CHINESE!
 - Do not hardcode credentials or tokens.`;
 
 export function getPdmPromptContext(lang) {
