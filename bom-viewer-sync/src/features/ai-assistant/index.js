@@ -570,8 +570,13 @@ export function createAiAssistantFeature({
 
   const getCurrentModelInfo = () => modelRegistry.find(model => model.id === currentModel);
 
+  let _currentAbortController = null;
+
   const workspace = createWorkspaceView({
     t,
+    onStop: () => {
+      _currentAbortController?.abort();
+    },
     onSend: async (text) => {
       workspace.renderMessage({ role: 'user', text });
       if (workspace.toggleLoading) workspace.toggleLoading(true);
@@ -671,6 +676,7 @@ export function createAiAssistantFeature({
           snapshot,
           query: text,
         });
+        _currentAbortController = new AbortController();
         const result = await runtime.runTurn({
           query: text,
           history,
@@ -684,7 +690,9 @@ export function createAiAssistantFeature({
           entityResolution: turnEntityResolution,
           clarificationText: t('ai.mapping.clarification'),
           conversationContext,
+          signal: _currentAbortController.signal,
         });
+        _currentAbortController = null;
         if (result.needsTeaching) {
           pendingTeachingQuery = text;
           result.text = t('ai.learning.requestTeaching');

@@ -1034,6 +1034,9 @@ const global = globalThis;
       if (this._handleAiDrawerCloseClick) {
         this.query('#aiDrawerClose')?.removeEventListener('click', this._handleAiDrawerCloseClick);
       }
+      if (this._handleAiDrawerFullscreenClick) {
+        this.query('#aiDrawerFullscreen')?.removeEventListener('click', this._handleAiDrawerFullscreenClick);
+      }
 
       this.aiLocalStore ||= createLocalAiStore();
       this.memoryManager ||= createMemoryManager({ localStore: this.aiLocalStore });
@@ -1181,6 +1184,16 @@ const global = globalThis;
         toggleChat(false);
       };
       this.query('#aiDrawerClose')?.addEventListener('click', this._handleAiDrawerCloseClick);
+
+      this._handleAiDrawerFullscreenClick = () => {
+        if (!chatWidget) return;
+        const isFs = chatWidget.classList.toggle('is-fullscreen');
+        const icon = this.query('#aiDrawerFullscreen .material-symbols-outlined');
+        if (icon) icon.textContent = isFs ? 'close_fullscreen' : 'open_in_full';
+        const btn = this.query('#aiDrawerFullscreen');
+        if (btn) btn.setAttribute('aria-label', isFs ? 'Exit fullscreen' : 'Fullscreen');
+      };
+      this.query('#aiDrawerFullscreen')?.addEventListener('click', this._handleAiDrawerFullscreenClick);
 
       this._handleAiDocClick = (e) => {
         if (chatWidget && chatWidget.classList.contains('is-open') && !chatWidget.contains(e.target) && !aiFab.contains(e.target)) {

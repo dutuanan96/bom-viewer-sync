@@ -1,4 +1,4 @@
-export function createWorkspaceView({ onSend, onClear, t = (k) => k }) {
+export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k }) {
   const container = document.createElement('div');
   container.className = 'ai-workspace';
 
@@ -34,6 +34,17 @@ export function createWorkspaceView({ onSend, onClear, t = (k) => k }) {
   sendIcon.className = 'material-symbols-outlined';
   sendIcon.textContent = 'send';
   sendBtn.appendChild(sendIcon);
+
+  const stopBtn = document.createElement('button');
+  stopBtn.className = 'ai-stop-btn';
+  stopBtn.style.display = 'none';
+  const stopIcon = document.createElement('span');
+  stopIcon.className = 'material-symbols-outlined';
+  stopIcon.textContent = 'stop_circle';
+  stopBtn.appendChild(stopIcon);
+  stopBtn.addEventListener('click', () => {
+    if (typeof onStop === 'function') onStop();
+  });
 
   const loadingIndicator = document.createElement('div');
   loadingIndicator.className = 'ai-loading-indicator';
@@ -78,6 +89,7 @@ export function createWorkspaceView({ onSend, onClear, t = (k) => k }) {
   inputFooter.className = 'ai-input-footer';
   inputFooter.appendChild(charCounter);
   inputFooter.appendChild(sendBtn);
+  inputFooter.appendChild(stopBtn);
 
   inputWrapper.appendChild(inputFooter);
   inputDiv.appendChild(inputWrapper);
@@ -443,6 +455,8 @@ export function createWorkspaceView({ onSend, onClear, t = (k) => k }) {
   function toggleLoading(isLoading) {
     loadingIndicator.style.display = isLoading ? 'block' : 'none';
     sendBtn.disabled = isLoading;
+    sendBtn.style.display = isLoading ? 'none' : '';
+    stopBtn.style.display = isLoading ? '' : 'none';
     input.disabled = isLoading;
   }
 

@@ -3804,6 +3804,32 @@ body.pdm-shell {
   background-color: rgba(0, 82, 204, 0.1);
 }
 
+#aiDrawerFullscreen {
+  background: transparent;
+  border: none;
+  color: var(--blue);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+#aiDrawerFullscreen:hover {
+  background-color: rgba(0, 82, 204, 0.1);
+}
+
+.ai-chat-widget.is-fullscreen {
+  bottom: 0;
+  right: 0;
+  width: 100vw;
+  max-width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  border-radius: 0;
+}
+
 .ai-chat-widget-content {
   flex: 1;
   min-height: 0;
@@ -3987,6 +4013,27 @@ body.pdm-shell {
 }
 
 .ai-send-btn .material-symbols-outlined {
+  font-size: 18px;
+}
+
+.ai-stop-btn {
+  background: transparent;
+  border: none;
+  color: #ef4444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.ai-stop-btn:hover {
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.ai-stop-btn .material-symbols-outlined {
   font-size: 18px;
 }
 
