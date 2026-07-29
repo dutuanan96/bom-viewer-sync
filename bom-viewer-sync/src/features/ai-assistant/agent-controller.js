@@ -436,15 +436,19 @@ BẮT BUỘC TRẢ LỜI BẰNG TIẾNG VIỆT! DO NOT USE CHINESE!`
           usage: currentTurnUsage
         });
 
-        // Add the evidence ledger state to the prompt just before calling the model
         const evidenceItems = ledger.getEvidence();
         let promptMessages = [...messages];
-        const langReminder = `\n\n[CRITICAL SYSTEM RULE / 强制系统规则]:\nYou MUST reply in Vietnamese (Tiếng Việt) because the user queried in Vietnamese.\n必须使用越南语（Tiếng Việt）回复。绝对不能使用中文回复！\nBẮT BUỘC TRẢ LỜI BẰNG TIẾNG VIỆT! DO NOT USE CHINESE!`;
-
+        
+        // Check if query has Vietnamese characters (simple heuristic using common vi diacritics)
+        const hasVietnamese = /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i.test(context.query || '');
+        let langReminder = '';
+        if (hasVietnamese) {
+          langReminder = `\n\n[CRITICAL SYSTEM RULE / 强制系统规则]:\nYou MUST reply in Vietnamese (Tiếng Việt) because the user queried in Vietnamese.\n必须使用越南语（Tiếng Việt）回复。绝对不能使用中文回复！\nBẮT BUỘC TRẢ LỜI BẰNG TIẾNG VIỆT! DO NOT USE CHINESE!`;
+        }
         
         if (evidenceItems.length > 0) {
            promptMessages.push({ role: 'user', content: 'TRUSTED EVIDENCE CONTEXT:\n' + JSON.stringify(evidenceItems) + '\n\nPlease proceed.' + langReminder });
-        } else {
+        } else if (langReminder) {
            const lastMsg = promptMessages[promptMessages.length - 1];
            promptMessages[promptMessages.length - 1] = {
              ...lastMsg,
