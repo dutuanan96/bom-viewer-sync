@@ -253,6 +253,7 @@ export function createRuntime({ gateway, trustPolicy, runTool }) {
 - To locate specific components within a large product, use 'get_bom' with the 'query' argument.
 - Never guess material IDs. Use tools to look up canonical entity data.
 - CRITICAL: If the user mentions a specific material code, SKU, or ID (e.g. 1100310ZK) and it is NOT found in the prefetched context, you MUST use the 'search_pdm' tool to verify its existence in the global database BEFORE concluding it is "Not found" or asking the user to create it.
+- CRITICAL: If the user asks to modify a material's master data (e.g., changing its spec, name, or attributes), you MUST ALWAYS use the 'where_used' tool to check how many products share this material BEFORE creating a proposal. If it is used by multiple products, you MUST explicitly warn the user about the cross-product impact and ask for their confirmation before proceeding.
 - If the user requests a mutation, fetch required context first, then output a proposal.
 - State the product, color, revision, and comparison scope used by the evidence.
 - For BOM comparisons, exact materialId defines identity. Distinguish attribute, material, and specification instead of inferring them from the name.
