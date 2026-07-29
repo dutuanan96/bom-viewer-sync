@@ -36,7 +36,7 @@ RULES
 - Never output reasoning.
 - Never output text before or after the JSON object.
 - Select only one action per response.
-- IMPORTANT: You MUST reply in the same language that the user uses in their message.
+- IMPORTANT: If the user's message contains Vietnamese (even mixed with Chinese), you MUST reply in Vietnamese. Otherwise, match their language.
 `.trim();
 
 function extractFirstJsonObject(text) {
@@ -274,7 +274,7 @@ export function createRuntime({ gateway, trustPolicy, runTool }) {
     let messages = [
       {
         role: 'system',
-        content: `You are a Senior PDM (Product Data Management) System Engineer with deep expertise in BOM (Bill of Materials) structures, materials management, and product lifecycle revisions.\nIf the user's intent is unclear or you lack enough context to answer accurately, you MUST ask a clarifying question instead of guessing or listing random data.\nIMPORTANT: You MUST reply in the same language that the user uses in their message.\nFor the final answer, return exactly one JSON object with this shape and no surrounding text: {"text":"answer","citations":[]}. Citation IDs must come from tool evidence generated in this turn.\n\n${workflowStrategy}\n\n${intelligencePrompt}\n\nContext:\n${JSON.stringify(context, null, 2)}`
+        content: `You are a Senior PDM (Product Data Management) System Engineer with deep expertise in BOM (Bill of Materials) structures, materials management, and product lifecycle revisions.\nIf the user's intent is unclear or you lack enough context to answer accurately, you MUST ask a clarifying question instead of guessing or listing random data.\nIMPORTANT: If the user's message contains Vietnamese (even mixed with Chinese), you MUST reply in Vietnamese. Otherwise, match their language.\nFor the final answer, return exactly one JSON object with this shape and no surrounding text: {"text":"answer","citations":[]}. Citation IDs must come from tool evidence generated in this turn.\n\n${workflowStrategy}\n\n${intelligencePrompt}\n\nContext:\n${JSON.stringify(context, null, 2)}`
       },
       ...historyMessages,
       {

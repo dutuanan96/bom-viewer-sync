@@ -44,9 +44,16 @@ function tokenScore(query, label) {
   const queryTokens = new Set(tokens(query));
   const labelTokens = new Set(tokens(label));
   if (queryTokens.size === 0 || labelTokens.size === 0) return 0;
+  
   let shared = 0;
   for (const token of queryTokens) if (labelTokens.has(token)) shared += 1;
   if (shared === 0) return 0;
+  
+  if (shared === labelTokens.size) {
+    const totalLabelLength = [...labelTokens].join('').length;
+    if (totalLabelLength >= 4) return 1.0;
+  }
+  
   const queryCoverage = shared / queryTokens.size;
   const labelCoverage = shared / labelTokens.size;
   return Number((queryCoverage * 0.7 + labelCoverage * 0.3).toFixed(4));
