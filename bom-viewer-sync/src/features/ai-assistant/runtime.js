@@ -248,10 +248,12 @@ export function createRuntime({ gateway, trustPolicy, runTool }) {
 
     const workflowStrategy = `WORKFLOW STRATEGY:
 - To answer questions about a product's draft/publish status or history, use the 'get_revision_history' or 'get_product' tool.
-- If the user provides a partial name, use 'search_products' to find the exact code.
-- Analyze the tool results and answer the user's specific question. Do NOT just dump raw search results.
-- If you need more information to answer the user's question, make additional tool calls before giving the final answer.
-- If the user asks you to modify data (e.g. update a material field or BOM quantity), you MUST use the 'submit_proposal' tool to generate an exact proposal.
+- To compare what changed between two revisions, use 'compare_revisions'.
+- If the user asks about an assembly structure or modifying a product's BOM, fetch the BOM data with 'get_bom'.
+- To locate specific components within a large product, use 'get_bom' with the 'query' argument.
+- Never guess material IDs. Use tools to look up canonical entity data.
+- CRITICAL: If the user mentions a specific material code, SKU, or ID (e.g. 1100310ZK) and it is NOT found in the prefetched context, you MUST use the 'search_pdm' tool to verify its existence in the global database BEFORE concluding it is "Not found" or asking the user to create it.
+- If the user requests a mutation, fetch required context first, then output a proposal.
 - State the product, color, revision, and comparison scope used by the evidence.
 - For BOM comparisons, exact materialId defines identity. Distinguish attribute, material, and specification instead of inferring them from the name.
 - If the user uses an ambiguous domain category, explain the interpretation and category counts or ask for clarification; never silently omit other groups.
