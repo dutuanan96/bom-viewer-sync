@@ -3724,8 +3724,8 @@ body.pdm-shell {
   position: fixed;
   bottom: 24px;
   right: 24px;
-  width: 600px;
-  max-width: 45vw;
+  width: 800px;
+  max-width: 50vw;
   height: calc(100vh - 48px);
   max-height: 1200px;
   background-color: #ffffff;

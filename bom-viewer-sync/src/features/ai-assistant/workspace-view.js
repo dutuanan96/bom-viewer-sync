@@ -5,14 +5,6 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k }) {
   const messagesDiv = document.createElement('div');
   messagesDiv.className = 'ai-messages';
 
-  const toolbar = document.createElement('div');
-  toolbar.className = 'ai-workspace-toolbar';
-
-  const clearBtn = document.createElement('button');
-  clearBtn.type = 'button';
-  clearBtn.className = 'ai-clear-btn';
-  toolbar.appendChild(clearBtn);
-
   const inputDiv = document.createElement('div');
   inputDiv.className = 'ai-input-area';
 
@@ -95,7 +87,6 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k }) {
   inputDiv.appendChild(inputWrapper);
 
   container.appendChild(messagesDiv);
-  container.appendChild(toolbar);
   container.appendChild(loadingIndicator);
   container.appendChild(inputDiv);
 
@@ -426,14 +417,10 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k }) {
     sendIconSpan.className = 'material-symbols-outlined';
     sendIconSpan.setAttribute('aria-hidden', 'true');
     sendIconSpan.textContent = 'send';
-    const srSpan = document.createElement('span');
-    srSpan.className = 'sr-only';
-    srSpan.textContent = t('ai.workspace.send');
     sendBtn.appendChild(sendIconSpan);
-    sendBtn.appendChild(srSpan);
+    sendBtn.setAttribute('aria-label', t('ai.workspace.send'));
 
     loadingIndicator.textContent = t('ai.workspace.loading');
-    clearBtn.textContent = t('ai.workspace.clear');
 
     messagesDiv.setAttribute('role', 'log');
     messagesDiv.setAttribute('aria-live', 'polite');
@@ -464,11 +451,6 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k }) {
     messagesDiv.replaceChildren();
     if (typeof onClear === 'function') onClear();
   }
-
-  clearBtn.addEventListener('click', () => {
-    clear();
-    renderGreeting();
-  });
 
   function destroy() {
     container.remove();
