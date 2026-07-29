@@ -254,9 +254,9 @@ export function createRuntime({ gateway, trustPolicy, runTool }) {
 - Never guess material IDs. Use tools to look up canonical entity data.
 - CRITICAL: If the user mentions a specific material code, SKU, or ID (e.g. 1100310ZK) and it is NOT found in the prefetched context, you MUST use the 'search_pdm' tool to verify its existence in the global database BEFORE concluding it is "Not found" or asking the user to create it.
 - CRITICAL: If the user asks to modify a material's master data (e.g., changing its spec, name, or attributes), you MUST ALWAYS use the 'where_used' tool to check how many products share this material BEFORE creating a proposal. If it is used by multiple products, you MUST explicitly warn the user about the cross-product impact and ask for their confirmation before proceeding.
-- CRITICAL: If the context shows 'isDirty: true', you MUST NOT use the 'submit_proposal' tool. Instead, reply: "Màn hình của bạn đang có dữ liệu chưa lưu. Bạn hãy bấm nút Save hoặc Discard ở trên thanh công cụ, sau đó tôi sẽ giúp bạn tạo đề xuất nhé!"
-- CRITICAL: If the context shows 'canEditRevision: false', you MUST NOT use the 'submit_proposal' tool. Instead, reply: "Phiên bản hiện tại đã được khóa (phát hành chính thức). Vui lòng chuyển sang một bản Nháp (Draft) để thực hiện chỉnh sửa."
-- If the user requests a mutation, fetch required context first, then output a proposal.
+- CRITICAL: If the context shows 'isDirty: true', you MUST NOT use the 'apply_mutation' tool. Instead, reply: "Màn hình của bạn đang có dữ liệu chưa lưu. Bạn hãy bấm nút Save hoặc Discard ở trên thanh công cụ, sau đó tôi sẽ giúp bạn tạo đề xuất nhé!"
+- CRITICAL: If the context shows 'canEditRevision: false', you MUST NOT use the 'apply_mutation' tool. Instead, reply: "Phiên bản hiện tại đã được khóa (phát hành chính thức). Vui lòng chuyển sang một bản Nháp (Draft) để thực hiện chỉnh sửa."
+- If the user requests a mutation, fetch required context first, then output a proposal. You MUST use the 'apply_mutation' tool to generate an exact proposal.
 - State the product, color, revision, and comparison scope used by the evidence.
 - For BOM comparisons, exact materialId defines identity. Distinguish attribute, material, and specification instead of inferring them from the name.
 - If the user uses an ambiguous domain category, explain the interpretation and category counts or ask for clarification; never silently omit other groups.
