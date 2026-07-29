@@ -514,6 +514,51 @@ BẮT BUỘC TRẢ LỜI BẰNG TIẾNG VIỆT! DO NOT USE CHINESE!`
               }
             }
           }
+
+          if (toolCalls.length === 0 && fullText.includes('<tool_call>')) {
+            const regex = /<tool_call>([\s\S]*?)<\/tool_call>/gi;
+            let match;
+            while ((match = regex.exec(fullText)) !== null) {
+              const inner = match[1];
+              let name = '';
+              let args = {};
+              
+              const nameMatch = inner.match(/<tool_name>([^<]+)<\/tool_name>/);
+              if (nameMatch) {
+                name = nameMatch[1].trim();
+                // Strip <arguments>...</arguments> wrapper so inner tags are reachable
+                const stripped = inner.replace(/<arguments>([\s\S]*?)<\/arguments>/gi, '$1');
+                const argMatches = [...stripped.matchAll(/<([a-zA-Z0-9_]+)>([\s\S]*?)<\/\1>/g)];
+                for (const am of argMatches) {
+                  if (am[1] !== 'tool_name' && am[1] !== 'arguments') {
+                    args[am[1]] = am[2].trim();
+                  }
+                }
+              } else {
+                const lines = inner.trim().split('\n');
+                name = lines[0].trim().replace(/^<function=([^>]+)>$/, '$1');
+                const keyMatches = [...inner.matchAll(/<arg_key>([^<]+)<\/arg_key>\s*<arg_value>([\s\S]*?)<\/arg_value>/g)];
+                for (const km of keyMatches) {
+                  args[km[1].trim()] = km[2].trim();
+                }
+              }
+              
+              if (name) {
+                toolCalls.push({
+                  id: 'call_' + Math.random().toString(36).substr(2, 9),
+                  type: 'function',
+                  function: {
+                    name,
+                    arguments: JSON.stringify(args)
+                  }
+                });
+              }
+            }
+            if (toolCalls.length > 0) {
+              fullText = fullText.replace(/<tool_call>[\s\S]*?<\/tool_call>/gi, '').trim();
+            }
+          }
+
           return {
             choices: [{
               message: {
@@ -624,6 +669,7 @@ BẮT BUỘC TRẢ LỜI BẰNG TIẾNG VIỆT! DO NOT USE CHINESE!`
           } else if (err.message?.includes('budget exceeded')) {
             throw err;
           } else {
+            console.error('[AGENT CONTROLLER CAUGHT ERROR]', err);
             userMessage = 'AI assistant is currently unavailable. Please try again later.';
             traceStatus = 'provider_error';
           }
