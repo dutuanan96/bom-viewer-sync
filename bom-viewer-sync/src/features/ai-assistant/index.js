@@ -606,16 +606,27 @@ export function createAiAssistantFeature({
           ? modelTools
           : modelTools.filter(tool => tool?.function?.name !== 'apply_mutation');
         const resolvedEntities = [];
-        if (entityResolution.status === 'resolved' && entityResolution.target) {
-          resolvedEntities.push(entityResolution.target);
-        }
-        if (materialResolution.status === 'resolved' && materialResolution.target) {
-          const duplicate = resolvedEntities.some(target => (
-            target.type === materialResolution.target.type
-            && target.materialId === materialResolution.target.materialId
+        const addResolvedTarget = (target) => {
+          if (!target) return;
+          const duplicate = resolvedEntities.some(existing => (
+            existing.type === target.type
+            && (existing.productCode === target.productCode || existing.materialId === target.materialId)
           ));
-          if (!duplicate) resolvedEntities.push(materialResolution.target);
-        }
+          if (!duplicate) resolvedEntities.push(target);
+        };
+
+        const processResolution = (res) => {
+          if (res.status === 'resolved' && res.target) {
+            addResolvedTarget(res.target);
+          } else if (res.status === 'ambiguous' && Array.isArray(res.candidates)) {
+            res.candidates.forEach(candidate => {
+              if (candidate.confidence >= 0.90) addResolvedTarget(candidate.target);
+            });
+          }
+        };
+
+        processResolution(entityResolution);
+        processResolution(materialResolution);
         const learnedStrategies = localStore?.listConfirmed?.({ currentSourceCommit })
           .filter(memory => memory.scope?.memoryType === 'procedure') || [];
         const route = routePdmIntent({
@@ -652,7 +663,9 @@ export function createAiAssistantFeature({
         const hasDeterministicProductScope = ['deterministic', 'learned'].includes(route.confidence)
           && Array.isArray(route.entities?.productIds)
           && route.entities.productIds.length > 0;
-        const hasExactResolutionConflict = entityResolution.requiresConfirmation === true
+        const isShortQuery = text.split(/\s+/).filter(Boolean).length <= 4;
+        const hasExactResolutionConflict = isShortQuery
+          && entityResolution.requiresConfirmation === true
           && entityResolution.confidence === 1;
         const turnEntityResolution = hasExactResolutionConflict
           ? entityResolution
