@@ -172,6 +172,7 @@ export function createTrustPolicy() {
 
     // HTML injection check
     if (FORBIDDEN_HTML_PATTERN.test(output.text)) {
+      console.error('[TRUST POLICY REJECTED TEXT]', output.text);
       throw new Error('unsafe model output: HTML tags are not permitted in output text');
     }
 

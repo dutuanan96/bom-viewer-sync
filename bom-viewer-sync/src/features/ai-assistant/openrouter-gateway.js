@@ -132,6 +132,7 @@ export function createOpenRouterGateway(opts = {}) {
         let msg = `HTTP ${response.status}`;
         try {
           const body = await response.json();
+          console.error('[GATEWAY ERROR RESPONSE]', JSON.stringify(body, null, 2));
           msg = redactKey(body?.error?.message || msg, _key);
         } catch { /* ignore parse error */ }
         const err = new Error(msg);
