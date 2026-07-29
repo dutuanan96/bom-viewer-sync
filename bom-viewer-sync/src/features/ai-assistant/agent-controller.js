@@ -435,9 +435,17 @@ CRITICAL LANGUAGE RULE: If the user's message contains ANY Vietnamese words, you
 
         // Add the evidence ledger state to the prompt just before calling the model
         const evidenceItems = ledger.getEvidence();
-        let promptMessages = messages;
+        let promptMessages = [...messages];
+        const langReminder = `\n\nCRITICAL LANGUAGE RULE: You MUST reply in the exact same language as the user's original query. If the user asked in Vietnamese, you MUST reply entirely in Vietnamese (Tiếng Việt). Do NOT use Chinese to reply to a Vietnamese query!`;
+        
         if (evidenceItems.length > 0) {
-           promptMessages = [...messages, { role: 'user', content: 'TRUSTED EVIDENCE CONTEXT:\n' + JSON.stringify(evidenceItems) + '\n\nPlease proceed.' }];
+           promptMessages.push({ role: 'user', content: 'TRUSTED EVIDENCE CONTEXT:\n' + JSON.stringify(evidenceItems) + '\n\nPlease proceed.' + langReminder });
+        } else {
+           const lastMsg = promptMessages[promptMessages.length - 1];
+           promptMessages[promptMessages.length - 1] = {
+             ...lastMsg,
+             content: lastMsg.content + langReminder
+           };
         }
 
         let response;
