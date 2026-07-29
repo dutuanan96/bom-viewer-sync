@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-28T07:57:57.207Z",
+  "updatedAt": "2026-07-29T06:55:44.123Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6253,12 +6253,12 @@
     },
     "LGS433": {
       "currentRevision": "V4",
-      "effectiveRevision": "V4",
+      "effectiveRevision": "",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "released"
+        "workflowState": "draft"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6293,6 +6293,14 @@
           "previousRevision": "",
           "occurredAt": "2026-07-23T08:21:11.208Z",
           "reason": "更新"
+        },
+        {
+          "id": "effectivity_ms5qcj0z",
+          "action": "withdraw",
+          "revision": "V4",
+          "previousRevision": "V4",
+          "occurredAt": "2026-07-29T06:55:00.947Z",
+          "reason": "更新物料"
         }
       ]
     },
@@ -6438,6 +6446,29 @@
     }
   },
   "notifications": [
+    {
+      "id": "notif_zkw2js",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-29T06:55:44.123Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS433",
+          "field": "effectiveRevision",
+          "before": "V4",
+          "after": ""
+        },
+        {
+          "kind": "revision",
+          "code": "LGS433",
+          "field": "workflowState",
+          "before": "released",
+          "after": "draft"
+        }
+      ]
+    },
     {
       "id": "notif_mpfc62",
       "type": "github-save",
@@ -6964,22 +6995,6 @@
           "field": "name",
           "before": "LGS334_434_834-前 / LGS334_434_834-trước",
           "after": "LGS334_434_834-底部横杆左-前 / LGS334_434_834-thanh dưới trái-trước"
-        }
-      ]
-    },
-    {
-      "id": "notif_y97qpu",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-23T04:03:59.697Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "LGS334XQYHLBH",
-          "field": "name",
-          "before": "LGS334_434_834-前_组件 / LGS334_434_834-trước_tổ hợp",
-          "after": "LGS334_434_834-底部横杆右-前_组件 / LGS334_434_834-thanh dưới phải-trước_tổ hợp"
         }
       ]
     }
