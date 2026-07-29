@@ -298,6 +298,7 @@ Use the smallest sufficient investigation.
 - CRITICAL: If the context shows 'isDirty: true', you MUST NOT use the 'apply_mutation' tool. Instead, reply: "Màn hình của bạn đang có dữ liệu chưa lưu. Bạn hãy bấm nút Save hoặc Discard ở trên thanh công cụ, sau đó tôi sẽ giúp bạn tạo đề xuất nhé!"
 - CRITICAL: If the context shows 'canEditRevision: false', you MUST NOT use the 'apply_mutation' tool. Instead, reply: "Phiên bản hiện tại đã được khóa (phát hành chính thức). Vui lòng chuyển sang một bản Nháp (Draft) để thực hiện chỉnh sửa."
 - If the user requests a mutation, fetch required context first, then output a proposal. You MUST use the 'apply_mutation' tool to generate an exact proposal.
+- DO NOT narrate your plans (e.g. "I will check..." or "I need to compare..."). If you need data, invoke the tool immediately. Only stop to ask the user if you are blocked.
 - State the product, color, revision, and comparison scope used by the evidence.
 - For BOM comparisons, exact materialId defines identity. Distinguish attribute, material, and specification instead of inferring them from the name.
 - Write readable plain text without Markdown or HTML syntax.`;
@@ -450,15 +451,26 @@ BẮT BUỘC TRẢ LỜI BẰNG TIẾNG VIỆT! DO NOT USE CHINESE!`
         if (hasVietnamese) {
           langReminder = `\n\n[CRITICAL SYSTEM RULE / 强制系统规则]:\nYou MUST reply in Vietnamese (Tiếng Việt) because the user queried in Vietnamese.\n必须使用越南语（Tiếng Việt）回复。绝对不能使用中文回复！\nBẮT BUỘC TRẢ LỜI BẰNG TIẾNG VIỆT! DO NOT USE CHINESE!`;
         }
-        
-        if (evidenceItems.length > 0) {
-           promptMessages.push({ role: 'user', content: 'TRUSTED EVIDENCE CONTEXT:\n' + JSON.stringify(evidenceItems) + '\n\nPlease proceed.' + langReminder });
-        } else if (langReminder) {
-           const lastMsg = promptMessages[promptMessages.length - 1];
-           promptMessages[promptMessages.length - 1] = {
-             ...lastMsg,
-             content: lastMsg.content + langReminder
-           };
+
+        const systemMsgIdx = promptMessages.findIndex(m => m.role === 'system');
+        if (systemMsgIdx >= 0) {
+          let extraContext = '';
+          if (evidenceItems.length > 0) {
+            extraContext += '\n\nTRUSTED EVIDENCE CONTEXT:\n' + JSON.stringify(evidenceItems);
+          }
+          if (langReminder) extraContext += langReminder;
+          
+          if (extraContext) {
+            promptMessages[systemMsgIdx] = {
+              ...promptMessages[systemMsgIdx],
+              content: promptMessages[systemMsgIdx].content + extraContext
+            };
+          }
+        } else if (evidenceItems.length > 0 || langReminder) {
+          promptMessages.push({
+            role: 'system',
+            content: (evidenceItems.length > 0 ? 'TRUSTED EVIDENCE CONTEXT:\n' + JSON.stringify(evidenceItems) : '') + langReminder
+          });
         }
 
         let response;
