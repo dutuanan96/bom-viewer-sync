@@ -581,13 +581,23 @@ function verifyProposalPayload(payload) {
 export function buildMutationProposalReview(snapshot, proposalInput) {
   const proposal = validateMutationProposal(proposalInput);
   let payload = clone(snapshot.payload);
+  let currentCanEdit = snapshot.canEditRevision;
   const operations = proposal.operations.map((sourceMutation, index) => {
     const enrichment = enrichCreateMaterialMutation(payload.materialDb?.materials || {}, sourceMutation);
     const mutation = enrichment.mutation;
-    const operationSnapshot = { ...snapshot, payload };
+    const operationSnapshot = { ...snapshot, payload, canEditRevision: currentCanEdit };
     validateMutationContext(operationSnapshot, mutation);
     const before = clone(payload);
     applyMutationToPayload(payload, mutation);
+
+    if (mutation.operationType === 'create_product_revision' && snapshot.selection?.productCode === mutation.targetId) {
+      currentCanEdit = true;
+    } else if (mutation.operationType === 'release_product_revision' && snapshot.selection?.productCode === mutation.targetId) {
+      currentCanEdit = false;
+    } else if (mutation.operationType === 'withdraw_product_revision' && snapshot.selection?.productCode === mutation.targetId) {
+      currentCanEdit = false;
+    }
+
     const diff = describePayloadChanges(before, payload);
     if (diff.length === 0) {
       const error = new Error(`Operation ${index + 1} produces no changes.`);
