@@ -57,7 +57,9 @@ export function createTrustPolicy() {
     const contextPayload = {
       selection,
       sourceMetadata,
-      query: String(query).slice(0, BUDGET_DEFAULTS.maxUserQueryLen)
+      query: String(query).slice(0, BUDGET_DEFAULTS.maxUserQueryLen),
+      isDirty: !!snapshot.dirty,
+      canEditRevision: !!snapshot.canEditRevision
     };
 
     const estimatedTokens = estimateTokens(contextPayload);
