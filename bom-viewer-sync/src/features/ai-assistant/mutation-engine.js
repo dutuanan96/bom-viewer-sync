@@ -445,7 +445,7 @@ function operationRisk(operationType) {
   return 'low';
 }
 
-function operationWarnings(operation) {
+function operationWarnings(operation, payload) {
   const warnings = [];
   if (operation.operationType === 'delete_material') warnings.push('Deleting a material is irreversible after GitHub upload.');
   if (operation.operationType === 'remove_bom_item') warnings.push('Removing a BOM relationship may affect production quantities.');
@@ -458,6 +458,15 @@ function operationWarnings(operation) {
   if (operation.operationType === 'withdraw_product_revision') warnings.push('Withdrawing restores the prior effective revision and requires explicit Admin approval.');
   if (operation.operationType === 'delete_material_structure') warnings.push('Deleting a material structure removes every direct child relationship.');
   if (operation.operationType === 'remove_material_child') warnings.push('Removing a child relationship can affect every product using the parent material.');
+  
+  if (payload && (operation.operationType === 'update_material' || operation.operationType === 'update_material_field')) {
+    const usage = materialWhereUsed(payload, operation.targetId);
+    const usageCount = usage.productEntries.length + usage.parentEntries.length + usage.childEntries.length;
+    if (usageCount > 1) {
+      warnings.push(`Warning: This material is shared across ${usageCount} BOM locations. Modifying it will affect all of them.`);
+    }
+  }
+
   return warnings;
 }
 
@@ -589,7 +598,7 @@ export function buildMutationProposalReview(snapshot, proposalInput) {
       id: `change-${index + 1}`,
       category: operationCategory(mutation.operationType),
       risk: operationRisk(mutation.operationType),
-      warnings: [...operationWarnings(mutation), ...enrichment.warnings],
+      warnings: [...operationWarnings(mutation, operationSnapshot.payload), ...enrichment.warnings],
       mutation: clone(mutation),
       diff,
     };
