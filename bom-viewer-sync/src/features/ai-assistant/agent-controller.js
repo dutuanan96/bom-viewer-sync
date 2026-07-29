@@ -463,6 +463,24 @@ BẮT BUỘC TRẢ LỜI BẰNG TIẾNG VIỆT! DO NOT USE CHINESE!`
         const requestTools = postPrefetchInvestigationRemaining > 0
           ? availableTools.filter(tool => (tool?.function?.name || tool) !== 'apply_mutation')
           : availableTools;
+          
+        // DEBUG: Dump the exact prompt sent to the LLM to find the root cause
+        try {
+          const fs = require('fs');
+          const path = require('path');
+          const dumpPath = path.join(process.cwd(), 'ai-prompt-dump.json');
+          let existingDumps = [];
+          if (fs.existsSync(dumpPath)) {
+            try { existingDumps = JSON.parse(fs.readFileSync(dumpPath, 'utf8')); } catch(e){}
+          }
+          existingDumps.push({
+            timestamp: new Date().toISOString(),
+            messages: promptMessages
+          });
+          fs.writeFileSync(dumpPath, JSON.stringify(existingDumps, null, 2));
+        } catch (err) {
+          // Ignore
+        }
 
         async function consumeStream(streamObj) {
           let fullText = '';
