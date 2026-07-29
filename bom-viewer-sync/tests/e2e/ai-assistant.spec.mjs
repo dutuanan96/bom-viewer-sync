@@ -488,8 +488,14 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
     await page.press('.ai-input-area textarea', 'Enter');
     await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('尚未发布');
 
-    await page.click('.ai-clear-btn');
-    await expect(page.locator('.ai-message-row.user')).toHaveCount(0);
+    await page.reload();
+    await waitForViewerReady(page);
+    await page.click('#btnSettings');
+    await page.fill('.ai-settings input', 'sk-or-mock-1234');
+    await page.click('.ai-settings > button.btn-primary');
+    await expect(page.locator('.ai-status-text.connected')).toBeVisible();
+    await page.click('#closeSettingsModal');
+    await page.click('#aiFab');
 
     await page.fill('.ai-input-area textarea', '继续');
     await page.press('.ai-input-area textarea', 'Enter');
