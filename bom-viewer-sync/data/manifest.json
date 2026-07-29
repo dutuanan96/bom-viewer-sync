@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-29T06:55:44.123Z",
+  "updatedAt": "2026-07-29T07:35:15.492Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6253,12 +6253,12 @@
     },
     "LGS433": {
       "currentRevision": "V4",
-      "effectiveRevision": "",
+      "effectiveRevision": "V4",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6301,6 +6301,14 @@
           "previousRevision": "V4",
           "occurredAt": "2026-07-29T06:55:00.947Z",
           "reason": "更新物料"
+        },
+        {
+          "id": "effectivity_ms5rs7dl",
+          "action": "release",
+          "revision": "V4",
+          "previousRevision": "",
+          "occurredAt": "2026-07-29T07:35:11.961Z",
+          "reason": "更新"
         }
       ]
     },
@@ -6446,6 +6454,29 @@
     }
   },
   "notifications": [
+    {
+      "id": "notif_1ej2yhc",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-29T07:35:15.492Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS433",
+          "field": "effectiveRevision",
+          "before": "",
+          "after": "V4"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS433",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        }
+      ]
+    },
     {
       "id": "notif_zkw2js",
       "type": "github-save",
@@ -6979,22 +7010,6 @@
           "field": "",
           "before": "LGS334XZHSLBH",
           "after": "LGS333XZHSLBH"
-        }
-      ]
-    },
-    {
-      "id": "notif_1y66rhq",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-23T04:08:36.431Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "LGS334XQZHLBH",
-          "field": "name",
-          "before": "LGS334_434_834-前 / LGS334_434_834-trước",
-          "after": "LGS334_434_834-底部横杆左-前 / LGS334_434_834-thanh dưới trái-trước"
         }
       ]
     }
