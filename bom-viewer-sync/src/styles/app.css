@@ -3724,8 +3724,8 @@ body.pdm-shell {
   position: fixed;
   bottom: 24px;
   right: 24px;
-  width: 800px;
-  max-width: 50vw;
+  width: 1200px;
+  max-width: 80vw;
   height: calc(100vh - 48px);
   max-height: 1200px;
   background-color: #ffffff;
@@ -3866,29 +3866,6 @@ body.pdm-shell {
   gap: 16px;
 }
 
-.ai-workspace-toolbar {
-  display: flex;
-  justify-content: flex-end;
-  padding: 6px 16px;
-  border-top: 1px solid #eef0f4;
-}
-
-.ai-clear-btn {
-  background: transparent;
-  border: 0;
-  color: var(--muted);
-  cursor: pointer;
-  font-size: 12px;
-  padding: 4px 8px;
-}
-
-.ai-clear-btn:hover {
-  color: var(--blue);
-}
-
-.ai-message-row {
-  display: flex;
-  width: 100%;
   gap: 12px;
 }
 
@@ -4406,4 +4383,38 @@ tr:hover td {
 
 .material-symbols-outlined {
   font-size: 18px;
+}
+
+/* Streaming and Tool Badges */
+.ai-message-status {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 6px;
+  font-style: italic;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.ai-tool-badge {
+  background: var(--parchment);
+  color: var(--blue);
+  border: 1px solid var(--border);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-style: normal;
+  font-family: 'SF Mono', Consolas, monospace;
+}
+
+.streaming-message .ai-message-text::after {
+  content: '▋';
+  animation: blink 1s step-start infinite;
+  color: var(--blue);
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
 }

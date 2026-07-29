@@ -248,7 +248,7 @@ function cloneConversationHistory(history) {
 
 export function createAgentController({ gateway, trustPolicy, runTool, formatToolFallback, formatProviderError }) {
 
-  async function runTurn({ query, history = [], route, snapshot, model, availableTools = [], signal, marketplaceWebEnabled = false, specialistPrompt = '', confirmedMemories = [], entityResolution = null, clarificationText = '', conversationContext = {} }) {
+  async function runTurn({ query, history = [], route, snapshot, model, availableTools = [], signal, marketplaceWebEnabled = false, specialistPrompt = '', confirmedMemories = [], entityResolution = null, clarificationText = '', conversationContext = {}, onProgress }) {
     if (signal?.aborted) throw new Error('Turn aborted');
     const trace = createSafeTrace();
     const ledger = createEvidenceLedger();
@@ -326,6 +326,8 @@ Use the smallest sufficient investigation.
 
     let currentTurnUsage = { modelCalls: 0, toolCalls: 0, promptTokens: 0, completionTokens: 0, cost: 0, actualModel: null };
     let finalAnswer = null;
+    let traceStatus = 'success';
+    let toolConversationContext = { ...conversationContext };
     let marketplaceWebSearchNext = route?.intent === 'marketplace' || route?.intent === 'research_web' || route?.intent === 'market_research';
     let marketplaceWebSearchUsed = false;
     const marketplaceCitations = [];
@@ -333,10 +335,11 @@ Use the smallest sufficient investigation.
     let deterministicPrefetchUsed = false;
     let postPrefetchInvestigationRemaining = 0;
     let deterministicFallbackText = '';
-    let toolConversationContext = {};
     const executedFingerprints = new Set();
     const successfulReadOnlyTools = new Set();
     let consecutiveNoProgress = 0;
+
+    let accumulatedText = '';
 
     // Check model grade to see if we should fallback to deterministic prefetch only
     let activeModel = model;
@@ -362,7 +365,7 @@ Use the smallest sufficient investigation.
         if (typeof formatToolFallback === 'function') {
           deterministicFallbackText = String(formatToolFallback({ toolCall: safeCall, toolResult, snapshot }) || '');
         }
-        
+
         const grounding = verifyGrounding({
           route,
           query: context.query,
@@ -432,16 +435,63 @@ Use the smallest sufficient investigation.
           ? availableTools.filter(tool => (tool?.function?.name || tool) !== 'apply_mutation')
           : availableTools;
 
+        async function consumeStream(streamObj) {
+          let fullText = '';
+          let toolCalls = [];
+          for await (const chunk of streamObj) {
+            if (chunk.content) {
+              fullText += chunk.content;
+              if (onProgress) onProgress({ type: 'content', delta: chunk.content, text: fullText });
+            }
+            if (chunk.tool_calls) {
+              for (const tc of chunk.tool_calls) {
+                const existingIdx = toolCalls.findIndex(t => t?.id === tc.id);
+                const index = tc.index ?? (existingIdx > -1 ? existingIdx : toolCalls.length);
+                if (!toolCalls[index]) toolCalls[index] = { id: tc.id, type: tc.type, function: { name: '', arguments: '' } };
+                if (tc.id) toolCalls[index].id = tc.id;
+                if (tc.type) toolCalls[index].type = tc.type;
+                if (tc.function?.name) toolCalls[index].function.name += tc.function.name;
+                if (tc.function?.arguments) toolCalls[index].function.arguments += tc.function.arguments;
+              }
+              const lastTool = toolCalls[toolCalls.length - 1];
+              if (lastTool?.function?.name) {
+                if (onProgress) onProgress({ type: 'status' });
+              }
+            }
+          }
+          return {
+            choices: [{
+              message: {
+                role: 'assistant',
+                content: fullText,
+                tool_calls: toolCalls.length > 0 ? toolCalls : undefined
+              }
+            }]
+          };
+        }
+
         try {
-          response = await gateway.chat({
-            model: activeModel,
-            messages: promptMessages,
-            tools: (modelSupportsTools && !deterministicPrefetchUsed) ? requestTools : [],
-            maxTokens: budget.summary?.().limits?.maxOutputTokens || 1200,
-            parallel_tool_calls: false,
-            signal,
-            webSearch: useMarketplaceWebSearch,
-          });
+          if (gateway.chatStream) {
+            const stream = await gateway.chatStream({
+              model: activeModel,
+              messages: promptMessages,
+              tools: (modelSupportsTools && !deterministicPrefetchUsed) ? requestTools : [],
+              maxTokens: budget.summary?.().limits?.maxOutputTokens || 1200,
+              signal,
+              webSearch: useMarketplaceWebSearch,
+            });
+            response = await consumeStream(stream);
+          } else {
+            response = await gateway.chat({
+              model: activeModel,
+              messages: promptMessages,
+              tools: (modelSupportsTools && !deterministicPrefetchUsed) ? requestTools : [],
+              maxTokens: budget.summary?.().limits?.maxOutputTokens || 1200,
+              parallel_tool_calls: false,
+              signal,
+              webSearch: useMarketplaceWebSearch,
+            });
+          }
         } catch (err) {
           if (err.code === 'AI_NO_COMPATIBLE_ENDPOINT' && !compatibleEndpointFallbackUsed) {
             const fallback = gateway.listModels().find(candidate => (
@@ -462,15 +512,27 @@ Use the smallest sufficient investigation.
                 code: 'AI_NO_COMPATIBLE_ENDPOINT',
               });
               try {
-                response = await gateway.chat({
-                  model: activeModel,
-                  messages: promptMessages,
-                  tools: (modelSupportsTools && !deterministicPrefetchUsed) ? requestTools : [],
-                  maxTokens: budget.summary?.().limits?.maxOutputTokens || 1200,
-                  parallel_tool_calls: false,
-                  signal,
-                  webSearch: useMarketplaceWebSearch,
-                });
+                if (gateway.chatStream) {
+                  const stream = await gateway.chatStream({
+                    model: activeModel,
+                    messages: promptMessages,
+                    tools: (modelSupportsTools && !deterministicPrefetchUsed) ? requestTools : [],
+                    maxTokens: budget.summary?.().limits?.maxOutputTokens || 1200,
+                    signal,
+                    webSearch: useMarketplaceWebSearch,
+                  });
+                  response = await consumeStream(stream);
+                } else {
+                  response = await gateway.chat({
+                    model: activeModel,
+                    messages: promptMessages,
+                    tools: (modelSupportsTools && !deterministicPrefetchUsed) ? requestTools : [],
+                    maxTokens: budget.summary?.().limits?.maxOutputTokens || 1200,
+                    parallel_tool_calls: false,
+                    signal,
+                    webSearch: useMarketplaceWebSearch,
+                  });
+                }
               } catch (fallbackError) {
                 err = fallbackError;
               }
@@ -540,11 +602,15 @@ Use the smallest sufficient investigation.
         if (!message) {
           throw new Error('Invalid response from gateway: missing message');
         }
+
+        if (message.content) {
+          accumulatedText += (accumulatedText && message.content ? '\n\n' : '') + message.content;
+        }
         currentTurnUsage.promptTokens += Number(response.usage?.prompt_tokens || 0);
         currentTurnUsage.completionTokens += Number(response.usage?.completion_tokens || 0);
         currentTurnUsage.cost += Number(response.usage?.cost || response.cost || 0);
         currentTurnUsage.actualModel = response.model || currentTurnUsage.actualModel || activeModel;
-        
+
         if (useMarketplaceWebSearch) {
           getOpenRouterCitationUrls(message.annotations).forEach((url) => {
             const ev = ledger.trackEvidence({
@@ -704,9 +770,9 @@ Use the smallest sufficient investigation.
           }
         } else {
           // Final natural language answer
-          const rawOutput = message.content || '';
+          const rawOutput = accumulatedText || '';
           const evidenceIds = [...new Set(ledger.getEvidence().map(item => item.id))];
-          
+
           let parsedOutput;
           try {
             parsedOutput = JSON.parse(rawOutput); // In case it still outputs JSON (e.g. some models)
@@ -714,12 +780,13 @@ Use the smallest sufficient investigation.
              // Fallback to natural text
             parsedOutput = { text: rawOutput.trim(), citations: evidenceIds };
           }
-          
+
           if (!parsedOutput.text) {
              parsedOutput = { text: rawOutput.trim(), citations: evidenceIds };
           }
 
           finalAnswer = trustPolicy.validateModelOutput(parsedOutput, { evidence: ledger.getEvidence() });
+
           trace.add('answer_validated', {
             status: 'success',
             evidenceIds: finalAnswer.citations,

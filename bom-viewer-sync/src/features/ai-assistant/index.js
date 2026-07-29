@@ -678,6 +678,9 @@ export function createAiAssistantFeature({
           query: text,
         });
         _currentAbortController = new AbortController();
+
+        let streamingMessageHandle = null;
+
         const result = await runtime.runTurn({
           query: text,
           history,
@@ -692,6 +695,16 @@ export function createAiAssistantFeature({
           clarificationText: t('ai.mapping.clarification'),
           conversationContext,
           signal: _currentAbortController.signal,
+          onProgress: (event) => {
+            if (!streamingMessageHandle) {
+              streamingMessageHandle = workspace.startStreamingMessage();
+            }
+            if (event.type === 'content' && event.delta) {
+              streamingMessageHandle.updateText(event.delta);
+            } else if (event.type === 'status') {
+              streamingMessageHandle.updateStatus?.(t('ai.workspace.loading'));
+            }
+          }
         });
         _currentAbortController = null;
         if (result.needsTeaching) {
@@ -715,11 +728,14 @@ export function createAiAssistantFeature({
           // Learning must never block a grounded answer.
         }
 
-        workspace.renderMessage({
+        const finalMessageProps = {
           role: 'assistant',
           text: result.text,
           citations: result.citations,
           evidence: result.evidenceItems,
+          proposal: result.proposal,
+          diff: result.diff,
+          proposalReview: result.proposalReview,
           mappingCandidates: result.clarification ? result.entityResolution?.candidates : [],
           onSelectMapping: (candidate) => {
             if (!localStore?.createCandidate || !candidate?.target) return;
@@ -756,7 +772,14 @@ export function createAiAssistantFeature({
             settings.refreshImprovements?.();
             workspace.renderMessage({ role: 'assistant', text: t('ai.mapping.candidateCreated') });
           },
-        });
+        };
+
+        if (streamingMessageHandle) {
+          streamingMessageHandle.finish(finalMessageProps);
+        } else {
+          workspace.renderMessage(finalMessageProps);
+        }
+
         settings.updateTrace(result.trace);
         if (result.fallback) {
           localStore?.createImprovementCandidate?.({
@@ -791,6 +814,10 @@ export function createAiAssistantFeature({
       } catch (err) {
         if (err.code === 'budgetExceeded') {
           workspace.renderMessage({ role: 'assistant', text: t('ai.error.budgetExceeded') });
+        } else if (err.name === 'AbortError' || /abort|aborted/i.test(err.message || '')) {
+          workspace.renderMessage({ role: 'assistant', text: t('ai.message.error') });
+        } else if (/timeout/i.test(err.message || '')) {
+          workspace.renderMessage({ role: 'assistant', text: t('ai.error.timeout') });
         } else {
           workspace.renderMessage({ role: 'assistant', text: t('ai.message.error') });
         }

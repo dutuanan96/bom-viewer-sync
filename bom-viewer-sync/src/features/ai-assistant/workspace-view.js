@@ -90,6 +90,64 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k }) {
   container.appendChild(loadingIndicator);
   container.appendChild(inputDiv);
 
+  function startStreamingMessage() {
+    const rowEl = document.createElement('div');
+    rowEl.className = 'ai-message-row assistant';
+    const avatar = document.createElement('div');
+    avatar.className = 'ai-avatar';
+    const icon = document.createElement('span');
+    icon.className = 'material-symbols-outlined';
+    icon.textContent = 'smart_toy';
+    avatar.appendChild(icon);
+    rowEl.appendChild(avatar);
+
+    const msgEl = document.createElement('div');
+    msgEl.className = 'ai-message streaming-message';
+
+    const statusContainer = document.createElement('div');
+    statusContainer.className = 'ai-message-status';
+    statusContainer.style.display = 'none';
+    msgEl.appendChild(statusContainer);
+
+    const textContainer = document.createElement('div');
+    textContainer.className = 'ai-message-text';
+    msgEl.appendChild(textContainer);
+
+    rowEl.appendChild(msgEl);
+    messagesDiv.appendChild(rowEl);
+    messagesDiv.scrollTo({ top: messagesDiv.scrollHeight });
+
+    let currentText = '';
+    let isFinished = false;
+
+    return {
+      updateStatus: (text) => {
+        if (isFinished || !text) return;
+        statusContainer.textContent = text;
+        statusContainer.style.display = 'flex';
+        messagesDiv.scrollTo({ top: messagesDiv.scrollHeight });
+      },
+      updateText: (delta) => {
+        if (isFinished) return;
+        currentText += delta;
+        textContainer.textContent = String(currentText)
+          .split('\n')
+          .map(line => line
+            .replace(/\*\*([^*]+)\*\*/g, '$1')
+            .replace(/__([^_]+)__/g, '$1')
+            .replace(/^(\s*)\*\s+/, '$1- ')
+            .replace(/^(\s*)#{1,6}\s+/, '$1'))
+          .join('\n');
+        messagesDiv.scrollTo({ top: messagesDiv.scrollHeight });
+      },
+      finish: (finalMsg) => {
+        isFinished = true;
+        rowEl.remove();
+        renderMessage(finalMsg);
+      }
+    };
+  }
+
   function renderMessage(msg) {
     const rowEl = document.createElement('div');
     rowEl.className = `ai-message-row ${msg.role}`;
@@ -459,6 +517,7 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k }) {
   return {
     element: container,
     renderMessage,
+    startStreamingMessage,
     clear,
     toggleLoading,
     updateLanguage,

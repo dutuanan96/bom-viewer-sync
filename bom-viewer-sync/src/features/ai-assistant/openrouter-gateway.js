@@ -73,7 +73,7 @@ export function createOpenRouterGateway(opts = {}) {
     fetchImpl = globalThis.fetch,
     clock = { now: () => Date.now() },
     paidFallbackConsent = false,
-    requestTimeoutMs = 45_000
+    requestTimeoutMs = 120_000
   } = opts;
 
   // ── Private closure state ──────────────────────────────────────────────────
@@ -427,6 +427,105 @@ export function createOpenRouterGateway(opts = {}) {
   }
 
   /**
+   * Same as `chat` but returns an async generator yielding response chunks for real-time streaming.
+   * If the server responds with application/json instead of text/event-stream, it parses the JSON
+   * and yields a single message chunk (e.g. for E2E test mocks).
+   */
+  async function* chatStream(options) {
+    const { model, messages, tools, maxTokens, signal, webSearch } = options;
+    const modelMeta = _models.find(m => m.id === model);
+    if (!modelMeta) throw new Error(`Model ${model} is not available.`);
+
+    const bodyObj = {
+      model,
+      messages: messages,
+      provider: {
+        data_collection: 'deny',
+        zdr: true,
+        allow_fallbacks: true
+      },
+      stream: true,
+    };
+
+    if (maxTokens) bodyObj.max_tokens = maxTokens;
+
+    const requestTools = [...(tools || [])];
+    if (webSearch === true) {
+      requestTools.push({
+        type: 'openrouter:web_search',
+        parameters: {
+          engine: 'exa',
+          max_results: 5,
+          max_total_results: 5,
+          search_context_size: 'low',
+          allowed_domains: ['amazon.com'],
+        },
+      });
+    }
+
+    const requiresExactProviderParameters = model !== 'xiaomi/mimo-v2.5';
+    if (modelMeta.grade === 'A' && requiresExactProviderParameters) {
+      bodyObj.provider.require_parameters = true;
+    }
+
+    if (requestTools.length > 0) {
+      if (requiresExactProviderParameters) bodyObj.provider.require_parameters = true;
+      bodyObj.tools = requestTools;
+      bodyObj.tool_choice = 'auto';
+      bodyObj.parallel_tool_calls = false;
+    }
+
+    const response = await protectedFetch('/api/v1/chat/completions', {
+      method: 'POST',
+      body: JSON.stringify(bodyObj),
+      signal
+    });
+
+    const contentType = response.headers.get('content-type') || '';
+    if (contentType.includes('application/json')) {
+      const data = await response.json();
+      if (data.choices && data.choices[0] && data.choices[0].message) {
+        yield data.choices[0].message; // yield the whole message as a delta
+      }
+      return;
+    }
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+
+    try {
+      while (true) {
+        const { value, done } = await reader.read();
+        if (done) break;
+        buffer += decoder.decode(value, { stream: true });
+
+        const lines = buffer.split('\n');
+        buffer = lines.pop();
+
+        for (const line of lines) {
+          const trimmed = line.trim();
+          if (trimmed.startsWith('data:')) {
+            const dataStr = trimmed.slice(5).trim();
+            if (dataStr === '[DONE]') return;
+            try {
+              const data = JSON.parse(dataStr);
+              if (data.choices && data.choices[0] && data.choices[0].delta) {
+                yield data.choices[0].delta;
+              }
+            } catch (e) {
+              // ignore incomplete JSON parse errors
+            }
+          }
+        }
+      }
+    } finally {
+      reader.releaseLock();
+    }
+  }
+
+
+  /**
    * Return non-secret diagnostic info.
    * MUST NOT contain the API key or any key substring.
    */
@@ -450,6 +549,7 @@ export function createOpenRouterGateway(opts = {}) {
     listModels,
     getFallbackChain,
     chat,
+    chatStream,
     diagnostics
   };
 }

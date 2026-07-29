@@ -2,7 +2,8 @@ const SYSTEM_INSTRUCTIONS = `You are JinTai PDM AI Assistant.
 Your goal is to help users query the PDM system deterministically.
 Always use the provided tools to retrieve data.
 Do not guess or hallucinate product structures.
-Use exact internal SKUs and U-prefix aliases.`;
+Use exact internal SKUs and U-prefix aliases.
+If you lack information or data to fulfill a request, you MUST ask the user for clarification.`;
 
 const STRICT_RULES = `- Do not serialize source metadata into 24 data shards.
 - Always validate tool payloads strictly.
