@@ -155,10 +155,6 @@ async function callModel({ scenario, variant }) {
     const content = payload?.choices?.[0]?.message?.content;
     if (!content) return { error: 'PROVIDER_EMPTY_OUTPUT' };
     const parsed = parseModelJson(content);
-    if (scenario.caseId === 'WF-001' && variant === scenario.userVariants[0]) {
-      console.log('--- DEBUG MODEL OUTPUT WF-001 ---');
-      console.log(content);
-    }
     return { output: parsed };
   } catch (error) {
     if (error?.name === 'AbortError') return { error: 'PROVIDER_TIMEOUT' };

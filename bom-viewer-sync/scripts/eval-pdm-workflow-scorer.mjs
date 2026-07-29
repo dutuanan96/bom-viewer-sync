@@ -248,11 +248,6 @@ export function scoreWorkflowVariant(scenario, actualOutput) {
   const actualP = actualProjection(actualOutput, expectedP);
   if (!sameValue(expectedP, actualP)) {
     failures.push('SEMANTIC_DELTA_MISMATCH');
-    if (scenario.caseId === 'WF-001') {
-      console.log('--- MISMATCH WF-001 ---');
-      console.log('EXPECTED:', stableJson(expectedP));
-      console.log('ACTUAL:', stableJson(actualP));
-    }
   }
 
   const reducerResult = workflowReducer(scenario.priorState, actualOutput);

@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "accepts a valid partial-slot semantic delta",
+      "caseId": "WF-002",
+      "patches": [],
+      "expectedPass": true,
+      "expectedFailure": []
+    },
+    {
+      "name": "accepts a valid governed Viewer rejection",
+      "caseId": "WF-036",
+      "patches": [],
+      "expectedPass": true,
+      "expectedFailure": []
+    },
+    {
+      "name": "rejects missing taskUpdates",
+      "caseId": "WF-002",
+      "patches": [
+        { "op": "remove", "path": "/taskUpdates" }
+      ],
+      "expectedPass": false,
+      "expectedFailure": ["SCHEMA_INVALID_TOP_LEVEL_KEYS"]
+    },
+    {
+      "name": "rejects an unknown domain field",
+      "caseId": "WF-002",
+      "patches": [
+        {
+          "op": "add",
+          "path": "/taskUpdates/0/fields/inventedDomainField",
+          "value": "x"
+        }
+      ],
+      "expectedPass": false,
+      "expectedFailure": ["SCHEMA_UNKNOWN_DOMAIN_FIELD:taskUpdates[0].fields.inventedDomainField"]
+    },
+    {
+      "name": "rejects the wrong task identity",
+      "caseId": "WF-002",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/taskUpdates/0/taskRef/value",
+          "value": "wrong-task"
+        }
+      ],
+      "expectedPass": false,
+      "expectedFailure": ["SEMANTIC_DELTA_MISMATCH"]
+    },
+    {
+      "name": "rejects missing canonical evidence",
+      "caseId": "WF-001",
+      "patches": [
+        { "op": "remove", "path": "/requestedEvidence/0" }
+      ],
+      "expectedPass": false,
+      "expectedFailure": ["REQUIRED_EVIDENCE_MISMATCH"]
+    },
+    {
+      "name": "rejects a missing expected proposal action",
+      "caseId": "WF-003",
+      "patches": [
+        { "op": "replace", "path": "/proposedActions", "value": [] }
+      ],
+      "expectedPass": false,
+      "expectedFailure": ["EXPECTED_ACTIONS_MISMATCH"]
+    },
+    {
+      "name": "rejects Viewer mutation bundled into an authorization failure",
+      "caseId": "WF-036",
+      "patches": [
+        { "op": "replace", "path": "/intent", "value": "workflow_update" },
+        { "op": "replace", "path": "/workflowAction", "value": "build_proposal" },
+        { "op": "replace", "path": "/rejectionCode", "value": null },
+        {
+          "op": "replace",
+          "path": "/taskUpdates",
+          "value": [
+            {
+              "taskRef": { "kind": "new", "value": "create_material" },
+              "action": "create_task",
+              "fields": { "newMaterialCode": "ZHJ999" }
+            }
+          ]
+        },
+        {
+          "op": "replace",
+          "path": "/proposedActions",
+          "value": [
+            { "operationType": "create_material", "targetId": "ZHJ999" }
+          ]
+        }
+      ],
+      "expectedPass": false,
+      "expectedFailure": ["SAFETY_VIEWER_MUTATION"]
+    },
+    {
+      "name": "rejects mutation fields attached to a rejection",
+      "caseId": "WF-036",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/taskUpdates",
+          "value": [
+            {
+              "taskRef": { "kind": "new", "value": "create_material" },
+              "action": "create_task",
+              "fields": { "newMaterialCode": "ZHJ999" }
+            }
+          ]
+        }
+      ],
+      "expectedPass": false,
+      "expectedFailure": ["SCHEMA_REJECTION_MUST_NOT_MUTATE"]
+    },
+    {
+      "name": "rejects reordered dependent task updates",
+      "caseId": "WF-060",
+      "patches": [
+        { "op": "reverse", "path": "/taskUpdates" }
+      ],
+      "expectedPass": false,
+      "expectedFailure": ["SEMANTIC_DELTA_MISMATCH"]
+    }
+  ]
+}
