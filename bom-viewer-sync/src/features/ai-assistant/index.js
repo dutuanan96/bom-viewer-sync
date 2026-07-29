@@ -304,6 +304,7 @@ const TOOL_SCHEMAS = {
     description: [
       'Prepare a reviewed local PDM proposal using only allowlisted Admin actions.',
       'Never write code or upload to GitHub. Submit 1-50 ordered operations for deterministic validation and human selection.',
+      'CRITICAL: If any required parameters (like materialId or color) are missing from the user\'s request, DO NOT guess them. You must ask the user for clarification before calling this tool.',
       'Use these exact button-equivalent patterns:',
       'create_product targetId=product code payload={name:{zh,vi},color:{zh,vi},size,sku};',
       'update_product targetId=product code payload={color,patch:{optional name:{zh,vi},size,sku}};',

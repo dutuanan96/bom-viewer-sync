@@ -676,6 +676,13 @@ Use the smallest sufficient investigation.
               content: contentString
             });
 
+            if (toolStatus === 'error') {
+              messages.push({
+                role: 'user',
+                content: 'SYSTEM_TOOL_ERROR: The previous tool call failed with an error. You MUST explain this error to the user in natural language and ask for clarification. Do not call this tool again until the issue is resolved.'
+              });
+            }
+
             if (postPrefetchInvestigationRemaining > 0) {
               postPrefetchInvestigationRemaining--;
               if (postPrefetchInvestigationRemaining === 0) {
