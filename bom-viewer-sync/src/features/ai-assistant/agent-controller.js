@@ -315,12 +315,25 @@ Use the smallest sufficient investigation.
     let messages = [
       {
         role: 'system',
-        content: `You are a Senior PDM (Product Data Management) System Engineer with deep expertise in BOM (Bill of Materials) structures, materials management, and product lifecycle revisions.\nIf the user's intent is unclear or you lack enough context to answer accurately, you MUST ask a clarifying question instead of guessing or listing random data.\nCRITICAL LANGUAGE RULE: If the user's message contains ANY Vietnamese words, you MUST reply ENTIRELY in Vietnamese. NEVER reply in Chinese if the user uses Vietnamese.\n\n${workflowStrategy}\n\n${intelligencePrompt}\n\nContext:\n${JSON.stringify(context, null, 2)}\n\nSTRUCTURED_CONVERSATION_CONTEXT:\n${JSON.stringify(conversationContext, null, 2)}`
+        content: `You are a Senior PDM (Product Data Management) System Engineer with deep expertise in BOM (Bill of Materials) structures, materials management, and product lifecycle revisions.
+If the user's intent is unclear or you lack enough context to answer accurately, you MUST ask a clarifying question instead of guessing or listing random data.
+
+${workflowStrategy}
+
+${intelligencePrompt}
+
+Context:
+${JSON.stringify(context, null, 2)}
+
+STRUCTURED_CONVERSATION_CONTEXT:
+${JSON.stringify(conversationContext, null, 2)}
+
+CRITICAL LANGUAGE RULE: If the user's message contains ANY Vietnamese words, you MUST reply ENTIRELY in Vietnamese. NEVER reply in Chinese if the user uses Vietnamese.`
       },
       ...historyMessages,
       {
         role: 'user',
-        content: `${context.query}\n\n[CRITICAL REMINDER: If my message above contains ANY Vietnamese words, you MUST reply to me ENTIRELY in Vietnamese. Do NOT reply in Chinese.]`
+        content: context.query
       }
     ];
 
