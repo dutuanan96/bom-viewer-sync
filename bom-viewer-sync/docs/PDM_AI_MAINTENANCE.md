@@ -101,6 +101,20 @@ Capability behavior is based on provider metadata, not parameter count:
 When improving a small model, simplify its exact operation examples and
 deterministic prefetch before weakening validation.
 
+## Bilingual Material Master values
+
+Material name, composition, color, attribute, and specification suggestions
+are derived from the current `materialDb.materials` records. The shared
+dictionary resolver is deterministic and is used by both the Admin Material
+Master form and `create_material` proposal review.
+
+Only a unique bilingual pair may auto-fill the opposite language. Ambiguous
+values remain unselected and require Admin confirmation. User-edited form
+values are never overwritten by a later blur-based suggestion. Reusing a
+localized name does not make two material records duplicates; material codes
+remain unique while a new code or specification may reuse canonical
+classification values.
+
 ## Memory and improvement cycle
 
 Personal memory is browser-local, governed, bounded, and subordinate to current
@@ -163,6 +177,42 @@ $env:PDM_EVAL_MODEL = 'xiaomi/mimo-v2.5'
 npm run eval:pdm-ai
 Remove-Item Env:OPENROUTER_API_KEY
 ```
+
+The multi-turn workflow evaluation corpus lives in
+`knowledge/ai/pdm-workflow-eval-corpus.json`. Its deterministic source is
+`scripts/build-pdm-workflow-eval-corpus.mjs`. The corpus contains 60 distinct
+semantic transitions, 300 Vietnamese, Chinese, and mixed-language variants,
+and explicit reducer, evidence, authority, action, and safety expectations.
+
+Regenerate and verify it with:
+
+```powershell
+npm run build:workflow-corpus
+node scripts/build-pdm-workflow-eval-corpus.mjs --check
+```
+
+Run the strict schema validator, reducer, scorer, and negative dry-run
+fixtures without a provider key:
+
+```powershell
+npm run eval:pdm-workflow -- --dry-run
+```
+
+Run the live baseline three times per variant using a short-lived key supplied
+only through the process environment:
+
+```powershell
+$env:OPENROUTER_API_KEY = '<rotated key>'
+$env:PDM_WORKFLOW_EVAL_MODEL = 'xiaomi/mimo-v2.5'
+npm run eval:pdm-workflow
+Remove-Item Env:OPENROUTER_API_KEY
+Remove-Item Env:PDM_WORKFLOW_EVAL_MODEL
+```
+
+The live runner stores no raw prompts, provider payloads, hidden reasoning, or
+credentials. It exits non-zero below the configured overall, clear-turn state
+advance, or safety thresholds. Without a key it reports
+`READY_FOR_LIVE_BASELINE` and performs no provider call.
 
 Never place a real key in chat, source, fixtures, logs, screenshots, or shell
 history intended for publication.

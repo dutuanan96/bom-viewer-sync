@@ -12,6 +12,11 @@ import {
   releaseProductRevision,
   withdrawProductRevision,
 } from '../../domain/revisions.js';
+import {
+  buildBilingualDictionary,
+  lookupCandidates,
+  normalizeBilingualValue,
+} from '../../domain/bilingual-dictionary.js';
 
 function clone(value) {
   return JSON.parse(JSON.stringify(value || {}));
@@ -456,6 +461,55 @@ function operationWarnings(operation) {
   return warnings;
 }
 
+function enrichCreateMaterialMutation(materials, sourceMutation) {
+  const mutation = clone(sourceMutation);
+  const warnings = [];
+  if (mutation.operationType !== 'create_material') return { mutation, warnings };
+
+  const dictionary = buildBilingualDictionary(materials);
+  const material = mutation.payload.material;
+  for (const field of ['name', 'material', 'color', 'attr']) {
+    const pair = material[field];
+    if (!pair) continue;
+    const zh = String(pair.zh || '').trim();
+    const vi = String(pair.vi || '').trim();
+
+    if (zh && !vi) {
+      const candidates = lookupCandidates(dictionary, field, 'zh', zh);
+      if (candidates.length === 1) {
+        pair.vi = candidates[0].vi;
+        warnings.push(`${field}.vi auto-filled from bilingual dictionary.`);
+      } else if (candidates.length > 1) {
+        warnings.push(`${field} has multiple bilingual mappings; Admin confirmation is required.`);
+      }
+      continue;
+    }
+
+    if (vi && !zh) {
+      const candidates = lookupCandidates(dictionary, field, 'vi', vi);
+      if (candidates.length === 1) {
+        pair.zh = candidates[0].zh;
+        warnings.push(`${field}.zh auto-filled from bilingual dictionary.`);
+      } else if (candidates.length > 1) {
+        warnings.push(`${field} has multiple bilingual mappings; Admin confirmation is required.`);
+      }
+      continue;
+    }
+
+    if (zh && vi) {
+      const candidates = lookupCandidates(dictionary, field, 'zh', zh);
+      if (
+        candidates.length > 0
+        && !candidates.some((candidate) =>
+          normalizeBilingualValue(candidate.vi) === normalizeBilingualValue(vi))
+      ) {
+        warnings.push(`${field} conflicts with the current bilingual dictionary; verify both values.`);
+      }
+    }
+  }
+  return { mutation, warnings };
+}
+
 function verifyProposalPayload(payload) {
   const errors = [];
   const warnings = [];
@@ -518,7 +572,9 @@ function verifyProposalPayload(payload) {
 export function buildMutationProposalReview(snapshot, proposalInput) {
   const proposal = validateMutationProposal(proposalInput);
   let payload = clone(snapshot.payload);
-  const operations = proposal.operations.map((mutation, index) => {
+  const operations = proposal.operations.map((sourceMutation, index) => {
+    const enrichment = enrichCreateMaterialMutation(payload.materialDb?.materials || {}, sourceMutation);
+    const mutation = enrichment.mutation;
     const operationSnapshot = { ...snapshot, payload };
     validateMutationContext(operationSnapshot, mutation);
     const before = clone(payload);
@@ -533,7 +589,7 @@ export function buildMutationProposalReview(snapshot, proposalInput) {
       id: `change-${index + 1}`,
       category: operationCategory(mutation.operationType),
       risk: operationRisk(mutation.operationType),
-      warnings: operationWarnings(mutation),
+      warnings: [...operationWarnings(mutation), ...enrichment.warnings],
       mutation: clone(mutation),
       diff,
     };

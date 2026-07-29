@@ -1,6 +1,7 @@
 playwright-report/
 test-results/
 debug.log
+openrouter_requests.log
 .ai_diff.txt
 .git_diff.txt
 .git_working_diff.txt

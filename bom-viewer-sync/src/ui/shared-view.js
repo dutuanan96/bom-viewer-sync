@@ -56,6 +56,8 @@ function renderStaticText() {
 
   const aiDrawerClose = this.query('#aiDrawerClose');
   if (aiDrawerClose) aiDrawerClose.setAttribute('aria-label', this.label('ai.workspace.close') || 'Close');
+  const aiDrawerFullscreen = this.query('#aiDrawerFullscreen');
+  if (aiDrawerFullscreen) aiDrawerFullscreen.setAttribute('aria-label', 'Fullscreen');
 
   const aiFab = this.query('#aiFab');
   if (aiFab) aiFab.setAttribute('aria-label', this.label('ai.workspace.open') || 'Open AI Assistant');

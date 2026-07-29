@@ -145,6 +145,89 @@ test('mutation-engine: batch review follows allowlisted Admin material and BOM a
   assert.equal(transaction.payload.materialDb.bomEntries[0].materialId, 'M2');
 });
 
+test('mutation-engine: create material enriches unique bilingual values without overriding model input', () => {
+  const snapshot = proposalSnapshot();
+  snapshot.payload.materialDb.materials.M3 = {
+    id: 'M3',
+    code: 'PAPER-BASE',
+    name: { zh: '纸卡', vi: 'Giấy lót' },
+    spec: { zh: '', vi: '' },
+    material: { zh: '瓦楞纸', vi: 'Giấy carton' },
+    color: { zh: '纸色', vi: 'Màu giấy' },
+    attr: { zh: '包材', vi: 'Vật liệu đóng gói' },
+    drawings: [],
+    models3d: [],
+  };
+  const proposal = {
+    operations: [{
+      operationType: 'create_material',
+      targetId: 'M4',
+      payload: {
+        material: {
+          code: 'PAPER-NEW',
+          name: { zh: '纸卡' },
+          material: { zh: '瓦楞纸' },
+          color: { zh: '纸色', vi: 'Admin color' },
+          attr: { vi: 'Vật liệu đóng gói' },
+        },
+      },
+    }],
+  };
+
+  const review = buildMutationProposalReview(snapshot, proposal);
+  const enriched = review.operations[0].mutation.payload.material;
+  assert.equal(enriched.name.vi, 'Giấy lót');
+  assert.equal(enriched.material.vi, 'Giấy carton');
+  assert.equal(enriched.attr.zh, '包材');
+  assert.equal(enriched.color.vi, 'Admin color');
+  assert.match(review.operations[0].warnings.join(' '), /name\.vi auto-filled/);
+  assert.match(review.operations[0].warnings.join(' '), /color conflicts/);
+  assert.equal(proposal.operations[0].payload.material.name.vi, undefined);
+
+  const transaction = applyMutationProposalTransaction(snapshot, proposal);
+  assert.equal(transaction.payload.materialDb.materials.M4.name.vi, 'Giấy lót');
+  assert.equal(transaction.payload.materialDb.materials.M4.code, 'PAPER-NEW');
+});
+
+test('mutation-engine: ambiguous or unknown bilingual values are not invented', () => {
+  const snapshot = proposalSnapshot();
+  snapshot.payload.materialDb.materials.M3 = {
+    id: 'M3',
+    code: 'PAPER-A',
+    name: { zh: '纸卡', vi: 'Giấy lót' },
+    spec: { zh: '', vi: '' },
+    material: { zh: '', vi: '' },
+    color: { zh: '', vi: '' },
+    attr: { zh: '零件', vi: 'linh kiện' },
+    drawings: [],
+    models3d: [],
+  };
+  snapshot.payload.materialDb.materials.M4 = {
+    ...structuredClone(snapshot.payload.materialDb.materials.M3),
+    id: 'M4',
+    code: 'PAPER-B',
+    name: { zh: '纸卡', vi: 'Thẻ giấy' },
+  };
+  const review = buildMutationProposalReview(snapshot, {
+    operations: [{
+      operationType: 'create_material',
+      targetId: 'M5',
+      payload: {
+        material: {
+          code: 'PAPER-C',
+          name: { zh: '纸卡' },
+          material: { zh: '未知材质' },
+        },
+      },
+    }],
+  });
+
+  const material = review.operations[0].mutation.payload.material;
+  assert.equal(material.name.vi, undefined);
+  assert.equal(material.material.vi, undefined);
+  assert.match(review.operations[0].warnings.join(' '), /multiple bilingual mappings/);
+});
+
 test('mutation-engine: material asset references are validated and included in review diff', () => {
   const snapshot = proposalSnapshot();
   const transaction = applyMutationProposalTransaction(snapshot, {

@@ -272,12 +272,13 @@ function materialMasterFormHtml(record) {
     ['color', this.label('materialColor')],
     ['attr', this.label('materialAttribute')]
   ];
+  const dict = this.bilingualDict || null;
   return `<section class="material-master-section">
     <h2>${escapeHTML(this.label('materialMaster'))}</h2>
     <div class="material-master-form">
       ${this.materialMasterReadonly(this.label('materialId'), record.id)}
       ${this.materialMasterCodeInput(record)}
-      ${pairs.map(([field, label]) => `${this.materialMasterInput(record, field, label, 'zh')}${this.materialMasterInput(record, field, label, 'vi')}`).join('')}
+      ${pairs.map(([field, label]) => `${this.materialMasterInput(record, field, label, 'zh', dict)}${this.materialMasterInput(record, field, label, 'vi', dict)}`).join('')}
     </div>
   </section>`;
 }
@@ -290,10 +291,40 @@ function materialMasterCodeInput(record) {
   return `<label class="material-master-field"><span>${escapeHTML(this.label('materialCode'))}</span><input class="edit-input" data-material-master-edit="code" value="${escapeHTML(record.code || '')}"></label>`;
 }
 
-function materialMasterInput(record, field, label, lang) {
+// Fields with a finite, well-defined set of values: show a combobox picker.
+const COMBOBOX_FIELDS = new Set(['material', 'color', 'attr']);
+
+function materialMasterInput(record, field, label, lang, dict) {
   const value = record[field]?.[lang] || '';
   const langLabel = lang === 'zh' ? this.label('chinese') : this.label('vietnamese');
-  return `<label class="material-master-field"><span>${escapeHTML(label)} · ${escapeHTML(langLabel)}</span><input class="edit-input" data-material-master-edit="${escapeHTML(field)}" data-lang="${escapeHTML(lang)}" value="${escapeHTML(value)}"></label>`;
+  const inputId = `mm-${field}-${lang}`;
+  const placeholder = escapeHTML(this.label('bilingualPickerPlaceholder') || '');
+  const provenance = value ? 'initial' : 'empty';
+
+  if (COMBOBOX_FIELDS.has(field)) {
+    const ariaLabel = escapeHTML(`${this.label('fieldPickerOpen')}: ${label} (${langLabel})`);
+    const pickerId = `field-picker-${field}-${lang}`;
+    return `<label class="material-master-field" for="${inputId}">
+      <span>${escapeHTML(label)} · ${escapeHTML(langLabel)}</span>
+      <div class="material-field-combobox" data-combobox data-field="${escapeHTML(field)}" data-lang="${escapeHTML(lang)}" role="combobox" aria-haspopup="listbox" aria-owns="${pickerId}">
+        <input id="${inputId}" class="edit-input" data-material-master-edit="${escapeHTML(field)}" data-lang="${escapeHTML(lang)}" data-bilingual-provenance="${provenance}" value="${escapeHTML(value)}" placeholder="${placeholder}" autocomplete="off">
+        <button type="button" class="field-picker-btn" data-action="open-field-picker" data-field="${escapeHTML(field)}" data-lang="${escapeHTML(lang)}" aria-label="${ariaLabel}" aria-expanded="false" aria-controls="${pickerId}">▾</button>
+      </div>
+    </label>`;
+  }
+
+  // Open fields (name, spec): datalist for suggestions only
+  const known = (dict && dict[field]) ? Array.from(lang === 'zh' ? dict[field].zhOriginals : dict[field].viOriginals) : [];
+  const datalistId = `dl-${field}-${lang}`;
+  const datalistHtml = known.length
+    ? `<datalist id="${datalistId}">${known.map(v => `<option value="${escapeHTML(v)}"></option>`).join('')}</datalist>`
+    : '';
+  const listAttr = known.length ? ` list="${datalistId}"` : '';
+  return `<label class="material-master-field" for="${inputId}">
+    <span>${escapeHTML(label)} · ${escapeHTML(langLabel)}</span>
+    ${datalistHtml}
+    <input id="${inputId}" class="edit-input" data-material-master-edit="${escapeHTML(field)}" data-lang="${escapeHTML(lang)}" data-bilingual-provenance="${provenance}" value="${escapeHTML(value)}"${listAttr} placeholder="${placeholder}" autocomplete="off">
+  </label>`;
 }
 
 function materialMasterRelationshipsHtml(record) {

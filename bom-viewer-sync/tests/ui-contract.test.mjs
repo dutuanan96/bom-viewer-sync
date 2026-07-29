@@ -96,6 +96,27 @@ test('Material Master editor uses a focused detail form with save and back actio
   assert.match(appSource, /data-action="back-material-list"/);
 });
 
+test('Material Master localized fields expose governed bilingual picker contracts', () => {
+  const materialInput = methodSource('materialMasterInput');
+  assert.match(materialInput, /COMBOBOX_FIELDS\.has\(field\)/);
+  assert.match(materialInput, /data-combobox/);
+  assert.match(materialInput, /data-action="open-field-picker"/);
+  assert.match(materialInput, /role="combobox"/);
+  assert.match(materialInput, /aria-expanded="false"/);
+  assert.match(materialInput, /<datalist/);
+  assert.match(materialInput, /data-bilingual-provenance/);
+  assert.match(appSource, /handleBilingualBlur/);
+  assert.match(appSource, /handleFieldPickerKeydown/);
+  assert.match(appSource, /bilingualAmbiguousMapping/);
+});
+
+test('Material Master save does not treat a shared bilingual name as a duplicate record', () => {
+  const saveMaterialMaster = methodSource('saveMaterialMaster');
+  assert.doesNotMatch(saveMaterialMaster, /existingMatch/);
+  assert.doesNotMatch(saveMaterialMaster, /window\.confirm/);
+  assert.match(saveMaterialMaster, /_performSaveMaterialMaster/);
+});
+
 test('Material Master edits are scoped to the selected MaterialID record', () => {
   assert.match(appSource, /saveMaterialMaster/);
   assert.match(appSource, /this\.state\.selectedMaterialId/);
