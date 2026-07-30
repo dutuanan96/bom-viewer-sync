@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-30T05:07:46.017Z",
+  "updatedAt": "2026-07-30T06:08:01.406Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6253,12 +6253,12 @@
     },
     "LGS433": {
       "currentRevision": "V4",
-      "effectiveRevision": "V4",
+      "effectiveRevision": "",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "released"
+        "workflowState": "draft"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6309,6 +6309,14 @@
           "previousRevision": "",
           "occurredAt": "2026-07-29T07:35:11.961Z",
           "reason": "更新"
+        },
+        {
+          "id": "effectivity_ms73tnjg",
+          "action": "withdraw",
+          "revision": "V4",
+          "previousRevision": "V4",
+          "occurredAt": "2026-07-30T06:00:01.132Z",
+          "reason": "修正LGS433纸箱物料编码"
         }
       ]
     },
@@ -6539,6 +6547,36 @@
     }
   },
   "notifications": [
+    {
+      "id": "notif_1gvuyea",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-30T06:08:01.406Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS433",
+          "field": "effectiveRevision",
+          "before": "V4",
+          "after": ""
+        },
+        {
+          "kind": "revision",
+          "code": "LGS433",
+          "field": "workflowState",
+          "before": "released",
+          "after": "draft"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS433",
+          "field": "",
+          "before": "LGS433PKXKD",
+          "after": "LGS433PKXWH"
+        }
+      ]
+    },
     {
       "id": "notif_15tpobk",
       "type": "github-save",
@@ -7108,14 +7146,6 @@
       "type": "github-save",
       "actor": "admin",
       "createdAt": "2026-07-23T07:42:11.738Z",
-      "version": 2,
-      "changes": []
-    },
-    {
-      "id": "notif_1te163w",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-23T07:37:48.436Z",
       "version": 2,
       "changes": []
     }
