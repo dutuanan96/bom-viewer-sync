@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-30T06:25:58.709Z",
+  "updatedAt": "2026-07-30T06:27:35.190Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6322,12 +6322,12 @@
     },
     "LGS333": {
       "currentRevision": "V4",
-      "effectiveRevision": "V4",
+      "effectiveRevision": "",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "released"
+        "workflowState": "draft"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6346,6 +6346,14 @@
           "previousRevision": "",
           "occurredAt": "2026-07-23T08:23:46.082Z",
           "reason": "更新"
+        },
+        {
+          "id": "effectivity_ms74sldv",
+          "action": "withdraw",
+          "revision": "V4",
+          "previousRevision": "V4",
+          "occurredAt": "2026-07-30T06:27:11.299Z",
+          "reason": "修正LGS333纸箱物料编码"
         }
       ]
     },
@@ -6652,6 +6660,29 @@
     }
   },
   "notifications": [
+    {
+      "id": "notif_18s8evu",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-30T06:27:35.190Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS333",
+          "field": "effectiveRevision",
+          "before": "V4",
+          "after": ""
+        },
+        {
+          "kind": "revision",
+          "code": "LGS333",
+          "field": "workflowState",
+          "before": "released",
+          "after": "draft"
+        }
+      ]
+    },
     {
       "id": "notif_un2rd4",
       "type": "github-save",
@@ -7377,43 +7408,6 @@
       "createdAt": "2026-07-23T09:02:52.198Z",
       "version": 2,
       "changes": []
-    },
-    {
-      "id": "notif_78c46k",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-23T08:47:49.316Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "3911515XZHSLBH",
-          "field": "code",
-          "before": "LGS333XZHSLBH",
-          "after": "3911515XZHSLBH"
-        },
-        {
-          "kind": "material",
-          "code": "3911515XZHSLWH",
-          "field": "code",
-          "before": "LGS333XZHSLWH",
-          "after": "3911515XZHSLWH"
-        },
-        {
-          "kind": "material",
-          "code": "3911515XZQSLBH",
-          "field": "code",
-          "before": "LGS333XZQSLBH",
-          "after": "3911515XZQSLBH"
-        },
-        {
-          "kind": "material",
-          "code": "391515XZQSLWH",
-          "field": "code",
-          "before": "LGS333XZQSLWH",
-          "after": "391515XZQSLWH"
-        }
-      ]
     }
   ]
 }
