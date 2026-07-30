@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-30T06:21:25.666Z",
+  "updatedAt": "2026-07-30T06:22:53.356Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6608,7 +6608,7 @@
         }
       ]
     },
-    "LGS131": {
+    "LGS231": {
       "currentRevision": "V3",
       "effectiveRevision": "",
       "currentRevisionInfo": {
@@ -6620,17 +6620,54 @@
       "revisions": [],
       "effectivityEvents": [
         {
-          "id": "effectivity_ms74kobr",
+          "id": "effectivity_ms74mqot",
           "action": "withdraw",
           "revision": "V3",
           "previousRevision": "V3",
-          "occurredAt": "2026-07-30T06:21:01.863Z",
-          "reason": "修正LGS131纸箱物料编码"
+          "occurredAt": "2026-07-30T06:22:38.237Z",
+          "reason": "修正LGS231纸箱物料编码"
         }
       ]
     }
   },
   "notifications": [
+    {
+      "id": "notif_1oyacuw",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-30T06:22:53.356Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS131",
+          "field": "currentRevision",
+          "before": "V3",
+          "after": ""
+        },
+        {
+          "kind": "revision",
+          "code": "LGS131",
+          "field": "workflowState",
+          "before": "draft",
+          "after": ""
+        },
+        {
+          "kind": "revision",
+          "code": "LGS231",
+          "field": "currentRevision",
+          "before": "",
+          "after": "V3"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS231",
+          "field": "workflowState",
+          "before": "",
+          "after": "draft"
+        }
+      ]
+    },
     {
       "id": "notif_13v54lg",
       "type": "github-save",
@@ -7310,14 +7347,6 @@
       "type": "github-save",
       "actor": "admin",
       "createdAt": "2026-07-23T08:22:38.620Z",
-      "version": 2,
-      "changes": []
-    },
-    {
-      "id": "notif_ov9ctu",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-23T08:21:12.595Z",
       "version": 2,
       "changes": []
     }
