@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-30T05:02:14.136Z",
+  "updatedAt": "2026-07-30T05:03:15.975Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6486,11 +6486,43 @@
           "previousRevision": "V2",
           "occurredAt": "2026-07-30T05:02:06.566Z",
           "reason": "修正LGS031纸箱物料编码后缀"
+        },
+        {
+          "id": "effectivity_ms71sckl",
+          "action": "release",
+          "revision": "V2",
+          "previousRevision": "",
+          "occurredAt": "2026-07-30T05:03:01.029Z",
+          "reason": "LGS031纸箱物料编码已修正"
+        },
+        {
+          "id": "effectivity_ms71si8m",
+          "action": "withdraw",
+          "revision": "V2",
+          "previousRevision": "V2",
+          "occurredAt": "2026-07-30T05:03:08.374Z",
+          "reason": "修正LGS032纸箱物料编码后缀"
         }
       ]
     }
   },
   "notifications": [
+    {
+      "id": "notif_gfu8f6",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-30T05:03:15.975Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS101",
+          "field": "",
+          "before": "LGS101ZFXBH",
+          "after": "LGS032PKXBH"
+        }
+      ]
+    },
     {
       "id": "notif_1pcsbg8",
       "type": "github-save",
@@ -7075,14 +7107,6 @@
           "after": "LGS334_434_834-底部横杆左-前 / LGS334_434_834 thanh dưới trái-trước"
         }
       ]
-    },
-    {
-      "id": "notif_14gvu2i",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-23T06:11:27.192Z",
-      "version": 2,
-      "changes": []
     }
   ]
 }
