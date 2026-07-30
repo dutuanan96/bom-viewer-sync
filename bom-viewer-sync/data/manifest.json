@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-30T07:25:01.950Z",
+  "updatedAt": "2026-07-30T07:26:29.944Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6720,30 +6720,53 @@
           "reason": "修正LGS232纸箱物料编码"
         }
       ]
-    },
-    "LGS420": {
-      "currentRevision": "V4",
-      "effectiveRevision": "",
-      "currentRevisionInfo": {
-        "sourceRevision": "",
-        "createdAt": "",
-        "changeReason": "",
-        "workflowState": "draft"
-      },
-      "revisions": [],
-      "effectivityEvents": [
-        {
-          "id": "effectivity_ms76ugrq",
-          "action": "withdraw",
-          "revision": "V4",
-          "previousRevision": "V4",
-          "occurredAt": "2026-07-30T07:24:37.862Z",
-          "reason": "修正LGS420纸箱物料编码"
-        }
-      ]
     }
   },
   "notifications": [
+    {
+      "id": "notif_1ntiv6y",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-30T07:26:29.944Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS420",
+          "field": "currentRevision",
+          "before": "V4",
+          "after": ""
+        },
+        {
+          "kind": "revision",
+          "code": "LGS420",
+          "field": "workflowState",
+          "before": "draft",
+          "after": ""
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS420",
+          "field": "",
+          "before": "LGS420ZFXWH",
+          "after": "LGS420ZFXKD"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS420",
+          "field": "",
+          "before": "LGS420ZFXBH",
+          "after": "LGS420ZFXKD"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS421",
+          "field": "",
+          "before": "LGS421ZFXKD",
+          "after": "LGS421ZFXBH"
+        }
+      ]
+    },
     {
       "id": "notif_1mew36i",
       "type": "github-save",
@@ -7652,29 +7675,6 @@
       "createdAt": "2026-07-30T06:15:29.888Z",
       "version": 2,
       "changes": []
-    },
-    {
-      "id": "notif_5cdsos",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-30T06:14:02.410Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS031",
-          "field": "currentRevision",
-          "before": "",
-          "after": "V3"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS031",
-          "field": "workflowState",
-          "before": "",
-          "after": "draft"
-        }
-      ]
     }
   ]
 }
