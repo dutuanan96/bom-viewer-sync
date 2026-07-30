@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-30T07:11:16.061Z",
+  "updatedAt": "2026-07-30T07:12:43.785Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6441,12 +6441,12 @@
     },
     "LGS033": {
       "currentRevision": "V4",
-      "effectiveRevision": "V4",
+      "effectiveRevision": "",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "released"
+        "workflowState": "draft"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6465,6 +6465,14 @@
           "previousRevision": "",
           "occurredAt": "2026-07-28T02:23:53.712Z",
           "reason": "更新"
+        },
+        {
+          "id": "effectivity_ms76eu6v",
+          "action": "withdraw",
+          "revision": "V4",
+          "previousRevision": "V4",
+          "occurredAt": "2026-07-30T07:12:28.759Z",
+          "reason": "修正LGS033纸箱物料编码"
         }
       ]
     },
@@ -6702,6 +6710,36 @@
     }
   },
   "notifications": [
+    {
+      "id": "notif_ytpyu6",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-30T07:12:43.785Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS033",
+          "field": "effectiveRevision",
+          "before": "V4",
+          "after": ""
+        },
+        {
+          "kind": "revision",
+          "code": "LGS033",
+          "field": "workflowState",
+          "before": "released",
+          "after": "draft"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS033",
+          "field": "",
+          "before": "LGS033PKXKD",
+          "after": "LGS033PKXWH"
+        }
+      ]
+    },
     {
       "id": "notif_1tu0pve",
       "type": "github-save",
@@ -7456,22 +7494,6 @@
         {
           "kind": "material_added",
           "code": "LGS111ZFXWH",
-          "field": "",
-          "before": "",
-          "after": ""
-        }
-      ]
-    },
-    {
-      "id": "notif_wifbr2",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-30T04:06:33.151Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material_added",
-          "code": "LGS834ZFXBH",
           "field": "",
           "before": "",
           "after": ""
