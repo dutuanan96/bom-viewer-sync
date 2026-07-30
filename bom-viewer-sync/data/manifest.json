@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-30T07:23:24.890Z",
+  "updatedAt": "2026-07-30T07:25:01.950Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6330,12 +6330,12 @@
     },
     "LGS333": {
       "currentRevision": "V4",
-      "effectiveRevision": "",
+      "effectiveRevision": "V4",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6354,14 +6354,6 @@
           "previousRevision": "",
           "occurredAt": "2026-07-23T08:23:46.082Z",
           "reason": "更新"
-        },
-        {
-          "id": "effectivity_ms76se1p",
-          "action": "withdraw",
-          "revision": "V4",
-          "previousRevision": "V4",
-          "occurredAt": "2026-07-30T07:23:01.021Z",
-          "reason": "修正LGS333纸箱物料编码"
         }
       ]
     },
@@ -6728,9 +6720,95 @@
           "reason": "修正LGS232纸箱物料编码"
         }
       ]
+    },
+    "LGS420": {
+      "currentRevision": "V4",
+      "effectiveRevision": "",
+      "currentRevisionInfo": {
+        "sourceRevision": "",
+        "createdAt": "",
+        "changeReason": "",
+        "workflowState": "draft"
+      },
+      "revisions": [],
+      "effectivityEvents": [
+        {
+          "id": "effectivity_ms76ugrq",
+          "action": "withdraw",
+          "revision": "V4",
+          "previousRevision": "V4",
+          "occurredAt": "2026-07-30T07:24:37.862Z",
+          "reason": "修正LGS420纸箱物料编码"
+        }
+      ]
     }
   },
   "notifications": [
+    {
+      "id": "notif_1mew36i",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-30T07:25:01.950Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS333",
+          "field": "effectiveRevision",
+          "before": "",
+          "after": "V4"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS333",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS420",
+          "field": "currentRevision",
+          "before": "",
+          "after": "V4"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS420",
+          "field": "workflowState",
+          "before": "",
+          "after": "draft"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS333",
+          "field": "",
+          "before": "LGS333PKXWH",
+          "after": "LGS333PKXKD"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS333",
+          "field": "",
+          "before": "LGS333PKXBH",
+          "after": "LGS333PKXKD"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS420",
+          "field": "",
+          "before": "LGS420ZFXKD",
+          "after": "LGS420ZFXWH"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS420",
+          "field": "",
+          "before": "LGS420ZFXKD",
+          "after": "LGS420ZFXBH"
+        }
+      ]
+    },
     {
       "id": "notif_pwgmei",
       "type": "github-save",
@@ -7595,36 +7673,6 @@
           "field": "workflowState",
           "before": "",
           "after": "draft"
-        }
-      ]
-    },
-    {
-      "id": "notif_1gvuyea",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-30T06:08:01.406Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS433",
-          "field": "effectiveRevision",
-          "before": "V4",
-          "after": ""
-        },
-        {
-          "kind": "revision",
-          "code": "LGS433",
-          "field": "workflowState",
-          "before": "released",
-          "after": "draft"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS433",
-          "field": "",
-          "before": "LGS433PKXKD",
-          "after": "LGS433PKXWH"
         }
       ]
     }
