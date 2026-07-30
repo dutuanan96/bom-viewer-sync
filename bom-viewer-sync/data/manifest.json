@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-30T07:14:11.106Z",
+  "updatedAt": "2026-07-30T07:15:47.631Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6703,6 +6703,29 @@
   },
   "notifications": [
     {
+      "id": "notif_12dlgxc",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-30T07:15:47.631Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS111",
+          "field": "",
+          "before": "LGS111ZFXKD",
+          "after": "LGS111ZFXWH"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS111",
+          "field": "",
+          "before": "LGS111ZFXKD",
+          "after": "LGS111ZFXBH"
+        }
+      ]
+    },
+    {
       "id": "notif_1fjvsci",
       "type": "github-save",
       "actor": "admin",
@@ -7426,43 +7449,6 @@
       "createdAt": "2026-07-30T05:02:14.136Z",
       "version": 2,
       "changes": []
-    },
-    {
-      "id": "notif_peha4w",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-30T04:54:43.860Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS101",
-          "field": "currentRevision",
-          "before": "",
-          "after": "V2"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS101",
-          "field": "workflowState",
-          "before": "",
-          "after": "draft"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS101",
-          "field": "",
-          "before": "LGS101ZFXKD",
-          "after": "LGS101ZFXWH"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS101",
-          "field": "",
-          "before": "LGS101ZFXKD",
-          "after": "LGS101ZFXBH"
-        }
-      ]
     }
   ]
 }
