@@ -36280,6 +36280,32 @@
         },
         "drawings": [],
         "models3d": []
+      },
+      "mat_nouv5v": {
+        "id": "mat_nouv5v",
+        "code": "LGS834ZFXBH",
+        "name": {
+          "zh": "中封箱",
+          "vi": "thùng đóng giữa"
+        },
+        "spec": {
+          "zh": "990x380x165mm",
+          "vi": "990x380x165mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": []
       }
     },
     "bomEntries": [

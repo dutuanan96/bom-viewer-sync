@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-29T07:35:15.492Z",
+  "updatedAt": "2026-07-30T04:06:33.151Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6455,6 +6455,22 @@
   },
   "notifications": [
     {
+      "id": "notif_wifbr2",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-30T04:06:33.151Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material_added",
+          "code": "LGS834ZFXBH",
+          "field": "",
+          "before": "",
+          "after": ""
+        }
+      ]
+    },
+    {
       "id": "notif_1ej2yhc",
       "type": "github-save",
       "actor": "admin",
@@ -6986,29 +7002,6 @@
           "code": "LGS433",
           "field": "",
           "before": "LGS433XZHSLBH",
-          "after": "LGS333XZHSLBH"
-        }
-      ]
-    },
-    {
-      "id": "notif_170esu6",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-23T04:14:57.990Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS334",
-          "field": "",
-          "before": "LGS334XZQSLBH",
-          "after": "LGS333XZQSLBH"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS334",
-          "field": "",
-          "before": "LGS334XZHSLBH",
           "after": "LGS333XZHSLBH"
         }
       ]
