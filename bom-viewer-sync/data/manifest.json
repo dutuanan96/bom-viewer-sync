@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-30T06:38:19.176Z",
+  "updatedAt": "2026-07-30T06:39:47.487Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6679,7 +6679,7 @@
         }
       ]
     },
-    "LGS833": {
+    "LGS834": {
       "currentRevision": "V4",
       "effectiveRevision": "",
       "currentRevisionInfo": {
@@ -6691,17 +6691,54 @@
       "revisions": [],
       "effectivityEvents": [
         {
-          "id": "effectivity_ms756eem",
+          "id": "effectivity_ms758h8x",
           "action": "withdraw",
           "revision": "V4",
           "previousRevision": "V4",
-          "occurredAt": "2026-07-30T06:37:55.438Z",
-          "reason": "修正LGS833纸箱物料编码"
+          "occurredAt": "2026-07-30T06:39:32.433Z",
+          "reason": "修正LGS834纸箱物料编码"
         }
       ]
     }
   },
   "notifications": [
+    {
+      "id": "notif_1q0bxcc",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-30T06:39:47.487Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS833",
+          "field": "currentRevision",
+          "before": "V4",
+          "after": ""
+        },
+        {
+          "kind": "revision",
+          "code": "LGS833",
+          "field": "workflowState",
+          "before": "draft",
+          "after": ""
+        },
+        {
+          "kind": "revision",
+          "code": "LGS834",
+          "field": "currentRevision",
+          "before": "",
+          "after": "V4"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS834",
+          "field": "workflowState",
+          "before": "",
+          "after": "draft"
+        }
+      ]
+    },
     {
       "id": "notif_j75alq",
       "type": "github-save",
@@ -7494,22 +7531,6 @@
           "kind": "bom_added",
           "code": "LGS334",
           "field": "750380ZK",
-          "before": "",
-          "after": ""
-        }
-      ]
-    },
-    {
-      "id": "notif_63s63o",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-28T03:14:44.773Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material_added",
-          "code": "750380ZK",
-          "field": "",
           "before": "",
           "after": ""
         }
