@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-30T05:03:15.975Z",
+  "updatedAt": "2026-07-30T05:04:17.746Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6502,11 +6502,35 @@
           "previousRevision": "V2",
           "occurredAt": "2026-07-30T05:03:08.374Z",
           "reason": "修正LGS032纸箱物料编码后缀"
+        },
+        {
+          "id": "effectivity_ms71toa7",
+          "action": "release",
+          "revision": "V2",
+          "previousRevision": "",
+          "occurredAt": "2026-07-30T05:04:02.863Z",
+          "reason": "LGS032纸箱物料编码已修正"
+        },
+        {
+          "id": "effectivity_ms71ttxt",
+          "action": "withdraw",
+          "revision": "V2",
+          "previousRevision": "V2",
+          "occurredAt": "2026-07-30T05:04:10.193Z",
+          "reason": "修正LGS033纸箱物料编码后缀"
         }
       ]
     }
   },
   "notifications": [
+    {
+      "id": "notif_vub0fk",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-30T05:04:17.746Z",
+      "version": 2,
+      "changes": []
+    },
     {
       "id": "notif_gfu8f6",
       "type": "github-save",
@@ -7070,43 +7094,6 @@
       "createdAt": "2026-07-23T06:37:38.402Z",
       "version": 2,
       "changes": []
-    },
-    {
-      "id": "notif_1slgbhq",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-23T06:21:45.951Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "LGS334XHYHLWH",
-          "field": "name",
-          "before": "LGS334_434_834-后_组件 / LGS334_434_834-sau_tổ hợp",
-          "after": "LGS334_434_834-底部横杆右-后 / LGS334_434_834-thanh dưới phải-sau_tổ hợp"
-        },
-        {
-          "kind": "material",
-          "code": "LGS334XHZHLWH",
-          "field": "name",
-          "before": "LGS334_434_834-后 / LGS334_434_834-sau",
-          "after": "LGS334_434_834-底部横杆左-后 / LGS334_434_834-thanh dưới trái-sau"
-        },
-        {
-          "kind": "material",
-          "code": "LGS334XQYHLWH",
-          "field": "name",
-          "before": "LGS334_434_834-前_组件 / LGS334_434_834-trước_tổ hợp",
-          "after": "LGS334_434_834-底部横杆右-前_组件 / LGS334_434_834-thanh dưới phải-trước_tổ hợp"
-        },
-        {
-          "kind": "material",
-          "code": "LGS334XQZHLWH",
-          "field": "name",
-          "before": "LGS334_434_834-前 / LGS334_434_834-trước",
-          "after": "LGS334_434_834-底部横杆左-前 / LGS334_434_834 thanh dưới trái-trước"
-        }
-      ]
     }
   ]
 }
