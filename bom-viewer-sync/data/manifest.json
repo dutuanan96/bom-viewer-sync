@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-30T08:07:21.623Z",
+  "updatedAt": "2026-07-30T08:09:03.651Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6330,12 +6330,12 @@
     },
     "LGS333": {
       "currentRevision": "V4",
-      "effectiveRevision": "V4",
+      "effectiveRevision": "",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "released"
+        "workflowState": "draft"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6354,6 +6354,14 @@
           "previousRevision": "",
           "occurredAt": "2026-07-23T08:23:46.082Z",
           "reason": "更新"
+        },
+        {
+          "id": "effectivity_ms78f2s7",
+          "action": "withdraw",
+          "revision": "V4",
+          "previousRevision": "V4",
+          "occurredAt": "2026-07-30T08:08:39.127Z",
+          "reason": "修正LGS333纸箱物料编码"
         }
       ]
     },
@@ -6757,9 +6765,95 @@
           "reason": "修正LGS723纸箱物料编码"
         }
       ]
+    },
+    "LGS131": {
+      "currentRevision": "V3",
+      "effectiveRevision": "",
+      "currentRevisionInfo": {
+        "sourceRevision": "",
+        "createdAt": "",
+        "changeReason": "",
+        "workflowState": "draft"
+      },
+      "revisions": [],
+      "effectivityEvents": [
+        {
+          "id": "effectivity_ms78aoeb",
+          "action": "withdraw",
+          "revision": "V3",
+          "previousRevision": "V3",
+          "occurredAt": "2026-07-30T08:05:13.858Z",
+          "reason": "修正LGS131纸箱物料编码"
+        }
+      ]
     }
   },
   "notifications": [
+    {
+      "id": "notif_1rctohs",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-30T08:09:03.651Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS333",
+          "field": "effectiveRevision",
+          "before": "V4",
+          "after": ""
+        },
+        {
+          "kind": "revision",
+          "code": "LGS333",
+          "field": "workflowState",
+          "before": "released",
+          "after": "draft"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS131",
+          "field": "currentRevision",
+          "before": "",
+          "after": "V3"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS131",
+          "field": "workflowState",
+          "before": "",
+          "after": "draft"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS131",
+          "field": "",
+          "before": "LGS131ZFXKD",
+          "after": "LGS131ZFXWH"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS131",
+          "field": "",
+          "before": "LGS131ZFXKD",
+          "after": "LGS131ZFXBH"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS233",
+          "field": "",
+          "before": "LGS233ZFXWH",
+          "after": "LGS233ZFXKD"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS233",
+          "field": "",
+          "before": "LGS233ZFXBH",
+          "after": "LGS233ZFXKD"
+        }
+      ]
+    },
     {
       "id": "notif_121mfye",
       "type": "github-save",
@@ -7758,43 +7852,6 @@
           "field": "workflowState",
           "before": "draft",
           "after": ""
-        }
-      ]
-    },
-    {
-      "id": "notif_1k9cda8",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-30T06:30:34.747Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS420",
-          "field": "currentRevision",
-          "before": "V4",
-          "after": ""
-        },
-        {
-          "kind": "revision",
-          "code": "LGS420",
-          "field": "workflowState",
-          "before": "draft",
-          "after": ""
-        },
-        {
-          "kind": "revision",
-          "code": "LGS421",
-          "field": "currentRevision",
-          "before": "",
-          "after": "V4"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS421",
-          "field": "workflowState",
-          "before": "",
-          "after": "draft"
         }
       ]
     }
