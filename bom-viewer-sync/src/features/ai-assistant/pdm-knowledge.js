@@ -463,7 +463,7 @@ export class PdmKnowledge {
       if (!product) continue;
       for (const color of (product.colors || [''])) {
         const rows = buildBomTreeRows(this._payload, productCode, color);
-        const found = rows.some(r => (r.comp_code || r._materialId) === resolvedId);
+        const found = rows.some(r => r._materialId === resolvedId || (r.comp_code && r.comp_code === resolvedId));
         if (found) {
           usage.push({ productCode, color });
           break;
