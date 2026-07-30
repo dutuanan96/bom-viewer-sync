@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-30T06:29:06.730Z",
+  "updatedAt": "2026-07-30T06:30:34.747Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6650,7 +6650,7 @@
         }
       ]
     },
-    "LGS420": {
+    "LGS421": {
       "currentRevision": "V4",
       "effectiveRevision": "",
       "currentRevisionInfo": {
@@ -6662,17 +6662,54 @@
       "revisions": [],
       "effectivityEvents": [
         {
-          "id": "effectivity_ms74uk0z",
+          "id": "effectivity_ms74wmo4",
           "action": "withdraw",
           "revision": "V4",
           "previousRevision": "V4",
-          "occurredAt": "2026-07-30T06:28:42.851Z",
-          "reason": "修正LGS420纸箱物料编码"
+          "occurredAt": "2026-07-30T06:30:19.588Z",
+          "reason": "修正LGS421纸箱物料编码"
         }
       ]
     }
   },
   "notifications": [
+    {
+      "id": "notif_1k9cda8",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-30T06:30:34.747Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS420",
+          "field": "currentRevision",
+          "before": "V4",
+          "after": ""
+        },
+        {
+          "kind": "revision",
+          "code": "LGS420",
+          "field": "workflowState",
+          "before": "draft",
+          "after": ""
+        },
+        {
+          "kind": "revision",
+          "code": "LGS421",
+          "field": "currentRevision",
+          "before": "",
+          "after": "V4"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS421",
+          "field": "workflowState",
+          "before": "",
+          "after": "draft"
+        }
+      ]
+    },
     {
       "id": "notif_1oeinxm",
       "type": "github-save",
@@ -7425,29 +7462,6 @@
           "field": "",
           "before": "",
           "after": ""
-        }
-      ]
-    },
-    {
-      "id": "notif_1lwikps",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-25T07:55:53.894Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "32210511PM",
-          "field": "code",
-          "before": "LGS033PM001",
-          "after": "32210511PM"
-        },
-        {
-          "kind": "material",
-          "code": "32210511PM",
-          "field": "spec",
-          "before": "20Kg,320x100x8mm",
-          "after": "20Kg, 322x105x11mm"
         }
       ]
     }
