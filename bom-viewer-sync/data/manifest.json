@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-30T08:12:27.326Z",
+  "updatedAt": "2026-07-30T08:15:12.560Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6811,6 +6811,29 @@
   },
   "notifications": [
     {
+      "id": "notif_cyg15s",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-30T08:15:12.560Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS233",
+          "field": "",
+          "before": "LGS233ZFXKD",
+          "after": "LGS233ZFXWH"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS233",
+          "field": "",
+          "before": "LGS233ZFXKD",
+          "after": "LGS233ZFXBH"
+        }
+      ]
+    },
+    {
       "id": "notif_1ctkwvi",
       "type": "github-save",
       "actor": "admin",
@@ -7829,43 +7852,6 @@
           "field": "workflowState",
           "before": "draft",
           "after": ""
-        }
-      ]
-    },
-    {
-      "id": "notif_1uf7etq",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-30T06:35:10.835Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS434",
-          "field": "effectiveRevision",
-          "before": "",
-          "after": "V5"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS434",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS723",
-          "field": "currentRevision",
-          "before": "",
-          "after": "V4"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS723",
-          "field": "workflowState",
-          "before": "",
-          "after": "draft"
         }
       ]
     }
