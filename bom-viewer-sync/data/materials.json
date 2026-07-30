@@ -36306,6 +36306,734 @@
         },
         "drawings": [],
         "models3d": []
+      },
+      "mat_n8u8g0": {
+        "id": "mat_n8u8g0",
+        "code": "LGS031PKXBH",
+        "name": {
+          "zh": "LGS031-平口箱",
+          "vi": "LGS031-thùng carton"
+        },
+        "spec": {
+          "zh": "1138x335x100mm",
+          "vi": "1138x335x100mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_gwfd2t": {
+        "id": "mat_gwfd2t",
+        "code": "LGS032PKXBH",
+        "name": {
+          "zh": "LGS032-平口箱",
+          "vi": "LGS032-thùng carton"
+        },
+        "spec": {
+          "zh": "1185x335x110mm",
+          "vi": "1185x335x110mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_ei4evl": {
+        "id": "mat_ei4evl",
+        "code": "LGS033PKXWH",
+        "name": {
+          "zh": "平口箱",
+          "vi": "thùng carton"
+        },
+        "spec": {
+          "zh": "1185x330x115mm",
+          "vi": "1185x330x115mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_saty1g": {
+        "id": "mat_saty1g",
+        "code": "LGS232PKXBH",
+        "name": {
+          "zh": "平口箱",
+          "vi": "thùng carton"
+        },
+        "spec": {
+          "zh": "1180x400x145mm",
+          "vi": "1180x400x145mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_g9x9j0": {
+        "id": "mat_g9x9j0",
+        "code": "LGS333PKXWH",
+        "name": {
+          "zh": "平口箱",
+          "vi": "thùng carton"
+        },
+        "spec": {
+          "zh": "1185x330x110mm",
+          "vi": "1185x330x110mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_6xzqtj": {
+        "id": "mat_6xzqtj",
+        "code": "LGS333PKXBH",
+        "name": {
+          "zh": "平口箱",
+          "vi": "thùng carton"
+        },
+        "spec": {
+          "zh": "1185x330x110mm",
+          "vi": "1185x330x110mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_1v6qwm4": {
+        "id": "mat_1v6qwm4",
+        "code": "LGS433PKXWH",
+        "name": {
+          "zh": "平口箱",
+          "vi": "thùng carton"
+        },
+        "spec": {
+          "zh": "1185x330x110mm",
+          "vi": "1185x330x110mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_ayo60c": {
+        "id": "mat_ayo60c",
+        "code": "LGS433PKXBH",
+        "name": {
+          "zh": "平口箱",
+          "vi": "thùng carton"
+        },
+        "spec": {
+          "zh": "1185x330x110mm",
+          "vi": "1185x330x110mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_1pj4rve": {
+        "id": "mat_1pj4rve",
+        "code": "LGS733PKXWH",
+        "name": {
+          "zh": "平口箱",
+          "vi": "thùng carton"
+        },
+        "spec": {
+          "zh": "1185x330x115mm",
+          "vi": "1185x330x115mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_1vuwzp4": {
+        "id": "mat_1vuwzp4",
+        "code": "LGS733PKXBH",
+        "name": {
+          "zh": "平口箱",
+          "vi": "thùng carton"
+        },
+        "spec": {
+          "zh": "1185x330x115mm",
+          "vi": "1185x330x115mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_cszdcw": {
+        "id": "mat_cszdcw",
+        "code": "LGS833PKXWH",
+        "name": {
+          "zh": "平口箱",
+          "vi": "thùng carton"
+        },
+        "spec": {
+          "zh": "1185x330x110mm",
+          "vi": "1185x330x110mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_mqyvn5": {
+        "id": "mat_mqyvn5",
+        "code": "LGS833PKXBH",
+        "name": {
+          "zh": "平口箱",
+          "vi": "thùng carton"
+        },
+        "spec": {
+          "zh": "1185x330x110mm",
+          "vi": "1185x330x110mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_15zz7k0": {
+        "id": "mat_15zz7k0",
+        "code": "LGS043ZFXBH",
+        "name": {
+          "zh": "LGS043-中封箱",
+          "vi": "LGS043-thùng đóng giữa"
+        },
+        "spec": {
+          "zh": "1040x380x150mm",
+          "vi": "1040x380x150mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_ww0pm": {
+        "id": "mat_ww0pm",
+        "code": "LGS101ZFXWH",
+        "name": {
+          "zh": "中封箱",
+          "vi": "thùng carton"
+        },
+        "spec": {
+          "zh": "665x330x73mm",
+          "vi": "1185x330x115mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_rww39x": {
+        "id": "mat_rww39x",
+        "code": "LGS101ZFXBH",
+        "name": {
+          "zh": "中封箱",
+          "vi": "thùng carton"
+        },
+        "spec": {
+          "zh": "665x330x73mm",
+          "vi": "1185x330x115mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_1mutszd": {
+        "id": "mat_1mutszd",
+        "code": "LGS111ZFXWH",
+        "name": {
+          "zh": "中封箱",
+          "vi": "thùng carton"
+        },
+        "spec": {
+          "zh": "825x330x83mm",
+          "vi": "1185x330x115mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_13xlet7": {
+        "id": "mat_13xlet7",
+        "code": "LGS111ZFXBH",
+        "name": {
+          "zh": "中封箱",
+          "vi": "thùng carton"
+        },
+        "spec": {
+          "zh": "825x330x83mm",
+          "vi": "1185x330x115mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_jrudv0": {
+        "id": "mat_jrudv0",
+        "code": "LGS131ZFXWH",
+        "name": {
+          "zh": "LGS131-中封箱",
+          "vi": "LGS131-thùng đóng giữa"
+        },
+        "spec": {
+          "zh": "875x380x140mm",
+          "vi": "875x380x140mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_1xdrjls": {
+        "id": "mat_1xdrjls",
+        "code": "LGS131ZFXBH",
+        "name": {
+          "zh": "LGS131-中封箱",
+          "vi": "LGS131-thùng đóng giữa"
+        },
+        "spec": {
+          "zh": "875x380x140mm",
+          "vi": "875x380x140mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_n1impu": {
+        "id": "mat_n1impu",
+        "code": "LGS231ZFXBH",
+        "name": {
+          "zh": "中封箱",
+          "vi": "thùng đóng giữa"
+        },
+        "spec": {
+          "zh": "980x377x147mm",
+          "vi": "980x377x147mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_62tvr6": {
+        "id": "mat_62tvr6",
+        "code": "LGS233ZFXWH",
+        "name": {
+          "zh": "中封箱",
+          "vi": "thùng đóng giữa"
+        },
+        "spec": {
+          "zh": "955x565x115mm",
+          "vi": "955x565x115mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_yrn9p": {
+        "id": "mat_yrn9p",
+        "code": "LGS233ZFXBH",
+        "name": {
+          "zh": "中封箱",
+          "vi": "thùng đóng giữa"
+        },
+        "spec": {
+          "zh": "955x565x115mm",
+          "vi": "955x565x115mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_gsrkb1": {
+        "id": "mat_gsrkb1",
+        "code": "LGS420ZFXWH",
+        "name": {
+          "zh": "中封箱",
+          "vi": "thùng đóng giữa"
+        },
+        "spec": {
+          "zh": "890x380x130mm",
+          "vi": "890x380x130mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_1ni1t9e": {
+        "id": "mat_1ni1t9e",
+        "code": "LGS420ZFXBH",
+        "name": {
+          "zh": "中封箱",
+          "vi": "thùng đóng giữa"
+        },
+        "spec": {
+          "zh": "890x380x130mm",
+          "vi": "890x380x130mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_xzg4gv": {
+        "id": "mat_xzg4gv",
+        "code": "LGS421ZFXBH",
+        "name": {
+          "zh": "中封箱",
+          "vi": "thùng đóng giữa"
+        },
+        "spec": {
+          "zh": "1030x380x135mm",
+          "vi": "1030x380x135mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_sxpjmo": {
+        "id": "mat_sxpjmo",
+        "code": "LGS434ZFXBH",
+        "name": {
+          "zh": "中封箱",
+          "vi": "thùng đóng giữa"
+        },
+        "spec": {
+          "zh": "860x410x150mm",
+          "vi": "860x410x150mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_12260sl": {
+        "id": "mat_12260sl",
+        "code": "LGS723ZFXWH",
+        "name": {
+          "zh": "中封箱",
+          "vi": "thùng đóng giữa"
+        },
+        "spec": {
+          "zh": "1065x330x100mm",
+          "vi": "1065x330x100mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_hqfgwl": {
+        "id": "mat_hqfgwl",
+        "code": "LGS723ZFXBH",
+        "name": {
+          "zh": "中封箱",
+          "vi": "thùng đóng giữa"
+        },
+        "spec": {
+          "zh": "1065x330x100mm",
+          "vi": "1065x330x100mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": []
       }
     },
     "bomEntries": [

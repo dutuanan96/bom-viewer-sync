@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-30T04:06:33.151Z",
+  "updatedAt": "2026-07-30T04:15:08.074Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6455,6 +6455,71 @@
   },
   "notifications": [
     {
+      "id": "notif_bdqdiy",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-30T04:15:08.074Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material_added",
+          "code": "LGS031PKXBH",
+          "field": "",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "material_added",
+          "code": "LGS032PKXBH",
+          "field": "",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "material_added",
+          "code": "LGS033PKXWH",
+          "field": "",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "material_added",
+          "code": "LGS043ZFXBH",
+          "field": "",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "material_added",
+          "code": "LGS101ZFXBH",
+          "field": "",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "material_added",
+          "code": "LGS101ZFXWH",
+          "field": "",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "material_added",
+          "code": "LGS111ZFXBH",
+          "field": "",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "material_added",
+          "code": "LGS111ZFXWH",
+          "field": "",
+          "before": "",
+          "after": ""
+        }
+      ]
+    },
+    {
       "id": "notif_wifbr2",
       "type": "github-save",
       "actor": "admin",
@@ -6980,29 +7045,6 @@
           "field": "",
           "before": "LGS434XZHSLWH",
           "after": "LGS333XZHSLWH"
-        }
-      ]
-    },
-    {
-      "id": "notif_1fme100",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-23T04:25:06.821Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS433",
-          "field": "",
-          "before": "LGS433XZQSLBH",
-          "after": "LGS333XZQSLBH"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS433",
-          "field": "",
-          "before": "LGS433XZHSLBH",
-          "after": "LGS333XZHSLBH"
         }
       ]
     }
