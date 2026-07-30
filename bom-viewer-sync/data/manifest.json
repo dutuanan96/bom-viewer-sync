@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-30T05:05:24.552Z",
+  "updatedAt": "2026-07-30T05:07:46.017Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6540,6 +6540,22 @@
   },
   "notifications": [
     {
+      "id": "notif_15tpobk",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-30T05:07:46.017Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS032",
+          "field": "",
+          "before": "LGS032PKXKD",
+          "after": "LGS032PKXBH"
+        }
+      ]
+    },
+    {
       "id": "notif_1qhfto0",
       "type": "github-save",
       "actor": "admin",
@@ -7102,22 +7118,6 @@
       "createdAt": "2026-07-23T07:37:48.436Z",
       "version": 2,
       "changes": []
-    },
-    {
-      "id": "notif_11o9gta",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-23T07:01:49.602Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "LGS334XHYHLWH",
-          "field": "name",
-          "before": "LGS334_434_834-底部横杆右-后 / LGS334_434_834-thanh dưới phải-sau_tổ hợp",
-          "after": "LGS334_434_834-底部横杆右-后_组件 / LGS334_434_834-thanh dưới phải-sau_tổ hợp"
-        }
-      ]
     }
   ]
 }
