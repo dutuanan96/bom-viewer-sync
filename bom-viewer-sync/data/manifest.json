@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-30T06:36:47.717Z",
+  "updatedAt": "2026-07-30T06:38:19.176Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6678,9 +6678,53 @@
           "reason": "修正LGS421纸箱物料编码"
         }
       ]
+    },
+    "LGS833": {
+      "currentRevision": "V4",
+      "effectiveRevision": "",
+      "currentRevisionInfo": {
+        "sourceRevision": "",
+        "createdAt": "",
+        "changeReason": "",
+        "workflowState": "draft"
+      },
+      "revisions": [],
+      "effectivityEvents": [
+        {
+          "id": "effectivity_ms756eem",
+          "action": "withdraw",
+          "revision": "V4",
+          "previousRevision": "V4",
+          "occurredAt": "2026-07-30T06:37:55.438Z",
+          "reason": "修正LGS833纸箱物料编码"
+        }
+      ]
     }
   },
   "notifications": [
+    {
+      "id": "notif_j75alq",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-30T06:38:19.176Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS833",
+          "field": "currentRevision",
+          "before": "",
+          "after": "V4"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS833",
+          "field": "workflowState",
+          "before": "",
+          "after": "draft"
+        }
+      ]
+    },
     {
       "id": "notif_1cp8sfy",
       "type": "github-save",
@@ -7468,29 +7512,6 @@
           "field": "",
           "before": "",
           "after": ""
-        }
-      ]
-    },
-    {
-      "id": "notif_6n6i4m",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-28T02:23:56.105Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS033",
-          "field": "effectiveRevision",
-          "before": "",
-          "after": "V4"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS033",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
         }
       ]
     }
