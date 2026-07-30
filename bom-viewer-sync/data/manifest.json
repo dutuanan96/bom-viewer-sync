@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-30T06:33:33.536Z",
+  "updatedAt": "2026-07-30T06:35:10.835Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6388,12 +6388,12 @@
     },
     "LGS434": {
       "currentRevision": "V5",
-      "effectiveRevision": "",
+      "effectiveRevision": "V5",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6428,14 +6428,6 @@
           "previousRevision": "",
           "occurredAt": "2026-07-23T08:19:59.253Z",
           "reason": "更新"
-        },
-        {
-          "id": "effectivity_ms750gqf",
-          "action": "withdraw",
-          "revision": "V5",
-          "previousRevision": "V5",
-          "occurredAt": "2026-07-30T06:33:18.519Z",
-          "reason": "修正LGS434纸箱物料编码"
         }
       ]
     },
@@ -6678,9 +6670,67 @@
           "reason": "修正LGS421纸箱物料编码"
         }
       ]
+    },
+    "LGS723": {
+      "currentRevision": "V4",
+      "effectiveRevision": "",
+      "currentRevisionInfo": {
+        "sourceRevision": "",
+        "createdAt": "",
+        "changeReason": "",
+        "workflowState": "draft"
+      },
+      "revisions": [],
+      "effectivityEvents": [
+        {
+          "id": "effectivity_ms752cyw",
+          "action": "withdraw",
+          "revision": "V4",
+          "previousRevision": "V4",
+          "occurredAt": "2026-07-30T06:34:46.952Z",
+          "reason": "修正LGS723纸箱物料编码"
+        }
+      ]
     }
   },
   "notifications": [
+    {
+      "id": "notif_1uf7etq",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-30T06:35:10.835Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS434",
+          "field": "effectiveRevision",
+          "before": "",
+          "after": "V5"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS434",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS723",
+          "field": "currentRevision",
+          "before": "",
+          "after": "V4"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS723",
+          "field": "workflowState",
+          "before": "",
+          "after": "draft"
+        }
+      ]
+    },
     {
       "id": "notif_oy5ey8",
       "type": "github-save",
@@ -7475,22 +7525,6 @@
           "field": "1100310ZK",
           "before": "",
           "after": ""
-        }
-      ]
-    },
-    {
-      "id": "notif_3tcouu",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-25T08:08:10.143Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "LGS033ZK",
-          "field": "spec",
-          "before": "单瓦1100x60mm / sóng ØØn 1100x60mm",
-          "after": "单瓦1100x60mm / sóng đơn 1100x60mm"
         }
       ]
     }
