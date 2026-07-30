@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-30T07:12:43.785Z",
+  "updatedAt": "2026-07-30T07:14:11.106Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6441,12 +6441,12 @@
     },
     "LGS033": {
       "currentRevision": "V4",
-      "effectiveRevision": "",
+      "effectiveRevision": "V4",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6465,14 +6465,6 @@
           "previousRevision": "",
           "occurredAt": "2026-07-28T02:23:53.712Z",
           "reason": "更新"
-        },
-        {
-          "id": "effectivity_ms76eu6v",
-          "action": "withdraw",
-          "revision": "V4",
-          "previousRevision": "V4",
-          "occurredAt": "2026-07-30T07:12:28.759Z",
-          "reason": "修正LGS033纸箱物料编码"
         }
       ]
     },
@@ -6710,6 +6702,43 @@
     }
   },
   "notifications": [
+    {
+      "id": "notif_1fjvsci",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-30T07:14:11.106Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS033",
+          "field": "effectiveRevision",
+          "before": "",
+          "after": "V4"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS033",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS033",
+          "field": "",
+          "before": "LGS033PKXWH",
+          "after": "LGS033PKXKD"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS043",
+          "field": "",
+          "before": "LGS043ZFXKD",
+          "after": "LGS043ZFXBH"
+        }
+      ]
+    },
     {
       "id": "notif_ytpyu6",
       "type": "github-save",
@@ -7432,71 +7461,6 @@
           "field": "",
           "before": "LGS101ZFXKD",
           "after": "LGS101ZFXBH"
-        }
-      ]
-    },
-    {
-      "id": "notif_bdqdiy",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-30T04:15:08.074Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material_added",
-          "code": "LGS031PKXBH",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "material_added",
-          "code": "LGS032PKXBH",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "material_added",
-          "code": "LGS033PKXWH",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "material_added",
-          "code": "LGS043ZFXBH",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "material_added",
-          "code": "LGS101ZFXBH",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "material_added",
-          "code": "LGS101ZFXWH",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "material_added",
-          "code": "LGS111ZFXBH",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "material_added",
-          "code": "LGS111ZFXWH",
-          "field": "",
-          "before": "",
-          "after": ""
         }
       ]
     }
