@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-30T07:18:52.326Z",
+  "updatedAt": "2026-07-30T07:20:19.046Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6699,9 +6699,60 @@
           "reason": "修正LGS834纸箱物料编码"
         }
       ]
+    },
+    "LGS232": {
+      "currentRevision": "V3",
+      "effectiveRevision": "",
+      "currentRevisionInfo": {
+        "sourceRevision": "",
+        "createdAt": "",
+        "changeReason": "",
+        "workflowState": "draft"
+      },
+      "revisions": [],
+      "effectivityEvents": [
+        {
+          "id": "effectivity_ms76olqx",
+          "action": "withdraw",
+          "revision": "V3",
+          "previousRevision": "V3",
+          "occurredAt": "2026-07-30T07:20:04.377Z",
+          "reason": "修正LGS232纸箱物料编码"
+        }
+      ]
     }
   },
   "notifications": [
+    {
+      "id": "notif_iofvoi",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-30T07:20:19.046Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS232",
+          "field": "currentRevision",
+          "before": "",
+          "after": "V3"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS232",
+          "field": "workflowState",
+          "before": "",
+          "after": "draft"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS232",
+          "field": "",
+          "before": "LGS232PKXKD",
+          "after": "LGS232PKXBH"
+        }
+      ]
+    },
     {
       "id": "notif_9xxks0",
       "type": "github-save",
@@ -7526,14 +7577,6 @@
           "after": "LGS043ZFXBH"
         }
       ]
-    },
-    {
-      "id": "notif_vub0fk",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-30T05:04:17.746Z",
-      "version": 2,
-      "changes": []
     }
   ]
 }
