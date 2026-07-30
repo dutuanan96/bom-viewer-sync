@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-30T06:24:21.718Z",
+  "updatedAt": "2026-07-30T06:25:58.709Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6629,8 +6629,8 @@
         }
       ]
     },
-    "LGS232": {
-      "currentRevision": "V3",
+    "LGS233": {
+      "currentRevision": "V4",
       "effectiveRevision": "",
       "currentRevisionInfo": {
         "sourceRevision": "",
@@ -6641,17 +6641,54 @@
       "revisions": [],
       "effectivityEvents": [
         {
-          "id": "effectivity_ms74omww",
+          "id": "effectivity_ms74qj1i",
           "action": "withdraw",
-          "revision": "V3",
-          "previousRevision": "V3",
-          "occurredAt": "2026-07-30T06:24:06.656Z",
-          "reason": "修正LGS232纸箱物料编码"
+          "revision": "V4",
+          "previousRevision": "V4",
+          "occurredAt": "2026-07-30T06:25:34.950Z",
+          "reason": "修正LGS233纸箱物料编码"
         }
       ]
     }
   },
   "notifications": [
+    {
+      "id": "notif_un2rd4",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-30T06:25:58.709Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS232",
+          "field": "currentRevision",
+          "before": "V3",
+          "after": ""
+        },
+        {
+          "kind": "revision",
+          "code": "LGS232",
+          "field": "workflowState",
+          "before": "draft",
+          "after": ""
+        },
+        {
+          "kind": "revision",
+          "code": "LGS233",
+          "field": "currentRevision",
+          "before": "",
+          "after": "V4"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS233",
+          "field": "workflowState",
+          "before": "",
+          "after": "draft"
+        }
+      ]
+    },
     {
       "id": "notif_1oo7svy",
       "type": "github-save",
@@ -7377,14 +7414,6 @@
           "after": "391515XZQSLWH"
         }
       ]
-    },
-    {
-      "id": "notif_1sjnlze",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-23T08:23:47.717Z",
-      "version": 2,
-      "changes": []
     }
   ]
 }
