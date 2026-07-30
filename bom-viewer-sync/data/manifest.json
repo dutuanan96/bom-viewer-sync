@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-30T06:30:34.747Z",
+  "updatedAt": "2026-07-30T06:32:11.018Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6649,30 +6649,32 @@
           "reason": "修正LGS233纸箱物料编码"
         }
       ]
-    },
-    "LGS421": {
-      "currentRevision": "V4",
-      "effectiveRevision": "",
-      "currentRevisionInfo": {
-        "sourceRevision": "",
-        "createdAt": "",
-        "changeReason": "",
-        "workflowState": "draft"
-      },
-      "revisions": [],
-      "effectivityEvents": [
-        {
-          "id": "effectivity_ms74wmo4",
-          "action": "withdraw",
-          "revision": "V4",
-          "previousRevision": "V4",
-          "occurredAt": "2026-07-30T06:30:19.588Z",
-          "reason": "修正LGS421纸箱物料编码"
-        }
-      ]
     }
   },
   "notifications": [
+    {
+      "id": "notif_mchzrk",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-30T06:32:11.018Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS421",
+          "field": "currentRevision",
+          "before": "V4",
+          "after": ""
+        },
+        {
+          "kind": "revision",
+          "code": "LGS421",
+          "field": "workflowState",
+          "before": "draft",
+          "after": ""
+        }
+      ]
+    },
     {
       "id": "notif_1k9cda8",
       "type": "github-save",
@@ -7439,29 +7441,6 @@
           "field": "spec",
           "before": "单瓦1100x60mm / sóng đơn 1100x60mm",
           "after": "单瓦1100x310mm / sóng đơn 1100x310mm"
-        }
-      ]
-    },
-    {
-      "id": "notif_1deiyim",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-25T08:02:06.199Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material_added",
-          "code": "1100310ZK",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "material_added",
-          "code": "ZHJ5050105",
-          "field": "",
-          "before": "",
-          "after": ""
         }
       ]
     }
