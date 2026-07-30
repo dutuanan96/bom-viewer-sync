@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-30T04:54:43.860Z",
+  "updatedAt": "2026-07-30T05:02:14.136Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6470,11 +6470,35 @@
           "previousRevision": "V2",
           "occurredAt": "2026-07-30T04:52:55.032Z",
           "reason": "修正纸箱物料编码后缀 - 白色/黑色变体需使用WH/BH"
+        },
+        {
+          "id": "effectivity_ms71j5eo",
+          "action": "release",
+          "revision": "V2",
+          "previousRevision": "",
+          "occurredAt": "2026-07-30T04:55:51.840Z",
+          "reason": "修正纸箱物料编码 - 白色变体ZFXWH, 黑色变体ZFXBH"
+        },
+        {
+          "id": "effectivity_ms71r6jq",
+          "action": "withdraw",
+          "revision": "V2",
+          "previousRevision": "V2",
+          "occurredAt": "2026-07-30T05:02:06.566Z",
+          "reason": "修正LGS031纸箱物料编码后缀"
         }
       ]
     }
   },
   "notifications": [
+    {
+      "id": "notif_1pcsbg8",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-30T05:02:14.136Z",
+      "version": 2,
+      "changes": []
+    },
     {
       "id": "notif_peha4w",
       "type": "github-save",
@@ -7059,29 +7083,6 @@
       "createdAt": "2026-07-23T06:11:27.192Z",
       "version": 2,
       "changes": []
-    },
-    {
-      "id": "notif_1qbblv4",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-23T06:08:37.880Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS434",
-          "field": "",
-          "before": "LGS434XZQSLBH",
-          "after": "LGS333XZQSLBH"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS434",
-          "field": "",
-          "before": "LGS434XZHSLBH",
-          "after": "LGS333XZHSLBH"
-        }
-      ]
     }
   ]
 }
