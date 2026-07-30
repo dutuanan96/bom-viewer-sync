@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-30T07:34:59.564Z",
+  "updatedAt": "2026-07-30T07:36:27.933Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6741,30 +6741,53 @@
           "reason": "修正LGS723纸箱物料编码"
         }
       ]
-    },
-    "LGS833": {
-      "currentRevision": "V4",
-      "effectiveRevision": "",
-      "currentRevisionInfo": {
-        "sourceRevision": "",
-        "createdAt": "",
-        "changeReason": "",
-        "workflowState": "draft"
-      },
-      "revisions": [],
-      "effectivityEvents": [
-        {
-          "id": "effectivity_ms777a55",
-          "action": "withdraw",
-          "revision": "V4",
-          "previousRevision": "V4",
-          "occurredAt": "2026-07-30T07:34:35.801Z",
-          "reason": "修正LGS833纸箱物料编码"
-        }
-      ]
     }
   },
   "notifications": [
+    {
+      "id": "notif_16v5u40",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-30T07:36:27.933Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS833",
+          "field": "currentRevision",
+          "before": "V4",
+          "after": ""
+        },
+        {
+          "kind": "revision",
+          "code": "LGS833",
+          "field": "workflowState",
+          "before": "draft",
+          "after": ""
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS833",
+          "field": "",
+          "before": "LGS833PKXWH",
+          "after": "LGS833PKXKD"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS833",
+          "field": "",
+          "before": "LGS833PKXBH",
+          "after": "LGS833PKXKD"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS834",
+          "field": "",
+          "before": "LGS834ZFXWH",
+          "after": "LGS834ZFXBH"
+        }
+      ]
+    },
     {
       "id": "notif_1braqba",
       "type": "github-save",
@@ -7732,43 +7755,6 @@
         {
           "kind": "revision",
           "code": "LGS232",
-          "field": "workflowState",
-          "before": "",
-          "after": "draft"
-        }
-      ]
-    },
-    {
-      "id": "notif_1oyacuw",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-30T06:22:53.356Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS131",
-          "field": "currentRevision",
-          "before": "V3",
-          "after": ""
-        },
-        {
-          "kind": "revision",
-          "code": "LGS131",
-          "field": "workflowState",
-          "before": "draft",
-          "after": ""
-        },
-        {
-          "kind": "revision",
-          "code": "LGS231",
-          "field": "currentRevision",
-          "before": "",
-          "after": "V3"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS231",
           "field": "workflowState",
           "before": "",
           "after": "draft"
