@@ -445,6 +445,17 @@ export class PdmKnowledge {
    * Find all products that use a given materialId.
    */
   whereUsed({ materialId } = {}) {
+    // Auto-resolve: if materialId not found in materialDb, try resolving from materialCode
+    let resolvedId = materialId;
+    if (materialId && !this._payload?.materialDb?.materials?.[materialId]) {
+      const materialDb = this._payload?.materialDb?.materials || {};
+      for (const [id, mat] of Object.entries(materialDb)) {
+        if (mat?.code === materialId || mat?.mat_code === materialId || mat?.materialCode === materialId) {
+          resolvedId = id;
+          break;
+        }
+      }
+    }
     const bom = this._payload.bom || {};
     const usage = [];
 
@@ -452,7 +463,7 @@ export class PdmKnowledge {
       if (!product) continue;
       for (const color of (product.colors || [''])) {
         const rows = buildBomTreeRows(this._payload, productCode, color);
-        const found = rows.some(r => (r.comp_code || r._materialId) === materialId);
+        const found = rows.some(r => (r.comp_code || r._materialId) === resolvedId);
         if (found) {
           usage.push({ productCode, color });
           break;
@@ -462,9 +473,9 @@ export class PdmKnowledge {
     }
 
     return {
-      materialId,
+      materialId: resolvedId,
       usage,
-      evidence: buildEvidence(this._sourceMetadata, materialId, 'data/materials.json'),
+      evidence: buildEvidence(this._sourceMetadata, resolvedId, 'data/materials.json'),
     };
   }
 
