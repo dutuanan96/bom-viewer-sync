@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-30T08:03:55.221Z",
+  "updatedAt": "2026-07-30T08:05:38.932Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6757,9 +6757,67 @@
           "reason": "修正LGS723纸箱物料编码"
         }
       ]
+    },
+    "LGS131": {
+      "currentRevision": "V3",
+      "effectiveRevision": "",
+      "currentRevisionInfo": {
+        "sourceRevision": "",
+        "createdAt": "",
+        "changeReason": "",
+        "workflowState": "draft"
+      },
+      "revisions": [],
+      "effectivityEvents": [
+        {
+          "id": "effectivity_ms78aoeb",
+          "action": "withdraw",
+          "revision": "V3",
+          "previousRevision": "V3",
+          "occurredAt": "2026-07-30T08:05:13.858Z",
+          "reason": "修正LGS131纸箱物料编码"
+        }
+      ]
     }
   },
   "notifications": [
+    {
+      "id": "notif_11uvw8g",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-30T08:05:38.932Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS131",
+          "field": "currentRevision",
+          "before": "",
+          "after": "V3"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS131",
+          "field": "workflowState",
+          "before": "",
+          "after": "draft"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS131",
+          "field": "",
+          "before": "LGS131ZFXKD",
+          "after": "LGS131ZFXWH"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS131",
+          "field": "",
+          "before": "LGS131ZFXKD",
+          "after": "LGS131ZFXBH"
+        }
+      ]
+    },
     {
       "id": "notif_17tm5qw",
       "type": "github-save",
@@ -7743,29 +7801,6 @@
           "code": "LGS420",
           "field": "workflowState",
           "before": "",
-          "after": "draft"
-        }
-      ]
-    },
-    {
-      "id": "notif_18s8evu",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-30T06:27:35.190Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS333",
-          "field": "effectiveRevision",
-          "before": "V4",
-          "after": ""
-        },
-        {
-          "kind": "revision",
-          "code": "LGS333",
-          "field": "workflowState",
-          "before": "released",
           "after": "draft"
         }
       ]
