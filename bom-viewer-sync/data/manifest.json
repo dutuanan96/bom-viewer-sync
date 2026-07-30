@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-30T07:26:29.944Z",
+  "updatedAt": "2026-07-30T07:28:06.882Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6724,6 +6724,22 @@
   },
   "notifications": [
     {
+      "id": "notif_j5splu",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-30T07:28:06.882Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS433",
+          "field": "",
+          "before": "LGS433PKXKD",
+          "after": "LGS433PKXBH"
+        }
+      ]
+    },
+    {
       "id": "notif_1ntiv6y",
       "type": "github-save",
       "actor": "admin",
@@ -7667,14 +7683,6 @@
           "after": "LGS033PKXWH"
         }
       ]
-    },
-    {
-      "id": "notif_1xc641i",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-30T06:15:29.888Z",
-      "version": 2,
-      "changes": []
     }
   ]
 }
