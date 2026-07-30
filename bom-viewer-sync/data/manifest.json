@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-30T07:20:19.046Z",
+  "updatedAt": "2026-07-30T07:21:48.917Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6724,6 +6724,29 @@
   },
   "notifications": [
     {
+      "id": "notif_ua19k6",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-30T07:21:48.917Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS233",
+          "field": "",
+          "before": "LGS233ZFXKD",
+          "after": "LGS233ZFXWH"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS233",
+          "field": "",
+          "before": "LGS233ZFXKD",
+          "after": "LGS233ZFXBH"
+        }
+      ]
+    },
+    {
       "id": "notif_iofvoi",
       "type": "github-save",
       "actor": "admin",
@@ -7559,22 +7582,6 @@
           "field": "",
           "before": "LGS032PKXKD",
           "after": "LGS032PKXBH"
-        }
-      ]
-    },
-    {
-      "id": "notif_1qhfto0",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-30T05:05:24.552Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS101",
-          "field": "",
-          "before": "LGS032PKXBH",
-          "after": "LGS043ZFXBH"
         }
       ]
     }
