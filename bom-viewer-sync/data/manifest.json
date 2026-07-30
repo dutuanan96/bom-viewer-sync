@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-30T07:09:48.578Z",
+  "updatedAt": "2026-07-30T07:11:16.061Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6703,6 +6703,14 @@
   },
   "notifications": [
     {
+      "id": "notif_1tu0pve",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-30T07:11:16.061Z",
+      "version": 2,
+      "changes": []
+    },
+    {
       "id": "notif_1iu2khc",
       "type": "github-save",
       "actor": "admin",
@@ -7467,29 +7475,6 @@
           "field": "",
           "before": "",
           "after": ""
-        }
-      ]
-    },
-    {
-      "id": "notif_1ej2yhc",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-29T07:35:15.492Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS433",
-          "field": "effectiveRevision",
-          "before": "",
-          "after": "V4"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS433",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
         }
       ]
     }
