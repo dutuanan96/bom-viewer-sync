@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-30T08:20:12.163Z",
+  "updatedAt": "2026-07-30T08:24:10.462Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6818,12 +6818,12 @@
     },
     "LGS833": {
       "currentRevision": "V4",
-      "effectiveRevision": "",
+      "effectiveRevision": "V4",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6834,11 +6834,42 @@
           "previousRevision": "V4",
           "occurredAt": "2026-07-30T08:19:47.242Z",
           "reason": "修正LGS833纸箱物料编码"
+        },
+        {
+          "id": "effectivity_ms78uyn2",
+          "action": "release",
+          "revision": "V4",
+          "previousRevision": "",
+          "occurredAt": "2026-07-30T08:21:00.254Z",
+          "reason": "LGS833纸箱物料编码已修正"
         }
       ]
     }
   },
   "notifications": [
+    {
+      "id": "notif_unlzq",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-30T08:24:10.462Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS833",
+          "field": "effectiveRevision",
+          "before": "",
+          "after": "V4"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS833",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        }
+      ]
+    },
     {
       "id": "notif_26qv1y",
       "type": "github-save",
@@ -7881,22 +7912,6 @@
       "createdAt": "2026-07-30T07:09:48.578Z",
       "version": 2,
       "changes": []
-    },
-    {
-      "id": "notif_1efw24c",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-30T07:08:09.354Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS031",
-          "field": "",
-          "before": "LGS031PKXKD",
-          "after": "LGS031PKXBH"
-        }
-      ]
     }
   ]
 }
