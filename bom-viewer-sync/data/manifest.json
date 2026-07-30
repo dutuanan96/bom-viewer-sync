@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-30T06:22:53.356Z",
+  "updatedAt": "2026-07-30T06:24:21.718Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6628,9 +6628,53 @@
           "reason": "修正LGS231纸箱物料编码"
         }
       ]
+    },
+    "LGS232": {
+      "currentRevision": "V3",
+      "effectiveRevision": "",
+      "currentRevisionInfo": {
+        "sourceRevision": "",
+        "createdAt": "",
+        "changeReason": "",
+        "workflowState": "draft"
+      },
+      "revisions": [],
+      "effectivityEvents": [
+        {
+          "id": "effectivity_ms74omww",
+          "action": "withdraw",
+          "revision": "V3",
+          "previousRevision": "V3",
+          "occurredAt": "2026-07-30T06:24:06.656Z",
+          "reason": "修正LGS232纸箱物料编码"
+        }
+      ]
     }
   },
   "notifications": [
+    {
+      "id": "notif_1oo7svy",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-30T06:24:21.718Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS232",
+          "field": "currentRevision",
+          "before": "",
+          "after": "V3"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS232",
+          "field": "workflowState",
+          "before": "",
+          "after": "draft"
+        }
+      ]
+    },
     {
       "id": "notif_1oyacuw",
       "type": "github-save",
@@ -7339,14 +7383,6 @@
       "type": "github-save",
       "actor": "admin",
       "createdAt": "2026-07-23T08:23:47.717Z",
-      "version": 2,
-      "changes": []
-    },
-    {
-      "id": "notif_p1ilre",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-23T08:22:38.620Z",
       "version": 2,
       "changes": []
     }
