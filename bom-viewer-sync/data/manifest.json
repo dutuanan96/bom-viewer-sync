@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-30T06:18:13.364Z",
+  "updatedAt": "2026-07-30T06:19:49.436Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6586,9 +6586,53 @@
           "reason": "修正LGS043纸箱物料编码"
         }
       ]
+    },
+    "LGS111": {
+      "currentRevision": "V2",
+      "effectiveRevision": "",
+      "currentRevisionInfo": {
+        "sourceRevision": "",
+        "createdAt": "",
+        "changeReason": "",
+        "workflowState": "draft"
+      },
+      "revisions": [],
+      "effectivityEvents": [
+        {
+          "id": "effectivity_ms74im9q",
+          "action": "withdraw",
+          "revision": "V2",
+          "previousRevision": "V2",
+          "occurredAt": "2026-07-30T06:19:25.886Z",
+          "reason": "修正LGS111纸箱物料编码"
+        }
+      ]
     }
   },
   "notifications": [
+    {
+      "id": "notif_nrl248",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-30T06:19:49.436Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS111",
+          "field": "currentRevision",
+          "before": "",
+          "after": "V2"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS111",
+          "field": "workflowState",
+          "before": "",
+          "after": "draft"
+        }
+      ]
+    },
     {
       "id": "notif_v2p5lg",
       "type": "github-save",
@@ -7240,29 +7284,6 @@
       "createdAt": "2026-07-23T08:20:00.783Z",
       "version": 2,
       "changes": []
-    },
-    {
-      "id": "notif_1aooiuy",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-23T08:18:14.838Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS433",
-          "field": "",
-          "before": "LGS433XZQSLWH",
-          "after": "LGS333XZQSLWH"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS433",
-          "field": "",
-          "before": "LGS433XZHSLWH",
-          "after": "LGS333XZHSLWH"
-        }
-      ]
     }
   ]
 }
