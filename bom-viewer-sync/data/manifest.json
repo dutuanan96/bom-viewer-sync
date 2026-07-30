@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-30T07:36:27.933Z",
+  "updatedAt": "2026-07-30T07:54:08.898Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6681,12 +6681,12 @@
     },
     "LGS834": {
       "currentRevision": "V4",
-      "effectiveRevision": "",
+      "effectiveRevision": "V4",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6697,6 +6697,14 @@
           "previousRevision": "V4",
           "occurredAt": "2026-07-30T06:39:32.433Z",
           "reason": "修正LGS834纸箱物料编码"
+        },
+        {
+          "id": "effectivity_ms77aqin",
+          "action": "release",
+          "revision": "V4",
+          "previousRevision": "",
+          "occurredAt": "2026-07-30T07:37:16.991Z",
+          "reason": "LGS834纸箱物料编码已修正"
         }
       ]
     },
@@ -6744,6 +6752,29 @@
     }
   },
   "notifications": [
+    {
+      "id": "notif_1agkzqi",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-30T07:54:08.898Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS834",
+          "field": "effectiveRevision",
+          "before": "",
+          "after": "V4"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS834",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        }
+      ]
+    },
     {
       "id": "notif_16v5u40",
       "type": "github-save",
@@ -7732,29 +7763,6 @@
         {
           "kind": "revision",
           "code": "LGS233",
-          "field": "workflowState",
-          "before": "",
-          "after": "draft"
-        }
-      ]
-    },
-    {
-      "id": "notif_1oo7svy",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-30T06:24:21.718Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS232",
-          "field": "currentRevision",
-          "before": "",
-          "after": "V3"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS232",
           "field": "workflowState",
           "before": "",
           "after": "draft"
