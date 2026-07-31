@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-31T03:09:38.247Z",
+  "updatedAt": "2026-07-31T03:13:27.100Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6848,6 +6848,22 @@
   },
   "notifications": [
     {
+      "id": "notif_b47gn4",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-31T03:13:27.100Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "LGS334ZCKZYBH",
+          "field": "models3d",
+          "before": "LGS334支撑框-左右|https://github.com/dutuanan96/bom-viewer-sync/blob/main/bom-viewer-sync/models3d/catalog/LGS334-ee797800.glb",
+          "after": "LGS334支撑框-左右|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-ee797800.glb"
+        }
+      ]
+    },
+    {
       "id": "notif_m6u0la",
       "type": "github-save",
       "actor": "admin",
@@ -7912,14 +7928,6 @@
           "after": "LGS033PKXWH"
         }
       ]
-    },
-    {
-      "id": "notif_1tu0pve",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-30T07:11:16.061Z",
-      "version": 2,
-      "changes": []
     }
   ]
 }

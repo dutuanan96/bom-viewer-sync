@@ -37066,9 +37066,9 @@
         ],
         "models3d": [
           {
-            "url": "https://github.com/dutuanan96/bom-viewer-sync/blob/main/bom-viewer-sync/models3d/catalog/LGS334-ee797800.glb",
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-ee797800.glb",
             "name": "LGS334支撑框-左右",
-            "previewUrl": "https://github.com/dutuanan96/bom-viewer-sync/blob/main/bom-viewer-sync/models3d/catalog/LGS334-ee797800.glb"
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-ee797800.glb"
           }
         ]
       }
