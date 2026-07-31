@@ -37034,6 +37034,43 @@
         },
         "drawings": [],
         "models3d": []
+      },
+      "mat_xqhu0t": {
+        "id": "mat_xqhu0t",
+        "code": "LGS334ZCKZYBH",
+        "name": {
+          "zh": "LGS334支撑框-左右",
+          "vi": "LGS334 khung đỡ-trái phải"
+        },
+        "spec": {
+          "zh": "335x178x15mm",
+          "vi": "335x178x15mm335x178x15mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "黑砂纹",
+          "vi": "đen nhám"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [
+          {
+            "url": "https://drive.google.com/file/d/1GOAi2ijkZ7GnVk0BYqySSFspJijYk7iN/view?usp=sharing",
+            "name": "LGS334支撑框-左右"
+          }
+        ],
+        "models3d": [
+          {
+            "url": "https://github.com/dutuanan96/bom-viewer-sync/blob/main/bom-viewer-sync/models3d/catalog/LGS334-ee797800.glb",
+            "name": "LGS334支撑框-左右",
+            "previewUrl": "https://github.com/dutuanan96/bom-viewer-sync/blob/main/bom-viewer-sync/models3d/catalog/LGS334-ee797800.glb"
+          }
+        ]
       }
     },
     "bomEntries": [
