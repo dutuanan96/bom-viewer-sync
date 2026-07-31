@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-31T03:18:11.280Z",
+  "updatedAt": "2026-07-31T03:20:22.105Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6229,7 +6229,7 @@
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6256,6 +6256,14 @@
           "previousRevision": "V4",
           "occurredAt": "2026-07-30T06:36:23.942Z",
           "reason": "修正LGS733纸箱物料编码"
+        },
+        {
+          "id": "effectivity_ms8dk49e",
+          "action": "release",
+          "revision": "V4",
+          "previousRevision": "V4",
+          "occurredAt": "2026-07-31T03:20:18.578Z",
+          "reason": "更新"
         }
       ]
     },
@@ -6855,6 +6863,22 @@
     }
   },
   "notifications": [
+    {
+      "id": "notif_1xno8o4",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-31T03:20:22.105Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS733",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        }
+      ]
+    },
     {
       "id": "notif_9hw9ru",
       "type": "github-save",
@@ -7883,29 +7907,6 @@
           "field": "",
           "before": "LGS131ZFXKD",
           "after": "LGS131ZFXBH"
-        }
-      ]
-    },
-    {
-      "id": "notif_12dlgxc",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-30T07:15:47.631Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS111",
-          "field": "",
-          "before": "LGS111ZFXKD",
-          "after": "LGS111ZFXWH"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS111",
-          "field": "",
-          "before": "LGS111ZFXKD",
-          "after": "LGS111ZFXBH"
         }
       ]
     }
