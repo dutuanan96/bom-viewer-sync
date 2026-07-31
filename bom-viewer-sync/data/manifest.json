@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-31T03:15:30.841Z",
+  "updatedAt": "2026-07-31T03:18:11.280Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6367,12 +6367,12 @@
     },
     "LGS334": {
       "currentRevision": "V4",
-      "effectiveRevision": "",
+      "effectiveRevision": "V4",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6399,6 +6399,14 @@
           "previousRevision": "V4",
           "occurredAt": "2026-07-28T07:56:24.230Z",
           "reason": "Tôi cần đổi 纸护角 của BOM LGS334 từ 50x50x130mm thành 50x50x125mm, và 泡沫 từ 20kg,402x130x10mm thành 20kg,402x125x10mm， thêm vật liệu 750380ZK 纸卡 vào số lượng là 1 và 编号 là 无"
+        },
+        {
+          "id": "effectivity_ms8dggfk",
+          "action": "release",
+          "revision": "V4",
+          "previousRevision": "",
+          "occurredAt": "2026-07-31T03:17:27.728Z",
+          "reason": "更新"
         }
       ]
     },
@@ -6847,6 +6855,29 @@
     }
   },
   "notifications": [
+    {
+      "id": "notif_9hw9ru",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-07-31T03:18:11.280Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS334",
+          "field": "effectiveRevision",
+          "before": "",
+          "after": "V4"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS334",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        }
+      ]
+    },
     {
       "id": "notif_1ilr0ms",
       "type": "github-save",
@@ -7875,43 +7906,6 @@
           "field": "",
           "before": "LGS111ZFXKD",
           "after": "LGS111ZFXBH"
-        }
-      ]
-    },
-    {
-      "id": "notif_1fjvsci",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-30T07:14:11.106Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS033",
-          "field": "effectiveRevision",
-          "before": "",
-          "after": "V4"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS033",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS033",
-          "field": "",
-          "before": "LGS033PKXWH",
-          "after": "LGS033PKXKD"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS043",
-          "field": "",
-          "before": "LGS043ZFXKD",
-          "after": "LGS043ZFXBH"
         }
       ]
     }
