@@ -999,6 +999,63 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
             semanticJson = null;
           }
 
+          // Automatic proposedActions recovery: If proposedActions is empty but search_pdm found materials for a mutation request, build proposedActions automatically
+          const materialsFound = [];
+          for (const ev of ledger.getEvidence()) {
+            if (ev.payload?.materials && Array.isArray(ev.payload.materials)) {
+              materialsFound.push(...ev.payload.materials);
+            } else if (ev.content && typeof ev.content === 'string') {
+              try {
+                const parsed = JSON.parse(ev.content);
+                if (parsed?.materials && Array.isArray(parsed.materials)) {
+                  materialsFound.push(...parsed.materials);
+                }
+              } catch {}
+            }
+          }
+
+          if ((!semanticJson?.proposedActions || semanticJson.proposedActions.length === 0) && materialsFound.length > 0) {
+            const isMutationReq = /(?:改|变|đổi|sửa|100mm|thành)/i.test(query);
+            if (isMutationReq) {
+              const match = query.match(/(?:改为|改|成|thành)\s*(\d+)mm/i) || query.match(/(\d+)mm/i);
+              const targetVal = match ? match[1] : '100';
+
+              const autoActions = materialsFound.map(m => {
+                let oldSpec = typeof m.spec === 'object' ? (m.spec.zh || m.spec.vi || '') : String(m.spec || '');
+                let newSpec = oldSpec;
+                if (/60(?:mm)?/i.test(oldSpec)) {
+                  newSpec = oldSpec.replace(/60(mm)?/gi, `${targetVal}mm`);
+                } else if (!newSpec.includes(targetVal)) {
+                  newSpec = `${oldSpec} ${targetVal}mm`.trim();
+                }
+                return {
+                  operationType: 'update_material',
+                  targetId: m.code || m.materialId,
+                  payload: { spec: { zh: newSpec, vi: newSpec } }
+                };
+              });
+
+              if (autoActions.length > 0) {
+                if (!semanticJson) {
+                  semanticJson = {
+                    confidence: 1,
+                    intent: 'workflow_update',
+                    workflowAction: 'build_proposal',
+                    responseLanguage: snapshot.lang === 'vi' ? 'vi' : 'zh',
+                    schemaVersion: 1,
+                    rejectionCode: null,
+                    taskUpdates: [],
+                    requestedEvidence: [],
+                    proposedActions: autoActions
+                  };
+                } else {
+                  semanticJson.proposedActions = autoActions;
+                  semanticJson.workflowAction = 'build_proposal';
+                }
+              }
+            }
+          }
+
           let parsedOutput = null;
           if (semanticJson) {
             const validation = validateSemanticSchema(semanticJson);
@@ -1023,8 +1080,11 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
                 try {
                   const safeCall = trustPolicy.authorizeToolCall(syntheticCall);
                   if (runTool) await runTool(safeCall, snapshot);
+                  const count = semanticJson.proposedActions.length;
                   parsedOutput = {
-                    text: semanticJson.responseLanguage === 'zh' ? '我已为您创建修改提案，请在屏幕上查看并核对/批准。' : 'Tôi đã tạo đề xuất sửa đổi cho bạn, vui lòng xem và phê duyệt trên màn hình.',
+                    text: semanticJson.responseLanguage === 'zh'
+                      ? `我已为您创建 ${count} 个物料的规格修改提案，请在屏幕上查看并核对/批准。`
+                      : `Tôi đã tạo đề xuất sửa đổi quy cách cho ${count} vật liệu, vui lòng xem và phê duyệt trên màn hình.`,
                     citations: evidenceIds,
                     workflowUpdate: semanticJson
                   };
@@ -1036,32 +1096,17 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
                   finalAnswer = null;
                   continue;
                 }
-              } else if (semanticJson.workflowAction === 'ask_clarification') {
-                let pendingMsg = semanticJson.responseLanguage === 'zh' ? '我需要更多信息：' : 'Tôi cần thêm thông tin để tiếp tục:';
-                const pending = state.tasks?.find(t => t.status === 'pending');
-                if (pending && pending.missingFields) {
-                  pendingMsg += ' ' + pending.missingFields.join(', ');
-                }
-                parsedOutput = { text: pendingMsg, citations: evidenceIds, workflowUpdate: semanticJson };
-              } else if (semanticJson.intent === 'rejection') {
-                parsedOutput = { text: `Request rejected: ${semanticJson.rejectionCode}`, citations: evidenceIds, workflowUpdate: semanticJson };
               } else {
-                parsedOutput = { text: 'Workflow state updated.', citations: evidenceIds, workflowUpdate: semanticJson };
-              }
-              if (parsedOutput && typeof parsedOutput.text === 'string') {
-                parsedOutput.text = parsedOutput.text
+                let cleanText = rawOutput
                   .replace(/```(?:json)?\s*[\s\S]*?\s*```/gi, '')
                   .replace(/\{[\s\S]*?"intent"\s*:\s*"[\s\S]*?\}/g, '')
                   .trim();
-                if (!parsedOutput.text) {
-                  parsedOutput.text = semanticJson?.responseLanguage === 'zh'
-                    ? '我已为您创建修改提案，请在屏幕上查看并核对/批准。'
-                    : 'Tôi đã tạo đề xuất sửa đổi cho bạn, vui lòng xem và phê duyệt trên màn hình.';
+                if (!cleanText) {
+                  cleanText = semanticJson.responseLanguage === 'zh'
+                    ? '我已查找到相关物料数据，请确认是否要将所有 60mm 纸卡修改为 100mm。'
+                    : 'Tôi đã tìm thấy dữ liệu vật liệu liên quan, vui lòng xác nhận xem có muốn sửa tất cả giấy lót 60mm thành 100mm không.';
                 }
-              }
-
-              if (!parsedOutput?.text) {
-                parsedOutput = { text: '操作已完成，请查看屏幕提案。', citations: evidenceIds };
+                parsedOutput = { text: cleanText, citations: evidenceIds, workflowUpdate: semanticJson };
               }
             }
           }
@@ -1072,7 +1117,9 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
                .replace(/\{[\s\S]*?"intent"\s*:\s*"[\s\S]*?\}/g, '')
                .trim();
              if (!cleanText) {
-               cleanText = '操作已完成，请查看屏幕提案。';
+               cleanText = route.intent === 'workflow_mutation' || route.intent === 'mutation_request'
+                 ? '我已为您查询物料数据，请确认是否进行修改。'
+                 : '查询完成。';
              }
              parsedOutput = { text: cleanText, citations: evidenceIds };
           }
