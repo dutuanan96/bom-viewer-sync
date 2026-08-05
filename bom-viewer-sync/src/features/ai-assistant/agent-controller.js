@@ -623,6 +623,32 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
             }
           }
 
+          if (toolCalls.length === 0) {
+            // Check for embedded JSON tool call objects like {"tool":"analyze_pdm","arguments":{...}}
+            const jsonToolRegex = /\{[\s\S]*?"(?:tool|name|action)"\s*:\s*"([a-zA-Z0-9_]+)"[\s\S]*?\}/g;
+            let match;
+            while ((match = jsonToolRegex.exec(fullText)) !== null) {
+              try {
+                const parsed = JSON.parse(match[0]);
+                const toolName = parsed.tool || parsed.name || parsed.action;
+                const toolArgs = parsed.arguments || parsed.args || {};
+                if (toolName && exposedToolNames.has(toolName)) {
+                  toolCalls.push({
+                    id: 'call_' + Math.random().toString(36).substr(2, 9),
+                    type: 'function',
+                    function: {
+                      name: toolName,
+                      arguments: typeof toolArgs === 'string' ? toolArgs : JSON.stringify(toolArgs)
+                    }
+                  });
+                  fullText = fullText.replace(match[0], '').trim();
+                }
+              } catch {
+                // Ignore invalid JSON snippets
+              }
+            }
+          }
+
           return {
             choices: [{
               message: {
