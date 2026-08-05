@@ -543,10 +543,15 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
         async function consumeStream(streamObj) {
           let fullText = '';
           let toolCalls = [];
+          // Buffer content chunks — we don't know until the stream ends whether
+          // this message also contains tool_calls (intermediate reasoning).
+          const contentDeltas = [];
           for await (const chunk of streamObj) {
             if (chunk.content) {
               fullText += chunk.content;
-              if (onProgress) onProgress({ type: 'content', delta: chunk.content, text: fullText });
+              contentDeltas.push(chunk.content);
+              // Emit status only (not content) so the loading indicator stays visible
+              // while the model reasons. Content will be flushed below if no tool calls.
             }
             if (chunk.tool_calls) {
               for (const tc of chunk.tool_calls) {
@@ -562,6 +567,15 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
               if (lastTool?.function?.name) {
                 if (onProgress) onProgress({ type: 'status' });
               }
+            }
+          }
+          // Stream ended. Only flush content to the UI when there are NO tool calls —
+          // meaning this is the final natural-language answer, not intermediate reasoning.
+          if (toolCalls.length === 0 && contentDeltas.length > 0) {
+            let accumulated = '';
+            for (const delta of contentDeltas) {
+              accumulated += delta;
+              if (onProgress) onProgress({ type: 'content', delta, text: accumulated });
             }
           }
 
