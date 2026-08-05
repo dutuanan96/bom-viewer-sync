@@ -597,7 +597,7 @@ export function createAiAssistantFeature({
         const entityResolution = entityResolver.resolve({ query: text });
         const materialResolution = entityResolver.resolve({ query: text, expectedTypes: ['material'] });
         const proposalRequested = mode === 'admin' && (
-          /\b(?:add|create|update|edit|delete|remove|replace|change|modify)\b|thêm|tạo|sửa|chỉnh|xóa|thay|cập nhật|添加|创建|修改|编辑|删除|移除|替换|更新/iu.test(text)
+          /\b(?:add|create|update|edit|delete|remove|replace|change|modify)\b|thêm|tạo|sửa|chỉnh|xóa|thay|đổi|cập nhật|biến|添加|创建|修改|编辑|删除|移除|替换|更新|改|变/iu.test(text)
         );
         const lifecycleProposalRequested = mode === 'admin' && (
           /\b(?:release|publish|withdraw|link|attach)\b|ph\u00e1t h\u00e0nh|r\u00fat ph\u00e1t h\u00e0nh|\u53d1\u5e03|\u64a4\u56de/iu.test(text)
