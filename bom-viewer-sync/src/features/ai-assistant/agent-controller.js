@@ -999,18 +999,29 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
             semanticJson = null;
           }
 
-          // Automatic proposedActions recovery: If proposedActions is empty but search_pdm found materials for a mutation request, build proposedActions automatically
+          // Automatic proposedActions recovery: Extract materials from tool responses in messages array and ledger evidence
           const materialsFound = [];
-          for (const ev of ledger.getEvidence()) {
-            if (ev.payload?.materials && Array.isArray(ev.payload.materials)) {
-              materialsFound.push(...ev.payload.materials);
-            } else if (ev.content && typeof ev.content === 'string') {
+          for (const msg of messages) {
+            if (msg.role === 'tool' && msg.content) {
               try {
-                const parsed = JSON.parse(ev.content);
+                const parsed = JSON.parse(msg.content);
                 if (parsed?.materials && Array.isArray(parsed.materials)) {
-                  materialsFound.push(...parsed.materials);
+                  for (const mat of parsed.materials) {
+                    if (mat && mat.code && !materialsFound.some(m => m.code === mat.code)) {
+                      materialsFound.push(mat);
+                    }
+                  }
                 }
               } catch {}
+            }
+          }
+          for (const ev of ledger.getEvidence()) {
+            if (ev.payload?.materials && Array.isArray(ev.payload.materials)) {
+              for (const mat of ev.payload.materials) {
+                if (mat && mat.code && !materialsFound.some(m => m.code === mat.code)) {
+                  materialsFound.push(mat);
+                }
+              }
             }
           }
 
