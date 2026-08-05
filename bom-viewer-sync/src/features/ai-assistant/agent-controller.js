@@ -944,6 +944,19 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
           const rawOutput = accumulatedText || '';
           const evidenceIds = [...new Set(ledger.getEvidence().map(item => item.id))];
 
+          const promisesToolCall = /(?:我们将|我将|需要)(?:先)?(?:查询|搜索|查找|定位|检查|确认)/.test(rawOutput)
+            || /I will (?:search|check|find|look up)/i.test(rawOutput)
+            || /let me (?:search|check|find|look up)/i.test(rawOutput);
+
+          if (currentTurnUsage.toolCalls === 0 && promisesToolCall && exposedToolNames.size > 0) {
+            messages.push({
+              role: 'user',
+              content: 'SYSTEM_NOTICE: You stated in text that you need to query or locate data in the database, but you did not invoke any tool in your response. Do not output text promises. You MUST invoke the appropriate tool (such as search_pdm or analyze_pdm) now in your tool_calls response!'
+            });
+            accumulatedText = '';
+            continue;
+          }
+
           let parsedOutput;
           try {
             parsedOutput = JSON.parse(rawOutput); // In case it still outputs JSON (e.g. some models)
