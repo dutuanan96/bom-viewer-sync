@@ -754,9 +754,15 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
           throw new Error('Invalid response from gateway: missing message');
         }
 
-        if (message.content) {
-          accumulatedText += (accumulatedText && message.content ? '\n\n' : '') + message.content;
+        // Track this turn's content separately. If the model also makes tool
+        // calls below, this is intermediate reasoning and should NOT be appended
+        // to accumulatedText (which becomes the final visible answer).
+        const thisTurnContent = message.content || '';
+        if (thisTurnContent && !(message.tool_calls && message.tool_calls.length > 0)) {
+          // No tool calls → this is the final natural-language answer. Accumulate.
+          accumulatedText += (accumulatedText && thisTurnContent ? '\n\n' : '') + thisTurnContent;
         }
+        // (If tool_calls are present, thisTurnContent is intermediate reasoning; discard it.)
         currentTurnUsage.promptTokens += Number(response.usage?.prompt_tokens || 0);
         currentTurnUsage.completionTokens += Number(response.usage?.completion_tokens || 0);
         currentTurnUsage.cost += Number(response.usage?.cost || response.cost || 0);
