@@ -9,6 +9,23 @@ import { createEvidenceLedger } from './evidence-ledger.js';
 import { workflowReducer } from './workflow-engine.js';
 import { validateSemanticSchema, semanticSchemaPrompt } from './semantic-schema.js';
 
+function detectLanguageDirective(query) {
+  const q = String(query || '').trim();
+  const hasChinese = /\p{Script=Han}/u.test(q);
+  const hasVietnameseChar = /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i.test(q);
+  const hasVietnameseWords = /\b(?:thong\s*ke|tim|kiem|xem|trong|san\s*pham|vat\s*lieu|ma|lay|danh\s*sach|bao\s*cao|dem|so\s*luong|cho|hoi|la|gi|nhu\s*the\s*nao)\b/i.test(q);
+
+  if (hasChinese && !hasVietnameseChar && !hasVietnameseWords) {
+    return `[CRITICAL SYSTEM RULE / 强制系统规则]:
+The user's query is in Chinese. You MUST reply entirely in Simplified Chinese (简体中文). DO NOT reply in Vietnamese.
+用户使用的是纯中文提问。必须完全使用简体中文回复！`;
+  }
+
+  return `[CRITICAL SYSTEM RULE / 强制系统规则]:
+The user's query is in Vietnamese (or mixed Vietnamese/Chinese). You MUST reply in Vietnamese (Tiếng Việt). Even when Chinese material names or terms are mentioned, explain everything in Vietnamese.
+必须使用越南语（Tiếng Việt）回复！`;
+}
+
 function getOpenRouterCitationUrls(annotations) {
   if (!Array.isArray(annotations)) return [];
   const urls = [];
@@ -374,10 +391,7 @@ ${JSON.stringify(context, null, 2)}
 STRUCTURED_CONVERSATION_CONTEXT:
 ${JSON.stringify(conversationContext, null, 2)}
 
-[CRITICAL SYSTEM RULE / 强制系统规则]:
-You MUST reply in Vietnamese (Tiếng Việt) because the user queried in Vietnamese.
-必须使用越南语（Tiếng Việt）回复。绝对不能使用中文回复！
-BẮT BUỘC TRẢ LỜI BẰNG TIẾNG VIỆT! DO NOT USE CHINESE!
+${detectLanguageDirective(context.query)}
 
 ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowStatus === 'active') ? semanticSchemaPrompt() : ''}`
       },
@@ -487,8 +501,7 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
         const evidenceItems = ledger.getEvidence();
         let promptMessages = [...messages];
         
-        // Always remind the model to reply in Vietnamese, regardless of the query language.
-        const langReminder = `\n\n[CRITICAL SYSTEM RULE / 强制系统规则]:\nYou MUST ALWAYS reply in Vietnamese (Tiếng Việt). This rule applies no matter what language the user writes in (including Chinese).\n必须始终使用越南语（Tiếng Việt）回复，无论用户用何种语言提问！绝对不能使用中文回复！\nBẮT BUỘC TRẢ LỜI BẰNG TIẾNG VIỆT! DO NOT USE CHINESE!`;
+        const langReminder = `\n\n${detectLanguageDirective(context.query)}`;
 
         const systemMsgIdx = promptMessages.findIndex(m => m.role === 'system');
         if (systemMsgIdx >= 0) {
