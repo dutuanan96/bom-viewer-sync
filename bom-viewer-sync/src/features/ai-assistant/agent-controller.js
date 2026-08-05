@@ -983,65 +983,72 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
             continue;
           }
 
-          let parsedOutput;
+          let semanticJson = null;
           try {
-            parsedOutput = JSON.parse(rawOutput); // In case it still outputs JSON (e.g. some models)
-            
-            if (parsedOutput && parsedOutput.intent && parsedOutput.schemaVersion) {
-              const validation = validateSemanticSchema(parsedOutput);
-              if (validation.valid) {
-                const { state, errors } = workflowReducer(toolConversationContext.workflowState, parsedOutput);
-                toolConversationContext = { ...toolConversationContext, workflowState: state };
-                
-                if (errors.length > 0) {
+            let jsonText = rawOutput.trim();
+            const codeBlockMatch = jsonText.match(/```(?:json)?\s*([\s\S]*?)\s*```/i);
+            if (codeBlockMatch) jsonText = codeBlockMatch[1].trim();
+            const firstBrace = jsonText.indexOf('{');
+            const lastBrace = jsonText.lastIndexOf('}');
+            if (firstBrace !== -1 && lastBrace > firstBrace) {
+              const candidate = jsonText.slice(firstBrace, lastBrace + 1);
+              const obj = JSON.parse(candidate);
+              if (obj && obj.intent && obj.schemaVersion) semanticJson = obj;
+            }
+          } catch {
+            semanticJson = null;
+          }
+
+          let parsedOutput = null;
+          if (semanticJson) {
+            const validation = validateSemanticSchema(semanticJson);
+            if (validation.valid) {
+              const { state, errors } = workflowReducer(toolConversationContext.workflowState, semanticJson);
+              toolConversationContext = { ...toolConversationContext, workflowState: state };
+
+              if (errors.length > 0) {
+                messages.push({
+                  role: 'system',
+                  content: `WORKFLOW ERROR: ${errors.map(e => e.code).join(', ')}. Please adjust your output.`
+                });
+                finalAnswer = null;
+                continue;
+              }
+
+              if (semanticJson.proposedActions && semanticJson.proposedActions.length > 0) {
+                const syntheticCall = {
+                  name: 'apply_mutation',
+                  arguments: { operations: semanticJson.proposedActions }
+                };
+                try {
+                  const safeCall = trustPolicy.authorizeToolCall(syntheticCall);
+                  if (runTool) await runTool(safeCall, snapshot);
+                  parsedOutput = {
+                    text: semanticJson.responseLanguage === 'zh' ? '我已为您创建修改提案，请在屏幕上查看并核对/批准。' : 'Tôi đã tạo đề xuất sửa đổi cho bạn, vui lòng xem và phê duyệt trên màn hình.',
+                    citations: evidenceIds,
+                    workflowUpdate: semanticJson
+                  };
+                } catch (err) {
                   messages.push({
                     role: 'system',
-                    content: `WORKFLOW ERROR: ${errors.map(e => e.code).join(', ')}. Please adjust your output.`
+                    content: `SYSTEM_WORKFLOW_ERROR: Constraint conflict: ${err.message}. Do not argue or apologize. Generate a new workflow_update with intent "clarification" asking the user to provide correct values.`
                   });
                   finalAnswer = null;
                   continue;
                 }
-
-                if (parsedOutput.proposedActions && parsedOutput.proposedActions.length > 0) {
-                  const syntheticCall = {
-                    name: 'apply_mutation',
-                    arguments: { operations: parsedOutput.proposedActions }
-                  };
-                  try {
-                    const safeCall = trustPolicy.authorizeToolCall(syntheticCall);
-                    if (runTool) await runTool(safeCall, snapshot);
-                    parsedOutput = { 
-                      text: parsedOutput.responseLanguage === 'zh' ? '我已创建提案。请在屏幕上查看并批准。' : 'Tôi đã tạo đề xuất. Vui lòng xem và phê duyệt trên màn hình.', 
-                      citations: evidenceIds, 
-                      workflowUpdate: parsedOutput 
-                    };
-                  } catch (err) {
-                    messages.push({
-                      role: 'system',
-                      content: `SYSTEM_WORKFLOW_ERROR: Constraint conflict: ${err.message}. Do not argue or apologize. Generate a new workflow_update with intent "clarification" asking the user to provide correct values.`
-                    });
-                    finalAnswer = null;
-                    continue;
-                  }
-                } else if (parsedOutput.workflowAction === 'ask_clarification') {
-                  let pendingMsg = parsedOutput.responseLanguage === 'zh' ? '我需要更多信息：' : 'Tôi cần thêm thông tin để tiếp tục:';
-                  const pending = state.tasks?.find(t => t.status === 'pending');
-                  if (pending && pending.missingFields) {
-                    pendingMsg += ' ' + pending.missingFields.join(', ');
-                  }
-                  parsedOutput = { text: pendingMsg, citations: evidenceIds, workflowUpdate: parsedOutput };
-                } else if (parsedOutput.intent === 'rejection') {
-                  parsedOutput = { text: `Request rejected: ${parsedOutput.rejectionCode}`, citations: evidenceIds, workflowUpdate: parsedOutput };
-                } else {
-                  parsedOutput = { text: 'Workflow state updated.', citations: evidenceIds, workflowUpdate: parsedOutput };
+              } else if (semanticJson.workflowAction === 'ask_clarification') {
+                let pendingMsg = semanticJson.responseLanguage === 'zh' ? '我需要更多信息：' : 'Tôi cần thêm thông tin để tiếp tục:';
+                const pending = state.tasks?.find(t => t.status === 'pending');
+                if (pending && pending.missingFields) {
+                  pendingMsg += ' ' + pending.missingFields.join(', ');
                 }
+                parsedOutput = { text: pendingMsg, citations: evidenceIds, workflowUpdate: semanticJson };
+              } else if (semanticJson.intent === 'rejection') {
+                parsedOutput = { text: `Request rejected: ${semanticJson.rejectionCode}`, citations: evidenceIds, workflowUpdate: semanticJson };
+              } else {
+                parsedOutput = { text: 'Workflow state updated.', citations: evidenceIds, workflowUpdate: semanticJson };
               }
-            } else if (!parsedOutput.text) {
-               parsedOutput = { text: rawOutput.trim(), citations: evidenceIds };
             }
-          } catch {
-             // Fallback to natural text
-            parsedOutput = { text: rawOutput.trim(), citations: evidenceIds };
           }
 
           if (!parsedOutput?.text) {
