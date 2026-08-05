@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-31T03:21:49.983Z",
+  "updatedAt": "2026-08-05T02:00:47.510Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6872,6 +6872,71 @@
   },
   "notifications": [
     {
+      "id": "notif_durtxs",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-05T02:00:47.510Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "LGS031ZK",
+          "field": "spec",
+          "before": "单瓦1100x60 / sóng đơn 1100x60",
+          "after": "单瓦1100x100mm / sóng đơn 1100x100mm"
+        },
+        {
+          "kind": "material",
+          "code": "LGS032ZK",
+          "field": "spec",
+          "before": "单瓦1100x60 / sóng đơn 1100x60",
+          "after": "单瓦1100x100 / sóng đơn 1100x100"
+        },
+        {
+          "kind": "material",
+          "code": "LGS033ZK",
+          "field": "spec",
+          "before": "单瓦1100x60mm / sóng đơn 1100x60mm",
+          "after": "单瓦1100x100mm / sóng đơn 1100x100mm"
+        },
+        {
+          "kind": "material",
+          "code": "LGS043ZK",
+          "field": "spec",
+          "before": "单瓦1010x60 / sóng đơn 1010x60",
+          "after": "单瓦1010x100mm / sóng đơn 1010x100mm"
+        },
+        {
+          "kind": "material",
+          "code": "LGS101ZK",
+          "field": "spec",
+          "before": "单瓦625x60mm / sóng đơn 1100x60mm",
+          "after": "单瓦625x100mm / sóng đơn 1100x100mm"
+        },
+        {
+          "kind": "material",
+          "code": "LGS131ZK",
+          "field": "spec",
+          "before": "单瓦860x60 / sóng đơn 860x60",
+          "after": "单瓦860x100mm / sóng đơn 860x100mm"
+        },
+        {
+          "kind": "material",
+          "code": "LGS132ZK",
+          "field": "spec",
+          "before": "单瓦990x60 / sóng đơn 990x60",
+          "after": "单瓦990x100mm / sóng đơn 990x100mm"
+        },
+        {
+          "kind": "material",
+          "code": "LGS133ZK",
+          "field": "spec",
+          "before": "单瓦785x60mm / sóng đơn 785x60mm",
+          "after": "单瓦785x100mm / sóng đơn 785x100mm"
+        }
+      ]
+    },
+    {
       "id": "notif_147zpy8",
       "type": "github-save",
       "actor": "admin",
@@ -7829,64 +7894,6 @@
           "field": "",
           "before": "LGS232PKXKD",
           "after": "LGS232PKXBH"
-        }
-      ]
-    },
-    {
-      "id": "notif_9xxks0",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-30T07:18:52.326Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS131",
-          "field": "currentRevision",
-          "before": "V3",
-          "after": ""
-        },
-        {
-          "kind": "revision",
-          "code": "LGS131",
-          "field": "workflowState",
-          "before": "draft",
-          "after": ""
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS111",
-          "field": "",
-          "before": "LGS111ZFXKD",
-          "after": "LGS111ZFXWH"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS111",
-          "field": "",
-          "before": "LGS111ZFXKD",
-          "after": "LGS111ZFXBH"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS131",
-          "field": "",
-          "before": "LGS131ZFXWH",
-          "after": "LGS131ZFXKD"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS131",
-          "field": "",
-          "before": "LGS131ZFXBH",
-          "after": "LGS131ZFXKD"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS231",
-          "field": "",
-          "before": "LGS231ZFXKD",
-          "after": "LGS231ZFXBH"
         }
       ]
     }
