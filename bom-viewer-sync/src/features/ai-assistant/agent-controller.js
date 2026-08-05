@@ -1048,11 +1048,33 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
               } else {
                 parsedOutput = { text: 'Workflow state updated.', citations: evidenceIds, workflowUpdate: semanticJson };
               }
+              if (parsedOutput && typeof parsedOutput.text === 'string') {
+                parsedOutput.text = parsedOutput.text
+                  .replace(/```(?:json)?\s*[\s\S]*?\s*```/gi, '')
+                  .replace(/\{[\s\S]*?"intent"\s*:\s*"[\s\S]*?\}/g, '')
+                  .trim();
+                if (!parsedOutput.text) {
+                  parsedOutput.text = semanticJson?.responseLanguage === 'zh'
+                    ? '我已为您创建修改提案，请在屏幕上查看并核对/批准。'
+                    : 'Tôi đã tạo đề xuất sửa đổi cho bạn, vui lòng xem và phê duyệt trên màn hình.';
+                }
+              }
+
+              if (!parsedOutput?.text) {
+                parsedOutput = { text: '操作已完成，请查看屏幕提案。', citations: evidenceIds };
+              }
             }
           }
 
           if (!parsedOutput?.text) {
-             parsedOutput = { text: rawOutput.trim(), citations: evidenceIds };
+             let cleanText = rawOutput
+               .replace(/```(?:json)?\s*[\s\S]*?\s*```/gi, '')
+               .replace(/\{[\s\S]*?"intent"\s*:\s*"[\s\S]*?\}/g, '')
+               .trim();
+             if (!cleanText) {
+               cleanText = '操作已完成，请查看屏幕提案。';
+             }
+             parsedOutput = { text: cleanText, citations: evidenceIds };
           }
 
           finalAnswer = trustPolicy.validateModelOutput(parsedOutput, { evidence: ledger.getEvidence() });
