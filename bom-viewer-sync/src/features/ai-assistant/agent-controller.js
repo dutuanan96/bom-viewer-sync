@@ -970,9 +970,8 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
           const rawOutput = accumulatedText || '';
           const evidenceIds = [...new Set(ledger.getEvidence().map(item => item.id))];
 
-          const promisesToolCall = /(?:我们将|我将|需要)(?:先)?(?:查询|搜索|查找|定位|检查|确认)/.test(rawOutput)
-            || /I will (?:search|check|find|look up)/i.test(rawOutput)
-            || /let me (?:search|check|find|look up)/i.test(rawOutput);
+          const promisesToolCall = /(?:我们将|我将|需要先)(?:去|在)?(?:查询|搜索|查找|定位)(?:数据库|pdm|物料|bom)?/i.test(rawOutput)
+            || /(?:I will|let me) (?:search|check|find|look up) (?:the )?(?:database|pdm|materials|bom)/i.test(rawOutput);
 
           if (currentTurnUsage.toolCalls === 0 && promisesToolCall && exposedToolNames.size > 0) {
             messages.push({
