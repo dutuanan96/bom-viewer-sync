@@ -1005,9 +1005,7 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
             parsedOutput = { text: rawOutput.trim(), citations: evidenceIds };
           }
 
-          if (finalAnswer === null) continue; // Skip to next loop iteration if retry triggered
-
-          if (!parsedOutput.text) {
+          if (!parsedOutput?.text) {
              parsedOutput = { text: rawOutput.trim(), citations: evidenceIds };
           }
 
