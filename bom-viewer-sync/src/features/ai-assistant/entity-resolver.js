@@ -323,7 +323,7 @@ export function createEntityResolver({ snapshot, companyMappings = [], personalM
         confidence: Math.max(0, ...entry.labels.map(label => tokenScore(normalizedQuery, label))),
         source: 'fuzzy-canonical',
       }))
-      .filter(entry => entry.confidence > 0)
+      .filter(entry => entry.confidence >= 0.50)
       .sort((left, right) => right.confidence - left.confidence || targetKey(left.target).localeCompare(targetKey(right.target)))
       .slice(0, MAX_CANDIDATES);
 
