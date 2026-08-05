@@ -261,6 +261,14 @@ export function createEntityResolver({ snapshot, companyMappings = [], personalM
       const preferred = matches.filter(entry => entry.priority === highestPriority);
       const uniqueTargets = new Map(preferred.map(entry => [targetKey(entry.target), entry]));
       if (uniqueTargets.size > 1) {
+        const isBatchQuery = /(?:所有|全部|tất cả|mọi|các|batch|all)\b/iu.test(normalizedQuery);
+        const firstPhrase = preferred[0]?.phrase;
+        const allShareSameGenericLabel = preferred.every(e => e.phrase === firstPhrase);
+
+        if (isBatchQuery || allShareSameGenericLabel) {
+          return result({ status: 'unresolved', phrase });
+        }
+
         return result({
           status: 'conflicted',
           phrase,
