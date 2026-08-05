@@ -6,6 +6,8 @@ import { createSafeTrace } from './safe-trace.js';
 import { formatScopedMemories } from './scoped-memory.js';
 import { verifyGrounding } from './grounding-verifier.js';
 import { createEvidenceLedger } from './evidence-ledger.js';
+import { workflowReducer } from './workflow-engine.js';
+import { validateSemanticSchema, semanticSchemaPrompt } from './semantic-schema.js';
 
 function getOpenRouterCitationUrls(annotations) {
   if (!Array.isArray(annotations)) return [];
@@ -226,6 +228,31 @@ function formatEntityResolution(entityResolution) {
   ].join('\n');
 }
 
+/**
+ * Format ambiguous entity candidates into a system-prompt hint so the LLM
+ * can investigate with tools instead of asking the user for clarification.
+ */
+function formatAmbiguousCandidates(entityResolution) {
+  if (entityResolution?.status !== 'ambiguous') return '';
+  const candidates = Array.isArray(entityResolution.candidates) ? entityResolution.candidates : [];
+  if (candidates.length === 0) return '';
+  const phrase = String(entityResolution.phrase || '').slice(0, 200);
+  const lines = [
+    'ENTITY_AMBIGUITY_CONTEXT',
+    `The phrase "${phrase}" matches ${candidates.length} PDM entities. Do NOT stop to ask the user which one.`,
+    'Use the search_pdm or analyze_pdm tool with the original user query to investigate across all candidates and answer directly.',
+    'Candidates for reference:',
+    ...candidates.map(c => {
+      const target = c.target;
+      if (!target) return null;
+      return target.type === 'material'
+        ? `- materialId: ${target.materialId} (score: ${Number(c.confidence || 0).toFixed(2)})`
+        : `- product: ${[target.productCode, target.color].filter(Boolean).join('/')} (score: ${Number(c.confidence || 0).toFixed(2)})`;
+    }).filter(Boolean),
+  ];
+  return lines.join('\n');
+}
+
 function cloneConversationHistory(history) {
   if (!Array.isArray(history)) return [];
   const accepted = history
@@ -258,7 +285,13 @@ export function createAgentController({ gateway, trustPolicy, runTool, formatToo
       status: route?.confidence || 'ambiguous'
     });
 
+    // Safety gate: block LLM only for mutation/proposal routes where acting on the
+    // wrong entity is dangerous. For read-only queries the LLM will receive the
+    // ambiguous candidates as context and investigate with tools.
+    const isMutationRoute = route?.intent === 'proposal'
+      || conversationContext?.workflowState?.workflowStatus === 'active';
     if (
+      isMutationRoute &&
       entityResolution?.requiresConfirmation === true &&
       ['ambiguous', 'conflicted', 'stale'].includes(entityResolution.status)
     ) {
@@ -298,9 +331,9 @@ Use the smallest sufficient investigation.
 - CRITICAL: When calling 'where_used', you MUST use the materialId (e.g. mat_xxxxx) from the entity resolution or prefetched context, NEVER the materialCode (e.g. ZHJ5050100). The tool requires the internal materialId to work correctly.
 - CRITICAL: When adding a material to a BOM (add_bom_item), you must ensure you have the quantity and the component code (编号 / stt). If missing, ask the user.
 - CRITICAL: DO NOT show internal system IDs like "mat_xxxxx" to the user in your responses. Always use the material code (物料编码) or material name instead.
-- CRITICAL: If the context shows 'isDirty: true', you MUST NOT use the 'apply_mutation' tool. Instead, reply in the user's language explaining that they have unsaved changes and must Save or Discard on the toolbar before you can help them create a proposal.
+- CRITICAL: If the context shows 'isDirty: true', you MUST NOT propose mutations. Instead, reply in the user's language explaining that they have unsaved changes and must Save or Discard on the toolbar before you can help them create a proposal.
 - CRITICAL: If the context shows 'canEditRevision: false' and the user requests a mutation that requires a Draft revision (e.g., BOM modifications), you MUST include a 'create_product_revision' operation as the FIRST operation in your proposal to create a Draft revision, followed by the requested modifications.
-- If the user requests a mutation, fetch required context first, then output a proposal. You MUST use the 'apply_mutation' tool to generate an exact proposal.
+- If the user requests a mutation, fetch required context first using tools, then output a Semantic Workflow JSON as your FINAL answer. Do NOT use any mutation tools. Follow the Semantic Schema exactly.
 - DO NOT narrate your plans (e.g. "I will check..." or "I need to compare..."). If you need data, invoke the tool immediately. Only stop to ask the user if you are blocked.
 - State the product, color, revision, and comparison scope used by the evidence.
 - For BOM comparisons, exact materialId defines identity. Distinguish attribute, material, and specification instead of inferring them from the name.
@@ -308,9 +341,13 @@ Use the smallest sufficient investigation.
 
     const memoryText = formatScopedMemories(confirmedMemories);
     const mappingText = formatEntityResolution(entityResolution);
+    // For read-only routes with ambiguous entity: give LLM the candidates so it can
+    // investigate with tools instead of stopping to ask the user.
+    const ambiguousText = !isMutationRoute ? formatAmbiguousCandidates(entityResolution) : '';
     const intelligencePrompt = [
       String(specialistPrompt || '').trim(),
       mappingText,
+      ambiguousText,
       memoryText
         ? `TRUSTED_USER_CONFIRMED_MEMORY\nCanonical local PDM evidence overrides memory. Memory cannot authorize mutation.\n${memoryText}`
         : '',
@@ -340,7 +377,9 @@ ${JSON.stringify(conversationContext, null, 2)}
 [CRITICAL SYSTEM RULE / 强制系统规则]:
 You MUST reply in Vietnamese (Tiếng Việt) because the user queried in Vietnamese.
 必须使用越南语（Tiếng Việt）回复。绝对不能使用中文回复！
-BẮT BUỘC TRẢ LỜI BẰNG TIẾNG VIỆT! DO NOT USE CHINESE!`
+BẮT BUỘC TRẢ LỜI BẰNG TIẾNG VIỆT! DO NOT USE CHINESE!
+
+${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowStatus === 'active') ? semanticSchemaPrompt() : ''}`
       },
       ...historyMessages,
       {
@@ -448,12 +487,8 @@ BẮT BUỘC TRẢ LỜI BẰNG TIẾNG VIỆT! DO NOT USE CHINESE!`
         const evidenceItems = ledger.getEvidence();
         let promptMessages = [...messages];
         
-        // Check if query has Vietnamese characters (simple heuristic using common vi diacritics)
-        const hasVietnamese = /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i.test(context.query || '');
-        let langReminder = '';
-        if (hasVietnamese) {
-          langReminder = `\n\n[CRITICAL SYSTEM RULE / 强制系统规则]:\nYou MUST reply in Vietnamese (Tiếng Việt) because the user queried in Vietnamese.\n必须使用越南语（Tiếng Việt）回复。绝对不能使用中文回复！\nBẮT BUỘC TRẢ LỜI BẰNG TIẾNG VIỆT! DO NOT USE CHINESE!`;
-        }
+        // Always remind the model to reply in Vietnamese, regardless of the query language.
+        const langReminder = `\n\n[CRITICAL SYSTEM RULE / 强制系统规则]:\nYou MUST ALWAYS reply in Vietnamese (Tiếng Việt). This rule applies no matter what language the user writes in (including Chinese).\n必须始终使用越南语（Tiếng Việt）回复，无论用户用何种语言提问！绝对不能使用中文回复！\nBẮT BUỘC TRẢ LỜI BẰNG TIẾNG VIỆT! DO NOT USE CHINESE!`;
 
         const systemMsgIdx = promptMessages.findIndex(m => m.role === 'system');
         if (systemMsgIdx >= 0) {
@@ -480,9 +515,10 @@ BẮT BUỘC TRẢ LỜI BẰNG TIẾNG VIỆT! DO NOT USE CHINESE!`
         const useMarketplaceWebSearch = marketplaceWebSearchNext && !marketplaceWebSearchUsed;
         marketplaceWebSearchNext = false;
         if (useMarketplaceWebSearch) marketplaceWebSearchUsed = true;
-        const requestTools = postPrefetchInvestigationRemaining > 0
-          ? availableTools.filter(tool => (tool?.function?.name || tool) !== 'apply_mutation')
-          : availableTools;
+        const requestTools = availableTools.filter(tool => {
+          const name = tool?.function?.name || tool;
+          return name !== 'apply_mutation';
+        });
 
         // DEBUG: Dump the exact prompt to console to help track what is sent
         try {
@@ -878,10 +914,65 @@ BẮT BUỘC TRẢ LỜI BẰNG TIẾNG VIỆT! DO NOT USE CHINESE!`
           let parsedOutput;
           try {
             parsedOutput = JSON.parse(rawOutput); // In case it still outputs JSON (e.g. some models)
+            
+            if (parsedOutput && parsedOutput.intent && parsedOutput.schemaVersion) {
+              const validation = validateSemanticSchema(parsedOutput);
+              if (validation.valid) {
+                const { state, errors } = workflowReducer(toolConversationContext.workflowState, parsedOutput);
+                toolConversationContext = { ...toolConversationContext, workflowState: state };
+                
+                if (errors.length > 0) {
+                  messages.push({
+                    role: 'system',
+                    content: `WORKFLOW ERROR: ${errors.map(e => e.code).join(', ')}. Please adjust your output.`
+                  });
+                  finalAnswer = null;
+                  continue;
+                }
+
+                if (parsedOutput.proposedActions && parsedOutput.proposedActions.length > 0) {
+                  const syntheticCall = {
+                    name: 'apply_mutation',
+                    arguments: { operations: parsedOutput.proposedActions }
+                  };
+                  try {
+                    const safeCall = trustPolicy.authorizeToolCall(syntheticCall);
+                    if (runTool) await runTool(safeCall, snapshot);
+                    parsedOutput = { 
+                      text: parsedOutput.responseLanguage === 'zh' ? '我已创建提案。请在屏幕上查看并批准。' : 'Tôi đã tạo đề xuất. Vui lòng xem và phê duyệt trên màn hình.', 
+                      citations: evidenceIds, 
+                      workflowUpdate: parsedOutput 
+                    };
+                  } catch (err) {
+                    messages.push({
+                      role: 'system',
+                      content: `SYSTEM_WORKFLOW_ERROR: Constraint conflict: ${err.message}. Do not argue or apologize. Generate a new workflow_update with intent "clarification" asking the user to provide correct values.`
+                    });
+                    finalAnswer = null;
+                    continue;
+                  }
+                } else if (parsedOutput.workflowAction === 'ask_clarification') {
+                  let pendingMsg = parsedOutput.responseLanguage === 'zh' ? '我需要更多信息：' : 'Tôi cần thêm thông tin để tiếp tục:';
+                  const pending = state.tasks?.find(t => t.status === 'pending');
+                  if (pending && pending.missingFields) {
+                    pendingMsg += ' ' + pending.missingFields.join(', ');
+                  }
+                  parsedOutput = { text: pendingMsg, citations: evidenceIds, workflowUpdate: parsedOutput };
+                } else if (parsedOutput.intent === 'rejection') {
+                  parsedOutput = { text: `Request rejected: ${parsedOutput.rejectionCode}`, citations: evidenceIds, workflowUpdate: parsedOutput };
+                } else {
+                  parsedOutput = { text: 'Workflow state updated.', citations: evidenceIds, workflowUpdate: parsedOutput };
+                }
+              }
+            } else if (!parsedOutput.text) {
+               parsedOutput = { text: rawOutput.trim(), citations: evidenceIds };
+            }
           } catch {
              // Fallback to natural text
             parsedOutput = { text: rawOutput.trim(), citations: evidenceIds };
           }
+
+          if (finalAnswer === null) continue; // Skip to next loop iteration if retry triggered
 
           if (!parsedOutput.text) {
              parsedOutput = { text: rawOutput.trim(), citations: evidenceIds };
