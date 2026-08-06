@@ -1184,15 +1184,8 @@ class BomApplication {
               onApprove: (selectedProposal, options) => {
                 try {
                   const currentSnapshot = this.getSnapshot();
-                  const productCode = currentSnapshot.selection?.productCode;
-                  const wasReleased = !currentSnapshot.canEditRevision && productCode;
                   
                   const transaction = applyMutationProposalTransaction(currentSnapshot, selectedProposal);
-                  
-                  if (wasReleased) {
-                    withdrawProductRevision(transaction.payload, productCode, null, { reason: 'AI Auto Edit' });
-                    releaseProductRevision(transaction.payload, productCode, null, { reason: 'AI Auto Edit Completed' });
-                  }
                   
                   this.applyAiMutation({
                     proposal: selectedProposal,

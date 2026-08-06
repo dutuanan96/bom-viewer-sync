@@ -157,7 +157,6 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k }) {
     const newOperations = [];
     const opsToRemove = new Set();
     const affectedProducts = new Set();
-    
     for (const swap of swaps) {
       const oldId = swap.operation.mutation.targetId;
       const usage = materialWhereUsed(snapshot.payload, oldId);
@@ -172,54 +171,78 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k }) {
       opsToRemove.add(JSON.stringify(swap.operation.mutation));
     }
 
-    // Auto-create draft revisions for any affected products that are currently released
+    const productsNeedingDraft = [];
     for (const productCode of affectedProducts) {
       const prodRevs = snapshot.payload?.productRevisions?.[productCode] || [];
-      if (prodRevs.length === 0) continue; // No revision data — skip
+      if (prodRevs.length === 0) continue;
       const hasDraft = prodRevs.some(r => !r.releasedAt);
-      if (hasDraft) continue; // Already has a draft — don't create another
-      const currentRev = prodRevs.find(r => r.current) || prodRevs[0];
-      let nextVersion = 'V1';
-      if (currentRev) {
-        const match = currentRev.revision.match(/^V(\d+)$/i);
-        nextVersion = match ? `V${parseInt(match[1], 10) + 1}` : `${currentRev.revision}-1`;
-      }
-      newOperations.unshift({
-        operationType: 'create_product_revision',
-        targetId: productCode,
-        payload: {
-          revision: nextVersion,
-          changeReason: t('ai.proposal.autoDraftReason') || 'Auto-draft for material swap'
+      if (!hasDraft) productsNeedingDraft.push(productCode);
+    }
+
+    if (productsNeedingDraft.length > 0 && global.openPdmPrompt) {
+      const fields = productsNeedingDraft.flatMap(p => {
+        const prodRevs = snapshot.payload?.productRevisions?.[p] || [];
+        const currentRev = prodRevs.find(r => r.current) || prodRevs[0];
+        let nextVersion = 'V1';
+        if (currentRev) {
+          const match = currentRev.revision.match(/^V(\d+)$/i);
+          nextVersion = match ? `V${parseInt(match[1], 10) + 1}` : `${currentRev.revision}-1`;
+        }
+        return [
+          { key: `rev_${p}`, label: `${t('newRevision') || 'New Version'} (${p})`, defaultValue: nextVersion, required: true },
+          { key: `reason_${p}`, label: `${t('changeReason') || 'Change Reason'} (${p})`, defaultValue: t('ai.proposal.autoDraftReason') || 'Auto-draft for material swap', required: true }
+        ];
+      });
+      global.openPdmPrompt(t('ai.proposal.bumpRevisionOption') || 'Create Draft Revision', fields, (values) => {
+        for (const p of productsNeedingDraft) {
+          newOperations.unshift({
+            operationType: 'create_product_revision',
+            targetId: p,
+            payload: {
+              revision: values[`rev_${p}`],
+              changeReason: values[`reason_${p}`]
+            }
+          });
+        }
+        finishHandleMultipleSwaps();
+      }, () => {
+        if (propEl) {
+          propEl.style.opacity = '1';
+          propEl.style.pointerEvents = 'auto';
         }
       });
+      return;
     }
+    finishHandleMultipleSwaps();
     
-    const rawOps = msg.proposal.operations || msg.proposal.proposedActions || [];
-    msg.proposal.operations = rawOps.filter(op => !opsToRemove.has(JSON.stringify(op)));
-    msg.proposal.operations.push(...newOperations);
-    if (msg.proposal.proposedActions) msg.proposal.proposedActions = msg.proposal.operations;
-    
-    try {
-      const review = buildMutationProposalReview(snapshot, msg.proposal, t);
-      if (propEl) {
-        propEl.style.opacity = '0.5';
-        propEl.style.pointerEvents = 'none';
-      }
-      renderMessage({
-        role: 'assistant',
-        text: t('ai.proposal.prepared') || 'Proposal prepared for review.',
-        proposal: msg.proposal,
-        proposalReview: review,
-        diff: review.finalDiff,
-        snapshot: snapshot,
-        onApprove: msg.onApprove
-      });
-    } catch (e) {
-      console.error(e);
-      alert(e.message || 'Error preparing proposal');
-      if (propEl) {
-        propEl.style.opacity = '1';
-        propEl.style.pointerEvents = 'auto';
+    function finishHandleMultipleSwaps() {
+      const rawOps = msg.proposal.operations || msg.proposal.proposedActions || [];
+      msg.proposal.operations = rawOps.filter(op => !opsToRemove.has(JSON.stringify(op)));
+      msg.proposal.operations.push(...newOperations);
+      if (msg.proposal.proposedActions) msg.proposal.proposedActions = msg.proposal.operations;
+      
+      try {
+        const review = buildMutationProposalReview(snapshot, msg.proposal, t);
+        if (propEl) {
+          propEl.style.opacity = '0.5';
+          propEl.style.pointerEvents = 'none';
+        }
+        renderMessage({
+          role: 'assistant',
+          text: t('ai.proposal.prepared') || 'Proposal prepared for review.',
+          proposal: msg.proposal,
+          proposalReview: review,
+          diff: review.finalDiff,
+          snapshot: snapshot,
+          onApprove: msg.onApprove
+        });
+      } catch (e) {
+        console.error(e);
+        alert(e.message || 'Error preparing proposal');
+        if (propEl) {
+          propEl.style.opacity = '1';
+          propEl.style.pointerEvents = 'auto';
+        }
       }
     }
   }

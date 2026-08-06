@@ -82,6 +82,7 @@ const FIELD_RULES = Object.freeze({
   attribute: nonEmptyString,
   color: nonEmptyString,
   componentCode: nonEmptyString,
+  field: nonEmptyString,
   material: nonEmptyString,
   materialCode: identifier,
   materialColor: nonEmptyString,
@@ -97,8 +98,10 @@ const FIELD_RULES = Object.freeze({
   scope: nonEmptyString,
   sourceMaterialCode: identifier,
   spec: nonEmptyString,
+  targetId: nonEmptyString,
   targetMaterialCode: identifier,
   targetSpec: nonEmptyString,
+  value: value => value !== undefined,
   withdrawReleasedRevision: value => typeof value === 'boolean',
 });
 

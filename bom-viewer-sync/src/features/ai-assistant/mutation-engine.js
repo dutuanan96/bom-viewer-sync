@@ -677,9 +677,7 @@ export function buildMutationProposalReview(snapshot, proposalInput, t = (k) => 
     }
 
     const warnings = [...operationWarnings(mutation, operationSnapshot.payload, t), ...enrichment.warnings];
-    if (!operationSnapshot.canEditRevision && ['add_bom_item', 'update_bom_item', 'update_bom_quantity', 'remove_bom_item', 'replace_bom_item'].includes(mutation.operationType)) {
-      warnings.push(t('ai.proposal.autoWithdrawWarning') || `BOM ${snapshot.selection?.productCode || ''} đang phát hành. Hệ thống sẽ tự động ngưng phát hành để sửa, và tự động phát hành lại khi bạn Lưu.`);
-    }
+
 
     const diff = describePayloadChanges(before, payload);
     if (diff.length === 0) {
