@@ -159,7 +159,10 @@ export function describePayloadChanges(previousPayload, nextPayload) {
     const childId = nextEntry.childMaterialId || nextEntry.materialId || '';
     const parentCode = nextEntry.parentType === 'product' ? parentId : (nextMaterials[parentId]?.code || parentId);
     const childCode = nextMaterials[childId]?.code || childId;
-    const parentLabel = String(parentCode || '');
+    let parentLabel = String(parentCode || '');
+    if (nextEntry.parentType === 'product' && nextEntry.color && next.bom?.[parentCode]?.color_info?.[nextEntry.color]?.sku) {
+      parentLabel = String(next.bom[parentCode].color_info[nextEntry.color].sku);
+    }
     const childLabel = String(childCode || '');
 
     if (!prevEntry) {
@@ -202,7 +205,11 @@ export function describePayloadChanges(previousPayload, nextPayload) {
       const childId = prevEntry.childMaterialId || prevEntry.materialId || '';
       const parentCode = prevEntry.parentType === 'product' ? parentId : (previousMaterials[parentId]?.code || parentId);
       const childCode = previousMaterials[childId]?.code || childId;
-      changes.push({ kind: 'bom_deleted', code: String(parentCode || ''), field: String(childCode || ''), before: '', after: '' });
+      let parentLabel = String(parentCode || '');
+      if (prevEntry.parentType === 'product' && prevEntry.color && previous.bom?.[parentCode]?.color_info?.[prevEntry.color]?.sku) {
+        parentLabel = String(previous.bom[parentCode].color_info[prevEntry.color].sku);
+      }
+      changes.push({ kind: 'bom_deleted', code: parentLabel, field: String(childCode || ''), before: '', after: '' });
       if (changes.length >= NOTIFICATION_CHANGE_LIMIT) return changes;
     }
   }

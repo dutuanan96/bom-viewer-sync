@@ -266,6 +266,18 @@ export class PdmDiscovery {
       materials.push(materialSummary(record, usedBy));
     }
 
+    if (materials.length === 0 && !scopedProductId && terms.length > 1) {
+      const specTerms = terms.filter(t => /\d+/.test(t));
+      if (specTerms.length > 1) {
+        const fallbackTerms = terms.filter(t => t !== specTerms[specTerms.length - 1]);
+        for (const record of Object.values(this.payload.materialDb?.materials || {})) {
+          const usage = Array.from(usageByMaterial.get(record.id)?.values() || []);
+          if (!matchesSearch({ record, usedBy: usage }, fallbackTerms)) continue;
+          materials.push(materialSummary(record, usage));
+        }
+      }
+    }
+
     const matchedMaterialCandidates = scopedMaterialCandidates.filter(candidate => candidate.score > 0);
     const mappedMaterialCandidates = mappedMaterialId
       ? scopedMaterialCandidates.filter(candidate => candidate.summary.materialId === mappedMaterialId)

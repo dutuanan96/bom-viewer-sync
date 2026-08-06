@@ -1,3 +1,6 @@
+import { buildMutationProposalReview } from './mutation-engine.js';
+import { materialWhereUsed } from '../../domain/materials.js';
+
 export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k }) {
   const container = document.createElement('div');
   container.className = 'ai-workspace';
@@ -147,6 +150,166 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k }) {
       }
     };
   }
+  function handleMultipleSwaps(msg, swaps, propEl, t) {
+    const snapshot = msg.snapshot;
+    if (!snapshot) return;
+    
+    const newOperations = [];
+    const opsToRemove = new Set();
+    
+    for (const swap of swaps) {
+      const oldId = swap.operation.mutation.targetId;
+      const usage = materialWhereUsed(snapshot.payload, oldId);
+      
+      for (const entry of usage.productEntries || []) {
+        newOperations.push({ operationType: 'replace_bom_item', targetId: entry.id, payload: { materialId: swap.duplicateId } });
+      }
+      for (const entry of usage.parentEntries || []) {
+        newOperations.push({ operationType: 'replace_bom_item', targetId: entry.id, payload: { materialId: swap.duplicateId } });
+      }
+      opsToRemove.add(JSON.stringify(swap.operation.mutation));
+    }
+    
+    const rawOps = msg.proposal.operations || msg.proposal.proposedActions || [];
+    msg.proposal.operations = rawOps.filter(op => !opsToRemove.has(JSON.stringify(op)));
+    msg.proposal.operations.push(...newOperations);
+    if (msg.proposal.proposedActions) msg.proposal.proposedActions = msg.proposal.operations;
+    
+    try {
+      const review = buildMutationProposalReview(snapshot, msg.proposal, t);
+      if (propEl) {
+        propEl.style.opacity = '0.5';
+        propEl.style.pointerEvents = 'none';
+      }
+      renderMessage({
+        role: 'assistant',
+        text: t('ai.proposal.prepared') || 'Proposal prepared for review.',
+        proposal: msg.proposal,
+        proposalReview: review,
+        diff: review.finalDiff,
+        snapshot: snapshot,
+        onApprove: msg.onApprove
+      });
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  function createPaginatedDiffTable(diffArray, t) {
+    const container = document.createElement('div');
+    container.className = 'ai-diff-table-container';
+    
+    if (!diffArray || diffArray.length === 0) {
+      const noDiff = document.createElement('div');
+      noDiff.className = 'ai-diff-empty';
+      noDiff.textContent = t('ai.proposal.noChanges') || 'No changes detected.';
+      container.appendChild(noDiff);
+      return container;
+    }
+
+    const diffTable = document.createElement('table');
+    diffTable.className = 'ai-diff-table diff-table';
+    
+    const thead = document.createElement('thead');
+    const headerRow = document.createElement('tr');
+    [
+      t('ai.proposal.type'),
+      t('ai.proposal.code'),
+      t('ai.proposal.field'),
+      t('ai.proposal.before'),
+      t('ai.proposal.after'),
+    ].forEach((label) => {
+      const th = document.createElement('th');
+      th.textContent = label;
+      headerRow.appendChild(th);
+    });
+    thead.appendChild(headerRow);
+    diffTable.appendChild(thead);
+    
+    const tbody = document.createElement('tbody');
+    diffTable.appendChild(tbody);
+    container.appendChild(diffTable);
+
+    const PAGE_SIZE = 8;
+    let currentPage = 1;
+    const totalPages = Math.ceil(diffArray.length / PAGE_SIZE);
+
+    const paginationDiv = document.createElement('div');
+    paginationDiv.className = 'ai-diff-pagination';
+    paginationDiv.style.display = totalPages > 1 ? 'flex' : 'none';
+    paginationDiv.style.justifyContent = 'center';
+    paginationDiv.style.alignItems = 'center';
+    paginationDiv.style.gap = '8px';
+    paginationDiv.style.marginTop = '8px';
+    paginationDiv.style.fontSize = '12px';
+    container.appendChild(paginationDiv);
+
+    function renderPage(page) {
+      currentPage = page;
+      tbody.innerHTML = '';
+      const start = (page - 1) * PAGE_SIZE;
+      const end = start + PAGE_SIZE;
+      const visibleDiffs = diffArray.slice(start, end);
+      
+      visibleDiffs.forEach(d => {
+        const tr = document.createElement('tr');
+        
+        const fieldParts = String(d.field || '').split('.');
+        const fieldSuffix = fieldParts.pop();
+        const translatedSuffix = fieldSuffix ? (t('ai.proposal.field.' + fieldSuffix) || fieldSuffix) : '';
+        const translatedField = fieldParts.length > 0 ? `${fieldParts.join('.')} - ${translatedSuffix}` : translatedSuffix;
+
+        for (const [value, className] of [
+          [t('ai.proposal.kind.' + d.kind) || d.kind, ''],
+          [d.code, ''],
+          [translatedField, ''],
+          [d.before, 'diff-removed'],
+          [d.after, 'diff-added'],
+        ]) {
+          const td = document.createElement('td');
+          td.className = className;
+          td.textContent = value;
+          tr.appendChild(td);
+        }
+        tbody.appendChild(tr);
+      });
+
+      if (totalPages > 1) {
+        paginationDiv.innerHTML = '';
+        const prevBtn = document.createElement('button');
+        prevBtn.className = 'btn small outline';
+        prevBtn.textContent = '<';
+        prevBtn.disabled = currentPage === 1;
+        prevBtn.onclick = () => renderPage(currentPage - 1);
+        paginationDiv.appendChild(prevBtn);
+        
+        for (let i = 1; i <= totalPages; i++) {
+          if (i === 1 || i === totalPages || (i >= currentPage - 1 && i <= currentPage + 1)) {
+            const pageBtn = document.createElement('button');
+            pageBtn.className = 'btn small ' + (i === currentPage ? 'btn-primary' : 'outline');
+            pageBtn.textContent = i;
+            pageBtn.onclick = () => renderPage(i);
+            paginationDiv.appendChild(pageBtn);
+          } else if (i === currentPage - 2 || i === currentPage + 2) {
+            const dots = document.createElement('span');
+            dots.textContent = '...';
+            paginationDiv.appendChild(dots);
+          }
+        }
+        
+        const nextBtn = document.createElement('button');
+        nextBtn.className = 'btn small outline';
+        nextBtn.textContent = '>';
+        nextBtn.disabled = currentPage === totalPages;
+        nextBtn.onclick = () => renderPage(currentPage + 1);
+        paginationDiv.appendChild(nextBtn);
+      }
+    }
+
+    renderPage(1);
+    
+    return container;
+  }
 
   function renderMessage(msg) {
     const rowEl = document.createElement('div');
@@ -234,6 +397,22 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k }) {
     if (msg.proposal && msg.diff) {
       const propEl = document.createElement('div');
       propEl.className = 'ai-proposal-card';
+      
+      const pendingSwaps = new Map();
+      let approveBtn; // Forward declaration
+      function updateApproveButtonState() {
+        if (!approveBtn) return;
+        if (selectedOperationIds.size === 0) {
+          approveBtn.disabled = true;
+          approveBtn.textContent = t('ai.proposal.approve');
+        } else if (pendingSwaps.size > 0) {
+          approveBtn.disabled = false;
+          approveBtn.textContent = t('ai.proposal.regenerateProposal') || 'Tạo mới phương án';
+        } else {
+          approveBtn.disabled = false;
+          approveBtn.textContent = t('ai.proposal.approve');
+        }
+      }
 
       const title = document.createElement('strong');
       title.textContent = t('ai.proposal.title');
@@ -243,6 +422,48 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k }) {
         ? msg.proposalReview.operations
         : [];
       const selectedOperationIds = new Set(reviewOperations.map(operation => operation.id));
+
+      if (reviewOperations.length > 0) {
+        const totalChanges = reviewOperations.length;
+        let highestRiskLevel = 'low';
+        const riskOrder = { 'low': 1, 'medium': 2, 'high': 3 };
+        let duplicatesCount = 0;
+        
+        reviewOperations.forEach(op => {
+          if (riskOrder[op.risk] > riskOrder[highestRiskLevel]) highestRiskLevel = op.risk;
+          (op.warnings || []).forEach(w => {
+             if (w?.action?.type === 'swap') duplicatesCount++;
+          });
+        });
+        
+        const summaryDash = document.createElement('div');
+        summaryDash.className = 'ai-proposal-summary';
+        
+        const summaryItems = [
+          { label: t('ai.proposal.totalChanges') || 'Total Changes', value: totalChanges },
+          { label: t('ai.proposal.duplicates') || 'Duplicates', value: duplicatesCount, valueClass: duplicatesCount > 0 ? 'warning' : '' },
+          { label: t('ai.proposal.highestRisk') || 'Highest Risk', value: t(`ai.proposal.risk.${highestRiskLevel}`), valueClass: highestRiskLevel === 'high' ? 'error' : (highestRiskLevel === 'medium' ? 'warning' : 'success') }
+        ];
+        
+        summaryItems.forEach(item => {
+          const itemEl = document.createElement('div');
+          itemEl.className = 'ai-proposal-summary-item';
+          
+          const labelEl = document.createElement('span');
+          labelEl.className = 'ai-proposal-summary-label';
+          labelEl.textContent = item.label;
+          
+          const valueEl = document.createElement('span');
+          valueEl.className = `ai-proposal-summary-value ${item.valueClass || ''}`;
+          valueEl.textContent = item.value;
+          
+          itemEl.append(labelEl, valueEl);
+          summaryDash.appendChild(itemEl);
+        });
+        
+        propEl.appendChild(summaryDash);
+      }
+
       const verification = msg.proposalReview?.verification;
       if (verification) {
         const verificationEl = document.createElement('div');
@@ -253,7 +474,7 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k }) {
         propEl.appendChild(verificationEl);
         (verification.warnings || []).forEach((warning) => {
           const warningEl = document.createElement('div');
-          warningEl.className = 'ai-proposal-warning';
+          warningEl.className = verification.valid ? 'ai-proposal-warning-box' : 'ai-proposal-error-box';
           warningEl.textContent = warning;
           propEl.appendChild(warningEl);
         });
@@ -282,81 +503,81 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k }) {
 
             const operationHeader = document.createElement('div');
             operationHeader.className = 'ai-proposal-operation-header';
-            const selectionLabel = document.createElement('label');
-            selectionLabel.className = 'ai-proposal-operation-select';
-            const checkbox = document.createElement('input');
-            checkbox.type = 'checkbox';
-            checkbox.checked = true;
-            checkbox.setAttribute('aria-label', t('ai.proposal.selectChange'));
-            checkbox.addEventListener('change', () => {
-              if (checkbox.checked) selectedOperationIds.add(operation.id);
-              else selectedOperationIds.delete(operation.id);
-              approveBtn.disabled = selectedOperationIds.size === 0;
-            });
             const operationName = document.createElement('span');
-            operationName.textContent = `${operation.mutation.operationType} · ${operation.mutation.targetId}`;
-            selectionLabel.append(checkbox, operationName);
+            operationName.className = 'ai-proposal-operation-title';
+            // Show material code from diff, fall back to targetId if not available
+            const materialCode = operation.diff?.[0]?.code || operation.mutation.targetId;
+            const opTypeLabel = operation.mutation.operationType.replace(/_/g, ' ');
+            operationName.textContent = `${opTypeLabel} · ${materialCode}`;
 
             const risk = document.createElement('span');
             risk.className = `ai-proposal-risk risk-${operation.risk}`;
-            risk.textContent = `${t('ai.proposal.risk')}: ${t(`ai.proposal.risk.${operation.risk}`)}`;
+            const riskIcon = document.createElement('span');
+            riskIcon.className = 'material-symbols-outlined';
+            riskIcon.textContent = operation.risk === 'high' ? 'warning' : (operation.risk === 'medium' ? 'info' : 'check_circle');
+            const riskText = document.createTextNode(` ${t(`ai.proposal.risk.${operation.risk}`)}`);
+            risk.append(riskIcon, riskText);
             const deleteButton = document.createElement('button');
             deleteButton.type = 'button';
             deleteButton.className = 'btn ai-proposal-delete-change';
             deleteButton.textContent = t('ai.proposal.deleteChange');
-            deleteButton.addEventListener('click', () => {
+            deleteButton.addEventListener('click', (e) => {
+              e.stopPropagation();
               selectedOperationIds.delete(operation.id);
               operationEl.remove();
               if (!section.querySelector('.ai-proposal-operation')) section.remove();
-              approveBtn.disabled = selectedOperationIds.size === 0;
+              for (const [checkbox, swap] of pendingSwaps.entries()) {
+                if (swap.operation.id === operation.id) {
+                  pendingSwaps.delete(checkbox);
+                }
+              }
+              updateApproveButtonState();
               messagesDiv.scrollTo({ top: messagesDiv.scrollHeight });
             });
-            operationHeader.append(selectionLabel, risk, deleteButton);
+            operationHeader.append(operationName, risk, deleteButton);
             operationEl.appendChild(operationHeader);
 
             for (const warning of operation.warnings || []) {
               const warningEl = document.createElement('div');
-              warningEl.className = 'ai-proposal-warning';
-              warningEl.textContent = warning;
+              warningEl.className = 'ai-proposal-warning-box';
+              
+              if (typeof warning === 'string') {
+                warningEl.textContent = warning;
+              } else {
+                warningEl.textContent = warning.message;
+                if (warning.action?.type === 'swap') {
+                  const swapLabel = document.createElement('label');
+                  swapLabel.className = 'ai-proposal-swap-label';
+                  swapLabel.style.marginLeft = '12px';
+                  swapLabel.style.cursor = 'pointer';
+                  swapLabel.style.display = 'inline-flex';
+                  swapLabel.style.alignItems = 'center';
+                  
+                  const swapCheckbox = document.createElement('input');
+                  swapCheckbox.type = 'checkbox';
+                  swapCheckbox.className = 'ai-proposal-swap-checkbox';
+                  swapCheckbox.style.marginRight = '6px';
+                  
+                  const swapText = document.createTextNode(t('ai.proposal.swapToReplaceCheckbox') || 'Đồng ý hoán đổi phương án');
+                  swapLabel.append(swapCheckbox, swapText);
+                  
+                  swapCheckbox.addEventListener('change', (e) => {
+                    e.stopPropagation();
+                    if (swapCheckbox.checked) {
+                      pendingSwaps.set(swapCheckbox, { operation, duplicateId: warning.action.duplicateId });
+                    } else {
+                      pendingSwaps.delete(swapCheckbox);
+                    }
+                    updateApproveButtonState();
+                  });
+                  warningEl.appendChild(swapLabel);
+                }
+              }
               operationEl.appendChild(warningEl);
             }
 
-            const diffTable = document.createElement('table');
-            diffTable.className = 'ai-diff-table diff-table';
-            const thead = document.createElement('thead');
-            const headerRow = document.createElement('tr');
-            [
-              t('ai.proposal.type'),
-              t('ai.proposal.code'),
-              t('ai.proposal.field'),
-              t('ai.proposal.before'),
-              t('ai.proposal.after'),
-            ].forEach((headerLabel) => {
-              const th = document.createElement('th');
-              th.textContent = headerLabel;
-              headerRow.appendChild(th);
-            });
-            thead.appendChild(headerRow);
-            diffTable.appendChild(thead);
-            const tbody = document.createElement('tbody');
-            for (const diff of operation.diff || []) {
-              const tr = document.createElement('tr');
-              for (const [value, className] of [
-                [diff.kind, ''],
-                [diff.code, ''],
-                [diff.field, ''],
-                [diff.before, 'diff-removed'],
-                [diff.after, 'diff-added'],
-              ]) {
-                const td = document.createElement('td');
-                td.className = className;
-                td.textContent = value;
-                tr.appendChild(td);
-              }
-              tbody.appendChild(tr);
-            }
-            diffTable.appendChild(tbody);
-            operationEl.appendChild(diffTable);
+            const tableContainer = createPaginatedDiffTable(operation.diff || [], t);
+            operationEl.appendChild(tableContainer);
             section.appendChild(operationEl);
           }
           propEl.appendChild(section);
@@ -367,60 +588,41 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k }) {
         noDiff.textContent = t('ai.proposal.noChanges');
         propEl.appendChild(noDiff);
       } else {
-        const diffTable = document.createElement('table');
-        diffTable.className = 'ai-diff-table diff-table';
-        const thead = document.createElement('thead');
-        const headerRow = document.createElement('tr');
-        [
-          t('ai.proposal.type'),
-          t('ai.proposal.code'),
-          t('ai.proposal.field'),
-          t('ai.proposal.before'),
-          t('ai.proposal.after'),
-        ].forEach((label) => {
-          const th = document.createElement('th');
-          th.textContent = label;
-          headerRow.appendChild(th);
-        });
-        thead.appendChild(headerRow);
-        diffTable.appendChild(thead);
+        const tableContainer = createPaginatedDiffTable(msg.diff || [], t);
+        propEl.appendChild(tableContainer);
+      }
 
-        const tbody = document.createElement('tbody');
-        msg.diff.forEach(d => {
-          const tr = document.createElement('tr');
+      const actionRowWrapper = document.createElement('div');
+      actionRowWrapper.className = 'ai-proposal-actions-wrapper';
 
-          const tdKind = document.createElement('td');
-          tdKind.textContent = d.kind;
-
-          const tdCode = document.createElement('td');
-          tdCode.textContent = d.code;
-
-          const tdField = document.createElement('td');
-          tdField.textContent = d.field;
-
-          const tdBefore = document.createElement('td');
-          tdBefore.className = 'diff-removed';
-          tdBefore.textContent = d.before;
-
-          const tdAfter = document.createElement('td');
-          tdAfter.className = 'diff-added';
-          tdAfter.textContent = d.after;
-
-          tr.appendChild(tdKind);
-          tr.appendChild(tdCode);
-          tr.appendChild(tdField);
-          tr.appendChild(tdBefore);
-          tr.appendChild(tdAfter);
-
-          tbody.appendChild(tr);
-        });
-        diffTable.appendChild(tbody);
-        propEl.appendChild(diffTable);
+      const hasProductChanges = (msg.diff || []).some(d => d.kind.startsWith('bom_') || d.kind.startsWith('product'));
+      let bumpRevisionCheckbox;
+      if (hasProductChanges) {
+        const checkboxWrapper = document.createElement('label');
+        checkboxWrapper.style.display = 'flex';
+        checkboxWrapper.style.alignItems = 'center';
+        checkboxWrapper.style.gap = '6px';
+        checkboxWrapper.style.fontSize = '12px';
+        checkboxWrapper.style.color = 'var(--muted)';
+        checkboxWrapper.style.cursor = 'pointer';
+        
+        bumpRevisionCheckbox = document.createElement('input');
+        bumpRevisionCheckbox.type = 'checkbox';
+        bumpRevisionCheckbox.checked = false; // default false as per manual workflow
+        
+        checkboxWrapper.appendChild(bumpRevisionCheckbox);
+        checkboxWrapper.appendChild(document.createTextNode(t('ai.proposal.bumpRevisionOption')));
+        actionRowWrapper.appendChild(checkboxWrapper);
+        actionRowWrapper.style.display = 'flex';
+        actionRowWrapper.style.flexDirection = 'column';
+        actionRowWrapper.style.gap = '12px';
       }
 
       const actionRow = document.createElement('div');
       actionRow.className = 'ai-proposal-actions';
-      actionRow.style.marginTop = '12px';
+      actionRow.style.display = 'flex';
+      actionRow.style.gap = '8px';
+      actionRow.style.justifyContent = 'flex-end';
 
       const rejectBtn = document.createElement('button');
       rejectBtn.className = 'btn';
@@ -432,12 +634,19 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k }) {
         if (msg.onReject) msg.onReject();
       };
 
-      const approveBtn = document.createElement('button');
+      approveBtn = document.createElement('button');
       approveBtn.className = 'btn btn-primary';
       approveBtn.textContent = t('ai.proposal.approve');
-      approveBtn.onclick = () => {
+      approveBtn.onclick = (e) => {
+        if (e) e.stopPropagation();
+        if (pendingSwaps.size > 0) {
+          handleMultipleSwaps(msg, Array.from(pendingSwaps.values()), propEl, t);
+          return;
+        }
         rejectBtn.disabled = true;
         approveBtn.disabled = true;
+        if (bumpRevisionCheckbox) bumpRevisionCheckbox.disabled = true;
+        
         renderMessage({ role: 'user', text: t('ai.proposal.approved') });
         const selectedOperations = reviewOperations
           .filter(operation => selectedOperationIds.has(operation.id))
@@ -445,12 +654,88 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k }) {
         const selectedProposal = reviewOperations.length > 0
           ? { summary: msg.proposalReview?.summary || '', operations: selectedOperations }
           : msg.approval || msg.proposal;
-        if (msg.onApprove) msg.onApprove(selectedProposal);
+          
+        if (msg.onApprove) {
+          msg.onApprove(selectedProposal, { bumpRevision: bumpRevisionCheckbox?.checked });
+        }
+        
+        // Transform UI to Success State
+        actionRowWrapper.innerHTML = '';
+        const successBanner = document.createElement('div');
+        successBanner.className = 'ai-proposal-success-banner';
+        successBanner.style.display = 'flex';
+        successBanner.style.alignItems = 'center';
+        successBanner.style.gap = '8px';
+        successBanner.style.padding = '12px';
+        successBanner.style.backgroundColor = 'rgba(46, 160, 67, 0.1)';
+        successBanner.style.border = '1px solid var(--success, #2ea043)';
+        successBanner.style.borderRadius = '6px';
+        successBanner.style.marginTop = '12px';
+        
+        const successIcon = document.createElement('span');
+        successIcon.className = 'material-symbols-outlined';
+        successIcon.textContent = 'check_circle';
+        successIcon.style.color = 'var(--success, #2ea043)';
+        
+        const successText = document.createElement('span');
+        successText.textContent = t('ai.proposal.appliedSuccess') || 'Đã áp dụng thành công';
+        successText.style.flex = '1';
+        successText.style.fontWeight = '500';
+        
+        successBanner.appendChild(successIcon);
+        successBanner.appendChild(successText);
+        
+        if (msg.onViewChanges) {
+          const viewBtn = document.createElement('button');
+          viewBtn.className = 'btn small';
+          viewBtn.textContent = t('viewChanges') || 'Xem thay đổi';
+          viewBtn.onclick = (e) => {
+            if (e) e.stopPropagation();
+            msg.onViewChanges();
+          };
+          successBanner.appendChild(viewBtn);
+        }
+        if (msg.onSave) {
+          const saveBtn = document.createElement('button');
+          saveBtn.className = 'btn btn-primary small';
+          saveBtn.textContent = t('save') || 'Lưu';
+          saveBtn.onclick = async (e) => {
+            if (e) e.stopPropagation();
+            
+            const originalText = saveBtn.textContent;
+            saveBtn.disabled = true;
+            saveBtn.textContent = '...';
+            
+            try {
+              const savePromise = msg.onSave();
+              if (savePromise && typeof savePromise.then === 'function') {
+                await savePromise;
+              }
+              saveBtn.textContent = t('ai.proposal.appliedSuccess') || 'Thành công';
+              saveBtn.style.backgroundColor = 'var(--success, #2ea043)';
+              saveBtn.style.borderColor = 'var(--success, #2ea043)';
+              saveBtn.style.color = '#fff';
+            } catch (err) {
+              saveBtn.disabled = false;
+              saveBtn.textContent = originalText;
+              console.error(err);
+            }
+          };
+          successBanner.appendChild(saveBtn);
+        }
+        
+        actionRowWrapper.appendChild(successBanner);
+        
+        const diffTable = propEl.querySelector('.ai-diff-table-container') || propEl.querySelector('.ai-diff-table');
+        if (diffTable) {
+          diffTable.style.display = 'none';
+        }
       };
 
       actionRow.appendChild(rejectBtn);
       actionRow.appendChild(approveBtn);
-      propEl.appendChild(actionRow);
+      actionRowWrapper.appendChild(actionRow);
+      propEl.appendChild(actionRowWrapper);
 
       msgEl.appendChild(propEl);
     }
@@ -579,6 +864,7 @@ export function createSettingsView({
   });
 
   const initialModels = [
+    { value: 'inclusionai/ling-3.0-flash:free', label: 'InclusionAI Ling 3.0 Flash (Free)' },
     { value: 'nvidia/nemotron-3-ultra-550b-a55b:free', label: 'NVIDIA Nemotron-3 Ultra 550B (Free)' },
     { value: 'poolside/laguna-m.1:free', label: 'Poolside Laguna m.1 (Free)' },
     { value: 'nvidia/nemotron-3-super-120b-a12b:free', label: 'NVIDIA Nemotron-3 Super 120B (Free)' },

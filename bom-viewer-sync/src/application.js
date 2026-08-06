@@ -325,6 +325,7 @@ const global = globalThis;
       'ai.proposal.approved': '已批准建议。',
       'ai.proposal.prepared': '我已准备好一个更改建议，请在下方审核。',
       'ai.proposal.applyError': '应用建议失败',
+      'ai.proposal.appliedSuccess': '已成功应用',
       'ai.proposal.applied': '建议已应用到本地工作区。请检查更改，然后单独点击保存。',
       'ai.proposal.verified': '校验通过：所选变更符合 PDM 数据规则。',
       'ai.proposal.verifyFailed': '校验失败，不能应用这些变更。',
@@ -335,10 +336,43 @@ const global = globalThis;
       'ai.proposal.categoryStructure': '父子结构变更',
       'ai.proposal.selectChange': '选择此变更',
       'ai.proposal.deleteChange': '移除此变更',
+      'ai.proposal.swapToReplace': '转换为替换指令',
+      'ai.proposal.swapToReplaceCheckbox': '使用现有物料替换',
+      'ai.proposal.regenerateProposal': '重新生成建议',
+      'ai.proposal.bumpRevisionOption': '在应用前创建新版本',
+      'ai.proposal.kind.material': '物料',
+      'ai.proposal.kind.material_added': '新增物料',
+      'ai.proposal.kind.material_deleted': '删除物料',
+      'ai.proposal.kind.product': '产品',
+      'ai.proposal.kind.product_added': '新增产品',
+      'ai.proposal.kind.bom_added': '新增 BOM',
+      'ai.proposal.kind.bom_material_changed': 'BOM 物料变更',
+      'ai.proposal.kind.revision': '版本',
+      'ai.proposal.field.spec': '规格',
+      'ai.proposal.field.name': '名称',
+      'ai.proposal.field.name_zh': '中文名称',
+      'ai.proposal.field.name_vi': '越南名称',
+      'ai.proposal.field.color': '颜色',
+      'ai.proposal.field.unit': '单位',
+      'ai.proposal.field.quantity': '用量',
+      'ai.proposal.field.attr': '属性',
+      'ai.proposal.field.drawings': '图纸',
+      'ai.proposal.field.models3d': '3D模型',
+      'ai.proposal.field.sku': 'SKU',
+      'ai.proposal.field.size': '尺寸',
+      'ai.proposal.field.revision': '版本',
+      'ai.proposal.field.currentRevision': '当前版本',
+      'ai.proposal.field.effectiveRevision': '生效版本',
+      'ai.proposal.field.workflowState': '状态',
       'ai.proposal.risk': '风险',
       'ai.proposal.risk.low': '低',
       'ai.proposal.risk.medium': '中',
       'ai.proposal.risk.high': '高',
+      'ai.proposal.summary': '摘要',
+      'ai.proposal.totalChanges': '总更改',
+      'ai.proposal.affectedBoms': '受影响的 BOM',
+      'ai.proposal.duplicates': '重复项',
+      'ai.proposal.highestRisk': '最高风险',
       'ai.message.fallback': 'AI 助手暂时不可用。请稍后再试。',
       'ai.message.error': '发生错误',
       'ai.error.budgetExceeded': '本轮模型重复调用过多，请重试或更换模型。',
@@ -368,6 +402,20 @@ const global = globalThis;
       fieldPickerNoResults: '无匹配结果',
       fieldPickerOpen: '选择已有双语值',
       materialCodeExists: '该物料编码已存在',
+      'ai.warning.delete_material': '删除物料在提交到 GitHub 后将不可恢复。',
+      'ai.warning.remove_bom_item': '移除 BOM 关联可能会影响生产数量。',
+      'ai.warning.replace_bom_item': '替换 BOM 物料可能会改变适配、功能、采购来源或版本范围。',
+      'ai.warning.create_material': '请验证物料编码是否规范且未重复。',
+      'ai.warning.add_bom_item': '请验证产品、颜色、部件编码、数量及物料身份是否正确。',
+      'ai.warning.create_product': '请验证产品编码、初始 SKU、颜色及本地化名称。',
+      'ai.warning.create_product_revision': '创建版本会对当前产品及 BOM 状态进行快照。',
+      'ai.warning.release_product_revision': '发布将更改当前生效的生产版本，并需要 Admin 明确批准。',
+      'ai.warning.withdraw_product_revision': '撤回将恢复上一个生效版本，并需要 Admin 明确批准。',
+      'ai.warning.delete_material_structure': '删除物料结构将移除所有直接的子级关联。',
+      'ai.warning.remove_material_child': '移除子级关联会影响所有使用父级物料的产品。',
+      'ai.warning.materialShared': '警告：该物料在 {count} 个 BOM 位置{locations}中共享。修改它将影响所有相关位置。',
+      'ai.warning.duplicateMaterial': '更新后的物料与现有物料 ({duplicateCode}) 属性 100% 相同。为避免产生重复物料编码，建议您直接使用该现有物料进行替换。',
+      'ai.warning.allColors': '全色系',
     },
     vi: {
       brand: 'Jintai BOM',
@@ -551,6 +599,32 @@ const global = globalThis;
       'ai.settings.consentLabel': 'Cho phép chuyển sang mô hình trả phí',
       'ai.settings.statusConnected': 'Đã kết nối',
       'ai.settings.statusDisconnected': 'Chưa kết nối',
+      'ai.proposal.bumpRevisionOption': 'Tạo phiên bản mới trước khi áp dụng',
+      'ai.proposal.kind.material': 'Vật liệu',
+      'ai.proposal.appliedSuccess': 'Đã áp dụng thành công',
+      'ai.proposal.kind.material_added': 'Thêm vật liệu',
+      'ai.proposal.kind.material_deleted': 'Xóa vật liệu',
+      'ai.proposal.kind.product': 'Sản phẩm',
+      'ai.proposal.kind.product_added': 'Thêm sản phẩm',
+      'ai.proposal.kind.bom_added': 'Thêm BOM',
+      'ai.proposal.kind.bom_material_changed': 'Đổi vật liệu BOM',
+      'ai.proposal.kind.revision': 'Phiên bản',
+      'ai.proposal.field.spec': 'Quy cách',
+      'ai.proposal.field.name': 'Tên',
+      'ai.proposal.field.name_zh': 'Tên tiếng Trung',
+      'ai.proposal.field.name_vi': 'Tên tiếng Việt',
+      'ai.proposal.field.color': 'Màu sắc',
+      'ai.proposal.field.unit': 'Đơn vị',
+      'ai.proposal.field.quantity': 'Số lượng',
+      'ai.proposal.field.attr': 'Thuộc tính',
+      'ai.proposal.field.drawings': 'Bản vẽ',
+      'ai.proposal.field.models3d': 'Mô hình 3D',
+      'ai.proposal.field.sku': 'SKU',
+      'ai.proposal.field.size': 'Kích thước',
+      'ai.proposal.field.revision': 'Phiên bản',
+      'ai.proposal.field.currentRevision': 'Phiên bản hiện tại',
+      'ai.proposal.field.effectiveRevision': 'Phiên bản hiệu lực',
+      'ai.proposal.field.workflowState': 'Trạng thái',
       'ai.workspace.placeholder': 'Nhập câu hỏi của bạn...',
       'ai.workspace.send': 'Gửi',
       'ai.workspace.close': 'Đóng',
@@ -622,10 +696,18 @@ const global = globalThis;
       'ai.proposal.categoryStructure': 'Thay đổi cấu trúc cha-con',
       'ai.proposal.selectChange': 'Chọn thay đổi này',
       'ai.proposal.deleteChange': 'Loại thay đổi này',
+      'ai.proposal.swapToReplace': 'Chuyển thành lệnh Thay thế',
+      'ai.proposal.swapToReplaceCheckbox': 'Sử dụng vật liệu hiện có để thay thế',
+      'ai.proposal.regenerateProposal': 'Tạo lại phương án',
       'ai.proposal.risk': 'Rủi ro',
       'ai.proposal.risk.low': 'Thấp',
       'ai.proposal.risk.medium': 'Trung bình',
       'ai.proposal.risk.high': 'Cao',
+      'ai.proposal.summary': 'Tóm tắt',
+      'ai.proposal.totalChanges': 'Tổng thay đổi',
+      'ai.proposal.affectedBoms': 'BOM ảnh hưởng',
+      'ai.proposal.duplicates': 'Trùng lặp',
+      'ai.proposal.highestRisk': 'Rủi ro cao nhất',
       'ai.message.fallback': 'Trợ lý AI tạm thời không khả dụng. Vui lòng thử lại sau.',
       'ai.message.error': 'Đã xảy ra lỗi',
       'ai.error.budgetExceeded': 'Mô hình đã gọi lặp quá nhiều trong lượt này. Hãy thử lại hoặc đổi mô hình.',
@@ -640,7 +722,21 @@ const global = globalThis;
       'ai.learning.requestTeaching': 'Tôi chưa thể xác định câu trả lời từ PDM cục bộ và dịch vụ model cũng không khả dụng. Hãy cho tôi biết cách hiểu hoặc câu trả lời đúng; tôi sẽ ghi nhớ để dùng cho câu hỏi tương tự.',
       'ai.learning.teachingSaved': 'Tôi đã ghi nhớ lời giải thích. Bộ nhớ này chỉ hỗ trợ hiểu câu hỏi và không trực tiếp sửa dữ liệu PDM hoặc BOM.',
       'ai.message.greetingResponse': 'Xin chào! Tôi có thể giúp gì cho bạn?',
-      'ai.workspace.greeting': '👋 Xin chào! Tôi là Trợ lý AI của JinTai PDM.\n\nHãy nhập câu hỏi của bạn xuống bên dưới, tôi đã sẵn sàng hỗ trợ bạn bất cứ lúc nào! 🤩'
+      'ai.workspace.greeting': '👋 Xin chào! Tôi là Trợ lý AI của JinTai PDM.\n\nHãy nhập câu hỏi của bạn xuống bên dưới, tôi đã sẵn sàng hỗ trợ bạn bất cứ lúc nào! 🤩',
+      'ai.warning.delete_material': 'Xóa vật liệu là hành động không thể hoàn tác sau khi tải lên GitHub.',
+      'ai.warning.remove_bom_item': 'Xóa liên kết BOM có thể ảnh hưởng đến số lượng sản xuất.',
+      'ai.warning.replace_bom_item': 'Thay thế vật liệu BOM có thể làm thay đổi sự phù hợp, chức năng, nguồn mua hoặc phạm vi phiên bản.',
+      'ai.warning.create_material': 'Vui lòng xác minh mã vật liệu là chuẩn và không bị trùng lặp.',
+      'ai.warning.add_bom_item': 'Vui lòng xác minh sản phẩm, màu sắc, mã linh kiện, số lượng và thông tin vật liệu.',
+      'ai.warning.create_product': 'Vui lòng xác minh mã sản phẩm, SKU ban đầu, màu sắc và tên địa phương hóa.',
+      'ai.warning.create_product_revision': 'Tạo phiên bản sẽ chụp nhanh trạng thái hiện tại của sản phẩm và BOM.',
+      'ai.warning.release_product_revision': 'Phát hành sẽ thay đổi phiên bản sản xuất hiện hành và yêu cầu Admin phê duyệt rõ ràng.',
+      'ai.warning.withdraw_product_revision': 'Thu hồi sẽ khôi phục phiên bản hiện hành trước đó và yêu cầu Admin phê duyệt rõ ràng.',
+      'ai.warning.delete_material_structure': 'Xóa cấu trúc vật liệu sẽ loại bỏ tất cả các liên kết con trực tiếp.',
+      'ai.warning.remove_material_child': 'Xóa liên kết con có thể ảnh hưởng đến mọi sản phẩm sử dụng vật liệu cha.',
+      'ai.warning.materialShared': 'Cảnh báo: Vật liệu này được dùng chung ở {count} vị trí BOM{locations}. Sửa đổi nó sẽ ảnh hưởng đến tất cả.',
+      'ai.warning.duplicateMaterial': 'Vật liệu sau khi cập nhật giống hệt 100% với một vật liệu đã có sẵn ({duplicateCode}). Để tránh trùng lặp quá nhiều mã vật liệu, hãy cân nhắc sử dụng mã vật liệu có sẵn đó để thay thế.',
+      'ai.warning.allColors': 'Tất cả màu'
     }
   };
 
@@ -1057,7 +1153,7 @@ const global = globalThis;
               nameZh: item.nameZh,
               nameVi: item.nameVi,
             })),
-            materials: (result.materials || []).slice(0, 8).map(item => ({
+            materials: (result.materials || []).slice(0, 50).map(item => ({
               materialId: item.materialId,
               code: item.code,
               nameZh: item.nameZh,
@@ -1073,7 +1169,7 @@ const global = globalThis;
         runTool: async (call, snapshot) => {
           if (call.name === 'apply_mutation') {
             try {
-              const review = buildMutationProposalReview(snapshot, call.arguments);
+              const review = buildMutationProposalReview(snapshot, call.arguments, (k) => this.label(k));
             
             // Render the proposal directly into the chat and pause execution
             this.aiFeature.ui.renderMessage({
@@ -1082,10 +1178,64 @@ const global = globalThis;
               proposal: call.arguments,
               proposalReview: review,
               diff: review.finalDiff,
-              onApprove: (selectedProposal) => {
+              snapshot: snapshot,
+              onApprove: (selectedProposal, options) => {
                 try {
                   const currentSnapshot = this.getSnapshot();
                   const transaction = applyMutationProposalTransaction(currentSnapshot, selectedProposal);
+                  
+                  const bumpRevision = options?.bumpRevision && this.isAdmin() && this.canCreateProductRevision();
+                  let affectedSku = null;
+                  
+                  if (bumpRevision) {
+                    for (const change of transaction.changes) {
+                      if (change.kind.startsWith('bom_') || change.kind === 'product' || change.kind === 'product_added') {
+                        affectedSku = change.code;
+                        break;
+                      }
+                    }
+                  }
+
+                  if (bumpRevision && affectedSku) {
+                    const fields = [];
+                    if (!currentSnapshot.payload.productRevisions?.[affectedSku]) {
+                      fields.push({
+                        key: 'currentRevision',
+                        label: this.label('currentRevision'),
+                        defaultValue: 'A.1',
+                        required: true,
+                      });
+                    }
+                    fields.push(
+                      { key: 'revision', label: this.label('newRevision'), placeholder: 'V4.1', required: true },
+                      { key: 'changeReason', label: this.label('changeReason'), required: true }
+                    );
+                    
+                    this.openPdmPrompt(this.label('createRevision') + ` (${affectedSku})`, fields, (values) => {
+                      try {
+                         // Apply revision creation first to the payload
+                         createProductRevision(currentSnapshot.payload, affectedSku, values.revision, { 
+                           currentRevision: values.currentRevision,
+                           changeReason: values.changeReason 
+                         });
+                         // Re-calculate the AI transaction on top of the newly revisioned payload
+                         const updatedSnapshot = { ...currentSnapshot, payload: currentSnapshot.payload };
+                         const finalTransaction = applyMutationProposalTransaction(updatedSnapshot, selectedProposal);
+                         this.applyAiMutation({
+                           proposal: selectedProposal,
+                           changes: finalTransaction.changes,
+                           payload: finalTransaction.payload,
+                           sourceCommit: currentSnapshot.sourceMetadata?.commitSha
+                         });
+                      } catch (error) {
+                         const key = error.message === 'REVISION_EXISTS' ? 'revisionExists' : 'revisionCreateFailed';
+                         this.setStatus(this.label(key), 'error');
+                         this.aiFeature.ui.renderMessage({ role: 'assistant', text: this.label(key) });
+                      }
+                    });
+                    return;
+                  }
+
                   this.applyAiMutation({
                      proposal: selectedProposal,
                      changes: transaction.changes,
@@ -1095,6 +1245,12 @@ const global = globalThis;
                 } catch (e) {
                   this.aiFeature.ui.renderMessage({ role: 'assistant', text: this.label('ai.proposal.applyError') || 'Error applying proposal' });
                 }
+              },
+              onViewChanges: () => {
+                this.showDiffModal();
+              },
+              onSave: () => {
+                if (this.isAdmin()) return this.saveCloud();
               }
             });
 

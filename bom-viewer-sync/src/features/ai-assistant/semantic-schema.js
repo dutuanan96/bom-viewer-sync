@@ -130,15 +130,18 @@ const EVIDENCE_ARGUMENT_RULES = Object.freeze({
 });
 
 const REQUIRED_TOP_LEVEL_KEYS = Object.freeze([
-  'confidence',
   'intent',
+  'workflowAction'
+]);
+
+const OPTIONAL_TOP_LEVEL_KEYS = Object.freeze([
   'proposedActions',
   'rejectionCode',
   'requestedEvidence',
+  'confidence',
   'responseLanguage',
   'schemaVersion',
   'taskUpdates',
-  'workflowAction',
 ]);
 
 function nonEmptyString(value) {
@@ -204,7 +207,14 @@ function validateTaskRef(taskRef, path) {
     return invalid('INVALID_TASK_ORDINAL', `${path}.value`);
   }
   if (taskRef.kind === 'new' && !TASK_TYPES.includes(taskRef.value)) {
-    return invalid('INVALID_NEW_TASK_TYPE', `${path}.value`);
+    // Lenient: if model appended extra suffix (e.g. "update_material_LGS111ZK"),
+    // try to strip the suffix and find a valid TASK_TYPE prefix.
+    const matchedType = TASK_TYPES.find(t => taskRef.value.startsWith(t + '_') || taskRef.value.startsWith(t + '-'));
+    if (matchedType) {
+      taskRef.value = matchedType;
+    } else {
+      return invalid('INVALID_NEW_TASK_TYPE', `${path}.value`);
+    }
   }
   return { valid: true };
 }
@@ -278,80 +288,89 @@ function validateProposedAction(action, index) {
   return { valid: true };
 }
 
-export function validateSemanticSchema(output) {
-  if (!output || typeof output !== 'object' || Array.isArray(output)) {
-    return invalid('INVALID_JSON_OBJECT');
+export function validateSemanticSchema(json) {
+  if (!json || typeof json !== 'object' || Array.isArray(json)) {
+    return invalid('INVALID_JSON_OBJECT', 'root');
   }
-  if (!exactKeys(output, REQUIRED_TOP_LEVEL_KEYS)) {
-    return invalid('INVALID_TOP_LEVEL_KEYS');
+
+  if (!exactKeys(json, REQUIRED_TOP_LEVEL_KEYS, OPTIONAL_TOP_LEVEL_KEYS)) {
+    return invalid('MISSING_REQUIRED_KEYS', 'root');
   }
-  if (output.schemaVersion !== 1) return invalid('INVALID_SCHEMA_VERSION', 'schemaVersion');
-  if (!WORKFLOW_INTENTS.includes(output.intent)) return invalid('INVALID_INTENT', 'intent');
-  if (!WORKFLOW_ACTIONS.includes(output.workflowAction)) {
+  if (json.schemaVersion !== undefined && json.schemaVersion !== 1) return invalid('INVALID_SCHEMA_VERSION', 'schemaVersion');
+  if (!WORKFLOW_INTENTS.includes(json.intent)) return invalid('INVALID_INTENT', 'intent');
+  if (!WORKFLOW_ACTIONS.includes(json.workflowAction)) {
     return invalid('INVALID_WORKFLOW_ACTION', 'workflowAction');
   }
-  if (!RESPONSE_LANGUAGES.includes(output.responseLanguage)) {
+  if (json.responseLanguage !== undefined && !RESPONSE_LANGUAGES.includes(json.responseLanguage)) {
     return invalid('INVALID_RESPONSE_LANGUAGE', 'responseLanguage');
   }
   if (
-    typeof output.confidence !== 'number'
-    || !Number.isFinite(output.confidence)
-    || output.confidence < 0
-    || output.confidence > 1
+    json.confidence !== undefined &&
+    (typeof json.confidence !== 'number'
+    || !Number.isFinite(json.confidence)
+    || json.confidence < 0
+    || json.confidence > 1)
   ) {
     return invalid('INVALID_CONFIDENCE', 'confidence');
   }
-  if (!Array.isArray(output.taskUpdates)) return invalid('INVALID_TASK_UPDATES_ARRAY', 'taskUpdates');
-  if (!Array.isArray(output.requestedEvidence)) {
+  if (json.taskUpdates !== undefined && !Array.isArray(json.taskUpdates)) return invalid('INVALID_TASK_UPDATES_ARRAY', 'taskUpdates');
+  
+  if (json.requestedEvidence && !Array.isArray(json.requestedEvidence)) {
     return invalid('INVALID_REQUESTED_EVIDENCE_ARRAY', 'requestedEvidence');
   }
-  if (!Array.isArray(output.proposedActions)) {
+  if (json.proposedActions && !Array.isArray(json.proposedActions)) {
     return invalid('INVALID_PROPOSED_ACTIONS_ARRAY', 'proposedActions');
   }
 
-  for (let index = 0; index < output.taskUpdates.length; index += 1) {
-    const validation = validateTaskUpdate(output.taskUpdates[index], index);
-    if (!validation.valid) return validation;
+  if (json.taskUpdates !== undefined) {
+    for (let index = 0; index < json.taskUpdates.length; index += 1) {
+      const validation = validateTaskUpdate(json.taskUpdates[index], index);
+      if (!validation.valid) return validation;
+    }
   }
-  for (let index = 0; index < output.requestedEvidence.length; index += 1) {
-    const validation = validateEvidenceRequest(output.requestedEvidence[index], index);
-    if (!validation.valid) return validation;
+  if (json.requestedEvidence) {
+    for (let index = 0; index < json.requestedEvidence.length; index += 1) {
+      const validation = validateEvidenceRequest(json.requestedEvidence[index], index);
+      if (!validation.valid) return validation;
+    }
   }
-  for (let index = 0; index < output.proposedActions.length; index += 1) {
-    const validation = validateProposedAction(output.proposedActions[index], index);
-    if (!validation.valid) return validation;
+  if (json.proposedActions) {
+    for (let index = 0; index < json.proposedActions.length; index += 1) {
+      const validation = validateProposedAction(json.proposedActions[index], index);
+      if (!validation.valid) return validation;
+    }
   }
 
-  const isRejection = output.intent === 'rejection';
+  const isRejection = json.intent === 'rejection';
   if (isRejection) {
-    if (!REJECTION_CODES.includes(output.rejectionCode)) {
+    if (!REJECTION_CODES.includes(json.rejectionCode)) {
       return invalid('INVALID_REJECTION_CODE', 'rejectionCode');
     }
     if (
-      output.workflowAction !== 'reject'
-      || output.taskUpdates.length > 0
-      || output.proposedActions.length > 0
+      json.workflowAction !== 'reject'
+      || (json.taskUpdates && json.taskUpdates.length > 0)
+      || (json.proposedActions && json.proposedActions.length > 0)
     ) {
       return invalid('REJECTION_MUST_NOT_MUTATE');
     }
-  } else if (output.rejectionCode !== null) {
+  } else if (json.rejectionCode !== null && json.rejectionCode !== undefined) {
     return invalid('NON_REJECTION_HAS_REJECTION_CODE', 'rejectionCode');
   }
 
-  if (output.intent === 'cancel_workflow' && output.workflowAction !== 'cancel') {
+  if (json.intent === 'cancel_workflow' && json.workflowAction !== 'cancel') {
     return invalid('CANCEL_INTENT_ACTION_MISMATCH');
   }
-  if (output.intent === 'start_new_request' && output.workflowAction !== 'restart') {
+  if (json.intent === 'start_new_request' && json.workflowAction !== 'restart') {
     return invalid('RESTART_INTENT_ACTION_MISMATCH');
   }
   if (
-    output.intent === 'workflow_update'
-    && output.taskUpdates.length === 0
-    && output.proposedActions.length === 0
+    json.intent === 'workflow_update'
+    && (!json.taskUpdates || json.taskUpdates.length === 0)
+    && (!json.proposedActions || json.proposedActions.length === 0)
   ) {
     return invalid('EMPTY_WORKFLOW_UPDATE');
   }
-  if (output.intent === 'clarification' && output.workflowAction !== 'ask_clarification') {
+  if (json.intent === 'clarification' && json.workflowAction !== 'ask_clarification') {
     return invalid('CLARIFICATION_ACTION_MISMATCH');
   }
   return { valid: true };
@@ -361,7 +380,7 @@ export function semanticSchemaPrompt() {
   return [
     'You are a strict semantic interpreter for a governed PDM workflow. Extract user intent into a precise JSON structure.',
     'Return exactly one JSON object. Do not return markdown or hidden reasoning.',
-    `Required keys: ${REQUIRED_TOP_LEVEL_KEYS.join(', ')}.`,
+    'Required keys: intent, workflowAction. Optional: confidence, responseLanguage, schemaVersion, taskUpdates, rejectionCode, requestedEvidence, proposedActions.',
     `intent: ${WORKFLOW_INTENTS.join(' | ')}.`,
     `workflowAction: ${WORKFLOW_ACTIONS.join(' | ')}.`,
     'taskUpdates must be an array of objects: { taskRef: { kind: "current" | "stable_id" | "ordinal" | "new", value: string }, action: string, fields?: object }.',

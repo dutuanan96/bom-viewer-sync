@@ -100,7 +100,7 @@ export function validateMutationContext(snapshot, mutation) {
       throw err;
     }
   }
-  if (['update_bom_item', 'replace_bom_item', 'remove_bom_item'].includes(mutation.operationType)) {
+  if (['update_bom_item', 'remove_bom_item'].includes(mutation.operationType)) {
     const entry = snapshot.payload?.materialDb?.bomEntries?.find(item => item.id === mutation.targetId);
     if (!entry) {
       const err = new Error(`BOM entry ${mutation.targetId} not found.`);
@@ -112,6 +112,14 @@ export function validateMutationContext(snapshot, mutation) {
       snapshot.selection?.color !== entry.color
     ) {
       const err = new Error('BOM entry mutation must match the selected product and color.');
+      err.code = ERROR_CODES.AI_POLICY_BLOCKED;
+      throw err;
+    }
+  }
+  if (mutation.operationType === 'replace_bom_item') {
+    const entry = snapshot.payload?.materialDb?.bomEntries?.find(item => item.id === mutation.targetId);
+    if (!entry) {
+      const err = new Error(`BOM entry ${mutation.targetId} not found.`);
       err.code = ERROR_CODES.AI_POLICY_BLOCKED;
       throw err;
     }
@@ -445,25 +453,65 @@ function operationRisk(operationType) {
   return 'low';
 }
 
-function operationWarnings(operation, payload) {
+function operationWarnings(operation, payload, t = (k) => k) {
   const warnings = [];
-  if (operation.operationType === 'delete_material') warnings.push('Deleting a material is irreversible after GitHub upload.');
-  if (operation.operationType === 'remove_bom_item') warnings.push('Removing a BOM relationship may affect production quantities.');
-  if (operation.operationType === 'replace_bom_item') warnings.push('Replacing a BOM material can change fit, function, sourcing, or revision scope.');
-  if (operation.operationType === 'create_material') warnings.push('Verify the material code is canonical and not a duplicate.');
-  if (operation.operationType === 'add_bom_item') warnings.push('Verify product, color, component code, quantity, and material identity.');
-  if (operation.operationType === 'create_product') warnings.push('Verify the product code, initial SKU, color, and localized names.');
-  if (operation.operationType === 'create_product_revision') warnings.push('Creating a revision snapshots the current product and BOM state.');
-  if (operation.operationType === 'release_product_revision') warnings.push('Releasing changes the effective production revision and requires explicit Admin approval.');
-  if (operation.operationType === 'withdraw_product_revision') warnings.push('Withdrawing restores the prior effective revision and requires explicit Admin approval.');
-  if (operation.operationType === 'delete_material_structure') warnings.push('Deleting a material structure removes every direct child relationship.');
-  if (operation.operationType === 'remove_material_child') warnings.push('Removing a child relationship can affect every product using the parent material.');
+  if (operation.operationType === 'delete_material') warnings.push(t('ai.warning.delete_material'));
+  if (operation.operationType === 'remove_bom_item') warnings.push(t('ai.warning.remove_bom_item'));
+  if (operation.operationType === 'replace_bom_item') warnings.push(t('ai.warning.replace_bom_item'));
+  if (operation.operationType === 'create_material') warnings.push(t('ai.warning.create_material'));
+  if (operation.operationType === 'add_bom_item') warnings.push(t('ai.warning.add_bom_item'));
+  if (operation.operationType === 'create_product') warnings.push(t('ai.warning.create_product'));
+  if (operation.operationType === 'create_product_revision') warnings.push(t('ai.warning.create_product_revision'));
+  if (operation.operationType === 'release_product_revision') warnings.push(t('ai.warning.release_product_revision'));
+  if (operation.operationType === 'withdraw_product_revision') warnings.push(t('ai.warning.withdraw_product_revision'));
+  if (operation.operationType === 'delete_material_structure') warnings.push(t('ai.warning.delete_material_structure'));
+  if (operation.operationType === 'remove_material_child') warnings.push(t('ai.warning.remove_material_child'));
   
   if (payload && (operation.operationType === 'update_material' || operation.operationType === 'update_material_field')) {
+    const updatedMaterial = payload.materialDb?.materials?.[operation.targetId];
+    if (updatedMaterial) {
+      const allMaterialIds = Object.keys(payload.materialDb?.materials || {});
+      for (const id of allMaterialIds) {
+        if (id === operation.targetId) continue;
+        const otherMaterial = payload.materialDb.materials[id];
+        
+        let isDuplicate = true;
+        for (const field of ['name', 'spec', 'material', 'color', 'attr']) {
+          const val1 = updatedMaterial[field] || {};
+          const val2 = otherMaterial[field] || {};
+          if ((val1.zh || '') !== (val2.zh || '') || (val1.vi || '') !== (val2.vi || '')) {
+            isDuplicate = false;
+            break;
+          }
+        }
+        
+        if (isDuplicate) {
+          warnings.push({
+            message: t('ai.warning.duplicateMaterial').replace('{duplicateCode}', otherMaterial.code || id),
+            action: { type: 'swap', duplicateId: id }
+          });
+          break;
+        }
+      }
+    }
+
     const usage = materialWhereUsed(payload, operation.targetId);
     const usageCount = usage.productEntries.length + usage.parentEntries.length + usage.childEntries.length;
     if (usageCount > 1) {
-      warnings.push(`Warning: This material is shared across ${usageCount} BOM locations. Modifying it will affect all of them.`);
+      const productMap = {};
+      usage.productEntries.forEach(e => {
+        if (!productMap[e.parentId]) productMap[e.parentId] = new Set();
+        productMap[e.parentId].add(e.color ? e.color : t('ai.warning.allColors'));
+      });
+      const productCodes = Object.entries(productMap).map(([pid, colors]) => {
+        if (colors.size === 0) return pid;
+        return `${pid} - ${Array.from(colors).join(', ')}`;
+      });
+      const parentMaterialCodes = [...new Set(usage.parentEntries.map(e => payload.materialDb?.materials?.[e.parentId]?.code || e.parentId))];
+      const locations = [...productCodes, ...parentMaterialCodes].filter(Boolean).join('; ');
+      const locationText = locations ? ` (${locations})` : '';
+      
+      warnings.push(t('ai.warning.materialShared').replace('{count}', usageCount).replace('{locations}', locationText));
     }
   }
 
@@ -578,7 +626,7 @@ function verifyProposalPayload(payload) {
   return { valid: errors.length === 0, errors: errors.slice(0, 50), warnings: warnings.slice(0, 50) };
 }
 
-export function buildMutationProposalReview(snapshot, proposalInput) {
+export function buildMutationProposalReview(snapshot, proposalInput, t = (k) => k) {
   const proposal = validateMutationProposal(proposalInput);
   let payload = clone(snapshot.payload);
   let currentCanEdit = snapshot.canEditRevision;
@@ -608,7 +656,7 @@ export function buildMutationProposalReview(snapshot, proposalInput) {
       id: `change-${index + 1}`,
       category: operationCategory(mutation.operationType),
       risk: operationRisk(mutation.operationType),
-      warnings: [...operationWarnings(mutation, operationSnapshot.payload), ...enrichment.warnings],
+      warnings: [...operationWarnings(mutation, operationSnapshot.payload, t), ...enrichment.warnings],
       mutation: clone(mutation),
       diff,
     };

@@ -397,7 +397,9 @@ export function createOpenRouterGateway(opts = {}) {
       if (requiresExactProviderParameters) bodyObj.provider.require_parameters = true;
       bodyObj.tools = requestTools;
       bodyObj.tool_choice = 'auto';
-      bodyObj.parallel_tool_calls = false;
+      if (modelMeta.supportedParameters && modelMeta.supportedParameters.includes('parallel_tool_calls')) {
+        bodyObj.parallel_tool_calls = false;
+      }
     }
 
     const controller = new AbortController();
@@ -473,7 +475,9 @@ export function createOpenRouterGateway(opts = {}) {
       if (requiresExactProviderParameters) bodyObj.provider.require_parameters = true;
       bodyObj.tools = requestTools;
       bodyObj.tool_choice = 'auto';
-      bodyObj.parallel_tool_calls = false;
+      if (modelMeta.supportedParameters && modelMeta.supportedParameters.includes('parallel_tool_calls')) {
+        bodyObj.parallel_tool_calls = false;
+      }
     }
 
     const response = await protectedFetch('/api/v1/chat/completions', {

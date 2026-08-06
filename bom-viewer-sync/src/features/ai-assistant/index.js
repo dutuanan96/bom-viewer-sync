@@ -559,7 +559,7 @@ export function createAiAssistantFeature({
     }
   }
 
-  let currentModel = 'nvidia/nemotron-3-ultra-550b-a55b:free';
+  let currentModel = 'inclusionai/ling-3.0-flash:free';
   let modelRegistry = [];
   let marketplaceWebEnabled = false;
   let pendingTeachingQuery = '';

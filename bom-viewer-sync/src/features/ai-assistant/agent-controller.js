@@ -417,6 +417,7 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
     const executedFingerprints = new Set();
     const successfulReadOnlyTools = new Set();
     let consecutiveNoProgress = 0;
+    let proposalReminderSent = false;
 
     let accumulatedText = '';
 
@@ -572,7 +573,15 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
           }
           // Stream ended. Only flush content to the UI when there are NO tool calls —
           // meaning this is the final natural-language answer, not intermediate reasoning.
-          if (toolCalls.length === 0 && contentDeltas.length > 0) {
+          // CRITICAL: Suppress streaming for proposal routes when content looks like JSON code blocks.
+          // The system will parse the JSON internally and show a proper proposal UI.
+          const isProposalRoute = route?.intent === 'proposal'
+            || conversationContext?.workflowState?.workflowStatus === 'active';
+          const looksLikeSemanticJson = /```(?:json)?\s*\{/.test(fullText)
+            || /^\s*\{[\s\S]*"(?:intent|workflowAction)"/.test(fullText);
+          const shouldSuppressStream = isProposalRoute && looksLikeSemanticJson;
+
+          if (toolCalls.length === 0 && contentDeltas.length > 0 && !shouldSuppressStream) {
             let accumulated = '';
             for (const delta of contentDeltas) {
               accumulated += delta;
@@ -662,12 +671,20 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
         }
 
         try {
+          // For proposal final-answer turns (no tools), allow extra tokens to prevent JSON truncation
+          const isProposalFinalTurn = (route?.intent === 'proposal'
+            || conversationContext?.workflowState?.workflowStatus === 'active')
+            && !modelSupportsTools;
+          const effectiveMaxTokens = isProposalFinalTurn
+            ? Math.max(budget.summary?.().limits?.maxOutputTokens || 1200, 3000)
+            : (budget.summary?.().limits?.maxOutputTokens || 1200);
+
           if (gateway.chatStream) {
             const stream = await gateway.chatStream({
               model: activeModel,
               messages: promptMessages,
               tools: (modelSupportsTools && !deterministicPrefetchUsed) ? requestTools : [],
-              maxTokens: budget.summary?.().limits?.maxOutputTokens || 1200,
+              maxTokens: effectiveMaxTokens,
               signal,
               webSearch: useMarketplaceWebSearch,
             });
@@ -677,7 +694,7 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
               model: activeModel,
               messages: promptMessages,
               tools: (modelSupportsTools && !deterministicPrefetchUsed) ? requestTools : [],
-              maxTokens: budget.summary?.().limits?.maxOutputTokens || 1200,
+              maxTokens: effectiveMaxTokens,
               parallel_tool_calls: false,
               signal,
               webSearch: useMarketplaceWebSearch,
@@ -965,6 +982,24 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
               });
               modelSupportsTools = false;
             }
+
+            // For proposal routes: after tools have run, explicitly remind model to emit JSON.
+            // Only push this reminder ONCE to prevent the model from receiving it multiple times
+            // and repeating the JSON output.
+            const isProposalRoute = route?.intent === 'proposal'
+              || conversationContext?.workflowState?.workflowStatus === 'active';
+            if (isProposalRoute && currentTurnUsage.toolCalls >= 1 && !proposalReminderSent) {
+              const evidenceIds = [...new Set(ledger.getEvidence().map(item => item.id))];
+              if (evidenceIds.length > 0) {
+                proposalReminderSent = true;
+                messages.push({
+                  role: 'user',
+                  content: `SYSTEM_PROPOSAL_REQUIRED: You have gathered sufficient evidence (${evidenceIds.join(', ')}). Output ONLY one JSON object (no markdown, no explanation) with these keys: intent, workflowAction, taskUpdates, proposedActions. Example:
+{"intent":"workflow_update","workflowAction":"build_proposal","taskUpdates":[{"taskRef":{"kind":"new","value":"update_material"},"action":"create_task","fields":{"materialCode":"LGS111ZK","spec":"单瓦785x100mm"}}],"proposedActions":[{"operationType":"update_material","targetId":"LGS111ZK"}]}`
+                });
+                modelSupportsTools = false;
+              }
+            }
           }
         } else {
           // Final natural language answer
@@ -993,78 +1028,10 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
             if (firstBrace !== -1 && lastBrace > firstBrace) {
               const candidate = jsonText.slice(firstBrace, lastBrace + 1);
               const obj = JSON.parse(candidate);
-              if (obj && obj.intent && obj.schemaVersion) semanticJson = obj;
+              if (obj && obj.intent && obj.workflowAction) semanticJson = obj;
             }
           } catch {
             semanticJson = null;
-          }
-
-          // Automatic proposedActions recovery: Extract materials from tool responses in messages array and ledger evidence
-          const materialsFound = [];
-          for (const msg of messages) {
-            if (msg.role === 'tool' && msg.content) {
-              try {
-                const parsed = JSON.parse(msg.content);
-                if (parsed?.materials && Array.isArray(parsed.materials)) {
-                  for (const mat of parsed.materials) {
-                    if (mat && mat.code && !materialsFound.some(m => m.code === mat.code)) {
-                      materialsFound.push(mat);
-                    }
-                  }
-                }
-              } catch {}
-            }
-          }
-          for (const ev of ledger.getEvidence()) {
-            if (ev.payload?.materials && Array.isArray(ev.payload.materials)) {
-              for (const mat of ev.payload.materials) {
-                if (mat && mat.code && !materialsFound.some(m => m.code === mat.code)) {
-                  materialsFound.push(mat);
-                }
-              }
-            }
-          }
-
-          if ((!semanticJson?.proposedActions || semanticJson.proposedActions.length === 0) && materialsFound.length > 0) {
-            const isMutationReq = /(?:改|变|đổi|sửa|100mm|thành)/i.test(query);
-            if (isMutationReq) {
-              const match = query.match(/(?:改为|改|成|thành)\s*(\d+)mm/i) || query.match(/(\d+)mm/i);
-              const targetVal = match ? match[1] : '100';
-
-              const autoActions = materialsFound.map(m => {
-                let oldSpec = typeof m.spec === 'object' ? (m.spec.zh || m.spec.vi || '') : String(m.spec || '');
-                let newSpec = oldSpec;
-                if (/60(?:mm)?/i.test(oldSpec)) {
-                  newSpec = oldSpec.replace(/60(mm)?/gi, `${targetVal}mm`);
-                } else if (!newSpec.includes(targetVal)) {
-                  newSpec = `${oldSpec} ${targetVal}mm`.trim();
-                }
-                return {
-                  operationType: 'update_material',
-                  targetId: m.code || m.materialId,
-                  payload: { spec: { zh: newSpec, vi: newSpec } }
-                };
-              });
-
-              if (autoActions.length > 0) {
-                if (!semanticJson) {
-                  semanticJson = {
-                    confidence: 1,
-                    intent: 'workflow_update',
-                    workflowAction: 'build_proposal',
-                    responseLanguage: snapshot.lang === 'vi' ? 'vi' : 'zh',
-                    schemaVersion: 1,
-                    rejectionCode: null,
-                    taskUpdates: [],
-                    requestedEvidence: [],
-                    proposedActions: autoActions
-                  };
-                } else {
-                  semanticJson.proposedActions = autoActions;
-                  semanticJson.workflowAction = 'build_proposal';
-                }
-              }
-            }
           }
 
           let parsedOutput = null;
@@ -1074,49 +1041,89 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
               const { state, errors } = workflowReducer(toolConversationContext.workflowState, semanticJson);
               toolConversationContext = { ...toolConversationContext, workflowState: state };
 
-              if (errors.length > 0) {
-                messages.push({
-                  role: 'system',
-                  content: `WORKFLOW ERROR: ${errors.map(e => e.code).join(', ')}. Please adjust your output.`
-                });
-                finalAnswer = null;
-                continue;
-              }
+                            if (semanticJson.workflowAction === 'build_proposal') {
+                const tasksToPropose = state.tasks || [];
+                if (tasksToPropose.length > 0) {
+                  const materialsMap = snapshot?.payload?.materialDb?.materials || {};
+                  const materialsArray = Array.isArray(snapshot?.materials) ? snapshot.materials : Object.values(materialsMap);
 
-              if (semanticJson.proposedActions && semanticJson.proposedActions.length > 0) {
-                const syntheticCall = {
-                  name: 'apply_mutation',
-                  arguments: { operations: semanticJson.proposedActions }
-                };
-                try {
-                  const safeCall = trustPolicy.authorizeToolCall(syntheticCall);
-                  if (runTool) await runTool(safeCall, snapshot);
-                  const count = semanticJson.proposedActions.length;
-                  parsedOutput = {
-                    text: semanticJson.responseLanguage === 'zh'
-                      ? `我已为您创建 ${count} 个物料的规格修改提案，请在屏幕上查看并核对/批准。`
-                      : `Tôi đã tạo đề xuất sửa đổi quy cách cho ${count} vật liệu, vui lòng xem và phê duyệt trên màn hình.`,
-                    citations: evidenceIds,
-                    workflowUpdate: semanticJson
-                  };
-                } catch (err) {
-                  messages.push({
-                    role: 'system',
-                    content: `SYSTEM_WORKFLOW_ERROR: Constraint conflict: ${err.message}. Do not argue or apologize. Generate a new workflow_update with intent "clarification" asking the user to provide correct values.`
+                  const hydratedOperations = tasksToPropose.map(task => {
+                    let rawTargetId = task.fields?.targetId || task.fields?.materialCode || task.fields?.productCode;
+                    let targetId = rawTargetId;
+
+                    if (rawTargetId) {
+                      const material = materialsArray.find(m => m.id === rawTargetId || m.code === rawTargetId);
+                      if (material) {
+                        targetId = material.id;
+                      }
+                    }
+
+                    let payload = {};
+                    
+                    if (task.type === 'update_material') {
+                      payload = { patch: {} };
+                      if (task.fields?.targetSpec) {
+                        payload.patch.spec = { zh: task.fields.targetSpec, vi: task.fields.targetSpec };
+                      } else if (task.fields?.spec) {
+                        payload.patch.spec = { zh: task.fields.spec, vi: task.fields.spec };
+                      }
+                    } else if (task.type === 'create_material') {
+                      payload = { material: task.fields || {} };
+                    } else if (task.type === 'update_material_field') {
+                      const fieldName = task.fields?.attribute || task.fields?.field;
+                      const fieldValue = task.fields?.[fieldName] !== undefined ? task.fields[fieldName] : task.fields?.value;
+                      payload = { field: fieldName, value: fieldValue };
+                    }
+                    
+                    return { operationType: task.type, targetId, payload };
                   });
-                  finalAnswer = null;
-                  continue;
+
+                  const syntheticCall = {
+                    name: 'apply_mutation',
+                    arguments: { operations: hydratedOperations }
+                  };
+                  try {
+                    const safeCall = trustPolicy.authorizeToolCall(syntheticCall);
+                    if (runTool) await runTool(safeCall, snapshot);
+                    const count = hydratedOperations.length;
+                    parsedOutput = {
+                      text: semanticJson.responseLanguage !== 'vi'
+                        ? `我已为您创建 ${count} 个物料的修改提案，请在屏幕上查看并核对/批准。`
+                        : `Tôi đã tạo đề xuất sửa đổi cho ${count} vật liệu, vui lòng xem và phê duyệt trên màn hình.`,
+                      citations: evidenceIds,
+                      workflowUpdate: semanticJson
+                    };
+                  } catch (err) {
+                    console.error('[DEBUG] apply_mutation error:', err);
+                    messages.push({
+                      role: 'system',
+                      content: `SYSTEM_WORKFLOW_ERROR: Constraint conflict: ${err.message}. Do not argue or apologize. Generate a new workflow_update with intent "clarification" asking the user to provide correct values.`
+                    });
+                    finalAnswer = null;
+                    continue;
+                  }
+                } else {
+                  let cleanText = '';
+                  const isZh = semanticJson.responseLanguage !== 'vi';
+                  if (semanticJson.workflowAction === 'ask_clarification') {
+                    cleanText = isZh ? '请确认相关信息或提供更多细节。' : 'Vui lòng xác nhận thông tin liên quan hoặc cung cấp thêm chi tiết.';
+                  } else if (semanticJson.workflowAction === 'build_proposal') {
+                    cleanText = isZh ? '已生成提案草稿，请在屏幕上核对。' : 'Đã tạo bản nháp đề xuất, vui lòng kiểm tra trên màn hình.';
+                  } else {
+                    cleanText = isZh ? '请查看当前数据并确认下一步操作。' : 'Vui lòng xem dữ liệu hiện tại và xác nhận bước tiếp theo.';
+                  }
+                  
+                  parsedOutput = { text: cleanText, citations: evidenceIds, workflowUpdate: semanticJson };
                 }
               } else {
-                let cleanText = rawOutput
-                  .replace(/```(?:json)?\s*[\s\S]*?\s*```/gi, '')
-                  .replace(/\{[\s\S]*?"intent"\s*:\s*"[\s\S]*?\}/g, '')
-                  .trim();
-                if (!cleanText) {
-                  cleanText = semanticJson.responseLanguage === 'zh'
-                    ? '我已查找到相关物料数据，请确认是否要将所有 60mm 纸卡修改为 100mm。'
-                    : 'Tôi đã tìm thấy dữ liệu vật liệu liên quan, vui lòng xác nhận xem có muốn sửa tất cả giấy lót 60mm thành 100mm không.';
+                let cleanText = '';
+                const isZh = semanticJson.responseLanguage !== 'vi';
+                if (semanticJson.workflowAction === 'ask_clarification') {
+                  cleanText = isZh ? '请确认相关信息或提供更多细节。' : 'Vui lòng xác nhận thông tin liên quan hoặc cung cấp thêm chi tiết.';
+                } else {
+                  cleanText = isZh ? '请查看当前数据并确认下一步操作。' : 'Vui lòng xem dữ liệu hiện tại và xác nhận bước tiếp theo.';
                 }
+                
                 parsedOutput = { text: cleanText, citations: evidenceIds, workflowUpdate: semanticJson };
               }
             }
@@ -1125,11 +1132,18 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
           if (!parsedOutput?.text) {
              let cleanText = rawOutput
                .replace(/```(?:json)?\s*[\s\S]*?\s*```/gi, '')
-               .replace(/\{[\s\S]*?"intent"\s*:\s*"[\s\S]*?\}/g, '')
                .trim();
+             // Strip any JSON object that looks like a semantic workflow (starts with { contains intent/workflowAction)
+             // Also strip partial/truncated JSON fragments (starts with , or { or contains JSON keys)
+             const looksLikeJson = /^[{,]/.test(cleanText)
+               || /"(?:intent|workflowAction|taskUpdates|proposedActions|schemaVersion)"/.test(cleanText);
+             if (looksLikeJson) {
+               cleanText = '';
+             }
+
              if (!cleanText) {
                cleanText = route.intent === 'workflow_mutation' || route.intent === 'mutation_request'
-                 ? '我已为您查询物料数据，请确认是否进行修改。'
+                 ? '由于模型未能返回有效的操作数据，请重试或提供更详细的信息。'
                  : '查询完成。';
              }
              parsedOutput = { text: cleanText, citations: evidenceIds };
@@ -1142,6 +1156,7 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
             evidenceIds: finalAnswer.citations,
             usage: currentTurnUsage
           });
+          break;
         }
       }
     } catch (err) {
