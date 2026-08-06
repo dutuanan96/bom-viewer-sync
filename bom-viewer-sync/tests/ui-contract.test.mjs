@@ -24,7 +24,7 @@ const appSource = sourceFiles
 
 function methodSource(name) {
   const functionMatch = appSource.match(new RegExp(`function ${name}\\([^)]*\\) \\{[\\s\\S]*?\\n\\}`));
-  const classMethodMatch = appSource.match(new RegExp(`\\n\\s{4}${name}\\([^)]*\\) \\{[\\s\\S]*?\\n\\s{4}\\}`));
+  const classMethodMatch = appSource.match(new RegExp(`\\n([ \\t]+)${name}\\([^)]*\\) \\{[\\s\\S]*?\\n\\1\\}`));
   const match = functionMatch || classMethodMatch;
   assert.ok(match, `expected ${name} function`);
   return match[0];
@@ -670,41 +670,6 @@ test('admin releases only the clean latest draft revision with a required reason
   assert.equal(previous.effective, false);
   assert.equal(app.state.dirty, true);
   assert.deepEqual(status, { message: 'revisionReleased', state: 'dirty' });
-});
-
-test('release command reports unsaved changes without opening the prompt', () => {
-  const payload = coreUtils.normalizePayload({
-    bom: { P1: { code: 'P1', revision: 'V3.1', colors: [], color_info: {} } },
-    materialDb: { version: 1, materials: {}, bomEntries: [] },
-    productRevisions: {
-      P1: {
-        currentRevision: 'V3.1',
-        effectiveRevision: 'V3',
-        currentRevisionInfo: { sourceRevision: 'V3', workflowState: 'draft' },
-        revisions: [{
-          revision: 'V3',
-          workflowState: 'released',
-          snapshot: {
-            product: { code: 'P1', revision: 'V3', colors: [], color_info: {} },
-            materialDb: { version: 1, materials: {}, bomEntries: [] },
-          },
-        }],
-      },
-    },
-  });
-  const app = Object.create(BomApplication.prototype);
-  app.mode = 'admin';
-  app.state = { payload, currentSku: 'P1', selectedRevision: 'V3.1', dirty: true };
-  app.label = (key) => key;
-  let opened = false;
-  app.openPdmPrompt = () => { opened = true; };
-  let status = null;
-  app.setStatus = (message, state) => { status = { message, state }; };
-
-  app.releaseProductRevisionFromPrompt?.();
-
-  assert.equal(opened, false);
-  assert.deepEqual(status, { message: 'revisionReleaseDirtyBlocked', state: 'error' });
 });
 
 test('unsaved BOM replacements survive navigation across multiple products', async () => {

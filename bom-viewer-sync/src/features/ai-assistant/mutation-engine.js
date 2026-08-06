@@ -52,11 +52,33 @@ export function validateMutationContext(snapshot, mutation) {
     'release_product_revision',
     'withdraw_product_revision',
   ]);
-  const canEdit = snapshot.canEditRevision;
-  if (!canEdit && !masterDataOperations.has(mutation.operationType) && !revisionOperations.has(mutation.operationType)) {
-    const err = new Error('Mutations can only be applied to the current Draft revision. AI cannot modify released or historical revisions.');
-    err.code = ERROR_CODES.AI_POLICY_BLOCKED;
-    throw err;
+
+  // Determine the actual target product for BOM/Revision mutations to check if it has a Draft revision
+  let targetProductCode = null;
+  if (mutation.operationType === 'update_product' || revisionOperations.has(mutation.operationType) || mutation.operationType === 'add_bom_item') {
+    targetProductCode = mutation.targetId;
+  } else if (['update_bom_quantity', 'replace_bom_item', 'remove_bom_item', 'update_bom_item'].includes(mutation.operationType)) {
+    const entry = snapshot.payload?.materialDb?.bomEntries?.find(item => item.id === mutation.targetId);
+    if (entry && entry.parentType === 'product') {
+      targetProductCode = entry.parentId;
+    }
+  }
+
+  let isEditable = snapshot.canEditRevision;
+  if (targetProductCode && targetProductCode !== snapshot.selection?.productCode) {
+    const prodRevs = snapshot.payload?.productRevisions?.[targetProductCode] || [];
+    isEditable = prodRevs.some(r => !r.releasedAt);
+  } else if (
+    !targetProductCode && 
+    !masterDataOperations.has(mutation.operationType) && 
+    !revisionOperations.has(mutation.operationType) &&
+    mutation.operationType !== 'update_product'
+  ) {
+    // If we couldn't determine a product code for a BOM mutation, it might be a material-to-material BOM
+    const entry = snapshot.payload?.materialDb?.bomEntries?.find(item => item.id === mutation.targetId);
+    if (entry && entry.parentType === 'material') {
+      isEditable = true; // Material structure edits don't require draft revisions
+    }
   }
 
   if (mutation.operationType === 'update_product') {
@@ -74,20 +96,28 @@ export function validateMutationContext(snapshot, mutation) {
     err.code = ERROR_CODES.AI_POLICY_BLOCKED;
     throw err;
   }
-  if (mutation.operationType === 'create_product_revision' && canEdit) {
+  if (mutation.operationType === 'create_product_revision' && isEditable) {
     const err = new Error('A new revision can only be created from a released current revision.');
     err.code = ERROR_CODES.AI_POLICY_BLOCKED;
     throw err;
   }
-  if (mutation.operationType === 'release_product_revision' && !canEdit) {
+  if (mutation.operationType === 'release_product_revision' && !isEditable) {
     const err = new Error('Only the current Draft revision can be released.');
     err.code = ERROR_CODES.AI_POLICY_BLOCKED;
     throw err;
   }
-  if (mutation.operationType === 'withdraw_product_revision' && canEdit) {
+  if (mutation.operationType === 'withdraw_product_revision' && isEditable) {
     const err = new Error('Only the current released revision can be withdrawn.');
     err.code = ERROR_CODES.AI_POLICY_BLOCKED;
     throw err;
+  }
+
+  if (!masterDataOperations.has(mutation.operationType) && !revisionOperations.has(mutation.operationType)) {
+    if (!isEditable) {
+      const err = new Error(`BOM mutations require a draft revision for product ${targetProductCode || ''}.`);
+      err.code = ERROR_CODES.AI_POLICY_BLOCKED;
+      throw err;
+    }
   }
 
   if (mutation.operationType === 'add_bom_item' || mutation.operationType === 'update_bom_quantity') {
@@ -643,7 +673,12 @@ export function buildMutationProposalReview(snapshot, proposalInput, t = (k) => 
     } else if (mutation.operationType === 'release_product_revision' && snapshot.selection?.productCode === mutation.targetId) {
       currentCanEdit = false;
     } else if (mutation.operationType === 'withdraw_product_revision' && snapshot.selection?.productCode === mutation.targetId) {
-      currentCanEdit = false;
+      currentCanEdit = true;
+    }
+
+    const warnings = [...operationWarnings(mutation, operationSnapshot.payload, t), ...enrichment.warnings];
+    if (!operationSnapshot.canEditRevision && ['add_bom_item', 'update_bom_item', 'update_bom_quantity', 'remove_bom_item', 'replace_bom_item'].includes(mutation.operationType)) {
+      warnings.push(t('ai.proposal.autoWithdrawWarning') || `BOM ${snapshot.selection?.productCode || ''} đang phát hành. Hệ thống sẽ tự động ngưng phát hành để sửa, và tự động phát hành lại khi bạn Lưu.`);
     }
 
     const diff = describePayloadChanges(before, payload);
@@ -656,7 +691,7 @@ export function buildMutationProposalReview(snapshot, proposalInput, t = (k) => 
       id: `change-${index + 1}`,
       category: operationCategory(mutation.operationType),
       risk: operationRisk(mutation.operationType),
-      warnings: [...operationWarnings(mutation, operationSnapshot.payload, t), ...enrichment.warnings],
+      warnings: warnings,
       mutation: clone(mutation),
       diff,
     };

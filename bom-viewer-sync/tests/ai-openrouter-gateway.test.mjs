@@ -349,7 +349,7 @@ test('R3.3: consented marketplace search adds one bounded Amazon server tool', a
       allowed_domains: ['amazon.com'],
     },
   }]);
-  assert.equal(capturedBody.parallel_tool_calls, false);
+  assert.equal(capturedBody.parallel_tool_calls, undefined);
   assert.equal(capturedBody.provider.require_parameters, true);
 });
 

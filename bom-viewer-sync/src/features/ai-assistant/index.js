@@ -667,7 +667,9 @@ export function createAiAssistantFeature({
         const hasExactResolutionConflict = isShortQuery
           && entityResolution.requiresConfirmation === true
           && entityResolution.confidence === 1;
-        const turnEntityResolution = hasExactResolutionConflict
+        const turnEntityResolution = (entityResolution?.requiresConfirmation === true)
+          ? entityResolution
+          : hasExactResolutionConflict
           ? entityResolution
           : hasDeterministicProductScope
           ? null

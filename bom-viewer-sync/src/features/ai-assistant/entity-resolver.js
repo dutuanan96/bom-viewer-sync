@@ -263,7 +263,7 @@ export function createEntityResolver({ snapshot, companyMappings = [], personalM
       if (uniqueTargets.size > 1) {
         const isBatchQuery = /(?:所有|全部|tất cả|mọi|các|batch|all)\b/iu.test(normalizedQuery);
         const firstPhrase = preferred[0]?.phrase;
-        const allShareSameGenericLabel = preferred.every(e => e.phrase === firstPhrase);
+        const allShareSameGenericLabel = preferred.every(e => e.phrase === firstPhrase && e.source === 'canonical-label');
 
         if (isBatchQuery || allShareSameGenericLabel) {
           return result({ status: 'unresolved', phrase });

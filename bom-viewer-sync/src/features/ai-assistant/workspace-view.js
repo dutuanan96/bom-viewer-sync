@@ -156,18 +156,42 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k }) {
     
     const newOperations = [];
     const opsToRemove = new Set();
+    const affectedProducts = new Set();
     
     for (const swap of swaps) {
       const oldId = swap.operation.mutation.targetId;
       const usage = materialWhereUsed(snapshot.payload, oldId);
       
       for (const entry of usage.productEntries || []) {
+        if (entry.productCode) affectedProducts.add(entry.productCode);
         newOperations.push({ operationType: 'replace_bom_item', targetId: entry.id, payload: { materialId: swap.duplicateId } });
       }
       for (const entry of usage.parentEntries || []) {
         newOperations.push({ operationType: 'replace_bom_item', targetId: entry.id, payload: { materialId: swap.duplicateId } });
       }
       opsToRemove.add(JSON.stringify(swap.operation.mutation));
+    }
+
+    // Auto-create draft revisions for any affected products that are currently released
+    for (const productCode of affectedProducts) {
+      const prodRevs = snapshot.payload?.productRevisions?.[productCode] || [];
+      const hasDraft = prodRevs.some(r => !r.releasedAt);
+      if (!hasDraft) {
+        const currentRev = prodRevs.find(r => r.current) || prodRevs[0];
+        let nextVersion = 'V1';
+        if (currentRev) {
+          const match = currentRev.revision.match(/^V(\d+)$/i);
+          nextVersion = match ? `V${parseInt(match[1], 10) + 1}` : `${currentRev.revision}-1`;
+        }
+        newOperations.unshift({
+          operationType: 'create_product_revision',
+          targetId: productCode,
+          payload: {
+            revision: nextVersion,
+            changeReason: t('ai.proposal.autoDraftReason') || 'Auto-draft for material swap'
+          }
+        });
+      }
     }
     
     const rawOps = msg.proposal.operations || msg.proposal.proposedActions || [];
@@ -192,10 +216,15 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k }) {
       });
     } catch (e) {
       console.error(e);
+      alert(e.message || 'Error preparing proposal');
+      if (propEl) {
+        propEl.style.opacity = '1';
+        propEl.style.pointerEvents = 'auto';
+      }
     }
   }
 
-  function createPaginatedDiffTable(diffArray, t) {
+  function createPaginatedDiffTable(diffArray, t, revision = '') {
     const container = document.createElement('div');
     container.className = 'ai-diff-table-container';
     
@@ -207,6 +236,8 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k }) {
       return container;
     }
 
+    const hasRevision = !!revision;
+
     const diffTable = document.createElement('table');
     diffTable.className = 'ai-diff-table diff-table';
     
@@ -215,6 +246,7 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k }) {
     [
       t('ai.proposal.type'),
       t('ai.proposal.code'),
+      ...(hasRevision ? [t('ai.proposal.version') || 'Version'] : []),
       t('ai.proposal.field'),
       t('ai.proposal.before'),
       t('ai.proposal.after'),
@@ -246,7 +278,7 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k }) {
 
     function renderPage(page) {
       currentPage = page;
-      tbody.innerHTML = '';
+      tbody.textContent = '';
       const start = (page - 1) * PAGE_SIZE;
       const end = start + PAGE_SIZE;
       const visibleDiffs = diffArray.slice(start, end);
@@ -262,6 +294,7 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k }) {
         for (const [value, className] of [
           [t('ai.proposal.kind.' + d.kind) || d.kind, ''],
           [d.code, ''],
+          ...(hasRevision ? [[revision, '']] : []),
           [translatedField, ''],
           [d.before, 'diff-removed'],
           [d.after, 'diff-added'],
@@ -275,7 +308,7 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k }) {
       });
 
       if (totalPages > 1) {
-        paginationDiv.innerHTML = '';
+        paginationDiv.textContent = '';
         const prevBtn = document.createElement('button');
         prevBtn.className = 'btn small outline';
         prevBtn.textContent = '<';
@@ -576,7 +609,20 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k }) {
               operationEl.appendChild(warningEl);
             }
 
-            const tableContainer = createPaginatedDiffTable(operation.diff || [], t);
+            let opRevision = msg.snapshot?.selection?.revision;
+            if (!opRevision && (operation.category === 'bom' || operation.category === 'revision')) {
+              const productCode = operation.diff?.[0]?.code || operation.mutation.targetId;
+              const prodRevs = msg.snapshot?.payload?.productRevisions || {};
+              let spu = productCode;
+              if (spu && !prodRevs[spu]) {
+                const spuMatch = Object.keys(prodRevs).find(k => spu.startsWith(k));
+                if (spuMatch) spu = spuMatch;
+              }
+              const prodRevData = prodRevs[spu] || {};
+              opRevision = prodRevData.currentRevision || 'V1';
+            }
+
+            const tableContainer = createPaginatedDiffTable(operation.diff || [], t, opRevision);
             operationEl.appendChild(tableContainer);
             section.appendChild(operationEl);
           }
@@ -588,7 +634,7 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k }) {
         noDiff.textContent = t('ai.proposal.noChanges');
         propEl.appendChild(noDiff);
       } else {
-        const tableContainer = createPaginatedDiffTable(msg.diff || [], t);
+        const tableContainer = createPaginatedDiffTable(msg.diff || [], t, msg.snapshot?.selection?.revision);
         propEl.appendChild(tableContainer);
       }
 
@@ -660,7 +706,7 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k }) {
         }
         
         // Transform UI to Success State
-        actionRowWrapper.innerHTML = '';
+        actionRowWrapper.textContent = '';
         const successBanner = document.createElement('div');
         successBanner.className = 'ai-proposal-success-banner';
         successBanner.style.display = 'flex';

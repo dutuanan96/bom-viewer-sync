@@ -268,7 +268,7 @@ function closeModal() {
   this.query('#pdfModal').classList.remove('open');
 }
 
-function openPdmPrompt(title, fields, onConfirm) {
+function openPdmPrompt(title, fields, onConfirm, onCancel) {
   let overlay = this.query('#pdmPromptOverlay');
   if (overlay) overlay.remove();
 
@@ -299,9 +299,11 @@ function openPdmPrompt(title, fields, onConfirm) {
   document.body.insertAdjacentHTML('beforeend', html);
   overlay = this.query('#pdmPromptOverlay');
 
+  let isConfirmed = false;
   const closeModal = () => {
     overlay.classList.remove('open');
     setTimeout(() => overlay.remove(), 200);
+    if (!isConfirmed && onCancel) onCancel();
   };
 
   overlay.querySelectorAll('[data-pdm-prompt-close]').forEach(btn => btn.addEventListener('click', closeModal));
@@ -325,6 +327,7 @@ function openPdmPrompt(title, fields, onConfirm) {
       }
     });
     if (hasError) return;
+    isConfirmed = true;
     closeModal();
     onConfirm(values);
   });

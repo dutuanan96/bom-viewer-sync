@@ -581,14 +581,6 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
             || /^\s*\{[\s\S]*"(?:intent|workflowAction)"/.test(fullText);
           const shouldSuppressStream = isProposalRoute && looksLikeSemanticJson;
 
-          if (toolCalls.length === 0 && contentDeltas.length > 0 && !shouldSuppressStream) {
-            let accumulated = '';
-            for (const delta of contentDeltas) {
-              accumulated += delta;
-              if (onProgress) onProgress({ type: 'content', delta, text: accumulated });
-            }
-          }
-
           if (toolCalls.length === 0 && fullText.includes('<tool_call>')) {
             const regex = /<tool_call>([\s\S]*?)<\/tool_call>/gi;
             let match;
@@ -656,6 +648,14 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
               } catch {
                 // Ignore invalid JSON snippets
               }
+            }
+          }
+
+          if (toolCalls.length === 0 && contentDeltas.length > 0 && !shouldSuppressStream) {
+            let accumulated = '';
+            for (const delta of contentDeltas) {
+              accumulated += delta;
+              if (onProgress) onProgress({ type: 'content', delta, text: accumulated });
             }
           }
 
@@ -1004,7 +1004,7 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
         } else {
           // Final natural language answer
           const rawOutput = accumulatedText || '';
-          const evidenceIds = [...new Set(ledger.getEvidence().map(item => item.id))];
+          let evidenceIds = [...new Set(ledger.getEvidence().map(item => item.id))];
 
           const promisesToolCall = /(?:我们将|我将|需要先)(?:去|在)?(?:查询|搜索|查找|定位)(?:数据库|pdm|物料|bom)?/i.test(rawOutput)
             || /(?:I will|let me) (?:search|check|find|look up) (?:the )?(?:database|pdm|materials|bom)/i.test(rawOutput);
@@ -1133,19 +1133,43 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
              let cleanText = rawOutput
                .replace(/```(?:json)?\s*[\s\S]*?\s*```/gi, '')
                .trim();
-             // Strip any JSON object that looks like a semantic workflow (starts with { contains intent/workflowAction)
-             // Also strip partial/truncated JSON fragments (starts with , or { or contains JSON keys)
-             const looksLikeJson = /^[{,]/.test(cleanText)
-               || /"(?:intent|workflowAction|taskUpdates|proposedActions|schemaVersion)"/.test(cleanText);
-             if (looksLikeJson) {
-               cleanText = '';
-             }
 
+              // Try to parse the raw text as a basic text/citations JSON if it looks like one
+              try {
+                const firstBrace = cleanText.indexOf('{');
+                const lastBrace = cleanText.lastIndexOf('}');
+                if (firstBrace !== -1 && lastBrace > firstBrace) {
+                  const candidate = cleanText.slice(firstBrace, lastBrace + 1);
+                  const obj = JSON.parse(candidate);
+                  if (obj && typeof obj.text === 'string') {
+                    cleanText = obj.text;
+                    if (Array.isArray(obj.citations)) {
+                      evidenceIds = obj.citations;
+                    }
+                  }
+                }
+              } catch (e) {
+                // Ignore parse errors, fall back to regex stripping
+              }
+             
+              console.log('DEBUG AI PARSE cleanText after JSON parse:', cleanText);
+             
+              // Strip any JSON object that looks like a semantic workflow (starts with { contains intent/workflowAction)
+              // Also strip partial/truncated JSON fragments (starts with , or { or contains JSON keys)
+              const looksLikeJson = /^[{,]/.test(cleanText)
+                || /"(?:intent|workflowAction|taskUpdates|proposedActions|schemaVersion)"/.test(cleanText);
+              
+              console.log('DEBUG AI PARSE looksLikeJson:', looksLikeJson);
+              if (looksLikeJson) {
+                cleanText = '';
+              }
+             
              if (!cleanText) {
-               cleanText = route.intent === 'workflow_mutation' || route.intent === 'mutation_request'
+               cleanText = route.intent === 'workflow_mutation' || route.intent === 'mutation_request' || route.intent === 'proposal'
                  ? '由于模型未能返回有效的操作数据，请重试或提供更详细的信息。'
                  : '查询完成。';
              }
+              console.log('DEBUG AI PARSE final cleanText:', cleanText);
              parsedOutput = { text: cleanText, citations: evidenceIds };
           }
 
