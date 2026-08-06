@@ -581,6 +581,14 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
             || /^\s*\{[\s\S]*"(?:intent|workflowAction)"/.test(fullText);
           const shouldSuppressStream = isProposalRoute && looksLikeSemanticJson;
 
+          if (toolCalls.length === 0 && contentDeltas.length > 0 && !shouldSuppressStream) {
+            let accumulated = '';
+            for (const delta of contentDeltas) {
+              accumulated += delta;
+              if (onProgress) onProgress({ type: 'content', delta, text: accumulated });
+            }
+          }
+
           if (toolCalls.length === 0 && fullText.includes('<tool_call>')) {
             const regex = /<tool_call>([\s\S]*?)<\/tool_call>/gi;
             let match;
@@ -648,14 +656,6 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
               } catch {
                 // Ignore invalid JSON snippets
               }
-            }
-          }
-
-          if (toolCalls.length === 0 && contentDeltas.length > 0 && !shouldSuppressStream) {
-            let accumulated = '';
-            for (const delta of contentDeltas) {
-              accumulated += delta;
-              if (onProgress) onProgress({ type: 'content', delta, text: accumulated });
             }
           }
 
