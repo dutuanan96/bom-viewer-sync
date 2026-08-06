@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-06T09:31:57.132Z",
+  "updatedAt": "2026-08-06T09:39:57.644Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6269,12 +6269,12 @@
     },
     "LGS433": {
       "currentRevision": "V4",
-      "effectiveRevision": "",
+      "effectiveRevision": "V4",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6333,17 +6333,25 @@
           "previousRevision": "V4",
           "occurredAt": "2026-07-30T06:00:01.132Z",
           "reason": "修正LGS433纸箱物料编码"
+        },
+        {
+          "id": "effectivity_mshbpil2",
+          "action": "release",
+          "revision": "V4",
+          "previousRevision": "",
+          "occurredAt": "2026-08-06T09:38:26.774Z",
+          "reason": "更新"
         }
       ]
     },
     "LGS333": {
       "currentRevision": "V4",
-      "effectiveRevision": "",
+      "effectiveRevision": "V4",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6370,6 +6378,14 @@
           "previousRevision": "V4",
           "occurredAt": "2026-07-30T08:08:39.127Z",
           "reason": "修正LGS333纸箱物料编码"
+        },
+        {
+          "id": "effectivity_mshbr27b",
+          "action": "release",
+          "revision": "V4",
+          "previousRevision": "",
+          "occurredAt": "2026-08-06T09:39:38.855Z",
+          "reason": "更新"
         }
       ]
     },
@@ -6481,12 +6497,12 @@
     },
     "LGS033": {
       "currentRevision": "V4",
-      "effectiveRevision": "",
+      "effectiveRevision": "V4",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6513,17 +6529,25 @@
           "previousRevision": "V4",
           "occurredAt": "2026-07-30T08:03:39.622Z",
           "reason": "修正LGS033纸箱物料编码"
+        },
+        {
+          "id": "effectivity_mshbq51z",
+          "action": "release",
+          "revision": "V4",
+          "previousRevision": "",
+          "occurredAt": "2026-08-06T09:38:55.895Z",
+          "reason": "更新"
         }
       ]
     },
     "LGS101": {
       "currentRevision": "V2",
-      "effectiveRevision": "",
+      "effectiveRevision": "V2",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6598,17 +6622,25 @@
           "previousRevision": "V2",
           "occurredAt": "2026-07-30T05:05:16.967Z",
           "reason": "修正LGS043纸箱物料编码后缀"
+        },
+        {
+          "id": "effectivity_mshbqdvi",
+          "action": "release",
+          "revision": "V2",
+          "previousRevision": "",
+          "occurredAt": "2026-08-06T09:39:07.326Z",
+          "reason": "更新"
         }
       ]
     },
     "LGS031": {
       "currentRevision": "V3",
-      "effectiveRevision": "",
+      "effectiveRevision": "V3",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6619,17 +6651,25 @@
           "previousRevision": "V3",
           "occurredAt": "2026-07-30T06:13:47.355Z",
           "reason": "修正LGS031纸箱物料编码"
+        },
+        {
+          "id": "effectivity_mshbpu9v",
+          "action": "release",
+          "revision": "V3",
+          "previousRevision": "",
+          "occurredAt": "2026-08-06T09:38:41.923Z",
+          "reason": "更新"
         }
       ]
     },
     "LGS043": {
       "currentRevision": "V3",
-      "effectiveRevision": "",
+      "effectiveRevision": "V3",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6640,17 +6680,25 @@
           "previousRevision": "V3",
           "occurredAt": "2026-07-30T06:17:58.383Z",
           "reason": "修正LGS043纸箱物料编码"
+        },
+        {
+          "id": "effectivity_mshbq9fh",
+          "action": "release",
+          "revision": "V3",
+          "previousRevision": "",
+          "occurredAt": "2026-08-06T09:39:01.565Z",
+          "reason": "更新"
         }
       ]
     },
     "LGS111": {
       "currentRevision": "V2",
-      "effectiveRevision": "",
+      "effectiveRevision": "V2",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6661,17 +6709,25 @@
           "previousRevision": "V2",
           "occurredAt": "2026-07-30T06:19:25.886Z",
           "reason": "修正LGS111纸箱物料编码"
+        },
+        {
+          "id": "effectivity_mshbqhu7",
+          "action": "release",
+          "revision": "V2",
+          "previousRevision": "",
+          "occurredAt": "2026-08-06T09:39:12.463Z",
+          "reason": "更新"
         }
       ]
     },
     "LGS231": {
       "currentRevision": "V3",
-      "effectiveRevision": "",
+      "effectiveRevision": "V3",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6682,17 +6738,25 @@
           "previousRevision": "V3",
           "occurredAt": "2026-07-30T06:22:38.237Z",
           "reason": "修正LGS231纸箱物料编码"
+        },
+        {
+          "id": "effectivity_mshbqple",
+          "action": "release",
+          "revision": "V3",
+          "previousRevision": "",
+          "occurredAt": "2026-08-06T09:39:22.514Z",
+          "reason": "更新"
         }
       ]
     },
     "LGS233": {
       "currentRevision": "V4",
-      "effectiveRevision": "",
+      "effectiveRevision": "V4",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6703,17 +6767,25 @@
           "previousRevision": "V4",
           "occurredAt": "2026-07-30T06:25:34.950Z",
           "reason": "修正LGS233纸箱物料编码"
+        },
+        {
+          "id": "effectivity_mshbqy30",
+          "action": "release",
+          "revision": "V4",
+          "previousRevision": "",
+          "occurredAt": "2026-08-06T09:39:33.516Z",
+          "reason": "更新"
         }
       ]
     },
     "LGS421": {
       "currentRevision": "V4",
-      "effectiveRevision": "",
+      "effectiveRevision": "V4",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6724,6 +6796,14 @@
           "previousRevision": "V4",
           "occurredAt": "2026-07-30T06:30:19.588Z",
           "reason": "修正LGS421纸箱物料编码"
+        },
+        {
+          "id": "effectivity_mshbppp2",
+          "action": "release",
+          "revision": "V4",
+          "previousRevision": "",
+          "occurredAt": "2026-08-06T09:38:35.990Z",
+          "reason": "更新"
         }
       ]
     },
@@ -6758,12 +6838,12 @@
     },
     "LGS232": {
       "currentRevision": "V3",
-      "effectiveRevision": "",
+      "effectiveRevision": "V3",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6774,6 +6854,14 @@
           "previousRevision": "V3",
           "occurredAt": "2026-07-30T07:20:04.377Z",
           "reason": "修正LGS232纸箱物料编码"
+        },
+        {
+          "id": "effectivity_mshbqu43",
+          "action": "release",
+          "revision": "V3",
+          "previousRevision": "",
+          "occurredAt": "2026-08-06T09:39:28.371Z",
+          "reason": "更新"
         }
       ]
     },
@@ -6808,12 +6896,12 @@
     },
     "LGS131": {
       "currentRevision": "V3",
-      "effectiveRevision": "",
+      "effectiveRevision": "V3",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6824,17 +6912,25 @@
           "previousRevision": "V3",
           "occurredAt": "2026-07-30T08:05:13.858Z",
           "reason": "修正LGS131纸箱物料编码"
+        },
+        {
+          "id": "effectivity_mshbqlnb",
+          "action": "release",
+          "revision": "V3",
+          "previousRevision": "",
+          "occurredAt": "2026-08-06T09:39:17.399Z",
+          "reason": "更新"
         }
       ]
     },
     "LGS420": {
       "currentRevision": "V4",
-      "effectiveRevision": "",
+      "effectiveRevision": "V4",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6845,6 +6941,14 @@
           "previousRevision": "V4",
           "occurredAt": "2026-07-30T08:10:28.486Z",
           "reason": "修正LGS420纸箱物料编码"
+        },
+        {
+          "id": "effectivity_mshbr6vn",
+          "action": "release",
+          "revision": "V4",
+          "previousRevision": "",
+          "occurredAt": "2026-08-06T09:39:44.915Z",
+          "reason": "更新"
         }
       ]
     },
@@ -6879,6 +6983,71 @@
     }
   },
   "notifications": [
+    {
+      "id": "notif_1u5rupi",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-06T09:39:57.644Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS433",
+          "field": "effectiveRevision",
+          "before": "",
+          "after": "V4"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS433",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS333",
+          "field": "effectiveRevision",
+          "before": "",
+          "after": "V4"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS333",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS033",
+          "field": "effectiveRevision",
+          "before": "",
+          "after": "V4"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS033",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS101",
+          "field": "effectiveRevision",
+          "before": "",
+          "after": "V2"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS101",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        }
+      ]
+    },
     {
       "id": "notif_1monjte",
       "type": "github-save",
@@ -7816,71 +7985,6 @@
           "field": "",
           "before": "LGS421ZFXKD",
           "after": "LGS421ZFXBH"
-        }
-      ]
-    },
-    {
-      "id": "notif_1mew36i",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-30T07:25:01.950Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS333",
-          "field": "effectiveRevision",
-          "before": "",
-          "after": "V4"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS333",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS420",
-          "field": "currentRevision",
-          "before": "",
-          "after": "V4"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS420",
-          "field": "workflowState",
-          "before": "",
-          "after": "draft"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS333",
-          "field": "",
-          "before": "LGS333PKXWH",
-          "after": "LGS333PKXKD"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS333",
-          "field": "",
-          "before": "LGS333PKXBH",
-          "after": "LGS333PKXKD"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS420",
-          "field": "",
-          "before": "LGS420ZFXKD",
-          "after": "LGS420ZFXWH"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS420",
-          "field": "",
-          "before": "LGS420ZFXKD",
-          "after": "LGS420ZFXBH"
         }
       ]
     }
