@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-05T02:00:47.510Z",
+  "updatedAt": "2026-08-06T02:00:08.651Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6872,6 +6872,50 @@
   },
   "notifications": [
     {
+      "id": "notif_1y4nokg",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-06T02:00:08.651Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "LGS032ZK",
+          "field": "spec",
+          "before": "单瓦1100x100 / sóng đơn 1100x100",
+          "after": "单瓦1100x100mm / sóng đơn 1100x100mm"
+        },
+        {
+          "kind": "material",
+          "code": "LGS231ZK",
+          "field": "spec",
+          "before": "单瓦950x60 / sóng đơn 950x60",
+          "after": "单瓦950x60mm / sóng đơn 950x60mm"
+        },
+        {
+          "kind": "material",
+          "code": "LGS232ZK",
+          "field": "spec",
+          "before": "单瓦1100x60 / sóng đơn 1100x60",
+          "after": "单瓦1100x60mm / sóng đơn 1100x60mm"
+        },
+        {
+          "kind": "material",
+          "code": "LGS420ZK",
+          "field": "spec",
+          "before": "单瓦860x60 / sóng đơn 860x60",
+          "after": "单瓦860x60mm / sóng đơn 860x60mm"
+        },
+        {
+          "kind": "material",
+          "code": "LGS421ZK",
+          "field": "spec",
+          "before": "单瓦1000x60 / sóng đơn 1000x60",
+          "after": "单瓦1000x60mm / sóng đơn 1000x60mm"
+        }
+      ]
+    },
+    {
       "id": "notif_durtxs",
       "type": "github-save",
       "actor": "admin",
@@ -7864,36 +7908,6 @@
           "field": "",
           "before": "LGS233ZFXKD",
           "after": "LGS233ZFXBH"
-        }
-      ]
-    },
-    {
-      "id": "notif_iofvoi",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-30T07:20:19.046Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS232",
-          "field": "currentRevision",
-          "before": "",
-          "after": "V3"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS232",
-          "field": "workflowState",
-          "before": "",
-          "after": "draft"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS232",
-          "field": "",
-          "before": "LGS232PKXKD",
-          "after": "LGS232PKXBH"
         }
       ]
     }
