@@ -175,23 +175,23 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k }) {
     // Auto-create draft revisions for any affected products that are currently released
     for (const productCode of affectedProducts) {
       const prodRevs = snapshot.payload?.productRevisions?.[productCode] || [];
+      if (prodRevs.length === 0) continue; // No revision data — skip
       const hasDraft = prodRevs.some(r => !r.releasedAt);
-      if (!hasDraft) {
-        const currentRev = prodRevs.find(r => r.current) || prodRevs[0];
-        let nextVersion = 'V1';
-        if (currentRev) {
-          const match = currentRev.revision.match(/^V(\d+)$/i);
-          nextVersion = match ? `V${parseInt(match[1], 10) + 1}` : `${currentRev.revision}-1`;
-        }
-        newOperations.unshift({
-          operationType: 'create_product_revision',
-          targetId: productCode,
-          payload: {
-            revision: nextVersion,
-            changeReason: t('ai.proposal.autoDraftReason') || 'Auto-draft for material swap'
-          }
-        });
+      if (hasDraft) continue; // Already has a draft — don't create another
+      const currentRev = prodRevs.find(r => r.current) || prodRevs[0];
+      let nextVersion = 'V1';
+      if (currentRev) {
+        const match = currentRev.revision.match(/^V(\d+)$/i);
+        nextVersion = match ? `V${parseInt(match[1], 10) + 1}` : `${currentRev.revision}-1`;
       }
+      newOperations.unshift({
+        operationType: 'create_product_revision',
+        targetId: productCode,
+        payload: {
+          revision: nextVersion,
+          changeReason: t('ai.proposal.autoDraftReason') || 'Auto-draft for material swap'
+        }
+      });
     }
     
     const rawOps = msg.proposal.operations || msg.proposal.proposedActions || [];
