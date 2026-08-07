@@ -1028,7 +1028,9 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
                 proposalReminderSent = true;
                 messages.push({
                   role: 'user',
-                  content: `SYSTEM_PROPOSAL_REQUIRED: You have gathered sufficient evidence (${evidenceIds.join(', ')}). Output ONLY one JSON object (no markdown, no explanation) with these keys: intent, workflowAction, taskUpdates, proposedActions. Example:
+                  content: `SYSTEM_PROPOSAL_REQUIRED: You have gathered sufficient evidence (${evidenceIds.join(', ')}). Output ONLY one JSON object (no markdown, no explanation) with these keys: intent, workflowAction, taskUpdates, proposedActions. 
+CRITICAL RULE: DO NOT ask for confirmation. The user will review your proposal in the UI. ALWAYS build the proposal. 
+Example:
 {"intent":"workflow_update","workflowAction":"build_proposal","taskUpdates":[{"taskRef":{"kind":"new","value":"update_material"},"action":"create_task","fields":{"materialCode":"LGS111ZK","spec":"单瓦785x100mm"}}],"proposedActions":[{"operationType":"update_material","targetId":"LGS111ZK"}]}`
                 });
                 modelSupportsTools = false;
