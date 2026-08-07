@@ -1173,6 +1173,29 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
                     arguments: { operations: hydratedOperations }
                   };
                   try {
+                    // Inject evidence materials into snapshot to ensure validateMutationContext can find them
+                    const evItems = ledger.getEvidence();
+                    if (!snapshot.payload) snapshot.payload = {};
+                    if (!snapshot.payload.materialDb) snapshot.payload.materialDb = { materials: {}, bomEntries: [] };
+                    if (!snapshot.payload.materialDb.materials) snapshot.payload.materialDb.materials = {};
+                    evItems.forEach(ev => {
+                      if (ev.tool === 'search_pdm' && Array.isArray(ev.data?.materials)) {
+                        ev.data.materials.forEach(m => {
+                          const id = m.id || m.code || m.materialId;
+                          if (id && !snapshot.payload.materialDb.materials[id]) {
+                            snapshot.payload.materialDb.materials[id] = m;
+                          }
+                        });
+                      }
+                      if (ev.tool === 'get_material' && ev.data?.material) {
+                         const m = ev.data.material;
+                         const id = m.id || m.code || m.materialId;
+                         if (id && !snapshot.payload.materialDb.materials[id]) {
+                           snapshot.payload.materialDb.materials[id] = m;
+                         }
+                      }
+                    });
+
                     const safeCall = trustPolicy.authorizeToolCall(syntheticCall);
                     if (runTool) await runTool(safeCall, snapshot);
                     const count = hydratedOperations.length;
