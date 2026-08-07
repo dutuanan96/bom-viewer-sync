@@ -1072,7 +1072,7 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
                   const materialsMap = snapshot?.payload?.materialDb?.materials || {};
                   const materialsArray = Array.isArray(snapshot?.materials) ? snapshot.materials : Object.values(materialsMap);
 
-                  const hydratedOperations = tasksToPropose.map(task => {
+                  const hydratedOperations = tasksToPropose.flatMap(task => {
                     let rawTargetId = task.fields?.targetId || task.fields?.materialCode || task.fields?.productCode;
                     let targetId = rawTargetId;
 
@@ -1081,6 +1081,48 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
                       if (material) {
                         targetId = material.id;
                       }
+                    }
+
+                    if (['replace_bom_item', 'update_bom_item', 'remove_bom_item'].includes(task.type)) {
+                      const productCode = task.fields?.productCode || snapshot.selection?.productCode;
+                      const color = task.fields?.color || snapshot.selection?.color;
+                      const spec = task.fields?.spec;
+                      
+                      const entries = (snapshot.payload?.materialDb?.bomEntries || []).filter(e => {
+                        if (e.parentType !== 'product' || (e.parentId !== productCode && e.productCode !== productCode) || e.color !== color) return false;
+                        if (spec) {
+                          const material = materialsMap[e.materialId];
+                          if (!material || (material.spec?.zh !== spec && material.spec?.vi !== spec)) return false;
+                        }
+                        return true;
+                      });
+
+                      if (entries.length === 0) {
+                        return [{ operationType: task.type, targetId: productCode, payload: {} }];
+                      }
+
+                      return entries.map(entry => {
+                        let payload = {};
+                        if (task.type === 'replace_bom_item') {
+                           payload = { materialId: task.fields?.materialCode };
+                        } else if (task.type === 'update_bom_item') {
+                           payload = { quantity: task.fields?.qty, comp_code: task.fields?.compCode };
+                        }
+                        return { operationType: task.type, targetId: entry.id, payload };
+                      });
+                    }
+
+                    if (task.type === 'add_bom_item') {
+                      return [{
+                        operationType: task.type,
+                        targetId: task.fields?.productCode || snapshot.selection?.productCode,
+                        payload: {
+                          color: task.fields?.color || snapshot.selection?.color,
+                          materialId: task.fields?.materialCode,
+                          quantity: task.fields?.qty || 1,
+                          comp_code: task.fields?.compCode || ''
+                        }
+                      }];
                     }
 
                     let payload = {};
@@ -1100,7 +1142,7 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
                       payload = { field: fieldName, value: fieldValue };
                     }
                     
-                    return { operationType: task.type, targetId, payload };
+                    return [{ operationType: task.type, targetId, payload }];
                   });
 
                   const syntheticCall = {
