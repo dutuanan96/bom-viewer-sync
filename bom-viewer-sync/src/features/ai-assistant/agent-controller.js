@@ -1031,37 +1031,60 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
               }
             }
 
-            // Attempt to repair truncated JSON
-            let braces = 0;
-            let brackets = 0;
-            let inString = false;
-            let escape = false;
-            for (let i = 0; i < jsonText.length; i++) {
-              const char = jsonText[i];
-              if (escape) { escape = false; continue; }
-              if (char === '\\') { escape = true; continue; }
-              if (char === '"') { inString = !inString; continue; }
-              if (!inString) {
-                if (char === '{') braces++;
-                else if (char === '}') braces--;
-                else if (char === '[') brackets++;
-                else if (char === ']') brackets--;
+            let attempt = jsonText;
+            while (attempt.length > 20) {
+              try {
+                let test = attempt;
+                let braces = 0, brackets = 0, inString = false, escape = false;
+                for (let i = 0; i < test.length; i++) {
+                  const char = test[i];
+                  if (escape) { escape = false; continue; }
+                  if (char === '\\') { escape = true; continue; }
+                  if (char === '"') { inString = !inString; continue; }
+                  if (!inString) {
+                    if (char === '{') braces++;
+                    else if (char === '}') braces--;
+                    else if (char === '[') brackets++;
+                    else if (char === ']') brackets--;
+                  }
+                }
+                if (inString) test += '"';
+                test = test.replace(/,\s*$/, '');
+                test = test.replace(/"[^"]+"\s*:\s*$/, '');
+                test = test.replace(/,\s*$/, '');
+                while (brackets > 0) { test += ']'; brackets--; }
+                while (braces > 0) { test += '}'; braces--; }
+
+                const obj = JSON.parse(test);
+                if (obj && obj.intent && obj.workflowAction) {
+                  semanticJson = obj;
+                  break;
+                }
+                attempt = attempt.slice(0, -1);
+              } catch {
+                attempt = attempt.slice(0, -1);
               }
             }
-            if (inString) jsonText += '"';
-            jsonText = jsonText.replace(/,\s*$/, '');
-            while (brackets > 0) { jsonText += ']'; brackets--; }
-            while (braces > 0) { jsonText += '}'; braces--; }
-
-            const obj = JSON.parse(jsonText);
-            if (obj && obj.intent && obj.workflowAction) semanticJson = obj;
           } catch {
             semanticJson = null;
           }
 
           let parsedOutput = null;
           if (semanticJson) {
-            const validation = validateSemanticSchema(semanticJson);
+            let validation = validateSemanticSchema(semanticJson);
+            
+            // If validation fails on truncated JSON, aggressively strip the last corrupted tasks
+            if (!validation.valid && semanticJson.taskUpdates && semanticJson.taskUpdates.length > 0) {
+               while (!validation.valid && semanticJson.taskUpdates.length > 0) {
+                 semanticJson.taskUpdates.pop();
+                 validation = validateSemanticSchema(semanticJson);
+               }
+            }
+            if (!validation.valid && semanticJson.proposedActions && semanticJson.proposedActions.length > 0) {
+               semanticJson.proposedActions = [];
+               validation = validateSemanticSchema(semanticJson);
+            }
+
             if (validation.valid) {
               const { state, errors } = workflowReducer(toolConversationContext.workflowState, semanticJson);
               toolConversationContext = { ...toolConversationContext, workflowState: state };
