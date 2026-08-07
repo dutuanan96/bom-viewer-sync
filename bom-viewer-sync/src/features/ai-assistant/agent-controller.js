@@ -1022,14 +1022,39 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
           try {
             let jsonText = rawOutput.trim();
             const codeBlockMatch = jsonText.match(/```(?:json)?\s*([\s\S]*?)\s*```/i);
-            if (codeBlockMatch) jsonText = codeBlockMatch[1].trim();
-            const firstBrace = jsonText.indexOf('{');
-            const lastBrace = jsonText.lastIndexOf('}');
-            if (firstBrace !== -1 && lastBrace > firstBrace) {
-              const candidate = jsonText.slice(firstBrace, lastBrace + 1);
-              const obj = JSON.parse(candidate);
-              if (obj && obj.intent && obj.workflowAction) semanticJson = obj;
+            if (codeBlockMatch) {
+              jsonText = codeBlockMatch[1].trim();
+            } else {
+              const firstBrace = jsonText.indexOf('{');
+              if (firstBrace !== -1) {
+                jsonText = jsonText.slice(firstBrace);
+              }
             }
+
+            // Attempt to repair truncated JSON
+            let braces = 0;
+            let brackets = 0;
+            let inString = false;
+            let escape = false;
+            for (let i = 0; i < jsonText.length; i++) {
+              const char = jsonText[i];
+              if (escape) { escape = false; continue; }
+              if (char === '\\') { escape = true; continue; }
+              if (char === '"') { inString = !inString; continue; }
+              if (!inString) {
+                if (char === '{') braces++;
+                else if (char === '}') braces--;
+                else if (char === '[') brackets++;
+                else if (char === ']') brackets--;
+              }
+            }
+            if (inString) jsonText += '"';
+            jsonText = jsonText.replace(/,\s*$/, '');
+            while (brackets > 0) { jsonText += ']'; brackets--; }
+            while (braces > 0) { jsonText += '}'; braces--; }
+
+            const obj = JSON.parse(jsonText);
+            if (obj && obj.intent && obj.workflowAction) semanticJson = obj;
           } catch {
             semanticJson = null;
           }
