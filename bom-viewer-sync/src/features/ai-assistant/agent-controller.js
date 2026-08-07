@@ -1139,8 +1139,11 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
 
                   const hydratedOperations = tasksToPropose.flatMap(task => {
                     let rawTargetId = task.fields?.targetId || task.fields?.targetMaterialCode || task.fields?.materialCode || task.fields?.code || task.fields?.newMaterialCode || task.fields?.sourceMaterialCode || task.fields?.productCode;
+                    if (!rawTargetId) {
+                      throw new Error('Missing ID field in LLM response. Raw fields: ' + JSON.stringify(task.fields || {}));
+                    }
                     let targetId = rawTargetId;
-
+                    
                     if (rawTargetId) {
                       const material = materialsArray.find(m => m.id === rawTargetId || m.code === rawTargetId);
                       if (material) {
@@ -1246,7 +1249,7 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
                     evItems.forEach(ev => {
                       if (ev.tool === 'search_pdm' && Array.isArray(ev.data?.materials)) {
                         ev.data.materials.forEach(m => {
-                          const id = m.id || m.code || m.materialId;
+                          const id = m.id || m.materialId || m.code;
                           if (id && !snapshot.payload.materialDb.materials[id]) {
                             snapshot.payload.materialDb.materials[id] = m;
                           }
@@ -1254,7 +1257,7 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
                       }
                       if (ev.tool === 'get_material' && ev.data?.material) {
                          const m = ev.data.material;
-                         const id = m.id || m.code || m.materialId;
+                         const id = m.id || m.materialId || m.code;
                          if (id && !snapshot.payload.materialDb.materials[id]) {
                            snapshot.payload.materialDb.materials[id] = m;
                          }
