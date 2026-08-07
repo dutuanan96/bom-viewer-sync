@@ -80,6 +80,7 @@ export const REJECTION_CODES = Object.freeze([
 const FIELD_RULES = Object.freeze({
   allColors: value => typeof value === 'boolean',
   attribute: nonEmptyString,
+  code: nonEmptyString,
   color: nonEmptyString,
   componentCode: nonEmptyString,
   field: nonEmptyString,
@@ -87,6 +88,9 @@ const FIELD_RULES = Object.freeze({
   materialCode: identifier,
   materialColor: nonEmptyString,
   materialName: nonEmptyString,
+  name: nonEmptyString,
+  nameVi: nonEmptyString,
+  nameZh: nonEmptyString,
   newMaterialCode: identifier,
   operationTypes: stringArray,
   preserveMaterialCodes: value => typeof value === 'boolean',
@@ -101,6 +105,7 @@ const FIELD_RULES = Object.freeze({
   targetId: nonEmptyString,
   targetMaterialCode: identifier,
   targetSpec: nonEmptyString,
+  unit: nonEmptyString,
   value: value => value !== undefined,
   withdrawReleasedRevision: value => typeof value === 'boolean',
 });
@@ -145,6 +150,7 @@ const OPTIONAL_TOP_LEVEL_KEYS = Object.freeze([
   'responseLanguage',
   'schemaVersion',
   'taskUpdates',
+  'fields',
 ]);
 
 function nonEmptyString(value) {

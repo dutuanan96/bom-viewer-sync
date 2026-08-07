@@ -418,6 +418,7 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
     const successfulReadOnlyTools = new Set();
     let consecutiveNoProgress = 0;
     let proposalReminderSent = false;
+    let proposalFailureCount = 0;
 
     let accumulatedText = '';
 
@@ -456,7 +457,20 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
         // Add to ledger
         if (toolResult?.evidence) {
           const ev = Array.isArray(toolResult.evidence) ? toolResult.evidence : [toolResult.evidence];
-          ev.forEach(e => ledger.trackEvidence(e));
+          ev.forEach(e => {
+            const enriched = { ...e };
+            if (safeCall.name === 'search_pdm' && Array.isArray(toolResult.materials)) {
+              enriched.tool = 'search_pdm';
+              enriched.data = { materials: toolResult.materials };
+            } else if (safeCall.name === 'get_material' && safeCall.arguments?.materialId) {
+              const matRecord = snapshot?.payload?.materialDb?.materials?.[safeCall.arguments.materialId];
+              if (matRecord) {
+                enriched.tool = 'get_material';
+                enriched.data = { material: matRecord };
+              }
+            }
+            ledger.trackEvidence(enriched);
+          });
         }
 
         trace.add('tool_completed', {
@@ -701,11 +715,16 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
             });
           }
         } catch (err) {
-          if (err.code === 'AI_NO_COMPATIBLE_ENDPOINT' && !compatibleEndpointFallbackUsed) {
+          if (err.code === 'AI_NO_COMPATIBLE_ENDPOINT' && !compatibleEndpointFallbackUsed
+              && activeModel.endsWith(':free')) {
+            // Only auto-fallback when we're already using a free-tier model. When the user
+            // explicitly picked a capable (paid) model like gpt-4o and the key/provider cannot
+            // serve it, DO NOT silently downgrade to a weaker free model — surface a clear error
+            // so the user fixes the key or chooses another model.
             const fallback = gateway.listModels().find(candidate => (
               candidate.id !== activeModel &&
               candidate.id.endsWith(':free') &&
-              (deterministicPrefetchUsed || candidate.grade !== 'Unsupported')
+              candidate.grade !== 'Unsupported'
             ));
             if (fallback) {
               compatibleEndpointFallbackUsed = true;
@@ -910,9 +929,24 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
                   contextFromToolResult(executedCall, toolResult),
                 );
                 if (toolResult?.evidence) {
-                  const evidenceItems = Array.isArray(toolResult.evidence) ? toolResult.evidence : [toolResult.evidence];
-                  evidenceItems.forEach(item => ledger.trackEvidence(item));
-                }
+                                  const evidenceItems = Array.isArray(toolResult.evidence) ? toolResult.evidence : [toolResult.evidence];
+                                  evidenceItems.forEach(item => {
+                                    // Enrich evidence with tool call metadata so the mutation context
+                                    // can find materials that were retrieved globally (e.g. via search_pdm in Catalog view).
+                                    const enriched = { ...item };
+                                    if (executedCall?.name === 'search_pdm' && Array.isArray(toolResult.materials)) {
+                                      enriched.tool = 'search_pdm';
+                                      enriched.data = { materials: toolResult.materials };
+                                    } else if (executedCall?.name === 'get_material' && executedCall.arguments?.materialId) {
+                                      const matRecord = snapshot?.payload?.materialDb?.materials?.[executedCall.arguments.materialId];
+                                      if (matRecord) {
+                                        enriched.tool = 'get_material';
+                                        enriched.data = { material: matRecord };
+                                      }
+                                    }
+                                    ledger.trackEvidence(enriched);
+                                  });
+                                }
                 const contextAfterValue = JSON.stringify(normalizeFingerprintValue(contextAfter));
                 const evidenceAfterCount = ledger.getEvidence().length;
 
@@ -1073,6 +1107,14 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
           if (semanticJson) {
             let validation = validateSemanticSchema(semanticJson);
             
+            // Some models (e.g. deepseek flash) emit a rejectionCode together with a
+            // clarification or proposal. The schema only allows rejectionCode on a rejection,
+            // so clear it and re-validate rather than discarding an otherwise valid output.
+            if (!validation.valid && validation.code === 'NON_REJECTION_HAS_REJECTION_CODE'
+                && semanticJson.intent !== 'rejection') {
+              semanticJson.rejectionCode = null;
+              validation = validateSemanticSchema(semanticJson);
+            }
             // If validation fails on truncated JSON, aggressively strip the last corrupted tasks
             if (!validation.valid && semanticJson.taskUpdates && semanticJson.taskUpdates.length > 0) {
                while (!validation.valid && semanticJson.taskUpdates.length > 0) {
@@ -1158,7 +1200,30 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
                         payload.patch.spec = { zh: task.fields.spec, vi: task.fields.spec };
                       }
                     } else if (task.type === 'create_material') {
-                      payload = { material: task.fields || {} };
+                      // Map semantic-schema field names to the canonical material record format
+                      // expected by validateMaterialRecordInput (code / name.{zh,vi} / material.{zh,vi} / ...).
+                      // The model may emit either naming convention (materialCode|newMaterialCode vs code,
+                      // nameVi|nameZh|materialName, materialColor, attribute, ...).
+                      const f = task.fields || {};
+                      const material = {};
+                      const codeVal = f.code || f.materialCode || f.newMaterialCode;
+                      if (codeVal) material.code = String(codeVal);
+                      if (f.nameZh || f.nameVi || f.materialName) {
+                        material.name = {
+                          zh: String(f.nameZh || f.materialName || ''),
+                          vi: String(f.nameVi || f.materialName || ''),
+                        };
+                      }
+                      const specVal = f.spec || f.targetSpec;
+                      if (specVal) material.spec = { zh: String(specVal), vi: String(specVal) };
+                      const materialVal = f.material;
+                      if (materialVal) material.material = { zh: String(materialVal), vi: String(materialVal) };
+                      const colorVal = f.color || f.materialColor;
+                      if (colorVal) material.color = { zh: String(colorVal), vi: String(colorVal) };
+                      const attrVal = f.attr || f.attribute;
+                      if (attrVal) material.attr = { zh: String(attrVal), vi: String(attrVal) };
+                      if (f.unit) material.unit = String(f.unit);
+                      payload = { material };
                     } else if (task.type === 'update_material_field') {
                       const fieldName = task.fields?.attribute || task.fields?.field;
                       const fieldValue = task.fields?.[fieldName] !== undefined ? task.fields[fieldName] : task.fields?.value;
@@ -1208,6 +1273,19 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
                     };
                   } catch (err) {
                     console.error('[DEBUG] apply_mutation error:', err);
+                    proposalFailureCount += 1;
+                    // Cap proposal retries to avoid an unbounded model loop that
+                    // burns the provider rate limit / budget when a mutation keeps failing.
+                    if (proposalFailureCount >= 2) {
+                      finalAnswer = {
+                        text: (semanticJson?.responseLanguage !== 'vi'
+                          ? '创建提案失败，请检查提供的数据（' + err.message + '）后重试。'
+                          : 'Tạo đề xuất thất bại, vui lòng kiểm tra dữ liệu đã cung cấp (' + err.message + ') và thử lại.'),
+                        citations: evidenceIds,
+                        workflowUpdate: semanticJson
+                      };
+                      break;
+                    }
                     messages.push({
                       role: 'system',
                       content: `SYSTEM_WORKFLOW_ERROR: Constraint conflict: ${err.message}. Do not argue or apologize. Generate a new workflow_update with intent "clarification" asking the user to provide correct values.`

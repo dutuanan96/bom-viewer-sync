@@ -553,6 +553,32 @@ function enrichCreateMaterialMutation(materials, sourceMutation) {
   const warnings = [];
   if (mutation.operationType !== 'create_material') return { mutation, warnings };
 
+  // Self-heal: if the model proposes creating a material whose code already exists,
+  // the intended action is almost always an UPDATE to the existing material (e.g. a
+  // mass spec change like 60mm→100mm). Convert create_material → update_material so
+  // the proposal does not fail with "Duplicate material code".
+  const newCode = String(mutation.payload?.material?.code || '').trim().toLowerCase();
+  if (newCode) {
+    const existing = Object.values(materials).find(m => String(m?.code || '').trim().toLowerCase() === newCode);
+    if (existing) {
+      const incoming = mutation.payload.material;
+      const patch = {};
+      for (const field of ['name', 'material', 'color', 'attr']) {
+        if (incoming[field] && (incoming[field].zh || incoming[field].vi)) patch[field] = incoming[field];
+      }
+      if (incoming.spec && (incoming.spec.zh || incoming.spec.vi)) patch.spec = incoming.spec;
+      if (incoming.unit) patch.unit = incoming.unit;
+      const targetId = existing.id || existing.materialId || existing.code;
+      if (Object.keys(patch).length > 0) {
+        warnings.push(`Converted create_material (code ${existing.code}) to an update because the code already exists.`);
+        return {
+          mutation: { operationType: 'update_material', targetId, payload: { patch } },
+          warnings,
+        };
+      }
+    }
+  }
+
   const dictionary = buildBilingualDictionary(materials);
   const material = mutation.payload.material;
   for (const field of ['name', 'material', 'color', 'attr']) {
@@ -660,7 +686,9 @@ export function buildMutationProposalReview(snapshot, proposalInput, t = (k) => 
   const proposal = validateMutationProposal(proposalInput);
   let payload = clone(snapshot.payload);
   let currentCanEdit = snapshot.canEditRevision;
-  const operations = proposal.operations.map((sourceMutation, index) => {
+  const operations = [];
+  for (let index = 0; index < proposal.operations.length; index += 1) {
+    const sourceMutation = proposal.operations[index];
     const enrichment = enrichCreateMaterialMutation(payload.materialDb?.materials || {}, sourceMutation);
     const mutation = enrichment.mutation;
     const operationSnapshot = { ...snapshot, payload, canEditRevision: currentCanEdit };
@@ -678,22 +706,26 @@ export function buildMutationProposalReview(snapshot, proposalInput, t = (k) => 
 
     const warnings = [...operationWarnings(mutation, operationSnapshot.payload, t), ...enrichment.warnings];
 
-
     const diff = describePayloadChanges(before, payload);
+    // Skip operations that produce no actual change (e.g. a repeated/duplicate target or a
+    // spec that already matches). Only fail if NO operation produces any change at all.
     if (diff.length === 0) {
-      const error = new Error(`Operation ${index + 1} produces no changes.`);
-      error.code = ERROR_CODES.AI_POLICY_BLOCKED;
-      throw error;
+      continue;
     }
-    return {
-      id: `change-${index + 1}`,
+    operations.push({
+      id: `change-${operations.length + 1}`,
       category: operationCategory(mutation.operationType),
       risk: operationRisk(mutation.operationType),
       warnings: warnings,
       mutation: clone(mutation),
       diff,
-    };
-  });
+    });
+  }
+  if (operations.length === 0) {
+    const error = new Error('Mutation produces no changes');
+    error.code = ERROR_CODES.AI_POLICY_BLOCKED;
+    throw error;
+  }
   const verification = verifyProposalPayload(payload);
   if (!verification.valid) {
     const error = new Error(`Proposal verification failed: ${verification.errors.join(' ')}`);
