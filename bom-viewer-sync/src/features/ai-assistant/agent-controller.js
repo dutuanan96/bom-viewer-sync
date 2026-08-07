@@ -1138,7 +1138,7 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
                   const materialsArray = Array.isArray(snapshot?.materials) ? snapshot.materials : Object.values(materialsMap);
 
                   const hydratedOperations = tasksToPropose.flatMap(task => {
-                    let rawTargetId = task.fields?.targetId || task.fields?.targetMaterialCode || task.fields?.materialCode || task.fields?.code || task.fields?.productCode;
+                    let rawTargetId = task.fields?.targetId || task.fields?.targetMaterialCode || task.fields?.materialCode || task.fields?.code || task.fields?.newMaterialCode || task.fields?.sourceMaterialCode || task.fields?.productCode;
                     let targetId = rawTargetId;
 
                     if (rawTargetId) {
