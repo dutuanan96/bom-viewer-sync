@@ -3584,6 +3584,46 @@ body.pdm-shell {
   font-weight: 600;
 }
 
+.diff-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.diff-pagination-ellipsis {
+  color: var(--muted);
+  padding: 0 2px;
+}
+
+.bom-history {
+  margin-top: 12px;
+  max-width: 100%;
+}
+
+.bom-history > summary,
+.bom-history-event > summary {
+  cursor: pointer;
+}
+
+.bom-history-event {
+  margin-top: 10px;
+  padding: 8px 0;
+  border-top: 1px solid var(--border);
+}
+
+.bom-history-event > summary {
+  display: flex;
+  gap: 14px;
+}
+
+.bom-history-empty {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
 .diff-empty {
   color: var(--muted);
   padding: 18px;

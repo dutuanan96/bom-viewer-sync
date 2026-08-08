@@ -49,6 +49,45 @@ test('application normalizes current notifications and identifies incoming notif
   assert.equal(newNotifications[0].changes[0].field, 'spec');
 });
 
+test('post-save batch release requires a reason and releases every affected draft', async () => {
+  const app = Object.create(BomApplication.prototype);
+  app.state = {
+    payload: coreUtils.normalizePayload({
+      bom: { P1: { revision: 'V2' }, P2: { revision: 'V5' } },
+      productRevisions: {
+        P1: { currentRevision: 'V2', currentRevisionInfo: { workflowState: 'draft' } },
+        P2: { currentRevision: 'V5', currentRevisionInfo: { workflowState: 'draft' } },
+      },
+      materialDb: { materials: {}, bomEntries: [] },
+    }),
+    dirty: false,
+  };
+  app.label = (key) => key === 'batchReleaseConfirm' ? '{products}' : key;
+  app.openPdmConfirm = (message, onConfirm) => {
+    assert.equal(message, 'P1, P2');
+    onConfirm();
+  };
+  app.openPdmPrompt = (title, fields, onConfirm) => {
+    assert.equal(fields[0].required, true);
+    onConfirm({ releaseReason: 'Approved batch change' });
+  };
+  const completed = new Promise((resolve) => {
+    app.writeGithubData = async (token, options) => {
+      assert.equal(token, 'token');
+      assert.deepEqual(options, { historyAction: 'release', historyReason: 'Approved batch change' });
+      resolve();
+    };
+  });
+  app.setStatus = () => {};
+
+  app.offerBatchRelease(['P1', 'P2'], 'token');
+  await completed;
+
+  assert.equal(app.state.payload.productRevisions.P1.currentRevisionInfo.workflowState, 'released');
+  assert.equal(app.state.payload.productRevisions.P2.currentRevisionInfo.workflowState, 'released');
+  assert.equal(app.state.payload.productRevisions.P1.effectivityEvents[0].reason, 'Approved batch change');
+});
+
 test('save diffs the current remote payload before writing its expectedHeadSha and payload', async () => {
   const remotePayload = coreUtils.normalizePayload({
     bom: {},

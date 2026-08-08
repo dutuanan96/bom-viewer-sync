@@ -262,10 +262,14 @@ export function routePdmIntent({
   }
 
   if (MUTATION_REQUEST_PATTERN.test(text) && tools.has('apply_mutation')) {
+    const dimensions = text.match(/\d+(?:\.\d+)?\s*mm/giu) || [];
+    const preferredTool = dimensions.length >= 2 && tools.has('search_pdm')
+      ? 'search_pdm'
+      : 'apply_mutation';
     return result(
       PDM_INTENTS.PROPOSAL,
       { ...entities, searchQuery: text },
-      'apply_mutation',
+      preferredTool,
     );
   }
 

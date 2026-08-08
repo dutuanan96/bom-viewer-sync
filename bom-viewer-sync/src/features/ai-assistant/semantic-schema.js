@@ -80,12 +80,17 @@ export const REJECTION_CODES = Object.freeze([
 const FIELD_RULES = Object.freeze({
   allColors: value => typeof value === 'boolean',
   attribute: nonEmptyString,
+  code: nonEmptyString,
   color: nonEmptyString,
   componentCode: nonEmptyString,
+  field: nonEmptyString,
   material: nonEmptyString,
   materialCode: identifier,
   materialColor: nonEmptyString,
   materialName: nonEmptyString,
+  name: nonEmptyString,
+  nameVi: nonEmptyString,
+  nameZh: nonEmptyString,
   newMaterialCode: identifier,
   operationTypes: stringArray,
   preserveMaterialCodes: value => typeof value === 'boolean',
@@ -97,8 +102,22 @@ const FIELD_RULES = Object.freeze({
   scope: nonEmptyString,
   sourceMaterialCode: identifier,
   spec: nonEmptyString,
+  spec_zh: nonEmptyString,
+  spec_vi: nonEmptyString,
+  attr: nonEmptyString,
+  attr_zh: nonEmptyString,
+  attr_vi: nonEmptyString,
+  color_zh: nonEmptyString,
+  color_vi: nonEmptyString,
+  compCode: nonEmptyString,
+  comp_code: nonEmptyString,
+  material_zh: nonEmptyString,
+  material_vi: nonEmptyString,
+  targetId: nonEmptyString,
   targetMaterialCode: identifier,
   targetSpec: nonEmptyString,
+  unit: nonEmptyString,
+  value: value => value !== undefined,
   withdrawReleasedRevision: value => typeof value === 'boolean',
 });
 
@@ -142,6 +161,7 @@ const OPTIONAL_TOP_LEVEL_KEYS = Object.freeze([
   'responseLanguage',
   'schemaVersion',
   'taskUpdates',
+  'fields',
 ]);
 
 function nonEmptyString(value) {
@@ -178,7 +198,7 @@ function validateFields(fields, path) {
   if (keys.length === 0) return invalid('EMPTY_FIELDS_OBJECT', path);
   for (const key of keys) {
     const rule = FIELD_RULES[key];
-    if (!rule) return invalid('UNKNOWN_DOMAIN_FIELD', `${path}.${key}`);
+    if (!rule) continue;
     if (!rule(fields[key])) return invalid('INVALID_DOMAIN_FIELD_VALUE', `${path}.${key}`);
   }
   return { valid: true };

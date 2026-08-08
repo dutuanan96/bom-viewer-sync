@@ -28,6 +28,7 @@ import {
   validateMaterialAssetFile,
 } from './features/material-asset-upload.js';
 import { stableId } from './shared/primitives.js';
+import { appendBomHistory } from './features/bom-history.js';
 import {
   appendNotificationEvent as appendNormalizedNotificationEvent,
   describePayloadChanges as describeNormalizedPayloadChanges,
@@ -112,18 +113,32 @@ const TEXT = {
     save: '\u63d0\u4ea4\u66f4\u6539',
     viewChanges: '\u67e5\u770b\u66f4\u6539',
     noChangesSummary: '\u6709\u672a\u63d0\u4ea4\u7684\u66f4\u6539\uff0c\u4f46\u4e0d\u5728\u6458\u8981\u8303\u56f4\u5185',
-    diffSummary: '\u53d8\u66f4\u6458\u8981\uff08\u6700\u591a\u663e\u793a 8 \u9879\uff09',
+    diffSummary: '\u5168\u90e8\u672a\u63d0\u4ea4\u53d8\u66f4\uff08\u6240\u6709 BOM\uff0c\u5171 {count} \u9879\uff09',
+    diffPagination: '\u53d8\u66f4\u6458\u8981\u5206\u9875',
+    previousPage: '\u4e0a\u4e00\u9875',
+    nextPage: '\u4e0b\u4e00\u9875',
     diffColType: '\u7c7b\u578b',
     diffColCode: '\u7f16\u7801',
     diffColField: '\u5b57\u6bb5',
     diffColBefore: '\u4fee\u6539\u524d',
     diffColAfter: '\u4fee\u6539\u540e',
+    bomHistory: 'BOM \u53d8\u66f4\u5386\u53f2',
+    bomHistoryEmpty: '\u6682\u65e0 BOM \u53d8\u66f4\u5386\u53f2',
+    historyActionSave: '\u4fdd\u5b58',
+    historyActionRelease: '\u53d1\u5e03',
+    batchReleaseTitle: '\u53d1\u5e03\u5df2\u4fdd\u5b58\u7684\u8349\u7a3f\u7248\u672c',
+    batchReleaseReason: '\u53d1\u5e03\u539f\u56e0',
+    batchReleaseConfirm: '\u5df2\u4fdd\u5b58 {products}\u3002\u662f\u5426\u7acb\u5373\u53d1\u5e03\u8fd9\u4e9b\u8349\u7a3f\u7248\u672c\uff1f',
     diffKindMaterial: '\u7269\u6599\u5c5e\u6027',
     diffKindMaterialAdded: '\u65b0\u589e\u7269\u6599',
     diffKindMaterialDeleted: '\u5220\u9664\u7269\u6599',
     diffKindBomAdded: '\u7236\u9879\u65b0\u589e\u5b50\u9879',
     diffKindBomDeleted: '\u7236\u9879\u79fb\u9664\u5b50\u9879',
     diffKindBomQty: '\u6570\u91cf\u53d8\u66f4',
+    diffKindBomMaterial: 'BOM \u7269\u6599\u53d8\u66f4',
+    diffKindBomComponentCode: '\u90e8\u4ef6\u7f16\u7801\u53d8\u66f4',
+    diffKindProduct: '\u4ea7\u54c1\u5c5e\u6027',
+    diffKindRevision: '\u7248\u672c',
     diffKindProductAdded: '\u65b0\u589e\u4ea7\u54c1',
     reload: '重新加载',
     discard: '放弃更改',
@@ -340,7 +355,18 @@ const TEXT = {
     'ai.proposal.swapToReplace': '转换为替换指令',
     'ai.proposal.swapToReplaceCheckbox': '使用现有物料替换',
     'ai.proposal.regenerateProposal': '重新生成建议',
-    'ai.proposal.bumpRevisionOption': '在应用前创建新版本',
+    'ai.proposal.regenerateFailed': '无法重新生成建议。原建议仍可继续审核。',
+    'ai.proposal.swapNoUsages': '所选物料没有可替换的 BOM 使用位置。',
+    'ai.proposal.createDraftForSwap': '为 BOM 替换创建草稿版本',
+    'ai.proposal.swapRevisionField': '{product} 的新版本号',
+    'ai.proposal.swapRevisionReasonField': '{product} 的变更原因',
+    'ai.proposal.releasedRevisionChoiceTitle': 'BOM 当前版本已发布',
+    'ai.proposal.releasedRevisionChoiceMessage': '请选择创建新的草稿版本，或撤回已发布版本后进行编辑。撤回会影响版本的发布状态。',
+    'ai.proposal.createDraftOption': '创建新的草稿版本',
+    'ai.proposal.withdrawOption': '撤回已发布版本',
+    'ai.proposal.withdrawReleasedForSwap': '撤回已发布版本以替换 BOM',
+    'ai.proposal.withdrawReasonField': '{product} 的撤回原因',
+    'ai.proposal.withdrawConfirmForSwap': '确认撤回 {products} 的已发布版本并继续替换 BOM？',
     'ai.proposal.kind.material': '物料',
     'ai.proposal.kind.material_added': '新增物料',
     'ai.proposal.kind.material_deleted': '删除物料',
@@ -442,18 +468,32 @@ const TEXT = {
     save: 'G\u1eedi thay \u0111\u1ed5i',
     viewChanges: 'Xem thay \u0111\u1ed5i',
     noChangesSummary: 'C\u00f3 thay \u0111\u1ed5i ch\u01b0a g\u1eedi, nh\u01b0ng kh\u00f4ng n\u1eb1m trong ph\u1ea7n t\u00f3m t\u1eaft',
-    diffSummary: 'T\u00f3m t\u1eaft thay \u0111\u1ed5i (t\u1ed1i \u0111a 8 m\u1ee5c)',
+    diffSummary: 'T\u1ea5t c\u1ea3 thay \u0111\u1ed5i ch\u01b0a g\u1eedi (m\u1ecdi BOM, t\u1ed5ng {count} m\u1ee5c)',
+    diffPagination: 'Ph\u00e2n trang t\u00f3m t\u1eaft thay \u0111\u1ed5i',
+    previousPage: 'Trang tr\u01b0\u1edbc',
+    nextPage: 'Trang sau',
     diffColType: 'Lo\u1ea1i',
     diffColCode: 'M\u00e3',
     diffColField: 'Tr\u01b0\u1eddng',
     diffColBefore: 'Tr\u01b0\u1edbc',
     diffColAfter: 'Sau',
+    bomHistory: 'L\u1ecbch s\u1eed thay \u0111\u1ed5i BOM',
+    bomHistoryEmpty: 'Ch\u01b0a c\u00f3 l\u1ecbch s\u1eed thay \u0111\u1ed5i BOM',
+    historyActionSave: 'L\u01b0u',
+    historyActionRelease: 'Ph\u00e1t h\u00e0nh',
+    batchReleaseTitle: 'Ph\u00e1t h\u00e0nh c\u00e1c Draft v\u1eeba l\u01b0u',
+    batchReleaseReason: 'L\u00fd do ph\u00e1t h\u00e0nh',
+    batchReleaseConfirm: '\u0110\u00e3 l\u01b0u {products}. Ph\u00e1t h\u00e0nh ngay c\u00e1c Draft n\u00e0y?',
     diffKindMaterial: 'Thu\u1ed9c t\u00ednh v\u1eadt li\u1ec7u',
     diffKindMaterialAdded: 'Th\u00eam v\u1eadt li\u1ec7u',
     diffKindMaterialDeleted: 'X\u00f3a v\u1eadt li\u1ec7u',
     diffKindBomAdded: 'Th\u00eam con v\u00e0o ph\u1ee5 huynh',
     diffKindBomDeleted: 'X\u00f3a con kh\u1ecfi ph\u1ee5 huynh',
     diffKindBomQty: '\u0110\u1ed5i s\u1ed1 l\u01b0\u1ee3ng',
+    diffKindBomMaterial: '\u0110\u1ed5i v\u1eadt li\u1ec7u BOM',
+    diffKindBomComponentCode: '\u0110\u1ed5i m\u00e3 linh ki\u1ec7n',
+    diffKindProduct: 'Thu\u1ed9c t\u00ednh s\u1ea3n ph\u1ea9m',
+    diffKindRevision: 'Phi\u00ean b\u1ea3n',
     diffKindProductAdded: 'Th\u00eam s\u1ea3n ph\u1ea9m',
     reload: 'Tải lại',
     discard: 'Bỏ thay đổi',
@@ -600,7 +640,6 @@ const TEXT = {
     'ai.settings.consentLabel': 'Cho phép chuyển sang mô hình trả phí',
     'ai.settings.statusConnected': 'Đã kết nối',
     'ai.settings.statusDisconnected': 'Chưa kết nối',
-    'ai.proposal.bumpRevisionOption': 'Tạo phiên bản mới trước khi áp dụng',
     'ai.proposal.kind.material': 'Vật liệu',
     'ai.proposal.appliedSuccess': 'Đã áp dụng thành công',
     'ai.proposal.kind.material_added': 'Thêm vật liệu',
@@ -701,6 +740,18 @@ const TEXT = {
     'ai.proposal.swapToReplace': 'Chuyển thành lệnh Thay thế',
     'ai.proposal.swapToReplaceCheckbox': 'Sử dụng vật liệu hiện có để thay thế',
     'ai.proposal.regenerateProposal': 'Tạo lại phương án',
+    'ai.proposal.regenerateFailed': 'Không thể tạo lại phương án. Đề xuất hiện tại vẫn có thể tiếp tục được xem xét.',
+    'ai.proposal.swapNoUsages': 'Vật liệu đã chọn không có vị trí sử dụng BOM nào để thay thế.',
+    'ai.proposal.createDraftForSwap': 'Tạo phiên bản nháp cho thay thế BOM',
+    'ai.proposal.swapRevisionField': 'Mã phiên bản mới cho {product}',
+    'ai.proposal.swapRevisionReasonField': 'Lý do thay đổi cho {product}',
+    'ai.proposal.releasedRevisionChoiceTitle': 'Revision BOM hiện đang Released',
+    'ai.proposal.releasedRevisionChoiceMessage': 'Hãy tạo Draft mới hoặc rút lại revision đã phát hành trước khi chỉnh sửa. Rút lại sẽ thay đổi trạng thái phát hành.',
+    'ai.proposal.createDraftOption': 'Tạo Draft mới',
+    'ai.proposal.withdrawOption': 'Rút lại revision đã phát hành',
+    'ai.proposal.withdrawReleasedForSwap': 'Rút lại revision đã phát hành để thay BOM',
+    'ai.proposal.withdrawReasonField': 'Lý do rút lại cho {product}',
+    'ai.proposal.withdrawConfirmForSwap': 'Xác nhận rút lại revision đã phát hành của {products} và tiếp tục thay BOM?',
     'ai.proposal.risk': 'Rủi ro',
     'ai.proposal.risk.low': 'Thấp',
     'ai.proposal.risk.medium': 'Trung bình',
@@ -838,6 +889,7 @@ Object.assign(TEXT.zh, {
   releasedStatus: '\u5df2\u53d1\u5e03',
   revisionSource: '\u7248\u672c\u6765\u6e90',
   revisionCreatedAt: '\u521b\u5efa\u65f6\u95f4',
+  revisionWorkflowState: '\u72b6\u6001',
   effectiveStatus: '\u4f7f\u7528\u4e2d',
   nonCurrentStatus: '\u975e\u73b0\u884c',
   effectiveRevision: '\u4f7f\u7528\u4e2d\u7248\u672c',
@@ -973,6 +1025,7 @@ Object.assign(TEXT.vi, {
   releasedStatus: '\u0110\u00e3 ph\u00e1t h\u00e0nh',
   revisionSource: 'Ngu\u1ed3n phi\u00ean b\u1ea3n',
   revisionCreatedAt: 'Th\u1eddi gian t\u1ea1o',
+  revisionWorkflowState: 'Tr\u1ea1ng th\u00e1i',
   effectiveStatus: '\u0110ang s\u1eed d\u1ee5ng',
   nonCurrentStatus: 'Kh\u00f4ng hi\u1ec7n h\u00e0nh',
   effectiveRevision: 'Phi\u00ean b\u1ea3n s\u1eed d\u1ee5ng',
@@ -1138,6 +1191,8 @@ class BomApplication {
     this.memoryManager ||= createMemoryManager({ localStore: this.aiLocalStore });
     this.aiFeature = createAiAssistantFeature({
       mode: this.mode,
+      openPdmPrompt: (title, fields, onConfirm, onCancel) => this.openPdmPrompt(title, fields, onConfirm, onCancel),
+      openPdmConfirm: (message, onConfirm) => this.openPdmConfirm(message, onConfirm),
       getSnapshot: () => this.getSnapshot(),
       getImprovementEvidence: async (candidate, snapshot) => {
         const discovery = new PdmDiscovery(snapshot);
@@ -1168,49 +1223,63 @@ class BomApplication {
       },
       t: (key) => this.label(key),
       localStore: this.aiLocalStore,
+      onApplyFallbackProposal: (selectedProposal, snapshot, options) => {
+        try {
+          const currentSnapshot = snapshot || this.getSnapshot();
+          const transaction = applyMutationProposalTransaction(currentSnapshot, selectedProposal);
+          this.applyAiMutation({
+            proposal: selectedProposal,
+            changes: transaction.changes,
+            payload: transaction.payload,
+            sourceCommit: currentSnapshot.sourceMetadata?.commitSha
+          });
+        } catch (e) {
+          this.aiFeature.ui.renderMessage({ role: 'assistant', text: this.label('ai.proposal.applyError') || 'Error applying proposal' });
+        }
+      },
       runTool: async (call, snapshot) => {
         if (call.name === 'apply_mutation') {
           try {
-            const review = buildMutationProposalReview(snapshot, call.arguments, (k) => this.label(k));
+            const renderProposal = (operations) => {
+              const review = buildMutationProposalReview(snapshot, { operations }, (k) => this.label(k));
 
-            // Render the proposal directly into the chat and pause execution
-            this.aiFeature.ui.renderMessage({
-              role: 'assistant',
-              text: this.label('ai.proposal.prepared') || 'Proposal prepared for review.',
-              proposal: call.arguments,
-              proposalReview: review,
-              diff: review.finalDiff,
-              snapshot: snapshot,
-              onApprove: (selectedProposal, options) => {
-                try {
-                  const currentSnapshot = this.getSnapshot();
-                  const productCode = currentSnapshot.selection?.productCode;
-                  const wasReleased = !currentSnapshot.canEditRevision && productCode;
-                  
-                  const transaction = applyMutationProposalTransaction(currentSnapshot, selectedProposal);
-                  
-                  if (wasReleased) {
-                    withdrawProductRevision(transaction.payload, productCode, null, { reason: 'AI Auto Edit' });
-                    releaseProductRevision(transaction.payload, productCode, null, { reason: 'AI Auto Edit Completed' });
+              // Render the proposal directly into the chat and pause execution
+              this.aiFeature.ui.renderMessage({
+                role: 'assistant',
+                text: this.label('ai.proposal.prepared') || 'Proposal prepared for review.',
+                proposal: { operations },
+                proposalReview: review,
+                diff: review.finalDiff,
+                snapshot: snapshot,
+                onApprove: (selectedProposal, options) => {
+                  try {
+                    const currentSnapshot = this.getSnapshot();
+
+                    const transaction = applyMutationProposalTransaction(currentSnapshot, selectedProposal);
+
+                    this.applyAiMutation({
+                      proposal: selectedProposal,
+                      changes: transaction.changes,
+                      payload: transaction.payload,
+                      sourceCommit: currentSnapshot.sourceMetadata?.commitSha
+                    });
+                  } catch (e) {
+                    this.aiFeature.ui.renderMessage({ role: 'assistant', text: this.label('ai.proposal.applyError') || 'Error applying proposal' });
                   }
-                  
-                  this.applyAiMutation({
-                    proposal: selectedProposal,
-                    changes: transaction.changes,
-                    payload: transaction.payload,
-                    sourceCommit: currentSnapshot.sourceMetadata?.commitSha
-                  });
-                } catch (e) {
-                  this.aiFeature.ui.renderMessage({ role: 'assistant', text: this.label('ai.proposal.applyError') || 'Error applying proposal' });
+                },
+                onViewChanges: () => {
+                  this.showDiffModal();
+                },
+                onSave: () => {
+                  if (this.isAdmin()) return this.saveCloud();
+                },
+                onRegenerate: (newOperations) => {
+                  renderProposal(newOperations);
                 }
-              },
-              onViewChanges: () => {
-                this.showDiffModal();
-              },
-              onSave: () => {
-                if (this.isAdmin()) return this.saveCloud();
-              }
-            });
+              });
+            };
+
+            renderProposal(call.arguments.operations);
 
             return 'Mutation presented to user for review. Stop using tools and wait for authorization.';
           } catch (error) {
@@ -1864,6 +1933,7 @@ class BomApplication {
     if (action === 'toggle-edit' && this.canEditProductRevision()) this.toggleEdit();
     if (action === 'save' && this.isAdmin()) this.saveCloud();
     if (action === 'view-changes' && this.isAdmin()) this.showDiffModal(actionElement);
+    if (action === 'bom-history') this.showBomHistoryModal(actionElement);
     if (action === 'reload') this.loadCloud({ silent: false });
     if (action === 'discard' && this.isAdmin()) this.discard();
     if (action === 'material-db' && this.isAdmin()) { this.state.materialDbPage = 1; this.openMaterialDatabase(); }
@@ -3397,7 +3467,8 @@ class BomApplication {
       return;
     }
     try {
-      await this.writeGithubData(token);
+      const releaseCandidates = await this.writeGithubData(token);
+      if (releaseCandidates.length) this.offerBatchRelease(releaseCandidates, token);
     } catch (error) {
       const message = error instanceof MaterialAssetUploadError
         ? this.materialAssetErrorLabel(error)
@@ -3406,7 +3477,29 @@ class BomApplication {
     }
   }
 
-  async writeGithubData(token) {
+  offerBatchRelease(productCodes, token) {
+    const products = [...new Set(productCodes)].join(', ');
+    this.openPdmConfirm(this.label('batchReleaseConfirm').replace('{products}', products), () => {
+      this.openPdmPrompt(this.label('batchReleaseTitle'), [{
+        key: 'releaseReason',
+        label: this.label('batchReleaseReason'),
+        required: true,
+      }], async (values) => {
+        try {
+          for (const productCode of productCodes) {
+            releaseProductRevision(this.state.payload, productCode, undefined, { reason: values.releaseReason });
+          }
+          this.state.bom = this.state.payload.bom;
+          this.state.dirty = true;
+          await this.writeGithubData(token, { historyAction: 'release', historyReason: values.releaseReason });
+        } catch (error) {
+          this.setStatus(`${this.label('saveFailed')}: ${error.message}`, 'error');
+        }
+      });
+    });
+  }
+
+  async writeGithubData(token, options = {}) {
     this.setStatus(this.label('saving'), '');
     const updatedAt = new Date().toISOString();
     this.syncLegacyBom();
@@ -3420,7 +3513,8 @@ class BomApplication {
       productImages: this.state.productImages,
       productRevisions: this.state.payload.productRevisions,
       materialDb: this.state.materialDb,
-      notifications: this.state.payload.notifications
+      notifications: this.state.payload.notifications,
+      bomHistory: this.state.payload.bomHistory
     });
     syncLegacyBomFromMaterialDb(localPayload);
     this.state.pendingMaterialAssets = this.state.pendingMaterialAssets || {};
@@ -3446,10 +3540,20 @@ class BomApplication {
     let payload = resolution.payload;
     const remoteFile = await this.githubData.loadForWrite(token);
     const changes = describePayloadChanges(remoteFile.payload, payload);
+    payload = appendBomHistory(payload, remoteFile.payload, changes, {
+      actor: 'admin',
+      createdAt: updatedAt,
+      action: options.historyAction || 'save',
+      reason: options.historyReason || '',
+    });
     payload.notifications = normalizeNotifications(
       remoteFile.expectedHeadSha ? remoteFile.payload?.notifications : payload.notifications
     );
     payload = appendNotificationEvent(payload, { type: 'github-save', actor: 'admin', createdAt: updatedAt, changes });
+    const releaseCandidates = Object.keys(payload.bomHistory || {}).filter((productCode) => (
+      payload.bomHistory[productCode]?.[0]?.createdAt === updatedAt &&
+      payload.productRevisions?.[productCode]?.currentRevisionInfo?.workflowState === 'draft'
+    ));
     await this.githubData.write({ token, expectedHeadSha: remoteFile.expectedHeadSha, payload, message: `chore: update sharded bom data ${updatedAt}` });
     resolution.completedPendingIds.forEach((pendingId) => {
       delete this.state.pendingMaterialAssets[pendingId];
@@ -3465,6 +3569,7 @@ class BomApplication {
     this.state.dirty = false;
     this.renderAll();
     this.setStatus(this.label('saved'), 'saved');
+    return releaseCandidates;
   }
 
   syncLegacyBom() {

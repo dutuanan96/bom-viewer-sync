@@ -1,6 +1,7 @@
 import { clone, normalizeMaterialDatabase } from '../domain/materials.js';
 import { normalizeProductRevisionRegistry } from '../domain/revisions.js';
 import { normalizeNotifications } from '../features/notifications.js';
+import { normalizeBomHistory } from '../features/bom-history.js';
 import { assembleShardedPayload } from '../domain/sharded-data.js';
 
 export function normalizeConfig(config) {
@@ -55,6 +56,8 @@ export function normalizePayload(payload, fallbackProductImages = {}) {
     productRevisions: normalizeProductRevisionRegistry(source),
     notifications: normalizeNotifications(source.notifications),
   };
+  const bomHistory = normalizeBomHistory(source.bomHistory);
+  if (Object.keys(bomHistory).length > 0) normalized.bomHistory = bomHistory;
   normalized.materialDb = normalizeMaterialDatabase({ ...source, ...normalized });
   return normalized;
 }

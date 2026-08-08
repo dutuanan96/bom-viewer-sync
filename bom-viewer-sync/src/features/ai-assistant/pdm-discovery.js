@@ -45,6 +45,37 @@ function searchTerms(query) {
     ) && !SEARCH_STOP_WORDS.has(term)))];
 }
 
+export function parseMaterialDimensionChange(query) {
+  const normalized = normalizeSearchText(query);
+  const match = normalized.match(
+    /(\d+(?:\.\d+)?\s*mm).{0,24}(?:\u6539\u4e3a|\u6539\u6210|\u53d8\u4e3a|\u53d8\u6210|\u66f4\u6539\u4e3a|\u6362\u6210|\bto\b|\binto\b|\bsang\b|\bthanh\b)\s*(\d+(?:\.\d+)?\s*mm)/iu,
+  );
+  return match
+    ? {
+        sourceDimension: match[1].replace(/\s+/g, ''),
+        targetDimension: match[2].replace(/\s+/g, ''),
+      }
+    : null;
+}
+
+function mentionedMaterialIds(payload, query) {
+  const normalized = normalizeSearchText(query);
+  const ids = new Set();
+  for (const record of Object.values(payload.materialDb?.materials || {})) {
+    const names = [
+      ...Object.values(record.name || {}),
+      record.name_zh,
+      record.name_vi,
+      record.name_en,
+    ];
+    if (names.some((name) => {
+      const value = normalizeSearchText(name);
+      return [...value].length >= 2 && normalized.includes(value);
+    })) ids.add(record.id);
+  }
+  return ids;
+}
+
 function scopedSearchSignals(query, productId) {
   const normalizedProductId = normalizeSearchText(productId);
   const normalized = normalizeSearchText(query).replace(new RegExp(`\\b${normalizedProductId}\\b`, 'g'), ' ');
@@ -233,6 +264,9 @@ export class PdmDiscovery {
     const scopedProductId = String(productId || '').trim().toUpperCase();
     const mappedMaterialId = String(materialId || '').trim();
     const terms = searchTerms(normalizedQuery);
+    const sourceDimension = parseMaterialDimensionChange(normalizedQuery)?.sourceDimension || '';
+    const namedMaterialIds = sourceDimension ? mentionedMaterialIds(this.payload, normalizedQuery) : new Set();
+    const hasMaterialMutationScope = sourceDimension && namedMaterialIds.size > 0;
     const scopedSignals = scopedProductId ? scopedSearchSignals(query, scopedProductId) : [];
 
     const products = [];
@@ -255,6 +289,13 @@ export class PdmDiscovery {
         : usage
       ).slice(0, MAX_RESULTS);
       if (scopedProductId && usedBy.length === 0) continue;
+      if (hasMaterialMutationScope) {
+        if (!namedMaterialIds.has(record.id)) continue;
+        const materialText = normalizeSearchText(searchableText(record)).replace(/\s+/g, '');
+        if (!materialText.includes(sourceDimension)) continue;
+        materials.push(materialSummary(record, usedBy));
+        continue;
+      }
       if (scopedProductId) {
         scopedMaterialCandidates.push({
           summary: materialSummary(record, usedBy),
