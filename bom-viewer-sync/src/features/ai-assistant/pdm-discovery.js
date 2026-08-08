@@ -453,13 +453,30 @@ export class PdmDiscovery {
       })
       .sort((left, right) => right.materialCount - left.materialCount
         || right.affectedBomEntryCount - left.affectedBomEntryCount);
+    const auditedMaterials = Object.values(this.payload.materialDb?.materials || {})
+      .filter(record => {
+        const recordName = normalizeSearchText(`${record?.name?.zh || ''} ${record?.name?.vi || ''}`);
+        return !normalizedName || recordName.includes(normalizedName);
+      })
+      .map(record => ({
+        materialId: record.id || '',
+        code: record.code || record.id || '',
+        name: record.name || {},
+        spec: record.spec || {},
+        material: record.material || {},
+        color: record.color || {},
+        attr: record.attr || {},
+      }))
+      .sort((left, right) => left.code.localeCompare(right.code));
 
     return {
       name: String(name),
       duplicateGroups: duplicateGroups.slice(0, MAX_RESULTS),
       suspectedDuplicateGroups: suspectedDuplicateGroups.slice(0, MAX_RESULTS),
+      auditedMaterials: auditedMaterials.slice(0, MAX_RESULTS),
       totalGroups: duplicateGroups.length,
       totalSuspectedGroups: suspectedDuplicateGroups.length,
+      totalAuditedMaterials: auditedMaterials.length,
       totalMaterials: duplicateGroups.reduce((count, group) => count + group.materialCount, 0),
       truncated: duplicateGroups.length > MAX_RESULTS,
       evidence: evidence(this.snapshot, {

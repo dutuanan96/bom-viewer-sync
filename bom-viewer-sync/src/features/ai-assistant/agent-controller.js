@@ -621,10 +621,10 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
         messages.push(prefetchedMessage);
         deterministicPrefetchUsed = true;
         if (route?.intent === 'duplicate_materials' && prefetchedCall.name === 'find_duplicate_materials') {
-          finalAnswer = trustPolicy.validateModelOutput({
-            text: deterministicFallbackText,
-            citations: ledger.getEvidence().map(item => item.id),
-          }, { evidence: ledger.getEvidence() });
+          messages.push({
+            role: 'user',
+            content: `PDM_DUPLICATE_AUDIT_REVIEW: Independently review every auditedMaterials row above. Compare your grouping with duplicateGroups (exact matches) and suspectedDuplicateGroups (same meaning but bilingual-field mismatch). Write one clear report in the user's language that lists EVERY group from both result sets, including all material codes and the field differences for suspected groups. If your independent review disagrees, state the discrepancy explicitly; never invent a material code or omit a deterministic group. Do not call any additional tool.`,
+          });
         }
         if (route?.intent === 'proposal' && prefetchedCall.name === 'find_duplicate_materials') {
           proposalReminderSent = true;

@@ -37,6 +37,8 @@ test('findDuplicateMaterials groups exact paper-card master-data duplicates with
   assert.ok(target.sourceMaterialCodes.includes('LGS833ZK'));
   assert.ok(target.materialCount >= 5);
   assert.ok(target.affectedBomEntryCount >= 12);
+  assert.ok(result.auditedMaterials.length >= 20);
+  assert.equal(result.totalAuditedMaterials, result.auditedMaterials.length);
   assert.equal(result.evidence.sourceCommit, 'a'.repeat(40));
 });
 
