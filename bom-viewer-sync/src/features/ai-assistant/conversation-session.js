@@ -1,6 +1,6 @@
 const SECRET_TEXT_PATTERN = /api.?key|authorization|password|secret|token|credential|\b(?:sk-or-|sk-|ghp_|github_pat_|bearer\s+)[a-z0-9._-]{10,}/i;
 const TOOL_EVENT_STATUSES = Object.freeze(new Set(['success', 'error', 'blocked']));
-const CONTEXT_KEYS = Object.freeze(new Set(['productIds', 'materialIds', 'revisions', 'searchQuery']));
+const CONTEXT_KEYS = Object.freeze(new Set(['productIds', 'materialIds', 'revisions', 'searchQuery', 'workflowState']));
 
 function assertPositiveInteger(value, name) {
   if (!Number.isInteger(value) || value <= 0) {
@@ -43,6 +43,41 @@ function sanitizeContext(context) {
   const result = {};
   for (const key of CONTEXT_KEYS) {
     if (!(key in context)) continue;
+    if (key === 'workflowState') {
+      const workflow = context[key];
+      if (!workflow || typeof workflow !== 'object' || Array.isArray(workflow)) {
+        throw new Error('Conversation workflow state must be an object');
+      }
+      const tasks = Array.isArray(workflow.tasks) ? workflow.tasks.slice(0, 20) : [];
+      result.workflowState = Object.freeze({
+        workflowStatus: String(workflow.workflowStatus || '').slice(0, 80),
+        responseLanguage: String(workflow.responseLanguage || '').slice(0, 8),
+        tasks: Object.freeze(tasks.map(task => {
+          if (!task || typeof task !== 'object' || Array.isArray(task)) throw new Error('Conversation workflow task must be an object');
+          const fields = task.fields && typeof task.fields === 'object' && !Array.isArray(task.fields) ? task.fields : {};
+          const safeFields = {};
+          for (const [field, value] of Object.entries(fields)) {
+            if (typeof value === 'string') {
+              assertNoSecrets(value, `workflow field ${field}`);
+              safeFields[field] = value.slice(0, 500);
+            } else if (typeof value === 'boolean') {
+              safeFields[field] = value;
+            } else if (Array.isArray(value) && value.length <= 50 && value.every(item => typeof item === 'string' && item.length <= 100)) {
+              safeFields[field] = value.map(item => item.trim());
+            }
+          }
+          return Object.freeze({
+            id: String(task.id || '').slice(0, 100),
+            type: String(task.type || '').slice(0, 100),
+            status: String(task.status || '').slice(0, 40),
+            pendingAction: task.pendingAction == null ? null : String(task.pendingAction).slice(0, 80),
+            fields: Object.freeze(safeFields),
+            missingFields: Object.freeze((task.missingFields || []).filter(value => typeof value === 'string').slice(0, 20)),
+          });
+        })),
+      });
+      continue;
+    }
     if (key === 'searchQuery') {
       if (typeof context[key] !== 'string') throw new Error('Conversation context searchQuery must be a string');
       const value = context[key].trim();
@@ -123,7 +158,9 @@ export function createConversationSession({ maxTurns = 8, maxChars = 12000 } = {
   function latestContext() {
     for (let index = turns.length - 1; index >= 0; index -= 1) {
       const context = turns[index].context;
-      if (context && Object.values(context).some(value => value.length > 0)) {
+      if (context && Object.values(context).some(value => (
+        value && typeof value === 'object' ? Object.keys(value).length > 0 : value.length > 0
+      ))) {
         return sanitizeContext(context);
       }
     }

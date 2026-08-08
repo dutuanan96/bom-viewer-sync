@@ -49,6 +49,7 @@ export const TASK_TYPES = Object.freeze([
   'update_material_child_quantity',
   'remove_material_child',
   'delete_material_structure',
+  'consolidate_materials',
   'workflow_scope',
 ]);
 
@@ -101,6 +102,7 @@ const FIELD_RULES = Object.freeze({
   revision: nonEmptyString,
   scope: nonEmptyString,
   sourceMaterialCode: identifier,
+  sourceMaterialIds: stringArray,
   spec: nonEmptyString,
   spec_zh: nonEmptyString,
   spec_vi: nonEmptyString,
@@ -434,6 +436,7 @@ export function semanticSchemaPrompt() {
     '9. Revision immutability: Do not mutate historical/released revisions directly. Reject if attempted.',
     '10. Clarification: If details are missing or ambiguous (e.g. missing identifiers), use intent "clarification" and request evidence.',
     '11. Proposal: When all task fields are gathered and evidence supports it, propose the action in proposedActions.',
+    '12. Material consolidation: after duplicate-material evidence, create one consolidate_materials task with sourceMaterialIds and newMaterialCode, then ask for confirmation. Only emit build_proposal after the user confirms that exact group and new code.',
     '',
     'EXAMPLE:',
     'User: "Đổi 纸护角 và 泡沫 của LGS334, đồng thời thêm 750380ZK 纸卡."',

@@ -25,6 +25,21 @@ function loadCanonicalSnapshot() {
 
 const discovery = new PdmDiscovery(loadCanonicalSnapshot());
 
+test('findDuplicateMaterials groups exact paper-card master-data duplicates with BOM impact', () => {
+  const result = discovery.findDuplicateMaterials({ name: '\u7eb8\u5361' });
+  const target = result.duplicateGroups.find(group => (
+    group.material.spec.zh === '\u5355\u74e61100x100mm'
+  ));
+
+  assert.ok(result.totalGroups >= 1);
+  assert.ok(target);
+  assert.ok(target.sourceMaterialCodes.includes('LGS031ZK'));
+  assert.ok(target.sourceMaterialCodes.includes('LGS833ZK'));
+  assert.ok(target.materialCount >= 5);
+  assert.ok(target.affectedBomEntryCount >= 12);
+  assert.equal(result.evidence.sourceCommit, 'a'.repeat(40));
+});
+
 test('searchPdm finds a dimensional material and its actual product usage across languages', () => {
   for (const query of [
     '帮我看一下那个布抽规格460x282x187用什么产品?',

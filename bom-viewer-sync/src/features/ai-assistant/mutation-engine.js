@@ -27,6 +27,15 @@ function proposalBomProductTargets(payload, operations) {
   const entriesById = new Map((payload?.materialDb?.bomEntries || []).map((entry) => [entry.id, entry]));
   const targets = new Set();
   for (const operation of operations || []) {
+    if (operation.operationType === 'consolidate_materials') {
+      const sourceIds = new Set(operation.payload?.sourceMaterialIds || []);
+      for (const entry of payload?.materialDb?.bomEntries || []) {
+        if (entry.parentType === 'product' && sourceIds.has(entry.materialId)) {
+          targets.add(entry.productCode || entry.parentId);
+        }
+      }
+      continue;
+    }
     if (operation.operationType === 'add_bom_item') {
       targets.add(operation.targetId);
       continue;
@@ -183,6 +192,35 @@ export function validateMutationContext(snapshot, mutation) {
       throw err;
     }
   }
+  if (mutation.operationType === 'consolidate_materials') {
+    const sourceIds = new Set(mutation.payload.sourceMaterialIds);
+    const materials = snapshot.payload?.materialDb?.materials || {};
+    const sources = mutation.payload.sourceMaterialIds.map(materialId => materials[materialId]);
+    if (sources.some(source => !source)) throw new Error('A source material for consolidation was not found.');
+    if (materials[mutation.targetId]) throw new Error(`Material ${mutation.targetId} already exists.`);
+    const newCode = String(mutation.payload.material.code || '').trim().toLowerCase();
+    if (Object.values(materials).some(material => String(material?.code || '').trim().toLowerCase() === newCode)) {
+      throw new Error(`Material code ${mutation.payload.material.code} already exists.`);
+    }
+    for (const field of ['name', 'spec', 'material', 'color', 'attr']) {
+      const expected = JSON.stringify(sources[0][field] || {});
+      if (sources.some(source => JSON.stringify(source[field] || {}) !== expected)) {
+        throw new Error('Source materials are not identical and cannot be consolidated.');
+      }
+      if (JSON.stringify(mutation.payload.material[field] || {}) !== expected) {
+        throw new Error(`The new material ${field} must exactly match the source material group.`);
+      }
+    }
+    const affectedProducts = new Set((snapshot.payload?.materialDb?.bomEntries || [])
+      .filter(entry => entry.parentType === 'product' && sourceIds.has(entry.materialId))
+      .map(entry => entry.productCode || entry.parentId)
+      .filter(Boolean));
+    for (const productCode of affectedProducts) {
+      const editable = productRevisionOptions(snapshot.payload, productCode)
+        .some(revision => revision.current && revision.workflowState === 'draft');
+      if (!editable) throw new Error(`BOM consolidation requires a draft revision for product ${productCode}.`);
+    }
+  }
   if (mutation.operationType === 'add_material_child') {
     if (!snapshot.payload?.materialDb?.materials?.[mutation.targetId]) throw new Error(`Parent material ${mutation.targetId} not found.`);
     if (!snapshot.payload?.materialDb?.materials?.[mutation.payload.materialId]) throw new Error(`Child material ${mutation.payload.materialId} not found.`);
@@ -278,6 +316,27 @@ export function applyMutationToPayload(payload, mutation) {
       models3d: clone(input.models3d || []),
       ...(input.unit ? { unit: String(input.unit) } : {}),
     };
+  } else if (operationType === 'consolidate_materials') {
+    const input = clone(opPayload.material);
+    const sourceIds = new Set(opPayload.sourceMaterialIds);
+    payload.materialDb.materials[targetId] = {
+      id: targetId,
+      code: String(input.code || ''),
+      name: clone(input.name || {}),
+      spec: clone(input.spec || {}),
+      material: clone(input.material || {}),
+      color: clone(input.color || {}),
+      attr: clone(input.attr || {}),
+      drawings: clone(input.drawings || []),
+      models3d: clone(input.models3d || []),
+      ...(input.unit ? { unit: String(input.unit) } : {}),
+    };
+    for (const entry of payload.materialDb.bomEntries || []) {
+      if (sourceIds.has(entry.parentId)) entry.parentId = targetId;
+      if (sourceIds.has(entry.materialId)) entry.materialId = targetId;
+      if (sourceIds.has(entry.childMaterialId)) entry.childMaterialId = targetId;
+    }
+    shouldSyncBom = true;
   } else if (operationType === 'update_material') {
     const record = updateMaterialRecord(payload, targetId, opPayload.patch);
     if (!record) throw new Error(`Material ${targetId} not found.`);
@@ -479,6 +538,7 @@ function operationCategory(operationType) {
   if (operationType.includes('revision')) return 'revision';
   if (operationType.includes('product')) return 'product';
   if (operationType.includes('material_child') || operationType === 'delete_material_structure') return 'structure';
+  if (operationType === 'consolidate_materials') return 'bom';
   return operationType.includes('material') && !operationType.includes('bom') ? 'material' : 'bom';
 }
 
@@ -490,6 +550,7 @@ function operationRisk(operationType) {
     'delete_material_structure',
     'release_product_revision',
     'withdraw_product_revision',
+    'consolidate_materials',
   ].includes(operationType)) return 'high';
   if ([
     'create_product',
@@ -509,6 +570,7 @@ function operationWarnings(operation, payload, t = (k) => k) {
   if (operation.operationType === 'remove_bom_item') warnings.push(t('ai.warning.remove_bom_item'));
   if (operation.operationType === 'replace_bom_item') warnings.push(t('ai.warning.replace_bom_item'));
   if (operation.operationType === 'create_material') warnings.push(t('ai.warning.create_material'));
+  if (operation.operationType === 'consolidate_materials') warnings.push(t('ai.warning.consolidate_materials'));
   if (operation.operationType === 'add_bom_item') warnings.push(t('ai.warning.add_bom_item'));
   if (operation.operationType === 'create_product') warnings.push(t('ai.warning.create_product'));
   if (operation.operationType === 'create_product_revision') warnings.push(t('ai.warning.create_product_revision'));
