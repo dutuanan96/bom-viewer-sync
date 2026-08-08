@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-08T03:43:39.159Z",
+  "updatedAt": "2026-08-08T04:15:21.388Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -7024,6 +7024,36 @@
   },
   "notifications": [
     {
+      "id": "notif_ufl2lw",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-08T04:15:21.388Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "LGS232ZK",
+          "field": "spec",
+          "before": "单瓦1100x60mm / sóng đơn 1100x60mm",
+          "after": "单瓦1100x100mm / sóng đơn 1100x100mm"
+        },
+        {
+          "kind": "material",
+          "code": "LGS333ZK",
+          "field": "spec",
+          "before": "单瓦1100x60mm / sóng đơn 1100x60mm",
+          "after": "单瓦1100x100mm / sóng đơn 1100x100mm"
+        },
+        {
+          "kind": "material",
+          "code": "LGS434ZK",
+          "field": "spec",
+          "before": "单瓦840x60mm / sóng đơn 840x60mm",
+          "after": "单瓦840x100mm / sóng đơn 840x100mm"
+        }
+      ]
+    },
+    {
       "id": "notif_1l4c95u",
       "type": "github-save",
       "actor": "admin",
@@ -8011,64 +8041,6 @@
           "after": "LGS733PKXBH"
         }
       ]
-    },
-    {
-      "id": "notif_1dpxfmq",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-30T07:31:49.070Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS434",
-          "field": "effectiveRevision",
-          "before": "",
-          "after": "V5"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS434",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS723",
-          "field": "currentRevision",
-          "before": "",
-          "after": "V4"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS723",
-          "field": "workflowState",
-          "before": "",
-          "after": "draft"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS434",
-          "field": "",
-          "before": "LGS434ZFXBH",
-          "after": "LGS434ZFXWH"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS723",
-          "field": "",
-          "before": "LGS723ZFXKD",
-          "after": "LGS723ZFXWH"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS723",
-          "field": "",
-          "before": "LGS723ZFXKD",
-          "after": "LGS723ZFXBH"
-        }
-      ]
     }
   ],
   "bomHistory": {
@@ -8227,6 +8199,24 @@
       }
     ],
     "LGS333": [
+      {
+        "id": "history_415wuh",
+        "productCode": "LGS333",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-08T04:15:21.388Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS232ZK",
+            "field": "spec",
+            "before": "单瓦1100x60mm / sóng đơn 1100x60mm",
+            "after": "单瓦1100x100mm / sóng đơn 1100x100mm"
+          }
+        ]
+      },
       {
         "id": "history_1p0e9li",
         "productCode": "LGS333",
