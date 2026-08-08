@@ -3,11 +3,50 @@ import assert from 'node:assert/strict';
 
 import {
   buildEditedConsolidationProposal,
+  buildLifecycleChoiceProposal,
   buildDraftRevisionOperations,
   buildRegeneratedSwapOperations,
   buildWithdrawRevisionOperations,
   findProductsNeedingDraft,
 } from '../src/features/ai-assistant/workspace-view.js';
+
+test('workspace lifecycle: requires an explicit choice before using generated draft revisions', () => {
+  const proposal = {
+    operations: [
+      {
+        operationType: 'create_product_revision',
+        targetId: 'LGS133',
+        payload: { revision: 'V4.1', changeReason: 'Initial reason' },
+      },
+      { operationType: 'update_material', targetId: 'M1', payload: { patch: { spec: { zh: 'A', vi: 'B' } } } },
+    ],
+  };
+
+  const newDraft = buildLifecycleChoiceProposal({
+    proposal,
+    mode: 'create_draft',
+    reason: 'Standardize paper cards',
+    revisions: { LGS133: 'V5' },
+    reasons: { LGS133: 'Admin selected V5 for consolidation' },
+  });
+  const withdrawn = buildLifecycleChoiceProposal({
+    proposal,
+    mode: 'withdraw',
+    reason: 'Correct published BOM',
+    reasons: { LGS133: 'Admin approved withdrawal for correction' },
+  });
+
+  assert.equal(newDraft.operations[0].operationType, 'create_product_revision');
+  assert.equal(newDraft.operations[0].payload.revision, 'V5');
+  assert.equal(newDraft.operations[0].payload.changeReason, 'Admin selected V5 for consolidation');
+  assert.deepEqual(withdrawn.operations[0], {
+    operationType: 'withdraw_product_revision',
+    targetId: 'LGS133',
+    payload: { reason: 'Admin approved withdrawal for correction' },
+  });
+  assert.deepEqual(withdrawn.operations[1], proposal.operations[1]);
+  assert.throws(() => buildLifecycleChoiceProposal({ proposal, mode: 'withdraw', reason: '' }));
+});
 
 test('workspace consolidation: edits only the canonical material code in a proposal', () => {
   const proposal = {

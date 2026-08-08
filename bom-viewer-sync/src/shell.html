@@ -86,23 +86,11 @@
 
     <section class="sync-panel {{SYNC_CLASS}}" id="syncPanel">
       <div class="sync-summary">
-        <div data-sync-source-row>
-          <div class="sync-label" data-i18n="source">GitHub data source</div>
-          <div class="sync-source" id="syncSource">-</div>
-        </div>
-        <div>
-          <div class="sync-label" data-i18n="updated">Data updated</div>
-          <div class="sync-value" id="lastSync">-</div>
-        </div>
-        <div>
-          <div class="sync-label" data-i18n="localRefresh">Local refresh</div>
-          <div class="sync-value" id="lastLocalRefresh">-</div>
-        </div>
         <div class="sync-status" id="syncStatus"></div>
       </div>
       <div class="admin-config" id="adminControls"{{ADMIN_HIDDEN}}>
         <label class="wide">
-          <span data-i18n="token">GitHub token</span>
+          <span data-i18n="token">Maintenance password</span>
           <input type="password" id="githubToken" autocomplete="off">
         </label>
       </div>

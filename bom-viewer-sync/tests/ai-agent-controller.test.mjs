@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createAgentController } from '../src/features/ai-assistant/agent-controller.js';
+import { buildMutationProposalReview } from '../src/features/ai-assistant/mutation-engine.js';
 
 test('agent-controller: routes intent to OpenRouter webSearch and maps citations', async () => {
   const mockGateway = {
@@ -422,7 +423,15 @@ test('agent-controller: requires confirmation before building a duplicate-materi
   assert.equal(toolCalls.length, 0);
   assert.equal(first.conversationContext.workflowState.tasks[0].pendingAction, 'confirmation');
 
-  await controller.runTurn({ query: 'Confirm', route, snapshot, model: 'test-model', availableTools: ['apply_mutation'], conversationContext: first.conversationContext });
+  await controller.runTurn({
+    query: 'Confirm',
+    route: { intent: 'ambiguous', confidence: 'ambiguous', preferredTool: null, entities: {} },
+    snapshot,
+    model: 'test-model',
+    availableTools: ['apply_mutation'],
+    conversationContext: first.conversationContext,
+  });
+  assert.equal(turn, 1);
   assert.equal(toolCalls.length, 1);
   assert.deepEqual(toolCalls[0].arguments.operations[0], {
     operationType: 'consolidate_materials',
@@ -485,6 +494,77 @@ test('agent-controller: does not allow extra PDM lookups after a duplicate-mater
   assert.equal(result.conversationContext.workflowState.tasks[0].pendingAction, 'confirmation');
 });
 
+test('agent-controller: retries a failed model-selected lookup with one bounded PDM recovery search', async () => {
+  let modelCallCount = 0;
+  const toolCalls = [];
+  const controller = createAgentController({
+    gateway: {
+      listModels: () => [{ id: 'test-model', grade: 'B' }],
+      chat: async () => {
+        modelCallCount += 1;
+        if (modelCallCount === 1) {
+          return { choices: [{ message: { tool_calls: [{
+            id: 'bad_lookup',
+            function: { name: 'get_material', arguments: '{"materialId":"unknown"}' },
+          }] } }] };
+        }
+        return { choices: [{ message: { content: 'I checked the recovered PDM result.' } }] };
+      },
+    },
+    trustPolicy: {
+      buildContext: ({ query }) => ({ query }),
+      createBudget: () => ({ recordToolCall: () => {}, recordModelCall: () => {}, checkExpiry: () => {} }),
+      authorizeToolCall: call => {
+        if (call.name === 'get_material') throw new Error('Unknown material');
+        return call;
+      },
+      validateModelOutput: output => output,
+    },
+    runTool: async call => {
+      toolCalls.push(call);
+      return { materials: [{ code: 'LGS031ZK' }] };
+    },
+  });
+
+  const result = await controller.runTurn({
+    query: 'Find the paper card material',
+    route: { intent: 'ambiguous', confidence: 'ambiguous', entities: {} },
+    snapshot: {},
+    model: 'test-model',
+    availableTools: ['get_material', 'search_pdm'],
+  });
+
+  assert.equal(result.text, 'I checked the recovered PDM result.');
+  assert.deepEqual(toolCalls, [{ name: 'search_pdm', arguments: { query: 'Find the paper card material' } }]);
+});
+
+test('agent-controller: converts malformed proposal output into a grounded clarification workflow', async () => {
+  const controller = createAgentController({
+    gateway: {
+      listModels: () => [{ id: 'test-model', grade: 'B' }],
+      chat: async () => ({ choices: [{ message: { content: '{"intent":"workflow_update"' } }] }),
+    },
+    trustPolicy: {
+      buildContext: ({ query }) => ({ query }),
+      createBudget: () => ({ recordToolCall: () => {}, recordModelCall: () => {}, checkExpiry: () => {} }),
+      validateModelOutput: output => output,
+    },
+    formatWorkflowRecovery: ({ hasEvidence }) => hasEvidence ? 'Recovered from verified data.' : 'Need a safe scope.',
+  });
+
+  const result = await controller.runTurn({
+    query: 'Create a proposal for those materials',
+    route: { intent: 'proposal', confidence: 'ambiguous', entities: {} },
+    snapshot: {},
+    model: 'test-model',
+    availableTools: [],
+  });
+
+  assert.equal(result.text, 'Need a safe scope.');
+  assert.equal(result.conversationContext.workflowState.workflowStatus, 'awaiting_clarification');
+  assert.equal(result.conversationContext.workflowState.tasks.length, 0);
+});
+
 test('agent-controller: gives the model the full duplicate audit for an independent review', async () => {
   let modelCalls = 0;
   const requests = [];
@@ -526,8 +606,187 @@ test('agent-controller: gives the model the full duplicate audit for an independ
   assert.equal(modelCalls, 1);
   assert.equal(result.text, '1100x100mm, 860x100mm');
   assert.deepEqual(result.citations, ['duplicate-all']);
+  assert.equal(result.agentDecision, null);
   assert.match(JSON.stringify(requests[0].messages), /PDM_DUPLICATE_AUDIT_REVIEW/);
   assert.match(JSON.stringify(requests[0].messages), /auditedMaterials/);
+});
+
+test('agent-controller: applies an explicit code convention to every audited duplicate group', async () => {
+  const requests = [];
+  const controller = createAgentController({
+    gateway: {
+      listModels: () => [{ id: 'test-model', grade: 'B' }],
+      chat: async request => {
+        requests.push(request);
+        return { choices: [{ message: { content: JSON.stringify({
+          intent: 'workflow_update', workflowAction: 'ask_clarification', responseLanguage: 'zh', schemaVersion: 1, rejectionCode: null,
+          taskUpdates: [
+            { taskRef: { kind: 'new', value: 'consolidate_materials' }, action: 'create_task', fields: { sourceMaterialIds: ['A', 'B'], newMaterialCode: 'ZK1100100' } },
+            { taskRef: { kind: 'new', value: 'update_material' }, action: 'create_task', fields: { materialCode: 'C', spec_zh: '\u5355\u74e6860x100mm', spec_vi: 's\u00f3ng \u0111\u01a1n 860x100mm' } },
+            { taskRef: { kind: 'new', value: 'consolidate_materials' }, action: 'create_task', fields: { sourceMaterialIds: ['C', 'D'], newMaterialCode: 'ZK0860100' } },
+          ],
+          proposedActions: [],
+        }) } }] };
+      },
+    },
+    trustPolicy: {
+      buildContext: ({ query }) => ({ query }),
+      createBudget: () => ({ recordToolCall: () => {}, recordModelCall: () => {}, checkExpiry: () => {} }),
+      authorizeToolCall: call => call,
+      validateModelOutput: output => output,
+    },
+    runTool: async () => ({
+      duplicateGroups: [{ sourceMaterialIds: ['A', 'B'], material: { spec: { zh: '1100x100mm' } } }],
+      suspectedDuplicateGroups: [{ sourceMaterialIds: ['C', 'D'], differingFields: ['spec'], material: { spec: { zh: '\u5355\u74e6860x100mm', vi: 's\u00f3ng \u0111\u01a1n 860x100mm' } } }],
+      auditedMaterials: [
+        { materialId: 'A', code: 'LGS031ZK', spec: { zh: '\u5355\u74e61100x100mm', vi: 's\u00f3ng \u0111\u01a1n 1100x100mm' } },
+        { materialId: 'B', code: 'LGS032ZK', spec: { zh: '\u5355\u74e61100x100mm', vi: 's\u00f3ng \u0111\u01a1n 1100x100mm' } },
+        { materialId: 'C', code: 'LGS131ZK', spec: { zh: '\u5355\u74e6860x100mm', vi: 's\u00f3ng \u0111\u01a1n 860x100mm' } },
+        { materialId: 'D', code: 'LGS420ZK', spec: { zh: '\u5355\u74e6860x100mm', vi: '\u5355\u74e6860x100mm' } },
+      ],
+      truncated: false,
+      evidence: { id: 'duplicate-all-groups', sourceType: 'pdm-material-duplicate-audit', sourcePath: 'data/materials.json', recordId: 'paper-card', sourceCommit: 'a'.repeat(40), capturedAt: '2026-08-08T00:00:00Z' },
+    }),
+  });
+
+  const result = await controller.runTurn({
+    query: '\u90a3\u4e9b\u91cd\u590d\u7ec4\u4ee5\u4e0a\u5e2e\u6211\u7edf\u4e00\u4e00\u65b0\u7269\u6599\u7f16\u7801\u6bd4\u5982\u7eb8\u5361\u67091100x100mm\u89c4\u683c\u5c31\u662fZK1100100\u7136\u540e\u5e76\u66ff\u6362\u5168\u90e8\u76f8\u5173BOM',
+    route: { intent: 'proposal', confidence: 'deterministic', preferredTool: 'find_duplicate_materials', entities: { materialName: '\u7eb8\u5361' } },
+    snapshot: { sourceMetadata: { commitSha: 'a'.repeat(40) }, payload: { materialDb: { materials: {} } } },
+    model: 'test-model',
+    availableTools: ['find_duplicate_materials'],
+  });
+
+  assert.equal(requests.length, 0);
+  assert.equal(result.usage.modelCalls, 0);
+  assert.deepEqual(
+    result.conversationContext.workflowState.tasks.map(task => task.type),
+    ['update_material', 'consolidate_materials', 'consolidate_materials'],
+  );
+});
+
+test('agent-controller: confirms a deterministic consolidation proposal without recalling the model', async () => {
+  let modelCalls = 0;
+  const appliedOperations = [];
+  const baseMaterial = {
+    name: { zh: '\u7eb8\u5361', vi: 'gi\u1ea5y l\u00f3t' },
+    material: { zh: '\u74e6\u695e\u7eb8\u5355\u74e6', vi: 'carton' },
+    color: { zh: '\u7eb8\u8272', vi: 'm\u00e0u gi\u1ea5y' },
+    attr: { zh: '\u5305\u6750', vi: 'bao b\u00ec' },
+    drawings: [],
+    models3d: [],
+  };
+  const materials = {
+    A: { id: 'A', code: 'LGS031ZK', ...baseMaterial, spec: { zh: '\u5355\u74e61100x100mm', vi: '\u5355\u74e61100x100mm' } },
+    B: { id: 'B', code: 'LGS032ZK', ...baseMaterial, spec: { zh: '\u5355\u74e61100x100mm', vi: 's\u00f3ng \u0111\u01a1n 1100x100mm' } },
+    C: { id: 'C', code: 'LGS033ZK', ...baseMaterial, spec: { zh: '\u5355\u74e61100x100mm', vi: 's\u00f3ng \u0111\u01a1n 1100x100mm' } },
+  };
+  const audit = {
+    duplicateGroups: [],
+    suspectedDuplicateGroups: [{
+      matchType: 'translation_mismatch',
+      material: materials.B,
+      sourceMaterialIds: ['A', 'B', 'C'],
+      sourceMaterialCodes: ['LGS031ZK', 'LGS032ZK', 'LGS033ZK'],
+      differingFields: ['spec'],
+      affectedProducts: ['LGS031'],
+    }],
+    auditedMaterials: Object.values(materials).map(item => ({ ...item, materialId: item.id })),
+    truncated: false,
+    evidence: {
+      id: 'duplicate-confirmation',
+      sourceType: 'pdm-material-duplicate-audit',
+      sourcePath: 'data/materials.json',
+      sourceCommit: 'a'.repeat(40),
+      capturedAt: '2026-08-08T00:00:00Z',
+    },
+  };
+  const snapshot = {
+    isAdmin: true,
+    canEditRevision: false,
+    dirty: false,
+    selection: { productCode: 'LGS031', color: 'black' },
+    sourceMetadata: { commitSha: 'a'.repeat(40) },
+    payload: {
+      bom: {
+        LGS031: {
+          code: 'LGS031',
+          revision: 'V4',
+          colors: ['black'],
+          color_info: { black: { sku: 'LGS031-B', materials: [] } },
+        },
+      },
+      materialDb: {
+        materials,
+        bomEntries: [{
+          id: 'entry-1',
+          parentType: 'product',
+          parentId: 'LGS031',
+          productCode: 'LGS031',
+          color: 'black',
+          materialId: 'A',
+          comp_code: 'ZK',
+          qty: '1',
+          order: 0,
+        }],
+      },
+      productRevisions: {
+        LGS031: { currentRevision: 'V4', currentRevisionInfo: { workflowState: 'released' }, revisions: [] },
+      },
+    },
+  };
+  const controller = createAgentController({
+    gateway: {
+      listModels: () => [{ id: 'test-model', grade: 'B' }],
+      chat: async () => {
+        modelCalls += 1;
+        throw new Error('The deterministic flow must not call the model.');
+      },
+    },
+    trustPolicy: {
+      buildContext: ({ query }) => ({ query }),
+      createBudget: () => ({ recordToolCall: () => {}, recordModelCall: () => {}, checkExpiry: () => {} }),
+      authorizeToolCall: call => call,
+      validateModelOutput: output => output,
+    },
+    runTool: async (call) => {
+      if (call.name === 'find_duplicate_materials') return audit;
+      if (call.name === 'apply_mutation') {
+        appliedOperations.push(...call.arguments.operations);
+        return buildMutationProposalReview(snapshot, {
+          summary: 'Consolidate duplicate paper cards',
+          operations: call.arguments.operations,
+        });
+      }
+      throw new Error(`Unexpected tool ${call.name}`);
+    },
+  });
+  const first = await controller.runTurn({
+    query: '\u8bf7\u5904\u7406\u4ee5\u4e0a\u6240\u6709\u91cd\u590d\u7ec4\uff0c1100x100mm \u4f7f\u7528 ZK1100100\uff0c\u66ff\u6362\u5168\u90e8 BOM',
+    route: { intent: 'proposal', confidence: 'deterministic', preferredTool: 'find_duplicate_materials', entities: { materialName: '\u7eb8\u5361' } },
+    snapshot,
+    model: 'test-model',
+    availableTools: ['find_duplicate_materials'],
+  });
+  const second = await controller.runTurn({
+    query: '\u6211\u786e\u8ba4\u5f53\u524d\u8303\u56f4\u3002\u8bf7\u521b\u5efa proposal\u3002',
+    route: { intent: 'ambiguous', confidence: 'ambiguous', preferredTool: null, entities: {} },
+    snapshot,
+    model: 'test-model',
+    availableTools: ['apply_mutation'],
+    conversationContext: first.conversationContext,
+  });
+
+  assert.equal(modelCalls, 0);
+  assert.deepEqual(appliedOperations.map(operation => operation.operationType), [
+    'create_product_revision',
+    'update_material',
+    'consolidate_materials',
+  ]);
+  assert.equal(appliedOperations[0].payload.revision, 'V4.1');
+  assert.equal(appliedOperations[1].payload.patch.spec.vi, 's\u00f3ng \u0111\u01a1n 1100x100mm');
+  assert.equal(appliedOperations[2].payload.material.spec.vi, 's\u00f3ng \u0111\u01a1n 1100x100mm');
+  assert.doesNotMatch(second.text, /valid operation data|\u6709\u6548\u7684\u64cd\u4f5c\u6570\u636e/iu);
 });
 
 test('agent-controller: returns trusted local facts when prefetch succeeded but every provider endpoint failed', async () => {

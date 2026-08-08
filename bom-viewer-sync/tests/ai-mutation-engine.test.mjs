@@ -194,6 +194,105 @@ test('mutation-engine: consolidates exact duplicate materials atomically without
   assert.equal(transaction.review.operations[0].risk, 'high');
 });
 
+test('mutation-engine: does not offer a conflicting duplicate swap while a planned consolidation owns the source material', () => {
+  const snapshot = proposalSnapshot();
+  snapshot.payload.materialDb.materials.M1.spec = { zh: 'Old spec', vi: 'Old spec' };
+  snapshot.payload.materialDb.materials.M2.name = { zh: 'Old', vi: 'Old' };
+  snapshot.payload.materialDb.materials.M2.spec = { zh: 'Standard spec', vi: 'Standard spec' };
+  snapshot.payload.productRevisions = {
+    LGS001: { currentRevision: 'V1', currentRevisionInfo: { workflowState: 'draft' }, revisions: [] },
+  };
+
+  const review = buildMutationProposalReview(snapshot, {
+    operations: [
+      {
+        operationType: 'update_material',
+        targetId: 'M1',
+        payload: { patch: { spec: { zh: 'Standard spec', vi: 'Standard spec' } } },
+      },
+      {
+        operationType: 'consolidate_materials',
+        targetId: 'mat_standard_spec',
+        payload: {
+          material: {
+            code: 'STANDARD-SPEC',
+            name: { zh: 'Old', vi: 'Old' },
+            spec: { zh: 'Standard spec', vi: 'Standard spec' },
+            material: { zh: '', vi: '' },
+            color: { zh: '', vi: '' },
+            attr: { zh: '零件', vi: 'linh kiện' },
+          },
+          sourceMaterialIds: ['M1', 'M2'],
+        },
+      },
+    ],
+  });
+
+  const normalization = review.operations.find(operation => operation.mutation.targetId === 'M1');
+  assert.ok(normalization);
+  assert.equal(normalization.warnings.some(warning => warning?.action?.type === 'swap'), false);
+});
+
+test('mutation-engine: consolidation validates affected drafts independently of the selected product', () => {
+  const snapshot = proposalSnapshot();
+  snapshot.canEditRevision = false;
+  snapshot.payload.bom.LGS002 = {
+    code: 'LGS002',
+    revision: 'V2',
+    colors: ['black'],
+    color_info: { black: { sku: 'LGS002-B', materials: [] } },
+  };
+  snapshot.payload.productRevisions = {
+    LGS001: { currentRevision: 'V1', currentRevisionInfo: { workflowState: 'released' }, revisions: [] },
+    LGS002: { currentRevision: 'V2', currentRevisionInfo: { workflowState: 'released' }, revisions: [] },
+  };
+  const duplicate = {
+    name: { zh: '\u7eb8\u5361', vi: 'gi\u1ea5y l\u00f3t' },
+    spec: { zh: '\u5355\u74e61100x100mm', vi: 's\u00f3ng \u0111\u01a1n 1100x100mm' },
+    material: { zh: '\u74e6\u695e\u7eb8\u5355\u74e6', vi: 'carton' },
+    color: { zh: '\u7eb8\u8272', vi: 'm\u00e0u gi\u1ea5y' },
+    attr: { zh: '\u5305\u6750', vi: 'bao b\u00ec' },
+    drawings: [],
+    models3d: [],
+  };
+  snapshot.payload.materialDb.materials.S1 = { id: 'S1', code: 'LGS031ZK', ...structuredClone(duplicate) };
+  snapshot.payload.materialDb.materials.S2 = { id: 'S2', code: 'LGS032ZK', ...structuredClone(duplicate) };
+  snapshot.payload.materialDb.bomEntries.push({
+    id: 'entry-lgs002',
+    parentType: 'product',
+    parentId: 'LGS002',
+    productCode: 'LGS002',
+    color: 'black',
+    materialId: 'S1',
+    comp_code: 'ZK',
+    qty: '1',
+    order: 0,
+  });
+
+  const review = buildMutationProposalReview(snapshot, {
+    operations: [
+      {
+        operationType: 'create_product_revision',
+        targetId: 'LGS002',
+        payload: { revision: 'V2.1', changeReason: 'Consolidate duplicate material' },
+      },
+      {
+        operationType: 'consolidate_materials',
+        targetId: 'mat_zk1100100',
+        payload: {
+          material: { code: 'ZK1100100', ...structuredClone(duplicate) },
+          sourceMaterialIds: ['S1', 'S2'],
+        },
+      },
+    ],
+  });
+
+  assert.deepEqual(review.operations.map(item => item.mutation.operationType), [
+    'create_product_revision',
+    'consolidate_materials',
+  ]);
+});
+
 test('mutation-engine: cross-product BOM replacement reads canonical draft workflow state', () => {
   const snapshot = proposalSnapshot();
   snapshot.payload.bom.LGS002 = {
