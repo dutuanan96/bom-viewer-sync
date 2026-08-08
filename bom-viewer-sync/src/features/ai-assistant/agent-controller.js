@@ -422,13 +422,13 @@ export function createAgentController({ gateway, trustPolicy, runTool, formatToo
       status: route?.confidence || 'ambiguous'
     });
 
-    // Safety gate: block LLM only for mutation/proposal routes where acting on the
-    // wrong entity is dangerous. For read-only queries the LLM will receive the
-    // ambiguous candidates as context and investigate with tools.
+    // Exact entity conflicts must never fall through to a default product variant.
+    // Lower-confidence read-only ambiguity can still be investigated with tools.
     const isMutationRoute = route?.intent === 'proposal'
       || conversationContext?.workflowState?.workflowStatus === 'active';
+    const requiresExactClarification = entityResolution?.confidence === 1;
     if (
-      isMutationRoute &&
+      (isMutationRoute || requiresExactClarification) &&
       entityResolution?.requiresConfirmation === true &&
       ['ambiguous', 'conflicted', 'stale'].includes(entityResolution.status)
     ) {

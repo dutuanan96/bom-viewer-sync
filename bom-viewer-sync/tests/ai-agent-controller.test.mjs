@@ -211,6 +211,47 @@ test('agent-controller: lets the model choose a read-only discovery tool for an 
   });
 });
 
+test('agent-controller: asks locally when an exact read-only entity conflicts with the requested color', async () => {
+  const controller = createAgentController({
+    gateway: {
+      listModels: () => [{ id: 'test-model', grade: 'B' }],
+      chat: async () => { throw new Error('Exact conflicts must not call the model'); },
+    },
+    trustPolicy: {
+      buildContext: ({ query }) => ({ query }),
+      createBudget: () => ({ recordToolCall: () => {}, recordModelCall: () => {}, checkExpiry: () => {} }),
+    },
+    runTool: async () => { throw new Error('Exact conflicts must not call a tool'); },
+  });
+
+  const entityResolution = {
+    status: 'ambiguous',
+    confidence: 1,
+    requiresConfirmation: true,
+    candidates: [{ target: { type: 'product', productCode: 'LGS433' } }],
+  };
+  const result = await controller.runTurn({
+    query: 'Show LGS433 blue BOM',
+    route: {
+      intent: 'bom_lookup',
+      confidence: 'deterministic',
+      entities: { productIds: ['LGS433'] },
+      preferredTool: 'get_bom',
+    },
+    snapshot: {},
+    model: 'test-model',
+    availableTools: ['get_bom'],
+    entityResolution,
+    clarificationText: 'Please choose an available color.',
+  });
+
+  assert.equal(result.text, 'Please choose an available color.');
+  assert.equal(result.clarification, true);
+  assert.equal(result.entityResolution, entityResolution);
+  assert.equal(result.usage.modelCalls, 0);
+  assert.equal(result.usage.toolCalls, 0);
+});
+
 test('agent-controller: executes streamed DSML tool calls without rendering the protocol', async () => {
   let callCount = 0;
   const dsml = '< | DSML | tool_calls>< | DSML | invoke name="where_used">< | DSML | parameter name="materialId" string="true">mat_paper</ | DSML | parameter></ | DSML | invoke>< | DSML | invoke name="search_pdm">< | DSML | parameter name="query" string="true">\u7eb8\u5361 60mm</ | DSML | parameter></ | DSML | invoke></ | DSML | tool_calls>';

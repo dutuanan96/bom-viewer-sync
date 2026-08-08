@@ -40,9 +40,36 @@ test('searchPdm finds a dimensional material and its actual product usage across
 });
 
 test('searchPdm treats a material dimension change as source filtering, not source-and-target matching', () => {
-  const result = discovery.searchPdm({ query: '\u6211\u60f3\u6539\u6240\u6709\u7eb8\u5361\u670960mm\u5bbd\u5ea6\u6539\u4e3a100mm\u5bbd\u5ea6' });
+  const mutationDiscovery = new PdmDiscovery({
+    payload: {
+      bom: {},
+      materialDb: {
+        materials: {
+          sourcePaperCard: {
+            id: 'sourcePaperCard',
+            name: { zh: '\u7eb8\u5361', vi: 'gi\u1ea5y l\u00f3t' },
+            spec: { zh: '\u5355\u74e6785x60mm', vi: 's\u00f3ng \u0111\u01a1n 785x60mm' },
+          },
+          targetPaperCard: {
+            id: 'targetPaperCard',
+            name: { zh: '\u7eb8\u5361', vi: 'gi\u1ea5y l\u00f3t' },
+            spec: { zh: '\u5355\u74e6785x100mm', vi: 's\u00f3ng \u0111\u01a1n 785x100mm' },
+          },
+          unrelatedMaterial: {
+            id: 'unrelatedMaterial',
+            name: { zh: '\u6ce1\u68c9', vi: 'm\u00fat x\u1ed1p' },
+            spec: { zh: '785x60mm', vi: '785x60mm' },
+          },
+        },
+        bomEntries: [],
+      },
+      productRevisions: {},
+    },
+  });
+  const result = mutationDiscovery.searchPdm({ query: '\u6211\u60f3\u6539\u6240\u6709\u7eb8\u5361\u670960mm\u5bbd\u5ea6\u6539\u4e3a100mm\u5bbd\u5ea6' });
 
-  assert.ok(result.materials.length > 0);
+  assert.equal(result.materials.length, 1);
+  assert.equal(result.materials[0].materialId, 'sourcePaperCard');
   assert.ok(result.materials.every((material) => material.name.zh === '\u7eb8\u5361'));
   assert.ok(result.materials.every((material) => material.spec.zh.includes('60mm')));
   assert.ok(result.materials.every((material) => !material.spec.zh.includes('100mm')));

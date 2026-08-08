@@ -688,6 +688,7 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
 
   test('explicit LGS433 color reaches deterministic BOM while an unavailable color stays local', async ({ page }) => {
     test.setTimeout(90000);
+    const payload = loadCanonicalPayload();
     let requestCount = 0;
 
     await page.route('https://openrouter.ai/api/v1/chat/completions', async route => {
@@ -702,11 +703,22 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
       });
     });
 
+    await blockRemotePdmData(page);
     await page.goto(VIEWER_URL);
+    await page.evaluate(canonicalPayload => {
+      document.body.replaceWith(document.body.cloneNode(true));
+      const githubData = {
+        loadPublic: async () => canonicalPayload,
+        getSourceMetadata: () => ({ commitSha: 'a'.repeat(40) }),
+      };
+      window.__aiColorTestApp = window.BomApp.createApp({ mode: 'viewer', githubData });
+    }, payload);
+    await page.waitForFunction(() => Boolean(window.__aiColorTestApp?.state.lastLoadAt));
     await waitForViewerReady(page);
     await page.click('#btnSettings');
     await page.fill('.ai-settings input', 'sk-or-mock-1234');
     await page.click('.ai-settings > button.btn-primary');
+    await expect(page.locator('.ai-status-text.connected')).toBeVisible();
     await page.click('#closeSettingsModal');
     await page.click('#aiFab');
 
