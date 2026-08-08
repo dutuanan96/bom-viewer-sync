@@ -620,6 +620,14 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
         };
         messages.push(prefetchedMessage);
         deterministicPrefetchUsed = true;
+        if (route?.intent === 'proposal' && prefetchedCall.name === 'find_duplicate_materials') {
+          proposalReminderSent = true;
+          modelSupportsTools = false;
+          messages.push({
+            role: 'user',
+            content: `SYSTEM_CONSOLIDATION_CONFIRMATION_REQUIRED: The duplicate-material audit above is the complete bounded evidence for this request. Do not call search_pdm, get_bom, where_used, or any other tool. If the user supplied one new code for one identifiable specification group, output ONLY a Semantic Workflow JSON object that creates one consolidate_materials task with that group's exact sourceMaterialIds and newMaterialCode, using workflowAction "ask_clarification" so the UI asks the user to confirm. Do not infer new codes for other duplicate groups. If the user did not provide an unambiguous one-to-one group-to-code mapping, output ONLY a Semantic Workflow JSON clarification asking for the mapping.`,
+          });
+        }
         const deterministicOperations = route?.intent === 'proposal'
           && prefetchedCall.name === 'search_pdm'
           && !prefetchNeedsInvestigation(toolResult)
@@ -714,6 +722,7 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
         async function consumeStream(streamObj) {
           let fullText = '';
           let toolCalls = [];
+          const toolCallingAllowed = modelSupportsTools && !deterministicPrefetchUsed;
           // Buffer content chunks — we don't know until the stream ends whether
           // this message also contains tool_calls (intermediate reasoning).
           const contentDeltas = [];
@@ -744,7 +753,7 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
           // meaning this is the final natural-language answer, not intermediate reasoning.
           // CRITICAL: Suppress streaming for proposal routes when content looks like JSON code blocks.
           // The system will parse the JSON internally and show a proper proposal UI.
-          if (toolCalls.length === 0) {
+          if (toolCallingAllowed && toolCalls.length === 0) {
             const embedded = extractEmbeddedToolCalls(fullText, exposedToolNames);
             fullText = embedded.content;
             toolCalls = embedded.toolCalls;
@@ -764,7 +773,7 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
             }
           }
 
-          if (toolCalls.length === 0 && fullText.includes('<tool_call>')) {
+          if (toolCallingAllowed && toolCalls.length === 0 && fullText.includes('<tool_call>')) {
             const regex = /<tool_call>([\s\S]*?)<\/tool_call>/gi;
             let match;
             while ((match = regex.exec(fullText)) !== null) {
@@ -808,7 +817,7 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
             }
           }
 
-          if (toolCalls.length === 0) {
+          if (toolCallingAllowed && toolCalls.length === 0) {
             // Check for embedded JSON tool call objects like {"tool":"analyze_pdm","arguments":{...}}
             const jsonToolRegex = /\{[\s\S]*?"(?:tool|name|action)"\s*:\s*"([a-zA-Z0-9_]+)"[\s\S]*?\}/g;
             let match;

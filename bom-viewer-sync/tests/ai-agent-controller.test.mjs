@@ -434,6 +434,56 @@ test('agent-controller: requires confirmation before building a duplicate-materi
   });
 });
 
+test('agent-controller: does not allow extra PDM lookups after a duplicate-material proposal prefetch', async () => {
+  const toolCalls = [];
+  const gatewayCalls = [];
+  const duplicateFields = {
+    name: { zh: '\u7eb8\u5361', vi: 'gi\u1ea5y l\u00f3t' },
+    spec: { zh: '\u5355\u74e61100x100mm', vi: 's\u00f3ng \u0111\u01a1n 1100x100mm' },
+    material: { zh: '\u74e6\u695e\u7eb8\u5355\u74e6', vi: 'gi\u1ea5y carton s\u00f3ng \u0111\u01a1n' },
+    color: { zh: '\u7eb8\u8272', vi: 'm\u00e0u gi\u1ea5y' },
+    attr: { zh: '\u5305\u6750', vi: 'v\u1eadt li\u1ec7u \u0111\u00f3ng g\u00f3i' },
+  };
+  const controller = createAgentController({
+    gateway: {
+      listModels: () => [{ id: 'test-model', grade: 'B' }],
+      chat: async request => {
+        gatewayCalls.push(request);
+        return { choices: [{ message: { content: JSON.stringify({
+          intent: 'workflow_update', workflowAction: 'ask_clarification', responseLanguage: 'zh', schemaVersion: 1, rejectionCode: null,
+          taskUpdates: [{ taskRef: { kind: 'new', value: 'consolidate_materials' }, action: 'create_task', fields: { sourceMaterialIds: ['S1', 'S2'], newMaterialCode: 'ZK1100100' } }],
+          proposedActions: [],
+        }) } }] };
+      },
+    },
+    trustPolicy: {
+      buildContext: ({ query }) => ({ query }),
+      createBudget: () => ({ recordToolCall: () => {}, recordModelCall: () => {}, checkExpiry: () => {} }),
+      authorizeToolCall: call => call,
+      validateModelOutput: output => output,
+    },
+    runTool: async call => {
+      toolCalls.push(call);
+      return {
+        duplicateGroups: [{ material: duplicateFields, sourceMaterialIds: ['S1', 'S2'], sourceMaterialCodes: ['LGS031ZK', 'LGS032ZK'], materialCount: 2, affectedBomEntryCount: 4, affectedProducts: ['LGS031'] }],
+        totalGroups: 1, totalMaterials: 2, truncated: false,
+        evidence: { id: 'duplicate-1', sourceType: 'pdm-material-duplicate-audit', sourcePath: 'data/materials.json', recordId: 'paper-card', sourceCommit: 'a'.repeat(40), capturedAt: '2026-08-08T00:00:00Z' },
+      };
+    },
+  });
+  const result = await controller.runTurn({
+    query: '\u8bf7\u628a1100x100mm\u7eb8\u5361\u7edf\u4e00\u4e3aZK1100100\u5e76\u66ff\u6362BOM',
+    route: { intent: 'proposal', confidence: 'deterministic', preferredTool: 'find_duplicate_materials', entities: { materialName: '\u7eb8\u5361' } },
+    snapshot: { sourceMetadata: { commitSha: 'a'.repeat(40) }, payload: { materialDb: { materials: {} } } },
+    model: 'test-model',
+    availableTools: ['find_duplicate_materials', 'search_pdm'],
+  });
+
+  assert.deepEqual(toolCalls.map(call => call.name), ['find_duplicate_materials']);
+  assert.deepEqual(gatewayCalls[0].tools, []);
+  assert.equal(result.conversationContext.workflowState.tasks[0].pendingAction, 'confirmation');
+});
+
 test('agent-controller: returns trusted local facts when prefetch succeeded but every provider endpoint failed', async () => {
   const providerError = new Error('Overloaded');
   providerError.status = 503;
