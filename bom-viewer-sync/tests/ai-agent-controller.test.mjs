@@ -484,12 +484,17 @@ test('agent-controller: does not allow extra PDM lookups after a duplicate-mater
   assert.equal(result.conversationContext.workflowState.tasks[0].pendingAction, 'confirmation');
 });
 
-test('agent-controller: returns every duplicate group directly without model summarization', async () => {
+test('agent-controller: gives the model the full duplicate audit for an independent review', async () => {
   let modelCalls = 0;
+  const requests = [];
   const controller = createAgentController({
     gateway: {
       listModels: () => [{ id: 'test-model', grade: 'B' }],
-      chat: async () => { modelCalls += 1; return { choices: [{ message: { content: 'unused' } }] }; },
+      chat: async request => {
+        modelCalls += 1;
+        requests.push(request);
+        return { choices: [{ message: { content: '1100x100mm, 860x100mm' } }] };
+      },
     },
     trustPolicy: {
       buildContext: ({ query }) => ({ query }),
@@ -502,6 +507,7 @@ test('agent-controller: returns every duplicate group directly without model sum
         { material: { name: { zh: '\u7eb8\u5361' }, spec: { zh: '1100x100mm' } }, sourceMaterialCodes: ['A', 'B'], affectedBomEntryCount: 2 },
         { material: { name: { zh: '\u7eb8\u5361' }, spec: { zh: '860x100mm' } }, sourceMaterialCodes: ['C', 'D'], affectedBomEntryCount: 2 },
       ],
+      auditedMaterials: [{ materialId: 'A', code: 'A' }, { materialId: 'B', code: 'B' }, { materialId: 'C', code: 'C' }, { materialId: 'D', code: 'D' }],
       totalGroups: 2,
       evidence: { id: 'duplicate-all', sourceType: 'pdm-material-duplicate-audit', sourcePath: 'data/materials.json', recordId: 'paper-card', sourceCommit: 'a'.repeat(40), capturedAt: '2026-08-08T00:00:00Z' },
     }),
@@ -516,9 +522,11 @@ test('agent-controller: returns every duplicate group directly without model sum
     availableTools: ['find_duplicate_materials'],
   });
 
-  assert.equal(modelCalls, 0);
+  assert.equal(modelCalls, 1);
   assert.equal(result.text, '1100x100mm, 860x100mm');
   assert.deepEqual(result.citations, ['duplicate-all']);
+  assert.match(JSON.stringify(requests[0].messages), /PDM_DUPLICATE_AUDIT_REVIEW/);
+  assert.match(JSON.stringify(requests[0].messages), /auditedMaterials/);
 });
 
 test('agent-controller: returns trusted local facts when prefetch succeeded but every provider endpoint failed', async () => {
