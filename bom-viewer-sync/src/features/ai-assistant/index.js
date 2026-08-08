@@ -174,12 +174,23 @@ export function formatLocalToolFallback(t, { toolCall, toolResult } = {}) {
   }
 
   if (toolCall.name === 'find_duplicate_materials') {
-    lines.push(`${tr('ai.localFallback.matches', 'Matches')}: ${toolResult.totalGroups || 0}`);
+    lines.push(`${tr('ai.localFallback.exactDuplicates', 'Exact duplicate groups')}: ${toolResult.totalGroups || 0}`);
     for (const group of (toolResult.duplicateGroups || []).slice(0, 12)) {
       const name = group.material?.name?.zh || group.material?.name?.vi || '';
       const spec = group.material?.spec?.zh || group.material?.spec?.vi || '';
       const codes = (group.sourceMaterialCodes || []).join(', ');
       lines.push(`- ${name} ${spec}: ${codes} (${group.affectedBomEntryCount || 0} BOM)`);
+    }
+    const suspectedGroups = toolResult.suspectedDuplicateGroups || [];
+    if (suspectedGroups.length > 0) {
+      lines.push(`${tr('ai.localFallback.suspectedDuplicates', 'Suspected duplicates requiring Admin confirmation')}: ${toolResult.totalSuspectedGroups || suspectedGroups.length}`);
+      for (const group of suspectedGroups.slice(0, 12)) {
+        const name = group.material?.name?.zh || group.material?.name?.vi || '';
+        const spec = group.material?.spec?.zh || group.material?.spec?.vi || '';
+        const codes = (group.sourceMaterialCodes || []).join(', ');
+        const fields = (group.differingFields || []).join(', ');
+        lines.push(`- ${name} ${spec}: ${codes}${fields ? ` (${fields})` : ''}`);
+      }
     }
     return lines.join('\n').slice(0, 5000);
   }
