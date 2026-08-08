@@ -229,6 +229,11 @@ function buildPreferredToolCall(route, query) {
     case 'list_recent_changes':
     case 'inspect_pdm_schema':
       return { name: route.preferredTool, arguments: {} };
+    case 'find_duplicate_materials':
+      return {
+        name: 'find_duplicate_materials',
+        arguments: route.entities?.materialName ? { name: route.entities.materialName } : {},
+      };
     case 'get_pdm_help':
       return { name: 'get_pdm_help', arguments: query?.trim() ? { topic: query } : {} };
     case 'analyze_pdm':
@@ -1306,6 +1311,14 @@ Example:
               const { state, errors } = workflowReducer(toolConversationContext.workflowState, semanticJson);
               toolConversationContext = { ...toolConversationContext, workflowState: state };
 
+              const pendingConsolidation = state.tasks.find(task => (
+                task.type === 'consolidate_materials' && task.status !== 'confirmed'
+              ));
+              if (semanticJson.workflowAction === 'build_proposal' && pendingConsolidation) {
+                state.workflowStatus = 'awaiting_clarification';
+                semanticJson.workflowAction = 'ask_clarification';
+              }
+
                             if (semanticJson.workflowAction === 'build_proposal') {
                 const tasksToPropose = state.tasks || [];
                 if (tasksToPropose.length > 0) {
@@ -1318,6 +1331,34 @@ Example:
                     hydratedOperations = tasksToPropose
                       .filter(task => task.type !== 'workflow_scope')
                       .flatMap(task => {
+                        if (task.type === 'consolidate_materials') {
+                          const sourceMaterialIds = Array.isArray(task.fields?.sourceMaterialIds)
+                            ? task.fields.sourceMaterialIds
+                            : [];
+                          const code = String(task.fields?.newMaterialCode || task.fields?.materialCode || '').trim();
+                          const source = materialsMap[sourceMaterialIds[0]];
+                          if (sourceMaterialIds.length < 2 || !code || !source) {
+                            throw new Error('Material consolidation requires duplicate source IDs and a new material code.');
+                          }
+                          return [{
+                            operationType: 'consolidate_materials',
+                            targetId: `mat_${code.toLowerCase()}`,
+                            payload: {
+                              material: {
+                                code,
+                                name: structuredClone(source.name || {}),
+                                spec: structuredClone(source.spec || {}),
+                                material: structuredClone(source.material || {}),
+                                color: structuredClone(source.color || {}),
+                                attr: structuredClone(source.attr || {}),
+                                drawings: structuredClone(source.drawings || []),
+                                models3d: structuredClone(source.models3d || []),
+                                ...(source.unit ? { unit: String(source.unit) } : {}),
+                              },
+                              sourceMaterialIds,
+                            },
+                          }];
+                        }
                         let rawTargetId = task.fields?.targetId || task.fields?.targetMaterialCode || task.fields?.materialCode || task.fields?.code || task.fields?.newMaterialCode || task.fields?.sourceMaterialCode || task.fields?.productCode;
                         if (!rawTargetId && task.type !== 'create_material') {
                           throw new Error('Missing target ID field in LLM response. You must specify the exact materialCode or targetId. Raw fields: ' + JSON.stringify(task.fields || {}));

@@ -25,6 +25,7 @@ const SEARCH_RESULT_FOLLOW_UP_PATTERN = /\b(?:only one|any others?|anything else
 const HELP_PATTERN = /\b(?:guide|instructions?|capabilities|what can you do|how (?:do|can) i use|help (?:me )?(?:use|with))\b|h\u01b0\u1edbng d\u1eabn|c\u00f3 th\u1ec3 l\u00e0m g\u00ec|gi\u00fap \u0111\u01b0\u1ee3c g\u00ec|\u4f7f\u7528\u5e2e\u52a9|\u600e\u4e48\u7528|\u4f7f\u7528\u6307\u5357|\u6709\u4ec0\u4e48\u529f\u80fd/iu;
 const SCHEMA_PATTERN = /\b(?:schema|data structure|fields?|entities|html data|dom data)\b|c\u1ea5u tr\u00fac d\u1eef li\u1ec7u|tr\u01b0\u1eddng d\u1eef li\u1ec7u|d\u1eef li\u1ec7u html|\u6570\u636e\u7ed3\u6784|\u5b57\u6bb5|\u5b9e\u4f53|HTML\s*\u6570\u636e/iu;
 const DRAWING_COMMONALITY_PATTERN = /\b(?:drawing|drawings|blueprint|interchangeable)\b|b\u1ea3n v\u1ebd|thay th\u1ebf l\u1eabn nhau|\u56fe\u7eb8|\u53ef\u4ee5\u4e92\u6362/iu;
+const DUPLICATE_MATERIAL_PATTERN = /\b(?:duplicate|duplicates|deduplicate)\b|tr\u00f9ng(?:\s*l\u1eb7p)?|gi\u1ed1ng\s*h\u1ec7t|(?:g\u1ed9p|gom)\s*(?:chung|m\u00e3)|\u91cd\u590d|\u76f8\u540c|\u5408\u5e76\u7269\u6599/iu;
 const MUTATION_REQUEST_PATTERN = /\b(?:add|create|update|edit|delete|remove|replace|change|modify|release|publish|withdraw|link|attach)\b|th\u00eam|t\u1ea1o|s\u1eeda|ch\u1ec9nh|x\u00f3a|thay|\u0111\u1ed5i|c\u1eadp nh\u1eadt|ph\u00e1t h\u00e0nh|r\u00fat ph\u00e1t h\u00e0nh|bi\u1ebfn|\u6dfb\u52a0|\u521b\u5efa|\u4fee\u6539|\u7f16\u8f91|\u5220\u9664|\u79fb\u9664|\u66ff\u6362|\u66f4\u65b0|\u53d1\u5e03|\u64a4\u56de|\u6539|\u53d8/iu;
 const GREETING_PATTERN = /^(hi|hello|hey|你好|xin ch[aà]o|ch[aà]o)(\s|!|\.|。|$)/iu;
 const AFFIRMATION_PATTERN = /^(?:是|是的|对|对的|没错|确认|yes|yep|correct|đúng|đúng rồi|phải)$/iu;
@@ -58,6 +59,7 @@ export const PDM_INTENTS = Object.freeze({
   CATALOG_ANALYSIS: 'catalog_analysis',
   DRAWING_ANALYSIS: 'drawing_analysis',
   DRAWING_COMMONALITY: 'drawing_commonality',
+  DUPLICATE_MATERIALS: 'duplicate_materials',
   PROPOSAL: 'proposal',
   AMBIGUOUS: 'ambiguous',
 });
@@ -157,6 +159,13 @@ export function routePdmIntent({
 }) {
   const text = String(query || '').trim();
   const tools = toolNames(availableTools);
+  if (DUPLICATE_MATERIAL_PATTERN.test(text) && tools.has('find_duplicate_materials')) {
+    const name = /\u7eb8\u5361/iu.test(text) ? '\u7eb8\u5361' : '';
+    const intent = MUTATION_REQUEST_PATTERN.test(text)
+      ? PDM_INTENTS.PROPOSAL
+      : PDM_INTENTS.DUPLICATE_MATERIALS;
+    return result(intent, { ...(name ? { materialName: name } : {}) }, 'find_duplicate_materials');
+  }
   const explicitProductIds = productMatches(text);
   const shorthandProduct = detectProductShorthand(text);
   const bareProductPair = text.match(/(?:^|[^\d])(\d{3,4})\s*(?:\u548c|\u4e0e|\u53ca|and|với|và|&|\/|,)\s*(\d{3,4})(?:[^\d]|$)/iu);

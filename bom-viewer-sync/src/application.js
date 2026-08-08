@@ -340,6 +340,7 @@ const TEXT = {
     'ai.proposal.approve': '批准并应用到本地',
     'ai.proposal.approved': '已批准建议。',
     'ai.proposal.prepared': '我已准备好一个更改建议，请在下方审核。',
+    'ai.workflow.consolidate.confirmation': '已识别 {count} 个完全相同的物料。是否创建标准物料 {code}，并替换所有相关 BOM 和物料结构引用？原物料会保留，不会自动删除。',
     'ai.proposal.applyError': '应用建议失败',
     'ai.proposal.appliedSuccess': '已成功应用',
     'ai.proposal.applied': '建议已应用到本地工作区。请检查更改，然后单独点击保存。',
@@ -442,6 +443,7 @@ const TEXT = {
     'ai.warning.remove_material_child': '移除子级关联会影响所有使用父级物料的产品。',
     'ai.warning.materialShared': '警告：该物料在 {count} 个 BOM 位置{locations}中共享。修改它将影响所有相关位置。',
     'ai.warning.duplicateMaterial': '更新后的物料与现有物料 ({duplicateCode}) 属性 100% 相同。为避免产生重复物料编码，建议您直接使用该现有物料进行替换。',
+    'ai.warning.consolidate_materials': '此操作将创建一个新的标准物料，并替换所有关联 BOM 和物料结构引用。原物料将保留，但不会自动删除。',
     'ai.warning.allColors': '全色系',
   },
   vi: {
@@ -726,6 +728,7 @@ const TEXT = {
     'ai.proposal.approve': 'Duyệt và áp dụng cục bộ',
     'ai.proposal.approved': 'Đã duyệt đề xuất.',
     'ai.proposal.prepared': 'Tôi đã chuẩn bị một đề xuất thay đổi. Vui lòng kiểm tra bên dưới.',
+    'ai.workflow.consolidate.confirmation': 'Đã xác định {count} vật liệu giống hệt nhau. Bạn có muốn tạo vật liệu chuẩn {code} và thay thế mọi tham chiếu BOM/cấu trúc liên quan không? Các vật liệu cũ sẽ được giữ lại, không tự động xóa.',
     'ai.proposal.applyError': 'Không thể áp dụng đề xuất',
     'ai.proposal.applied': 'Đề xuất đã được áp dụng vào workspace cục bộ. Hãy kiểm tra thay đổi rồi bấm Lưu riêng.',
     'ai.proposal.verified': 'Verify đạt: các thay đổi đã chọn phù hợp quy tắc dữ liệu PDM.',
@@ -789,6 +792,7 @@ const TEXT = {
     'ai.warning.remove_material_child': 'Xóa liên kết con có thể ảnh hưởng đến mọi sản phẩm sử dụng vật liệu cha.',
     'ai.warning.materialShared': 'Cảnh báo: Vật liệu này được dùng chung ở {count} vị trí BOM{locations}. Sửa đổi nó sẽ ảnh hưởng đến tất cả.',
     'ai.warning.duplicateMaterial': 'Vật liệu sau khi cập nhật giống hệt 100% với một vật liệu đã có sẵn ({duplicateCode}). Để tránh trùng lặp quá nhiều mã vật liệu, hãy cân nhắc sử dụng mã vật liệu có sẵn đó để thay thế.',
+    'ai.warning.consolidate_materials': 'Thao tác này tạo một vật liệu chuẩn mới và thay thế mọi tham chiếu BOM/cấu trúc liên quan. Các vật liệu cũ được giữ lại và không bị tự động xóa.',
     'ai.warning.allColors': 'Tất cả màu'
   }
 };

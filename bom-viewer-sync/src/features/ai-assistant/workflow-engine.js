@@ -80,8 +80,13 @@ export function workflowReducer(priorState, semanticDelta) {
       task.fields = { ...(task.fields || {}), ...clone(update.fields) };
       task.missingFields = (task.missingFields || [])
         .filter(field => !Object.hasOwn(update.fields, field));
-      task.status = task.missingFields.length === 0 ? 'completed' : 'pending';
-      task.pendingAction = task.missingFields.length === 0 ? null : 'details_clarification';
+      const requiresConfirmation = task.type === 'consolidate_materials'
+        && Array.isArray(task.fields?.sourceMaterialIds)
+        && task.fields.sourceMaterialIds.length >= 2
+        && typeof task.fields?.newMaterialCode === 'string'
+        && task.fields.newMaterialCode.trim().length > 0;
+      task.status = requiresConfirmation ? 'pending' : task.missingFields.length === 0 ? 'completed' : 'pending';
+      task.pendingAction = requiresConfirmation ? 'confirmation' : task.missingFields.length === 0 ? null : 'details_clarification';
     } else if (update.action === 'confirm_task') {
       task.status = 'confirmed';
       task.pendingAction = null;

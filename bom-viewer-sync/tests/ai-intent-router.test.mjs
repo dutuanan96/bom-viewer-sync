@@ -414,3 +414,14 @@ test('expands a prior component comparison to other products using local analysi
   assert.ok(route.entities.searchQuery.includes(originalQuery));
   assert.ok(route.entities.searchQuery.includes(followUp));
 });
+
+test('routes a duplicate-material consolidation request through proposal context', () => {
+  const route = routePdmIntent({
+    query: 'gom chung cac 纸卡 giong het thanh ma ZK1100100 va thay the BOM',
+    availableTools: [...READ_TOOLS, 'find_duplicate_materials', 'apply_mutation'],
+  });
+
+  assert.equal(route.intent, PDM_INTENTS.PROPOSAL);
+  assert.equal(route.preferredTool, 'find_duplicate_materials');
+  assert.equal(route.entities.materialName, '纸卡');
+});

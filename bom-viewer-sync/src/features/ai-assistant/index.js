@@ -29,6 +29,19 @@ import marketplaceAliases from '../../../knowledge/marketplace-aliases.json' wit
 
 export const AI_PROMPT_PACK_VERSION = promptPack.packVersion;
 
+function workflowConfirmationText(t, workflowState) {
+  const task = workflowState?.tasks?.find(item => (
+    item?.type === 'consolidate_materials' && item?.pendingAction === 'confirmation'
+  ));
+  if (!task) return '';
+  const sourceCount = Array.isArray(task.fields?.sourceMaterialIds) ? task.fields.sourceMaterialIds.length : 0;
+  const code = String(task.fields?.newMaterialCode || '').trim();
+  if (!code || sourceCount < 2) return '';
+  return String(t('ai.workflow.consolidate.confirmation'))
+    .replace('{code}', code)
+    .replace('{count}', String(sourceCount));
+}
+
 function contextForRoute(route, snapshot, fallback = {}, query = '') {
   const entities = route?.entities || {};
   const productIds = Array.isArray(entities.productIds) ? entities.productIds.slice(0, 2) : [];
@@ -55,13 +68,16 @@ function contextForRoute(route, snapshot, fallback = {}, query = '') {
     productIds: productIds.length > 0 ? productIds : fallbackProducts,
     materialIds: materialIds.length > 0 ? materialIds : (sameProductScope ? (fallback.materialIds || []) : []),
     revisions: revisions.length > 0 ? revisions : (sameProductScope ? (fallback.revisions || []) : []),
+    ...(fallback.workflowState ? { workflowState: fallback.workflowState } : {}),
   };
   const routeSearchQuery = ['search_pdm', 'analyze_pdm'].includes(route?.preferredTool)
     ? String(entities.searchQuery || query || '').trim()
     : '';
   const searchQuery = routeSearchQuery || String(fallback.searchQuery || '').trim();
   if (searchQuery) context.searchQuery = searchQuery.slice(0, 500);
-  return Object.fromEntries(Object.entries(context).filter(([, value]) => value.length > 0));
+  return Object.fromEntries(Object.entries(context).filter(([, value]) => (
+    value && typeof value === 'object' ? Object.keys(value).length > 0 : value.length > 0
+  )));
 }
 
 function compactMaterialRow(row) {
@@ -152,6 +168,17 @@ export function formatLocalToolFallback(t, { toolCall, toolResult } = {}) {
       const usage = (item.usedBy || []).map(value => value.productCode).filter(Boolean).join(', ');
       return `- ${item.code || item.materialId} ${item.spec?.zh || item.spec?.vi || ''}${usage ? ` → ${usage}` : ''}`;
     }));
+    return lines.join('\n').slice(0, 5000);
+  }
+
+  if (toolCall.name === 'find_duplicate_materials') {
+    lines.push(`${tr('ai.localFallback.matches', 'Matches')}: ${toolResult.totalGroups || 0}`);
+    for (const group of (toolResult.duplicateGroups || []).slice(0, 12)) {
+      const name = group.material?.name?.zh || group.material?.name?.vi || '';
+      const spec = group.material?.spec?.zh || group.material?.spec?.vi || '';
+      const codes = (group.sourceMaterialCodes || []).join(', ');
+      lines.push(`- ${name} ${spec}: ${codes} (${group.affectedBomEntryCount || 0} BOM)`);
+    }
     return lines.join('\n').slice(0, 5000);
   }
 
@@ -311,6 +338,7 @@ const TOOL_SCHEMAS = {
       'create_product_revision targetId=product code payload={revision,changeReason};',
       'release_product_revision or withdraw_product_revision targetId=product code payload={reason};',
       'create_material targetId=new material ID payload={material:{code,name:{zh,vi}, optional spec/material/color/attr localized pairs, unit, drawings, models3d}};',
+      'consolidate_materials targetId=new material ID payload={material:{code,name:{zh,vi},spec:{zh,vi},material:{zh,vi},color:{zh,vi},attr:{zh,vi}, optional unit/drawings/models3d},sourceMaterialIds:[existing internal material IDs]}; this atomically creates one canonical material and replaces every BOM and material-structure reference to the exact duplicate sources; it never deletes the old records.',
       'update_material targetId=material ID payload={patch:{same editable material fields}};',
       'update_material_field targetId=material ID payload={field,value};',
       'delete_material targetId=unused material ID payload={};',
@@ -344,6 +372,7 @@ const TOOL_SCHEMAS = {
                   'release_product_revision',
                   'withdraw_product_revision',
                   'create_material',
+                  'consolidate_materials',
                   'update_material',
                   'update_material_field',
                   'delete_material',
@@ -394,6 +423,14 @@ const TOOL_SCHEMAS = {
       required: ['query'],
       additionalProperties: false,
     }
+  },
+  find_duplicate_materials: {
+    description: 'Find groups of material records whose name, specification, material, color, and attribute are exactly identical while their material codes differ. Returns bounded source IDs, codes, and affected BOM counts. Read-only.',
+    parameters: {
+      type: 'object',
+      properties: { name: NON_EMPTY_STRING_SCHEMA },
+      additionalProperties: false,
+    },
   },
   list_recent_changes: {
     description: 'List recent bounded PDM revision, release, and saved-change events',
@@ -750,7 +787,7 @@ export function createAiAssistantFeature({
 
         const finalMessageProps = {
           role: 'assistant',
-          text: result.text,
+          text: workflowConfirmationText(t, result.conversationContext?.workflowState) || result.text,
           citations: result.citations,
           evidence: result.evidenceItems,
           proposal: result.proposal,

@@ -379,6 +379,61 @@ test('agent-controller: deterministically prepares an exact bulk material dimens
   assert.equal(result.text, '');
 });
 
+test('agent-controller: requires confirmation before building a duplicate-material consolidation proposal', async () => {
+  const toolCalls = [];
+  let turn = 0;
+  const duplicateFields = {
+    name: { zh: '\u7eb8\u5361', vi: 'gi\u1ea5y l\u00f3t' },
+    spec: { zh: '\u5355\u74e61100x100mm', vi: 's\u00f3ng \u0111\u01a1n 1100x100mm' },
+    material: { zh: '\u74e6\u695e\u7eb8\u5355\u74e6', vi: 'gi\u1ea5y carton s\u00f3ng \u0111\u01a1n' },
+    color: { zh: '\u7eb8\u8272', vi: 'm\u00e0u gi\u1ea5y' },
+    attr: { zh: '\u5305\u6750', vi: 'v\u1eadt li\u1ec7u \u0111\u00f3ng g\u00f3i' },
+    drawings: [], models3d: [],
+  };
+  const workflow = [
+    {
+      intent: 'workflow_update', workflowAction: 'build_proposal', responseLanguage: 'zh', schemaVersion: 1, rejectionCode: null,
+      taskUpdates: [{ taskRef: { kind: 'new', value: 'consolidate_materials' }, action: 'create_task', fields: { sourceMaterialIds: ['S1', 'S2'], newMaterialCode: 'ZK1100100' } }],
+      proposedActions: [{ operationType: 'consolidate_materials', targetId: 'mat_zk1100100' }],
+    },
+    {
+      intent: 'workflow_update', workflowAction: 'build_proposal', responseLanguage: 'zh', schemaVersion: 1, rejectionCode: null,
+      taskUpdates: [{ taskRef: { kind: 'current', value: '' }, action: 'confirm_task' }],
+      proposedActions: [{ operationType: 'consolidate_materials', targetId: 'mat_zk1100100' }],
+    },
+  ];
+  const controller = createAgentController({
+    gateway: { listModels: () => [{ id: 'test-model', grade: 'B' }], chat: async () => ({ choices: [{ message: { content: JSON.stringify(workflow[turn++]) } }] }) },
+    trustPolicy: {
+      buildContext: ({ query }) => ({ query }),
+      createBudget: () => ({ recordToolCall: () => {}, recordModelCall: () => {}, checkExpiry: () => {} }),
+      authorizeToolCall: call => call,
+      validateModelOutput: output => output,
+    },
+    runTool: async call => { toolCalls.push(call); return 'Mutation presented for review.'; },
+  });
+  const snapshot = { sourceMetadata: { commitSha: 'a'.repeat(40) }, payload: { materialDb: { materials: {
+    S1: { id: 'S1', code: 'LGS031ZK', ...structuredClone(duplicateFields) },
+    S2: { id: 'S2', code: 'LGS032ZK', ...structuredClone(duplicateFields) },
+  }, bomEntries: [] } } };
+  const route = { intent: 'proposal', confidence: 'deterministic', preferredTool: null, entities: {} };
+
+  const first = await controller.runTurn({ query: 'Create ZK1100100', route, snapshot, model: 'test-model', availableTools: ['apply_mutation'] });
+  assert.equal(toolCalls.length, 0);
+  assert.equal(first.conversationContext.workflowState.tasks[0].pendingAction, 'confirmation');
+
+  await controller.runTurn({ query: 'Confirm', route, snapshot, model: 'test-model', availableTools: ['apply_mutation'], conversationContext: first.conversationContext });
+  assert.equal(toolCalls.length, 1);
+  assert.deepEqual(toolCalls[0].arguments.operations[0], {
+    operationType: 'consolidate_materials',
+    targetId: 'mat_zk1100100',
+    payload: {
+      material: { code: 'ZK1100100', ...duplicateFields },
+      sourceMaterialIds: ['S1', 'S2'],
+    },
+  });
+});
+
 test('agent-controller: returns trusted local facts when prefetch succeeded but every provider endpoint failed', async () => {
   const providerError = new Error('Overloaded');
   providerError.status = 503;

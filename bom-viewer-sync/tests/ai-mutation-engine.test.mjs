@@ -146,6 +146,54 @@ test('mutation-engine: batch review follows allowlisted Admin material and BOM a
   assert.equal(transaction.payload.materialDb.bomEntries[0].materialId, 'M2');
 });
 
+test('mutation-engine: consolidates exact duplicate materials atomically without deleting source records', () => {
+  const snapshot = proposalSnapshot();
+  snapshot.payload.productRevisions = {
+    LGS001: {
+      currentRevision: 'V1.1',
+      currentRevisionInfo: { sourceRevision: 'V1', workflowState: 'draft' },
+      revisions: [],
+    },
+  };
+  const duplicate = {
+    name: { zh: '\u7eb8\u5361', vi: 'gi\u1ea5y l\u00f3t' },
+    spec: { zh: '\u5355\u74e61100x100mm', vi: 's\u00f3ng \u0111\u01a1n 1100x100mm' },
+    material: { zh: '\u74e6\u695e\u7eb8\u5355\u74e6', vi: 'gi\u1ea5y carton s\u00f3ng \u0111\u01a1n' },
+    color: { zh: '\u7eb8\u8272', vi: 'm\u00e0u gi\u1ea5y' },
+    attr: { zh: '\u5305\u6750', vi: 'v\u1eadt li\u1ec7u \u0111\u00f3ng g\u00f3i' },
+    drawings: [],
+    models3d: [],
+  };
+  snapshot.payload.materialDb.materials.S1 = { id: 'S1', code: 'LGS031ZK', ...structuredClone(duplicate) };
+  snapshot.payload.materialDb.materials.S2 = { id: 'S2', code: 'LGS032ZK', ...structuredClone(duplicate) };
+  snapshot.payload.materialDb.bomEntries[0].materialId = 'S1';
+  snapshot.payload.materialDb.bomEntries.push({
+    id: 'entry-2', parentType: 'material', parentId: 'M2', productCode: '', color: '',
+    materialId: 'S2', childMaterialId: 'S2', comp_code: '', qty: '3', order: 0,
+  });
+
+  const proposal = {
+    operations: [{
+      operationType: 'consolidate_materials',
+      targetId: 'mat_zk1100100',
+      payload: {
+        material: { code: 'ZK1100100', ...structuredClone(duplicate) },
+        sourceMaterialIds: ['S1', 'S2'],
+      },
+    }],
+  };
+  const transaction = applyMutationProposalTransaction(snapshot, proposal);
+
+  assert.equal(transaction.payload.materialDb.materials.mat_zk1100100.code, 'ZK1100100');
+  assert.equal(transaction.payload.materialDb.materials.S1.code, 'LGS031ZK');
+  assert.equal(transaction.payload.materialDb.materials.S2.code, 'LGS032ZK');
+  assert.equal(transaction.payload.materialDb.bomEntries[0].materialId, 'mat_zk1100100');
+  assert.equal(transaction.payload.materialDb.bomEntries[1].materialId, 'mat_zk1100100');
+  assert.equal(transaction.payload.materialDb.bomEntries[1].childMaterialId, 'mat_zk1100100');
+  assert.equal(transaction.payload.materialDb.bomEntries[1].qty, '3');
+  assert.equal(transaction.review.operations[0].risk, 'high');
+});
+
 test('mutation-engine: cross-product BOM replacement reads canonical draft workflow state', () => {
   const snapshot = proposalSnapshot();
   snapshot.payload.bom.LGS002 = {

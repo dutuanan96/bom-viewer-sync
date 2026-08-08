@@ -30,7 +30,8 @@ export const ALLOWED_TOOLS = Object.freeze(new Set([
   'get_pdm_help',
   'analyze_pdm',
   'analyze_engineering_drawing',
-  'check_drawing_commonality'
+  'check_drawing_commonality',
+  'find_duplicate_materials',
 ]));
 
 const ALLOWED_PROPOSAL_OPERATIONS = Object.freeze(new Set([
@@ -52,6 +53,7 @@ const ALLOWED_PROPOSAL_OPERATIONS = Object.freeze(new Set([
   'update_material_child_quantity',
   'remove_material_child',
   'delete_material_structure',
+  'consolidate_materials',
 ]));
 
 const ALLOWED_MATERIAL_FIELDS = Object.freeze(new Set([
@@ -109,7 +111,8 @@ const TOOL_ARGUMENT_RULES = Object.freeze({
   get_pdm_help: { required: [], allowed: ['topic'] },
   analyze_pdm: { required: ['query'], allowed: ['query', 'scope', 'countMode', 'componentFamily', 'dimensionFilter'] },
   analyze_engineering_drawing: { required: ['query', 'productId'], allowed: ['query', 'productId'] },
-  check_drawing_commonality: { required: ['query'], allowed: ['query'] }
+  check_drawing_commonality: { required: ['query'], allowed: ['query'] },
+  find_duplicate_materials: { required: [], allowed: ['name'] },
 });
 
 function policyError(message) {
@@ -362,6 +365,10 @@ export function validateMutation(mutation) {
       throw policyError('create_material payload contains missing or extra fields');
     }
     validateMaterialRecordInput(mutation.payload.material);
+  } else if (mutation.operationType === 'consolidate_materials') {
+    validateExactPayloadKeys(mutation, ['material', 'sourceMaterialIds']);
+    validateMaterialRecordInput(mutation.payload.material);
+    validateMaterialIdList(mutation.payload.sourceMaterialIds);
   } else if (mutation.operationType === 'update_material') {
     const payloadKeys = Object.keys(mutation.payload).sort();
     if (JSON.stringify(payloadKeys) !== JSON.stringify(['patch'])) {
@@ -443,6 +450,18 @@ function validateBoundedString(value, label, required, maxLength = 200) {
 
 function validatePositiveQuantity(value, label) {
   if (!Number.isInteger(value) || value < 1 || value > 1_000_000) throw new Error(`invalid ${label}`);
+}
+
+function validateMaterialIdList(value) {
+  if (!Array.isArray(value) || value.length < 2 || value.length > 50) {
+    throw new Error('sourceMaterialIds must contain 2 to 50 material IDs');
+  }
+  const unique = new Set();
+  for (const materialId of value) {
+    validateSafeIdentifier(materialId, 'source materialId');
+    if (unique.has(materialId)) throw new Error('sourceMaterialIds must be unique');
+    unique.add(materialId);
+  }
 }
 
 function validateExactPayloadKeys(mutation, expected) {

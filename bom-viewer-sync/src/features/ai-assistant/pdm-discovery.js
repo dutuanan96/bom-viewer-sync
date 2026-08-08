@@ -376,6 +376,70 @@ export class PdmDiscovery {
     };
   }
 
+  findDuplicateMaterials({ name = '' } = {}) {
+    const normalizedName = normalizeSearchText(name);
+    const groups = new Map();
+    const entries = Array.isArray(this.payload.materialDb?.bomEntries)
+      ? this.payload.materialDb.bomEntries
+      : [];
+
+    for (const record of Object.values(this.payload.materialDb?.materials || {})) {
+      const recordName = normalizeSearchText(`${record?.name?.zh || ''} ${record?.name?.vi || ''}`);
+      if (normalizedName && !recordName.includes(normalizedName)) continue;
+      const identity = JSON.stringify({
+        name: record.name || {},
+        spec: record.spec || {},
+        material: record.material || {},
+        color: record.color || {},
+        attr: record.attr || {},
+      });
+      const group = groups.get(identity) || [];
+      group.push(record);
+      groups.set(identity, group);
+    }
+
+    const duplicateGroups = [...groups.values()]
+      .filter(group => group.length > 1)
+      .map(group => {
+        const sourceMaterialIds = group.map(record => record.id).filter(Boolean).sort();
+        const sourceIdSet = new Set(sourceMaterialIds);
+        const affectedEntries = entries.filter(entry => sourceIdSet.has(entry.materialId) || sourceIdSet.has(entry.childMaterialId));
+        const exemplar = group[0];
+        return {
+          material: {
+            name: exemplar.name || {},
+            spec: exemplar.spec || {},
+            material: exemplar.material || {},
+            color: exemplar.color || {},
+            attr: exemplar.attr || {},
+          },
+          sourceMaterialIds,
+          sourceMaterialCodes: group.map(record => record.code || record.id).sort(),
+          materialCount: group.length,
+          affectedBomEntryCount: affectedEntries.length,
+          affectedProducts: [...new Set(affectedEntries
+            .map(entry => entry.productCode || '')
+            .filter(Boolean))].sort(),
+        };
+      })
+      .sort((left, right) => right.materialCount - left.materialCount
+        || right.affectedBomEntryCount - left.affectedBomEntryCount);
+
+    return {
+      name: String(name),
+      duplicateGroups: duplicateGroups.slice(0, MAX_RESULTS),
+      totalGroups: duplicateGroups.length,
+      totalMaterials: duplicateGroups.reduce((count, group) => count + group.materialCount, 0),
+      truncated: duplicateGroups.length > MAX_RESULTS,
+      evidence: evidence(this.snapshot, {
+        id: `pdm_duplicate_materials_${Date.now().toString(36)}`,
+        sourceType: 'pdm-material-duplicate-audit',
+        sourcePath: 'data/materials.json',
+        recordId: normalizedName || 'all-materials',
+      }),
+    };
+  }
+
   listRecentChanges() {
     const changes = [];
     for (const [productCode, record] of Object.entries(this.payload.productRevisions || {})) {
