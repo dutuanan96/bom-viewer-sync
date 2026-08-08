@@ -29,10 +29,25 @@ const CHANGE_FIELD_LABELS = {
   color: 'materialColor',
   attr: 'materialAttribute',
   unit: 'unit',
+  workflowState: 'revisionWorkflowState',
 };
 
 const CHANGE_PREVIEW_LIMIT = 8;
 
+function localizedChangeValue(app, value) {
+  const state = String(value || '').trim().toLowerCase();
+  if (state === 'draft') return app.label('draftStatus');
+  if (state === 'released') return app.label('releasedStatus');
+  return String(value || '');
+}
+
+function previewPageNumbers(pageCount, currentPage) {
+  if (pageCount <= 7) return Array.from({ length: pageCount }, (_, index) => index + 1);
+  const pages = new Set([1, pageCount, currentPage - 1, currentPage, currentPage + 1]);
+  return [...pages]
+    .filter((page) => page >= 1 && page <= pageCount)
+    .sort((left, right) => left - right);
+}
 
 
 
@@ -85,28 +100,40 @@ function syncDirtyVisibility() {
   });
 }
 
-function changePreviewHtml() {
+function changePreviewHtml(requestedPage = 1) {
   const changes = this.pendingPayloadChanges();
+  const pageCount = Math.max(1, Math.ceil(changes.length / CHANGE_PREVIEW_LIMIT));
+  const currentPage = Math.min(Math.max(Number(requestedPage) || 1, 1), pageCount);
   let rows;
   if (!this.state.dirty) {
     rows = `<tr><td colspan="5" class="diff-empty">${escapeHTML(this.label('noDirtySummary'))}</td></tr>`;
   } else if (!changes.length) {
     rows = `<tr><td colspan="5" class="diff-empty">${escapeHTML(this.label('noChangesSummary'))}</td></tr>`;
   } else {
-    rows = changes.slice(0, CHANGE_PREVIEW_LIMIT).map((change) => {
+    const start = (currentPage - 1) * CHANGE_PREVIEW_LIMIT;
+    rows = changes.slice(start, start + CHANGE_PREVIEW_LIMIT).map((change) => {
       const kind = this.label(CHANGE_KIND_LABELS[change.kind] || change.kind);
       const field = change.field ? this.label(CHANGE_FIELD_LABELS[change.field] || change.field) : '';
-      return `<tr><td>${escapeHTML(kind)}</td><td>${escapeHTML(change.code || '')}</td><td>${escapeHTML(field)}</td><td>${escapeHTML(change.before || '')}</td><td>${escapeHTML(change.after || '')}</td></tr>`;
+      return `<tr><td>${escapeHTML(kind)}</td><td>${escapeHTML(change.code || '')}</td><td>${escapeHTML(field)}</td><td>${escapeHTML(localizedChangeValue(this, change.before))}</td><td>${escapeHTML(localizedChangeValue(this, change.after))}</td></tr>`;
     }).join('');
   }
 
+  const pagination = changes.length > CHANGE_PREVIEW_LIMIT
+    ? `<nav class="diff-pagination" aria-label="${escapeHTML(this.label('diffPagination'))}">
+        <button class="btn small" type="button" data-diff-page="${currentPage - 1}" ${currentPage === 1 ? 'disabled' : ''}>${escapeHTML(this.label('previousPage'))}</button>
+        ${previewPageNumbers(pageCount, currentPage).map((page, index, pages) => `${index > 0 && page > pages[index - 1] + 1 ? '<span class="diff-pagination-ellipsis">…</span>' : ''}<button class="btn small${page === currentPage ? ' btn-primary' : ''}" type="button" data-diff-page="${page}" aria-current="${page === currentPage ? 'page' : 'false'}">${page}</button>`).join('')}
+        <button class="btn small" type="button" data-diff-page="${currentPage + 1}" ${currentPage === pageCount ? 'disabled' : ''}>${escapeHTML(this.label('nextPage'))}</button>
+      </nav>`
+    : '';
+
   return `<div class="pdm-modal-content diff-modal" role="dialog" aria-modal="true" aria-labelledby="diffModalTitle">
     <div class="pdm-modal-header">
-      <h2 id="diffModalTitle">${escapeHTML(this.label('diffSummary'))}</h2>
+      <h2 id="diffModalTitle">${escapeHTML(this.label('diffSummary').replace('{count}', String(changes.length)))}</h2>
       <button class="pdm-modal-close" type="button" data-close-diff aria-label="${escapeHTML(this.label('close'))}">&times;</button>
     </div>
     <div class="pdm-modal-body">
       <table class="diff-table"><thead><tr><th>${escapeHTML(this.label('diffColType'))}</th><th>${escapeHTML(this.label('diffColCode'))}</th><th>${escapeHTML(this.label('diffColField'))}</th><th>${escapeHTML(this.label('diffColBefore'))}</th><th>${escapeHTML(this.label('diffColAfter'))}</th></tr></thead><tbody>${rows}</tbody></table>
+      ${pagination}
     </div>
   </div>`;
 }
@@ -119,7 +146,6 @@ function showDiffModal(actionElement) {
     `<div id="diffModalOverlay" class="pdm-modal-overlay diff-modal-overlay open">${this.changePreviewHtml()}</div>`,
   );
   const overlay = this.query('#diffModalOverlay');
-  const closeControl = overlay.querySelector('[data-close-diff]');
   let handleKeyDown;
   const closeModal = (restoreFocus = true) => {
     globalThis.document.removeEventListener('keydown', handleKeyDown);
@@ -132,11 +158,17 @@ function showDiffModal(actionElement) {
   };
   overlay.addEventListener('click', (event) => {
     if (event.target === overlay) closeModal();
+    const pageButton = event.target.closest?.('[data-diff-page]');
+    if (pageButton && !pageButton.disabled) {
+      overlay.innerHTML = this.changePreviewHtml(Number(pageButton.dataset.diffPage));
+      overlay.querySelector('[data-close-diff]')?.focus();
+      return;
+    }
+    if (event.target.closest?.('[data-close-diff]')) closeModal();
   });
-  closeControl.addEventListener('click', () => closeModal());
   globalThis.document.addEventListener('keydown', handleKeyDown);
   this.closeDiffModal = closeModal;
-  closeControl.focus();
+  overlay.querySelector('[data-close-diff]')?.focus();
 }
 
 function renderStats() {

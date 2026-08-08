@@ -459,7 +459,10 @@ export function createAiAssistantFeature({
   localStore,
   fetchImpl = globalThis.fetch,
   t = (k) => k,
+  openPdmPrompt,
+  openPdmConfirm,
   githubSyncConfig = {},
+  onApplyFallbackProposal,
 }) {
   let settings = null;
   const gateway = createOpenRouterGateway({ fetchImpl });
@@ -575,6 +578,8 @@ export function createAiAssistantFeature({
 
   const workspace = createWorkspaceView({
     t,
+    openPdmPrompt,
+    openPdmConfirm,
     onStop: () => {
       _currentAbortController?.abort();
     },
@@ -787,9 +792,15 @@ export function createAiAssistantFeature({
             settings.refreshImprovements?.();
             workspace.renderMessage({ role: 'assistant', text: t('ai.mapping.candidateCreated') });
           },
+          snapshot,
+          onApprove: typeof onApplyFallbackProposal === 'function' ? (selectedProposal, options) => {
+            onApplyFallbackProposal(selectedProposal, snapshot, options);
+          } : undefined,
         };
 
-        if (streamingMessageHandle) {
+        if (result.suppressFinalMessage) {
+          streamingMessageHandle?.remove?.();
+        } else if (streamingMessageHandle) {
           streamingMessageHandle.finish(finalMessageProps);
         } else {
           workspace.renderMessage(finalMessageProps);

@@ -30,6 +30,7 @@ function createMockFetch(steps) {
     const call = {
       url,
       method: options.method || 'GET',
+      cache: options.cache,
       headers: options.headers,
       body: options.body,
     };
@@ -113,6 +114,8 @@ test('writes sorted UTF-8 shards in one non-force ref update', async () => {
   assert.deepEqual(result, { previousHeadSha: SHA.head, commitSha: SHA.commit });
   assert.equal(calls.length, 7);
   assert.equal(calls[0].headers.Authorization, `Bearer ${VALID_TOKEN}`);
+  assert.equal(calls[0].cache, 'no-store');
+  assert.equal(calls[1].cache, 'no-store');
 
   const manifestBlob = JSON.parse(calls[2].body);
   const materialsBlob = JSON.parse(calls[3].body);

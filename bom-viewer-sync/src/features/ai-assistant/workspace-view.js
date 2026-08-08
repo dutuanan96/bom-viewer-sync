@@ -1,7 +1,107 @@
 import { buildMutationProposalReview } from './mutation-engine.js';
 import { materialWhereUsed } from '../../domain/materials.js';
 
-export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k }) {
+function swapError(code, message) {
+  const error = new Error(message);
+  error.code = code;
+  return error;
+}
+
+function replacementKey(operation) {
+  return `${operation.operationType}|${operation.targetId}|${operation.payload?.materialId || ''}`;
+}
+
+function cloneOperation(operation) {
+  return JSON.parse(JSON.stringify(operation));
+}
+
+export function buildRegeneratedSwapOperations({ proposal, snapshot, swaps }) {
+  const sourceOperations = proposal?.operations || proposal?.proposedActions || [];
+  const sourceIndexes = new Set();
+  const replacements = [];
+  const affectedProducts = new Set();
+
+  for (const swap of swaps || []) {
+    const sourceIndex = swap?.operation?.sourceIndex;
+    if (!Number.isInteger(sourceIndex) || sourceIndex < 0 || sourceIndex >= sourceOperations.length) {
+      throw swapError('AI_SWAP_SOURCE_MISSING', 'The selected proposal operation has no stable source index.');
+    }
+    if (!swap.duplicateId) {
+      throw swapError('AI_SWAP_DUPLICATE_MISSING', 'The selected duplicate material is missing.');
+    }
+
+    sourceIndexes.add(sourceIndex);
+    const sourceMaterialId = swap.operation?.mutation?.targetId;
+    const usage = materialWhereUsed(snapshot?.payload, sourceMaterialId);
+    const replacementCountBefore = replacements.length;
+
+    for (const entry of usage.productEntries || []) {
+      const productCode = entry.productCode || entry.parentId;
+      if (productCode) affectedProducts.add(productCode);
+      replacements.push({
+        operationType: 'replace_bom_item',
+        targetId: entry.id,
+        payload: { materialId: swap.duplicateId },
+      });
+    }
+    for (const entry of usage.parentEntries || []) {
+      replacements.push({
+        operationType: 'replace_bom_item',
+        targetId: entry.id,
+        payload: { materialId: swap.duplicateId },
+      });
+    }
+    if (replacements.length === replacementCountBefore) {
+      throw swapError('AI_SWAP_NO_USAGES', 'The selected material has no BOM usages to replace.');
+    }
+  }
+
+  const retainedOperations = sourceOperations
+    .filter((_, index) => !sourceIndexes.has(index))
+    .map(cloneOperation);
+  const seenReplacements = new Set();
+  const uniqueReplacements = replacements.filter((operation) => {
+    const key = replacementKey(operation);
+    if (seenReplacements.has(key)) return false;
+    seenReplacements.add(key);
+    return true;
+  });
+
+  return {
+    operations: [...retainedOperations, ...uniqueReplacements],
+    affectedProducts: [...affectedProducts],
+  };
+}
+
+export function findProductsNeedingDraft(payload, productCodes) {
+  return [...new Set(productCodes || [])].filter((productCode) => {
+    const revisionRecord = payload?.productRevisions?.[productCode];
+    return revisionRecord && revisionRecord.currentRevisionInfo?.workflowState !== 'draft';
+  });
+}
+
+export function buildDraftRevisionOperations(productCodes, values) {
+  return [...new Set(productCodes || [])].map((productCode) => ({
+    operationType: 'create_product_revision',
+    targetId: productCode,
+    payload: {
+      revision: String(values?.[`revision_${productCode}`] || '').trim(),
+      changeReason: String(values?.[`reason_${productCode}`] || '').trim(),
+    },
+  }));
+}
+
+export function buildWithdrawRevisionOperations(productCodes, values) {
+  return [...new Set(productCodes || [])].map((productCode) => ({
+    operationType: 'withdraw_product_revision',
+    targetId: productCode,
+    payload: {
+      reason: String(values?.[`withdrawReason_${productCode}`] || '').trim(),
+    },
+  }));
+}
+
+export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k, openPdmPrompt, openPdmConfirm }) {
   const container = document.createElement('div');
   container.className = 'ai-workspace';
 
@@ -152,97 +252,140 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k }) {
   }
   function handleMultipleSwaps(msg, swaps, propEl, t) {
     const snapshot = msg.snapshot;
-    if (!snapshot) return;
-    
-    const newOperations = [];
-    const opsToRemove = new Set();
-    const affectedProducts = new Set();
-    for (const swap of swaps) {
-      const oldId = swap.operation.mutation.targetId;
-      const usage = materialWhereUsed(snapshot.payload, oldId);
-      
-      for (const entry of usage.productEntries || []) {
-        if (entry.productCode) affectedProducts.add(entry.productCode);
-        newOperations.push({ operationType: 'replace_bom_item', targetId: entry.id, payload: { materialId: swap.duplicateId } });
-      }
-      for (const entry of usage.parentEntries || []) {
-        newOperations.push({ operationType: 'replace_bom_item', targetId: entry.id, payload: { materialId: swap.duplicateId } });
-      }
-      opsToRemove.add(JSON.stringify(swap.operation.mutation));
+    if (!snapshot) {
+      renderMessage({ role: 'assistant', text: t('ai.proposal.regenerateFailed') });
+      return;
     }
 
-    const productsNeedingDraft = [];
-    for (const productCode of affectedProducts) {
-      const prodRevs = snapshot.payload?.productRevisions?.[productCode] || [];
-      if (prodRevs.length === 0) continue;
-      const hasDraft = prodRevs.some(r => !r.releasedAt);
-      if (!hasDraft) productsNeedingDraft.push(productCode);
+    let regenerated;
+    try {
+      regenerated = buildRegeneratedSwapOperations({ proposal: msg.proposal, snapshot, swaps });
+    } catch (error) {
+      const key = error?.code === 'AI_SWAP_NO_USAGES'
+        ? 'ai.proposal.swapNoUsages'
+        : 'ai.proposal.regenerateFailed';
+      renderMessage({ role: 'assistant', text: t(key) });
+      return;
     }
 
-    if (productsNeedingDraft.length > 0 && global.openPdmPrompt) {
-      const fields = productsNeedingDraft.flatMap(p => {
-        const prodRevs = snapshot.payload?.productRevisions?.[p] || [];
-        const currentRev = prodRevs.find(r => r.current) || prodRevs[0];
-        let nextVersion = 'V1';
-        if (currentRev) {
-          const match = currentRev.revision.match(/^V(\d+)$/i);
-          nextVersion = match ? `V${parseInt(match[1], 10) + 1}` : `${currentRev.revision}-1`;
-        }
-        return [
-          { key: `rev_${p}`, label: `${t('newRevision') || 'New Version'} (${p})`, defaultValue: nextVersion, required: true },
-          { key: `reason_${p}`, label: `${t('changeReason') || 'Change Reason'} (${p})`, defaultValue: t('ai.proposal.autoDraftReason') || 'Auto-draft for material swap', required: true }
-        ];
-      });
-      global.openPdmPrompt(t('ai.proposal.bumpRevisionOption') || 'Create Draft Revision', fields, (values) => {
-        for (const p of productsNeedingDraft) {
-          newOperations.unshift({
-            operationType: 'create_product_revision',
-            targetId: p,
-            payload: {
-              revision: values[`rev_${p}`],
-              changeReason: values[`reason_${p}`]
-            }
-          });
-        }
-        finishHandleMultipleSwaps();
+    const productsNeedingDraft = findProductsNeedingDraft(
+      snapshot.payload,
+      regenerated.affectedProducts,
+    );
+
+    function chooseReleasedRevisionAction(onCreateDraft, onWithdraw) {
+      const overlay = document.createElement('div');
+      overlay.className = 'pdm-modal-overlay open';
+      const modal = document.createElement('div');
+      modal.className = 'pdm-modal-content pdm-modal-sm';
+      const title = document.createElement('h2');
+      title.textContent = t('ai.proposal.releasedRevisionChoiceTitle');
+      const description = document.createElement('p');
+      description.textContent = t('ai.proposal.releasedRevisionChoiceMessage');
+      const actions = document.createElement('div');
+      actions.className = 'pdm-modal-footer';
+
+      const cancel = document.createElement('button');
+      cancel.className = 'btn';
+      cancel.textContent = t('cancelBtn');
+      const createDraft = document.createElement('button');
+      createDraft.className = 'btn btn-primary';
+      createDraft.textContent = t('ai.proposal.createDraftOption');
+      const withdraw = document.createElement('button');
+      withdraw.className = 'btn btn-danger';
+      withdraw.textContent = t('ai.proposal.withdrawOption');
+
+      const close = () => overlay.remove();
+      cancel.onclick = close;
+      createDraft.onclick = () => {
+        close();
+        onCreateDraft();
+      };
+      withdraw.onclick = () => {
+        close();
+        onWithdraw();
+      };
+      actions.append(cancel, withdraw, createDraft);
+      modal.append(title, description, actions);
+      overlay.appendChild(modal);
+      document.body.appendChild(overlay);
+    }
+
+    if (productsNeedingDraft.length > 0) {
+      if (typeof openPdmPrompt !== 'function' || typeof openPdmConfirm !== 'function') {
+        renderMessage({ role: 'assistant', text: t('ai.proposal.regenerateFailed') });
+        return;
+      }
+      chooseReleasedRevisionAction(() => {
+        const fields = productsNeedingDraft.flatMap((productCode) => [
+          {
+            key: `revision_${productCode}`,
+            label: t('ai.proposal.swapRevisionField').replace('{product}', productCode),
+            required: true,
+          },
+          {
+            key: `reason_${productCode}`,
+            label: t('ai.proposal.swapRevisionReasonField').replace('{product}', productCode),
+            required: true,
+          },
+        ]);
+        openPdmPrompt(t('ai.proposal.createDraftForSwap'), fields, (values) => {
+          const revisionOperations = buildDraftRevisionOperations(productsNeedingDraft, values);
+          finishHandleMultipleSwaps([...revisionOperations, ...regenerated.operations]);
+        });
       }, () => {
-        if (propEl) {
-          propEl.style.opacity = '1';
-          propEl.style.pointerEvents = 'auto';
-        }
+        const fields = productsNeedingDraft.map((productCode) => ({
+          key: `withdrawReason_${productCode}`,
+          label: t('ai.proposal.withdrawReasonField').replace('{product}', productCode),
+          required: true,
+        }));
+        openPdmPrompt(t('ai.proposal.withdrawReleasedForSwap'), fields, (values) => {
+          const products = productsNeedingDraft.join(', ');
+          openPdmConfirm(
+            t('ai.proposal.withdrawConfirmForSwap').replace('{products}', products),
+            () => {
+              const revisionOperations = buildWithdrawRevisionOperations(productsNeedingDraft, values);
+              finishHandleMultipleSwaps([...revisionOperations, ...regenerated.operations]);
+            },
+          );
+        });
       });
       return;
     }
-    finishHandleMultipleSwaps();
+    finishHandleMultipleSwaps(regenerated.operations);
     
-    function finishHandleMultipleSwaps() {
-      const rawOps = msg.proposal.operations || msg.proposal.proposedActions || [];
-      msg.proposal.operations = rawOps.filter(op => !opsToRemove.has(JSON.stringify(op)));
-      msg.proposal.operations.push(...newOperations);
-      if (msg.proposal.proposedActions) msg.proposal.proposedActions = msg.proposal.operations;
-      
+    function finishHandleMultipleSwaps(operations) {
+      const nextProposal = {
+        ...msg.proposal,
+        operations,
+        ...(msg.proposal?.proposedActions ? { proposedActions: operations } : {}),
+      };
+
       try {
-        const review = buildMutationProposalReview(snapshot, msg.proposal, t);
+        const review = buildMutationProposalReview(snapshot, nextProposal, t);
+        if (typeof msg.onRegenerate === 'function') {
+          msg.onRegenerate(operations);
+        } else {
+          renderMessage({
+            ...msg,
+            role: 'assistant',
+            text: t('ai.proposal.prepared') || 'Proposal prepared for review.',
+            proposal: nextProposal,
+            proposalReview: review,
+            diff: review.finalDiff,
+            snapshot: snapshot
+          });
+        }
         if (propEl) {
           propEl.style.opacity = '0.5';
           propEl.style.pointerEvents = 'none';
         }
-        renderMessage({
-          role: 'assistant',
-          text: t('ai.proposal.prepared') || 'Proposal prepared for review.',
-          proposal: msg.proposal,
-          proposalReview: review,
-          diff: review.finalDiff,
-          snapshot: snapshot,
-          onApprove: msg.onApprove
-        });
-      } catch (e) {
-        console.error(e);
-        alert(e.message || 'Error preparing proposal');
+      } catch (error) {
         if (propEl) {
           propEl.style.opacity = '1';
           propEl.style.pointerEvents = 'auto';
         }
+        renderMessage({ role: 'assistant', text: t('ai.proposal.regenerateFailed') });
       }
     }
   }
@@ -664,29 +807,6 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k }) {
       const actionRowWrapper = document.createElement('div');
       actionRowWrapper.className = 'ai-proposal-actions-wrapper';
 
-      const hasProductChanges = (msg.diff || []).some(d => d.kind.startsWith('bom_') || d.kind.startsWith('product'));
-      let bumpRevisionCheckbox;
-      if (hasProductChanges) {
-        const checkboxWrapper = document.createElement('label');
-        checkboxWrapper.style.display = 'flex';
-        checkboxWrapper.style.alignItems = 'center';
-        checkboxWrapper.style.gap = '6px';
-        checkboxWrapper.style.fontSize = '12px';
-        checkboxWrapper.style.color = 'var(--muted)';
-        checkboxWrapper.style.cursor = 'pointer';
-        
-        bumpRevisionCheckbox = document.createElement('input');
-        bumpRevisionCheckbox.type = 'checkbox';
-        bumpRevisionCheckbox.checked = false; // default false as per manual workflow
-        
-        checkboxWrapper.appendChild(bumpRevisionCheckbox);
-        checkboxWrapper.appendChild(document.createTextNode(t('ai.proposal.bumpRevisionOption')));
-        actionRowWrapper.appendChild(checkboxWrapper);
-        actionRowWrapper.style.display = 'flex';
-        actionRowWrapper.style.flexDirection = 'column';
-        actionRowWrapper.style.gap = '12px';
-      }
-
       const actionRow = document.createElement('div');
       actionRow.className = 'ai-proposal-actions';
       actionRow.style.display = 'flex';
@@ -714,8 +834,7 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k }) {
         }
         rejectBtn.disabled = true;
         approveBtn.disabled = true;
-        if (bumpRevisionCheckbox) bumpRevisionCheckbox.disabled = true;
-        
+
         renderMessage({ role: 'user', text: t('ai.proposal.approved') });
         const selectedOperations = reviewOperations
           .filter(operation => selectedOperationIds.has(operation.id))
@@ -725,7 +844,7 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k }) {
           : msg.approval || msg.proposal;
           
         if (msg.onApprove) {
-          msg.onApprove(selectedProposal, { bumpRevision: bumpRevisionCheckbox?.checked });
+          msg.onApprove(selectedProposal);
         }
         
         // Transform UI to Success State

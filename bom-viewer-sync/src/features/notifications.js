@@ -59,7 +59,6 @@ export function describePayloadChanges(previousPayload, nextPayload) {
   for (const code of nextBomKeys) {
     if (!previousBomKeys.includes(code)) {
       changes.push({ kind: 'product_added', code: String(code), field: '', before: '', after: '' });
-      if (changes.length >= NOTIFICATION_CHANGE_LIMIT) return changes;
     }
   }
   for (const code of nextBomKeys.filter(productCode => previousBomKeys.includes(productCode))) {
@@ -73,7 +72,6 @@ export function describePayloadChanges(previousPayload, nextPayload) {
         before: String(previousProduct.revision || ''),
         after: String(nextProduct.revision || ''),
       });
-      if (changes.length >= NOTIFICATION_CHANGE_LIMIT) return changes;
     }
     const colorNames = new Set([
       ...Object.keys(previousProduct.color_info || {}),
@@ -87,7 +85,6 @@ export function describePayloadChanges(previousPayload, nextPayload) {
         const after = String(nextColor[field] || '');
         if (before !== after) {
           changes.push({ kind: 'product', code: String(code), field: `${color}.${field}`, before, after });
-          if (changes.length >= NOTIFICATION_CHANGE_LIMIT) return changes;
         }
       }
     }
@@ -102,7 +99,6 @@ export function describePayloadChanges(previousPayload, nextPayload) {
 
     if (!previousRecord) {
       changes.push({ kind: 'material_added', code, field: '', before: '', after: '' });
-      if (changes.length >= NOTIFICATION_CHANGE_LIMIT) return changes;
       continue;
     }
 
@@ -111,7 +107,6 @@ export function describePayloadChanges(previousPayload, nextPayload) {
       const after = materialChangeValue(nextRecord, field);
       if (before !== after) {
         changes.push({ kind: 'material', code, field, before, after });
-        if (changes.length >= NOTIFICATION_CHANGE_LIMIT) return changes;
       }
     }
   }
@@ -120,7 +115,6 @@ export function describePayloadChanges(previousPayload, nextPayload) {
     const code = String(previousRecord.code || previousRecord.id || '');
     if (!nextMaterials[previousRecord.id] && !nextByCode[previousRecord.code]) {
       changes.push({ kind: 'material_deleted', code, field: '', before: '', after: '' });
-      if (changes.length >= NOTIFICATION_CHANGE_LIMIT) return changes;
     }
   }
 
@@ -144,7 +138,6 @@ export function describePayloadChanges(previousPayload, nextPayload) {
       const after = String(afterValue || '');
       if (before !== after) {
         changes.push({ kind: 'revision', code: String(code), field, before, after });
-        if (changes.length >= NOTIFICATION_CHANGE_LIMIT) return changes;
       }
     }
   }
@@ -167,7 +160,6 @@ export function describePayloadChanges(previousPayload, nextPayload) {
 
     if (!prevEntry) {
       changes.push({ kind: 'bom_added', code: parentLabel, field: childLabel, before: '', after: '' });
-      if (changes.length >= NOTIFICATION_CHANGE_LIMIT) return changes;
     } else {
       const previousChildId = prevEntry.childMaterialId || prevEntry.materialId || '';
       if (String(previousChildId) !== String(childId)) {
@@ -179,7 +171,6 @@ export function describePayloadChanges(previousPayload, nextPayload) {
           before: String(previousChildCode || ''),
           after: childLabel
         });
-        if (changes.length >= NOTIFICATION_CHANGE_LIMIT) return changes;
       }
       if (String(prevEntry.comp_code ?? '') !== String(nextEntry.comp_code ?? '')) {
         changes.push({
@@ -189,11 +180,9 @@ export function describePayloadChanges(previousPayload, nextPayload) {
           before: String(prevEntry.comp_code ?? ''),
           after: String(nextEntry.comp_code ?? '')
         });
-        if (changes.length >= NOTIFICATION_CHANGE_LIMIT) return changes;
       }
       if (String(prevEntry.qty) !== String(nextEntry.qty)) {
         changes.push({ kind: 'bom_qty_changed', code: parentLabel, field: childLabel, before: String(prevEntry.qty ?? ''), after: String(nextEntry.qty ?? '') });
-        if (changes.length >= NOTIFICATION_CHANGE_LIMIT) return changes;
       }
     }
   }
@@ -210,7 +199,6 @@ export function describePayloadChanges(previousPayload, nextPayload) {
         parentLabel = String(previous.bom[parentCode].color_info[prevEntry.color].sku);
       }
       changes.push({ kind: 'bom_deleted', code: parentLabel, field: String(childCode || ''), before: '', after: '' });
-      if (changes.length >= NOTIFICATION_CHANGE_LIMIT) return changes;
     }
   }
 

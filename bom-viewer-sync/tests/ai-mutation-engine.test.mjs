@@ -135,6 +135,7 @@ test('mutation-engine: batch review follows allowlisted Admin material and BOM a
 
   const review = buildMutationProposalReview(snapshot, proposal);
   assert.equal(review.operations.length, 2);
+  assert.deepEqual(review.operations.map(item => item.sourceIndex), [0, 1]);
   assert.deepEqual(review.operations.map(item => item.category), ['material', 'bom']);
   assert.deepEqual(review.operations.map(item => item.risk), ['low', 'high']);
   assert.equal(review.verification.valid, true);
@@ -143,6 +144,45 @@ test('mutation-engine: batch review follows allowlisted Admin material and BOM a
   const transaction = applyMutationProposalTransaction(snapshot, proposal);
   assert.equal(transaction.payload.materialDb.materials.M1.name.zh, 'Updated');
   assert.equal(transaction.payload.materialDb.bomEntries[0].materialId, 'M2');
+});
+
+test('mutation-engine: cross-product BOM replacement reads canonical draft workflow state', () => {
+  const snapshot = proposalSnapshot();
+  snapshot.payload.bom.LGS002 = {
+    code: 'LGS002',
+    colors: ['black'],
+    color_info: { black: { sku: 'LGS002-B', materials: [] } },
+  };
+  snapshot.payload.materialDb.bomEntries.push({
+    id: 'entry-2',
+    parentType: 'product',
+    parentId: 'LGS002',
+    productCode: 'LGS002',
+    color: 'black',
+    materialId: 'M1',
+    comp_code: 'A',
+    qty: '1',
+    order: 0,
+  });
+  snapshot.payload.productRevisions = {
+    LGS002: {
+      currentRevision: 'V2.1',
+      currentRevisionInfo: { sourceRevision: 'V2', workflowState: 'draft' },
+      revisions: [],
+    },
+  };
+
+  const proposal = {
+    operations: [{ operationType: 'replace_bom_item', targetId: 'entry-2', payload: { materialId: 'M2' } }],
+  };
+  const review = buildMutationProposalReview(snapshot, proposal);
+  assert.equal(review.operations.length, 1);
+
+  snapshot.payload.productRevisions.LGS002.currentRevisionInfo.workflowState = 'released';
+  assert.throws(
+    () => buildMutationProposalReview(snapshot, proposal),
+    /require a draft revision/i,
+  );
 });
 
 test('mutation-engine: create material enriches unique bilingual values without overriding model input', () => {
@@ -359,6 +399,84 @@ test('mutation-engine: revision lifecycle operations call the governed domain wo
     }],
   });
   assert.equal(nextRevision.payload.productRevisions.LGS001.currentRevision, 'V3');
+});
+
+test('mutation-engine: creates a draft before replacing BOM material in another released product', () => {
+  const snapshot = proposalSnapshot();
+  snapshot.payload.bom.LGS002 = {
+    code: 'LGS002',
+    colors: ['black'],
+    color_info: { black: { sku: 'P2-B', materials: [] } },
+    revision: 'V2',
+  };
+  snapshot.payload.materialDb.bomEntries.push({
+    id: 'entry-p2',
+    parentType: 'product',
+    parentId: 'LGS002',
+    productCode: 'LGS002',
+    color: 'black',
+    materialId: 'M1',
+    comp_code: 'A',
+    qty: '1',
+    order: 0,
+  });
+  snapshot.payload.productRevisions = {
+    LGS002: { currentRevision: 'V2', currentRevisionInfo: { workflowState: 'released' }, revisions: [] },
+  };
+
+  const transaction = applyMutationProposalTransaction(snapshot, {
+    operations: [
+      {
+        operationType: 'create_product_revision',
+        targetId: 'LGS002',
+        payload: { revision: 'V2.1', changeReason: 'Replace duplicate material' },
+      },
+      { operationType: 'replace_bom_item', targetId: 'entry-p2', payload: { materialId: 'M2' } },
+    ],
+  });
+
+  assert.equal(transaction.payload.productRevisions.LGS002.currentRevision, 'V2.1');
+  assert.equal(transaction.payload.productRevisions.LGS002.currentRevisionInfo.workflowState, 'draft');
+  assert.equal(transaction.payload.materialDb.bomEntries.find(entry => entry.id === 'entry-p2').materialId, 'M2');
+});
+
+test('mutation-engine: withdraws a released revision before replacing BOM material in another product', () => {
+  const snapshot = proposalSnapshot();
+  snapshot.payload.bom.LGS002 = {
+    code: 'LGS002',
+    colors: ['black'],
+    color_info: { black: { sku: 'LGS002-B', materials: [] } },
+    revision: 'V2',
+  };
+  snapshot.payload.materialDb.bomEntries.push({
+    id: 'entry-p2-withdraw',
+    parentType: 'product',
+    parentId: 'LGS002',
+    productCode: 'LGS002',
+    color: 'black',
+    materialId: 'M1',
+    comp_code: 'A',
+    qty: '1',
+    order: 0,
+  });
+  snapshot.payload.productRevisions = {
+    LGS002: { currentRevision: 'V2', currentRevisionInfo: { workflowState: 'released' }, revisions: [] },
+  };
+
+  const transaction = applyMutationProposalTransaction(snapshot, {
+    operations: [
+      {
+        operationType: 'withdraw_product_revision',
+        targetId: 'LGS002',
+        payload: { reason: 'Correct published BOM' },
+      },
+      { operationType: 'replace_bom_item', targetId: 'entry-p2-withdraw', payload: { materialId: 'M2' } },
+    ],
+  });
+
+  assert.equal(transaction.payload.productRevisions.LGS002.currentRevisionInfo.workflowState, 'draft');
+  assert.equal(transaction.payload.materialDb.bomEntries.find(entry => entry.id === 'entry-p2-withdraw').materialId, 'M2');
+  assert.equal(transaction.review.operations[0].risk, 'high');
 });
 
 test('mutation-engine: parent-child structure actions are deterministic and cycle-safe', () => {

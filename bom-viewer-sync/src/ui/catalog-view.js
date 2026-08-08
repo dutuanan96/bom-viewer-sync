@@ -3,6 +3,50 @@ import { normalizeText, queryMatches, stripProductColorName } from '../domain/ma
 import { assetDisplayUrl } from '../infrastructure/assets.js';
 import { escapeHTML } from './shared-view.js';
 
+const HISTORY_KIND_LABELS = {
+  material: 'diffKindMaterial',
+  material_added: 'diffKindMaterialAdded',
+  material_deleted: 'diffKindMaterialDeleted',
+  bom_added: 'diffKindBomAdded',
+  bom_deleted: 'diffKindBomDeleted',
+  bom_qty_changed: 'diffKindBomQty',
+  bom_material_changed: 'diffKindBomMaterial',
+  bom_comp_code_changed: 'diffKindBomComponentCode',
+  product: 'diffKindProduct',
+  product_added: 'diffKindProductAdded',
+  revision: 'diffKindRevision',
+};
+
+const HISTORY_FIELD_LABELS = {
+  code: 'materialCode',
+  name: 'materialName',
+  spec: 'specification',
+  material: 'materialComposition',
+  color: 'materialColor',
+  attr: 'materialAttribute',
+  unit: 'unit',
+  drawings: 'ai.proposal.field.drawings',
+  models3d: 'ai.proposal.field.models3d',
+  revision: 'revision',
+  currentRevision: 'currentRevision',
+  effectiveRevision: 'effectiveRevision',
+  workflowState: 'revisionWorkflowState',
+  sku: 'materialCode',
+  name_zh: 'materialName',
+  name_vi: 'materialName',
+  size: 'size',
+};
+
+function historyFieldLabel(app, field) {
+  if (!field) return '-';
+  const parts = String(field).split('.');
+  const fieldName = parts.pop();
+  const labelKey = HISTORY_FIELD_LABELS[fieldName];
+  if (!labelKey) return field;
+  const label = app.label(labelKey);
+  return parts.length ? `${parts.join('.')} · ${label}` : label;
+}
+
 function renderProductList() {
   const list = this.query('#productList');
   const navigation = createPdmNavigation(this.state.payload, {
@@ -182,6 +226,7 @@ function contentHeaderHtml(product, colorData) {
         <span>${escapeHTML(this.label('lastModified'))}: ${escapeHTML(this.formatDate(this.state.payload.updatedAt))}</span>
       </div>
       ${this.revisionTransitionHtml(revisionInfo)}
+      ${this.bomHistoryHtml()}
     </div>
     <div class="header-actions">${this.headerActionsHtml()}</div>
   </div>
@@ -191,6 +236,49 @@ function contentHeaderHtml(product, colorData) {
     ${this.productImagePreviewHtml(colorData)}
   </div>
   <div class="color-tabs">${this.colorTabsHtml(product)}</div>`;
+}
+
+function bomHistoryHtml(expanded = false) {
+  const events = this.state.payload?.bomHistory?.[this.state.currentSku] || [];
+  if (!events.length) return `<div class="bom-history-empty">${escapeHTML(this.label('bomHistoryEmpty'))}</div>`;
+  const eventHtml = events.map((event) => {
+    const changes = (event.changes || []).map((change) => {
+      const before = change.before === 'draft' ? this.label('draftStatus') : change.before === 'released' ? this.label('releasedStatus') : change.before;
+      const after = change.after === 'draft' ? this.label('draftStatus') : change.after === 'released' ? this.label('releasedStatus') : change.after;
+      const kind = this.label(HISTORY_KIND_LABELS[change.kind] || change.kind);
+      const field = historyFieldLabel(this, change.field);
+      return `<tr><td>${escapeHTML(kind)}</td><td>${escapeHTML(change.code)}</td><td>${escapeHTML(field)}</td><td>${escapeHTML(before)}</td><td>${escapeHTML(after)}</td></tr>`;
+    }).join('');
+    const action = event.action === 'release' ? this.label('historyActionRelease') : this.label('historyActionSave');
+    return `<details class="bom-history-event"><summary><strong>${escapeHTML(event.revision || '-')}</strong><span>${escapeHTML(action)}</span><span>${escapeHTML(this.formatDate(event.createdAt))}</span><span>${escapeHTML(event.actor)}</span></summary>
+        ${event.reason ? `<p>${escapeHTML(this.label('changeReason'))}: ${escapeHTML(event.reason)}</p>` : ''}
+        <table class="diff-table"><thead><tr><th>${escapeHTML(this.label('diffColType'))}</th><th>${escapeHTML(this.label('diffColCode'))}</th><th>${escapeHTML(this.label('diffColField'))}</th><th>${escapeHTML(this.label('diffColBefore'))}</th><th>${escapeHTML(this.label('diffColAfter'))}</th></tr></thead><tbody>${changes}</tbody></table>
+      </details>`;
+  }).join('');
+  return `<details class="bom-history"${expanded ? ' open' : ''}><summary>${escapeHTML(this.label('bomHistory'))} (${events.length})</summary>${eventHtml}</details>`;
+}
+
+function showBomHistoryModal(actionElement) {
+  this.query('#bomHistoryOverlay')?.remove();
+  const title = `${this.state.currentSku || ''} ${this.label('bomHistory')}`.trim();
+  document.body.insertAdjacentHTML('beforeend', `<div id="bomHistoryOverlay" class="pdm-modal-overlay diff-modal-overlay open">
+    <div class="pdm-modal-content diff-modal" role="dialog" aria-modal="true" aria-labelledby="bomHistoryTitle">
+      <div class="pdm-modal-header">
+        <h2 id="bomHistoryTitle">${escapeHTML(title)}</h2>
+        <button class="pdm-modal-close" type="button" data-close-bom-history aria-label="${escapeHTML(this.label('close'))}">&times;</button>
+      </div>
+      <div class="pdm-modal-body">${this.bomHistoryHtml(true)}</div>
+    </div>
+  </div>`);
+  const overlay = this.query('#bomHistoryOverlay');
+  const closeModal = () => {
+    overlay.remove();
+    actionElement?.focus?.();
+  };
+  overlay.addEventListener('click', (event) => {
+    if (event.target === overlay || event.target.closest?.('[data-close-bom-history]')) closeModal();
+  });
+  overlay.querySelector('[data-close-bom-history]')?.focus();
 }
 
 function revisionStatusBadgesHtml(revisionInfo) {
@@ -375,6 +463,8 @@ export const catalogViewMethods = {
   productColorDotHtml,
   colorDotClass,
   contentHeaderHtml,
+  bomHistoryHtml,
+  showBomHistoryModal,
   headerActionsHtml,
   productSpecCardHtml,
   assemblyPreviewHtml,

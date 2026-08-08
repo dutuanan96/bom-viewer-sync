@@ -31,6 +31,19 @@ test('routes explicit Admin edit requests to the governed proposal tool', () => 
   assert.equal(route.confidence, 'deterministic');
 });
 
+test('prefetches exact PDM materials before a bulk dimension-change proposal', () => {
+  const query = '\u6211\u60f3\u6539\u6240\u6709\u7eb8\u5361\u670960mm\u5bbd\u5ea6\u6539\u4e3a100mm\u5bbd\u5ea6';
+  const route = routePdmIntent({
+    query,
+    availableTools: [...READ_TOOLS, 'apply_mutation'],
+  });
+
+  assert.equal(route.intent, PDM_INTENTS.PROPOSAL);
+  assert.equal(route.preferredTool, 'search_pdm');
+  assert.equal(route.entities.searchQuery, query);
+  assert.equal(route.confidence, 'deterministic');
+});
+
 test('does not route an edit request when the model has no proposal capability', () => {
   const route = routePdmIntent({
     query: 'Update material M1 unit to pcs',

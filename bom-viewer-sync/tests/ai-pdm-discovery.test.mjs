@@ -39,6 +39,15 @@ test('searchPdm finds a dimensional material and its actual product usage across
   }
 });
 
+test('searchPdm treats a material dimension change as source filtering, not source-and-target matching', () => {
+  const result = discovery.searchPdm({ query: '\u6211\u60f3\u6539\u6240\u6709\u7eb8\u5361\u670960mm\u5bbd\u5ea6\u6539\u4e3a100mm\u5bbd\u5ea6' });
+
+  assert.ok(result.materials.length > 0);
+  assert.ok(result.materials.every((material) => material.name.zh === '\u7eb8\u5361'));
+  assert.ok(result.materials.every((material) => material.spec.zh.includes('60mm')));
+  assert.ok(result.materials.every((material) => !material.spec.zh.includes('100mm')));
+});
+
 test('searchPdm ranks different component types from product-scoped multilingual queries', () => {
   for (const [query, expectedName] of [
     ['LGS043\u7528\u4ec0\u4e48\u5e03\u62bd', '\u5e03\u62bd'],

@@ -211,6 +211,133 @@ test('agent-controller: lets the model choose a read-only discovery tool for an 
   });
 });
 
+test('agent-controller: executes streamed DSML tool calls without rendering the protocol', async () => {
+  let callCount = 0;
+  const dsml = '< | DSML | tool_calls>< | DSML | invoke name="where_used">< | DSML | parameter name="materialId" string="true">mat_paper</ | DSML | parameter></ | DSML | invoke>< | DSML | invoke name="search_pdm">< | DSML | parameter name="query" string="true">\u7eb8\u5361 60mm</ | DSML | parameter></ | DSML | invoke></ | DSML | tool_calls>';
+  const mockGateway = {
+    listModels: () => [{ id: 'dsml-model', grade: 'B' }],
+    chatStream: async function* () {
+      callCount += 1;
+      yield { content: callCount === 1 ? dsml : 'Found the matching paper cards.' };
+    },
+  };
+  const mockTrustPolicy = {
+    buildContext: ({ query }) => ({ query }),
+    createBudget: () => ({ recordToolCall: () => {}, recordModelCall: () => {}, checkExpiry: () => {} }),
+    authorizeToolCall: call => call,
+    validateModelOutput: output => output,
+  };
+  const toolCalls = [];
+  const progressText = [];
+  const controller = createAgentController({
+    gateway: mockGateway,
+    trustPolicy: mockTrustPolicy,
+    runTool: async call => {
+      toolCalls.push(call);
+      return call.name === 'search_pdm'
+        ? { query: call.arguments.query, materials: [{ materialId: 'mat_paper' }] }
+        : { materialId: call.arguments.materialId, products: [] };
+    },
+  });
+
+  const result = await controller.runTurn({
+    query: '\u67e5\u627e60mm\u7eb8\u5361',
+    route: { intent: 'ambiguous', confidence: 'ambiguous', entities: {} },
+    snapshot: {},
+    model: 'dsml-model',
+    availableTools: ['where_used', 'search_pdm'],
+    onProgress: event => {
+      if (event.type === 'content') progressText.push(event.delta);
+    },
+  });
+
+  assert.equal(result.text, 'Found the matching paper cards.');
+  assert.deepEqual(toolCalls, [
+    { name: 'where_used', arguments: { materialId: 'mat_paper' } },
+    { name: 'search_pdm', arguments: { query: '\u7eb8\u5361 60mm' } },
+  ]);
+  assert.equal(progressText.join('').includes('DSML'), false);
+  assert.equal(callCount, 2);
+});
+
+test('agent-controller: deterministically prepares an exact bulk material dimension proposal', async () => {
+  const query = '\u6211\u60f3\u6539\u6240\u6709\u7eb8\u5361\u670960mm\u5bbd\u5ea6\u6539\u4e3a100mm\u5bbd\u5ea6';
+  const calls = [];
+  const mockGateway = {
+    listModels: () => [{ id: 'test-model', grade: 'B' }],
+    chat: async () => { throw new Error('The deterministic proposal must not call the model'); },
+  };
+  const mockTrustPolicy = {
+    buildContext: ({ query: userQuery }) => ({ query: userQuery }),
+    createBudget: () => ({ recordToolCall: () => {}, recordModelCall: () => {}, checkExpiry: () => {} }),
+    authorizeToolCall: call => call,
+    validateModelOutput: output => output,
+  };
+  const controller = createAgentController({
+    gateway: mockGateway,
+    trustPolicy: mockTrustPolicy,
+    runTool: async call => {
+      calls.push(call);
+      if (call.name === 'search_pdm') {
+        return {
+          products: [],
+          revisions: [],
+          materials: [
+            { materialId: 'mat_a', code: 'PAPER-A', spec: { zh: '\u5355\u74e7785x60mm', vi: 's\u00f3ng \u0111\u01a1n 785x60 mm' } },
+            { materialId: 'mat_b', code: 'PAPER-B', spec: { zh: '60mmx925x60mm', vi: '60mmx925x60mm' } },
+          ],
+          totalMatches: 2,
+          truncated: false,
+          evidence: {
+            id: 'pdm_search_bulk',
+            sourceType: 'pdm-search',
+            sourcePath: 'data/materials.json',
+            recordId: 'bulk-paper-width',
+            sourceCommit: 'a'.repeat(40),
+            capturedAt: '2026-08-08T00:00:00.000Z',
+          },
+        };
+      }
+      return 'Mutation presented for review.';
+    },
+  });
+
+  const result = await controller.runTurn({
+    query,
+    route: {
+      intent: 'proposal',
+      confidence: 'deterministic',
+      preferredTool: 'search_pdm',
+      entities: { searchQuery: query },
+    },
+    snapshot: { sourceMetadata: { commitSha: 'a'.repeat(40) } },
+    model: 'test-model',
+    availableTools: ['search_pdm', 'apply_mutation'],
+  });
+
+  assert.equal(calls.length, 2);
+  assert.deepEqual(calls[0], { name: 'search_pdm', arguments: { query } });
+  assert.deepEqual(calls[1], {
+    name: 'apply_mutation',
+    arguments: {
+      operations: [
+        {
+          operationType: 'update_material',
+          targetId: 'mat_a',
+          payload: { patch: { spec: { zh: '\u5355\u74e7785x100mm', vi: 's\u00f3ng \u0111\u01a1n 785x100mm' } } },
+        },
+        {
+          operationType: 'update_material',
+          targetId: 'mat_b',
+          payload: { patch: { spec: { zh: '60mmx925x100mm', vi: '60mmx925x100mm' } } },
+        },
+      ],
+    },
+  });
+  assert.equal(result.suppressFinalMessage, true);
+  assert.equal(result.text, '');
+});
+
 test('agent-controller: returns trusted local facts when prefetch succeeded but every provider endpoint failed', async () => {
   const providerError = new Error('Overloaded');
   providerError.status = 503;

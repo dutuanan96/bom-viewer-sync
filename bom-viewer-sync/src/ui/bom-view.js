@@ -278,6 +278,7 @@ function toolbarHtml(rows) {
     : `<span class="read-only-note"><span class="material-symbols-outlined" style="font-size: 14px; vertical-align: middle;">lock</span> ${escapeHTML(this.label(readOnlyLabel))}</span>`;
   return `<div class="table-title"><span class="material-symbols-outlined">account_tree</span><strong>${escapeHTML(this.label('billOfMaterials'))}</strong><span class="count">${rows.length} ${escapeHTML(this.label('materials'))}</span></div>
     <div class="table-actions">${adminActions}
+    <button class="btn" type="button" data-action="bom-history"><span class="material-symbols-outlined">history</span> ${escapeHTML(this.label('bomHistory'))}</button>
     <button class="btn btn-icon" title="${escapeHTML(this.label('copy'))}" type="button" data-action="copy"><span class="material-symbols-outlined">content_copy</span></button>
     <button class="btn btn-primary btn-icon" title="${escapeHTML(this.label('exportExcel'))}" type="button" data-action="exportExcel"><span class="material-symbols-outlined">download</span></button></div>`;
 }

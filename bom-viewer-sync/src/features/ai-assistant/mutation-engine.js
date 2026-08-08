@@ -9,6 +9,7 @@ import {
 } from '../../domain/materials.js';
 import {
   createProductRevision,
+  productRevisionOptions,
   releaseProductRevision,
   withdrawProductRevision,
 } from '../../domain/revisions.js';
@@ -20,6 +21,21 @@ import {
 
 function clone(value) {
   return JSON.parse(JSON.stringify(value || {}));
+}
+
+function proposalBomProductTargets(payload, operations) {
+  const entriesById = new Map((payload?.materialDb?.bomEntries || []).map((entry) => [entry.id, entry]));
+  const targets = new Set();
+  for (const operation of operations || []) {
+    if (operation.operationType === 'add_bom_item') {
+      targets.add(operation.targetId);
+      continue;
+    }
+    if (!['update_bom_quantity', 'replace_bom_item', 'remove_bom_item', 'update_bom_item'].includes(operation.operationType)) continue;
+    const entry = entriesById.get(operation.targetId);
+    if (entry?.parentType === 'product') targets.add(entry.productCode || entry.parentId);
+  }
+  return targets;
 }
 
 export function validateMutationContext(snapshot, mutation) {
@@ -66,8 +82,8 @@ export function validateMutationContext(snapshot, mutation) {
 
   let isEditable = snapshot.canEditRevision;
   if (targetProductCode && targetProductCode !== snapshot.selection?.productCode) {
-    const prodRevs = snapshot.payload?.productRevisions?.[targetProductCode] || [];
-    isEditable = prodRevs.some(r => !r.releasedAt);
+    isEditable = productRevisionOptions(snapshot.payload, targetProductCode)
+      .some((revision) => revision.current && revision.workflowState === 'draft');
   } else if (
     !targetProductCode && 
     !masterDataOperations.has(mutation.operationType) && 
@@ -91,7 +107,11 @@ export function validateMutationContext(snapshot, mutation) {
       throw err;
     }
   }
-  if (revisionOperations.has(mutation.operationType) && snapshot.selection?.productCode !== mutation.targetId) {
+  const isAssociatedBomRevision = ['create_product_revision', 'withdraw_product_revision'].includes(mutation.operationType)
+    && snapshot.allowedCreateRevisionTargetIds?.has(mutation.targetId);
+  if (revisionOperations.has(mutation.operationType)
+    && snapshot.selection?.productCode !== mutation.targetId
+    && !isAssociatedBomRevision) {
     const err = new Error('Revision mutation target must match the selected product.');
     err.code = ERROR_CODES.AI_POLICY_BLOCKED;
     throw err;
@@ -686,14 +706,20 @@ export function buildMutationProposalReview(snapshot, proposalInput, t = (k) => 
   const proposal = validateMutationProposal(proposalInput);
   let payload = clone(snapshot.payload);
   let currentCanEdit = snapshot.canEditRevision;
+  const allowedCreateRevisionTargetIds = proposalBomProductTargets(snapshot.payload, proposal.operations);
   const operations = [];
   for (let index = 0; index < proposal.operations.length; index += 1) {
     const sourceMutation = proposal.operations[index];
     const enrichment = enrichCreateMaterialMutation(payload.materialDb?.materials || {}, sourceMutation);
     const mutation = enrichment.mutation;
-    const operationSnapshot = { ...snapshot, payload, canEditRevision: currentCanEdit };
-    validateMutationContext(operationSnapshot, mutation);
+    const operationSnapshot = {
+      ...snapshot,
+      payload,
+      canEditRevision: currentCanEdit,
+      allowedCreateRevisionTargetIds,
+    };
     const before = clone(payload);
+    validateMutationContext(operationSnapshot, mutation);
     applyMutationToPayload(payload, mutation);
 
     if (mutation.operationType === 'create_product_revision' && snapshot.selection?.productCode === mutation.targetId) {
@@ -714,10 +740,12 @@ export function buildMutationProposalReview(snapshot, proposalInput, t = (k) => 
     }
     operations.push({
       id: `change-${operations.length + 1}`,
+      sourceIndex: index,
       category: operationCategory(mutation.operationType),
       risk: operationRisk(mutation.operationType),
       warnings: warnings,
       mutation: clone(mutation),
+      originalMutation: clone(sourceMutation),
       diff,
     });
   }

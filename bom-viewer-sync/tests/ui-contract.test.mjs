@@ -309,7 +309,7 @@ test('Admin change preview renders the exact localized payload diff', () => {
 
   app.state.lang = 'zh';
   const zhHtml = app.changePreviewHtml();
-  assert.match(zhHtml, /\u53d8\u66f4\u6458\u8981/);
+  assert.match(zhHtml, /\u5168\u90e8\u672a\u63d0\u4ea4\u53d8\u66f4/);
   assert.match(zhHtml, /\u7269\u6599\u5c5e\u6027/);
   assert.match(zhHtml, /MAT-001/);
   assert.match(zhHtml, /\u89c4\u683c\u578b\u53f7/);
@@ -318,11 +318,60 @@ test('Admin change preview renders the exact localized payload diff', () => {
 
   app.state.lang = 'vi';
   const viHtml = app.changePreviewHtml();
-  assert.match(viHtml, /T\u00f3m t\u1eaft thay \u0111\u1ed5i/);
+  assert.match(viHtml, /T\u1ea5t c\u1ea3 thay \u0111\u1ed5i ch\u01b0a g\u1eedi/);
   assert.match(viHtml, /Thu\u1ed9c t\u00ednh v\u1eadt li\u1ec7u/);
   assert.match(viHtml, /Quy c\u00e1ch/);
   assert.match(viHtml, /100 mm/);
   assert.match(viHtml, /120 mm/);
+});
+
+test('Admin change preview paginates and localizes revision workflow values', () => {
+  const app = new BomApplication({ mode: 'admin', githubData: {}, githubAssetStorage: {} });
+  app.state.dirty = true;
+  app.state.lang = 'zh';
+  app.pendingPayloadChanges = () => [
+    ...Array.from({ length: 8 }, (_, index) => ({
+      kind: 'material', code: `MAT-${index + 1}`, field: 'spec', before: '60mm', after: '100mm',
+    })),
+    { kind: 'revision', code: 'LGS333', field: 'workflowState', before: 'released', after: 'draft' },
+  ];
+
+  const firstPage = app.changePreviewHtml(1);
+  assert.match(firstPage, /data-diff-page="2"/);
+  assert.match(firstPage, /MAT-8/);
+  assert.doesNotMatch(firstPage, /workflowState/);
+
+  const secondPage = app.changePreviewHtml(2);
+  assert.match(secondPage, /状态/);
+  assert.match(secondPage, /已发布/);
+  assert.match(secondPage, /草稿/);
+  assert.doesNotMatch(secondPage, /workflowState|released|draft/);
+});
+
+test('Viewer BOM history renders localized lifecycle details as read-only disclosure', () => {
+  const app = new BomApplication({ mode: 'viewer', githubData: {}, githubAssetStorage: {} });
+  app.state.lang = 'zh';
+  app.state.currentSku = 'LGS333';
+  app.state.payload.bomHistory = {
+    LGS333: [{
+      id: 'history-1',
+      revision: 'V4',
+      action: 'release',
+      actor: 'admin',
+      reason: 'Approved',
+      createdAt: '2026-08-08T00:00:00.000Z',
+      changes: [{ kind: 'revision', code: 'LGS333', field: 'workflowState', before: 'draft', after: 'released' }],
+    }],
+  };
+
+  const html = app.bomHistoryHtml();
+  assert.match(html, /BOM 变更历史/);
+  assert.match(html, /状态/);
+  assert.match(html, /草稿/);
+  assert.match(html, /已发布/);
+  assert.doesNotMatch(html, /workflowState|>draft<|>released</);
+  assert.doesNotMatch(html, /button|input|data-action/);
+  assert.match(app.toolbarHtml([]), /data-action="bom-history"/);
 });
 
 test('all Admin toolbar sources own dirty save, View Changes, and discard actions directly', () => {

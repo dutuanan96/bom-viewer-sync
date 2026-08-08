@@ -951,4 +951,133 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
     await expect(page.locator('#syncStatus[data-state="dirty"]')).toBeVisible();
   });
 
+  test('duplicate-material regenerate replaces the reviewed mutation with exact BOM operations', async ({ page }) => {
+    await page.route('https://api.github.com/**', route => route.abort());
+    await page.route('https://raw.githubusercontent.com/**', route => route.abort());
+    await page.goto(ADMIN_URL);
+
+    await page.evaluate(() => {
+      document.body.replaceWith(document.body.cloneNode(true));
+      const materialBase = {
+        name: { zh: '纸卡', vi: 'Giấy lót' },
+        material: { zh: '瓦楞纸', vi: 'Giấy carton' },
+        color: { zh: '原色', vi: 'Màu tự nhiên' },
+        attr: { zh: '包材', vi: 'Vật liệu đóng gói' },
+        drawings: [],
+        models3d: [],
+      };
+      const payload = window.BomCoreUtils.normalizePayload({
+        bom: {
+          LGS001: {
+            code: 'LGS001',
+            revision: 'V1.1',
+            colors: ['Black'],
+            color_info: {
+              Black: {
+                sku: 'LGS001-BK',
+                name_zh: 'Test product',
+                name_vi: 'Test product',
+                materials: [{ mat_code: 'PAPER-60', qty: '1' }],
+              },
+            },
+          },
+        },
+        materialDb: {
+          version: 1,
+          materials: {
+            M1: { ...materialBase, id: 'M1', code: 'PAPER-60', spec: { zh: '60mm', vi: '60mm' } },
+            M2: { ...materialBase, id: 'M2', code: 'PAPER-100', spec: { zh: '100mm', vi: '100mm' } },
+          },
+          bomEntries: [{
+            id: 'E1',
+            parentType: 'product',
+            parentId: 'LGS001',
+            productCode: 'LGS001',
+            color: 'Black',
+            materialId: 'M1',
+            qty: '1',
+          }],
+        },
+        productRevisions: {
+          LGS001: {
+            currentRevision: 'V1.1',
+            effectiveRevision: 'V1',
+            currentRevisionInfo: {
+              sourceRevision: 'V1',
+              workflowState: 'draft',
+              createdAt: '2026-07-20T00:00:00.000Z',
+              changeReason: 'E2E test',
+            },
+            revisions: [],
+            effectivityEvents: [],
+          },
+        },
+      });
+      const githubData = {
+        loadPublic: async () => payload,
+        getSourceMetadata: () => ({ commitSha: 'a'.repeat(40) }),
+      };
+      window.__aiSwapTestApp = window.BomApp.createApp({ mode: 'admin', githubData });
+    });
+    await page.waitForFunction(() => Boolean(window.__aiSwapTestApp?.state.lastLoadAt));
+    await page.evaluate(() => window.__aiSwapTestApp.selectProduct('LGS001'));
+
+    await page.click('#btnSettings');
+    await page.fill('.ai-settings input', 'sk-or-mock-1234');
+    await page.click('.ai-settings > button.btn-primary');
+    await expect(page.locator('.ai-status-text.connected')).toBeVisible();
+    await page.click('#closeSettingsModal');
+    await page.click('#aiFab');
+
+    let chatCallCount = 0;
+    await page.route('https://openrouter.ai/api/v1/chat/completions', async route => {
+      chatCallCount += 1;
+      if (chatCallCount === 1) {
+        await route.fulfill({
+          json: {
+            choices: [{
+              message: {
+                role: 'assistant',
+                tool_calls: [{
+                  id: 'proposal_swap',
+                  type: 'function',
+                  function: {
+                    name: 'apply_mutation',
+                    arguments: JSON.stringify({
+                      operations: [{
+                        operationType: 'update_material',
+                        targetId: 'M1',
+                        payload: { patch: { spec: { zh: '100mm', vi: '100mm' } } },
+                      }],
+                    }),
+                  },
+                }],
+              },
+            }],
+          },
+        });
+        return;
+      }
+      await route.fulfill({
+        json: { choices: [{ message: { role: 'assistant', content: '{"text":"Review the proposal.","citations":[]}' } }] },
+      });
+    });
+
+    await page.fill('.ai-input-area textarea', 'Change PAPER-60 width to 100mm');
+    await page.press('.ai-input-area textarea', 'Enter');
+
+    const originalCard = page.locator('.ai-proposal-card').first();
+    await expect(originalCard.locator('.ai-proposal-swap-checkbox')).toBeVisible();
+    await expect(originalCard.locator('.ai-proposal-actions-wrapper input[type="checkbox"]')).toHaveCount(0);
+    await originalCard.locator('.ai-proposal-swap-checkbox').check();
+    await originalCard.locator('.ai-proposal-actions .btn-primary').click();
+
+    await expect(page.locator('.ai-proposal-card')).toHaveCount(2);
+    const regeneratedCard = page.locator('.ai-proposal-card').last();
+    await expect(regeneratedCard).toContainText('replace bom item');
+    await expect(regeneratedCard).not.toContainText('update material');
+    await expect(regeneratedCard.locator('.ai-proposal-operation')).toHaveCount(1);
+    await expect(originalCard).toHaveCSS('pointer-events', 'none');
+  });
+
 });

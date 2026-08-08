@@ -131,7 +131,10 @@ export function createGithubGitDataWriter({ config, fetchImpl }) {
   const fullRef = `refs/heads/${branch}`;
 
   async function githubFetch(url, options = {}) {
-    const response = await fetchImpl(url, options);
+    const requestOptions = options.method
+      ? options
+      : { ...options, cache: 'no-store' };
+    const response = await fetchImpl(url, requestOptions);
     let json;
     try {
       json = await response.json();

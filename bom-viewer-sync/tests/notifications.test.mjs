@@ -11,6 +11,16 @@ test('describePayloadChanges detects product added', () => {
   assert.equal(changes[0].code, 'P1');
 });
 
+test('describePayloadChanges returns all changes for paginated review', () => {
+  const previous = { materialDb: { materials: {}, bomEntries: [] } };
+  const next = { materialDb: { materials: {}, bomEntries: [] } };
+  for (let index = 0; index < 12; index += 1) {
+    previous.materialDb.materials[`M${index}`] = { id: `M${index}`, code: `M${index}`, spec: { zh: '60mm' } };
+    next.materialDb.materials[`M${index}`] = { id: `M${index}`, code: `M${index}`, spec: { zh: '100mm' } };
+  }
+  assert.equal(describePayloadChanges(previous, next).length, 12);
+});
+
 test('describePayloadChanges detects material added', () => {
   const previous = { materialDb: { materials: {} } };
   const next = { materialDb: { materials: { 'M1': { id: 'M1', code: 'C1' } } } };
