@@ -2,11 +2,38 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 
 import {
+  buildEditedConsolidationProposal,
   buildDraftRevisionOperations,
   buildRegeneratedSwapOperations,
   buildWithdrawRevisionOperations,
   findProductsNeedingDraft,
 } from '../src/features/ai-assistant/workspace-view.js';
+
+test('workspace consolidation: edits only the canonical material code in a proposal', () => {
+  const proposal = {
+    summary: 'Consolidate paper cards',
+    operations: [{
+      operationType: 'consolidate_materials',
+      targetId: 'mat_zk1100100',
+      payload: {
+        material: { code: 'ZK1100100' },
+        sourceMaterialIds: ['M1', 'M2'],
+      },
+    }],
+  };
+  const operation = {
+    sourceIndex: 0,
+    mutation: structuredClone(proposal.operations[0]),
+  };
+
+  const edited = buildEditedConsolidationProposal({ proposal, operation, materialCode: 'ZK-1100-100' });
+
+  assert.equal(proposal.operations[0].targetId, 'mat_zk1100100');
+  assert.equal(edited.operations[0].targetId, 'mat_zk-1100-100');
+  assert.equal(edited.operations[0].payload.material.code, 'ZK-1100-100');
+  assert.deepEqual(edited.operations[0].payload.sourceMaterialIds, ['M1', 'M2']);
+  assert.throws(() => buildEditedConsolidationProposal({ proposal, operation, materialCode: 'invalid code!' }));
+});
 
 function snapshotWithUsages() {
   return {
