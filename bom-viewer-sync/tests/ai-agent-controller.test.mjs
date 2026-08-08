@@ -484,6 +484,43 @@ test('agent-controller: does not allow extra PDM lookups after a duplicate-mater
   assert.equal(result.conversationContext.workflowState.tasks[0].pendingAction, 'confirmation');
 });
 
+test('agent-controller: returns every duplicate group directly without model summarization', async () => {
+  let modelCalls = 0;
+  const controller = createAgentController({
+    gateway: {
+      listModels: () => [{ id: 'test-model', grade: 'B' }],
+      chat: async () => { modelCalls += 1; return { choices: [{ message: { content: 'unused' } }] }; },
+    },
+    trustPolicy: {
+      buildContext: ({ query }) => ({ query }),
+      createBudget: () => ({ recordToolCall: () => {}, recordModelCall: () => {}, checkExpiry: () => {} }),
+      authorizeToolCall: call => call,
+      validateModelOutput: output => output,
+    },
+    runTool: async () => ({
+      duplicateGroups: [
+        { material: { name: { zh: '\u7eb8\u5361' }, spec: { zh: '1100x100mm' } }, sourceMaterialCodes: ['A', 'B'], affectedBomEntryCount: 2 },
+        { material: { name: { zh: '\u7eb8\u5361' }, spec: { zh: '860x100mm' } }, sourceMaterialCodes: ['C', 'D'], affectedBomEntryCount: 2 },
+      ],
+      totalGroups: 2,
+      evidence: { id: 'duplicate-all', sourceType: 'pdm-material-duplicate-audit', sourcePath: 'data/materials.json', recordId: 'paper-card', sourceCommit: 'a'.repeat(40), capturedAt: '2026-08-08T00:00:00Z' },
+    }),
+    formatToolFallback: ({ toolResult }) => toolResult.duplicateGroups.map(group => group.material.spec.zh).join(', '),
+  });
+
+  const result = await controller.runTurn({
+    query: '\u68c0\u67e5\u7eb8\u5361\u91cd\u590d\u7269\u6599',
+    route: { intent: 'duplicate_materials', confidence: 'deterministic', preferredTool: 'find_duplicate_materials', entities: { materialName: '\u7eb8\u5361' } },
+    snapshot: { sourceMetadata: { commitSha: 'a'.repeat(40) } },
+    model: 'test-model',
+    availableTools: ['find_duplicate_materials'],
+  });
+
+  assert.equal(modelCalls, 0);
+  assert.equal(result.text, '1100x100mm, 860x100mm');
+  assert.deepEqual(result.citations, ['duplicate-all']);
+});
+
 test('agent-controller: returns trusted local facts when prefetch succeeded but every provider endpoint failed', async () => {
   const providerError = new Error('Overloaded');
   providerError.status = 503;
