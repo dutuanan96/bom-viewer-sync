@@ -41,6 +41,42 @@ export function buildEditedConsolidationProposal({ proposal, operation, material
   };
 }
 
+export function buildLifecycleChoiceProposal({ proposal, mode, reason, revisions = {}, reasons = {} }) {
+  const sourceOperations = proposal?.operations || proposal?.proposedActions || [];
+  const changeReason = String(reason || '').trim();
+  if (!['create_draft', 'withdraw'].includes(mode) || !changeReason) {
+    throw swapError('AI_LIFECYCLE_CHOICE_INVALID', 'A lifecycle choice and reason are required.');
+  }
+  let lifecycleCount = 0;
+  const operations = sourceOperations.map((operation) => {
+    if (operation?.operationType !== 'create_product_revision') return cloneOperation(operation);
+    lifecycleCount += 1;
+    if (mode === 'withdraw') {
+      return {
+        operationType: 'withdraw_product_revision',
+        targetId: operation.targetId,
+        payload: { reason: String(reasons[operation.targetId] || changeReason).trim() },
+      };
+    }
+    return {
+      ...cloneOperation(operation),
+      payload: {
+        ...cloneOperation(operation.payload || {}),
+        revision: String(revisions[operation.targetId] || operation.payload?.revision || '').trim(),
+        changeReason: String(reasons[operation.targetId] || changeReason).trim(),
+      },
+    };
+  });
+  if (lifecycleCount === 0) {
+    throw swapError('AI_LIFECYCLE_CHOICE_MISSING', 'The proposal has no Draft revision operations.');
+  }
+  return {
+    ...proposal,
+    operations,
+    ...(proposal?.proposedActions ? { proposedActions: operations } : {}),
+  };
+}
+
 export function buildRegeneratedSwapOperations({ proposal, snapshot, swaps }) {
   const sourceOperations = proposal?.operations || proposal?.proposedActions || [];
   const sourceIndexes = new Set();
@@ -142,6 +178,36 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k, ope
   input.className = 'ai-chat-input';
   input.setAttribute('aria-label', t('ai.workspace.placeholder'));
   input.rows = 2;
+
+  function chooseReleasedRevisionAction(onCreateDraft, onWithdraw) {
+    const overlay = document.createElement('div');
+    overlay.className = 'pdm-modal-overlay open';
+    const modal = document.createElement('div');
+    modal.className = 'pdm-modal-content pdm-modal-sm';
+    const title = document.createElement('h2');
+    title.textContent = t('ai.proposal.releasedRevisionChoiceTitle');
+    const description = document.createElement('p');
+    description.textContent = t('ai.proposal.releasedRevisionChoiceMessage');
+    const actions = document.createElement('div');
+    actions.className = 'pdm-modal-footer';
+    const cancel = document.createElement('button');
+    cancel.className = 'btn';
+    cancel.textContent = t('cancelBtn');
+    const createDraft = document.createElement('button');
+    createDraft.className = 'btn btn-primary';
+    createDraft.textContent = t('ai.proposal.createDraftOption');
+    const withdraw = document.createElement('button');
+    withdraw.className = 'btn btn-danger';
+    withdraw.textContent = t('ai.proposal.withdrawOption');
+    const close = () => overlay.remove();
+    cancel.onclick = close;
+    createDraft.onclick = () => { close(); onCreateDraft(); };
+    withdraw.onclick = () => { close(); onWithdraw(); };
+    actions.append(cancel, withdraw, createDraft);
+    modal.append(title, description, actions);
+    overlay.appendChild(modal);
+    document.body.appendChild(overlay);
+  }
 
   const charCounter = document.createElement('div');
   charCounter.className = 'ai-char-counter';
@@ -298,44 +364,6 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k, ope
       snapshot.payload,
       regenerated.affectedProducts,
     );
-
-    function chooseReleasedRevisionAction(onCreateDraft, onWithdraw) {
-      const overlay = document.createElement('div');
-      overlay.className = 'pdm-modal-overlay open';
-      const modal = document.createElement('div');
-      modal.className = 'pdm-modal-content pdm-modal-sm';
-      const title = document.createElement('h2');
-      title.textContent = t('ai.proposal.releasedRevisionChoiceTitle');
-      const description = document.createElement('p');
-      description.textContent = t('ai.proposal.releasedRevisionChoiceMessage');
-      const actions = document.createElement('div');
-      actions.className = 'pdm-modal-footer';
-
-      const cancel = document.createElement('button');
-      cancel.className = 'btn';
-      cancel.textContent = t('cancelBtn');
-      const createDraft = document.createElement('button');
-      createDraft.className = 'btn btn-primary';
-      createDraft.textContent = t('ai.proposal.createDraftOption');
-      const withdraw = document.createElement('button');
-      withdraw.className = 'btn btn-danger';
-      withdraw.textContent = t('ai.proposal.withdrawOption');
-
-      const close = () => overlay.remove();
-      cancel.onclick = close;
-      createDraft.onclick = () => {
-        close();
-        onCreateDraft();
-      };
-      withdraw.onclick = () => {
-        close();
-        onWithdraw();
-      };
-      actions.append(cancel, withdraw, createDraft);
-      modal.append(title, description, actions);
-      overlay.appendChild(modal);
-      document.body.appendChild(overlay);
-    }
 
     if (productsNeedingDraft.length > 0) {
       if (typeof openPdmPrompt !== 'function' || typeof openPdmConfirm !== 'function') {
@@ -786,12 +814,35 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k, ope
         for (const [category, label] of categories) {
           const categoryOperations = reviewOperations.filter(operation => operation.category === category);
           if (categoryOperations.length === 0) continue;
+          const pendingLifecycleOperations = category === 'revision' && !msg.lifecycleChoiceConfirmed
+            ? categoryOperations.filter((operation) => operation.mutation.operationType === 'create_product_revision')
+            : [];
+          const visibleCategoryOperations = pendingLifecycleOperations.length > 0
+            ? categoryOperations.filter((operation) => operation.mutation.operationType !== 'create_product_revision')
+            : categoryOperations;
           const section = document.createElement('section');
           section.className = 'ai-proposal-category';
           const heading = document.createElement('h4');
           heading.textContent = label;
           section.appendChild(heading);
-          for (const operation of categoryOperations) {
+          if (pendingLifecycleOperations.length > 0) {
+            const message = document.createElement('div');
+            message.className = 'ai-proposal-warning-box ai-proposal-lifecycle-pending';
+            message.textContent = String(t('ai.proposal.lifecycleDecisionPending'))
+              .replace('{count}', String(pendingLifecycleOperations.length));
+            section.appendChild(message);
+          }
+          let operationParent = section;
+          if (category === 'revision' && visibleCategoryOperations.length > 1) {
+            const details = document.createElement('details');
+            details.className = 'ai-proposal-lifecycle-details';
+            const summary = document.createElement('summary');
+            summary.textContent = String(t('ai.proposal.lifecycleSummary')).replace('{count}', String(visibleCategoryOperations.length));
+            details.appendChild(summary);
+            section.appendChild(details);
+            operationParent = details;
+          }
+          for (const operation of visibleCategoryOperations) {
             const operationEl = document.createElement('div');
             operationEl.className = 'ai-proposal-operation';
             operationEl.dataset.proposalOperationId = operation.id;
@@ -855,12 +906,14 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k, ope
                       materialCode: codeInput.value,
                     });
                     const review = buildMutationProposalReview(msg.snapshot, nextProposal, t);
+                    const scrollTop = messagesDiv.scrollTop;
                     rowEl.remove();
                     renderMessage({
                       ...msg,
                       proposal: nextProposal,
                       proposalReview: review,
                       diff: review.finalDiff,
+                      preserveScrollTop: scrollTop,
                     });
                   } catch {
                     error.textContent = t('ai.proposal.editFailed');
@@ -943,9 +996,13 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k, ope
               opRevision = prodRevData.currentRevision || 'V1';
             }
 
-            const tableContainer = createPaginatedDiffTable(operation.diff || [], t, opRevision);
+            const tableContainer = createPaginatedDiffTable(
+              operation.diff || [],
+              t,
+              operation.category === 'revision' ? opRevision : '',
+            );
             operationEl.appendChild(tableContainer);
-            section.appendChild(operationEl);
+            operationParent.appendChild(operationEl);
           }
           propEl.appendChild(section);
         }
@@ -955,7 +1012,7 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k, ope
         noDiff.textContent = t('ai.proposal.noChanges');
         propEl.appendChild(noDiff);
       } else {
-        const tableContainer = createPaginatedDiffTable(msg.diff || [], t, msg.snapshot?.selection?.revision);
+        const tableContainer = createPaginatedDiffTable(msg.diff || [], t);
         propEl.appendChild(tableContainer);
       }
 
@@ -987,17 +1044,88 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k, ope
           handleMultipleSwaps(msg, Array.from(pendingSwaps.values()), propEl, t);
           return;
         }
-        rejectBtn.disabled = true;
-        approveBtn.disabled = true;
-
-        renderMessage({ role: 'user', text: t('ai.proposal.approved') });
         const selectedOperations = reviewOperations
           .filter(operation => selectedOperationIds.has(operation.id))
           .map(operation => operation.mutation);
         const selectedProposal = reviewOperations.length > 0
           ? { summary: msg.proposalReview?.summary || '', operations: selectedOperations }
           : msg.approval || msg.proposal;
-          
+        const hasUnconfirmedLifecycleChoice = !msg.lifecycleChoiceConfirmed
+          && selectedOperations.some(operation => operation.operationType === 'create_product_revision');
+        if (hasUnconfirmedLifecycleChoice) {
+          if (typeof openPdmPrompt !== 'function') {
+            renderMessage({ role: 'assistant', text: t('ai.proposal.regenerateFailed') });
+            return;
+          }
+          const rebuildForLifecycleChoice = (mode) => {
+            const revisionOperations = selectedOperations
+              .filter(operation => operation.operationType === 'create_product_revision');
+            const fields = revisionOperations.flatMap((operation) => {
+              const productCode = operation.targetId;
+              if (mode === 'withdraw') {
+                return [{
+                  key: `reason_${productCode}`,
+                  label: t('ai.proposal.withdrawReasonField').replace('{product}', productCode),
+                  required: true,
+                }];
+              }
+              return [
+                {
+                  key: `revision_${productCode}`,
+                  label: t('ai.proposal.swapRevisionField').replace('{product}', productCode),
+                  defaultValue: String(operation.payload?.revision || ''),
+                  required: true,
+                },
+                {
+                  key: `reason_${productCode}`,
+                  label: t('ai.proposal.swapRevisionReasonField').replace('{product}', productCode),
+                  required: true,
+                },
+              ];
+            });
+            openPdmPrompt(t('ai.proposal.releasedRevisionChoiceTitle'), fields, (values) => {
+              try {
+                const revisions = Object.fromEntries(revisionOperations.map(operation => [
+                  operation.targetId,
+                  values[`revision_${operation.targetId}`],
+                ]));
+                const reasons = Object.fromEntries(revisionOperations.map(operation => [
+                  operation.targetId,
+                  values[`reason_${operation.targetId}`],
+                ]));
+                const reason = Object.values(reasons).find(Boolean) || '';
+                const nextProposal = buildLifecycleChoiceProposal({
+                  proposal: selectedProposal,
+                  mode,
+                  reason,
+                  revisions,
+                  reasons,
+                });
+                const review = buildMutationProposalReview(msg.snapshot, nextProposal, t);
+                renderMessage({
+                  ...msg,
+                  role: 'assistant',
+                  text: t('ai.proposal.prepared'),
+                  proposal: nextProposal,
+                  proposalReview: review,
+                  diff: review.finalDiff,
+                  lifecycleChoiceConfirmed: true,
+                });
+              } catch {
+                renderMessage({ role: 'assistant', text: t('ai.proposal.regenerateFailed') });
+              }
+            });
+          };
+          chooseReleasedRevisionAction(
+            () => rebuildForLifecycleChoice('create_draft'),
+            () => rebuildForLifecycleChoice('withdraw'),
+          );
+          return;
+        }
+        rejectBtn.disabled = true;
+        approveBtn.disabled = true;
+
+        renderMessage({ role: 'user', text: t('ai.proposal.approved') });
         if (msg.onApprove) {
           msg.onApprove(selectedProposal);
         }
@@ -1091,7 +1219,11 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k, ope
       messagesDiv.removeChild(messagesDiv.firstChild);
     }
 
-    messagesDiv.scrollTo({ top: messagesDiv.scrollHeight, behavior: 'smooth' });
+    if (Number.isFinite(msg.preserveScrollTop)) {
+      messagesDiv.scrollTop = msg.preserveScrollTop;
+    } else {
+      messagesDiv.scrollTo({ top: messagesDiv.scrollHeight, behavior: 'smooth' });
+    }
   }
 
   function updateLanguage() {

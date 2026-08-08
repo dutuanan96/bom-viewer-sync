@@ -34,6 +34,33 @@ function workflowConfirmationText(t, workflowState) {
     item?.type === 'consolidate_materials' && item?.pendingAction === 'confirmation'
   ));
   if (tasks.length === 0) return '';
+  const hasStructuredSummary = tasks.every(task => (
+    Array.isArray(task.fields?.sourceMaterialCodes) && task.fields.sourceMaterialCodes.length > 0
+  ));
+  if (hasStructuredSummary) {
+    const materialCount = new Set(tasks.flatMap(task => task.fields.sourceMaterialCodes)).size;
+    const normalizationFields = [...new Set(tasks.flatMap(task => task.fields?.normalizationFields || []))];
+    const lines = [String(t('ai.workflow.consolidate.summaryHeader'))
+      .replace('{groups}', String(tasks.length))
+      .replace('{materials}', String(materialCount))];
+    for (const task of tasks) {
+      lines.push(String(t('ai.workflow.consolidate.summaryItem'))
+        .replace('{spec}', String(task.fields?.sourceSpec || '-'))
+        .replace('{codes}', task.fields.sourceMaterialCodes.join(', '))
+        .replace('{code}', String(task.fields?.newMaterialCode || '')));
+    }
+    if (normalizationFields.length > 0) {
+      const normalizationCount = (workflowState?.tasks || []).filter(task => task?.type === 'update_material').length;
+      lines.push(String(t('ai.workflow.consolidate.normalizationSummary'))
+        .replace('{count}', String(normalizationCount))
+        .replace('{fields}', normalizationFields.join(', ')));
+    }
+    const draftCount = (workflowState?.tasks || []).filter(task => task?.type === 'create_product_revision').length;
+    if (draftCount > 0) {
+      lines.push(String(t('ai.workflow.consolidate.draftSummary')).replace('{count}', String(draftCount)));
+    }
+    return lines.join('\n');
+  }
   return tasks.map(task => {
     const sourceCount = Array.isArray(task.fields?.sourceMaterialIds) ? task.fields.sourceMaterialIds.length : 0;
     const code = String(task.fields?.newMaterialCode || '').trim();
@@ -45,6 +72,25 @@ function workflowConfirmationText(t, workflowState) {
 }
 
 function agentDecisionForUi(t, decision) {
+  if (decision?.type === 'duplicate_consolidation_details') {
+    const materialName = String(decision.materialName || '').trim() || t('ai.agentDecision.duplicate.allMaterials');
+    return {
+      prompt: t('ai.agentDecision.duplicate.detailsPrompt')
+        .replace('{materialName}', materialName)
+        .replace('{exact}', String(decision.exactGroups || 0))
+        .replace('{suspected}', String(decision.suspectedGroups || 0)),
+      choices: [
+        {
+          id: 'use_dimension_code_rule',
+          primary: true,
+          label: t('ai.agentDecision.duplicate.useDimensionCodeRule'),
+          query: String(t('ai.agentDecision.duplicate.useDimensionCodeRuleQuery')).replace('{materialName}', materialName),
+        },
+        { id: 'custom', kind: 'custom', label: t('ai.agentDecision.custom'), placeholder: t('ai.agentDecision.duplicate.codeRulePlaceholder') },
+        { id: 'cancel', label: t('ai.agentDecision.workflow.cancel'), query: t('ai.agentDecision.workflow.cancelQuery') },
+      ],
+    };
+  }
   if (decision?.type === 'workflow_confirmation') {
     return {
       prompt: t('ai.agentDecision.workflow.confirmPrompt').replace('{count}', String(decision.pendingCount || 1)),
@@ -64,40 +110,7 @@ function agentDecisionForUi(t, decision) {
       ],
     };
   }
-  if (decision?.type !== 'duplicate_materials') return null;
-  const exactGroups = Number(decision.exactGroups || 0);
-  const suspectedGroups = Number(decision.suspectedGroups || 0);
-  const materialName = String(decision.materialName || '').trim();
-  const scopedText = (key) => String(t(key)).replace('{materialName}', materialName || t('ai.agentDecision.duplicate.allMaterials'));
-  if (exactGroups + suspectedGroups === 0) return null;
-  const choices = [];
-  if (exactGroups > 0) {
-    choices.push({
-      id: 'exact_only',
-      primary: true,
-      label: t('ai.agentDecision.duplicate.exactOnly'),
-      query: scopedText('ai.agentDecision.duplicate.exactOnlyQuery'),
-    });
-  }
-  if (suspectedGroups > 0) {
-    choices.push({
-      id: 'include_suspected',
-      label: t('ai.agentDecision.duplicate.includeSuspected'),
-      query: scopedText('ai.agentDecision.duplicate.includeSuspectedQuery'),
-    });
-  }
-  choices.push({
-    id: 'custom',
-    kind: 'custom',
-    label: t('ai.agentDecision.custom'),
-    placeholder: t('ai.agentDecision.customPlaceholder'),
-  });
-  return {
-    prompt: t('ai.agentDecision.duplicate.prompt')
-      .replace('{exact}', String(exactGroups))
-      .replace('{suspected}', String(suspectedGroups)),
-    choices,
-  };
+  return null;
 }
 
 function contextForRoute(route, snapshot, fallback = {}, query = '') {
@@ -630,6 +643,10 @@ export function createAiAssistantFeature({
       const message = t(key);
       return message && message !== key ? message : '';
     },
+    formatWorkflowError: ({ message }) => String(t('ai.error.proposalValidation')).replace('{message}', String(message || '')),
+    formatWorkflowRecovery: ({ hasEvidence }) => t(hasEvidence
+      ? 'ai.error.proposalRecoveryWithEvidence'
+      : 'ai.error.proposalRecoveryNeedsScope'),
   });
   const knowledgeImporter = createKnowledgeImporter();
   const conversationSession = createConversationSession();

@@ -79,11 +79,6 @@ function renderStaticText() {
 }
 
 function renderStatus() {
-  const syncSourceRow = this.query('[data-sync-source-row]');
-  if (syncSourceRow) syncSourceRow.hidden = !this.isAdmin();
-  this.query('#syncSource').textContent = this.isAdmin() ? this.dataSourceUrl() : '';
-  this.query('#lastSync').textContent = this.formatDate(this.state.payload.updatedAt);
-  this.query('#lastLocalRefresh').textContent = this.state.lastLoadAt ? this.formatDate(this.state.lastLoadAt) : '-';
   this.query('#adminControls').hidden = !this.isAdmin();
   const tokenInput = this.query('#githubToken');
   if (tokenInput) tokenInput.value = this.readToken();
