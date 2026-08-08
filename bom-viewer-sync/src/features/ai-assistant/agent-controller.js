@@ -620,6 +620,12 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
         };
         messages.push(prefetchedMessage);
         deterministicPrefetchUsed = true;
+        if (route?.intent === 'duplicate_materials' && prefetchedCall.name === 'find_duplicate_materials') {
+          finalAnswer = trustPolicy.validateModelOutput({
+            text: deterministicFallbackText,
+            citations: ledger.getEvidence().map(item => item.id),
+          }, { evidence: ledger.getEvidence() });
+        }
         if (route?.intent === 'proposal' && prefetchedCall.name === 'find_duplicate_materials') {
           proposalReminderSent = true;
           modelSupportsTools = false;
