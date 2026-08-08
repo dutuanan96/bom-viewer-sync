@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-07T08:04:11.433Z",
+  "updatedAt": "2026-08-08T02:38:27.778Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6346,12 +6346,12 @@
     },
     "LGS333": {
       "currentRevision": "V4",
-      "effectiveRevision": "",
+      "effectiveRevision": "V4",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6393,6 +6393,14 @@
           "revision": "V4",
           "previousRevision": "V4",
           "occurredAt": "2026-08-07T08:03:45.993Z",
+          "reason": "更新"
+        },
+        {
+          "id": "effectivity_msjrl2j2",
+          "action": "release",
+          "revision": "V4",
+          "previousRevision": "",
+          "occurredAt": "2026-08-08T02:38:25.550Z",
           "reason": "更新"
         }
       ]
@@ -7007,6 +7015,29 @@
     }
   },
   "notifications": [
+    {
+      "id": "notif_vr39v0",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-08T02:38:27.778Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS333",
+          "field": "effectiveRevision",
+          "before": "",
+          "after": "V4"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS333",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        }
+      ]
+    },
     {
       "id": "notif_t9kid6",
       "type": "github-save",
@@ -8000,22 +8031,6 @@
           "field": "",
           "before": "LGS434ZFXWH",
           "after": "LGS434ZFXBH"
-        }
-      ]
-    },
-    {
-      "id": "notif_j5splu",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-30T07:28:06.882Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS433",
-          "field": "",
-          "before": "LGS433PKXKD",
-          "after": "LGS433PKXBH"
         }
       ]
     }
