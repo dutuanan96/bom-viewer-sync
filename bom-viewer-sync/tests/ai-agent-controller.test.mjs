@@ -481,6 +481,7 @@ test('agent-controller: does not allow extra PDM lookups after a duplicate-mater
 
   assert.deepEqual(toolCalls.map(call => call.name), ['find_duplicate_materials']);
   assert.deepEqual(gatewayCalls[0].tools, []);
+  assert.match(JSON.stringify(gatewayCalls[0].messages), /never create a consolidation task from a suspected group/i);
   assert.equal(result.conversationContext.workflowState.tasks[0].pendingAction, 'confirmation');
 });
 
