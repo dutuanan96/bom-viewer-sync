@@ -141,7 +141,11 @@ export function validateMutationContext(snapshot, mutation) {
     throw err;
   }
 
-  if (!masterDataOperations.has(mutation.operationType) && !revisionOperations.has(mutation.operationType)) {
+  if (
+    !masterDataOperations.has(mutation.operationType)
+    && !revisionOperations.has(mutation.operationType)
+    && mutation.operationType !== 'consolidate_materials'
+  ) {
     if (!isEditable) {
       const err = new Error(`BOM mutations require a draft revision for product ${targetProductCode || ''}.`);
       err.code = ERROR_CODES.AI_POLICY_BLOCKED;
@@ -564,7 +568,7 @@ function operationRisk(operationType) {
   return 'low';
 }
 
-function operationWarnings(operation, payload, t = (k) => k) {
+function operationWarnings(operation, payload, t = (k) => k, { suppressDuplicateSwap = false } = {}) {
   const warnings = [];
   if (operation.operationType === 'delete_material') warnings.push(t('ai.warning.delete_material'));
   if (operation.operationType === 'remove_bom_item') warnings.push(t('ai.warning.remove_bom_item'));
@@ -598,10 +602,12 @@ function operationWarnings(operation, payload, t = (k) => k) {
         }
         
         if (isDuplicate) {
-          warnings.push({
-            message: t('ai.warning.duplicateMaterial').replace('{duplicateCode}', otherMaterial.code || id),
-            action: { type: 'swap', duplicateId: id }
-          });
+          if (!suppressDuplicateSwap) {
+            warnings.push({
+              message: t('ai.warning.duplicateMaterial').replace('{duplicateCode}', otherMaterial.code || id),
+              action: { type: 'swap', duplicateId: id }
+            });
+          }
           break;
         }
       }
@@ -766,6 +772,9 @@ function verifyProposalPayload(payload) {
 
 export function buildMutationProposalReview(snapshot, proposalInput, t = (k) => k) {
   const proposal = validateMutationProposal(proposalInput);
+  const consolidationSourceIds = new Set(proposal.operations
+    .filter(operation => operation.operationType === 'consolidate_materials')
+    .flatMap(operation => operation.payload?.sourceMaterialIds || []));
   let payload = clone(snapshot.payload);
   let currentCanEdit = snapshot.canEditRevision;
   const allowedCreateRevisionTargetIds = proposalBomProductTargets(snapshot.payload, proposal.operations);
@@ -792,7 +801,9 @@ export function buildMutationProposalReview(snapshot, proposalInput, t = (k) => 
       currentCanEdit = true;
     }
 
-    const warnings = [...operationWarnings(mutation, operationSnapshot.payload, t), ...enrichment.warnings];
+    const warnings = [...operationWarnings(mutation, operationSnapshot.payload, t, {
+      suppressDuplicateSwap: consolidationSourceIds.has(mutation.targetId),
+    }), ...enrichment.warnings];
 
     const diff = describePayloadChanges(before, payload);
     // Skip operations that produce no actual change (e.g. a repeated/duplicate target or a

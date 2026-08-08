@@ -9,6 +9,7 @@ import { createEvidenceLedger } from './evidence-ledger.js';
 import { workflowReducer } from './workflow-engine.js';
 import { validateSemanticSchema, semanticSchemaPrompt } from './semantic-schema.js';
 import { parseMaterialDimensionChange } from './pdm-discovery.js';
+import { buildDuplicateConsolidationWorkflow, deterministicWorkflowControl } from './deterministic-workflow.js';
 
 function detectLanguageDirective(query) {
   const q = String(query || '').trim();
@@ -25,6 +26,29 @@ The user's query is in Chinese. You MUST reply entirely in Simplified Chinese (�
   return `[CRITICAL SYSTEM RULE / 强制系统规则]:
 The user's query is in Vietnamese (or mixed Vietnamese/Chinese). You MUST reply in Vietnamese (Tiếng Việt). Even when Chinese material names or terms are mentioned, explain everything in Vietnamese.
 必须使用越南语（Tiếng Việt）回复！`;
+}
+
+function workflowAgentDecision(workflowState) {
+  const tasks = Array.isArray(workflowState?.tasks) ? workflowState.tasks : [];
+  const pendingCount = tasks.filter(task => task?.pendingAction === 'confirmation').length;
+  if (pendingCount > 0) return Object.freeze({ type: 'workflow_confirmation', pendingCount });
+  if (workflowState?.workflowStatus === 'awaiting_clarification') {
+    return Object.freeze({ type: 'workflow_clarification' });
+  }
+  return null;
+}
+
+function requestsAllAuditedGroups(query) {
+  const value = String(query || '').toLowerCase();
+  return /(?:\u5168\u90e8|\u6240\u6709|\u4e0a\u8ff0|\u4ee5\u4e0a|\u90a3\u4e9b|\u8fd9\u4e9b).{0,12}(?:\u91cd\u590d|\u91cd\u8907|\u7ec4)|(?:\u5168\u90e8|\u6240\u6709).{0,16}(?:bom|\u7269\u6599)|(?:t\u1ea5t\s*c\u1ea3|to\u00e0n\s*b\u1ed9|nh\u1eefng\s*nh\u00f3m).{0,32}(?:tr\u00f9ng|v\u1eadt\s*li\u1ec7u|bom)|\ball\s+(?:duplicate|groups|materials)\b/i.test(value);
+}
+
+function hasMaterialCodeConvention(query) {
+  return /\b[A-Z]{1,8}\d{4,}\b/u.test(String(query || ''));
+}
+
+function hasOpenWorkflow(workflowState) {
+  return ['active', 'awaiting_clarification', 'proposal_ready'].includes(workflowState?.workflowStatus);
 }
 
 function getOpenRouterCitationUrls(annotations) {
@@ -415,7 +439,7 @@ function cloneConversationHistory(history) {
   return bounded;
 }
 
-export function createAgentController({ gateway, trustPolicy, runTool, formatToolFallback, formatProviderError }) {
+export function createAgentController({ gateway, trustPolicy, runTool, formatToolFallback, formatProviderError, formatWorkflowError, formatWorkflowRecovery }) {
 
   async function runTurn({ query, history = [], route, snapshot, model, availableTools = [], signal, marketplaceWebEnabled = false, specialistPrompt = '', confirmedMemories = [], entityResolution = null, clarificationText = '', conversationContext = {}, onProgress }) {
     if (signal?.aborted) throw new Error('Turn aborted');
@@ -429,8 +453,8 @@ export function createAgentController({ gateway, trustPolicy, runTool, formatToo
 
     // Exact entity conflicts must never fall through to a default product variant.
     // Lower-confidence read-only ambiguity can still be investigated with tools.
-    const isMutationRoute = route?.intent === 'proposal'
-      || conversationContext?.workflowState?.workflowStatus === 'active';
+    const isWorkflowTurn = hasOpenWorkflow(conversationContext?.workflowState);
+    const isMutationRoute = route?.intent === 'proposal' || isWorkflowTurn;
     const requiresExactClarification = entityResolution?.confidence === 1;
     if (
       (isMutationRoute || requiresExactClarification) &&
@@ -519,7 +543,7 @@ ${JSON.stringify(conversationContext, null, 2)}
 
 ${detectLanguageDirective(context.query)}
 
-${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowStatus === 'active') ? semanticSchemaPrompt() : ''}`
+${(route?.intent === 'proposal' || isWorkflowTurn) ? semanticSchemaPrompt() : ''}`
       },
       ...historyMessages,
       {
@@ -544,14 +568,83 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
     let consecutiveNoProgress = 0;
     let proposalReminderSent = false;
     let proposalFailureCount = 0;
+    let recoveryInvestigationUsed = false;
     let suppressFinalMessage = false;
+    let duplicateProposalDecision = null;
+    let deterministicWorkflowExecution = false;
+    let deterministicSemanticDelta = deterministicWorkflowControl(
+      context.query,
+      conversationContext?.workflowState,
+    )?.delta || null;
+    if (deterministicSemanticDelta) deterministicWorkflowExecution = true;
 
     let accumulatedText = '';
+
+    const addRecoveryEvidence = (toolCall, toolResult) => {
+      if (!toolResult?.evidence) return;
+      const items = Array.isArray(toolResult.evidence) ? toolResult.evidence : [toolResult.evidence];
+      for (const item of items) {
+        const evidence = { ...item };
+        if (toolCall.name === 'search_pdm' && Array.isArray(toolResult.materials)) {
+          evidence.tool = 'search_pdm';
+          evidence.data = { materials: toolResult.materials };
+        }
+        ledger.trackEvidence(evidence);
+      }
+    };
+
+    const runRecoveryInvestigation = async (failedToolName) => {
+      if (
+        recoveryInvestigationUsed
+        || !runTool
+        || failedToolName === 'search_pdm'
+        || failedToolName === 'apply_mutation'
+        || !exposedToolNames.has('search_pdm')
+      ) return null;
+
+      recoveryInvestigationUsed = true;
+      const recoveryCall = trustPolicy.authorizeToolCall({
+        name: 'search_pdm',
+        arguments: { query: String(context.query || '').slice(0, 500) },
+      });
+      const startedAt = Date.now();
+      trace.add('tool_requested', { toolName: recoveryCall.name, status: 'recovery_investigation' });
+      budget.recordToolCall(recoveryCall.name);
+      currentTurnUsage.toolCalls += 1;
+      try {
+        const result = await runTool(recoveryCall, snapshot);
+        addRecoveryEvidence(recoveryCall, result);
+        toolConversationContext = mergeToolContext(
+          toolConversationContext,
+          contextFromToolResult(recoveryCall, result),
+        );
+        if (!result?.error) successfulReadOnlyTools.add(recoveryCall.name);
+        trace.add('tool_completed', {
+          toolName: recoveryCall.name,
+          status: result?.error ? 'recovery_empty' : 'recovery_success',
+          latencyMs: Date.now() - startedAt,
+          evidenceIds: ledger.getEvidence().map(item => item.id),
+        });
+        messages.push({
+          role: 'user',
+          content: `TRUSTED_LOCAL_PDM_RECOVERY_RESULT\nTool: ${recoveryCall.name}\n${JSON.stringify(result)}\nUse this evidence to continue the original request. Do not expose tool protocol or error details to the user.`,
+        });
+        return result;
+      } catch {
+        trace.add('tool_completed', {
+          toolName: recoveryCall.name,
+          status: 'recovery_error',
+          latencyMs: Date.now() - startedAt,
+        });
+        return null;
+      }
+    };
 
     // Check model grade to see if we should fallback to deterministic prefetch only
     let activeModel = model;
     let modelMeta = gateway.listModels().find(m => m.id === activeModel) || { grade: 'Unsupported' };
     let modelSupportsTools = modelMeta.grade !== 'Unsupported';
+    if (deterministicSemanticDelta) modelSupportsTools = false;
     let compatibleEndpointFallbackUsed = false;
 
     try {
@@ -565,6 +658,18 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
         currentTurnUsage.toolCalls += 1;
         const safeCall = trustPolicy.authorizeToolCall(prefetchedCall);
         const toolResult = await runTool(safeCall, snapshot);
+        if (
+          safeCall.name === 'find_duplicate_materials'
+          && route?.intent === 'proposal'
+          && !hasMaterialCodeConvention(context.query)
+        ) {
+          duplicateProposalDecision = Object.freeze({
+            type: 'duplicate_consolidation_details',
+            exactGroups: Array.isArray(toolResult?.duplicateGroups) ? toolResult.duplicateGroups.length : 0,
+            suspectedGroups: Array.isArray(toolResult?.suspectedDuplicateGroups) ? toolResult.suspectedDuplicateGroups.length : 0,
+            materialName: String(safeCall.arguments?.name || '').trim(),
+          });
+        }
         if (!toolResult?.error && !['apply_mutation', 'store_memory'].includes(safeCall.name)) {
           successfulReadOnlyTools.add(safeCall.name);
         }
@@ -627,12 +732,29 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
           });
         }
         if (route?.intent === 'proposal' && prefetchedCall.name === 'find_duplicate_materials') {
+          const includesAllAuditedGroups = requestsAllAuditedGroups(context.query);
+          const deterministicPlan = includesAllAuditedGroups
+              ? buildDuplicateConsolidationWorkflow(context.query, toolResult, {
+                responseLanguage: /\p{Script=Han}/u.test(context.query) ? 'zh' : 'vi',
+                snapshotPayload: snapshot?.payload,
+              })
+            : null;
+          if (deterministicPlan) {
+            deterministicSemanticDelta = deterministicPlan.delta;
+            deterministicWorkflowExecution = true;
+            modelSupportsTools = false;
+            duplicateProposalDecision = null;
+          }
           proposalReminderSent = true;
-          modelSupportsTools = false;
-          messages.push({
-            role: 'user',
-            content: `SYSTEM_CONSOLIDATION_CONFIRMATION_REQUIRED: The duplicate-material audit above is the complete bounded evidence for this request. Do not call search_pdm, get_bom, where_used, or any other tool. Output ONLY one valid Semantic Workflow JSON object with workflowAction "ask_clarification" and proposedActions: []. Create consolidate_materials tasks ONLY from duplicateGroups whose matchType is "exact". A suspectedDuplicateGroups item is NOT eligible for consolidation yet: it has a bilingual field mismatch and must be presented as a separate clarification for Admin to approve normalization first. If the user supplied a code convention, apply it only to exact groups with an unambiguous specification. Never create a consolidation task from a suspected group and never emit build_proposal in this turn.`,
-          });
+          if (!deterministicPlan) {
+            modelSupportsTools = false;
+            messages.push({
+              role: 'user',
+              content: includesAllAuditedGroups
+                ? `SYSTEM_CONSOLIDATION_CONFIRMATION_REQUIRED: The user explicitly requested ALL duplicate groups from this bounded audit, not just the example group. Do not call search_pdm, get_bom, where_used, or any other tool. Output ONLY one valid Semantic Workflow JSON object with workflowAction "ask_clarification" and proposedActions: []. Create a consolidate_materials task for EVERY logical group, treating an exact group contained in a suspected group as one group rather than two. For every suspected group, first create update_material task(s) that normalize only the documented bilingual differences. Keep old material codes. If any code cannot be derived without guessing, ask one bounded clarification for only those groups. Never emit build_proposal in this turn.`
+                : `SYSTEM_CONSOLIDATION_CONFIRMATION_REQUIRED: The duplicate-material audit above is the complete bounded evidence for this request. Do not call search_pdm, get_bom, where_used, or any other tool. Output ONLY one valid Semantic Workflow JSON object with workflowAction "ask_clarification" and proposedActions: []. Create consolidate_materials tasks ONLY from duplicateGroups whose matchType is "exact". A suspectedDuplicateGroups item is NOT eligible for consolidation yet: it has a bilingual field mismatch and must be presented as a separate clarification for Admin to approve normalization first. If the user supplied a code convention, apply it only to exact groups with an unambiguous specification. Never create a consolidation task from a suspected group and never emit build_proposal in this turn.`,
+            });
+          }
         }
         const deterministicOperations = route?.intent === 'proposal'
           && prefetchedCall.name === 'search_pdm'
@@ -674,14 +796,16 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
       while (!finalAnswer) {
         if (signal?.aborted) throw new Error('Turn aborted');
 
-        budget.recordModelCall();
-        currentTurnUsage.modelCalls++;
-        budget.checkExpiry();
-        trace.add('model_requested', {
-          modelId: activeModel,
-          intent: route?.intent || 'ambiguous',
-          usage: currentTurnUsage
-        });
+        if (!deterministicSemanticDelta) {
+          budget.recordModelCall();
+          currentTurnUsage.modelCalls++;
+          budget.checkExpiry();
+          trace.add('model_requested', {
+            modelId: activeModel,
+            intent: route?.intent || 'ambiguous',
+            usage: currentTurnUsage
+          });
+        }
 
         const evidenceItems = ledger.getEvidence();
         let promptMessages = [...messages];
@@ -717,13 +841,6 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
           const name = tool?.function?.name || tool;
           return name !== 'apply_mutation';
         });
-
-        // DEBUG: Dump the exact prompt to console to help track what is sent
-        try {
-          console.groupCollapsed('=== LLM PROMPT SENT ===');
-          console.log(JSON.parse(JSON.stringify(promptMessages)));
-          console.groupEnd();
-        } catch (e) {}
 
         async function consumeStream(streamObj) {
           let fullText = '';
@@ -765,8 +882,7 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
             toolCalls = embedded.toolCalls;
           }
 
-          const isProposalRoute = route?.intent === 'proposal'
-            || conversationContext?.workflowState?.workflowStatus === 'active';
+          const isProposalRoute = route?.intent === 'proposal' || isWorkflowTurn;
           const looksLikeSemanticJson = /```(?:json)?\s*\{/.test(fullText)
             || /^\s*\{[\s\S]*"(?:intent|workflowAction)"/.test(fullText);
           const shouldSuppressStream = isProposalRoute && looksLikeSemanticJson;
@@ -862,14 +978,19 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
 
         try {
           // For proposal final-answer turns (no tools), allow extra tokens to prevent JSON truncation
-          const isProposalFinalTurn = (route?.intent === 'proposal'
-            || conversationContext?.workflowState?.workflowStatus === 'active')
+          const isProposalFinalTurn = (route?.intent === 'proposal' || isWorkflowTurn)
             && !modelSupportsTools;
           const effectiveMaxTokens = isProposalFinalTurn
             ? Math.max(budget.summary?.().limits?.maxOutputTokens || 1200, 3000)
             : (budget.summary?.().limits?.maxOutputTokens || 1200);
 
-          if (gateway.chatStream) {
+          if (deterministicSemanticDelta) {
+            response = {
+              choices: [{ message: { role: 'assistant', content: JSON.stringify(deterministicSemanticDelta) } }],
+            };
+            deterministicSemanticDelta = null;
+            trace.add('workflow_orchestrated', { status: 'deterministic' });
+          } else if (gateway.chatStream) {
             const stream = await gateway.chatStream({
               model: activeModel,
               messages: promptMessages,
@@ -1179,9 +1300,12 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
             });
 
             if (toolStatus === 'error') {
+              const recoveryResult = await runRecoveryInvestigation(call.function.name);
               messages.push({
                 role: 'user',
-                content: 'SYSTEM_TOOL_ERROR: The previous tool call failed with an error. You MUST explain this error to the user in natural language and ask for clarification. Do not call this tool again until the issue is resolved.'
+                content: recoveryResult
+                  ? 'SYSTEM_RECOVERY_COMPLETE: The original tool call failed, but a bounded read-only PDM recovery lookup is available above. Continue from that evidence. Ask the user only if materially different interpretations still remain.'
+                  : 'SYSTEM_TOOL_ERROR: The previous tool call failed. Do not expose the technical error. Use the current trusted evidence and ask one focused clarification only if the missing detail changes the answer or proposal.'
               });
             }
 
@@ -1207,8 +1331,7 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
             // For proposal routes: after tools have run, explicitly remind model to emit JSON.
             // Only push this reminder ONCE to prevent the model from receiving it multiple times
             // and repeating the JSON output.
-            const isProposalRoute = route?.intent === 'proposal'
-              || conversationContext?.workflowState?.workflowStatus === 'active';
+            const isProposalRoute = route?.intent === 'proposal' || isWorkflowTurn;
             if (isProposalRoute && currentTurnUsage.toolCalls >= 1 && !proposalReminderSent) {
               const evidenceIds = [...new Set(ledger.getEvidence().map(item => item.id))];
               if (evidenceIds.length > 0) {
@@ -1355,17 +1478,22 @@ Example:
                           if (sourceMaterialIds.length < 2 || !code || !source) {
                             throw new Error('Material consolidation requires duplicate source IDs and a new material code.');
                           }
+                          const f = task.fields || {};
+                          const bilingual = (field, zhKey, viKey) => ({
+                            zh: String(f[zhKey] ?? source[field]?.zh ?? ''),
+                            vi: String(f[viKey] ?? source[field]?.vi ?? ''),
+                          });
                           return [{
                             operationType: 'consolidate_materials',
                             targetId: `mat_${code.toLowerCase()}`,
                             payload: {
                               material: {
                                 code,
-                                name: structuredClone(source.name || {}),
-                                spec: structuredClone(source.spec || {}),
-                                material: structuredClone(source.material || {}),
-                                color: structuredClone(source.color || {}),
-                                attr: structuredClone(source.attr || {}),
+                                name: bilingual('name', 'nameZh', 'nameVi'),
+                                spec: bilingual('spec', 'spec_zh', 'spec_vi'),
+                                material: bilingual('material', 'material_zh', 'material_vi'),
+                                color: bilingual('color', 'color_zh', 'color_vi'),
+                                attr: bilingual('attr', 'attr_zh', 'attr_vi'),
                                 drawings: structuredClone(source.drawings || []),
                                 models3d: structuredClone(source.models3d || []),
                                 ...(source.unit ? { unit: String(source.unit) } : {}),
@@ -1429,16 +1557,44 @@ Example:
                         }];
                       }
 
+                      if (task.type === 'create_product_revision') {
+                        return [{
+                          operationType: task.type,
+                          targetId: task.fields?.productCode,
+                          payload: {
+                            revision: task.fields?.revision,
+                            changeReason: task.fields?.reason,
+                          },
+                        }];
+                      }
+
                       let payload = {};
 
                       if (task.type === 'update_material') {
                         payload = { patch: {} };
                         const f = task.fields || {};
+                        const targetMaterial = materialsMap[targetId]
+                          || materialsArray.find(item => item.id === targetId || item.code === rawTargetId)
+                          || {};
 
-                        if (f.targetSpec) payload.patch.spec = { zh: String(f.targetSpec), vi: String(f.targetSpec) };
-                        else if (f.spec) payload.patch.spec = { zh: String(f.spec), vi: String(f.spec) };
+                        const applyBilingualPatch = (field, zhKey, viKey, fallback) => {
+                          if (f[zhKey] === undefined && f[viKey] === undefined) return;
+                          payload.patch[field] = {
+                            zh: String(f[zhKey] ?? targetMaterial[field]?.zh ?? fallback ?? ''),
+                            vi: String(f[viKey] ?? targetMaterial[field]?.vi ?? fallback ?? ''),
+                          };
+                        };
 
-                        if (f.nameZh || f.nameVi || f.materialName || f.name) {
+                        applyBilingualPatch('spec', 'spec_zh', 'spec_vi');
+                        applyBilingualPatch('name', 'nameZh', 'nameVi', f.materialName || f.name);
+                        applyBilingualPatch('material', 'material_zh', 'material_vi');
+                        applyBilingualPatch('color', 'color_zh', 'color_vi');
+                        applyBilingualPatch('attr', 'attr_zh', 'attr_vi');
+
+                        if (!payload.patch.spec && f.targetSpec) payload.patch.spec = { zh: String(f.targetSpec), vi: String(f.targetSpec) };
+                        else if (!payload.patch.spec && f.spec) payload.patch.spec = { zh: String(f.spec), vi: String(f.spec) };
+
+                        if (!payload.patch.name && (f.nameZh || f.nameVi || f.materialName || f.name)) {
                           payload.patch.name = {
                             zh: String(f.nameZh || f.materialName || f.name || ''),
                             vi: String(f.nameVi || f.materialName || f.name || '')
@@ -1446,13 +1602,13 @@ Example:
                         }
 
                         const materialVal = f.material;
-                        if (materialVal) payload.patch.material = { zh: String(materialVal), vi: String(materialVal) };
+                        if (!payload.patch.material && materialVal) payload.patch.material = { zh: String(materialVal), vi: String(materialVal) };
 
                         const colorVal = f.color || f.materialColor;
-                        if (colorVal) payload.patch.color = { zh: String(colorVal), vi: String(colorVal) };
+                        if (!payload.patch.color && colorVal) payload.patch.color = { zh: String(colorVal), vi: String(colorVal) };
 
                         const attrVal = f.attr || f.attribute;
-                        if (attrVal) payload.patch.attr = { zh: String(attrVal), vi: String(attrVal) };
+                        if (!payload.patch.attr && attrVal) payload.patch.attr = { zh: String(attrVal), vi: String(attrVal) };
 
                         if (f.unit) payload.patch.unit = String(f.unit);
 
@@ -1532,7 +1688,16 @@ Example:
                       workflowUpdate: semanticJson
                     };
                   } catch (err) {
-                    console.error('[DEBUG] apply_mutation error:', err);
+                    if (deterministicWorkflowExecution) {
+                      finalAnswer = {
+                        text: typeof formatWorkflowError === 'function'
+                          ? formatWorkflowError({ message: err.message })
+                          : `Proposal validation failed: ${err.message}`,
+                        citations: evidenceIds,
+                        workflowUpdate: semanticJson,
+                      };
+                      break;
+                    }
                     proposalFailureCount += 1;
                     // Cap proposal retries to avoid an unbounded model loop that
                     // burns the provider rate limit / budget when a mutation keeps failing.
@@ -1603,26 +1768,44 @@ Example:
               } catch (e) {
                 // Ignore parse errors, fall back to regex stripping
               }
-             
-              console.log('DEBUG AI PARSE cleanText after JSON parse:', cleanText);
-             
               // Strip any JSON object that looks like a semantic workflow (starts with { contains intent/workflowAction)
               // Also strip partial/truncated JSON fragments (starts with , or { or contains JSON keys)
               const looksLikeJson = /^[{,]/.test(cleanText)
                 || /"(?:intent|workflowAction|taskUpdates|proposedActions|schemaVersion)"/.test(cleanText);
-              
-              console.log('DEBUG AI PARSE looksLikeJson:', looksLikeJson);
               if (looksLikeJson) {
                 cleanText = '';
               }
              
              if (!cleanText) {
-               cleanText = route.intent === 'workflow_mutation' || route.intent === 'mutation_request' || route.intent === 'proposal'
-                 ? '由于模型未能返回有效的操作数据，请重试或提供更详细的信息。'
-                 : '查询完成。';
+               const requiresProposalRecovery = route.intent === 'workflow_mutation'
+                 || route.intent === 'mutation_request'
+                 || route.intent === 'proposal'
+                 || isWorkflowTurn;
+               if (requiresProposalRecovery) {
+                 const recoveryDelta = {
+                   confidence: 0,
+                   intent: 'clarification',
+                   workflowAction: 'ask_clarification',
+                   responseLanguage: /\p{Script=Han}/u.test(context.query) ? 'zh' : 'vi',
+                   schemaVersion: 1,
+                   rejectionCode: null,
+                   taskUpdates: [],
+                   proposedActions: [],
+                 };
+                 const { state } = workflowReducer(toolConversationContext.workflowState, recoveryDelta);
+                 toolConversationContext = { ...toolConversationContext, workflowState: state };
+                 parsedOutput = {
+                   text: typeof formatWorkflowRecovery === 'function'
+                     ? formatWorkflowRecovery({ hasEvidence: ledger.getEvidence().length > 0 })
+                     : 'I checked the available PDM evidence but need one more decision before creating a proposal.',
+                   citations: evidenceIds,
+                   workflowUpdate: recoveryDelta,
+                 };
+               } else {
+                 cleanText = 'Query completed.';
+               }
              }
-              console.log('DEBUG AI PARSE final cleanText:', cleanText);
-             parsedOutput = { text: cleanText, citations: evidenceIds };
+             parsedOutput = parsedOutput || { text: cleanText, citations: evidenceIds };
           }
 
           finalAnswer = trustPolicy.validateModelOutput(parsedOutput, { evidence: ledger.getEvidence() });
@@ -1654,6 +1837,11 @@ Example:
       usage: currentTurnUsage,
       clarification: false,
       suppressFinalMessage,
+      agentDecision: (
+        toolConversationContext.workflowState?.workflowStatus === 'awaiting_clarification'
+          ? duplicateProposalDecision || workflowAgentDecision(toolConversationContext.workflowState)
+          : workflowAgentDecision(toolConversationContext.workflowState)
+      ),
       trace: trace.finish()
     };
   }
