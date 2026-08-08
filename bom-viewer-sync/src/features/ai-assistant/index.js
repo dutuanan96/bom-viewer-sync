@@ -44,6 +44,62 @@ function workflowConfirmationText(t, workflowState) {
   }).filter(Boolean).join('\n\n');
 }
 
+function agentDecisionForUi(t, decision) {
+  if (decision?.type === 'workflow_confirmation') {
+    return {
+      prompt: t('ai.agentDecision.workflow.confirmPrompt').replace('{count}', String(decision.pendingCount || 1)),
+      choices: [
+        { id: 'confirm', primary: true, label: t('ai.agentDecision.workflow.confirm'), query: t('ai.agentDecision.workflow.confirmQuery') },
+        { id: 'custom', kind: 'custom', label: t('ai.agentDecision.custom'), placeholder: t('ai.agentDecision.customPlaceholder') },
+        { id: 'cancel', label: t('ai.agentDecision.workflow.cancel'), query: t('ai.agentDecision.workflow.cancelQuery') },
+      ],
+    };
+  }
+  if (decision?.type === 'workflow_clarification') {
+    return {
+      prompt: t('ai.agentDecision.workflow.clarificationPrompt'),
+      choices: [
+        { id: 'custom', kind: 'custom', primary: true, label: t('ai.agentDecision.workflow.provideDetails'), placeholder: t('ai.agentDecision.customPlaceholder') },
+        { id: 'cancel', label: t('ai.agentDecision.workflow.cancel'), query: t('ai.agentDecision.workflow.cancelQuery') },
+      ],
+    };
+  }
+  if (decision?.type !== 'duplicate_materials') return null;
+  const exactGroups = Number(decision.exactGroups || 0);
+  const suspectedGroups = Number(decision.suspectedGroups || 0);
+  const materialName = String(decision.materialName || '').trim();
+  const scopedText = (key) => String(t(key)).replace('{materialName}', materialName || t('ai.agentDecision.duplicate.allMaterials'));
+  if (exactGroups + suspectedGroups === 0) return null;
+  const choices = [];
+  if (exactGroups > 0) {
+    choices.push({
+      id: 'exact_only',
+      primary: true,
+      label: t('ai.agentDecision.duplicate.exactOnly'),
+      query: scopedText('ai.agentDecision.duplicate.exactOnlyQuery'),
+    });
+  }
+  if (suspectedGroups > 0) {
+    choices.push({
+      id: 'include_suspected',
+      label: t('ai.agentDecision.duplicate.includeSuspected'),
+      query: scopedText('ai.agentDecision.duplicate.includeSuspectedQuery'),
+    });
+  }
+  choices.push({
+    id: 'custom',
+    kind: 'custom',
+    label: t('ai.agentDecision.custom'),
+    placeholder: t('ai.agentDecision.customPlaceholder'),
+  });
+  return {
+    prompt: t('ai.agentDecision.duplicate.prompt')
+      .replace('{exact}', String(exactGroups))
+      .replace('{suspected}', String(suspectedGroups)),
+    choices,
+  };
+}
+
 function contextForRoute(route, snapshot, fallback = {}, query = '') {
   const entities = route?.entities || {};
   const productIds = Array.isArray(entities.productIds) ? entities.productIds.slice(0, 2) : [];
@@ -806,6 +862,7 @@ export function createAiAssistantFeature({
           proposal: result.proposal,
           diff: result.diff,
           proposalReview: result.proposalReview,
+          agentDecision: agentDecisionForUi(t, result.agentDecision),
           mappingCandidates: result.clarification ? result.entityResolution?.candidates : [],
           onSelectMapping: (candidate) => {
             if (!localStore?.createCandidate || !candidate?.target) return;

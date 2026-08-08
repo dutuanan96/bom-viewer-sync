@@ -27,6 +27,16 @@ The user's query is in Vietnamese (or mixed Vietnamese/Chinese). You MUST reply 
 必须使用越南语（Tiếng Việt）回复！`;
 }
 
+function workflowAgentDecision(workflowState) {
+  const tasks = Array.isArray(workflowState?.tasks) ? workflowState.tasks : [];
+  const pendingCount = tasks.filter(task => task?.pendingAction === 'confirmation').length;
+  if (pendingCount > 0) return Object.freeze({ type: 'workflow_confirmation', pendingCount });
+  if (workflowState?.workflowStatus === 'awaiting_clarification') {
+    return Object.freeze({ type: 'workflow_clarification' });
+  }
+  return null;
+}
+
 function getOpenRouterCitationUrls(annotations) {
   if (!Array.isArray(annotations)) return [];
   const urls = [];
@@ -545,6 +555,7 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
     let proposalReminderSent = false;
     let proposalFailureCount = 0;
     let suppressFinalMessage = false;
+    let agentDecision = null;
 
     let accumulatedText = '';
 
@@ -565,6 +576,18 @@ ${(route?.intent === 'proposal' || conversationContext?.workflowState?.workflowS
         currentTurnUsage.toolCalls += 1;
         const safeCall = trustPolicy.authorizeToolCall(prefetchedCall);
         const toolResult = await runTool(safeCall, snapshot);
+        if (safeCall.name === 'find_duplicate_materials' && route?.intent === 'duplicate_materials') {
+          const exactGroups = Array.isArray(toolResult?.duplicateGroups) ? toolResult.duplicateGroups.length : 0;
+          const suspectedGroups = Array.isArray(toolResult?.suspectedDuplicateGroups) ? toolResult.suspectedDuplicateGroups.length : 0;
+          if (exactGroups > 0 || suspectedGroups > 0) {
+            agentDecision = Object.freeze({
+              type: 'duplicate_materials',
+              exactGroups,
+              suspectedGroups,
+              materialName: String(safeCall.arguments?.name || '').trim(),
+            });
+          }
+        }
         if (!toolResult?.error && !['apply_mutation', 'store_memory'].includes(safeCall.name)) {
           successfulReadOnlyTools.add(safeCall.name);
         }
@@ -1654,6 +1677,7 @@ Example:
       usage: currentTurnUsage,
       clarification: false,
       suppressFinalMessage,
+      agentDecision: agentDecision || workflowAgentDecision(toolConversationContext.workflowState),
       trace: trace.finish()
     };
   }

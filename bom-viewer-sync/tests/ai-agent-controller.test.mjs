@@ -421,6 +421,7 @@ test('agent-controller: requires confirmation before building a duplicate-materi
   const first = await controller.runTurn({ query: 'Create ZK1100100', route, snapshot, model: 'test-model', availableTools: ['apply_mutation'] });
   assert.equal(toolCalls.length, 0);
   assert.equal(first.conversationContext.workflowState.tasks[0].pendingAction, 'confirmation');
+  assert.deepEqual(first.agentDecision, { type: 'workflow_confirmation', pendingCount: 1 });
 
   await controller.runTurn({ query: 'Confirm', route, snapshot, model: 'test-model', availableTools: ['apply_mutation'], conversationContext: first.conversationContext });
   assert.equal(toolCalls.length, 1);
@@ -526,6 +527,12 @@ test('agent-controller: gives the model the full duplicate audit for an independ
   assert.equal(modelCalls, 1);
   assert.equal(result.text, '1100x100mm, 860x100mm');
   assert.deepEqual(result.citations, ['duplicate-all']);
+  assert.deepEqual(result.agentDecision, {
+    type: 'duplicate_materials',
+    exactGroups: 2,
+    suspectedGroups: 0,
+    materialName: '纸卡',
+  });
   assert.match(JSON.stringify(requests[0].messages), /PDM_DUPLICATE_AUDIT_REVIEW/);
   assert.match(JSON.stringify(requests[0].messages), /auditedMaterials/);
 });

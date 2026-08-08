@@ -228,6 +228,25 @@ test('workspace renders bounded canonical mapping choices with safe text nodes',
   assert.equal(card.innerHTML, '');
 });
 
+test('workspace renders reusable agent decision choices without HTML injection', () => {
+  const feature = createAiAssistantFeature({ runTool: async () => {}, getSnapshot: () => ({ selection: {} }) });
+  feature.ui.renderMessage({
+    role: 'assistant',
+    text: 'Review complete',
+    agentDecision: {
+      prompt: 'Choose the next controlled action.',
+      choices: [
+        { id: 'safe', label: 'Safe scope', query: 'Create a safe proposal', primary: true },
+        { id: 'custom', label: '<script>custom</script>', kind: 'custom', placeholder: 'Enter a request' },
+      ],
+    },
+  });
+  const card = findByClass(feature.ui.workspaceElement, 'ai-agent-decision');
+  assert.ok(card);
+  assert.equal(card.children[0].textContent, 'Choose the next controlled action.');
+  assert.equal(card.innerHTML, '');
+});
+
 test('R2.4: per-turn budget message does not tell the user to start a new conversation', () => {
   const applicationSource = readFileSync(new URL('../src/application.js', import.meta.url), 'utf8');
   const budgetLine = applicationSource.split('\n').find(line => line.includes("'ai.error.budgetExceeded'"));

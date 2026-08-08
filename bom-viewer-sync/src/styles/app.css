@@ -4131,6 +4131,38 @@ body.pdm-shell {
 }
 
 /* Proposal Card */
+.ai-agent-decision {
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid var(--border-color, #d0d7de);
+  border-radius: 8px;
+  background: var(--surface-muted, #f6f8fa);
+}
+
+.ai-agent-decision-prompt {
+  margin-bottom: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.ai-agent-decision-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ai-agent-decision-custom {
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.ai-agent-decision-custom textarea {
+  width: 100%;
+  min-height: 72px;
+  resize: vertical;
+}
+
 .ai-proposal-card {
   margin-top: 12px;
   padding: 20px;

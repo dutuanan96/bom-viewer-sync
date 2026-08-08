@@ -618,6 +618,76 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k, ope
       msgEl.appendChild(mappingCard);
     }
 
+    if (msg.agentDecision && Array.isArray(msg.agentDecision.choices) && msg.agentDecision.choices.length > 0) {
+      const decisionCard = document.createElement('section');
+      decisionCard.className = 'ai-agent-decision';
+      const prompt = document.createElement('div');
+      prompt.className = 'ai-agent-decision-prompt';
+      prompt.textContent = String(msg.agentDecision.prompt || '');
+      decisionCard.appendChild(prompt);
+
+      const choiceRow = document.createElement('div');
+      choiceRow.className = 'ai-agent-decision-actions';
+      const choices = msg.agentDecision.choices.slice(0, 5);
+      const submitDecision = (choice, customText) => {
+        if (typeof msg.onChooseAgentDecision === 'function') {
+          msg.onChooseAgentDecision(choice, customText);
+          return;
+        }
+        const query = String(customText || choice.query || '').trim();
+        if (query && typeof onSend === 'function') onSend(query);
+      };
+      const disableChoices = () => {
+        choiceRow.querySelectorAll?.('button').forEach(button => { button.disabled = true; });
+      };
+      choices.forEach((choice) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = choice.primary ? 'btn btn-primary' : 'btn';
+        button.textContent = String(choice.label || '');
+        button.addEventListener('click', () => {
+          if (choice.kind === 'custom') {
+            if (decisionCard.querySelector('.ai-agent-decision-custom')) return;
+            const custom = document.createElement('form');
+            custom.className = 'ai-agent-decision-custom';
+            const input = document.createElement('textarea');
+            input.maxLength = 500;
+            input.required = true;
+            input.placeholder = String(choice.placeholder || '');
+            const actions = document.createElement('div');
+            actions.className = 'ai-agent-decision-actions';
+            const cancel = document.createElement('button');
+            cancel.type = 'button';
+            cancel.className = 'btn';
+            cancel.textContent = t('cancelBtn');
+            cancel.addEventListener('click', () => custom.remove());
+            const submit = document.createElement('button');
+            submit.type = 'submit';
+            submit.className = 'btn btn-primary';
+            submit.textContent = t('ai.workspace.send');
+            actions.append(cancel, submit);
+            custom.append(input, actions);
+            custom.addEventListener('submit', (event) => {
+              event.preventDefault();
+              const text = input.value.trim();
+              if (!text) return;
+              disableChoices();
+              submit.disabled = true;
+              submitDecision(choice, text);
+            });
+            decisionCard.appendChild(custom);
+            input.focus();
+            return;
+          }
+          disableChoices();
+          submitDecision(choice, '');
+        });
+        choiceRow.appendChild(button);
+      });
+      decisionCard.appendChild(choiceRow);
+      msgEl.appendChild(decisionCard);
+    }
+
     // Render Proposal Card (R4.2)
     if (msg.proposal && msg.diff) {
       const propEl = document.createElement('div');
