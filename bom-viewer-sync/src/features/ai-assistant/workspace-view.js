@@ -15,6 +15,32 @@ function cloneOperation(operation) {
   return JSON.parse(JSON.stringify(operation));
 }
 
+export function buildEditedConsolidationProposal({ proposal, operation, materialCode }) {
+  const code = String(materialCode || '').trim();
+  if (!/^[A-Za-z0-9][A-Za-z0-9._-]{0,79}$/.test(code)) {
+    throw swapError('AI_CONSOLIDATION_CODE_INVALID', 'The standard material code is invalid.');
+  }
+  if (operation?.mutation?.operationType !== 'consolidate_materials') {
+    throw swapError('AI_CONSOLIDATION_EDIT_UNSUPPORTED', 'Only material-consolidation operations can edit the standard material code.');
+  }
+  const sourceOperations = proposal?.operations || proposal?.proposedActions || [];
+  const sourceIndex = operation.sourceIndex;
+  if (!Number.isInteger(sourceIndex) || sourceIndex < 0 || sourceIndex >= sourceOperations.length) {
+    throw swapError('AI_CONSOLIDATION_SOURCE_MISSING', 'The selected consolidation operation has no stable source index.');
+  }
+  const nextOperation = cloneOperation(operation.mutation);
+  nextOperation.targetId = `mat_${code.toLowerCase()}`;
+  nextOperation.payload.material.code = code;
+  const operations = sourceOperations.map((sourceOperation, index) => (
+    index === sourceIndex ? nextOperation : cloneOperation(sourceOperation)
+  ));
+  return {
+    ...proposal,
+    operations,
+    ...(proposal?.proposedActions ? { proposedActions: operations } : {}),
+  };
+}
+
 export function buildRegeneratedSwapOperations({ proposal, snapshot, swaps }) {
   const sourceOperations = proposal?.operations || proposal?.proposedActions || [];
   const sourceIndexes = new Set();
@@ -716,6 +742,65 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k, ope
             riskIcon.textContent = operation.risk === 'high' ? 'warning' : (operation.risk === 'medium' ? 'info' : 'check_circle');
             const riskText = document.createTextNode(` ${t(`ai.proposal.risk.${operation.risk}`)}`);
             risk.append(riskIcon, riskText);
+            if (operation.mutation.operationType === 'consolidate_materials') {
+              const editButton = document.createElement('button');
+              editButton.type = 'button';
+              editButton.className = 'btn ai-proposal-edit-change';
+              editButton.textContent = t('ai.proposal.editConsolidation');
+              editButton.addEventListener('click', (event) => {
+                event.stopPropagation();
+                if (operationEl.querySelector('.ai-proposal-consolidation-editor')) return;
+                const editor = document.createElement('form');
+                editor.className = 'ai-proposal-consolidation-editor';
+                const label = document.createElement('label');
+                label.textContent = t('ai.proposal.standardMaterialCode');
+                const codeInput = document.createElement('input');
+                codeInput.type = 'text';
+                codeInput.required = true;
+                codeInput.maxLength = 80;
+                codeInput.value = operation.mutation.payload?.material?.code || '';
+                codeInput.setAttribute('pattern', '[A-Za-z0-9][A-Za-z0-9._-]{0,79}');
+                label.appendChild(codeInput);
+                const error = document.createElement('div');
+                error.className = 'ai-proposal-editor-error';
+                const actions = document.createElement('div');
+                actions.className = 'ai-proposal-editor-actions';
+                const cancelButton = document.createElement('button');
+                cancelButton.type = 'button';
+                cancelButton.className = 'btn';
+                cancelButton.textContent = t('ai.proposal.cancelEdit');
+                cancelButton.addEventListener('click', () => editor.remove());
+                const saveButton = document.createElement('button');
+                saveButton.type = 'submit';
+                saveButton.className = 'btn btn-primary';
+                saveButton.textContent = t('ai.proposal.saveEdit');
+                actions.append(cancelButton, saveButton);
+                editor.append(label, error, actions);
+                editor.addEventListener('submit', (submitEvent) => {
+                  submitEvent.preventDefault();
+                  try {
+                    const nextProposal = buildEditedConsolidationProposal({
+                      proposal: msg.proposal,
+                      operation,
+                      materialCode: codeInput.value,
+                    });
+                    const review = buildMutationProposalReview(msg.snapshot, nextProposal, t);
+                    rowEl.remove();
+                    renderMessage({
+                      ...msg,
+                      proposal: nextProposal,
+                      proposalReview: review,
+                      diff: review.finalDiff,
+                    });
+                  } catch {
+                    error.textContent = t('ai.proposal.editFailed');
+                  }
+                });
+                operationEl.insertBefore(editor, operationEl.children[1] || null);
+                codeInput.focus();
+              });
+              operationHeader.appendChild(editButton);
+            }
             const deleteButton = document.createElement('button');
             deleteButton.type = 'button';
             deleteButton.className = 'btn ai-proposal-delete-change';
