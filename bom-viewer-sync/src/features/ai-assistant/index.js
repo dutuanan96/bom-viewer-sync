@@ -30,16 +30,18 @@ import marketplaceAliases from '../../../knowledge/marketplace-aliases.json' wit
 export const AI_PROMPT_PACK_VERSION = promptPack.packVersion;
 
 function workflowConfirmationText(t, workflowState) {
-  const task = workflowState?.tasks?.find(item => (
+  const tasks = (workflowState?.tasks || []).filter(item => (
     item?.type === 'consolidate_materials' && item?.pendingAction === 'confirmation'
   ));
-  if (!task) return '';
-  const sourceCount = Array.isArray(task.fields?.sourceMaterialIds) ? task.fields.sourceMaterialIds.length : 0;
-  const code = String(task.fields?.newMaterialCode || '').trim();
-  if (!code || sourceCount < 2) return '';
-  return String(t('ai.workflow.consolidate.confirmation'))
-    .replace('{code}', code)
-    .replace('{count}', String(sourceCount));
+  if (tasks.length === 0) return '';
+  return tasks.map(task => {
+    const sourceCount = Array.isArray(task.fields?.sourceMaterialIds) ? task.fields.sourceMaterialIds.length : 0;
+    const code = String(task.fields?.newMaterialCode || '').trim();
+    if (!code || sourceCount < 2) return '';
+    return String(t('ai.workflow.consolidate.confirmation'))
+      .replace('{code}', code)
+      .replace('{count}', String(sourceCount));
+  }).filter(Boolean).join('\n\n');
 }
 
 function contextForRoute(route, snapshot, fallback = {}, query = '') {
