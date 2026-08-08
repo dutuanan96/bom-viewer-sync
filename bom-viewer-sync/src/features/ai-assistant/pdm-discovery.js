@@ -15,6 +15,46 @@ function normalizeSearchText(value) {
     .toLowerCase();
 }
 
+const DUPLICATE_COMPARISON_FIELDS = Object.freeze(['name', 'spec', 'material', 'color', 'attr']);
+
+function strictMaterialIdentity(record) {
+  return JSON.stringify(Object.fromEntries(
+    DUPLICATE_COMPARISON_FIELDS.map(field => [field, record[field] || {}]),
+  ));
+}
+
+function comparableMaterialIdentity(record) {
+  return JSON.stringify(Object.fromEntries(DUPLICATE_COMPARISON_FIELDS.map(field => {
+    const value = record[field] || {};
+    return [field, normalizeSearchText(value.zh || value.vi || '')];
+  })));
+}
+
+function duplicateGroupSummary(group, entries, matchType, differingFields = []) {
+  const sourceMaterialIds = group.map(record => record.id).filter(Boolean).sort();
+  const sourceIdSet = new Set(sourceMaterialIds);
+  const affectedEntries = entries.filter(entry => sourceIdSet.has(entry.materialId) || sourceIdSet.has(entry.childMaterialId));
+  const exemplar = group[0];
+  return {
+    matchType,
+    material: {
+      name: exemplar.name || {},
+      spec: exemplar.spec || {},
+      material: exemplar.material || {},
+      color: exemplar.color || {},
+      attr: exemplar.attr || {},
+    },
+    sourceMaterialIds,
+    sourceMaterialCodes: group.map(record => record.code || record.id).sort(),
+    materialCount: group.length,
+    affectedBomEntryCount: affectedEntries.length,
+    affectedProducts: [...new Set(affectedEntries
+      .map(entry => entry.productCode || '')
+      .filter(Boolean))].sort(),
+    differingFields,
+  };
+}
+
 const SEARCH_STOP_WORDS = new Set([
   'and', 'can', 'find', 'for', 'help', 'please', 'product', 'search', 'show', 'the', 'used', 'what', 'where',
   'cho', 'cua', 'dung', 'giup', 'loai', 'nao', 'pham', 'san', 'tim', 'toi', 'trong',
@@ -378,7 +418,8 @@ export class PdmDiscovery {
 
   findDuplicateMaterials({ name = '' } = {}) {
     const normalizedName = normalizeSearchText(name);
-    const groups = new Map();
+    const strictGroups = new Map();
+    const comparableGroups = new Map();
     const entries = Array.isArray(this.payload.materialDb?.bomEntries)
       ? this.payload.materialDb.bomEntries
       : [];
@@ -386,41 +427,29 @@ export class PdmDiscovery {
     for (const record of Object.values(this.payload.materialDb?.materials || {})) {
       const recordName = normalizeSearchText(`${record?.name?.zh || ''} ${record?.name?.vi || ''}`);
       if (normalizedName && !recordName.includes(normalizedName)) continue;
-      const identity = JSON.stringify({
-        name: record.name || {},
-        spec: record.spec || {},
-        material: record.material || {},
-        color: record.color || {},
-        attr: record.attr || {},
-      });
-      const group = groups.get(identity) || [];
-      group.push(record);
-      groups.set(identity, group);
+      const strictIdentity = strictMaterialIdentity(record);
+      const strictGroup = strictGroups.get(strictIdentity) || [];
+      strictGroup.push(record);
+      strictGroups.set(strictIdentity, strictGroup);
+      const comparableIdentity = comparableMaterialIdentity(record);
+      const comparableGroup = comparableGroups.get(comparableIdentity) || [];
+      comparableGroup.push(record);
+      comparableGroups.set(comparableIdentity, comparableGroup);
     }
 
-    const duplicateGroups = [...groups.values()]
+    const duplicateGroups = [...strictGroups.values()]
       .filter(group => group.length > 1)
+      .map(group => duplicateGroupSummary(group, entries, 'exact'))
+      .sort((left, right) => right.materialCount - left.materialCount
+        || right.affectedBomEntryCount - left.affectedBomEntryCount);
+    const suspectedDuplicateGroups = [...comparableGroups.values()]
+      .filter(group => group.length > 1 && new Set(group.map(strictMaterialIdentity)).size > 1)
       .map(group => {
-        const sourceMaterialIds = group.map(record => record.id).filter(Boolean).sort();
-        const sourceIdSet = new Set(sourceMaterialIds);
-        const affectedEntries = entries.filter(entry => sourceIdSet.has(entry.materialId) || sourceIdSet.has(entry.childMaterialId));
-        const exemplar = group[0];
-        return {
-          material: {
-            name: exemplar.name || {},
-            spec: exemplar.spec || {},
-            material: exemplar.material || {},
-            color: exemplar.color || {},
-            attr: exemplar.attr || {},
-          },
-          sourceMaterialIds,
-          sourceMaterialCodes: group.map(record => record.code || record.id).sort(),
-          materialCount: group.length,
-          affectedBomEntryCount: affectedEntries.length,
-          affectedProducts: [...new Set(affectedEntries
-            .map(entry => entry.productCode || '')
-            .filter(Boolean))].sort(),
-        };
+        const differingFields = DUPLICATE_COMPARISON_FIELDS.flatMap(field => {
+          const values = new Set(group.map(record => JSON.stringify(record[field] || {})));
+          return values.size > 1 ? [field] : [];
+        });
+        return duplicateGroupSummary(group, entries, 'translation_mismatch', differingFields);
       })
       .sort((left, right) => right.materialCount - left.materialCount
         || right.affectedBomEntryCount - left.affectedBomEntryCount);
@@ -428,7 +457,9 @@ export class PdmDiscovery {
     return {
       name: String(name),
       duplicateGroups: duplicateGroups.slice(0, MAX_RESULTS),
+      suspectedDuplicateGroups: suspectedDuplicateGroups.slice(0, MAX_RESULTS),
       totalGroups: duplicateGroups.length,
+      totalSuspectedGroups: suspectedDuplicateGroups.length,
       totalMaterials: duplicateGroups.reduce((count, group) => count + group.materialCount, 0),
       truncated: duplicateGroups.length > MAX_RESULTS,
       evidence: evidence(this.snapshot, {
