@@ -13938,7 +13938,7 @@
       },
       "mat_1jumyhx": {
         "id": "mat_1jumyhx",
-        "code": "LGS031PM001",
+        "code": "PM3257508",
         "name": {
           "zh": "泡沫",
           "vi": "mút xốp"
@@ -13946,32 +13946,6 @@
         "spec": {
           "zh": "20Kg,325x75x8mm",
           "vi": "20Kg,325x75x8mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_2m2bm5": {
-        "id": "mat_2m2bm5",
-        "code": "LGS031PM002",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "16Kg,320x25x17mm",
-          "vi": "16Kg,320x25x17mm"
         },
         "material": {
           "zh": "EPS泡沫",
@@ -14914,7 +14888,7 @@
       },
       "mat_12v3k9d": {
         "id": "mat_12v3k9d",
-        "code": "LGS032PM001",
+        "code": "PM3258508",
         "name": {
           "zh": "泡沫",
           "vi": "mút xốp"
@@ -14922,32 +14896,6 @@
         "spec": {
           "zh": "20Kg,325x85x8mm",
           "vi": "20Kg,325x85x8mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_qg9alk": {
-        "id": "mat_qg9alk",
-        "code": "LGS032PM002",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "16Kg,320x32x17mm",
-          "vi": "16Kg,320x32x17mm"
         },
         "material": {
           "zh": "EPS泡沫",
@@ -15603,32 +15551,6 @@
         "color": {
           "zh": "纸色",
           "vi": "纸色"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_1riroct": {
-        "id": "mat_1riroct",
-        "code": "32210511PM",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "20Kg, 322x105x11mm",
-          "vi": "20Kg, 322x105x11mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -17292,35 +17214,9 @@
         "drawings": [],
         "models3d": []
       },
-      "mat_1r89g4u": {
-        "id": "mat_1r89g4u",
-        "code": "LGS043PM001",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "16Kg,350x85x35mm",
-          "vi": "16Kg,350x85x35mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
       "mat_jnusy2": {
         "id": "mat_jnusy2",
-        "code": "LGS043PM002",
+        "code": "PM36713510",
         "name": {
           "zh": "泡沫",
           "vi": "mút xốp"
@@ -17982,84 +17878,6 @@
         "drawings": [],
         "models3d": []
       },
-      "mat_qvagg3": {
-        "id": "mat_qvagg3",
-        "code": "LGS101PM001",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "18kg,310x55x10mm",
-          "vi": "20Kg,320x100x8mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_hz2kmg": {
-        "id": "mat_hz2kmg",
-        "code": "LGS101PM002",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "16kg,290x195x32mm",
-          "vi": "20Kg,320x100x8mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_qycm36": {
-        "id": "mat_qycm36",
-        "code": "LGS101PM003",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "16kg,290x30x17mm",
-          "vi": "20Kg,320x100x8mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
       "mat_kug5sb": {
         "id": "mat_kug5sb",
         "code": "LGS101ZK",
@@ -18675,32 +18493,6 @@
         "color": {
           "zh": "纸色",
           "vi": "màu giấy"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_1lac23r": {
-        "id": "mat_1lac23r",
-        "code": "LGS111PM001",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "18kg,310x65x10mm",
-          "vi": "20Kg,320x100x8mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -19349,84 +19141,6 @@
         "color": {
           "zh": "纸色",
           "vi": "màu giấy"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_1bjqoam": {
-        "id": "mat_1bjqoam",
-        "code": "LGS131PM001",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "16Kg,367x125x10mm",
-          "vi": "16Kg,367x125x10mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_ph8xp1": {
-        "id": "mat_ph8xp1",
-        "code": "LGS131PM002",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "16Kg,340x240x15mm",
-          "vi": "16Kg,340x240x15mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_12z9nn3": {
-        "id": "mat_12z9nn3",
-        "code": "LGS131PM003",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "16Kg,340x320x35mm",
-          "vi": "16Kg,340x320x35mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -21004,35 +20718,9 @@
         "drawings": [],
         "models3d": []
       },
-      "mat_vn59oj": {
-        "id": "mat_vn59oj",
-        "code": "LGS132PM001",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "16Kg,350x190x36mm",
-          "vi": "16Kg,350x190x36mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
       "mat_1xtqc89": {
         "id": "mat_1xtqc89",
-        "code": "LGS132PM002",
+        "code": "PM36712010",
         "name": {
           "zh": "泡沫",
           "vi": "mút xốp"
@@ -21604,7 +21292,7 @@
       },
       "mat_1eub13o": {
         "id": "mat_1eub13o",
-        "code": "LGS133PM001",
+        "code": "PM47213010",
         "name": {
           "zh": "泡沫",
           "vi": "mút xốp"
@@ -21612,32 +21300,6 @@
         "spec": {
           "zh": "20kg,472x130x10mm",
           "vi": "20kg,472x130x10mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_aq70qx": {
-        "id": "mat_aq70qx",
-        "code": "LGS133PM002",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "16kg,740x50x34mm",
-          "vi": "16kg,740x50x34mm"
         },
         "material": {
           "zh": "EPS泡沫",
@@ -22278,7 +21940,7 @@
       },
       "mat_1w49ly5": {
         "id": "mat_1w49ly5",
-        "code": "LGS231PM001",
+        "code": "PM36013510",
         "name": {
           "zh": "泡沫",
           "vi": "mút xốp"
@@ -22286,110 +21948,6 @@
         "spec": {
           "zh": "16Kg,360x135x10mm",
           "vi": "16Kg,360x135x10mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_ncljjh": {
-        "id": "mat_ncljjh",
-        "code": "LGS231PM002",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "16Kg,350x320x36mm",
-          "vi": "16Kg,350x320x36mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_1rdseia": {
-        "id": "mat_1rdseia",
-        "code": "LGS231PM003",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "16Kg,350x345x20mm",
-          "vi": "16Kg,350x345x20mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_xqpmo6": {
-        "id": "mat_xqpmo6",
-        "code": "LGS231PM004",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "16Kg,590x250x6mm",
-          "vi": "16Kg,590x250x6mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_n3epeg": {
-        "id": "mat_n3epeg",
-        "code": "LGS231PM005",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "16Kg,560x250x6mm",
-          "vi": "16Kg,560x250x6mm"
         },
         "material": {
           "zh": "EPS泡沫",
@@ -23307,7 +22865,7 @@
       },
       "mat_bg6yqf": {
         "id": "mat_bg6yqf",
-        "code": "LGS232PM001",
+        "code": "PM38012035",
         "name": {
           "zh": "泡沫",
           "vi": "mút xốp"
@@ -23333,7 +22891,7 @@
       },
       "mat_ewl3bc": {
         "id": "mat_ewl3bc",
-        "code": "LGS232PM002",
+        "code": "PM39012010",
         "name": {
           "zh": "泡沫",
           "vi": "mút xốp"
@@ -23341,32 +22899,6 @@
         "spec": {
           "zh": "16Kg,390x120x10mm",
           "vi": "16Kg,390x120x10mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_10x0fon": {
-        "id": "mat_10x0fon",
-        "code": "LGS232PM003",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "16Kg,830x110x10mm",
-          "vi": "16Kg,830x110x10mm"
         },
         "material": {
           "zh": "EPS泡沫",
@@ -24129,32 +23661,6 @@
         "color": {
           "zh": "纸色",
           "vi": "纸色"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_1b3actx": {
-        "id": "mat_1b3actx",
-        "code": "LGS233PM001",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "20kg,552x100x10mm",
-          "vi": "20kg,552x100x10mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -25229,32 +24735,6 @@
         "color": {
           "zh": "纸色",
           "vi": "纸色"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_1654a1g": {
-        "id": "mat_1654a1g",
-        "code": "LGS333PM001",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "20kg,320x100x8mm",
-          "vi": "20kg,320x100x8mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -26570,58 +26050,6 @@
         "drawings": [],
         "models3d": []
       },
-      "mat_81pkkg": {
-        "id": "mat_81pkkg",
-        "code": "LGS334PM001",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "20kg,402x125x10mm",
-          "vi": "20kg,402x125x10mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_1wjh90y": {
-        "id": "mat_1wjh90y",
-        "code": "LGS334PM002",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "16kg,390x34x22mm",
-          "vi": "16kg,390x34x22mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
       "mat_rjeops": {
         "id": "mat_rjeops",
         "code": "LGS334ZK",
@@ -27287,84 +26715,6 @@
         "color": {
           "zh": "纸色",
           "vi": "màu giấy"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_18wjlm9": {
-        "id": "mat_18wjlm9",
-        "code": "LGS420PM001",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "16Kg,367x110x10mm",
-          "vi": "16Kg,367x110x10mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_1uvakmw": {
-        "id": "mat_1uvakmw",
-        "code": "LGS420PM002",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "16Kg,355x72x27mm",
-          "vi": "16Kg,355x72x27mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_1cm8v4z": {
-        "id": "mat_1cm8v4z",
-        "code": "LGS420PM003",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "16Kg,355x60x17mm",
-          "vi": "16Kg,355x60x17mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -28516,84 +27866,6 @@
         "drawings": [],
         "models3d": []
       },
-      "mat_1g2238p": {
-        "id": "mat_1g2238p",
-        "code": "LGS421PM001",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "16Kg,367x115x10mm",
-          "vi": "16Kg,367x115x10mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_zt4epf": {
-        "id": "mat_zt4epf",
-        "code": "LGS421PM002",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "16Kg,350x35x30mm",
-          "vi": "16Kg,350x35x30mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_131cpqz": {
-        "id": "mat_131cpqz",
-        "code": "LGS421PM003",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "16Kg,360x180x17mm",
-          "vi": "16Kg,360x180x17mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
       "mat_14q15qf": {
         "id": "mat_14q15qf",
         "code": "LGS421SMS",
@@ -29266,35 +28538,9 @@
         "drawings": [],
         "models3d": []
       },
-      "mat_11p1b4x": {
-        "id": "mat_11p1b4x",
-        "code": "LGS433PM001",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "20kg,320x100x8mm",
-          "vi": "20kg,320x100x8mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
       "mat_1uylybq": {
         "id": "mat_1uylybq",
-        "code": "LGS433PM002",
+        "code": "PM92529510",
         "name": {
           "zh": "泡沫",
           "vi": "mút xốp"
@@ -29302,32 +28548,6 @@
         "spec": {
           "zh": "16kg,925x295x10mm",
           "vi": "16kg,925x295x10mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_1dtk1c3": {
-        "id": "mat_1dtk1c3",
-        "code": "LGS434005",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "16kg,610x310x6mm",
-          "vi": "16kg,610x310x6mm"
         },
         "material": {
           "zh": "EPS泡沫",
@@ -30968,7 +30188,7 @@
       },
       "mat_vo3se5": {
         "id": "mat_vo3se5",
-        "code": "LGS434PM001",
+        "code": "PM39514010",
         "name": {
           "zh": "泡沫",
           "vi": "mút xốp"
@@ -30976,110 +30196,6 @@
         "spec": {
           "zh": "20kg,395x140x10mm",
           "vi": "20kg,395x140x10mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_41p14p": {
-        "id": "mat_41p14p",
-        "code": "LGS434PM002",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "16kg,385x54x20mm",
-          "vi": "16kg,385x54x20mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_agwyp0": {
-        "id": "mat_agwyp0",
-        "code": "LGS434PM003",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "16kg,700x50x10mm",
-          "vi": "16kg,700x50x10mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_12lt9zn": {
-        "id": "mat_12lt9zn",
-        "code": "LGS434PM004",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "16kg,360x30x18mm",
-          "vi": "16kg,360x30x18mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_5bv7yw": {
-        "id": "mat_5bv7yw",
-        "code": "LGS434PM005",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "16kg,610x310x6mm",
-          "vi": "16kg,610x310x6mm"
         },
         "material": {
           "zh": "EPS泡沫",
@@ -32428,58 +31544,6 @@
         "drawings": [],
         "models3d": []
       },
-      "mat_rlery7": {
-        "id": "mat_rlery7",
-        "code": "LGS723PM001",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "20kg,320x90x8mm",
-          "vi": "20kg,320x90x8mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_18jwk00": {
-        "id": "mat_18jwk00",
-        "code": "LGS723PM002",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "16kg,300x18x18mm",
-          "vi": "16kg,300x18x18mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
       "mat_qaach6": {
         "id": "mat_qaach6",
         "code": "LGS723ZK",
@@ -33569,58 +32633,6 @@
         "drawings": [],
         "models3d": []
       },
-      "mat_1dylh3s": {
-        "id": "mat_1dylh3s",
-        "code": "LGS733PM001",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "20Kg,320x100x8mm",
-          "vi": "20Kg,320x100x8mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_l7b6wd": {
-        "id": "mat_l7b6wd",
-        "code": "LGS733PM002",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "16kg,300x18x18mm",
-          "vi": "16kg,300x18x18mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
       "mat_jvzvz7": {
         "id": "mat_jvzvz7",
         "code": "LGS733ZK",
@@ -34259,84 +33271,6 @@
         "color": {
           "zh": "纸色",
           "vi": "纸色"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_1swprp": {
-        "id": "mat_1swprp",
-        "code": "LGS833PM001",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "20kg,320x100x8mm",
-          "vi": "20kg,320x100x8mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_17xt7ao": {
-        "id": "mat_17xt7ao",
-        "code": "LGS833PM002",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "16kg,300x35x20mm",
-          "vi": "16kg,300x35x20mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_1euvlzg": {
-        "id": "mat_1euvlzg",
-        "code": "LGS833PM003",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "20kg,90x50x7mm",
-          "vi": "20kg,90x50x7mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -35253,136 +34187,6 @@
         "color": {
           "zh": "纸色",
           "vi": "纸色"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_2ecy86": {
-        "id": "mat_2ecy86",
-        "code": "LGS834PM001",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "16kg,367x150x10mm",
-          "vi": "16kg,367x150x10mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_1lr5xy": {
-        "id": "mat_1lr5xy",
-        "code": "LGS834PM002",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "16kg,360x85x68mm",
-          "vi": "16kg,360x85x68mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_zcvnqo": {
-        "id": "mat_zcvnqo",
-        "code": "LGS834PM003",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "16kg,600x120x8mm",
-          "vi": "16kg,600x120x8mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_vl8ys0": {
-        "id": "mat_vl8ys0",
-        "code": "LGS834PM004",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "16kg,360x34x28mm",
-          "vi": "16kg,360x34x28mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_dindiy": {
-        "id": "mat_dindiy",
-        "code": "LGS834PM005",
-        "name": {
-          "zh": "泡沫",
-          "vi": "mút xốp"
-        },
-        "spec": {
-          "zh": "16kg,660x310x10mm",
-          "vi": "16kg,660x310x10mm"
-        },
-        "material": {
-          "zh": "EPS泡沫",
-          "vi": "EPS mút xốp"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -38071,7 +36875,7 @@
         "id": "mat_e0c034c0",
         "code": "PM61031006",
         "name": {
-          "zh": "LGS733泡沫",
+          "zh": "泡沫",
           "vi": "mút xốp"
         },
         "spec": {
@@ -38175,7 +36979,7 @@
         "id": "mat_7f7a80de",
         "code": "PM7405034",
         "name": {
-          "zh": "LGS133泡沫",
+          "zh": "泡沫",
           "vi": "mút xốp"
         },
         "spec": {
@@ -38227,7 +37031,7 @@
         "id": "mat_dd376149",
         "code": "PM55210010",
         "name": {
-          "zh": "LGS233泡沫",
+          "zh": "泡沫",
           "vi": "mút xốp"
         },
         "spec": {
@@ -38279,7 +37083,7 @@
         "id": "mat_7d6993ff",
         "code": "PM3209008",
         "name": {
-          "zh": "LGS833泡沫",
+          "zh": "泡沫",
           "vi": "mút xốp"
         },
         "spec": {
@@ -38305,7 +37109,7 @@
         "id": "mat_37e12ec2",
         "code": "PM40212510",
         "name": {
-          "zh": "LGS334泡沫",
+          "zh": "泡沫",
           "vi": "mút xốp"
         },
         "spec": {
@@ -38331,7 +37135,7 @@
         "id": "mat_114fbcfe",
         "code": "PM3903422",
         "name": {
-          "zh": "LGS334泡沫",
+          "zh": "泡沫",
           "vi": "mút xốp"
         },
         "spec": {
@@ -38513,7 +37317,7 @@
         "id": "mat_b4456118",
         "code": "PM3855420",
         "name": {
-          "zh": "LGS434泡沫",
+          "zh": "泡沫",
           "vi": "mút xốp"
         },
         "spec": {
@@ -38539,7 +37343,7 @@
         "id": "mat_38e2cedc",
         "code": "PM7005010",
         "name": {
-          "zh": "LGS434泡沫",
+          "zh": "泡沫",
           "vi": "mút xốp"
         },
         "spec": {
@@ -38565,7 +37369,7 @@
         "id": "mat_7f4f7948",
         "code": "PM3603018",
         "name": {
-          "zh": "LGS434泡沫",
+          "zh": "泡沫",
           "vi": "mút xốp"
         },
         "spec": {
@@ -38643,7 +37447,7 @@
         "id": "mat_13db3874",
         "code": "PM3001818",
         "name": {
-          "zh": "LGS733泡沫",
+          "zh": "泡沫",
           "vi": "mút xốp"
         },
         "spec": {
@@ -38695,7 +37499,7 @@
         "id": "mat_30320565",
         "code": "PM32010008",
         "name": {
-          "zh": "LGS733泡沫",
+          "zh": "泡沫",
           "vi": "mút xốp"
         },
         "spec": {
@@ -38721,7 +37525,7 @@
         "id": "mat_c5919fca",
         "code": "PM3003520",
         "name": {
-          "zh": "LGS833泡沫",
+          "zh": "泡沫",
           "vi": "mút xốp"
         },
         "spec": {
@@ -38747,7 +37551,7 @@
         "id": "mat_a16aff4a",
         "code": "PM905007",
         "name": {
-          "zh": "LGS833泡沫",
+          "zh": "泡沫",
           "vi": "mút xốp"
         },
         "spec": {
@@ -38773,7 +37577,7 @@
         "id": "mat_54630d2",
         "code": "PM36715010",
         "name": {
-          "zh": "LGS834泡沫",
+          "zh": "泡沫",
           "vi": "mút xốp"
         },
         "spec": {
@@ -38799,7 +37603,7 @@
         "id": "mat_2ad87dbf",
         "code": "PM3608568",
         "name": {
-          "zh": "LGS834泡沫",
+          "zh": "泡沫",
           "vi": "mút xốp"
         },
         "spec": {
@@ -38825,7 +37629,7 @@
         "id": "mat_8d7c1a14",
         "code": "PM60012008",
         "name": {
-          "zh": "LGS834泡沫",
+          "zh": "泡沫",
           "vi": "mút xốp"
         },
         "spec": {
@@ -38851,7 +37655,7 @@
         "id": "mat_bcf16a1f",
         "code": "PM3603428",
         "name": {
-          "zh": "LGS834泡沫",
+          "zh": "泡沫",
           "vi": "mút xốp"
         },
         "spec": {
@@ -38877,7 +37681,7 @@
         "id": "mat_9e0cde82",
         "code": "PM66031010",
         "name": {
-          "zh": "LGS834泡沫",
+          "zh": "泡沫",
           "vi": "mút xốp"
         },
         "spec": {
@@ -69972,7 +68776,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 25.0
+        "order": 25
       },
       {
         "id": "mat_dbf2b428",
@@ -69986,7 +68790,7 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 26.0
+        "order": 26
       },
       {
         "id": "mat_408c94bc",
@@ -70000,7 +68804,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 27.0
+        "order": 27
       },
       {
         "id": "mat_4eecbe3b",
@@ -70014,7 +68818,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 28.0
+        "order": 28
       },
       {
         "id": "mat_ddbe32b",
@@ -70028,7 +68832,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 29.0
+        "order": 29
       },
       {
         "id": "mat_ba023e5f",
@@ -70042,7 +68846,7 @@
         "qty": "16",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 30.0
+        "order": 30
       },
       {
         "id": "mat_d1e1722d",
@@ -70056,7 +68860,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 31.0
+        "order": 31
       },
       {
         "id": "mat_b89f733e",
@@ -70070,7 +68874,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 32.0
+        "order": 32
       },
       {
         "id": "mat_b9e97016",
@@ -70084,7 +68888,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 33.0
+        "order": 33
       },
       {
         "id": "mat_694f0f96",
@@ -70098,7 +68902,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 44.0
+        "order": 44
       },
       {
         "id": "mat_94c74291",
@@ -70112,7 +68916,7 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 45.0
+        "order": 45
       },
       {
         "id": "mat_f860d8c7",
@@ -70126,7 +68930,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 46.0
+        "order": 46
       },
       {
         "id": "mat_25f33c0e",
@@ -70140,7 +68944,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 47.0
+        "order": 47
       },
       {
         "id": "mat_a79d9493",
@@ -70154,7 +68958,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 48.0
+        "order": 48
       },
       {
         "id": "mat_36b18fbc",
@@ -70168,7 +68972,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 49.0
+        "order": 49
       },
       {
         "id": "mat_5e6e624d",
@@ -70182,7 +68986,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 50.0
+        "order": 50
       },
       {
         "id": "mat_d2a01153",
@@ -70196,7 +69000,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 51.0
+        "order": 51
       },
       {
         "id": "mat_3762f09d",
@@ -70210,7 +69014,7 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 52.0
+        "order": 52
       },
       {
         "id": "mat_17404e5c",
@@ -70224,7 +69028,7 @@
         "qty": "8",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 53.0
+        "order": 53
       },
       {
         "id": "mat_8ef14f85",
@@ -70238,7 +69042,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 54.0
+        "order": 54
       },
       {
         "id": "mat_c8297de2",
@@ -70252,7 +69056,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 55.0
+        "order": 55
       },
       {
         "id": "mat_33a8dbde",
@@ -70266,7 +69070,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 56.0
+        "order": 56
       },
       {
         "id": "mat_e93adaad",
@@ -70280,7 +69084,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 46.0
+        "order": 46
       },
       {
         "id": "mat_6f3826de",
@@ -70294,7 +69098,7 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 47.0
+        "order": 47
       },
       {
         "id": "mat_d94abcd0",
@@ -70308,7 +69112,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 48.0
+        "order": 48
       },
       {
         "id": "mat_c22c388",
@@ -70322,7 +69126,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 49.0
+        "order": 49
       },
       {
         "id": "mat_e639471a",
@@ -70336,7 +69140,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 50.0
+        "order": 50
       },
       {
         "id": "mat_9bdab60b",
@@ -70350,7 +69154,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 51.0
+        "order": 51
       },
       {
         "id": "mat_3de24aef",
@@ -70364,7 +69168,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 52.0
+        "order": 52
       },
       {
         "id": "mat_ffc6bd75",
@@ -70378,7 +69182,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 53.0
+        "order": 53
       },
       {
         "id": "mat_c0ca4476",
@@ -70392,7 +69196,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 54.0
+        "order": 54
       },
       {
         "id": "mat_34bdbeb1",
@@ -70406,7 +69210,7 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 55.0
+        "order": 55
       },
       {
         "id": "mat_f7126ef",
@@ -70420,7 +69224,7 @@
         "qty": "8",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 56.0
+        "order": 56
       },
       {
         "id": "mat_bf34c1e4",
@@ -70434,7 +69238,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 57.0
+        "order": 57
       },
       {
         "id": "mat_b74510d2",
@@ -70448,7 +69252,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 58.0
+        "order": 58
       },
       {
         "id": "mat_ca4176f8",
@@ -70462,7 +69266,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 59.0
+        "order": 59
       },
       {
         "id": "mat_f0ae7cf2",
@@ -70476,7 +69280,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 45.0
+        "order": 45
       },
       {
         "id": "mat_b0d88938",
@@ -70490,7 +69294,7 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 46.0
+        "order": 46
       },
       {
         "id": "mat_d9ce19da",
@@ -70504,7 +69308,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 47.0
+        "order": 47
       },
       {
         "id": "mat_3b386876",
@@ -70518,7 +69322,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 48.0
+        "order": 48
       },
       {
         "id": "mat_a30a9a20",
@@ -70532,7 +69336,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 49.0
+        "order": 49
       },
       {
         "id": "mat_a3ed2891",
@@ -70546,7 +69350,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 50.0
+        "order": 50
       },
       {
         "id": "mat_e13e03f4",
@@ -70560,7 +69364,7 @@
         "qty": "12",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 51.0
+        "order": 51
       },
       {
         "id": "mat_52d4905f",
@@ -70574,7 +69378,7 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 52.0
+        "order": 52
       },
       {
         "id": "mat_4e9badce",
@@ -70588,7 +69392,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 53.0
+        "order": 53
       },
       {
         "id": "mat_b1e30138",
@@ -70602,7 +69406,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 54.0
+        "order": 54
       },
       {
         "id": "mat_815e03b0",
@@ -70616,7 +69420,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 55.0
+        "order": 55
       },
       {
         "id": "mat_e1962b25",
@@ -70630,7 +69434,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 56.0
+        "order": 56
       },
       {
         "id": "mat_6f382901",
@@ -70644,7 +69448,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 57.0
+        "order": 57
       },
       {
         "id": "mat_d21b077a",
@@ -70658,7 +69462,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 45.0
+        "order": 45
       },
       {
         "id": "mat_f47e4e49",
@@ -70672,7 +69476,7 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 46.0
+        "order": 46
       },
       {
         "id": "mat_c2e19606",
@@ -70686,7 +69490,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 47.0
+        "order": 47
       },
       {
         "id": "mat_7a029e23",
@@ -70700,7 +69504,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 48.0
+        "order": 48
       },
       {
         "id": "mat_13301ac3",
@@ -70714,7 +69518,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 49.0
+        "order": 49
       },
       {
         "id": "mat_93348083",
@@ -70728,7 +69532,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 50.0
+        "order": 50
       },
       {
         "id": "mat_ea663129",
@@ -70742,7 +69546,7 @@
         "qty": "12",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 51.0
+        "order": 51
       },
       {
         "id": "mat_da49d668",
@@ -70756,7 +69560,7 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 52.0
+        "order": 52
       },
       {
         "id": "mat_4df1ee93",
@@ -70770,7 +69574,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 53.0
+        "order": 53
       },
       {
         "id": "mat_d4aab52f",
@@ -70784,7 +69588,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 54.0
+        "order": 54
       },
       {
         "id": "mat_4630b1c7",
@@ -70798,7 +69602,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 55.0
+        "order": 55
       },
       {
         "id": "mat_384d42b8",
@@ -70812,7 +69616,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 56.0
+        "order": 56
       },
       {
         "id": "mat_ff7c25b4",
@@ -70826,7 +69630,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 57.0
+        "order": 57
       },
       {
         "id": "mat_fdefd71c",
@@ -70840,7 +69644,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 43.0
+        "order": 43
       },
       {
         "id": "mat_cfa081b3",
@@ -70854,7 +69658,7 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 44.0
+        "order": 44
       },
       {
         "id": "mat_ec3e7e65",
@@ -70868,7 +69672,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 45.0
+        "order": 45
       },
       {
         "id": "mat_ffc0c5ad",
@@ -70882,7 +69686,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 46.0
+        "order": 46
       },
       {
         "id": "mat_748913b6",
@@ -70896,7 +69700,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 47.0
+        "order": 47
       },
       {
         "id": "mat_557b3524",
@@ -70910,7 +69714,7 @@
         "qty": "12",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 48.0
+        "order": 48
       },
       {
         "id": "mat_16536fb8",
@@ -70924,7 +69728,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 49.0
+        "order": 49
       },
       {
         "id": "mat_94e10321",
@@ -70938,7 +69742,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 50.0
+        "order": 50
       },
       {
         "id": "mat_9bd328e8",
@@ -70952,7 +69756,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 51.0
+        "order": 51
       },
       {
         "id": "mat_8afe0452",
@@ -70966,7 +69770,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 52.0
+        "order": 52
       },
       {
         "id": "mat_7506f33d",
@@ -70980,7 +69784,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 53.0
+        "order": 53
       },
       {
         "id": "mat_a2cde67d",
@@ -70994,7 +69798,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 48.0
+        "order": 48
       },
       {
         "id": "mat_1437582",
@@ -71008,7 +69812,7 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 49.0
+        "order": 49
       },
       {
         "id": "mat_10da9dc8",
@@ -71022,7 +69826,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 50.0
+        "order": 50
       },
       {
         "id": "mat_29c0a023",
@@ -71036,7 +69840,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 51.0
+        "order": 51
       },
       {
         "id": "mat_cb443060",
@@ -71050,7 +69854,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 52.0
+        "order": 52
       },
       {
         "id": "mat_2805cd9",
@@ -71064,7 +69868,7 @@
         "qty": "8",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 53.0
+        "order": 53
       },
       {
         "id": "mat_b2ff984e",
@@ -71078,7 +69882,7 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 54.0
+        "order": 54
       },
       {
         "id": "mat_2388d002",
@@ -71092,7 +69896,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 55.0
+        "order": 55
       },
       {
         "id": "mat_1f4f59a5",
@@ -71106,7 +69910,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 56.0
+        "order": 56
       },
       {
         "id": "mat_7b865d5e",
@@ -71120,7 +69924,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 57.0
+        "order": 57
       },
       {
         "id": "mat_57b29900",
@@ -71134,7 +69938,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 58.0
+        "order": 58
       },
       {
         "id": "mat_18022442",
@@ -71148,7 +69952,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 59.0
+        "order": 59
       },
       {
         "id": "mat_60490db",
@@ -71162,7 +69966,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 49.0
+        "order": 49
       },
       {
         "id": "mat_eeef1fed",
@@ -71176,7 +69980,7 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 50.0
+        "order": 50
       },
       {
         "id": "mat_bd3b0e32",
@@ -71190,7 +69994,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 51.0
+        "order": 51
       },
       {
         "id": "mat_47d4c462",
@@ -71204,7 +70008,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 52.0
+        "order": 52
       },
       {
         "id": "mat_7397f184",
@@ -71218,7 +70022,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 53.0
+        "order": 53
       },
       {
         "id": "mat_d90092be",
@@ -71232,7 +70036,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 54.0
+        "order": 54
       },
       {
         "id": "mat_471e664f",
@@ -71246,7 +70050,7 @@
         "qty": "8",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 55.0
+        "order": 55
       },
       {
         "id": "mat_3a346eda",
@@ -71260,7 +70064,7 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 56.0
+        "order": 56
       },
       {
         "id": "mat_6f853235",
@@ -71274,7 +70078,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 57.0
+        "order": 57
       },
       {
         "id": "mat_771072b9",
@@ -71288,7 +70092,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 58.0
+        "order": 58
       },
       {
         "id": "mat_f92f8d9d",
@@ -71302,7 +70106,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 59.0
+        "order": 59
       },
       {
         "id": "mat_115ffa0e",
@@ -71316,7 +70120,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 60.0
+        "order": 60
       },
       {
         "id": "mat_92ccfafa",
@@ -71330,7 +70134,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 61.0
+        "order": 61
       },
       {
         "id": "mat_ee828b1e",
@@ -71344,7 +70148,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 49.0
+        "order": 49
       },
       {
         "id": "mat_4960f229",
@@ -71358,7 +70162,7 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 50.0
+        "order": 50
       },
       {
         "id": "mat_c2be6908",
@@ -71372,7 +70176,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 51.0
+        "order": 51
       },
       {
         "id": "mat_7cc4f2d3",
@@ -71386,7 +70190,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 52.0
+        "order": 52
       },
       {
         "id": "mat_56fe091c",
@@ -71400,7 +70204,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 53.0
+        "order": 53
       },
       {
         "id": "mat_1e1f021c",
@@ -71414,7 +70218,7 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 54.0
+        "order": 54
       },
       {
         "id": "mat_f2c746b1",
@@ -71428,7 +70232,7 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 55.0
+        "order": 55
       },
       {
         "id": "mat_f8a2aefc",
@@ -71442,7 +70246,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 56.0
+        "order": 56
       },
       {
         "id": "mat_5466d86a",
@@ -71456,7 +70260,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 57.0
+        "order": 57
       },
       {
         "id": "mat_22f8b077",
@@ -71470,7 +70274,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 58.0
+        "order": 58
       },
       {
         "id": "mat_5cd45555",
@@ -71484,7 +70288,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 59.0
+        "order": 59
       },
       {
         "id": "mat_f5a4fcb7",
@@ -71498,7 +70302,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 60.0
+        "order": 60
       },
       {
         "id": "mat_557b93ae",
@@ -71512,7 +70316,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 25.0
+        "order": 25
       },
       {
         "id": "mat_d19648e4",
@@ -71526,7 +70330,7 @@
         "qty": "4",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 26.0
+        "order": 26
       },
       {
         "id": "mat_629ee218",
@@ -71540,7 +70344,7 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 27.0
+        "order": 27
       },
       {
         "id": "mat_5fc52c5f",
@@ -71554,7 +70358,7 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 28.0
+        "order": 28
       },
       {
         "id": "mat_8995b87",
@@ -71568,7 +70372,7 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 29.0
+        "order": 29
       },
       {
         "id": "mat_d7fbad53",
@@ -71582,7 +70386,7 @@
         "qty": "16",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 30.0
+        "order": 30
       },
       {
         "id": "mat_d5c0741",
@@ -71596,7 +70400,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 31.0
+        "order": 31
       },
       {
         "id": "mat_4af6a0a",
@@ -71610,7 +70414,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 32.0
+        "order": 32
       },
       {
         "id": "mat_f4f9bcfa",
@@ -71624,7 +70428,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 33.0
+        "order": 33
       },
       {
         "id": "mat_fbe18c65",
@@ -71638,7 +70442,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 44.0
+        "order": 44
       },
       {
         "id": "mat_a5adb53b",
@@ -71652,7 +70456,7 @@
         "qty": "4",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 45.0
+        "order": 45
       },
       {
         "id": "mat_34546d59",
@@ -71666,7 +70470,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 46.0
+        "order": 46
       },
       {
         "id": "mat_9b7de76c",
@@ -71680,7 +70484,7 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 47.0
+        "order": 47
       },
       {
         "id": "mat_519bd8d",
@@ -71694,7 +70498,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 48.0
+        "order": 48
       },
       {
         "id": "mat_6eac8676",
@@ -71708,7 +70512,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 49.0
+        "order": 49
       },
       {
         "id": "mat_bc8a67cf",
@@ -71722,7 +70526,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 50.0
+        "order": 50
       },
       {
         "id": "mat_d579314d",
@@ -71736,7 +70540,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 51.0
+        "order": 51
       },
       {
         "id": "mat_ebcbf347",
@@ -71750,7 +70554,7 @@
         "qty": "4",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 52.0
+        "order": 52
       },
       {
         "id": "mat_be32fc52",
@@ -71764,7 +70568,7 @@
         "qty": "8",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 53.0
+        "order": 53
       },
       {
         "id": "mat_410c7e23",
@@ -71778,7 +70582,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 54.0
+        "order": 54
       },
       {
         "id": "mat_53b76770",
@@ -71792,7 +70596,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 55.0
+        "order": 55
       },
       {
         "id": "mat_2d728c6c",
@@ -71806,7 +70610,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 56.0
+        "order": 56
       },
       {
         "id": "mat_a8493f64",
@@ -71820,7 +70624,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 46.0
+        "order": 46
       },
       {
         "id": "mat_1e2ffda6",
@@ -71834,7 +70638,7 @@
         "qty": "4",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 47.0
+        "order": 47
       },
       {
         "id": "mat_cc7e89c8",
@@ -71848,7 +70652,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 48.0
+        "order": 48
       },
       {
         "id": "mat_cb4ab8c0",
@@ -71862,7 +70666,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 49.0
+        "order": 49
       },
       {
         "id": "mat_211e12c2",
@@ -71876,7 +70680,7 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 50.0
+        "order": 50
       },
       {
         "id": "mat_ecac8bd3",
@@ -71890,7 +70694,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 51.0
+        "order": 51
       },
       {
         "id": "mat_2201fae7",
@@ -71904,7 +70708,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 52.0
+        "order": 52
       },
       {
         "id": "mat_937845dd",
@@ -71918,7 +70722,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 53.0
+        "order": 53
       },
       {
         "id": "mat_bd9a45e",
@@ -71932,7 +70736,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 54.0
+        "order": 54
       },
       {
         "id": "mat_34fab699",
@@ -71946,7 +70750,7 @@
         "qty": "4",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 55.0
+        "order": 55
       },
       {
         "id": "mat_b28f5377",
@@ -71960,7 +70764,7 @@
         "qty": "8",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 56.0
+        "order": 56
       },
       {
         "id": "mat_4d031dfc",
@@ -71974,7 +70778,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 57.0
+        "order": 57
       },
       {
         "id": "mat_f78e270a",
@@ -71988,7 +70792,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 58.0
+        "order": 58
       },
       {
         "id": "mat_f2b6a130",
@@ -72002,7 +70806,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 59.0
+        "order": 59
       },
       {
         "id": "mat_e23a2c7f",
@@ -72016,7 +70820,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 45.0
+        "order": 45
       },
       {
         "id": "mat_795de5c8",
@@ -72030,7 +70834,7 @@
         "qty": "4",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 46.0
+        "order": 46
       },
       {
         "id": "mat_7fcfd0ca",
@@ -72044,7 +70848,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 47.0
+        "order": 47
       },
       {
         "id": "mat_7bb7a366",
@@ -72058,7 +70862,7 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 48.0
+        "order": 48
       },
       {
         "id": "mat_fcb3bed0",
@@ -72072,7 +70876,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 49.0
+        "order": 49
       },
       {
         "id": "mat_29423ba1",
@@ -72086,7 +70890,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 50.0
+        "order": 50
       },
       {
         "id": "mat_9f294c84",
@@ -72100,7 +70904,7 @@
         "qty": "12",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 51.0
+        "order": 51
       },
       {
         "id": "mat_c4bb76af",
@@ -72114,7 +70918,7 @@
         "qty": "4",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 52.0
+        "order": 52
       },
       {
         "id": "mat_4265a03e",
@@ -72128,7 +70932,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 53.0
+        "order": 53
       },
       {
         "id": "mat_1a08eb88",
@@ -72142,7 +70946,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 54.0
+        "order": 54
       },
       {
         "id": "mat_219f6600",
@@ -72156,7 +70960,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 55.0
+        "order": 55
       },
       {
         "id": "mat_25330515",
@@ -72170,7 +70974,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 56.0
+        "order": 56
       },
       {
         "id": "mat_d424cf51",
@@ -72184,7 +70988,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 57.0
+        "order": 57
       },
       {
         "id": "mat_a091c7be",
@@ -72198,7 +71002,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 45.0
+        "order": 45
       },
       {
         "id": "mat_29a642eb",
@@ -72212,7 +71016,7 @@
         "qty": "4",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 46.0
+        "order": 46
       },
       {
         "id": "mat_b5a1ca04",
@@ -72226,7 +71030,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 47.0
+        "order": 47
       },
       {
         "id": "mat_37fc6c79",
@@ -72240,7 +71044,7 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 48.0
+        "order": 48
       },
       {
         "id": "mat_bc97f991",
@@ -72254,7 +71058,7 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 49.0
+        "order": 49
       },
       {
         "id": "mat_c766d09",
@@ -72268,7 +71072,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 50.0
+        "order": 50
       },
       {
         "id": "mat_25a4bd8b",
@@ -72282,7 +71086,7 @@
         "qty": "12",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 51.0
+        "order": 51
       },
       {
         "id": "mat_46d3e686",
@@ -72296,7 +71100,7 @@
         "qty": "4",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 52.0
+        "order": 52
       },
       {
         "id": "mat_d943e081",
@@ -72310,7 +71114,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 53.0
+        "order": 53
       },
       {
         "id": "mat_4b81c73d",
@@ -72324,7 +71128,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 54.0
+        "order": 54
       },
       {
         "id": "mat_91bf9861",
@@ -72338,7 +71142,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 55.0
+        "order": 55
       },
       {
         "id": "mat_2b4cf542",
@@ -72352,7 +71156,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 56.0
+        "order": 56
       },
       {
         "id": "mat_7308053e",
@@ -72366,7 +71170,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 57.0
+        "order": 57
       },
       {
         "id": "mat_793f3bf2",
@@ -72380,7 +71184,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 43.0
+        "order": 43
       },
       {
         "id": "mat_b65b29bd",
@@ -72394,7 +71198,7 @@
         "qty": "4",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 44.0
+        "order": 44
       },
       {
         "id": "mat_2b4942bf",
@@ -72408,7 +71212,7 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 45.0
+        "order": 45
       },
       {
         "id": "mat_a535e7df",
@@ -72422,7 +71226,7 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 46.0
+        "order": 46
       },
       {
         "id": "mat_641cd0c0",
@@ -72436,7 +71240,7 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 47.0
+        "order": 47
       },
       {
         "id": "mat_8f247252",
@@ -72450,7 +71254,7 @@
         "qty": "12",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 48.0
+        "order": 48
       },
       {
         "id": "mat_fa4c9af6",
@@ -72464,7 +71268,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 49.0
+        "order": 49
       },
       {
         "id": "mat_855b213",
@@ -72478,7 +71282,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 50.0
+        "order": 50
       },
       {
         "id": "mat_b8ac3c3e",
@@ -72492,7 +71296,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 51.0
+        "order": 51
       },
       {
         "id": "mat_f8164434",
@@ -72506,7 +71310,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 52.0
+        "order": 52
       },
       {
         "id": "mat_c38a012f",
@@ -72520,7 +71324,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 53.0
+        "order": 53
       },
       {
         "id": "mat_8b5a027d",
@@ -72702,7 +71506,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 49.0
+        "order": 49
       },
       {
         "id": "mat_a475ad6f",
@@ -72716,7 +71520,7 @@
         "qty": "4",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 50.0
+        "order": 50
       },
       {
         "id": "mat_4584f974",
@@ -72730,7 +71534,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 51.0
+        "order": 51
       },
       {
         "id": "mat_ceccb728",
@@ -72744,7 +71548,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 52.0
+        "order": 52
       },
       {
         "id": "mat_dd614972",
@@ -72758,7 +71562,7 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 53.0
+        "order": 53
       },
       {
         "id": "mat_be045134",
@@ -72772,7 +71576,7 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 54.0
+        "order": 54
       },
       {
         "id": "mat_df8e47ed",
@@ -72786,7 +71590,7 @@
         "qty": "8",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 55.0
+        "order": 55
       },
       {
         "id": "mat_e32f29ec",
@@ -72800,7 +71604,7 @@
         "qty": "4",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 56.0
+        "order": 56
       },
       {
         "id": "mat_86f102bb",
@@ -72814,7 +71618,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 57.0
+        "order": 57
       },
       {
         "id": "mat_5790072b",
@@ -72828,7 +71632,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 58.0
+        "order": 58
       },
       {
         "id": "mat_a495f233",
@@ -72842,7 +71646,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 59.0
+        "order": 59
       },
       {
         "id": "mat_be05e4",
@@ -72856,7 +71660,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 60.0
+        "order": 60
       },
       {
         "id": "mat_ca9deed0",
@@ -72870,7 +71674,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 61.0
+        "order": 61
       },
       {
         "id": "mat_6abade9e",
@@ -72884,7 +71688,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 49.0
+        "order": 49
       },
       {
         "id": "mat_e0004b37",
@@ -72898,7 +71702,7 @@
         "qty": "4",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 50.0
+        "order": 50
       },
       {
         "id": "mat_ed93b3f6",
@@ -72912,7 +71716,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 51.0
+        "order": 51
       },
       {
         "id": "mat_69300959",
@@ -72926,7 +71730,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 52.0
+        "order": 52
       },
       {
         "id": "mat_fb46d3d2",
@@ -72940,7 +71744,7 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 53.0
+        "order": 53
       },
       {
         "id": "mat_954ee7ea",
@@ -72954,7 +71758,7 @@
         "qty": "4",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 54.0
+        "order": 54
       },
       {
         "id": "mat_579db12f",
@@ -72968,7 +71772,7 @@
         "qty": "4",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 55.0
+        "order": 55
       },
       {
         "id": "mat_9568686",
@@ -72982,7 +71786,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 56.0
+        "order": 56
       },
       {
         "id": "mat_aceb2608",
@@ -72996,7 +71800,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 57.0
+        "order": 57
       },
       {
         "id": "mat_c55dd225",
@@ -73010,7 +71814,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 58.0
+        "order": 58
       },
       {
         "id": "mat_6cdcfb48",
@@ -73024,7 +71828,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 59.0
+        "order": 59
       },
       {
         "id": "mat_439ab8c2",
@@ -73038,7 +71842,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 60.0
+        "order": 60
       },
       {
         "id": "mat_d72be429",
@@ -73178,7 +71982,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 44.0
+        "order": 44
       },
       {
         "id": "mat_b29215dd",
@@ -73192,7 +71996,7 @@
         "qty": "4",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 45.0
+        "order": 45
       },
       {
         "id": "mat_5416adb",
@@ -73206,7 +72010,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 46.0
+        "order": 46
       },
       {
         "id": "mat_c5685022",
@@ -73220,7 +72024,7 @@
         "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 47.0
+        "order": 47
       },
       {
         "id": "mat_2dbe2977",
@@ -73234,7 +72038,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 48.0
+        "order": 48
       },
       {
         "id": "mat_a1c22d88",
@@ -73248,7 +72052,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 49.0
+        "order": 49
       },
       {
         "id": "mat_ea2889e9",
@@ -73262,7 +72066,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 50.0
+        "order": 50
       },
       {
         "id": "mat_90749407",
@@ -73276,7 +72080,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 51.0
+        "order": 51
       },
       {
         "id": "mat_e196b569",
@@ -73290,7 +72094,7 @@
         "qty": "4",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 52.0
+        "order": 52
       },
       {
         "id": "mat_d21c20a8",
@@ -73304,7 +72108,7 @@
         "qty": "8",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 53.0
+        "order": 53
       },
       {
         "id": "mat_4f1f27b1",
@@ -73318,7 +72122,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 54.0
+        "order": 54
       },
       {
         "id": "mat_d5227e9e",
@@ -73332,7 +72136,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 55.0
+        "order": 55
       },
       {
         "id": "mat_351cbaaa",
@@ -73346,7 +72150,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 56.0
+        "order": 56
       },
       {
         "id": "mat_20ab37f6",
@@ -73556,7 +72360,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 45.0
+        "order": 45
       },
       {
         "id": "mat_a117e2a4",
@@ -73570,7 +72374,7 @@
         "qty": "4",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 46.0
+        "order": 46
       },
       {
         "id": "mat_15b6e05e",
@@ -73584,7 +72388,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 47.0
+        "order": 47
       },
       {
         "id": "mat_e5e500da",
@@ -73598,7 +72402,7 @@
         "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 48.0
+        "order": 48
       },
       {
         "id": "mat_81a359ac",
@@ -73612,7 +72416,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 49.0
+        "order": 49
       },
       {
         "id": "mat_604b4ec5",
@@ -73626,7 +72430,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 50.0
+        "order": 50
       },
       {
         "id": "mat_8aea8f58",
@@ -73640,7 +72444,7 @@
         "qty": "12",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 51.0
+        "order": 51
       },
       {
         "id": "mat_a9cb6733",
@@ -73654,7 +72458,7 @@
         "qty": "4",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 52.0
+        "order": 52
       },
       {
         "id": "mat_1f505782",
@@ -73668,7 +72472,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 53.0
+        "order": 53
       },
       {
         "id": "mat_2c7ebd04",
@@ -73682,7 +72486,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 54.0
+        "order": 54
       },
       {
         "id": "mat_322d413c",
@@ -73696,7 +72500,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 55.0
+        "order": 55
       },
       {
         "id": "mat_c79b9c41",
@@ -73710,7 +72514,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 56.0
+        "order": 56
       },
       {
         "id": "mat_a451f50d",
@@ -73724,7 +72528,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 57.0
+        "order": 57
       },
       {
         "id": "mat_53756e7b",
@@ -74592,7 +73396,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 32.0
+        "order": 32
       },
       {
         "id": "mat_94e3f44e",
@@ -74606,7 +73410,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 33.0
+        "order": 33
       },
       {
         "id": "mat_2465d8ee",
@@ -74620,7 +73424,7 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 34.0
+        "order": 34
       },
       {
         "id": "mat_5b7ca4bd",
@@ -74634,7 +73438,7 @@
         "qty": "8",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 35.0
+        "order": 35
       },
       {
         "id": "mat_9e6d3464",
@@ -74648,7 +73452,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 36.0
+        "order": 36
       },
       {
         "id": "mat_a0d81571",
@@ -74662,7 +73466,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 37.0
+        "order": 37
       },
       {
         "id": "mat_57ad0435",
@@ -74676,7 +73480,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 38.0
+        "order": 38
       },
       {
         "id": "mat_3c078026",
@@ -74690,7 +73494,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 39.0
+        "order": 39
       },
       {
         "id": "mat_cadbe8e3",
@@ -74704,7 +73508,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 40.0
+        "order": 40
       },
       {
         "id": "mat_2bd86952",
@@ -74718,7 +73522,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 41.0
+        "order": 41
       },
       {
         "id": "mat_c8e3de30",
@@ -74732,7 +73536,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 42.0
+        "order": 42
       },
       {
         "id": "mat_24e50a68",
@@ -74746,7 +73550,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 43.0
+        "order": 43
       },
       {
         "id": "mat_e5c76e7a",
@@ -74760,7 +73564,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 44.0
+        "order": 44
       },
       {
         "id": "mat_fa7d1f87",
@@ -74774,7 +73578,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 45.0
+        "order": 45
       },
       {
         "id": "mat_1a0773e5",
@@ -74788,7 +73592,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 46.0
+        "order": 46
       },
       {
         "id": "mat_ab894997",
@@ -74802,7 +73606,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 47.0
+        "order": 47
       },
       {
         "id": "mat_5de80eab",
@@ -74816,7 +73620,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 32.0
+        "order": 32
       },
       {
         "id": "mat_b86534b2",
@@ -74830,7 +73634,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 33.0
+        "order": 33
       },
       {
         "id": "mat_17fd43ea",
@@ -74844,7 +73648,7 @@
         "qty": "4",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 34.0
+        "order": 34
       },
       {
         "id": "mat_5cf19cc1",
@@ -74858,7 +73662,7 @@
         "qty": "8",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 35.0
+        "order": 35
       },
       {
         "id": "mat_5e1f7aa8",
@@ -74872,7 +73676,7 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 36.0
+        "order": 36
       },
       {
         "id": "mat_5eb150cd",
@@ -74886,7 +73690,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 37.0
+        "order": 37
       },
       {
         "id": "mat_75eb3e19",
@@ -74900,7 +73704,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 38.0
+        "order": 38
       },
       {
         "id": "mat_6f58a682",
@@ -74914,7 +73718,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 39.0
+        "order": 39
       },
       {
         "id": "mat_fb0c813f",
@@ -74928,7 +73732,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 40.0
+        "order": 40
       },
       {
         "id": "mat_db38bece",
@@ -74942,7 +73746,7 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 41.0
+        "order": 41
       },
       {
         "id": "mat_faf7ad1c",
@@ -74956,7 +73760,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 42.0
+        "order": 42
       },
       {
         "id": "mat_35678b14",
@@ -74970,7 +73774,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 43.0
+        "order": 43
       },
       {
         "id": "mat_1d28746",
@@ -74984,7 +73788,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 44.0
+        "order": 44
       },
       {
         "id": "mat_d9ff7d6b",
@@ -74998,7 +73802,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 45.0
+        "order": 45
       },
       {
         "id": "mat_46cb6231",
@@ -75012,7 +73816,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 46.0
+        "order": 46
       },
       {
         "id": "mat_8ab09ac3",
@@ -75026,7 +73830,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 47.0
+        "order": 47
       },
       {
         "id": "mat_6b859824",
@@ -75040,7 +73844,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 32.0
+        "order": 32
       },
       {
         "id": "mat_a590b712",
@@ -75054,7 +73858,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 33.0
+        "order": 33
       },
       {
         "id": "mat_d150a24a",
@@ -75068,7 +73872,7 @@
         "qty": "4",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 34.0
+        "order": 34
       },
       {
         "id": "mat_d96a74a1",
@@ -75082,7 +73886,7 @@
         "qty": "8",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 35.0
+        "order": 35
       },
       {
         "id": "mat_1071df08",
@@ -75096,7 +73900,7 @@
         "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 36.0
+        "order": 36
       },
       {
         "id": "mat_a9bab1ad",
@@ -75110,7 +73914,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 37.0
+        "order": 37
       },
       {
         "id": "mat_c29c8cf9",
@@ -75124,7 +73928,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 38.0
+        "order": 38
       },
       {
         "id": "mat_9e36a862",
@@ -75138,7 +73942,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 39.0
+        "order": 39
       },
       {
         "id": "mat_6688f71f",
@@ -75152,7 +73956,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 40.0
+        "order": 40
       },
       {
         "id": "mat_6db304ae",
@@ -75166,7 +73970,7 @@
         "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 41.0
+        "order": 41
       },
       {
         "id": "mat_680bd4fc",
@@ -75180,7 +73984,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 42.0
+        "order": 42
       },
       {
         "id": "mat_5b36ff4",
@@ -75194,7 +73998,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 43.0
+        "order": 43
       },
       {
         "id": "mat_97c5aca6",
@@ -75208,7 +74012,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 44.0
+        "order": 44
       },
       {
         "id": "mat_c797ec4b",
@@ -75222,7 +74026,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 45.0
+        "order": 45
       },
       {
         "id": "mat_85e9e291",
@@ -75236,7 +74040,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 46.0
+        "order": 46
       },
       {
         "id": "mat_a6ec2aa3",
@@ -75250,7 +74054,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 47.0
+        "order": 47
       },
       {
         "id": "mat_3687e104",
@@ -75264,7 +74068,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 30.0
+        "order": 30
       },
       {
         "id": "mat_6b48c3ec",
@@ -75278,7 +74082,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 31.0
+        "order": 31
       },
       {
         "id": "mat_1fa856f2",
@@ -75292,7 +74096,7 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 32.0
+        "order": 32
       },
       {
         "id": "mat_fe34fb26",
@@ -75306,7 +74110,7 @@
         "qty": "16",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 33.0
+        "order": 33
       },
       {
         "id": "mat_a351a0c",
@@ -75320,7 +74124,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 34.0
+        "order": 34
       },
       {
         "id": "mat_30c194bd",
@@ -75334,7 +74138,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 35.0
+        "order": 35
       },
       {
         "id": "mat_692855c0",
@@ -75348,7 +74152,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 36.0
+        "order": 36
       },
       {
         "id": "mat_655fe85d",
@@ -75362,7 +74166,7 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 37.0
+        "order": 37
       },
       {
         "id": "mat_8df36b86",
@@ -75376,7 +74180,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 38.0
+        "order": 38
       },
       {
         "id": "mat_a2f6f579",
@@ -75390,7 +74194,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 39.0
+        "order": 39
       },
       {
         "id": "mat_dc07cb5f",
@@ -75404,7 +74208,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 40.0
+        "order": 40
       },
       {
         "id": "mat_3a16b560",
@@ -75418,7 +74222,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 41.0
+        "order": 41
       },
       {
         "id": "mat_5f0f6154",
@@ -75432,7 +74236,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 42.0
+        "order": 42
       },
       {
         "id": "mat_26f6d76e",
@@ -75446,7 +74250,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 43.0
+        "order": 43
       },
       {
         "id": "mat_c9179f01",
@@ -75460,7 +74264,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 30.0
+        "order": 30
       },
       {
         "id": "mat_61b47c2",
@@ -75474,7 +74278,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 31.0
+        "order": 31
       },
       {
         "id": "mat_301abb04",
@@ -75488,7 +74292,7 @@
         "qty": "4",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 32.0
+        "order": 32
       },
       {
         "id": "mat_f347cf28",
@@ -75502,7 +74306,7 @@
         "qty": "16",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 33.0
+        "order": 33
       },
       {
         "id": "mat_bee41b5a",
@@ -75516,7 +74320,7 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 34.0
+        "order": 34
       },
       {
         "id": "mat_32385ffb",
@@ -75530,7 +74334,7 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 35.0
+        "order": 35
       },
       {
         "id": "mat_c7c58a02",
@@ -75544,7 +74348,7 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 36.0
+        "order": 36
       },
       {
         "id": "mat_bbca1fcf",
@@ -75558,7 +74362,7 @@
         "qty": "4",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 37.0
+        "order": 37
       },
       {
         "id": "mat_32748898",
@@ -75572,7 +74376,7 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 38.0
+        "order": 38
       },
       {
         "id": "mat_3a97d1a7",
@@ -75586,7 +74390,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 39.0
+        "order": 39
       },
       {
         "id": "mat_2f654c71",
@@ -75600,7 +74404,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 40.0
+        "order": 40
       },
       {
         "id": "mat_a534a682",
@@ -75614,7 +74418,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 41.0
+        "order": 41
       },
       {
         "id": "mat_9b4468de",
@@ -75628,7 +74432,7 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 42.0
+        "order": 42
       },
       {
         "id": "mat_b05b421c",
@@ -75642,7 +74446,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 43.0
+        "order": 43
       },
       {
         "id": "mat_53116050",
@@ -75656,7 +74460,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 30.0
+        "order": 30
       },
       {
         "id": "mat_a62b6848",
@@ -75670,7 +74474,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 31.0
+        "order": 31
       },
       {
         "id": "mat_93706f56",
@@ -75684,7 +74488,7 @@
         "qty": "4",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 32.0
+        "order": 32
       },
       {
         "id": "mat_ed8c6052",
@@ -75698,7 +74502,7 @@
         "qty": "16",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 33.0
+        "order": 33
       },
       {
         "id": "mat_f1562790",
@@ -75712,7 +74516,7 @@
         "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 34.0
+        "order": 34
       },
       {
         "id": "mat_d3aedde1",
@@ -75726,7 +74530,7 @@
         "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 35.0
+        "order": 35
       },
       {
         "id": "mat_240f15ac",
@@ -75740,7 +74544,7 @@
         "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 36.0
+        "order": 36
       },
       {
         "id": "mat_99782709",
@@ -75754,7 +74558,7 @@
         "qty": "4",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 37.0
+        "order": 37
       },
       {
         "id": "mat_7e400722",
@@ -75768,7 +74572,7 @@
         "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 38.0
+        "order": 38
       },
       {
         "id": "mat_b762895d",
@@ -75782,7 +74586,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 39.0
+        "order": 39
       },
       {
         "id": "mat_a966ada3",
@@ -75796,7 +74600,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 40.0
+        "order": 40
       },
       {
         "id": "mat_a4e549bc",
@@ -75810,7 +74614,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 41.0
+        "order": 41
       },
       {
         "id": "mat_78a51a40",
@@ -75824,7 +74628,7 @@
         "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 42.0
+        "order": 42
       },
       {
         "id": "mat_1cce07fa",
@@ -75838,7 +74642,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 43.0
+        "order": 43
       },
       {
         "id": "mat_c64ddf5f",
@@ -75852,7 +74656,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 31.0
+        "order": 31
       },
       {
         "id": "mat_a53ff3a5",
@@ -75866,7 +74670,7 @@
         "qty": "4",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 32.0
+        "order": 32
       },
       {
         "id": "mat_f8bdc8b0",
@@ -75880,7 +74684,7 @@
         "qty": "4",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 33.0
+        "order": 33
       },
       {
         "id": "mat_db5fc5df",
@@ -75894,7 +74698,7 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 34.0
+        "order": 34
       },
       {
         "id": "mat_9f3befeb",
@@ -75908,7 +74712,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 35.0
+        "order": 35
       },
       {
         "id": "mat_7f5a7f69",
@@ -75922,7 +74726,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 36.0
+        "order": 36
       },
       {
         "id": "mat_f70590b0",
@@ -75936,7 +74740,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 37.0
+        "order": 37
       },
       {
         "id": "mat_5320cc9b",
@@ -75950,7 +74754,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 38.0
+        "order": 38
       },
       {
         "id": "mat_1210e625",
@@ -75964,7 +74768,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 39.0
+        "order": 39
       },
       {
         "id": "mat_22368ade",
@@ -75978,7 +74782,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 40.0
+        "order": 40
       },
       {
         "id": "mat_fe62c680",
@@ -75992,7 +74796,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 41.0
+        "order": 41
       },
       {
         "id": "mat_beb251c2",
@@ -76006,7 +74810,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 42.0
+        "order": 42
       },
       {
         "id": "mat_5a82e408",
@@ -76020,7 +74824,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 39.0
+        "order": 39
       },
       {
         "id": "mat_a40a6ff7",
@@ -76034,7 +74838,7 @@
         "qty": "4",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 40.0
+        "order": 40
       },
       {
         "id": "mat_f21281bb",
@@ -76048,7 +74852,7 @@
         "qty": "4",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 41.0
+        "order": 41
       },
       {
         "id": "mat_77d14138",
@@ -76062,7 +74866,7 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 42.0
+        "order": 42
       },
       {
         "id": "mat_c0dc571a",
@@ -76076,7 +74880,7 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 43.0
+        "order": 43
       },
       {
         "id": "mat_92ae6ef3",
@@ -76090,7 +74894,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 44.0
+        "order": 44
       },
       {
         "id": "mat_b5d082b6",
@@ -76104,7 +74908,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 45.0
+        "order": 45
       },
       {
         "id": "mat_d19dcf43",
@@ -76118,7 +74922,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 46.0
+        "order": 46
       },
       {
         "id": "mat_b597b5ae",
@@ -76132,7 +74936,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 47.0
+        "order": 47
       },
       {
         "id": "mat_f2bfbb24",
@@ -76146,7 +74950,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 48.0
+        "order": 48
       },
       {
         "id": "mat_66d3843f",
@@ -76160,7 +74964,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 49.0
+        "order": 49
       },
       {
         "id": "mat_89deb6c",
@@ -76174,7 +74978,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 38.0
+        "order": 38
       },
       {
         "id": "mat_339d8c7a",
@@ -76188,7 +74992,7 @@
         "qty": "4",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 39.0
+        "order": 39
       },
       {
         "id": "mat_4490977a",
@@ -76202,7 +75006,7 @@
         "qty": "8",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 40.0
+        "order": 40
       },
       {
         "id": "mat_e70f0424",
@@ -76216,7 +75020,7 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 41.0
+        "order": 41
       },
       {
         "id": "mat_e4b3734c",
@@ -76230,7 +75034,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 42.0
+        "order": 42
       },
       {
         "id": "mat_3f9dcc43",
@@ -76244,7 +75048,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 43.0
+        "order": 43
       },
       {
         "id": "mat_9d097c35",
@@ -76258,7 +75062,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 44.0
+        "order": 44
       },
       {
         "id": "mat_a5d92e6e",
@@ -76272,7 +75076,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 45.0
+        "order": 45
       },
       {
         "id": "mat_ff5250b6",
@@ -76286,7 +75090,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 46.0
+        "order": 46
       },
       {
         "id": "mat_3b8ca94",
@@ -76300,7 +75104,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 47.0
+        "order": 47
       },
       {
         "id": "mat_1f494f01",
@@ -76314,7 +75118,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 37.0
+        "order": 37
       },
       {
         "id": "mat_27b0d167",
@@ -76328,7 +75132,7 @@
         "qty": "4",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 38.0
+        "order": 38
       },
       {
         "id": "mat_b1716411",
@@ -76342,7 +75146,7 @@
         "qty": "4",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 39.0
+        "order": 39
       },
       {
         "id": "mat_9a2e2d43",
@@ -76356,7 +75160,7 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 40.0
+        "order": 40
       },
       {
         "id": "mat_ccfe3d6f",
@@ -76370,7 +75174,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 41.0
+        "order": 41
       },
       {
         "id": "mat_7145714a",
@@ -76384,7 +75188,7 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 42.0
+        "order": 42
       },
       {
         "id": "mat_fab133f0",
@@ -76398,7 +75202,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 43.0
+        "order": 43
       },
       {
         "id": "mat_37dc089d",
@@ -76412,7 +75216,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 44.0
+        "order": 44
       },
       {
         "id": "mat_85c06e63",
@@ -76426,7 +75230,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 45.0
+        "order": 45
       },
       {
         "id": "mat_fdd06211",
@@ -76440,7 +75244,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 46.0
+        "order": 46
       },
       {
         "id": "mat_127946d0",
@@ -76622,7 +75426,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 45.0
+        "order": 45
       },
       {
         "id": "mat_4ee4b58",
@@ -76636,7 +75440,7 @@
         "qty": "4",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 46.0
+        "order": 46
       },
       {
         "id": "mat_6a2b79e4",
@@ -76650,7 +75454,7 @@
         "qty": "8",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 47.0
+        "order": 47
       },
       {
         "id": "mat_4bddc6c4",
@@ -76664,7 +75468,7 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 48.0
+        "order": 48
       },
       {
         "id": "mat_173d3331",
@@ -76678,7 +75482,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 49.0
+        "order": 49
       },
       {
         "id": "mat_cc8e25aa",
@@ -76692,7 +75496,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 50.0
+        "order": 50
       },
       {
         "id": "mat_f685d7c1",
@@ -76706,7 +75510,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 51.0
+        "order": 51
       },
       {
         "id": "mat_82baa267",
@@ -76720,7 +75524,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 52.0
+        "order": 52
       },
       {
         "id": "mat_7176e1f9",
@@ -76734,7 +75538,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 53.0
+        "order": 53
       },
       {
         "id": "mat_58f56afa",
@@ -76748,7 +75552,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 54.0
+        "order": 54
       },
       {
         "id": "mat_bb8a4003",
@@ -76762,7 +75566,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 55.0
+        "order": 55
       },
       {
         "id": "mat_11dcf8b1",
@@ -76776,7 +75580,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 56.0
+        "order": 56
       },
       {
         "id": "mat_de802f53",
@@ -77000,7 +75804,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 44.0
+        "order": 44
       },
       {
         "id": "mat_87bf75a7",
@@ -77014,7 +75818,7 @@
         "qty": "4",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 45.0
+        "order": 45
       },
       {
         "id": "mat_899fcbdc",
@@ -77028,7 +75832,7 @@
         "qty": "4",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 46.0
+        "order": 46
       },
       {
         "id": "mat_5a7c0a4d",
@@ -77042,7 +75846,7 @@
         "qty": "4",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 47.0
+        "order": 47
       },
       {
         "id": "mat_cefc1813",
@@ -77056,7 +75860,7 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 48.0
+        "order": 48
       },
       {
         "id": "mat_c1179aa2",
@@ -77070,7 +75874,7 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 49.0
+        "order": 49
       },
       {
         "id": "mat_edfb39dd",
@@ -77084,7 +75888,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 50.0
+        "order": 50
       },
       {
         "id": "mat_1253ee03",
@@ -77098,7 +75902,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 51.0
+        "order": 51
       },
       {
         "id": "mat_b185b91",
@@ -77112,7 +75916,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 52.0
+        "order": 52
       },
       {
         "id": "mat_f3bd36a2",
@@ -77126,7 +75930,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 53.0
+        "order": 53
       },
       {
         "id": "mat_f983625b",
@@ -77140,7 +75944,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 54.0
+        "order": 54
       },
       {
         "id": "mat_c0756fe9",
@@ -77154,7 +75958,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 55.0
+        "order": 55
       },
       {
         "id": "mat_faadcc4b",
@@ -77168,7 +75972,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 46.0
+        "order": 46
       },
       {
         "id": "mat_4709aab5",
@@ -77182,7 +75986,7 @@
         "qty": "4",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 47.0
+        "order": 47
       },
       {
         "id": "mat_b77c9d33",
@@ -77196,7 +76000,7 @@
         "qty": "8",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 48.0
+        "order": 48
       },
       {
         "id": "mat_97f54abd",
@@ -77210,7 +76014,7 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 49.0
+        "order": 49
       },
       {
         "id": "mat_79847998",
@@ -77224,7 +76028,7 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 50.0
+        "order": 50
       },
       {
         "id": "mat_c1b90499",
@@ -77238,7 +76042,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 51.0
+        "order": 51
       },
       {
         "id": "mat_eb7ced06",
@@ -77252,7 +76056,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 52.0
+        "order": 52
       },
       {
         "id": "mat_9ff7787c",
@@ -77266,7 +76070,7 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 53.0
+        "order": 53
       },
       {
         "id": "mat_da2b5c62",
@@ -77280,7 +76084,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 54.0
+        "order": 54
       },
       {
         "id": "mat_694d3d1f",
@@ -77294,7 +76098,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 55.0
+        "order": 55
       },
       {
         "id": "mat_98983452",
@@ -77308,7 +76112,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 56.0
+        "order": 56
       },
       {
         "id": "mat_a2be6cf0",
@@ -77322,7 +76126,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 57.0
+        "order": 57
       },
       {
         "id": "mat_1fc8286c",
@@ -77336,7 +76140,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 42.0
+        "order": 42
       },
       {
         "id": "mat_109bb898",
@@ -77350,7 +76154,7 @@
         "qty": "4",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 43.0
+        "order": 43
       },
       {
         "id": "mat_785cbc48",
@@ -77364,7 +76168,7 @@
         "qty": "8",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 44.0
+        "order": 44
       },
       {
         "id": "mat_981c3360",
@@ -77378,7 +76182,7 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 45.0
+        "order": 45
       },
       {
         "id": "mat_b19af3d8",
@@ -77392,7 +76196,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 46.0
+        "order": 46
       },
       {
         "id": "mat_780944c0",
@@ -77406,7 +76210,7 @@
         "qty": "4",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 47.0
+        "order": 47
       },
       {
         "id": "mat_dad71a01",
@@ -77420,7 +76224,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 48.0
+        "order": 48
       },
       {
         "id": "mat_268781e3",
@@ -77434,7 +76238,7 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 49.0
+        "order": 49
       },
       {
         "id": "mat_8022cf7d",
@@ -77448,7 +76252,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 50.0
+        "order": 50
       },
       {
         "id": "mat_9c0bf686",
@@ -77462,7 +76266,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 51.0
+        "order": 51
       },
       {
         "id": "mat_4518637",
@@ -77476,7 +76280,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 52.0
+        "order": 52
       },
       {
         "id": "mat_6b80ded5",
@@ -77490,7 +76294,7 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "复古色",
-        "order": 53.0
+        "order": 53
       },
       {
         "id": "mat_2321dae0",
@@ -77700,7 +76504,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 31.0
+        "order": 31
       },
       {
         "id": "mat_92d87e19",
@@ -77714,7 +76518,7 @@
         "qty": "4",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 32.0
+        "order": 32
       },
       {
         "id": "mat_e7f1794c",
@@ -77728,7 +76532,7 @@
         "qty": "4",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 33.0
+        "order": 33
       },
       {
         "id": "mat_56858b13",
@@ -77742,7 +76546,7 @@
         "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 34.0
+        "order": 34
       },
       {
         "id": "mat_5a3868df",
@@ -77756,7 +76560,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 35.0
+        "order": 35
       },
       {
         "id": "mat_a3033efd",
@@ -77770,7 +76574,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 36.0
+        "order": 36
       },
       {
         "id": "mat_8d9d8d44",
@@ -77784,7 +76588,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 37.0
+        "order": 37
       },
       {
         "id": "mat_502ca85f",
@@ -77798,7 +76602,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 38.0
+        "order": 38
       },
       {
         "id": "mat_3182681",
@@ -77812,7 +76616,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 39.0
+        "order": 39
       },
       {
         "id": "mat_b58dfd2",
@@ -77826,7 +76630,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 40.0
+        "order": 40
       },
       {
         "id": "mat_b981978b",
@@ -77840,7 +76644,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 41.0
+        "order": 41
       },
       {
         "id": "mat_44ac00b9",
@@ -77854,7 +76658,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 42.0
+        "order": 42
       },
       {
         "id": "mat_ccbd01cc",
@@ -78022,7 +76826,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 38.0
+        "order": 38
       },
       {
         "id": "mat_6c9d565a",
@@ -78036,7 +76840,7 @@
         "qty": "4",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 39.0
+        "order": 39
       },
       {
         "id": "mat_36d141da",
@@ -78050,7 +76854,7 @@
         "qty": "8",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 40.0
+        "order": 40
       },
       {
         "id": "mat_404a9704",
@@ -78064,7 +76868,7 @@
         "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 41.0
+        "order": 41
       },
       {
         "id": "mat_f720c4ac",
@@ -78078,7 +76882,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 42.0
+        "order": 42
       },
       {
         "id": "mat_c8079e23",
@@ -78092,7 +76896,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 43.0
+        "order": 43
       },
       {
         "id": "mat_51f8d015",
@@ -78106,7 +76910,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 44.0
+        "order": 44
       },
       {
         "id": "mat_db53a4ce",
@@ -78120,7 +76924,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 45.0
+        "order": 45
       },
       {
         "id": "mat_57ac8096",
@@ -78134,7 +76938,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 46.0
+        "order": 46
       },
       {
         "id": "mat_26bb8c74",
@@ -78148,7 +76952,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 47.0
+        "order": 47
       },
       {
         "id": "mat_15b1599d",
@@ -78162,7 +76966,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 37.0
+        "order": 37
       },
       {
         "id": "mat_4d92555d",
@@ -78176,7 +76980,7 @@
         "qty": "4",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 38.0
+        "order": 38
       },
       {
         "id": "mat_fac7ffd7",
@@ -78190,7 +76994,7 @@
         "qty": "4",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 39.0
+        "order": 39
       },
       {
         "id": "mat_e77670dd",
@@ -78204,7 +77008,7 @@
         "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 40.0
+        "order": 40
       },
       {
         "id": "mat_229e79c1",
@@ -78218,7 +77022,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 41.0
+        "order": 41
       },
       {
         "id": "mat_7d9bef64",
@@ -78232,7 +77036,7 @@
         "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 42.0
+        "order": 42
       },
       {
         "id": "mat_49350b1e",
@@ -78246,7 +77050,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 43.0
+        "order": 43
       },
       {
         "id": "mat_605555f3",
@@ -78260,7 +77064,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 44.0
+        "order": 44
       },
       {
         "id": "mat_ed5590b1",
@@ -78274,7 +77078,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 45.0
+        "order": 45
       },
       {
         "id": "mat_313ac943",
@@ -78288,7 +77092,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 46.0
+        "order": 46
       },
       {
         "id": "mat_5fc66464",
@@ -78470,7 +77274,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 45.0
+        "order": 45
       },
       {
         "id": "mat_d9e1b9e4",
@@ -78484,7 +77288,7 @@
         "qty": "4",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 46.0
+        "order": 46
       },
       {
         "id": "mat_c1687460",
@@ -78498,7 +77302,7 @@
         "qty": "8",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 47.0
+        "order": 47
       },
       {
         "id": "mat_71b6ea98",
@@ -78512,7 +77316,7 @@
         "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 48.0
+        "order": 48
       },
       {
         "id": "mat_87377715",
@@ -78526,7 +77330,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 49.0
+        "order": 49
       },
       {
         "id": "mat_dc0b561e",
@@ -78540,7 +77344,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 50.0
+        "order": 50
       },
       {
         "id": "mat_81069a1d",
@@ -78554,7 +77358,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 51.0
+        "order": 51
       },
       {
         "id": "mat_ed1bbf6b",
@@ -78568,7 +77372,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 52.0
+        "order": 52
       },
       {
         "id": "mat_2cfc9255",
@@ -78582,7 +77386,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 53.0
+        "order": 53
       },
       {
         "id": "mat_77a62e0e",
@@ -78596,7 +77400,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 54.0
+        "order": 54
       },
       {
         "id": "mat_61ba322f",
@@ -78610,7 +77414,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 55.0
+        "order": 55
       },
       {
         "id": "mat_49dc3ecd",
@@ -78624,7 +77428,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 56.0
+        "order": 56
       },
       {
         "id": "mat_f85fcc04",
@@ -78638,7 +77442,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 57.0
+        "order": 57
       },
       {
         "id": "mat_705a4cbd",
@@ -78652,7 +77456,7 @@
         "qty": "4",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 58.0
+        "order": 58
       },
       {
         "id": "mat_38e7fd27",
@@ -78666,7 +77470,7 @@
         "qty": "4",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 59.0
+        "order": 59
       },
       {
         "id": "mat_73fbaf1c",
@@ -78680,7 +77484,7 @@
         "qty": "4",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 60.0
+        "order": 60
       },
       {
         "id": "mat_67d5be9c",
@@ -78694,7 +77498,7 @@
         "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 61.0
+        "order": 61
       },
       {
         "id": "mat_30e5dc30",
@@ -78708,7 +77512,7 @@
         "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 62.0
+        "order": 62
       },
       {
         "id": "mat_a8e3624b",
@@ -78722,7 +77526,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 63.0
+        "order": 63
       },
       {
         "id": "mat_83a19fc4",
@@ -78736,7 +77540,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 64.0
+        "order": 64
       },
       {
         "id": "mat_f9b91d6",
@@ -78750,7 +77554,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 65.0
+        "order": 65
       },
       {
         "id": "mat_e0ec5b95",
@@ -78764,7 +77568,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 66.0
+        "order": 66
       },
       {
         "id": "mat_1e110f7e",
@@ -78778,7 +77582,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 67.0
+        "order": 67
       },
       {
         "id": "mat_1653a488",
@@ -78792,7 +77596,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 68.0
+        "order": 68
       },
       {
         "id": "mat_efc40f6f",
@@ -78806,7 +77610,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 69.0
+        "order": 69
       },
       {
         "id": "mat_757804af",
@@ -78820,7 +77624,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 70.0
+        "order": 70
       },
       {
         "id": "mat_5df5890f",
@@ -78834,7 +77638,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 71.0
+        "order": 71
       },
       {
         "id": "mat_57836689",
@@ -78848,7 +77652,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 44.0
+        "order": 44
       },
       {
         "id": "mat_a500e6eb",
@@ -78862,7 +77666,7 @@
         "qty": "4",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 45.0
+        "order": 45
       },
       {
         "id": "mat_17cafd28",
@@ -78876,7 +77680,7 @@
         "qty": "4",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 46.0
+        "order": 46
       },
       {
         "id": "mat_528d8ab9",
@@ -78890,7 +77694,7 @@
         "qty": "4",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 47.0
+        "order": 47
       },
       {
         "id": "mat_3a8ed287",
@@ -78904,7 +77708,7 @@
         "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 48.0
+        "order": 48
       },
       {
         "id": "mat_db31ba4e",
@@ -78918,7 +77722,7 @@
         "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 49.0
+        "order": 49
       },
       {
         "id": "mat_b3a6b181",
@@ -78932,7 +77736,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 50.0
+        "order": 50
       },
       {
         "id": "mat_3f55e1cf",
@@ -78946,7 +77750,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 51.0
+        "order": 51
       },
       {
         "id": "mat_b638dc5d",
@@ -78960,7 +77764,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 52.0
+        "order": 52
       },
       {
         "id": "mat_df143566",
@@ -78974,7 +77778,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 53.0
+        "order": 53
       },
       {
         "id": "mat_9e1d4517",
@@ -78988,7 +77792,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 54.0
+        "order": 54
       },
       {
         "id": "mat_7fdcd935",
@@ -79002,7 +77806,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 55.0
+        "order": 55
       },
       {
         "id": "mat_24a45c26",
@@ -79016,7 +77820,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 46.0
+        "order": 46
       },
       {
         "id": "mat_db266fa7",
@@ -79030,7 +77834,7 @@
         "qty": "4",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 47.0
+        "order": 47
       },
       {
         "id": "mat_4dd3c245",
@@ -79044,7 +77848,7 @@
         "qty": "8",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 48.0
+        "order": 48
       },
       {
         "id": "mat_71c44633",
@@ -79058,7 +77862,7 @@
         "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 49.0
+        "order": 49
       },
       {
         "id": "mat_b7bb26aa",
@@ -79072,7 +77876,7 @@
         "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 50.0
+        "order": 50
       },
       {
         "id": "mat_32a19227",
@@ -79086,7 +77890,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 51.0
+        "order": 51
       },
       {
         "id": "mat_f1769d68",
@@ -79100,7 +77904,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 52.0
+        "order": 52
       },
       {
         "id": "mat_ce89189a",
@@ -79114,7 +77918,7 @@
         "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 53.0
+        "order": 53
       },
       {
         "id": "mat_acad404",
@@ -79128,7 +77932,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 54.0
+        "order": 54
       },
       {
         "id": "mat_b6f75aa9",
@@ -79142,7 +77946,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 55.0
+        "order": 55
       },
       {
         "id": "mat_9186fd24",
@@ -79156,7 +77960,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 56.0
+        "order": 56
       },
       {
         "id": "mat_e4e9241e",
@@ -79170,7 +77974,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 57.0
+        "order": 57
       },
       {
         "id": "mat_ea3e3b3b",
@@ -79184,7 +77988,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 42.0
+        "order": 42
       },
       {
         "id": "mat_7fed98ec",
@@ -79198,7 +78002,7 @@
         "qty": "4",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 43.0
+        "order": 43
       },
       {
         "id": "mat_9129f894",
@@ -79212,7 +78016,7 @@
         "qty": "8",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 44.0
+        "order": 44
       },
       {
         "id": "mat_ee7889c4",
@@ -79226,7 +78030,7 @@
         "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 45.0
+        "order": 45
       },
       {
         "id": "mat_74ada65c",
@@ -79240,7 +78044,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 46.0
+        "order": 46
       },
       {
         "id": "mat_bad4c0b4",
@@ -79254,7 +78058,7 @@
         "qty": "4",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 47.0
+        "order": 47
       },
       {
         "id": "mat_744a5a25",
@@ -79268,7 +78072,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 48.0
+        "order": 48
       },
       {
         "id": "mat_73a819f7",
@@ -79282,7 +78086,7 @@
         "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 49.0
+        "order": 49
       },
       {
         "id": "mat_79b5e5e9",
@@ -79296,7 +78100,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 50.0
+        "order": 50
       },
       {
         "id": "mat_2108116a",
@@ -79310,7 +78114,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 51.0
+        "order": 51
       },
       {
         "id": "mat_79ad18f3",
@@ -79324,7 +78128,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 52.0
+        "order": 52
       },
       {
         "id": "mat_d595e581",
@@ -79338,7 +78142,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 53.0
+        "order": 53
       },
       {
         "id": "mat_42f7bd42",
@@ -79352,7 +78156,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 50.0
+        "order": 50
       },
       {
         "id": "mat_51b05934",
@@ -79366,7 +78170,7 @@
         "qty": "8",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 51.0
+        "order": 51
       },
       {
         "id": "mat_bf951530",
@@ -79380,7 +78184,7 @@
         "qty": "4",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 52.0
+        "order": 52
       },
       {
         "id": "mat_3be3d6f5",
@@ -79394,7 +78198,7 @@
         "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 53.0
+        "order": 53
       },
       {
         "id": "mat_df08febe",
@@ -79408,7 +78212,7 @@
         "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 54.0
+        "order": 54
       },
       {
         "id": "mat_ce58316c",
@@ -79422,7 +78226,7 @@
         "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 55.0
+        "order": 55
       },
       {
         "id": "mat_5681439a",
@@ -79436,7 +78240,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 56.0
+        "order": 56
       },
       {
         "id": "mat_adea5c49",
@@ -79450,7 +78254,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 57.0
+        "order": 57
       },
       {
         "id": "mat_c202ef7b",
@@ -79464,7 +78268,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 58.0
+        "order": 58
       },
       {
         "id": "mat_8b63e9bb",
@@ -79478,7 +78282,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 59.0
+        "order": 59
       },
       {
         "id": "mat_bbb37931",
@@ -79492,7 +78296,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 60.0
+        "order": 60
       },
       {
         "id": "mat_fb7fe842",
@@ -79506,7 +78310,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 61.0
+        "order": 61
       },
       {
         "id": "mat_2164fe9e",
@@ -79520,7 +78324,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 62.0
+        "order": 62
       },
       {
         "id": "mat_ac67abdc",
@@ -79534,7 +78338,7 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "白色",
-        "order": 63.0
+        "order": 63
       },
       {
         "id": "mat_b7345217",
@@ -79870,7 +78674,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 38.0
+        "order": 38
       },
       {
         "id": "mat_e9dab3b6",
@@ -79884,7 +78688,7 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 39.0
+        "order": 39
       },
       {
         "id": "mat_28f56c76",
@@ -79898,7 +78702,7 @@
         "qty": "8",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 40.0
+        "order": 40
       },
       {
         "id": "mat_85801938",
@@ -79912,7 +78716,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 41.0
+        "order": 41
       },
       {
         "id": "mat_1e9880f0",
@@ -79926,7 +78730,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 42.0
+        "order": 42
       },
       {
         "id": "mat_b04861f7",
@@ -79940,7 +78744,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 43.0
+        "order": 43
       },
       {
         "id": "mat_b418de19",
@@ -79954,7 +78758,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 44.0
+        "order": 44
       },
       {
         "id": "mat_fc44799a",
@@ -79968,7 +78772,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 45.0
+        "order": 45
       },
       {
         "id": "mat_895cee5a",
@@ -79982,7 +78786,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 46.0
+        "order": 46
       },
       {
         "id": "mat_1d7d2d8",
@@ -79996,7 +78800,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 47.0
+        "order": 47
       },
       {
         "id": "mat_d3a385fd",
@@ -80010,7 +78814,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 37.0
+        "order": 37
       },
       {
         "id": "mat_de1323e1",
@@ -80024,7 +78828,7 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 38.0
+        "order": 38
       },
       {
         "id": "mat_c63fa253",
@@ -80038,7 +78842,7 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 39.0
+        "order": 39
       },
       {
         "id": "mat_bb6cfca1",
@@ -80052,7 +78856,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 40.0
+        "order": 40
       },
       {
         "id": "mat_8231e9bd",
@@ -80066,7 +78870,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 41.0
+        "order": 41
       },
       {
         "id": "mat_77999118",
@@ -80080,7 +78884,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 42.0
+        "order": 42
       },
       {
         "id": "mat_82a36412",
@@ -80094,7 +78898,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 43.0
+        "order": 43
       },
       {
         "id": "mat_fcb7968f",
@@ -80108,7 +78912,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 44.0
+        "order": 44
       },
       {
         "id": "mat_d124765",
@@ -80122,7 +78926,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 45.0
+        "order": 45
       },
       {
         "id": "mat_9e941d17",
@@ -80136,7 +78940,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 46.0
+        "order": 46
       },
       {
         "id": "mat_272693ff",
@@ -80150,7 +78954,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 43.0
+        "order": 43
       },
       {
         "id": "mat_3968f6d8",
@@ -80164,7 +78968,7 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 44.0
+        "order": 44
       },
       {
         "id": "mat_d99eeea2",
@@ -80178,7 +78982,7 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 45.0
+        "order": 45
       },
       {
         "id": "mat_e6fec746",
@@ -80192,7 +78996,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 46.0
+        "order": 46
       },
       {
         "id": "mat_580c3d8f",
@@ -80206,7 +79010,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 47.0
+        "order": 47
       },
       {
         "id": "mat_8b789077",
@@ -80220,7 +79024,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 48.0
+        "order": 48
       },
       {
         "id": "mat_e1959c60",
@@ -80234,7 +79038,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 49.0
+        "order": 49
       },
       {
         "id": "mat_86574c7a",
@@ -80248,7 +79052,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 50.0
+        "order": 50
       },
       {
         "id": "mat_e5d74e5",
@@ -80262,7 +79066,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 51.0
+        "order": 51
       },
       {
         "id": "mat_260a339e",
@@ -80276,7 +79080,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 52.0
+        "order": 52
       },
       {
         "id": "mat_d2ac367f",
@@ -80290,7 +79094,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 53.0
+        "order": 53
       },
       {
         "id": "mat_dd2f0bbd",
@@ -80304,7 +79108,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 54.0
+        "order": 54
       },
       {
         "id": "mat_9f28731b",
@@ -80318,7 +79122,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 45.0
+        "order": 45
       },
       {
         "id": "mat_f7d5d6b0",
@@ -80332,7 +79136,7 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 46.0
+        "order": 46
       },
       {
         "id": "mat_7c3f0cac",
@@ -80346,7 +79150,7 @@
         "qty": "8",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 47.0
+        "order": 47
       },
       {
         "id": "mat_a69b1a1c",
@@ -80360,7 +79164,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 48.0
+        "order": 48
       },
       {
         "id": "mat_2c50d219",
@@ -80374,7 +79178,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 49.0
+        "order": 49
       },
       {
         "id": "mat_8b887f52",
@@ -80388,7 +79192,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 50.0
+        "order": 50
       },
       {
         "id": "mat_a6e7fe79",
@@ -80402,7 +79206,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 51.0
+        "order": 51
       },
       {
         "id": "mat_d74a5abf",
@@ -80416,7 +79220,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 52.0
+        "order": 52
       },
       {
         "id": "mat_cc9d50e1",
@@ -80430,7 +79234,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 53.0
+        "order": 53
       },
       {
         "id": "mat_c497d332",
@@ -80444,7 +79248,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 54.0
+        "order": 54
       },
       {
         "id": "mat_bdcaeceb",
@@ -80458,7 +79262,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 55.0
+        "order": 55
       },
       {
         "id": "mat_1539a99",
@@ -80472,7 +79276,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 56.0
+        "order": 56
       },
       {
         "id": "mat_41d19551",
@@ -80486,7 +79290,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 57.0
+        "order": 57
       },
       {
         "id": "mat_14193609",
@@ -80500,7 +79304,7 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 58.0
+        "order": 58
       },
       {
         "id": "mat_501d6e9b",
@@ -80514,7 +79318,7 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 59.0
+        "order": 59
       },
       {
         "id": "mat_a6cd1ae0",
@@ -80528,7 +79332,7 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 60.0
+        "order": 60
       },
       {
         "id": "mat_146df848",
@@ -80542,7 +79346,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 61.0
+        "order": 61
       },
       {
         "id": "mat_1e9324c",
@@ -80556,7 +79360,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 62.0
+        "order": 62
       },
       {
         "id": "mat_287d7f9f",
@@ -80570,7 +79374,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 63.0
+        "order": 63
       },
       {
         "id": "mat_2a4e37c0",
@@ -80584,7 +79388,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 64.0
+        "order": 64
       },
       {
         "id": "mat_3e3ed41a",
@@ -80598,7 +79402,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 65.0
+        "order": 65
       },
       {
         "id": "mat_efecfec1",
@@ -80612,7 +79416,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 66.0
+        "order": 66
       },
       {
         "id": "mat_1f14377a",
@@ -80626,7 +79430,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 67.0
+        "order": 67
       },
       {
         "id": "mat_f4674824",
@@ -80640,7 +79444,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 68.0
+        "order": 68
       },
       {
         "id": "mat_9a73fea3",
@@ -80654,7 +79458,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 69.0
+        "order": 69
       },
       {
         "id": "mat_745964b4",
@@ -80668,7 +79472,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 70.0
+        "order": 70
       },
       {
         "id": "mat_62173e3c",
@@ -80682,7 +79486,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 71.0
+        "order": 71
       },
       {
         "id": "mat_36e0e70e",
@@ -80696,7 +79500,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 44.0
+        "order": 44
       },
       {
         "id": "mat_e8528e2f",
@@ -80710,7 +79514,7 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 45.0
+        "order": 45
       },
       {
         "id": "mat_4a628c44",
@@ -80724,7 +79528,7 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 46.0
+        "order": 46
       },
       {
         "id": "mat_feea1e15",
@@ -80738,7 +79542,7 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 47.0
+        "order": 47
       },
       {
         "id": "mat_7e20dd7b",
@@ -80752,7 +79556,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 48.0
+        "order": 48
       },
       {
         "id": "mat_26135d5a",
@@ -80766,7 +79570,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 49.0
+        "order": 49
       },
       {
         "id": "mat_ce43f1d5",
@@ -80780,7 +79584,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 50.0
+        "order": 50
       },
       {
         "id": "mat_2264856b",
@@ -80794,7 +79598,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 51.0
+        "order": 51
       },
       {
         "id": "mat_76fbe059",
@@ -80808,7 +79612,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 52.0
+        "order": 52
       },
       {
         "id": "mat_b0d994da",
@@ -80822,7 +79626,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 53.0
+        "order": 53
       },
       {
         "id": "mat_9097e1e3",
@@ -80836,7 +79640,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 54.0
+        "order": 54
       },
       {
         "id": "mat_8a7d591",
@@ -80850,7 +79654,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 55.0
+        "order": 55
       },
       {
         "id": "mat_9d565187",
@@ -80864,7 +79668,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 46.0
+        "order": 46
       },
       {
         "id": "mat_d3cda32b",
@@ -80878,7 +79682,7 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 47.0
+        "order": 47
       },
       {
         "id": "mat_6de80b39",
@@ -80892,7 +79696,7 @@
         "qty": "8",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 48.0
+        "order": 48
       },
       {
         "id": "mat_913840f",
@@ -80906,7 +79710,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 49.0
+        "order": 49
       },
       {
         "id": "mat_f68c3ace",
@@ -80920,7 +79724,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 50.0
+        "order": 50
       },
       {
         "id": "mat_561b8c63",
@@ -80934,7 +79738,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 51.0
+        "order": 51
       },
       {
         "id": "mat_2ab1dd84",
@@ -80948,7 +79752,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 52.0
+        "order": 52
       },
       {
         "id": "mat_799806",
@@ -80962,7 +79766,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 53.0
+        "order": 53
       },
       {
         "id": "mat_f2a007a8",
@@ -80976,7 +79780,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 54.0
+        "order": 54
       },
       {
         "id": "mat_38d11dc5",
@@ -80990,7 +79794,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 55.0
+        "order": 55
       },
       {
         "id": "mat_76352de8",
@@ -81004,7 +79808,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 56.0
+        "order": 56
       },
       {
         "id": "mat_bc360662",
@@ -81018,7 +79822,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 57.0
+        "order": 57
       },
       {
         "id": "mat_fe1b9455",
@@ -81032,7 +79836,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 42.0
+        "order": 42
       },
       {
         "id": "mat_179e6d48",
@@ -81046,7 +79850,7 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 43.0
+        "order": 43
       },
       {
         "id": "mat_e7e55bb8",
@@ -81060,7 +79864,7 @@
         "qty": "8",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 44.0
+        "order": 44
       },
       {
         "id": "mat_583db9b0",
@@ -81074,7 +79878,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 45.0
+        "order": 45
       },
       {
         "id": "mat_e0c0b608",
@@ -81088,7 +79892,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 46.0
+        "order": 46
       },
       {
         "id": "mat_466a9c10",
@@ -81102,7 +79906,7 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 47.0
+        "order": 47
       },
       {
         "id": "mat_c1790bd1",
@@ -81116,7 +79920,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 48.0
+        "order": 48
       },
       {
         "id": "mat_7c06eff3",
@@ -81130,7 +79934,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 49.0
+        "order": 49
       },
       {
         "id": "mat_3777c2ad",
@@ -81144,7 +79948,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 50.0
+        "order": 50
       },
       {
         "id": "mat_8a94376",
@@ -81158,7 +79962,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 51.0
+        "order": 51
       },
       {
         "id": "mat_8dadde7",
@@ -81172,7 +79976,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 52.0
+        "order": 52
       },
       {
         "id": "mat_33e01865",
@@ -81186,7 +79990,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 53.0
+        "order": 53
       },
       {
         "id": "mat_1886e2ef",
@@ -81200,7 +80004,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 50.0
+        "order": 50
       },
       {
         "id": "mat_8f90f880",
@@ -81214,7 +80018,7 @@
         "qty": "8",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 51.0
+        "order": 51
       },
       {
         "id": "mat_579e8674",
@@ -81228,7 +80032,7 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 52.0
+        "order": 52
       },
       {
         "id": "mat_7d8f18b9",
@@ -81242,7 +80046,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 53.0
+        "order": 53
       },
       {
         "id": "mat_5c841202",
@@ -81256,7 +80060,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 54.0
+        "order": 54
       },
       {
         "id": "mat_6beb1cd8",
@@ -81270,7 +80074,7 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 55.0
+        "order": 55
       },
       {
         "id": "mat_4ba65136",
@@ -81284,7 +80088,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 56.0
+        "order": 56
       },
       {
         "id": "mat_c479da05",
@@ -81298,7 +80102,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 57.0
+        "order": 57
       },
       {
         "id": "mat_600c7617",
@@ -81312,7 +80116,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 58.0
+        "order": 58
       },
       {
         "id": "mat_d36a9ff7",
@@ -81326,7 +80130,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 59.0
+        "order": 59
       },
       {
         "id": "mat_4a7cf3b5",
@@ -81340,7 +80144,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 60.0
+        "order": 60
       },
       {
         "id": "mat_329e4cee",
@@ -81354,7 +80158,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 61.0
+        "order": 61
       },
       {
         "id": "mat_15a9f6a",
@@ -81368,7 +80172,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 62.0
+        "order": 62
       },
       {
         "id": "mat_bb71e88",
@@ -81382,7 +80186,7 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
-        "order": 63.0
+        "order": 63
       }
     ]
   }
