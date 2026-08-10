@@ -13166,12 +13166,12 @@
         "id": "mat_6zvz0v",
         "code": "NLPLS6010BZ",
         "name": {
-          "zh": "M6x10内六角螺丝",
-          "vi": "M6x10 ốc lục giác"
+          "zh": "M6x12内六角螺丝",
+          "vi": "M6x12 ốc lục giác"
         },
         "spec": {
-          "zh": "M6x10mm",
-          "vi": "M6x10mm"
+          "zh": "M6x12mm",
+          "vi": "M6x12mm"
         },
         "material": {
           "zh": "#10",
@@ -13193,7 +13193,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
             "matched_name": "M6X10内六角螺丝",
             "score": 1100,
-            "bytes": 150108
+            "bytes": 150108,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
           }
         ]
       },
@@ -16148,12 +16149,12 @@
         "id": "mat_cau6z8",
         "code": "NLPLS6010WZ",
         "name": {
-          "zh": "M6x10内六角螺丝",
-          "vi": "M6x10 ốc lục giác"
+          "zh": "M6x12内六角螺丝",
+          "vi": "M6x12 ốc lục giác"
         },
         "spec": {
-          "zh": "M6x10mm",
-          "vi": "M6x10mm"
+          "zh": "M6x12mm",
+          "vi": "M6x12mm"
         },
         "material": {
           "zh": "#10",
@@ -16168,7 +16169,13 @@
           "vi": "túi ngũ kim"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [
+          {
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
+            "name": "M6x12内六角螺丝",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+          }
+        ]
       },
       "mat_1fhhxvk": {
         "id": "mat_1fhhxvk",
