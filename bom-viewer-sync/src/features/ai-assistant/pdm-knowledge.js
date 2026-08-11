@@ -16,6 +16,7 @@ const MAX_SEARCH_RESULTS = 50;
 const MAX_BOM_ROWS = 200;
 const MAX_FOCUSED_BOM_ROWS = 12;
 const MAX_COMPARISON_RESULTS = 100;
+const CATALOG_MATERIAL_SCOPE_PATTERN = /(?:所有|全部|全体|统计|統計|列出|列表|清单|汇总|all|every|toan bo|tat ca|thong ke|liet ke|danh sach)/iu;
 
 const REPRESENTATIVE_COLOR_PRIORITY = [
   { code: 'BH', matcher: /\u9ed1\u8272|\bblack\b|mau den/i },
@@ -127,6 +128,17 @@ function normalizeBomSearchText(value) {
     .replace(/[×*]/g, 'x')
     .replace(/\s+/g, ' ')
     .trim();
+}
+
+function catalogMaterialSearchTerms(query) {
+  const normalized = normalizeBomSearchText(query)
+    .replace(/帮我|请|统计|統計|所有|全部|全体|列出|列表|清单|汇总|规格|规\s*格|使用产品|物料|材料|零件|部件/g, ' ')
+    .replace(/\b(?:all|every|toan bo|tat ca|thong ke|liet ke|danh sach|quy cach|spec|specification|material|component|parts?|products?)\b/giu, ' ');
+  const stopWords = new Set(['bao', 'bao bi', 'cua', 'giup', 'hay', 'la', 'nao', 'nhung', 'san pham', 'su dung', 'tat', 'toan', 'voi']);
+  const latinTerms = (normalized.match(/[a-z0-9]+(?:[.\-]?[a-z0-9]+)*/g) || [])
+    .filter(term => term.length >= 2 && !stopWords.has(term) && !/^lgs\d{3,4}$/.test(term));
+  const hanTerms = [...normalized.matchAll(/[\p{Script=Han}]{2,}/gu)].map(match => match[0]);
+  return [...new Set([...hanTerms, ...latinTerms])];
 }
 
 function focusedBomRows(rows, query) {
@@ -742,6 +754,7 @@ export class PdmKnowledge {
 
     const parsedDims = parseDimensions(text || dimensionFilter);
     const concept = resolveConcept(text || componentFamily);
+    const genericMaterialTerms = catalogMaterialSearchTerms(text);
 
     let mode = countMode;
     if (!mode) {
@@ -771,6 +784,8 @@ export class PdmKnowledge {
         mode = 'shared_hardware_bags';
       } else if (/多零件|most parts/i.test(text)) {
         mode = 'rank_by_parts';
+      } else if (CATALOG_MATERIAL_SCOPE_PATTERN.test(normalizeBomSearchText(text)) && genericMaterialTerms.length > 0) {
+        mode = 'generic_material_usage';
       } else {
         mode = 'catalog_summary';
       }
@@ -859,17 +874,25 @@ export class PdmKnowledge {
       };
     }
 
-    if (mode === 'component_usage' || mode === 'rank_component_size') {
+    if (mode === 'component_usage' || mode === 'rank_component_size' || mode === 'generic_material_usage') {
       const conceptMatchers = {
         crossbar: /\u6a2a(?:\u6881|\u6746)|crossbar|thanh ngang/i,
         upper_crossbar: /上横梁|顶部横梁|顶部横杆|上横杆|upper crossbar|thanh ngang trên/i,
         vertical_beam: /竖梁|竖零件|XZ[QH]SL|vertical beam|thanh đứng/i,
         packaging_carton: /纸箱|纸盒|carton|cardboard box|thùng carton/i,
         packaging_material: /纸箱|纸卡|泡沫|护角|胶袋|carton|foam|corner protector|paper card|bao bì|vật liệu đóng gói/i,
-        drawer_fabric: /布抽(?!条|底板)|抽屉布|fabric (?:drawer|bin|basket)|túi vải/i,
+        drawer_fabric: {
+          test: searchable => {
+            const normalized = normalizeBomSearchText(searchable);
+            return (/布抽(?!条|底板)|抽屉布|fabric (?:drawer|bin|basket)/i.test(searchable) || /tui vai/i.test(normalized))
+              && !/布抽(?:条|底板)|day tui|fabric drawer bottom|drawer bottom/i.test(normalized);
+          },
+        },
         drawer_bottom: /布抽底板|抽屉底板|fabric drawer bottom|drawer bottom|đáy túi/i,
       };
-      const matcher = concept?.conceptId === 'packaging_carton'
+      const matcher = mode === 'generic_material_usage'
+        ? { test: searchable => genericMaterialTerms.every(term => normalizeBomSearchText(searchable).includes(term)) }
+        : concept?.conceptId === 'packaging_carton'
         ? /\u7eb8\u7bb1|\u7eb8\u76d2|\u4e2d\u5c01\u7bb1|\u5e73\u53e3\u7bb1|\u5916\u7bb1|\u5185\u7bb1|carton|cardboard box|outer carton|inner carton|th\u00f9ng carton/i
         : conceptMatchers[concept?.conceptId];
       if (!matcher) throw new Error('A supported component family is required');
@@ -932,6 +955,7 @@ export class PdmKnowledge {
                   : 0,
                 usedInProducts: new Set(),
                 usedInSkus: new Set(),
+                productRevisions: new Map(),
                 representativeColors: new Set(),
                 effectiveRevisions: new Set(),
               });
@@ -945,6 +969,7 @@ export class PdmKnowledge {
             component.representativeColors.add(color);
             const effectiveRevision = this._revisionRegistry[productCode]?.effectiveRevision
               || String(product.effectiveRevision || product.currentRevision || product.revision || '').trim();
+            component.productRevisions.set(productCode, effectiveRevision || '-');
             if (effectiveRevision) component.effectiveRevisions.add(effectiveRevision);
           }
         }
@@ -956,6 +981,9 @@ export class PdmKnowledge {
           materialCodes: [...component.materialCodes].filter(Boolean).sort(),
           usedInProducts: [...component.usedInProducts].sort(),
           usedInSkus: [...component.usedInSkus].sort(),
+          usedInProductRevisions: [...component.productRevisions.entries()]
+            .sort(([left], [right]) => left.localeCompare(right))
+            .map(([productCode, revision]) => `${productCode} (${revision})`),
           representativeColors: [...component.representativeColors].sort((left, right) => (
             colorPriority(left) - colorPriority(right) || left.localeCompare(right)
           )),
@@ -972,29 +1000,58 @@ export class PdmKnowledge {
         ));
       const sizedComponents = matched.filter(component => component.sizeMetric > 0);
       const maximumSize = mode === 'rank_component_size' ? sizedComponents[0]?.sizeMetric || 0 : null;
-      const results = mode === 'rank_component_size'
+      const componentResults = mode === 'rank_component_size'
         ? sizedComponents.filter(component => component.sizeMetric === maximumSize)
         : matched;
+      const wantsSpecificationSummary = mode !== 'rank_component_size'
+        && /规格|规\s*格|quy cach|kich thuoc|spec(?:ification)?/iu.test(normalizeBomSearchText(text));
+      const results = wantsSpecificationSummary
+        ? [...componentResults.reduce((groups, component) => {
+          const key = normalizeBomSearchText(component.spec) || component.materialCode;
+          const group = groups.get(key) || {
+            spec: component.spec,
+            materialCodes: new Set(),
+            usedInProducts: new Set(),
+            usedInProductRevisions: new Set(),
+            representativeColors: new Set(),
+          };
+          for (const code of component.materialCodes || [component.materialCode]) group.materialCodes.add(code);
+          for (const productCode of component.usedInProducts) group.usedInProducts.add(productCode);
+          for (const productRevision of component.usedInProductRevisions) group.usedInProductRevisions.add(productRevision);
+          for (const color of component.representativeColors) group.representativeColors.add(color);
+          groups.set(key, group);
+          return groups;
+        }, new Map()).values()].map(group => ({
+          spec: group.spec,
+          materialCount: group.materialCodes.size,
+          materialCodes: [...group.materialCodes].sort(),
+          usedInProducts: [...group.usedInProducts].sort(),
+          usedInProductRevisions: [...group.usedInProductRevisions].sort(),
+          representativeColors: [...group.representativeColors].sort((left, right) => colorPriority(left) - colorPriority(right) || left.localeCompare(right)),
+        })).sort((left, right) => left.spec.localeCompare(right.spec))
+        : componentResults;
 
       return {
         interpretation: mode === 'rank_component_size'
           ? `Largest ${concept.canonicalEn} by parsed specification dimensions`
-          : `${concept.canonicalEn} usage across the catalog`,
+          : mode === 'generic_material_usage'
+            ? `Catalog usage for material query: ${genericMaterialTerms.join(', ')}`
+            : `${concept.canonicalEn} usage across the catalog`,
         scope: scope || 'catalog',
-        countMode: mode,
+        countMode: wantsSpecificationSummary ? 'specification_summary' : mode,
         assumptions: mode === 'rank_component_size'
           ? 'Size is ranked by multiplying all dimensions parsed from each material specification'
           : requestedColor
             ? `Only the requested ${requestedColor.label} color variant is counted`
             : 'One representative color per product is counted in this order: black (BH), vintage (KD), white (WH), then the first available color',
-        componentConcept: concept.conceptId,
+        componentConcept: concept?.conceptId || 'generic_material',
         representativeColorPolicy: !requestedColor,
         requestedColor: requestedColor?.label || '',
         colorAvailabilityWarnings,
-        totalCount: matched.length,
+        totalCount: results.length,
         results: results.slice(0, MAX_SEARCH_RESULTS),
         truncated: results.length > MAX_SEARCH_RESULTS,
-        evidence: buildEvidence(this._sourceMetadata, concept.conceptId, 'data/materials.json'),
+        evidence: buildEvidence(this._sourceMetadata, concept?.conceptId || 'generic_material', 'data/materials.json'),
       };
     }
 

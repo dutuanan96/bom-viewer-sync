@@ -377,6 +377,17 @@ test('routes Chinese catalog fabric-drawer statistics to deterministic analysis'
   }
 });
 
+test('reuses the catalog material from context when the user asks for specifications only', () => {
+  const route = routePdmIntent({
+    query: '只要统计规格',
+    conversationContext: { searchQuery: '帮我统计所有布抽' },
+    availableTools: READ_TOOLS,
+  });
+  assert.equal(route.intent, PDM_INTENTS.CATALOG_ANALYSIS);
+  assert.equal(route.preferredTool, 'analyze_pdm');
+  assert.equal(route.entities.searchQuery, '帮我统计所有布抽 只要统计规格');
+});
+
 test('routes generic frame dimension follow-ups without hardcoded values', () => {
   const route = routePdmIntent({
     query: '那有几个铁框有高度660mm',

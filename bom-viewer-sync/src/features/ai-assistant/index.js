@@ -319,16 +319,36 @@ export function formatLocalToolFallback(t, { toolCall, toolResult } = {}) {
     }
     lines.push(`${tr('ai.localFallback.totalMatches', 'Total Matches / Count')}: ${toolResult.totalCount ?? toolResult.totalMatches ?? 0}`);
     const results = toolResult.results || [];
+    if (toolResult.countMode === 'specification_summary') {
+      const headers = [
+        tr('ai.localFallback.tableIndex', 'No.'),
+        tr('ai.localFallback.tableSpec', 'Specification'),
+        tr('ai.localFallback.materialTypeCount', 'Material Types'),
+        tr('ai.localFallback.usedProductsWithRevision', 'Used In (Effective Revision)'),
+      ];
+      lines.push(`| ${headers.join(' | ')} |`);
+      lines.push(`| ${headers.map(() => '---').join(' | ')} |`);
+      lines.push(...results.map((result, index) => (
+        `| ${[index + 1, result.spec || '-', result.materialCount ?? 0, (result.usedInProductRevisions || []).join(', ') || '-'].join(' | ')} |`
+      )));
+      if (toolResult.representativeColorPolicy) {
+        lines.splice(2, 0, tr('ai.localFallback.representativeColorPolicy', 'No color was specified. One representative color is selected for each product in the order BH, KD, WH, then the first available color.'));
+      }
+      return lines.join('\n');
+    }
     const materialResults = results.filter(result => result.materialCode);
     if (materialResults.length > 1 && materialResults.length === results.length) {
       const hasRepresentativeColor = materialResults.some(result => result.representativeColors?.length);
-      const hasEffectiveRevision = true;
+      const hasProductRevisionLabels = materialResults.some(result => result.usedInProductRevisions?.length);
+      const hasEffectiveRevision = !hasProductRevisionLabels;
       const headers = [
         tr('ai.localFallback.tableIndex', 'No.'),
         tr('ai.localFallback.tableMaterialCode', 'Material Code'),
         tr('ai.localFallback.tableName', 'Name'),
         tr('ai.localFallback.tableSpec', 'Specification'),
-        tr('ai.localFallback.usedProducts', 'Used In'),
+        hasProductRevisionLabels
+          ? tr('ai.localFallback.usedProductsWithRevision', 'Used In (Effective Revision)')
+          : tr('ai.localFallback.usedProducts', 'Used In'),
       ];
       if (hasRepresentativeColor) headers.push(tr('ai.localFallback.representativeColor', 'Representative Color'));
       if (hasEffectiveRevision) headers.push(tr('ai.localFallback.effectiveRevision', 'Effective Revision'));
@@ -340,7 +360,7 @@ export function formatLocalToolFallback(t, { toolCall, toolResult } = {}) {
           result.materialCode,
           result.nameZh || '-',
           result.spec || '-',
-          (result.usedInProducts || []).join(', ') || '-',
+          (hasProductRevisionLabels ? result.usedInProductRevisions : result.usedInProducts || []).join(', ') || '-',
           ...(hasRepresentativeColor ? [(result.representativeColors || []).join(', ') || '-'] : []),
           ...(hasEffectiveRevision ? [(result.effectiveRevisions || []).join(', ') || '-'] : []),
         ].join(' | ')} |`

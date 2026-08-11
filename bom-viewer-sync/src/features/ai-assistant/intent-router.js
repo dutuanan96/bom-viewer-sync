@@ -22,12 +22,14 @@ const PRODUCT_SCOPED_LOOKUP_PATTERN = /\b(?:what|which|find|show|list|use|uses|u
 const REVISION_STATUS_PATTERN = /phi\u00ean b\u1ea3n|tr\u1ea1ng th\u00e1i|b\u1ea3n nh\u00e1p|hi\u1ec7n h\u00e0nh|\u7248\u672c|\u72b6\u6001|\u8349\u7a3f|\u53d1\u5e03|\u73b0\u884c|\u4fee\u8ba2/iu;
 const REVISION_COMPARISON_REFERENCE_PATTERN = /\b(?:two|both|these|those)\s+(?:revisions?|versions?)\b|\b(?:revisions?|versions?)\b.{0,30}\b(?:difference|different)\b|hai\s+(?:phi\u00ean b\u1ea3n|b\u1ea3n).{0,30}(?:kh\u00e1c|so s\u00e1nh)|(?:kh\u00e1c nhau|so s\u00e1nh).{0,30}hai\s+(?:phi\u00ean b\u1ea3n|b\u1ea3n)|\u4e24\u4e2a(?:\u7248\u672c|\u4fee\u8ba2)|\u4e24\u7248|\u8fd9\u4e24\u4e2a(?:\u7248\u672c|\u4fee\u8ba2)|(?:\u7248\u672c|\u4fee\u8ba2).{0,12}(?:\u533a\u522b|\u5dee\u522b|\u4e0d\u540c)/iu;
 const SEARCH_RESULT_FOLLOW_UP_PATTERN = /\b(?:only one|any others?|anything else|any more)\b|\b(?:is|are)\b.{0,40}\b(?:only|all)\b|ch\u1ec9.{0,40}(?:th\u00f4i|\u00e0|\?)|c\u00f2n.{0,40}(?:kh\u00e1c|n\u00e0o)|c\u00f3.{0,40}n\u00e0o kh\u00e1c|t\u1ea5t c\u1ea3|\u53ea\u6709|\u4ec5.{0,20}(?:\u5417|\uff1f|\?)|\u8fd8\u6709.{0,20}(?:\u5176\u4ed6|\u522b\u7684)|\u5168\u90e8/iu;
+const SPECIFICATION_ONLY_FOLLOW_UP_PATTERN = /(?:只要|仅|只|只需).{0,12}(?:统计|列出)?.{0,12}(?:规格|规\s*格)|(?:chi|chi can|chi muon).{0,20}(?:thong ke|liet ke)?.{0,20}(?:quy cach|kich thuoc)|\b(?:only|just)\b.{0,24}\b(?:spec|specification|dimensions?)\b/iu;
 const HELP_PATTERN = /\b(?:guide|instructions?|capabilities|what can you do|how (?:do|can) i use|help (?:me )?(?:use|with))\b|h\u01b0\u1edbng d\u1eabn|c\u00f3 th\u1ec3 l\u00e0m g\u00ec|gi\u00fap \u0111\u01b0\u1ee3c g\u00ec|\u4f7f\u7528\u5e2e\u52a9|\u600e\u4e48\u7528|\u4f7f\u7528\u6307\u5357|\u6709\u4ec0\u4e48\u529f\u80fd/iu;
 const SCHEMA_PATTERN = /\b(?:schema|data structure|fields?|entities|html data|dom data)\b|c\u1ea5u tr\u00fac d\u1eef li\u1ec7u|tr\u01b0\u1eddng d\u1eef li\u1ec7u|d\u1eef li\u1ec7u html|\u6570\u636e\u7ed3\u6784|\u5b57\u6bb5|\u5b9e\u4f53|HTML\s*\u6570\u636e/iu;
 const DRAWING_COMMONALITY_PATTERN = /\b(?:drawing|drawings|blueprint|interchangeable)\b|b\u1ea3n v\u1ebd|thay th\u1ebf l\u1eabn nhau|\u56fe\u7eb8|\u53ef\u4ee5\u4e92\u6362/iu;
 const VIETNAMESE_CATALOG_SCOPE_PATTERN = /\b(?:toan bo|tat ca|moi|cac)\b/iu;
 const VIETNAMESE_PRODUCT_SCOPE_PATTERN = /\b(?:san pham|LGS)\b/iu;
 const CATALOG_COMPONENT_SCOPE_PATTERN = /(?:所有|全部|全体|统计|統計|列出|列表|清单|汇总|all|every|toan bo|tat ca|moi|cac)/iu;
+const GENERIC_CATALOG_MATERIAL_SCOPE_PATTERN = /(?:所有|全部|全体|统计|統計|列出|列表|清单|汇总|all|every|toan bo|tat ca|thong ke|liet ke|danh sach)/iu;
 const FOLDED_PRODUCT_DETAIL_PATTERN = /\b(?:mau|mau sac|kich thuoc|rong|cao|sau|dai|thong tin san pham|ma san pham)\b/iu;
 const FOLDED_COMPONENT_LOOKUP_PATTERN = /\b(?:dung gi|dung loai nao|loai nao|ma nao|ma gi|bao nhieu|so luong|quy cach|kich thuoc)\b.{0,40}\b(?:linh kien|vat lieu|bo phan|tui vai|day tui|ngan keo|ngu kim|thung|hop|bao bi|oc vit|tay nam|chan|thanh|khung)\b|\b(?:linh kien|vat lieu|bo phan|tui vai|day tui|ngan keo|ngu kim|thung|hop|bao bi|oc vit|tay nam|chan|thanh|khung)\b.{0,40}\b(?:dung gi|dung loai nao|loai nao|ma nao|ma gi|bao nhieu|so luong|quy cach|kich thuoc)\b/iu;
 const FOLDED_REVISION_PATTERN = /\b(?:phien ban|version|ban nhap|hien hanh|da phat hanh|trang thai)\b/iu;
@@ -427,6 +429,18 @@ export function routePdmIntent({
   }
 
   if (
+    SPECIFICATION_ONLY_FOLLOW_UP_PATTERN.test(text)
+    && priorSearchQuery
+    && tools.has('analyze_pdm')
+  ) {
+    return result(
+      PDM_INTENTS.CATALOG_ANALYSIS,
+      { ...entities, searchQuery: `${priorSearchQuery} ${text}` },
+      'analyze_pdm',
+    );
+  }
+
+  if (
     INTENT_PATTERNS.comparison.test(text)
     && productIds.length >= 2
     && tools.has('compare_boms')
@@ -464,6 +478,11 @@ export function routePdmIntent({
         basicBomConcept &&
         productIds.length === 0 &&
         CATALOG_COMPONENT_SCOPE_PATTERN.test(foldedText)
+      ) ||
+      (
+        productIds.length === 0 &&
+        !isRecentChanges &&
+        GENERIC_CATALOG_MATERIAL_SCOPE_PATTERN.test(foldedText)
       ) ||
       (PRODUCT_VARIANT_GAP_PATTERN.test(text) && productIds.length === 1) ||
       (

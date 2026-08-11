@@ -231,9 +231,13 @@ test('2b. Catalog component usage recognizes vertical-beam terminology', () => {
 test('2b1. Catalog fabric-drawer statistics return material usage and specifications', () => {
   const knowledge = new PdmKnowledge(mockSnapshot);
 
-  for (const query of ['帮我统计所有布抽', '帮我统计所有布抽规格', '列出所有布抽']) {
+  for (const [query, countMode] of [
+    ['帮我统计所有布抽', 'component_usage'],
+    ['帮我统计所有布抽规格', 'specification_summary'],
+    ['列出所有布抽', 'component_usage'],
+  ]) {
     const result = knowledge.analyzePdm({ query });
-    assert.equal(result.countMode, 'component_usage', query);
+    assert.equal(result.countMode, countMode, query);
     assert.ok(result.totalCount >= 1, query);
     assert.ok(result.results.some(row => row.spec === '300x200mm'), query);
   }
