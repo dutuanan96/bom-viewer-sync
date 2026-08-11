@@ -104,6 +104,7 @@ export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.
         const cacheBust = now();
         let commitSha = null;
         let fetchRef = branch;
+        let rawBase = 'https://raw.githubusercontent.com';
         let commitData = null;
         try {
           commitData = await githubJson(`${apiBase}/commits/${encodeURIComponent(branch)}`, { cache: 'no-store' });
@@ -112,11 +113,15 @@ export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.
             fetchRef = commitSha;
           }
         } catch (error) {
-          console.warn('GitHub API failed (possibly rate limited), falling back to branch-based fetching.', error);
+          rawBase = 'https://cdn.jsdelivr.net/gh';
+          console.warn('GitHub API failed (possibly rate limited), falling back to jsDelivr branch fetching.', error);
         }
 
         const fetchRaw = async (logicalPath) => {
-          const url = `https://raw.githubusercontent.com/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/${fetchRef}/${shardRoot}/${logicalPath}?t=${cacheBust}`;
+          const repositoryPath = rawBase === 'https://cdn.jsdelivr.net/gh'
+            ? `${encodeURIComponent(owner)}/${encodeURIComponent(repo)}@${fetchRef}`
+            : `${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/${fetchRef}`;
+          const url = `${rawBase}/${repositoryPath}/${shardRoot}/${logicalPath}?t=${cacheBust}`;
           const response = await fetchImpl(url, { cache: 'no-store' });
           if (!response.ok) {
             const error = new Error(`Failed to load ${logicalPath}`);
