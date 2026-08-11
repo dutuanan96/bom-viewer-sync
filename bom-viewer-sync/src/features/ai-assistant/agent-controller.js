@@ -691,7 +691,13 @@ ${(route?.intent === 'proposal' || isWorkflowTurn) ? semanticSchemaPrompt() : ''
           deterministicFallbackText = String(formatToolFallback({ toolCall: safeCall, toolResult, snapshot }) || '');
         }
         if (safeCall.name === 'analyze_pdm' && Array.isArray(toolResult?.results) && toolResult.results.length > 0) {
-          catalogExport = { query: String(safeCall.arguments?.query || ''), result: toolResult };
+          catalogExport = {
+            query: String(safeCall.arguments?.query || ''),
+            result: {
+              ...toolResult,
+              results: Array.isArray(toolResult.exportResults) ? toolResult.exportResults : toolResult.results,
+            },
+          };
         }
 
         const grounding = verifyGrounding({

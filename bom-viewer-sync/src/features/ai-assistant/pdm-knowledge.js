@@ -24,6 +24,16 @@ const REPRESENTATIVE_COLOR_PRIORITY = [
   { code: 'WH', matcher: /\u767d\u8272|\bwhite\b|mau trang/i },
 ];
 
+function withExportResults(result, allResults) {
+  Object.defineProperty(result, 'exportResults', {
+    value: allResults,
+    enumerable: false,
+    configurable: false,
+    writable: false,
+  });
+  return result;
+}
+
 function productColors(product) {
   return [...new Set([
     ...(Array.isArray(product?.colors) ? product.colors : []),
@@ -132,9 +142,9 @@ function normalizeBomSearchText(value) {
 
 function catalogMaterialSearchTerms(query) {
   const normalized = normalizeBomSearchText(query)
-    .replace(/帮我|请|统计|統計|所有|全部|全体|列出|列表|清单|汇总|规格|规\s*格|使用产品|物料|材料|零件|部件/g, ' ')
-    .replace(/\b(?:all|every|toan bo|tat ca|thong ke|liet ke|danh sach|quy cach|spec|specification|material|component|parts?|products?)\b/giu, ' ');
-  const stopWords = new Set(['bao', 'bao bi', 'cua', 'giup', 'hay', 'la', 'nao', 'nhung', 'san pham', 'su dung', 'tat', 'toan', 'voi']);
+    .replace(/帮我|请|统计|統計|所有|全部|全体|列出|列表|清单|汇总|规格|规\s*格|每一个产品|每个产品|各个产品|用什么|什么|使用产品|产品|物料|材料|零件|部件|包材|包装材料|包装/g, ' ')
+    .replace(/\b(?:all|every|toan bo|tat ca|thong ke|liet ke|danh sach|quy cach|spec|specification|material|component|parts?|products?|each product|every product|moi san pham|tung san pham|dung gi)\b/giu, ' ');
+  const stopWords = new Set(['bao', 'bi', 'cua', 'giup', 'hay', 'la', 'nao', 'nhung', 'san', 'pham', 'su', 'dung', 'tat', 'toan', 'vat', 'lieu', 'dong', 'goi', 'voi']);
   const latinTerms = (normalized.match(/[a-z0-9]+(?:[.\-]?[a-z0-9]+)*/g) || [])
     .filter(term => term.length >= 2 && !stopWords.has(term) && !/^lgs\d{3,4}$/.test(term));
   const hanTerms = [...normalized.matchAll(/[\p{Script=Han}]{2,}/gu)].map(match => match[0]);
@@ -769,6 +779,8 @@ export class PdmKnowledge {
         && /最大|largest|biggest|maximum/i.test(text)
       ) {
         mode = 'rank_component_size';
+      } else if (concept?.conceptId === 'packaging_material' && genericMaterialTerms.length > 0) {
+        mode = 'generic_material_usage';
       } else if (
         ['crossbar', 'upper_crossbar', 'bottom_crossbar', 'vertical_beam', 'packaging_carton', 'packaging_material', 'drawer_bottom'].includes(concept?.conceptId)
         || (concept?.conceptId === 'drawer_fabric' && /(?:所有|全部|全体|统计|統計|列出|列表|清单|汇总|规格|规\s*格|all|every|list|summary|spec)/iu.test(text))
@@ -1003,11 +1015,22 @@ export class PdmKnowledge {
       const componentResults = mode === 'rank_component_size'
         ? sizedComponents.filter(component => component.sizeMetric === maximumSize)
         : matched;
+      const wantsProductOrder = /每(?:一)?个(?:产品|LGS)?|各(?:个)?产品|每个LGS|tung(?: cac)? san pham|moi(?: cac)? san pham|each product|every product|by product/iu.test(normalizeBomSearchText(text));
+      const productOrderedResults = wantsProductOrder
+        ? componentResults.flatMap(component => component.usedInProducts.map(productCode => ({
+          ...component,
+          usedInProducts: [productCode],
+          usedInProductRevisions: component.usedInProductRevisions.filter(label => label.startsWith(`${productCode} (`)),
+        }))).sort((left, right) => (
+          left.usedInProducts[0].localeCompare(right.usedInProducts[0])
+          || left.materialCode.localeCompare(right.materialCode)
+        ))
+        : componentResults;
       const wantsSpecificationSummary = mode !== 'rank_component_size'
         && /规格|规\s*格|quy cach|kich thuoc|spec(?:ification)?/iu.test(normalizeBomSearchText(text));
       const results = wantsSpecificationSummary
-        ? [...componentResults.reduce((groups, component) => {
-          const key = normalizeBomSearchText(component.spec) || component.materialCode;
+        ? [...productOrderedResults.reduce((groups, component) => {
+          const key = `${wantsProductOrder ? component.usedInProducts[0] : ''}|${normalizeBomSearchText(component.spec) || component.materialCode}`;
           const group = groups.get(key) || {
             spec: component.spec,
             materialCodes: new Set(),
@@ -1029,9 +1052,9 @@ export class PdmKnowledge {
           usedInProductRevisions: [...group.usedInProductRevisions].sort(),
           representativeColors: [...group.representativeColors].sort((left, right) => colorPriority(left) - colorPriority(right) || left.localeCompare(right)),
         })).sort((left, right) => left.spec.localeCompare(right.spec))
-        : componentResults;
+        : productOrderedResults;
 
-      return {
+      return withExportResults({
         interpretation: mode === 'rank_component_size'
           ? `Largest ${concept.canonicalEn} by parsed specification dimensions`
           : mode === 'generic_material_usage'
@@ -1052,7 +1075,7 @@ export class PdmKnowledge {
         results: results.slice(0, MAX_SEARCH_RESULTS),
         truncated: results.length > MAX_SEARCH_RESULTS,
         evidence: buildEvidence(this._sourceMetadata, concept?.conceptId || 'generic_material', 'data/materials.json'),
-      };
+      }, results);
     }
 
     if (mode === 'count_products') {

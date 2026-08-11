@@ -331,6 +331,7 @@ export function formatLocalToolFallback(t, { toolCall, toolResult } = {}) {
       lines.push(...results.map((result, index) => (
         `| ${[index + 1, result.spec || '-', result.materialCount ?? 0, (result.usedInProductRevisions || []).join(', ') || '-'].join(' | ')} |`
       )));
+      if (toolResult.truncated) lines.push(`| ${headers.map(() => '...').join(' | ')} |`);
       if (toolResult.representativeColorPolicy) {
         lines.splice(2, 0, tr('ai.localFallback.representativeColorPolicy', 'No color was specified. One representative color is selected for each product in the order BH, KD, WH, then the first available color.'));
       }
@@ -365,6 +366,7 @@ export function formatLocalToolFallback(t, { toolCall, toolResult } = {}) {
           ...(hasEffectiveRevision ? [(result.effectiveRevisions || []).join(', ') || '-'] : []),
         ].join(' | ')} |`
       )));
+      if (toolResult.truncated) lines.push(`| ${headers.map(() => '...').join(' | ')} |`);
       if (toolResult.representativeColorPolicy) {
         lines.splice(2, 0, tr('ai.localFallback.representativeColorPolicy', 'No color was specified. One representative color is selected for each product in the order BH, KD, WH, then the first available color.'));
       }

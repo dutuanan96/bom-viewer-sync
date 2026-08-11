@@ -323,6 +323,46 @@ test('R1.3 integration: all results are bounded and have evidence', () => {
   assert.ok(evidence.sourceCommit, 'must have sourceCommit in evidence');
 });
 
+test('Catalog analysis retains complete rows for export while bounding visible results', () => {
+  const snapshot = {
+    sourceMetadata: { commitSha: 'c'.repeat(40), shardRoot: 'data', manifestVersion: 1, updatedAt: '2026-08-11T00:00:00Z' },
+    payload: {
+      bom: Object.fromEntries(Array.from({ length: 51 }, (_, index) => {
+        const productCode = `LGS${String(index + 100).padStart(3, '0')}`;
+        return [productCode, { colors: ['黑色'], effectiveRevision: 'V1', color_info: { 黑色: { sku: `${productCode}BH` } } }];
+      })),
+      productRevisions: {},
+      materialDb: {
+        materials: Object.fromEntries(Array.from({ length: 51 }, (_, index) => [
+          `foam-${index + 1}`,
+          {
+            id: `foam-${index + 1}`,
+            code: `PM${String(index + 1).padStart(4, '0')}`,
+            name: { zh: '泡沫', vi: 'Mút xốp' },
+            spec: { zh: `${index + 1}x10x10mm`, vi: `${index + 1}x10x10mm` },
+          },
+        ])),
+        bomEntries: Array.from({ length: 51 }, (_, index) => ({
+          parentType: 'product',
+          productCode: `LGS${String(index + 100).padStart(3, '0')}`,
+          color: '黑色',
+          materialId: `foam-${index + 1}`,
+          qty: 1,
+        })),
+      },
+    },
+  };
+  const result = new PdmKnowledge(snapshot).analyzePdm({ query: '帮我统计每一个产品用什么泡沫' });
+
+  assert.equal(result.countMode, 'generic_material_usage');
+  assert.equal(result.totalCount, 51);
+  assert.equal(result.results.length, 50);
+  assert.equal(result.truncated, true);
+  assert.equal(result.exportResults.length, 51);
+  assert.ok(result.exportResults.every(row => row.nameZh === '泡沫'));
+  assert.deepEqual(result.exportResults.map(row => row.usedInProducts[0]), [...result.exportResults.map(row => row.usedInProducts[0])].sort());
+});
+
 test('R1.3 integration: LGS723/LGS733 comparison uses shared assets and reports BOM conflicts', () => {
   const result = new PdmKnowledge(loadCanonicalSnapshot()).compareBoms({
     productId1: 'LGS723',
