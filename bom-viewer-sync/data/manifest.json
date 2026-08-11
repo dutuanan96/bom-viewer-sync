@@ -3634,12 +3634,12 @@
                   "id": "mat_4ipzfw",
                   "code": "LGS032PKXKD",
                   "name": {
-                    "zh": "LGS032-平口箱",
-                    "vi": "LGS032-thùng carton"
+                    "zh": "平口箱",
+                    "vi": "平口箱"
                   },
                   "spec": {
-                    "zh": "1185x335x110mm",
-                    "vi": "1185x335x110mm"
+                    "zh": "1185x335x105mm",
+                    "vi": "1185x335x105mm"
                   },
                   "material": {
                     "zh": "瓦楞纸",
@@ -3647,7 +3647,7 @@
                   },
                   "color": {
                     "zh": "纸色",
-                    "vi": "màu giấy"
+                    "vi": "纸色"
                   },
                   "attr": {
                     "zh": "包材",
@@ -3708,68 +3708,16 @@
                   "drawings": [],
                   "models3d": []
                 },
-                "mat_12v3k9d": {
-                  "id": "mat_12v3k9d",
-                  "code": "LGS032PM001",
-                  "name": {
-                    "zh": "泡沫",
-                    "vi": "mút xốp"
-                  },
-                  "spec": {
-                    "zh": "20Kg,325x85x8mm",
-                    "vi": "20Kg,325x85x8mm"
-                  },
-                  "material": {
-                    "zh": "EPS泡沫",
-                    "vi": "EPS mút xốp"
-                  },
-                  "color": {
-                    "zh": "白色",
-                    "vi": "màu trắng"
-                  },
-                  "attr": {
-                    "zh": "包材",
-                    "vi": "vật liệu đóng gói"
-                  },
-                  "drawings": [],
-                  "models3d": []
-                },
-                "mat_qg9alk": {
-                  "id": "mat_qg9alk",
-                  "code": "LGS032PM002",
-                  "name": {
-                    "zh": "泡沫",
-                    "vi": "mút xốp"
-                  },
-                  "spec": {
-                    "zh": "16Kg,320x32x17mm",
-                    "vi": "16Kg,320x32x17mm"
-                  },
-                  "material": {
-                    "zh": "EPS泡沫",
-                    "vi": "EPS mút xốp"
-                  },
-                  "color": {
-                    "zh": "白色",
-                    "vi": "màu trắng"
-                  },
-                  "attr": {
-                    "zh": "包材",
-                    "vi": "vật liệu đóng gói"
-                  },
-                  "drawings": [],
-                  "models3d": []
-                },
                 "mat_1s4itvb": {
                   "id": "mat_1s4itvb",
                   "code": "PPHJ1285",
                   "name": {
                     "zh": "PP护角",
-                    "vi": "PP góc nhựa"
+                    "vi": "PP护角"
                   },
                   "spec": {
                     "zh": "内径高12mm,边厚度8.5mm",
-                    "vi": "đường kính trong cao 12mm,độ dày cạnh 8.5mm"
+                    "vi": "内径高12mm,边厚度8.5mm"
                   },
                   "material": {
                     "zh": "PP",
@@ -3777,7 +3725,7 @@
                   },
                   "color": {
                     "zh": "黑色",
-                    "vi": "màu đen"
+                    "vi": "黑色"
                   },
                   "attr": {
                     "zh": "包材",
@@ -3791,19 +3739,19 @@
                   "code": "XHBBL010",
                   "name": {
                     "zh": "序号标BL",
-                    "vi": "nhãn STT BL"
+                    "vi": "序号标BL"
                   },
                   "spec": {
-                    "zh": "Ø10mm",
+                    "zh": "∅10mm",
                     "vi": "∅10mm"
                   },
                   "material": {
                     "zh": "不干胶纸",
-                    "vi": "giấy decal"
+                    "vi": "giấy tự dính"
                   },
                   "color": {
-                    "zh": "白底黑字",
-                    "vi": "nền trắng chữ đen"
+                    "zh": "按样",
+                    "vi": "按样"
                   },
                   "attr": {
                     "zh": "包材",
@@ -3817,19 +3765,19 @@
                   "code": "XHBBR010",
                   "name": {
                     "zh": "序号标BR",
-                    "vi": "nhãn STT BR"
+                    "vi": "序号标BR"
                   },
                   "spec": {
-                    "zh": "Ø10mm",
+                    "zh": "∅10mm",
                     "vi": "∅10mm"
                   },
                   "material": {
                     "zh": "不干胶纸",
-                    "vi": "giấy decal"
+                    "vi": "giấy tự dính"
                   },
                   "color": {
-                    "zh": "白底黑字",
-                    "vi": "nền trắng chữ đen"
+                    "zh": "按样",
+                    "vi": "按样"
                   },
                   "attr": {
                     "zh": "包材",
@@ -3843,7 +3791,7 @@
                   "code": "JGB120052",
                   "name": {
                     "zh": "警告标",
-                    "vi": "nhãn cảnh báo"
+                    "vi": "警告标"
                   },
                   "spec": {
                     "zh": "120x52mm",
@@ -3851,11 +3799,11 @@
                   },
                   "material": {
                     "zh": "不干胶纸",
-                    "vi": "giấy decal"
+                    "vi": "giấy tự dính"
                   },
                   "color": {
                     "zh": "按样",
-                    "vi": "theo mẫu"
+                    "vi": "按样"
                   },
                   "attr": {
                     "zh": "包材",
@@ -3869,7 +3817,7 @@
                   "code": "VTJGB035012",
                   "name": {
                     "zh": "产地标",
-                    "vi": "nhãn xuất xứ"
+                    "vi": "产地标"
                   },
                   "spec": {
                     "zh": "35x12mm",
@@ -3877,11 +3825,11 @@
                   },
                   "material": {
                     "zh": "不干胶纸",
-                    "vi": "giấy decal"
+                    "vi": "giấy tự dính"
                   },
                   "color": {
-                    "zh": "白底黑字",
-                    "vi": "nền trắng chữ đen"
+                    "zh": "按样",
+                    "vi": "按样"
                   },
                   "attr": {
                     "zh": "包材",
@@ -3895,7 +3843,7 @@
                   "code": "LGS032SMS",
                   "name": {
                     "zh": "说明书",
-                    "vi": "LGS032 sách hướng dẫn"
+                    "vi": "sách hướng dẫn"
                   },
                   "spec": {
                     "zh": "A4",
@@ -3907,7 +3855,7 @@
                   },
                   "color": {
                     "zh": "黑白",
-                    "vi": "đen trắng"
+                    "vi": "黑白"
                   },
                   "attr": {
                     "zh": "包材",
@@ -4646,6 +4594,136 @@
                       "bytes": 19736
                     }
                   ]
+                },
+                "mat_b8cef361": {
+                  "id": "mat_b8cef361",
+                  "code": "ZHJ505090",
+                  "name": {
+                    "zh": "纸护角",
+                    "vi": "纸护角"
+                  },
+                  "spec": {
+                    "zh": "50x50x90mm",
+                    "vi": "50x50x90mm"
+                  },
+                  "material": {
+                    "zh": "瓦楞纸",
+                    "vi": "giấy carton"
+                  },
+                  "color": {
+                    "zh": "纸色",
+                    "vi": "纸色"
+                  },
+                  "attr": {
+                    "zh": "包材",
+                    "vi": "vật liệu đóng gói"
+                  },
+                  "drawings": [],
+                  "models3d": []
+                },
+                "mat_c8495ac8": {
+                  "id": "mat_c8495ac8",
+                  "code": "ZK1100100",
+                  "name": {
+                    "zh": "纸卡",
+                    "vi": "纸卡"
+                  },
+                  "spec": {
+                    "zh": "单瓦1100x100mm",
+                    "vi": "单瓦1100x100mm"
+                  },
+                  "material": {
+                    "zh": "瓦楞纸",
+                    "vi": "giấy carton"
+                  },
+                  "color": {
+                    "zh": "纸色",
+                    "vi": "纸色"
+                  },
+                  "attr": {
+                    "zh": "包材",
+                    "vi": "vật liệu đóng gói"
+                  },
+                  "drawings": [],
+                  "models3d": []
+                },
+                "mat_f9e7ce0c": {
+                  "id": "mat_f9e7ce0c",
+                  "code": "PM3259008",
+                  "name": {
+                    "zh": "泡沫",
+                    "vi": "mút xốp"
+                  },
+                  "spec": {
+                    "zh": "20Kg,325x90x8mm",
+                    "vi": "20Kg,325x90x8mm"
+                  },
+                  "material": {
+                    "zh": "EPS泡沫",
+                    "vi": "EPS mút xốp"
+                  },
+                  "color": {
+                    "zh": "白色",
+                    "vi": "白色"
+                  },
+                  "attr": {
+                    "zh": "包材",
+                    "vi": "vật liệu đóng gói"
+                  },
+                  "drawings": [],
+                  "models3d": []
+                },
+                "mat_22c89077": {
+                  "id": "mat_22c89077",
+                  "code": "PM3203217",
+                  "name": {
+                    "zh": "泡沫",
+                    "vi": "mút xốp"
+                  },
+                  "spec": {
+                    "zh": "16Kg,320x32x17mm",
+                    "vi": "16Kg,320x32x17mm"
+                  },
+                  "material": {
+                    "zh": "EPS泡沫",
+                    "vi": "EPS mút xốp"
+                  },
+                  "color": {
+                    "zh": "白色",
+                    "vi": "白色"
+                  },
+                  "attr": {
+                    "zh": "包材",
+                    "vi": "vật liệu đóng gói"
+                  },
+                  "drawings": [],
+                  "models3d": []
+                },
+                "mat_gwfd2t": {
+                  "id": "mat_gwfd2t",
+                  "code": "LGS032PKXBH",
+                  "name": {
+                    "zh": "平口箱",
+                    "vi": "平口箱"
+                  },
+                  "spec": {
+                    "zh": "1185x335x105mm",
+                    "vi": "1185x335x105mm"
+                  },
+                  "material": {
+                    "zh": "瓦楞纸",
+                    "vi": "giấy carton"
+                  },
+                  "color": {
+                    "zh": "纸色",
+                    "vi": "纸色"
+                  },
+                  "attr": {
+                    "zh": "包材",
+                    "vi": "vật liệu đóng gói"
+                  },
+                  "drawings": [],
+                  "models3d": []
                 }
               },
               "bomEntries": [
@@ -4937,10 +5015,10 @@
                   "color": "复古色",
                   "materialId": "mat_4ipzfw",
                   "stt": "20",
-                  "comp_code": "无",
+                  "comp_code": "",
                   "qty": "1",
                   "color_ver": "复古色",
-                  "color_ver_vi": "màu gỗ cổ",
+                  "color_ver_vi": "复古色",
                   "order": 20
                 },
                 {
@@ -4949,12 +5027,12 @@
                   "parentId": "LGS032",
                   "productCode": "LGS032",
                   "color": "复古色",
-                  "materialId": "mat_155vezs",
+                  "materialId": "mat_b8cef361",
                   "stt": "21",
-                  "comp_code": "无",
+                  "comp_code": "",
                   "qty": "4",
                   "color_ver": "复古色",
-                  "color_ver_vi": "màu gỗ cổ",
+                  "color_ver_vi": "复古色",
                   "order": 21
                 },
                 {
@@ -4963,12 +5041,12 @@
                   "parentId": "LGS032",
                   "productCode": "LGS032",
                   "color": "复古色",
-                  "materialId": "mat_14l5oxj",
+                  "materialId": "mat_c8495ac8",
                   "stt": "22",
-                  "comp_code": "无",
+                  "comp_code": "",
                   "qty": "2",
                   "color_ver": "复古色",
-                  "color_ver_vi": "màu gỗ cổ",
+                  "color_ver_vi": "复古色",
                   "order": 22
                 },
                 {
@@ -4977,12 +5055,12 @@
                   "parentId": "LGS032",
                   "productCode": "LGS032",
                   "color": "复古色",
-                  "materialId": "mat_12v3k9d",
+                  "materialId": "mat_f9e7ce0c",
                   "stt": "23",
-                  "comp_code": "无",
+                  "comp_code": "",
                   "qty": "2",
                   "color_ver": "复古色",
-                  "color_ver_vi": "màu gỗ cổ",
+                  "color_ver_vi": "复古色",
                   "order": 23
                 },
                 {
@@ -4991,12 +5069,12 @@
                   "parentId": "LGS032",
                   "productCode": "LGS032",
                   "color": "复古色",
-                  "materialId": "mat_qg9alk",
+                  "materialId": "mat_22c89077",
                   "stt": "24",
-                  "comp_code": "无",
+                  "comp_code": "",
                   "qty": "2",
                   "color_ver": "复古色",
-                  "color_ver_vi": "màu gỗ cổ",
+                  "color_ver_vi": "复古色",
                   "order": 24
                 },
                 {
@@ -5007,10 +5085,10 @@
                   "color": "复古色",
                   "materialId": "mat_1s4itvb",
                   "stt": "25",
-                  "comp_code": "无",
+                  "comp_code": "",
                   "qty": "12",
                   "color_ver": "复古色",
-                  "color_ver_vi": "màu gỗ cổ",
+                  "color_ver_vi": "复古色",
                   "order": 25
                 },
                 {
@@ -5019,12 +5097,12 @@
                   "parentId": "LGS032",
                   "productCode": "LGS032",
                   "color": "复古色",
-                  "materialId": "mat_1w2hwc",
+                  "materialId": "mat_1x4jobj",
                   "stt": "26",
-                  "comp_code": "无",
+                  "comp_code": "",
                   "qty": "1",
                   "color_ver": "复古色",
-                  "color_ver_vi": "màu gỗ cổ",
+                  "color_ver_vi": "复古色",
                   "order": 26
                 },
                 {
@@ -5033,12 +5111,12 @@
                   "parentId": "LGS032",
                   "productCode": "LGS032",
                   "color": "复古色",
-                  "materialId": "mat_18wm8e4",
+                  "materialId": "mat_1w2hwc",
                   "stt": "27",
-                  "comp_code": "无",
+                  "comp_code": "",
                   "qty": "1",
                   "color_ver": "复古色",
-                  "color_ver_vi": "màu gỗ cổ",
+                  "color_ver_vi": "复古色",
                   "order": 27
                 },
                 {
@@ -5047,12 +5125,12 @@
                   "parentId": "LGS032",
                   "productCode": "LGS032",
                   "color": "复古色",
-                  "materialId": "mat_f60urh",
+                  "materialId": "mat_18wm8e4",
                   "stt": "28",
-                  "comp_code": "无",
+                  "comp_code": "",
                   "qty": "1",
                   "color_ver": "复古色",
-                  "color_ver_vi": "màu gỗ cổ",
+                  "color_ver_vi": "复古色",
                   "order": 28
                 },
                 {
@@ -5061,12 +5139,12 @@
                   "parentId": "LGS032",
                   "productCode": "LGS032",
                   "color": "复古色",
-                  "materialId": "mat_z3s5zi",
+                  "materialId": "mat_f60urh",
                   "stt": "29",
-                  "comp_code": "无",
+                  "comp_code": "",
                   "qty": "1",
                   "color_ver": "复古色",
-                  "color_ver_vi": "màu gỗ cổ",
+                  "color_ver_vi": "复古色",
                   "order": 29
                 },
                 {
@@ -5075,12 +5153,12 @@
                   "parentId": "LGS032",
                   "productCode": "LGS032",
                   "color": "复古色",
-                  "materialId": "mat_1x4jobj",
+                  "materialId": "mat_z3s5zi",
                   "stt": "29",
-                  "comp_code": "无",
+                  "comp_code": "",
                   "qty": "1",
                   "color_ver": "复古色",
-                  "color_ver_vi": "màu gỗ cổ",
+                  "color_ver_vi": "复古色",
                   "order": 30
                 },
                 {
@@ -5537,12 +5615,12 @@
                   "parentId": "LGS032",
                   "productCode": "LGS032",
                   "color": "黑色",
-                  "materialId": "mat_4ipzfw",
+                  "materialId": "mat_gwfd2t",
                   "stt": "20",
-                  "comp_code": "无",
+                  "comp_code": "",
                   "qty": "1",
                   "color_ver": "黑色",
-                  "color_ver_vi": "màu đen",
+                  "color_ver_vi": "黑色",
                   "order": 20
                 },
                 {
@@ -5551,12 +5629,12 @@
                   "parentId": "LGS032",
                   "productCode": "LGS032",
                   "color": "黑色",
-                  "materialId": "mat_155vezs",
+                  "materialId": "mat_b8cef361",
                   "stt": "21",
-                  "comp_code": "无",
+                  "comp_code": "",
                   "qty": "4",
                   "color_ver": "黑色",
-                  "color_ver_vi": "màu đen",
+                  "color_ver_vi": "黑色",
                   "order": 21
                 },
                 {
@@ -5565,12 +5643,12 @@
                   "parentId": "LGS032",
                   "productCode": "LGS032",
                   "color": "黑色",
-                  "materialId": "mat_14l5oxj",
+                  "materialId": "mat_c8495ac8",
                   "stt": "22",
-                  "comp_code": "无",
+                  "comp_code": "",
                   "qty": "2",
                   "color_ver": "黑色",
-                  "color_ver_vi": "màu đen",
+                  "color_ver_vi": "黑色",
                   "order": 22
                 },
                 {
@@ -5579,12 +5657,12 @@
                   "parentId": "LGS032",
                   "productCode": "LGS032",
                   "color": "黑色",
-                  "materialId": "mat_12v3k9d",
+                  "materialId": "mat_f9e7ce0c",
                   "stt": "23",
-                  "comp_code": "无",
+                  "comp_code": "",
                   "qty": "2",
                   "color_ver": "黑色",
-                  "color_ver_vi": "màu đen",
+                  "color_ver_vi": "黑色",
                   "order": 23
                 },
                 {
@@ -5593,12 +5671,12 @@
                   "parentId": "LGS032",
                   "productCode": "LGS032",
                   "color": "黑色",
-                  "materialId": "mat_qg9alk",
+                  "materialId": "mat_22c89077",
                   "stt": "24",
-                  "comp_code": "无",
+                  "comp_code": "",
                   "qty": "2",
                   "color_ver": "黑色",
-                  "color_ver_vi": "màu đen",
+                  "color_ver_vi": "黑色",
                   "order": 24
                 },
                 {
@@ -5609,10 +5687,10 @@
                   "color": "黑色",
                   "materialId": "mat_1s4itvb",
                   "stt": "25",
-                  "comp_code": "无",
+                  "comp_code": "",
                   "qty": "12",
                   "color_ver": "黑色",
-                  "color_ver_vi": "màu đen",
+                  "color_ver_vi": "黑色",
                   "order": 25
                 },
                 {
@@ -5621,12 +5699,12 @@
                   "parentId": "LGS032",
                   "productCode": "LGS032",
                   "color": "黑色",
-                  "materialId": "mat_1w2hwc",
+                  "materialId": "mat_1x4jobj",
                   "stt": "26",
-                  "comp_code": "无",
+                  "comp_code": "",
                   "qty": "1",
                   "color_ver": "黑色",
-                  "color_ver_vi": "màu đen",
+                  "color_ver_vi": "黑色",
                   "order": 26
                 },
                 {
@@ -5635,12 +5713,12 @@
                   "parentId": "LGS032",
                   "productCode": "LGS032",
                   "color": "黑色",
-                  "materialId": "mat_18wm8e4",
+                  "materialId": "mat_1w2hwc",
                   "stt": "27",
-                  "comp_code": "无",
+                  "comp_code": "",
                   "qty": "1",
                   "color_ver": "黑色",
-                  "color_ver_vi": "màu đen",
+                  "color_ver_vi": "黑色",
                   "order": 27
                 },
                 {
@@ -5649,12 +5727,12 @@
                   "parentId": "LGS032",
                   "productCode": "LGS032",
                   "color": "黑色",
-                  "materialId": "mat_f60urh",
+                  "materialId": "mat_18wm8e4",
                   "stt": "28",
-                  "comp_code": "无",
+                  "comp_code": "",
                   "qty": "1",
                   "color_ver": "黑色",
-                  "color_ver_vi": "màu đen",
+                  "color_ver_vi": "黑色",
                   "order": 28
                 },
                 {
@@ -5663,12 +5741,12 @@
                   "parentId": "LGS032",
                   "productCode": "LGS032",
                   "color": "黑色",
-                  "materialId": "mat_z3s5zi",
+                  "materialId": "mat_f60urh",
                   "stt": "29",
-                  "comp_code": "无",
+                  "comp_code": "",
                   "qty": "1",
                   "color_ver": "黑色",
-                  "color_ver_vi": "màu đen",
+                  "color_ver_vi": "黑色",
                   "order": 29
                 },
                 {
@@ -5677,12 +5755,12 @@
                   "parentId": "LGS032",
                   "productCode": "LGS032",
                   "color": "黑色",
-                  "materialId": "mat_1x4jobj",
+                  "materialId": "mat_z3s5zi",
                   "stt": "29",
-                  "comp_code": "无",
+                  "comp_code": "",
                   "qty": "1",
                   "color_ver": "黑色",
-                  "color_ver_vi": "màu đen",
+                  "color_ver_vi": "黑色",
                   "order": 30
                 },
                 {
