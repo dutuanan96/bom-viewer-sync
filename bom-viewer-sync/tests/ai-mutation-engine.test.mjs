@@ -632,12 +632,13 @@ test('mutation-engine: parent-child structure actions are deterministic and cycl
     operations: [{
       operationType: 'add_material_child',
       targetId: 'M1',
-      payload: { materialId: 'M2', quantity: 2 },
+      payload: { materialId: 'M2', quantity: 0.25 },
     }],
   });
   const relation = added.payload.materialDb.bomEntries.find(entry => entry.parentType === 'material');
   assert.equal(relation.parentId, 'M1');
   assert.equal(relation.childMaterialId, 'M2');
+  assert.equal(relation.qty, '0.25');
   assert.equal(added.review.operations[0].category, 'structure');
 
   const updatedSnapshot = { ...snapshot, payload: added.payload };
@@ -645,10 +646,10 @@ test('mutation-engine: parent-child structure actions are deterministic and cycl
     operations: [{
       operationType: 'update_material_child_quantity',
       targetId: 'M1',
-      payload: { childId: 'M2', originalQuantity: 2, quantity: 4 },
+      payload: { childId: 'M2', originalQuantity: 0.25, quantity: 0.5 },
     }],
   });
-  assert.equal(updated.payload.materialDb.bomEntries.find(entry => entry.id === relation.id).qty, '4');
+  assert.equal(updated.payload.materialDb.bomEntries.find(entry => entry.id === relation.id).qty, '0.5');
 
   assert.throws(() => buildMutationProposalReview(updatedSnapshot, {
     operations: [{

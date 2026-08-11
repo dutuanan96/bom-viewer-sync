@@ -13057,8 +13057,8 @@
           "vi": "tay nắm"
         },
         "spec": {
-          "zh": "112x22x8mm",
-          "vi": "112x22x8mm"
+          "zh": "129x22x8mm",
+          "vi": "129x22x8mm"
         },
         "material": {
           "zh": "PP&GF40",
@@ -14653,7 +14653,7 @@
       },
       "mat_1m5b6t5": {
         "id": "mat_1m5b6t5",
-        "code": "ZJG150654BH",
+        "code": "ZJG150651BH",
         "name": {
           "zh": "51底脚",
           "vi": "51 chân đế"
@@ -14691,6 +14691,49 @@
             "matched_name": "51底脚",
             "score": 1300,
             "bytes": 19716
+          }
+        ]
+      },
+      "mat_zjg150654bh": {
+        "id": "mat_zjg150654bh",
+        "code": "ZJG150654BH",
+        "name": {
+          "zh": "54底脚",
+          "vi": "54 chân đế"
+        },
+        "spec": {
+          "zh": "70x15x15mm",
+          "vi": "70x15x15mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "黑砂纹",
+          "vi": "đen nhám"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [
+          {
+            "name": "54底脚.pdf",
+            "path": "Google Drive > LGS033 > 54底脚.pdf",
+            "url": "https://drive.google.com/file/d/1wtron5rMWGkFJf7ExlwRJZ738poWuHO6/view?usp=sharing",
+            "matched_name": "54底脚",
+            "score": 1004
+          }
+        ],
+        "models3d": [
+          {
+            "name": "54底脚.glb",
+            "path": "models3d/catalog/54-21ec9115.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/54-21ec9115.glb",
+            "matched_name": "54底脚",
+            "score": 1100,
+            "bytes": 349028
           }
         ]
       },
@@ -15612,15 +15655,15 @@
         "models3d": []
       },
       "mat_1v7zezh": {
-        "id": "mat_1v7zezh",
-        "code": "SLHGZZ001WH",
+      "id": "mat_1v7zezh",
+      "code": "SLHGZZ001WH",
         "name": {
           "zh": "280mm布抽条左",
           "vi": "280mm Thanh ngăn kéo trái"
         },
         "spec": {
-          "zh": "280x25x23mm",
-          "vi": "280x25x23mm"
+          "zh": "280x25x20mm",
+          "vi": "280x25x20mm"
         },
         "material": {
           "zh": "PP&GF40",
@@ -15655,15 +15698,15 @@
         ]
       },
       "mat_9m6mcz": {
-        "id": "mat_9m6mcz",
-        "code": "SLHGZY001WH",
+      "id": "mat_9m6mcz",
+      "code": "SLHGZY001WH",
         "name": {
           "zh": "280mm布抽条右",
           "vi": "280mm Thanh ngăn kéo phải"
         },
         "spec": {
-          "zh": "280x25x23mm",
-          "vi": "280x25x23mm"
+          "zh": "280x25x20mm",
+          "vi": "280x25x20mm"
         },
         "material": {
           "zh": "PP&GF40",
@@ -15698,15 +15741,15 @@
         ]
       },
       "mat_1tlmea4": {
-        "id": "mat_1tlmea4",
-        "code": "ZJG150654WH",
+      "id": "mat_1tlmea4",
+      "code": "ZJG150654WH",
         "name": {
           "zh": "54底脚",
           "vi": "54 chân đế"
         },
         "spec": {
-          "zh": "70x15x15",
-          "vi": "70x15x15"
+          "zh": "70x15x15mm",
+          "vi": "70x15x15mm"
         },
         "material": {
           "zh": "Q195",
@@ -16637,8 +16680,8 @@
         ]
       },
       "mat_12jfji0": {
-        "id": "mat_12jfji0",
-        "code": "BCDB350327003BH",
+      "id": "mat_12jfji0",
+      "code": "BCDB350327003BH",
         "name": {
           "zh": "LGS布抽底板35x32.7",
           "vi": "LGS Đáy túi 34.5x32"
@@ -16648,8 +16691,8 @@
           "vi": "345x320x3mm"
         },
         "material": {
-          "zh": "MDF&纸板&无纺布",
-          "vi": "MDF&giấy&vải không dệt"
+          "zh": "MDF&无纺布",
+          "vi": "MDF&vải không dệt"
         },
         "color": {
           "zh": "黑色",
@@ -16672,8 +16715,8 @@
         ]
       },
       "mat_m0tg2h": {
-        "id": "mat_m0tg2h",
-        "code": "BCDB300327003BH",
+      "id": "mat_m0tg2h",
+      "code": "BCDB300327003BH",
         "name": {
           "zh": "LGS布抽底板30x32.7",
           "vi": "LGS Đáy túi 29.5x32"
@@ -16683,8 +16726,8 @@
           "vi": "295x320x3mm"
         },
         "material": {
-          "zh": "MDF&纸板&无纺布",
-          "vi": "MDF&giấy&vải không dệt"
+          "zh": "MDF&无纺布",
+          "vi": "MDF&vải không dệt"
         },
         "color": {
           "zh": "黑色",
@@ -19402,8 +19445,8 @@
         ]
       },
       "mat_e8hltc": {
-        "id": "mat_e8hltc",
-        "code": "BCDB550327003WH",
+      "id": "mat_e8hltc",
+      "code": "BCDB550327003WH",
         "name": {
           "zh": "LGS布抽底板55x32.7",
           "vi": "LGS Đáy túi 54.5x32"
@@ -19413,8 +19456,8 @@
           "vi": "545x320x3mm"
         },
         "material": {
-          "zh": "MDF&纸板&无纺布",
-          "vi": "MDF&giấy&vải không dệt"
+          "zh": "MDF&无纺布",
+          "vi": "MDF&vải không dệt"
         },
         "color": {
           "zh": "白色",
@@ -26214,6 +26257,49 @@
           }
         ]
       },
+      "mat_lgs420_zlk_wh": {
+        "id": "mat_lgs420_zlk_wh",
+        "code": "LGS420ZLKWH",
+        "name": {
+          "zh": "LGS420_421-S-支撑框",
+          "vi": "LGS420_421-S-khung đỡ"
+        },
+        "spec": {
+          "zh": "335x198x15mm",
+          "vi": "335x198x15mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "白砂纹",
+          "vi": "trắng nhám"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [
+          {
+            "name": "LGS421_420-S-支撑框.pdf",
+            "path": "Google Drive > LGS420-S > LGS421_420-S-支撑框.pdf",
+            "url": "https://drive.google.com/file/d/1K_JTjo5rpL4CGu269AXNxFl5eqb6Cvuh/view?usp=sharing",
+            "matched_name": "LGS421_420-S-支撑框",
+            "score": 1013
+          }
+        ],
+        "models3d": [
+          {
+            "name": "LGS421_420-S-支撑框.glb",
+            "path": "models3d/catalog/LGS421-420-S-bb935b8b.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS421-420-S-bb935b8b.glb",
+            "matched_name": "LGS421_420-S-支撑框",
+            "score": 1300,
+            "bytes": 81920
+          }
+        ]
+      },
       "mat_19l4tvp": {
         "id": "mat_19l4tvp",
         "code": "LGS420DB102KD",
@@ -26275,6 +26361,49 @@
         "color": {
           "zh": "黑砂纹",
           "vi": "đen nhám"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [
+          {
+            "name": "LGS420-S-顶部横杆前.pdf",
+            "path": "Google Drive > LGS420-S > LGS420-S-顶部横杆前.pdf",
+            "url": "https://drive.google.com/file/d/1ew4v6uC5pANxDDOa15S3isU7gtAuGfvg/view?usp=sharing",
+            "matched_name": "LGS420-S-顶部横杆前",
+            "score": 1012
+          }
+        ],
+        "models3d": [
+          {
+            "name": "LGS420-S-顶部横杆前.glb",
+            "path": "models3d/catalog/LGS420-S-20121e46.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS420-S-20121e46.glb",
+            "matched_name": "LGS420-S-顶部横杆前",
+            "score": 1300,
+            "bytes": 92648
+          }
+        ]
+      },
+      "mat_lgs420_shl_wh": {
+        "id": "mat_lgs420_shl_wh",
+        "code": "LGS420SHLWH",
+        "name": {
+          "zh": "LGS420-S-顶部横杆前",
+          "vi": "LGS420-S-Thanh trên trước"
+        },
+        "spec": {
+          "zh": "727x15x15mm",
+          "vi": "727x15x15mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "白砂纹",
+          "vi": "trắng nhám"
         },
         "attr": {
           "zh": "零件",
@@ -26405,6 +26534,49 @@
         "color": {
           "zh": "黑砂纹",
           "vi": "đen nhám"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [
+          {
+            "name": "LGS420-S-底部横杆.pdf",
+            "path": "Google Drive > LGS420-S > LGS420-S-底部横杆.pdf",
+            "url": "https://drive.google.com/file/d/19Xr8nxkZQvsC0NGzabCnZDGy9fJNJlhG/view?usp=sharing",
+            "matched_name": "LGS420-S-底部横杆",
+            "score": 1011
+          }
+        ],
+        "models3d": [
+          {
+            "name": "LGS420-S-底部横杆.glb",
+            "path": "models3d/catalog/LGS420-S-92c50900.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS420-S-92c50900.glb",
+            "matched_name": "LGS420-S-底部横杆",
+            "score": 1300,
+            "bytes": 80488
+          }
+        ]
+      },
+      "mat_lgs420_xhl_wh": {
+        "id": "mat_lgs420_xhl_wh",
+        "code": "LGS420XHLWH",
+        "name": {
+          "zh": "LGS420-S-底部横杆",
+          "vi": "LGS420-S-thanh dưới"
+        },
+        "spec": {
+          "zh": "727x15x15mm",
+          "vi": "727x15x15mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "白砂纹",
+          "vi": "trắng nhám"
         },
         "attr": {
           "zh": "零件",
@@ -26750,8 +26922,8 @@
         "models3d": []
       },
       "mat_116mdz4": {
-        "id": "mat_116mdz4",
-        "code": "LGS420SHLWHGK",
+      "id": "mat_116mdz4",
+      "code": "LGS420SHLWHGK",
         "name": {
           "zh": "LGS420-S-顶部横杆后",
           "vi": "LGS420-S-Thanh trên sau"
@@ -26765,8 +26937,8 @@
           "vi": "Q195"
         },
         "color": {
-          "zh": "黑砂纹",
-          "vi": "đen nhám"
+          "zh": "白砂纹",
+          "vi": "trắng nhám"
         },
         "attr": {
           "zh": "零件",
@@ -26828,8 +27000,8 @@
         ]
       },
       "mat_1a4uz67": {
-        "id": "mat_1a4uz67",
-        "code": "LGS420YZKWHGK",
+      "id": "mat_1a4uz67",
+      "code": "LGS420YZKWHGK",
         "name": {
           "zh": "LGS131_231_420_421-右中框",
           "vi": "LGS131_231_420_421-Khung giữa phải"
@@ -26843,8 +27015,8 @@
           "vi": "Q195"
         },
         "color": {
-          "zh": "黑砂纹",
-          "vi": "đen nhám"
+          "zh": "白砂纹",
+          "vi": "trắng nhám"
         },
         "attr": {
           "zh": "零件",
@@ -26863,8 +27035,8 @@
         ]
       },
       "mat_t3dlni": {
-        "id": "mat_t3dlni",
-        "code": "BCDB350327003WH",
+      "id": "mat_t3dlni",
+      "code": "BCDB350327003WH",
         "name": {
           "zh": "LGS布抽底板35x32.7",
           "vi": "LGS Đáy túi 34.5x32"
@@ -26874,8 +27046,8 @@
           "vi": "345x320x3mm"
         },
         "material": {
-          "zh": "MDF&纸板&无纺布",
-          "vi": "MDF&giấy&vải không dệt"
+          "zh": "MDF&无纺布",
+          "vi": "MDF&vải không dệt"
         },
         "color": {
           "zh": "白色",
@@ -26942,8 +27114,8 @@
         ]
       },
       "mat_v9mt29": {
-        "id": "mat_v9mt29",
-        "code": "LGS420ZZKWHGK",
+      "id": "mat_v9mt29",
+      "code": "LGS420ZZKWHGK",
         "name": {
           "zh": "LGS131_231_420_421-左中框",
           "vi": "LGS131_231_420_421-Khung giữa trái"
@@ -26957,8 +27129,8 @@
           "vi": "Q195"
         },
         "color": {
-          "zh": "黑砂纹",
-          "vi": "đen nhám"
+          "zh": "白砂纹",
+          "vi": "trắng nhám"
         },
         "attr": {
           "zh": "零件",
@@ -34715,15 +34887,15 @@
         "models3d": []
       },
       "mat_1migwq8": {
-        "id": "mat_1migwq8",
-        "code": "LGS111WJBBH",
+      "id": "mat_1migwq8",
+      "code": "LGS111WJBBH",
         "name": {
           "zh": "LGS111五金包",
           "vi": "LGS111 túi ngũ kim"
         },
         "spec": {
-          "zh": "",
-          "vi": ""
+          "zh": "详见明细",
+          "vi": "Xem chi tiết"
         },
         "material": {
           "zh": "无",
@@ -38430,6 +38602,1124 @@
         },
         "drawings": [],
         "models3d": []
+      },
+      "mat_fg132132065990": {
+        "id": "mat_fg132132065990",
+        "code": "FG132132065990",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "13.2×13.2×0.6Tmm，长度 5990mm",
+          "vi": "13.2×13.2×0.6Tmm, dài 5990mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg132132066150": {
+        "id": "mat_fg132132066150",
+        "code": "FG132132066150",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "13.2×13.2×0.6Tmm，长度 6150mm",
+          "vi": "13.2×13.2×0.6Tmm, dài 6150mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515064864": {
+        "id": "mat_fg1515064864",
+        "code": "FG1515064864",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 4864mm",
+          "vi": "15×15×0.6Tmm, dài 4864mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515064876": {
+        "id": "mat_fg1515064876",
+        "code": "FG1515064876",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 4876mm",
+          "vi": "15×15×0.6Tmm, dài 4876mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515065000": {
+        "id": "mat_fg1515065000",
+        "code": "FG1515065000",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 5000mm",
+          "vi": "15×15×0.6Tmm, dài 5000mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515065011": {
+        "id": "mat_fg1515065011",
+        "code": "FG1515065011",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 5011mm",
+          "vi": "15×15×0.6Tmm, dài 5011mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515065382": {
+        "id": "mat_fg1515065382",
+        "code": "FG1515065382",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 5382mm",
+          "vi": "15×15×0.6Tmm, dài 5382mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515065430": {
+        "id": "mat_fg1515065430",
+        "code": "FG1515065430",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 5430mm",
+          "vi": "15×15×0.6Tmm, dài 5430mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515065464": {
+        "id": "mat_fg1515065464",
+        "code": "FG1515065464",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 5464mm",
+          "vi": "15×15×0.6Tmm, dài 5464mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515065560": {
+        "id": "mat_fg1515065560",
+        "code": "FG1515065560",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 5560mm",
+          "vi": "15×15×0.6Tmm, dài 5560mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515065566": {
+        "id": "mat_fg1515065566",
+        "code": "FG1515065566",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 5566mm",
+          "vi": "15×15×0.6Tmm, dài 5566mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515065598": {
+        "id": "mat_fg1515065598",
+        "code": "FG1515065598",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 5598mm",
+          "vi": "15×15×0.6Tmm, dài 5598mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515065630": {
+        "id": "mat_fg1515065630",
+        "code": "FG1515065630",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 5630mm",
+          "vi": "15×15×0.6Tmm, dài 5630mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515065655": {
+        "id": "mat_fg1515065655",
+        "code": "FG1515065655",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 5655mm",
+          "vi": "15×15×0.6Tmm, dài 5655mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515065662": {
+        "id": "mat_fg1515065662",
+        "code": "FG1515065662",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 5662mm",
+          "vi": "15×15×0.6Tmm, dài 5662mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515065663": {
+        "id": "mat_fg1515065663",
+        "code": "FG1515065663",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 5663mm",
+          "vi": "15×15×0.6Tmm, dài 5663mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515065680": {
+        "id": "mat_fg1515065680",
+        "code": "FG1515065680",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 5680mm",
+          "vi": "15×15×0.6Tmm, dài 5680mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515065718": {
+        "id": "mat_fg1515065718",
+        "code": "FG1515065718",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 5718mm",
+          "vi": "15×15×0.6Tmm, dài 5718mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515065752": {
+        "id": "mat_fg1515065752",
+        "code": "FG1515065752",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 5752mm",
+          "vi": "15×15×0.6Tmm, dài 5752mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515065753": {
+        "id": "mat_fg1515065753",
+        "code": "FG1515065753",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 5753mm",
+          "vi": "15×15×0.6Tmm, dài 5753mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515065766": {
+        "id": "mat_fg1515065766",
+        "code": "FG1515065766",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 5766mm",
+          "vi": "15×15×0.6Tmm, dài 5766mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515065782": {
+        "id": "mat_fg1515065782",
+        "code": "FG1515065782",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 5782mm",
+          "vi": "15×15×0.6Tmm, dài 5782mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515065790": {
+        "id": "mat_fg1515065790",
+        "code": "FG1515065790",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 5790mm",
+          "vi": "15×15×0.6Tmm, dài 5790mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515065800": {
+        "id": "mat_fg1515065800",
+        "code": "FG1515065800",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 5800mm",
+          "vi": "15×15×0.6Tmm, dài 5800mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515065814": {
+        "id": "mat_fg1515065814",
+        "code": "FG1515065814",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 5814mm",
+          "vi": "15×15×0.6Tmm, dài 5814mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515065846": {
+        "id": "mat_fg1515065846",
+        "code": "FG1515065846",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 5846mm",
+          "vi": "15×15×0.6Tmm, dài 5846mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515065884": {
+        "id": "mat_fg1515065884",
+        "code": "FG1515065884",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 5884mm",
+          "vi": "15×15×0.6Tmm, dài 5884mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515065886": {
+        "id": "mat_fg1515065886",
+        "code": "FG1515065886",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 5886mm",
+          "vi": "15×15×0.6Tmm, dài 5886mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515065900": {
+        "id": "mat_fg1515065900",
+        "code": "FG1515065900",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 5900mm",
+          "vi": "15×15×0.6Tmm, dài 5900mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515065918": {
+        "id": "mat_fg1515065918",
+        "code": "FG1515065918",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 5918mm",
+          "vi": "15×15×0.6Tmm, dài 5918mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515065930": {
+        "id": "mat_fg1515065930",
+        "code": "FG1515065930",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 5930mm",
+          "vi": "15×15×0.6Tmm, dài 5930mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515065935": {
+        "id": "mat_fg1515065935",
+        "code": "FG1515065935",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 5935mm",
+          "vi": "15×15×0.6Tmm, dài 5935mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515065994": {
+        "id": "mat_fg1515065994",
+        "code": "FG1515065994",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 5994mm",
+          "vi": "15×15×0.6Tmm, dài 5994mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515066010": {
+        "id": "mat_fg1515066010",
+        "code": "FG1515066010",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 6010mm",
+          "vi": "15×15×0.6Tmm, dài 6010mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515066013": {
+        "id": "mat_fg1515066013",
+        "code": "FG1515066013",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 6013mm",
+          "vi": "15×15×0.6Tmm, dài 6013mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515066082": {
+        "id": "mat_fg1515066082",
+        "code": "FG1515066082",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 6082mm",
+          "vi": "15×15×0.6Tmm, dài 6082mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515066091": {
+        "id": "mat_fg1515066091",
+        "code": "FG1515066091",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 6091mm",
+          "vi": "15×15×0.6Tmm, dài 6091mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515066150": {
+        "id": "mat_fg1515066150",
+        "code": "FG1515066150",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 6150mm",
+          "vi": "15×15×0.6Tmm, dài 6150mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515066170": {
+        "id": "mat_fg1515066170",
+        "code": "FG1515066170",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 6170mm",
+          "vi": "15×15×0.6Tmm, dài 6170mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg1515066182": {
+        "id": "mat_fg1515066182",
+        "code": "FG1515066182",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 6182mm",
+          "vi": "15×15×0.6Tmm, dài 6182mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg28136066150": {
+        "id": "mat_fg28136066150",
+        "code": "FG28136066150",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "28×13.6×0.6Tmm，长度 6150mm",
+          "vi": "28×13.6×0.6Tmm, dài 6150mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg3015065632": {
+        "id": "mat_fg3015065632",
+        "code": "FG3015065632",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "30×15×0.6Tmm，长度 5632mm",
+          "vi": "30×15×0.6Tmm, dài 5632mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_fg3015065740": {
+        "id": "mat_fg3015065740",
+        "code": "FG3015065740",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "30×15×0.6Tmm，长度 5740mm",
+          "vi": "30×15×0.6Tmm, dài 5740mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
       }
     },
     "bomEntries": [
@@ -39335,7 +40625,7 @@
         "parentId": "LGS032",
         "productCode": "LGS032",
         "color": "复古色",
-        "materialId": "mat_1c0a8em",
+        "materialId": "mat_1m5b6t5",
         "stt": "14",
         "comp_code": "M",
         "qty": "2",
@@ -39783,7 +41073,7 @@
         "parentId": "LGS032",
         "productCode": "LGS032",
         "color": "黑色",
-        "materialId": "mat_1c0a8em",
+        "materialId": "mat_1m5b6t5",
         "stt": "14",
         "comp_code": "M",
         "qty": "2",
@@ -40077,7 +41367,7 @@
         "parentId": "LGS033",
         "productCode": "LGS033",
         "color": "复古色",
-        "materialId": "mat_1m5b6t5",
+        "materialId": "mat_zjg150654bh",
         "stt": "3",
         "comp_code": "M",
         "qty": "2",
@@ -42121,7 +43411,7 @@
         "parentId": "LGS101",
         "productCode": "LGS101",
         "color": "白色",
-        "materialId": "mat_1in3dp6",
+        "materialId": "mat_11qynpo",
         "stt": "",
         "comp_code": "5",
         "qty": "1",
@@ -42863,7 +44153,7 @@
         "parentId": "LGS111",
         "productCode": "LGS111",
         "color": "白色",
-        "materialId": "mat_1jrbb68",
+        "materialId": "mat_npcl6z",
         "stt": "8.0",
         "comp_code": "Z05",
         "qty": "2",
@@ -42961,7 +44251,7 @@
         "parentId": "LGS111",
         "productCode": "LGS111",
         "color": "白色",
-        "materialId": "mat_1in3dp6",
+        "materialId": "mat_11qynpo",
         "stt": "",
         "comp_code": "5",
         "qty": "2",
@@ -45173,7 +46463,7 @@
         "parentId": "LGS133",
         "productCode": "LGS133",
         "color": "复古色",
-        "materialId": "mat_1m5b6t5",
+        "materialId": "mat_zjg150654bh",
         "stt": "4",
         "comp_code": "M",
         "qty": "4",
@@ -47441,7 +48731,7 @@
         "parentId": "LGS233",
         "productCode": "LGS233",
         "color": "复古色",
-        "materialId": "mat_1m5b6t5",
+        "materialId": "mat_zjg150654bh",
         "stt": "4",
         "comp_code": "M",
         "qty": "4",
@@ -48225,7 +49515,7 @@
         "parentId": "LGS233",
         "productCode": "LGS233",
         "color": "黑色",
-        "materialId": "mat_1m5b6t5",
+        "materialId": "mat_zjg150654bh",
         "stt": "4",
         "comp_code": "M",
         "qty": "4",
@@ -48617,7 +49907,7 @@
         "parentId": "LGS333",
         "productCode": "LGS333",
         "color": "复古色",
-        "materialId": "mat_1m5b6t5",
+        "materialId": "mat_zjg150654bh",
         "stt": "4",
         "comp_code": "M",
         "qty": "2",
@@ -49373,7 +50663,7 @@
         "parentId": "LGS333",
         "productCode": "LGS333",
         "color": "黑色",
-        "materialId": "mat_1m5b6t5",
+        "materialId": "mat_zjg150654bh",
         "stt": "4",
         "comp_code": "M",
         "qty": "2",
@@ -49751,7 +51041,7 @@
         "parentId": "LGS334",
         "productCode": "LGS334",
         "color": "黑色",
-        "materialId": "mat_1m5b6t5",
+        "materialId": "mat_zjg150654bh",
         "stt": "4",
         "comp_code": "M",
         "qty": "2",
@@ -50605,7 +51895,7 @@
         "parentId": "LGS420",
         "productCode": "LGS420",
         "color": "白色",
-        "materialId": "mat_r88xvx",
+        "materialId": "mat_lgs420_zlk_wh",
         "stt": "2",
         "comp_code": "G",
         "qty": "1",
@@ -50619,7 +51909,7 @@
         "parentId": "LGS420",
         "productCode": "LGS420",
         "color": "白色",
-        "materialId": "mat_1a142pp",
+        "materialId": "mat_w5a1nd",
         "stt": "3",
         "comp_code": "S",
         "qty": "1",
@@ -50675,7 +51965,7 @@
         "parentId": "LGS420",
         "productCode": "LGS420",
         "color": "白色",
-        "materialId": "mat_5abs6g",
+        "materialId": "mat_lgs420_shl_wh",
         "stt": "7",
         "comp_code": "F1",
         "qty": "1",
@@ -50759,7 +52049,7 @@
         "parentId": "LGS420",
         "productCode": "LGS420",
         "color": "白色",
-        "materialId": "mat_mk6qft",
+        "materialId": "mat_lgs420_xhl_wh",
         "stt": "13",
         "comp_code": "E",
         "qty": "2",
@@ -50801,7 +52091,7 @@
         "parentId": "LGS420",
         "productCode": "LGS420",
         "color": "白色",
-        "materialId": "mat_26b5nw",
+        "materialId": "mat_1u74z93",
         "stt": "16",
         "comp_code": "D",
         "qty": "2",
@@ -50843,7 +52133,7 @@
         "parentId": "LGS420",
         "productCode": "LGS420",
         "color": "白色",
-        "materialId": "mat_q03tfs",
+        "materialId": "mat_fxovzg",
         "stt": "19",
         "comp_code": "X01",
         "qty": "2",
@@ -52453,7 +53743,7 @@
         "parentId": "LGS433",
         "productCode": "LGS433",
         "color": "复古色",
-        "materialId": "mat_1m5b6t5",
+        "materialId": "mat_zjg150654bh",
         "stt": "6",
         "comp_code": "M",
         "qty": "2",
@@ -53377,7 +54667,7 @@
         "parentId": "LGS433",
         "productCode": "LGS433",
         "color": "黑色",
-        "materialId": "mat_1m5b6t5",
+        "materialId": "mat_zjg150654bh",
         "stt": "6",
         "comp_code": "M",
         "qty": "2",
@@ -54399,7 +55689,7 @@
         "parentId": "LGS434",
         "productCode": "LGS434",
         "color": "黑色",
-        "materialId": "mat_1m5b6t5",
+        "materialId": "mat_zjg150654bh",
         "stt": "4",
         "comp_code": "M",
         "qty": "2",
@@ -56401,7 +57691,7 @@
         "parentId": "LGS733",
         "productCode": "LGS733",
         "color": "复古色",
-        "materialId": "mat_1m5b6t5",
+        "materialId": "mat_zjg150654bh",
         "stt": "6",
         "comp_code": "M",
         "qty": "2",
@@ -56961,7 +58251,7 @@
         "parentId": "LGS733",
         "productCode": "LGS733",
         "color": "白色",
-        "materialId": "mat_599nfo",
+        "materialId": "mat_xdi0eb",
         "stt": "11",
         "comp_code": "L2",
         "qty": "2",
@@ -56975,7 +58265,7 @@
         "parentId": "LGS733",
         "productCode": "LGS733",
         "color": "白色",
-        "materialId": "mat_4ri0yq",
+        "materialId": "mat_pficjp",
         "stt": "12",
         "comp_code": "L1",
         "qty": "2",
@@ -57381,7 +58671,7 @@
         "parentId": "LGS733",
         "productCode": "LGS733",
         "color": "黑色",
-        "materialId": "mat_1m5b6t5",
+        "materialId": "mat_zjg150654bh",
         "stt": "6",
         "comp_code": "M",
         "qty": "2",
@@ -57451,7 +58741,7 @@
         "parentId": "LGS733",
         "productCode": "LGS733",
         "color": "黑色",
-        "materialId": "mat_q6iqc0",
+        "materialId": "mat_14qtlh3",
         "stt": "11",
         "comp_code": "L2",
         "qty": "2",
@@ -57465,7 +58755,7 @@
         "parentId": "LGS733",
         "productCode": "LGS733",
         "color": "黑色",
-        "materialId": "mat_1iy168m",
+        "materialId": "mat_156bb4x",
         "stt": "12",
         "comp_code": "L1",
         "qty": "2",
@@ -57871,7 +59161,7 @@
         "parentId": "LGS833",
         "productCode": "LGS833",
         "color": "复古色",
-        "materialId": "mat_1m5b6t5",
+        "materialId": "mat_zjg150654bh",
         "stt": "6",
         "comp_code": "M",
         "qty": "2",
@@ -58711,7 +60001,7 @@
         "parentId": "LGS833",
         "productCode": "LGS833",
         "color": "黑色",
-        "materialId": "mat_1m5b6t5",
+        "materialId": "mat_zjg150654bh",
         "stt": "6",
         "comp_code": "M",
         "qty": "2",
@@ -59635,7 +60925,7 @@
         "parentId": "LGS834",
         "productCode": "LGS834",
         "color": "黑色",
-        "materialId": "mat_1m5b6t5",
+        "materialId": "mat_zjg150654bh",
         "stt": "6",
         "comp_code": "M",
         "qty": "2",
@@ -80187,6 +81477,2715 @@
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
         "order": 63
+      },
+      {
+        "id": "bomc_mat_102nmy7_mat_fg1515065800",
+        "parentType": "material",
+        "parentId": "mat_102nmy7",
+        "materialId": "mat_fg1515065800",
+        "childMaterialId": "mat_fg1515065800",
+        "qty": "0.2",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_102nmy7_mat_fg1515066170",
+        "parentType": "material",
+        "parentId": "mat_102nmy7",
+        "materialId": "mat_fg1515066170",
+        "childMaterialId": "mat_fg1515066170",
+        "qty": "0.05",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_10b5jch_mat_fg1515065846",
+        "parentType": "material",
+        "parentId": "mat_10b5jch",
+        "materialId": "mat_fg1515065846",
+        "childMaterialId": "mat_fg1515065846",
+        "qty": "0.25",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_10c3lie_mat_fg1515065011",
+        "parentType": "material",
+        "parentId": "mat_10c3lie",
+        "materialId": "mat_fg1515065011",
+        "childMaterialId": "mat_fg1515065011",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_10c3lie_mat_fg1515066170",
+        "parentType": "material",
+        "parentId": "mat_10c3lie",
+        "materialId": "mat_fg1515066170",
+        "childMaterialId": "mat_fg1515066170",
+        "qty": "0.05",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_10gegrh_mat_fg1515065000",
+        "parentType": "material",
+        "parentId": "mat_10gegrh",
+        "materialId": "mat_fg1515065000",
+        "childMaterialId": "mat_fg1515065000",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_10gegrh_mat_fg1515066170",
+        "parentType": "material",
+        "parentId": "mat_10gegrh",
+        "materialId": "mat_fg1515066170",
+        "childMaterialId": "mat_fg1515066170",
+        "qty": "0.05",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_10y1ts9_mat_fg1515066013",
+        "parentType": "material",
+        "parentId": "mat_10y1ts9",
+        "materialId": "mat_fg1515066013",
+        "childMaterialId": "mat_fg1515066013",
+        "qty": "0.142857142857",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_116mdz4_mat_fg1515065886",
+        "parentType": "material",
+        "parentId": "mat_116mdz4",
+        "materialId": "mat_fg1515065886",
+        "childMaterialId": "mat_fg1515065886",
+        "qty": "0.125",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_11z8dbl_mat_fg1515065000",
+        "parentType": "material",
+        "parentId": "mat_11z8dbl",
+        "materialId": "mat_fg1515065000",
+        "childMaterialId": "mat_fg1515065000",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_11z8dbl_mat_fg1515066170",
+        "parentType": "material",
+        "parentId": "mat_11z8dbl",
+        "materialId": "mat_fg1515066170",
+        "childMaterialId": "mat_fg1515066170",
+        "qty": "0.05",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_123o1qz_mat_fg1515065000",
+        "parentType": "material",
+        "parentId": "mat_123o1qz",
+        "materialId": "mat_fg1515065000",
+        "childMaterialId": "mat_fg1515065000",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_123o1qz_mat_fg1515066170",
+        "parentType": "material",
+        "parentId": "mat_123o1qz",
+        "materialId": "mat_fg1515066170",
+        "childMaterialId": "mat_fg1515066170",
+        "qty": "0.05",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_12nagin_mat_fg1515065560",
+        "parentType": "material",
+        "parentId": "mat_12nagin",
+        "materialId": "mat_fg1515065560",
+        "childMaterialId": "mat_fg1515065560",
+        "qty": "0.2",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_13sggbo_mat_fg1515065752",
+        "parentType": "material",
+        "parentId": "mat_13sggbo",
+        "materialId": "mat_fg1515065752",
+        "childMaterialId": "mat_fg1515065752",
+        "qty": "0.166666666667",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_14ed99c_mat_fg1515065464",
+        "parentType": "material",
+        "parentId": "mat_14ed99c",
+        "materialId": "mat_fg1515065464",
+        "childMaterialId": "mat_fg1515065464",
+        "qty": "0.166666666667",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_14esgeh_mat_fg132132066150",
+        "parentType": "material",
+        "parentId": "mat_14esgeh",
+        "materialId": "mat_fg132132066150",
+        "childMaterialId": "mat_fg132132066150",
+        "qty": "0.013157894737",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_14esgeh_mat_fg1515066082",
+        "parentType": "material",
+        "parentId": "mat_14esgeh",
+        "materialId": "mat_fg1515066082",
+        "childMaterialId": "mat_fg1515066082",
+        "qty": "0.111111111111",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_14gzmfl_mat_fg1515066082",
+        "parentType": "material",
+        "parentId": "mat_14gzmfl",
+        "materialId": "mat_fg1515066082",
+        "childMaterialId": "mat_fg1515066082",
+        "qty": "0.25",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_14qtlh3_mat_fg1515066010",
+        "parentType": "material",
+        "parentId": "mat_14qtlh3",
+        "materialId": "mat_fg1515066010",
+        "childMaterialId": "mat_fg1515066010",
+        "qty": "0.033333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_156bb4x_mat_fg1515066010",
+        "parentType": "material",
+        "parentId": "mat_156bb4x",
+        "materialId": "mat_fg1515066010",
+        "childMaterialId": "mat_fg1515066010",
+        "qty": "0.033333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_16kpy8h_mat_fg3015065740",
+        "parentType": "material",
+        "parentId": "mat_16kpy8h",
+        "materialId": "mat_fg3015065740",
+        "childMaterialId": "mat_fg3015065740",
+        "qty": "0.142857142857",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_16ou3ja_mat_fg1515064876",
+        "parentType": "material",
+        "parentId": "mat_16ou3ja",
+        "materialId": "mat_fg1515064876",
+        "childMaterialId": "mat_fg1515064876",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_16ou3ja_mat_fg1515065790",
+        "parentType": "material",
+        "parentId": "mat_16ou3ja",
+        "materialId": "mat_fg1515065790",
+        "childMaterialId": "mat_fg1515065790",
+        "qty": "0.045454545455",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_1729e7g_mat_fg1515065011",
+        "parentType": "material",
+        "parentId": "mat_1729e7g",
+        "materialId": "mat_fg1515065011",
+        "childMaterialId": "mat_fg1515065011",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1729e7g_mat_fg1515066170",
+        "parentType": "material",
+        "parentId": "mat_1729e7g",
+        "materialId": "mat_fg1515066170",
+        "childMaterialId": "mat_fg1515066170",
+        "qty": "0.05",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_17k49h3_mat_fg1515064876",
+        "parentType": "material",
+        "parentId": "mat_17k49h3",
+        "materialId": "mat_fg1515064876",
+        "childMaterialId": "mat_fg1515064876",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_17k49h3_mat_fg1515065790",
+        "parentType": "material",
+        "parentId": "mat_17k49h3",
+        "materialId": "mat_fg1515065790",
+        "childMaterialId": "mat_fg1515065790",
+        "qty": "0.045454545455",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_17sx58d_mat_fg1515066013",
+        "parentType": "material",
+        "parentId": "mat_17sx58d",
+        "materialId": "mat_fg1515066013",
+        "childMaterialId": "mat_fg1515066013",
+        "qty": "0.142857142857",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1827l54_mat_fg1515065011",
+        "parentType": "material",
+        "parentId": "mat_1827l54",
+        "materialId": "mat_fg1515065011",
+        "childMaterialId": "mat_fg1515065011",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1827l54_mat_fg1515066170",
+        "parentType": "material",
+        "parentId": "mat_1827l54",
+        "materialId": "mat_fg1515066170",
+        "childMaterialId": "mat_fg1515066170",
+        "qty": "0.05",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_18zk1lh_mat_fg1515065566",
+        "parentType": "material",
+        "parentId": "mat_18zk1lh",
+        "materialId": "mat_fg1515065566",
+        "childMaterialId": "mat_fg1515065566",
+        "qty": "0.2",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_19efzk8_mat_fg1515065000",
+        "parentType": "material",
+        "parentId": "mat_19efzk8",
+        "materialId": "mat_fg1515065000",
+        "childMaterialId": "mat_fg1515065000",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_19efzk8_mat_fg1515066170",
+        "parentType": "material",
+        "parentId": "mat_19efzk8",
+        "materialId": "mat_fg1515066170",
+        "childMaterialId": "mat_fg1515066170",
+        "qty": "0.05",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_1a4uz67_mat_fg1515065800",
+        "parentType": "material",
+        "parentId": "mat_1a4uz67",
+        "materialId": "mat_fg1515065800",
+        "childMaterialId": "mat_fg1515065800",
+        "qty": "0.2",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1a4uz67_mat_fg1515066170",
+        "parentType": "material",
+        "parentId": "mat_1a4uz67",
+        "materialId": "mat_fg1515066170",
+        "childMaterialId": "mat_fg1515066170",
+        "qty": "0.05",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_1a4wu1_mat_fg1515065566",
+        "parentType": "material",
+        "parentId": "mat_1a4wu1",
+        "materialId": "mat_fg1515065566",
+        "childMaterialId": "mat_fg1515065566",
+        "qty": "0.2",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1ap9n9l_mat_fg1515065884",
+        "parentType": "material",
+        "parentId": "mat_1ap9n9l",
+        "materialId": "mat_fg1515065884",
+        "childMaterialId": "mat_fg1515065884",
+        "qty": "0.111111111111",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1b8xuq1_mat_fg1515065011",
+        "parentType": "material",
+        "parentId": "mat_1b8xuq1",
+        "materialId": "mat_fg1515065011",
+        "childMaterialId": "mat_fg1515065011",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1b8xuq1_mat_fg1515066170",
+        "parentType": "material",
+        "parentId": "mat_1b8xuq1",
+        "materialId": "mat_fg1515066170",
+        "childMaterialId": "mat_fg1515066170",
+        "qty": "0.05",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_1c0a8em_mat_fg1515065680",
+        "parentType": "material",
+        "parentId": "mat_1c0a8em",
+        "materialId": "mat_fg1515065680",
+        "childMaterialId": "mat_fg1515065680",
+        "qty": "0.009090909091",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1c0opfy_mat_fg1515065011",
+        "parentType": "material",
+        "parentId": "mat_1c0opfy",
+        "materialId": "mat_fg1515065011",
+        "childMaterialId": "mat_fg1515065011",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1c0opfy_mat_fg1515066170",
+        "parentType": "material",
+        "parentId": "mat_1c0opfy",
+        "materialId": "mat_fg1515066170",
+        "childMaterialId": "mat_fg1515066170",
+        "qty": "0.05",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_1c39qwo_mat_fg1515065566",
+        "parentType": "material",
+        "parentId": "mat_1c39qwo",
+        "materialId": "mat_fg1515065566",
+        "childMaterialId": "mat_fg1515065566",
+        "qty": "0.2",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1c6st8c_mat_fg1515066010",
+        "parentType": "material",
+        "parentId": "mat_1c6st8c",
+        "materialId": "mat_fg1515066010",
+        "childMaterialId": "mat_fg1515066010",
+        "qty": "0.033333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1ck23i4_mat_fg1515065630",
+        "parentType": "material",
+        "parentId": "mat_1ck23i4",
+        "materialId": "mat_fg1515065630",
+        "childMaterialId": "mat_fg1515065630",
+        "qty": "0.1",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1cl8qyu_mat_fg1515065630",
+        "parentType": "material",
+        "parentId": "mat_1cl8qyu",
+        "materialId": "mat_fg1515065630",
+        "childMaterialId": "mat_fg1515065630",
+        "qty": "0.1",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1cp9ev_mat_fg132132066150",
+        "parentType": "material",
+        "parentId": "mat_1cp9ev",
+        "materialId": "mat_fg132132066150",
+        "childMaterialId": "mat_fg132132066150",
+        "qty": "0.013157894737",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1cp9ev_mat_fg1515066082",
+        "parentType": "material",
+        "parentId": "mat_1cp9ev",
+        "materialId": "mat_fg1515066082",
+        "childMaterialId": "mat_fg1515066082",
+        "qty": "0.111111111111",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_1czvzaz_mat_fg1515065560",
+        "parentType": "material",
+        "parentId": "mat_1czvzaz",
+        "materialId": "mat_fg1515065560",
+        "childMaterialId": "mat_fg1515065560",
+        "qty": "0.2",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1df0gky_mat_fg1515066150",
+        "parentType": "material",
+        "parentId": "mat_1df0gky",
+        "materialId": "mat_fg1515066150",
+        "childMaterialId": "mat_fg1515066150",
+        "qty": "0.125",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1doysbp_mat_fg1515065766",
+        "parentType": "material",
+        "parentId": "mat_1doysbp",
+        "materialId": "mat_fg1515065766",
+        "childMaterialId": "mat_fg1515065766",
+        "qty": "0.0625",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1e888mp_mat_fg1515064876",
+        "parentType": "material",
+        "parentId": "mat_1e888mp",
+        "materialId": "mat_fg1515064876",
+        "childMaterialId": "mat_fg1515064876",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1e888mp_mat_fg1515065790",
+        "parentType": "material",
+        "parentId": "mat_1e888mp",
+        "materialId": "mat_fg1515065790",
+        "childMaterialId": "mat_fg1515065790",
+        "qty": "0.045454545455",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_1eefe0m_mat_fg1515066150",
+        "parentType": "material",
+        "parentId": "mat_1eefe0m",
+        "materialId": "mat_fg1515066150",
+        "childMaterialId": "mat_fg1515066150",
+        "qty": "0.125",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1ej5b41_mat_fg1515065752",
+        "parentType": "material",
+        "parentId": "mat_1ej5b41",
+        "materialId": "mat_fg1515065752",
+        "childMaterialId": "mat_fg1515065752",
+        "qty": "0.166666666667",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1f17fyv_mat_fg1515065598",
+        "parentType": "material",
+        "parentId": "mat_1f17fyv",
+        "materialId": "mat_fg1515065598",
+        "childMaterialId": "mat_fg1515065598",
+        "qty": "0.125",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1gdi8y2_mat_fg1515065011",
+        "parentType": "material",
+        "parentId": "mat_1gdi8y2",
+        "materialId": "mat_fg1515065011",
+        "childMaterialId": "mat_fg1515065011",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1gdi8y2_mat_fg1515066170",
+        "parentType": "material",
+        "parentId": "mat_1gdi8y2",
+        "materialId": "mat_fg1515066170",
+        "childMaterialId": "mat_fg1515066170",
+        "qty": "0.05",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_1gdsuz4_mat_fg132132066150",
+        "parentType": "material",
+        "parentId": "mat_1gdsuz4",
+        "materialId": "mat_fg132132066150",
+        "childMaterialId": "mat_fg132132066150",
+        "qty": "0.013157894737",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1gdsuz4_mat_fg1515065782",
+        "parentType": "material",
+        "parentId": "mat_1gdsuz4",
+        "materialId": "mat_fg1515065782",
+        "childMaterialId": "mat_fg1515065782",
+        "qty": "0.125",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_1glusot_mat_fg132132066150",
+        "parentType": "material",
+        "parentId": "mat_1glusot",
+        "materialId": "mat_fg132132066150",
+        "childMaterialId": "mat_fg132132066150",
+        "qty": "0.013157894737",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1glusot_mat_fg1515066082",
+        "parentType": "material",
+        "parentId": "mat_1glusot",
+        "materialId": "mat_fg1515066082",
+        "childMaterialId": "mat_fg1515066082",
+        "qty": "0.111111111111",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_1gm73v6_mat_fg1515065630",
+        "parentType": "material",
+        "parentId": "mat_1gm73v6",
+        "materialId": "mat_fg1515065630",
+        "childMaterialId": "mat_fg1515065630",
+        "qty": "0.1",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1guejt5_mat_fg1515065566",
+        "parentType": "material",
+        "parentId": "mat_1guejt5",
+        "materialId": "mat_fg1515065566",
+        "childMaterialId": "mat_fg1515065566",
+        "qty": "0.2",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1h5x3ty_mat_fg1515065718",
+        "parentType": "material",
+        "parentId": "mat_1h5x3ty",
+        "materialId": "mat_fg1515065718",
+        "childMaterialId": "mat_fg1515065718",
+        "qty": "0.125",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1i48u1f_mat_fg1515065630",
+        "parentType": "material",
+        "parentId": "mat_1i48u1f",
+        "materialId": "mat_fg1515065630",
+        "childMaterialId": "mat_fg1515065630",
+        "qty": "0.1",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1iggj1x_mat_fg132132066150",
+        "parentType": "material",
+        "parentId": "mat_1iggj1x",
+        "materialId": "mat_fg132132066150",
+        "childMaterialId": "mat_fg132132066150",
+        "qty": "0.013157894737",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1iggj1x_mat_fg1515066013",
+        "parentType": "material",
+        "parentId": "mat_1iggj1x",
+        "materialId": "mat_fg1515066013",
+        "childMaterialId": "mat_fg1515066013",
+        "qty": "0.142857142857",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_1igk9g2_mat_fg1515065766",
+        "parentType": "material",
+        "parentId": "mat_1igk9g2",
+        "materialId": "mat_fg1515065766",
+        "childMaterialId": "mat_fg1515065766",
+        "qty": "0.0625",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1iy168m_mat_fg1515065935",
+        "parentType": "material",
+        "parentId": "mat_1iy168m",
+        "materialId": "mat_fg1515065935",
+        "childMaterialId": "mat_fg1515065935",
+        "qty": "0.066666666667",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1kx2y8e_mat_fg1515065011",
+        "parentType": "material",
+        "parentId": "mat_1kx2y8e",
+        "materialId": "mat_fg1515065011",
+        "childMaterialId": "mat_fg1515065011",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1kx2y8e_mat_fg1515066170",
+        "parentType": "material",
+        "parentId": "mat_1kx2y8e",
+        "materialId": "mat_fg1515066170",
+        "childMaterialId": "mat_fg1515066170",
+        "qty": "0.05",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_1kyxkwq_mat_fg1515065430",
+        "parentType": "material",
+        "parentId": "mat_1kyxkwq",
+        "materialId": "mat_fg1515065430",
+        "childMaterialId": "mat_fg1515065430",
+        "qty": "0.2",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1lhv5f5_mat_fg1515065566",
+        "parentType": "material",
+        "parentId": "mat_1lhv5f5",
+        "materialId": "mat_fg1515065566",
+        "childMaterialId": "mat_fg1515065566",
+        "qty": "0.2",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1lklzl6_mat_fg1515064876",
+        "parentType": "material",
+        "parentId": "mat_1lklzl6",
+        "materialId": "mat_fg1515064876",
+        "childMaterialId": "mat_fg1515064876",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1lklzl6_mat_fg1515065790",
+        "parentType": "material",
+        "parentId": "mat_1lklzl6",
+        "materialId": "mat_fg1515065790",
+        "childMaterialId": "mat_fg1515065790",
+        "qty": "0.045454545455",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_1m5b6t5_mat_fg1515065680",
+        "parentType": "material",
+        "parentId": "mat_1m5b6t5",
+        "materialId": "mat_fg1515065680",
+        "childMaterialId": "mat_fg1515065680",
+        "qty": "0.009090909091",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1menews_mat_fg1515065782",
+        "parentType": "material",
+        "parentId": "mat_1menews",
+        "materialId": "mat_fg1515065782",
+        "childMaterialId": "mat_fg1515065782",
+        "qty": "0.125",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1mhyz4q_mat_fg1515065011",
+        "parentType": "material",
+        "parentId": "mat_1mhyz4q",
+        "materialId": "mat_fg1515065011",
+        "childMaterialId": "mat_fg1515065011",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1mhyz4q_mat_fg1515066170",
+        "parentType": "material",
+        "parentId": "mat_1mhyz4q",
+        "materialId": "mat_fg1515066170",
+        "childMaterialId": "mat_fg1515066170",
+        "qty": "0.05",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_1miqg4u_mat_fg1515065884",
+        "parentType": "material",
+        "parentId": "mat_1miqg4u",
+        "materialId": "mat_fg1515065884",
+        "childMaterialId": "mat_fg1515065884",
+        "qty": "0.111111111111",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1mpfeve_mat_fg1515066082",
+        "parentType": "material",
+        "parentId": "mat_1mpfeve",
+        "materialId": "mat_fg1515066082",
+        "childMaterialId": "mat_fg1515066082",
+        "qty": "0.25",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1n4i99m_mat_fg1515065884",
+        "parentType": "material",
+        "parentId": "mat_1n4i99m",
+        "materialId": "mat_fg1515065884",
+        "childMaterialId": "mat_fg1515065884",
+        "qty": "0.111111111111",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1nm2vtt_mat_fg1515065630",
+        "parentType": "material",
+        "parentId": "mat_1nm2vtt",
+        "materialId": "mat_fg1515065630",
+        "childMaterialId": "mat_fg1515065630",
+        "qty": "0.1",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1no586y_mat_fg1515065011",
+        "parentType": "material",
+        "parentId": "mat_1no586y",
+        "materialId": "mat_fg1515065011",
+        "childMaterialId": "mat_fg1515065011",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1no586y_mat_fg1515066170",
+        "parentType": "material",
+        "parentId": "mat_1no586y",
+        "materialId": "mat_fg1515066170",
+        "childMaterialId": "mat_fg1515066170",
+        "qty": "0.05",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_1p7u36s_mat_fg1515066150",
+        "parentType": "material",
+        "parentId": "mat_1p7u36s",
+        "materialId": "mat_fg1515066150",
+        "childMaterialId": "mat_fg1515066150",
+        "qty": "0.125",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1ppmijq_mat_fg1515066150",
+        "parentType": "material",
+        "parentId": "mat_1ppmijq",
+        "materialId": "mat_fg1515066150",
+        "childMaterialId": "mat_fg1515066150",
+        "qty": "0.125",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1q0gpue_mat_fg132132065990",
+        "parentType": "material",
+        "parentId": "mat_1q0gpue",
+        "materialId": "mat_fg132132065990",
+        "childMaterialId": "mat_fg132132065990",
+        "qty": "0.013513513514",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1q0gpue_mat_fg132132066150",
+        "parentType": "material",
+        "parentId": "mat_1q0gpue",
+        "materialId": "mat_fg132132066150",
+        "childMaterialId": "mat_fg132132066150",
+        "qty": "0.013157894737",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_1q0gpue_mat_fg1515065382",
+        "parentType": "material",
+        "parentId": "mat_1q0gpue",
+        "materialId": "mat_fg1515065382",
+        "childMaterialId": "mat_fg1515065382",
+        "qty": "0.125",
+        "order": 2
+      },
+      {
+        "id": "bomc_mat_1q4p8m4_mat_fg1515065752",
+        "parentType": "material",
+        "parentId": "mat_1q4p8m4",
+        "materialId": "mat_fg1515065752",
+        "childMaterialId": "mat_fg1515065752",
+        "qty": "0.166666666667",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1q541zc_mat_fg1515065011",
+        "parentType": "material",
+        "parentId": "mat_1q541zc",
+        "materialId": "mat_fg1515065011",
+        "childMaterialId": "mat_fg1515065011",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1q541zc_mat_fg1515066170",
+        "parentType": "material",
+        "parentId": "mat_1q541zc",
+        "materialId": "mat_fg1515066170",
+        "childMaterialId": "mat_fg1515066170",
+        "qty": "0.05",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_1qbjq6m_mat_fg1515065000",
+        "parentType": "material",
+        "parentId": "mat_1qbjq6m",
+        "materialId": "mat_fg1515065000",
+        "childMaterialId": "mat_fg1515065000",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1qbjq6m_mat_fg1515066170",
+        "parentType": "material",
+        "parentId": "mat_1qbjq6m",
+        "materialId": "mat_fg1515066170",
+        "childMaterialId": "mat_fg1515066170",
+        "qty": "0.05",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_1qd0kxj_mat_fg1515065846",
+        "parentType": "material",
+        "parentId": "mat_1qd0kxj",
+        "materialId": "mat_fg1515065846",
+        "childMaterialId": "mat_fg1515065846",
+        "qty": "0.25",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1qgjwyt_mat_fg1515065630",
+        "parentType": "material",
+        "parentId": "mat_1qgjwyt",
+        "materialId": "mat_fg1515065630",
+        "childMaterialId": "mat_fg1515065630",
+        "qty": "0.1",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1qvoxdd_mat_fg1515065662",
+        "parentType": "material",
+        "parentId": "mat_1qvoxdd",
+        "materialId": "mat_fg1515065662",
+        "childMaterialId": "mat_fg1515065662",
+        "qty": "0.083333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1rjf031_mat_fg1515065994",
+        "parentType": "material",
+        "parentId": "mat_1rjf031",
+        "materialId": "mat_fg1515065994",
+        "childMaterialId": "mat_fg1515065994",
+        "qty": "0.25",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1rjnfat_mat_fg1515065464",
+        "parentType": "material",
+        "parentId": "mat_1rjnfat",
+        "materialId": "mat_fg1515065464",
+        "childMaterialId": "mat_fg1515065464",
+        "qty": "0.166666666667",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1rnuupu_mat_fg1515066182",
+        "parentType": "material",
+        "parentId": "mat_1rnuupu",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
+        "qty": "0.125",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1rtvq61_mat_fg1515065566",
+        "parentType": "material",
+        "parentId": "mat_1rtvq61",
+        "materialId": "mat_fg1515065566",
+        "childMaterialId": "mat_fg1515065566",
+        "qty": "0.2",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1s9cpq1_mat_fg1515066182",
+        "parentType": "material",
+        "parentId": "mat_1s9cpq1",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
+        "qty": "0.125",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1saxqhd_mat_fg132132066150",
+        "parentType": "material",
+        "parentId": "mat_1saxqhd",
+        "materialId": "mat_fg132132066150",
+        "childMaterialId": "mat_fg132132066150",
+        "qty": "0.013157894737",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1saxqhd_mat_fg1515066013",
+        "parentType": "material",
+        "parentId": "mat_1saxqhd",
+        "materialId": "mat_fg1515066013",
+        "childMaterialId": "mat_fg1515066013",
+        "qty": "0.142857142857",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_1ss85ek_mat_fg132132066150",
+        "parentType": "material",
+        "parentId": "mat_1ss85ek",
+        "materialId": "mat_fg132132066150",
+        "childMaterialId": "mat_fg132132066150",
+        "qty": "0.013157894737",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1ss85ek_mat_fg1515065782",
+        "parentType": "material",
+        "parentId": "mat_1ss85ek",
+        "materialId": "mat_fg1515065782",
+        "childMaterialId": "mat_fg1515065782",
+        "qty": "0.125",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_1sz13mu_mat_fg1515065800",
+        "parentType": "material",
+        "parentId": "mat_1sz13mu",
+        "materialId": "mat_fg1515065800",
+        "childMaterialId": "mat_fg1515065800",
+        "qty": "0.2",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1sz13mu_mat_fg1515066170",
+        "parentType": "material",
+        "parentId": "mat_1sz13mu",
+        "materialId": "mat_fg1515066170",
+        "childMaterialId": "mat_fg1515066170",
+        "qty": "0.05",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_1t1yeyb_mat_fg132132066150",
+        "parentType": "material",
+        "parentId": "mat_1t1yeyb",
+        "materialId": "mat_fg132132066150",
+        "childMaterialId": "mat_fg132132066150",
+        "qty": "0.013157894737",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1t1yeyb_mat_fg1515066082",
+        "parentType": "material",
+        "parentId": "mat_1t1yeyb",
+        "materialId": "mat_fg1515066082",
+        "childMaterialId": "mat_fg1515066082",
+        "qty": "0.111111111111",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_1tlmea4_mat_fg1515066010",
+        "parentType": "material",
+        "parentId": "mat_1tlmea4",
+        "materialId": "mat_fg1515066010",
+        "childMaterialId": "mat_fg1515066010",
+        "qty": "0.009090909091",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1tozvar_mat_fg1515065884",
+        "parentType": "material",
+        "parentId": "mat_1tozvar",
+        "materialId": "mat_fg1515065884",
+        "childMaterialId": "mat_fg1515065884",
+        "qty": "0.111111111112",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1tpfqgh_mat_fg132132066150",
+        "parentType": "material",
+        "parentId": "mat_1tpfqgh",
+        "materialId": "mat_fg132132066150",
+        "childMaterialId": "mat_fg132132066150",
+        "qty": "0.013157894737",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1tpfqgh_mat_fg1515066013",
+        "parentType": "material",
+        "parentId": "mat_1tpfqgh",
+        "materialId": "mat_fg1515066013",
+        "childMaterialId": "mat_fg1515066013",
+        "qty": "0.142857142857",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_1txifxu_mat_fg1515064876",
+        "parentType": "material",
+        "parentId": "mat_1txifxu",
+        "materialId": "mat_fg1515064876",
+        "childMaterialId": "mat_fg1515064876",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1txifxu_mat_fg1515065790",
+        "parentType": "material",
+        "parentId": "mat_1txifxu",
+        "materialId": "mat_fg1515065790",
+        "childMaterialId": "mat_fg1515065790",
+        "qty": "0.045454545455",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_1ty5nnx_mat_fg1515065000",
+        "parentType": "material",
+        "parentId": "mat_1ty5nnx",
+        "materialId": "mat_fg1515065000",
+        "childMaterialId": "mat_fg1515065000",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1ty5nnx_mat_fg1515066170",
+        "parentType": "material",
+        "parentId": "mat_1ty5nnx",
+        "materialId": "mat_fg1515066170",
+        "childMaterialId": "mat_fg1515066170",
+        "qty": "0.05",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_1u2o2aq_mat_fg1515064876",
+        "parentType": "material",
+        "parentId": "mat_1u2o2aq",
+        "materialId": "mat_fg1515064876",
+        "childMaterialId": "mat_fg1515064876",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1u2o2aq_mat_fg1515065790",
+        "parentType": "material",
+        "parentId": "mat_1u2o2aq",
+        "materialId": "mat_fg1515065790",
+        "childMaterialId": "mat_fg1515065790",
+        "qty": "0.045454545455",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_1u74z93_mat_fg1515065994",
+        "parentType": "material",
+        "parentId": "mat_1u74z93",
+        "materialId": "mat_fg1515065994",
+        "childMaterialId": "mat_fg1515065994",
+        "qty": "0.25",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1v7m89j_mat_fg28136066150",
+        "parentType": "material",
+        "parentId": "mat_1v7m89j",
+        "materialId": "mat_fg28136066150",
+        "childMaterialId": "mat_fg28136066150",
+        "qty": "0.013157894737",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1v7m89j_mat_fg3015065632",
+        "parentType": "material",
+        "parentId": "mat_1v7m89j",
+        "materialId": "mat_fg3015065632",
+        "childMaterialId": "mat_fg3015065632",
+        "qty": "0.111111111111",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_1va23cf_mat_fg1515065566",
+        "parentType": "material",
+        "parentId": "mat_1va23cf",
+        "materialId": "mat_fg1515065566",
+        "childMaterialId": "mat_fg1515065566",
+        "qty": "0.2",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1vmuz0w_mat_fg1515064876",
+        "parentType": "material",
+        "parentId": "mat_1vmuz0w",
+        "materialId": "mat_fg1515064876",
+        "childMaterialId": "mat_fg1515064876",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1vmuz0w_mat_fg1515065790",
+        "parentType": "material",
+        "parentId": "mat_1vmuz0w",
+        "materialId": "mat_fg1515065790",
+        "childMaterialId": "mat_fg1515065790",
+        "qty": "0.045454545455",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_1vnrvil_mat_fg1515066082",
+        "parentType": "material",
+        "parentId": "mat_1vnrvil",
+        "materialId": "mat_fg1515066082",
+        "childMaterialId": "mat_fg1515066082",
+        "qty": "0.25",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1w2y2v_mat_fg1515066082",
+        "parentType": "material",
+        "parentId": "mat_1w2y2v",
+        "materialId": "mat_fg1515066082",
+        "childMaterialId": "mat_fg1515066082",
+        "qty": "0.25",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1wae5ws_mat_fg1515065011",
+        "parentType": "material",
+        "parentId": "mat_1wae5ws",
+        "materialId": "mat_fg1515065011",
+        "childMaterialId": "mat_fg1515065011",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1wae5ws_mat_fg1515066170",
+        "parentType": "material",
+        "parentId": "mat_1wae5ws",
+        "materialId": "mat_fg1515066170",
+        "childMaterialId": "mat_fg1515066170",
+        "qty": "0.05",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_1wjqvgi_mat_fg1515065790",
+        "parentType": "material",
+        "parentId": "mat_1wjqvgi",
+        "materialId": "mat_fg1515065790",
+        "childMaterialId": "mat_fg1515065790",
+        "qty": "0.045454545455",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1wjqvgi_mat_fg1515065800",
+        "parentType": "material",
+        "parentId": "mat_1wjqvgi",
+        "materialId": "mat_fg1515065800",
+        "childMaterialId": "mat_fg1515065800",
+        "qty": "0.2",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_1wolu5r_mat_fg1515064876",
+        "parentType": "material",
+        "parentId": "mat_1wolu5r",
+        "materialId": "mat_fg1515064876",
+        "childMaterialId": "mat_fg1515064876",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1wolu5r_mat_fg1515065790",
+        "parentType": "material",
+        "parentId": "mat_1wolu5r",
+        "materialId": "mat_fg1515065790",
+        "childMaterialId": "mat_fg1515065790",
+        "qty": "0.045454545455",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_1ws9h7i_mat_fg1515065011",
+        "parentType": "material",
+        "parentId": "mat_1ws9h7i",
+        "materialId": "mat_fg1515065011",
+        "childMaterialId": "mat_fg1515065011",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1ws9h7i_mat_fg1515066170",
+        "parentType": "material",
+        "parentId": "mat_1ws9h7i",
+        "materialId": "mat_fg1515066170",
+        "childMaterialId": "mat_fg1515066170",
+        "qty": "0.05",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_1xbfswb_mat_fg1515065630",
+        "parentType": "material",
+        "parentId": "mat_1xbfswb",
+        "materialId": "mat_fg1515065630",
+        "childMaterialId": "mat_fg1515065630",
+        "qty": "0.1",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1xtwol6_mat_fg132132066150",
+        "parentType": "material",
+        "parentId": "mat_1xtwol6",
+        "materialId": "mat_fg132132066150",
+        "childMaterialId": "mat_fg132132066150",
+        "qty": "0.013157894737",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1xtwol6_mat_fg1515065782",
+        "parentType": "material",
+        "parentId": "mat_1xtwol6",
+        "materialId": "mat_fg1515065782",
+        "childMaterialId": "mat_fg1515065782",
+        "qty": "0.125",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_1xv1vur_mat_fg1515065846",
+        "parentType": "material",
+        "parentId": "mat_1xv1vur",
+        "materialId": "mat_fg1515065846",
+        "childMaterialId": "mat_fg1515065846",
+        "qty": "0.25",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1y1cbym_mat_fg1515065814",
+        "parentType": "material",
+        "parentId": "mat_1y1cbym",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
+        "qty": "0.25",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1yw5hcz_mat_fg132132065990",
+        "parentType": "material",
+        "parentId": "mat_1yw5hcz",
+        "materialId": "mat_fg132132065990",
+        "childMaterialId": "mat_fg132132065990",
+        "qty": "0.013513513514",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_1yw5hcz_mat_fg132132066150",
+        "parentType": "material",
+        "parentId": "mat_1yw5hcz",
+        "materialId": "mat_fg132132066150",
+        "childMaterialId": "mat_fg132132066150",
+        "qty": "0.013157894737",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_1yw5hcz_mat_fg1515065382",
+        "parentType": "material",
+        "parentId": "mat_1yw5hcz",
+        "materialId": "mat_fg1515065382",
+        "childMaterialId": "mat_fg1515065382",
+        "qty": "0.125",
+        "order": 2
+      },
+      {
+        "id": "bomc_mat_26b5nw_mat_fg1515065994",
+        "parentType": "material",
+        "parentId": "mat_26b5nw",
+        "materialId": "mat_fg1515065994",
+        "childMaterialId": "mat_fg1515065994",
+        "qty": "0.25",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_2d2duk_mat_fg1515065800",
+        "parentType": "material",
+        "parentId": "mat_2d2duk",
+        "materialId": "mat_fg1515065800",
+        "childMaterialId": "mat_fg1515065800",
+        "qty": "0.2",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_2d2duk_mat_fg1515066170",
+        "parentType": "material",
+        "parentId": "mat_2d2duk",
+        "materialId": "mat_fg1515066170",
+        "childMaterialId": "mat_fg1515066170",
+        "qty": "0.05",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_30h4o_mat_fg1515065752",
+        "parentType": "material",
+        "parentId": "mat_30h4o",
+        "materialId": "mat_fg1515065752",
+        "childMaterialId": "mat_fg1515065752",
+        "qty": "0.166666666667",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_3lp5fv_mat_fg1515064876",
+        "parentType": "material",
+        "parentId": "mat_3lp5fv",
+        "materialId": "mat_fg1515064876",
+        "childMaterialId": "mat_fg1515064876",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_3lp5fv_mat_fg1515065790",
+        "parentType": "material",
+        "parentId": "mat_3lp5fv",
+        "materialId": "mat_fg1515065790",
+        "childMaterialId": "mat_fg1515065790",
+        "qty": "0.045454545455",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_3y80qr_mat_fg1515065630",
+        "parentType": "material",
+        "parentId": "mat_3y80qr",
+        "materialId": "mat_fg1515065630",
+        "childMaterialId": "mat_fg1515065630",
+        "qty": "0.1",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_47xasn_mat_fg1515065884",
+        "parentType": "material",
+        "parentId": "mat_47xasn",
+        "materialId": "mat_fg1515065884",
+        "childMaterialId": "mat_fg1515065884",
+        "qty": "0.111111111112",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_4ri0yq_mat_fg1515065935",
+        "parentType": "material",
+        "parentId": "mat_4ri0yq",
+        "materialId": "mat_fg1515065935",
+        "childMaterialId": "mat_fg1515065935",
+        "qty": "0.066666666667",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_599nfo_mat_fg1515065935",
+        "parentType": "material",
+        "parentId": "mat_599nfo",
+        "materialId": "mat_fg1515065935",
+        "childMaterialId": "mat_fg1515065935",
+        "qty": "0.066666666667",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_5abs6g_mat_fg1515065886",
+        "parentType": "material",
+        "parentId": "mat_5abs6g",
+        "materialId": "mat_fg1515065886",
+        "childMaterialId": "mat_fg1515065886",
+        "qty": "0.125",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_5p95gk_mat_fg132132066150",
+        "parentType": "material",
+        "parentId": "mat_5p95gk",
+        "materialId": "mat_fg132132066150",
+        "childMaterialId": "mat_fg132132066150",
+        "qty": "0.013157894737",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_5p95gk_mat_fg1515065782",
+        "parentType": "material",
+        "parentId": "mat_5p95gk",
+        "materialId": "mat_fg1515065782",
+        "childMaterialId": "mat_fg1515065782",
+        "qty": "0.125",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_63xn5z_mat_fg1515065630",
+        "parentType": "material",
+        "parentId": "mat_63xn5z",
+        "materialId": "mat_fg1515065630",
+        "childMaterialId": "mat_fg1515065630",
+        "qty": "0.1",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_68bk9b_mat_fg1515065662",
+        "parentType": "material",
+        "parentId": "mat_68bk9b",
+        "materialId": "mat_fg1515065662",
+        "childMaterialId": "mat_fg1515065662",
+        "qty": "0.083333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_6ahijn_mat_fg1515065753",
+        "parentType": "material",
+        "parentId": "mat_6ahijn",
+        "materialId": "mat_fg1515065753",
+        "childMaterialId": "mat_fg1515065753",
+        "qty": "0.166666666667",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_6aufm8_mat_fg1515066150",
+        "parentType": "material",
+        "parentId": "mat_6aufm8",
+        "materialId": "mat_fg1515066150",
+        "childMaterialId": "mat_fg1515066150",
+        "qty": "0.125",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_6e0a60_mat_fg1515065566",
+        "parentType": "material",
+        "parentId": "mat_6e0a60",
+        "materialId": "mat_fg1515065566",
+        "childMaterialId": "mat_fg1515065566",
+        "qty": "0.2",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_6nkkur_mat_fg1515066082",
+        "parentType": "material",
+        "parentId": "mat_6nkkur",
+        "materialId": "mat_fg1515066082",
+        "childMaterialId": "mat_fg1515066082",
+        "qty": "0.25",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_7nkh56_mat_fg1515065011",
+        "parentType": "material",
+        "parentId": "mat_7nkh56",
+        "materialId": "mat_fg1515065011",
+        "childMaterialId": "mat_fg1515065011",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_7nkh56_mat_fg1515066170",
+        "parentType": "material",
+        "parentId": "mat_7nkh56",
+        "materialId": "mat_fg1515066170",
+        "childMaterialId": "mat_fg1515066170",
+        "qty": "0.05",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_8edcv4_mat_fg132132066150",
+        "parentType": "material",
+        "parentId": "mat_8edcv4",
+        "materialId": "mat_fg132132066150",
+        "childMaterialId": "mat_fg132132066150",
+        "qty": "0.013157894737",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_8edcv4_mat_fg1515066082",
+        "parentType": "material",
+        "parentId": "mat_8edcv4",
+        "materialId": "mat_fg1515066082",
+        "childMaterialId": "mat_fg1515066082",
+        "qty": "0.111111111111",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_9aa8u1_mat_fg1515065800",
+        "parentType": "material",
+        "parentId": "mat_9aa8u1",
+        "materialId": "mat_fg1515065800",
+        "childMaterialId": "mat_fg1515065800",
+        "qty": "0.2",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_9aa8u1_mat_fg1515066170",
+        "parentType": "material",
+        "parentId": "mat_9aa8u1",
+        "materialId": "mat_fg1515066170",
+        "childMaterialId": "mat_fg1515066170",
+        "qty": "0.05",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_9jiypu_mat_fg1515065800",
+        "parentType": "material",
+        "parentId": "mat_9jiypu",
+        "materialId": "mat_fg1515065800",
+        "childMaterialId": "mat_fg1515065800",
+        "qty": "0.2",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_9jiypu_mat_fg1515066170",
+        "parentType": "material",
+        "parentId": "mat_9jiypu",
+        "materialId": "mat_fg1515066170",
+        "childMaterialId": "mat_fg1515066170",
+        "qty": "0.05",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_9qj94u_mat_fg1515065566",
+        "parentType": "material",
+        "parentId": "mat_9qj94u",
+        "materialId": "mat_fg1515065566",
+        "childMaterialId": "mat_fg1515065566",
+        "qty": "0.2",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_aeez4g_mat_fg1515065918",
+        "parentType": "material",
+        "parentId": "mat_aeez4g",
+        "materialId": "mat_fg1515065918",
+        "childMaterialId": "mat_fg1515065918",
+        "qty": "0.125",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_afrb0d_mat_fg1515065566",
+        "parentType": "material",
+        "parentId": "mat_afrb0d",
+        "materialId": "mat_fg1515065566",
+        "childMaterialId": "mat_fg1515065566",
+        "qty": "0.2",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_amfjdu_mat_fg1515065782",
+        "parentType": "material",
+        "parentId": "mat_amfjdu",
+        "materialId": "mat_fg1515065782",
+        "childMaterialId": "mat_fg1515065782",
+        "qty": "0.125",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_ar6mnm_mat_fg1515065566",
+        "parentType": "material",
+        "parentId": "mat_ar6mnm",
+        "materialId": "mat_fg1515065566",
+        "childMaterialId": "mat_fg1515065566",
+        "qty": "0.2",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_bp4kod_mat_fg1515065566",
+        "parentType": "material",
+        "parentId": "mat_bp4kod",
+        "materialId": "mat_fg1515065566",
+        "childMaterialId": "mat_fg1515065566",
+        "qty": "0.2",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_bt9s5c_mat_fg1515064876",
+        "parentType": "material",
+        "parentId": "mat_bt9s5c",
+        "materialId": "mat_fg1515064876",
+        "childMaterialId": "mat_fg1515064876",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_bt9s5c_mat_fg1515065790",
+        "parentType": "material",
+        "parentId": "mat_bt9s5c",
+        "materialId": "mat_fg1515065790",
+        "childMaterialId": "mat_fg1515065790",
+        "qty": "0.045454545455",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_buidda_mat_fg1515064876",
+        "parentType": "material",
+        "parentId": "mat_buidda",
+        "materialId": "mat_fg1515064876",
+        "childMaterialId": "mat_fg1515064876",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_buidda_mat_fg1515065790",
+        "parentType": "material",
+        "parentId": "mat_buidda",
+        "materialId": "mat_fg1515065790",
+        "childMaterialId": "mat_fg1515065790",
+        "qty": "0.045454545455",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_ceodip_mat_fg1515065630",
+        "parentType": "material",
+        "parentId": "mat_ceodip",
+        "materialId": "mat_fg1515065630",
+        "childMaterialId": "mat_fg1515065630",
+        "qty": "0.1",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_cgc524_mat_fg1515065566",
+        "parentType": "material",
+        "parentId": "mat_cgc524",
+        "materialId": "mat_fg1515065566",
+        "childMaterialId": "mat_fg1515065566",
+        "qty": "0.2",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_cu94o3_mat_fg1515065598",
+        "parentType": "material",
+        "parentId": "mat_cu94o3",
+        "materialId": "mat_fg1515065598",
+        "childMaterialId": "mat_fg1515065598",
+        "qty": "0.125",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_dbxt4t_mat_fg1515065884",
+        "parentType": "material",
+        "parentId": "mat_dbxt4t",
+        "materialId": "mat_fg1515065884",
+        "childMaterialId": "mat_fg1515065884",
+        "qty": "0.111111111111",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_drjei6_mat_fg1515065800",
+        "parentType": "material",
+        "parentId": "mat_drjei6",
+        "materialId": "mat_fg1515065800",
+        "childMaterialId": "mat_fg1515065800",
+        "qty": "0.2",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_drjei6_mat_fg1515066170",
+        "parentType": "material",
+        "parentId": "mat_drjei6",
+        "materialId": "mat_fg1515066170",
+        "childMaterialId": "mat_fg1515066170",
+        "qty": "0.05",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_dv766g_mat_fg1515065800",
+        "parentType": "material",
+        "parentId": "mat_dv766g",
+        "materialId": "mat_fg1515065800",
+        "childMaterialId": "mat_fg1515065800",
+        "qty": "0.2",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_dv766g_mat_fg1515066170",
+        "parentType": "material",
+        "parentId": "mat_dv766g",
+        "materialId": "mat_fg1515066170",
+        "childMaterialId": "mat_fg1515066170",
+        "qty": "0.05",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_eqfs2r_mat_fg1515065800",
+        "parentType": "material",
+        "parentId": "mat_eqfs2r",
+        "materialId": "mat_fg1515065800",
+        "childMaterialId": "mat_fg1515065800",
+        "qty": "0.2",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_eqfs2r_mat_fg1515066170",
+        "parentType": "material",
+        "parentId": "mat_eqfs2r",
+        "materialId": "mat_fg1515066170",
+        "childMaterialId": "mat_fg1515066170",
+        "qty": "0.05",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_fbtabe_mat_fg1515065790",
+        "parentType": "material",
+        "parentId": "mat_fbtabe",
+        "materialId": "mat_fg1515065790",
+        "childMaterialId": "mat_fg1515065790",
+        "qty": "0.045454545455",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_fbtabe_mat_fg1515065800",
+        "parentType": "material",
+        "parentId": "mat_fbtabe",
+        "materialId": "mat_fg1515065800",
+        "childMaterialId": "mat_fg1515065800",
+        "qty": "0.2",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_fwib1i_mat_fg1515064864",
+        "parentType": "material",
+        "parentId": "mat_fwib1i",
+        "materialId": "mat_fg1515064864",
+        "childMaterialId": "mat_fg1515064864",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_fwib1i_mat_fg1515065790",
+        "parentType": "material",
+        "parentId": "mat_fwib1i",
+        "materialId": "mat_fg1515065790",
+        "childMaterialId": "mat_fg1515065790",
+        "qty": "0.045454545455",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_g2p12m_mat_fg1515066010",
+        "parentType": "material",
+        "parentId": "mat_g2p12m",
+        "materialId": "mat_fg1515066010",
+        "childMaterialId": "mat_fg1515066010",
+        "qty": "0.033333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_glzqbp_mat_fg1515064876",
+        "parentType": "material",
+        "parentId": "mat_glzqbp",
+        "materialId": "mat_fg1515064876",
+        "childMaterialId": "mat_fg1515064876",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_glzqbp_mat_fg1515065790",
+        "parentType": "material",
+        "parentId": "mat_glzqbp",
+        "materialId": "mat_fg1515065790",
+        "childMaterialId": "mat_fg1515065790",
+        "qty": "0.045454545455",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_hekpv9_mat_fg1515065000",
+        "parentType": "material",
+        "parentId": "mat_hekpv9",
+        "materialId": "mat_fg1515065000",
+        "childMaterialId": "mat_fg1515065000",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_hekpv9_mat_fg1515066170",
+        "parentType": "material",
+        "parentId": "mat_hekpv9",
+        "materialId": "mat_fg1515066170",
+        "childMaterialId": "mat_fg1515066170",
+        "qty": "0.05",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_hfxkdc_mat_fg1515066091",
+        "parentType": "material",
+        "parentId": "mat_hfxkdc",
+        "materialId": "mat_fg1515066091",
+        "childMaterialId": "mat_fg1515066091",
+        "qty": "0.111111111111",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_hgpr0j_mat_fg1515065994",
+        "parentType": "material",
+        "parentId": "mat_hgpr0j",
+        "materialId": "mat_fg1515065994",
+        "childMaterialId": "mat_fg1515065994",
+        "qty": "0.25",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_hhw1hs_mat_fg1515065752",
+        "parentType": "material",
+        "parentId": "mat_hhw1hs",
+        "materialId": "mat_fg1515065752",
+        "childMaterialId": "mat_fg1515065752",
+        "qty": "0.166666666667",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_hi2evh_mat_fg1515066013",
+        "parentType": "material",
+        "parentId": "mat_hi2evh",
+        "materialId": "mat_fg1515066013",
+        "childMaterialId": "mat_fg1515066013",
+        "qty": "0.142857142857",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_hkpgus_mat_fg1515065900",
+        "parentType": "material",
+        "parentId": "mat_hkpgus",
+        "materialId": "mat_fg1515065900",
+        "childMaterialId": "mat_fg1515065900",
+        "qty": "0.25",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_hqo7w2_mat_fg1515065655",
+        "parentType": "material",
+        "parentId": "mat_hqo7w2",
+        "materialId": "mat_fg1515065655",
+        "childMaterialId": "mat_fg1515065655",
+        "qty": "0.2",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_hvgdcs_mat_fg1515065566",
+        "parentType": "material",
+        "parentId": "mat_hvgdcs",
+        "materialId": "mat_fg1515065566",
+        "childMaterialId": "mat_fg1515065566",
+        "qty": "0.2",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_i2358e_mat_fg132132066150",
+        "parentType": "material",
+        "parentId": "mat_i2358e",
+        "materialId": "mat_fg132132066150",
+        "childMaterialId": "mat_fg132132066150",
+        "qty": "0.013157894737",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_i2358e_mat_fg1515065782",
+        "parentType": "material",
+        "parentId": "mat_i2358e",
+        "materialId": "mat_fg1515065782",
+        "childMaterialId": "mat_fg1515065782",
+        "qty": "0.125",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_i7u7xx_mat_fg3015065740",
+        "parentType": "material",
+        "parentId": "mat_i7u7xx",
+        "materialId": "mat_fg3015065740",
+        "childMaterialId": "mat_fg3015065740",
+        "qty": "0.142857142857",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_ivadk_mat_fg132132066150",
+        "parentType": "material",
+        "parentId": "mat_ivadk",
+        "materialId": "mat_fg132132066150",
+        "childMaterialId": "mat_fg132132066150",
+        "qty": "0.013157894737",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_ivadk_mat_fg1515065782",
+        "parentType": "material",
+        "parentId": "mat_ivadk",
+        "materialId": "mat_fg1515065782",
+        "childMaterialId": "mat_fg1515065782",
+        "qty": "0.125",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_iynxd2_mat_fg1515065566",
+        "parentType": "material",
+        "parentId": "mat_iynxd2",
+        "materialId": "mat_fg1515065566",
+        "childMaterialId": "mat_fg1515065566",
+        "qty": "0.2",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_jhdqp1_mat_fg1515065766",
+        "parentType": "material",
+        "parentId": "mat_jhdqp1",
+        "materialId": "mat_fg1515065766",
+        "childMaterialId": "mat_fg1515065766",
+        "qty": "0.0625",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_jttbz1_mat_fg1515065752",
+        "parentType": "material",
+        "parentId": "mat_jttbz1",
+        "materialId": "mat_fg1515065752",
+        "childMaterialId": "mat_fg1515065752",
+        "qty": "0.166666666667",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_k3j3oj_mat_fg1515065000",
+        "parentType": "material",
+        "parentId": "mat_k3j3oj",
+        "materialId": "mat_fg1515065000",
+        "childMaterialId": "mat_fg1515065000",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_k3j3oj_mat_fg1515066170",
+        "parentType": "material",
+        "parentId": "mat_k3j3oj",
+        "materialId": "mat_fg1515066170",
+        "childMaterialId": "mat_fg1515066170",
+        "qty": "0.05",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_kbvzyq_mat_fg1515066082",
+        "parentType": "material",
+        "parentId": "mat_kbvzyq",
+        "materialId": "mat_fg1515066082",
+        "childMaterialId": "mat_fg1515066082",
+        "qty": "0.25",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_kihop7_mat_fg1515065766",
+        "parentType": "material",
+        "parentId": "mat_kihop7",
+        "materialId": "mat_fg1515065766",
+        "childMaterialId": "mat_fg1515065766",
+        "qty": "0.0625",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_kr5cf5_mat_fg1515064876",
+        "parentType": "material",
+        "parentId": "mat_kr5cf5",
+        "materialId": "mat_fg1515064876",
+        "childMaterialId": "mat_fg1515064876",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_kr5cf5_mat_fg1515065790",
+        "parentType": "material",
+        "parentId": "mat_kr5cf5",
+        "materialId": "mat_fg1515065790",
+        "childMaterialId": "mat_fg1515065790",
+        "qty": "0.045454545455",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_kxxwj6_mat_fg1515064876",
+        "parentType": "material",
+        "parentId": "mat_kxxwj6",
+        "materialId": "mat_fg1515064876",
+        "childMaterialId": "mat_fg1515064876",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_kxxwj6_mat_fg1515065790",
+        "parentType": "material",
+        "parentId": "mat_kxxwj6",
+        "materialId": "mat_fg1515065790",
+        "childMaterialId": "mat_fg1515065790",
+        "qty": "0.045454545455",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_l8dl4j_mat_fg1515065752",
+        "parentType": "material",
+        "parentId": "mat_l8dl4j",
+        "materialId": "mat_fg1515065752",
+        "childMaterialId": "mat_fg1515065752",
+        "qty": "0.166666666667",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_ld6eph_mat_fg1515065011",
+        "parentType": "material",
+        "parentId": "mat_ld6eph",
+        "materialId": "mat_fg1515065011",
+        "childMaterialId": "mat_fg1515065011",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_ld6eph_mat_fg1515066170",
+        "parentType": "material",
+        "parentId": "mat_ld6eph",
+        "materialId": "mat_fg1515066170",
+        "childMaterialId": "mat_fg1515066170",
+        "qty": "0.05",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_lp5qnm_mat_fg1515065718",
+        "parentType": "material",
+        "parentId": "mat_lp5qnm",
+        "materialId": "mat_fg1515065718",
+        "childMaterialId": "mat_fg1515065718",
+        "qty": "0.125",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_m5bx08_mat_fg1515065782",
+        "parentType": "material",
+        "parentId": "mat_m5bx08",
+        "materialId": "mat_fg1515065782",
+        "childMaterialId": "mat_fg1515065782",
+        "qty": "0.125",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_mk6qft_mat_fg1515065886",
+        "parentType": "material",
+        "parentId": "mat_mk6qft",
+        "materialId": "mat_fg1515065886",
+        "childMaterialId": "mat_fg1515065886",
+        "qty": "0.125",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_moakt4_mat_fg132132065990",
+        "parentType": "material",
+        "parentId": "mat_moakt4",
+        "materialId": "mat_fg132132065990",
+        "childMaterialId": "mat_fg132132065990",
+        "qty": "0.013513513514",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_moakt4_mat_fg132132066150",
+        "parentType": "material",
+        "parentId": "mat_moakt4",
+        "materialId": "mat_fg132132066150",
+        "childMaterialId": "mat_fg132132066150",
+        "qty": "0.013157894737",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_moakt4_mat_fg1515065663",
+        "parentType": "material",
+        "parentId": "mat_moakt4",
+        "materialId": "mat_fg1515065663",
+        "childMaterialId": "mat_fg1515065663",
+        "qty": "0.142857142857",
+        "order": 2
+      },
+      {
+        "id": "bomc_mat_mrpvcq_mat_fg1515065900",
+        "parentType": "material",
+        "parentId": "mat_mrpvcq",
+        "materialId": "mat_fg1515065900",
+        "childMaterialId": "mat_fg1515065900",
+        "qty": "0.125",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_mzzijl_mat_fg132132065990",
+        "parentType": "material",
+        "parentId": "mat_mzzijl",
+        "materialId": "mat_fg132132065990",
+        "childMaterialId": "mat_fg132132065990",
+        "qty": "0.013513513514",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_mzzijl_mat_fg132132066150",
+        "parentType": "material",
+        "parentId": "mat_mzzijl",
+        "materialId": "mat_fg132132066150",
+        "childMaterialId": "mat_fg132132066150",
+        "qty": "0.013157894737",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_mzzijl_mat_fg1515065663",
+        "parentType": "material",
+        "parentId": "mat_mzzijl",
+        "materialId": "mat_fg1515065663",
+        "childMaterialId": "mat_fg1515065663",
+        "qty": "0.142857142857",
+        "order": 2
+      },
+      {
+        "id": "bomc_mat_nh3ucr_mat_fg1515065930",
+        "parentType": "material",
+        "parentId": "mat_nh3ucr",
+        "materialId": "mat_fg1515065930",
+        "childMaterialId": "mat_fg1515065930",
+        "qty": "0.111111111111",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_nw76sd_mat_fg1515065752",
+        "parentType": "material",
+        "parentId": "mat_nw76sd",
+        "materialId": "mat_fg1515065752",
+        "childMaterialId": "mat_fg1515065752",
+        "qty": "0.166666666667",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_nwspf6_mat_fg1515065630",
+        "parentType": "material",
+        "parentId": "mat_nwspf6",
+        "materialId": "mat_fg1515065630",
+        "childMaterialId": "mat_fg1515065630",
+        "qty": "0.1",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_oao0nc_mat_fg1515065011",
+        "parentType": "material",
+        "parentId": "mat_oao0nc",
+        "materialId": "mat_fg1515065011",
+        "childMaterialId": "mat_fg1515065011",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_oao0nc_mat_fg1515066170",
+        "parentType": "material",
+        "parentId": "mat_oao0nc",
+        "materialId": "mat_fg1515066170",
+        "childMaterialId": "mat_fg1515066170",
+        "qty": "0.05",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_oh65yk_mat_fg1515065782",
+        "parentType": "material",
+        "parentId": "mat_oh65yk",
+        "materialId": "mat_fg1515065782",
+        "childMaterialId": "mat_fg1515065782",
+        "qty": "0.125",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_omjsvf_mat_fg1515065752",
+        "parentType": "material",
+        "parentId": "mat_omjsvf",
+        "materialId": "mat_fg1515065752",
+        "childMaterialId": "mat_fg1515065752",
+        "qty": "0.166666666667",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_oncevp_mat_fg1515065800",
+        "parentType": "material",
+        "parentId": "mat_oncevp",
+        "materialId": "mat_fg1515065800",
+        "childMaterialId": "mat_fg1515065800",
+        "qty": "0.2",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_oncevp_mat_fg1515066170",
+        "parentType": "material",
+        "parentId": "mat_oncevp",
+        "materialId": "mat_fg1515066170",
+        "childMaterialId": "mat_fg1515066170",
+        "qty": "0.05",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_otkyhl_mat_fg1515065886",
+        "parentType": "material",
+        "parentId": "mat_otkyhl",
+        "materialId": "mat_fg1515065886",
+        "childMaterialId": "mat_fg1515065886",
+        "qty": "0.125",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_p4j2j4_mat_fg1515065782",
+        "parentType": "material",
+        "parentId": "mat_p4j2j4",
+        "materialId": "mat_fg1515065782",
+        "childMaterialId": "mat_fg1515065782",
+        "qty": "0.125",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_pficjp_mat_fg1515066010",
+        "parentType": "material",
+        "parentId": "mat_pficjp",
+        "materialId": "mat_fg1515066010",
+        "childMaterialId": "mat_fg1515066010",
+        "qty": "0.033333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_pro7lq_mat_fg1515065011",
+        "parentType": "material",
+        "parentId": "mat_pro7lq",
+        "materialId": "mat_fg1515065011",
+        "childMaterialId": "mat_fg1515065011",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_pro7lq_mat_fg1515066170",
+        "parentType": "material",
+        "parentId": "mat_pro7lq",
+        "materialId": "mat_fg1515066170",
+        "childMaterialId": "mat_fg1515066170",
+        "qty": "0.05",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_pxy79y_mat_fg1515064864",
+        "parentType": "material",
+        "parentId": "mat_pxy79y",
+        "materialId": "mat_fg1515064864",
+        "childMaterialId": "mat_fg1515064864",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_pxy79y_mat_fg1515065790",
+        "parentType": "material",
+        "parentId": "mat_pxy79y",
+        "materialId": "mat_fg1515065790",
+        "childMaterialId": "mat_fg1515065790",
+        "qty": "0.045454545455",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_q6iqc0_mat_fg1515065935",
+        "parentType": "material",
+        "parentId": "mat_q6iqc0",
+        "materialId": "mat_fg1515065935",
+        "childMaterialId": "mat_fg1515065935",
+        "qty": "0.066666666667",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_qptq9m_mat_fg1515065566",
+        "parentType": "material",
+        "parentId": "mat_qptq9m",
+        "materialId": "mat_fg1515065566",
+        "childMaterialId": "mat_fg1515065566",
+        "qty": "0.2",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_r88xvx_mat_fg1515065918",
+        "parentType": "material",
+        "parentId": "mat_r88xvx",
+        "materialId": "mat_fg1515065918",
+        "childMaterialId": "mat_fg1515065918",
+        "qty": "0.125",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_rrpog_mat_fg1515065994",
+        "parentType": "material",
+        "parentId": "mat_rrpog",
+        "materialId": "mat_fg1515065994",
+        "childMaterialId": "mat_fg1515065994",
+        "qty": "0.25",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_su5niu_mat_fg1515065782",
+        "parentType": "material",
+        "parentId": "mat_su5niu",
+        "materialId": "mat_fg1515065782",
+        "childMaterialId": "mat_fg1515065782",
+        "qty": "0.125",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_swn8m_mat_fg1515064876",
+        "parentType": "material",
+        "parentId": "mat_swn8m",
+        "materialId": "mat_fg1515064876",
+        "childMaterialId": "mat_fg1515064876",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_swn8m_mat_fg1515065790",
+        "parentType": "material",
+        "parentId": "mat_swn8m",
+        "materialId": "mat_fg1515065790",
+        "childMaterialId": "mat_fg1515065790",
+        "qty": "0.045454545455",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_t6gqeb_mat_fg28136066150",
+        "parentType": "material",
+        "parentId": "mat_t6gqeb",
+        "materialId": "mat_fg28136066150",
+        "childMaterialId": "mat_fg28136066150",
+        "qty": "0.013157894737",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_t6gqeb_mat_fg3015065632",
+        "parentType": "material",
+        "parentId": "mat_t6gqeb",
+        "materialId": "mat_fg3015065632",
+        "childMaterialId": "mat_fg3015065632",
+        "qty": "0.111111111111",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_t6uv63_mat_fg1515065566",
+        "parentType": "material",
+        "parentId": "mat_t6uv63",
+        "materialId": "mat_fg1515065566",
+        "childMaterialId": "mat_fg1515065566",
+        "qty": "0.2",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_tiq5jp_mat_fg1515064876",
+        "parentType": "material",
+        "parentId": "mat_tiq5jp",
+        "materialId": "mat_fg1515064876",
+        "childMaterialId": "mat_fg1515064876",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_tiq5jp_mat_fg1515065790",
+        "parentType": "material",
+        "parentId": "mat_tiq5jp",
+        "materialId": "mat_fg1515065790",
+        "childMaterialId": "mat_fg1515065790",
+        "qty": "0.045454545455",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_u9ajuu_mat_fg1515065766",
+        "parentType": "material",
+        "parentId": "mat_u9ajuu",
+        "materialId": "mat_fg1515065766",
+        "childMaterialId": "mat_fg1515065766",
+        "qty": "0.0625",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_uh0r7i_mat_fg1515065900",
+        "parentType": "material",
+        "parentId": "mat_uh0r7i",
+        "materialId": "mat_fg1515065900",
+        "childMaterialId": "mat_fg1515065900",
+        "qty": "0.125",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_v9mt29_mat_fg1515065800",
+        "parentType": "material",
+        "parentId": "mat_v9mt29",
+        "materialId": "mat_fg1515065800",
+        "childMaterialId": "mat_fg1515065800",
+        "qty": "0.2",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_v9mt29_mat_fg1515066170",
+        "parentType": "material",
+        "parentId": "mat_v9mt29",
+        "materialId": "mat_fg1515066170",
+        "childMaterialId": "mat_fg1515066170",
+        "qty": "0.05",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_w17o44_mat_fg1515064876",
+        "parentType": "material",
+        "parentId": "mat_w17o44",
+        "materialId": "mat_fg1515064876",
+        "childMaterialId": "mat_fg1515064876",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_w17o44_mat_fg1515065790",
+        "parentType": "material",
+        "parentId": "mat_w17o44",
+        "materialId": "mat_fg1515065790",
+        "childMaterialId": "mat_fg1515065790",
+        "qty": "0.045454545455",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_w8i5w5_mat_fg1515065630",
+        "parentType": "material",
+        "parentId": "mat_w8i5w5",
+        "materialId": "mat_fg1515065630",
+        "childMaterialId": "mat_fg1515065630",
+        "qty": "0.1",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_wed6vp_mat_fg1515065846",
+        "parentType": "material",
+        "parentId": "mat_wed6vp",
+        "materialId": "mat_fg1515065846",
+        "childMaterialId": "mat_fg1515065846",
+        "qty": "0.25",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_xc5t5n_mat_fg1515065752",
+        "parentType": "material",
+        "parentId": "mat_xc5t5n",
+        "materialId": "mat_fg1515065752",
+        "childMaterialId": "mat_fg1515065752",
+        "qty": "0.083333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_xc5t5n_mat_fg1515065753",
+        "parentType": "material",
+        "parentId": "mat_xc5t5n",
+        "materialId": "mat_fg1515065753",
+        "childMaterialId": "mat_fg1515065753",
+        "qty": "0.083333333333",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_xclnm_mat_fg1515065900",
+        "parentType": "material",
+        "parentId": "mat_xclnm",
+        "materialId": "mat_fg1515065900",
+        "childMaterialId": "mat_fg1515065900",
+        "qty": "0.25",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_xdi0eb_mat_fg1515066010",
+        "parentType": "material",
+        "parentId": "mat_xdi0eb",
+        "materialId": "mat_fg1515066010",
+        "childMaterialId": "mat_fg1515066010",
+        "qty": "0.033333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_xqhu0t_mat_fg1515066091",
+        "parentType": "material",
+        "parentId": "mat_xqhu0t",
+        "materialId": "mat_fg1515066091",
+        "childMaterialId": "mat_fg1515066091",
+        "qty": "0.111111111111",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_xveuf7_mat_fg1515064876",
+        "parentType": "material",
+        "parentId": "mat_xveuf7",
+        "materialId": "mat_fg1515064876",
+        "childMaterialId": "mat_fg1515064876",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_xveuf7_mat_fg1515065790",
+        "parentType": "material",
+        "parentId": "mat_xveuf7",
+        "materialId": "mat_fg1515065790",
+        "childMaterialId": "mat_fg1515065790",
+        "qty": "0.045454545455",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_y1jc49_mat_fg1515065566",
+        "parentType": "material",
+        "parentId": "mat_y1jc49",
+        "materialId": "mat_fg1515065566",
+        "childMaterialId": "mat_fg1515065566",
+        "qty": "0.2",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_yaaag6_mat_fg1515065655",
+        "parentType": "material",
+        "parentId": "mat_yaaag6",
+        "materialId": "mat_fg1515065655",
+        "childMaterialId": "mat_fg1515065655",
+        "qty": "0.2",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_ym9pes_mat_fg1515064876",
+        "parentType": "material",
+        "parentId": "mat_ym9pes",
+        "materialId": "mat_fg1515064876",
+        "childMaterialId": "mat_fg1515064876",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_ym9pes_mat_fg1515065790",
+        "parentType": "material",
+        "parentId": "mat_ym9pes",
+        "materialId": "mat_fg1515065790",
+        "childMaterialId": "mat_fg1515065790",
+        "qty": "0.045454545455",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_yn6ipo_mat_fg1515066082",
+        "parentType": "material",
+        "parentId": "mat_yn6ipo",
+        "materialId": "mat_fg1515066082",
+        "childMaterialId": "mat_fg1515066082",
+        "qty": "0.25",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_yoxn6d_mat_fg132132066150",
+        "parentType": "material",
+        "parentId": "mat_yoxn6d",
+        "materialId": "mat_fg132132066150",
+        "childMaterialId": "mat_fg132132066150",
+        "qty": "0.013157894737",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_yoxn6d_mat_fg1515066013",
+        "parentType": "material",
+        "parentId": "mat_yoxn6d",
+        "materialId": "mat_fg1515066013",
+        "childMaterialId": "mat_fg1515066013",
+        "qty": "0.142857142857",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_z1ksh1_mat_fg1515065752",
+        "parentType": "material",
+        "parentId": "mat_z1ksh1",
+        "materialId": "mat_fg1515065752",
+        "childMaterialId": "mat_fg1515065752",
+        "qty": "0.166666666667",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_zb61jc_mat_fg1515065800",
+        "parentType": "material",
+        "parentId": "mat_zb61jc",
+        "materialId": "mat_fg1515065800",
+        "childMaterialId": "mat_fg1515065800",
+        "qty": "0.2",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_zb61jc_mat_fg1515066170",
+        "parentType": "material",
+        "parentId": "mat_zb61jc",
+        "materialId": "mat_fg1515066170",
+        "childMaterialId": "mat_fg1515066170",
+        "qty": "0.05",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_zcr2u1_mat_fg1515066013",
+        "parentType": "material",
+        "parentId": "mat_zcr2u1",
+        "materialId": "mat_fg1515066013",
+        "childMaterialId": "mat_fg1515066013",
+        "qty": "0.142857142857",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_zia7op_mat_fg1515065752",
+        "parentType": "material",
+        "parentId": "mat_zia7op",
+        "materialId": "mat_fg1515065752",
+        "childMaterialId": "mat_fg1515065752",
+        "qty": "0.166666666667",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_zqjrj2_mat_fg1515065430",
+        "parentType": "material",
+        "parentId": "mat_zqjrj2",
+        "materialId": "mat_fg1515065430",
+        "childMaterialId": "mat_fg1515065430",
+        "qty": "0.2",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_zxvtau_mat_fg1515064876",
+        "parentType": "material",
+        "parentId": "mat_zxvtau",
+        "materialId": "mat_fg1515064876",
+        "childMaterialId": "mat_fg1515064876",
+        "qty": "0.333333333333",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_zxvtau_mat_fg1515065790",
+        "parentType": "material",
+        "parentId": "mat_zxvtau",
+        "materialId": "mat_fg1515065790",
+        "childMaterialId": "mat_fg1515065790",
+        "qty": "0.045454545455",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_zjg150654bh_mat_fg1515066010",
+        "parentType": "material",
+        "parentId": "mat_zjg150654bh",
+        "materialId": "mat_fg1515066010",
+        "childMaterialId": "mat_fg1515066010",
+        "qty": "0.009090909091",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_lgs420_zlk_wh_mat_fg1515065918",
+        "parentType": "material",
+        "parentId": "mat_lgs420_zlk_wh",
+        "materialId": "mat_fg1515065918",
+        "childMaterialId": "mat_fg1515065918",
+        "qty": "0.125",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_lgs420_shl_wh_mat_fg1515065886",
+        "parentType": "material",
+        "parentId": "mat_lgs420_shl_wh",
+        "materialId": "mat_fg1515065886",
+        "childMaterialId": "mat_fg1515065886",
+        "qty": "0.125",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_lgs420_xhl_wh_mat_fg1515065886",
+        "parentType": "material",
+        "parentId": "mat_lgs420_xhl_wh",
+        "materialId": "mat_fg1515065886",
+        "childMaterialId": "mat_fg1515065886",
+        "qty": "0.125",
+        "order": 0
       }
     ]
   }

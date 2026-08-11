@@ -735,7 +735,10 @@ function verifyProposalPayload(payload) {
     const materialId = entry.childMaterialId || entry.materialId;
     if (!materials[materialId]) errors.push(`BOM entry ${entry.id} references missing material ${materialId}.`);
     const quantityText = String(entry.qty || '').trim();
-    const quantity = /^\d+(?:\s*\+\s*\d+)*$/.test(quantityText)
+    const quantityPattern = entry.parentType === 'material'
+      ? /^\d+(?:\.\d+)?(?:\s*\+\s*\d+(?:\.\d+)?)*$/
+      : /^\d+(?:\s*\+\s*\d+)*$/;
+    const quantity = quantityPattern.test(quantityText)
       ? quantityText.split('+').reduce((sum, item) => sum + Number(item.trim()), 0)
       : Number.NaN;
     if (!Number.isFinite(quantity) || quantity <= 0) errors.push(`BOM entry ${entry.id} has invalid quantity.`);
