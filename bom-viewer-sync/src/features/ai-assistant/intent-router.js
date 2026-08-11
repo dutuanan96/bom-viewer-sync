@@ -27,6 +27,7 @@ const SCHEMA_PATTERN = /\b(?:schema|data structure|fields?|entities|html data|do
 const DRAWING_COMMONALITY_PATTERN = /\b(?:drawing|drawings|blueprint|interchangeable)\b|b\u1ea3n v\u1ebd|thay th\u1ebf l\u1eabn nhau|\u56fe\u7eb8|\u53ef\u4ee5\u4e92\u6362/iu;
 const VIETNAMESE_CATALOG_SCOPE_PATTERN = /\b(?:toan bo|tat ca|moi|cac)\b/iu;
 const VIETNAMESE_PRODUCT_SCOPE_PATTERN = /\b(?:san pham|LGS)\b/iu;
+const CATALOG_COMPONENT_SCOPE_PATTERN = /(?:所有|全部|全体|统计|統計|列出|列表|清单|汇总|all|every|toan bo|tat ca|moi|cac)/iu;
 const FOLDED_PRODUCT_DETAIL_PATTERN = /\b(?:mau|mau sac|kich thuoc|rong|cao|sau|dai|thong tin san pham|ma san pham)\b/iu;
 const FOLDED_COMPONENT_LOOKUP_PATTERN = /\b(?:dung gi|dung loai nao|loai nao|ma nao|ma gi|bao nhieu|so luong|quy cach|kich thuoc)\b.{0,40}\b(?:linh kien|vat lieu|bo phan|tui vai|day tui|ngan keo|ngu kim|thung|hop|bao bi|oc vit|tay nam|chan|thanh|khung)\b|\b(?:linh kien|vat lieu|bo phan|tui vai|day tui|ngan keo|ngu kim|thung|hop|bao bi|oc vit|tay nam|chan|thanh|khung)\b.{0,40}\b(?:dung gi|dung loai nao|loai nao|ma nao|ma gi|bao nhieu|so luong|quy cach|kich thuoc)\b/iu;
 const FOLDED_REVISION_PATTERN = /\b(?:phien ban|version|ban nhap|hien hanh|da phat hanh|trang thai)\b/iu;
@@ -458,6 +459,11 @@ export function routePdmIntent({
         basicBomConcept &&
         VIETNAMESE_CATALOG_SCOPE_PATTERN.test(foldedText) &&
         VIETNAMESE_PRODUCT_SCOPE_PATTERN.test(foldedText)
+      ) ||
+      (
+        basicBomConcept &&
+        productIds.length === 0 &&
+        CATALOG_COMPONENT_SCOPE_PATTERN.test(foldedText)
       ) ||
       (PRODUCT_VARIANT_GAP_PATTERN.test(text) && productIds.length === 1) ||
       (

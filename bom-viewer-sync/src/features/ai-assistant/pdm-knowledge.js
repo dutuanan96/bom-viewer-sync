@@ -756,7 +756,10 @@ export class PdmKnowledge {
         && /最大|largest|biggest|maximum/i.test(text)
       ) {
         mode = 'rank_component_size';
-      } else if (['crossbar', 'upper_crossbar', 'bottom_crossbar', 'vertical_beam', 'packaging_carton', 'packaging_material', 'drawer_bottom'].includes(concept?.conceptId)) {
+      } else if (
+        ['crossbar', 'upper_crossbar', 'bottom_crossbar', 'vertical_beam', 'packaging_carton', 'packaging_material', 'drawer_bottom'].includes(concept?.conceptId)
+        || (concept?.conceptId === 'drawer_fabric' && /(?:所有|全部|全体|统计|統計|列出|列表|清单|汇总|规格|规\s*格|all|every|list|summary|spec)/iu.test(text))
+      ) {
         mode = 'component_usage';
       } else if (/柜子|product count|s\u1eed d\u1ee5ng/i.test(text) || concept?.conceptId === 'cabinet') {
         mode = 'count_products';
@@ -863,6 +866,7 @@ export class PdmKnowledge {
         vertical_beam: /竖梁|竖零件|XZ[QH]SL|vertical beam|thanh đứng/i,
         packaging_carton: /纸箱|纸盒|carton|cardboard box|thùng carton/i,
         packaging_material: /纸箱|纸卡|泡沫|护角|胶袋|carton|foam|corner protector|paper card|bao bì|vật liệu đóng gói/i,
+        drawer_fabric: /布抽(?!条|底板)|抽屉布|fabric (?:drawer|bin|basket)|túi vải/i,
         drawer_bottom: /布抽底板|抽屉底板|fabric drawer bottom|drawer bottom|đáy túi/i,
       };
       const matcher = concept?.conceptId === 'packaging_carton'

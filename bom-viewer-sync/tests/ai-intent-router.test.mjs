@@ -368,6 +368,15 @@ test('routes shorthand, variant gaps, and catalog hardware questions to determin
   assert.equal(shared.preferredTool, 'analyze_pdm');
 });
 
+test('routes Chinese catalog fabric-drawer statistics to deterministic analysis', () => {
+  for (const query of ['帮我统计所有布抽', '帮我统计所有布抽规格', '列出所有布抽']) {
+    const route = routePdmIntent({ query, availableTools: READ_TOOLS });
+    assert.equal(route.intent, PDM_INTENTS.CATALOG_ANALYSIS, query);
+    assert.equal(route.preferredTool, 'analyze_pdm', query);
+    assert.equal(route.confidence, 'deterministic', query);
+  }
+});
+
 test('routes generic frame dimension follow-ups without hardcoded values', () => {
   const route = routePdmIntent({
     query: '那有几个铁框有高度660mm',

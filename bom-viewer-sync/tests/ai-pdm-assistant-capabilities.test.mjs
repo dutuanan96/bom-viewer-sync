@@ -173,6 +173,8 @@ const mockSnapshot = {
       bomEntries: [
         { parentType: 'product', productCode: 'LGS033', color: '木色', materialId: 'mat_bot_cross', qty: 2 },
         { parentType: 'product', productCode: 'LGS031', color: '白色', materialId: 'mat_hw_031', qty: 1 },
+        { parentType: 'product', productCode: 'LGS031', color: '\u767d\u8272', materialId: 'mat_drw_A', qty: 2 },
+        { parentType: 'product', productCode: 'LGS031', color: '\u9ed1\u8272', materialId: 'mat_drw_A', qty: 2 },
         { parentType: 'product', productCode: 'LGS033', color: '木色', materialId: 'mat_hw_031', qty: 1 },
         { parentType: 'product', productCode: 'LGS723', color: '白色', materialId: 'mat_723_frame', qty: 1 },
         { parentType: 'product', productCode: 'LGS733', color: '白色', materialId: 'mat_733_frame', qty: 1 },
@@ -223,6 +225,17 @@ test('2b. Catalog component usage recognizes vertical-beam terminology', () => {
     const result = knowledge.analyzePdm({ query });
     assert.equal(result.countMode, 'component_usage', query);
     assert.deepEqual(result.results[0].usedInProducts, ['LGS723', 'LGS733'], query);
+  }
+});
+
+test('2b1. Catalog fabric-drawer statistics return material usage and specifications', () => {
+  const knowledge = new PdmKnowledge(mockSnapshot);
+
+  for (const query of ['帮我统计所有布抽', '帮我统计所有布抽规格', '列出所有布抽']) {
+    const result = knowledge.analyzePdm({ query });
+    assert.equal(result.countMode, 'component_usage', query);
+    assert.ok(result.totalCount >= 1, query);
+    assert.ok(result.results.some(row => row.spec === '300x200mm'), query);
   }
 });
 
