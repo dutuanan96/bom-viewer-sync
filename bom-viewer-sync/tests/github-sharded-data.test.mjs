@@ -88,7 +88,7 @@ test('github-sharded-data adapter tests', async (t) => {
     assert.notEqual(metadata.commitSha, 'main');
     assert.equal(metadata.provenanceKind, 'content-snapshot');
     assert.equal(metadata.sourceRef, 'main');
-    assert.ok(fetchArgs.some(url => url.includes('/main/data/manifest.json')));
+    assert.ok(fetchArgs.some(url => url.includes('https://cdn.jsdelivr.net/gh/test/test@main/data/manifest.json')));
   });
 
   await t.test('loadForWrite fetches tree and blobs', async () => {
