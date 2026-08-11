@@ -944,6 +944,7 @@ export function createAiAssistantFeature({
           proposal: result.proposal,
           diff: result.diff,
           proposalReview: result.proposalReview,
+          catalogExport: result.catalogExport,
           mappingCandidates: result.clarification ? result.entityResolution?.candidates : [],
           onSelectMapping: (candidate) => {
             if (!localStore?.createCandidate || !candidate?.target) return;

@@ -564,6 +564,54 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k, ope
     return container;
   }
 
+  function exportCatalogResult(exportData) {
+    const xlsx = globalThis.XLSX;
+    const result = exportData?.result;
+    if (!xlsx || !Array.isArray(result?.results) || result.results.length === 0) return false;
+
+    const rows = result.countMode === 'specification_summary'
+      ? [
+        [t('ai.localFallback.tableIndex'), t('ai.localFallback.tableSpec'), t('ai.localFallback.materialTypeCount'), t('ai.localFallback.usedProductsWithRevision')],
+        ...result.results.map((item, index) => [
+          index + 1,
+          item.spec || '-',
+          item.materialCount ?? 0,
+          (item.usedInProductRevisions || []).join('\n') || '-',
+        ]),
+      ]
+      : [
+        [t('ai.localFallback.tableIndex'), t('ai.localFallback.tableMaterialCode'), t('ai.localFallback.tableName'), t('ai.localFallback.tableSpec'), t('ai.localFallback.usedProductsWithRevision'), t('ai.localFallback.representativeColor')],
+        ...result.results.map((item, index) => [
+          index + 1,
+          item.materialCode || '-',
+          item.nameZh || '-',
+          item.spec || '-',
+          (item.usedInProductRevisions || item.usedInProducts || []).join('\n') || '-',
+          (item.representativeColors || []).join(', ') || '-',
+        ]),
+      ];
+    const worksheet = xlsx.utils.aoa_to_sheet(rows);
+    worksheet['!cols'] = rows[0].map((_, column) => ({
+      wch: Math.min(42, Math.max(12, ...rows.map(row => String(row[column] || '').split('\n').reduce((max, line) => Math.max(max, line.length), 0)) + 2)),
+    }));
+    worksheet['!rows'] = rows.map((row, index) => ({ hpt: index === 0 ? 26 : Math.max(20, 15 * String(row.at(-1) || '').split('\n').length) }));
+    for (const address of Object.keys(worksheet)) {
+      if (address.startsWith('!')) continue;
+      const cell = worksheet[address];
+      cell.s = {
+        font: { bold: address.replace(/\D/g, '') === '1', color: { rgb: address.replace(/\D/g, '') === '1' ? 'FFFFFF' : '1F2937' } },
+        fill: { fgColor: { rgb: address.replace(/\D/g, '') === '1' ? '1D4ED8' : 'FFFFFF' } },
+        alignment: { vertical: 'center', horizontal: /^[A-Z]+[0-9]+$/.test(address) && /^[A-C]+/.test(address) ? 'center' : 'left', wrapText: true },
+        border: { top: { style: 'thin', color: { rgb: 'D1D5DB' } }, bottom: { style: 'thin', color: { rgb: 'D1D5DB' } }, left: { style: 'thin', color: { rgb: 'D1D5DB' } }, right: { style: 'thin', color: { rgb: 'D1D5DB' } } },
+      };
+    }
+    const workbook = xlsx.utils.book_new();
+    xlsx.utils.book_append_sheet(workbook, worksheet, result.countMode === 'specification_summary' ? '规格统计' : '物料统计');
+    const safeName = String(exportData.query || 'PDM_catalog').replace(/[\\/:*?"<>|]/g, '_').slice(0, 60) || 'PDM_catalog';
+    xlsx.writeFile(workbook, `${safeName}_${new Date().toISOString().slice(0, 10)}.xlsx`);
+    return true;
+  }
+
   function renderMessage(msg) {
     const rowEl = document.createElement('div');
     rowEl.className = `ai-message-row ${msg.role}`;
@@ -628,6 +676,19 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k, ope
         wrapper.appendChild(table);
         msgEl.appendChild(wrapper);
       }
+    }
+
+    if (msg.catalogExport) {
+      const exportButton = document.createElement('button');
+      exportButton.type = 'button';
+      exportButton.className = 'btn ai-export-catalog';
+      exportButton.textContent = t('ai.localFallback.exportExcel');
+      exportButton.addEventListener('click', () => {
+        if (!exportCatalogResult(msg.catalogExport)) return;
+        exportButton.disabled = true;
+        exportButton.textContent = t('ai.localFallback.exportedExcel');
+      });
+      msgEl.appendChild(exportButton);
     }
 
     // Render citations safely

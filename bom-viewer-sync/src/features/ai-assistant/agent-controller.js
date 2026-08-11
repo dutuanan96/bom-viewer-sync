@@ -575,6 +575,7 @@ ${(route?.intent === 'proposal' || isWorkflowTurn) ? semanticSchemaPrompt() : ''
     let deterministicPrefetchUsed = false;
     let postPrefetchInvestigationRemaining = 0;
     let deterministicFallbackText = '';
+    let catalogExport = null;
     const executedFingerprints = new Set();
     const successfulReadOnlyTools = new Set();
     let consecutiveNoProgress = 0;
@@ -688,6 +689,9 @@ ${(route?.intent === 'proposal' || isWorkflowTurn) ? semanticSchemaPrompt() : ''
         toolConversationContext = mergeToolContext(toolConversationContext, contextFromToolResult(safeCall, toolResult));
         if (typeof formatToolFallback === 'function') {
           deterministicFallbackText = String(formatToolFallback({ toolCall: safeCall, toolResult, snapshot }) || '');
+        }
+        if (safeCall.name === 'analyze_pdm' && Array.isArray(toolResult?.results) && toolResult.results.length > 0) {
+          catalogExport = { query: String(safeCall.arguments?.query || ''), result: toolResult };
         }
 
         const grounding = verifyGrounding({
@@ -1125,6 +1129,7 @@ ${(route?.intent === 'proposal' || isWorkflowTurn) ? semanticSchemaPrompt() : ''
             text: deterministicFallbackText || userMessage,
             citations: deterministicFallbackText ? ledger.getEvidence().map(item => item.id) : [],
             evidenceItems: deterministicFallbackText ? ledger.getEvidence() : [],
+            catalogExport,
             fallback: true,
             usage: currentTurnUsage,
             conversationContext: toolConversationContext,
@@ -1844,6 +1849,7 @@ Example:
       text: finalAnswer.text,
       citations: [...new Set([...(finalAnswer.citations || []), ...marketplaceCitations])],
       evidenceItems: ledger.getEvidence(),
+      catalogExport,
       conversationContext: toolConversationContext,
       learning: { successfulTools: [...successfulReadOnlyTools] },
       usage: currentTurnUsage,
