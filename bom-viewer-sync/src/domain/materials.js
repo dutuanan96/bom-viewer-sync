@@ -326,8 +326,8 @@ function updateMaterialRecord(payload, materialId, patch) {
 function parseQty(value) {
   const textValue = String(value || '');
   if (!textValue) return 0;
-  if (!textValue.includes('+')) return parseInt(textValue, 10) || 0;
-  return textValue.split('+').reduce((sum, item) => sum + (parseInt(item.trim(), 10) || 0), 0);
+  if (!textValue.includes('+')) return Number(textValue) || 0;
+  return textValue.split('+').reduce((sum, item) => sum + (Number(item.trim()) || 0), 0);
 }
 
 function materialText(material, field, lang) {

@@ -449,7 +449,7 @@ function validateBoundedString(value, label, required, maxLength = 200) {
 }
 
 function validatePositiveQuantity(value, label) {
-  if (!Number.isInteger(value) || value < 1 || value > 1_000_000) throw new Error(`invalid ${label}`);
+  if (!Number.isFinite(value) || value <= 0 || value > 1_000_000) throw new Error(`invalid ${label}`);
 }
 
 function validateMaterialIdList(value) {
