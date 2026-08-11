@@ -1562,7 +1562,7 @@ class BomApplication {
     const selected = code === this.state.currentSku ? this.state.selectedRevision : '';
     return options.some((item) => item.revision === selected)
       ? selected
-      : (options[0]?.revision || 'V1');
+      : (options.find((item) => item.effective)?.revision || options[0]?.revision || 'V1');
   }
 
   selectedProductRevisionInfo(productCode) {
