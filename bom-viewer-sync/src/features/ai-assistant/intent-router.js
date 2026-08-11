@@ -1,4 +1,4 @@
-import { detectProductShorthand } from './pdm-terminology.js';
+import { detectProductShorthand, foldPdmText, resolveConcept } from './pdm-terminology.js';
 
 const PRODUCT_PATTERN = /\bLGS\d{3,4}\b/gi;
 const ALIAS_PATTERN = /\bULGS\d{3,4}[A-Z0-9]+\b/gi;
@@ -25,6 +25,51 @@ const SEARCH_RESULT_FOLLOW_UP_PATTERN = /\b(?:only one|any others?|anything else
 const HELP_PATTERN = /\b(?:guide|instructions?|capabilities|what can you do|how (?:do|can) i use|help (?:me )?(?:use|with))\b|h\u01b0\u1edbng d\u1eabn|c\u00f3 th\u1ec3 l\u00e0m g\u00ec|gi\u00fap \u0111\u01b0\u1ee3c g\u00ec|\u4f7f\u7528\u5e2e\u52a9|\u600e\u4e48\u7528|\u4f7f\u7528\u6307\u5357|\u6709\u4ec0\u4e48\u529f\u80fd/iu;
 const SCHEMA_PATTERN = /\b(?:schema|data structure|fields?|entities|html data|dom data)\b|c\u1ea5u tr\u00fac d\u1eef li\u1ec7u|tr\u01b0\u1eddng d\u1eef li\u1ec7u|d\u1eef li\u1ec7u html|\u6570\u636e\u7ed3\u6784|\u5b57\u6bb5|\u5b9e\u4f53|HTML\s*\u6570\u636e/iu;
 const DRAWING_COMMONALITY_PATTERN = /\b(?:drawing|drawings|blueprint|interchangeable)\b|b\u1ea3n v\u1ebd|thay th\u1ebf l\u1eabn nhau|\u56fe\u7eb8|\u53ef\u4ee5\u4e92\u6362/iu;
+const VIETNAMESE_CATALOG_SCOPE_PATTERN = /\b(?:toan bo|tat ca|moi|cac)\b/iu;
+const VIETNAMESE_PRODUCT_SCOPE_PATTERN = /\b(?:san pham|LGS)\b/iu;
+const FOLDED_PRODUCT_DETAIL_PATTERN = /\b(?:mau|mau sac|kich thuoc|rong|cao|sau|dai|thong tin san pham|ma san pham)\b/iu;
+const FOLDED_COMPONENT_LOOKUP_PATTERN = /\b(?:dung gi|dung loai nao|loai nao|ma nao|ma gi|bao nhieu|so luong|quy cach|kich thuoc)\b.{0,40}\b(?:linh kien|vat lieu|bo phan|tui vai|day tui|ngan keo|ngu kim|thung|hop|bao bi|oc vit|tay nam|chan|thanh|khung)\b|\b(?:linh kien|vat lieu|bo phan|tui vai|day tui|ngan keo|ngu kim|thung|hop|bao bi|oc vit|tay nam|chan|thanh|khung)\b.{0,40}\b(?:dung gi|dung loai nao|loai nao|ma nao|ma gi|bao nhieu|so luong|quy cach|kich thuoc)\b/iu;
+const FOLDED_REVISION_PATTERN = /\b(?:phien ban|version|ban nhap|hien hanh|da phat hanh|trang thai)\b/iu;
+const FOLDED_COMPARISON_PATTERN = /\b(?:so sanh|doi chieu|khac nhau|giong nhau|dung chung|chung nhau)\b/iu;
+const FOLDED_DISCOVERY_PATTERN = /\b(?:tim|tra|kiem tra|liet ke|cho xem)\b.{0,40}\b(?:vat lieu|linh kien|quy cach|kich thuoc|ma)\b|\b(?:vat lieu|linh kien|quy cach|kich thuoc)\b.{0,40}\b(?:nao|gi|bao nhieu)\b/iu;
+
+function selectBomCandidate(query, candidates, selectedCandidate = null) {
+  if (!Array.isArray(candidates) || candidates.length === 0) return null;
+  const text = String(query || '').normalize('NFKC').toLowerCase();
+  const ordinalWords = new Map([
+    ['\u7b2c\u4e00', 1], ['\u7b2c\u4e8c', 2], ['\u7b2c\u4e09', 3], ['\u7b2c\u56db', 4],
+    ['\u7b2c\u4e00\u4e2a', 1], ['\u7b2c\u4e8c\u4e2a', 2], ['\u7b2c\u4e09\u4e2a', 3],
+    ['\u0111\u1ea7u ti\u00ean', 1], ['th\u1ee9 hai', 2], ['th\u1ee9 ba', 3], ['th\u1ee9 t\u01b0', 4],
+    ['first', 1], ['second', 2], ['third', 3], ['fourth', 4],
+  ]);
+  const ordinal = text.match(/(?:\u7b2c\s*|s\u1ed1\s*|lo\u1ea1i\s*|th\u1ee9\s*|m\u1eabu\s*)(\d{1,2})/u)?.[1];
+  const ordinalWord = [...ordinalWords.entries()].find(([phrase]) => text.includes(phrase))?.[1];
+  if (ordinal || ordinalWord) return candidates[Number(ordinal || ordinalWord) - 1] || null;
+  if (/\u7b2c\u4e00\u4e2a|\u7b2c\u4e00\u79cd|\u0111\u1ea7u ti\u00ean|first|\u0111\u1ea7u$/u.test(text)) return candidates[0] || null;
+  if (/\u6700\u540e|\u7b2c\u4e00\u4e2a\u4ee5\u5916|cu\u1ed1i c\u00f9ng|last|latter/u.test(text)) return candidates.at(-1) || null;
+  if (/\u5269\u4e0b|\u5176\u4ed6\u7684|\u53e6\u4e00\u4e2a|c\u00f2n l\u1ea1i|c\u00e1i kh\u00e1c|the other/u.test(text) && selectedCandidate?.matCode) {
+    const remaining = candidates.filter(row => row.matCode !== selectedCandidate.matCode);
+    return remaining.length === 1 ? remaining[0] : null;
+  }
+  const code = candidates.find(row => row.matCode && text.includes(row.matCode.toLowerCase()));
+  if (code) return code;
+  const dimension = text.match(/\d+(?:\.\d+)?\s*(?:x|\u00d7|\*)\s*\d+(?:\.\d+)?(?:\s*(?:x|\u00d7|\*)\s*\d+(?:\.\d+)?)?/i)?.[0]?.replace(/\s+/g, '');
+  if (dimension) {
+    const matched = candidates.filter(row => String(row.spec || '').replace(/\s+/g, '').toLowerCase().includes(dimension.toLowerCase()));
+    return matched.length === 1 ? matched[0] : null;
+  }
+  const singleDimension = text.match(/\b\d{2,4}(?:\.\d+)?\s*(?:mm)?\b/i)?.[0]?.replace(/\s+/g, '');
+  if (singleDimension) {
+    const matched = candidates.filter(row => String(row.spec || '').replace(/\s+/g, '').toLowerCase().includes(singleDimension.toLowerCase()));
+    return matched.length === 1 ? matched[0] : null;
+  }
+  const direction = /\u5de6|left|tr\u00e1i/u.test(text) ? '\u5de6' : /\u53f3|right|ph\u1ea3i/u.test(text) ? '\u53f3' : '';
+  if (direction) {
+    const matched = candidates.filter(row => String(row.nameZh || '').includes(direction));
+    return matched.length === 1 ? matched[0] : null;
+  }
+  return null;
+}
 const DUPLICATE_MATERIAL_PATTERN = /\b(?:duplicate|duplicates|deduplicate)\b|tr\u00f9ng(?:\s*l\u1eb7p)?|gi\u1ed1ng\s*h\u1ec7t|(?:g\u1ed9p|gom)\s*(?:chung|m\u00e3)|\u91cd\u590d|\u76f8\u540c|\u5408\u5e76\u7269\u6599/iu;
 const MUTATION_REQUEST_PATTERN = /\b(?:add|create|update|edit|delete|remove|replace|change|modify|release|publish|withdraw|link|attach)\b|th\u00eam|t\u1ea1o|s\u1eeda|ch\u1ec9nh|x\u00f3a|thay|\u0111\u1ed5i|c\u1eadp nh\u1eadt|ph\u00e1t h\u00e0nh|r\u00fat ph\u00e1t h\u00e0nh|bi\u1ebfn|\u6dfb\u52a0|\u521b\u5efa|\u4fee\u6539|\u7f16\u8f91|\u5220\u9664|\u79fb\u9664|\u66ff\u6362|\u66f4\u65b0|\u53d1\u5e03|\u64a4\u56de|\u6539|\u53d8/iu;
 const GREETING_PATTERN = /^(hi|hello|hey|你好|xin ch[aà]o|ch[aà]o)(\s|!|\.|。|$)/iu;
@@ -158,6 +203,7 @@ export function routePdmIntent({
   learnedStrategies = [],
 }) {
   const text = String(query || '').trim();
+  const foldedText = foldPdmText(text);
   const tools = toolNames(availableTools);
   if (DUPLICATE_MATERIAL_PATTERN.test(text) && tools.has('find_duplicate_materials')) {
     const name = /\u7eb8\u5361/iu.test(text) ? '\u7eb8\u5361' : '';
@@ -255,6 +301,19 @@ export function routePdmIntent({
     entities.colors = resolvedColors;
   }
 
+  const explicitProductInQuery = PRODUCT_PATTERN.test(text);
+  PRODUCT_PATTERN.lastIndex = 0;
+  const selectedBomCandidate = !explicitProductInQuery
+    ? selectBomCandidate(text, conversationContext?.bomCandidates, conversationContext?.selectedBomCandidate)
+    : null;
+  if (selectedBomCandidate && conversationContext?.productIds?.length === 1 && tools.has('get_bom')) {
+    return result(
+      PDM_INTENTS.BOM_LOOKUP,
+      { productIds: conversationContext.productIds, componentQuery: selectedBomCandidate.matCode },
+      'get_bom',
+    );
+  }
+
   if (
     AFFIRMATION_PATTERN.test(text)
     && priorProductIds.length === 1
@@ -336,13 +395,34 @@ export function routePdmIntent({
     }
   }
 
+  const requestedConcept = resolveConcept(text);
+  const basicBomConcept = [
+    'drawer_fabric',
+    'hardware_bag',
+    'upper_crossbar',
+    'bottom_crossbar',
+    'crossbar',
+    'vertical_beam',
+    'packaging_carton',
+    'packaging_material',
+    'drawer_bottom',
+  ].includes(requestedConcept?.conceptId) || /\u5305\u6750|\u5305\u88c5/u.test(text);
   if (
     productIds.length === 1
-    && PRODUCT_BOM_COMPONENT_PATTERN.test(text)
+    && (PRODUCT_BOM_COMPONENT_PATTERN.test(text) || basicBomConcept || FOLDED_COMPONENT_LOOKUP_PATTERN.test(foldedText))
+    && (!detectProductShorthand(text) || PRODUCT_BOM_COMPONENT_PATTERN.test(text))
     && !PRODUCT_VARIANT_GAP_PATTERN.test(text)
     && tools.has('get_bom')
   ) {
     return result(PDM_INTENTS.BOM_LOOKUP, { ...entities, componentQuery: text }, 'get_bom');
+  }
+
+  if (
+    productIds.length >= 2
+    && ['crossbar', 'upper_crossbar', 'bottom_crossbar', 'vertical_beam'].includes(requestedConcept?.conceptId)
+    && tools.has('analyze_pdm')
+  ) {
+    return result(PDM_INTENTS.CATALOG_ANALYSIS, { ...entities, productIds: productIds.slice(0, 2), searchQuery: text }, 'analyze_pdm');
   }
 
   if (
@@ -365,13 +445,20 @@ export function routePdmIntent({
   }
 
   const EXPLICIT_CATALOG_PATTERN = /\b(?:all\s+lgs|所有\s*lgs|tất\s+cả\s+lgs|所有的?)\b/iu;
+  const VIETNAMESE_CATALOG_PATTERN = /\b(?:tất\s+cả(?:\s+các)?|toàn\s+bộ|mọi)\s+(?:các\s+)?lgs\b/iu;
   const CATALOG_ANALYSIS_PATTERN = /\b(?:all\s+lgs|tất\s+cả\s+lgs)\b|所有(?:的)?\s*lgs|有几个柜子|有几种铁框|多种布抽|有多零件|共有几个|共用部件|客诉|所有(?:的)?五金包|五金包.{0,16}共用/iu;
   const CATALOG_COMPONENT_QUESTION_PATTERN = /(?:产品|SKU).{0,24}(?:用|使用|包含|有).{0,24}(?:上横梁|竖梁|竖零件|纸箱|carton|upper crossbar|vertical beam)|(?:上横梁|竖梁|竖零件|纸箱|carton|upper crossbar|vertical beam).{0,24}(?:哪(?:一|些|个)|哪些|共用|独用).{0,12}(?:产品|SKU)?|(?:largest|biggest|maximum|最大的?|最大).{0,20}(?:carton|纸箱)/iu;
   if (
     tools.has('analyze_pdm') &&
     (
       EXPLICIT_CATALOG_PATTERN.test(text) ||
+      VIETNAMESE_CATALOG_PATTERN.test(text) ||
       CATALOG_COMPONENT_QUESTION_PATTERN.test(text) ||
+      (
+        basicBomConcept &&
+        VIETNAMESE_CATALOG_SCOPE_PATTERN.test(foldedText) &&
+        VIETNAMESE_PRODUCT_SCOPE_PATTERN.test(foldedText)
+      ) ||
       (PRODUCT_VARIANT_GAP_PATTERN.test(text) && productIds.length === 1) ||
       (
         (
@@ -417,14 +504,14 @@ export function routePdmIntent({
     return result(PDM_INTENTS.REVISION_COMPARE, entities, 'compare_revisions');
   }
 
-  if (INTENT_PATTERNS.comparison.test(text) || productIds.length >= 2 || (COMPARISON_FOLLOW_UP_PATTERN.test(text) && productIds.length >= 2)) {
+  if (INTENT_PATTERNS.comparison.test(text) || FOLDED_COMPARISON_PATTERN.test(foldedText) || productIds.length >= 2 || (COMPARISON_FOLLOW_UP_PATTERN.test(text) && productIds.length >= 2)) {
     if (productIds.length >= 2 && tools.has('compare_boms')) {
       return result(PDM_INTENTS.BOM_COMPARE, { productIds: productIds.slice(0, 2) }, 'compare_boms');
     }
     return ambiguous(entities);
   }
 
-  if ((INTENT_PATTERNS.revision.test(text) || REVISION_STATUS_PATTERN.test(text)) && productIds.length === 1 && tools.has('get_revision_history')) {
+  if ((INTENT_PATTERNS.revision.test(text) || REVISION_STATUS_PATTERN.test(text) || FOLDED_REVISION_PATTERN.test(foldedText)) && productIds.length === 1 && tools.has('get_revision_history')) {
     return result(PDM_INTENTS.REVISION_STATUS, entities, 'get_revision_history');
   }
 
@@ -436,7 +523,7 @@ export function routePdmIntent({
     return result(PDM_INTENTS.BOM_LOOKUP, entities, 'get_bom');
   }
 
-  if (productIds.length === 1 && PRODUCT_DETAIL_PATTERN.test(text) && tools.has('get_product')) {
+  if (productIds.length === 1 && (PRODUCT_DETAIL_PATTERN.test(text) || FOLDED_PRODUCT_DETAIL_PATTERN.test(foldedText)) && tools.has('get_product')) {
     return result(PDM_INTENTS.DISCOVERY, entities, 'get_product');
   }
 
@@ -455,7 +542,7 @@ export function routePdmIntent({
     }, 'search_pdm');
   }
 
-  if ((DIMENSION_PATTERN.test(text) || PDM_DISCOVERY_PATTERN.test(text)) && tools.has('search_pdm')) {
+  if ((DIMENSION_PATTERN.test(text) || PDM_DISCOVERY_PATTERN.test(text) || FOLDED_DISCOVERY_PATTERN.test(foldedText)) && tools.has('search_pdm')) {
     const searchEntities = searchProductId
       ? {
           ...entities,

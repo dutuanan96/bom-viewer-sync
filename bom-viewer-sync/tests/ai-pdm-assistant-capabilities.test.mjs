@@ -206,10 +206,20 @@ test('2. Synonyms mapping for 下横梁 -> 底部横杆', () => {
   assert.equal(concept.canonicalZh, '底部横杆');
 });
 
+test('2a. Legacy BOM crossbar aliases resolve to their PDM terminology concept', () => {
+  for (const query of ['LGS131\u4e0a\u6a2a\u6881\u524d(\u6709\u5b54)', 'LGS420\u4e0a\u6a2a\u6881\u540e(2\u5b54)']) {
+    assert.equal(resolveConcept(query)?.conceptId, 'upper_crossbar', query);
+  }
+  assert.equal(resolveConcept('LGS131\u4e0b\u6a2a\u6881(\u65e0\u5b54)')?.conceptId, 'bottom_crossbar');
+  assert.equal(resolveConcept('LGS723 dùng túi vải nào')?.conceptId, 'drawer_fabric');
+  assert.equal(resolveConcept('quy cach day tui LGS333')?.conceptId, 'drawer_bottom');
+  assert.equal(resolveConcept('thong ke thung giay')?.conceptId, 'packaging_carton');
+});
+
 test('2b. Catalog component usage recognizes vertical-beam terminology', () => {
   const knowledge = new PdmKnowledge(mockSnapshot);
 
-  for (const query of ['所有产品有哪一个产品用竖梁', '有哪一个SKU用竖零件', '竖梁用哪一个产品']) {
+  for (const query of ['所有产品有哪一个产品用竖梁 白色', '有哪一个SKU用竖零件 白色', '竖梁用哪一个产品 白色']) {
     const result = knowledge.analyzePdm({ query });
     assert.equal(result.countMode, 'component_usage', query);
     assert.deepEqual(result.results[0].usedInProducts, ['LGS723', 'LGS733'], query);
@@ -225,6 +235,45 @@ test('2c. Catalog component size ranking finds the product using the largest car
   assert.deepEqual(result.results[0].usedInProducts, ['LGS033']);
 });
 
+test('2c1. Catalog component usage selects a representative color unless one is requested', () => {
+  const snapshot = {
+    sourceMetadata: mockSnapshot.sourceMetadata,
+    payload: {
+      bom: {
+        LGS900: { revision: 'V2', colors: ['\u767d\u8272', '\u590d\u53e4\u8272', '\u9ed1\u8272'] },
+        LGS901: { effectiveRevision: 'V3', colors: ['\u767d\u8272', '\u590d\u53e4\u8272'] },
+      },
+      materialDb: {
+        materials: {
+          cartonBlack: { id: 'cartonBlack', code: 'CARTON-BH', name_zh: '\u7eb8\u7bb1', spec_zh: '900x300x100mm' },
+          cartonVintage: { id: 'cartonVintage', code: 'CARTON-KD', name_zh: '\u7eb8\u7bb1', spec_zh: '901x300x100mm' },
+          cartonWhite: { id: 'cartonWhite', code: 'CARTON-WH', name_zh: '\u7eb8\u7bb1', spec_zh: '902x300x100mm' },
+        },
+        bomEntries: [
+          { parentType: 'product', productCode: 'LGS900', color: '\u9ed1\u8272', materialId: 'cartonBlack', qty: 1 },
+          { parentType: 'product', productCode: 'LGS900', color: '\u590d\u53e4\u8272', materialId: 'cartonVintage', qty: 1 },
+          { parentType: 'product', productCode: 'LGS901', color: '\u767d\u8272', materialId: 'cartonWhite', qty: 1 },
+          { parentType: 'product', productCode: 'LGS901', color: '\u590d\u53e4\u8272', materialId: 'cartonVintage', qty: 1 },
+        ],
+      },
+      productRevisions: {},
+    },
+  };
+  const knowledge = new PdmKnowledge(snapshot);
+  const representative = knowledge.analyzePdm({ query: '\u6240\u6709LGS\u7528\u4ec0\u4e48\u7eb8\u7bb1' });
+  const representativeVi = knowledge.analyzePdm({ query: 'th\u1ed1ng k\u00ea gi\u00fap t\u00f4i to\u00e0n b\u1ed9 th\u00f9ng gi\u1ea5y c\u1ee7a c\u00e1c s\u1ea3n ph\u1ea9m' });
+  const blackOnly = knowledge.analyzePdm({ query: '\u6240\u6709LGS\u9ed1\u8272\u7528\u4ec0\u4e48\u7eb8\u7bb1' });
+
+  assert.equal(representative.representativeColorPolicy, true);
+  assert.deepEqual(representative.results.map(result => result.materialCode), ['CARTON-BH', 'CARTON-KD']);
+  assert.deepEqual(representative.results.map(result => result.representativeColors), [['\u9ed1\u8272'], ['\u590d\u53e4\u8272']]);
+  assert.deepEqual(representative.results.map(result => result.effectiveRevisions), [['V2'], ['V3']]);
+  assert.deepEqual(representativeVi.results, representative.results);
+  assert.equal(blackOnly.representativeColorPolicy, false);
+  assert.deepEqual(blackOnly.results.map(result => result.materialCode), ['CARTON-BH']);
+  assert.deepEqual(blackOnly.colorAvailabilityWarnings, []);
+});
+
 test('2d. Confirmed upper-crossbar and comparison follow-ups include other using products', () => {
   const knowledge = new PdmKnowledge(mockSnapshot);
   const upper = knowledge.analyzePdm({
@@ -237,8 +286,7 @@ test('2d. Confirmed upper-crossbar and comparison follow-ups include other using
   assert.equal(upper.countMode, 'component_usage');
   assert.deepEqual(upper.results[0].usedInProducts, ['LGS033', 'LGS834']);
   assert.equal(vertical.countMode, 'component_usage');
-  assert.deepEqual(vertical.results[0].usedInProducts, ['LGS033', 'LGS723', 'LGS733']);
-  assert.deepEqual(vertical.results[0].materialCodes, ['MAT-VERTICAL-01', 'MAT-VERTICAL-02']);
+  assert.deepEqual(vertical.results, []);
 });
 
 test('3. Color & variant coverage analysis', () => {
@@ -433,7 +481,85 @@ test('13c. Focused BOM fallback preserves material, quantity, and nesting level'
   assert.match(text, /TZJD629825BH/);
   assert.match(text, /M6x10mm/);
   assert.match(text, /x6/);
-  assert.match(text, /BOM level 2/);
+  assert.doesNotMatch(text, /BOM level/);
+});
+
+test('13c1. Multi-row focused BOM fallback uses a readable table', () => {
+  const text = formatLocalToolFallback(null, {
+    toolCall: { name: 'get_bom', arguments: { productId: 'LGS333' } },
+    toolResult: {
+      productCode: 'LGS333',
+      matchedRows: 2,
+      rows: [
+        { matCode: 'BC257', nameZh: 'LGS布抽25.7', spec: '257x282x168mm', qty: '4' },
+        { matCode: 'BC350', nameZh: 'LGS布抽35', spec: '350x282x187mm', qty: '6' },
+      ],
+    },
+  });
+  assert.match(text, /\| 序号 \| 物料编码 \| 名称 \| 规格 \| 数量 \|/);
+  assert.match(text, /\| 2 \| BC350 \|/);
+});
+
+test('13c2. Catalog material table discloses representative color and effective revision', () => {
+  const translations = {
+    'ai.localFallback.notice': '本地结果',
+    'ai.localFallback.scope': '范围',
+    'ai.localFallback.totalMatches': '总计',
+    'ai.localFallback.tableIndex': '序号',
+    'ai.localFallback.tableMaterialCode': '物料编码',
+    'ai.localFallback.tableName': '名称',
+    'ai.localFallback.tableSpec': '规格',
+    'ai.localFallback.usedProducts': '使用产品',
+    'ai.localFallback.representativeColor': '代表颜色',
+    'ai.localFallback.effectiveRevision': '生效版本',
+    'ai.localFallback.representativeColorPolicy': '未指定颜色；按代表颜色统计。',
+  };
+  const text = formatLocalToolFallback(key => translations[key] || key, {
+    toolCall: { name: 'analyze_pdm', arguments: { query: '所有LGS用什么纸箱' } },
+    toolResult: {
+      scope: 'all',
+      totalCount: 2,
+      representativeColorPolicy: true,
+      results: [
+        { materialCode: 'CARTON-BH', nameZh: '纸箱', spec: '900x300x100mm', usedInProducts: ['LGS900'], representativeColors: ['黑色'], effectiveRevisions: ['V2'] },
+        { materialCode: 'CARTON-KD', nameZh: '纸箱', spec: '901x300x100mm', usedInProducts: ['LGS901'], representativeColors: ['复古色'], effectiveRevisions: ['V3'] },
+      ],
+    },
+  });
+
+  assert.match(text, /\| 序号 \| 物料编码 \| 名称 \| 规格 \| 使用产品 \| 代表颜色 \| 生效版本 \|/);
+  assert.match(text, /黑色/);
+  assert.match(text, /V3/);
+  assert.match(text, /未指定颜色/);
+});
+
+test('13d. General fabric-drawer lookup excludes its strips and bottom boards', () => {
+  const snapshot = {
+    sourceMetadata: mockSnapshot.sourceMetadata,
+    payload: {
+      bom: {
+        LGS999: {
+          colors: ['黑色'],
+          color_info: {
+            黑色: {
+              materials: [
+                { mat_code: 'DRAWER', name_zh: 'LGS布抽', spec: '300x282x168mm', qty: '1' },
+                { mat_code: 'STRIP', name_zh: '280mm布抽条左', spec: '280x25x20mm', qty: '1' },
+                { mat_code: 'BOTTOM', name_zh: 'LGS布抽底板', spec: '295x277x3mm', qty: '1' },
+              ],
+            },
+          },
+        },
+      },
+      materialDb: { materials: {} },
+    },
+  };
+  const knowledge = new PdmKnowledge(snapshot);
+  const result = knowledge.getBom({ productId: 'LGS999', color: '黑色', query: 'LGS999用什么布抽？' });
+  const missingColor = knowledge.getBom({ productId: 'LGS999', color: '白色', query: 'LGS999用什么布抽？' });
+  assert.deepEqual(result.rows.map(row => row.matCode), ['DRAWER']);
+  assert.equal(missingColor.colorAvailable, false);
+  assert.deepEqual(missingColor.availableColors, ['黑色']);
 });
 
 test('Contract validation for analyze_pdm', () => {

@@ -8,7 +8,7 @@ import { buildBomTreeRows } from '../../domain/relationships.js';
 import { normalizeProductRevisionRegistry } from '../../domain/revisions.js';
 import { classifyMaterialFamily, summarizeMaterialFamilies } from './pdm-ontology.js';
 import { evaluateEquivalence, detectDataQualityWarnings } from './pdm-equivalence.js';
-import { detectProductShorthand, resolveConcept, parseDimensions, checkDimensionProximity } from './pdm-terminology.js';
+import { componentSearchTerms, detectProductShorthand, resolveConcept, parseDimensions, checkDimensionProximity } from './pdm-terminology.js';
 
 // Maximum results returned by search operations
 const MAX_SEARCH_RESULTS = 50;
@@ -16,6 +16,49 @@ const MAX_SEARCH_RESULTS = 50;
 const MAX_BOM_ROWS = 200;
 const MAX_FOCUSED_BOM_ROWS = 12;
 const MAX_COMPARISON_RESULTS = 100;
+
+const REPRESENTATIVE_COLOR_PRIORITY = [
+  { code: 'BH', matcher: /\u9ed1\u8272|\bblack\b|mau den/i },
+  { code: 'KD', matcher: /\u590d\u53e4\u8272|\u6728\u8272|\bvintage\b|mau go/i },
+  { code: 'WH', matcher: /\u767d\u8272|\bwhite\b|mau trang/i },
+];
+
+function productColors(product) {
+  return [...new Set([
+    ...(Array.isArray(product?.colors) ? product.colors : []),
+    ...Object.keys(product?.color_info || {}),
+  ].filter(Boolean))];
+}
+
+function colorPriority(color) {
+  const normalized = normalizeBomSearchText(color);
+  const index = REPRESENTATIVE_COLOR_PRIORITY.findIndex(entry => entry.matcher.test(normalized));
+  return index === -1 ? REPRESENTATIVE_COLOR_PRIORITY.length : index;
+}
+
+function selectRepresentativeColor(colors) {
+  return [...colors]
+    .map((color, index) => ({ color, index, priority: colorPriority(color) }))
+    .sort((left, right) => left.priority - right.priority || left.index - right.index)[0]?.color || '';
+}
+
+function requestedColorFromQuery(query, bom) {
+  const normalized = normalizeBomSearchText(query);
+  const knownColors = [...new Set(Object.values(bom).flatMap(product => productColors(product)))];
+  const exactColor = knownColors
+    .sort((left, right) => right.length - left.length)
+    .find(color => normalized.includes(normalizeBomSearchText(color)));
+  if (exactColor) return { label: exactColor, matches: color => color === exactColor };
+
+  const alias = REPRESENTATIVE_COLOR_PRIORITY.find(entry => (
+    entry.matcher.test(normalized) || new RegExp(`\\b${entry.code}\\b`, 'i').test(normalized)
+  ));
+  if (!alias) return null;
+  return {
+    label: alias.code,
+    matches: color => alias.matcher.test(normalizeBomSearchText(color)),
+  };
+}
 
 /**
  * Build a safe evidence object from source metadata + record context.
@@ -104,12 +147,19 @@ function focusedBomRows(rows, query) {
     && !/^\d{3,4}$/.test(token)
   ));
   const hanText = [...normalizedQuery].filter(character => /[\p{Script=Han}]/u.test(character)).join('');
+  tokens.push(...componentSearchTerms(query).map(normalizeBomSearchText));
+  if (/\u6a2a(?:\u6881|\u6746)/u.test(normalizedQuery)) tokens.push('\u6a2a\u6881', '\u6a2a\u6746');
+  if (/\u5305\u6750|\u5305\u88c5/u.test(normalizedQuery)) {
+    tokens.push('\u7eb8\u7bb1', '\u7eb8\u5361', '\u6ce1\u6cab', '\u62a4\u89d2');
+  }
   for (let index = 0; index < hanText.length - 1; index += 1) {
     tokens.push(hanText.slice(index, index + 2));
   }
 
   const requestedFastener = normalizedQuery.match(/\b(?:m|st)\d+(?:\.\d+)?x\d+(?:\.\d+)?/i)?.[0] || '';
   const requestedFamily = requestedFastener.match(/^(?:m|st)\d+(?:\.\d+)?/i)?.[0] || '';
+  const generalDrawerQuery = resolveConcept(query)?.conceptId === 'drawer_fabric'
+    && !/\u5e03\u62bd(?:\u6761|\u5e95\u677f)/u.test(normalizedQuery);
   const scored = rows.map((row, index) => {
     const searchable = normalizeBomSearchText([
       row.matCode,
@@ -122,6 +172,7 @@ function focusedBomRows(rows, query) {
       row.materialZh,
     ].join(' '));
     let score = tokens.reduce((total, token) => total + (searchable.includes(token) ? 1 : 0), 0);
+    if (generalDrawerQuery && /\u5e03\u62bd(?:\u6761|\u5e95\u677f)/u.test(normalizeBomSearchText(row.nameZh))) score -= 8;
     if (requestedFastener && searchable.includes(requestedFastener)) score += 6;
     else if (requestedFamily && searchable.includes(requestedFamily)) score += 2;
     return { index, row, score };
@@ -377,7 +428,25 @@ export class PdmKnowledge {
     const product = bom[productId];
     if (!product) throw new Error(`Not found: product ${productId}`);
 
-    const colorName = color || product.colors?.[0] || '';
+    const availableColors = productColors(product);
+    const requestedColor = color ? requestedColorFromQuery(String(color), bom) : null;
+    const colorName = requestedColor
+      ? availableColors.find(requestedColor.matches) || ''
+      : selectRepresentativeColor(availableColors);
+    if (color && !colorName) {
+      return {
+        productCode: productId,
+        color: String(color),
+        availableColors,
+        colorAvailable: false,
+        rows: [],
+        totalRows: 0,
+        matchedRows: 0,
+        focused: Boolean(query),
+        truncated: false,
+        evidence: buildEvidence(this._sourceMetadata, productId, `data/products/${productId}.json`),
+      };
+    }
     const rows = buildBomTreeRows(this._payload, productId, colorName);
     const summaries = rows.map(toBomRowSummary);
     const focused = typeof query === 'string' && query.trim().length > 0;
@@ -387,6 +456,8 @@ export class PdmKnowledge {
     return {
       productCode: productId,
       color: colorName,
+      availableColors,
+      colorAvailable: true,
       rows: bounded,
       totalRows: rows.length,
       matchedRows: selectedRows.length,
@@ -685,7 +756,7 @@ export class PdmKnowledge {
         && /最大|largest|biggest|maximum/i.test(text)
       ) {
         mode = 'rank_component_size';
-      } else if (['upper_crossbar', 'vertical_beam', 'packaging_carton'].includes(concept?.conceptId)) {
+      } else if (['crossbar', 'upper_crossbar', 'bottom_crossbar', 'vertical_beam', 'packaging_carton', 'packaging_material', 'drawer_bottom'].includes(concept?.conceptId)) {
         mode = 'component_usage';
       } else if (/柜子|product count|s\u1eed d\u1ee5ng/i.test(text) || concept?.conceptId === 'cabinet') {
         mode = 'count_products';
@@ -787,11 +858,16 @@ export class PdmKnowledge {
 
     if (mode === 'component_usage' || mode === 'rank_component_size') {
       const conceptMatchers = {
+        crossbar: /\u6a2a(?:\u6881|\u6746)|crossbar|thanh ngang/i,
         upper_crossbar: /上横梁|顶部横梁|顶部横杆|上横杆|upper crossbar|thanh ngang trên/i,
         vertical_beam: /竖梁|竖零件|XZ[QH]SL|vertical beam|thanh đứng/i,
         packaging_carton: /纸箱|纸盒|carton|cardboard box|thùng carton/i,
+        packaging_material: /纸箱|纸卡|泡沫|护角|胶袋|carton|foam|corner protector|paper card|bao bì|vật liệu đóng gói/i,
+        drawer_bottom: /布抽底板|抽屉底板|fabric drawer bottom|drawer bottom|đáy túi/i,
       };
-      const matcher = conceptMatchers[concept?.conceptId];
+      const matcher = concept?.conceptId === 'packaging_carton'
+        ? /\u7eb8\u7bb1|\u7eb8\u76d2|\u4e2d\u5c01\u7bb1|\u5e73\u53e3\u7bb1|\u5916\u7bb1|\u5185\u7bb1|carton|cardboard box|outer carton|inner carton|th\u00f9ng carton/i
+        : conceptMatchers[concept?.conceptId];
       if (!matcher) throw new Error('A supported component family is required');
       const targetProductIds = [...new Set((text.match(/\bLGS\d{3,4}\b/gi) || []).map(value => value.toUpperCase()))];
       const groupEquivalentComponents = (
@@ -799,9 +875,22 @@ export class PdmKnowledge {
         && /共用|共享|独用|其他|除外|shared|common|other products?/iu.test(text)
       );
 
+      const requestedColor = requestedColorFromQuery(text, bom);
+      const colorAvailabilityWarnings = [];
       const components = new Map();
       for (const [productCode, product] of Object.entries(bom)) {
-        for (const color of (product.colors || [''])) {
+        const colors = productColors(product);
+        const selectedColors = requestedColor
+          ? colors.filter(requestedColor.matches)
+          : [selectRepresentativeColor(colors)];
+        if (requestedColor && selectedColors.length === 0 && targetProductIds.includes(productCode)) {
+          colorAvailabilityWarnings.push({
+            productCode,
+            requestedColor: requestedColor.label,
+            availableColors: colors,
+          });
+        }
+        for (const color of selectedColors.filter(Boolean)) {
           for (const row of buildBomTreeRows(this._payload, productCode, color)) {
             const summary = toBomRowSummary(row);
             const searchable = [
@@ -839,6 +928,8 @@ export class PdmKnowledge {
                   : 0,
                 usedInProducts: new Set(),
                 usedInSkus: new Set(),
+                representativeColors: new Set(),
+                effectiveRevisions: new Set(),
               });
             }
             const component = components.get(key);
@@ -847,6 +938,10 @@ export class PdmKnowledge {
             component.usedInSkus.add(
               product.color_info?.[color]?.sku || (color ? `${productCode}/${color}` : productCode),
             );
+            component.representativeColors.add(color);
+            const effectiveRevision = this._revisionRegistry[productCode]?.effectiveRevision
+              || String(product.effectiveRevision || product.currentRevision || product.revision || '').trim();
+            if (effectiveRevision) component.effectiveRevisions.add(effectiveRevision);
           }
         }
       }
@@ -857,6 +952,10 @@ export class PdmKnowledge {
           materialCodes: [...component.materialCodes].filter(Boolean).sort(),
           usedInProducts: [...component.usedInProducts].sort(),
           usedInSkus: [...component.usedInSkus].sort(),
+          representativeColors: [...component.representativeColors].sort((left, right) => (
+            colorPriority(left) - colorPriority(right) || left.localeCompare(right)
+          )),
+          effectiveRevisions: [...component.effectiveRevisions].sort(),
         }))
         .filter(component => (
           targetProductIds.length === 0
@@ -881,8 +980,13 @@ export class PdmKnowledge {
         countMode: mode,
         assumptions: mode === 'rank_component_size'
           ? 'Size is ranked by multiplying all dimensions parsed from each material specification'
-          : 'Usage is grouped by canonical material identity across product color variants',
+          : requestedColor
+            ? `Only the requested ${requestedColor.label} color variant is counted`
+            : 'One representative color per product is counted in this order: black (BH), vintage (KD), white (WH), then the first available color',
         componentConcept: concept.conceptId,
+        representativeColorPolicy: !requestedColor,
+        requestedColor: requestedColor?.label || '',
+        colorAvailabilityWarnings,
         totalCount: matched.length,
         results: results.slice(0, MAX_SEARCH_RESULTS),
         truncated: results.length > MAX_SEARCH_RESULTS,

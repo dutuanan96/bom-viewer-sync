@@ -358,6 +358,18 @@ function contextFromToolResult(toolCall, toolResult) {
     const searchQuery = String(toolResult.query || args.query || '').trim();
     if (searchQuery) context.searchQuery = searchQuery.slice(0, 500);
   }
+  if (toolCall.name === 'get_bom' && typeof args.query === 'string') {
+    const rows = Array.isArray(toolResult.rows) ? toolResult.rows : [];
+    const bomRows = rows.slice(0, 12).map(row => ({
+      matCode: String(row?.matCode || '').slice(0, 80),
+      nameZh: String(row?.nameZh || '').slice(0, 160),
+      spec: String(row?.spec || '').slice(0, 120),
+      qty: String(row?.qty || '').slice(0, 40),
+      unit: String(row?.unit || '').slice(0, 20),
+    })).filter(row => row.matCode || row.nameZh);
+    if (bomRows.length > 1) context.bomCandidates = bomRows;
+    if (bomRows.length === 1) context.selectedBomCandidate = bomRows[0];
+  }
   if (toolResult.clarificationCode === 'confirm_product_shorthand') {
     const searchQuery = String(args.query || '').trim();
     if (searchQuery) context.searchQuery = searchQuery.slice(0, 500);

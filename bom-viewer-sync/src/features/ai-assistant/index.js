@@ -197,14 +197,23 @@ export function formatLocalToolFallback(t, { toolCall, toolResult } = {}) {
 
   if (toolCall.name === 'get_bom') {
     const scope = [toolResult.productCode, toolResult.color].filter(Boolean).join(' / ');
+    const rows = (toolResult.rows || []).slice(0, 12);
     lines.push(`${tr('ai.localFallback.scope', 'Scope')}: ${scope}`);
+    if (toolResult.colorAvailable === false) {
+      lines.push(`! ${toolResult.productCode}: ${toolResult.color} — ${tr('ai.localFallback.colorNotDefined', 'color variant is not defined')}. ${tr('ai.localFallback.availableColors', 'Available colors')}: ${(toolResult.availableColors || []).join(', ') || '-'}`);
+      return lines.join('\n').slice(0, 5000);
+    }
     lines.push(`${tr('ai.localFallback.matches', 'Matches')}: ${toolResult.matchedRows ?? toolResult.totalRows ?? 0}`);
-    lines.push(...(toolResult.rows || []).slice(0, 12).map(row => (
-      `- ${tr('ai.localFallback.bomLevel', 'BOM level')} ${row.level || 1}: `
-      + `${row.matCode || row.materialId || ''} `
-      + `${[row.nameZh, row.nameVi].filter(Boolean).join(' / ')} `
-      + `${row.spec || ''} x${row.qty || ''}`.trim()
-    )));
+    if (rows.length > 1) {
+      lines.push('| 序号 | 物料编码 | 名称 | 规格 | 数量 |');
+      lines.push('| --- | --- | --- | --- | --- |');
+      lines.push(...rows.map((row, index) => (
+        `| ${index + 1} | ${row.matCode || row.materialId || '-'} | ${row.nameZh || row.nameVi || '-'} | ${row.spec || '-'} | ${row.qty || '-'} |`
+      )));
+    } else if (rows[0]) {
+      const row = rows[0];
+      lines.push(`- ${row.matCode || row.materialId || ''} — ${row.nameZh || row.nameVi || ''} — ${row.spec || ''} x${row.qty || ''}`.trim());
+    }
     return lines.join('\n').slice(0, 5000);
   }
 
@@ -309,7 +318,43 @@ export function formatLocalToolFallback(t, { toolCall, toolResult } = {}) {
       return lines.join('\n').slice(0, 5000);
     }
     lines.push(`${tr('ai.localFallback.totalMatches', 'Total Matches / Count')}: ${toolResult.totalCount ?? toolResult.totalMatches ?? 0}`);
-    lines.push(...(toolResult.results || []).slice(0, 12).map(r => {
+    const results = toolResult.results || [];
+    const materialResults = results.filter(result => result.materialCode);
+    if (materialResults.length > 1 && materialResults.length === results.length) {
+      const hasRepresentativeColor = materialResults.some(result => result.representativeColors?.length);
+      const hasEffectiveRevision = true;
+      const headers = [
+        tr('ai.localFallback.tableIndex', 'No.'),
+        tr('ai.localFallback.tableMaterialCode', 'Material Code'),
+        tr('ai.localFallback.tableName', 'Name'),
+        tr('ai.localFallback.tableSpec', 'Specification'),
+        tr('ai.localFallback.usedProducts', 'Used In'),
+      ];
+      if (hasRepresentativeColor) headers.push(tr('ai.localFallback.representativeColor', 'Representative Color'));
+      if (hasEffectiveRevision) headers.push(tr('ai.localFallback.effectiveRevision', 'Effective Revision'));
+      lines.push(`| ${headers.join(' | ')} |`);
+      lines.push(`| ${headers.map(() => '---').join(' | ')} |`);
+      lines.push(...materialResults.map((result, index) => (
+        `| ${[
+          index + 1,
+          result.materialCode,
+          result.nameZh || '-',
+          result.spec || '-',
+          (result.usedInProducts || []).join(', ') || '-',
+          ...(hasRepresentativeColor ? [(result.representativeColors || []).join(', ') || '-'] : []),
+          ...(hasEffectiveRevision ? [(result.effectiveRevisions || []).join(', ') || '-'] : []),
+        ].join(' | ')} |`
+      )));
+      if (toolResult.representativeColorPolicy) {
+        lines.splice(2, 0, tr('ai.localFallback.representativeColorPolicy', 'No color was specified. One representative color is selected for each product in the order BH, KD, WH, then the first available color.'));
+      }
+      if (toolResult.truncated) lines.push(tr('ai.localFallback.resultsTruncated', 'Only the first 50 matching records are shown.'));
+      for (const warning of toolResult.colorAvailabilityWarnings || []) {
+        lines.push(`! ${warning.productCode}: ${warning.requestedColor} — ${tr('ai.localFallback.colorNotDefined', 'color variant is not defined')}. ${tr('ai.localFallback.availableColors', 'Available colors')}: ${(warning.availableColors || []).join(', ') || '-'}`);
+      }
+      return lines.join('\n');
+    }
+    lines.push(...results.map(r => {
       if (r.hardwareBagCount !== undefined) {
         const bags = (r.hardwareBags || []).map(item => item.matCode).filter(Boolean).join(', ');
         return `- ${r.productCode} / ${r.color}: ${r.hardwareBagCount}${bags ? ` (${bags})` : ''}`;

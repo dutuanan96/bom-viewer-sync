@@ -581,11 +581,9 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k, ope
     const msgEl = document.createElement('div');
     msgEl.className = 'ai-message';
 
-    // SAFE RENDERING: Only use textContent
+    // SAFE RENDERING: Only use textContent for message content and table cells.
     if (msg.text) {
-      const textEl = document.createElement('div');
-      textEl.className = 'ai-message-text';
-      textEl.textContent = String(msg.text)
+      const normalizedText = String(msg.text)
         .split('\n')
         .map(line => line
           .replace(/\*\*([^*]+)\*\*/g, '$1')
@@ -593,7 +591,43 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k, ope
           .replace(/^(\s*)\*\s+/, '$1- ')
           .replace(/^(\s*)#{1,6}\s+/, '$1'))
         .join('\n');
-      msgEl.appendChild(textEl);
+      const tableLines = normalizedText.split('\n');
+      const tableStart = tableLines.findIndex((line, index) => (
+        /^\|.+\|$/.test(line.trim()) && /^\|(?:\s*:?-{3,}:?\s*\|)+$/.test((tableLines[index + 1] || '').trim())
+      ));
+      const appendText = value => {
+        if (!value) return;
+        const textEl = document.createElement('div');
+        textEl.className = 'ai-message-text';
+        textEl.textContent = value;
+        msgEl.appendChild(textEl);
+      };
+      if (tableStart < 0) {
+        appendText(normalizedText);
+      } else {
+        appendText(tableLines.slice(0, tableStart).join('\n'));
+        const rows = [];
+        for (let index = tableStart; index < tableLines.length; index += 1) {
+          const line = tableLines[index].trim();
+          if (!/^\|.+\|$/.test(line)) break;
+          if (index === tableStart + 1) continue;
+          rows.push(line.slice(1, -1).split('|').map(cell => cell.trim()));
+        }
+        const wrapper = document.createElement('div');
+        wrapper.className = 'ai-message-table-wrap';
+        const table = document.createElement('table');
+        table.className = 'ai-message-table';
+        const header = document.createElement('thead');
+        const headerRow = document.createElement('tr');
+        rows[0].forEach(cell => { const th = document.createElement('th'); th.textContent = cell; headerRow.appendChild(th); });
+        header.appendChild(headerRow);
+        table.appendChild(header);
+        const body = document.createElement('tbody');
+        rows.slice(1).forEach(row => { const tr = document.createElement('tr'); row.forEach(cell => { const td = document.createElement('td'); td.textContent = cell; tr.appendChild(td); }); body.appendChild(tr); });
+        table.appendChild(body);
+        wrapper.appendChild(table);
+        msgEl.appendChild(wrapper);
+      }
     }
 
     // Render citations safely

@@ -7082,6 +7082,30 @@
         }
       ]
     },
+    "LGS132": {
+      "currentRevision": "V3",
+      "effectiveRevision": "V3",
+      "currentRevisionInfo": {
+        "sourceRevision": "",
+        "createdAt": "",
+        "changeReason": "",
+        "workflowState": "released"
+      },
+      "revisions": [],
+      "effectivityEvents": []
+    },
+    "LGS133": {
+      "currentRevision": "V4",
+      "effectiveRevision": "V4",
+      "currentRevisionInfo": {
+        "sourceRevision": "",
+        "createdAt": "",
+        "changeReason": "",
+        "workflowState": "released"
+      },
+      "revisions": [],
+      "effectivityEvents": []
+    },
     "LGS420": {
       "currentRevision": "V4",
       "effectiveRevision": "V4",

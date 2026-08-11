@@ -13863,7 +13863,7 @@
         "code": "LGS031PKXKD",
         "name": {
           "zh": "平口箱",
-          "vi": "平口箱"
+          "vi": "thùng carton"
         },
         "spec": {
           "zh": "1185x335x95mm",
@@ -13875,7 +13875,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -13967,11 +13967,11 @@
         "code": "PPHJ1285",
         "name": {
           "zh": "PP护角",
-          "vi": "PP护角"
+          "vi": "PP góc nhựa"
         },
         "spec": {
           "zh": "内径高12mm,边厚度8.5mm",
-          "vi": "内径高12mm,边厚度8.5mm"
+          "vi": "đường kính trong cao 12mm,độ dày cạnh 8.5mm"
         },
         "material": {
           "zh": "PP",
@@ -13979,7 +13979,7 @@
         },
         "color": {
           "zh": "黑色",
-          "vi": "黑色"
+          "vi": "màu đen"
         },
         "attr": {
           "zh": "包材",
@@ -13993,7 +13993,7 @@
         "code": "JGB120052",
         "name": {
           "zh": "警告标",
-          "vi": "警告标"
+          "vi": "nhãn cảnh báo"
         },
         "spec": {
           "zh": "120x52mm",
@@ -14005,7 +14005,7 @@
         },
         "color": {
           "zh": "按样",
-          "vi": "按样"
+          "vi": "theo mẫu"
         },
         "attr": {
           "zh": "包材",
@@ -14019,7 +14019,7 @@
         "code": "VTJGB035012",
         "name": {
           "zh": "产地标",
-          "vi": "产地标"
+          "vi": "nhãn xuất xứ"
         },
         "spec": {
           "zh": "35x12mm",
@@ -14031,7 +14031,7 @@
         },
         "color": {
           "zh": "按样",
-          "vi": "按样"
+          "vi": "theo mẫu"
         },
         "attr": {
           "zh": "包材",
@@ -14057,7 +14057,7 @@
         },
         "color": {
           "zh": "黑白",
-          "vi": "黑白"
+          "vi": "đen trắng"
         },
         "attr": {
           "zh": "包材",
@@ -14114,7 +14114,7 @@
         "code": "BC350282187BH",
         "name": {
           "zh": "LGS布抽35x28.2x18.7",
-          "vi": "LGS布抽35x28.2x18.7"
+          "vi": "LGS Túi vải 35x28.2x18.7"
         },
         "spec": {
           "zh": "350x282x187mm",
@@ -14813,7 +14813,7 @@
         "code": "LGS032PKXKD",
         "name": {
           "zh": "平口箱",
-          "vi": "平口箱"
+          "vi": "thùng carton"
         },
         "spec": {
           "zh": "1185x335x105mm",
@@ -14825,7 +14825,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -14839,7 +14839,7 @@
         "code": "ZHJ505085",
         "name": {
           "zh": "纸护角",
-          "vi": "纸护角"
+          "vi": "giấy nẹp"
         },
         "spec": {
           "zh": "50x50x85mm",
@@ -14851,7 +14851,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -14917,7 +14917,7 @@
         "code": "XHBBL010",
         "name": {
           "zh": "序号标BL",
-          "vi": "序号标BL"
+          "vi": "nhãn STT BL"
         },
         "spec": {
           "zh": "∅10mm",
@@ -14929,7 +14929,7 @@
         },
         "color": {
           "zh": "按样",
-          "vi": "按样"
+          "vi": "theo mẫu"
         },
         "attr": {
           "zh": "包材",
@@ -14943,7 +14943,7 @@
         "code": "XHBBR010",
         "name": {
           "zh": "序号标BR",
-          "vi": "序号标BR"
+          "vi": "nhãn STT BR"
         },
         "spec": {
           "zh": "∅10mm",
@@ -14955,7 +14955,7 @@
         },
         "color": {
           "zh": "按样",
-          "vi": "按样"
+          "vi": "theo mẫu"
         },
         "attr": {
           "zh": "包材",
@@ -14981,7 +14981,7 @@
         },
         "color": {
           "zh": "黑白",
-          "vi": "黑白"
+          "vi": "đen trắng"
         },
         "attr": {
           "zh": "包材",
@@ -15434,7 +15434,7 @@
         "code": "BC350282187KD",
         "name": {
           "zh": "LGS布抽35x28.2x18.7",
-          "vi": "LGS布抽35x28.2x18.7"
+          "vi": "LGS Túi vải 35x28.2x18.7"
         },
         "spec": {
           "zh": "350x282x187mm",
@@ -15477,7 +15477,7 @@
         "code": "BCDB350282003BH",
         "name": {
           "zh": "LGS布抽底板35x28.2",
-          "vi": "LGS布抽底板34.5x27.5"
+          "vi": "LGS Đáy túi 34.5x27.5"
         },
         "spec": {
           "zh": "345x277x3mm",
@@ -15512,7 +15512,7 @@
         "code": "LGS033PKXKD",
         "name": {
           "zh": "平口箱",
-          "vi": "平口箱"
+          "vi": "thùng carton"
         },
         "spec": {
           "zh": "1185x330x115mm",
@@ -15524,7 +15524,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -15538,7 +15538,7 @@
         "code": "ZHJ5050100",
         "name": {
           "zh": "纸护角",
-          "vi": "纸护角"
+          "vi": "giấy nẹp"
         },
         "spec": {
           "zh": "50x50x100mm",
@@ -15550,7 +15550,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -15602,7 +15602,7 @@
         },
         "color": {
           "zh": "黑白",
-          "vi": "黑白"
+          "vi": "đen trắng"
         },
         "attr": {
           "zh": "包材",
@@ -16003,7 +16003,7 @@
         "code": "BC350282187WH",
         "name": {
           "zh": "LGS布抽35x28.2x18.7",
-          "vi": "LGS布抽35x28.2x18.7"
+          "vi": "LGS Túi vải 35x28.2x18.7"
         },
         "spec": {
           "zh": "350x282x187mm",
@@ -16641,7 +16641,7 @@
         "code": "BCDB350327003BH",
         "name": {
           "zh": "LGS布抽底板35x32.7",
-          "vi": "LGS布抽底板34.5x32"
+          "vi": "LGS Đáy túi 34.5x32"
         },
         "spec": {
           "zh": "345x322x3mm",
@@ -16676,7 +16676,7 @@
         "code": "BCDB300327003BH",
         "name": {
           "zh": "LGS布抽底板30x32.7",
-          "vi": "LGS布抽底板29.5x32"
+          "vi": "LGS Đáy túi 29.5x32"
         },
         "spec": {
           "zh": "295x322x3mm",
@@ -16711,7 +16711,7 @@
         "code": "BC300327148KD",
         "name": {
           "zh": "LGS布抽30x32.7x14.8",
-          "vi": "LGS布抽30x32.7x14.8"
+          "vi": "LGS Túi vải 30x32.7x14.8"
         },
         "spec": {
           "zh": "300x327x148mm",
@@ -17141,7 +17141,7 @@
         "code": "LGS043ZFXKD",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "1040x380x145mm",
@@ -17153,7 +17153,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -17167,7 +17167,7 @@
         "code": "ZHJ5050135",
         "name": {
           "zh": "纸护角",
-          "vi": "纸护角"
+          "vi": "giấy nẹp"
         },
         "spec": {
           "zh": "50x50x135mm",
@@ -17179,7 +17179,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -17245,7 +17245,7 @@
         "code": "SCPPHJ505030",
         "name": {
           "zh": "双层PP护角",
-          "vi": "双层PP护角"
+          "vi": "góc nhựa PP đôi"
         },
         "spec": {
           "zh": "50x50x30mm",
@@ -17257,7 +17257,7 @@
         },
         "color": {
           "zh": "黑色",
-          "vi": "黑色"
+          "vi": "màu đen"
         },
         "attr": {
           "zh": "包材",
@@ -17283,7 +17283,7 @@
         },
         "color": {
           "zh": "黑白",
-          "vi": "黑白"
+          "vi": "đen trắng"
         },
         "attr": {
           "zh": "包材",
@@ -17375,7 +17375,7 @@
         "code": "BC350327187BH",
         "name": {
           "zh": "LGS布抽35x32.7x18.7",
-          "vi": "LGS布抽35x32.7x18.7"
+          "vi": "LGS Túi vải 35x32.7x18.7"
         },
         "spec": {
           "zh": "350x327x187mm",
@@ -17418,7 +17418,7 @@
         "code": "BC300327148BH",
         "name": {
           "zh": "LGS布抽30x32.7x14.8",
-          "vi": "LGS布抽30x32.7x14.8"
+          "vi": "LGS Túi vải 30x32.7x14.8"
         },
         "spec": {
           "zh": "300x327x148mm",
@@ -17788,7 +17788,7 @@
         "code": "BC350282150KD",
         "name": {
           "zh": "LGS布抽35x28.2x15",
-          "vi": "LGS布抽35x28.2x15"
+          "vi": "LGS Túi vải 35x28.2x15"
         },
         "spec": {
           "zh": "350x282x150mm",
@@ -17831,7 +17831,7 @@
         "code": "LGS101ZFXKD",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "665x330x73mm",
@@ -17843,7 +17843,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -17921,7 +17921,7 @@
         },
         "color": {
           "zh": "黑白",
-          "vi": "黑白"
+          "vi": "đen trắng"
         },
         "attr": {
           "zh": "包材",
@@ -18220,7 +18220,7 @@
         "code": "BC350282150WH",
         "name": {
           "zh": "LGS布抽35x28.2x15",
-          "vi": "LGS布抽35x28.2x15"
+          "vi": "LGS Túi vải 35x28.2x15"
         },
         "spec": {
           "zh": "350x282x150mm",
@@ -18263,7 +18263,7 @@
         "code": "BCDB350282003WH",
         "name": {
           "zh": "LGS布抽底板35x28.2",
-          "vi": "LGS布抽底板34.5x27.5"
+          "vi": "LGS Đáy túi 34.5x27.5"
         },
         "spec": {
           "zh": "345x277x3mm",
@@ -18411,7 +18411,7 @@
         "code": "BC350282150BH",
         "name": {
           "zh": "LGS布抽35x28.2x15",
-          "vi": "LGS布抽35x28.2x15"
+          "vi": "LGS Túi vải 35x28.2x15"
         },
         "spec": {
           "zh": "350x282x150mm",
@@ -18454,7 +18454,7 @@
         "code": "LGS111ZFXKD",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "825x330x83mm",
@@ -18466,7 +18466,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -18510,7 +18510,7 @@
         },
         "spec": {
           "zh": "单瓦785x100mm",
-          "vi": "单瓦785x100mm"
+          "vi": "sóng đơn 785x100mm"
         },
         "material": {
           "zh": "瓦楞纸单瓦",
@@ -18544,7 +18544,7 @@
         },
         "color": {
           "zh": "黑白",
-          "vi": "黑白"
+          "vi": "đen trắng"
         },
         "attr": {
           "zh": "包材",
@@ -19076,7 +19076,7 @@
         "code": "LGS131ZFXKD",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "875x380x140mm",
@@ -19088,7 +19088,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -19102,7 +19102,7 @@
         "code": "ZHJ5050125",
         "name": {
           "zh": "纸护角",
-          "vi": "纸护角"
+          "vi": "giấy nẹp"
         },
         "spec": {
           "zh": "50x50x125mm",
@@ -19114,7 +19114,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -19166,7 +19166,7 @@
         },
         "color": {
           "zh": "黑白",
-          "vi": "黑白"
+          "vi": "đen trắng"
         },
         "attr": {
           "zh": "包材",
@@ -19406,7 +19406,7 @@
         "code": "BCDB550327003WH",
         "name": {
           "zh": "LGS布抽底板55x32.7",
-          "vi": "LGS布抽底板54.5x32"
+          "vi": "LGS Đáy túi 54.5x32"
         },
         "spec": {
           "zh": "545x322x3mm",
@@ -19441,7 +19441,7 @@
         "code": "BC550327187WH",
         "name": {
           "zh": "LGS布抽55x32.7x18.7",
-          "vi": "LGS布抽55x32.7x18.7"
+          "vi": "LGS Túi vải 55x32.7x18.7"
         },
         "spec": {
           "zh": "550x327x187mm",
@@ -20645,7 +20645,7 @@
         "code": "LGS132ZFXBH",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "1020x380x130mm",
@@ -20657,7 +20657,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -20671,7 +20671,7 @@
         "code": "ZHJ5050120",
         "name": {
           "zh": "纸护角",
-          "vi": "纸护角"
+          "vi": "giấy nẹp"
         },
         "spec": {
           "zh": "50x50x120mm",
@@ -20683,7 +20683,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -20761,7 +20761,7 @@
         },
         "color": {
           "zh": "黑白",
-          "vi": "黑白"
+          "vi": "đen trắng"
         },
         "attr": {
           "zh": "包材",
@@ -21190,7 +21190,7 @@
         "code": "BC460327173KD",
         "name": {
           "zh": "LGS布抽46x32.7x17.3",
-          "vi": "LGS布抽46x32.7x17.3"
+          "vi": "LGS Túi vải 46x32.7x17.3"
         },
         "spec": {
           "zh": "460x327x173mm",
@@ -21234,7 +21234,7 @@
         "code": "BCDB460327003BH",
         "name": {
           "zh": "LGS布抽底板46x32.7",
-          "vi": "LGS布抽底板45.5x32"
+          "vi": "LGS Đáy túi 45.5x32"
         },
         "spec": {
           "zh": "455x322x3mm",
@@ -21269,7 +21269,7 @@
         "code": "LGS133ZFXKD",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "820x485x135mm",
@@ -21281,7 +21281,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -21359,7 +21359,7 @@
         },
         "color": {
           "zh": "黑白",
-          "vi": "黑白"
+          "vi": "đen trắng"
         },
         "attr": {
           "zh": "包材",
@@ -21891,7 +21891,7 @@
         "code": "LGS231ZFXKD",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "980x377x142mm",
@@ -21903,7 +21903,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -21921,7 +21921,7 @@
         },
         "spec": {
           "zh": "单瓦950x100mm",
-          "vi": "单瓦950x100mm"
+          "vi": "sóng đơn 950x100mm"
         },
         "material": {
           "zh": "瓦楞纸单瓦",
@@ -21981,7 +21981,7 @@
         },
         "color": {
           "zh": "黑白",
-          "vi": "黑白"
+          "vi": "đen trắng"
         },
         "attr": {
           "zh": "包材",
@@ -22038,7 +22038,7 @@
         "code": "BC550327187BH",
         "name": {
           "zh": "LGS布抽55x32.7x18.7",
-          "vi": "LGS布抽55x32.7x18.7"
+          "vi": "LGS Túi vải 55x32.7x18.7"
         },
         "spec": {
           "zh": "550x327x187mm",
@@ -22816,7 +22816,7 @@
         "code": "LGS232PKXKD",
         "name": {
           "zh": "平口箱",
-          "vi": "平口箱"
+          "vi": "thùng carton"
         },
         "spec": {
           "zh": "1180x400x140mm",
@@ -22828,7 +22828,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -22932,7 +22932,7 @@
         },
         "color": {
           "zh": "黑白",
-          "vi": "黑白"
+          "vi": "đen trắng"
         },
         "attr": {
           "zh": "包材",
@@ -23525,7 +23525,7 @@
         "code": "BC550327173KD",
         "name": {
           "zh": "LGS布抽55x32.7x17.3",
-          "vi": "LGS布抽55x32.7x17.3"
+          "vi": "LGS Túi vải 55x32.7x17.3"
         },
         "spec": {
           "zh": "550x327x173mm",
@@ -23569,7 +23569,7 @@
         "code": "BC550327187KD",
         "name": {
           "zh": "LGS布抽55x32.7x18.7",
-          "vi": "LGS布抽55x32.7x18.7"
+          "vi": "LGS Túi vải 55x32.7x18.7"
         },
         "spec": {
           "zh": "550x327x187mm",
@@ -23613,7 +23613,7 @@
         "code": "BCDB550327003BH",
         "name": {
           "zh": "LGS布抽底板55x32.7",
-          "vi": "LGS布抽底板54.5x32"
+          "vi": "LGS Đáy túi 54.5x32"
         },
         "spec": {
           "zh": "545x322x3mm",
@@ -23648,7 +23648,7 @@
         "code": "LGS233ZFXKD",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "955x565x110mm",
@@ -23660,7 +23660,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -23678,7 +23678,7 @@
         },
         "spec": {
           "zh": "单瓦925x100mm",
-          "vi": "单瓦925x100mm"
+          "vi": "sóng đơn 925x100mm"
         },
         "material": {
           "zh": "瓦楞纸单瓦",
@@ -23712,7 +23712,7 @@
         },
         "color": {
           "zh": "黑白",
-          "vi": "黑白"
+          "vi": "đen trắng"
         },
         "attr": {
           "zh": "包材",
@@ -24141,7 +24141,7 @@
         "code": "BC550327173WH",
         "name": {
           "zh": "LGS布抽55x32.7x17.3",
-          "vi": "LGS布抽55x32.7x17.3"
+          "vi": "LGS Túi vải 55x32.7x17.3"
         },
         "spec": {
           "zh": "550x327x173mm",
@@ -24228,7 +24228,7 @@
         "code": "BC550327173BH",
         "name": {
           "zh": "LGS布抽55x32.7x17.3",
-          "vi": "LGS布抽55x32.7x17.3"
+          "vi": "LGS Túi vải 55x32.7x17.3"
         },
         "spec": {
           "zh": "550x327x173mm",
@@ -24644,7 +24644,7 @@
         "code": "BC257282168KD",
         "name": {
           "zh": "LGS布抽25.7x28.2x16.8",
-          "vi": "LGS布抽25.7x28.2x16.8"
+          "vi": "LGS Túi vải 25.7x28.2x16.8"
         },
         "spec": {
           "zh": "257x282x168mm",
@@ -24687,7 +24687,7 @@
         "code": "BCDB257282003BH",
         "name": {
           "zh": "LGS布抽底板25.7x28.2",
-          "vi": "LGS布抽底板25.2x27.5"
+          "vi": "LGS Đáy túi 25.2x27.5"
         },
         "spec": {
           "zh": "252x277x3mm",
@@ -24722,7 +24722,7 @@
         "code": "LGS333PKXKD",
         "name": {
           "zh": "平口箱",
-          "vi": "平口箱"
+          "vi": "thùng carton"
         },
         "spec": {
           "zh": "1185x330x105mm",
@@ -24734,7 +24734,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -24786,7 +24786,7 @@
         },
         "color": {
           "zh": "黑白",
-          "vi": "黑白"
+          "vi": "đen trắng"
         },
         "attr": {
           "zh": "包材",
@@ -25172,7 +25172,7 @@
         "code": "BC257282168WH",
         "name": {
           "zh": "LGS布抽25.7x28.2x16.8",
-          "vi": "LGS布抽25.7x28.2x16.8"
+          "vi": "LGS Túi vải 25.7x28.2x16.8"
         },
         "spec": {
           "zh": "257x282x168mm",
@@ -25215,7 +25215,7 @@
         "code": "BCDB257282003WH",
         "name": {
           "zh": "LGS布抽底板25.7x28.2",
-          "vi": "LGS布抽底板25.2x27.5"
+          "vi": "LGS Đáy túi 25.2x27.5"
         },
         "spec": {
           "zh": "252x277x3mm",
@@ -25293,7 +25293,7 @@
         "code": "BC257282168BH",
         "name": {
           "zh": "LGS布抽25.7x28.2x16.8",
-          "vi": "LGS布抽25.7x28.2x16.8"
+          "vi": "LGS Túi vải 25.7x28.2x16.8"
         },
         "spec": {
           "zh": "257x282x168mm",
@@ -25880,7 +25880,7 @@
         "code": "BC340327168BH",
         "name": {
           "zh": "LGS布抽34x32.7x16.8",
-          "vi": "LGS布抽34x32.7x16.8"
+          "vi": "LGS Túi vải 34x32.7x16.8"
         },
         "spec": {
           "zh": "340x327x168mm",
@@ -25924,7 +25924,7 @@
         "code": "BC460327187BH",
         "name": {
           "zh": "LGS布抽46x32.7x18.7",
-          "vi": "LGS布抽46x32.7x18.7"
+          "vi": "LGS Túi vải 46x32.7x18.7"
         },
         "spec": {
           "zh": "460x327x187mm",
@@ -26003,7 +26003,7 @@
         "code": "LGS334ZFXBH",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "860x415x135mm",
@@ -26015,7 +26015,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -26029,7 +26029,7 @@
         "code": "ZHJ5050130",
         "name": {
           "zh": "纸护角",
-          "vi": "纸护角"
+          "vi": "giấy nẹp"
         },
         "spec": {
           "zh": "50x50x130mm",
@@ -26041,7 +26041,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -26059,7 +26059,7 @@
         },
         "spec": {
           "zh": "单瓦840x100mm",
-          "vi": "单瓦840x100mm"
+          "vi": "sóng đơn 840x100mm"
         },
         "material": {
           "zh": "瓦楞纸单瓦",
@@ -26093,7 +26093,7 @@
         },
         "color": {
           "zh": "黑白",
-          "vi": "黑白"
+          "vi": "đen trắng"
         },
         "attr": {
           "zh": "包材",
@@ -26348,7 +26348,7 @@
         "code": "BC350327187KD",
         "name": {
           "zh": "LGS布抽35x32.7x18.7",
-          "vi": "LGS布抽35x32.7x18.7"
+          "vi": "LGS Túi vải 35x32.7x18.7"
         },
         "spec": {
           "zh": "350x327x187mm",
@@ -26650,7 +26650,7 @@
         "code": "LGS420ZFXKD",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "890x380x125mm",
@@ -26662,7 +26662,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -26676,7 +26676,7 @@
         "code": "ZHJ5050110",
         "name": {
           "zh": "纸护角",
-          "vi": "纸护角"
+          "vi": "giấy nẹp"
         },
         "spec": {
           "zh": "50x50x110mm",
@@ -26688,7 +26688,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -26706,7 +26706,7 @@
         },
         "spec": {
           "zh": "单瓦860x100mm",
-          "vi": "单瓦860x100mm"
+          "vi": "sóng đơn 860x100mm"
         },
         "material": {
           "zh": "瓦楞纸单瓦",
@@ -26740,7 +26740,7 @@
         },
         "color": {
           "zh": "黑白",
-          "vi": "黑白"
+          "vi": "đen trắng"
         },
         "attr": {
           "zh": "包材",
@@ -26867,7 +26867,7 @@
         "code": "BCDB350327003WH",
         "name": {
           "zh": "LGS布抽底板35x32.7",
-          "vi": "LGS布抽底板34.5x32"
+          "vi": "LGS Đáy túi 34.5x32"
         },
         "spec": {
           "zh": "345x322x3mm",
@@ -26902,7 +26902,7 @@
         "code": "BC350327187WH",
         "name": {
           "zh": "LGS布抽35x32.7x18.7",
-          "vi": "LGS布抽35x32.7x18.7"
+          "vi": "LGS Túi vải 35x32.7x18.7"
         },
         "spec": {
           "zh": "350x327x187mm",
@@ -27542,7 +27542,7 @@
         "code": "BC460327187KD",
         "name": {
           "zh": "LGS布抽46x32.7x18.7",
-          "vi": "LGS布抽46x32.7x18.7"
+          "vi": "LGS Túi vải 46x32.7x18.7"
         },
         "spec": {
           "zh": "460x327x187mm",
@@ -27793,7 +27793,7 @@
         "code": "LGS421ZFXKD",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "1030x380x130mm",
@@ -27805,7 +27805,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -27819,7 +27819,7 @@
         "code": "ZHJ5050115",
         "name": {
           "zh": "纸护角",
-          "vi": "纸护角"
+          "vi": "giấy nẹp"
         },
         "spec": {
           "zh": "50x50x115mm",
@@ -27831,7 +27831,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -27849,7 +27849,7 @@
         },
         "spec": {
           "zh": "单瓦1000x100mm",
-          "vi": "单瓦1000x100mm"
+          "vi": "sóng đơn 1000x100mm"
         },
         "material": {
           "zh": "瓦楞纸单瓦",
@@ -27883,7 +27883,7 @@
         },
         "color": {
           "zh": "黑白",
-          "vi": "黑白"
+          "vi": "đen trắng"
         },
         "attr": {
           "zh": "包材",
@@ -28517,7 +28517,7 @@
         "code": "LGS433PKXKD",
         "name": {
           "zh": "平口箱",
-          "vi": "平口箱"
+          "vi": "thùng carton"
         },
         "spec": {
           "zh": "1185x330x105mm",
@@ -28529,7 +28529,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -28573,7 +28573,7 @@
         },
         "spec": {
           "zh": "单瓦1100x100mm",
-          "vi": "单瓦1100x100mm"
+          "vi": "sóng đơn 1100x100mm"
         },
         "material": {
           "zh": "瓦楞纸单瓦",
@@ -28607,7 +28607,7 @@
         },
         "color": {
           "zh": "黑白",
-          "vi": "黑白"
+          "vi": "đen trắng"
         },
         "attr": {
           "zh": "包材",
@@ -29981,7 +29981,7 @@
         "code": "BC340327168WH",
         "name": {
           "zh": "LGS布抽34x32.7x16.8",
-          "vi": "LGS布抽34x32.7x16.8"
+          "vi": "LGS Túi vải 34x32.7x16.8"
         },
         "spec": {
           "zh": "340x327x168mm",
@@ -30025,7 +30025,7 @@
         "code": "BC460327187WH",
         "name": {
           "zh": "LGS布抽46x32.7x18.7",
-          "vi": "LGS布抽46x32.7x18.7"
+          "vi": "LGS Túi vải 46x32.7x18.7"
         },
         "spec": {
           "zh": "460x327x187mm",
@@ -30069,7 +30069,7 @@
         "code": "BCDB340327003WH",
         "name": {
           "zh": "LGS布抽底板34x32.7",
-          "vi": "LGS布抽底板33.5x32"
+          "vi": "LGS Đáy túi 33.5x32"
         },
         "spec": {
           "zh": "335x322x3mm",
@@ -30104,7 +30104,7 @@
         "code": "BCDB460327003WH",
         "name": {
           "zh": "LGS布抽底板46x32.7",
-          "vi": "LGS布抽底板45.5x32"
+          "vi": "LGS Đáy túi 45.5x32"
         },
         "spec": {
           "zh": "455x322x3mm",
@@ -30139,7 +30139,7 @@
         "code": "LGS434ZFXWH",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "860x410x145",
@@ -30151,7 +30151,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -30255,7 +30255,7 @@
         },
         "color": {
           "zh": "黑白",
-          "vi": "黑白"
+          "vi": "đen trắng"
         },
         "attr": {
           "zh": "包材",
@@ -31341,7 +31341,7 @@
         "code": "BC300282168KD",
         "name": {
           "zh": "LGS布抽30x28.2x16.8",
-          "vi": "LGS布抽30x28.2x16.8"
+          "vi": "LGS Túi vải 30x28.2x16.8"
         },
         "spec": {
           "zh": "300x282x168mm",
@@ -31384,7 +31384,7 @@
         "code": "BC460282187KD",
         "name": {
           "zh": "LGS布抽46x28.2x18.7",
-          "vi": "LGS布抽46x28.2x18.7"
+          "vi": "LGS Túi vải 46x28.2x18.7"
         },
         "spec": {
           "zh": "460x282x187mm",
@@ -31427,7 +31427,7 @@
         "code": "BCDB300282003BH",
         "name": {
           "zh": "LGS布抽底板30x28.2",
-          "vi": "LGS布抽底板29.5x27.5"
+          "vi": "LGS Đáy túi 29.5x27.5"
         },
         "spec": {
           "zh": "295x277x3mm",
@@ -31462,7 +31462,7 @@
         "code": "BCDB460282003BH",
         "name": {
           "zh": "LGS布抽底板46x28.2",
-          "vi": "LGS布抽底板45.5x27.5"
+          "vi": "LGS Đáy túi 45.5x27.5"
         },
         "spec": {
           "zh": "455x277x3mm",
@@ -31497,7 +31497,7 @@
         "code": "LGS723ZFXKD",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "1090x335x95mm",
@@ -31509,7 +31509,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -31587,7 +31587,7 @@
         },
         "color": {
           "zh": "黑白",
-          "vi": "黑白"
+          "vi": "đen trắng"
         },
         "attr": {
           "zh": "包材",
@@ -32086,7 +32086,7 @@
         "code": "BC300282168WH",
         "name": {
           "zh": "LGS布抽30x28.2x16.8",
-          "vi": "LGS布抽30x28.2x16.8"
+          "vi": "LGS Túi vải 30x28.2x16.8"
         },
         "spec": {
           "zh": "300x282x168mm",
@@ -32129,7 +32129,7 @@
         "code": "BC460282187WH",
         "name": {
           "zh": "LGS布抽46x28.2x18.7",
-          "vi": "LGS布抽46x28.2x18.7"
+          "vi": "LGS Túi vải 46x28.2x18.7"
         },
         "spec": {
           "zh": "460x282x187mm",
@@ -32172,7 +32172,7 @@
         "code": "BCDB300282003WH",
         "name": {
           "zh": "LGS布抽底板30x28.2",
-          "vi": "LGS布抽底板29.5x27.5"
+          "vi": "LGS Đáy túi 29.5x27.5"
         },
         "spec": {
           "zh": "295x277x3mm",
@@ -32207,7 +32207,7 @@
         "code": "BCDB460282003WH",
         "name": {
           "zh": "LGS布抽底板46x28.2",
-          "vi": "LGS布抽底板45.5x27.5"
+          "vi": "LGS Đáy túi 45.5x27.5"
         },
         "spec": {
           "zh": "455x277x3mm",
@@ -32328,7 +32328,7 @@
         "code": "BC300282168BH",
         "name": {
           "zh": "LGS布抽30x28.2x16.8",
-          "vi": "LGS布抽30x28.2x16.8"
+          "vi": "LGS Túi vải 30x28.2x16.8"
         },
         "spec": {
           "zh": "300x282x168mm",
@@ -32371,7 +32371,7 @@
         "code": "BC460282187BH",
         "name": {
           "zh": "LGS布抽46x28.2x18.7",
-          "vi": "LGS布抽46x28.2x18.7"
+          "vi": "LGS Túi vải 46x28.2x18.7"
         },
         "spec": {
           "zh": "460x282x187mm",
@@ -32612,7 +32612,7 @@
         "code": "LGS733PKXKD",
         "name": {
           "zh": "平口箱",
-          "vi": "平口箱"
+          "vi": "thùng carton"
         },
         "spec": {
           "zh": "1185x335x110mm",
@@ -32624,7 +32624,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -32676,7 +32676,7 @@
         },
         "color": {
           "zh": "黑白",
-          "vi": "黑白"
+          "vi": "đen trắng"
         },
         "attr": {
           "zh": "包材",
@@ -33258,7 +33258,7 @@
         "code": "LGS833PKXKD",
         "name": {
           "zh": "平口箱",
-          "vi": "平口箱"
+          "vi": "thùng carton"
         },
         "spec": {
           "zh": "1185x330x105mm",
@@ -33270,7 +33270,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -33322,7 +33322,7 @@
         },
         "color": {
           "zh": "黑白",
-          "vi": "黑白"
+          "vi": "đen trắng"
         },
         "attr": {
           "zh": "包材",
@@ -34148,7 +34148,7 @@
         "code": "LGS834ZFXWH",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "990x380x160mm",
@@ -34160,7 +34160,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -34174,7 +34174,7 @@
         "code": "ZHJ5050150",
         "name": {
           "zh": "纸护角",
-          "vi": "纸护角"
+          "vi": "giấy nẹp"
         },
         "spec": {
           "zh": "50x50x150mm",
@@ -34186,7 +34186,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -34238,7 +34238,7 @@
         },
         "color": {
           "zh": "黑白",
-          "vi": "黑白"
+          "vi": "đen trắng"
         },
         "attr": {
           "zh": "包材",
@@ -34693,7 +34693,7 @@
         "code": "LGS101WJBBH",
         "name": {
           "zh": "LGS101五金包",
-          "vi": "LGS101 tui ngu kim"
+          "vi": "LGS101 túi ngũ kim"
         },
         "spec": {
           "zh": "详见明细",
@@ -34701,15 +34701,15 @@
         },
         "material": {
           "zh": "无",
-          "vi": "khong"
+          "vi": "không"
         },
         "color": {
           "zh": "黑色",
-          "vi": "mau den"
+          "vi": "màu đen"
         },
         "attr": {
           "zh": "零件",
-          "vi": "linh kien"
+          "vi": "linh kiện"
         },
         "drawings": [],
         "models3d": []
@@ -34719,7 +34719,7 @@
         "code": "LGS111WJBBH",
         "name": {
           "zh": "LGS111五金包",
-          "vi": "LGS111 tui ngu kim"
+          "vi": "LGS111 túi ngũ kim"
         },
         "spec": {
           "zh": "",
@@ -34727,15 +34727,15 @@
         },
         "material": {
           "zh": "无",
-          "vi": "khong"
+          "vi": "không"
         },
         "color": {
           "zh": "黑色",
-          "vi": "mau den"
+          "vi": "màu đen"
         },
         "attr": {
           "zh": "零件",
-          "vi": "linh kien"
+          "vi": "linh kiện"
         },
         "drawings": [],
         "models3d": []
@@ -34745,7 +34745,7 @@
         "code": "LGS033WJBWH",
         "name": {
           "zh": "LGS033五金包",
-          "vi": "LGS033 tui ngu kim"
+          "vi": "LGS033 túi ngũ kim"
         },
         "spec": {
           "zh": "详见明细",
@@ -34753,7 +34753,7 @@
         },
         "material": {
           "zh": "无",
-          "vi": "khong"
+          "vi": "không"
         },
         "color": {
           "zh": "白色",
@@ -34761,7 +34761,7 @@
         },
         "attr": {
           "zh": "零件",
-          "vi": "linh kien"
+          "vi": "linh kiện"
         },
         "drawings": [],
         "models3d": []
@@ -34771,7 +34771,7 @@
         "code": "LGS101WJBWH",
         "name": {
           "zh": "LGS101五金包",
-          "vi": "LGS101 tui ngu kim"
+          "vi": "LGS101 túi ngũ kim"
         },
         "spec": {
           "zh": "详见明细",
@@ -34779,7 +34779,7 @@
         },
         "material": {
           "zh": "无",
-          "vi": "khong"
+          "vi": "không"
         },
         "color": {
           "zh": "白色",
@@ -34787,7 +34787,7 @@
         },
         "attr": {
           "zh": "零件",
-          "vi": "linh kien"
+          "vi": "linh kiện"
         },
         "drawings": [],
         "models3d": []
@@ -34797,7 +34797,7 @@
         "code": "LGS111WJBWH",
         "name": {
           "zh": "LGS111五金包",
-          "vi": "LGS111 tui ngu kim"
+          "vi": "LGS111 túi ngũ kim"
         },
         "spec": {
           "zh": "详见明细",
@@ -34805,7 +34805,7 @@
         },
         "material": {
           "zh": "无",
-          "vi": "khong"
+          "vi": "không"
         },
         "color": {
           "zh": "白色",
@@ -34813,7 +34813,7 @@
         },
         "attr": {
           "zh": "零件",
-          "vi": "linh kien"
+          "vi": "linh kiện"
         },
         "drawings": [],
         "models3d": []
@@ -34823,7 +34823,7 @@
         "code": "LGS131WJBWH",
         "name": {
           "zh": "LGS131五金包",
-          "vi": "LGS131 tui ngu kim"
+          "vi": "LGS131 túi ngũ kim"
         },
         "spec": {
           "zh": "详见明细",
@@ -34831,7 +34831,7 @@
         },
         "material": {
           "zh": "无",
-          "vi": "khong"
+          "vi": "không"
         },
         "color": {
           "zh": "白色",
@@ -34839,7 +34839,7 @@
         },
         "attr": {
           "zh": "零件",
-          "vi": "linh kien"
+          "vi": "linh kiện"
         },
         "drawings": [],
         "models3d": []
@@ -34849,7 +34849,7 @@
         "code": "LGS420WJBWH",
         "name": {
           "zh": "LGS420五金包",
-          "vi": "LGS420 tui ngu kim"
+          "vi": "LGS420 túi ngũ kim"
         },
         "spec": {
           "zh": "详见明细",
@@ -34857,7 +34857,7 @@
         },
         "material": {
           "zh": "无",
-          "vi": "khong"
+          "vi": "không"
         },
         "color": {
           "zh": "白色",
@@ -34865,7 +34865,7 @@
         },
         "attr": {
           "zh": "零件",
-          "vi": "linh kien"
+          "vi": "linh kiện"
         },
         "drawings": [],
         "models3d": []
@@ -35019,7 +35019,7 @@
         "code": "ZHJ5050105",
         "name": {
           "zh": "纸护角",
-          "vi": "纸护角"
+          "vi": "giấy nẹp"
         },
         "spec": {
           "zh": "50x50x105mm",
@@ -35031,7 +35031,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -35097,7 +35097,7 @@
         "code": "LGS834ZFXBH",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "990x380x160mm",
@@ -35109,7 +35109,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -35123,7 +35123,7 @@
         "code": "LGS031PKXBH",
         "name": {
           "zh": "平口箱",
-          "vi": "平口箱"
+          "vi": "thùng carton"
         },
         "spec": {
           "zh": "1185x335x95mm",
@@ -35135,7 +35135,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -35149,7 +35149,7 @@
         "code": "LGS032PKXBH",
         "name": {
           "zh": "平口箱",
-          "vi": "平口箱"
+          "vi": "thùng carton"
         },
         "spec": {
           "zh": "1185x335x105mm",
@@ -35161,7 +35161,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -35175,7 +35175,7 @@
         "code": "LGS033PKXWH",
         "name": {
           "zh": "平口箱",
-          "vi": "平口箱"
+          "vi": "thùng carton"
         },
         "spec": {
           "zh": "1185x330x115mm",
@@ -35187,7 +35187,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -35201,7 +35201,7 @@
         "code": "LGS232PKXBH",
         "name": {
           "zh": "平口箱",
-          "vi": "平口箱"
+          "vi": "thùng carton"
         },
         "spec": {
           "zh": "1180x400x140mm",
@@ -35213,7 +35213,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -35227,7 +35227,7 @@
         "code": "LGS333PKXWH",
         "name": {
           "zh": "平口箱",
-          "vi": "平口箱"
+          "vi": "thùng carton"
         },
         "spec": {
           "zh": "1185x330x105mm",
@@ -35239,7 +35239,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -35253,7 +35253,7 @@
         "code": "LGS333PKXBH",
         "name": {
           "zh": "平口箱",
-          "vi": "平口箱"
+          "vi": "thùng carton"
         },
         "spec": {
           "zh": "1185x330x105mm",
@@ -35265,7 +35265,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -35279,7 +35279,7 @@
         "code": "LGS433PKXWH",
         "name": {
           "zh": "平口箱",
-          "vi": "平口箱"
+          "vi": "thùng carton"
         },
         "spec": {
           "zh": "1185x330x105mm",
@@ -35291,7 +35291,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -35305,7 +35305,7 @@
         "code": "LGS433PKXBH",
         "name": {
           "zh": "平口箱",
-          "vi": "平口箱"
+          "vi": "thùng carton"
         },
         "spec": {
           "zh": "1185x330x105mm",
@@ -35317,7 +35317,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -35331,7 +35331,7 @@
         "code": "LGS733PKXWH",
         "name": {
           "zh": "平口箱",
-          "vi": "平口箱"
+          "vi": "thùng carton"
         },
         "spec": {
           "zh": "1185x335x110mm",
@@ -35343,7 +35343,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -35357,7 +35357,7 @@
         "code": "LGS733PKXBH",
         "name": {
           "zh": "平口箱",
-          "vi": "平口箱"
+          "vi": "thùng carton"
         },
         "spec": {
           "zh": "1185x335x110mm",
@@ -35369,7 +35369,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -35383,7 +35383,7 @@
         "code": "LGS833PKXWH",
         "name": {
           "zh": "平口箱",
-          "vi": "平口箱"
+          "vi": "thùng carton"
         },
         "spec": {
           "zh": "1185x330x105mm",
@@ -35395,7 +35395,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -35409,7 +35409,7 @@
         "code": "LGS833PKXBH",
         "name": {
           "zh": "平口箱",
-          "vi": "平口箱"
+          "vi": "thùng carton"
         },
         "spec": {
           "zh": "1185x330x105mm",
@@ -35421,7 +35421,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -35435,7 +35435,7 @@
         "code": "LGS043ZFXBH",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "1040x380x145mm",
@@ -35447,7 +35447,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -35461,7 +35461,7 @@
         "code": "LGS101ZFXWH",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "665x330x73mm",
@@ -35473,7 +35473,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -35487,7 +35487,7 @@
         "code": "LGS101ZFXBH",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "665x330x73mm",
@@ -35499,7 +35499,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -35513,7 +35513,7 @@
         "code": "LGS111ZFXWH",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "825x330x83mm",
@@ -35525,7 +35525,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -35539,7 +35539,7 @@
         "code": "LGS111ZFXBH",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "825x330x83mm",
@@ -35551,7 +35551,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -35565,7 +35565,7 @@
         "code": "LGS131ZFXWH",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "875x380x140mm",
@@ -35577,7 +35577,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -35591,7 +35591,7 @@
         "code": "LGS131ZFXBH",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "875x380x140mm",
@@ -35603,7 +35603,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -35617,7 +35617,7 @@
         "code": "LGS231ZFXBH",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "980x377x142mm",
@@ -35629,7 +35629,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -35643,7 +35643,7 @@
         "code": "LGS233ZFXWH",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "955x565x110mm",
@@ -35655,7 +35655,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -35669,7 +35669,7 @@
         "code": "LGS233ZFXBH",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "955x565x110mm",
@@ -35681,7 +35681,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -35695,7 +35695,7 @@
         "code": "LGS420ZFXWH",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "890x380x125mm",
@@ -35707,7 +35707,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -35721,7 +35721,7 @@
         "code": "LGS420ZFXBH",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "890x380x125mm",
@@ -35733,7 +35733,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -35747,7 +35747,7 @@
         "code": "LGS421ZFXBH",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "1030x380x130mm",
@@ -35759,7 +35759,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -35773,7 +35773,7 @@
         "code": "LGS434ZFXBH",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "860x410x145",
@@ -35785,7 +35785,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -35799,7 +35799,7 @@
         "code": "LGS723ZFXWH",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "1090x335x95mm",
@@ -35811,7 +35811,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -35825,7 +35825,7 @@
         "code": "LGS723ZFXBH",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "1090x335x95mm",
@@ -35837,7 +35837,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -35888,7 +35888,7 @@
         "code": "ZHJ505080",
         "name": {
           "zh": "纸护角",
-          "vi": "纸护角"
+          "vi": "giấy nẹp"
         },
         "spec": {
           "zh": "50x50x80mm",
@@ -35900,7 +35900,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -35914,11 +35914,11 @@
         "code": "ZK1100100",
         "name": {
           "zh": "纸卡",
-          "vi": "纸卡"
+          "vi": "giấy lót"
         },
         "spec": {
           "zh": "单瓦1100x100mm",
-          "vi": "单瓦1100x100mm"
+          "vi": "sóng đơn 1100x100mm"
         },
         "material": {
           "zh": "瓦楞纸",
@@ -35926,7 +35926,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -35952,7 +35952,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -35978,7 +35978,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -35992,11 +35992,11 @@
         "code": "ZK860100",
         "name": {
           "zh": "纸卡",
-          "vi": "纸卡"
+          "vi": "giấy lót"
         },
         "spec": {
           "zh": "单瓦860x100mm",
-          "vi": "单瓦860x100mm"
+          "vi": "sóng đơn 860x100mm"
         },
         "material": {
           "zh": "瓦楞纸",
@@ -36004,7 +36004,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -36030,7 +36030,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -36056,7 +36056,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -36082,7 +36082,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -36108,7 +36108,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -36134,7 +36134,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -36148,11 +36148,11 @@
         "code": "ZK950100",
         "name": {
           "zh": "纸卡",
-          "vi": "纸卡"
+          "vi": "giấy lót"
         },
         "spec": {
           "zh": "单瓦950x100mm",
-          "vi": "单瓦950x100mm"
+          "vi": "sóng đơn 950x100mm"
         },
         "material": {
           "zh": "瓦楞纸",
@@ -36160,7 +36160,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -36174,11 +36174,11 @@
         "code": "ZK880330",
         "name": {
           "zh": "纸卡",
-          "vi": "纸卡"
+          "vi": "giấy lót"
         },
         "spec": {
           "zh": "单瓦880x330",
-          "vi": "单瓦880x330"
+          "vi": "sóng đơn 880x330"
         },
         "material": {
           "zh": "瓦楞纸",
@@ -36186,7 +36186,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -36212,7 +36212,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -36238,7 +36238,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -36264,7 +36264,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -36290,7 +36290,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -36316,7 +36316,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -36342,7 +36342,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -36368,7 +36368,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -36394,7 +36394,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -36408,11 +36408,11 @@
         "code": "ZK1000100",
         "name": {
           "zh": "纸卡",
-          "vi": "纸卡"
+          "vi": "giấy lót"
         },
         "spec": {
           "zh": "单瓦1000x100mm",
-          "vi": "单瓦1000x100mm"
+          "vi": "sóng đơn 1000x100mm"
         },
         "material": {
           "zh": "瓦楞纸",
@@ -36420,7 +36420,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -36446,7 +36446,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -36472,7 +36472,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -36498,7 +36498,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -36512,7 +36512,7 @@
         "code": "ZHJ505090",
         "name": {
           "zh": "纸护角",
-          "vi": "纸护角"
+          "vi": "giấy nẹp"
         },
         "spec": {
           "zh": "50x50x90mm",
@@ -36524,7 +36524,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -36550,7 +36550,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -36576,7 +36576,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -36590,11 +36590,11 @@
         "code": "ZK990100",
         "name": {
           "zh": "纸卡",
-          "vi": "纸卡"
+          "vi": "giấy lót"
         },
         "spec": {
           "zh": "单瓦990x100mm",
-          "vi": "单瓦990x100mm"
+          "vi": "sóng đơn 990x100mm"
         },
         "material": {
           "zh": "瓦楞纸",
@@ -36602,7 +36602,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -36628,7 +36628,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -36654,7 +36654,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -36668,11 +36668,11 @@
         "code": "ZK960100",
         "name": {
           "zh": "纸卡",
-          "vi": "纸卡"
+          "vi": "giấy lót"
         },
         "spec": {
           "zh": "单瓦960x100mm",
-          "vi": "单瓦960x100mm"
+          "vi": "sóng đơn 960x100mm"
         },
         "material": {
           "zh": "瓦楞纸",
@@ -36680,7 +36680,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -36706,7 +36706,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -36732,7 +36732,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -36758,7 +36758,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -36772,11 +36772,11 @@
         "code": "ZK1010100",
         "name": {
           "zh": "纸卡",
-          "vi": "纸卡"
+          "vi": "giấy lót"
         },
         "spec": {
           "zh": "单瓦1010x100mm",
-          "vi": "单瓦1010x100mm"
+          "vi": "sóng đơn 1010x100mm"
         },
         "material": {
           "zh": "瓦楞纸",
@@ -36784,7 +36784,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -36810,7 +36810,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -36836,7 +36836,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -36862,7 +36862,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -36888,7 +36888,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -36902,11 +36902,11 @@
         "code": "ZK1100300",
         "name": {
           "zh": "纸卡",
-          "vi": "纸卡"
+          "vi": "giấy lót"
         },
         "spec": {
           "zh": "单瓦1100x300mm",
-          "vi": "单瓦1100x300mm"
+          "vi": "sóng đơn 1100x300mm"
         },
         "material": {
           "zh": "瓦楞纸",
@@ -36914,7 +36914,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -36928,7 +36928,7 @@
         "code": "ZHJ8080125",
         "name": {
           "zh": "纸护角",
-          "vi": "纸护角"
+          "vi": "giấy nẹp"
         },
         "spec": {
           "zh": "80x80x125mm",
@@ -36940,7 +36940,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -36966,7 +36966,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -36992,7 +36992,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -37006,11 +37006,11 @@
         "code": "ZK785100",
         "name": {
           "zh": "LGS133 纸卡",
-          "vi": "LGS133 纸卡"
+          "vi": "LGS133 giấy lót"
         },
         "spec": {
           "zh": "单瓦785x100mm",
-          "vi": "单瓦785x100mm"
+          "vi": "sóng đơn 785x100mm"
         },
         "material": {
           "zh": "瓦楞纸",
@@ -37018,7 +37018,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -37044,7 +37044,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -37058,11 +37058,11 @@
         "code": "ZK925100",
         "name": {
           "zh": "纸卡",
-          "vi": "纸卡"
+          "vi": "giấy lót"
         },
         "spec": {
           "zh": "单瓦925x100mm",
-          "vi": "单瓦925x100mm"
+          "vi": "sóng đơn 925x100mm"
         },
         "material": {
           "zh": "瓦楞纸",
@@ -37070,7 +37070,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -37096,7 +37096,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -37122,7 +37122,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -37148,7 +37148,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -37162,11 +37162,11 @@
         "code": "ZK840100",
         "name": {
           "zh": "纸卡",
-          "vi": "纸卡"
+          "vi": "giấy lót"
         },
         "spec": {
           "zh": "单瓦840x100mm",
-          "vi": "单瓦840x100mm"
+          "vi": "sóng đơn 840x100mm"
         },
         "material": {
           "zh": "瓦楞纸",
@@ -37174,7 +37174,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -37188,11 +37188,11 @@
         "code": "ZK750380",
         "name": {
           "zh": "纸卡",
-          "vi": "纸卡"
+          "vi": "giấy lót"
         },
         "spec": {
           "zh": "单瓦750x380mm",
-          "vi": "单瓦750x380mm"
+          "vi": "sóng đơn 750x380mm"
         },
         "material": {
           "zh": "瓦楞纸",
@@ -37200,7 +37200,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -37214,7 +37214,7 @@
         "code": "ZHJ505095",
         "name": {
           "zh": "纸护角",
-          "vi": "纸护角"
+          "vi": "giấy nẹp"
         },
         "spec": {
           "zh": "50x50x95mm",
@@ -37226,7 +37226,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -37252,7 +37252,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -37278,7 +37278,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -37304,7 +37304,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -37330,7 +37330,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -37356,7 +37356,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -37382,7 +37382,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -37396,11 +37396,11 @@
         "code": "PPZYHJ4316",
         "name": {
           "zh": "PP专用护角",
-          "vi": "PP专用护角"
+          "vi": "PP Góc nhựa chuyên dùng"
         },
         "spec": {
           "zh": "单层43x16mm",
-          "vi": "单层43x16mm"
+          "vi": "Tầng đơn 43x16mm"
         },
         "material": {
           "zh": "PP",
@@ -37408,7 +37408,7 @@
         },
         "color": {
           "zh": "黑色",
-          "vi": "黑色"
+          "vi": "màu đen"
         },
         "attr": {
           "zh": "包材",
@@ -37434,7 +37434,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -37460,7 +37460,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -37474,11 +37474,11 @@
         "code": "ZK1030100",
         "name": {
           "zh": "纸卡",
-          "vi": "纸卡"
+          "vi": "giấy lót"
         },
         "spec": {
           "zh": "单瓦1030x100mm",
-          "vi": "单瓦1030x100mm"
+          "vi": "sóng đơn 1030x100mm"
         },
         "material": {
           "zh": "瓦楞纸",
@@ -37486,7 +37486,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -37512,7 +37512,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -37538,7 +37538,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -37564,7 +37564,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -37590,7 +37590,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -37616,7 +37616,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -37642,7 +37642,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -37668,7 +37668,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -37694,7 +37694,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -37708,11 +37708,11 @@
         "code": "ZK850100",
         "name": {
           "zh": "纸卡",
-          "vi": "纸卡"
+          "vi": "giấy lót"
         },
         "spec": {
           "zh": "单瓦850x100mm",
-          "vi": "单瓦850x100mm"
+          "vi": "sóng đơn 850x100mm"
         },
         "material": {
           "zh": "瓦楞纸",
@@ -37720,7 +37720,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -37734,11 +37734,11 @@
         "code": "ZK78560",
         "name": {
           "zh": "纸卡",
-          "vi": "纸卡"
+          "vi": "giấy lót"
         },
         "spec": {
           "zh": "单瓦785x60mm",
-          "vi": "单瓦785x60mm"
+          "vi": "sóng đơn 785x60mm"
         },
         "material": {
           "zh": "瓦楞纸",
@@ -37746,7 +37746,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -37760,7 +37760,7 @@
         "code": "ZHJ505065",
         "name": {
           "zh": "纸护角",
-          "vi": "纸护角"
+          "vi": "giấy nẹp"
         },
         "spec": {
           "zh": "50x50x65mm",
@@ -37772,7 +37772,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -37798,7 +37798,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -37812,7 +37812,7 @@
         "code": "XHBC003",
         "name": {
           "zh": "序号标 C003",
-          "vi": "序号标 C003"
+          "vi": "nhãn STT C003"
         },
         "spec": {
           "zh": "∅10mm",
@@ -37824,7 +37824,7 @@
         },
         "color": {
           "zh": "按样",
-          "vi": "按样"
+          "vi": "theo mẫu"
         },
         "attr": {
           "zh": "包材",
@@ -37838,7 +37838,7 @@
         "code": "XHBC004",
         "name": {
           "zh": "序号标 C004",
-          "vi": "序号标 C004"
+          "vi": "nhãn STT C004"
         },
         "spec": {
           "zh": "∅10mm",
@@ -37850,7 +37850,7 @@
         },
         "color": {
           "zh": "按样",
-          "vi": "按样"
+          "vi": "theo mẫu"
         },
         "attr": {
           "zh": "包材",
@@ -37864,7 +37864,7 @@
         "code": "XHBE001",
         "name": {
           "zh": "序号标 E001",
-          "vi": "序号标 E001"
+          "vi": "nhãn STT E001"
         },
         "spec": {
           "zh": "∅10mm",
@@ -37876,7 +37876,7 @@
         },
         "color": {
           "zh": "按样",
-          "vi": "按样"
+          "vi": "theo mẫu"
         },
         "attr": {
           "zh": "包材",
@@ -37890,7 +37890,7 @@
         "code": "XHBX04",
         "name": {
           "zh": "序号标 X04",
-          "vi": "序号标 X04"
+          "vi": "nhãn STT X04"
         },
         "spec": {
           "zh": "∅10mm",
@@ -37902,7 +37902,7 @@
         },
         "color": {
           "zh": "按样",
-          "vi": "按样"
+          "vi": "theo mẫu"
         },
         "attr": {
           "zh": "包材",
@@ -37916,11 +37916,11 @@
         "code": "ZK62560",
         "name": {
           "zh": "纸卡",
-          "vi": "纸卡"
+          "vi": "giấy lót"
         },
         "spec": {
           "zh": "单瓦625x60mm",
-          "vi": "单瓦625x60mm"
+          "vi": "sóng đơn 625x60mm"
         },
         "material": {
           "zh": "瓦楞纸",
@@ -37928,7 +37928,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -37942,7 +37942,7 @@
         "code": "ZHJ505055",
         "name": {
           "zh": "纸护角",
-          "vi": "纸护角"
+          "vi": "giấy nẹp"
         },
         "spec": {
           "zh": "50x50x55mm",
@@ -37954,7 +37954,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -37980,7 +37980,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -38006,7 +38006,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -38032,7 +38032,7 @@
         },
         "color": {
           "zh": "白色",
-          "vi": "白色"
+          "vi": "màu trắng"
         },
         "attr": {
           "zh": "包材",
@@ -38046,7 +38046,7 @@
         "code": "LGS132ZFXKD",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "1020x380x130mm",
@@ -38058,7 +38058,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -38072,7 +38072,7 @@
         "code": "LGS031PKXWH",
         "name": {
           "zh": "平口箱",
-          "vi": "平口箱"
+          "vi": "thùng carton"
         },
         "spec": {
           "zh": "1185x335x95mm",
@@ -38084,7 +38084,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -38098,7 +38098,7 @@
         "code": "LGS231ZFXWH",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "980x377x142mm",
@@ -38110,7 +38110,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -38124,7 +38124,7 @@
         "code": "LGS421ZFXWH",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "1030x380x130mm",
@@ -38136,7 +38136,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -38150,7 +38150,7 @@
         "code": "LGS032PKXWH",
         "name": {
           "zh": "平口箱",
-          "vi": "平口箱"
+          "vi": "thùng carton"
         },
         "spec": {
           "zh": "1185x335x105mm",
@@ -38162,7 +38162,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -38176,7 +38176,7 @@
         "code": "LGS132ZFXWH",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "1020x380x130mm",
@@ -38188,7 +38188,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -38202,7 +38202,7 @@
         "code": "LGS232PKXWH",
         "name": {
           "zh": "平口箱",
-          "vi": "平口箱"
+          "vi": "thùng carton"
         },
         "spec": {
           "zh": "1180x400x140mm",
@@ -38214,7 +38214,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -38228,7 +38228,7 @@
         "code": "LGS043ZFXWH",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "1040x380x145mm",
@@ -38240,7 +38240,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -38254,7 +38254,7 @@
         "code": "LGS334ZFXKD",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "860x415x135mm",
@@ -38266,7 +38266,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -38280,7 +38280,7 @@
         "code": "LGS434ZFXKD",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "860x410x145",
@@ -38292,7 +38292,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -38306,7 +38306,7 @@
         "code": "LGS834ZFXKD",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "990x380x160mm",
@@ -38318,7 +38318,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -38332,7 +38332,7 @@
         "code": "LGS133ZFXWH",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "820x485x135mm",
@@ -38344,7 +38344,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -38358,7 +38358,7 @@
         "code": "LGS334ZFXWH",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "860x415x135mm",
@@ -38370,7 +38370,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -38384,7 +38384,7 @@
         "code": "LGS033PKXBH",
         "name": {
           "zh": "平口箱",
-          "vi": "平口箱"
+          "vi": "thùng carton"
         },
         "spec": {
           "zh": "1185x330x115mm",
@@ -38396,7 +38396,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",
@@ -38410,7 +38410,7 @@
         "code": "LGS133ZFXBH",
         "name": {
           "zh": "中封箱",
-          "vi": "中封箱"
+          "vi": "thùng đóng giữa"
         },
         "spec": {
           "zh": "820x485x135mm",
@@ -38422,7 +38422,7 @@
         },
         "color": {
           "zh": "纸色",
-          "vi": "纸色"
+          "vi": "màu giấy"
         },
         "attr": {
           "zh": "包材",

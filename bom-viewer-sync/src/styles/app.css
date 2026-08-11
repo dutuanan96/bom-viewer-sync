@@ -3956,6 +3956,30 @@ body.pdm-shell {
   padding: 6px 0;
 }
 
+.ai-message-table-wrap {
+  overflow-x: auto;
+  margin-top: 8px;
+}
+
+.ai-message-table {
+  border-collapse: collapse;
+  font-size: 12px;
+  min-width: 100%;
+  white-space: nowrap;
+}
+
+.ai-message-table th,
+.ai-message-table td {
+  border: 1px solid #dbe4f0;
+  padding: 6px 8px;
+  text-align: left;
+}
+
+.ai-message-table th {
+  background: #eef4ff;
+  font-weight: 600;
+}
+
 .ai-citation-badge {
   display: inline-block;
   margin-right: 4px;

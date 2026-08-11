@@ -5,29 +5,51 @@ const SHORTHAND_PRODUCT_PATTERN = /(?:^|[^\w])(\d{3,4})(?:[^\w]|$)/;
 const DIMENSION_PATTERN = /(\d+(?:\.\d+)?)\s*(?:x|\u00d7|\*)\s*(\d+(?:\.\d+)?)(?:\s*(?:x|\u00d7|\*)\s*(\d+(?:\.\d+)?))?\s*(?:mm)?/gi;
 const SINGLE_AXIS_PATTERN = /(?:(width|height|depth|长度|宽度|高度|厚度)\s*(\d+(?:\.\d+)?)\s*(?:mm)?|(\d+(?:\.\d+)?)\s*(mm|宽|高|深|长))/gi;
 
+export function foldPdmText(value = '') {
+  return String(value)
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\u0111/gi, letter => letter === '\u0110' ? 'D' : 'd')
+    .toLowerCase();
+}
+
 const CONCEPT_SYNONYMS = Object.freeze({
   bottom_crossbar: {
     canonicalZh: '底部横杆',
     canonicalVi: 'thanh ngang dưới',
     canonicalEn: 'bottom crossbar',
-    aliases: ['下横梁', '底部横杆', '下横杆', '底部横梁', 'thanh ngang duoi'],
+    aliases: ['下横梁', '底部横杆', '下横杆', '底部横梁', '\u4e0b\u6a2a\u6881(\u65e0\u5b54)', 'thanh ngang duoi'],
   },
   upper_crossbar: {
     canonicalZh: '上横梁',
     canonicalVi: 'thanh ngang trên',
     canonicalEn: 'upper crossbar',
-    aliases: ['上横梁', '顶部横梁', '顶部横杆', '上横杆', 'upper crossbar', 'thanh ngang trên'],
+    aliases: ['上横梁', '顶部横梁', '顶部横杆', '上横杆', '\u4e0a\u6a2a\u6881\u524d(\u6709\u5b54)', '\u4e0a\u6a2a\u6881\u540e(\u6709\u5b54)', '\u4e0a\u6a2a\u6881\u524d(2\u5b54)', '\u4e0a\u6a2a\u6881\u540e(2\u5b54)', '\u4e0a\u6a2a\u6881(2\u5b54)', 'upper crossbar', 'thanh ngang trên'],
+  },
+  crossbar: {
+    canonicalZh: '\u6a2a\u6746',
+    canonicalVi: 'thanh ngang',
+    canonicalEn: 'crossbar',
+    aliases: ['\u6a2a\u6881', '\u6a2a\u6746', 'crossbar', 'thanh ngang'],
   },
   drawer_fabric: {
     canonicalZh: '布抽',
     canonicalVi: 'ngăn kéo vải',
     canonicalEn: 'drawer fabric',
-    aliases: ['布抽', '布袋', '布兜', 'vải ngăn kéo', 'fabric drawer'],
+    searchAliases: ['\u5e03\u62bd\u5c49', '\u5e03\u62bd\u76d2', '\u8f6f\u62bd', '\u6298\u53e0\u62bd', '\u5c0f\u5e03\u62bd', '\u4e2d\u5e03\u62bd', '\u5927\u5e03\u62bd', 'fabric bin', 'fabric basket', 'ng\u0103n k\u00e9o v\u1ea3i', 'h\u1ed9p k\u00e9o v\u1ea3i', 'gi\u1ecf v\u1ea3i'],
+    aliases: ['布抽', '布袋', '布兜', 'vải ngăn kéo', 'fabric drawer', 'túi vải', 'tui vai'],
+  },
+  drawer_bottom: {
+    canonicalZh: '布抽底板',
+    canonicalVi: 'đáy túi',
+    canonicalEn: 'fabric drawer bottom',
+    aliases: ['布抽底板', '抽屉底板', 'đáy túi', 'day tui', 'fabric drawer bottom', 'drawer bottom'],
   },
   hardware_bag: {
     canonicalZh: '五金包',
     canonicalVi: 'túi ngũ kim',
     canonicalEn: 'hardware bag',
+    searchAliases: ['\u5de5\u5177\u5305', '\u87ba\u4e1d\u888b', '\u914d\u4ef6\u888b', 'screw bag', 'fastener bag', 't\u00fai \u1ed1c v\u00edt', 't\u00fai d\u1ee5ng c\u1ee5'],
     aliases: ['五金包', '螺丝包', '配件包', '五金袋', 'túi phụ kiện', 'túi ngũ kim'],
   },
   metal_frame: {
@@ -46,7 +68,15 @@ const CONCEPT_SYNONYMS = Object.freeze({
     canonicalZh: '纸箱',
     canonicalVi: 'thùng carton',
     canonicalEn: 'carton',
-    aliases: ['纸箱', '纸盒', 'carton', 'cardboard box', 'thùng carton'],
+    searchAliases: ['\u5916\u7bb1', '\u5185\u7bb1', '\u4e2d\u5c01\u7bb1', '\u5e73\u53e3\u7bb1', 'outer carton', 'inner carton', 'th\u00f9ng ngo\u00e0i', 'th\u00f9ng trong'],
+    aliases: ['纸箱', '纸盒', 'carton', 'cardboard box', 'thùng carton', 'thùng giấy', 'hộp giấy', 'thùng bìa', 'carton giấy', 'thung carton', 'thung giay', 'hop giay', 'thung bia', 'carton giay'],
+  },
+  packaging_material: {
+    canonicalZh: '\u5305\u6750',
+    canonicalVi: 'v\u1eadt li\u1ec7u \u0111\u00f3ng g\u00f3i',
+    canonicalEn: 'packaging material',
+    aliases: ['\u5305\u6750', '\u5305\u88c5\u6750\u6599', '\u5305\u88c5\u4ef6', 'packaging', 'packing material', 'v\u1eadt li\u1ec7u \u0111\u00f3ng g\u00f3i', 'bao b\u00ec', 'vat lieu dong goi', 'bao bi'],
+    searchAliases: ['\u7eb8\u7bb1', '\u7eb8\u5361', '\u6ce1\u6cab', '\u62a4\u89d2', '\u80f6\u888b', 'foam', 'corner protector', 'paper card'],
   },
   cabinet: {
     canonicalZh: '柜子',
@@ -86,9 +116,11 @@ export function detectProductShorthand(query = '') {
 export function resolveConcept(term = '') {
   const text = String(term).trim().toLowerCase();
   if (!text) return null;
+  const foldedText = foldPdmText(text);
 
   for (const [conceptId, info] of Object.entries(CONCEPT_SYNONYMS)) {
-    if (info.aliases.some(alias => text.includes(alias.toLowerCase()))) {
+    const aliases = [...info.aliases, ...(info.searchAliases || [])];
+    if (aliases.some(alias => text.includes(alias.toLowerCase()) || foldedText.includes(foldPdmText(alias)))) {
       return {
         conceptId,
         canonicalZh: info.canonicalZh,
@@ -99,6 +131,13 @@ export function resolveConcept(term = '') {
     }
   }
   return null;
+}
+
+export function componentSearchTerms(query = '') {
+  const concept = resolveConcept(query);
+  if (!concept) return [];
+  const info = CONCEPT_SYNONYMS[concept.conceptId];
+  return [...new Set([...(info.aliases || []), ...(info.searchAliases || [])])];
 }
 
 /**

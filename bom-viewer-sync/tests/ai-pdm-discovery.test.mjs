@@ -42,17 +42,13 @@ test('findDuplicateMaterials groups exact paper-card master-data duplicates with
   assert.equal(result.evidence.sourceCommit, 'a'.repeat(40));
 });
 
-test('findDuplicateMaterials surfaces translation mismatches as suspected duplicates', () => {
+test('findDuplicateMaterials does not flag normalized paper-card translations as mismatches', () => {
   const result = discovery.findDuplicateMaterials({ name: '\u7eb8\u5361' });
   const candidate = result.suspectedDuplicateGroups.find(group => (
     group.material.spec.zh === '\u5355\u74e6785x100mm'
   ));
 
-  assert.ok(result.totalSuspectedGroups >= 3);
-  assert.ok(candidate);
-  assert.deepEqual(candidate.sourceMaterialCodes, ['LGS111ZK', 'LGS133ZK']);
-  assert.deepEqual(candidate.differingFields, ['spec']);
-  assert.equal(candidate.matchType, 'translation_mismatch');
+  assert.equal(candidate, undefined);
 });
 
 test('searchPdm finds a dimensional material and its actual product usage across languages', () => {

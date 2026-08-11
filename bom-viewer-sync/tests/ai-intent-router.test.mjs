@@ -96,6 +96,41 @@ test('routes a Chinese shared-parts question with two explicit products to BOM c
   assert.deepEqual(route.entities.productIds, ['LGS723', 'LGS733']);
 });
 
+test('routes a two-product legacy crossbar question to deterministic component analysis', () => {
+  const route = routePdmIntent({
+    query: 'LGS723和LGS733的横梁有共用吗？',
+    availableTools: READ_TOOLS,
+  });
+  assert.equal(route.intent, PDM_INTENTS.CATALOG_ANALYSIS);
+  assert.equal(route.preferredTool, 'analyze_pdm');
+  assert.deepEqual(route.entities.productIds, ['LGS723', 'LGS733']);
+});
+
+test('routes single-product legacy component questions to a focused BOM lookup', () => {
+  for (const query of ['LGS723\u7528\u4ec0\u4e48\u5e03\u62bd\uff1f', 'LGS723\u7528\u4ec0\u4e48\u5305\u6750\uff1f']) {
+    const route = routePdmIntent({ query, availableTools: READ_TOOLS });
+    assert.equal(route.intent, PDM_INTENTS.BOM_LOOKUP, query);
+    assert.equal(route.preferredTool, 'get_bom', query);
+    assert.equal(route.entities.componentQuery, query);
+  }
+});
+
+test('resolves an ordinal follow-up from temporary BOM candidates only', () => {
+  const route = routePdmIntent({
+    query: '\u7b2c2\u79cd',
+    conversationContext: {
+      productIds: ['LGS723'],
+      bomCandidates: [
+        { matCode: 'BC300', nameZh: 'LGS\u5e03\u62bd', spec: '300x282x168mm' },
+        { matCode: 'BC460', nameZh: 'LGS\u5e03\u62bd', spec: '460x282x187mm' },
+      ],
+    },
+    availableTools: READ_TOOLS,
+  });
+  assert.equal(route.preferredTool, 'get_bom');
+  assert.deepEqual(route.entities, { productIds: ['LGS723'], componentQuery: 'BC460' });
+});
+
 test('routes exact BOM, marketplace, and alias questions', () => {
   assert.equal(routePdmIntent({ query: 'BOM của LGS433 gồm những gì?', availableTools: READ_TOOLS }).preferredTool, 'get_bom');
   assert.equal(routePdmIntent({ query: 'Amazon reviews của LGS433 thế nào?', availableTools: READ_TOOLS }).preferredTool, 'get_marketplace_insights');
@@ -348,12 +383,43 @@ test('routes general catalog component questions to local analysis', () => {
     '有哪一个SKU用竖零件',
     '竖梁用哪一个产品',
     '哪一个产品用最大的纸箱',
+    'thống kê giúp tôi tất cả các LGS dùng thùng giấy gì',
+    'thống kê giúp tôi toàn bộ thùng giấy của các sản phẩm',
+    'liệt kê tất cả thùng carton các sản phẩm đang dùng',
+    'cho tôi xem thùng giấy của toàn bộ LGS',
+    'thong ke toan bo thung giay cua cac san pham',
   ];
 
   for (const query of queries) {
     const route = routePdmIntent({ query, availableTools: READ_TOOLS });
     assert.equal(route.intent, PDM_INTENTS.CATALOG_ANALYSIS, query);
     assert.equal(route.preferredTool, 'analyze_pdm', query);
+    assert.equal(route.confidence, 'deterministic', query);
+  }
+});
+
+test('routes broad natural Vietnamese PDM phrasing with or without diacritics', () => {
+  const cases = [
+    ['LGS723 dùng túi vải loại nào', 'get_bom'],
+    ['quy cách đáy túi của LGS333', 'get_bom'],
+    ['LGS723 co bao nhieu tui ngu kim', 'get_bom'],
+    ['Cái tủ 733 bảy ngăn ấy, con M6x22 có bao nhiêu con?', 'get_bom'],
+    ['LGS723 dung vat lieu gi', 'get_bom'],
+    ['LGS723 kích thước bao nhiêu', 'get_product'],
+    ['LGS723 mau gi', 'get_product'],
+    ['phiên bản hiện hành LGS132', 'get_revision_history'],
+    ['phien ban hien hanh LGS133', 'get_revision_history'],
+    ['so sánh LGS723 với LGS733', 'compare_boms'],
+    ['doi chieu LGS723 va LGS733', 'compare_boms'],
+    ['tìm vật liệu 1185x330x110mm', 'search_pdm'],
+    ['tim vat lieu quy cach 1185x330x110mm', 'search_pdm'],
+    ['cho xem đáy túi của toàn bộ sản phẩm', 'analyze_pdm'],
+    ['liet ke bao bi cua cac san pham', 'analyze_pdm'],
+  ];
+
+  for (const [query, preferredTool] of cases) {
+    const route = routePdmIntent({ query, availableTools: READ_TOOLS });
+    assert.equal(route.preferredTool, preferredTool, query);
     assert.equal(route.confidence, 'deterministic', query);
   }
 });
