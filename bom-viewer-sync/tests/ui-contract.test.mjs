@@ -587,10 +587,49 @@ test('BOM revision selector uses product revision state and historical snapshots
   assert.doesNotMatch(contentHeaderHtml, />RELEASED</);
   assert.match(contentHeaderHtml, /revisionTransitionHtml/);
   assert.match(contentHeaderHtml, /revisionStatusBadgesHtml/);
+  assert.doesNotMatch(contentHeaderHtml, /bomHistoryHtml/);
   assert.match(productCatalogRowHtml, /effectiveRevision/);
   assert.doesNotMatch(getSpuVersion, /manuals/);
   assert.match(bindEditing, /data-product-revision/);
   assert.match(appSource, /data-action="create-product-revision"/);
+});
+
+test('product catalog prioritizes the effective released revision over a newer draft', () => {
+  const payload = coreUtils.normalizePayload({
+    bom: {
+      LGS032: { code: 'LGS032', revision: 'V3.1', colors: ['black'], color_info: { black: { size: '300mm', materials: [] } } },
+    },
+    materialDb: { version: 1, materials: {}, bomEntries: [] },
+    productRevisions: {
+      LGS032: {
+        currentRevision: 'V3.1',
+        effectiveRevision: 'V3',
+        currentRevisionInfo: { sourceRevision: 'V3', workflowState: 'draft' },
+        revisions: [{
+          revision: 'V3',
+          workflowState: 'released',
+          snapshot: { product: { code: 'LGS032', revision: 'V3', colors: ['black'], color_info: { black: { materials: [] } } } },
+        }],
+      },
+    },
+  });
+  const app = Object.create(BomApplication.prototype);
+  app.state = {
+    payload,
+    bom: payload.bom,
+    currentSku: 'LGS032',
+    selectedRevision: '',
+    lang: 'zh',
+    searchQuery: '',
+  };
+
+  const [row] = app.productCatalogRows();
+
+  assert.equal(app.selectedProductRevision(), 'V3');
+  assert.equal(row.revision, 'V3');
+  assert.equal(row.effectiveRevision, 'V3');
+  assert.equal(row.workflowState, 'released');
+  assert.equal(row.effective, true);
 });
 
 test('admin creates the next live revision from the current product snapshot', () => {

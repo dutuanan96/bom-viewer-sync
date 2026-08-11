@@ -135,8 +135,8 @@ function productCatalogRows() {
       const product = this.state.bom[sku];
       const firstColor = product?.color_info?.[product.colors?.[0]] || {};
       const revisionOptions = this.productRevisionOptions(sku);
-      const revisionInfo = revisionOptions[0] || {};
-      const effectiveRevision = revisionOptions.find((item) => item.effective)?.revision || revisionInfo.revision;
+      const latestRevision = revisionOptions[0] || {};
+      const revisionInfo = revisionOptions.find((item) => item.effective) || latestRevision;
       return {
         sku,
         product,
@@ -144,7 +144,7 @@ function productCatalogRows() {
         size: firstColor.size || '-',
         colors: product.colors || [],
         revision: revisionInfo.revision,
-        effectiveRevision,
+        effectiveRevision: revisionInfo.revision,
         effective: Boolean(revisionInfo.effective),
         workflowState: revisionInfo.workflowState || 'released',
         disabled: this.productDisabled(product)
@@ -226,7 +226,6 @@ function contentHeaderHtml(product, colorData) {
         <span>${escapeHTML(this.label('lastModified'))}: ${escapeHTML(this.formatDate(this.state.payload.updatedAt))}</span>
       </div>
       ${this.revisionTransitionHtml(revisionInfo)}
-      ${this.bomHistoryHtml()}
     </div>
     <div class="header-actions">${this.headerActionsHtml()}</div>
   </div>
