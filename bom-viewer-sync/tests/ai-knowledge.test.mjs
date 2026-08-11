@@ -363,6 +363,34 @@ test('Catalog analysis retains complete rows for export while bounding visible r
   assert.deepEqual(result.exportResults.map(row => row.usedInProducts[0]), [...result.exportResults.map(row => row.usedInProducts[0])].sort());
 });
 
+test('Product-ordered catalog rows keep the representative color of their own product', () => {
+  const snapshot = {
+    sourceMetadata: { commitSha: 'd'.repeat(40), shardRoot: 'data', manifestVersion: 1, updatedAt: '2026-08-11T00:00:00Z' },
+    payload: {
+      bom: {
+        LGS900: { colors: ['黑色'], effectiveRevision: 'V1', color_info: { 黑色: { sku: 'LGS900BH' } } },
+        LGS901: { colors: ['复古色'], effectiveRevision: 'V2', color_info: { 复古色: { sku: 'LGS901KD' } } },
+      },
+      productRevisions: {},
+      materialDb: {
+        materials: {
+          foam: { id: 'foam', code: 'PM0001', name: { zh: '泡沫' }, spec: { zh: '100x100x10mm' } },
+        },
+        bomEntries: [
+          { parentType: 'product', productCode: 'LGS900', color: '黑色', materialId: 'foam', qty: 1 },
+          { parentType: 'product', productCode: 'LGS901', color: '复古色', materialId: 'foam', qty: 1 },
+        ],
+      },
+    },
+  };
+  const result = new PdmKnowledge(snapshot).analyzePdm({ query: '帮我统计每一个产品用什么泡沫' });
+
+  assert.deepEqual(result.results.map(row => [row.usedInProducts[0], row.representativeColors]), [
+    ['LGS900', ['黑色']],
+    ['LGS901', ['复古色']],
+  ]);
+});
+
 test('R1.3 integration: LGS723/LGS733 comparison uses shared assets and reports BOM conflicts', () => {
   const result = new PdmKnowledge(loadCanonicalSnapshot()).compareBoms({
     productId1: 'LGS723',

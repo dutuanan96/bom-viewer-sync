@@ -969,6 +969,7 @@ export class PdmKnowledge {
                 usedInSkus: new Set(),
                 productRevisions: new Map(),
                 representativeColors: new Set(),
+                productRepresentativeColors: new Map(),
                 effectiveRevisions: new Set(),
               });
             }
@@ -979,6 +980,10 @@ export class PdmKnowledge {
               product.color_info?.[color]?.sku || (color ? `${productCode}/${color}` : productCode),
             );
             component.representativeColors.add(color);
+            if (!component.productRepresentativeColors.has(productCode)) {
+              component.productRepresentativeColors.set(productCode, new Set());
+            }
+            component.productRepresentativeColors.get(productCode).add(color);
             const effectiveRevision = this._revisionRegistry[productCode]?.effectiveRevision
               || String(product.effectiveRevision || product.currentRevision || product.revision || '').trim();
             component.productRevisions.set(productCode, effectiveRevision || '-');
@@ -999,6 +1004,12 @@ export class PdmKnowledge {
           representativeColors: [...component.representativeColors].sort((left, right) => (
             colorPriority(left) - colorPriority(right) || left.localeCompare(right)
           )),
+          productRepresentativeColors: Object.fromEntries(
+            [...component.productRepresentativeColors.entries()].map(([productCode, colors]) => [
+              productCode,
+              [...colors].sort((left, right) => colorPriority(left) - colorPriority(right) || left.localeCompare(right)),
+            ]),
+          ),
           effectiveRevisions: [...component.effectiveRevisions].sort(),
         }))
         .filter(component => (
@@ -1017,11 +1028,15 @@ export class PdmKnowledge {
         : matched;
       const wantsProductOrder = /每(?:一)?个(?:产品|LGS)?|各(?:个)?产品|每个LGS|tung(?: cac)? san pham|moi(?: cac)? san pham|each product|every product|by product/iu.test(normalizeBomSearchText(text));
       const productOrderedResults = wantsProductOrder
-        ? componentResults.flatMap(component => component.usedInProducts.map(productCode => ({
-          ...component,
+        ? componentResults.flatMap(component => component.usedInProducts.map(productCode => {
+          const { productRepresentativeColors, ...componentResult } = component;
+          return {
+          ...componentResult,
           usedInProducts: [productCode],
           usedInProductRevisions: component.usedInProductRevisions.filter(label => label.startsWith(`${productCode} (`)),
-        }))).sort((left, right) => (
+          representativeColors: productRepresentativeColors[productCode] || component.representativeColors,
+          };
+        })).sort((left, right) => (
           left.usedInProducts[0].localeCompare(right.usedInProducts[0])
           || left.materialCode.localeCompare(right.materialCode)
         ))

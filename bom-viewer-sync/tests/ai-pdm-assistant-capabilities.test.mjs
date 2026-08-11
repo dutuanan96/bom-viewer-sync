@@ -550,6 +550,34 @@ test('13c2. Catalog material table discloses representative color and effective 
   assert.match(text, /未指定颜色/);
 });
 
+test('13c3. Catalog material table states the full count before Excel export', () => {
+  const text = formatLocalToolFallback(key => ({
+    'ai.localFallback.notice': '本地结果',
+    'ai.localFallback.scope': '范围',
+    'ai.localFallback.totalMatches': '总计',
+    'ai.localFallback.tableIndex': '序号',
+    'ai.localFallback.tableMaterialCode': '物料编码',
+    'ai.localFallback.tableName': '名称',
+    'ai.localFallback.tableSpec': '规格',
+    'ai.localFallback.usedProducts': '使用产品',
+    'ai.localFallback.resultsTruncated': '共匹配 {total} 条；当前仅显示前 50 条。请下载 Excel 查看全部结果。',
+  }[key] || key), {
+    toolCall: { name: 'analyze_pdm', arguments: { query: '帮我统计所有泡沫' } },
+    toolResult: {
+      scope: 'all',
+      totalCount: 99,
+      truncated: true,
+      results: [
+        { materialCode: 'PM001', nameZh: '泡沫', spec: '100x100x10mm', usedInProducts: ['LGS031'] },
+        { materialCode: 'PM002', nameZh: '泡沫', spec: '200x100x10mm', usedInProducts: ['LGS032'] },
+      ],
+    },
+  });
+
+  assert.match(text, /\| \.\.\. \| \.\.\. \|/);
+  assert.match(text, /共匹配 99 条；当前仅显示前 50 条。请下载 Excel 查看全部结果。/);
+});
+
 test('13d. General fabric-drawer lookup excludes its strips and bottom boards', () => {
   const snapshot = {
     sourceMetadata: mockSnapshot.sourceMetadata,

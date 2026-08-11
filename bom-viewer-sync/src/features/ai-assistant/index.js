@@ -171,6 +171,10 @@ export function formatLocalToolFallback(t, { toolCall, toolResult } = {}) {
     }
     return fallback;
   };
+  const truncatedResultsMessage = total => tr(
+    'ai.localFallback.resultsTruncated',
+    'There are {total} matching records; only the first 50 are shown. Download Excel to view all results.',
+  ).replace('{total}', String(total));
 
   const lines = [tr('ai.localFallback.notice', 'Local PDM Fact Result')];
 
@@ -370,7 +374,7 @@ export function formatLocalToolFallback(t, { toolCall, toolResult } = {}) {
       if (toolResult.representativeColorPolicy) {
         lines.splice(2, 0, tr('ai.localFallback.representativeColorPolicy', 'No color was specified. One representative color is selected for each product in the order BH, KD, WH, then the first available color.'));
       }
-      if (toolResult.truncated) lines.push(tr('ai.localFallback.resultsTruncated', 'Only the first 50 matching records are shown.'));
+      if (toolResult.truncated) lines.push(truncatedResultsMessage(toolResult.totalCount ?? toolResult.totalMatches ?? results.length));
       for (const warning of toolResult.colorAvailabilityWarnings || []) {
         lines.push(`! ${warning.productCode}: ${warning.requestedColor} — ${tr('ai.localFallback.colorNotDefined', 'color variant is not defined')}. ${tr('ai.localFallback.availableColors', 'Available colors')}: ${(warning.availableColors || []).join(', ') || '-'}`);
       }
