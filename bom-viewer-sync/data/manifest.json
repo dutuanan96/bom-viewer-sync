@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-12T04:02:13.161Z",
+  "updatedAt": "2026-08-12T04:09:12.657Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -7407,6 +7407,29 @@
   },
   "notifications": [
     {
+      "id": "notif_1l77y86",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-12T04:09:12.657Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "LGS131XHLWH",
+          "field": "drawings",
+          "before": "",
+          "after": "LGS131_231-底部横杆|https://drive.google.com/file/d/1FUU__9zitdfI53em6S-2Du2_vKFzQlXv/view?usp=sharing"
+        },
+        {
+          "kind": "material",
+          "code": "LGS131XHLWH",
+          "field": "models3d",
+          "before": "LGS231_131-底部横杆.glb|models3d/catalog/LGS231-131-8264a80a.glb",
+          "after": "LGS231_131-底部横杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS231-131-8264a80a.glb"
+        }
+      ]
+    },
+    {
       "id": "notif_1l2rjvy",
       "type": "github-save",
       "actor": "admin",
@@ -8651,71 +8674,6 @@
           "field": "spec",
           "before": "单瓦1000x60 / sóng đơn 1000x60",
           "after": "单瓦1000x60mm / sóng đơn 1000x60mm"
-        }
-      ]
-    },
-    {
-      "id": "notif_durtxs",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-05T02:00:47.510Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "LGS031ZK",
-          "field": "spec",
-          "before": "单瓦1100x60 / sóng đơn 1100x60",
-          "after": "单瓦1100x100mm / sóng đơn 1100x100mm"
-        },
-        {
-          "kind": "material",
-          "code": "LGS032ZK",
-          "field": "spec",
-          "before": "单瓦1100x60 / sóng đơn 1100x60",
-          "after": "单瓦1100x100 / sóng đơn 1100x100"
-        },
-        {
-          "kind": "material",
-          "code": "LGS033ZK",
-          "field": "spec",
-          "before": "单瓦1100x60mm / sóng đơn 1100x60mm",
-          "after": "单瓦1100x100mm / sóng đơn 1100x100mm"
-        },
-        {
-          "kind": "material",
-          "code": "LGS043ZK",
-          "field": "spec",
-          "before": "单瓦1010x60 / sóng đơn 1010x60",
-          "after": "单瓦1010x100mm / sóng đơn 1010x100mm"
-        },
-        {
-          "kind": "material",
-          "code": "LGS101ZK",
-          "field": "spec",
-          "before": "单瓦625x60mm / sóng đơn 1100x60mm",
-          "after": "单瓦625x100mm / sóng đơn 1100x100mm"
-        },
-        {
-          "kind": "material",
-          "code": "LGS131ZK",
-          "field": "spec",
-          "before": "单瓦860x60 / sóng đơn 860x60",
-          "after": "单瓦860x100mm / sóng đơn 860x100mm"
-        },
-        {
-          "kind": "material",
-          "code": "LGS132ZK",
-          "field": "spec",
-          "before": "单瓦990x60 / sóng đơn 990x60",
-          "after": "单瓦990x100mm / sóng đơn 990x100mm"
-        },
-        {
-          "kind": "material",
-          "code": "LGS133ZK",
-          "field": "spec",
-          "before": "单瓦785x60mm / sóng đơn 785x60mm",
-          "after": "单瓦785x100mm / sóng đơn 785x100mm"
         }
       ]
     }
@@ -10452,6 +10410,31 @@
       }
     ],
     "LGS131": [
+      {
+        "id": "history_14u10f9",
+        "productCode": "LGS131",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-12T04:09:12.657Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS131XHLWH",
+            "field": "drawings",
+            "before": "",
+            "after": "LGS131_231-底部横杆|https://drive.google.com/file/d/1FUU__9zitdfI53em6S-2Du2_vKFzQlXv/view?usp=sharing"
+          },
+          {
+            "kind": "material",
+            "code": "LGS131XHLWH",
+            "field": "models3d",
+            "before": "LGS231_131-底部横杆.glb|models3d/catalog/LGS231-131-8264a80a.glb",
+            "after": "LGS231_131-底部横杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS231-131-8264a80a.glb"
+          }
+        ]
+      },
       {
         "id": "history_15sdbu6",
         "productCode": "LGS131",
