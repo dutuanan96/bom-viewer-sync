@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-12T03:37:37.163Z",
+  "updatedAt": "2026-08-12T03:40:35.945Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -7343,6 +7343,71 @@
   },
   "notifications": [
     {
+      "id": "notif_188ars0",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-12T03:40:35.945Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material_deleted",
+          "code": "LGS334XZQSLBH",
+          "field": "",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "material_deleted",
+          "code": "LGS334XZHSLBH",
+          "field": "",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "material_deleted",
+          "code": "LGS433XZQSLBH",
+          "field": "",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "material_deleted",
+          "code": "LGS433XZHSLBH",
+          "field": "",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "material_deleted",
+          "code": "LGS433XZQSLWH",
+          "field": "",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "material_deleted",
+          "code": "LGS433XZHSLWH",
+          "field": "",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "material_deleted",
+          "code": "LGS434XZQSLWH",
+          "field": "",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "material_deleted",
+          "code": "LGS434XZHSLWH",
+          "field": "",
+          "before": "",
+          "after": ""
+        }
+      ]
+    },
+    {
       "id": "notif_9gj7tc",
       "type": "github-save",
       "actor": "admin",
@@ -8482,22 +8547,6 @@
           "field": "",
           "before": "LGS334SZKBH",
           "after": "LGS334ZCKZYBH"
-        }
-      ]
-    },
-    {
-      "id": "notif_b47gn4",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-31T03:13:27.100Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "LGS334ZCKZYBH",
-          "field": "models3d",
-          "before": "LGS334支撑框-左右|https://github.com/dutuanan96/bom-viewer-sync/blob/main/bom-viewer-sync/models3d/catalog/LGS334-ee797800.glb",
-          "after": "LGS334支撑框-左右|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-ee797800.glb"
         }
       ]
     }
