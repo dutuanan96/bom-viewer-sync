@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-12T03:15:05.130Z",
+  "updatedAt": "2026-08-12T03:19:04.116Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6929,12 +6929,12 @@
     },
     "LGS231": {
       "currentRevision": "V3",
-      "effectiveRevision": "V3",
+      "effectiveRevision": "",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "released"
+        "workflowState": "draft"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6952,6 +6952,14 @@
           "revision": "V3",
           "previousRevision": "",
           "occurredAt": "2026-08-06T09:39:22.514Z",
+          "reason": "更新"
+        },
+        {
+          "id": "effectivity_mspipq56",
+          "action": "withdraw",
+          "revision": "V3",
+          "previousRevision": "V3",
+          "occurredAt": "2026-08-12T03:16:43.290Z",
           "reason": "更新"
         }
       ]
@@ -6987,12 +6995,12 @@
     },
     "LGS421": {
       "currentRevision": "V4",
-      "effectiveRevision": "V4",
+      "effectiveRevision": "",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "released"
+        "workflowState": "draft"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -7010,6 +7018,14 @@
           "revision": "V4",
           "previousRevision": "",
           "occurredAt": "2026-08-06T09:38:35.990Z",
+          "reason": "更新"
+        },
+        {
+          "id": "effectivity_mspirzsc",
+          "action": "withdraw",
+          "revision": "V4",
+          "previousRevision": "V4",
+          "occurredAt": "2026-08-12T03:18:29.100Z",
           "reason": "更新"
         }
       ]
@@ -7172,12 +7188,12 @@
     },
     "LGS420": {
       "currentRevision": "V4",
-      "effectiveRevision": "V4",
+      "effectiveRevision": "",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "released"
+        "workflowState": "draft"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -7195,6 +7211,14 @@
           "revision": "V4",
           "previousRevision": "",
           "occurredAt": "2026-08-06T09:39:44.915Z",
+          "reason": "更新"
+        },
+        {
+          "id": "effectivity_mspiqw7q",
+          "action": "withdraw",
+          "revision": "V4",
+          "previousRevision": "V4",
+          "occurredAt": "2026-08-12T03:17:37.814Z",
           "reason": "更新"
         }
       ]
@@ -7230,6 +7254,71 @@
     }
   },
   "notifications": [
+    {
+      "id": "notif_fp6c2g",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-12T03:19:04.116Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS231",
+          "field": "effectiveRevision",
+          "before": "V3",
+          "after": ""
+        },
+        {
+          "kind": "revision",
+          "code": "LGS231",
+          "field": "workflowState",
+          "before": "released",
+          "after": "draft"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS421",
+          "field": "effectiveRevision",
+          "before": "V4",
+          "after": ""
+        },
+        {
+          "kind": "revision",
+          "code": "LGS421",
+          "field": "workflowState",
+          "before": "released",
+          "after": "draft"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS420",
+          "field": "effectiveRevision",
+          "before": "V4",
+          "after": ""
+        },
+        {
+          "kind": "revision",
+          "code": "LGS420",
+          "field": "workflowState",
+          "before": "released",
+          "after": "draft"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS231K101S",
+          "field": "",
+          "before": "LGS231YZKBHGK",
+          "after": "LGS131YZKBHGK"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS231B101S",
+          "field": "",
+          "before": "LGS231YZKBHGK",
+          "after": "LGS131YZKBHGK"
+        }
+      ]
+    },
     {
       "id": "notif_bgd9qe",
       "type": "github-save",
@@ -8232,29 +8321,6 @@
           "after": "LGS833PKXBH"
         }
       ]
-    },
-    {
-      "id": "notif_1p2wric",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-30T08:18:29.273Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS733",
-          "field": "",
-          "before": "LGS733PKXKD",
-          "after": "LGS733PKXWH"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS733",
-          "field": "",
-          "before": "LGS733PKXKD",
-          "after": "LGS733PKXBH"
-        }
-      ]
     }
   ],
   "bomHistory": {
@@ -8332,6 +8398,45 @@
       }
     ],
     "LGS231": [
+      {
+        "id": "history_ckfmnl",
+        "productCode": "LGS231",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-12T03:19:04.116Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS231",
+            "field": "effectiveRevision",
+            "before": "V3",
+            "after": ""
+          },
+          {
+            "kind": "revision",
+            "code": "LGS231",
+            "field": "workflowState",
+            "before": "released",
+            "after": "draft"
+          },
+          {
+            "kind": "bom_material_changed",
+            "code": "LGS231K101S",
+            "field": "",
+            "before": "LGS231YZKBHGK",
+            "after": "LGS131YZKBHGK"
+          },
+          {
+            "kind": "bom_material_changed",
+            "code": "LGS231B101S",
+            "field": "",
+            "before": "LGS231YZKBHGK",
+            "after": "LGS131YZKBHGK"
+          }
+        ]
+      },
       {
         "id": "history_m8zj7u",
         "productCode": "LGS231",
@@ -8622,6 +8727,52 @@
     ],
     "LGS420": [
       {
+        "id": "history_vdwvn2",
+        "productCode": "LGS420",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-12T03:19:04.116Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS420",
+            "field": "effectiveRevision",
+            "before": "V4",
+            "after": ""
+          },
+          {
+            "kind": "revision",
+            "code": "LGS420",
+            "field": "workflowState",
+            "before": "released",
+            "after": "draft"
+          },
+          {
+            "kind": "bom_material_changed",
+            "code": "LGS420K101S",
+            "field": "",
+            "before": "LGS420YZKBHGK",
+            "after": "LGS131YZKBHGK"
+          },
+          {
+            "kind": "bom_material_changed",
+            "code": "LGS420W101S",
+            "field": "",
+            "before": "LGS420YZKWHGK",
+            "after": "LGS131YZKWHGK"
+          },
+          {
+            "kind": "bom_material_changed",
+            "code": "LGS420B101S",
+            "field": "",
+            "before": "LGS420YZKBHGK",
+            "after": "LGS131YZKBHGK"
+          }
+        ]
+      },
+      {
         "id": "history_jixlr5",
         "productCode": "LGS420",
         "revision": "V4",
@@ -8694,6 +8845,45 @@
       }
     ],
     "LGS421": [
+      {
+        "id": "history_1gobyhk",
+        "productCode": "LGS421",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-12T03:19:04.116Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS421",
+            "field": "effectiveRevision",
+            "before": "V4",
+            "after": ""
+          },
+          {
+            "kind": "revision",
+            "code": "LGS421",
+            "field": "workflowState",
+            "before": "released",
+            "after": "draft"
+          },
+          {
+            "kind": "bom_material_changed",
+            "code": "LGS421K101S",
+            "field": "",
+            "before": "LGS421YZKBH",
+            "after": "LGS131YZKBHGK"
+          },
+          {
+            "kind": "bom_material_changed",
+            "code": "LGS421B101S",
+            "field": "",
+            "before": "LGS421YZKBH",
+            "after": "LGS131YZKBHGK"
+          }
+        ]
+      },
       {
         "id": "history_4sruj",
         "productCode": "LGS421",
