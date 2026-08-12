@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-12T03:13:56.625Z",
+  "updatedAt": "2026-08-12T03:15:05.130Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6396,12 +6396,12 @@
     },
     "LGS433": {
       "currentRevision": "V4",
-      "effectiveRevision": "",
+      "effectiveRevision": "V4",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6491,6 +6491,14 @@
           "revision": "V4",
           "previousRevision": "V4",
           "occurredAt": "2026-08-12T03:11:07.576Z",
+          "reason": "更新"
+        },
+        {
+          "id": "effectivity_mspinmeh",
+          "action": "release",
+          "revision": "V4",
+          "previousRevision": "",
+          "occurredAt": "2026-08-12T03:15:05.129Z",
           "reason": "更新"
         }
       ]
@@ -7222,6 +7230,29 @@
     }
   },
   "notifications": [
+    {
+      "id": "notif_bgd9qe",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-12T03:15:05.130Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS433",
+          "field": "effectiveRevision",
+          "before": "",
+          "after": "V4"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS433",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        }
+      ]
+    },
     {
       "id": "notif_lylk1c",
       "type": "github-save",
@@ -8222,36 +8253,6 @@
           "field": "",
           "before": "LGS733PKXKD",
           "after": "LGS733PKXBH"
-        }
-      ]
-    },
-    {
-      "id": "notif_abr904",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-30T08:16:46.573Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS434",
-          "field": "effectiveRevision",
-          "before": "V5",
-          "after": ""
-        },
-        {
-          "kind": "revision",
-          "code": "LGS434",
-          "field": "workflowState",
-          "before": "released",
-          "after": "draft"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS434",
-          "field": "",
-          "before": "LGS434ZFXWH",
-          "after": "LGS434ZFXBH"
         }
       ]
     }
@@ -9324,6 +9325,31 @@
       }
     ],
     "LGS433": [
+      {
+        "id": "history_jx7t56",
+        "productCode": "LGS433",
+        "revision": "V4",
+        "action": "release",
+        "actor": "admin",
+        "reason": "更新",
+        "createdAt": "2026-08-12T03:15:05.130Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS433",
+            "field": "effectiveRevision",
+            "before": "",
+            "after": "V4"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS433",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
       {
         "id": "history_u9frvv",
         "productCode": "LGS433",
