@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-12T04:09:12.657Z",
+  "updatedAt": "2026-08-12T04:12:59.216Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -7022,12 +7022,12 @@
     },
     "LGS233": {
       "currentRevision": "V4",
-      "effectiveRevision": "V4",
+      "effectiveRevision": "",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "released"
+        "workflowState": "draft"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -7045,6 +7045,14 @@
           "revision": "V4",
           "previousRevision": "",
           "occurredAt": "2026-08-06T09:39:33.516Z",
+          "reason": "更新"
+        },
+        {
+          "id": "effectivity_mspkp6n9",
+          "action": "withdraw",
+          "revision": "V4",
+          "previousRevision": "V4",
+          "occurredAt": "2026-08-12T04:12:17.253Z",
           "reason": "更新"
         }
       ]
@@ -7406,6 +7414,43 @@
     }
   },
   "notifications": [
+    {
+      "id": "notif_1p78peq",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-12T04:12:59.216Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS233",
+          "field": "effectiveRevision",
+          "before": "V4",
+          "after": ""
+        },
+        {
+          "kind": "revision",
+          "code": "LGS233",
+          "field": "workflowState",
+          "before": "released",
+          "after": "draft"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS233KD02S",
+          "field": "",
+          "before": "LGS233ZYKBH",
+          "after": "LGS133ZYKBH"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS233BH02S",
+          "field": "",
+          "before": "LGS233ZYKBH",
+          "after": "LGS133ZYKBH"
+        }
+      ]
+    },
     {
       "id": "notif_1l77y86",
       "type": "github-save",
@@ -8632,50 +8677,6 @@
           "after": "单瓦1100x100mm"
         }
       ]
-    },
-    {
-      "id": "notif_1y4nokg",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-06T02:00:08.651Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "LGS032ZK",
-          "field": "spec",
-          "before": "单瓦1100x100 / sóng đơn 1100x100",
-          "after": "单瓦1100x100mm / sóng đơn 1100x100mm"
-        },
-        {
-          "kind": "material",
-          "code": "LGS231ZK",
-          "field": "spec",
-          "before": "单瓦950x60 / sóng đơn 950x60",
-          "after": "单瓦950x60mm / sóng đơn 950x60mm"
-        },
-        {
-          "kind": "material",
-          "code": "LGS232ZK",
-          "field": "spec",
-          "before": "单瓦1100x60 / sóng đơn 1100x60",
-          "after": "单瓦1100x60mm / sóng đơn 1100x60mm"
-        },
-        {
-          "kind": "material",
-          "code": "LGS420ZK",
-          "field": "spec",
-          "before": "单瓦860x60 / sóng đơn 860x60",
-          "after": "单瓦860x60mm / sóng đơn 860x60mm"
-        },
-        {
-          "kind": "material",
-          "code": "LGS421ZK",
-          "field": "spec",
-          "before": "单瓦1000x60 / sóng đơn 1000x60",
-          "after": "单瓦1000x60mm / sóng đơn 1000x60mm"
-        }
-      ]
     }
   ],
   "bomHistory": {
@@ -8989,6 +8990,45 @@
       }
     ],
     "LGS233": [
+      {
+        "id": "history_1kwwhk0",
+        "productCode": "LGS233",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-12T04:12:59.216Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS233",
+            "field": "effectiveRevision",
+            "before": "V4",
+            "after": ""
+          },
+          {
+            "kind": "revision",
+            "code": "LGS233",
+            "field": "workflowState",
+            "before": "released",
+            "after": "draft"
+          },
+          {
+            "kind": "bom_material_changed",
+            "code": "LGS233KD02S",
+            "field": "",
+            "before": "LGS233ZYKBH",
+            "after": "LGS133ZYKBH"
+          },
+          {
+            "kind": "bom_material_changed",
+            "code": "LGS233BH02S",
+            "field": "",
+            "before": "LGS233ZYKBH",
+            "after": "LGS133ZYKBH"
+          }
+        ]
+      },
       {
         "id": "history_v5clq7",
         "productCode": "LGS233",
