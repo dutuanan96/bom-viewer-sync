@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-12T06:28:09.954Z",
+  "updatedAt": "2026-08-12T06:29:52.417Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6961,12 +6961,12 @@
     },
     "LGS231": {
       "currentRevision": "V3",
-      "effectiveRevision": "",
+      "effectiveRevision": "V3",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -7024,6 +7024,14 @@
           "revision": "V3",
           "previousRevision": "V3",
           "occurredAt": "2026-08-12T06:25:14.492Z",
+          "reason": "更新"
+        },
+        {
+          "id": "effectivity_msppm4db",
+          "action": "release",
+          "revision": "V3",
+          "previousRevision": "",
+          "occurredAt": "2026-08-12T06:29:52.415Z",
           "reason": "更新"
         }
       ]
@@ -7287,12 +7295,12 @@
     },
     "LGS131": {
       "currentRevision": "V3",
-      "effectiveRevision": "",
+      "effectiveRevision": "V3",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -7318,6 +7326,14 @@
           "revision": "V3",
           "previousRevision": "V3",
           "occurredAt": "2026-08-12T06:27:44.267Z",
+          "reason": "更新"
+        },
+        {
+          "id": "effectivity_msppm4dc",
+          "action": "release",
+          "revision": "V3",
+          "previousRevision": "",
+          "occurredAt": "2026-08-12T06:29:52.416Z",
           "reason": "更新"
         }
       ]
@@ -7438,6 +7454,43 @@
     }
   },
   "notifications": [
+    {
+      "id": "notif_1yk8kym",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-12T06:29:52.417Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS231",
+          "field": "effectiveRevision",
+          "before": "",
+          "after": "V3"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS231",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS131",
+          "field": "effectiveRevision",
+          "before": "",
+          "after": "V3"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS131",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        }
+      ]
+    },
     {
       "id": "notif_70ony0",
       "type": "github-save",
@@ -8643,29 +8696,6 @@
           "after": "draft"
         }
       ]
-    },
-    {
-      "id": "notif_vr39v0",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-08T02:38:27.778Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS333",
-          "field": "effectiveRevision",
-          "before": "",
-          "after": "V4"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS333",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
-        }
-      ]
     }
   ],
   "bomHistory": {
@@ -8743,6 +8773,31 @@
       }
     ],
     "LGS231": [
+      {
+        "id": "history_1vajqrw",
+        "productCode": "LGS231",
+        "revision": "V3",
+        "action": "release",
+        "actor": "admin",
+        "reason": "更新",
+        "createdAt": "2026-08-12T06:29:52.417Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS231",
+            "field": "effectiveRevision",
+            "before": "",
+            "after": "V3"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS231",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
       {
         "id": "history_1bi2gbf",
         "productCode": "LGS231",
@@ -10503,6 +10558,31 @@
       }
     ],
     "LGS131": [
+      {
+        "id": "history_1husz17",
+        "productCode": "LGS131",
+        "revision": "V3",
+        "action": "release",
+        "actor": "admin",
+        "reason": "更新",
+        "createdAt": "2026-08-12T06:29:52.417Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS131",
+            "field": "effectiveRevision",
+            "before": "",
+            "after": "V3"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS131",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
       {
         "id": "history_1nwy9tk",
         "productCode": "LGS131",
