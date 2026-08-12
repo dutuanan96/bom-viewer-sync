@@ -34111,8 +34111,8 @@
           "vi": "714x350x12mm"
         },
         "material": {
-          "zh": "Q195",
-          "vi": "Q195"
+          "zh": "PB",
+          "vi": "PB"
         },
         "color": {
           "zh": "白色",
@@ -34138,7 +34138,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS834-965a8955.glb",
             "matched_name": "LGS834层板",
             "score": 1300,
-            "bytes": 43440
+            "bytes": 43440,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS834-965a8955.glb"
           }
         ]
       },
@@ -34621,8 +34622,8 @@
           "vi": "714x350x12mm"
         },
         "material": {
-          "zh": "Q195",
-          "vi": "Q195"
+          "zh": "PB",
+          "vi": "PB"
         },
         "color": {
           "zh": "黑色",
@@ -34648,7 +34649,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS834-965a8955.glb",
             "matched_name": "LGS834层板",
             "score": 1100,
-            "bytes": 43440
+            "bytes": 43440,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS834-965a8955.glb"
           }
         ]
       },

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-10T08:01:47.192Z",
+  "updatedAt": "2026-08-12T02:12:13.278Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -7167,6 +7167,43 @@
   },
   "notifications": [
     {
+      "id": "notif_1w3s13y",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-12T02:12:13.278Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "LGS834CB201BH",
+          "field": "material",
+          "before": "Q195",
+          "after": "PB"
+        },
+        {
+          "kind": "material",
+          "code": "LGS834CB201BH",
+          "field": "models3d",
+          "before": "LGS834层板.glb|models3d/catalog/LGS834-965a8955.glb",
+          "after": "LGS834层板.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS834-965a8955.glb"
+        },
+        {
+          "kind": "material",
+          "code": "LGS834CB201WH",
+          "field": "material",
+          "before": "Q195",
+          "after": "PB"
+        },
+        {
+          "kind": "material",
+          "code": "LGS834CB201WH",
+          "field": "models3d",
+          "before": "LGS834层板.glb|models3d/catalog/LGS834-965a8955.glb",
+          "after": "LGS834层板.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS834-965a8955.glb"
+        }
+      ]
+    },
+    {
       "id": "notif_ubgva2",
       "type": "github-save",
       "actor": "admin",
@@ -8180,29 +8217,6 @@
           "field": "",
           "before": "LGS033PKXKD",
           "after": "LGS033PKXWH"
-        }
-      ]
-    },
-    {
-      "id": "notif_1agkzqi",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-30T07:54:08.898Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS834",
-          "field": "effectiveRevision",
-          "before": "",
-          "after": "V4"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS834",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
         }
       ]
     }
@@ -9495,6 +9509,45 @@
       }
     ],
     "LGS834": [
+      {
+        "id": "history_1pbni21",
+        "productCode": "LGS834",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-12T02:12:13.278Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS834CB201BH",
+            "field": "material",
+            "before": "Q195",
+            "after": "PB"
+          },
+          {
+            "kind": "material",
+            "code": "LGS834CB201BH",
+            "field": "models3d",
+            "before": "LGS834层板.glb|models3d/catalog/LGS834-965a8955.glb",
+            "after": "LGS834层板.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS834-965a8955.glb"
+          },
+          {
+            "kind": "material",
+            "code": "LGS834CB201WH",
+            "field": "material",
+            "before": "Q195",
+            "after": "PB"
+          },
+          {
+            "kind": "material",
+            "code": "LGS834CB201WH",
+            "field": "models3d",
+            "before": "LGS834层板.glb|models3d/catalog/LGS834-965a8955.glb",
+            "after": "LGS834层板.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS834-965a8955.glb"
+          }
+        ]
+      },
       {
         "id": "history_1acfwzu",
         "productCode": "LGS834",
