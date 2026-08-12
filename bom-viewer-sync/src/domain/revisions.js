@@ -353,6 +353,18 @@ function payloadForProductRevision(payload, productCode, selectedRevision) {
   const historical = record.revisions.find((item) => item.revision === selected);
   if (!historical || !hasProductSnapshot(historical)) return payload;
   const snapshot = normalizeRevisionSnapshot(historical.snapshot);
+  
+  if (payload.materialDb && Array.isArray(payload.materialDb.bomEntries)) {
+    const globalMaterialEntries = payload.materialDb.bomEntries.filter((e) => e.parentType === 'material');
+    const snapshotProductEntries = (snapshot.materialDb.bomEntries || []).filter((e) => e.parentType === 'product');
+    
+    snapshot.materialDb.bomEntries = [...snapshotProductEntries, ...globalMaterialEntries];
+    snapshot.materialDb.materials = {
+      ...payload.materialDb.materials,
+      ...(snapshot.materialDb.materials || {})
+    };
+  }
+
   return {
     ...payload,
     bom: { [productCode]: snapshot.product },
