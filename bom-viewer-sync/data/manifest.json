@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-12T06:33:27.063Z",
+  "updatedAt": "2026-08-12T06:46:31.798Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -7455,6 +7455,43 @@
   },
   "notifications": [
     {
+      "id": "notif_1uxez6a",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-12T06:46:31.798Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "bom_added",
+          "code": "LGS032YKBH",
+          "field": "FG1515064864",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "bom_added",
+          "code": "LGS032YKBH",
+          "field": "FG1515065790",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "bom_added",
+          "code": "LGS032ZKBH",
+          "field": "FG1515064864",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "bom_added",
+          "code": "LGS032ZKBH",
+          "field": "FG1515065790",
+          "before": "",
+          "after": ""
+        }
+      ]
+    },
+    {
       "id": "notif_wk7he2",
       "type": "github-save",
       "actor": "admin",
@@ -8643,36 +8680,6 @@
           "field": "models3d",
           "before": "",
           "after": "M6x12内六角螺丝|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
-        }
-      ]
-    },
-    {
-      "id": "notif_ufl2lw",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-08T04:15:21.388Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "LGS232ZK",
-          "field": "spec",
-          "before": "单瓦1100x60mm / sóng đơn 1100x60mm",
-          "after": "单瓦1100x100mm / sóng đơn 1100x100mm"
-        },
-        {
-          "kind": "material",
-          "code": "LGS333ZK",
-          "field": "spec",
-          "before": "单瓦1100x60mm / sóng đơn 1100x60mm",
-          "after": "单瓦1100x100mm / sóng đơn 1100x100mm"
-        },
-        {
-          "kind": "material",
-          "code": "LGS434ZK",
-          "field": "spec",
-          "before": "单瓦840x60mm / sóng đơn 840x60mm",
-          "after": "单瓦840x100mm / sóng đơn 840x100mm"
         }
       ]
     }

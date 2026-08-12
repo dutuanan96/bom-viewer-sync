@@ -84012,6 +84012,66 @@
         "color_ver": "白色",
         "color_ver_vi": "白色",
         "order": 48
+      },
+      {
+        "id": "bomc_1tdul1u",
+        "parentType": "material",
+        "parentId": "mat_n3m59f",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_fg1515064864",
+        "childMaterialId": "mat_fg1515064864",
+        "stt": "",
+        "comp_code": "",
+        "qty": "0.333333",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 1786517067712
+      },
+      {
+        "id": "bomc_39oyeq",
+        "parentType": "material",
+        "parentId": "mat_n3m59f",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_fg1515065790",
+        "childMaterialId": "mat_fg1515065790",
+        "stt": "",
+        "comp_code": "",
+        "qty": "0.045455",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 1786517073860
+      },
+      {
+        "id": "bomc_y2jbox",
+        "parentType": "material",
+        "parentId": "mat_a987en",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_fg1515064864",
+        "childMaterialId": "mat_fg1515064864",
+        "stt": "",
+        "comp_code": "",
+        "qty": "0.333333",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 1786517172192
+      },
+      {
+        "id": "bomc_ouqyp",
+        "parentType": "material",
+        "parentId": "mat_a987en",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_fg1515065790",
+        "childMaterialId": "mat_fg1515065790",
+        "stt": "",
+        "comp_code": "",
+        "qty": "0.045455",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 1786517178058
       }
     ]
   }
