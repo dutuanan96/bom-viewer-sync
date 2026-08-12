@@ -31590,7 +31590,12 @@
           "zh": "零件",
           "vi": "linh kiện"
         },
-        "drawings": [],
+        "drawings": [
+          {
+            "url": "https://drive.google.com/file/d/1u5bYs4sc-UFANGDcVSG_MTACPrNf0GOK/view?usp=sharing",
+            "name": "LGS723_733-中竖梁-后"
+          }
+        ],
         "models3d": [
           {
             "name": "LGS723_733中竖梁-后.glb",
