@@ -19689,8 +19689,8 @@
         "id": "mat_rjdsu7",
         "code": "LGS131CBZWH",
         "name": {
-          "zh": "LGS131_231-中间层板",
-          "vi": "LGS131_231-Tấm tầng giữa"
+          "zh": "LGS131_231_232-中间层板",
+          "vi": "LGS131_231_232-Tấm tầng giữa"
         },
         "spec": {
           "zh": "556x335x12mm",
@@ -19708,8 +19708,19 @@
           "zh": "零件",
           "vi": "linh kiện"
         },
-        "drawings": [],
-        "models3d": []
+        "drawings": [
+          {
+            "url": "https://drive.google.com/file/d/1kmYaif71YuAOaXHPfjwtOKvJrHbag0Eb/view?usp=sharing",
+            "name": "LGS131_231_232-中间层板"
+          }
+        ],
+        "models3d": [
+          {
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb",
+            "name": "LGS131_231_232-中间层板",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb"
+          }
+        ]
       },
       "mat_1nm2vtt": {
         "id": "mat_1nm2vtt",
@@ -23142,7 +23153,12 @@
           "zh": "零件",
           "vi": "linh kiện"
         },
-        "drawings": [],
+        "drawings": [
+          {
+            "url": "https://drive.google.com/file/d/1kmYaif71YuAOaXHPfjwtOKvJrHbag0Eb/view?usp=sharing",
+            "name": "LGS131_231_232-中间层板"
+          }
+        ],
         "models3d": [
           {
             "name": "LGS232_231_131-中间层板.glb",
@@ -23150,7 +23166,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb",
             "matched_name": "LGS232_231_131-中间层板",
             "score": 1100,
-            "bytes": 25284
+            "bytes": 25284,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb"
           }
         ]
       },

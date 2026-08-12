@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-12T06:29:52.417Z",
+  "updatedAt": "2026-08-12T06:33:27.063Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -7455,6 +7455,50 @@
   },
   "notifications": [
     {
+      "id": "notif_wk7he2",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-12T06:33:27.063Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "LGS131CBZWH",
+          "field": "name",
+          "before": "LGS131_231-中间层板 / LGS131_231-Tấm tầng giữa",
+          "after": "LGS131_231_232-中间层板 / LGS131_231_232-Tấm tầng giữa"
+        },
+        {
+          "kind": "material",
+          "code": "LGS131CBZWH",
+          "field": "drawings",
+          "before": "",
+          "after": "LGS131_231_232-中间层板|https://drive.google.com/file/d/1kmYaif71YuAOaXHPfjwtOKvJrHbag0Eb/view?usp=sharing"
+        },
+        {
+          "kind": "material",
+          "code": "LGS131CBZWH",
+          "field": "models3d",
+          "before": "",
+          "after": "LGS131_231_232-中间层板|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb"
+        },
+        {
+          "kind": "material",
+          "code": "LGS232CBSBH",
+          "field": "drawings",
+          "before": "",
+          "after": "LGS131_231_232-中间层板|https://drive.google.com/file/d/1kmYaif71YuAOaXHPfjwtOKvJrHbag0Eb/view?usp=sharing"
+        },
+        {
+          "kind": "material",
+          "code": "LGS232CBSBH",
+          "field": "models3d",
+          "before": "LGS232_231_131-中间层板.glb|models3d/catalog/LGS232-231-131-6e6242dc.glb",
+          "after": "LGS232_231_131-中间层板.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb"
+        }
+      ]
+    },
+    {
       "id": "notif_1yk8kym",
       "type": "github-save",
       "actor": "admin",
@@ -8631,71 +8675,6 @@
           "after": "单瓦840x100mm / sóng đơn 840x100mm"
         }
       ]
-    },
-    {
-      "id": "notif_1l4c95u",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-08T03:43:39.159Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "LGS111ZK",
-          "field": "spec",
-          "before": "单瓦785x60mm / sóng đơn 1100x60mm",
-          "after": "单瓦785x100mm"
-        },
-        {
-          "kind": "material",
-          "code": "LGS231ZK",
-          "field": "spec",
-          "before": "单瓦950x60mm / sóng đơn 950x60mm",
-          "after": "单瓦950x100mm"
-        },
-        {
-          "kind": "material",
-          "code": "LGS233ZK",
-          "field": "spec",
-          "before": "单瓦925x60mm / sóng đơn 925x60mm",
-          "after": "单瓦925x100mm"
-        },
-        {
-          "kind": "material",
-          "code": "LGS334ZK",
-          "field": "spec",
-          "before": "单瓦840x60mm / sóng đơn 840x60mm",
-          "after": "单瓦840x100mm"
-        },
-        {
-          "kind": "material",
-          "code": "LGS420ZK",
-          "field": "spec",
-          "before": "单瓦860x60mm / sóng đơn 860x60mm",
-          "after": "单瓦860x100mm"
-        },
-        {
-          "kind": "material",
-          "code": "LGS421ZK",
-          "field": "spec",
-          "before": "单瓦1000x60mm / sóng đơn 1000x60mm",
-          "after": "单瓦1000x100mm"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS333",
-          "field": "effectiveRevision",
-          "before": "V4",
-          "after": ""
-        },
-        {
-          "kind": "revision",
-          "code": "LGS333",
-          "field": "workflowState",
-          "before": "released",
-          "after": "draft"
-        }
-      ]
     }
   ],
   "bomHistory": {
@@ -8773,6 +8752,31 @@
       }
     ],
     "LGS231": [
+      {
+        "id": "history_xhvyxe",
+        "productCode": "LGS231",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-12T06:33:27.063Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS232CBSBH",
+            "field": "drawings",
+            "before": "",
+            "after": "LGS131_231_232-中间层板|https://drive.google.com/file/d/1kmYaif71YuAOaXHPfjwtOKvJrHbag0Eb/view?usp=sharing"
+          },
+          {
+            "kind": "material",
+            "code": "LGS232CBSBH",
+            "field": "models3d",
+            "before": "LGS232_231_131-中间层板.glb|models3d/catalog/LGS232-231-131-6e6242dc.glb",
+            "after": "LGS232_231_131-中间层板.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb"
+          }
+        ]
+      },
       {
         "id": "history_1vajqrw",
         "productCode": "LGS231",
@@ -10141,6 +10145,31 @@
     ],
     "LGS232": [
       {
+        "id": "history_6r4nc5",
+        "productCode": "LGS232",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-12T06:33:27.063Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS232CBSBH",
+            "field": "drawings",
+            "before": "",
+            "after": "LGS131_231_232-中间层板|https://drive.google.com/file/d/1kmYaif71YuAOaXHPfjwtOKvJrHbag0Eb/view?usp=sharing"
+          },
+          {
+            "kind": "material",
+            "code": "LGS232CBSBH",
+            "field": "models3d",
+            "before": "LGS232_231_131-中间层板.glb|models3d/catalog/LGS232-231-131-6e6242dc.glb",
+            "after": "LGS232_231_131-中间层板.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb"
+          }
+        ]
+      },
+      {
         "id": "history_1i5oq0a",
         "productCode": "LGS232",
         "revision": "V3",
@@ -10558,6 +10587,52 @@
       }
     ],
     "LGS131": [
+      {
+        "id": "history_1ushk4",
+        "productCode": "LGS131",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-12T06:33:27.063Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS131CBZWH",
+            "field": "name",
+            "before": "LGS131_231-中间层板 / LGS131_231-Tấm tầng giữa",
+            "after": "LGS131_231_232-中间层板 / LGS131_231_232-Tấm tầng giữa"
+          },
+          {
+            "kind": "material",
+            "code": "LGS131CBZWH",
+            "field": "drawings",
+            "before": "",
+            "after": "LGS131_231_232-中间层板|https://drive.google.com/file/d/1kmYaif71YuAOaXHPfjwtOKvJrHbag0Eb/view?usp=sharing"
+          },
+          {
+            "kind": "material",
+            "code": "LGS131CBZWH",
+            "field": "models3d",
+            "before": "",
+            "after": "LGS131_231_232-中间层板|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb"
+          },
+          {
+            "kind": "material",
+            "code": "LGS232CBSBH",
+            "field": "drawings",
+            "before": "",
+            "after": "LGS131_231_232-中间层板|https://drive.google.com/file/d/1kmYaif71YuAOaXHPfjwtOKvJrHbag0Eb/view?usp=sharing"
+          },
+          {
+            "kind": "material",
+            "code": "LGS232CBSBH",
+            "field": "models3d",
+            "before": "LGS232_231_131-中间层板.glb|models3d/catalog/LGS232-231-131-6e6242dc.glb",
+            "after": "LGS232_231_131-中间层板.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb"
+          }
+        ]
+      },
       {
         "id": "history_1husz17",
         "productCode": "LGS131",
