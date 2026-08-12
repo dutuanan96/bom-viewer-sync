@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-12T02:56:20.434Z",
+  "updatedAt": "2026-08-12T02:58:29.829Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6324,7 +6324,7 @@
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6366,6 +6366,14 @@
           "revision": "V4",
           "previousRevision": "V4",
           "occurredAt": "2026-08-12T02:54:36.914Z",
+          "reason": "更新"
+        },
+        {
+          "id": "effectivity_mspi28dc",
+          "action": "release",
+          "revision": "V4",
+          "previousRevision": "V4",
+          "occurredAt": "2026-08-12T02:58:27.168Z",
           "reason": "更新"
         }
       ]
@@ -7174,6 +7182,22 @@
     }
   },
   "notifications": [
+    {
+      "id": "notif_dq5tio",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-12T02:58:29.829Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS733",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        }
+      ]
+    },
     {
       "id": "notif_1lnizzu",
       "type": "github-save",
@@ -8188,43 +8212,6 @@
           "field": "",
           "before": "LGS233ZFXKD",
           "after": "LGS233ZFXBH"
-        }
-      ]
-    },
-    {
-      "id": "notif_11uvw8g",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-30T08:05:38.932Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS131",
-          "field": "currentRevision",
-          "before": "",
-          "after": "V3"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS131",
-          "field": "workflowState",
-          "before": "",
-          "after": "draft"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS131",
-          "field": "",
-          "before": "LGS131ZFXKD",
-          "after": "LGS131ZFXWH"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS131",
-          "field": "",
-          "before": "LGS131ZFXKD",
-          "after": "LGS131ZFXBH"
         }
       ]
     }
@@ -9407,6 +9394,24 @@
       }
     ],
     "LGS733": [
+      {
+        "id": "history_uecror",
+        "productCode": "LGS733",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-12T02:58:29.829Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS733",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
       {
         "id": "history_18mdrl0",
         "productCode": "LGS733",
