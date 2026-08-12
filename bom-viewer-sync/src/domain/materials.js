@@ -119,109 +119,156 @@ function legacyRowFromRecord(record, entry) {
   };
 }
 
-function createMaterialDatabase(payload) {
-  const source = payload || {};
-  const db = { version: 1, materials: {}, bomEntries: [] };
-  const productEntriesByColor = new Map();
-  Object.entries(source.bom || {}).forEach(([productCode, product]) => {
-    Object.entries(product.color_info || {}).forEach(([colorName, colorData]) => {
-      const productEntries = [];
-      (colorData.materials || []).forEach((material, index) => {
-        const canonical = canonicalLegacyMaterial(material, productCode);
-        const materialId = materialIdFor(canonical, productCode);
-        if (!db.materials[materialId]) db.materials[materialId] = materialRecordFromLegacy(canonical, productCode);
-        const record = db.materials[materialId];
-        seedAsset(
-          record.drawings,
-          findBomAssets((source.drawings || {})[productCode], material),
-          findBomAssets((source.drawings || {})[productCode], canonical),
-        );
-        seedAsset(
-          record.models3d,
-          findBomAssets((source.models3d || {})[productCode], material),
-          findBomAssets((source.models3d || {})[productCode], canonical),
-        );
-        const entry = {
-          id: stableId('bom', `${productCode}|${colorName}|${index}|${materialId}|${material.comp_code || ''}`),
-          parentType: 'product',
-          parentId: productCode,
-          productCode,
-          color: colorName,
-          materialId,
-          stt: String(material.stt || ''),
-          comp_code: String(material.comp_code || ''),
-          qty: String(material.qty || ''),
-          color_ver: String(material.color_ver || colorData.color_ver || colorName),
-          color_ver_vi: String(material.color_ver_vi || colorData.color_ver_vi || colorName),
-          order: index
-        };
-        db.bomEntries.push(entry);
-        productEntries.push({ entry, material: canonical });
-      });
-      productEntriesByColor.set(`${productCode}|${colorName}`, productEntries);
-    });
-  });
-
-  productEntriesByColor.forEach((entries, key) => {
-    let hardwarePack = entries.find((item) => isHardwarePackSummary(db.materials[item.entry.materialId]));
-    const hardwareChildren = entries.filter((item) => db.materials[item.entry.materialId]?.attr?.zh === '五金包');
-    if (!hardwarePack && hardwareChildren.length) {
-      const [productCode, colorName] = key.split('|');
-      const isWhite = colorName.includes('白') || colorName.toLowerCase().includes('white');
-      const virtualMaterial = {
-        mat_code: `${productCode}WJB${isWhite ? 'WH' : 'BH'}`,
-        name_zh: `${productCode}五金包`,
-        name_vi: `${productCode} tui ngu kim`,
-        spec: '',
-        spec_vi: '',
-        material_zh: '无',
-        material_vi: 'khong',
-        color_zh: '',
-        color_vi: '',
-        attr_zh: '零件',
-        attr_vi: 'linh kien'
-      };
-      const materialId = materialIdFor(virtualMaterial, productCode);
-      if (!db.materials[materialId]) db.materials[materialId] = materialRecordFromLegacy(virtualMaterial, productCode);
-      const firstOrder = hardwareChildren[0]?.entry?.order ?? 0;
+function scanBomVersionIntoDb(db, source, productCode, product, revisionLabel, isDraft, productEntriesByColor) {
+  // Resolve the actual color_info to scan: snapshot.product has color_info at root level
+  const productData = product.color_info ? product : (product.product || product);
+  Object.entries(productData.color_info || {}).forEach(([colorName, colorData]) => {
+    const productEntries = [];
+    (colorData.materials || []).forEach((material, index) => {
+      const canonical = canonicalLegacyMaterial(material, productCode);
+      const materialId = materialIdFor(canonical, productCode);
+      if (!db.materials[materialId]) db.materials[materialId] = materialRecordFromLegacy(canonical, productCode);
+      const record = db.materials[materialId];
+      seedAsset(
+        record.drawings,
+        findBomAssets((source.drawings || {})[productCode], material),
+        findBomAssets((source.drawings || {})[productCode], canonical),
+      );
+      seedAsset(
+        record.models3d,
+        findBomAssets((source.models3d || {})[productCode], material),
+        findBomAssets((source.models3d || {})[productCode], canonical),
+      );
       const entry = {
-        id: stableId('bomv', `${key}|${materialId}`),
+        id: stableId('bom', `${productCode}|${colorName}|${index}|${materialId}|${material.comp_code || ''}|${revisionLabel || ''}`),
         parentType: 'product',
         parentId: productCode,
         productCode,
         color: colorName,
         materialId,
-        stt: '',
-        comp_code: '无',
-        qty: '1',
-        color_ver: colorName,
-        color_ver_vi: colorName,
-        order: firstOrder - 0.1,
-        virtual: true
+        stt: String(material.stt || ''),
+        comp_code: String(material.comp_code || ''),
+        qty: String(material.qty || ''),
+        color_ver: String(material.color_ver || colorData.color_ver || colorName),
+        color_ver_vi: String(material.color_ver_vi || colorData.color_ver_vi || colorName),
+        order: index,
+        revision: revisionLabel,
+        isDraft,
       };
       db.bomEntries.push(entry);
-      hardwarePack = { entry, material: virtualMaterial };
-    }
-    if (!hardwarePack) return;
-    hardwareChildren.forEach((item, index) => {
-      const childEntry = {
-        id: stableId('bomc', `${key}|${hardwarePack.entry.materialId}|${item.entry.materialId}|${index}`),
-        parentType: 'material',
-        parentId: hardwarePack.entry.materialId,
-        productCode: hardwarePack.entry.productCode,
-        color: hardwarePack.entry.color,
-        materialId: item.entry.materialId,
-        childMaterialId: item.entry.materialId,
-        stt: item.entry.stt,
-        comp_code: item.entry.comp_code,
-        qty: item.entry.qty,
-        color_ver: item.entry.color_ver,
-        color_ver_vi: item.entry.color_ver_vi,
-        order: index
-      };
-      db.bomEntries.push(childEntry);
+      productEntries.push({ entry, material: canonical });
     });
+    productEntriesByColor.set(`${productCode}|${colorName}|${revisionLabel || ''}`, productEntries);
   });
+}
+
+function appendHardwarePackEntries(db, entries, key) {
+  let hardwarePack = entries.find((item) => isHardwarePackSummary(db.materials[item.entry.materialId]));
+  const hardwareChildren = entries.filter((item) => db.materials[item.entry.materialId]?.attr?.zh === '五金包');
+  if (!hardwarePack && hardwareChildren.length) {
+    const [productCode, colorName, revision] = key.split('|');
+    const isWhite = colorName.includes('白') || colorName.toLowerCase().includes('white');
+    const virtualMaterial = {
+      mat_code: `${productCode}WJB${isWhite ? 'WH' : 'BH'}`,
+      name_zh: `${productCode}五金包`,
+      name_vi: `${productCode} tui ngu kim`,
+      spec: '',
+      spec_vi: '',
+      material_zh: '无',
+      material_vi: 'khong',
+      color_zh: '',
+      color_vi: '',
+      attr_zh: '零件',
+      attr_vi: 'linh kien'
+    };
+    const materialId = materialIdFor(virtualMaterial, productCode);
+    if (!db.materials[materialId]) db.materials[materialId] = materialRecordFromLegacy(virtualMaterial, productCode);
+    const firstOrder = hardwareChildren[0]?.entry?.order ?? 0;
+    const entry = {
+      id: stableId('bomv', `${key}|${materialId}`),
+      parentType: 'product',
+      parentId: productCode,
+      productCode,
+      color: colorName,
+      materialId,
+      stt: '',
+      comp_code: '无',
+      qty: '1',
+      color_ver: colorName,
+      color_ver_vi: colorName,
+      order: firstOrder - 0.1,
+      virtual: true,
+      revision: revision || undefined,
+      isDraft: entries[0]?.entry?.isDraft,
+    };
+    db.bomEntries.push(entry);
+    hardwarePack = { entry, material: virtualMaterial };
+  }
+  if (!hardwarePack) return;
+  hardwareChildren.forEach((item, index) => {
+    const childEntry = {
+      id: stableId('bomc', `${key}|${hardwarePack.entry.materialId}|${item.entry.materialId}|${index}`),
+      parentType: 'material',
+      parentId: hardwarePack.entry.materialId,
+      productCode: hardwarePack.entry.productCode,
+      color: hardwarePack.entry.color,
+      materialId: item.entry.materialId,
+      childMaterialId: item.entry.materialId,
+      stt: item.entry.stt,
+      comp_code: item.entry.comp_code,
+      qty: item.entry.qty,
+      color_ver: item.entry.color_ver,
+      color_ver_vi: item.entry.color_ver_vi,
+      order: index,
+      revision: hardwarePack.entry.revision,
+      isDraft: hardwarePack.entry.isDraft,
+    };
+    db.bomEntries.push(childEntry);
+  });
+}
+
+function createMaterialDatabase(payload) {
+  const source = payload || {};
+
+  // --- Phase 1: Draft BOM (the current editable state) ---
+  // This is the ONLY source used for BOM rendering, editing, and saving.
+  const db = { version: 1, materials: {}, bomEntries: [] };
+  const productEntriesByColor = new Map();
+  Object.entries(source.bom || {}).forEach(([productCode, product]) => {
+    const revMeta = source.productRevisions?.[productCode];
+    const currentRevision = revMeta?.currentRevision || '';
+    scanBomVersionIntoDb(db, source, productCode, product, currentRevision, true, productEntriesByColor);
+  });
+  productEntriesByColor.forEach((entries, key) => appendHardwarePackEntries(db, entries, key));
+
+  // --- Phase 2: Released effective snapshots (for Where-Used cross-reference only) ---
+  // These entries are SEPARATE: they are appended AFTER the main db is built.
+  // They are tagged with isDraft:false. BOM renderers filter only isDraft entries
+  // (or equivalently, entries with the same revision as currentRevision).
+  // This phase only runs if a product has a DIFFERENT effective release from its current draft.
+  const effectiveEntriesByColor = new Map();
+  const effectiveDb = { version: 1, materials: db.materials, bomEntries: [] };
+  Object.entries(source.bom || {}).forEach(([productCode]) => {
+    const revMeta = source.productRevisions?.[productCode];
+    if (!revMeta || !revMeta.effectiveRevision || revMeta.effectiveRevision === revMeta.currentRevision) return;
+    const effectiveRevision = revMeta.effectiveRevision;
+    const effectiveSnapshotRaw = (revMeta.revisions || []).find(r => r.revision === effectiveRevision)?.snapshot;
+    if (!effectiveSnapshotRaw) return;
+    // Normalize: snapshot.product has the color_info; snapshot may also have materialDb (ignored)
+    const effectiveProduct = effectiveSnapshotRaw.product || effectiveSnapshotRaw;
+    scanBomVersionIntoDb(effectiveDb, source, productCode, effectiveProduct, effectiveRevision, false, effectiveEntriesByColor);
+  });
+  effectiveEntriesByColor.forEach((entries, key) => appendHardwarePackEntries(effectiveDb, entries, key));
+
+  // Merge: effective entries appended after draft entries.
+  // Renderers that do not filter by revision will still only see the draft entries
+  // IF they iterate based on source.bom, because they only look at productCode+colorName
+  // combinations that exist in the draft.
+  // However syncLegacyBomFromMaterialDb and resolveBomRows MUST only operate on isDraft entries.
+  // To be safe, we tag draft entries AND do NOT mix them with effective entries in the flat array.
+  // Instead, effective entries live in a SEPARATE array exposed as db.effectiveEntries.
+  db.effectiveEntries = effectiveDb.bomEntries;
+
   return db;
 }
 
@@ -234,8 +281,10 @@ function normalizeMaterialDatabase(payload) {
 
 function materialWhereUsed(payload, materialId) {
   const entries = (payload?.materialDb?.bomEntries || []);
+  const effectiveEntries = (payload?.materialDb?.effectiveEntries || []);
+  const allEntries = [...entries, ...effectiveEntries];
   return {
-    productEntries: entries.filter((entry) => entry.parentType === 'product' && entry.materialId === materialId),
+    productEntries: allEntries.filter((entry) => entry.parentType === 'product' && entry.materialId === materialId),
     parentEntries: entries.filter((entry) => entry.parentType === 'material' && entry.materialId === materialId),
     childEntries: entries.filter((entry) => entry.parentType === 'material' && entry.parentId === materialId)
   };

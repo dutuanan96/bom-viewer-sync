@@ -536,43 +536,65 @@ export class PdmKnowledge {
 
   /**
    * Find all products that use a given materialId.
-   whereUsed({ materialId } = {}) {
-     // Auto-resolve: if materialId not found in materialDb, try resolving from materialCode
-     let resolvedId = materialId;
-     if (materialId && !this._payload?.materialDb?.materials?.[materialId]) {
-       const materialDb = this._payload?.materialDb?.materials || {};
-       for (const [id, mat] of Object.entries(materialDb)) {
-         if (mat?.code === materialId || mat?.mat_code === materialId || mat?.materialCode === materialId) {
-           resolvedId = id;
-           break;
-         }
-       }
-     }
-     // Get colors from BOM entries for this material, not from product.colors (which may be undefined)
-     const materialEntries = (this._payload?.materialDb?.bomEntries || []).filter(e => e.materialId === resolvedId);
-     const colorMap = new Map(); // productCode -> Set of colors
-     for (const entry of materialEntries) {
-       if (!entry.productCode) continue;
-       if (!colorMap.has(entry.productCode)) colorMap.set(entry.productCode, new Set());
-       if (entry.color) colorMap.get(entry.productCode).add(entry.color);
-     }
+   */
+  whereUsed({ materialId } = {}) {
+    // Auto-resolve: if materialId not found in materialDb, try resolving from materialCode
+    let resolvedId = materialId;
+    if (materialId && !this._payload?.materialDb?.materials?.[materialId]) {
+      const materialDb = this._payload?.materialDb?.materials || {};
+      for (const [id, mat] of Object.entries(materialDb)) {
+        if (mat?.code === materialId || mat?.mat_code === materialId || mat?.materialCode === materialId) {
+          resolvedId = id;
+          break;
+        }
+      }
+    }
+    // Gather all entries: draft (bomEntries) + released effective (effectiveEntries)
+    const allEntries = [
+      ...(this._payload?.materialDb?.bomEntries || []),
+      ...(this._payload?.materialDb?.effectiveEntries || []),
+    ];
+    const materialEntries = allEntries.filter(e => e.materialId === resolvedId);
+    const colorMap = new Map(); // productCode -> Set of colors
+    for (const entry of materialEntries) {
+      if (!entry.productCode) continue;
+      if (!colorMap.has(entry.productCode)) colorMap.set(entry.productCode, new Set());
+      if (entry.color) colorMap.get(entry.productCode).add(entry.color);
+    }
 
-     const bom = this._payload.bom || {};
-     const usage = [];
+    // Track keys that come exclusively from effective (released) entries
+    const effectiveOnlyKeys = new Set(
+      (this._payload?.materialDb?.effectiveEntries || [])
+        .filter(e => e.materialId === resolvedId && e.productCode)
+        .map(e => `${e.productCode}|${e.color || ''}|${e.revision || ''}`)
+    );
 
-     for (const [productCode, product] of Object.entries(bom)) {
-       if (!product) continue;
-       const colors = colorMap.get(productCode);
-       const colorsToCheck = colors && colors.size > 0 ? [...colors] : (product.colors || ['']);
-       for (const color of colorsToCheck) {
-         const rows = buildBomTreeRows(this._payload, productCode, color);
-         const found = rows.some(r => r._materialId === resolvedId || (r.comp_code && r.comp_code === resolvedId));
-         if (found) {
-           usage.push({ productCode, color });
-         }
-       }
-       if (usage.length >= MAX_SEARCH_RESULTS) break;
-     }
+    const bom = this._payload.bom || {};
+    const usage = [];
+
+    for (const [productCode, product] of Object.entries(bom)) {
+      if (!product) continue;
+      const colors = colorMap.get(productCode);
+      const colorsToCheck = colors && colors.size > 0 ? [...colors] : (product.colors || ['']);
+      for (const color of colorsToCheck) {
+        const rows = buildBomTreeRows(this._payload, productCode, color);
+        const found = rows.some(r => r._materialId === resolvedId || (r.comp_code && r.comp_code === resolvedId));
+        if (found) {
+          const revMeta = this._payload?.productRevisions?.[productCode];
+          usage.push({ productCode, color, revision: revMeta?.currentRevision || '', isDraft: true });
+        }
+      }
+      if (usage.length >= MAX_SEARCH_RESULTS) break;
+    }
+
+    // Add effective (released) usages not yet covered by draft
+    for (const key of effectiveOnlyKeys) {
+      const [productCode, color, revision] = key.split('|');
+      const alreadyInDraft = usage.some(u => u.productCode === productCode && u.color === color && u.isDraft);
+      if (!alreadyInDraft) {
+        usage.push({ productCode, color, revision, isDraft: false });
+      }
+    }
 
     return {
       materialId: resolvedId,

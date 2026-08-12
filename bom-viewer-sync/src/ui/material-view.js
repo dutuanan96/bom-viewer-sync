@@ -340,9 +340,13 @@ function materialMasterRelationshipsHtml(record) {
 }
 
 function materialMasterProductUsage(entries) {
-  const products = Array.from(new Set((entries || []).map((entry) => entry.productCode).filter(Boolean))).sort();
-  const pills = products.length
-    ? products.map((code) => `<span class="spu-pill">${escapeHTML(code)}</span>`).join('')
+  const usageKeys = Array.from(new Set((entries || []).filter(e => e.productCode).map(e => {
+    const revLabel = e.revision ? (e.isDraft ? ` (${e.revision} Nháp)` : ` (${e.revision})`) : '';
+    return JSON.stringify({ code: e.productCode, label: `${e.productCode}${revLabel}` });
+  }))).map(k => JSON.parse(k)).sort((a, b) => a.label.localeCompare(b.label));
+
+  const pills = usageKeys.length
+    ? usageKeys.map((item) => `<span class="spu-pill" data-spu="${escapeHTML(item.code)}">${escapeHTML(item.label)}</span>`).join('')
     : '<span class="mdb-empty">-</span>';
   return `<div class="material-master-relation"><strong>${escapeHTML(this.label('whereUsed'))}</strong><div class="spu-pill-list">${pills}</div></div>`;
 }
