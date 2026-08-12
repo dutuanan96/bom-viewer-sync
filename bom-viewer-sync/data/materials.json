@@ -31554,7 +31554,12 @@
           "zh": "零件",
           "vi": "linh kiện"
         },
-        "drawings": [],
+        "drawings": [
+          {
+            "url": "https://drive.google.com/file/d/1wGNyEQ86gWC4wPklqJJQUti1oVut05AB/view?usp=sharing",
+            "name": "LGS723_733-中竖梁-前"
+          }
+        ],
         "models3d": [
           {
             "name": "LGS723_733中竖梁-前.glb",

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-12T04:20:08.124Z",
+  "updatedAt": "2026-08-12T04:23:51.552Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -7423,6 +7423,22 @@
   },
   "notifications": [
     {
+      "id": "notif_1wsqoe4",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-12T04:23:51.552Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "LGS723XZQSLWH",
+          "field": "drawings",
+          "before": "",
+          "after": "LGS723_733-中竖梁-前|https://drive.google.com/file/d/1wGNyEQ86gWC4wPklqJJQUti1oVut05AB/view?usp=sharing"
+        }
+      ]
+    },
+    {
       "id": "notif_176xv60",
       "type": "github-save",
       "actor": "admin",
@@ -8618,71 +8634,6 @@
           "field": "workflowState",
           "before": "released",
           "after": "draft"
-        }
-      ]
-    },
-    {
-      "id": "notif_1u5rupi",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-06T09:39:57.644Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS433",
-          "field": "effectiveRevision",
-          "before": "",
-          "after": "V4"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS433",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS333",
-          "field": "effectiveRevision",
-          "before": "",
-          "after": "V4"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS333",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS033",
-          "field": "effectiveRevision",
-          "before": "",
-          "after": "V4"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS033",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS101",
-          "field": "effectiveRevision",
-          "before": "",
-          "after": "V2"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS101",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
         }
       ]
     }
@@ -10871,6 +10822,24 @@
     ],
     "LGS723": [
       {
+        "id": "history_rszbbe",
+        "productCode": "LGS723",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-12T04:23:51.552Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS723XZQSLWH",
+            "field": "drawings",
+            "before": "",
+            "after": "LGS723_733-中竖梁-前|https://drive.google.com/file/d/1wGNyEQ86gWC4wPklqJJQUti1oVut05AB/view?usp=sharing"
+          }
+        ]
+      },
+      {
         "id": "history_1bzhiia",
         "productCode": "LGS723",
         "revision": "V4",
@@ -11014,6 +10983,24 @@
       }
     ],
     "LGS733": [
+      {
+        "id": "history_11dgwpt",
+        "productCode": "LGS733",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-12T04:23:51.552Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS723XZQSLWH",
+            "field": "drawings",
+            "before": "",
+            "after": "LGS723_733-中竖梁-前|https://drive.google.com/file/d/1wGNyEQ86gWC4wPklqJJQUti1oVut05AB/view?usp=sharing"
+          }
+        ]
+      },
       {
         "id": "history_1l3xdfd",
         "productCode": "LGS733",
