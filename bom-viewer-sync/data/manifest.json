@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-12T04:12:59.216Z",
+  "updatedAt": "2026-08-12T04:13:51.433Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -7022,12 +7022,12 @@
     },
     "LGS233": {
       "currentRevision": "V4",
-      "effectiveRevision": "",
+      "effectiveRevision": "V4",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -7053,6 +7053,14 @@
           "revision": "V4",
           "previousRevision": "V4",
           "occurredAt": "2026-08-12T04:12:17.253Z",
+          "reason": "更新"
+        },
+        {
+          "id": "effectivity_mspkr7bb",
+          "action": "release",
+          "revision": "V4",
+          "previousRevision": "",
+          "occurredAt": "2026-08-12T04:13:51.431Z",
           "reason": "更新"
         }
       ]
@@ -7414,6 +7422,29 @@
     }
   },
   "notifications": [
+    {
+      "id": "notif_1g1b5i",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-12T04:13:51.433Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS233",
+          "field": "effectiveRevision",
+          "before": "",
+          "after": "V4"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS233",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        }
+      ]
+    },
     {
       "id": "notif_1p78peq",
       "type": "github-save",
@@ -8661,22 +8692,6 @@
           "after": "released"
         }
       ]
-    },
-    {
-      "id": "notif_a6u4oi",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-06T02:30:03.870Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "LGS433ZK",
-          "field": "spec",
-          "before": "单瓦1100x60mm / sóng đơn 1100x60mm",
-          "after": "单瓦1100x100mm"
-        }
-      ]
     }
   ],
   "bomHistory": {
@@ -8990,6 +9005,31 @@
       }
     ],
     "LGS233": [
+      {
+        "id": "history_x9sxyo",
+        "productCode": "LGS233",
+        "revision": "V4",
+        "action": "release",
+        "actor": "admin",
+        "reason": "更新",
+        "createdAt": "2026-08-12T04:13:51.433Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS233",
+            "field": "effectiveRevision",
+            "before": "",
+            "after": "V4"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS233",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
       {
         "id": "history_1kwwhk0",
         "productCode": "LGS233",
