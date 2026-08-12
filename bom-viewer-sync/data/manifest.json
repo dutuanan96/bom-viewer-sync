@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-12T06:46:31.798Z",
+  "updatedAt": "2026-08-12T07:27:38.863Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -7455,6 +7455,14 @@
   },
   "notifications": [
     {
+      "id": "notif_1jbyvy6",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-12T07:27:38.863Z",
+      "version": 2,
+      "changes": []
+    },
+    {
       "id": "notif_1uxez6a",
       "type": "github-save",
       "actor": "admin",
@@ -8629,57 +8637,6 @@
           "field": "workflowState",
           "before": "draft",
           "after": "released"
-        }
-      ]
-    },
-    {
-      "id": "notif_gc6yv4",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-10T06:15:52.062Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "NLPLS6010BZ",
-          "field": "name",
-          "before": "M6x10内六角螺丝 / M6x10 ốc lục giác",
-          "after": "M6x12内六角螺丝 / M6x12 ốc lục giác"
-        },
-        {
-          "kind": "material",
-          "code": "NLPLS6010BZ",
-          "field": "spec",
-          "before": "M6x10mm",
-          "after": "M6x12mm"
-        },
-        {
-          "kind": "material",
-          "code": "NLPLS6010BZ",
-          "field": "models3d",
-          "before": "M6x10内六角螺丝.glb|models3d/catalog/M6x10-1a5aa14f.glb",
-          "after": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
-        },
-        {
-          "kind": "material",
-          "code": "NLPLS6010WZ",
-          "field": "name",
-          "before": "M6x10内六角螺丝 / M6x10 ốc lục giác",
-          "after": "M6x12内六角螺丝 / M6x12 ốc lục giác"
-        },
-        {
-          "kind": "material",
-          "code": "NLPLS6010WZ",
-          "field": "spec",
-          "before": "M6x10mm",
-          "after": "M6x12mm"
-        },
-        {
-          "kind": "material",
-          "code": "NLPLS6010WZ",
-          "field": "models3d",
-          "before": "",
-          "after": "M6x12内六角螺丝|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
         }
       ]
     }
