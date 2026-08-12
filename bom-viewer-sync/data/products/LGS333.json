@@ -1060,6 +1060,44 @@
           "color_ver": "复古色",
           "color_ver_vi": "复古色",
           "qty": "1"
+        },
+        {
+          "stt": "49",
+          "mat_code": "LGS333XQHLBH",
+          "comp_code": "G",
+          "name_zh": "LGS333_433_733_833底部横杆前",
+          "name_vi": "LGS333_433_733_833 Thanh dưới trước",
+          "spec": "1098x15x15mm",
+          "spec_vi": "1098x15x15mm",
+          "material_zh": "Q195",
+          "material_vi": "Q195",
+          "color_zh": "黑砂纹",
+          "color_vi": "đen nhám",
+          "attr_zh": "零件",
+          "attr_vi": "linh kiện",
+          "color_ver": "复古色",
+          "color_ver_vi": "复古色",
+          "qty": "1",
+          "materials": [
+            {
+              "stt": "",
+              "mat_code": "FG1515065566",
+              "comp_code": "",
+              "name_zh": "方管",
+              "name_vi": "Sắt hộp",
+              "spec": "15×15×0.6Tmm，长度 5566mm",
+              "spec_vi": "15×15×0.6Tmm, dài 5566mm",
+              "material_zh": "Q195",
+              "material_vi": "Q195",
+              "color_zh": "光亮",
+              "color_vi": "sáng bóng",
+              "attr_zh": "原材料",
+              "attr_vi": "Nguyên vật liệu",
+              "color_ver": "",
+              "color_ver_vi": "",
+              "qty": "0.2"
+            }
+          ]
         }
       ]
     },
@@ -2117,6 +2155,44 @@
           "color_ver": "白色",
           "color_ver_vi": "白色",
           "qty": "1"
+        },
+        {
+          "stt": "49",
+          "mat_code": "LGS333XQHLWH",
+          "comp_code": "G",
+          "name_zh": "LGS333_433_733_833底部横杆前",
+          "name_vi": "LGS333_433_733_833 Thanh dưới trước",
+          "spec": "1098x15x15mm",
+          "spec_vi": "1098x15x15mm",
+          "material_zh": "Q195",
+          "material_vi": "Q195",
+          "color_zh": "白砂纹",
+          "color_vi": "trắng nhám",
+          "attr_zh": "零件",
+          "attr_vi": "linh kiện",
+          "color_ver": "白色",
+          "color_ver_vi": "白色",
+          "qty": "1",
+          "materials": [
+            {
+              "stt": "",
+              "mat_code": "FG1515065566",
+              "comp_code": "",
+              "name_zh": "方管",
+              "name_vi": "Sắt hộp",
+              "spec": "15×15×0.6Tmm，长度 5566mm",
+              "spec_vi": "15×15×0.6Tmm, dài 5566mm",
+              "material_zh": "Q195",
+              "material_vi": "Q195",
+              "color_zh": "光亮",
+              "color_vi": "sáng bóng",
+              "attr_zh": "原材料",
+              "attr_vi": "Nguyên vật liệu",
+              "color_ver": "",
+              "color_ver_vi": "",
+              "qty": "0.2"
+            }
+          ]
         }
       ]
     },
@@ -3174,6 +3250,44 @@
           "color_ver": "黑色",
           "color_ver_vi": "黑色",
           "qty": "1"
+        },
+        {
+          "stt": "49",
+          "mat_code": "LGS333XQHLBH",
+          "comp_code": "G",
+          "name_zh": "LGS333_433_733_833底部横杆前",
+          "name_vi": "LGS333_433_733_833 Thanh dưới trước",
+          "spec": "1098x15x15mm",
+          "spec_vi": "1098x15x15mm",
+          "material_zh": "Q195",
+          "material_vi": "Q195",
+          "color_zh": "黑砂纹",
+          "color_vi": "đen nhám",
+          "attr_zh": "零件",
+          "attr_vi": "linh kiện",
+          "color_ver": "黑色",
+          "color_ver_vi": "黑色",
+          "qty": "1",
+          "materials": [
+            {
+              "stt": "",
+              "mat_code": "FG1515065566",
+              "comp_code": "",
+              "name_zh": "方管",
+              "name_vi": "Sắt hộp",
+              "spec": "15×15×0.6Tmm，长度 5566mm",
+              "spec_vi": "15×15×0.6Tmm, dài 5566mm",
+              "material_zh": "Q195",
+              "material_vi": "Q195",
+              "color_zh": "光亮",
+              "color_vi": "sáng bóng",
+              "attr_zh": "原材料",
+              "attr_vi": "Nguyên vật liệu",
+              "color_ver": "",
+              "color_ver_vi": "",
+              "qty": "0.2"
+            }
+          ]
         }
       ]
     }

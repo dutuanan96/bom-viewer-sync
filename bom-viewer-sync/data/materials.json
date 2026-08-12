@@ -83937,6 +83937,48 @@
         "childMaterialId": "mat_fg1515065886",
         "qty": "0.125",
         "order": 0
+      },
+      {
+        "id": "bom_183i5bb",
+        "parentType": "product",
+        "parentId": "LGS333",
+        "productCode": "LGS333",
+        "color": "复古色",
+        "materialId": "mat_1va23cf",
+        "stt": "49",
+        "comp_code": "G",
+        "qty": "1",
+        "color_ver": "复古色",
+        "color_ver_vi": "复古色",
+        "order": 48
+      },
+      {
+        "id": "bom_1thiamm",
+        "parentType": "product",
+        "parentId": "LGS333",
+        "productCode": "LGS333",
+        "color": "黑色",
+        "materialId": "mat_1va23cf",
+        "stt": "49",
+        "comp_code": "G",
+        "qty": "1",
+        "color_ver": "黑色",
+        "color_ver_vi": "黑色",
+        "order": 48
+      },
+      {
+        "id": "bom_zoi223",
+        "parentType": "product",
+        "parentId": "LGS333",
+        "productCode": "LGS333",
+        "color": "白色",
+        "materialId": "mat_t6uv63",
+        "stt": "49",
+        "comp_code": "G",
+        "qty": "1",
+        "color_ver": "白色",
+        "color_ver_vi": "白色",
+        "order": 48
       }
     ]
   }
