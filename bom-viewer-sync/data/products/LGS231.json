@@ -270,7 +270,7 @@
         },
         {
           "stt": "2",
-          "mat_code": "LGS231SHLBH",
+          "mat_code": "LGS131SHLBH",
           "comp_code": "F",
           "name_zh": "LGS131_231-顶部横杆前",
           "name_vi": "LGS131_231-Thanh trên trước",
@@ -526,7 +526,7 @@
         },
         {
           "stt": "13",
-          "mat_code": "LGS231ZZKBHGK",
+          "mat_code": "LGS131ZZKBHGK",
           "comp_code": "C1",
           "name_zh": "LGS131_231_420_421-左中框",
           "name_vi": "LGS131_231_420_421-Khung giữa trái",
@@ -600,7 +600,7 @@
         },
         {
           "stt": "15",
-          "mat_code": "LGS231ZYKBH",
+          "mat_code": "LGS131ZYKBH",
           "comp_code": "D",
           "name_zh": "LGS131_231_420_421-左右侧框",
           "name_vi": "LGS131_231_420_421-Khung bên trái phải",
@@ -638,7 +638,7 @@
         },
         {
           "stt": "16",
-          "mat_code": "LGS231XHLBH",
+          "mat_code": "LGS131XHLBH",
           "comp_code": "E",
           "name_zh": "LGS131_231-底部横杆",
           "name_vi": "LGS131_231-thanh dưới",
@@ -676,7 +676,7 @@
         },
         {
           "stt": "17",
-          "mat_code": "LGS231SHLBHGK",
+          "mat_code": "LGS131SHLBHGK",
           "comp_code": "G",
           "name_zh": "LGS131_231-顶部横杆后",
           "name_vi": "LGS131_231-Thanh trên sau",
@@ -1465,7 +1465,7 @@
         },
         {
           "stt": "2",
-          "mat_code": "LGS231SHLBH",
+          "mat_code": "LGS131SHLBH",
           "comp_code": "F",
           "name_zh": "LGS131_231-顶部横杆前",
           "name_vi": "LGS131_231-Thanh trên trước",
@@ -1721,7 +1721,7 @@
         },
         {
           "stt": "13",
-          "mat_code": "LGS231ZZKBHGK",
+          "mat_code": "LGS131ZZKBHGK",
           "comp_code": "C1",
           "name_zh": "LGS131_231_420_421-左中框",
           "name_vi": "LGS131_231_420_421-Khung giữa trái",
@@ -1795,7 +1795,7 @@
         },
         {
           "stt": "15",
-          "mat_code": "LGS231ZYKBH",
+          "mat_code": "LGS131ZYKBH",
           "comp_code": "D",
           "name_zh": "LGS131_231_420_421-左右侧框",
           "name_vi": "LGS131_231_420_421-Khung bên trái phải",
@@ -1833,7 +1833,7 @@
         },
         {
           "stt": "16",
-          "mat_code": "LGS231XHLBH",
+          "mat_code": "LGS131XHLBH",
           "comp_code": "E",
           "name_zh": "LGS131_231-底部横杆",
           "name_vi": "LGS131_231-thanh dưới",
@@ -1871,7 +1871,7 @@
         },
         {
           "stt": "17",
-          "mat_code": "LGS231SHLBHGK",
+          "mat_code": "LGS131SHLBHGK",
           "comp_code": "G",
           "name_zh": "LGS131_231-顶部横杆后",
           "name_vi": "LGS131_231-Thanh trên sau",

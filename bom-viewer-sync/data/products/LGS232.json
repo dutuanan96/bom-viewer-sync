@@ -362,7 +362,7 @@
         },
         {
           "stt": "5",
-          "mat_code": "LGS232YZKBH",
+          "mat_code": "LGS132YZKBH",
           "comp_code": "C2",
           "name_zh": "LGS132_232-S-中框右",
           "name_vi": "LGS132_232-S-Khung giữa phải",
@@ -418,7 +418,7 @@
         },
         {
           "stt": "7",
-          "mat_code": "LGS232YKBH",
+          "mat_code": "LGS132YKBH",
           "comp_code": "E",
           "name_zh": "LGS132_232-S-侧框右",
           "name_vi": "LGS132_232-S-Khung bên phải",
@@ -844,7 +844,7 @@
         },
         {
           "stt": "19",
-          "mat_code": "LGS232ZKBH",
+          "mat_code": "LGS132ZKBH",
           "comp_code": "D",
           "name_zh": "LGS132_232-S-侧框左",
           "name_vi": "LGS132_232-S-Khung bên trái",
@@ -900,7 +900,7 @@
         },
         {
           "stt": "20",
-          "mat_code": "LGS232ZZKBH",
+          "mat_code": "LGS132ZZKBH",
           "comp_code": "C1",
           "name_zh": "LGS132_232-S-中框左",
           "name_vi": "LGS132_232-S-Khung giữa trái",
@@ -1799,7 +1799,7 @@
         },
         {
           "stt": "5",
-          "mat_code": "LGS232YZKBH",
+          "mat_code": "LGS132YZKBH",
           "comp_code": "C2",
           "name_zh": "LGS132_232-S-中框右",
           "name_vi": "LGS132_232-S-Khung giữa phải",
@@ -1855,7 +1855,7 @@
         },
         {
           "stt": "7",
-          "mat_code": "LGS232YKBH",
+          "mat_code": "LGS132YKBH",
           "comp_code": "E",
           "name_zh": "LGS132_232-S-侧框右",
           "name_vi": "LGS132_232-S-Khung bên phải",
@@ -2281,7 +2281,7 @@
         },
         {
           "stt": "19",
-          "mat_code": "LGS232ZKBH",
+          "mat_code": "LGS132ZKBH",
           "comp_code": "D",
           "name_zh": "LGS132_232-S-侧框左",
           "name_vi": "LGS132_232-S-Khung bên trái",
@@ -2337,7 +2337,7 @@
         },
         {
           "stt": "20",
-          "mat_code": "LGS232ZZKBH",
+          "mat_code": "LGS132ZZKBH",
           "comp_code": "C1",
           "name_zh": "LGS132_232-S-中框左",
           "name_vi": "LGS132_232-S-Khung giữa trái",
