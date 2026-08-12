@@ -345,7 +345,7 @@
         },
         {
           "stt": "7",
-          "mat_code": "LGS433YKBH",
+          "mat_code": "LGS333YKBH",
           "comp_code": "E",
           "name_zh": "LGS333-433右侧框",
           "name_vi": "LGS333-433 khung bên phải",
@@ -401,7 +401,7 @@
         },
         {
           "stt": "8",
-          "mat_code": "LGS433ZKBH",
+          "mat_code": "LGS333ZKBH",
           "comp_code": "D",
           "name_zh": "LGS333-433左侧框",
           "name_vi": "LGS333-433 khung bên trái",
@@ -533,7 +533,7 @@
         },
         {
           "stt": "11",
-          "mat_code": "LGS433XQHLBH",
+          "mat_code": "LGS333XQHLBH",
           "comp_code": "G",
           "name_zh": "LGS333_433_733_833底部横杆前",
           "name_vi": "LGS333_433_733_833 Thanh dưới trước",
@@ -1584,7 +1584,7 @@
         },
         {
           "stt": "7",
-          "mat_code": "LGS433YKWH",
+          "mat_code": "LGS333YKWH",
           "comp_code": "E",
           "name_zh": "LGS333-433右侧框",
           "name_vi": "LGS333-433 khung bên phải",
@@ -1640,7 +1640,7 @@
         },
         {
           "stt": "8",
-          "mat_code": "LGS433ZKWH",
+          "mat_code": "LGS333ZKWH",
           "comp_code": "D",
           "name_zh": "LGS333-433左侧框",
           "name_vi": "LGS333-433 khung bên trái",
@@ -1772,7 +1772,7 @@
         },
         {
           "stt": "11",
-          "mat_code": "LGS433XQHLWH",
+          "mat_code": "LGS333XQHLWH",
           "comp_code": "G",
           "name_zh": "LGS333_433_733_833底部横杆前",
           "name_vi": "LGS333_433_733_833 Thanh dưới trước",
@@ -2823,7 +2823,7 @@
         },
         {
           "stt": "7",
-          "mat_code": "LGS433YKBH",
+          "mat_code": "LGS333YKBH",
           "comp_code": "E",
           "name_zh": "LGS333-433右侧框",
           "name_vi": "LGS333-433 khung bên phải",
@@ -2879,7 +2879,7 @@
         },
         {
           "stt": "8",
-          "mat_code": "LGS433ZKBH",
+          "mat_code": "LGS333ZKBH",
           "comp_code": "D",
           "name_zh": "LGS333-433左侧框",
           "name_vi": "LGS333-433 khung bên trái",
@@ -3011,7 +3011,7 @@
         },
         {
           "stt": "11",
-          "mat_code": "LGS433XQHLBH",
+          "mat_code": "LGS333XQHLBH",
           "comp_code": "G",
           "name_zh": "LGS333_433_733_833底部横杆前",
           "name_vi": "LGS333_433_733_833 Thanh dưới trước",

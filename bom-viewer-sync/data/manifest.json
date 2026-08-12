@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-12T03:08:43.283Z",
+  "updatedAt": "2026-08-12T03:13:56.625Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6396,12 +6396,12 @@
     },
     "LGS433": {
       "currentRevision": "V4",
-      "effectiveRevision": "V4",
+      "effectiveRevision": "",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "released"
+        "workflowState": "draft"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6483,6 +6483,14 @@
           "revision": "V4",
           "previousRevision": "",
           "occurredAt": "2026-08-12T03:08:43.282Z",
+          "reason": "更新"
+        },
+        {
+          "id": "effectivity_mspiij3s",
+          "action": "withdraw",
+          "revision": "V4",
+          "previousRevision": "V4",
+          "occurredAt": "2026-08-12T03:11:07.576Z",
           "reason": "更新"
         }
       ]
@@ -7214,6 +7222,71 @@
     }
   },
   "notifications": [
+    {
+      "id": "notif_lylk1c",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-12T03:13:56.625Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS433",
+          "field": "effectiveRevision",
+          "before": "V4",
+          "after": ""
+        },
+        {
+          "kind": "revision",
+          "code": "LGS433",
+          "field": "workflowState",
+          "before": "released",
+          "after": "draft"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS433KD02S",
+          "field": "",
+          "before": "LGS433YKBH",
+          "after": "LGS333YKBH"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS433KD02S",
+          "field": "",
+          "before": "LGS433ZKBH",
+          "after": "LGS333ZKBH"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS433KD02S",
+          "field": "",
+          "before": "LGS433XQHLBH",
+          "after": "LGS333XQHLBH"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS433WH02S",
+          "field": "",
+          "before": "LGS433YKWH",
+          "after": "LGS333YKWH"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS433WH02S",
+          "field": "",
+          "before": "LGS433ZKWH",
+          "after": "LGS333ZKWH"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS433WH02S",
+          "field": "",
+          "before": "LGS433XQHLWH",
+          "after": "LGS333XQHLWH"
+        }
+      ]
+    },
     {
       "id": "notif_1n7eacg",
       "type": "github-save",
@@ -8179,29 +8252,6 @@
           "field": "",
           "before": "LGS434ZFXWH",
           "after": "LGS434ZFXBH"
-        }
-      ]
-    },
-    {
-      "id": "notif_cyg15s",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-07-30T08:15:12.560Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS233",
-          "field": "",
-          "before": "LGS233ZFXKD",
-          "after": "LGS233ZFXWH"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS233",
-          "field": "",
-          "before": "LGS233ZFXKD",
-          "after": "LGS233ZFXBH"
         }
       ]
     }
@@ -9274,6 +9324,94 @@
       }
     ],
     "LGS433": [
+      {
+        "id": "history_u9frvv",
+        "productCode": "LGS433",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-12T03:13:56.625Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS433",
+            "field": "effectiveRevision",
+            "before": "V4",
+            "after": ""
+          },
+          {
+            "kind": "revision",
+            "code": "LGS433",
+            "field": "workflowState",
+            "before": "released",
+            "after": "draft"
+          },
+          {
+            "kind": "bom_material_changed",
+            "code": "LGS433KD02S",
+            "field": "",
+            "before": "LGS433YKBH",
+            "after": "LGS333YKBH"
+          },
+          {
+            "kind": "bom_material_changed",
+            "code": "LGS433KD02S",
+            "field": "",
+            "before": "LGS433ZKBH",
+            "after": "LGS333ZKBH"
+          },
+          {
+            "kind": "bom_material_changed",
+            "code": "LGS433KD02S",
+            "field": "",
+            "before": "LGS433XQHLBH",
+            "after": "LGS333XQHLBH"
+          },
+          {
+            "kind": "bom_material_changed",
+            "code": "LGS433WH02S",
+            "field": "",
+            "before": "LGS433YKWH",
+            "after": "LGS333YKWH"
+          },
+          {
+            "kind": "bom_material_changed",
+            "code": "LGS433WH02S",
+            "field": "",
+            "before": "LGS433ZKWH",
+            "after": "LGS333ZKWH"
+          },
+          {
+            "kind": "bom_material_changed",
+            "code": "LGS433WH02S",
+            "field": "",
+            "before": "LGS433XQHLWH",
+            "after": "LGS333XQHLWH"
+          },
+          {
+            "kind": "bom_material_changed",
+            "code": "LGS433BH02S",
+            "field": "",
+            "before": "LGS433YKBH",
+            "after": "LGS333YKBH"
+          },
+          {
+            "kind": "bom_material_changed",
+            "code": "LGS433BH02S",
+            "field": "",
+            "before": "LGS433ZKBH",
+            "after": "LGS333ZKBH"
+          },
+          {
+            "kind": "bom_material_changed",
+            "code": "LGS433BH02S",
+            "field": "",
+            "before": "LGS433XQHLBH",
+            "after": "LGS333XQHLBH"
+          }
+        ]
+      },
       {
         "id": "history_1pkn0az",
         "productCode": "LGS433",
