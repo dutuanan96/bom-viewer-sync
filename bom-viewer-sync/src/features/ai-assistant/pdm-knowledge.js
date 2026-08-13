@@ -142,9 +142,9 @@ function normalizeBomSearchText(value) {
 
 function catalogMaterialSearchTerms(query) {
   const normalized = normalizeBomSearchText(query)
-    .replace(/帮我|请|统计|統計|所有|全部|全体|列出|列表|清单|汇总|规格|规\s*格|每一个产品|每个产品|各个产品|用什么|什么|使用产品|产品|物料|材料|零件|部件|包材|包装材料|包装/g, ' ')
-    .replace(/\b(?:all|every|toan bo|tat ca|thong ke|liet ke|danh sach|quy cach|spec|specification|material|component|parts?|products?|each product|every product|moi san pham|tung san pham|dung gi)\b/giu, ' ');
-  const stopWords = new Set(['bao', 'bi', 'cua', 'giup', 'hay', 'la', 'nao', 'nhung', 'san', 'pham', 'su', 'dung', 'tat', 'toan', 'vat', 'lieu', 'dong', 'goi', 'voi']);
+    .replace(/帮我|请|统计|統計|所有|全部|全体|列出|列表|清单|汇总|规格|规\s*格|每一个产品|每个产品|各个产品|用什么|什么|使用产品|产品|物料|材料|零件|部件|包材|包装材料|包装|只要|只有|仅|还有|吗|呢|吧|？|\?/g, ' ')
+    .replace(/\b(?:all|every|toan bo|tat ca|thong ke|liet ke|danh sach|quy cach|spec|specification|material|component|parts?|products?|each product|every product|moi san pham|tung san pham|dung gi|only|just|any other|anything else)\b/giu, ' ');
+  const stopWords = new Set(['bao', 'bi', 'cua', 'giup', 'hay', 'la', 'nao', 'nhung', 'san', 'pham', 'su', 'dung', 'tat', 'toan', 'vat', 'lieu', 'dong', 'goi', 'voi', 'toi', 'cac', 'cho']);
   const latinTerms = (normalized.match(/[a-z0-9]+(?:[.\-]?[a-z0-9]+)*/g) || [])
     .filter(term => term.length >= 2 && !stopWords.has(term) && !/^lgs\d{3,4}$/.test(term));
   const hanTerms = [...normalized.matchAll(/[\p{Script=Han}]{2,}/gu)].map(match => match[0]);
@@ -778,10 +778,16 @@ export class PdmKnowledge {
     // Check product shorthand e.g. "723"
     const shorthand = detectProductShorthand(text);
     if (shorthand && bom[shorthand.candidateProductId]) {
-      text = text.replace(
-        new RegExp(`(^|[^\\w])${shorthand.userNumber}(?=[^\\w]|$)`),
-        `$1${shorthand.candidateProductId}`,
-      );
+      return {
+        needsClarification: true,
+        clarificationCode: 'confirm_product_shorthand',
+        clarificationData: { candidateProductId: shorthand.candidateProductId },
+        clarificationText: shorthand.confirmationPrompt,
+        results: [],
+        totalMatches: 0,
+        truncated: false,
+        evidence: [buildEvidence(this._sourceMetadata, shorthand.candidateProductId, `data/products/${shorthand.candidateProductId}.json`)],
+      };
     }
 
     const parsedDims = parseDimensions(text || dimensionFilter);
@@ -801,7 +807,11 @@ export class PdmKnowledge {
         && /最大|largest|biggest|maximum/i.test(text)
       ) {
         mode = 'rank_component_size';
-      } else if (concept?.conceptId === 'packaging_material' && genericMaterialTerms.length > 0) {
+      } else if (
+        (concept?.conceptId === 'packaging_material' || concept?.conceptId === 'packaging_carton')
+        && genericMaterialTerms.some(t => !/纸箱|纸盒|carton|cardboard|box|thùng|thung|giấy|giay|色|black|white|vintage|walnut|đen|trắng|cổ|chó/i.test(t))
+        && genericMaterialTerms.length > 0
+      ) {
         mode = 'generic_material_usage';
       } else if (
         ['crossbar', 'upper_crossbar', 'bottom_crossbar', 'vertical_beam', 'packaging_carton', 'packaging_material', 'drawer_bottom'].includes(concept?.conceptId)
@@ -924,10 +934,13 @@ export class PdmKnowledge {
         },
         drawer_bottom: /布抽底板|抽屉底板|fabric drawer bottom|drawer bottom|đáy túi/i,
       };
+      const termsToMatch = mode === 'generic_material_usage'
+        ? genericMaterialTerms.filter(t => !/纸箱|纸盒|carton|cardboard|box|thùng|thung|giấy|giay|色|black|white|vintage|walnut|đen|trắng|cổ|chó/i.test(t))
+        : [];
       const matcher = mode === 'generic_material_usage'
-        ? { test: searchable => genericMaterialTerms.every(term => normalizeBomSearchText(searchable).includes(term)) }
+        ? { test: searchable => termsToMatch.every(term => normalizeBomSearchText(searchable).includes(term)) }
         : concept?.conceptId === 'packaging_carton'
-        ? /\u7eb8\u7bb1|\u7eb8\u76d2|\u4e2d\u5c01\u7bb1|\u5e73\u53e3\u7bb1|\u5916\u7bb1|\u5185\u7bb1|carton|cardboard box|outer carton|inner carton|th\u00f9ng carton/i
+        ? /\u7eb8\u7bb1|\u7eb8\u76d2|\u4e2d\u5c01\u7bb1|\u5e73\u53e3\u7bb1|\u5916\u7bb1|\u5185\u7bb1|carton|cardboard box|outer carton|inner carton|th\u00f9ng carton|th\u00f9ng gi\u1ea5y/i
         : conceptMatchers[concept?.conceptId];
       if (!matcher) throw new Error('A supported component family is required');
       const targetProductIds = [...new Set((text.match(/\bLGS\d{3,4}\b/gi) || []).map(value => value.toUpperCase()))];
