@@ -39545,6 +39545,58 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x22-a232250e.glb"
           }
         ]
+      },
+      "mat_1mb8hvn": {
+        "id": "mat_1mb8hvn",
+        "code": "2601502ZHKTP",
+        "name": {
+          "zh": "260左右中框铁片",
+          "vi": "260 thanh la khung giữa"
+        },
+        "spec": {
+          "zh": "260x15x2mm",
+          "vi": "260x15x2mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_1rrn212": {
+        "id": "mat_1rrn212",
+        "code": "3051502ZHKTP",
+        "name": {
+          "zh": "305左右中框铁片",
+          "vi": "305 thanh la khung giữa"
+        },
+        "spec": {
+          "zh": "305x15x2mm",
+          "vi": "305x15x2mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": []
       }
     },
     "bomEntries": [
