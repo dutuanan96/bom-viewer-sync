@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-13T10:46:10.666Z",
+  "updatedAt": "2026-08-13T10:47:11.552Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -7360,12 +7360,12 @@
     },
     "LGS133": {
       "currentRevision": "V4",
-      "effectiveRevision": "",
+      "effectiveRevision": "V4",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -7375,6 +7375,14 @@
           "revision": "V4",
           "previousRevision": "V4",
           "occurredAt": "2026-08-13T10:45:53.925Z",
+          "reason": "更新"
+        },
+        {
+          "id": "effectivity_msre8vy7",
+          "action": "release",
+          "revision": "V4",
+          "previousRevision": "",
+          "occurredAt": "2026-08-13T10:47:11.551Z",
           "reason": "更新"
         }
       ]
@@ -7471,6 +7479,29 @@
     }
   },
   "notifications": [
+    {
+      "id": "notif_1o803yo",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-13T10:47:11.552Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS133",
+          "field": "effectiveRevision",
+          "before": "",
+          "after": "V4"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS133",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        }
+      ]
+    },
     {
       "id": "notif_tyeymo",
       "type": "github-save",
@@ -8560,71 +8591,6 @@
           "field": "workflowState",
           "before": "draft",
           "after": "released"
-        }
-      ]
-    },
-    {
-      "id": "notif_fp6c2g",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-12T03:19:04.116Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS231",
-          "field": "effectiveRevision",
-          "before": "V3",
-          "after": ""
-        },
-        {
-          "kind": "revision",
-          "code": "LGS231",
-          "field": "workflowState",
-          "before": "released",
-          "after": "draft"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS421",
-          "field": "effectiveRevision",
-          "before": "V4",
-          "after": ""
-        },
-        {
-          "kind": "revision",
-          "code": "LGS421",
-          "field": "workflowState",
-          "before": "released",
-          "after": "draft"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS420",
-          "field": "effectiveRevision",
-          "before": "V4",
-          "after": ""
-        },
-        {
-          "kind": "revision",
-          "code": "LGS420",
-          "field": "workflowState",
-          "before": "released",
-          "after": "draft"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS231K101S",
-          "field": "",
-          "before": "LGS231YZKBHGK",
-          "after": "LGS131YZKBHGK"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS231B101S",
-          "field": "",
-          "before": "LGS231YZKBHGK",
-          "after": "LGS131YZKBHGK"
         }
       ]
     }
@@ -14851,6 +14817,31 @@
       }
     ],
     "LGS133": [
+      {
+        "id": "history_s3nxwc",
+        "productCode": "LGS133",
+        "revision": "V4",
+        "action": "release",
+        "actor": "admin",
+        "reason": "更新",
+        "createdAt": "2026-08-13T10:47:11.552Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS133",
+            "field": "effectiveRevision",
+            "before": "",
+            "after": "V4"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS133",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
       {
         "id": "history_cljpz3",
         "productCode": "LGS133",
