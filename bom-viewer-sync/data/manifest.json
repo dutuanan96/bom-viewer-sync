@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-13T10:10:31.840Z",
+  "updatedAt": "2026-08-13T10:13:44.289Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -7463,6 +7463,43 @@
   },
   "notifications": [
     {
+      "id": "notif_15c8kmo",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-13T10:13:44.289Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "bom_added",
+          "code": "LGS032XHLBH",
+          "field": "M6YLM139",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "bom_added",
+          "code": "LGS032XQHLBH",
+          "field": "M6YLM139",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "bom_deleted",
+          "code": "LGS032XHLBH",
+          "field": "M6GS1515BH",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "bom_deleted",
+          "code": "LGS032XQHLBH",
+          "field": "M6GS1515BH",
+          "before": "",
+          "after": ""
+        }
+      ]
+    },
+    {
       "id": "notif_1csfyxg",
       "type": "github-save",
       "actor": "admin",
@@ -8621,29 +8658,6 @@
           "field": "",
           "before": "LGS433XQHLWH",
           "after": "LGS333XQHLWH"
-        }
-      ]
-    },
-    {
-      "id": "notif_1n7eacg",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-12T03:08:43.283Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS433",
-          "field": "effectiveRevision",
-          "before": "",
-          "after": "V4"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS433",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
         }
       ]
     }
@@ -13143,6 +13157,45 @@
       }
     ],
     "LGS032": [
+      {
+        "id": "history_1b9uhry",
+        "productCode": "LGS032",
+        "revision": "V3.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "产品高度变更679mm改为671",
+        "createdAt": "2026-08-13T10:13:44.289Z",
+        "changes": [
+          {
+            "kind": "bom_added",
+            "code": "LGS032XHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS032XQHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS032XHLBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS032XQHLBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          }
+        ]
+      },
       {
         "id": "history_3zpvpt",
         "productCode": "LGS032",
