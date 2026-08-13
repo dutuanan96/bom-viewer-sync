@@ -1913,7 +1913,7 @@ class BomApplication {
       }
       if (
         materialRow &&
-        !materialRow.closest('.material-db-view') &&
+        !materialRow.closest('.material-db-view, .structure-detail-view') &&
         !event.target.closest('button,input,a,select,textarea')
       ) {
         this.openMaterialRecord(materialRow.dataset.materialRow);

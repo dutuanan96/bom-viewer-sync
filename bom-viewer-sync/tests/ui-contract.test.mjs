@@ -214,8 +214,8 @@ test('Material Database edit action is explicit and compact', () => {
   assert.match(appSource, /data-edit-db-material=/);
 });
 
-test('Material Database rows do not open Material Master on plain row click', () => {
-  assert.match(appSource, /!materialRow\.closest\('\.material-db-view'\)/);
+test('Material Database and structure-detail rows do not open Material Master on plain row click', () => {
+  assert.match(appSource, /!materialRow\.closest\('\.material-db-view, \.structure-detail-view'\)/);
 });
 
 test('Material Database headers use localized labels instead of hardcoded Chinese strings', () => {
