@@ -39874,6 +39874,43 @@
             "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b466c6278ccd606aa58b3683b18e569f544fe237/assets/models/80132132LJJ_cdf346ad25222f8607787ed8602e102c819affdb932d091a6844d9d4f316a919_glb"
           }
         ]
+      },
+      "mat_2n8di5": {
+        "id": "mat_2n8di5",
+        "code": "ZJG15065423BH",
+        "name": {
+          "zh": "54底脚(螺纹长23mm)",
+          "vi": "54 chân đế ốc dài"
+        },
+        "spec": {
+          "zh": "80.5x15x15mm",
+          "vi": "80.5x15x15mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "黑砂纹",
+          "vi": "đen nhám"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [
+          {
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@3a6852b37640bc1b2301e75b35b703990777bfca/assets/pdfs/ZJG15065423BH_ff9141615c472ae1c93aa3f1ced6dec80cf011800e43e4b113d3cadc0d8883e8_54_23mm_.pdf",
+            "name": "54底脚(螺纹长23mm).pdf"
+          }
+        ],
+        "models3d": [
+          {
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@bd7b3398b233802bafe00f40b5f8e4fdaf717cad/assets/models/ZJG15065423BH_78788b812d4e465d405139f2ed163f50c39cc664552ecd486b423bb3330a27aa_54_23.glb",
+            "name": "54底脚23.glb",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@bd7b3398b233802bafe00f40b5f8e4fdaf717cad/assets/models/ZJG15065423BH_78788b812d4e465d405139f2ed163f50c39cc664552ecd486b423bb3330a27aa_54_23.glb"
+          }
+        ]
       }
     },
     "bomEntries": [

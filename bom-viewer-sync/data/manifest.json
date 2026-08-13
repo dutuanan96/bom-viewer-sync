@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-13T10:13:44.289Z",
+  "updatedAt": "2026-08-13T10:19:37.436Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -7463,6 +7463,22 @@
   },
   "notifications": [
     {
+      "id": "notif_1i81o14",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-13T10:19:37.436Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material_added",
+          "code": "ZJG15065423BH",
+          "field": "",
+          "before": "",
+          "after": ""
+        }
+      ]
+    },
+    {
       "id": "notif_15c8kmo",
       "type": "github-save",
       "actor": "admin",
@@ -8593,71 +8609,6 @@
           "field": "workflowState",
           "before": "draft",
           "after": "released"
-        }
-      ]
-    },
-    {
-      "id": "notif_lylk1c",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-12T03:13:56.625Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS433",
-          "field": "effectiveRevision",
-          "before": "V4",
-          "after": ""
-        },
-        {
-          "kind": "revision",
-          "code": "LGS433",
-          "field": "workflowState",
-          "before": "released",
-          "after": "draft"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS433KD02S",
-          "field": "",
-          "before": "LGS433YKBH",
-          "after": "LGS333YKBH"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS433KD02S",
-          "field": "",
-          "before": "LGS433ZKBH",
-          "after": "LGS333ZKBH"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS433KD02S",
-          "field": "",
-          "before": "LGS433XQHLBH",
-          "after": "LGS333XQHLBH"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS433WH02S",
-          "field": "",
-          "before": "LGS433YKWH",
-          "after": "LGS333YKWH"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS433WH02S",
-          "field": "",
-          "before": "LGS433ZKWH",
-          "after": "LGS333ZKWH"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS433WH02S",
-          "field": "",
-          "before": "LGS433XQHLWH",
-          "after": "LGS333XQHLWH"
         }
       ]
     }
