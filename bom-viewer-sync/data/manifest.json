@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-13T09:07:45.516Z",
+  "updatedAt": "2026-08-13T09:20:49.465Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -7463,6 +7463,50 @@
   },
   "notifications": [
     {
+      "id": "notif_1tdaifu",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-13T09:20:49.465Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "3051502ZHKTP",
+          "field": "drawings",
+          "before": "",
+          "after": "305左右中框铁片|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@f2744dd6fbcc4d8e39a319d83f0822227e3f7441/assets/pdfs/3051502ZHKTP_ea5a306f72d959ae13a69e8b405a10eebfb01bd3137cdf3fe988b5c6ccf8f256_305_.pdf"
+        },
+        {
+          "kind": "material",
+          "code": "3051502ZHKTP",
+          "field": "models3d",
+          "before": "",
+          "after": "左右中框铁片.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@51fc05166cce45eb57a956e41a3a752d871fcfc5/assets/models/3051502ZHKTP_acdf88203f526cd81cda19d612d61d78b03055471b9b61abd8f560d292de4ea9_glb"
+        },
+        {
+          "kind": "material",
+          "code": "M6GS1515BH",
+          "field": "models3d",
+          "before": "",
+          "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+        },
+        {
+          "kind": "material",
+          "code": "M6GS1515WH",
+          "field": "models3d",
+          "before": "",
+          "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8dfe1e2e0aeb4c28fb32d589a2a3464e260ad458/assets/models/M6GS1515WH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+        },
+        {
+          "kind": "material",
+          "code": "M6YLM139",
+          "field": "models3d",
+          "before": "",
+          "after": "圆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@5676a1fbc873e9095222c1b95fb3b235e8c03dc9/assets/models/M6YLM139_ea2dc3561c993a2825abd6aa0c42dd0d3e481bfa5b4928a589e97fc92074c885_glb"
+        }
+      ]
+    },
+    {
       "id": "notif_1jidse2",
       "type": "github-save",
       "actor": "admin",
@@ -8581,54 +8625,42 @@
           "after": "released"
         }
       ]
-    },
-    {
-      "id": "notif_1jsfk36",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-12T03:01:42.967Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS733",
-          "field": "workflowState",
-          "before": "released",
-          "after": "draft"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS733WH05S",
-          "field": "",
-          "before": "LGS333YKWH",
-          "after": "LGS723YKWH"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS733WH05S",
-          "field": "",
-          "before": "LGS333ZKWH",
-          "after": "LGS723ZKWH"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS733BH02S",
-          "field": "",
-          "before": "LGS333YKBH",
-          "after": "LGS723YKBH"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS733BH02S",
-          "field": "",
-          "before": "LGS333ZKBH",
-          "after": "LGS723ZKBH"
-        }
-      ]
     }
   ],
   "bomHistory": {
     "LGS111": [
+      {
+        "id": "history_u2vs8a",
+        "productCode": "LGS111",
+        "revision": "V2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:20:49.465Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "models3d",
+            "before": "",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "models3d",
+            "before": "",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8dfe1e2e0aeb4c28fb32d589a2a3464e260ad458/assets/models/M6GS1515WH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6YLM139",
+            "field": "models3d",
+            "before": "",
+            "after": "圆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@5676a1fbc873e9095222c1b95fb3b235e8c03dc9/assets/models/M6YLM139_ea2dc3561c993a2825abd6aa0c42dd0d3e481bfa5b4928a589e97fc92074c885_glb"
+          }
+        ]
+      },
       {
         "id": "history_1ydprw2",
         "productCode": "LGS111",
@@ -8836,6 +8868,45 @@
       }
     ],
     "LGS231": [
+      {
+        "id": "history_1ytkuee",
+        "productCode": "LGS231",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:20:49.465Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "3051502ZHKTP",
+            "field": "drawings",
+            "before": "",
+            "after": "305左右中框铁片|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@f2744dd6fbcc4d8e39a319d83f0822227e3f7441/assets/pdfs/3051502ZHKTP_ea5a306f72d959ae13a69e8b405a10eebfb01bd3137cdf3fe988b5c6ccf8f256_305_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "3051502ZHKTP",
+            "field": "models3d",
+            "before": "",
+            "after": "左右中框铁片.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@51fc05166cce45eb57a956e41a3a752d871fcfc5/assets/models/3051502ZHKTP_acdf88203f526cd81cda19d612d61d78b03055471b9b61abd8f560d292de4ea9_glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "models3d",
+            "before": "",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6YLM139",
+            "field": "models3d",
+            "before": "",
+            "after": "圆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@5676a1fbc873e9095222c1b95fb3b235e8c03dc9/assets/models/M6YLM139_ea2dc3561c993a2825abd6aa0c42dd0d3e481bfa5b4928a589e97fc92074c885_glb"
+          }
+        ]
+      },
       {
         "id": "history_9ic3ql",
         "productCode": "LGS231",
@@ -9270,6 +9341,38 @@
       }
     ],
     "LGS233": [
+      {
+        "id": "history_1psvtjt",
+        "productCode": "LGS233",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:20:49.465Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "models3d",
+            "before": "",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "models3d",
+            "before": "",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8dfe1e2e0aeb4c28fb32d589a2a3464e260ad458/assets/models/M6GS1515WH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6YLM139",
+            "field": "models3d",
+            "before": "",
+            "after": "圆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@5676a1fbc873e9095222c1b95fb3b235e8c03dc9/assets/models/M6YLM139_ea2dc3561c993a2825abd6aa0c42dd0d3e481bfa5b4928a589e97fc92074c885_glb"
+          }
+        ]
+      },
       {
         "id": "history_14kbl6e",
         "productCode": "LGS233",
@@ -9724,6 +9827,31 @@
     ],
     "LGS334": [
       {
+        "id": "history_jlu9ns",
+        "productCode": "LGS334",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:20:49.465Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "models3d",
+            "before": "",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6YLM139",
+            "field": "models3d",
+            "before": "",
+            "after": "圆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@5676a1fbc873e9095222c1b95fb3b235e8c03dc9/assets/models/M6YLM139_ea2dc3561c993a2825abd6aa0c42dd0d3e481bfa5b4928a589e97fc92074c885_glb"
+          }
+        ]
+      },
+      {
         "id": "history_4oz6ih",
         "productCode": "LGS334",
         "revision": "V4",
@@ -9989,6 +10117,38 @@
       }
     ],
     "LGS434": [
+      {
+        "id": "history_yh276k",
+        "productCode": "LGS434",
+        "revision": "V5",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:20:49.465Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "models3d",
+            "before": "",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "models3d",
+            "before": "",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8dfe1e2e0aeb4c28fb32d589a2a3464e260ad458/assets/models/M6GS1515WH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6YLM139",
+            "field": "models3d",
+            "before": "",
+            "after": "圆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@5676a1fbc873e9095222c1b95fb3b235e8c03dc9/assets/models/M6YLM139_ea2dc3561c993a2825abd6aa0c42dd0d3e481bfa5b4928a589e97fc92074c885_glb"
+          }
+        ]
+      },
       {
         "id": "history_16sgtpi",
         "productCode": "LGS434",
@@ -10671,6 +10831,52 @@
     ],
     "LGS420": [
       {
+        "id": "history_dw6gsp",
+        "productCode": "LGS420",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:20:49.465Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "3051502ZHKTP",
+            "field": "drawings",
+            "before": "",
+            "after": "305左右中框铁片|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@f2744dd6fbcc4d8e39a319d83f0822227e3f7441/assets/pdfs/3051502ZHKTP_ea5a306f72d959ae13a69e8b405a10eebfb01bd3137cdf3fe988b5c6ccf8f256_305_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "3051502ZHKTP",
+            "field": "models3d",
+            "before": "",
+            "after": "左右中框铁片.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@51fc05166cce45eb57a956e41a3a752d871fcfc5/assets/models/3051502ZHKTP_acdf88203f526cd81cda19d612d61d78b03055471b9b61abd8f560d292de4ea9_glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "models3d",
+            "before": "",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "models3d",
+            "before": "",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8dfe1e2e0aeb4c28fb32d589a2a3464e260ad458/assets/models/M6GS1515WH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6YLM139",
+            "field": "models3d",
+            "before": "",
+            "after": "圆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@5676a1fbc873e9095222c1b95fb3b235e8c03dc9/assets/models/M6YLM139_ea2dc3561c993a2825abd6aa0c42dd0d3e481bfa5b4928a589e97fc92074c885_glb"
+          }
+        ]
+      },
+      {
         "id": "history_3ma0pu",
         "productCode": "LGS420",
         "revision": "V4",
@@ -11132,6 +11338,45 @@
     ],
     "LGS421": [
       {
+        "id": "history_w21587",
+        "productCode": "LGS421",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:20:49.465Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "3051502ZHKTP",
+            "field": "drawings",
+            "before": "",
+            "after": "305左右中框铁片|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@f2744dd6fbcc4d8e39a319d83f0822227e3f7441/assets/pdfs/3051502ZHKTP_ea5a306f72d959ae13a69e8b405a10eebfb01bd3137cdf3fe988b5c6ccf8f256_305_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "3051502ZHKTP",
+            "field": "models3d",
+            "before": "",
+            "after": "左右中框铁片.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@51fc05166cce45eb57a956e41a3a752d871fcfc5/assets/models/3051502ZHKTP_acdf88203f526cd81cda19d612d61d78b03055471b9b61abd8f560d292de4ea9_glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "models3d",
+            "before": "",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6YLM139",
+            "field": "models3d",
+            "before": "",
+            "after": "圆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@5676a1fbc873e9095222c1b95fb3b235e8c03dc9/assets/models/M6YLM139_ea2dc3561c993a2825abd6aa0c42dd0d3e481bfa5b4928a589e97fc92074c885_glb"
+          }
+        ]
+      },
+      {
         "id": "history_18k1fmu",
         "productCode": "LGS421",
         "revision": "V4",
@@ -11498,6 +11743,38 @@
       }
     ],
     "LGS333": [
+      {
+        "id": "history_1h82uc0",
+        "productCode": "LGS333",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:20:49.465Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "models3d",
+            "before": "",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "models3d",
+            "before": "",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8dfe1e2e0aeb4c28fb32d589a2a3464e260ad458/assets/models/M6GS1515WH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6YLM139",
+            "field": "models3d",
+            "before": "",
+            "after": "圆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@5676a1fbc873e9095222c1b95fb3b235e8c03dc9/assets/models/M6YLM139_ea2dc3561c993a2825abd6aa0c42dd0d3e481bfa5b4928a589e97fc92074c885_glb"
+          }
+        ]
+      },
       {
         "id": "history_1nj4a5p",
         "productCode": "LGS333",
@@ -11995,6 +12272,31 @@
     ],
     "LGS232": [
       {
+        "id": "history_bya9mb",
+        "productCode": "LGS232",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:20:49.465Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "models3d",
+            "before": "",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6YLM139",
+            "field": "models3d",
+            "before": "",
+            "after": "圆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@5676a1fbc873e9095222c1b95fb3b235e8c03dc9/assets/models/M6YLM139_ea2dc3561c993a2825abd6aa0c42dd0d3e481bfa5b4928a589e97fc92074c885_glb"
+          }
+        ]
+      },
+      {
         "id": "history_13wpudr",
         "productCode": "LGS232",
         "revision": "V3",
@@ -12417,6 +12719,31 @@
     ],
     "LGS031": [
       {
+        "id": "history_8qkqea",
+        "productCode": "LGS031",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:20:49.465Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "models3d",
+            "before": "",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6YLM139",
+            "field": "models3d",
+            "before": "",
+            "after": "圆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@5676a1fbc873e9095222c1b95fb3b235e8c03dc9/assets/models/M6YLM139_ea2dc3561c993a2825abd6aa0c42dd0d3e481bfa5b4928a589e97fc92074c885_glb"
+          }
+        ]
+      },
+      {
         "id": "history_w76zrz",
         "productCode": "LGS031",
         "revision": "V3",
@@ -12531,6 +12858,31 @@
       }
     ],
     "LGS032": [
+      {
+        "id": "history_18a9se5",
+        "productCode": "LGS032",
+        "revision": "V3.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "产品高度变更679mm改为671",
+        "createdAt": "2026-08-13T09:20:49.465Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "models3d",
+            "before": "",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6YLM139",
+            "field": "models3d",
+            "before": "",
+            "after": "圆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@5676a1fbc873e9095222c1b95fb3b235e8c03dc9/assets/models/M6YLM139_ea2dc3561c993a2825abd6aa0c42dd0d3e481bfa5b4928a589e97fc92074c885_glb"
+          }
+        ]
+      },
       {
         "id": "history_1kow3kx",
         "productCode": "LGS032",
@@ -12784,6 +13136,38 @@
       }
     ],
     "LGS033": [
+      {
+        "id": "history_notn63",
+        "productCode": "LGS033",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:20:49.465Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "models3d",
+            "before": "",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "models3d",
+            "before": "",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8dfe1e2e0aeb4c28fb32d589a2a3464e260ad458/assets/models/M6GS1515WH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6YLM139",
+            "field": "models3d",
+            "before": "",
+            "after": "圆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@5676a1fbc873e9095222c1b95fb3b235e8c03dc9/assets/models/M6YLM139_ea2dc3561c993a2825abd6aa0c42dd0d3e481bfa5b4928a589e97fc92074c885_glb"
+          }
+        ]
+      },
       {
         "id": "history_9d1rd3",
         "productCode": "LGS033",
@@ -13065,6 +13449,38 @@
     ],
     "LGS101": [
       {
+        "id": "history_wmihxh",
+        "productCode": "LGS101",
+        "revision": "V2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:20:49.465Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "models3d",
+            "before": "",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "models3d",
+            "before": "",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8dfe1e2e0aeb4c28fb32d589a2a3464e260ad458/assets/models/M6GS1515WH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6YLM139",
+            "field": "models3d",
+            "before": "",
+            "after": "圆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@5676a1fbc873e9095222c1b95fb3b235e8c03dc9/assets/models/M6YLM139_ea2dc3561c993a2825abd6aa0c42dd0d3e481bfa5b4928a589e97fc92074c885_glb"
+          }
+        ]
+      },
+      {
         "id": "history_15amjj7",
         "productCode": "LGS101",
         "revision": "V2",
@@ -13253,6 +13669,52 @@
       }
     ],
     "LGS131": [
+      {
+        "id": "history_1cd4ymm",
+        "productCode": "LGS131",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:20:49.465Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "3051502ZHKTP",
+            "field": "drawings",
+            "before": "",
+            "after": "305左右中框铁片|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@f2744dd6fbcc4d8e39a319d83f0822227e3f7441/assets/pdfs/3051502ZHKTP_ea5a306f72d959ae13a69e8b405a10eebfb01bd3137cdf3fe988b5c6ccf8f256_305_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "3051502ZHKTP",
+            "field": "models3d",
+            "before": "",
+            "after": "左右中框铁片.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@51fc05166cce45eb57a956e41a3a752d871fcfc5/assets/models/3051502ZHKTP_acdf88203f526cd81cda19d612d61d78b03055471b9b61abd8f560d292de4ea9_glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "models3d",
+            "before": "",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "models3d",
+            "before": "",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8dfe1e2e0aeb4c28fb32d589a2a3464e260ad458/assets/models/M6GS1515WH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6YLM139",
+            "field": "models3d",
+            "before": "",
+            "after": "圆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@5676a1fbc873e9095222c1b95fb3b235e8c03dc9/assets/models/M6YLM139_ea2dc3561c993a2825abd6aa0c42dd0d3e481bfa5b4928a589e97fc92074c885_glb"
+          }
+        ]
+      },
       {
         "id": "history_kr6wwl",
         "productCode": "LGS131",
@@ -13662,6 +14124,31 @@
     ],
     "LGS132": [
       {
+        "id": "history_3apqsw",
+        "productCode": "LGS132",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:20:49.465Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "models3d",
+            "before": "",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6YLM139",
+            "field": "models3d",
+            "before": "",
+            "after": "圆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@5676a1fbc873e9095222c1b95fb3b235e8c03dc9/assets/models/M6YLM139_ea2dc3561c993a2825abd6aa0c42dd0d3e481bfa5b4928a589e97fc92074c885_glb"
+          }
+        ]
+      },
+      {
         "id": "history_1ko0twu",
         "productCode": "LGS132",
         "revision": "V3",
@@ -13903,6 +14390,31 @@
     ],
     "LGS133": [
       {
+        "id": "history_17kj305",
+        "productCode": "LGS133",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:20:49.465Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "models3d",
+            "before": "",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6YLM139",
+            "field": "models3d",
+            "before": "",
+            "after": "圆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@5676a1fbc873e9095222c1b95fb3b235e8c03dc9/assets/models/M6YLM139_ea2dc3561c993a2825abd6aa0c42dd0d3e481bfa5b4928a589e97fc92074c885_glb"
+          }
+        ]
+      },
+      {
         "id": "history_1rt4jj3",
         "productCode": "LGS133",
         "revision": "V4",
@@ -14101,6 +14613,38 @@
       }
     ],
     "LGS433": [
+      {
+        "id": "history_1dnxtr",
+        "productCode": "LGS433",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:20:49.465Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "models3d",
+            "before": "",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "models3d",
+            "before": "",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8dfe1e2e0aeb4c28fb32d589a2a3464e260ad458/assets/models/M6GS1515WH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6YLM139",
+            "field": "models3d",
+            "before": "",
+            "after": "圆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@5676a1fbc873e9095222c1b95fb3b235e8c03dc9/assets/models/M6YLM139_ea2dc3561c993a2825abd6aa0c42dd0d3e481bfa5b4928a589e97fc92074c885_glb"
+          }
+        ]
+      },
       {
         "id": "history_6kjumj",
         "productCode": "LGS433",
@@ -14643,6 +15187,38 @@
     ],
     "LGS723": [
       {
+        "id": "history_wo284z",
+        "productCode": "LGS723",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:20:49.465Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "models3d",
+            "before": "",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "models3d",
+            "before": "",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8dfe1e2e0aeb4c28fb32d589a2a3464e260ad458/assets/models/M6GS1515WH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6YLM139",
+            "field": "models3d",
+            "before": "",
+            "after": "圆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@5676a1fbc873e9095222c1b95fb3b235e8c03dc9/assets/models/M6YLM139_ea2dc3561c993a2825abd6aa0c42dd0d3e481bfa5b4928a589e97fc92074c885_glb"
+          }
+        ]
+      },
+      {
         "id": "history_wqd17i",
         "productCode": "LGS723",
         "revision": "V4",
@@ -15036,6 +15612,38 @@
       }
     ],
     "LGS733": [
+      {
+        "id": "history_9uopsk",
+        "productCode": "LGS733",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:20:49.465Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "models3d",
+            "before": "",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "models3d",
+            "before": "",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8dfe1e2e0aeb4c28fb32d589a2a3464e260ad458/assets/models/M6GS1515WH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6YLM139",
+            "field": "models3d",
+            "before": "",
+            "after": "圆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@5676a1fbc873e9095222c1b95fb3b235e8c03dc9/assets/models/M6YLM139_ea2dc3561c993a2825abd6aa0c42dd0d3e481bfa5b4928a589e97fc92074c885_glb"
+          }
+        ]
+      },
       {
         "id": "history_11tmvgb",
         "productCode": "LGS733",
@@ -15537,6 +16145,38 @@
     ],
     "LGS833": [
       {
+        "id": "history_1vewgbn",
+        "productCode": "LGS833",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:20:49.465Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "models3d",
+            "before": "",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "models3d",
+            "before": "",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8dfe1e2e0aeb4c28fb32d589a2a3464e260ad458/assets/models/M6GS1515WH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6YLM139",
+            "field": "models3d",
+            "before": "",
+            "after": "圆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@5676a1fbc873e9095222c1b95fb3b235e8c03dc9/assets/models/M6YLM139_ea2dc3561c993a2825abd6aa0c42dd0d3e481bfa5b4928a589e97fc92074c885_glb"
+          }
+        ]
+      },
+      {
         "id": "history_l3ohnw",
         "productCode": "LGS833",
         "revision": "V4",
@@ -15844,6 +16484,38 @@
       }
     ],
     "LGS834": [
+      {
+        "id": "history_f32uew",
+        "productCode": "LGS834",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:20:49.465Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "models3d",
+            "before": "",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "models3d",
+            "before": "",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8dfe1e2e0aeb4c28fb32d589a2a3464e260ad458/assets/models/M6GS1515WH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6YLM139",
+            "field": "models3d",
+            "before": "",
+            "after": "圆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@5676a1fbc873e9095222c1b95fb3b235e8c03dc9/assets/models/M6YLM139_ea2dc3561c993a2825abd6aa0c42dd0d3e481bfa5b4928a589e97fc92074c885_glb"
+          }
+        ]
+      },
       {
         "id": "history_5j09we",
         "productCode": "LGS834",
@@ -16317,6 +16989,31 @@
       }
     ],
     "LGS043": [
+      {
+        "id": "history_17fmxht",
+        "productCode": "LGS043",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:20:49.465Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "models3d",
+            "before": "",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6YLM139",
+            "field": "models3d",
+            "before": "",
+            "after": "圆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@5676a1fbc873e9095222c1b95fb3b235e8c03dc9/assets/models/M6YLM139_ea2dc3561c993a2825abd6aa0c42dd0d3e481bfa5b4928a589e97fc92074c885_glb"
+          }
+        ]
+      },
       {
         "id": "history_1nqvo2n",
         "productCode": "LGS043",

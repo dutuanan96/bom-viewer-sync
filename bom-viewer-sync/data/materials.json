@@ -39606,8 +39606,19 @@
           "zh": "原材料",
           "vi": "Nguyên vật liệu"
         },
-        "drawings": [],
-        "models3d": []
+        "drawings": [
+          {
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@f2744dd6fbcc4d8e39a319d83f0822227e3f7441/assets/pdfs/3051502ZHKTP_ea5a306f72d959ae13a69e8b405a10eebfb01bd3137cdf3fe988b5c6ccf8f256_305_.pdf",
+            "name": "305左右中框铁片"
+          }
+        ],
+        "models3d": [
+          {
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@51fc05166cce45eb57a956e41a3a752d871fcfc5/assets/models/3051502ZHKTP_acdf88203f526cd81cda19d612d61d78b03055471b9b61abd8f560d292de4ea9_glb",
+            "name": "左右中框铁片.glb",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@51fc05166cce45eb57a956e41a3a752d871fcfc5/assets/models/3051502ZHKTP_acdf88203f526cd81cda19d612d61d78b03055471b9b61abd8f560d292de4ea9_glb"
+          }
+        ]
       },
       "mat_m6gs1515bh": {
         "id": "mat_m6gs1515bh",
@@ -39633,7 +39644,13 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [
+          {
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb",
+            "name": "M6管塞",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          }
+        ]
       },
       "mat_m6gs1515wh": {
         "id": "mat_m6gs1515wh",
@@ -39659,7 +39676,13 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [
+          {
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8dfe1e2e0aeb4c28fb32d589a2a3464e260ad458/assets/models/M6GS1515WH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb",
+            "name": "M6管塞",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8dfe1e2e0aeb4c28fb32d589a2a3464e260ad458/assets/models/M6GS1515WH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          }
+        ]
       },
       "mat_m6ylm139": {
         "id": "mat_m6ylm139",
@@ -39685,7 +39708,13 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [
+          {
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@5676a1fbc873e9095222c1b95fb3b235e8c03dc9/assets/models/M6YLM139_ea2dc3561c993a2825abd6aa0c42dd0d3e481bfa5b4928a589e97fc92074c885_glb",
+            "name": "圆螺母",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@5676a1fbc873e9095222c1b95fb3b235e8c03dc9/assets/models/M6YLM139_ea2dc3561c993a2825abd6aa0c42dd0d3e481bfa5b4928a589e97fc92074c885_glb"
+          }
+        ]
       },
       "mat_m6lmlm": {
         "id": "mat_m6lmlm",
