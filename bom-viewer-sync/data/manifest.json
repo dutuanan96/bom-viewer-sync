@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-13T10:56:38.775Z",
+  "updatedAt": "2026-08-13T11:01:19.221Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -7496,6 +7496,22 @@
   },
   "notifications": [
     {
+      "id": "notif_19335aw",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-13T11:01:19.221Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material_added",
+          "code": "ZJG15065423WH",
+          "field": "",
+          "before": "",
+          "after": ""
+        }
+      ]
+    },
+    {
       "id": "notif_f88pls",
       "type": "github-save",
       "actor": "admin",
@@ -8444,71 +8460,6 @@
           "field": "",
           "before": "LGS421ZLKBH",
           "after": "LGS420ZLKBH"
-        }
-      ]
-    },
-    {
-      "id": "notif_188ars0",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-12T03:40:35.945Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material_deleted",
-          "code": "LGS334XZQSLBH",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "material_deleted",
-          "code": "LGS334XZHSLBH",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "material_deleted",
-          "code": "LGS433XZQSLBH",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "material_deleted",
-          "code": "LGS433XZHSLBH",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "material_deleted",
-          "code": "LGS433XZQSLWH",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "material_deleted",
-          "code": "LGS433XZHSLWH",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "material_deleted",
-          "code": "LGS434XZQSLWH",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "material_deleted",
-          "code": "LGS434XZHSLWH",
-          "field": "",
-          "before": "",
-          "after": ""
         }
       ]
     }
