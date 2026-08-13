@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-13T11:11:24.505Z",
+  "updatedAt": "2026-08-13T11:27:38.014Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -7046,12 +7046,12 @@
     },
     "LGS233": {
       "currentRevision": "V4",
-      "effectiveRevision": "V4",
+      "effectiveRevision": "",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "released"
+        "workflowState": "draft"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -7101,6 +7101,14 @@
           "revision": "V4",
           "previousRevision": "",
           "occurredAt": "2026-08-13T10:51:10.518Z",
+          "reason": "更新"
+        },
+        {
+          "id": "effectivity_msrfoke1",
+          "action": "withdraw",
+          "revision": "V4",
+          "previousRevision": "V4",
+          "occurredAt": "2026-08-13T11:27:22.681Z",
           "reason": "更新"
         }
       ]
@@ -7495,6 +7503,36 @@
     }
   },
   "notifications": [
+    {
+      "id": "notif_1iv9x32",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-13T11:27:38.014Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS233",
+          "field": "effectiveRevision",
+          "before": "V4",
+          "after": ""
+        },
+        {
+          "kind": "revision",
+          "code": "LGS233",
+          "field": "workflowState",
+          "before": "released",
+          "after": "draft"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS233WH02S",
+          "field": "",
+          "before": "ZJG150654WH",
+          "after": "ZJG15065423WH"
+        }
+      ]
+    },
     {
       "id": "notif_9xkruc",
       "type": "github-save",
@@ -8376,50 +8414,6 @@
           "after": "released"
         }
       ]
-    },
-    {
-      "id": "notif_ou6fc4",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-12T04:01:15.754Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS333",
-          "field": "effectiveRevision",
-          "before": "V4",
-          "after": ""
-        },
-        {
-          "kind": "revision",
-          "code": "LGS333",
-          "field": "workflowState",
-          "before": "released",
-          "after": "draft"
-        },
-        {
-          "kind": "bom_added",
-          "code": "LGS333KD02S",
-          "field": "LGS333XQHLBH",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "bom_added",
-          "code": "LGS333BH02S",
-          "field": "LGS333XQHLBH",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "bom_added",
-          "code": "LGS333WH02S",
-          "field": "LGS333XQHLWH",
-          "before": "",
-          "after": ""
-        }
-      ]
     }
   ],
   "bomHistory": {
@@ -9197,6 +9191,38 @@
       }
     ],
     "LGS233": [
+      {
+        "id": "history_1n1ew1n",
+        "productCode": "LGS233",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T11:27:38.014Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS233",
+            "field": "effectiveRevision",
+            "before": "V4",
+            "after": ""
+          },
+          {
+            "kind": "revision",
+            "code": "LGS233",
+            "field": "workflowState",
+            "before": "released",
+            "after": "draft"
+          },
+          {
+            "kind": "bom_material_changed",
+            "code": "LGS233WH02S",
+            "field": "",
+            "before": "ZJG150654WH",
+            "after": "ZJG15065423WH"
+          }
+        ]
+      },
       {
         "id": "history_8hopof",
         "productCode": "LGS233",
