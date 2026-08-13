@@ -827,7 +827,7 @@ export function createAiAssistantFeature({
         processResolution(entityResolution);
         processResolution(materialResolution);
         const learnedStrategies = localStore?.listConfirmed?.({ currentSourceCommit })
-          .filter(memory => memory.scope?.memoryType === 'procedure') || [];
+          .filter(memory => ['procedure', 'user-teaching'].includes(memory.scope?.memoryType)) || [];
         const route = routePdmIntent({
           query: text,
           history,

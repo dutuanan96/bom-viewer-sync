@@ -81,9 +81,12 @@ function parentStructureRows() {
 }
 
 function parentStructureRowHtml(row) {
-  const { parent, children, productCodes } = row;
+  const { parent, children } = row;
   const parentName = localizedValue(parent.name, this.state.lang);
-  const products = Array.from(productCodes).sort();
+  
+  const whereUsed = materialWhereUsed(this.state.payload, parent.id);
+  const products = Array.from(new Set(whereUsed.productEntries.map((entry) => entry.productCode))).sort();
+  
   const spuPills = products.length
     ? products.map((s) => `<span class="spu-pill">${escapeHTML(s)}</span>`).join('')
     : '<span class="mdb-empty">-</span>';

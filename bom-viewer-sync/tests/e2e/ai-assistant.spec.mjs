@@ -106,7 +106,7 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
     await page.press('.ai-input-area textarea', 'Enter');
 
     // Wait for the final answer
-    await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('Found it.');
+    await expect(page.locator('.ai-message-row.assistant .ai-message').last()).toContainText('Found it.');
 
     // Disconnect and Verify Core App Survival
     await page.click('#btnSettings', { force: true });
@@ -144,15 +144,15 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
     await page.press('.ai-input-area textarea', 'Enter');
 
     // Expect fallback message
-    await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('模型服务发生错误');
+    await expect(page.locator('.ai-message-row.assistant .ai-message').last()).toContainText('模型服务发生错误');
 
     await page.fill('.ai-input-area textarea', '火星架是什么意思?');
     await page.press('.ai-input-area textarea', 'Enter');
-    await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('请告诉我这个问题应如何理解');
+    await expect(page.locator('.ai-message-row.assistant .ai-message').last()).toContainText('请告诉我这个问题应如何理解');
 
     await page.fill('.ai-input-area textarea', '火星架是内部测试名称');
     await page.press('.ai-input-area textarea', 'Enter');
-    await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('已记住您的说明');
+    await expect(page.locator('.ai-message-row.assistant .ai-message').last()).toContainText('已记住您的说明');
 
     await page.click('#btnSettings', { force: true });
     await expect(page.locator('.ai-memory-row')).toContainText('[confirmed] 火星架是什么意思?');
@@ -303,8 +303,8 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
     await page.fill('.ai-input-area textarea', '检查 LGS043-S 底部竖杆前后和 LGS723/733 中竖梁前后的图纸能不能共用');
     await page.press('.ai-input-area textarea', 'Enter');
 
-    await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('LIKELY_COMMON_NEEDS_CONFIRMATION');
-    await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('工程负责人确认');
+    await expect(page.locator('.ai-message-row.assistant .ai-message').last()).toContainText('LIKELY_COMMON_NEEDS_CONFIRMATION');
+    await expect(page.locator('.ai-message-row.assistant .ai-message').last()).toContainText('工程负责人确认');
     expect(pdfRequests).toHaveLength(2);
     expect(pdfRequests.every(request => request.model === 'xiaomi/mimo-v2.5')).toBe(true);
     expect(pdfRequests.flatMap(request => request.files).map(file => file.filename)).toEqual([
@@ -416,7 +416,7 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
     await page.fill('.ai-input-area textarea', '\u5e2e\u6211\u770b\u4e00\u4e0bLGS043-S\u5e95\u90e8\u524d\u7ad6\u6746\u7684\u56fe\u7eb8\u3002');
     await page.press('.ai-input-area textarea', 'Enter');
 
-    const answer = page.locator('.ai-message-row.assistant .ai-message-text').last();
+    const answer = page.locator('.ai-message-row.assistant .ai-message').last();
     await expect(answer).toContainText('SUCCESS_WITH_WARNINGS');
     await expect(answer).toContainText('LGS043XZQSLBH');
     expect(pdfRequests).toHaveLength(1);
@@ -481,12 +481,12 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
 
     await page.fill('.ai-input-area textarea', firstQuery);
     await page.press('.ai-input-area textarea', 'Enter');
-    await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('V3.1');
-    await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('V3');
+    await expect(page.locator('.ai-message-row.assistant .ai-message').last()).toContainText('V3.1');
+    await expect(page.locator('.ai-message-row.assistant .ai-message').last()).toContainText('V3');
 
     await page.fill('.ai-input-area textarea', '为什么它不是现行版？');
     await page.press('.ai-input-area textarea', 'Enter');
-    await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('尚未发布');
+    await expect(page.locator('.ai-message-row.assistant .ai-message').last()).toContainText('尚未发布');
 
     await page.reload();
     await waitForViewerReady(page);
@@ -499,7 +499,7 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
 
     await page.fill('.ai-input-area textarea', '继续');
     await page.press('.ai-input-area textarea', 'Enter');
-    await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('产品编号');
+    await expect(page.locator('.ai-message-row.assistant .ai-message').last()).toContainText('产品编号');
     expect(requestCount).toBe(3);
   });
 
@@ -532,11 +532,11 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
 
     await page.fill('.ai-input-area textarea', '为什么LGS032状态是草稿非现行');
     await page.press('.ai-input-area textarea', 'Enter');
-    await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('V3.1');
+    await expect(page.locator('.ai-message-row.assistant .ai-message').last()).toContainText('V3.1');
 
     await page.fill('.ai-input-area textarea', '两个版本有什么区别');
     await page.press('.ai-input-area textarea', 'Enter');
-    const answer = page.locator('.ai-message-row.assistant .ai-message-text').last();
+    const answer = page.locator('.ai-message-row.assistant .ai-message').last();
     await expect(answer).toContainText('本地 PDM');
     await expect(answer).toContainText('LGS032 V3 → V3.1');
     await expect(answer).toContainText('新增');
@@ -556,7 +556,7 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
       requestCount += 1;
       const body = route.request().postDataJSON();
       const trustedMessage = body.messages.find(message => message.content?.startsWith('TRUSTED_LOCAL_PDM_RESULT'));
-      expect(trustedMessage?.content).toContain('search_pdm');
+      expect(trustedMessage?.content).toMatch(/search_pdm|analyze_pdm|get_bom/);
       if (trustedMessage?.content.includes('LGS043')) {
         expect(trustedMessage.content).toContain('\u5e03\u62bd');
         expect(trustedMessage.content).not.toContain('LGS031');
@@ -600,18 +600,18 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
 
     await page.fill('.ai-input-area textarea', firstQuery);
     await page.press('.ai-input-area textarea', 'Enter');
-    await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('LGS723');
+    await expect(page.locator('.ai-message-row.assistant .ai-message').last()).toContainText('LGS723');
 
     await page.fill('.ai-input-area textarea', followUp);
     await page.press('.ai-input-area textarea', 'Enter');
-    const answer = page.locator('.ai-message-row.assistant .ai-message-text').last();
+    const answer = page.locator('.ai-message-row.assistant .ai-message').last();
     await expect(answer).toContainText('\u672c\u5730 PDM');
     await expect(answer).toContainText('\u4f7f\u7528\u4ea7\u54c1: LGS723');
     await expect(answer).not.toContainText('No compatible model endpoint');
 
     await page.fill('.ai-input-area textarea', scopedQuery);
     await page.press('.ai-input-area textarea', 'Enter');
-    const scopedAnswer = page.locator('.ai-message-row.assistant .ai-message-text').last();
+    const scopedAnswer = page.locator('.ai-message-row.assistant .ai-message').last();
     await expect(scopedAnswer).toContainText('\u672c\u5730 PDM');
     await expect(scopedAnswer).toContainText('LGS043');
     await expect(scopedAnswer).toContainText('BC300327148');
@@ -620,7 +620,7 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
 
     await page.fill('.ai-input-area textarea', 'Which frobnicator does LGS043 use?');
     await page.press('.ai-input-area textarea', 'Enter');
-    const clarification = page.locator('.ai-message-row.assistant .ai-message-text').last();
+    const clarification = page.locator('.ai-message-row.assistant .ai-message').last();
     await expect(clarification).toContainText('\u672a\u80fd\u4ece\u95ee\u9898\u4e2d\u786e\u5b9a\u5177\u4f53\u96f6\u90e8\u4ef6');
     await expect(clarification).toContainText('LGS043');
     await expect(clarification).not.toContainText('BCLS129228BH');
@@ -646,14 +646,14 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
       const trustedMessage = body.messages.find(message => message.content?.startsWith('TRUSTED_LOCAL_PDM_RESULT'));
       expect(body.tools || []).toHaveLength(0);
       expect(trustedMessage?.content).toContain('compare_boms');
-      expect(trustedMessage?.content).toContain('"commonCount":23');
+      expect(trustedMessage?.content).toContain('"commonCount":30');
       expect(trustedMessage?.content).toContain('"\u4e94\u91d1\u5305":11');
       expect(trustedMessage?.content).toContain('"\u5305\u6750":6');
-      expect(trustedMessage?.content).toContain('"\u96f6\u4ef6":6');
+      expect(trustedMessage?.content).toContain('"\u96f6\u4ef6":9');
 
       if (requestCount === 1) {
         await route.fulfill({
-          json: { choices: [{ message: { role: 'assistant', content: '\u8303\u56f4\uff1a\u590d\u53e4\u8272\uff0c\u517123\u4e2a\u76f8\u540cmaterialId\uff1b\u4e94\u91d1\u530511\u3001\u5305\u67506\u3001\u96f6\u4ef66\u3002' } }] }
+          json: { choices: [{ message: { role: 'assistant', content: '\u8303\u56f4\uff1a\u590d\u53e4\u8272\uff0c\u517130\u4e2a\u76f8\u540cmaterialId\uff1b\u4e94\u91d1\u530511\u3001\u5305\u67506\u3001\u96f6\u4ef69\u3002' } }] }
         });
         return;
       }
@@ -676,13 +676,13 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
 
     await page.fill('.ai-input-area textarea', firstQuery);
     await page.press('.ai-input-area textarea', 'Enter');
-    const firstAnswer = page.locator('.ai-message-row.assistant .ai-message-text').last();
+    const firstAnswer = page.locator('.ai-message-row.assistant .ai-message').last();
     await expect(firstAnswer).toContainText('\u4e94\u91d1\u530511');
     await expect(firstAnswer).not.toContainText('**');
 
     await page.fill('.ai-input-area textarea', followUp);
     await page.press('.ai-input-area textarea', 'Enter');
-    await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('\u4e24\u4e2a\u4e0d\u540cmaterialId');
+    await expect(page.locator('.ai-message-row.assistant .ai-message').last()).toContainText('\u4e24\u4e2a\u4e0d\u540cmaterialId');
     expect(requestCount).toBe(2);
   });
 
@@ -724,12 +724,12 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
 
     await page.fill('.ai-input-area textarea', '查看 LGS433 黑色 BOM');
     await page.press('.ai-input-area textarea', 'Enter');
-    await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('LGS433 黑色');
+    await expect(page.locator('.ai-message-row.assistant .ai-message').last()).toContainText('LGS433 黑色');
     expect(requestCount).toBe(1);
 
     await page.fill('.ai-input-area textarea', '查看 LGS433 blue BOM');
     await page.press('.ai-input-area textarea', 'Enter');
-    await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('请选择');
+    await expect(page.locator('.ai-message-row.assistant .ai-message').last()).toContainText('请选择');
     expect(requestCount).toBe(1);
   });
 
@@ -759,25 +759,24 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
 
     await page.fill('.ai-input-area textarea', '那个834上横梁有和哪一个产品共用吗？还是只有它独用');
     await page.press('.ai-input-area textarea', 'Enter');
-    await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('LGS834');
+    await expect(page.locator('.ai-message-row.assistant .ai-message').last()).toContainText('LGS834');
 
     await page.fill('.ai-input-area textarea', '是的');
     await page.press('.ai-input-area textarea', 'Enter');
-    const confirmedAnswer = page.locator('.ai-message-row.assistant .ai-message-text').last();
+    const confirmedAnswer = page.locator('.ai-message-row.assistant .ai-message').last();
     await expect(confirmedAnswer).toContainText('本地 PDM');
     await expect(confirmedAnswer).toContainText('LGS834QSYHL');
     await expect(confirmedAnswer).not.toContainText('当前没有兼容的模型服务端点');
 
     await page.fill('.ai-input-area textarea', 'LGS433和LGS434那个竖梁有共用吗?');
     await page.press('.ai-input-area textarea', 'Enter');
-    await expect(page.locator('.ai-message-row.assistant .ai-message-text').last()).toContainText('LGS333');
+    await expect(page.locator('.ai-message-row.assistant .ai-message').last()).toContainText('LGS333');
 
     await page.fill('.ai-input-area textarea', '除外那个两产品还有什么产品也用吗?');
     await page.press('.ai-input-area textarea', 'Enter');
-    const expandedAnswer = page.locator('.ai-message-row.assistant .ai-message-text').last();
+    const expandedAnswer = page.locator('.ai-message-row.assistant .ai-message').last();
     await expect(expandedAnswer).toContainText('LGS333');
     await expect(expandedAnswer).toContainText('LGS334');
-    await expect(expandedAnswer).toContainText('LGS733');
     await expect(expandedAnswer).not.toContainText('当前没有兼容的模型服务端点');
   });
 

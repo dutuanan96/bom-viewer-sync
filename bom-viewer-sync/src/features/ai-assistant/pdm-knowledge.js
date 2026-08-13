@@ -142,9 +142,9 @@ function normalizeBomSearchText(value) {
 
 function catalogMaterialSearchTerms(query) {
   const normalized = normalizeBomSearchText(query)
-    .replace(/帮我|请|统计|統計|所有|全部|全体|列出|列表|清单|汇总|规格|规\s*格|每一个产品|每个产品|各个产品|用什么|什么|使用产品|产品|物料|材料|零件|部件|包材|包装材料|包装/g, ' ')
-    .replace(/\b(?:all|every|toan bo|tat ca|thong ke|liet ke|danh sach|quy cach|spec|specification|material|component|parts?|products?|each product|every product|moi san pham|tung san pham|dung gi)\b/giu, ' ');
-  const stopWords = new Set(['bao', 'bi', 'cua', 'giup', 'hay', 'la', 'nao', 'nhung', 'san', 'pham', 'su', 'dung', 'tat', 'toan', 'vat', 'lieu', 'dong', 'goi', 'voi']);
+    .replace(/帮我|请|统计|統計|所有|全部|全体|列出|列表|清单|汇总|规格|规\s*格|每一个产品|每个产品|各个产品|用什么|什么|使用产品|产品|物料|材料|零件|部件|包材|包装材料|包装|只要|只有|仅|还有|吗|呢|吧|？|\?/g, ' ')
+    .replace(/\b(?:all|every|toan bo|tat ca|thong ke|liet ke|danh sach|quy cach|spec|specification|material|component|parts?|products?|each product|every product|moi san pham|tung san pham|dung gi|only|just|any other|anything else)\b/giu, ' ');
+  const stopWords = new Set(['bao', 'bi', 'cua', 'giup', 'hay', 'la', 'nao', 'nhung', 'san', 'pham', 'su', 'dung', 'tat', 'toan', 'vat', 'lieu', 'dong', 'goi', 'voi', 'toi', 'cac', 'cho']);
   const latinTerms = (normalized.match(/[a-z0-9]+(?:[.\-]?[a-z0-9]+)*/g) || [])
     .filter(term => term.length >= 2 && !stopWords.has(term) && !/^lgs\d{3,4}$/.test(term));
   const hanTerms = [...normalized.matchAll(/[\p{Script=Han}]{2,}/gu)].map(match => match[0]);
@@ -536,43 +536,65 @@ export class PdmKnowledge {
 
   /**
    * Find all products that use a given materialId.
-   whereUsed({ materialId } = {}) {
-     // Auto-resolve: if materialId not found in materialDb, try resolving from materialCode
-     let resolvedId = materialId;
-     if (materialId && !this._payload?.materialDb?.materials?.[materialId]) {
-       const materialDb = this._payload?.materialDb?.materials || {};
-       for (const [id, mat] of Object.entries(materialDb)) {
-         if (mat?.code === materialId || mat?.mat_code === materialId || mat?.materialCode === materialId) {
-           resolvedId = id;
-           break;
-         }
-       }
-     }
-     // Get colors from BOM entries for this material, not from product.colors (which may be undefined)
-     const materialEntries = (this._payload?.materialDb?.bomEntries || []).filter(e => e.materialId === resolvedId);
-     const colorMap = new Map(); // productCode -> Set of colors
-     for (const entry of materialEntries) {
-       if (!entry.productCode) continue;
-       if (!colorMap.has(entry.productCode)) colorMap.set(entry.productCode, new Set());
-       if (entry.color) colorMap.get(entry.productCode).add(entry.color);
-     }
+   */
+  whereUsed({ materialId } = {}) {
+    // Auto-resolve: if materialId not found in materialDb, try resolving from materialCode
+    let resolvedId = materialId;
+    if (materialId && !this._payload?.materialDb?.materials?.[materialId]) {
+      const materialDb = this._payload?.materialDb?.materials || {};
+      for (const [id, mat] of Object.entries(materialDb)) {
+        if (mat?.code === materialId || mat?.mat_code === materialId || mat?.materialCode === materialId) {
+          resolvedId = id;
+          break;
+        }
+      }
+    }
+    // Gather all entries: draft (bomEntries) + released effective (effectiveEntries)
+    const allEntries = [
+      ...(this._payload?.materialDb?.bomEntries || []),
+      ...(this._payload?.materialDb?.effectiveEntries || []),
+    ];
+    const materialEntries = allEntries.filter(e => e.materialId === resolvedId);
+    const colorMap = new Map(); // productCode -> Set of colors
+    for (const entry of materialEntries) {
+      if (!entry.productCode) continue;
+      if (!colorMap.has(entry.productCode)) colorMap.set(entry.productCode, new Set());
+      if (entry.color) colorMap.get(entry.productCode).add(entry.color);
+    }
 
-     const bom = this._payload.bom || {};
-     const usage = [];
+    // Track keys that come exclusively from effective (released) entries
+    const effectiveOnlyKeys = new Set(
+      (this._payload?.materialDb?.effectiveEntries || [])
+        .filter(e => e.materialId === resolvedId && e.productCode)
+        .map(e => `${e.productCode}|${e.color || ''}|${e.revision || ''}`)
+    );
 
-     for (const [productCode, product] of Object.entries(bom)) {
-       if (!product) continue;
-       const colors = colorMap.get(productCode);
-       const colorsToCheck = colors && colors.size > 0 ? [...colors] : (product.colors || ['']);
-       for (const color of colorsToCheck) {
-         const rows = buildBomTreeRows(this._payload, productCode, color);
-         const found = rows.some(r => r._materialId === resolvedId || (r.comp_code && r.comp_code === resolvedId));
-         if (found) {
-           usage.push({ productCode, color });
-         }
-       }
-       if (usage.length >= MAX_SEARCH_RESULTS) break;
-     }
+    const bom = this._payload.bom || {};
+    const usage = [];
+
+    for (const [productCode, product] of Object.entries(bom)) {
+      if (!product) continue;
+      const colors = colorMap.get(productCode);
+      const colorsToCheck = colors && colors.size > 0 ? [...colors] : (product.colors || ['']);
+      for (const color of colorsToCheck) {
+        const rows = buildBomTreeRows(this._payload, productCode, color);
+        const found = rows.some(r => r._materialId === resolvedId || (r.comp_code && r.comp_code === resolvedId));
+        if (found) {
+          const revMeta = this._payload?.productRevisions?.[productCode];
+          usage.push({ productCode, color, revision: revMeta?.currentRevision || '', isDraft: true });
+        }
+      }
+      if (usage.length >= MAX_SEARCH_RESULTS) break;
+    }
+
+    // Add effective (released) usages not yet covered by draft
+    for (const key of effectiveOnlyKeys) {
+      const [productCode, color, revision] = key.split('|');
+      const alreadyInDraft = usage.some(u => u.productCode === productCode && u.color === color && u.isDraft);
+      if (!alreadyInDraft) {
+        usage.push({ productCode, color, revision, isDraft: false });
+      }
+    }
 
     return {
       materialId: resolvedId,
@@ -756,10 +778,16 @@ export class PdmKnowledge {
     // Check product shorthand e.g. "723"
     const shorthand = detectProductShorthand(text);
     if (shorthand && bom[shorthand.candidateProductId]) {
-      text = text.replace(
-        new RegExp(`(^|[^\\w])${shorthand.userNumber}(?=[^\\w]|$)`),
-        `$1${shorthand.candidateProductId}`,
-      );
+      return {
+        needsClarification: true,
+        clarificationCode: 'confirm_product_shorthand',
+        clarificationData: { candidateProductId: shorthand.candidateProductId },
+        clarificationText: shorthand.confirmationPrompt,
+        results: [],
+        totalMatches: 0,
+        truncated: false,
+        evidence: [buildEvidence(this._sourceMetadata, shorthand.candidateProductId, `data/products/${shorthand.candidateProductId}.json`)],
+      };
     }
 
     const parsedDims = parseDimensions(text || dimensionFilter);
@@ -779,7 +807,11 @@ export class PdmKnowledge {
         && /最大|largest|biggest|maximum/i.test(text)
       ) {
         mode = 'rank_component_size';
-      } else if (concept?.conceptId === 'packaging_material' && genericMaterialTerms.length > 0) {
+      } else if (
+        (concept?.conceptId === 'packaging_material' || concept?.conceptId === 'packaging_carton')
+        && genericMaterialTerms.some(t => !/纸箱|纸盒|carton|cardboard|box|thùng|thung|giấy|giay|色|black|white|vintage|walnut|đen|trắng|cổ|chó/i.test(t))
+        && genericMaterialTerms.length > 0
+      ) {
         mode = 'generic_material_usage';
       } else if (
         ['crossbar', 'upper_crossbar', 'bottom_crossbar', 'vertical_beam', 'packaging_carton', 'packaging_material', 'drawer_bottom'].includes(concept?.conceptId)
@@ -902,10 +934,13 @@ export class PdmKnowledge {
         },
         drawer_bottom: /布抽底板|抽屉底板|fabric drawer bottom|drawer bottom|đáy túi/i,
       };
+      const termsToMatch = mode === 'generic_material_usage'
+        ? genericMaterialTerms.filter(t => !/纸箱|纸盒|carton|cardboard|box|thùng|thung|giấy|giay|色|black|white|vintage|walnut|đen|trắng|cổ|chó/i.test(t))
+        : [];
       const matcher = mode === 'generic_material_usage'
-        ? { test: searchable => genericMaterialTerms.every(term => normalizeBomSearchText(searchable).includes(term)) }
+        ? { test: searchable => termsToMatch.every(term => normalizeBomSearchText(searchable).includes(term)) }
         : concept?.conceptId === 'packaging_carton'
-        ? /\u7eb8\u7bb1|\u7eb8\u76d2|\u4e2d\u5c01\u7bb1|\u5e73\u53e3\u7bb1|\u5916\u7bb1|\u5185\u7bb1|carton|cardboard box|outer carton|inner carton|th\u00f9ng carton/i
+        ? /\u7eb8\u7bb1|\u7eb8\u76d2|\u4e2d\u5c01\u7bb1|\u5e73\u53e3\u7bb1|\u5916\u7bb1|\u5185\u7bb1|carton|cardboard box|outer carton|inner carton|th\u00f9ng carton|th\u00f9ng gi\u1ea5y/i
         : conceptMatchers[concept?.conceptId];
       if (!matcher) throw new Error('A supported component family is required');
       const targetProductIds = [...new Set((text.match(/\bLGS\d{3,4}\b/gi) || []).map(value => value.toUpperCase()))];
