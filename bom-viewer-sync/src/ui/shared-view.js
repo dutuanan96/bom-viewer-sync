@@ -240,6 +240,7 @@ function genericToolbar(count, label) {
 
 function showModal(url, title, subtitle) {
   this.query('#pdfModalTitle').textContent = title || this.label('viewDrawing');
+  this.query('#pdfModalSubtitle').textContent = subtitle || '';
   const frame = this.query('#pdfFrame');
   const modelViewer = this.ensureModelViewer();
   frame.hidden = false;

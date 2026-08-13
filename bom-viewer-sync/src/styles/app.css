@@ -3968,6 +3968,10 @@ body.pdm-shell {
   padding: 6px 0;
 }
 
+.drawing-btn[hidden] {
+  display: none;
+}
+
 .ai-message-table-wrap {
   overflow-x: auto;
   margin-top: 8px;

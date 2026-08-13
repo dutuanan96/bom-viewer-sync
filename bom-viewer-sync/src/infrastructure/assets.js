@@ -92,6 +92,5 @@ export function pdfFrameUrl(url) {
   const value = String(url || '').trim();
   const match = value.match(/drive\.google\.com\/file\/d\/([^/?#]+)/i);
   if (match) return `https://drive.google.com/file/d/${encodeURIComponent(match[1])}/preview`;
-  if (!value) return 'about:blank';
-  return `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(value)}`;
+  return value || 'about:blank';
 }

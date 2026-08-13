@@ -15,7 +15,7 @@ test('asset matching remains color-neutral and Drive-aware', () => {
   assert.equal(assets[0].name, 'panel.pdf');
   assert.equal(driveFileId('https://drive.google.com/file/d/file-id/view'), 'file-id');
   assert.equal(pdfFrameUrl('https://drive.google.com/file/d/file-id/view'), 'https://drive.google.com/file/d/file-id/preview');
-  assert.equal(pdfFrameUrl('https://example.test/drawing'), 'https://mozilla.github.io/pdf.js/web/viewer.html?file=https%3A%2F%2Fexample.test%2Fdrawing');
+  assert.equal(pdfFrameUrl('https://example.test/drawing.pdf'), 'https://example.test/drawing.pdf');
   assert.match(assetDisplayUrl({ driveId: 'file-id' }, { protocol: 'file:', hostname: '' }), /thumbnail\?id=file-id/);
 });
 
