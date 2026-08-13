@@ -14,6 +14,7 @@ test('asset matching remains color-neutral and Drive-aware', () => {
   assert.equal(assets[0].name, 'panel.pdf');
   assert.equal(driveFileId('https://drive.google.com/file/d/file-id/view'), 'file-id');
   assert.equal(pdfFrameUrl('https://drive.google.com/file/d/file-id/view'), 'https://drive.google.com/file/d/file-id/preview');
+  assert.equal(pdfFrameUrl('https://example.test/drawing'), 'https://mozilla.github.io/pdf.js/web/viewer.html?file=https%3A%2F%2Fexample.test%2Fdrawing');
   assert.match(assetDisplayUrl({ driveId: 'file-id' }, { protocol: 'file:', hostname: '' }), /thumbnail\?id=file-id/);
 });
 
@@ -48,6 +49,25 @@ test('notification body renders normalized material changes', () => {
   assert.match(body, /M1/);
   assert.match(body, /Old/);
   assert.match(body, /New/);
+});
+
+test('notification body summarizes asset changes without exposing source URLs', () => {
+  const app = Object.create(BomApplication.prototype);
+  app.state = { lang: 'zh' };
+
+  const body = app.notificationBody({
+    type: 'github-save',
+    changes: [{
+      kind: 'material',
+      code: 'M1',
+      field: 'drawings',
+      before: '',
+      after: 'drawing.pdf|https://cdn.example.test/assets/pdfs/a-very-long-file-name',
+    }],
+  });
+
+  assert.match(body, /M1/);
+  assert.doesNotMatch(body, /https:\/\//);
 });
 
 test('notification body identifies BOM edits and material replacements', () => {

@@ -91,5 +91,7 @@ export function assetDisplayUrl(asset, locationLike = globalThis.location) {
 export function pdfFrameUrl(url) {
   const value = String(url || '').trim();
   const match = value.match(/drive\.google\.com\/file\/d\/([^/?#]+)/i);
-  return match ? `https://drive.google.com/file/d/${encodeURIComponent(match[1])}/preview` : value || 'about:blank';
+  if (match) return `https://drive.google.com/file/d/${encodeURIComponent(match[1])}/preview`;
+  if (!value) return 'about:blank';
+  return `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(value)}`;
 }

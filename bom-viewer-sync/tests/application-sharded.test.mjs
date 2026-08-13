@@ -162,7 +162,7 @@ test('save diffs the current remote payload before writing its expectedHeadSha a
 
   await app.writeGithubData('token');
 
-  assert.deepEqual(calls.map(({ type }) => type), ['loadForWrite', 'write']);
+  assert.deepEqual(calls.map(({ type }) => type), ['loadForWrite', 'loadForWrite', 'write']);
   assert.equal(writeInput.expectedHeadSha, 'current-remote-sha');
 
   const writtenPayload = writeInput.payload;
@@ -261,7 +261,7 @@ function pendingAssetSaveApp({ uploadAsset, write }) {
   return { app, calls, pendingId };
 }
 
-test('Save to GitHub uploads referenced assets before reading the current BOM expectedHeadSha', async () => {
+test('Save to GitHub verifies the current BOM before and after uploading referenced assets', async () => {
   const pinnedUrl = `https://cdn.jsdelivr.net/gh/acme/bom-data@${'c'.repeat(40)}/assets/pdfs/M1_${'a'.repeat(64)}_drawing.pdf`;
   const { app, calls, pendingId } = pendingAssetSaveApp({
     uploadAsset: async () => ({ url: pinnedUrl, sha: 'c'.repeat(40) }),
@@ -269,12 +269,12 @@ test('Save to GitHub uploads referenced assets before reading the current BOM ex
 
   await app.writeGithubData('token');
 
-  assert.deepEqual(calls.map(({ type }) => type), ['uploadAsset', 'loadForWrite', 'write']);
-  assert.equal(calls[0].input.token, 'token');
-  assert.equal(calls[0].input.contentType, 'application/pdf');
-  assert.equal(calls[0].input.bytes instanceof Uint8Array, true);
+  assert.deepEqual(calls.map(({ type }) => type), ['loadForWrite', 'uploadAsset', 'loadForWrite', 'write']);
+  assert.equal(calls[1].input.token, 'token');
+  assert.equal(calls[1].input.contentType, 'application/pdf');
+  assert.equal(calls[1].input.bytes instanceof Uint8Array, true);
 
-  const writeInput = calls[2].input;
+  const writeInput = calls[3].input;
   assert.equal(writeInput.expectedHeadSha, 'current-remote-sha');
   const writtenPayload = writeInput.payload;
   assert.equal(writtenPayload.materialDb.materials.m1.drawings[0].url, pinnedUrl);
@@ -295,7 +295,7 @@ test('asset upload failure leaves the remote BOM untouched and pending bytes ava
 
   await assert.rejects(app.writeGithubData('token'));
 
-  assert.deepEqual(calls.map(({ type }) => type), ['uploadAsset']);
+  assert.deepEqual(calls.map(({ type }) => type), ['loadForWrite', 'uploadAsset']);
   assert.equal(app.state.materialDb.materials.m1.drawings[0].pendingAssetId, pendingId);
   assert.equal(app.state.pendingMaterialAssets[pendingId].bytes instanceof Uint8Array, true);
 });
@@ -318,8 +318,22 @@ test('BOM write retry reuses an already resolved asset without uploading again',
   await app.writeGithubData('token');
 
   assert.equal(calls.filter(({ type }) => type === 'uploadAsset').length, 1);
-  assert.equal(calls.filter(({ type }) => type === 'loadForWrite').length, 2);
+  assert.equal(calls.filter(({ type }) => type === 'loadForWrite').length, 4);
   assert.equal(calls.filter(({ type }) => type === 'write').length, 2);
   assert.equal(app.state.materialDb.materials.m1.drawings[0].url, pinnedUrl);
   assert.deepEqual(app.state.pendingMaterialAssets, {});
+});
+
+test('Save to GitHub rejects a stale Admin snapshot before uploading assets', async () => {
+  const { app, calls } = pendingAssetSaveApp({
+    uploadAsset: async () => ({ url: 'https://example.test/drawing.pdf' }),
+  });
+  app.state.loadedSourceCommit = 'older-remote-sha';
+
+  await assert.rejects(
+    app.writeGithubData('token'),
+    (error) => error?.code === 'STALE_REMOTE_DATA',
+  );
+
+  assert.deepEqual(calls.map(({ type }) => type), ['loadForWrite']);
 });

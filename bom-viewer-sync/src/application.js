@@ -88,6 +88,14 @@ const ASSET_STORAGE_CONFIG = {
   branch: 'main',
 };
 
+class StaleRemoteDataError extends Error {
+  constructor() {
+    super('STALE_REMOTE_DATA');
+    this.name = 'StaleRemoteDataError';
+    this.code = 'STALE_REMOTE_DATA';
+  }
+}
+
 const TEXT = {
   zh: {
     brand: '金汰 BOM',
@@ -152,6 +160,7 @@ const TEXT = {
     saving: '正在保存到 GitHub...',
     saved: '已保存到 GitHub',
     saveFailed: '保存失败',
+    staleRemoteData: '数据已被其他管理员更新，请重新加载后再保存',
     dirty: '有未保存更改',
     copied: '已复制表格',
     source: 'GitHub 数据源',
@@ -544,6 +553,7 @@ const TEXT = {
     saving: 'Đang lưu lên GitHub...',
     saved: 'Đã lưu lên GitHub',
     saveFailed: 'Lưu thất bại',
+    staleRemoteData: 'Dữ liệu đã được quản trị viên khác cập nhật, hãy tải lại trước khi lưu',
     dirty: 'Có thay đổi chưa lưu',
     copied: 'Đã copy bảng',
     source: 'Nguồn dữ liệu GitHub',
@@ -922,6 +932,7 @@ Object.assign(TEXT.zh, {
   notificationGithubSaveTitle: 'GitHub 数据已更新',
   notificationGithubSaveBody: 'Admin 已保存 BOM/物料数据，Viewer 可同步最新版本。',
   notificationChangedItems: '已修改',
+  notificationAssetChanged: '已更新 2D/3D 文件',
   notificationMaterialAdded: '新增物料',
   notificationMaterialDeleted: '删除物料',
   notificationBomAdded: '新增 BOM 行',
@@ -1071,6 +1082,7 @@ Object.assign(TEXT.vi, {
   notificationGithubSaveTitle: 'Dữ liệu GitHub đã cập nhật',
   notificationGithubSaveBody: 'Admin đã lưu dữ liệu BOM/vật liệu, Viewer có thể đồng bộ bản mới nhất.',
   notificationChangedItems: 'Đã sửa',
+  notificationAssetChanged: 'Đã cập nhật tệp 2D/3D',
   notificationMaterialAdded: 'Thêm vật tư mới',
   notificationMaterialDeleted: 'Xóa vật tư',
   notificationBomAdded: 'Thêm dòng BOM',
@@ -1212,6 +1224,7 @@ class BomApplication {
       pendingMaterialAssets: {},
       materialAssetFeedback: null,
       loadedPayload: clone(payload),
+      loadedSourceCommit: '',
       currentSku: '',
       currentColor: '',
       selectedRevision: '',
@@ -2504,6 +2517,9 @@ class BomApplication {
   notificationChangeText(change) {
     const before = change.before || '-';
     const after = change.after || '-';
+    if (change.kind === 'material' && (change.field === 'drawings' || change.field === 'models3d')) {
+      return `${change.code} 路 ${this.label('notificationAssetChanged')}`;
+    }
     switch (change.kind) {
       case 'material_added':
         return `${change.code} · ${this.label('notificationMaterialAdded')}`;
@@ -3488,9 +3504,10 @@ class BomApplication {
       const previousNotifications = this.notifications();
       const firstLoad = !this.state.lastLoadAt;
       const payload = await this.githubData.loadPublic();
+      const sourceMetadata = this.githubData.getSourceMetadata?.();
       if ((this.state.dirty || this.state.materialDraft) && silent) return false;
       const incoming = this.newNotifications(previousNotifications, payload.notifications);
-      this.applyPayload(payload, { preserveView: silent });
+      this.applyPayload(payload, { preserveView: silent, sourceCommit: sourceMetadata?.commitSha || '' });
       this.state.lastLoadAt = new Date().toISOString();
       this.renderAll();
       if (silent && !firstLoad && incoming.length && !this.isAdmin()) this.showNotificationToast(incoming[0]);
@@ -3527,6 +3544,9 @@ class BomApplication {
     this.state.materialDraft = null;
     this.state.pendingMaterialAssets = {};
     this.state.loadedPayload = clone(this.state.payload);
+    if (Object.hasOwn(options || {}, 'sourceCommit')) {
+      this.state.loadedSourceCommit = String(options.sourceCommit || '');
+    }
     this.state.dirty = false;
     this.state.selectedMaterialId = '';
     this.state.selectedEntryId = '';
@@ -3561,6 +3581,8 @@ class BomApplication {
     } catch (error) {
       const message = error instanceof MaterialAssetUploadError
         ? this.materialAssetErrorLabel(error)
+        : error instanceof StaleRemoteDataError
+          ? this.label('staleRemoteData')
         : error.message;
       this.setStatus(`${this.label('saveFailed')}: ${message}`, 'error');
     }
@@ -3582,7 +3604,8 @@ class BomApplication {
           this.state.dirty = true;
           await this.writeGithubData(token, { historyAction: 'release', historyReason: values.releaseReason });
         } catch (error) {
-          this.setStatus(`${this.label('saveFailed')}: ${error.message}`, 'error');
+          const message = error instanceof StaleRemoteDataError ? this.label('staleRemoteData') : error.message;
+          this.setStatus(`${this.label('saveFailed')}: ${message}`, 'error');
         }
       });
     });
@@ -3606,6 +3629,10 @@ class BomApplication {
       bomHistory: this.state.payload.bomHistory
     });
     syncLegacyBomFromMaterialDb(localPayload);
+    const initialRemoteFile = await this.githubData.loadForWrite(token);
+    if (this.state.loadedSourceCommit && this.state.loadedSourceCommit !== initialRemoteFile.expectedHeadSha) {
+      throw new StaleRemoteDataError();
+    }
     this.state.pendingMaterialAssets = this.state.pendingMaterialAssets || {};
     if (Object.keys(this.state.pendingMaterialAssets).length) {
       this.setStatus(this.label('uploadingAssets'), '');
@@ -3628,6 +3655,9 @@ class BomApplication {
     }
     let payload = resolution.payload;
     const remoteFile = await this.githubData.loadForWrite(token);
+    if (remoteFile.expectedHeadSha !== initialRemoteFile.expectedHeadSha) {
+      throw new StaleRemoteDataError();
+    }
     const changes = describePayloadChanges(remoteFile.payload, payload);
     payload = appendBomHistory(payload, remoteFile.payload, changes, {
       actor: 'admin',
@@ -3643,11 +3673,12 @@ class BomApplication {
       payload.bomHistory[productCode]?.[0]?.createdAt === updatedAt &&
       payload.productRevisions?.[productCode]?.currentRevisionInfo?.workflowState === 'draft'
     ));
-    await this.githubData.write({ token, expectedHeadSha: remoteFile.expectedHeadSha, payload, message: `chore: update sharded bom data ${updatedAt}` });
+    const writeResult = await this.githubData.write({ token, expectedHeadSha: remoteFile.expectedHeadSha, payload, message: `chore: update sharded bom data ${updatedAt}` });
     resolution.completedPendingIds.forEach((pendingId) => {
       delete this.state.pendingMaterialAssets[pendingId];
     });
     this.state.loadedPayload = clone(payload);
+    this.state.loadedSourceCommit = String(writeResult?.commitSha || remoteFile.expectedHeadSha || '');
     this.state.payload = payload;
     this.state.bom = payload.bom;
     this.state.drawings = payload.drawings;

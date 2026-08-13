@@ -39,6 +39,15 @@ test('builds a deterministic content-addressed PDF path', async () => {
   }), `assets/pdfs/LGS_032_S_${contentHash}_drawing_final.pdf`);
 });
 
+test('preserves a file extension when a non-Latin file name is sanitized', () => {
+  assert.equal(buildAssetPath({
+    kind: 'pdf',
+    materialCode: 'M1',
+    originalName: '连接件.pdf',
+    contentHash: 'a'.repeat(64),
+  }), `assets/pdfs/M1_${'a'.repeat(64)}_pdf.pdf`);
+});
+
 test('builds an encoded commit-pinned jsDelivr URL', () => {
   assert.equal(buildCdnUrl({
     config,

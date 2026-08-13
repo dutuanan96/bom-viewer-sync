@@ -36,6 +36,11 @@ function sanitizeSegment(value, label) {
   return sanitized;
 }
 
+function originalFileExtension(value) {
+  const match = String(value || '').trim().match(/(\.[A-Za-z0-9]+)$/);
+  return match ? match[1].toLowerCase() : '';
+}
+
 function encodePath(path) {
   return String(path).split('/').map(encodeURIComponent).join('/');
 }
@@ -120,8 +125,10 @@ export function buildAssetPath({ kind, materialCode, originalName, contentHash }
   const folder = folders[kind];
   if (!folder) throw new TypeError(`Unsupported asset kind: ${kind}`);
   const code = sanitizeSegment(materialCode, 'materialCode');
+  const extension = originalFileExtension(originalName);
   const name = sanitizeSegment(originalName, 'originalName');
-  return `assets/${folder}/${code}_${contentHash}_${name}`;
+  const suffix = extension && !name.toLowerCase().endsWith(extension) ? extension : '';
+  return `assets/${folder}/${code}_${contentHash}_${name}${suffix}`;
 }
 
 export function buildCdnUrl({ config, commitSha, path }) {
