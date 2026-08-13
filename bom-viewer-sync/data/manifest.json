@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-13T07:49:54.564Z",
+  "updatedAt": "2026-08-13T07:54:15.397Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -7455,6 +7455,14 @@
   },
   "notifications": [
     {
+      "id": "notif_8u5dc6",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-13T07:54:15.397Z",
+      "version": 2,
+      "changes": []
+    },
+    {
       "id": "notif_1mleyt4",
       "type": "github-save",
       "actor": "admin",
@@ -8565,43 +8573,6 @@
           "field": "",
           "before": "LGS333ZKBH",
           "after": "LGS723ZKBH"
-        }
-      ]
-    },
-    {
-      "id": "notif_1w3s13y",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-12T02:12:13.278Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "LGS834CB201BH",
-          "field": "material",
-          "before": "Q195",
-          "after": "PB"
-        },
-        {
-          "kind": "material",
-          "code": "LGS834CB201BH",
-          "field": "models3d",
-          "before": "LGS834层板.glb|models3d/catalog/LGS834-965a8955.glb",
-          "after": "LGS834层板.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS834-965a8955.glb"
-        },
-        {
-          "kind": "material",
-          "code": "LGS834CB201WH",
-          "field": "material",
-          "before": "Q195",
-          "after": "PB"
-        },
-        {
-          "kind": "material",
-          "code": "LGS834CB201WH",
-          "field": "models3d",
-          "before": "LGS834层板.glb|models3d/catalog/LGS834-965a8955.glb",
-          "after": "LGS834层板.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS834-965a8955.glb"
         }
       ]
     }
