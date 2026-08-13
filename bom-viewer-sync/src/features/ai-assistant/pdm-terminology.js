@@ -76,13 +76,34 @@ const CONCEPT_SYNONYMS = Object.freeze({
     canonicalVi: 'v\u1eadt li\u1ec7u \u0111\u00f3ng g\u00f3i',
     canonicalEn: 'packaging material',
     aliases: ['\u5305\u6750', '\u5305\u88c5\u6750\u6599', '\u5305\u88c5\u4ef6', 'packaging', 'packing material', 'v\u1eadt li\u1ec7u \u0111\u00f3ng g\u00f3i', 'bao b\u00ec', 'vat lieu dong goi', 'bao bi'],
-    searchAliases: ['\u7eb8\u7bb1', '\u7eb8\u5361', '\u6ce1\u6cab', '\u62a4\u89d2', '\u80f6\u888b', 'foam', 'corner protector', 'paper card'],
+    searchAliases: ['\u7eb8\u7bb1', '\u7eb8\u5361', '\u6ce1\u6cab', '\u62a4\u89d2', '\u80f6\u888b', '\u80f6\u5e26', '\u73cd\u73e0\u68c9', '\u5e72\u71e5\u5242', '\u624e\u5e26', '\u6253\u5305\u5e26', '\u5851\u6599\u888b', 'pe\u888b', 'foam', 'corner protector', 'paper card'],
   },
   cabinet: {
     canonicalZh: '柜子',
     canonicalVi: 'tủ',
     canonicalEn: 'cabinet',
     aliases: ['柜子', '床头柜', '抽屉柜', 'tủ', 'cabinet'],
+  },
+  panel: {
+    canonicalZh: '板件',
+    canonicalVi: 'v\u00e1n g\u1ed7',
+    canonicalEn: 'panel',
+    aliases: ['\u677f\u4ef6', '\u6728\u677f', 'panel', 'board', 'v\u00e1n g\u1ed7', 't\u1ea5m g\u1ed7'],
+    searchAliases: ['\u9876\u677f', '\u5e95\u677f', '\u4fa7\u677f', '\u5c42\u677f', '\u9762\u677f', '\u95e8\u677f', '\u9694\u677f', '\u62bd\u5c49\u9762\u677f', '\u80cc\u677f'],
+  },
+  hardware: {
+    canonicalZh: '五金',
+    canonicalVi: 'ng\u0169 kim',
+    canonicalEn: 'hardware',
+    aliases: ['\u4e94\u91d1', 'hardware', 'ng\u0169 kim', 'ph\u1ee5 ki\u1ec7n'],
+    searchAliases: ['\u87ba\u4e1d', '\u87ba\u6bcd', '\u87ba\u6813', '\u6ed1\u8f68', '\u94f0\u94fe', '\u62c9\u624b', '\u811a\u57ab', '\u6273\u624b', '\u516d\u89d2\u5319'],
+  },
+  metal_tube: {
+    canonicalZh: '铁件',
+    canonicalVi: 'linh ki\u1ec7n s\u1eaft',
+    canonicalEn: 'metal part',
+    aliases: ['\u94c1\u4ef6', '\u7ba1\u6750', 'metal part', 'metal tube', 'linh ki\u1ec7n s\u1eaft', '\u1ed1ng s\u1eaft'],
+    searchAliases: ['\u94c1\u7ba1', '\u65b9\u7ba1', '\u5706\u7ba1', '\u94c1\u7f51', '\u7f51\u67b6'],
   },
 });
 
@@ -111,33 +132,44 @@ export function detectProductShorthand(query = '') {
 }
 
 /**
- * Resolve terminology concept for a given term or text fragment.
+ * Resolve all matching terminology concepts for a given term or text fragment.
  */
-export function resolveConcept(term = '') {
+export function resolveConcepts(term = '') {
   const text = String(term).trim().toLowerCase();
-  if (!text) return null;
+  if (!text) return [];
   const foldedText = foldPdmText(text);
 
+  const matchedConcepts = [];
   for (const [conceptId, info] of Object.entries(CONCEPT_SYNONYMS)) {
     const aliases = [...info.aliases, ...(info.searchAliases || [])];
     if (aliases.some(alias => text.includes(alias.toLowerCase()) || foldedText.includes(foldPdmText(alias)))) {
-      return {
+      matchedConcepts.push({
         conceptId,
         canonicalZh: info.canonicalZh,
         canonicalVi: info.canonicalVi,
         canonicalEn: info.canonicalEn,
         confidence: 'candidate',
-      };
+      });
     }
   }
-  return null;
+  return matchedConcepts;
+}
+
+/**
+ * Resolve terminology concept for a given term or text fragment (returns first match).
+ */
+export function resolveConcept(term = '') {
+  return resolveConcepts(term)[0] || null;
 }
 
 export function componentSearchTerms(query = '') {
-  const concept = resolveConcept(query);
-  if (!concept) return [];
-  const info = CONCEPT_SYNONYMS[concept.conceptId];
-  return [...new Set([...(info.aliases || []), ...(info.searchAliases || [])])];
+  const concepts = resolveConcepts(query);
+  if (concepts.length === 0) return [];
+  const allAliases = concepts.flatMap(concept => {
+    const info = CONCEPT_SYNONYMS[concept.conceptId];
+    return [...(info.aliases || []), ...(info.searchAliases || [])];
+  });
+  return [...new Set(allAliases)];
 }
 
 /**

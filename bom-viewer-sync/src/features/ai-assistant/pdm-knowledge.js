@@ -8,7 +8,7 @@ import { buildBomTreeRows } from '../../domain/relationships.js';
 import { normalizeProductRevisionRegistry } from '../../domain/revisions.js';
 import { classifyMaterialFamily, summarizeMaterialFamilies } from './pdm-ontology.js';
 import { evaluateEquivalence, detectDataQualityWarnings } from './pdm-equivalence.js';
-import { componentSearchTerms, detectProductShorthand, resolveConcept, parseDimensions, checkDimensionProximity } from './pdm-terminology.js';
+import { componentSearchTerms, detectProductShorthand, resolveConcept, resolveConcepts, parseDimensions, checkDimensionProximity } from './pdm-terminology.js';
 
 // Maximum results returned by search operations
 const MAX_SEARCH_RESULTS = 50;
@@ -169,14 +169,11 @@ function focusedBomRows(rows, query) {
     && !/^\d{3,4}$/.test(token)
   ));
   const hanText = [...normalizedQuery].filter(character => /[\p{Script=Han}]/u.test(character)).join('');
-  tokens.push(...componentSearchTerms(query).map(normalizeBomSearchText));
-  if (/\u6a2a(?:\u6881|\u6746)/u.test(normalizedQuery)) tokens.push('\u6a2a\u6881', '\u6a2a\u6746');
-  if (/\u5305\u6750|\u5305\u88c5/u.test(normalizedQuery)) {
-    tokens.push('\u7eb8\u7bb1', '\u7eb8\u5361', '\u6ce1\u6cab', '\u62a4\u89d2');
-  }
   for (let index = 0; index < hanText.length - 1; index += 1) {
     tokens.push(hanText.slice(index, index + 2));
   }
+
+  const allConceptAliases = componentSearchTerms(query).map(normalizeBomSearchText).filter(Boolean);
 
   const requestedFastener = normalizedQuery.match(/\b(?:m|st)\d+(?:\.\d+)?x\d+(?:\.\d+)?/i)?.[0] || '';
   const requestedFamily = requestedFastener.match(/^(?:m|st)\d+(?:\.\d+)?/i)?.[0] || '';
@@ -194,6 +191,9 @@ function focusedBomRows(rows, query) {
       row.materialZh,
     ].join(' '));
     let score = tokens.reduce((total, token) => total + (searchable.includes(token) ? 1 : 0), 0);
+    if (allConceptAliases.length > 0 && allConceptAliases.some(alias => searchable.includes(alias))) {
+      score += 3;
+    }
     if (generalDrawerQuery && /\u5e03\u62bd(?:\u6761|\u5e95\u677f)/u.test(normalizeBomSearchText(row.nameZh))) score -= 8;
     if (requestedFastener && searchable.includes(requestedFastener)) score += 6;
     else if (requestedFamily && searchable.includes(requestedFamily)) score += 2;
