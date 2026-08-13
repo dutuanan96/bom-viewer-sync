@@ -88102,6 +88102,66 @@
         "color_ver": "",
         "color_ver_vi": "",
         "order": 1786619178433
+      },
+      {
+        "id": "bomc_115z2sb",
+        "parentType": "material",
+        "parentId": "mat_ptgjme",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_fg1515066010",
+        "childMaterialId": "mat_fg1515066010",
+        "stt": "",
+        "comp_code": "",
+        "qty": "0.009091",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 1786619451344
+      },
+      {
+        "id": "bomc_1t7tnyi",
+        "parentType": "material",
+        "parentId": "mat_ptgjme",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_m6gs1515wh",
+        "childMaterialId": "mat_m6gs1515wh",
+        "stt": "",
+        "comp_code": "",
+        "qty": "1",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 1786619461498
+      },
+      {
+        "id": "bomc_1uu3wxg",
+        "parentType": "material",
+        "parentId": "mat_ptgjme",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_m6ylm139",
+        "childMaterialId": "mat_m6ylm139",
+        "stt": "",
+        "comp_code": "",
+        "qty": "1",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 1786619468093
+      },
+      {
+        "id": "bomc_1hsqieq",
+        "parentType": "material",
+        "parentId": "mat_ptgjme",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_nlpls6018wz",
+        "childMaterialId": "mat_nlpls6018wz",
+        "stt": "",
+        "comp_code": "",
+        "qty": "1",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 1786619475074
       }
     ]
   }
