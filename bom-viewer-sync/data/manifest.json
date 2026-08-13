@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-13T07:54:15.397Z",
+  "updatedAt": "2026-08-13T09:06:22.790Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -7455,6 +7455,71 @@
   },
   "notifications": [
     {
+      "id": "notif_1c0wd2i",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-13T09:06:22.790Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "2601502ZHKTP",
+          "field": "drawings",
+          "before": "",
+          "after": "260左右中框铁片.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@824ee2fe20b32a6e67622492d6383ff22bfcfd8c/assets/pdfs/2601502ZHKTP_cd1313c45e73776f582a88a712c9b052e3d9cb9c68eec77c5f14c0e88ef7b66f_260_.pdf"
+        },
+        {
+          "kind": "material",
+          "code": "2601502ZHKTP",
+          "field": "models3d",
+          "before": "",
+          "after": "左右中框铁片|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@565cd3cf5cd08874c93c7f376762c60e7bdea19a/assets/models/2601502ZHKTP_acdf88203f526cd81cda19d612d61d78b03055471b9b61abd8f560d292de4ea9_glb"
+        },
+        {
+          "kind": "material_deleted",
+          "code": "M6GS1515BH",
+          "field": "",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "material_deleted",
+          "code": "M6GS1515WH",
+          "field": "",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "material_deleted",
+          "code": "M6YLM139",
+          "field": "",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "material_deleted",
+          "code": "M6LMLM",
+          "field": "",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "material_deleted",
+          "code": "LJP16143",
+          "field": "",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "material_deleted",
+          "code": "NLPLS6018WZ",
+          "field": "",
+          "before": "",
+          "after": ""
+        }
+      ]
+    },
+    {
       "id": "notif_8u5dc6",
       "type": "github-save",
       "actor": "admin",
@@ -8545,40 +8610,119 @@
           "after": "released"
         }
       ]
-    },
-    {
-      "id": "notif_1lnizzu",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-12T02:56:20.434Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS733",
-          "field": "workflowState",
-          "before": "released",
-          "after": "draft"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS733KD05S",
-          "field": "",
-          "before": "LGS333YKBH",
-          "after": "LGS723YKBH"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS733KD05S",
-          "field": "",
-          "before": "LGS333ZKBH",
-          "after": "LGS723ZKBH"
-        }
-      ]
     }
   ],
   "bomHistory": {
     "LGS111": [
+      {
+        "id": "history_1ydprw2",
+        "productCode": "LGS111",
+        "revision": "V2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:06:22.790Z",
+        "changes": [
+          {
+            "kind": "material_deleted",
+            "code": "M6GS1515BH",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6GS1515WH",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6YLM139",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6LMLM",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS101YCKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS101YCKBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS101YCKWH",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS101YCKWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS101ZCKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS101ZCKBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS101ZCKWH",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS101ZCKWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS101HLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS101HLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          }
+        ]
+      },
       {
         "id": "history_zc2ntr",
         "productCode": "LGS111",
@@ -8677,6 +8821,115 @@
       }
     ],
     "LGS231": [
+      {
+        "id": "history_9ic3ql",
+        "productCode": "LGS231",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:06:22.790Z",
+        "changes": [
+          {
+            "kind": "material_deleted",
+            "code": "M6GS1515BH",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6YLM139",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6LMLM",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131YZKBHGK",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131YZKBHGK",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131ZYKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131ZZKBHGK",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131ZZKBHGK",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131XHLBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131SHLBHGK",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131SHLBHGK",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131SHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131YZKBHGK",
+            "field": "3051502ZHKTP",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131ZZKBHGK",
+            "field": "3051502ZHKTP",
+            "before": "",
+            "after": ""
+          }
+        ]
+      },
       {
         "id": "history_xhvyxe",
         "productCode": "LGS231",
@@ -9003,6 +9256,297 @@
     ],
     "LGS233": [
       {
+        "id": "history_14kbl6e",
+        "productCode": "LGS233",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:06:22.790Z",
+        "changes": [
+          {
+            "kind": "material_deleted",
+            "code": "M6GS1515BH",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6GS1515WH",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6YLM139",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6LMLM",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "NLPLS6018WZ",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "80132132LJJ",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654BH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654BH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654BH",
+            "field": "NLPLS6018BZ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654WH",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654WH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654WH",
+            "field": "NLPLS6018WZ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS133ZYKBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS233ZYKWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS233XHYHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS233XHYHLBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS233XHYHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS233XHYHLWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS233XQYHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS233XQYHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS233XHZHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS233XHZHLBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS233XHZHLBH",
+            "field": "80132132LJJ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS233XHZHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS233XHZHLWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS233XHZHLWH",
+            "field": "80132132LJJ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS233XQZHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS233XQZHLBH",
+            "field": "80132132LJJ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS233XQZHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS233XQZHLWH",
+            "field": "80132132LJJ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS233SZQHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS233SZQHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS233YKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS233YKBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS233YKWH",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS233YKWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS233ZKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS233ZKBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS233ZKWH",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS233ZKWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          }
+        ]
+      },
+      {
         "id": "history_3najcw",
         "productCode": "LGS233",
         "revision": "V4",
@@ -9165,6 +9709,220 @@
     ],
     "LGS334": [
       {
+        "id": "history_4oz6ih",
+        "productCode": "LGS334",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:06:22.790Z",
+        "changes": [
+          {
+            "kind": "material_deleted",
+            "code": "M6GS1515BH",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6YLM139",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6LMLM",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "LJP16143",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "80132132LJJ",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654BH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654BH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654BH",
+            "field": "NLPLS6018BZ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "3911515XZHSLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "3911515XZQSLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XHYHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XHYHLBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XHYHLBH",
+            "field": "80132132LJJ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XQYHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XQYHLBH",
+            "field": "80132132LJJ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XHZHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XHZHLBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XQZHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XQZHLBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334YKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334YKBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334ZKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334ZKBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334SQYHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334SQYHLBH",
+            "field": "80132132LJJ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334SQZHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334SZKBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334SZKBH",
+            "field": "LJP16143",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334ZCKZYBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          }
+        ]
+      },
+      {
         "id": "history_1pnvdx2",
         "productCode": "LGS334",
         "revision": "V4",
@@ -9216,6 +9974,486 @@
       }
     ],
     "LGS434": [
+      {
+        "id": "history_16sgtpi",
+        "productCode": "LGS434",
+        "revision": "V5",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:06:22.790Z",
+        "changes": [
+          {
+            "kind": "material_deleted",
+            "code": "M6GS1515BH",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6GS1515WH",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6YLM139",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6LMLM",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "LJP16143",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "NLPLS6018WZ",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "80132132LJJ",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654BH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654BH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654BH",
+            "field": "NLPLS6018BZ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654WH",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654WH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654WH",
+            "field": "NLPLS6018WZ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "3911515XZHSLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "3911515XZHSLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "3911515XZQSLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "391515XZQSLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XHYHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XHYHLBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XHYHLBH",
+            "field": "80132132LJJ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XHYHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XHYHLWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XHYHLWH",
+            "field": "80132132LJJ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XQYHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XQYHLBH",
+            "field": "80132132LJJ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XQYHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XQYHLWH",
+            "field": "80132132LJJ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XHZHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XHZHLBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XHZHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XHZHLWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XQZHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XQZHLBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XQZHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XQZHLWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334YKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334YKBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS434YKWH",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS434YKWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334ZKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334ZKBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS434ZKWH",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS434ZKWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS434SHZHLDEPBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS434SHZHLDEPBH",
+            "field": "LJP16143",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS434SHZHLDEPBH",
+            "field": "80132132LJJ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS434SHZHLDEPWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS434SHZHLDEPWH",
+            "field": "LJP16143",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS434SHZHLDEPWH",
+            "field": "80132132LJJ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS434SQZHLDEPBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS434SQZHLDEPBH",
+            "field": "LJP16143",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS434SQZHLDEPBH",
+            "field": "80132132LJJ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS434SQZHLDEPWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS434SQZHLDEPWH",
+            "field": "LJP16143",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS434SQZHLDEPWH",
+            "field": "80132132LJJ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS434DBHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS434DBHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS434SZKBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS434SZKWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS434SHYHLDEPBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS434SHYHLDEPBH",
+            "field": "LJP16143",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS434SHYHLDEPWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS434SHYHLDEPWH",
+            "field": "LJP16143",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS434SQYHLDEPBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS434SQYHLDEPBH",
+            "field": "LJP16143",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS434SQYHLDEPWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS434SQYHLDEPWH",
+            "field": "LJP16143",
+            "before": "",
+            "after": ""
+          }
+        ]
+      },
       {
         "id": "history_shthb1",
         "productCode": "LGS434",
@@ -9417,6 +10655,213 @@
       }
     ],
     "LGS420": [
+      {
+        "id": "history_3ma0pu",
+        "productCode": "LGS420",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:06:22.790Z",
+        "changes": [
+          {
+            "kind": "material_deleted",
+            "code": "M6GS1515BH",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6GS1515WH",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6YLM139",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6LMLM",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131YZKBHGK",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131YZKBHGK",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131YZKWHGK",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131YZKWHGK",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131ZYKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131ZYKWH",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131ZZKBHGK",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131ZZKBHGK",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131ZZKWHGK",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131ZZKWHGK",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS420ZLKBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS420ZLKWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS420XHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS420XHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS420SHLBHGK",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS420SHLBHGK",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS420SHLWHGK",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS420SHLWHGK",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS420SHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS420SHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131YZKBHGK",
+            "field": "3051502ZHKTP",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131YZKWHGK",
+            "field": "3051502ZHKTP",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131ZZKBHGK",
+            "field": "3051502ZHKTP",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131ZZKWHGK",
+            "field": "3051502ZHKTP",
+            "before": "",
+            "after": ""
+          }
+        ]
+      },
       {
         "id": "history_1i8x6r6",
         "productCode": "LGS420",
@@ -9671,6 +11116,115 @@
       }
     ],
     "LGS421": [
+      {
+        "id": "history_18k1fmu",
+        "productCode": "LGS421",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:06:22.790Z",
+        "changes": [
+          {
+            "kind": "material_deleted",
+            "code": "M6GS1515BH",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6YLM139",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6LMLM",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131YZKBHGK",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131YZKBHGK",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131ZYKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131ZZKBHGK",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131ZZKBHGK",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS420ZLKBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS421XHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS421SHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS421SHLBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131YZKBHGK",
+            "field": "3051502ZHKTP",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131ZZKBHGK",
+            "field": "3051502ZHKTP",
+            "before": "",
+            "after": ""
+          }
+        ]
+      },
       {
         "id": "history_151x70p",
         "productCode": "LGS421",
@@ -9930,6 +11484,262 @@
     ],
     "LGS333": [
       {
+        "id": "history_1nj4a5p",
+        "productCode": "LGS333",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:06:22.790Z",
+        "changes": [
+          {
+            "kind": "material_deleted",
+            "code": "M6GS1515BH",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6GS1515WH",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6YLM139",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6LMLM",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "NLPLS6018WZ",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654BH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654BH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654BH",
+            "field": "NLPLS6018BZ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654WH",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654WH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654WH",
+            "field": "NLPLS6018WZ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "3911515XZHSLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "3911515XZHSLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "3911515XZQSLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "391515XZQSLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333XHHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333XHHLBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333XHHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333XHHLWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333XQHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333XQHLBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333XQHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333XQHLWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333SZKBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333SZKWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333SQHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333SQHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333YKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333YKBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333YKWH",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333YKWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333ZKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333ZKBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333ZKWH",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333ZKWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          }
+        ]
+      },
+      {
         "id": "history_jod5mh",
         "productCode": "LGS333",
         "revision": "V4",
@@ -10170,6 +11980,213 @@
     ],
     "LGS232": [
       {
+        "id": "history_13wpudr",
+        "productCode": "LGS232",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:06:22.790Z",
+        "changes": [
+          {
+            "kind": "material_deleted",
+            "code": "M6GS1515BH",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6YLM139",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6LMLM",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "LJP16143",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "80132132LJJ",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150651BH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150651BH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150651BH",
+            "field": "NLPLS6018BZ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS132YKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS132YKBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS132ZKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS132ZKBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS132YZKBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS132ZZKBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS232XHYHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS232XHYHLBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS232XHYHLBH",
+            "field": "LJP16143",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS232SQYHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS232SQYHLBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS232SQYHLBH",
+            "field": "LJP16143",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS232SHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS232XHZHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS232XHZHLBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS232XHZHLBH",
+            "field": "LJP16143",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS232XHZHLBH",
+            "field": "80132132LJJ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS232SQZHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS232SQZHLBH",
+            "field": "LJP16143",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS232SQZHLBH",
+            "field": "80132132LJJ",
+            "before": "",
+            "after": ""
+          }
+        ]
+      },
+      {
         "id": "history_6r4nc5",
         "productCode": "LGS232",
         "revision": "V3",
@@ -10385,6 +12402,87 @@
     ],
     "LGS031": [
       {
+        "id": "history_w76zrz",
+        "productCode": "LGS031",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:06:22.790Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "2601502ZHKTP",
+            "field": "drawings",
+            "before": "",
+            "after": "260左右中框铁片.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@824ee2fe20b32a6e67622492d6383ff22bfcfd8c/assets/pdfs/2601502ZHKTP_cd1313c45e73776f582a88a712c9b052e3d9cb9c68eec77c5f14c0e88ef7b66f_260_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "2601502ZHKTP",
+            "field": "models3d",
+            "before": "",
+            "after": "左右中框铁片|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@565cd3cf5cd08874c93c7f376762c60e7bdea19a/assets/models/2601502ZHKTP_acdf88203f526cd81cda19d612d61d78b03055471b9b61abd8f560d292de4ea9_glb"
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6GS1515BH",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6YLM139",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS031XHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS031YZKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS031YZKBH",
+            "field": "2601502ZHKTP",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS031ZYKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS031ZZKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS031ZZKBH",
+            "field": "2601502ZHKTP",
+            "before": "",
+            "after": ""
+          }
+        ]
+      },
+      {
         "id": "history_18rdst8",
         "productCode": "LGS031",
         "revision": "V3",
@@ -10418,6 +12516,150 @@
       }
     ],
     "LGS032": [
+      {
+        "id": "history_1cfzte9",
+        "productCode": "LGS032",
+        "revision": "V3.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "产品高度变更679mm改为671",
+        "createdAt": "2026-08-13T09:06:22.790Z",
+        "changes": [
+          {
+            "kind": "material_deleted",
+            "code": "M6GS1515BH",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6YLM139",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6LMLM",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "LJP16143",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150651BH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150651BH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150651BH",
+            "field": "NLPLS6018BZ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS032XHLBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS032XHLBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS032XHLBH",
+            "field": "LJP16143",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS032XQHLBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS032XQHLBH",
+            "field": "LJP16143",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS032SHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS032YKBH647",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS032YKBH647",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS032YZKBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS032ZZKBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS032ZKBH647",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS032ZKBH647",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          }
+        ]
+      },
       {
         "id": "history_rhewt",
         "productCode": "LGS032",
@@ -10503,6 +12745,206 @@
     ],
     "LGS033": [
       {
+        "id": "history_9d1rd3",
+        "productCode": "LGS033",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:06:22.790Z",
+        "changes": [
+          {
+            "kind": "material_deleted",
+            "code": "M6GS1515BH",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6GS1515WH",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6YLM139",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6LMLM",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "NLPLS6018WZ",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654BH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654BH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654BH",
+            "field": "NLPLS6018BZ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654WH",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654WH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654WH",
+            "field": "NLPLS6018WZ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS033QHHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS033QHHLBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS033QHHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS033QHHLWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS033YKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS033YKBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS033YKWH",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS033YKWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS033ZYKBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS033ZYKBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS033ZYKWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS033ZYKWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS033ZKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS033ZKBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS033ZKWH",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS033ZKWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          }
+        ]
+      },
+      {
         "id": "history_m95rrq",
         "productCode": "LGS033",
         "revision": "V4",
@@ -10583,6 +13025,115 @@
     ],
     "LGS101": [
       {
+        "id": "history_15amjj7",
+        "productCode": "LGS101",
+        "revision": "V2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:06:22.790Z",
+        "changes": [
+          {
+            "kind": "material_deleted",
+            "code": "M6GS1515BH",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6GS1515WH",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6YLM139",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6LMLM",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS101YCKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS101YCKBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS101YCKWH",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS101YCKWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS101ZCKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS101ZCKBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS101ZCKWH",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS101ZCKWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS101HLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS101HLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          }
+        ]
+      },
+      {
         "id": "history_1louv90",
         "productCode": "LGS101",
         "revision": "V2",
@@ -10662,6 +13213,199 @@
       }
     ],
     "LGS131": [
+      {
+        "id": "history_kr6wwl",
+        "productCode": "LGS131",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:06:22.790Z",
+        "changes": [
+          {
+            "kind": "material_deleted",
+            "code": "M6GS1515BH",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6GS1515WH",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6YLM139",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6LMLM",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131YZKBHGK",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131YZKBHGK",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131YZKWHGK",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131YZKWHGK",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131ZYKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131ZYKWH",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131ZZKBHGK",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131ZZKBHGK",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131ZZKWHGK",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131ZZKWHGK",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131XHLBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131XHLWH",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131SHLBHGK",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131SHLBHGK",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131SHLWHGK",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131SHLWHGK",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131SHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131SHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131YZKBHGK",
+            "field": "3051502ZHKTP",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131YZKWHGK",
+            "field": "3051502ZHKTP",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131ZZKBHGK",
+            "field": "3051502ZHKTP",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131ZZKWHGK",
+            "field": "3051502ZHKTP",
+            "before": "",
+            "after": ""
+          }
+        ]
+      },
       {
         "id": "history_1vcnac5",
         "productCode": "LGS131",
@@ -10878,6 +13622,213 @@
     ],
     "LGS132": [
       {
+        "id": "history_1ko0twu",
+        "productCode": "LGS132",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:06:22.790Z",
+        "changes": [
+          {
+            "kind": "material_deleted",
+            "code": "M6GS1515BH",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6YLM139",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6LMLM",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "LJP16143",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "80132132LJJ",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150651BH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150651BH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150651BH",
+            "field": "NLPLS6018BZ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS132YKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS132YKBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS132ZKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS132ZKBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS132YZKBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS132ZZKBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS132XHYHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS132XHYHLBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS132XHYHLBH",
+            "field": "LJP16143",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS132SQYHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS132SQYHLBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS132SQYHLBH",
+            "field": "LJP16143",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS132SHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS132XHZHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS132XHZHLBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS132XHZHLBH",
+            "field": "LJP16143",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS132XHZHLBH",
+            "field": "80132132LJJ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS132SQZHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS132SQZHLBH",
+            "field": "LJP16143",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS132SQZHLBH",
+            "field": "80132132LJJ",
+            "before": "",
+            "after": ""
+          }
+        ]
+      },
+      {
         "id": "history_kefri6",
         "productCode": "LGS132",
         "revision": "",
@@ -10912,6 +13863,171 @@
     ],
     "LGS133": [
       {
+        "id": "history_1rt4jj3",
+        "productCode": "LGS133",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:06:22.790Z",
+        "changes": [
+          {
+            "kind": "material_deleted",
+            "code": "M6GS1515BH",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6YLM139",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6LMLM",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "80132132LJJ",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654BH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654BH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654BH",
+            "field": "NLPLS6018BZ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS133ZYKBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS133XHYHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS133XHYHLBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS133XQYHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS133XQYHLBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS133XHZHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS133XHZHLBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS133XHZHLBH",
+            "field": "80132132LJJ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS133XQZHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS133XQZHLBH",
+            "field": "80132132LJJ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS133SZQHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS133YKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS133YKBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS133ZKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS133ZKBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          }
+        ]
+      },
+      {
         "id": "history_1p3alfj",
         "productCode": "LGS133",
         "revision": "",
@@ -10945,6 +14061,283 @@
       }
     ],
     "LGS433": [
+      {
+        "id": "history_6kjumj",
+        "productCode": "LGS433",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:06:22.790Z",
+        "changes": [
+          {
+            "kind": "material_deleted",
+            "code": "M6GS1515BH",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6GS1515WH",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6YLM139",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6LMLM",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "LJP16143",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "NLPLS6018WZ",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654BH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654BH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654BH",
+            "field": "NLPLS6018BZ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654WH",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654WH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654WH",
+            "field": "NLPLS6018WZ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "3911515XZHSLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "3911515XZHSLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "3911515XZQSLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "391515XZQSLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333XHHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333XHHLBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333XHHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333XHHLWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333XQHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333XQHLBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333XQHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333XQHLWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333YKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333YKBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333YKWH",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333YKWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333ZKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333ZKBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333ZKWH",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333ZKWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS433SQHLDEPBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS433SQHLDEPBH",
+            "field": "LJP16143",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS433SQHLDEPWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS433SQHLDEPWH",
+            "field": "LJP16143",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS433SZKBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS433SZKWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          }
+        ]
+      },
       {
         "id": "history_1q4n8oy",
         "productCode": "LGS433",
@@ -11210,6 +14603,213 @@
     ],
     "LGS723": [
       {
+        "id": "history_wqd17i",
+        "productCode": "LGS723",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:06:22.790Z",
+        "changes": [
+          {
+            "kind": "material_deleted",
+            "code": "M6GS1515BH",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6GS1515WH",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6YLM139",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6LMLM",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333SZKBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333SZKWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS723XZHSLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS723XZHSLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS723XZQSLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS723XZQSLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS723YKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS723YKBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS723YKWH",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS723YKWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS723ZKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS723ZKBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS723ZKWH",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS723ZKWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS723XHHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS723XHHLBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS723XHHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS723XHHLWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS723XQHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS723XQHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS723SQHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS723SQHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS723ZZQHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS723ZZQHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          }
+        ]
+      },
+      {
         "id": "history_19f9tlq",
         "productCode": "LGS723",
         "revision": "V4",
@@ -11396,6 +14996,276 @@
       }
     ],
     "LGS733": [
+      {
+        "id": "history_11tmvgb",
+        "productCode": "LGS733",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:06:22.790Z",
+        "changes": [
+          {
+            "kind": "material_deleted",
+            "code": "M6GS1515BH",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6GS1515WH",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6YLM139",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6LMLM",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "NLPLS6018WZ",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654BH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654BH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654BH",
+            "field": "NLPLS6018BZ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654WH",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654WH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654WH",
+            "field": "NLPLS6018WZ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333XHHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333XHHLBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333XHHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333XHHLWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333XQHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333XQHLBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333XQHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333XQHLWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333SZKBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333SZKWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333SQHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333SQHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS723XZHSLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS723XZHSLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS723XZQSLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS723XZQSLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS723YKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS723YKBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS723YKWH",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS723YKWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS723ZKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS723ZKBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS723ZKWH",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS723ZKWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS733SQHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS733SQHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          }
+        ]
+      },
       {
         "id": "history_kci8c5",
         "productCode": "LGS733",
@@ -11627,6 +15497,234 @@
     ],
     "LGS833": [
       {
+        "id": "history_l3ohnw",
+        "productCode": "LGS833",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:06:22.790Z",
+        "changes": [
+          {
+            "kind": "material_deleted",
+            "code": "M6GS1515BH",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6GS1515WH",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6YLM139",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6LMLM",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "NLPLS6018WZ",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654BH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654BH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654BH",
+            "field": "NLPLS6018BZ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654WH",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654WH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654WH",
+            "field": "NLPLS6018WZ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333XHHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333XHHLBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333XHHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333XHHLWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333XQHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333XQHLBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333XQHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS333XQHLWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS833SQHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS833SQHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS833YKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS833YKBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS833YKWH",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS833YKWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS833ZYKBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS833ZYKWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS833ZKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS833ZKBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS833ZKWH",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS833ZKWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          }
+        ]
+      },
+      {
         "id": "history_qyfamm",
         "productCode": "LGS833",
         "revision": "V4",
@@ -11706,6 +15804,360 @@
       }
     ],
     "LGS834": [
+      {
+        "id": "history_5j09we",
+        "productCode": "LGS834",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:06:22.790Z",
+        "changes": [
+          {
+            "kind": "material_deleted",
+            "code": "M6GS1515BH",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6GS1515WH",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6YLM139",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6LMLM",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "NLPLS6018WZ",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6LMP2881385",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "80132132LJJ",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654BH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654BH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654BH",
+            "field": "NLPLS6018BZ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654WH",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654WH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "ZJG150654WH",
+            "field": "NLPLS6018WZ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XHYHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XHYHLBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XHYHLBH",
+            "field": "80132132LJJ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XHYHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XHYHLWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XHYHLWH",
+            "field": "80132132LJJ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XQYHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XQYHLBH",
+            "field": "80132132LJJ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XQYHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XQYHLWH",
+            "field": "80132132LJJ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XHZHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XHZHLBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XHZHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XHZHLWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XQZHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XQZHLBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XQZHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS334XQZHLWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS834QSYHLBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS834QSYHLBH",
+            "field": "NLPLS6010BZ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS834QSYHLBH",
+            "field": "M6LMP2881385",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS834QSYHLWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS834QSYHLWH",
+            "field": "NLPLS6010WZ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS834QSYHLWH",
+            "field": "M6LMP2881385",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS834QSZHLBH",
+            "field": "M6LMP2881385",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS834QSZHLWH",
+            "field": "M6LMP2881385",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS834YKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS834YKBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS834YKWH",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS834YKWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS834ZYKBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS834ZYKWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS834ZKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS834ZKBH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS834ZKWH",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS834ZKWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          }
+        ]
+      },
       {
         "id": "history_kcsbhd",
         "productCode": "LGS834",
@@ -11820,6 +16272,110 @@
             "field": "models3d",
             "before": "",
             "after": "M6x12内六角螺丝|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+          }
+        ]
+      }
+    ],
+    "LGS043": [
+      {
+        "id": "history_1nqvo2n",
+        "productCode": "LGS043",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:06:22.790Z",
+        "changes": [
+          {
+            "kind": "material_deleted",
+            "code": "M6GS1515BH",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_deleted",
+            "code": "M6YLM139",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS043ZYKHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS043XHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS043XZHSLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS043XZQSLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS043SHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS043YKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS043SZKBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS043ZHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS043YZKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS043ZZKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS043ZKBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
           }
         ]
       }
