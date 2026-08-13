@@ -146,7 +146,7 @@ function catalogMaterialSearchTerms(query) {
     .replace(/\b(?:all|every|toan bo|tat ca|thong ke|liet ke|danh sach|quy cach|spec|specification|material|component|parts?|products?|each product|every product|moi san pham|tung san pham|dung gi|only|just|any other|anything else)\b/giu, ' ');
   const stopWords = new Set(['bao', 'bi', 'cua', 'giup', 'hay', 'la', 'nao', 'nhung', 'san', 'pham', 'su', 'dung', 'tat', 'toan', 'vat', 'lieu', 'dong', 'goi', 'voi', 'toi', 'cac', 'cho']);
   const latinTerms = (normalized.match(/[a-z0-9]+(?:[.\-]?[a-z0-9]+)*/g) || [])
-    .filter(term => term.length >= 2 && !stopWords.has(term) && !/^lgs\d{3,4}$/.test(term));
+    .filter(term => term.length >= 2 && !stopWords.has(term) && !/^lgs\d*$/i.test(term));
   const hanTerms = [...normalized.matchAll(/[\p{Script=Han}]{2,}/gu)].map(match => match[0]);
   return [...new Set([...hanTerms, ...latinTerms])];
 }
