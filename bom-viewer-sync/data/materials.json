@@ -39911,6 +39911,70 @@
             "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@bd7b3398b233802bafe00f40b5f8e4fdaf717cad/assets/models/ZJG15065423BH_78788b812d4e465d405139f2ed163f50c39cc664552ecd486b423bb3330a27aa_54_23.glb"
           }
         ]
+      },
+      "mat_einzrx": {
+        "id": "mat_einzrx",
+        "code": "NLPLS6028BZ",
+        "name": {
+          "zh": "M6x28内六角螺丝",
+          "vi": "M6x28 ốc lục giác"
+        },
+        "spec": {
+          "zh": "M6x28mm",
+          "vi": "M6x28mm"
+        },
+        "material": {
+          "zh": "#10",
+          "vi": "#10"
+        },
+        "color": {
+          "zh": "黑色",
+          "vi": "màu đen"
+        },
+        "attr": {
+          "zh": "五金包",
+          "vi": "túi ngũ kim"
+        },
+        "drawings": [],
+        "models3d": [
+          {
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x37-515cea03.glb",
+            "name": "M6x28内六角螺丝",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x37-515cea03.glb"
+          }
+        ]
+      },
+      "mat_9tyhnt": {
+        "id": "mat_9tyhnt",
+        "code": "NLPLS6028WZ",
+        "name": {
+          "zh": "M6x28内六角螺丝",
+          "vi": "M6x28 ốc lục giác"
+        },
+        "spec": {
+          "zh": "M6x28mm",
+          "vi": "M6x2M6x28mm8mm"
+        },
+        "material": {
+          "zh": "#10",
+          "vi": "#10"
+        },
+        "color": {
+          "zh": "镀锌",
+          "vi": "mạ kẽm"
+        },
+        "attr": {
+          "zh": "五金包",
+          "vi": "túi ngũ kim"
+        },
+        "drawings": [],
+        "models3d": [
+          {
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x37-515cea03.glb",
+            "name": "",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x37-515cea03.glb"
+          }
+        ]
       }
     },
     "bomEntries": [
