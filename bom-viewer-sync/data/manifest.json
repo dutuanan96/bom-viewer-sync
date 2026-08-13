@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-13T09:28:27.555Z",
+  "updatedAt": "2026-08-13T10:10:31.840Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -7463,6 +7463,43 @@
   },
   "notifications": [
     {
+      "id": "notif_1csfyxg",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-13T10:10:31.840Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "bom_added",
+          "code": "LGS131XHLBH",
+          "field": "M6YLM139",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "bom_added",
+          "code": "LGS131XHLWH",
+          "field": "M6YLM139",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "bom_deleted",
+          "code": "LGS131XHLBH",
+          "field": "M6GS1515BH",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "bom_deleted",
+          "code": "LGS131XHLWH",
+          "field": "M6GS1515WH",
+          "before": "",
+          "after": ""
+        }
+      ]
+    },
+    {
       "id": "notif_u81jfm",
       "type": "github-save",
       "actor": "admin",
@@ -8609,50 +8646,6 @@
           "after": "released"
         }
       ]
-    },
-    {
-      "id": "notif_190joh2",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-12T03:07:40.529Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS433",
-          "field": "effectiveRevision",
-          "before": "V4",
-          "after": ""
-        },
-        {
-          "kind": "revision",
-          "code": "LGS433",
-          "field": "workflowState",
-          "before": "released",
-          "after": "draft"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS433KD02S",
-          "field": "",
-          "before": "LGS433XHHLBH",
-          "after": "LGS333XHHLBH"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS433WH02S",
-          "field": "",
-          "before": "LGS433XHHLWH",
-          "after": "LGS333XHHLWH"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS433BH02S",
-          "field": "",
-          "before": "LGS433XHHLBH",
-          "after": "LGS333XHHLBH"
-        }
-      ]
     }
   ],
   "bomHistory": {
@@ -8914,6 +8907,31 @@
       }
     ],
     "LGS231": [
+      {
+        "id": "history_1qsfocb",
+        "productCode": "LGS231",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T10:10:31.840Z",
+        "changes": [
+          {
+            "kind": "bom_added",
+            "code": "LGS131XHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131XHLBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          }
+        ]
+      },
       {
         "id": "history_gmpkot",
         "productCode": "LGS231",
@@ -13997,6 +14015,45 @@
       }
     ],
     "LGS131": [
+      {
+        "id": "history_wuin2i",
+        "productCode": "LGS131",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T10:10:31.840Z",
+        "changes": [
+          {
+            "kind": "bom_added",
+            "code": "LGS131XHLBH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS131XHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131XHLBH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS131XHLWH",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          }
+        ]
+      },
       {
         "id": "history_4ij6tm",
         "productCode": "LGS131",
