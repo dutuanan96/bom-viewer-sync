@@ -102,19 +102,8 @@ export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.
     async loadPublic() {
       try {
         const cacheBust = now();
-        let commitSha = null;
-        let fetchRef = branch;
-        let rawBase = 'https://raw.githubusercontent.com';
-        let commitData = null;
-        try {
-          commitData = await githubJson(`${apiBase}/commits/${encodeURIComponent(branch)}`, { cache: 'no-store' });
-          if (commitData.sha && /^[0-9a-f]{40}$/i.test(commitData.sha)) {
-            commitSha = commitData.sha;
-            fetchRef = commitSha;
-          }
-        } catch (error) {
-          console.warn('GitHub API failed (possibly rate limited), fetching the current branch from raw GitHub.', error);
-        }
+        const fetchRef = branch;
+        const rawBase = 'https://raw.githubusercontent.com';
 
         const fetchRaw = async (logicalPath) => {
           const repositoryPath = `${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/${fetchRef}`;
@@ -162,18 +151,15 @@ export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.
 
         assertCutoverShardCount(files);
         const payload = await parseLogicalShardFiles(files);
-        const sourceCommit = commitSha || await contentSnapshotSha(files);
+        const sourceCommit = await contentSnapshotSha(files);
 
-        // Priority: manifest.updatedAt > commit.committer.date > commit.author.date > null
+        // The public raw endpoint exposes no commit metadata.
         // Do NOT fall back to new Date() — an absent date must be represented as null.
-        const updatedAt = manifest.updatedAt ||
-          commitData?.commit?.committer?.date ||
-          commitData?.commit?.author?.date ||
-          null;
+        const updatedAt = manifest.updatedAt || null;
 
         lastSourceMetadata = Object.freeze({
           commitSha: sourceCommit,
-          provenanceKind: commitSha ? 'github-commit' : 'content-snapshot',
+          provenanceKind: 'content-snapshot',
           sourceRef: fetchRef,
           shardRoot,
           manifestVersion: manifest.schemaVersion || manifest.version || 1,

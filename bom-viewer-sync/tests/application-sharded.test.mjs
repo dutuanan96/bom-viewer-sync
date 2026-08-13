@@ -147,13 +147,7 @@ test('save diffs the current remote payload before writing its expectedHeadSha a
     models3d: localPayload.models3d,
     productImages: localPayload.productImages,
     materialDb: localPayload.materialDb,
-    loadedPayload: coreUtils.normalizePayload({
-      bom: {},
-      materialDb: {
-        materials: { m1: { id: 'm1', code: 'M1', name: { zh: 'Stale value', vi: 'Stale value' } } },
-        bomEntries: [],
-      },
-    }),
+    loadedPayload: remotePayload,
     dirty: true,
   };
   app.label = (key) => key;
@@ -324,16 +318,16 @@ test('BOM write retry reuses an already resolved asset without uploading again',
   assert.deepEqual(app.state.pendingMaterialAssets, {});
 });
 
-test('Save to GitHub rejects a stale Admin snapshot before uploading assets', async () => {
+test('Save to GitHub uploads pending assets even when the Admin tab was loaded earlier', async () => {
   const { app, calls } = pendingAssetSaveApp({
     uploadAsset: async () => ({ url: 'https://example.test/drawing.pdf' }),
   });
-  app.state.loadedSourceCommit = 'older-remote-sha';
+  app.state.loadedPayload = coreUtils.normalizePayload({
+    bom: {},
+    materialDb: { materials: {}, bomEntries: [] },
+  });
 
-  await assert.rejects(
-    app.writeGithubData('token'),
-    (error) => error?.code === 'STALE_REMOTE_DATA',
-  );
+  await app.writeGithubData('token');
 
-  assert.deepEqual(calls.map(({ type }) => type), ['loadForWrite']);
+  assert.deepEqual(calls.map(({ type }) => type), ['loadForWrite', 'uploadAsset', 'loadForWrite', 'write']);
 });

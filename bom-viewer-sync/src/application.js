@@ -1228,7 +1228,6 @@ class BomApplication {
       pendingMaterialAssets: {},
       materialAssetFeedback: null,
       loadedPayload: clone(payload),
-      loadedSourceCommit: '',
       currentSku: '',
       currentColor: '',
       selectedRevision: '',
@@ -3515,10 +3514,9 @@ class BomApplication {
       const previousNotifications = this.notifications();
       const firstLoad = !this.state.lastLoadAt;
       const payload = await this.githubData.loadPublic();
-      const sourceMetadata = this.githubData.getSourceMetadata?.();
       if ((this.state.dirty || this.state.materialDraft) && silent) return false;
       const incoming = this.newNotifications(previousNotifications, payload.notifications);
-      this.applyPayload(payload, { preserveView: silent, sourceCommit: sourceMetadata?.commitSha || '' });
+      this.applyPayload(payload, { preserveView: silent });
       this.state.lastLoadAt = new Date().toISOString();
       this.renderAll();
       if (silent && !firstLoad && incoming.length && !this.isAdmin()) this.showNotificationToast(incoming[0]);
@@ -3555,9 +3553,6 @@ class BomApplication {
     this.state.materialDraft = null;
     this.state.pendingMaterialAssets = {};
     this.state.loadedPayload = clone(this.state.payload);
-    if (Object.hasOwn(options || {}, 'sourceCommit')) {
-      this.state.loadedSourceCommit = String(options.sourceCommit || '');
-    }
     this.state.dirty = false;
     this.state.selectedMaterialId = '';
     this.state.selectedEntryId = '';
@@ -3641,9 +3636,6 @@ class BomApplication {
     });
     syncLegacyBomFromMaterialDb(localPayload);
     const initialRemoteFile = await this.githubData.loadForWrite(token);
-    if (this.state.loadedSourceCommit && this.state.loadedSourceCommit !== initialRemoteFile.expectedHeadSha) {
-      throw new StaleRemoteDataError();
-    }
     this.state.pendingMaterialAssets = this.state.pendingMaterialAssets || {};
     if (Object.keys(this.state.pendingMaterialAssets).length) {
       this.setStatus(this.label('uploadingAssets'), '');
@@ -3684,12 +3676,11 @@ class BomApplication {
       payload.bomHistory[productCode]?.[0]?.createdAt === updatedAt &&
       payload.productRevisions?.[productCode]?.currentRevisionInfo?.workflowState === 'draft'
     ));
-    const writeResult = await this.githubData.write({ token, expectedHeadSha: remoteFile.expectedHeadSha, payload, message: `chore: update sharded bom data ${updatedAt}` });
+    await this.githubData.write({ token, expectedHeadSha: remoteFile.expectedHeadSha, payload, message: `chore: update sharded bom data ${updatedAt}` });
     resolution.completedPendingIds.forEach((pendingId) => {
       delete this.state.pendingMaterialAssets[pendingId];
     });
     this.state.loadedPayload = clone(payload);
-    this.state.loadedSourceCommit = String(writeResult?.commitSha || remoteFile.expectedHeadSha || '');
     this.state.payload = payload;
     this.state.bom = payload.bom;
     this.state.drawings = payload.drawings;
