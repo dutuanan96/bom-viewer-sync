@@ -282,6 +282,7 @@ function showModel3dModal(model, fallbackTitle) {
   modelViewer.setAttribute('src', previewUrl);
   this.query('#pdfOpenLink').href = sourceUrl || '#';
   this.query('#pdfOpenLink').textContent = model.sourceUrl ? 'STEP' : 'Open';
+  this.query('#pdfCloseBtn').textContent = this.label('close');
   this.query('#pdfModal').classList.add('open');
 }
 

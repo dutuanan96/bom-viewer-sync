@@ -97,6 +97,7 @@ test('3D material preview applies a consistent studio material appearance', () =
       '#pdfModalTitle': {},
       '#pdfModalSubtitle': {},
       '#modelResetBtn': {},
+      '#pdfCloseBtn': {},
       '#pdfOpenLink': {},
       '#pdfModal': { classList: { add: () => {} } },
     })[selector],
