@@ -276,6 +276,8 @@ const TEXT = {
     has3D: '3D模型',
     download: '下载',
     close: '关闭',
+    resetModelView: '恢复默认视角',
+    modelControlHint: '拖动旋转 · 滚轮缩放',
     'ai.title': 'AI 助手',
     'ai.settings.title': 'AI 设置',
     'ai.settings.connection': '连接',
@@ -669,6 +671,8 @@ const TEXT = {
     has3D: 'Mô hình 3D',
     download: 'Tải xuống',
     close: 'Đóng',
+    resetModelView: 'Về góc mặc định',
+    modelControlHint: 'Kéo để xoay · Lăn để phóng to',
     'ai.title': 'Trợ lý AI',
     'ai.settings.title': 'Cài đặt AI',
     'ai.settings.connection': 'Kết nối',
@@ -1980,8 +1984,15 @@ class BomApplication {
 
   bindModal() {
     const modal = this.query('#pdfModal');
+    const resetModelView = this.query('#modelResetBtn');
     modal.addEventListener('click', (event) => {
       if (event.target === modal || event.target.closest('[data-close-modal]')) this.closeModal();
+    });
+    resetModelView?.addEventListener('click', () => {
+      const modelViewer = this.query('#model3dViewer');
+      if (!modelViewer) return;
+      modelViewer.setAttribute('camera-orbit', '0deg 75deg auto');
+      modelViewer.jumpCameraToGoal?.();
     });
     global.document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') this.closeModal();

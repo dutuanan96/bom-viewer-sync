@@ -245,6 +245,8 @@ function showModal(url, title, subtitle) {
   frame.hidden = false;
   modelViewer.hidden = true;
   modelViewer.removeAttribute('src');
+  const resetButton = this.query('#modelResetBtn');
+  if (resetButton) resetButton.hidden = true;
   frame.src = pdfFrameUrl(url);
   this.query('#pdfOpenLink').href = url || '#';
   this.query('#pdfOpenLink').textContent = this.label('download');
@@ -258,10 +260,16 @@ function showModel3dModal(model, fallbackTitle) {
   const frame = this.query('#pdfFrame');
   const modelViewer = this.ensureModelViewer();
   this.query('#pdfModalTitle').textContent = model.name || fallbackTitle || '3D';
-  this.query('#pdfModalSubtitle').textContent = model.path || fallbackTitle || '';
+  this.query('#pdfModalSubtitle').textContent = this.label('modelControlHint');
   frame.hidden = true;
   frame.src = 'about:blank';
   modelViewer.hidden = false;
+  modelViewer.setAttribute('auto-rotate', '');
+  const resetButton = this.query('#modelResetBtn');
+  if (resetButton) {
+    resetButton.textContent = this.label('resetModelView');
+    resetButton.hidden = false;
+  }
   modelViewer.addEventListener('load', () => {
     for (const material of modelViewer.model?.materials || []) {
       const pbr = material.pbrMetallicRoughness;
@@ -291,6 +299,9 @@ function ensureModelViewer() {
   modelViewer.setAttribute('environment-image', 'neutral');
   modelViewer.setAttribute('tone-mapping', 'commerce');
   modelViewer.setAttribute('interaction-prompt', 'auto');
+  const stopAutoRotate = () => modelViewer.removeAttribute('auto-rotate');
+  modelViewer.addEventListener('pointerdown', stopAutoRotate);
+  modelViewer.addEventListener('wheel', stopAutoRotate, { passive: true });
   modelViewer.hidden = true;
   this.query('#pdfFrame').insertAdjacentElement('afterend', modelViewer);
   return modelViewer;

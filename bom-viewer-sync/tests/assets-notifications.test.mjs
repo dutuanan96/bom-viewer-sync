@@ -91,10 +91,12 @@ test('3D material preview applies a consistent studio material appearance', () =
   const frame = { hidden: false };
   const app = {
     ensureModelViewer: () => modelViewer,
+    label: (key) => key,
     query: (selector) => ({
       '#pdfFrame': frame,
       '#pdfModalTitle': {},
       '#pdfModalSubtitle': {},
+      '#modelResetBtn': {},
       '#pdfOpenLink': {},
       '#pdfModal': { classList: { add: () => {} } },
     })[selector],
