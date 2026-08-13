@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-13T11:01:19.221Z",
+  "updatedAt": "2026-08-13T11:06:34.946Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -7496,6 +7496,43 @@
   },
   "notifications": [
     {
+      "id": "notif_1mge6ss",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-13T11:06:34.946Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "bom_added",
+          "code": "ZJG15065423BH",
+          "field": "FG1515066010",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "bom_added",
+          "code": "ZJG15065423BH",
+          "field": "M6GS1515BH",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "bom_added",
+          "code": "ZJG15065423BH",
+          "field": "M6YLM139",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "bom_added",
+          "code": "ZJG15065423BH",
+          "field": "NLPLS6028BZ",
+          "before": "",
+          "after": ""
+        }
+      ]
+    },
+    {
       "id": "notif_19335aw",
       "type": "github-save",
       "actor": "admin",
@@ -8397,71 +8434,6 @@
           "after": "released"
         }
       ]
-    },
-    {
-      "id": "notif_13qssci",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-12T03:47:17.222Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS434",
-          "field": "effectiveRevision",
-          "before": "V5",
-          "after": ""
-        },
-        {
-          "kind": "revision",
-          "code": "LGS434",
-          "field": "workflowState",
-          "before": "released",
-          "after": "draft"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS421",
-          "field": "effectiveRevision",
-          "before": "V4",
-          "after": ""
-        },
-        {
-          "kind": "revision",
-          "code": "LGS421",
-          "field": "workflowState",
-          "before": "released",
-          "after": "draft"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS723",
-          "field": "effectiveRevision",
-          "before": "V4",
-          "after": ""
-        },
-        {
-          "kind": "revision",
-          "code": "LGS723",
-          "field": "workflowState",
-          "before": "released",
-          "after": "draft"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS421K101S",
-          "field": "",
-          "before": "LGS421ZLKBH",
-          "after": "LGS420ZLKBH"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS421B101S",
-          "field": "",
-          "before": "LGS421ZLKBH",
-          "after": "LGS420ZLKBH"
-        }
-      ]
     }
   ],
   "bomHistory": {
@@ -9239,6 +9211,45 @@
       }
     ],
     "LGS233": [
+      {
+        "id": "history_8hopof",
+        "productCode": "LGS233",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T11:06:34.946Z",
+        "changes": [
+          {
+            "kind": "bom_added",
+            "code": "ZJG15065423BH",
+            "field": "FG1515066010",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "ZJG15065423BH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "ZJG15065423BH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "ZJG15065423BH",
+            "field": "NLPLS6028BZ",
+            "before": "",
+            "after": ""
+          }
+        ]
+      },
       {
         "id": "history_ype9ja",
         "productCode": "LGS233",
@@ -14750,6 +14761,45 @@
       }
     ],
     "LGS133": [
+      {
+        "id": "history_kgq4bg",
+        "productCode": "LGS133",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T11:06:34.946Z",
+        "changes": [
+          {
+            "kind": "bom_added",
+            "code": "ZJG15065423BH",
+            "field": "FG1515066010",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "ZJG15065423BH",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "ZJG15065423BH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "ZJG15065423BH",
+            "field": "NLPLS6028BZ",
+            "before": "",
+            "after": ""
+          }
+        ]
+      },
       {
         "id": "history_s3nxwc",
         "productCode": "LGS133",
