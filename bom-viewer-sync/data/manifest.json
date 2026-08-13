@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-12T07:27:38.863Z",
+  "updatedAt": "2026-08-13T07:40:35.031Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -7455,6 +7455,36 @@
   },
   "notifications": [
     {
+      "id": "notif_fut7fi",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-13T07:40:35.031Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "NLPLS6010WZ",
+          "field": "color",
+          "before": "白色 / màu trắng",
+          "after": "镀锌 / mạ kẽm"
+        },
+        {
+          "kind": "material_added",
+          "code": "NLPLS6018BZ",
+          "field": "",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "material",
+          "code": "NLPLS6022WZ",
+          "field": "color",
+          "before": "白色 / màu trắng",
+          "after": "镀锌 / mạ kẽm"
+        }
+      ]
+    },
+    {
       "id": "notif_1jbyvy6",
       "type": "github-save",
       "actor": "admin",
@@ -8574,75 +8604,35 @@
           "after": "draft"
         }
       ]
-    },
-    {
-      "id": "notif_5dkmbi",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-10T06:42:44.390Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS032",
-          "field": "effectiveRevision",
-          "before": "V3",
-          "after": "V3.1"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS032",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS333",
-          "field": "effectiveRevision",
-          "before": "",
-          "after": "V4"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS333",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS434",
-          "field": "effectiveRevision",
-          "before": "",
-          "after": "V5"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS434",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS232",
-          "field": "effectiveRevision",
-          "before": "",
-          "after": "V3"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS232",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
-        }
-      ]
     }
   ],
   "bomHistory": {
     "LGS111": [
+      {
+        "id": "history_zc2ntr",
+        "productCode": "LGS111",
+        "revision": "V2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T07:40:35.031Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "NLPLS6010WZ",
+            "field": "color",
+            "before": "白色 / màu trắng",
+            "after": "镀锌 / mạ kẽm"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6022WZ",
+            "field": "color",
+            "before": "白色 / màu trắng",
+            "after": "镀锌 / mạ kẽm"
+          }
+        ]
+      },
       {
         "id": "history_1stl9go",
         "productCode": "LGS111",
@@ -9042,6 +9032,31 @@
     ],
     "LGS233": [
       {
+        "id": "history_3najcw",
+        "productCode": "LGS233",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T07:40:35.031Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "NLPLS6010WZ",
+            "field": "color",
+            "before": "白色 / màu trắng",
+            "after": "镀锌 / mạ kẽm"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6022WZ",
+            "field": "color",
+            "before": "白色 / màu trắng",
+            "after": "镀锌 / mạ kẽm"
+          }
+        ]
+      },
+      {
         "id": "history_x9sxyo",
         "productCode": "LGS233",
         "revision": "V4",
@@ -9231,6 +9246,31 @@
     ],
     "LGS434": [
       {
+        "id": "history_shthb1",
+        "productCode": "LGS434",
+        "revision": "V5",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T07:40:35.031Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "NLPLS6010WZ",
+            "field": "color",
+            "before": "白色 / màu trắng",
+            "after": "镀锌 / mạ kẽm"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6022WZ",
+            "field": "color",
+            "before": "白色 / màu trắng",
+            "after": "镀锌 / mạ kẽm"
+          }
+        ]
+      },
+      {
         "id": "history_xntwdv",
         "productCode": "LGS434",
         "revision": "V5",
@@ -9406,6 +9446,31 @@
       }
     ],
     "LGS420": [
+      {
+        "id": "history_1i8x6r6",
+        "productCode": "LGS420",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T07:40:35.031Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "NLPLS6010WZ",
+            "field": "color",
+            "before": "白色 / màu trắng",
+            "after": "镀锌 / mạ kẽm"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6022WZ",
+            "field": "color",
+            "before": "白色 / màu trắng",
+            "after": "镀锌 / mạ kẽm"
+          }
+        ]
+      },
       {
         "id": "history_dkpcw5",
         "productCode": "LGS420",
@@ -9893,6 +9958,31 @@
       }
     ],
     "LGS333": [
+      {
+        "id": "history_jod5mh",
+        "productCode": "LGS333",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T07:40:35.031Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "NLPLS6010WZ",
+            "field": "color",
+            "before": "白色 / màu trắng",
+            "after": "镀锌 / mạ kẽm"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6022WZ",
+            "field": "color",
+            "before": "白色 / màu trắng",
+            "after": "镀锌 / mạ kẽm"
+          }
+        ]
+      },
       {
         "id": "history_fqqnkh",
         "productCode": "LGS333",
@@ -10442,6 +10532,31 @@
     ],
     "LGS033": [
       {
+        "id": "history_m95rrq",
+        "productCode": "LGS033",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T07:40:35.031Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "NLPLS6010WZ",
+            "field": "color",
+            "before": "白色 / màu trắng",
+            "after": "镀锌 / mạ kẽm"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6022WZ",
+            "field": "color",
+            "before": "白色 / màu trắng",
+            "after": "镀锌 / mạ kẽm"
+          }
+        ]
+      },
+      {
         "id": "history_10e746d",
         "productCode": "LGS033",
         "revision": "V4",
@@ -10497,6 +10612,31 @@
     ],
     "LGS101": [
       {
+        "id": "history_1louv90",
+        "productCode": "LGS101",
+        "revision": "V2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T07:40:35.031Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "NLPLS6010WZ",
+            "field": "color",
+            "before": "白色 / màu trắng",
+            "after": "镀锌 / mạ kẽm"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6022WZ",
+            "field": "color",
+            "before": "白色 / màu trắng",
+            "after": "镀锌 / mạ kẽm"
+          }
+        ]
+      },
+      {
         "id": "history_1x6ozar",
         "productCode": "LGS101",
         "revision": "V2",
@@ -10551,6 +10691,31 @@
       }
     ],
     "LGS131": [
+      {
+        "id": "history_1vcnac5",
+        "productCode": "LGS131",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T07:40:35.031Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "NLPLS6010WZ",
+            "field": "color",
+            "before": "白色 / màu trắng",
+            "after": "镀锌 / mạ kẽm"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6022WZ",
+            "field": "color",
+            "before": "白色 / màu trắng",
+            "after": "镀锌 / mạ kẽm"
+          }
+        ]
+      },
       {
         "id": "history_1ushk4",
         "productCode": "LGS131",
@@ -10810,6 +10975,31 @@
     ],
     "LGS433": [
       {
+        "id": "history_1q4n8oy",
+        "productCode": "LGS433",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T07:40:35.031Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "NLPLS6010WZ",
+            "field": "color",
+            "before": "白色 / màu trắng",
+            "after": "镀锌 / mạ kẽm"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6022WZ",
+            "field": "color",
+            "before": "白色 / màu trắng",
+            "after": "镀锌 / mạ kẽm"
+          }
+        ]
+      },
+      {
         "id": "history_jx7t56",
         "productCode": "LGS433",
         "revision": "V4",
@@ -11049,6 +11239,31 @@
     ],
     "LGS723": [
       {
+        "id": "history_19f9tlq",
+        "productCode": "LGS723",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T07:40:35.031Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "NLPLS6010WZ",
+            "field": "color",
+            "before": "白色 / màu trắng",
+            "after": "镀锌 / mạ kẽm"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6022WZ",
+            "field": "color",
+            "before": "白色 / màu trắng",
+            "after": "镀锌 / mạ kẽm"
+          }
+        ]
+      },
+      {
         "id": "history_rszbbe",
         "productCode": "LGS723",
         "revision": "V4",
@@ -11210,6 +11425,31 @@
       }
     ],
     "LGS733": [
+      {
+        "id": "history_kci8c5",
+        "productCode": "LGS733",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T07:40:35.031Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "NLPLS6010WZ",
+            "field": "color",
+            "before": "白色 / màu trắng",
+            "after": "镀锌 / mạ kẽm"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6022WZ",
+            "field": "color",
+            "before": "白色 / màu trắng",
+            "after": "镀锌 / mạ kẽm"
+          }
+        ]
+      },
       {
         "id": "history_11dgwpt",
         "productCode": "LGS733",
@@ -11416,6 +11656,31 @@
     ],
     "LGS833": [
       {
+        "id": "history_qyfamm",
+        "productCode": "LGS833",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T07:40:35.031Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "NLPLS6010WZ",
+            "field": "color",
+            "before": "白色 / màu trắng",
+            "after": "镀锌 / mạ kẽm"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6022WZ",
+            "field": "color",
+            "before": "白色 / màu trắng",
+            "after": "镀锌 / mạ kẽm"
+          }
+        ]
+      },
+      {
         "id": "history_p7e2v1",
         "productCode": "LGS833",
         "revision": "V4",
@@ -11470,6 +11735,31 @@
       }
     ],
     "LGS834": [
+      {
+        "id": "history_kcsbhd",
+        "productCode": "LGS834",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T07:40:35.031Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "NLPLS6010WZ",
+            "field": "color",
+            "before": "白色 / màu trắng",
+            "after": "镀锌 / mạ kẽm"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6022WZ",
+            "field": "color",
+            "before": "白色 / màu trắng",
+            "after": "镀锌 / mạ kẽm"
+          }
+        ]
+      },
       {
         "id": "history_1pbni21",
         "productCode": "LGS834",

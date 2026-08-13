@@ -16100,8 +16100,8 @@
           "vi": "#10"
         },
         "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
+          "zh": "镀锌",
+          "vi": "mạ kẽm"
         },
         "attr": {
           "zh": "五金包",
@@ -16126,8 +16126,8 @@
           "vi": "#10"
         },
         "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
+          "zh": "镀锌",
+          "vi": "mạ kẽm"
         },
         "attr": {
           "zh": "五金包",
@@ -39513,6 +39513,38 @@
         },
         "drawings": [],
         "models3d": []
+      },
+      "mat_xngxra": {
+        "id": "mat_xngxra",
+        "code": "NLPLS6018BZ",
+        "name": {
+          "zh": "M6x18内六角螺丝",
+          "vi": "M6x18 ốc lục giác"
+        },
+        "spec": {
+          "zh": "M6x18mm",
+          "vi": "M6x18mm"
+        },
+        "material": {
+          "zh": "#10",
+          "vi": "#10"
+        },
+        "color": {
+          "zh": "黑色",
+          "vi": "màu đen"
+        },
+        "attr": {
+          "zh": "五金包",
+          "vi": "túi ngũ kim"
+        },
+        "drawings": [],
+        "models3d": [
+          {
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x22-a232250e.glb",
+            "name": "M6x18内六角螺丝",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x22-a232250e.glb"
+          }
+        ]
       }
     },
     "bomEntries": [
