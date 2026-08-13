@@ -1317,7 +1317,7 @@ mark {
 }
 
 .model3d-frame {
-  background: linear-gradient(180deg, #c6ced8 0%, #e8edf2 52%, #d2dae3 100%);
+  background: radial-gradient(circle at 50% 28%, #3d556e 0%, #25394e 42%, #172534 100%);
   border: 0;
   display: block;
   height: min(72vh, 760px);

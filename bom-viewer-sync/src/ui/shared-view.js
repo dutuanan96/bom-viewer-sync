@@ -262,6 +262,15 @@ function showModel3dModal(model, fallbackTitle) {
   frame.hidden = true;
   frame.src = 'about:blank';
   modelViewer.hidden = false;
+  modelViewer.addEventListener('load', () => {
+    for (const material of modelViewer.model?.materials || []) {
+      const pbr = material.pbrMetallicRoughness;
+      if (!pbr) continue;
+      pbr.setBaseColorFactor([0.48, 0.63, 0.76, 1]);
+      pbr.setMetallicFactor(0.58);
+      pbr.setRoughnessFactor(0.32);
+    }
+  }, { once: true });
   modelViewer.setAttribute('src', previewUrl);
   this.query('#pdfOpenLink').href = sourceUrl || '#';
   this.query('#pdfOpenLink').textContent = model.sourceUrl ? 'STEP' : 'Open';
@@ -276,9 +285,11 @@ function ensureModelViewer() {
   modelViewer.className = 'model3d-frame';
   modelViewer.setAttribute('camera-controls', '');
   modelViewer.setAttribute('auto-rotate', '');
-  modelViewer.setAttribute('shadow-intensity', '1');
-  modelViewer.setAttribute('exposure', '0.72');
+  modelViewer.setAttribute('shadow-intensity', '0.62');
+  modelViewer.setAttribute('shadow-softness', '0.9');
+  modelViewer.setAttribute('exposure', '1');
   modelViewer.setAttribute('environment-image', 'neutral');
+  modelViewer.setAttribute('tone-mapping', 'commerce');
   modelViewer.setAttribute('interaction-prompt', 'auto');
   modelViewer.hidden = true;
   this.query('#pdfFrame').insertAdjacentElement('afterend', modelViewer);

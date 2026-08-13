@@ -3,6 +3,7 @@ import test from 'node:test';
 import { assetDisplayUrl, driveFileId, findBomAssets, pdfFrameUrl } from '../src/infrastructure/assets.js';
 import { appendNotificationEvent, describePayloadChanges } from '../src/features/notifications.js';
 import { BomApplication, coreUtils } from '../src/application.js';
+import { sharedViewMethods } from '../src/ui/shared-view.js';
 
 const { normalizePayload } = coreUtils;
 
@@ -68,6 +69,44 @@ test('notification body summarizes asset changes without exposing source URLs', 
 
   assert.match(body, /M1/);
   assert.doesNotMatch(body, /https:\/\//);
+});
+
+test('3D material preview applies a consistent studio material appearance', () => {
+  const calls = [];
+  let onLoad;
+  const modelViewer = {
+    hidden: true,
+    model: {
+      materials: [{
+        pbrMetallicRoughness: {
+          setBaseColorFactor: (value) => calls.push(['color', value]),
+          setMetallicFactor: (value) => calls.push(['metallic', value]),
+          setRoughnessFactor: (value) => calls.push(['roughness', value]),
+        },
+      }],
+    },
+    addEventListener: (_name, handler) => { onLoad = handler; },
+    setAttribute: (name) => { if (name === 'src') onLoad(); },
+  };
+  const frame = { hidden: false };
+  const app = {
+    ensureModelViewer: () => modelViewer,
+    query: (selector) => ({
+      '#pdfFrame': frame,
+      '#pdfModalTitle': {},
+      '#pdfModalSubtitle': {},
+      '#pdfOpenLink': {},
+      '#pdfModal': { classList: { add: () => {} } },
+    })[selector],
+  };
+
+  sharedViewMethods.showModel3dModal.call(app, { url: 'https://example.test/model.glb' }, '3D');
+
+  assert.deepEqual(calls, [
+    ['color', [0.48, 0.63, 0.76, 1]],
+    ['metallic', 0.58],
+    ['roughness', 0.32],
+  ]);
 });
 
 test('notification body identifies BOM edits and material replacements', () => {
