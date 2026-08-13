@@ -113,14 +113,11 @@ export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.
             fetchRef = commitSha;
           }
         } catch (error) {
-          rawBase = 'https://cdn.jsdelivr.net/gh';
-          console.warn('GitHub API failed (possibly rate limited), falling back to jsDelivr branch fetching.', error);
+          console.warn('GitHub API failed (possibly rate limited), fetching the current branch from raw GitHub.', error);
         }
 
         const fetchRaw = async (logicalPath) => {
-          const repositoryPath = rawBase === 'https://cdn.jsdelivr.net/gh'
-            ? `${encodeURIComponent(owner)}/${encodeURIComponent(repo)}@${fetchRef}`
-            : `${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/${fetchRef}`;
+          const repositoryPath = `${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/${fetchRef}`;
           const url = `${rawBase}/${repositoryPath}/${shardRoot}/${logicalPath}?t=${cacheBust}`;
           const response = await fetchImpl(url, { cache: 'no-store' });
           if (!response.ok) {
