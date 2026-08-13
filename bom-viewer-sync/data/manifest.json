@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-13T11:27:38.014Z",
+  "updatedAt": "2026-08-13T11:28:49.300Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -7046,12 +7046,12 @@
     },
     "LGS233": {
       "currentRevision": "V4",
-      "effectiveRevision": "",
+      "effectiveRevision": "V4",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -7109,6 +7109,14 @@
           "revision": "V4",
           "previousRevision": "V4",
           "occurredAt": "2026-08-13T11:27:22.681Z",
+          "reason": "更新"
+        },
+        {
+          "id": "effectivity_msrfqf82",
+          "action": "release",
+          "revision": "V4",
+          "previousRevision": "",
+          "occurredAt": "2026-08-13T11:28:49.298Z",
           "reason": "更新"
         }
       ]
@@ -7503,6 +7511,29 @@
     }
   },
   "notifications": [
+    {
+      "id": "notif_iiri08",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-13T11:28:49.300Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS233",
+          "field": "effectiveRevision",
+          "before": "",
+          "after": "V4"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS233",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        }
+      ]
+    },
     {
       "id": "notif_1iv9x32",
       "type": "github-save",
@@ -8391,29 +8422,6 @@
           "after": "LGS231_131-底部横杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS231-131-8264a80a.glb"
         }
       ]
-    },
-    {
-      "id": "notif_1l2rjvy",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-12T04:02:13.161Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS333",
-          "field": "effectiveRevision",
-          "before": "",
-          "after": "V4"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS333",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
-        }
-      ]
     }
   ],
   "bomHistory": {
@@ -9191,6 +9199,31 @@
       }
     ],
     "LGS233": [
+      {
+        "id": "history_oxr7ed",
+        "productCode": "LGS233",
+        "revision": "V4",
+        "action": "release",
+        "actor": "admin",
+        "reason": "更新",
+        "createdAt": "2026-08-13T11:28:49.300Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS233",
+            "field": "effectiveRevision",
+            "before": "",
+            "after": "V4"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS233",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
       {
         "id": "history_1n1ew1n",
         "productCode": "LGS233",
