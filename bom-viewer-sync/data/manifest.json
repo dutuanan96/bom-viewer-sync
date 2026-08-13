@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-13T09:20:49.465Z",
+  "updatedAt": "2026-08-13T09:28:27.555Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -7463,6 +7463,50 @@
   },
   "notifications": [
     {
+      "id": "notif_u81jfm",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-13T09:28:27.555Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "80132132LJJ",
+          "field": "drawings",
+          "before": "",
+          "after": "连接件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@9a580f3c886492c5030da8fad3aea59254d3e079/assets/pdfs/80132132LJJ_afa0575864df9a69f03ac770d2edecb8cd38d32ad632bb6cb2d06d7f34d4b25d_pdf"
+        },
+        {
+          "kind": "material",
+          "code": "80132132LJJ",
+          "field": "models3d",
+          "before": "",
+          "after": "连接件.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b466c6278ccd606aa58b3683b18e569f544fe237/assets/models/80132132LJJ_cdf346ad25222f8607787ed8602e102c819affdb932d091a6844d9d4f316a919_glb"
+        },
+        {
+          "kind": "material",
+          "code": "LJP16143",
+          "field": "models3d",
+          "before": "",
+          "after": "连接片.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@bdf905e14c27da53781fd700f6371f1b3e76bfb9/assets/models/LJP16143_65756221cb15e40f24b4d21d40c95360509fa8592e188ae2c1b6de106d10b568_glb"
+        },
+        {
+          "kind": "material",
+          "code": "M6LMLM",
+          "field": "models3d",
+          "before": "",
+          "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb"
+        },
+        {
+          "kind": "material",
+          "code": "M6LMP2881385",
+          "field": "models3d",
+          "before": "",
+          "after": "M6螺母片|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@6f6acea992a2b3f2c6508263f7c8856fea4e5a09/assets/models/M6LMP2881385_bc59d1a75c7849aed869a966464d2c5fb8ac3261af0bef4e2b5f83ff4bb2329a_M6_.glb"
+        }
+      ]
+    },
+    {
       "id": "notif_1tdaifu",
       "type": "github-save",
       "actor": "admin",
@@ -8609,26 +8653,28 @@
           "after": "LGS333XHHLBH"
         }
       ]
-    },
-    {
-      "id": "notif_11e8rb0",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-12T03:02:49.395Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS733",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
-        }
-      ]
     }
   ],
   "bomHistory": {
     "LGS111": [
+      {
+        "id": "history_1va6bmg",
+        "productCode": "LGS111",
+        "revision": "V2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:28:27.555Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb"
+          }
+        ]
+      },
       {
         "id": "history_u2vs8a",
         "productCode": "LGS111",
@@ -8868,6 +8914,24 @@
       }
     ],
     "LGS231": [
+      {
+        "id": "history_gmpkot",
+        "productCode": "LGS231",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:28:27.555Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb"
+          }
+        ]
+      },
       {
         "id": "history_1ytkuee",
         "productCode": "LGS231",
@@ -9341,6 +9405,38 @@
       }
     ],
     "LGS233": [
+      {
+        "id": "history_twnix1",
+        "productCode": "LGS233",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:28:27.555Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "80132132LJJ",
+            "field": "drawings",
+            "before": "",
+            "after": "连接件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@9a580f3c886492c5030da8fad3aea59254d3e079/assets/pdfs/80132132LJJ_afa0575864df9a69f03ac770d2edecb8cd38d32ad632bb6cb2d06d7f34d4b25d_pdf"
+          },
+          {
+            "kind": "material",
+            "code": "80132132LJJ",
+            "field": "models3d",
+            "before": "",
+            "after": "连接件.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b466c6278ccd606aa58b3683b18e569f544fe237/assets/models/80132132LJJ_cdf346ad25222f8607787ed8602e102c819affdb932d091a6844d9d4f316a919_glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb"
+          }
+        ]
+      },
       {
         "id": "history_1psvtjt",
         "productCode": "LGS233",
@@ -9827,6 +9923,45 @@
     ],
     "LGS334": [
       {
+        "id": "history_1s2jebm",
+        "productCode": "LGS334",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:28:27.555Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "80132132LJJ",
+            "field": "drawings",
+            "before": "",
+            "after": "连接件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@9a580f3c886492c5030da8fad3aea59254d3e079/assets/pdfs/80132132LJJ_afa0575864df9a69f03ac770d2edecb8cd38d32ad632bb6cb2d06d7f34d4b25d_pdf"
+          },
+          {
+            "kind": "material",
+            "code": "80132132LJJ",
+            "field": "models3d",
+            "before": "",
+            "after": "连接件.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b466c6278ccd606aa58b3683b18e569f544fe237/assets/models/80132132LJJ_cdf346ad25222f8607787ed8602e102c819affdb932d091a6844d9d4f316a919_glb"
+          },
+          {
+            "kind": "material",
+            "code": "LJP16143",
+            "field": "models3d",
+            "before": "",
+            "after": "连接片.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@bdf905e14c27da53781fd700f6371f1b3e76bfb9/assets/models/LJP16143_65756221cb15e40f24b4d21d40c95360509fa8592e188ae2c1b6de106d10b568_glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb"
+          }
+        ]
+      },
+      {
         "id": "history_jlu9ns",
         "productCode": "LGS334",
         "revision": "V4",
@@ -10117,6 +10252,45 @@
       }
     ],
     "LGS434": [
+      {
+        "id": "history_8gq1nd",
+        "productCode": "LGS434",
+        "revision": "V5",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:28:27.555Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "80132132LJJ",
+            "field": "drawings",
+            "before": "",
+            "after": "连接件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@9a580f3c886492c5030da8fad3aea59254d3e079/assets/pdfs/80132132LJJ_afa0575864df9a69f03ac770d2edecb8cd38d32ad632bb6cb2d06d7f34d4b25d_pdf"
+          },
+          {
+            "kind": "material",
+            "code": "80132132LJJ",
+            "field": "models3d",
+            "before": "",
+            "after": "连接件.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b466c6278ccd606aa58b3683b18e569f544fe237/assets/models/80132132LJJ_cdf346ad25222f8607787ed8602e102c819affdb932d091a6844d9d4f316a919_glb"
+          },
+          {
+            "kind": "material",
+            "code": "LJP16143",
+            "field": "models3d",
+            "before": "",
+            "after": "连接片.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@bdf905e14c27da53781fd700f6371f1b3e76bfb9/assets/models/LJP16143_65756221cb15e40f24b4d21d40c95360509fa8592e188ae2c1b6de106d10b568_glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb"
+          }
+        ]
+      },
       {
         "id": "history_yh276k",
         "productCode": "LGS434",
@@ -10831,6 +11005,24 @@
     ],
     "LGS420": [
       {
+        "id": "history_p9oya5",
+        "productCode": "LGS420",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:28:27.555Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb"
+          }
+        ]
+      },
+      {
         "id": "history_dw6gsp",
         "productCode": "LGS420",
         "revision": "V4",
@@ -11338,6 +11530,24 @@
     ],
     "LGS421": [
       {
+        "id": "history_ttse58",
+        "productCode": "LGS421",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:28:27.555Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb"
+          }
+        ]
+      },
+      {
         "id": "history_w21587",
         "productCode": "LGS421",
         "revision": "V4",
@@ -11743,6 +11953,24 @@
       }
     ],
     "LGS333": [
+      {
+        "id": "history_1gxj1za",
+        "productCode": "LGS333",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:28:27.555Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb"
+          }
+        ]
+      },
       {
         "id": "history_1h82uc0",
         "productCode": "LGS333",
@@ -12271,6 +12499,45 @@
       }
     ],
     "LGS232": [
+      {
+        "id": "history_1fgha45",
+        "productCode": "LGS232",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:28:27.555Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "80132132LJJ",
+            "field": "drawings",
+            "before": "",
+            "after": "连接件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@9a580f3c886492c5030da8fad3aea59254d3e079/assets/pdfs/80132132LJJ_afa0575864df9a69f03ac770d2edecb8cd38d32ad632bb6cb2d06d7f34d4b25d_pdf"
+          },
+          {
+            "kind": "material",
+            "code": "80132132LJJ",
+            "field": "models3d",
+            "before": "",
+            "after": "连接件.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b466c6278ccd606aa58b3683b18e569f544fe237/assets/models/80132132LJJ_cdf346ad25222f8607787ed8602e102c819affdb932d091a6844d9d4f316a919_glb"
+          },
+          {
+            "kind": "material",
+            "code": "LJP16143",
+            "field": "models3d",
+            "before": "",
+            "after": "连接片.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@bdf905e14c27da53781fd700f6371f1b3e76bfb9/assets/models/LJP16143_65756221cb15e40f24b4d21d40c95360509fa8592e188ae2c1b6de106d10b568_glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb"
+          }
+        ]
+      },
       {
         "id": "history_bya9mb",
         "productCode": "LGS232",
@@ -12859,6 +13126,31 @@
     ],
     "LGS032": [
       {
+        "id": "history_3zpvpt",
+        "productCode": "LGS032",
+        "revision": "V3.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "产品高度变更679mm改为671",
+        "createdAt": "2026-08-13T09:28:27.555Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LJP16143",
+            "field": "models3d",
+            "before": "",
+            "after": "连接片.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@bdf905e14c27da53781fd700f6371f1b3e76bfb9/assets/models/LJP16143_65756221cb15e40f24b4d21d40c95360509fa8592e188ae2c1b6de106d10b568_glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb"
+          }
+        ]
+      },
+      {
         "id": "history_18a9se5",
         "productCode": "LGS032",
         "revision": "V3.1",
@@ -13136,6 +13428,24 @@
       }
     ],
     "LGS033": [
+      {
+        "id": "history_y6uft",
+        "productCode": "LGS033",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:28:27.555Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb"
+          }
+        ]
+      },
       {
         "id": "history_notn63",
         "productCode": "LGS033",
@@ -13449,6 +13759,24 @@
     ],
     "LGS101": [
       {
+        "id": "history_1woziob",
+        "productCode": "LGS101",
+        "revision": "V2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:28:27.555Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb"
+          }
+        ]
+      },
+      {
         "id": "history_wmihxh",
         "productCode": "LGS101",
         "revision": "V2",
@@ -13669,6 +13997,24 @@
       }
     ],
     "LGS131": [
+      {
+        "id": "history_4ij6tm",
+        "productCode": "LGS131",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:28:27.555Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb"
+          }
+        ]
+      },
       {
         "id": "history_1cd4ymm",
         "productCode": "LGS131",
@@ -14124,6 +14470,45 @@
     ],
     "LGS132": [
       {
+        "id": "history_1kag8x6",
+        "productCode": "LGS132",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:28:27.555Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "80132132LJJ",
+            "field": "drawings",
+            "before": "",
+            "after": "连接件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@9a580f3c886492c5030da8fad3aea59254d3e079/assets/pdfs/80132132LJJ_afa0575864df9a69f03ac770d2edecb8cd38d32ad632bb6cb2d06d7f34d4b25d_pdf"
+          },
+          {
+            "kind": "material",
+            "code": "80132132LJJ",
+            "field": "models3d",
+            "before": "",
+            "after": "连接件.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b466c6278ccd606aa58b3683b18e569f544fe237/assets/models/80132132LJJ_cdf346ad25222f8607787ed8602e102c819affdb932d091a6844d9d4f316a919_glb"
+          },
+          {
+            "kind": "material",
+            "code": "LJP16143",
+            "field": "models3d",
+            "before": "",
+            "after": "连接片.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@bdf905e14c27da53781fd700f6371f1b3e76bfb9/assets/models/LJP16143_65756221cb15e40f24b4d21d40c95360509fa8592e188ae2c1b6de106d10b568_glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb"
+          }
+        ]
+      },
+      {
         "id": "history_3apqsw",
         "productCode": "LGS132",
         "revision": "V3",
@@ -14390,6 +14775,38 @@
     ],
     "LGS133": [
       {
+        "id": "history_urophy",
+        "productCode": "LGS133",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:28:27.555Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "80132132LJJ",
+            "field": "drawings",
+            "before": "",
+            "after": "连接件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@9a580f3c886492c5030da8fad3aea59254d3e079/assets/pdfs/80132132LJJ_afa0575864df9a69f03ac770d2edecb8cd38d32ad632bb6cb2d06d7f34d4b25d_pdf"
+          },
+          {
+            "kind": "material",
+            "code": "80132132LJJ",
+            "field": "models3d",
+            "before": "",
+            "after": "连接件.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b466c6278ccd606aa58b3683b18e569f544fe237/assets/models/80132132LJJ_cdf346ad25222f8607787ed8602e102c819affdb932d091a6844d9d4f316a919_glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb"
+          }
+        ]
+      },
+      {
         "id": "history_17kj305",
         "productCode": "LGS133",
         "revision": "V4",
@@ -14613,6 +15030,31 @@
       }
     ],
     "LGS433": [
+      {
+        "id": "history_15vklus",
+        "productCode": "LGS433",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:28:27.555Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LJP16143",
+            "field": "models3d",
+            "before": "",
+            "after": "连接片.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@bdf905e14c27da53781fd700f6371f1b3e76bfb9/assets/models/LJP16143_65756221cb15e40f24b4d21d40c95360509fa8592e188ae2c1b6de106d10b568_glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb"
+          }
+        ]
+      },
       {
         "id": "history_1dnxtr",
         "productCode": "LGS433",
@@ -15187,6 +15629,24 @@
     ],
     "LGS723": [
       {
+        "id": "history_9u3boh",
+        "productCode": "LGS723",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:28:27.555Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb"
+          }
+        ]
+      },
+      {
         "id": "history_wo284z",
         "productCode": "LGS723",
         "revision": "V4",
@@ -15612,6 +16072,24 @@
       }
     ],
     "LGS733": [
+      {
+        "id": "history_f5wc16",
+        "productCode": "LGS733",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:28:27.555Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb"
+          }
+        ]
+      },
       {
         "id": "history_9uopsk",
         "productCode": "LGS733",
@@ -16145,6 +16623,24 @@
     ],
     "LGS833": [
       {
+        "id": "history_5rj4b5",
+        "productCode": "LGS833",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:28:27.555Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb"
+          }
+        ]
+      },
+      {
         "id": "history_1vewgbn",
         "productCode": "LGS833",
         "revision": "V4",
@@ -16484,6 +16980,45 @@
       }
     ],
     "LGS834": [
+      {
+        "id": "history_1wk85ql",
+        "productCode": "LGS834",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-13T09:28:27.555Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "80132132LJJ",
+            "field": "drawings",
+            "before": "",
+            "after": "连接件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@9a580f3c886492c5030da8fad3aea59254d3e079/assets/pdfs/80132132LJJ_afa0575864df9a69f03ac770d2edecb8cd38d32ad632bb6cb2d06d7f34d4b25d_pdf"
+          },
+          {
+            "kind": "material",
+            "code": "80132132LJJ",
+            "field": "models3d",
+            "before": "",
+            "after": "连接件.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b466c6278ccd606aa58b3683b18e569f544fe237/assets/models/80132132LJJ_cdf346ad25222f8607787ed8602e102c819affdb932d091a6844d9d4f316a919_glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMP2881385",
+            "field": "models3d",
+            "before": "",
+            "after": "M6螺母片|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@6f6acea992a2b3f2c6508263f7c8856fea4e5a09/assets/models/M6LMP2881385_bc59d1a75c7849aed869a966464d2c5fb8ac3261af0bef4e2b5f83ff4bb2329a_M6_.glb"
+          }
+        ]
+      },
       {
         "id": "history_f32uew",
         "productCode": "LGS834",

@@ -39740,7 +39740,13 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [
+          {
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb",
+            "name": "拉铆螺母",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb"
+          }
+        ]
       },
       "mat_ljp16143": {
         "id": "mat_ljp16143",
@@ -39766,7 +39772,13 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [
+          {
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@bdf905e14c27da53781fd700f6371f1b3e76bfb9/assets/models/LJP16143_65756221cb15e40f24b4d21d40c95360509fa8592e188ae2c1b6de106d10b568_glb",
+            "name": "连接片.glb",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@bdf905e14c27da53781fd700f6371f1b3e76bfb9/assets/models/LJP16143_65756221cb15e40f24b4d21d40c95360509fa8592e188ae2c1b6de106d10b568_glb"
+          }
+        ]
       },
       "mat_nlpls6018wz": {
         "id": "mat_nlpls6018wz",
@@ -39818,7 +39830,13 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [
+          {
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@6f6acea992a2b3f2c6508263f7c8856fea4e5a09/assets/models/M6LMP2881385_bc59d1a75c7849aed869a966464d2c5fb8ac3261af0bef4e2b5f83ff4bb2329a_M6_.glb",
+            "name": "M6螺母片",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@6f6acea992a2b3f2c6508263f7c8856fea4e5a09/assets/models/M6LMP2881385_bc59d1a75c7849aed869a966464d2c5fb8ac3261af0bef4e2b5f83ff4bb2329a_M6_.glb"
+          }
+        ]
       },
       "mat_80132132ljj": {
         "id": "mat_80132132ljj",
@@ -39843,8 +39861,19 @@
           "zh": "原材料",
           "vi": "Nguyên vật liệu"
         },
-        "drawings": [],
-        "models3d": []
+        "drawings": [
+          {
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@9a580f3c886492c5030da8fad3aea59254d3e079/assets/pdfs/80132132LJJ_afa0575864df9a69f03ac770d2edecb8cd38d32ad632bb6cb2d06d7f34d4b25d_pdf",
+            "name": "连接件.pdf"
+          }
+        ],
+        "models3d": [
+          {
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b466c6278ccd606aa58b3683b18e569f544fe237/assets/models/80132132LJJ_cdf346ad25222f8607787ed8602e102c819affdb932d091a6844d9d4f316a919_glb",
+            "name": "连接件.glb",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b466c6278ccd606aa58b3683b18e569f544fe237/assets/models/80132132LJJ_cdf346ad25222f8607787ed8602e102c819affdb932d091a6844d9d4f316a919_glb"
+          }
+        ]
       }
     },
     "bomEntries": [
