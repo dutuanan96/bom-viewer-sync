@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-14T10:40:48.867Z",
+  "updatedAt": "2026-08-14T10:42:48.709Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -474,12 +474,12 @@
   "productRevisions": {
     "LGS032": {
       "currentRevision": "V3.1",
-      "effectiveRevision": "V3",
+      "effectiveRevision": "V3.1",
       "currentRevisionInfo": {
         "sourceRevision": "V3",
         "createdAt": "2026-07-13T03:32:51.309Z",
         "changeReason": "产品高度变更679mm改为671",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -6330,6 +6330,14 @@
           "previousRevision": "V3.1",
           "occurredAt": "2026-08-14T01:42:47.744Z",
           "reason": "V3.1尚未应用，恢复V3为生效版本"
+        },
+        {
+          "id": "effectivity_msstj3t0",
+          "action": "release",
+          "revision": "V3.1",
+          "previousRevision": "V3",
+          "occurredAt": "2026-08-14T10:42:48.708Z",
+          "reason": "更新"
         }
       ]
     },
@@ -7536,6 +7544,29 @@
   },
   "notifications": [
     {
+      "id": "notif_w7iyek",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-14T10:42:48.709Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS032",
+          "field": "effectiveRevision",
+          "before": "V3",
+          "after": "V3.1"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS032",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        }
+      ]
+    },
+    {
       "id": "notif_mng3ni",
       "type": "github-save",
       "actor": "admin",
@@ -8413,43 +8444,6 @@
           "field": "models3d",
           "before": "LGS232_231_131-中间层板.glb|models3d/catalog/LGS232-231-131-6e6242dc.glb",
           "after": "LGS232_231_131-中间层板.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb"
-        }
-      ]
-    },
-    {
-      "id": "notif_1yk8kym",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-12T06:29:52.417Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS231",
-          "field": "effectiveRevision",
-          "before": "",
-          "after": "V3"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS231",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS131",
-          "field": "effectiveRevision",
-          "before": "",
-          "after": "V3"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS131",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
         }
       ]
     }
@@ -13692,6 +13686,31 @@
       }
     ],
     "LGS032": [
+      {
+        "id": "history_mqcfba",
+        "productCode": "LGS032",
+        "revision": "V3.1",
+        "action": "release",
+        "actor": "admin",
+        "reason": "更新",
+        "createdAt": "2026-08-14T10:42:48.709Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS032",
+            "field": "effectiveRevision",
+            "before": "V3",
+            "after": "V3.1"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS032",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
       {
         "id": "history_kyqmwj",
         "productCode": "LGS032",
