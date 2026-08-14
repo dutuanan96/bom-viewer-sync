@@ -576,11 +576,20 @@ function materialText(material, field, lang) {
 
 function materialSearchMatch(material, query) {
   if (!query) return true;
-  return queryMatches([
+  return queryMatches(materialSearchValues(material), query);
+}
+
+function materialSearchValues(material) {
+  const assets = [...(material?.drawings || []), ...(material?.models3d || [])];
+  return [
     material.mat_code, material.comp_code, material.name_zh, material.name_vi,
     material.spec, material.spec_vi, material.material_zh, material.material_vi,
-    material.color_zh, material.color_vi, material.attr_zh, material.attr_vi
-  ], query);
+    material.color_zh, material.color_vi, material.attr_zh, material.attr_vi,
+    material?.code, material?.name?.zh, material?.name?.vi,
+    material?.spec?.zh, material?.spec?.vi, material?.material?.zh, material?.material?.vi,
+    material?.color?.zh, material?.color?.vi, material?.attr?.zh, material?.attr?.vi,
+    ...assets.flatMap((asset) => [asset?.matched_name, asset?.name]),
+  ];
 }
 
 function sortMaterials(materials, options) {
@@ -646,6 +655,7 @@ export {
   stripProductColorName,
   localizedValue,
   materialText,
+  materialSearchValues,
   queryMatches,
   isHardwarePackSummary,
   legacyRowFromRecord,

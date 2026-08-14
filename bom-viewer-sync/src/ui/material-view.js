@@ -1,4 +1,4 @@
-import { localizedValue, materialWhereUsed, normalizeText, queryMatches } from '../domain/materials.js';
+import { localizedValue, materialSearchValues, materialWhereUsed, normalizeText, queryMatches } from '../domain/materials.js';
 import { escapeHTML } from './shared-view.js';
 
 function renderMaterialDatabase() {
@@ -204,11 +204,7 @@ function filteredMaterialRecords() {
       if (this.state.dbFilters.has3D === 'yes' && !has3D) return false;
       if (this.state.dbFilters.has3D === 'no' && has3D) return false;
 
-      return !query || queryMatches([
-        record.code, record.name?.zh, record.name?.vi, record.spec?.zh, record.spec?.vi,
-        record.material?.zh, record.material?.vi, record.color?.zh, record.color?.vi,
-        record.attr?.zh, record.attr?.vi
-      ], query);
+      return !query || queryMatches(materialSearchValues(record), query);
     })
     .sort((left, right) => String(left.code || '').localeCompare(String(right.code || '')));
 }

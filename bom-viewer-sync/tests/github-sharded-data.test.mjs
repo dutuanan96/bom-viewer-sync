@@ -23,11 +23,13 @@ function treeEntries(contents, extra = []) {
 test('github-sharded-data adapter tests', async (t) => {
   const config = { owner: 'test', repo: 'test', branch: 'main', shardRoot: 'data' };
 
-  await t.test('loadPublic fetches the current raw branch without using the GitHub API', async () => {
+  await t.test('loadPublic pins every raw shard to one resolved commit', async () => {
     const fetchArgs = [];
     const fetchImpl = async (url) => {
       fetchArgs.push(url);
-      if (url.includes('api.github.com')) throw new Error('Public loading must not call the GitHub API');
+      if (url.includes('/commits/main')) {
+        return { ok: true, json: async () => ({ sha: 'a'.repeat(40) }) };
+      }
       if (url.includes('manifest.json')) {
         return { ok: true, text: async () => JSON.stringify({ version: 1, products: PRODUCT_IDS }) };
       }
@@ -47,19 +49,20 @@ test('github-sharded-data adapter tests', async (t) => {
     assert.equal(payload.version, 1);
     assert.ok(payload.bom.P1);
 
-    assert.ok(fetchArgs[0].startsWith('https://raw.githubusercontent.com/test/test/main/data/manifest.json'));
-    assert.equal(fetchArgs.some(url => url.includes('api.github.com')), false);
+    assert.ok(fetchArgs[0].includes('https://api.github.com/repos/test/test/commits/main'));
+    assert.ok(fetchArgs.some(url => url.startsWith(`https://raw.githubusercontent.com/test/test/${'a'.repeat(40)}/data/manifest.json`)));
 
     const metadata = adapter.getSourceMetadata();
-    assert.match(metadata.commitSha, /^[0-9a-f]{40}$/);
-    assert.equal(metadata.provenanceKind, 'content-snapshot');
+    assert.equal(metadata.commitSha, 'a'.repeat(40));
+    assert.match(metadata.contentSnapshotSha, /^[0-9a-f]{40}$/);
+    assert.equal(metadata.provenanceKind, 'commit-pinned');
     assert.equal(metadata.shardRoot, 'data');
     assert.equal(metadata.manifestVersion, 1);
     // Commit mock has no date, manifest has no updatedAt, so updatedAt should be null (no new Date() fallback)
     assert.equal(metadata.updatedAt, null);
   });
 
-  await t.test('loadPublic keeps reading raw data when API requests would be rate limited', async () => {
+  await t.test('loadPublic fails rather than mixing shards when the commit lookup is rate limited', async () => {
     const fetchArgs = [];
     const fetchImpl = async (url) => {
       fetchArgs.push(url);
@@ -80,14 +83,35 @@ test('github-sharded-data adapter tests', async (t) => {
     };
 
     const adapter = createGithubShardedDataAdapter({ config, fetchImpl, now: () => 1000 });
+    await assert.rejects(adapter.loadPublic(), /rate limited/);
+    assert.equal(fetchArgs.some(url => url.includes('raw.githubusercontent.com')), false);
+  });
+
+  await t.test('loadPublic reuses the resolved commit within the public refresh window', async () => {
+    let now = 0;
+    let commitRequests = 0;
+    const fetchImpl = async (url) => {
+      if (url.includes('/commits/main')) {
+        commitRequests += 1;
+        return { ok: true, json: async () => ({ sha: 'e'.repeat(40) }) };
+      }
+      if (url.includes('manifest.json')) {
+        return { ok: true, text: async () => JSON.stringify({ version: 1, products: PRODUCT_IDS }) };
+      }
+      if (url.includes('materials.json')) {
+        return { ok: true, text: async () => JSON.stringify({ materialDb: { materials: {}, bomEntries: [] }, drawings: {}, manuals: {}, models3d: {} }) };
+      }
+      const productMatch = url.match(/products\/(P\d+)\.json/);
+      if (productMatch) return { ok: true, text: async () => JSON.stringify({ id: productMatch[1], colors: [], materials: [] }) };
+      return { ok: false, status: 404 };
+    };
+    const adapter = createGithubShardedDataAdapter({ config, fetchImpl, now: () => now });
+
+    await adapter.loadPublic();
+    now = 60 * 1000;
     await adapter.loadPublic();
 
-    const metadata = adapter.getSourceMetadata();
-    assert.match(metadata.commitSha, /^[0-9a-f]{40}$/);
-    assert.notEqual(metadata.commitSha, 'main');
-    assert.equal(metadata.provenanceKind, 'content-snapshot');
-    assert.equal(metadata.sourceRef, 'main');
-    assert.ok(fetchArgs.some(url => url.includes('https://raw.githubusercontent.com/test/test/main/data/manifest.json')));
+    assert.equal(commitRequests, 1);
   });
 
   await t.test('loadForWrite fetches tree and blobs', async () => {
@@ -444,6 +468,9 @@ test('R1.2: getSourceMetadata updatedAt comes from manifest.updatedAt field, not
   const PRODUCT_IDS_22 = Array.from({ length: 22 }, (_, i) => `P${i + 1}`);
 
   const fetchImpl = async (url) => {
+    if (url.includes('/commits/main')) {
+      return { ok: true, json: async () => ({ sha: 'b'.repeat(40) }) };
+    }
     if (url.includes('manifest.json')) {
       return {
         ok: true,
@@ -484,6 +511,9 @@ test('R1.2: getSourceMetadata updatedAt is absent (null) when neither commit nor
   const PRODUCT_IDS_22 = Array.from({ length: 22 }, (_, i) => `P${i + 1}`);
 
   const fetchImpl = async (url) => {
+    if (url.includes('/commits/main')) {
+      return { ok: true, json: async () => ({ sha: 'c'.repeat(40) }) };
+    }
     if (url.includes('manifest.json')) {
       return {
         ok: true,
@@ -516,6 +546,9 @@ test('R1.2: getSourceMetadata returns a copy (immutable — mutation does not af
   const PRODUCT_IDS_22 = Array.from({ length: 22 }, (_, i) => `P${i + 1}`);
 
   const fetchImpl = async (url) => {
+    if (url.includes('/commits/main')) {
+      return { ok: true, json: async () => ({ sha: 'd'.repeat(40) }) };
+    }
     if (url.includes('manifest.json')) {
       return { ok: true, text: async () => JSON.stringify({ version: 1, products: PRODUCT_IDS_22 }) };
     }

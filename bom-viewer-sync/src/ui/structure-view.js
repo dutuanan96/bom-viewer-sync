@@ -1,4 +1,4 @@
-import { localizedValue, materialWhereUsed, normalizeText, queryMatches } from '../domain/materials.js';
+import { localizedValue, materialSearchValues, materialWhereUsed, normalizeText, queryMatches } from '../domain/materials.js';
 import { childMaterialId, groupMaterialChildRows, scopeLabel } from '../domain/relationships.js';
 import { escapeHTML } from './shared-view.js';
 
@@ -260,9 +260,7 @@ function assetRows() {
   const query = normalizeText(this.state.searchQuery);
   return Object.values(this.state.materialDb?.materials || {})
     .filter((record) => (record.drawings || []).length || (record.models3d || []).length)
-    .filter((record) => !query || queryMatches([
-      record.code, record.name?.zh, record.name?.vi, record.attr?.zh, record.attr?.vi
-    ], query))
+    .filter((record) => !query || queryMatches(materialSearchValues(record), query))
     .sort((left, right) => ((right.drawings || []).length + (right.models3d || []).length) -
       ((left.drawings || []).length + (left.models3d || []).length));
 }

@@ -4,6 +4,7 @@ import test from 'node:test';
 import { buildBomTreeRows, groupMaterialChildRows } from '../src/domain/relationships.js';
 import {
   createMaterialDatabase,
+  filterMaterials,
   materialWhereUsed,
   updateMaterialRecord,
 } from '../src/domain/materials.js';
@@ -128,6 +129,28 @@ test('where-used remains a pure domain query', () => {
   const result = materialWhereUsed(payload, material.id);
   assert.ok(result.productEntries.some((entry) => entry.productCode === 'LGS101'));
   assert.ok(result.childEntries.length > 0);
+});
+
+test('material search accepts a legacy drawing alias without changing the canonical material name', () => {
+  const materials = [{
+    code: 'BC350282187KD',
+    name: { zh: 'LGS布抽35x28.2x18.7', vi: '' },
+    spec: { zh: '350x282x187mm', vi: '' },
+    attr: { zh: '零件', vi: '' },
+    drawings: [{ name: 'LGS布抽28x35x18.7.pdf', matched_name: 'LGS布抽35x28x18.7' }],
+  }];
+
+  const result = filterMaterials({
+    materials,
+    attr: 'all',
+    query: 'LGS布抽35x28x18.7',
+    sortCol: 'attr',
+    sortAsc: true,
+    lang: 'zh',
+  });
+
+  assert.equal(result.length, 1);
+  assert.equal(result[0].name.zh, 'LGS布抽35x28.2x18.7');
 });
 
 test('BOM row remarks remain product-entry metadata', () => {

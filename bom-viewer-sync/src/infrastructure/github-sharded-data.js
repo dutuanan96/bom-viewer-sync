@@ -10,6 +10,8 @@ import {
 import { validateProductId } from '../domain/sharded-data.js';
 import { normalizePayload, decodeBase64Utf8 } from './github-data.js';
 
+const PUBLIC_COMMIT_REFRESH_MS = 5 * 60 * 1000;
+
 async function contentSnapshotSha(files) {
   const framed = [...files.entries()]
     .sort(([left], [right]) => left.localeCompare(right))
@@ -91,6 +93,7 @@ export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.
   }
 
   let lastSourceMetadata = null;
+  let publicCommit = null;
 
   return {
     getSourceMetadata() {
@@ -102,7 +105,18 @@ export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.
     async loadPublic() {
       try {
         const cacheBust = now();
-        const fetchRef = branch;
+        if (!publicCommit || cacheBust - publicCommit.checkedAt >= PUBLIC_COMMIT_REFRESH_MS) {
+          const commitData = await githubJson(
+            `${apiBase}/commits/${encodeURIComponent(branch)}`,
+            { cache: 'no-store' },
+          );
+          publicCommit = { data: commitData, checkedAt: cacheBust };
+        }
+        const commitData = publicCommit.data;
+        const fetchRef = String(commitData?.sha || '');
+        if (!/^[0-9a-f]{40}$/i.test(fetchRef)) {
+          throw new Error('Invalid commit SHA format from public branch lookup');
+        }
         const rawBase = 'https://raw.githubusercontent.com';
 
         const fetchRaw = async (logicalPath) => {
@@ -151,16 +165,19 @@ export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.
 
         assertCutoverShardCount(files);
         const payload = await parseLogicalShardFiles(files);
-        const sourceCommit = await contentSnapshotSha(files);
+        const snapshotSha = await contentSnapshotSha(files);
 
-        // The public raw endpoint exposes no commit metadata.
         // Do NOT fall back to new Date() — an absent date must be represented as null.
-        const updatedAt = manifest.updatedAt || null;
+        const updatedAt = manifest.updatedAt ||
+          commitData.commit?.committer?.date ||
+          commitData.commit?.author?.date ||
+          null;
 
         lastSourceMetadata = Object.freeze({
-          commitSha: sourceCommit,
-          provenanceKind: 'content-snapshot',
-          sourceRef: fetchRef,
+          commitSha: fetchRef,
+          contentSnapshotSha: snapshotSha,
+          provenanceKind: 'commit-pinned',
+          sourceRef: branch,
           shardRoot,
           manifestVersion: manifest.schemaVersion || manifest.version || 1,
           updatedAt,
