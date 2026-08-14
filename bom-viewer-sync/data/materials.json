@@ -13195,11 +13195,6 @@
             "score": 1100,
             "bytes": 150108,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
-          },
-          {
-            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
-            "name": "M6x12内六角螺丝",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
           }
         ]
       },
@@ -13552,12 +13547,12 @@
         "drawings": [],
         "models3d": [
           {
-            "name": "自粘灯带固定卡扣.glb",
-            "path": "models3d/catalog/model-823c4ecb.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-823c4ecb.glb",
-            "matched_name": "自粘灯带固定卡扣",
+            "name": "1050-灯带.glb",
+            "path": "models3d/catalog/1050-85851297.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/1050-85851297.glb",
+            "matched_name": "1050-灯带",
             "score": 1100,
-            "bytes": 23472
+            "bytes": 3421116
           }
         ],
         "spec_vi": "以实际为准"
@@ -14846,12 +14841,12 @@
         "drawings": [],
         "models3d": [
           {
-            "name": "自粘灯带固定卡扣.glb",
-            "path": "models3d/catalog/model-823c4ecb.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-823c4ecb.glb",
-            "matched_name": "自粘灯带固定卡扣",
+            "name": "310-灯带.glb",
+            "path": "models3d/catalog/310-5baebd21.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/310-5baebd21.glb",
+            "matched_name": "310-灯带",
             "score": 1100,
-            "bytes": 23472
+            "bytes": 1330884
           }
         ],
         "spec_vi": "以实际为准"
@@ -16113,16 +16108,7 @@
           "vi": "túi ngũ kim"
         },
         "drawings": [],
-        "models3d": [
-          {
-            "name": "M6x22内六角螺丝.glb",
-            "path": "models3d/catalog/M6x22-a232250e.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x22-a232250e.glb",
-            "matched_name": "M6X22内六角螺丝",
-            "score": 1100,
-            "bytes": 392404
-          }
-        ]
+        "models3d": []
       },
       "mat_cau6z8": {
         "id": "mat_cau6z8",
@@ -16153,15 +16139,6 @@
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
             "name": "M6x12内六角螺丝",
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
-          },
-          {
-            "name": "M6x10内六角螺丝.glb",
-            "path": "models3d/catalog/M6x10-1a5aa14f.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
-            "matched_name": "M6X10内六角螺丝",
-            "score": 1100,
-            "bytes": 150108,
-            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
           }
         ]
       },
@@ -16434,12 +16411,12 @@
         "drawings": [],
         "models3d": [
           {
-            "name": "自粘灯带固定卡扣.glb",
-            "path": "models3d/catalog/model-823c4ecb.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-823c4ecb.glb",
-            "matched_name": "自粘灯带固定卡扣",
+            "name": "900-灯带.glb",
+            "path": "models3d/catalog/900-7c8de8ce.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/900-7c8de8ce.glb",
+            "matched_name": "900-灯带",
             "score": 1100,
-            "bytes": 23472
+            "bytes": 3024192
           }
         ],
         "spec_vi": "以实际为准"
@@ -17465,13 +17442,6 @@
             "path": "Google Drive > LGS布抽35x32.5x18.7.pdf",
             "url": "https://drive.google.com/file/d/1OrVYBYN38vg2spBjMB7iB3RyJqxnh-CP/view?usp=sharing",
             "matched_name": "LGS布抽35x32.5x18.7"
-          },
-          {
-            "name": "LGS布抽32.5x35x18.7.pdf",
-            "path": "Google Drive > LGS420-S > LGS布抽32.5x35x18.7.pdf",
-            "url": "https://drive.google.com/file/d/1OrVYBYN38vg2spBjMB7iB3RyJqxnh-CP/view?usp=sharing",
-            "matched_name": "LGS布抽35x32.5x18.7",
-            "score": 960
           }
         ],
         "models3d": [
@@ -18756,12 +18726,12 @@
         "drawings": [],
         "models3d": [
           {
-            "name": "自粘灯带固定卡扣.glb",
-            "path": "models3d/catalog/model-823c4ecb.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-823c4ecb.glb",
-            "matched_name": "自粘灯带固定卡扣",
+            "name": "1500-灯带.glb",
+            "path": "models3d/catalog/1500-44358ecc.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/1500-44358ecc.glb",
+            "matched_name": "1500-灯带",
             "score": 1100,
-            "bytes": 23472
+            "bytes": 1214848
           }
         ],
         "spec_vi": "以实际为准"
@@ -18925,10 +18895,6 @@
             "url": "https://drive.google.com/file/d/1FUU__9zitdfI53em6S-2Du2_vKFzQlXv/view?usp=sharing",
             "matched_name": "LGS231_131-底部横杆",
             "score": 1013
-          },
-          {
-            "url": "https://drive.google.com/file/d/1FUU__9zitdfI53em6S-2Du2_vKFzQlXv/view?usp=sharing",
-            "name": "LGS131_231-底部横杆"
           }
         ],
         "models3d": [
@@ -19027,6 +18993,40 @@
             "bytes": 25284
           }
         ]
+      },
+      "mat_1dth2j5": {
+        "id": "mat_1dth2j5",
+        "code": "LGS131CBZKD",
+        "name": {
+          "zh": "LGS131_231-中间层板",
+          "vi": "LGS131_231-Tấm tầng giữa"
+        },
+        "spec": {
+          "zh": "556x335x12mm",
+          "vi": "556x335x12mm"
+        },
+        "material": {
+          "zh": "PB",
+          "vi": "PB"
+        },
+        "color": {
+          "zh": "复古色",
+          "vi": "màu gỗ cổ"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [
+          {
+            "name": "LGS231_131-中间层板.pdf",
+            "path": "Google Drive > LGS131 > LGS231_131-中间层板.pdf",
+            "url": "https://drive.google.com/file/d/1L7-3CyCV3ZJeKBwwShC6PH-WDHYj2m0k/view?usp=sharing",
+            "matched_name": "LGS231_131-中间层板",
+            "score": 1013
+          }
+        ],
+        "models3d": []
       },
       "mat_1ck23i4": {
         "id": "mat_1ck23i4",
@@ -19319,15 +19319,7 @@
           "zh": "零件",
           "vi": "linh kiện"
         },
-        "drawings": [
-          {
-            "name": "LGS231_131-顶部横杆前.pdf",
-            "path": "Google Drive > LGS131 > LGS231_131-顶部横杆前.pdf",
-            "url": "https://drive.google.com/file/d/1u5f7QgwUrupIxUkfOzwJVh-c2DY4H6qr/view?usp=sharing",
-            "matched_name": "LGS231_131-顶部横杆前",
-            "score": 1014
-          }
-        ],
+        "drawings": [],
         "models3d": [
           {
             "name": "LGS231_131-顶部横杆前.glb",
@@ -19362,15 +19354,7 @@
           "zh": "零件",
           "vi": "linh kiện"
         },
-        "drawings": [
-          {
-            "name": "LGS421_420-S_231_131-左右侧框.pdf",
-            "path": "Google Drive > LGS131 > LGS421_420-S_231_131-左右侧框.pdf",
-            "url": "https://drive.google.com/file/d/1MoYVdTGbnTf00UvUFRA5LTWrd-Brrncc/view?usp=sharing",
-            "matched_name": "LGS421_420-S_231_131-左右侧框",
-            "score": 1020
-          }
-        ],
+        "drawings": [],
         "models3d": [
           {
             "name": "LGS421_420-S_231_131-左右侧框.glb",
@@ -19405,15 +19389,7 @@
           "zh": "零件",
           "vi": "linh kiện"
         },
-        "drawings": [
-          {
-            "name": "LGS421_420-S_231_131-右中框.pdf",
-            "path": "Google Drive > LGS131 > LGS421_420-S_231_131-右中框.pdf",
-            "url": "https://drive.google.com/file/d/12JqgoWRo7ac6yMyBMChgLfV_ugw9wCBB/view?usp=sharing",
-            "matched_name": "LGS421_420-S_231_131-右中框",
-            "score": 1019
-          }
-        ],
+        "drawings": [],
         "models3d": [
           {
             "name": "LGS421_420-S_231_131-右中框.glb",
@@ -19574,13 +19550,6 @@
           {
             "url": "https://drive.google.com/file/d/1FUU__9zitdfI53em6S-2Du2_vKFzQlXv/view?usp=sharing",
             "name": "LGS131_231-底部横杆"
-          },
-          {
-            "name": "LGS231_131-底部横杆.pdf",
-            "path": "Google Drive > LGS131 > LGS231_131-底部横杆.pdf",
-            "url": "https://drive.google.com/file/d/1FUU__9zitdfI53em6S-2Du2_vKFzQlXv/view?usp=sharing",
-            "matched_name": "LGS231_131-底部横杆",
-            "score": 1013
           }
         ],
         "models3d": [
@@ -19618,15 +19587,7 @@
           "zh": "零件",
           "vi": "linh kiện"
         },
-        "drawings": [
-          {
-            "name": "LGS421_420-S_231_131-左中框.pdf",
-            "path": "Google Drive > LGS131 > LGS421_420-S_231_131-左中框.pdf",
-            "url": "https://drive.google.com/file/d/1qqbTownWkXOL95_T8WSAaXGh5KoC11Sc/view?usp=sharing",
-            "matched_name": "LGS421_420-S_231_131-左中框",
-            "score": 1019
-          }
-        ],
+        "drawings": [],
         "models3d": [
           {
             "name": "LGS421_420-S_231_131-左中框.glb",
@@ -19751,20 +19712,6 @@
           {
             "url": "https://drive.google.com/file/d/1kmYaif71YuAOaXHPfjwtOKvJrHbag0Eb/view?usp=sharing",
             "name": "LGS131_231_232-中间层板"
-          },
-          {
-            "name": "LGS231_131-中间层板.pdf",
-            "path": "Google Drive > LGS131 > LGS231_131-中间层板.pdf",
-            "url": "https://drive.google.com/file/d/1L7-3CyCV3ZJeKBwwShC6PH-WDHYj2m0k/view?usp=sharing",
-            "matched_name": "LGS231_131-中间层板",
-            "score": 1013
-          },
-          {
-            "name": "LGS232_231_131-中间层板.pdf",
-            "path": "Google Drive > LGS232-S > LGS232_231_131-中间层板.pdf",
-            "url": "https://drive.google.com/file/d/1kmYaif71YuAOaXHPfjwtOKvJrHbag0Eb/view?usp=sharing",
-            "matched_name": "LGS232_231_131-中间层板",
-            "score": 1016
           }
         ],
         "models3d": [
@@ -19772,14 +19719,6 @@
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb",
             "name": "LGS131_231_232-中间层板",
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb"
-          },
-          {
-            "name": "LGS232_231_131-中间层板.glb",
-            "path": "models3d/catalog/LGS232-231-131-6e6242dc.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb",
-            "matched_name": "LGS232_231_131-中间层板",
-            "score": 1300,
-            "bytes": 25284
           }
         ]
       },
@@ -20033,6 +19972,32 @@
             "bytes": 25284
           }
         ]
+      },
+      "mat_1hob19n": {
+        "id": "mat_1hob19n",
+        "code": "LGS131CBZBH",
+        "name": {
+          "zh": "LGS131_231-中间层板",
+          "vi": "LGS131_231-Tấm tầng giữa"
+        },
+        "spec": {
+          "zh": "556x335x12mm",
+          "vi": "556x335x12mm"
+        },
+        "material": {
+          "zh": "PB",
+          "vi": "PB"
+        },
+        "color": {
+          "zh": "黑色",
+          "vi": "màu đen"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [],
+        "models3d": []
       },
       "mat_1nudryo": {
         "id": "mat_1nudryo",
@@ -21603,6 +21568,40 @@
         ],
         "spec_vi": "以实际为准"
       },
+      "mat_1efq9fi": {
+        "id": "mat_1efq9fi",
+        "code": "LGS231CBZKD",
+        "name": {
+          "zh": "LGS131_231-中间层板",
+          "vi": "LGS131_231-Tấm tầng giữa"
+        },
+        "spec": {
+          "zh": "556x335x12mm",
+          "vi": "556x335x12mm"
+        },
+        "material": {
+          "zh": "PB",
+          "vi": "PB"
+        },
+        "color": {
+          "zh": "复古色",
+          "vi": "màu gỗ cổ"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [
+          {
+            "name": "LGS231_131-中间层板.pdf",
+            "path": "Google Drive > LGS231 > LGS231_131-中间层板.pdf",
+            "url": "https://drive.google.com/file/d/1z3Pg0OnemmOchlZi4E44QzXsdtj9ru2I/view?usp=sharing",
+            "matched_name": "LGS231_131-中间层板",
+            "score": 1013
+          }
+        ],
+        "models3d": []
+      },
       "mat_1uoz287": {
         "id": "mat_1uoz287",
         "code": "LGS231CBZYKD",
@@ -21676,10 +21675,6 @@
             "url": "https://drive.google.com/file/d/1LN_gJFYE7UCJOwtpKYYHSC1jpsd5xpHz/view?usp=sharing",
             "matched_name": "LGS231_131-底部横杆",
             "score": 1013
-          },
-          {
-            "url": "https://drive.google.com/file/d/1FUU__9zitdfI53em6S-2Du2_vKFzQlXv/view?usp=sharing",
-            "name": "LGS131_231-底部横杆"
           }
         ],
         "models3d": [
@@ -21927,6 +21922,32 @@
           }
         ]
       },
+      "mat_6p6nli": {
+        "id": "mat_6p6nli",
+        "code": "LGS231CBZBH",
+        "name": {
+          "zh": "LGS131_231-中间层板",
+          "vi": "LGS131_231-Tấm tầng giữa"
+        },
+        "spec": {
+          "zh": "556x335x12mm",
+          "vi": "556x335x12mm"
+        },
+        "material": {
+          "zh": "PB",
+          "vi": "PB"
+        },
+        "color": {
+          "zh": "黑色",
+          "vi": "màu đen"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [],
+        "models3d": []
+      },
       "mat_n5atot": {
         "id": "mat_n5atot",
         "code": "LGS231CBZYBH",
@@ -22143,12 +22164,12 @@
         "drawings": [],
         "models3d": [
           {
-            "name": "自粘灯带固定卡扣.glb",
-            "path": "models3d/catalog/model-823c4ecb.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-823c4ecb.glb",
-            "matched_name": "自粘灯带固定卡扣",
+            "name": "500-灯带.glb",
+            "path": "models3d/catalog/500-57ceb403.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/500-57ceb403.glb",
+            "matched_name": "500-灯带",
             "score": 1100,
-            "bytes": 23472
+            "bytes": 1362944
           }
         ],
         "spec_vi": "以实际为准"
@@ -22486,17 +22507,6 @@
             "url": "https://drive.google.com/file/d/1kmYaif71YuAOaXHPfjwtOKvJrHbag0Eb/view?usp=sharing",
             "matched_name": "LGS232_231_131-中间层板",
             "score": 1016
-          },
-          {
-            "name": "LGS231_131-中间层板.pdf",
-            "path": "Google Drive > LGS131 > LGS231_131-中间层板.pdf",
-            "url": "https://drive.google.com/file/d/1L7-3CyCV3ZJeKBwwShC6PH-WDHYj2m0k/view?usp=sharing",
-            "matched_name": "LGS231_131-中间层板",
-            "score": 1013
-          },
-          {
-            "url": "https://drive.google.com/file/d/1kmYaif71YuAOaXHPfjwtOKvJrHbag0Eb/view?usp=sharing",
-            "name": "LGS131_231_232-中间层板"
           }
         ],
         "models3d": [
@@ -22507,11 +22517,6 @@
             "matched_name": "LGS232_231_131-中间层板",
             "score": 1300,
             "bytes": 25284
-          },
-          {
-            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb",
-            "name": "LGS131_231_232-中间层板",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb"
           }
         ]
       },
@@ -22801,20 +22806,6 @@
           {
             "url": "https://drive.google.com/file/d/1kmYaif71YuAOaXHPfjwtOKvJrHbag0Eb/view?usp=sharing",
             "name": "LGS131_231_232-中间层板"
-          },
-          {
-            "name": "LGS231_131-中间层板.pdf",
-            "path": "Google Drive > LGS131 > LGS231_131-中间层板.pdf",
-            "url": "https://drive.google.com/file/d/1L7-3CyCV3ZJeKBwwShC6PH-WDHYj2m0k/view?usp=sharing",
-            "matched_name": "LGS231_131-中间层板",
-            "score": 1013
-          },
-          {
-            "name": "LGS232_231_131-中间层板.pdf",
-            "path": "Google Drive > LGS232-S > LGS232_231_131-中间层板.pdf",
-            "url": "https://drive.google.com/file/d/1kmYaif71YuAOaXHPfjwtOKvJrHbag0Eb/view?usp=sharing",
-            "matched_name": "LGS232_231_131-中间层板",
-            "score": 1016
           }
         ],
         "models3d": [
@@ -22826,11 +22817,6 @@
             "score": 1100,
             "bytes": 25284,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb"
-          },
-          {
-            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb",
-            "name": "LGS131_231_232-中间层板",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb"
           }
         ]
       },
@@ -25160,13 +25146,6 @@
             "url": "https://drive.google.com/file/d/1yuHsx_eDMsncMNOn01DB5jmLkKjpplaS/view?usp=sharing",
             "matched_name": "LGS334_434_834-底部横杆左-前",
             "score": 458
-          },
-          {
-            "name": "LGS334_434_834-底部横杆左-前.pdf",
-            "path": "Google Drive > LGS434 > LGS334_434_834-底部横杆左-前.pdf",
-            "url": "https://drive.google.com/file/d/1q8LWlur9yHskIi9S10-UsxTNqhFigfn0/view?usp=sharing",
-            "matched_name": "LGS334_434_834-底部横杆左-前",
-            "score": 1018
           }
         ],
         "models3d": [
@@ -25178,15 +25157,6 @@
             "score": 1300,
             "bytes": 94804,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-12cb6679.glb"
-          },
-          {
-            "name": "LGS334_434_834-底部横杆左-前.glb",
-            "path": "models3d/catalog/LGS334-434-834-f806e3c3.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-f806e3c3.glb",
-            "matched_name": "LGS334_434_834-底部横杆左-前",
-            "score": 1300,
-            "bytes": 94804,
-            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-f806e3c3.glb"
           }
         ]
       },
@@ -25220,13 +25190,6 @@
             "url": "https://drive.google.com/file/d/1qKraFfR3KOsLuh4whk-JJY_OWSn-WQi3/view?usp=sharing",
             "matched_name": "LGS334_434_834-底部横杆左-后",
             "score": 458
-          },
-          {
-            "name": "LGS334_434_834-底部横杆左-后.pdf",
-            "path": "Google Drive > LGS434 > LGS334_434_834-底部横杆左-后.pdf",
-            "url": "https://drive.google.com/file/d/1TknwDAthpknN3Y9S8xrvq4q-ot9cUVnv/view?usp=sharing",
-            "matched_name": "LGS334_434_834-底部横杆左-后",
-            "score": 1018
           }
         ],
         "models3d": [
@@ -25238,15 +25201,6 @@
             "score": 1300,
             "bytes": 135540,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-da84b3da.glb"
-          },
-          {
-            "name": "LGS334_434_834-底部横杆左-后.glb",
-            "path": "models3d/catalog/LGS334-434-834-404054ab.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-404054ab.glb",
-            "matched_name": "LGS334_434_834-底部横杆左-后",
-            "score": 1300,
-            "bytes": 135540,
-            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-404054ab.glb"
           }
         ]
       },
@@ -26048,12 +26002,6 @@
             "url": "https://drive.google.com/file/d/1OrVYBYN38vg2spBjMB7iB3RyJqxnh-CP/view?usp=sharing",
             "matched_name": "LGS布抽35x32.5x18.7",
             "score": 960
-          },
-          {
-            "name": "LGS布抽35x32.5x18.7.pdf",
-            "path": "Google Drive > LGS布抽35x32.5x18.7.pdf",
-            "url": "https://drive.google.com/file/d/1OrVYBYN38vg2spBjMB7iB3RyJqxnh-CP/view?usp=sharing",
-            "matched_name": "LGS布抽35x32.5x18.7"
           }
         ],
         "models3d": [
@@ -26410,15 +26358,7 @@
           "zh": "零件",
           "vi": "linh kiện"
         },
-        "drawings": [
-          {
-            "name": "LGS420-S-顶部横杆后.pdf",
-            "path": "Google Drive > LGS420-S > LGS420-S-顶部横杆后.pdf",
-            "url": "https://drive.google.com/file/d/1Nbht-964zIAdR_QcBIIENEt1imMdz0NX/view?usp=sharing",
-            "matched_name": "LGS420-S-顶部横杆后",
-            "score": 1012
-          }
-        ],
+        "drawings": [],
         "models3d": [
           {
             "name": "LGS420-S-顶部横杆后.glb",
@@ -26538,12 +26478,6 @@
             "url": "https://drive.google.com/file/d/1OrVYBYN38vg2spBjMB7iB3RyJqxnh-CP/view?usp=sharing",
             "matched_name": "LGS布抽35x32.5x18.7",
             "score": 960
-          },
-          {
-            "name": "LGS布抽35x32.5x18.7.pdf",
-            "path": "Google Drive > LGS布抽35x32.5x18.7.pdf",
-            "url": "https://drive.google.com/file/d/1OrVYBYN38vg2spBjMB7iB3RyJqxnh-CP/view?usp=sharing",
-            "matched_name": "LGS布抽35x32.5x18.7"
           }
         ],
         "models3d": [
@@ -26581,15 +26515,7 @@
           "zh": "零件",
           "vi": "linh kiện"
         },
-        "drawings": [
-          {
-            "name": "LGS421_420-S-侧板层板.pdf",
-            "path": "Google Drive > LGS420-S > LGS421_420-S-侧板层板.pdf",
-            "url": "https://drive.google.com/file/d/1RlXTcYsD8uD3BNkOZ6sgt3Y8SluGUL-U/view?usp=sharing",
-            "matched_name": "LGS421_420-S-侧板层板",
-            "score": 1014
-          }
-        ],
+        "drawings": [],
         "models3d": [
           {
             "name": "LGS421_420-S-侧板层板.glb",
@@ -26788,15 +26714,7 @@
           "zh": "零件",
           "vi": "linh kiện"
         },
-        "drawings": [
-          {
-            "name": "LGS421_420-S-侧板层板.pdf",
-            "path": "Google Drive > LGS420-S > LGS421_420-S-侧板层板.pdf",
-            "url": "https://drive.google.com/file/d/1RlXTcYsD8uD3BNkOZ6sgt3Y8SluGUL-U/view?usp=sharing",
-            "matched_name": "LGS421_420-S-侧板层板",
-            "score": 1014
-          }
-        ],
+        "drawings": [],
         "models3d": [
           {
             "name": "LGS421_420-S-侧板层板.glb",
@@ -27435,15 +27353,7 @@
           "zh": "零件",
           "vi": "linh kiện"
         },
-        "drawings": [
-          {
-            "name": "LGS421_420-S-侧板层板.pdf",
-            "path": "Google Drive > LGS420-S > LGS421_420-S-侧板层板.pdf",
-            "url": "https://drive.google.com/file/d/1RlXTcYsD8uD3BNkOZ6sgt3Y8SluGUL-U/view?usp=sharing",
-            "matched_name": "LGS421_420-S-侧板层板",
-            "score": 1014
-          }
-        ],
+        "drawings": [],
         "models3d": [
           {
             "name": "LGS421_420-S-侧板层板.glb",
@@ -28171,12 +28081,12 @@
         "drawings": [],
         "models3d": [
           {
-            "name": "自粘灯带固定卡扣.glb",
-            "path": "models3d/catalog/model-823c4ecb.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-823c4ecb.glb",
-            "matched_name": "自粘灯带固定卡扣",
+            "name": "650-灯带.glb",
+            "path": "models3d/catalog/650-b6e37033.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/650-b6e37033.glb",
+            "matched_name": "650-灯带",
             "score": 1100,
-            "bytes": 23472
+            "bytes": 1363320
           }
         ],
         "spec_vi": "以实际为准"
@@ -28299,13 +28209,6 @@
             "url": "https://drive.google.com/file/d/1q8LWlur9yHskIi9S10-UsxTNqhFigfn0/view?usp=sharing",
             "matched_name": "LGS334_434_834-底部横杆左-前",
             "score": 1018
-          },
-          {
-            "name": "LGS334_434_834-底部横杆左-前",
-            "path": "Google Drive > LGS334 > LGS334_434-底部横杆左-前.pdf",
-            "url": "https://drive.google.com/file/d/1yuHsx_eDMsncMNOn01DB5jmLkKjpplaS/view?usp=sharing",
-            "matched_name": "LGS334_434_834-底部横杆左-前",
-            "score": 458
           }
         ],
         "models3d": [
@@ -28317,15 +28220,6 @@
             "score": 1300,
             "bytes": 94804,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-f806e3c3.glb"
-          },
-          {
-            "name": "LGS334_434-底部横杆左-前.glb",
-            "path": "models3d/catalog/LGS334-434-12cb6679.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-12cb6679.glb",
-            "matched_name": "LGS334_434_834-底部横杆左-前",
-            "score": 1300,
-            "bytes": 94804,
-            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-12cb6679.glb"
           }
         ]
       },
@@ -28359,13 +28253,6 @@
             "url": "https://drive.google.com/file/d/1TknwDAthpknN3Y9S8xrvq4q-ot9cUVnv/view?usp=sharing",
             "matched_name": "LGS334_434_834-底部横杆左-后",
             "score": 1018
-          },
-          {
-            "name": "LGS334_434-底部横杆左-后.pdf",
-            "path": "Google Drive > LGS334 > LGS334_434-底部横杆左-后.pdf",
-            "url": "https://drive.google.com/file/d/1qKraFfR3KOsLuh4whk-JJY_OWSn-WQi3/view?usp=sharing",
-            "matched_name": "LGS334_434_834-底部横杆左-后",
-            "score": 458
           }
         ],
         "models3d": [
@@ -28377,15 +28264,6 @@
             "score": 1300,
             "bytes": 135540,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-404054ab.glb"
-          },
-          {
-            "name": "LGS334_434-底部横杆左-后.glb",
-            "path": "models3d/catalog/LGS334-434-da84b3da.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-da84b3da.glb",
-            "matched_name": "LGS334_434_834-底部横杆左-后",
-            "score": 1300,
-            "bytes": 135540,
-            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-da84b3da.glb"
           }
         ]
       },
@@ -29709,10 +29587,6 @@
             "url": "https://drive.google.com/file/d/1wGNyEQ86gWC4wPklqJJQUti1oVut05AB/view?usp=sharing",
             "matched_name": "LGS723_733中竖梁-前",
             "score": 1013
-          },
-          {
-            "url": "https://drive.google.com/file/d/1wGNyEQ86gWC4wPklqJJQUti1oVut05AB/view?usp=sharing",
-            "name": "LGS723_733-中竖梁-前"
           }
         ],
         "models3d": [
@@ -29757,10 +29631,6 @@
             "url": "https://drive.google.com/file/d/1u5bYs4sc-UFANGDcVSG_MTACPrNf0GOK/view?usp=sharing",
             "matched_name": "LGS723_733中竖梁-后",
             "score": 1013
-          },
-          {
-            "url": "https://drive.google.com/file/d/1u5bYs4sc-UFANGDcVSG_MTACPrNf0GOK/view?usp=sharing",
-            "name": "LGS723_733-中竖梁-后"
           }
         ],
         "models3d": [
@@ -30406,13 +30276,6 @@
           {
             "url": "https://drive.google.com/file/d/1wGNyEQ86gWC4wPklqJJQUti1oVut05AB/view?usp=sharing",
             "name": "LGS723_733-中竖梁-前"
-          },
-          {
-            "name": "LGS723_733中竖梁-前.pdf",
-            "path": "Google Drive > LGS723 > LGS723_733中竖梁-前.pdf",
-            "url": "https://drive.google.com/file/d/1wGNyEQ86gWC4wPklqJJQUti1oVut05AB/view?usp=sharing",
-            "matched_name": "LGS723_733中竖梁-前",
-            "score": 1013
           }
         ],
         "models3d": [
@@ -30454,13 +30317,6 @@
           {
             "url": "https://drive.google.com/file/d/1u5bYs4sc-UFANGDcVSG_MTACPrNf0GOK/view?usp=sharing",
             "name": "LGS723_733-中竖梁-后"
-          },
-          {
-            "name": "LGS723_733中竖梁-后.pdf",
-            "path": "Google Drive > LGS723 > LGS723_733中竖梁-后.pdf",
-            "url": "https://drive.google.com/file/d/1u5bYs4sc-UFANGDcVSG_MTACPrNf0GOK/view?usp=sharing",
-            "matched_name": "LGS723_733中竖梁-后",
-            "score": 1013
           }
         ],
         "models3d": [
@@ -32440,12 +32296,12 @@
         "drawings": [],
         "models3d": [
           {
-            "name": "自粘灯带固定卡扣.glb",
-            "path": "models3d/catalog/model-823c4ecb.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-823c4ecb.glb",
-            "matched_name": "自粘灯带固定卡扣",
+            "name": "1350-灯带.glb",
+            "path": "models3d/catalog/1350-1e16faba.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/1350-1e16faba.glb",
+            "matched_name": "1350-灯带",
             "score": 1100,
-            "bytes": 23472
+            "bytes": 3645220
           }
         ],
         "spec_vi": "以实际为准"
@@ -33659,26 +33515,8 @@
           "zh": "五金包",
           "vi": "túi ngũ kim"
         },
-        "drawings": [
-          {
-            "name": "圆把手.pdf",
-            "path": "Google Drive > LGS101-111 > 圆把手.pdf",
-            "url": "https://drive.google.com/file/d/1R31yLyW5gbixNrwLEP_bm_o29uOhJRCe/view?usp=sharing",
-            "matched_name": "圆把手",
-            "score": 1003
-          }
-        ],
-        "models3d": [
-          {
-            "name": "圆把手.glb",
-            "path": "models3d/catalog/model-8d926653.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-8d926653.glb",
-            "matched_name": "圆把手",
-            "score": 1300,
-            "bytes": 200376,
-            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-8d926653.glb"
-          }
-        ]
+        "drawings": [],
+        "models3d": []
       },
       "mat_2d65p2": {
         "id": "mat_2d65p2",
@@ -37121,16 +36959,7 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": [
-          {
-            "name": "500-灯带.glb",
-            "path": "models3d/catalog/500-57ceb403.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/500-57ceb403.glb",
-            "matched_name": "500-灯带",
-            "score": 1100,
-            "bytes": 1362944
-          }
-        ]
+        "models3d": []
       },
       "mat_dd0650_wh": {
         "id": "mat_dd0650_wh",
@@ -37156,16 +36985,7 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": [
-          {
-            "name": "650-灯带.glb",
-            "path": "models3d/catalog/650-b6e37033.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/650-b6e37033.glb",
-            "matched_name": "650-灯带",
-            "score": 1100,
-            "bytes": 1363320
-          }
-        ]
+        "models3d": []
       },
       "mat_dd0900_wh": {
         "id": "mat_dd0900_wh",
@@ -37191,16 +37011,7 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": [
-          {
-            "name": "900-灯带.glb",
-            "path": "models3d/catalog/900-7c8de8ce.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/900-7c8de8ce.glb",
-            "matched_name": "900-灯带",
-            "score": 1100,
-            "bytes": 3024192
-          }
-        ]
+        "models3d": []
       },
       "mat_dd1050_wh": {
         "id": "mat_dd1050_wh",
@@ -37226,16 +37037,7 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": [
-          {
-            "name": "1050-灯带.glb",
-            "path": "models3d/catalog/1050-85851297.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/1050-85851297.glb",
-            "matched_name": "1050-灯带",
-            "score": 1100,
-            "bytes": 3421116
-          }
-        ]
+        "models3d": []
       },
       "mat_dd1350_wh": {
         "id": "mat_dd1350_wh",
@@ -37261,16 +37063,7 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": [
-          {
-            "name": "1350-灯带.glb",
-            "path": "models3d/catalog/1350-1e16faba.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/1350-1e16faba.glb",
-            "matched_name": "1350-灯带",
-            "score": 1100,
-            "bytes": 3645220
-          }
-        ]
+        "models3d": []
       },
       "mat_dd1500_wh": {
         "id": "mat_dd1500_wh",
@@ -37296,16 +37089,7 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": [
-          {
-            "name": "1500-灯带.glb",
-            "path": "models3d/catalog/1500-44358ecc.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/1500-44358ecc.glb",
-            "matched_name": "1500-灯带",
-            "score": 1100,
-            "bytes": 1214848
-          }
-        ]
+        "models3d": []
       },
       "mat_fg132132065990": {
         "id": "mat_fg132132065990",
@@ -38715,13 +38499,7 @@
           "vi": "túi ngũ kim"
         },
         "drawings": [],
-        "models3d": [
-          {
-            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x22-a232250e.glb",
-            "name": "M6x18内六角螺丝",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x22-a232250e.glb"
-          }
-        ]
+        "models3d": []
       },
       "mat_m6lmp2881385": {
         "id": "mat_m6lmp2881385",
@@ -79444,21 +79222,6 @@
         "order": 1786619468093
       },
       {
-        "id": "bomc_1hsqieq",
-        "parentType": "material",
-        "parentId": "mat_ptgjme",
-        "productCode": "",
-        "color": "",
-        "materialId": "mat_nlpls6018wz",
-        "childMaterialId": "mat_nlpls6018wz",
-        "stt": "",
-        "comp_code": "",
-        "qty": "1",
-        "color_ver": "",
-        "color_ver_vi": "",
-        "order": 1786619475074
-      },
-      {
         "id": "bom_1hiqeha",
         "parentType": "product",
         "parentId": "LGS031",
@@ -85825,6 +85588,21 @@
         "childMaterialId": "mat_m6ylm139",
         "qty": "2",
         "order": 1
+      },
+      {
+        "id": "bomc_bob8cl",
+        "parentType": "material",
+        "parentId": "mat_ptgjme",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_9tyhnt",
+        "childMaterialId": "mat_9tyhnt",
+        "stt": "",
+        "comp_code": "",
+        "qty": "1",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 1786704023102
       }
     ]
   }

@@ -1475,7 +1475,7 @@
           "attr_zh": "零件",
           "attr_vi": "linh kiện",
           "color_ver": "复古色",
-          "color_ver_vi": "màu gỗ cổ",
+          "color_ver_vi": "复古色",
           "qty": "1",
           "remark": "",
           "materials": [
@@ -2990,7 +2990,7 @@
           "attr_zh": "零件",
           "attr_vi": "linh kiện",
           "color_ver": "白色",
-          "color_ver_vi": "màu trắng",
+          "color_ver_vi": "白色",
           "qty": "1",
           "remark": "",
           "materials": [
@@ -4505,7 +4505,7 @@
           "attr_zh": "零件",
           "attr_vi": "linh kiện",
           "color_ver": "黑色",
-          "color_ver_vi": "màu đen",
+          "color_ver_vi": "黑色",
           "qty": "1",
           "remark": "",
           "materials": [
