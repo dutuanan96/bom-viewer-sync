@@ -85447,6 +85447,51 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 66
+      },
+      {
+        "id": "bom_voqz4h",
+        "parentType": "product",
+        "parentId": "LGS433",
+        "productCode": "LGS433",
+        "color": "复古色",
+        "materialId": "mat_lgs433szkzbh",
+        "stt": "76",
+        "comp_code": "I1",
+        "qty": "1",
+        "remark": "",
+        "color_ver": "复古色",
+        "color_ver_vi": "复古色",
+        "order": 75
+      },
+      {
+        "id": "bom_1chsli2",
+        "parentType": "product",
+        "parentId": "LGS433",
+        "productCode": "LGS433",
+        "color": "黑色",
+        "materialId": "mat_lgs433szkzbh",
+        "stt": "76",
+        "comp_code": "I1",
+        "qty": "1",
+        "remark": "",
+        "color_ver": "黑色",
+        "color_ver_vi": "黑色",
+        "order": 75
+      },
+      {
+        "id": "bom_b4fayk",
+        "parentType": "product",
+        "parentId": "LGS433",
+        "productCode": "LGS433",
+        "color": "白色",
+        "materialId": "mat_lgs433szkzwh",
+        "stt": "76",
+        "comp_code": "I1",
+        "qty": "1",
+        "remark": "",
+        "color_ver": "白色",
+        "color_ver_vi": "白色",
+        "order": 75
       }
     ]
   }
