@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-14T09:25:41.258Z",
+  "updatedAt": "2026-08-14T09:27:08.201Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6412,12 +6412,12 @@
     },
     "LGS433": {
       "currentRevision": "V4",
-      "effectiveRevision": "",
+      "effectiveRevision": "V4",
       "currentRevisionInfo": {
         "sourceRevision": "",
         "createdAt": "",
         "changeReason": "",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [],
       "effectivityEvents": [
@@ -6523,6 +6523,14 @@
           "revision": "V4",
           "previousRevision": "V4",
           "occurredAt": "2026-08-14T09:23:50.716Z",
+          "reason": "更新"
+        },
+        {
+          "id": "effectivity_mssqtqdy",
+          "action": "release",
+          "revision": "V4",
+          "previousRevision": "",
+          "occurredAt": "2026-08-14T09:27:05.686Z",
           "reason": "更新"
         }
       ]
@@ -7528,6 +7536,29 @@
   },
   "notifications": [
     {
+      "id": "notif_1yyo4kw",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-14T09:27:08.201Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS433",
+          "field": "effectiveRevision",
+          "before": "",
+          "after": "V4"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS433",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        }
+      ]
+    },
+    {
       "id": "notif_1xxukaa",
       "type": "github-save",
       "actor": "admin",
@@ -8412,22 +8443,6 @@
           "field": "drawings",
           "before": "",
           "after": "LGS723_733-中竖梁-前|https://drive.google.com/file/d/1wGNyEQ86gWC4wPklqJJQUti1oVut05AB/view?usp=sharing"
-        }
-      ]
-    },
-    {
-      "id": "notif_176xv60",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-12T04:20:08.124Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "LGS723XZHSLWH",
-          "field": "drawings",
-          "before": "",
-          "after": "LGS723_733-中竖梁-后|https://drive.google.com/file/d/1u5bYs4sc-UFANGDcVSG_MTACPrNf0GOK/view?usp=sharing"
         }
       ]
     }
@@ -15166,6 +15181,31 @@
       }
     ],
     "LGS433": [
+      {
+        "id": "history_1rgyfvh",
+        "productCode": "LGS433",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-14T09:27:08.201Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS433",
+            "field": "effectiveRevision",
+            "before": "",
+            "after": "V4"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS433",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
       {
         "id": "history_kk8w29",
         "productCode": "LGS433",
