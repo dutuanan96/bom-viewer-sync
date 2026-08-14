@@ -21774,49 +21774,6 @@
           }
         ]
       },
-      "mat_rrpog": {
-        "id": "mat_rrpog",
-        "code": "LGS231ZYKBH",
-        "name": {
-          "zh": "LGS131_231_420_421-左右侧框",
-          "vi": "LGS131_231_420_421-Khung bên trái phải"
-        },
-        "spec": {
-          "zh": "576x335x15mm",
-          "vi": "576x335x15mm"
-        },
-        "material": {
-          "zh": "Q195",
-          "vi": "Q195"
-        },
-        "color": {
-          "zh": "黑砂纹",
-          "vi": "đen nhám"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [
-          {
-            "name": "LGS421_420-S_231_131-左右侧框.pdf",
-            "path": "Google Drive > LGS231 > LGS421_420-S_231_131-左右侧框.pdf",
-            "url": "https://drive.google.com/file/d/1O6DdDEIkC01Pa7Q6r8kVmIgGmCMz50F4/view?usp=sharing",
-            "matched_name": "LGS421_420-S_231_131-左右侧框",
-            "score": 1020
-          }
-        ],
-        "models3d": [
-          {
-            "name": "LGS421_420-S_231_131-左右侧框.glb",
-            "path": "models3d/catalog/LGS421-420-S-231-131-0589e6b1.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS421-420-S-231-131-0589e6b1.glb",
-            "matched_name": "LGS421_420-S_231_131-左右侧框",
-            "score": 1300,
-            "bytes": 74800
-          }
-        ]
-      },
       "mat_1xbfswb": {
         "id": "mat_1xbfswb",
         "code": "LGS231XHLBH",
@@ -26625,49 +26582,6 @@
           }
         ]
       },
-      "mat_26b5nw": {
-        "id": "mat_26b5nw",
-        "code": "LGS420ZYKBH",
-        "name": {
-          "zh": "LGS131_231_420_421-左右侧框",
-          "vi": "LGS131_231_420_421-Khung bên trái phải"
-        },
-        "spec": {
-          "zh": "576x335x15mm",
-          "vi": "576x335x15mm"
-        },
-        "material": {
-          "zh": "Q195",
-          "vi": "Q195"
-        },
-        "color": {
-          "zh": "黑砂纹",
-          "vi": "đen nhám"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [
-          {
-            "name": "LGS421_420-S_231_131-左右侧框.pdf",
-            "path": "Google Drive > LGS420-S > LGS421_420-S_231_131-左右侧框.pdf",
-            "url": "https://drive.google.com/file/d/1ZoXV6hFhb-zd8tMrxyrgB69u0LXr0DxI/view?usp=sharing",
-            "matched_name": "LGS421_420-S_231_131-左右侧框",
-            "score": 1020
-          }
-        ],
-        "models3d": [
-          {
-            "name": "LGS421_420-S_231_131-左右侧框.glb",
-            "path": "models3d/catalog/LGS421-420-S-231-131-0589e6b1.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS421-420-S-231-131-0589e6b1.glb",
-            "matched_name": "LGS421_420-S_231_131-左右侧框",
-            "score": 1300,
-            "bytes": 74800
-          }
-        ]
-      },
       "mat_2vw9io": {
         "id": "mat_2vw9io",
         "code": "LGS420CBZKD",
@@ -27851,49 +27765,6 @@
             "matched_name": "LGS421-S_中间层板",
             "score": 1300,
             "bytes": 31336
-          }
-        ]
-      },
-      "mat_1rjf031": {
-        "id": "mat_1rjf031",
-        "code": "LGS421ZYKBH",
-        "name": {
-          "zh": "LGS131_231_420_421-左右侧框",
-          "vi": "LGS131_231_420_421-Khung bên trái phải"
-        },
-        "spec": {
-          "zh": "576x335x15mm",
-          "vi": "576x335x15mm"
-        },
-        "material": {
-          "zh": "Q195",
-          "vi": "Q195"
-        },
-        "color": {
-          "zh": "黑砂纹",
-          "vi": "đen nhám"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [
-          {
-            "name": "LGS421_420-S_231_131-左右侧框.pdf",
-            "path": "Google Drive > LGS421-S > LGS421_420-S_231_131-左右侧框.pdf",
-            "url": "https://drive.google.com/file/d/1NDbjtogkuzrrHhScsc__XGO8S5BcyVYf/view?usp=sharing",
-            "matched_name": "LGS421_420-S_231_131-左右侧框",
-            "score": 1020
-          }
-        ],
-        "models3d": [
-          {
-            "name": "LGS421_420-S_231_131-左右侧框.glb",
-            "path": "models3d/catalog/LGS421-420-S-231-131-0589e6b1.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS421-420-S-231-131-0589e6b1.glb",
-            "matched_name": "LGS421_420-S_231_131-左右侧框",
-            "score": 1300,
-            "bytes": 74800
           }
         ]
       },
@@ -31299,32 +31170,6 @@
         "spec": {
           "zh": "1090x335x95mm",
           "vi": "1090x335x95mm"
-        },
-        "material": {
-          "zh": "瓦楞纸",
-          "vi": "giấy carton"
-        },
-        "color": {
-          "zh": "纸色",
-          "vi": "màu giấy"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": []
-      },
-      "mat_1q4anj8": {
-        "id": "mat_1q4anj8",
-        "code": "ZHJ5050090",
-        "name": {
-          "zh": "纸护角",
-          "vi": "giấy nẹp"
-        },
-        "spec": {
-          "zh": "50x50x90mm",
-          "vi": "50x50x90mm"
         },
         "material": {
           "zh": "瓦楞纸",
@@ -82662,15 +82507,6 @@
         "order": 0
       },
       {
-        "id": "bomc_mat_1rjf031_mat_fg1515065994",
-        "parentType": "material",
-        "parentId": "mat_1rjf031",
-        "materialId": "mat_fg1515065994",
-        "childMaterialId": "mat_fg1515065994",
-        "qty": "0.25",
-        "order": 0
-      },
-      {
         "id": "bomc_mat_1rjnfat_mat_fg1515065464",
         "parentType": "material",
         "parentId": "mat_1rjnfat",
@@ -83083,15 +82919,6 @@
         "childMaterialId": "mat_fg1515065382",
         "qty": "0.125",
         "order": 2
-      },
-      {
-        "id": "bomc_mat_26b5nw_mat_fg1515065994",
-        "parentType": "material",
-        "parentId": "mat_26b5nw",
-        "materialId": "mat_fg1515065994",
-        "childMaterialId": "mat_fg1515065994",
-        "qty": "0.25",
-        "order": 0
       },
       {
         "id": "bomc_mat_2d2duk_mat_fg1515065800",
@@ -84081,15 +83908,6 @@
         "materialId": "mat_fg1515065918",
         "childMaterialId": "mat_fg1515065918",
         "qty": "0.125",
-        "order": 0
-      },
-      {
-        "id": "bomc_mat_rrpog_mat_fg1515065994",
-        "parentType": "material",
-        "parentId": "mat_rrpog",
-        "materialId": "mat_fg1515065994",
-        "childMaterialId": "mat_fg1515065994",
-        "qty": "0.25",
         "order": 0
       },
       {
@@ -85316,33 +85134,6 @@
         "parentId": "mat_1u74z93",
         "materialId": "mat_m6gs1515wh",
         "childMaterialId": "mat_m6gs1515wh",
-        "qty": "2",
-        "order": 1
-      },
-      {
-        "id": "bomc_mat_rrpog_mat_m6gs1515bh",
-        "parentType": "material",
-        "parentId": "mat_rrpog",
-        "materialId": "mat_m6gs1515bh",
-        "childMaterialId": "mat_m6gs1515bh",
-        "qty": "2",
-        "order": 1
-      },
-      {
-        "id": "bomc_mat_26b5nw_mat_m6gs1515bh",
-        "parentType": "material",
-        "parentId": "mat_26b5nw",
-        "materialId": "mat_m6gs1515bh",
-        "childMaterialId": "mat_m6gs1515bh",
-        "qty": "2",
-        "order": 1
-      },
-      {
-        "id": "bomc_mat_1rjf031_mat_m6gs1515bh",
-        "parentType": "material",
-        "parentId": "mat_1rjf031",
-        "materialId": "mat_m6gs1515bh",
-        "childMaterialId": "mat_m6gs1515bh",
         "qty": "2",
         "order": 1
       },

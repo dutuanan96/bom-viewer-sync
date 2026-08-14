@@ -218,6 +218,7 @@ const TEXT = {
     deleteMaterialConfirm: '删除该物料？',
     materialDeleted: '物料已删除',
     materialDeleteBlocked: '该物料已被 BOM 使用，不能删除',
+    historicalRevisionUsage: '仅历史版本',
     addMaterial: '新增物料',
     add2D: '添加 2D',
     add3D: '添加 3D',
@@ -613,6 +614,7 @@ const TEXT = {
     deleteMaterialConfirm: 'Xóa vật liệu này?',
     materialDeleted: 'Đã xóa vật liệu',
     materialDeleteBlocked: 'Vật liệu đang được BOM sử dụng, không thể xóa',
+    historicalRevisionUsage: 'Chỉ dùng ở phiên bản lịch sử',
     addMaterial: 'Thêm vật liệu',
     add2D: 'Thêm 2D',
     add3D: 'Thêm 3D',
@@ -3420,7 +3422,7 @@ class BomApplication {
   deleteDatabaseMaterial(materialId) {
     if (!this.isAdmin()) return;
     const whereUsed = materialWhereUsed(this.state.payload, materialId);
-    const usedCount = whereUsed.productEntries.length + whereUsed.parentEntries.length + whereUsed.childEntries.length;
+    const usedCount = whereUsed.productEntries.length + whereUsed.parentEntries.length + whereUsed.childEntries.length + whereUsed.revisionEntries.length;
     if (usedCount > 0) {
       this.setStatus(`${this.label('materialDeleteBlocked')}: ${usedCount}`, 'error');
       return;

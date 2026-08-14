@@ -216,10 +216,16 @@ function filteredMaterialRecords() {
 function materialDbRowHtml(record) {
   const whereUsed = materialWhereUsed(this.state.payload, record.id);
   const usedProducts = Array.from(new Set(whereUsed.productEntries.map((entry) => entry.productCode))).sort();
+  const historicalRevisions = Array.from(new Set(whereUsed.revisionEntries
+    .map((entry) => `${entry.productCode}${entry.revision ? ` · ${entry.revision}` : ''}`)))
+    .sort();
   const showActions = this.isAdmin();
   const localized = (pair) => this.state.lang === 'vi' ? (pair?.vi || pair?.zh || '') : (pair?.zh || pair?.vi || '');
-  const spuPills = usedProducts.length
-    ? usedProducts.map((s) => `<span class="spu-pill">${escapeHTML(s)}</span>`).join('')
+  const spuPills = usedProducts.length || historicalRevisions.length
+    ? [
+      ...usedProducts.map((s) => `<span class="spu-pill">${escapeHTML(s)}</span>`),
+      ...historicalRevisions.map((value) => `<span class="spu-pill" title="${escapeHTML(this.label('historicalRevisionUsage'))}">${escapeHTML(value)}</span>`),
+    ].join('')
     : '<span class="mdb-empty">-</span>';
   const editButton = `<button class="drawing-btn" title="${escapeHTML(this.label('editMaterial'))}" type="button" data-edit-db-material="${escapeHTML(record.id)}"><span class="material-symbols-outlined" style="font-size: 16px;">edit</span></button>`;
   return `<tr data-material-row="${escapeHTML(record.id)}">

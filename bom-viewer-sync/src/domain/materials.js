@@ -283,10 +283,31 @@ function materialWhereUsed(payload, materialId) {
   const entries = (payload?.materialDb?.bomEntries || []);
   const effectiveEntries = (payload?.materialDb?.effectiveEntries || []);
   const allEntries = [...entries, ...effectiveEntries];
+  const currentMaterial = payload?.materialDb?.materials?.[materialId];
+  const revisionEntries = [];
+
+  Object.entries(payload?.productRevisions || {}).forEach(([productCode, revisionSet]) => {
+    (revisionSet?.revisions || []).forEach((revision) => {
+      const snapshotDb = revision?.snapshot?.materialDb;
+      if (!snapshotDb) return;
+      const snapshotMaterialIds = Object.values(snapshotDb.materials || {})
+        .filter((material) => material?.id === materialId || (currentMaterial?.code && material?.code === currentMaterial.code))
+        .map((material) => material.id);
+      if (!snapshotMaterialIds.length) return;
+      const isReferenced = (snapshotDb.bomEntries || []).some((entry) => (
+        snapshotMaterialIds.includes(entry.parentId) ||
+        snapshotMaterialIds.includes(entry.materialId) ||
+        snapshotMaterialIds.includes(entry.childMaterialId)
+      ));
+      if (isReferenced) revisionEntries.push({ productCode, revision: String(revision?.revision || '') });
+    });
+  });
+
   return {
     productEntries: allEntries.filter((entry) => entry.parentType === 'product' && entry.materialId === materialId),
     parentEntries: entries.filter((entry) => entry.parentType === 'material' && entry.materialId === materialId),
-    childEntries: entries.filter((entry) => entry.parentType === 'material' && entry.parentId === materialId)
+    childEntries: entries.filter((entry) => entry.parentType === 'material' && entry.parentId === materialId),
+    revisionEntries,
   };
 }
 

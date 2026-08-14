@@ -128,6 +128,30 @@ test('where-used remains a pure domain query', () => {
   assert.ok(result.childEntries.length > 0);
 });
 
+test('where-used retains references from immutable product revisions', () => {
+  const payload = {
+    materialDb: {
+      materials: { current: { id: 'current', code: 'M1' } },
+      bomEntries: [],
+    },
+    productRevisions: {
+      P1: {
+        revisions: [{
+          revision: 'V3',
+          snapshot: {
+            materialDb: {
+              materials: { snapshot: { id: 'snapshot', code: 'M1' } },
+              bomEntries: [{ parentType: 'product', materialId: 'snapshot' }],
+            },
+          },
+        }],
+      },
+    },
+  };
+
+  assert.deepEqual(materialWhereUsed(payload, 'current').revisionEntries, [{ productCode: 'P1', revision: 'V3' }]);
+});
+
 test('BOM navigation normalizes legacy payloads at the domain seam', () => {
   const legacyPayload = {
     bom: {
