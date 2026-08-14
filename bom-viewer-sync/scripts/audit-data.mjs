@@ -97,6 +97,21 @@ Object.entries(payload.bom || {}).forEach(([productCode, product]) => {
     rows.forEach((row, i) => {
       if (!row.mat_code) report('WARNING', 'MISSING_CODE', `${productCode}/${colorName} row ${i}: no mat_code`, row);
     });
+    (colorData.materials || []).forEach((sourceRow) => {
+      const sourceRemark = String(sourceRow?.remark || '').trim();
+      if (!sourceRemark) return;
+      const matchingEntry = bomEntries.find((entry) => (
+        entry.parentType === 'product' &&
+        entry.productCode === productCode &&
+        entry.color === colorName &&
+        entry.materialId &&
+        materials[entry.materialId]?.code === sourceRow.mat_code &&
+        String(entry.comp_code || '') === String(sourceRow.comp_code || '')
+      ));
+      if (!matchingEntry || String(matchingEntry.remark || '').trim() !== sourceRemark) {
+        report('ERROR', 'BOM_REMARK_DESYNC', `${productCode}/${colorName}/${sourceRow.mat_code} remark is not synchronized to materialDb`, sourceRow);
+      }
+    });
   });
 });
 

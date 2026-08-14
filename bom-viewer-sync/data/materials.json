@@ -40134,7 +40134,8 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 16
+        "order": 16,
+        "remark": "内包装：1个 = 1包×1个装"
       },
       {
         "id": "bom_1kybwky",
@@ -40148,7 +40149,8 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 17
+        "order": 17,
+        "remark": "内包装：1个 = 1包×1个装"
       },
       {
         "id": "bom_1kb6pj5",
@@ -40330,7 +40332,8 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 16
+        "order": 16,
+        "remark": "内包装：1个 = 1包×1个装"
       },
       {
         "id": "bom_1i1fosk",
@@ -40344,7 +40347,8 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 17
+        "order": 17,
+        "remark": "内包装：1个 = 1包×1个装"
       },
       {
         "id": "bom_1653781",
@@ -40680,7 +40684,8 @@
         "qty": "6",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 16
+        "order": 16,
+        "remark": "内包装：6个 = 2包×3个装"
       },
       {
         "id": "bom_abmy6m",
@@ -40694,7 +40699,8 @@
         "qty": "6",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 17
+        "order": 17,
+        "remark": "内包装：6个 = 1包×6个装"
       },
       {
         "id": "bom_6dibns",
@@ -40960,7 +40966,8 @@
         "qty": "6",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 16
+        "order": 16,
+        "remark": "内包装：6个 = 2包×3个装"
       },
       {
         "id": "bom_cukt3g",
@@ -40974,7 +40981,8 @@
         "qty": "6",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 17
+        "order": 17,
+        "remark": "内包装：6个 = 1包×6个装"
       },
       {
         "id": "bom_17q0k5a",
@@ -41156,7 +41164,8 @@
         "qty": "9",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 10
+        "order": 10,
+        "remark": "内包装：9个 = 3包×3个装"
       },
       {
         "id": "bom_71rwfr",
@@ -41170,7 +41179,8 @@
         "qty": "9",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 11
+        "order": 11,
+        "remark": "内包装：9个 = 1包×9个装"
       },
       {
         "id": "bom_7leztl",
@@ -41310,7 +41320,8 @@
         "qty": "9",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 10
+        "order": 10,
+        "remark": "内包装：9个 = 3包×3个装"
       },
       {
         "id": "bom_ux8z5e",
@@ -41324,7 +41335,8 @@
         "qty": "9",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 11
+        "order": 11,
+        "remark": "内包装：9个 = 1包×9个装"
       },
       {
         "id": "bom_iaqph2",
@@ -41492,7 +41504,8 @@
         "qty": "6",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 11
+        "order": 11,
+        "remark": "内包装：6个 = 1包×6个装"
       },
       {
         "id": "bom_6h04lv",
@@ -41506,7 +41519,8 @@
         "qty": "6",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 12
+        "order": 12,
+        "remark": "内包装：6个 = 1包×6个装"
       },
       {
         "id": "bom_1gh86ap",
@@ -41520,7 +41534,8 @@
         "qty": "3",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 13
+        "order": 13,
+        "remark": "内包装：3个 = 1包×3个装"
       },
       {
         "id": "bom_1szozum",
@@ -41534,7 +41549,8 @@
         "qty": "3",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 14
+        "order": 14,
+        "remark": "内包装：3个 = 1包×3个装"
       },
       {
         "id": "bom_eflic6",
@@ -41548,7 +41564,8 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 15
+        "order": 15,
+        "remark": "内包装：2个 = 1包×2个装"
       },
       {
         "id": "bom_8row1",
@@ -41562,7 +41579,8 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 16
+        "order": 16,
+        "remark": "内包装：2个 = 1包×2个装"
       },
       {
         "id": "bom_qgtfm",
@@ -41856,7 +41874,8 @@
         "qty": "6",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 11
+        "order": 11,
+        "remark": "内包装：6个 = 1包×6个装"
       },
       {
         "id": "bom_1y8ccoh",
@@ -41870,7 +41889,8 @@
         "qty": "6",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 12
+        "order": 12,
+        "remark": "内包装：6个 = 1包×6个装"
       },
       {
         "id": "bom_1e9qbsn",
@@ -41884,7 +41904,8 @@
         "qty": "3",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 13
+        "order": 13,
+        "remark": "内包装：3个 = 1包×3个装"
       },
       {
         "id": "bom_8tifol",
@@ -41898,7 +41919,8 @@
         "qty": "3",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 14
+        "order": 14,
+        "remark": "内包装：3个 = 1包×3个装"
       },
       {
         "id": "bom_enq84h",
@@ -41912,7 +41934,8 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 15
+        "order": 15,
+        "remark": "内包装：2个 = 1包×2个装"
       },
       {
         "id": "bom_sbmbxn",
@@ -41926,7 +41949,8 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 16
+        "order": 16,
+        "remark": "内包装：2个 = 1包×2个装"
       },
       {
         "id": "bom_s47awc",
@@ -42150,7 +42174,8 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 6
+        "order": 6,
+        "remark": "内包装：1个 = 1包×1个装"
       },
       {
         "id": "bom_1h6x0cd",
@@ -42164,7 +42189,8 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 7
+        "order": 7,
+        "remark": "内包装：1个 = 1包×1个装"
       },
       {
         "id": "bom_1o1bwcg",
@@ -42290,7 +42316,8 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 6
+        "order": 6,
+        "remark": "内包装：1个 = 1包×1个装"
       },
       {
         "id": "bom_1zfwbe",
@@ -42304,7 +42331,8 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 7
+        "order": 7,
+        "remark": "内包装：1个 = 1包×1个装"
       },
       {
         "id": "bom_136q9hy",
@@ -42430,7 +42458,8 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 6
+        "order": 6,
+        "remark": "内包装：1个 = 1包×1个装"
       },
       {
         "id": "bom_akx71p",
@@ -42444,7 +42473,8 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 7
+        "order": 7,
+        "remark": "内包装：1个 = 1包×1个装"
       },
       {
         "id": "bom_1eril2o",
@@ -42570,7 +42600,8 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 6
+        "order": 6,
+        "remark": "内包装：2个 = 1包×2个装"
       },
       {
         "id": "bom_ynic9y",
@@ -42584,7 +42615,8 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 7
+        "order": 7,
+        "remark": "内包装：2个 = 1包×2个装"
       },
       {
         "id": "bom_1jvhcop",
@@ -42710,7 +42742,8 @@
         "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 6
+        "order": 6,
+        "remark": "内包装：2个 = 1包×2个装"
       },
       {
         "id": "bom_mwqwro",
@@ -42724,7 +42757,8 @@
         "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 7
+        "order": 7,
+        "remark": "内包装：2个 = 1包×2个装"
       },
       {
         "id": "bom_1vqknjz",
@@ -42850,7 +42884,8 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 6
+        "order": 6,
+        "remark": "内包装：2个 = 1包×2个装"
       },
       {
         "id": "bom_1c2mp1c",
@@ -42864,7 +42899,8 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 7
+        "order": 7,
+        "remark": "内包装：2个 = 1包×2个装"
       },
       {
         "id": "bom_1jff2mr",
@@ -43032,7 +43068,8 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 9
+        "order": 9,
+        "remark": "内包装：1个 = 1包×1个装"
       },
       {
         "id": "bom_258jmj",
@@ -43046,7 +43083,8 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 10
+        "order": 10,
+        "remark": "内包装：1个 = 1包×1个装"
       },
       {
         "id": "bom_1osdfgm",
@@ -43284,7 +43322,8 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 9
+        "order": 9,
+        "remark": "内包装：1个 = 1包×1个装"
       },
       {
         "id": "bom_nsxikj",
@@ -43298,7 +43337,8 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 10
+        "order": 10,
+        "remark": "内包装：1个 = 1包×1个装"
       },
       {
         "id": "bom_1mdexkw",
@@ -43550,7 +43590,8 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 9
+        "order": 9,
+        "remark": "内包装：1个 = 1包×1个装"
       },
       {
         "id": "bom_rwcog5",
@@ -43564,7 +43605,8 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 10
+        "order": 10,
+        "remark": "内包装：1个 = 1包×1个装"
       },
       {
         "id": "bom_12njzn8",
@@ -43858,7 +43900,8 @@
         "qty": "6",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 12
+        "order": 12,
+        "remark": "内包装：6个 = 1包×6个装"
       },
       {
         "id": "bom_1yburii",
@@ -43872,7 +43915,8 @@
         "qty": "6",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 13
+        "order": 13,
+        "remark": "内包装：6个 = 2包×3个装"
       },
       {
         "id": "bom_1r7m4d",
@@ -44222,7 +44266,8 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 15
+        "order": 15,
+        "remark": "内包装：1个 = 1包×1个装"
       },
       {
         "id": "bom_1x3bqbz",
@@ -44236,7 +44281,8 @@
         "qty": "8",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 16
+        "order": 16,
+        "remark": "内包装：8个 = 2包×3个装 + 1包×2个装"
       },
       {
         "id": "bom_5n5kr",
@@ -44250,7 +44296,8 @@
         "qty": "9",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 17
+        "order": 17,
+        "remark": "内包装：9个 = 1包×9个装"
       },
       {
         "id": "bom_67njuy",
@@ -44390,7 +44437,8 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 9
+        "order": 9,
+        "remark": "内包装：1个 = 1包×1个装"
       },
       {
         "id": "bom_zs6w3m",
@@ -44404,7 +44452,8 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 10
+        "order": 10,
+        "remark": "内包装：1个 = 1包×1个装"
       },
       {
         "id": "bom_ho4a4h",
@@ -44656,7 +44705,8 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 9
+        "order": 9,
+        "remark": "内包装：1个 = 1包×1个装"
       },
       {
         "id": "bom_d1cvtq",
@@ -44670,7 +44720,8 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 10
+        "order": 10,
+        "remark": "内包装：1个 = 1包×1个装"
       },
       {
         "id": "bom_1teequ5",
@@ -44950,7 +45001,8 @@
         "qty": "6",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 11
+        "order": 11,
+        "remark": "内包装：6个 = 2包×3个装"
       },
       {
         "id": "bom_loxxf9",
@@ -44964,7 +45016,8 @@
         "qty": "6",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 12
+        "order": 12,
+        "remark": "内包装：6个 = 2包×3个装"
       },
       {
         "id": "bom_s55ui7",
@@ -45272,7 +45325,8 @@
         "qty": "6",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 11
+        "order": 11,
+        "remark": "内包装：6个 = 2包×3个装"
       },
       {
         "id": "bom_5bvlmr",
@@ -45286,7 +45340,8 @@
         "qty": "6",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 12
+        "order": 12,
+        "remark": "内包装：6个 = 2包×3个装"
       },
       {
         "id": "bom_13rstqt",
@@ -45650,7 +45705,8 @@
         "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 15
+        "order": 15,
+        "remark": "内包装：1个 = 1包×1个装"
       },
       {
         "id": "bom_yyknyq",
@@ -45664,7 +45720,8 @@
         "qty": "8",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 16
+        "order": 16,
+        "remark": "内包装：8个 = 4包×2个装"
       },
       {
         "id": "bom_8aajyq",
@@ -45678,7 +45735,8 @@
         "qty": "9",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 17
+        "order": 17,
+        "remark": "内包装：9个 = 1包×4个装 + 1包×5个装"
       },
       {
         "id": "bom_3vglh6",
@@ -45902,7 +45960,8 @@
         "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 15
+        "order": 15,
+        "remark": "内包装：1个 = 1包×1个装"
       },
       {
         "id": "bom_11pelb3",
@@ -45916,7 +45975,8 @@
         "qty": "8",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 16
+        "order": 16,
+        "remark": "内包装：8个 = 4包×2个装"
       },
       {
         "id": "bom_3e5qkr",
@@ -45930,7 +45990,8 @@
         "qty": "9",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 17
+        "order": 17,
+        "remark": "内包装：9个 = 1包×4个装 + 1包×5个装"
       },
       {
         "id": "bom_jzmwip",
@@ -46154,7 +46215,8 @@
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 15
+        "order": 15,
+        "remark": "内包装：1个 = 1包×1个装"
       },
       {
         "id": "bom_mr15ek",
@@ -46168,7 +46230,8 @@
         "qty": "8",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 16
+        "order": 16,
+        "remark": "内包装：8个 = 4包×2个装"
       },
       {
         "id": "bom_1jkv0m2",
@@ -46182,7 +46245,8 @@
         "qty": "9",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 17
+        "order": 17,
+        "remark": "内包装：9个 = 1包×4个装 + 1包×5个装"
       },
       {
         "id": "bom_3y0yog",
@@ -46378,7 +46442,8 @@
         "qty": "4",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 14
+        "order": 14,
+        "remark": "内包装：4个 = 1包×4个装"
       },
       {
         "id": "bom_1x5pbfg",
@@ -46392,7 +46457,8 @@
         "qty": "6",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 15
+        "order": 15,
+        "remark": "内包装：6个 = 2包×3个装"
       },
       {
         "id": "bom_6i8or1",
@@ -46406,7 +46472,8 @@
         "qty": "4",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 16
+        "order": 16,
+        "remark": "内包装：4个 = 1包×4个装"
       },
       {
         "id": "bom_ib5om6",
@@ -46420,7 +46487,8 @@
         "qty": "6",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 17
+        "order": 17,
+        "remark": "内包装：6个 = 1包×6个装"
       },
       {
         "id": "bom_jhqpjr",
@@ -46616,7 +46684,8 @@
         "qty": "4",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 14
+        "order": 14,
+        "remark": "内包装：4个 = 1包×4个装"
       },
       {
         "id": "bom_1vskq43",
@@ -46630,7 +46699,8 @@
         "qty": "6",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 15
+        "order": 15,
+        "remark": "内包装：6个 = 2包×3个装"
       },
       {
         "id": "bom_8yx5ot",
@@ -46644,7 +46714,8 @@
         "qty": "4",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 16
+        "order": 16,
+        "remark": "内包装：4个 = 1包×4个装"
       },
       {
         "id": "bom_gjwssf",
@@ -46658,7 +46729,8 @@
         "qty": "6",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 17
+        "order": 17,
+        "remark": "内包装：6个 = 1包×6个装"
       },
       {
         "id": "bom_s970x6",
@@ -46854,7 +46926,8 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 14
+        "order": 14,
+        "remark": "内包装：4个 = 1包×4个装"
       },
       {
         "id": "bom_4jase0",
@@ -46868,7 +46941,8 @@
         "qty": "6",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 15
+        "order": 15,
+        "remark": "内包装：6个 = 2包×3个装"
       },
       {
         "id": "bom_rsruzn",
@@ -46882,7 +46956,8 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 16
+        "order": 16,
+        "remark": "内包装：4个 = 1包×4个装"
       },
       {
         "id": "bom_zfmc1g",
@@ -46896,7 +46971,8 @@
         "qty": "6",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 17
+        "order": 17,
+        "remark": "内包装：6个 = 1包×6个装"
       },
       {
         "id": "bom_12jv1y0",
@@ -47162,7 +47238,8 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 18
+        "order": 18,
+        "remark": "内包装：4个 = 2包×2个装"
       },
       {
         "id": "bom_168f6as",
@@ -47176,7 +47253,8 @@
         "qty": "6",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 19
+        "order": 19,
+        "remark": "内包装：6个 = 3包×2个装"
       },
       {
         "id": "bom_1nje7af",
@@ -47190,7 +47268,8 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 20
+        "order": 20,
+        "remark": "内包装：4个 = 1包×4个装"
       },
       {
         "id": "bom_14v9a87",
@@ -47204,7 +47283,8 @@
         "qty": "6",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 21
+        "order": 21,
+        "remark": "内包装：6个 = 1包×6个装"
       },
       {
         "id": "bom_1ra8we3",
@@ -47344,7 +47424,8 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 9
+        "order": 9,
+        "remark": "内包装：2个 = 1包×2个装"
       },
       {
         "id": "bom_1l290zt",
@@ -47358,7 +47439,8 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 10
+        "order": 10,
+        "remark": "内包装：2个 = 1包×2个装"
       },
       {
         "id": "bom_mkmjua",
@@ -47610,7 +47692,8 @@
         "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 9
+        "order": 9,
+        "remark": "内包装：2个 = 1包×2个装"
       },
       {
         "id": "bom_c08ceo",
@@ -47624,7 +47707,8 @@
         "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 10
+        "order": 10,
+        "remark": "内包装：2个 = 1包×2个装"
       },
       {
         "id": "bom_4cmf2u",
@@ -47890,7 +47974,8 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 9
+        "order": 9,
+        "remark": "内包装：2个 = 1包×2个装"
       },
       {
         "id": "bom_193pyuk",
@@ -47904,7 +47989,8 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 10
+        "order": 10,
+        "remark": "内包装：2个 = 1包×2个装"
       },
       {
         "id": "bom_1g3876u",
@@ -48184,7 +48270,8 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 10
+        "order": 10,
+        "remark": "内包装：2个 = 1包×2个装"
       },
       {
         "id": "bom_24cys4",
@@ -48198,7 +48285,8 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 11
+        "order": 11,
+        "remark": "内包装：2个 = 1包×2个装"
       },
       {
         "id": "bom_1q0a1k4",
@@ -48464,7 +48552,8 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 10
+        "order": 10,
+        "remark": "内包装：2个 = 1包×2个装"
       },
       {
         "id": "bom_b6yg7x",
@@ -48478,7 +48567,8 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 11
+        "order": 11,
+        "remark": "内包装：2个 = 1包×2个装"
       },
       {
         "id": "bom_8yqzh2",
@@ -48842,7 +48932,8 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 18
+        "order": 18,
+        "remark": "内包装：2个 = 1包×2个装"
       },
       {
         "id": "bom_1vz59kn",
@@ -48856,7 +48947,8 @@
         "qty": "6",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 19
+        "order": 19,
+        "remark": "内包装：6个 = 2包×3个装"
       },
       {
         "id": "bom_7nehmb",
@@ -48870,7 +48962,8 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 20
+        "order": 20,
+        "remark": "内包装：2个 = 1包×2个装"
       },
       {
         "id": "bom_tmo0w4",
@@ -48884,7 +48977,8 @@
         "qty": "6",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 21
+        "order": 21,
+        "remark": "内包装：6个 = 1包×6个装"
       },
       {
         "id": "bom_g961qj",
@@ -49150,7 +49244,8 @@
         "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 18
+        "order": 18,
+        "remark": "内包装：2个 = 1包×2个装"
       },
       {
         "id": "bom_1h1xm2i",
@@ -49164,7 +49259,8 @@
         "qty": "6",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 19
+        "order": 19,
+        "remark": "内包装：6个 = 2包×3个装"
       },
       {
         "id": "bom_53ux8x",
@@ -49178,7 +49274,8 @@
         "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 20
+        "order": 20,
+        "remark": "内包装：2个 = 1包×2个装"
       },
       {
         "id": "bom_26nmvn",
@@ -49192,7 +49289,8 @@
         "qty": "6",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 21
+        "order": 21,
+        "remark": "内包装：6个 = 1包×6个装"
       },
       {
         "id": "bom_13jgr9u",
@@ -49458,7 +49556,8 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 18
+        "order": 18,
+        "remark": "内包装：2个 = 1包×2个装"
       },
       {
         "id": "bom_gnjrhz",
@@ -49472,7 +49571,8 @@
         "qty": "6",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 19
+        "order": 19,
+        "remark": "内包装：6个 = 2包×3个装"
       },
       {
         "id": "bom_x4p20v",
@@ -49486,7 +49586,8 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 20
+        "order": 20,
+        "remark": "内包装：2个 = 1包×2个装"
       },
       {
         "id": "bom_1ejyrfc",
@@ -49500,7 +49601,8 @@
         "qty": "6",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 21
+        "order": 21,
+        "remark": "内包装：6个 = 1包×6个装"
       },
       {
         "id": "bom_1iipljb",
@@ -49864,7 +49966,8 @@
         "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 25
+        "order": 25,
+        "remark": "内包装：2个 = 1包×2个装"
       },
       {
         "id": "bom_1jxlan8",
@@ -49878,7 +49981,8 @@
         "qty": "6",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 26
+        "order": 26,
+        "remark": "内包装：6个 = 1包×1个装 + 1包×2个装 + 1包×3个装"
       },
       {
         "id": "bom_kkpz3w",
@@ -49892,7 +49996,8 @@
         "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 27
+        "order": 27,
+        "remark": "内包装：2个 = 1包×2个装"
       },
       {
         "id": "bom_1pneqi7",
@@ -49906,7 +50011,8 @@
         "qty": "6",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 28
+        "order": 28,
+        "remark": "内包装：6个 = 1包×6个装"
       },
       {
         "id": "bom_dindgu",
@@ -50270,7 +50376,8 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 25
+        "order": 25,
+        "remark": "内包装：2个 = 1包×2个装"
       },
       {
         "id": "bom_itsm57",
@@ -50284,7 +50391,8 @@
         "qty": "6",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 26
+        "order": 26,
+        "remark": "内包装：6个 = 1包×1个装 + 1包×2个装 + 1包×3个装"
       },
       {
         "id": "bom_od3n2",
@@ -50298,7 +50406,8 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 27
+        "order": 27,
+        "remark": "内包装：2个 = 1包×2个装"
       },
       {
         "id": "bom_9y2urd",
@@ -50312,7 +50421,8 @@
         "qty": "6",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 28
+        "order": 28,
+        "remark": "内包装：6个 = 1包×6个装"
       },
       {
         "id": "bom_fbrlej",
@@ -50578,7 +50688,8 @@
         "qty": "3",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 17
+        "order": 17,
+        "remark": "内包装：3个 = 1包×3个装"
       },
       {
         "id": "bom_z9taio",
@@ -50592,7 +50703,8 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 18
+        "order": 18,
+        "remark": "内包装：2个 = 1包×2个装"
       },
       {
         "id": "bom_fgaqh",
@@ -50606,7 +50718,8 @@
         "qty": "3",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 19
+        "order": 19,
+        "remark": "内包装：3个 = 1包×3个装"
       },
       {
         "id": "bom_1twfy9i",
@@ -50620,7 +50733,8 @@
         "qty": "2",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 20
+        "order": 20,
+        "remark": "内包装：2个 = 1包×2个装"
       },
       {
         "id": "bom_1vhmseu",
@@ -50886,7 +51000,8 @@
         "qty": "3",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 17
+        "order": 17,
+        "remark": "内包装：3个 = 1包×3个装"
       },
       {
         "id": "bom_6yacpm",
@@ -50900,7 +51015,8 @@
         "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 18
+        "order": 18,
+        "remark": "内包装：2个 = 1包×2个装"
       },
       {
         "id": "bom_dhrvix",
@@ -50914,7 +51030,8 @@
         "qty": "3",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 19
+        "order": 19,
+        "remark": "内包装：3个 = 1包×3个装"
       },
       {
         "id": "bom_dg2dbx",
@@ -50928,7 +51045,8 @@
         "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 20
+        "order": 20,
+        "remark": "内包装：2个 = 1包×2个装"
       },
       {
         "id": "bom_7p9dad",
@@ -51194,7 +51312,8 @@
         "qty": "3",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 17
+        "order": 17,
+        "remark": "内包装：3个 = 1包×3个装"
       },
       {
         "id": "bom_12ajhnl",
@@ -51208,7 +51327,8 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 18
+        "order": 18,
+        "remark": "内包装：2个 = 1包×2个装"
       },
       {
         "id": "bom_1b33evh",
@@ -51222,7 +51342,8 @@
         "qty": "3",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 19
+        "order": 19,
+        "remark": "内包装：3个 = 1包×3个装"
       },
       {
         "id": "bom_17jcx16",
@@ -51236,7 +51357,8 @@
         "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 20
+        "order": 20,
+        "remark": "内包装：2个 = 1包×2个装"
       },
       {
         "id": "bom_v2k1re",
@@ -51516,7 +51638,8 @@
         "qty": "4",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 18
+        "order": 18,
+        "remark": "内包装：4个 = 2包×2个装"
       },
       {
         "id": "bom_1i0i4x8",
@@ -51530,7 +51653,8 @@
         "qty": "3",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 19
+        "order": 19,
+        "remark": "内包装：3个 = 1包×3个装"
       },
       {
         "id": "bom_1wcqmvs",
@@ -51544,7 +51668,8 @@
         "qty": "4",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 20
+        "order": 20,
+        "remark": "内包装：4个 = 2包×2个装"
       },
       {
         "id": "bom_15n4d4v",
@@ -51558,7 +51683,8 @@
         "qty": "3",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 21
+        "order": 21,
+        "remark": "内包装：3个 = 1包×3个装"
       },
       {
         "id": "bom_63lo4o",
@@ -51838,7 +51964,8 @@
         "qty": "4",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 18
+        "order": 18,
+        "remark": "内包装：4个 = 2包×2个装"
       },
       {
         "id": "bom_1w1f2qr",
@@ -51852,7 +51979,8 @@
         "qty": "3",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 19
+        "order": 19,
+        "remark": "内包装：3个 = 1包×3个装"
       },
       {
         "id": "bom_1vscw7w",
@@ -51866,7 +51994,8 @@
         "qty": "4",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 20
+        "order": 20,
+        "remark": "内包装：4个 = 2包×2个装"
       },
       {
         "id": "bom_11ybar8",
@@ -51880,7 +52009,8 @@
         "qty": "3",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 21
+        "order": 21,
+        "remark": "内包装：3个 = 1包×3个装"
       },
       {
         "id": "bom_19gpuet",
@@ -52160,7 +52290,8 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 18
+        "order": 18,
+        "remark": "内包装：4个 = 2包×2个装"
       },
       {
         "id": "bom_hhmqjs",
@@ -52174,7 +52305,8 @@
         "qty": "3",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 19
+        "order": 19,
+        "remark": "内包装：3个 = 1包×3个装"
       },
       {
         "id": "bom_1b9n7vi",
@@ -52188,7 +52320,8 @@
         "qty": "4",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 20
+        "order": 20,
+        "remark": "内包装：4个 = 2包×2个装"
       },
       {
         "id": "bom_g2gil",
@@ -52202,7 +52335,8 @@
         "qty": "3",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 21
+        "order": 21,
+        "remark": "内包装：3个 = 1包×3个装"
       },
       {
         "id": "bom_1xp87ey",
@@ -52440,7 +52574,8 @@
         "qty": "6",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 15
+        "order": 15,
+        "remark": "内包装：6个 = 2包×3个装"
       },
       {
         "id": "bom_ou2t7i",
@@ -52454,7 +52589,8 @@
         "qty": "6",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "order": 16
+        "order": 16,
+        "remark": "内包装：6个 = 2包×3个装"
       },
       {
         "id": "bom_rxaknj",
@@ -52692,7 +52828,8 @@
         "qty": "6",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 15
+        "order": 15,
+        "remark": "内包装：6个 = 2包×3个装"
       },
       {
         "id": "bom_1aj9mod",
@@ -52706,7 +52843,8 @@
         "qty": "6",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 16
+        "order": 16,
+        "remark": "内包装：6个 = 2包×3个装"
       },
       {
         "id": "bom_1s43wba",
@@ -52944,7 +53082,8 @@
         "qty": "6",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 15
+        "order": 15,
+        "remark": "内包装：6个 = 2包×3个装"
       },
       {
         "id": "bom_1i38js2",
@@ -52958,7 +53097,8 @@
         "qty": "6",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 16
+        "order": 16,
+        "remark": "内包装：6个 = 2包×3个装"
       },
       {
         "id": "bom_1pde8vf",
@@ -53252,7 +53392,8 @@
         "qty": "6",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 19
+        "order": 19,
+        "remark": "内包装：6个 = 3包×2个装"
       },
       {
         "id": "bom_rnq1rf",
@@ -53266,7 +53407,8 @@
         "qty": "6",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 20
+        "order": 20,
+        "remark": "内包装：6个 = 2包×3个装"
       },
       {
         "id": "bom_xkvzve",
@@ -53560,7 +53702,8 @@
         "qty": "6",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 19
+        "order": 19,
+        "remark": "内包装：6个 = 3包×2个装"
       },
       {
         "id": "bom_1oc9q31",
@@ -53574,7 +53717,8 @@
         "qty": "6",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 20
+        "order": 20,
+        "remark": "内包装：6个 = 2包×3个装"
       },
       {
         "id": "bom_1bps173",
@@ -82841,7 +82985,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=待确认；PE袋=620*350；用量=4袋",
+        "remark": "包装：LGS031ZYKBH×2、LGS031ZZKBH×1、LGS031YZKBH×1；1件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 38
@@ -82856,7 +83000,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=待确认；PE袋=620*350；用量=4袋",
+        "remark": "包装：LGS031ZYKBH×2、LGS031ZZKBH×1、LGS031YZKBH×1；1件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 38
@@ -82871,7 +83015,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=420*60；用量=2袋",
+        "remark": "包装：LGS031XHLBH×4；2件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 39
@@ -82886,7 +83030,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=420*60；用量=2袋",
+        "remark": "包装：LGS031XHLBH×4；2件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 39
@@ -82901,7 +83045,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=待确认；PE袋=720*400；用量=4袋",
+        "remark": "包装：LGS043ZZKBH×1、LGS043YZKBH×1、LGS043ZKBH×1、LGS043YKBH×1；1件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 72
@@ -82916,7 +83060,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=待确认；PE袋=720*400；用量=4袋",
+        "remark": "包装：LGS043ZZKBH×1、LGS043YZKBH×1、LGS043ZKBH×1、LGS043YKBH×1；1件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 72
@@ -82931,7 +83075,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=400*200；用量=2袋",
+        "remark": "包装：LGS043SZKBH×2；1件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 73
@@ -82946,7 +83090,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=400*200；用量=2袋",
+        "remark": "包装：LGS043SZKBH×2；1件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 73
@@ -82961,7 +83105,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "3",
-        "remark": "[包装] 包装对象=待确认；PE袋=1000*60；用量=3袋",
+        "remark": "包装：LGS043SHLBH×2、LGS043ZHLBH×2、LGS043XHLBH×2；2件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 74
@@ -82976,7 +83120,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "3",
-        "remark": "[包装] 包装对象=待确认；PE袋=1000*60；用量=3袋",
+        "remark": "包装：LGS043SHLBH×2、LGS043ZHLBH×2、LGS043XHLBH×2；2件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 74
@@ -82991,7 +83135,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "1",
-        "remark": "[包装] 包装对象=待确认；PE袋=250*60；用量=1袋",
+        "remark": "包装：LGS043XZHSLBH×1、LGS043XZQSLBH×1；2件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 75
@@ -83006,7 +83150,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "1",
-        "remark": "[包装] 包装对象=待确认；PE袋=250*60；用量=1袋",
+        "remark": "包装：LGS043XZHSLBH×1、LGS043XZQSLBH×1；2件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 75
@@ -83021,7 +83165,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=待确认；PE袋=400*60；用量=4袋",
+        "remark": "包装：LGS043ZYKHLBH×4；1件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 76
@@ -83036,7 +83180,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=待确认；PE袋=400*60；用量=4袋",
+        "remark": "包装：LGS043ZYKHLBH×4；1件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 76
@@ -83051,7 +83195,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=待确认；PE袋=620*400；用量=4袋",
+        "remark": "包装：LGS131ZZKBHGK×1、LGS131YZKBHGK×1、LGS131ZYKBH×2；1件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 63
@@ -83066,7 +83210,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=待确认；PE袋=620*400；用量=4袋",
+        "remark": "包装：LGS131ZZKBHGK×1、LGS131YZKBHGK×1、LGS131ZYKBH×2；1件/袋",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 63
@@ -83081,7 +83225,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=待确认；PE袋=620*400；用量=4袋",
+        "remark": "包装：LGS131ZZKBHGK×1、LGS131YZKBHGK×1、LGS131ZYKBH×2；1件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 63
@@ -83096,7 +83240,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=600*60；用量=2袋",
+        "remark": "包装：LGS131SHLBH×1、LGS131SHLBHGK×1、LGS131XHLBH×2；2件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 64
@@ -83111,7 +83255,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=600*60；用量=2袋",
+        "remark": "包装：LGS131SHLBH×1、LGS131SHLBHGK×1、LGS131XHLBH×2；2件/袋",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 64
@@ -83126,7 +83270,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=600*60；用量=2袋",
+        "remark": "包装：LGS131SHLBH×1、LGS131SHLBHGK×1、LGS131XHLBH×2；2件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 64
@@ -83141,7 +83285,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=待确认；PE袋=620*400；用量=4袋",
+        "remark": "包装：LGS131ZZKBHGK×1、LGS131YZKBHGK×1、LGS131ZYKBH×2；1件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 66
@@ -83156,7 +83300,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=待确认；PE袋=620*400；用量=4袋",
+        "remark": "包装：LGS131ZZKBHGK×1、LGS131YZKBHGK×1、LGS131ZYKBH×2；1件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 66
@@ -83171,7 +83315,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=600*60；用量=2袋",
+        "remark": "包装：LGS131SHLBH×1、LGS131SHLBHGK×1、LGS131XHLBH×2；2件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 67
@@ -83186,7 +83330,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=600*60；用量=2袋",
+        "remark": "包装：LGS131SHLBH×1、LGS131SHLBHGK×1、LGS131XHLBH×2；2件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 67
@@ -83201,7 +83345,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=待确认；PE袋=620*400；用量=4袋",
+        "remark": "包装：LGS131ZZKBHGK×1、LGS131YZKBHGK×1、LGS131ZYKBH×2；1件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 65
@@ -83216,7 +83360,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=待确认；PE袋=620*400；用量=4袋",
+        "remark": "包装：LGS131ZZKBHGK×1、LGS131YZKBHGK×1、LGS131ZYKBH×2；1件/袋",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 65
@@ -83231,7 +83375,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=待确认；PE袋=620*400；用量=4袋",
+        "remark": "包装：LGS131ZZKBHGK×1、LGS131YZKBHGK×1、LGS131ZYKBH×2；1件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 65
@@ -83246,7 +83390,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=780*60；用量=2袋",
+        "remark": "包装：LGS420SHLBH×1、LGS420SHLBHGK×1、LGS420XHLBH×2；2件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 66
@@ -83261,7 +83405,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=780*60；用量=2袋",
+        "remark": "包装：LGS420SHLBH×1、LGS420SHLBHGK×1、LGS420XHLBH×2；2件/袋",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 66
@@ -83276,7 +83420,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=780*60；用量=2袋",
+        "remark": "包装：LGS420SHLBH×1、LGS420SHLBHGK×1、LGS420XHLBH×2；2件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 66
@@ -83291,7 +83435,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "1",
-        "remark": "[包装] 包装对象=待确认；PE袋=400*220；用量=1袋",
+        "remark": "包装：LGS420ZLKBH×1；1件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 67
@@ -83306,7 +83450,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "1",
-        "remark": "[包装] 包装对象=待确认；PE袋=400*220；用量=1袋",
+        "remark": "包装：LGS420ZLKBH×1；1件/袋",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 67
@@ -83321,7 +83465,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "1",
-        "remark": "[包装] 包装对象=待确认；PE袋=400*220；用量=1袋",
+        "remark": "包装：LGS420ZLKBH×1；1件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 67
@@ -83336,7 +83480,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=待确认；PE袋=620*400；用量=4袋",
+        "remark": "包装：LGS131ZZKBHGK×1、LGS131YZKBHGK×1、LGS131ZYKBH×2；1件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 65
@@ -83351,7 +83495,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=待确认；PE袋=620*400；用量=4袋",
+        "remark": "包装：LGS131ZZKBHGK×1、LGS131YZKBHGK×1、LGS131ZYKBH×2；1件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 65
@@ -83366,7 +83510,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=1000*60；用量=2袋",
+        "remark": "包装：LGS421SHLBH×1、LGS421QHLBH×1、LGS421XHLBH×2；2件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 66
@@ -83381,7 +83525,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=1000*60；用量=2袋",
+        "remark": "包装：LGS421SHLBH×1、LGS421QHLBH×1、LGS421XHLBH×2；2件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 66
@@ -83396,7 +83540,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "1",
-        "remark": "[包装] 包装对象=待确认；PE袋=400*220；用量=1袋",
+        "remark": "包装：LGS420ZLKBH×1；1件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 67
@@ -83411,7 +83555,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "1",
-        "remark": "[包装] 包装对象=待确认；PE袋=400*220；用量=1袋",
+        "remark": "包装：LGS420ZLKBH×1；1件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 67
@@ -83426,7 +83570,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=待确认；PE袋=720*350；用量=4袋",
+        "remark": "包装：LGS033ZYKBH×2、LGS033ZKBH×1、LGS033YKBH×1；1件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 48
@@ -83441,7 +83585,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=待确认；PE袋=720*350；用量=4袋",
+        "remark": "包装：LGS033ZYKBH×2、LGS033ZKBH×1、LGS033YKBH×1；1件/袋",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 48
@@ -83456,7 +83600,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "1",
-        "remark": "[包装] 包装对象=待确认；PE袋=1160*60；用量=1袋",
+        "remark": "包装：LGS033QHHLBH×2；2件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 49
@@ -83471,7 +83615,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "1",
-        "remark": "[包装] 包装对象=待确认；PE袋=1160*60；用量=1袋",
+        "remark": "包装：LGS033QHHLBH×2；2件/袋",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 49
@@ -83486,7 +83630,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=待确认；PE袋=720*400；用量=4袋",
+        "remark": "包装：LGS133ZYKBH×2、LGS233ZKBH×1、LGS233YKBH×1；1件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 57
@@ -83501,7 +83645,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=待确认；PE袋=720*400；用量=4袋",
+        "remark": "包装：LGS133ZYKBH×2、LGS233ZKBH×1、LGS233YKBH×1；1件/袋",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 57
@@ -83516,7 +83660,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=待确认；PE袋=720*400；用量=4袋",
+        "remark": "包装：LGS133ZYKBH×2、LGS233ZKBH×1、LGS233YKBH×1；1件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 57
@@ -83531,7 +83675,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=950*60；用量=2袋",
+        "remark": "包装：LGS233XHYHLBH×1、LGS233XQYHLBH×1、LGS233XHZHLBH×1、LGS233XQZHLBH×1；2件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 58
@@ -83546,7 +83690,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=950*60；用量=2袋",
+        "remark": "包装：LGS233XHYHLBH×1、LGS233XQYHLBH×1、LGS233XHZHLBH×1、LGS233XQZHLBH×1；2件/袋",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 58
@@ -83561,7 +83705,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=950*60；用量=2袋",
+        "remark": "包装：LGS233XHYHLBH×1、LGS233XQYHLBH×1、LGS233XHZHLBH×1、LGS233XQZHLBH×1；2件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 58
@@ -83576,7 +83720,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "1",
-        "remark": "[包装] 包装对象=待确认；PE袋=620*60；用量=1袋",
+        "remark": "包装：LGS233SZQHLBH×2；2件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 59
@@ -83591,7 +83735,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "1",
-        "remark": "[包装] 包装对象=待确认；PE袋=620*60；用量=1袋",
+        "remark": "包装：LGS233SZQHLBH×2；2件/袋",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 59
@@ -83606,7 +83750,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "1",
-        "remark": "[包装] 包装对象=待确认；PE袋=620*60；用量=1袋",
+        "remark": "包装：LGS233SZQHLBH×2；2件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 59
@@ -83621,7 +83765,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=待确认；PE袋=720*350；用量=4袋",
+        "remark": "包装：LGS333ZKBH×1、LGS333YKBH×1；1件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 58
@@ -83636,7 +83780,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=待确认；PE袋=720*350；用量=4袋",
+        "remark": "包装：LGS333ZKBH×1、LGS333YKBH×1；1件/袋",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 58
@@ -83651,7 +83795,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=待确认；PE袋=720*350；用量=4袋",
+        "remark": "包装：LGS333ZKBH×1、LGS333YKBH×1；1件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 58
@@ -83666,7 +83810,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=1160*60；用量=2袋",
+        "remark": "包装：LGS333XHHLBH×1、LGS333XQHLBH×1、LGS333SQHLBH×2；2件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 59
@@ -83681,7 +83825,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=1160*60；用量=2袋",
+        "remark": "包装：LGS333XHHLBH×1、LGS333XQHLBH×1、LGS333SQHLBH×2；2件/袋",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 59
@@ -83696,7 +83840,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=1160*60；用量=2袋",
+        "remark": "包装：LGS333XHHLBH×1、LGS333XQHLBH×1、LGS333SQHLBH×2；2件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 59
@@ -83711,7 +83855,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=460*60；用量=2袋",
+        "remark": "包装：3911515XZHSLBH×2、3911515XZQSLBH×2；2件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 60
@@ -83726,7 +83870,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=460*60；用量=2袋",
+        "remark": "包装：3911515XZHSLBH×2、3911515XZQSLBH×2；2件/袋",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 60
@@ -83741,7 +83885,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=460*60；用量=2袋",
+        "remark": "包装：3911515XZHSLBH×2、3911515XZQSLBH×2；2件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 60
@@ -83756,7 +83900,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "3",
-        "remark": "[包装] 包装对象=待确认；PE袋=350*220；用量=3袋",
+        "remark": "包装：LGS333SZKBH×3；1件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 61
@@ -83771,7 +83915,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "3",
-        "remark": "[包装] 包装对象=待确认；PE袋=350*220；用量=3袋",
+        "remark": "包装：LGS333SZKBH×3；1件/袋",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 61
@@ -83786,7 +83930,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "3",
-        "remark": "[包装] 包装对象=待确认；PE袋=350*220；用量=3袋",
+        "remark": "包装：LGS333SZKBH×3；1件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 61
@@ -83801,7 +83945,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=720*400；用量=2袋",
+        "remark": "包装：LGS334ZKBH×1、LGS334YKBH×1；1件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 68
@@ -83816,7 +83960,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=400*220；用量=2袋",
+        "remark": "包装：LGS334SZKBH×1（1件/袋）、LGS334ZCKZYBH×2（2件/袋）",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 69
@@ -83831,7 +83975,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=待确认；PE袋=830*60；用量=4袋",
+        "remark": "包装：LGS334SQZHLBH×2、LGS334SQYHLBH×2、LGS334XHZHLBH×1、LGS334XQZHLBH×1、LGS334XHYHLBH×1、LGS334XQYHLBH×1；2件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 70
@@ -83846,7 +83990,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=460*60；用量=2袋",
+        "remark": "包装：3911515XZHSLBH×2、3911515XZQSLBH×2；2件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 71
@@ -83861,7 +84005,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=720*350；用量=2袋",
+        "remark": "包装：LGS723ZKBH×1、LGS723YKBH×1；1件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 65
@@ -83876,7 +84020,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=720*350；用量=2袋",
+        "remark": "包装：LGS723ZKBH×1、LGS723YKBH×1；1件/袋",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 65
@@ -83891,7 +84035,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=720*350；用量=2袋",
+        "remark": "包装：LGS723ZKBH×1、LGS723YKBH×1；1件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 65
@@ -83906,7 +84050,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "3",
-        "remark": "[包装] 包装对象=待确认；PE袋=1160*60；用量=3袋",
+        "remark": "包装：LGS723ZZQHLBH×2、LGS723XQHLBH×1、LGS723XHHLBH×1、LGS723SQHLBH×2；2件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 66
@@ -83921,7 +84065,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "3",
-        "remark": "[包装] 包装对象=待确认；PE袋=1160*60；用量=3袋",
+        "remark": "包装：LGS723ZZQHLBH×2、LGS723XQHLBH×1、LGS723XHHLBH×1、LGS723SQHLBH×2；2件/袋",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 66
@@ -83936,7 +84080,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "3",
-        "remark": "[包装] 包装对象=待确认；PE袋=1160*60；用量=3袋",
+        "remark": "包装：LGS723ZZQHLBH×2、LGS723XQHLBH×1、LGS723XHHLBH×1、LGS723SQHLBH×2；2件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 66
@@ -83951,7 +84095,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "1",
-        "remark": "[包装] 包装对象=待确认；PE袋=460*60；用量=1袋",
+        "remark": "包装：LGS723XZQSLBH×1、LGS723XZHSLBH×1；2件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 67
@@ -83966,7 +84110,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "1",
-        "remark": "[包装] 包装对象=待确认；PE袋=460*60；用量=1袋",
+        "remark": "包装：LGS723XZQSLBH×1、LGS723XZHSLBH×1；2件/袋",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 67
@@ -83981,7 +84125,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "1",
-        "remark": "[包装] 包装对象=待确认；PE袋=460*60；用量=1袋",
+        "remark": "包装：LGS723XZQSLBH×1、LGS723XZHSLBH×1；2件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 67
@@ -83996,7 +84140,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=350*220；用量=2袋",
+        "remark": "包装：LGS333SZKBH×2；1件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 68
@@ -84011,7 +84155,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=350*220；用量=2袋",
+        "remark": "包装：LGS333SZKBH×2；1件/袋",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 68
@@ -84026,7 +84170,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=350*220；用量=2袋",
+        "remark": "包装：LGS333SZKBH×2；1件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 68
@@ -84041,7 +84185,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=720*350；用量=2袋",
+        "remark": "包装：LGS723ZKBH×1、LGS723YKBH×1；1件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 68
@@ -84056,7 +84200,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=720*350；用量=2袋",
+        "remark": "包装：LGS723ZKBH×1、LGS723YKBH×1；1件/袋",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 68
@@ -84071,7 +84215,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=720*350；用量=2袋",
+        "remark": "包装：LGS723ZKBH×1、LGS723YKBH×1；1件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 68
@@ -84086,7 +84230,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "3",
-        "remark": "[包装] 包装对象=待确认；PE袋=1160*60；用量=3袋",
+        "remark": "包装：LGS333XHHLBH×1、LGS333XQHLBH×1、LGS333SQHLBH×2、LGS733SQHLBH×2；2件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 69
@@ -84101,7 +84245,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "3",
-        "remark": "[包装] 包装对象=待确认；PE袋=1160*60；用量=3袋",
+        "remark": "包装：LGS333XHHLBH×1、LGS333XQHLBH×1、LGS333SQHLBH×2、LGS733SQHLBH×2；2件/袋",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 69
@@ -84116,7 +84260,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "3",
-        "remark": "[包装] 包装对象=待确认；PE袋=1160*60；用量=3袋",
+        "remark": "包装：LGS333XHHLBH×1、LGS333XQHLBH×1、LGS333SQHLBH×2、LGS733SQHLBH×2；2件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 69
@@ -84131,7 +84275,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=460*60；用量=2袋",
+        "remark": "包装：LGS723XZHSLBH×2、LGS723XZQSLBH×2；2件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 70
@@ -84146,7 +84290,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=460*60；用量=2袋",
+        "remark": "包装：LGS723XZHSLBH×2、LGS723XZQSLBH×2；2件/袋",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 70
@@ -84161,7 +84305,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=460*60；用量=2袋",
+        "remark": "包装：LGS723XZHSLBH×2、LGS723XZQSLBH×2；2件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 70
@@ -84176,7 +84320,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=350*220；用量=2袋",
+        "remark": "包装：LGS333SZKBH×3；2袋（1件/袋、2件/袋）",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 71
@@ -84191,7 +84335,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=350*220；用量=2袋",
+        "remark": "包装：LGS333SZKBH×3；2袋（1件/袋、2件/袋）",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 71
@@ -84206,7 +84350,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=350*220；用量=2袋",
+        "remark": "包装：LGS333SZKBH×3；2袋（1件/袋、2件/袋）",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 71
@@ -84221,7 +84365,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "1",
-        "remark": "[包装] 包装对象=待确认；PE袋=100*60；用量=1袋",
+        "remark": "包装：ZJG150654BH×2；2件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 72
@@ -84236,7 +84380,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "1",
-        "remark": "[包装] 包装对象=待确认；PE袋=100*60；用量=1袋",
+        "remark": "包装：ZJG150654BH×2；2件/袋",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 72
@@ -84251,7 +84395,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "1",
-        "remark": "[包装] 包装对象=待确认；PE袋=100*60；用量=1袋",
+        "remark": "包装：ZJG150654BH×2；2件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 72
@@ -84266,7 +84410,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=待确认；PE袋=720*350；用量=4袋",
+        "remark": "包装：LGS833ZYKBH×2、LGS833ZKBH×1、LGS833YKBH×1；1件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 61
@@ -84281,7 +84425,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=待确认；PE袋=720*350；用量=4袋",
+        "remark": "包装：LGS833ZYKBH×2、LGS833ZKBH×1、LGS833YKBH×1；1件/袋",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 61
@@ -84296,7 +84440,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=待确认；PE袋=720*350；用量=4袋",
+        "remark": "包装：LGS833ZYKBH×2、LGS833ZKBH×1、LGS833YKBH×1；1件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 61
@@ -84311,7 +84455,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=1160*60；用量=2袋",
+        "remark": "包装：LGS333XHHLBH×1、LGS333XQHLBH×1、LGS833SQHLBH×2；2件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 62
@@ -84326,7 +84470,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=1160*60；用量=2袋",
+        "remark": "包装：LGS333XHHLBH×1、LGS333XQHLBH×1、LGS833SQHLBH×2；2件/袋",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 62
@@ -84341,7 +84485,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=1160*60；用量=2袋",
+        "remark": "包装：LGS333XHHLBH×1、LGS333XQHLBH×1、LGS833SQHLBH×2；2件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 62
@@ -84356,7 +84500,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "1",
-        "remark": "[包装] 包装对象=待确认；PE袋=100*60；用量=1袋",
+        "remark": "包装：ZJG150654BH×2；2件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 63
@@ -84371,7 +84515,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "1",
-        "remark": "[包装] 包装对象=待确认；PE袋=100*60；用量=1袋",
+        "remark": "包装：ZJG150654BH×2；2件/袋",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 63
@@ -84386,7 +84530,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "1",
-        "remark": "[包装] 包装对象=待确认；PE袋=100*60；用量=1袋",
+        "remark": "包装：ZJG150654BH×2；2件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 63
@@ -84401,7 +84545,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=650*350；用量=2袋",
+        "remark": "包装：LGS101ZCKBH×1、LGS101YCKBH×1；1件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 48
@@ -84416,7 +84560,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=650*350；用量=2袋",
+        "remark": "包装：LGS101ZCKBH×1、LGS101YCKBH×1；1件/袋",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 48
@@ -84431,7 +84575,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=650*350；用量=2袋",
+        "remark": "包装：LGS101ZCKBH×1、LGS101YCKBH×1；1件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 48
@@ -84446,7 +84590,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=650*350；用量=2袋",
+        "remark": "包装：LGS101ZCKBH×2、LGS101YCKBH×2；2件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 44
@@ -84461,7 +84605,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=650*350；用量=2袋",
+        "remark": "包装：LGS101ZCKBH×2、LGS101YCKBH×2；2件/袋",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 44
@@ -84476,7 +84620,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=待确认；PE袋=650*350；用量=2袋",
+        "remark": "包装：LGS101ZCKBH×2、LGS101YCKBH×2；2件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 44
@@ -84491,7 +84635,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "1",
-        "remark": "[包装] 包装对象=待确认；PE袋=420*60；用量=1袋",
+        "remark": "包装：LGS101HLBH×2；2件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 49
@@ -84506,7 +84650,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "1",
-        "remark": "[包装] 包装对象=待确认；PE袋=420*60；用量=1袋",
+        "remark": "包装：LGS101HLBH×2；2件/袋",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 49
@@ -84521,7 +84665,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "1",
-        "remark": "[包装] 包装对象=待确认；PE袋=420*60；用量=1袋",
+        "remark": "包装：LGS101HLBH×2；2件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 49
@@ -84536,7 +84680,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "1",
-        "remark": "[包装] 包装对象=待确认；PE袋=420*60；用量=1袋",
+        "remark": "包装：LGS101HLBH×4；4件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 45
@@ -84551,7 +84695,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "1",
-        "remark": "[包装] 包装对象=待确认；PE袋=420*60；用量=1袋",
+        "remark": "包装：LGS101HLBH×4；4件/袋",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 45
@@ -84566,7 +84710,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "1",
-        "remark": "[包装] 包装对象=待确认；PE袋=420*60；用量=1袋",
+        "remark": "包装：LGS101HLBH×4；4件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 45
@@ -84581,7 +84725,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=647×290×15侧框×2、584×290×15中框×2；规则=1件/袋；依据=LGS033同类框659×290×15",
+        "remark": "包装：LGS032ZZKBH×1、LGS032YZKBH×1、LGS032ZKBH647×1、LGS032YKBH647×1；1件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 54
@@ -84596,7 +84740,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=647×290×15侧框×2、584×290×15中框×2；规则=1件/袋；依据=LGS033同类框659×290×15",
+        "remark": "包装：LGS032ZZKBH×1、LGS032YZKBH×1、LGS032ZKBH647×1、LGS032YKBH647×1；1件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 54
@@ -84611,7 +84755,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "1",
-        "remark": "[包装] 包装对象=1098×15×15横杆×2、356×15×15横杆×2；规则=4件/袋；依据=LGS033同类1098横杆",
+        "remark": "包装：LGS032XHLBH×1、LGS032XQHLBH×1；2件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 55
@@ -84626,7 +84770,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "1",
-        "remark": "[包装] 包装对象=1098×15×15横杆×2、356×15×15横杆×2；规则=4件/袋；依据=LGS033同类1098横杆",
+        "remark": "包装：LGS032XHLBH×1、LGS032XQHLBH×1；2件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 55
@@ -84641,7 +84785,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=657×335×15侧框×2、584×335×15中框×2；规则=1件/袋；依据=LGS043同类657×335框",
+        "remark": "包装：LGS132ZZKBH×1、LGS132YZKBH×1、LGS132ZKBH×1、LGS132YKBH×1；1件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 60
@@ -84656,7 +84800,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=764/704×15×15底部横杆×4；规则=2件/袋；依据=长度留余",
+        "remark": "包装：LGS132XHYHLBH×1、LGS132SQYHLBH×1、LGS132XHZHLBH×1、LGS132SQZHLBH×1；2件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 61
@@ -84671,7 +84815,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "1",
-        "remark": "[包装] 包装对象=466×15×15顶部横杆×2；规则=2件/袋；依据=长度留余",
+        "remark": "包装：LGS132SHLBH×2；2件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 62
@@ -84686,7 +84830,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=657×335×15侧框×2、584×335×15中框×2；规则=1件/袋；依据=LGS043同类657×335框",
+        "remark": "包装：LGS132ZZKBH×1、LGS132YZKBH×1、LGS132ZKBH×1、LGS132YKBH×1；1件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 62
@@ -84701,7 +84845,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=657×335×15侧框×2、584×335×15中框×2；规则=1件/袋；依据=LGS043同类657×335框",
+        "remark": "包装：LGS132ZZKBH×1、LGS132YZKBH×1、LGS132ZKBH×1、LGS132YKBH×1；1件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 62
@@ -84716,7 +84860,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=899/839×15×15底部横杆×4；规则=2件/袋；依据=长度留余",
+        "remark": "包装：LGS232XHYHLBH×1、LGS232SQYHLBH×1、LGS232XHZHLBH×1、LGS232SQZHLBH×1；2件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 63
@@ -84731,7 +84875,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=899/839×15×15底部横杆×4；规则=2件/袋；依据=长度留余",
+        "remark": "包装：LGS232XHYHLBH×1、LGS232SQYHLBH×1、LGS232XHZHLBH×1、LGS232SQZHLBH×1；2件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 63
@@ -84746,7 +84890,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "1",
-        "remark": "[包装] 包装对象=556×15×15顶部横杆×2；规则=2件/袋；依据=长度留余",
+        "remark": "包装：LGS232SHLBH×2；2件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 64
@@ -84761,7 +84905,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "1",
-        "remark": "[包装] 包装对象=556×15×15顶部横杆×2；规则=2件/袋；依据=长度留余",
+        "remark": "包装：LGS232SHLBH×2；2件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 64
@@ -84776,7 +84920,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=659×335×15侧框×2、584×335×15中框×2；规则=1件/袋；依据=LGS233同类框",
+        "remark": "包装：LGS133ZYKBH×2、LGS133ZKBH×1、LGS133YKBH×1；1件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 50
@@ -84791,7 +84935,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=754/714×15×15底部横杆×4；规则=2件/袋；依据=长度留余",
+        "remark": "包装：LGS133XQYHLBH×1、LGS133XHYHLBH×1、LGS133XQZHLBH×1、LGS133XHZHLBH×1；2件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 51
@@ -84806,7 +84950,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "1",
-        "remark": "[包装] 包装对象=466×15×15顶部横杆×2；规则=2件/袋；依据=长度留余",
+        "remark": "包装：LGS133SZQHLBH×2；2件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 52
@@ -84821,7 +84965,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=659×290×15侧框×2及391×15×15竖梁×4；依据=LGS333共用框/竖梁",
+        "remark": "包装：LGS333ZKBH×1、LGS333YKBH×1；1件/袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 57
@@ -84836,7 +84980,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=659×290×15侧框×2及391×15×15竖梁×4；依据=LGS333共用框/竖梁",
+        "remark": "包装：LGS333ZKBH×1、LGS333YKBH×1；1件/袋",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 57
@@ -84851,7 +84995,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=659×290×15侧框×2及391×15×15竖梁×4；依据=LGS333共用框/竖梁",
+        "remark": "包装：LGS333ZKBH×1、LGS333YKBH×1；1件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 57
@@ -85001,7 +85145,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=659×335×15侧框×2；规则=1件/袋；依据=LGS334共用侧框",
+        "remark": "包装：LGS434ZKWH×1、LGS434YKWH×1；1件/袋",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 72
@@ -85016,7 +85160,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=659×335×15侧框×2；规则=1件/袋；依据=LGS334共用侧框",
+        "remark": "包装：LGS434ZKWH×1、LGS434YKWH×1；1件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 72
@@ -85031,7 +85175,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=335×178×15支撑框×2；规则=1件/袋；依据=LGS334同类支撑框",
+        "remark": "包装：LGS434SZKWH×2；1件/袋",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 73
@@ -85046,7 +85190,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=335×178×15支撑框×2；规则=1件/袋；依据=LGS334同类支撑框",
+        "remark": "包装：LGS434SZKWH×2；1件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 73
@@ -85061,7 +85205,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=760/754/714/708×15×15横杆×8；规则=2件/袋；依据=LGS334共用横杆",
+        "remark": "包装：LGS334XQYHLWH×1、LGS334XHYHLWH×1、LGS334XQZHLWH×1、LGS334XHZHLWH×1、LGS434SQZHLDEPWH×1、LGS434SHZHLDEPWH×1、LGS434SQYHLDEPWH×1、LGS434SHYHLDEPWH×1、LGS434DBHLWH×2；合计10件/4袋（2–3件/袋）",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 74
@@ -85076,7 +85220,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=760/754/714/708×15×15横杆×8；规则=2件/袋；依据=LGS334共用横杆",
+        "remark": "包装：LGS334XQYHLWH×1、LGS334XHYHLWH×1、LGS334XQZHLWH×1、LGS334XHZHLWH×1、LGS434SQZHLDEPWH×1、LGS434SHZHLDEPWH×1、LGS434SQYHLDEPWH×1、LGS434SHYHLDEPWH×1、LGS434DBHLWH×2；合计10件/4袋（2–3件/袋）",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 74
@@ -85091,7 +85235,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=391×15×15竖梁×4；规则=2件/袋；依据=LGS334共用竖梁",
+        "remark": "包装：3911515XZHSLWH×2、391515XZQSLWH×2；2件/袋",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 75
@@ -85106,7 +85250,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "[包装] 包装对象=391×15×15竖梁×4；规则=2件/袋；依据=LGS334共用竖梁",
+        "remark": "包装：3911515XZHSLWH×2、391515XZQSLWH×2；2件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 75
@@ -85121,7 +85265,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=659×335×15侧框×2、391×335×15中框×2；规则=1件/袋；依据=LGS334/434同类框",
+        "remark": "包装：LGS834ZYKWH×2、LGS834ZKWH×1、LGS834YKWH×1；1件/袋",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 64
@@ -85136,7 +85280,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=659×335×15侧框×2、391×335×15中框×2；规则=1件/袋；依据=LGS334/434同类框",
+        "remark": "包装：LGS834ZYKWH×2、LGS834ZKWH×1、LGS834YKWH×1；1件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 64
@@ -85151,7 +85295,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=810/760/708/658×15×15横杆×8；规则=2件/袋；依据=长度留余",
+        "remark": "包装：LGS334XQYHLWH×1、LGS334XHYHLWH×1、LGS334XQZHLWH×1、LGS334XHZHLWH×1、LGS834QSYHLWH×2、LGS834QSZHLWH×2；2件/袋",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 65
@@ -85166,7 +85310,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "4",
-        "remark": "[包装] 包装对象=810/760/708/658×15×15横杆×8；规则=2件/袋；依据=长度留余",
+        "remark": "包装：LGS334XQYHLWH×1、LGS334XHYHLWH×1、LGS334XQZHLWH×1、LGS334XHZHLWH×1、LGS834QSYHLWH×2、LGS834QSZHLWH×2；2件/袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 65
