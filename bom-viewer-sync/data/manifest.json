@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-13T11:28:49.300Z",
+  "updatedAt": "2026-08-14T06:42:06.601Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -7520,6 +7520,37 @@
   },
   "notifications": [
     {
+      "id": "notif_8a16w8",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-14T06:42:06.601Z",
+      "version": 2,
+      "changes": []
+    },
+    {
+      "id": "notif_s7krl8",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-14T06:39:16.637Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "LGS834QSYHLBH",
+          "field": "drawings",
+          "before": "LGS834顶部横杆右_组件|https://drive.google.com/file/d/1y8q0X4FyIc_gOlGkkZU0MTbnl8R9fqY1/view?usp=sharing",
+          "after": "LGS834顶部横杆右_组件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@e6c025f3c276f69844e5a55ae98d82e2d7a73f06/assets/pdfs/LGS834QSYHLBH_732f4accae6ff7fae5e6773ef33669f0209d63620ce0f89ba813f1d01bf83c35_LGS834_.pdf"
+        },
+        {
+          "kind": "material",
+          "code": "LGS834QSYHLWH",
+          "field": "drawings",
+          "before": "LGS834顶部横杆右_组件|https://drive.google.com/file/d/1y8q0X4FyIc_gOlGkkZU0MTbnl8R9fqY1/view?usp=sharing",
+          "after": "LGS834顶部横杆右_组件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@7e3ae4b1fe5b10246e8a0def5a6ab08c95b2efce/assets/pdfs/LGS834QSYHLWH_732f4accae6ff7fae5e6773ef33669f0209d63620ce0f89ba813f1d01bf83c35_LGS834_.pdf"
+        }
+      ]
+    },
+    {
       "id": "notif_iiri08",
       "type": "github-save",
       "actor": "admin",
@@ -8368,66 +8399,6 @@
           "field": "workflowState",
           "before": "draft",
           "after": "released"
-        }
-      ]
-    },
-    {
-      "id": "notif_1p78peq",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-12T04:12:59.216Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS233",
-          "field": "effectiveRevision",
-          "before": "V4",
-          "after": ""
-        },
-        {
-          "kind": "revision",
-          "code": "LGS233",
-          "field": "workflowState",
-          "before": "released",
-          "after": "draft"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS233KD02S",
-          "field": "",
-          "before": "LGS233ZYKBH",
-          "after": "LGS133ZYKBH"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS233BH02S",
-          "field": "",
-          "before": "LGS233ZYKBH",
-          "after": "LGS133ZYKBH"
-        }
-      ]
-    },
-    {
-      "id": "notif_1l77y86",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-12T04:09:12.657Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "LGS131XHLWH",
-          "field": "drawings",
-          "before": "",
-          "after": "LGS131_231-底部横杆|https://drive.google.com/file/d/1FUU__9zitdfI53em6S-2Du2_vKFzQlXv/view?usp=sharing"
-        },
-        {
-          "kind": "material",
-          "code": "LGS131XHLWH",
-          "field": "models3d",
-          "before": "LGS231_131-底部横杆.glb|models3d/catalog/LGS231-131-8264a80a.glb",
-          "after": "LGS231_131-底部横杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS231-131-8264a80a.glb"
         }
       ]
     }
