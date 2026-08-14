@@ -4,6 +4,7 @@ import path from 'node:path';
 const repoRoot = path.resolve(import.meta.dirname, '..');
 const dataRoot = path.join(repoRoot, 'data');
 const checkOnly = process.argv.includes('--check');
+const packagingRemarkPrefix = /^内包装[：:]\s*/;
 const materialsPath = path.join(dataRoot, 'materials.json');
 const materialsPayload = JSON.parse(readFileSync(materialsPath, 'utf8'));
 const materialIdsByCode = new Map();
@@ -12,16 +13,28 @@ for (const material of Object.values(materialsPayload.materialDb?.materials || {
   if (material?.code) materialIdsByCode.set(material.code, material.id);
 }
 
-let updated = 0;
+let productRowsUpdated = 0;
+let bomEntriesUpdated = 0;
 const mismatches = [];
 for (const file of readdirSync(path.join(dataRoot, 'products'))) {
   if (!file.endsWith('.json')) continue;
-  const product = JSON.parse(readFileSync(path.join(dataRoot, 'products', file), 'utf8'));
+  const productPath = path.join(dataRoot, 'products', file);
+  const product = JSON.parse(readFileSync(productPath, 'utf8'));
   const productCode = String(product.code || '').trim();
+  let productUpdated = false;
   for (const [color, colorData] of Object.entries(product.color_info || {})) {
     for (const row of colorData.materials || []) {
-      const remark = String(row?.remark || '').trim();
+      const sourceRemark = String(row?.remark || '').trim();
+      const remark = sourceRemark.replace(packagingRemarkPrefix, '');
       if (!remark) continue;
+      if (sourceRemark !== remark) {
+        mismatches.push(`${productCode}/${color}/${row.mat_code}/${row.comp_code}: packaging prefix`);
+        if (!checkOnly) {
+          row.remark = remark;
+          productUpdated = true;
+          productRowsUpdated += 1;
+        }
+      }
       const materialId = materialIdsByCode.get(row.mat_code);
       const entry = materialsPayload.materialDb.bomEntries.find((candidate) => (
         candidate.parentType === 'product' &&
@@ -38,16 +51,19 @@ for (const file of readdirSync(path.join(dataRoot, 'products'))) {
       mismatches.push(`${productCode}/${color}/${row.mat_code}/${row.comp_code}`);
       if (!checkOnly) {
         entry.remark = remark;
-        updated += 1;
+        bomEntriesUpdated += 1;
       }
     }
+  }
+  if (!checkOnly && productUpdated) {
+    writeFileSync(productPath, `${JSON.stringify(product, null, 2)}\n`, 'utf8');
   }
 }
 
 if (checkOnly && mismatches.length) {
   throw new Error(`Product BOM remarks are not synchronized: ${mismatches.join(', ')}`);
 }
-if (!checkOnly && updated) {
+if (!checkOnly && bomEntriesUpdated) {
   writeFileSync(materialsPath, `${JSON.stringify(materialsPayload, null, 2)}\n`, 'utf8');
 }
-console.log(JSON.stringify({ updated, mismatches: mismatches.length }));
+console.log(JSON.stringify({ productRowsUpdated, bomEntriesUpdated, mismatches: mismatches.length }));

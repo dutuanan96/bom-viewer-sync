@@ -40135,7 +40135,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 16,
-        "remark": "内包装：1个 = 1包×1个装"
+        "remark": "1个 = 1包×1个装"
       },
       {
         "id": "bom_1kybwky",
@@ -40150,7 +40150,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 17,
-        "remark": "内包装：1个 = 1包×1个装"
+        "remark": "1个 = 1包×1个装"
       },
       {
         "id": "bom_1kb6pj5",
@@ -40333,7 +40333,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 16,
-        "remark": "内包装：1个 = 1包×1个装"
+        "remark": "1个 = 1包×1个装"
       },
       {
         "id": "bom_1i1fosk",
@@ -40348,7 +40348,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 17,
-        "remark": "内包装：1个 = 1包×1个装"
+        "remark": "1个 = 1包×1个装"
       },
       {
         "id": "bom_1653781",
@@ -40685,7 +40685,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 16,
-        "remark": "内包装：6个 = 2包×3个装"
+        "remark": "6个 = 2包×3个装"
       },
       {
         "id": "bom_abmy6m",
@@ -40700,7 +40700,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 17,
-        "remark": "内包装：6个 = 1包×6个装"
+        "remark": "6个 = 1包×6个装"
       },
       {
         "id": "bom_6dibns",
@@ -40967,7 +40967,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 16,
-        "remark": "内包装：6个 = 2包×3个装"
+        "remark": "6个 = 2包×3个装"
       },
       {
         "id": "bom_cukt3g",
@@ -40982,7 +40982,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 17,
-        "remark": "内包装：6个 = 1包×6个装"
+        "remark": "6个 = 1包×6个装"
       },
       {
         "id": "bom_17q0k5a",
@@ -41165,7 +41165,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 10,
-        "remark": "内包装：9个 = 3包×3个装"
+        "remark": "9个 = 3包×3个装"
       },
       {
         "id": "bom_71rwfr",
@@ -41180,7 +41180,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 11,
-        "remark": "内包装：9个 = 1包×9个装"
+        "remark": "9个 = 1包×9个装"
       },
       {
         "id": "bom_7leztl",
@@ -41321,7 +41321,7 @@
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 10,
-        "remark": "内包装：9个 = 3包×3个装"
+        "remark": "9个 = 3包×3个装"
       },
       {
         "id": "bom_ux8z5e",
@@ -41336,7 +41336,7 @@
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 11,
-        "remark": "内包装：9个 = 1包×9个装"
+        "remark": "9个 = 1包×9个装"
       },
       {
         "id": "bom_iaqph2",
@@ -41505,7 +41505,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 11,
-        "remark": "内包装：6个 = 1包×6个装"
+        "remark": "6个 = 1包×6个装"
       },
       {
         "id": "bom_6h04lv",
@@ -41520,7 +41520,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 12,
-        "remark": "内包装：6个 = 1包×6个装"
+        "remark": "6个 = 1包×6个装"
       },
       {
         "id": "bom_1gh86ap",
@@ -41535,7 +41535,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 13,
-        "remark": "内包装：3个 = 1包×3个装"
+        "remark": "3个 = 1包×3个装"
       },
       {
         "id": "bom_1szozum",
@@ -41550,7 +41550,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 14,
-        "remark": "内包装：3个 = 1包×3个装"
+        "remark": "3个 = 1包×3个装"
       },
       {
         "id": "bom_eflic6",
@@ -41565,7 +41565,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 15,
-        "remark": "内包装：2个 = 1包×2个装"
+        "remark": "2个 = 1包×2个装"
       },
       {
         "id": "bom_8row1",
@@ -41580,7 +41580,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 16,
-        "remark": "内包装：2个 = 1包×2个装"
+        "remark": "2个 = 1包×2个装"
       },
       {
         "id": "bom_qgtfm",
@@ -41875,7 +41875,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 11,
-        "remark": "内包装：6个 = 1包×6个装"
+        "remark": "6个 = 1包×6个装"
       },
       {
         "id": "bom_1y8ccoh",
@@ -41890,7 +41890,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 12,
-        "remark": "内包装：6个 = 1包×6个装"
+        "remark": "6个 = 1包×6个装"
       },
       {
         "id": "bom_1e9qbsn",
@@ -41905,7 +41905,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 13,
-        "remark": "内包装：3个 = 1包×3个装"
+        "remark": "3个 = 1包×3个装"
       },
       {
         "id": "bom_8tifol",
@@ -41920,7 +41920,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 14,
-        "remark": "内包装：3个 = 1包×3个装"
+        "remark": "3个 = 1包×3个装"
       },
       {
         "id": "bom_enq84h",
@@ -41935,7 +41935,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 15,
-        "remark": "内包装：2个 = 1包×2个装"
+        "remark": "2个 = 1包×2个装"
       },
       {
         "id": "bom_sbmbxn",
@@ -41950,7 +41950,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 16,
-        "remark": "内包装：2个 = 1包×2个装"
+        "remark": "2个 = 1包×2个装"
       },
       {
         "id": "bom_s47awc",
@@ -42175,7 +42175,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 6,
-        "remark": "内包装：1个 = 1包×1个装"
+        "remark": "1个 = 1包×1个装"
       },
       {
         "id": "bom_1h6x0cd",
@@ -42190,7 +42190,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 7,
-        "remark": "内包装：1个 = 1包×1个装"
+        "remark": "1个 = 1包×1个装"
       },
       {
         "id": "bom_1o1bwcg",
@@ -42317,7 +42317,7 @@
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 6,
-        "remark": "内包装：1个 = 1包×1个装"
+        "remark": "1个 = 1包×1个装"
       },
       {
         "id": "bom_1zfwbe",
@@ -42332,7 +42332,7 @@
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 7,
-        "remark": "内包装：1个 = 1包×1个装"
+        "remark": "1个 = 1包×1个装"
       },
       {
         "id": "bom_136q9hy",
@@ -42459,7 +42459,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 6,
-        "remark": "内包装：1个 = 1包×1个装"
+        "remark": "1个 = 1包×1个装"
       },
       {
         "id": "bom_akx71p",
@@ -42474,7 +42474,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 7,
-        "remark": "内包装：1个 = 1包×1个装"
+        "remark": "1个 = 1包×1个装"
       },
       {
         "id": "bom_1eril2o",
@@ -42601,7 +42601,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 6,
-        "remark": "内包装：2个 = 1包×2个装"
+        "remark": "2个 = 1包×2个装"
       },
       {
         "id": "bom_ynic9y",
@@ -42616,7 +42616,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 7,
-        "remark": "内包装：2个 = 1包×2个装"
+        "remark": "2个 = 1包×2个装"
       },
       {
         "id": "bom_1jvhcop",
@@ -42743,7 +42743,7 @@
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 6,
-        "remark": "内包装：2个 = 1包×2个装"
+        "remark": "2个 = 1包×2个装"
       },
       {
         "id": "bom_mwqwro",
@@ -42758,7 +42758,7 @@
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 7,
-        "remark": "内包装：2个 = 1包×2个装"
+        "remark": "2个 = 1包×2个装"
       },
       {
         "id": "bom_1vqknjz",
@@ -42885,7 +42885,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 6,
-        "remark": "内包装：2个 = 1包×2个装"
+        "remark": "2个 = 1包×2个装"
       },
       {
         "id": "bom_1c2mp1c",
@@ -42900,7 +42900,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 7,
-        "remark": "内包装：2个 = 1包×2个装"
+        "remark": "2个 = 1包×2个装"
       },
       {
         "id": "bom_1jff2mr",
@@ -43069,7 +43069,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 9,
-        "remark": "内包装：1个 = 1包×1个装"
+        "remark": "1个 = 1包×1个装"
       },
       {
         "id": "bom_258jmj",
@@ -43084,7 +43084,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 10,
-        "remark": "内包装：1个 = 1包×1个装"
+        "remark": "1个 = 1包×1个装"
       },
       {
         "id": "bom_1osdfgm",
@@ -43323,7 +43323,7 @@
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 9,
-        "remark": "内包装：1个 = 1包×1个装"
+        "remark": "1个 = 1包×1个装"
       },
       {
         "id": "bom_nsxikj",
@@ -43338,7 +43338,7 @@
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 10,
-        "remark": "内包装：1个 = 1包×1个装"
+        "remark": "1个 = 1包×1个装"
       },
       {
         "id": "bom_1mdexkw",
@@ -43591,7 +43591,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 9,
-        "remark": "内包装：1个 = 1包×1个装"
+        "remark": "1个 = 1包×1个装"
       },
       {
         "id": "bom_rwcog5",
@@ -43606,7 +43606,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 10,
-        "remark": "内包装：1个 = 1包×1个装"
+        "remark": "1个 = 1包×1个装"
       },
       {
         "id": "bom_12njzn8",
@@ -43901,7 +43901,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 12,
-        "remark": "内包装：6个 = 1包×6个装"
+        "remark": "6个 = 1包×6个装"
       },
       {
         "id": "bom_1yburii",
@@ -43916,7 +43916,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 13,
-        "remark": "内包装：6个 = 2包×3个装"
+        "remark": "6个 = 2包×3个装"
       },
       {
         "id": "bom_1r7m4d",
@@ -44267,7 +44267,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 15,
-        "remark": "内包装：1个 = 1包×1个装"
+        "remark": "1个 = 1包×1个装"
       },
       {
         "id": "bom_1x3bqbz",
@@ -44282,7 +44282,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 16,
-        "remark": "内包装：8个 = 2包×3个装 + 1包×2个装"
+        "remark": "8个 = 2包×3个装 + 1包×2个装"
       },
       {
         "id": "bom_5n5kr",
@@ -44297,7 +44297,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 17,
-        "remark": "内包装：9个 = 1包×9个装"
+        "remark": "9个 = 1包×9个装"
       },
       {
         "id": "bom_67njuy",
@@ -44438,7 +44438,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 9,
-        "remark": "内包装：1个 = 1包×1个装"
+        "remark": "1个 = 1包×1个装"
       },
       {
         "id": "bom_zs6w3m",
@@ -44453,7 +44453,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 10,
-        "remark": "内包装：1个 = 1包×1个装"
+        "remark": "1个 = 1包×1个装"
       },
       {
         "id": "bom_ho4a4h",
@@ -44706,7 +44706,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 9,
-        "remark": "内包装：1个 = 1包×1个装"
+        "remark": "1个 = 1包×1个装"
       },
       {
         "id": "bom_d1cvtq",
@@ -44721,7 +44721,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 10,
-        "remark": "内包装：1个 = 1包×1个装"
+        "remark": "1个 = 1包×1个装"
       },
       {
         "id": "bom_1teequ5",
@@ -45002,7 +45002,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 11,
-        "remark": "内包装：6个 = 2包×3个装"
+        "remark": "6个 = 2包×3个装"
       },
       {
         "id": "bom_loxxf9",
@@ -45017,7 +45017,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 12,
-        "remark": "内包装：6个 = 2包×3个装"
+        "remark": "6个 = 2包×3个装"
       },
       {
         "id": "bom_s55ui7",
@@ -45326,7 +45326,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 11,
-        "remark": "内包装：6个 = 2包×3个装"
+        "remark": "6个 = 2包×3个装"
       },
       {
         "id": "bom_5bvlmr",
@@ -45341,7 +45341,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 12,
-        "remark": "内包装：6个 = 2包×3个装"
+        "remark": "6个 = 2包×3个装"
       },
       {
         "id": "bom_13rstqt",
@@ -45706,7 +45706,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 15,
-        "remark": "内包装：1个 = 1包×1个装"
+        "remark": "1个 = 1包×1个装"
       },
       {
         "id": "bom_yyknyq",
@@ -45721,7 +45721,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 16,
-        "remark": "内包装：8个 = 4包×2个装"
+        "remark": "8个 = 4包×2个装"
       },
       {
         "id": "bom_8aajyq",
@@ -45736,7 +45736,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 17,
-        "remark": "内包装：9个 = 1包×4个装 + 1包×5个装"
+        "remark": "9个 = 1包×4个装 + 1包×5个装"
       },
       {
         "id": "bom_3vglh6",
@@ -45961,7 +45961,7 @@
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 15,
-        "remark": "内包装：1个 = 1包×1个装"
+        "remark": "1个 = 1包×1个装"
       },
       {
         "id": "bom_11pelb3",
@@ -45976,7 +45976,7 @@
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 16,
-        "remark": "内包装：8个 = 4包×2个装"
+        "remark": "8个 = 4包×2个装"
       },
       {
         "id": "bom_3e5qkr",
@@ -45991,7 +45991,7 @@
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 17,
-        "remark": "内包装：9个 = 1包×4个装 + 1包×5个装"
+        "remark": "9个 = 1包×4个装 + 1包×5个装"
       },
       {
         "id": "bom_jzmwip",
@@ -46216,7 +46216,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 15,
-        "remark": "内包装：1个 = 1包×1个装"
+        "remark": "1个 = 1包×1个装"
       },
       {
         "id": "bom_mr15ek",
@@ -46231,7 +46231,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 16,
-        "remark": "内包装：8个 = 4包×2个装"
+        "remark": "8个 = 4包×2个装"
       },
       {
         "id": "bom_1jkv0m2",
@@ -46246,7 +46246,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 17,
-        "remark": "内包装：9个 = 1包×4个装 + 1包×5个装"
+        "remark": "9个 = 1包×4个装 + 1包×5个装"
       },
       {
         "id": "bom_3y0yog",
@@ -46443,7 +46443,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 14,
-        "remark": "内包装：4个 = 1包×4个装"
+        "remark": "4个 = 1包×4个装"
       },
       {
         "id": "bom_1x5pbfg",
@@ -46458,7 +46458,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 15,
-        "remark": "内包装：6个 = 2包×3个装"
+        "remark": "6个 = 2包×3个装"
       },
       {
         "id": "bom_6i8or1",
@@ -46473,7 +46473,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 16,
-        "remark": "内包装：4个 = 1包×4个装"
+        "remark": "4个 = 1包×4个装"
       },
       {
         "id": "bom_ib5om6",
@@ -46488,7 +46488,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 17,
-        "remark": "内包装：6个 = 1包×6个装"
+        "remark": "6个 = 1包×6个装"
       },
       {
         "id": "bom_jhqpjr",
@@ -46685,7 +46685,7 @@
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 14,
-        "remark": "内包装：4个 = 1包×4个装"
+        "remark": "4个 = 1包×4个装"
       },
       {
         "id": "bom_1vskq43",
@@ -46700,7 +46700,7 @@
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 15,
-        "remark": "内包装：6个 = 2包×3个装"
+        "remark": "6个 = 2包×3个装"
       },
       {
         "id": "bom_8yx5ot",
@@ -46715,7 +46715,7 @@
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 16,
-        "remark": "内包装：4个 = 1包×4个装"
+        "remark": "4个 = 1包×4个装"
       },
       {
         "id": "bom_gjwssf",
@@ -46730,7 +46730,7 @@
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 17,
-        "remark": "内包装：6个 = 1包×6个装"
+        "remark": "6个 = 1包×6个装"
       },
       {
         "id": "bom_s970x6",
@@ -46927,7 +46927,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 14,
-        "remark": "内包装：4个 = 1包×4个装"
+        "remark": "4个 = 1包×4个装"
       },
       {
         "id": "bom_4jase0",
@@ -46942,7 +46942,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 15,
-        "remark": "内包装：6个 = 2包×3个装"
+        "remark": "6个 = 2包×3个装"
       },
       {
         "id": "bom_rsruzn",
@@ -46957,7 +46957,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 16,
-        "remark": "内包装：4个 = 1包×4个装"
+        "remark": "4个 = 1包×4个装"
       },
       {
         "id": "bom_zfmc1g",
@@ -46972,7 +46972,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 17,
-        "remark": "内包装：6个 = 1包×6个装"
+        "remark": "6个 = 1包×6个装"
       },
       {
         "id": "bom_12jv1y0",
@@ -47239,7 +47239,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 18,
-        "remark": "内包装：4个 = 2包×2个装"
+        "remark": "4个 = 2包×2个装"
       },
       {
         "id": "bom_168f6as",
@@ -47254,7 +47254,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 19,
-        "remark": "内包装：6个 = 3包×2个装"
+        "remark": "6个 = 3包×2个装"
       },
       {
         "id": "bom_1nje7af",
@@ -47269,7 +47269,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 20,
-        "remark": "内包装：4个 = 1包×4个装"
+        "remark": "4个 = 1包×4个装"
       },
       {
         "id": "bom_14v9a87",
@@ -47284,7 +47284,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 21,
-        "remark": "内包装：6个 = 1包×6个装"
+        "remark": "6个 = 1包×6个装"
       },
       {
         "id": "bom_1ra8we3",
@@ -47425,7 +47425,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 9,
-        "remark": "内包装：2个 = 1包×2个装"
+        "remark": "2个 = 1包×2个装"
       },
       {
         "id": "bom_1l290zt",
@@ -47440,7 +47440,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 10,
-        "remark": "内包装：2个 = 1包×2个装"
+        "remark": "2个 = 1包×2个装"
       },
       {
         "id": "bom_mkmjua",
@@ -47693,7 +47693,7 @@
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 9,
-        "remark": "内包装：2个 = 1包×2个装"
+        "remark": "2个 = 1包×2个装"
       },
       {
         "id": "bom_c08ceo",
@@ -47708,7 +47708,7 @@
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 10,
-        "remark": "内包装：2个 = 1包×2个装"
+        "remark": "2个 = 1包×2个装"
       },
       {
         "id": "bom_4cmf2u",
@@ -47975,7 +47975,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 9,
-        "remark": "内包装：2个 = 1包×2个装"
+        "remark": "2个 = 1包×2个装"
       },
       {
         "id": "bom_193pyuk",
@@ -47990,7 +47990,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 10,
-        "remark": "内包装：2个 = 1包×2个装"
+        "remark": "2个 = 1包×2个装"
       },
       {
         "id": "bom_1g3876u",
@@ -48271,7 +48271,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 10,
-        "remark": "内包装：2个 = 1包×2个装"
+        "remark": "2个 = 1包×2个装"
       },
       {
         "id": "bom_24cys4",
@@ -48286,7 +48286,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 11,
-        "remark": "内包装：2个 = 1包×2个装"
+        "remark": "2个 = 1包×2个装"
       },
       {
         "id": "bom_1q0a1k4",
@@ -48553,7 +48553,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 10,
-        "remark": "内包装：2个 = 1包×2个装"
+        "remark": "2个 = 1包×2个装"
       },
       {
         "id": "bom_b6yg7x",
@@ -48568,7 +48568,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 11,
-        "remark": "内包装：2个 = 1包×2个装"
+        "remark": "2个 = 1包×2个装"
       },
       {
         "id": "bom_8yqzh2",
@@ -48933,7 +48933,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 18,
-        "remark": "内包装：2个 = 1包×2个装"
+        "remark": "2个 = 1包×2个装"
       },
       {
         "id": "bom_1vz59kn",
@@ -48948,7 +48948,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 19,
-        "remark": "内包装：6个 = 2包×3个装"
+        "remark": "6个 = 2包×3个装"
       },
       {
         "id": "bom_7nehmb",
@@ -48963,7 +48963,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 20,
-        "remark": "内包装：2个 = 1包×2个装"
+        "remark": "2个 = 1包×2个装"
       },
       {
         "id": "bom_tmo0w4",
@@ -48978,7 +48978,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 21,
-        "remark": "内包装：6个 = 1包×6个装"
+        "remark": "6个 = 1包×6个装"
       },
       {
         "id": "bom_g961qj",
@@ -49245,7 +49245,7 @@
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 18,
-        "remark": "内包装：2个 = 1包×2个装"
+        "remark": "2个 = 1包×2个装"
       },
       {
         "id": "bom_1h1xm2i",
@@ -49260,7 +49260,7 @@
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 19,
-        "remark": "内包装：6个 = 2包×3个装"
+        "remark": "6个 = 2包×3个装"
       },
       {
         "id": "bom_53ux8x",
@@ -49275,7 +49275,7 @@
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 20,
-        "remark": "内包装：2个 = 1包×2个装"
+        "remark": "2个 = 1包×2个装"
       },
       {
         "id": "bom_26nmvn",
@@ -49290,7 +49290,7 @@
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 21,
-        "remark": "内包装：6个 = 1包×6个装"
+        "remark": "6个 = 1包×6个装"
       },
       {
         "id": "bom_13jgr9u",
@@ -49557,7 +49557,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 18,
-        "remark": "内包装：2个 = 1包×2个装"
+        "remark": "2个 = 1包×2个装"
       },
       {
         "id": "bom_gnjrhz",
@@ -49572,7 +49572,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 19,
-        "remark": "内包装：6个 = 2包×3个装"
+        "remark": "6个 = 2包×3个装"
       },
       {
         "id": "bom_x4p20v",
@@ -49587,7 +49587,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 20,
-        "remark": "内包装：2个 = 1包×2个装"
+        "remark": "2个 = 1包×2个装"
       },
       {
         "id": "bom_1ejyrfc",
@@ -49602,7 +49602,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 21,
-        "remark": "内包装：6个 = 1包×6个装"
+        "remark": "6个 = 1包×6个装"
       },
       {
         "id": "bom_1iipljb",
@@ -49967,7 +49967,7 @@
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 25,
-        "remark": "内包装：2个 = 1包×2个装"
+        "remark": "2个 = 1包×2个装"
       },
       {
         "id": "bom_1jxlan8",
@@ -49982,7 +49982,7 @@
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 26,
-        "remark": "内包装：6个 = 1包×1个装 + 1包×2个装 + 1包×3个装"
+        "remark": "6个 = 1包×1个装 + 1包×2个装 + 1包×3个装"
       },
       {
         "id": "bom_kkpz3w",
@@ -49997,7 +49997,7 @@
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 27,
-        "remark": "内包装：2个 = 1包×2个装"
+        "remark": "2个 = 1包×2个装"
       },
       {
         "id": "bom_1pneqi7",
@@ -50012,7 +50012,7 @@
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 28,
-        "remark": "内包装：6个 = 1包×6个装"
+        "remark": "6个 = 1包×6个装"
       },
       {
         "id": "bom_dindgu",
@@ -50377,7 +50377,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 25,
-        "remark": "内包装：2个 = 1包×2个装"
+        "remark": "2个 = 1包×2个装"
       },
       {
         "id": "bom_itsm57",
@@ -50392,7 +50392,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 26,
-        "remark": "内包装：6个 = 1包×1个装 + 1包×2个装 + 1包×3个装"
+        "remark": "6个 = 1包×1个装 + 1包×2个装 + 1包×3个装"
       },
       {
         "id": "bom_od3n2",
@@ -50407,7 +50407,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 27,
-        "remark": "内包装：2个 = 1包×2个装"
+        "remark": "2个 = 1包×2个装"
       },
       {
         "id": "bom_9y2urd",
@@ -50422,7 +50422,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 28,
-        "remark": "内包装：6个 = 1包×6个装"
+        "remark": "6个 = 1包×6个装"
       },
       {
         "id": "bom_fbrlej",
@@ -50689,7 +50689,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 17,
-        "remark": "内包装：3个 = 1包×3个装"
+        "remark": "3个 = 1包×3个装"
       },
       {
         "id": "bom_z9taio",
@@ -50704,7 +50704,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 18,
-        "remark": "内包装：2个 = 1包×2个装"
+        "remark": "2个 = 1包×2个装"
       },
       {
         "id": "bom_fgaqh",
@@ -50719,7 +50719,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 19,
-        "remark": "内包装：3个 = 1包×3个装"
+        "remark": "3个 = 1包×3个装"
       },
       {
         "id": "bom_1twfy9i",
@@ -50734,7 +50734,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 20,
-        "remark": "内包装：2个 = 1包×2个装"
+        "remark": "2个 = 1包×2个装"
       },
       {
         "id": "bom_1vhmseu",
@@ -51001,7 +51001,7 @@
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 17,
-        "remark": "内包装：3个 = 1包×3个装"
+        "remark": "3个 = 1包×3个装"
       },
       {
         "id": "bom_6yacpm",
@@ -51016,7 +51016,7 @@
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 18,
-        "remark": "内包装：2个 = 1包×2个装"
+        "remark": "2个 = 1包×2个装"
       },
       {
         "id": "bom_dhrvix",
@@ -51031,7 +51031,7 @@
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 19,
-        "remark": "内包装：3个 = 1包×3个装"
+        "remark": "3个 = 1包×3个装"
       },
       {
         "id": "bom_dg2dbx",
@@ -51046,7 +51046,7 @@
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 20,
-        "remark": "内包装：2个 = 1包×2个装"
+        "remark": "2个 = 1包×2个装"
       },
       {
         "id": "bom_7p9dad",
@@ -51313,7 +51313,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 17,
-        "remark": "内包装：3个 = 1包×3个装"
+        "remark": "3个 = 1包×3个装"
       },
       {
         "id": "bom_12ajhnl",
@@ -51328,7 +51328,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 18,
-        "remark": "内包装：2个 = 1包×2个装"
+        "remark": "2个 = 1包×2个装"
       },
       {
         "id": "bom_1b33evh",
@@ -51343,7 +51343,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 19,
-        "remark": "内包装：3个 = 1包×3个装"
+        "remark": "3个 = 1包×3个装"
       },
       {
         "id": "bom_17jcx16",
@@ -51358,7 +51358,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 20,
-        "remark": "内包装：2个 = 1包×2个装"
+        "remark": "2个 = 1包×2个装"
       },
       {
         "id": "bom_v2k1re",
@@ -51639,7 +51639,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 18,
-        "remark": "内包装：4个 = 2包×2个装"
+        "remark": "4个 = 2包×2个装"
       },
       {
         "id": "bom_1i0i4x8",
@@ -51654,7 +51654,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 19,
-        "remark": "内包装：3个 = 1包×3个装"
+        "remark": "3个 = 1包×3个装"
       },
       {
         "id": "bom_1wcqmvs",
@@ -51669,7 +51669,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 20,
-        "remark": "内包装：4个 = 2包×2个装"
+        "remark": "4个 = 2包×2个装"
       },
       {
         "id": "bom_15n4d4v",
@@ -51684,7 +51684,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 21,
-        "remark": "内包装：3个 = 1包×3个装"
+        "remark": "3个 = 1包×3个装"
       },
       {
         "id": "bom_63lo4o",
@@ -51965,7 +51965,7 @@
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 18,
-        "remark": "内包装：4个 = 2包×2个装"
+        "remark": "4个 = 2包×2个装"
       },
       {
         "id": "bom_1w1f2qr",
@@ -51980,7 +51980,7 @@
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 19,
-        "remark": "内包装：3个 = 1包×3个装"
+        "remark": "3个 = 1包×3个装"
       },
       {
         "id": "bom_1vscw7w",
@@ -51995,7 +51995,7 @@
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 20,
-        "remark": "内包装：4个 = 2包×2个装"
+        "remark": "4个 = 2包×2个装"
       },
       {
         "id": "bom_11ybar8",
@@ -52010,7 +52010,7 @@
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 21,
-        "remark": "内包装：3个 = 1包×3个装"
+        "remark": "3个 = 1包×3个装"
       },
       {
         "id": "bom_19gpuet",
@@ -52291,7 +52291,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 18,
-        "remark": "内包装：4个 = 2包×2个装"
+        "remark": "4个 = 2包×2个装"
       },
       {
         "id": "bom_hhmqjs",
@@ -52306,7 +52306,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 19,
-        "remark": "内包装：3个 = 1包×3个装"
+        "remark": "3个 = 1包×3个装"
       },
       {
         "id": "bom_1b9n7vi",
@@ -52321,7 +52321,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 20,
-        "remark": "内包装：4个 = 2包×2个装"
+        "remark": "4个 = 2包×2个装"
       },
       {
         "id": "bom_g2gil",
@@ -52336,7 +52336,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 21,
-        "remark": "内包装：3个 = 1包×3个装"
+        "remark": "3个 = 1包×3个装"
       },
       {
         "id": "bom_1xp87ey",
@@ -52575,7 +52575,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 15,
-        "remark": "内包装：6个 = 2包×3个装"
+        "remark": "6个 = 2包×3个装"
       },
       {
         "id": "bom_ou2t7i",
@@ -52590,7 +52590,7 @@
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 16,
-        "remark": "内包装：6个 = 2包×3个装"
+        "remark": "6个 = 2包×3个装"
       },
       {
         "id": "bom_rxaknj",
@@ -52829,7 +52829,7 @@
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 15,
-        "remark": "内包装：6个 = 2包×3个装"
+        "remark": "6个 = 2包×3个装"
       },
       {
         "id": "bom_1aj9mod",
@@ -52844,7 +52844,7 @@
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 16,
-        "remark": "内包装：6个 = 2包×3个装"
+        "remark": "6个 = 2包×3个装"
       },
       {
         "id": "bom_1s43wba",
@@ -53083,7 +53083,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 15,
-        "remark": "内包装：6个 = 2包×3个装"
+        "remark": "6个 = 2包×3个装"
       },
       {
         "id": "bom_1i38js2",
@@ -53098,7 +53098,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 16,
-        "remark": "内包装：6个 = 2包×3个装"
+        "remark": "6个 = 2包×3个装"
       },
       {
         "id": "bom_1pde8vf",
@@ -53393,7 +53393,7 @@
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 19,
-        "remark": "内包装：6个 = 3包×2个装"
+        "remark": "6个 = 3包×2个装"
       },
       {
         "id": "bom_rnq1rf",
@@ -53408,7 +53408,7 @@
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 20,
-        "remark": "内包装：6个 = 2包×3个装"
+        "remark": "6个 = 2包×3个装"
       },
       {
         "id": "bom_xkvzve",
@@ -53703,7 +53703,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 19,
-        "remark": "内包装：6个 = 3包×2个装"
+        "remark": "6个 = 3包×2个装"
       },
       {
         "id": "bom_1oc9q31",
@@ -53718,7 +53718,7 @@
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 20,
-        "remark": "内包装：6个 = 2包×3个装"
+        "remark": "6个 = 2包×3个装"
       },
       {
         "id": "bom_1bps173",
