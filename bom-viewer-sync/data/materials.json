@@ -48912,7 +48912,7 @@
         "materialId": "mat_1tozvar",
         "stt": "15",
         "comp_code": "I2",
-        "qty": "2",
+        "qty": "1",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 15
@@ -49224,7 +49224,7 @@
         "materialId": "mat_47xasn",
         "stt": "15",
         "comp_code": "I2",
-        "qty": "2",
+        "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 15
@@ -49536,7 +49536,7 @@
         "materialId": "mat_1tozvar",
         "stt": "15",
         "comp_code": "I2",
-        "qty": "2",
+        "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 15
@@ -49946,10 +49946,10 @@
         "materialId": "mat_cu94o3",
         "stt": "22",
         "comp_code": "I2",
-        "qty": "2",
+        "qty": "1",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "order": 22
+        "order": 23
       },
       {
         "id": "bom_wqw7ax",
@@ -50356,10 +50356,10 @@
         "materialId": "mat_1f17fyv",
         "stt": "22",
         "comp_code": "I2",
-        "qty": "2",
+        "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 22
+        "order": 23
       },
       {
         "id": "bom_1skkyso",
@@ -85186,7 +85186,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "包装对象：LGS434SZKWH×2\n规则：1件/袋；用袋：2袋",
+        "remark": "包装对象：LGS434SZKZWH×1、LGS434SZKWH×1\n规则：1件/袋；用袋：2袋",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 73
@@ -85201,7 +85201,7 @@
         "stt": "",
         "comp_code": "",
         "qty": "2",
-        "remark": "包装对象：LGS434SZKWH×2\n规则：1件/袋；用袋：2袋",
+        "remark": "包装对象：LGS434SZKZBH×1、LGS434SZKBH×1\n规则：1件/袋；用袋：2袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 73
@@ -85503,6 +85503,106 @@
         "color_ver": "白色",
         "color_ver_vi": "白色",
         "order": 75
+      },
+      {
+        "id": "bomc_mat_lgs433szkzbh_mat_fg1515065884",
+        "parentType": "material",
+        "parentId": "mat_lgs433szkzbh",
+        "materialId": "mat_fg1515065884",
+        "childMaterialId": "mat_fg1515065884",
+        "qty": "0.111111",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_lgs433szkzbh_mat_m6ylm139",
+        "parentType": "material",
+        "parentId": "mat_lgs433szkzbh",
+        "materialId": "mat_m6ylm139",
+        "childMaterialId": "mat_m6ylm139",
+        "qty": "2",
+        "order": 1
+      },
+      {
+        "id": "bomc_mat_lgs433szkzwh_mat_fg1515065884",
+        "parentType": "material",
+        "parentId": "mat_lgs433szkzwh",
+        "materialId": "mat_fg1515065884",
+        "childMaterialId": "mat_fg1515065884",
+        "qty": "0.111111",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_lgs433szkzwh_mat_m6ylm139",
+        "parentType": "material",
+        "parentId": "mat_lgs433szkzwh",
+        "materialId": "mat_m6ylm139",
+        "childMaterialId": "mat_m6ylm139",
+        "qty": "2",
+        "order": 1
+      },
+      {
+        "id": "bom_lgs434_白色_lgs434szkzwh",
+        "parentType": "product",
+        "parentId": "LGS434",
+        "productCode": "LGS434",
+        "color": "白色",
+        "materialId": "mat_lgs434szkzwh",
+        "stt": "22",
+        "comp_code": "I1",
+        "qty": "1",
+        "color_ver": "白色",
+        "color_ver_vi": "màu trắng",
+        "order": 22
+      },
+      {
+        "id": "bomc_mat_lgs434szkzwh_mat_fg1515065598",
+        "parentType": "material",
+        "parentId": "mat_lgs434szkzwh",
+        "materialId": "mat_fg1515065598",
+        "childMaterialId": "mat_fg1515065598",
+        "qty": "0.125",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_lgs434szkzwh_mat_m6ylm139",
+        "parentType": "material",
+        "parentId": "mat_lgs434szkzwh",
+        "materialId": "mat_m6ylm139",
+        "childMaterialId": "mat_m6ylm139",
+        "qty": "2",
+        "order": 1
+      },
+      {
+        "id": "bom_lgs434_黑色_lgs434szkzbh",
+        "parentType": "product",
+        "parentId": "LGS434",
+        "productCode": "LGS434",
+        "color": "黑色",
+        "materialId": "mat_lgs434szkzbh",
+        "stt": "22",
+        "comp_code": "I1",
+        "qty": "1",
+        "color_ver": "黑色",
+        "color_ver_vi": "màu đen",
+        "order": 22
+      },
+      {
+        "id": "bomc_mat_lgs434szkzbh_mat_fg1515065598",
+        "parentType": "material",
+        "parentId": "mat_lgs434szkzbh",
+        "materialId": "mat_fg1515065598",
+        "childMaterialId": "mat_fg1515065598",
+        "qty": "0.125",
+        "order": 0
+      },
+      {
+        "id": "bomc_mat_lgs434szkzbh_mat_m6ylm139",
+        "parentType": "material",
+        "parentId": "mat_lgs434szkzbh",
+        "materialId": "mat_m6ylm139",
+        "childMaterialId": "mat_m6ylm139",
+        "qty": "2",
+        "order": 1
       }
     ]
   }

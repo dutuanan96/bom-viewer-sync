@@ -1583,6 +1583,65 @@
         },
         {
           "stt": "22",
+          "mat_code": "LGS434SZKZWH",
+          "comp_code": "I1",
+          "name_zh": "LGS434支撑框-左",
+          "name_vi": "LGS434 khung đỡ-trái",
+          "spec": "335x178x15mm",
+          "spec_vi": "335x178x15mm",
+          "material_zh": "Q195",
+          "material_vi": "Q195",
+          "color_zh": "白砂纹",
+          "color_vi": "trắng nhám",
+          "attr_zh": "零件",
+          "attr_vi": "linh kiện",
+          "color_ver": "白色",
+          "color_ver_vi": "màu trắng",
+          "qty": "1",
+          "remark": "",
+          "materials": [
+            {
+              "stt": "",
+              "mat_code": "FG1515065598",
+              "comp_code": "",
+              "name_zh": "方管",
+              "name_vi": "Sắt hộp",
+              "spec": "15×15×0.6Tmm，长度 5598mm",
+              "spec_vi": "15×15×0.6Tmm, dài 5598mm",
+              "material_zh": "Q195",
+              "material_vi": "Q195",
+              "color_zh": "光亮",
+              "color_vi": "sáng bóng",
+              "attr_zh": "原材料",
+              "attr_vi": "Nguyên vật liệu",
+              "color_ver": "",
+              "color_ver_vi": "",
+              "qty": "0.125",
+              "remark": ""
+            },
+            {
+              "stt": "",
+              "mat_code": "M6YLM139",
+              "comp_code": "",
+              "name_zh": "M6圆螺母",
+              "name_vi": "Đai ốc tròn M6",
+              "spec": "M6x13.9mm",
+              "spec_vi": "M6x13.9mm",
+              "material_zh": "Q195",
+              "material_vi": "Q195",
+              "color_zh": "光亮",
+              "color_vi": "sáng bóng",
+              "attr_zh": "原材料",
+              "attr_vi": "Nguyên vật liệu",
+              "color_ver": "",
+              "color_ver_vi": "",
+              "qty": "2",
+              "remark": ""
+            }
+          ]
+        },
+        {
+          "stt": "22",
           "mat_code": "LGS434SZKWH",
           "comp_code": "I2",
           "name_zh": "LGS434支撑框-右",
@@ -1597,7 +1656,7 @@
           "attr_vi": "linh kiện",
           "color_ver": "白色",
           "color_ver_vi": "màu trắng",
-          "qty": "2",
+          "qty": "1",
           "remark": "",
           "materials": [
             {
@@ -2115,7 +2174,7 @@
           "color_ver": "白色",
           "color_ver_vi": "màu trắng",
           "qty": "2",
-          "remark": "包装对象：LGS434SZKWH×2\n规则：1件/袋；用袋：2袋"
+          "remark": "包装对象：LGS434SZKZWH×1、LGS434SZKWH×1\n规则：1件/袋；用袋：2袋"
         },
         {
           "stt": "",
@@ -3735,6 +3794,65 @@
         },
         {
           "stt": "22",
+          "mat_code": "LGS434SZKZBH",
+          "comp_code": "I1",
+          "name_zh": "LGS434支撑框-左",
+          "name_vi": "LGS434 khung đỡ-trái",
+          "spec": "335x178x15mm",
+          "spec_vi": "335x178x15mm",
+          "material_zh": "Q195",
+          "material_vi": "Q195",
+          "color_zh": "黑砂纹",
+          "color_vi": "đen nhám",
+          "attr_zh": "零件",
+          "attr_vi": "linh kiện",
+          "color_ver": "黑色",
+          "color_ver_vi": "màu đen",
+          "qty": "1",
+          "remark": "",
+          "materials": [
+            {
+              "stt": "",
+              "mat_code": "FG1515065598",
+              "comp_code": "",
+              "name_zh": "方管",
+              "name_vi": "Sắt hộp",
+              "spec": "15×15×0.6Tmm，长度 5598mm",
+              "spec_vi": "15×15×0.6Tmm, dài 5598mm",
+              "material_zh": "Q195",
+              "material_vi": "Q195",
+              "color_zh": "光亮",
+              "color_vi": "sáng bóng",
+              "attr_zh": "原材料",
+              "attr_vi": "Nguyên vật liệu",
+              "color_ver": "",
+              "color_ver_vi": "",
+              "qty": "0.125",
+              "remark": ""
+            },
+            {
+              "stt": "",
+              "mat_code": "M6YLM139",
+              "comp_code": "",
+              "name_zh": "M6圆螺母",
+              "name_vi": "Đai ốc tròn M6",
+              "spec": "M6x13.9mm",
+              "spec_vi": "M6x13.9mm",
+              "material_zh": "Q195",
+              "material_vi": "Q195",
+              "color_zh": "光亮",
+              "color_vi": "sáng bóng",
+              "attr_zh": "原材料",
+              "attr_vi": "Nguyên vật liệu",
+              "color_ver": "",
+              "color_ver_vi": "",
+              "qty": "2",
+              "remark": ""
+            }
+          ]
+        },
+        {
+          "stt": "22",
           "mat_code": "LGS434SZKBH",
           "comp_code": "I2",
           "name_zh": "LGS434支撑框-右",
@@ -3749,7 +3867,7 @@
           "attr_vi": "linh kiện",
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
-          "qty": "2",
+          "qty": "1",
           "remark": "",
           "materials": [
             {
@@ -4267,7 +4385,7 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "2",
-          "remark": "包装对象：LGS434SZKWH×2\n规则：1件/袋；用袋：2袋"
+          "remark": "包装对象：LGS434SZKZBH×1、LGS434SZKBH×1\n规则：1件/袋；用袋：2袋"
         },
         {
           "stt": "",
