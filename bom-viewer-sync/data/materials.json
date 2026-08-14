@@ -39849,8 +39849,19 @@
           "zh": "零件",
           "vi": "linh kiện"
         },
-        "drawings": [],
-        "models3d": []
+        "drawings": [
+          {
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8c44e8b8f122e8bc3d0a10553e90046891691cb2/assets/pdfs/LGS421QHLBH_65c5b142cecb043f721dc3e37567397ac4629fb93de65733b6b20c94273b833c_LGS421-S-_.pdf",
+            "name": "LGS421-S-顶部横杆前.pdf"
+          }
+        ],
+        "models3d": [
+          {
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@667e425ad081103ddff932f25ff3a3b71f9ba459/assets/models/LGS421QHLBH_5a14900f860a00e6e6509b12b112a5f3c166fb695e5b0e5a4d4fc4ea1243c042_LGS421-S-_.glb",
+            "name": "LGS421-S-顶部横杆前.glb",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@667e425ad081103ddff932f25ff3a3b71f9ba459/assets/models/LGS421QHLBH_5a14900f860a00e6e6509b12b112a5f3c166fb695e5b0e5a4d4fc4ea1243c042_LGS421-S-_.glb"
+          }
+        ]
       },
       "mat_y8rp64": {
         "id": "mat_y8rp64",

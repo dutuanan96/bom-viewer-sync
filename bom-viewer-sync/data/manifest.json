@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-14T09:27:08.201Z",
+  "updatedAt": "2026-08-14T09:36:27.819Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -7536,6 +7536,29 @@
   },
   "notifications": [
     {
+      "id": "notif_1i9t09w",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-14T09:36:27.819Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "LGS421QHLBH",
+          "field": "drawings",
+          "before": "",
+          "after": "LGS421-S-顶部横杆前.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8c44e8b8f122e8bc3d0a10553e90046891691cb2/assets/pdfs/LGS421QHLBH_65c5b142cecb043f721dc3e37567397ac4629fb93de65733b6b20c94273b833c_LGS421-S-_.pdf"
+        },
+        {
+          "kind": "material",
+          "code": "LGS421QHLBH",
+          "field": "models3d",
+          "before": "",
+          "after": "LGS421-S-顶部横杆前.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@667e425ad081103ddff932f25ff3a3b71f9ba459/assets/models/LGS421QHLBH_5a14900f860a00e6e6509b12b112a5f3c166fb695e5b0e5a4d4fc4ea1243c042_LGS421-S-_.glb"
+        }
+      ]
+    },
+    {
       "id": "notif_1yyo4kw",
       "type": "github-save",
       "actor": "admin",
@@ -8427,22 +8450,6 @@
           "field": "",
           "before": "LGS231CBZBH",
           "after": "LGS232CBSBH"
-        }
-      ]
-    },
-    {
-      "id": "notif_1wsqoe4",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-12T04:23:51.552Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "LGS723XZQSLWH",
-          "field": "drawings",
-          "before": "",
-          "after": "LGS723_733-中竖梁-前|https://drive.google.com/file/d/1wGNyEQ86gWC4wPklqJJQUti1oVut05AB/view?usp=sharing"
         }
       ]
     }
@@ -11506,6 +11513,31 @@
       }
     ],
     "LGS421": [
+      {
+        "id": "history_sdqol6",
+        "productCode": "LGS421",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-14T09:36:27.819Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS421QHLBH",
+            "field": "drawings",
+            "before": "",
+            "after": "LGS421-S-顶部横杆前.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8c44e8b8f122e8bc3d0a10553e90046891691cb2/assets/pdfs/LGS421QHLBH_65c5b142cecb043f721dc3e37567397ac4629fb93de65733b6b20c94273b833c_LGS421-S-_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS421QHLBH",
+            "field": "models3d",
+            "before": "",
+            "after": "LGS421-S-顶部横杆前.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@667e425ad081103ddff932f25ff3a3b71f9ba459/assets/models/LGS421QHLBH_5a14900f860a00e6e6509b12b112a5f3c166fb695e5b0e5a4d4fc4ea1243c042_LGS421-S-_.glb"
+          }
+        ]
+      },
       {
         "id": "history_ttse58",
         "productCode": "LGS421",
