@@ -2928,6 +2928,20 @@ body.pdm-shell {
   width: auto;
 }
 
+/* Keep every BOM field readable within the content pane before horizontal scrolling. */
+.pdm-shell .bom-table th,
+.pdm-shell .bom-table td {
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.pdm-shell .bom-table td:nth-child(4),
+.pdm-shell .bom-table td:nth-child(5),
+.pdm-shell .bom-table td:nth-child(10) {
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
 .pdm-shell tbody tr:nth-child(even) td {
   background: #fbfbfc;
 }

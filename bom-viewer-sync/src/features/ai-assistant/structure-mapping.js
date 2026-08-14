@@ -31,6 +31,8 @@ export function findStructureMappings(mappingPack, { productId, query = '' } = {
       explanationZh: mapping.explanationZh,
       evidence: mapping.evidence,
       status: mapping.status,
+      category: mapping.category || 'structure',
+      packagingRuleStatus: mapping.packagingRuleStatus || 'confirmed',
     }))
     .slice(0, MAX_MAPPING_RESULTS);
 }

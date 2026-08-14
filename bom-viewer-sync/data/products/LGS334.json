@@ -1692,7 +1692,7 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "1",
-          "remark": "[包装] 贴附编号=C；颜色=白底黑字；贴附对象=待确认"
+          "remark": ""
         },
         {
           "stt": "",
@@ -1711,7 +1711,7 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "2",
-          "remark": "[包装] 贴附编号=I；颜色=白底黑字；贴附对象=待确认"
+          "remark": ""
         },
         {
           "stt": "",
@@ -1730,7 +1730,7 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "1",
-          "remark": "[包装] 贴附编号=D；颜色=蓝底黑字；贴附对象=待确认"
+          "remark": ""
         },
         {
           "stt": "",
@@ -1749,7 +1749,7 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "1",
-          "remark": "[包装] 贴附编号=E；颜色=绿底黑字；贴附对象=待确认"
+          "remark": ""
         },
         {
           "stt": "",
@@ -1768,7 +1768,7 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "2",
-          "remark": "[包装] 贴附编号=R；颜色=白底黑字；贴附对象=待确认"
+          "remark": ""
         },
         {
           "stt": "",
@@ -1787,7 +1787,7 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "2",
-          "remark": "[包装] 贴附编号=T；颜色=白底黑字；贴附对象=待确认"
+          "remark": ""
         },
         {
           "stt": "",
@@ -1806,7 +1806,7 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "1",
-          "remark": "[包装] 贴附编号=F；颜色=白底黑字；贴附对象=待确认"
+          "remark": ""
         },
         {
           "stt": "",
@@ -1825,7 +1825,7 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "1",
-          "remark": "[包装] 贴附编号=G；颜色=白底黑字；贴附对象=待确认"
+          "remark": ""
         },
         {
           "stt": "",
@@ -1844,7 +1844,7 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "1",
-          "remark": "[包装] 贴附编号=J；颜色=白底黑字；贴附对象=待确认"
+          "remark": ""
         },
         {
           "stt": "",
@@ -1863,7 +1863,7 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "1",
-          "remark": "[包装] 贴附编号=K；颜色=白底黑字；贴附对象=待确认"
+          "remark": ""
         },
         {
           "stt": "",
@@ -1882,7 +1882,7 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "2",
-          "remark": "[包装] 贴附编号=L1；颜色=白底黑字；贴附对象=待确认"
+          "remark": ""
         },
         {
           "stt": "",
@@ -1901,7 +1901,7 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "2",
-          "remark": "[包装] 贴附编号=L2；颜色=白底黑字；贴附对象=待确认"
+          "remark": ""
         },
         {
           "stt": "",
@@ -1920,7 +1920,7 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "2",
-          "remark": "[包装] 贴附编号=M；颜色=白底黑字；贴附对象=待确认"
+          "remark": ""
         },
         {
           "stt": "",
@@ -1939,7 +1939,7 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "2",
-          "remark": "[包装] 包装对象=待确认；PE袋=720*400；用量=2袋"
+          "remark": ""
         },
         {
           "stt": "",
@@ -1958,7 +1958,7 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "2",
-          "remark": "[包装] 包装对象=待确认；PE袋=400*220；用量=2袋"
+          "remark": ""
         },
         {
           "stt": "",
@@ -1977,7 +1977,7 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "4",
-          "remark": "[包装] 包装对象=待确认；PE袋=830*60；用量=4袋"
+          "remark": ""
         },
         {
           "stt": "",
@@ -1996,7 +1996,7 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "2",
-          "remark": "[包装] 包装对象=待确认；PE袋=460*60；用量=2袋"
+          "remark": ""
         }
       ]
     }

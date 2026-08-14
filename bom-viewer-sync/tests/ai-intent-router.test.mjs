@@ -30,6 +30,15 @@ test('routes structural mapping questions to deterministic mapping lookup', () =
   assert.equal(route.preferredTool, 'get_structure_mapping');
 });
 
+test('routes packaging-rule questions to deterministic mapping lookup', () => {
+  const route = routePdmIntent({
+    query: 'LGS031 PE袋 620x350 đóng gói thế nào?',
+    availableTools: READ_TOOLS,
+  });
+  assert.equal(route.intent, 'structure_mapping');
+  assert.equal(route.preferredTool, 'get_structure_mapping');
+});
+
 test('routes explicit Admin edit requests to the governed proposal tool', () => {
   const route = routePdmIntent({
     query: 'Update material M1 unit to pcs',

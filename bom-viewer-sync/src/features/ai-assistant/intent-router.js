@@ -292,7 +292,7 @@ export function routePdmIntent({
           ? contextualShorthandProductIds
         : isContextualFollowUp && priorProductIds.length > 0 ? priorProductIds : historicalProductIds;
   const entities = materialIds.length > 0 ? { productIds, materialIds } : { productIds };
-  const structureMappingPattern = /展开|折弯|u形|映射|结构|内衬管|连接管|连接件|c[nơ]c|khung\s*u|u\s*hình|mapping|bent\s*frame/i;
+  const structureMappingPattern = /展开|折弯|u形|映射|结构|内衬管|连接管|连接件|包装规则|包装对象|贴附规则|贴附对象|pe袋|đóng\s*gói|quy\s*tắc\s*đóng\s*gói|c[nơ]c|khung\s*u|u\s*hình|mapping|bent\s*frame|packaging/i;
   if (productIds.length === 1 && structureMappingPattern.test(text) && tools.has('get_structure_mapping')) {
     return result('structure_mapping', { ...entities, searchQuery: text }, 'get_structure_mapping');
   }

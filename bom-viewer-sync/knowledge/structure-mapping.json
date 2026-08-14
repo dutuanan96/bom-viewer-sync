@@ -208,7 +208,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS031-010",
@@ -231,7 +233,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS031-011",
@@ -254,7 +258,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS031-012",
@@ -277,7 +283,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS031-013",
@@ -300,7 +308,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS031-014",
@@ -323,7 +333,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS032-015",
@@ -967,7 +979,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS043-043",
@@ -990,7 +1004,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS043-044",
@@ -1013,7 +1029,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS043-045",
@@ -1036,7 +1054,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS043-046",
@@ -1059,7 +1079,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS043-047",
@@ -1082,7 +1104,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS043-048",
@@ -1105,7 +1129,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS043-049",
@@ -1128,7 +1154,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS043-050",
@@ -1151,7 +1179,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS043-051",
@@ -1174,7 +1204,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS043-052",
@@ -1197,7 +1229,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS043-053",
@@ -1220,7 +1254,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS043-054",
@@ -1243,7 +1279,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS043-055",
@@ -1266,7 +1304,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS043-056",
@@ -1289,7 +1329,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS043-057",
@@ -1312,7 +1354,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS131-058",
@@ -1588,7 +1632,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS131-070",
@@ -1611,7 +1657,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS131-071",
@@ -1634,7 +1682,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS131-072",
@@ -1657,7 +1707,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS131-073",
@@ -1680,7 +1732,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS131-074",
@@ -1703,7 +1757,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS131-075",
@@ -1726,7 +1782,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS131-076",
@@ -1749,7 +1807,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS132-077",
@@ -2416,7 +2476,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS231-106",
@@ -2439,7 +2501,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS231-107",
@@ -2462,7 +2526,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS231-108",
@@ -2485,7 +2551,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS231-109",
@@ -2508,7 +2576,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS231-110",
@@ -2531,7 +2601,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS231-111",
@@ -2554,7 +2626,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS231-112",
@@ -2577,7 +2651,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS232-113",
@@ -3267,7 +3343,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS420-143",
@@ -3290,7 +3368,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS420-144",
@@ -3313,7 +3393,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS420-145",
@@ -3336,7 +3418,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS420-146",
@@ -3359,7 +3443,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS420-147",
@@ -3382,7 +3468,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS420-148",
@@ -3405,7 +3493,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS420-149",
@@ -3428,7 +3518,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS420-150",
@@ -3451,7 +3543,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS420-151",
@@ -3474,7 +3568,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS421-152",
@@ -3773,7 +3869,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS421-165",
@@ -3796,7 +3894,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS421-166",
@@ -3819,7 +3919,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS421-167",
@@ -3842,7 +3944,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS421-168",
@@ -3865,7 +3969,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS421-169",
@@ -3888,7 +3994,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS421-170",
@@ -3911,7 +4019,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS421-171",
@@ -3934,7 +4044,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS421-172",
@@ -3957,7 +4069,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS421-173",
@@ -3980,7 +4094,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS033-174",
@@ -4210,7 +4326,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS033-184",
@@ -4233,7 +4351,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS033-185",
@@ -4256,7 +4376,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS033-186",
@@ -4279,7 +4401,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS033-187",
@@ -4302,7 +4426,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS033-188",
@@ -4325,7 +4451,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS033-189",
@@ -4348,7 +4476,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS133-190",
@@ -5015,7 +5145,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS233-219",
@@ -5038,7 +5170,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS233-220",
@@ -5061,7 +5195,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS233-221",
@@ -5084,7 +5220,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS233-222",
@@ -5107,7 +5245,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS233-223",
@@ -5130,7 +5270,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS233-224",
@@ -5153,7 +5295,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS233-225",
@@ -5176,7 +5320,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS233-226",
@@ -5199,7 +5345,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS233-227",
@@ -5222,7 +5370,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS233-228",
@@ -5245,7 +5395,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS233-229",
@@ -5268,7 +5420,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS333-230",
@@ -5590,7 +5744,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS333-244",
@@ -5613,7 +5769,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS333-245",
@@ -5636,7 +5794,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS333-246",
@@ -5659,7 +5819,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS333-247",
@@ -5682,7 +5844,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS333-248",
@@ -5705,7 +5869,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS333-249",
@@ -5728,7 +5894,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS333-250",
@@ -5751,7 +5919,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS333-251",
@@ -5774,7 +5944,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS333-252",
@@ -5797,7 +5969,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS333-253",
@@ -5820,7 +5994,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS333-254",
@@ -5843,7 +6019,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS333-255",
@@ -5866,7 +6044,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS334-256",
@@ -6326,7 +6506,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS334-276",
@@ -6349,7 +6531,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS334-277",
@@ -6372,7 +6556,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS334-278",
@@ -6395,7 +6581,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS334-279",
@@ -6418,7 +6606,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS334-280",
@@ -6441,7 +6631,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS334-281",
@@ -6464,7 +6656,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS334-282",
@@ -6487,7 +6681,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS334-283",
@@ -6510,7 +6706,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS334-284",
@@ -6533,7 +6731,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS334-285",
@@ -6556,7 +6756,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS334-286",
@@ -6579,7 +6781,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS334-287",
@@ -6602,7 +6806,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS334-288",
@@ -6625,7 +6831,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS334-289",
@@ -6648,7 +6856,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS334-290",
@@ -6671,7 +6881,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS334-291",
@@ -6694,7 +6906,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS433-292",
@@ -7844,7 +8058,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS723-342",
@@ -7867,7 +8083,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS723-343",
@@ -7890,7 +8108,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS723-344",
@@ -7913,7 +8133,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS723-345",
@@ -7936,7 +8158,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS723-346",
@@ -7959,7 +8183,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS723-347",
@@ -7982,7 +8208,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS723-348",
@@ -8005,7 +8233,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS723-349",
@@ -8028,7 +8258,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS723-350",
@@ -8051,7 +8283,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS723-351",
@@ -8074,7 +8308,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS723-352",
@@ -8097,7 +8333,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS723-353",
@@ -8120,7 +8358,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS733-354",
@@ -8465,7 +8705,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS733-369",
@@ -8488,7 +8730,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS733-370",
@@ -8511,7 +8755,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS733-371",
@@ -8534,7 +8780,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS733-372",
@@ -8557,7 +8805,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS733-373",
@@ -8580,7 +8830,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS733-374",
@@ -8603,7 +8855,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS733-375",
@@ -8626,7 +8880,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS733-376",
@@ -8649,7 +8905,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS733-377",
@@ -8672,7 +8930,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS733-378",
@@ -8695,7 +8955,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS733-379",
@@ -8718,7 +8980,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS733-380",
@@ -8741,7 +9005,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS733-381",
@@ -8764,7 +9030,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS733-382",
@@ -8787,7 +9055,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS833-383",
@@ -9063,7 +9333,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS833-395",
@@ -9086,7 +9358,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS833-396",
@@ -9109,7 +9383,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS833-397",
@@ -9132,7 +9408,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS833-398",
@@ -9155,7 +9433,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS833-399",
@@ -9178,7 +9458,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS833-400",
@@ -9201,7 +9483,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS833-401",
@@ -9224,7 +9508,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS833-402",
@@ -9247,7 +9533,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS833-403",
@@ -9270,7 +9558,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS834-404",
@@ -9799,7 +10089,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS101-427",
@@ -9822,7 +10114,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS101-428",
@@ -9845,7 +10139,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS101-429",
@@ -9868,7 +10164,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS101-430",
@@ -9891,7 +10189,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS111-431",
@@ -10029,7 +10329,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS111-437",
@@ -10052,7 +10354,9 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS111-438",
@@ -10075,7 +10379,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS111-439",
@@ -10098,7 +10404,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     },
     {
       "id": "MAP-LGS111-440",
@@ -10121,7 +10429,9 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射"
+      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "category": "packaging",
+      "packagingRuleStatus": "pending"
     }
   ]
 }

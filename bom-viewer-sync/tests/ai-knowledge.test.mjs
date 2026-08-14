@@ -447,12 +447,16 @@ test('R1.3 integration: variant gaps and frame dimensions are derived from canon
   assert.ok(nearHeight.clarificationData.nearValues.includes(659));
 });
 
-test('structure mapping returns only owner-confirmed deterministic records', () => {
+test('structure mapping returns deterministic records and exposes pending packaging rules', () => {
   const knowledge = new PdmKnowledge(loadCanonicalSnapshot(), { structureMapping });
   const lgs033 = knowledge.getStructureMapping({ productId: 'LGS033', query: '1458 U形折弯' });
   assert.equal(lgs033.found, true);
   assert.equal(lgs033.mappings[0].id, 'MAP-LGS033-177');
   assert.equal(lgs033.mappings[0].target.materialCodes[0], 'LGS033ZYKBH');
+
+  const packaging = knowledge.getStructureMapping({ productId: 'LGS031', query: 'PE袋 620' });
+  assert.equal(packaging.found, true);
+  assert.equal(packaging.mappings[0].packagingRuleStatus, 'pending');
 
   const unknown = knowledge.getStructureMapping({ productId: 'LGS031', query: 'unconfirmed component' });
   assert.equal(unknown.found, false);

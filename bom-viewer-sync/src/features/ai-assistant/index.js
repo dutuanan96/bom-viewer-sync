@@ -228,7 +228,7 @@ export function formatLocalToolFallback(t, { toolCall, toolResult } = {}) {
       return lines.join('\n').slice(0, 5000);
     }
     lines.push(...(toolResult.mappings || []).slice(0, 8).map(mapping => (
-      `- ${mapping.id}: ${mapping.explanationZh || ''} [${(mapping.target?.materialCodes || []).join(', ')}]`
+      `- ${mapping.id}: ${mapping.explanationZh || ''} [${(mapping.target?.materialCodes || []).join(', ')}]${mapping.packagingRuleStatus === 'pending' ? ` — ${tr('ai.localFallback.packagingRulePending', 'Packaging rule pending confirmation')}` : ''}`
     )));
     return lines.join('\n').slice(0, 5000);
   }
@@ -473,7 +473,7 @@ const TOOL_SCHEMAS = {
     parameters: { type: 'object', properties: { productId: PRODUCT_ID_SCHEMA, color: NON_EMPTY_STRING_SCHEMA, query: NON_EMPTY_STRING_SCHEMA }, required: ['productId'], additionalProperties: false }
   },
   get_structure_mapping: {
-    description: 'Get owner-confirmed Excel-to-PDM structural mapping. Read-only; returns only deterministic confirmed mappings.',
+    description: 'Get confirmed Excel-to-PDM mapping. Read-only; packaging material mappings may identify a pending physical packaging or attachment rule.',
     parameters: { type: 'object', properties: { productId: PRODUCT_ID_SCHEMA, query: NON_EMPTY_STRING_SCHEMA }, required: ['productId'], additionalProperties: false }
   },
   get_revision_history: {
