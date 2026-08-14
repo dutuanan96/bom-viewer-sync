@@ -216,12 +216,18 @@ test('Material Database edit action is explicit and compact', () => {
 
 test('Material where-used stays compact and exposes full usage details', () => {
   const context = {
-    label: (key) => key,
+    label: (key) => key === 'indirectUsage' ? 'via parent' : key,
   };
-  const usageItems = Array.from({ length: 5 }, (_, index) => ({ label: `LGS00${index + 1}` }));
+  const usageItems = Array.from({ length: 5 }, (_, index) => ({
+    compactLabel: `LGS00${index + 1} · V3`,
+    label: `LGS00${index + 1} · V3 · effectiveUsage`,
+    usageType: index === 0 ? 'indirect' : 'direct',
+  }));
   const html = materialViewMethods.materialUsagePills.call(context, 'material-1', usageItems, 3);
 
-  assert.equal((html.match(/class="spu-pill"/g) || []).length, 3);
+  assert.equal((html.match(/class="spu-pill(?: usage-indirect)?"/g) || []).length, 3);
+  assert.match(html, />LGS001 · V3 · via parent<\/span>/);
+  assert.match(html, /title="LGS001 · V3 · effectiveUsage"/);
   assert.match(html, /data-material-usage="material-1"/);
   assert.match(html, />\+2<\/button>/);
   assert.match(appSource, /openMaterialUsageDetails/);

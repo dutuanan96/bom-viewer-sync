@@ -1330,6 +1330,7 @@ mark {
 }
 
 .material-db-view table {
+  table-layout: fixed;
   width: 100%;
 }
 
@@ -1487,43 +1488,40 @@ mark {
 }
 
 .material-db-view .mdb-col-code {
-  width: 130px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  width: 10%;
 }
 
 .material-db-view .mdb-col-name {
-  width: auto;
+  width: 17%;
 }
 
 .material-db-view .mdb-col-spec {
-  width: auto;
+  width: 14%;
 }
 
 .material-db-view .mdb-col-mat {
-  width: 140px;
+  width: 11%;
 }
 
 .material-db-view .mdb-col-color {
-  width: 90px;
+  width: 8%;
 }
 
 .material-db-view .mdb-col-attr {
-  width: 80px;
+  width: 7%;
 }
 
 .material-db-view .mdb-col-num {
-  width: 60px;
+  width: 4%;
   text-align: center;
 }
 
 .material-db-view .mdb-col-used {
-  width: 110px;
+  width: 10%;
 }
 
 .material-db-view .mdb-col-action {
-  width: 70px;
+  width: 5%;
   text-align: center;
 }
 
@@ -1627,7 +1625,6 @@ mark {
   font-family: 'SF Mono', 'Menlo', Consolas, monospace;
   font-size: 11.5px;
   letter-spacing: -0.2px;
-  white-space: nowrap;
 }
 
 /* SPU pill list – compact inline tags */
@@ -2942,6 +2939,19 @@ body.pdm-shell {
   white-space: normal;
 }
 
+.pdm-shell .material-db-view td.mdb-col-code,
+.pdm-shell .material-db-view td.mdb-col-name,
+.pdm-shell .material-db-view td.mdb-col-spec,
+.pdm-shell .material-db-view td.mdb-col-mat,
+.pdm-shell .material-db-view td.mdb-col-used,
+.pdm-shell .material-db-view td.mdb-col-name > div,
+.pdm-shell .material-db-view td.mdb-col-spec > div,
+.pdm-shell .material-db-view td.mdb-col-mat > div,
+.pdm-shell .material-db-view td.mdb-col-used > div {
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
 .pdm-shell tbody tr:nth-child(even) td {
   background: #fbfbfc;
 }
@@ -3078,8 +3088,7 @@ body.pdm-shell {
 
 /* Material Master detail editor */
 .pdm-shell .material-db-view table {
-  table-layout: auto;
-  min-width: 1120px;
+  min-width: 0;
 }
 
 .pdm-shell .material-master-view {

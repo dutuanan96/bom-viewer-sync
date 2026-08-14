@@ -218,14 +218,14 @@ function materialDbRowHtml(record) {
   const editButton = `<button class="drawing-btn" title="${escapeHTML(this.label('editMaterial'))}" type="button" data-edit-db-material="${escapeHTML(record.id)}"><span class="material-symbols-outlined" style="font-size: 16px;">edit</span></button>`;
   return `<tr data-material-row="${escapeHTML(record.id)}">
     <td class="mdb-col-code"><span class="mat-code">${this.highlight(escapeHTML(record.code || ''))}</span></td>
-    <td><div>${this.highlight(localized(record.name))}</div></td>
-    <td><div>${this.highlight(localized(record.spec))}</div></td>
-    <td><div>${this.highlight(localized(record.material))}</div></td>
+    <td class="mdb-col-name"><div>${this.highlight(localized(record.name))}</div></td>
+    <td class="mdb-col-spec"><div>${this.highlight(localized(record.spec))}</div></td>
+    <td class="mdb-col-mat"><div>${this.highlight(localized(record.material))}</div></td>
     <td><div>${this.renderColorDot(localized(record.color))}</div></td>
     <td><div>${this.renderAttrBadge(localized(record.attr))}</div></td>
     <td class="mdb-center">${(record.drawings || []).length ? `<button class="drawing-btn primary" type="button" data-drawing-material="${escapeHTML(record.id)}"><span class="material-symbols-outlined" style="font-size: 16px;">image</span></button>` : '<span class="mdb-empty">-</span>'}</td>
     <td class="mdb-center">${(record.models3d || []).length ? `<button class="drawing-btn primary" type="button" data-model3d-material="${escapeHTML(record.id)}"><span class="material-symbols-outlined" style="font-size: 16px;">3d_rotation</span></button>` : '<span class="mdb-empty">-</span>'}</td>
-    <td><div class="spu-pill-list">${spuPills}</div></td>
+    <td class="mdb-col-used"><div class="spu-pill-list">${spuPills}</div></td>
     <td class="mdb-center">${whereUsed.parentEntries.length}</td>
     <td class="mdb-center">${whereUsed.childEntries.length}</td>
     ${showActions ? `<td><div style="display:flex; justify-content:center;">${editButton}</div></td>` : ''}
@@ -360,6 +360,7 @@ function materialUsageItems(whereUsed) {
     if (!unique.has(key)) {
       unique.set(key, {
         ...entry,
+        compactLabel: `${entry.productCode}${revisionLabel}`,
         label: `${entry.productCode}${revisionLabel} · ${statusLabel}${indirectLabel}`,
       });
     }
@@ -370,7 +371,11 @@ function materialUsageItems(whereUsed) {
 function materialUsagePills(materialId, usageItems, limit = 3) {
   if (!usageItems.length) return '<span class="mdb-empty">-</span>';
   const visible = usageItems.slice(0, limit);
-  const pills = visible.map((item) => `<span class="spu-pill" title="${escapeHTML(item.label)}">${escapeHTML(item.label)}</span>`);
+  const pills = visible.map((item) => {
+    const compactLabel = item.compactLabel || item.label;
+    const indirectLabel = item.usageType === 'indirect' ? ` · ${this.label('indirectUsage')}` : '';
+    return `<span class="spu-pill" title="${escapeHTML(item.label)}" aria-label="${escapeHTML(item.label)}">${escapeHTML(compactLabel + indirectLabel)}</span>`;
+  });
   const remaining = usageItems.length - visible.length;
   if (remaining > 0) {
     pills.push(`<button class="spu-pill usage-more" type="button" data-material-usage="${escapeHTML(materialId)}" title="${escapeHTML(this.label('usageDetails'))}">+${remaining}</button>`);
