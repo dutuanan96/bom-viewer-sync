@@ -2891,7 +2891,7 @@ body.pdm-shell {
 }
 
 .bom-table .bom-remark {
-  white-space: normal;
+  white-space: pre-line;
   word-break: break-word;
   overflow-wrap: anywhere;
 }

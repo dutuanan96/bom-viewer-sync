@@ -1397,7 +1397,7 @@
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
           "qty": "4",
-          "remark": "包装：LGS833ZYKBH×2、LGS833ZKBH×1、LGS833YKBH×1；1件/袋"
+          "remark": "包装对象：LGS833ZYKBH×2、LGS833ZKBH×1、LGS833YKBH×1\n规则：1件/袋；用袋：4袋"
         },
         {
           "stt": "",
@@ -1416,7 +1416,7 @@
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
           "qty": "2",
-          "remark": "包装：LGS333XHHLBH×1、LGS333XQHLBH×1、LGS833SQHLBH×2；2件/袋"
+          "remark": "包装对象：LGS333XHHLBH×1、LGS333XQHLBH×1、LGS833SQHLBH×2\n规则：2件/袋；用袋：2袋"
         },
         {
           "stt": "",
@@ -1435,7 +1435,7 @@
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
           "qty": "1",
-          "remark": "包装：ZJG150654BH×2；2件/袋"
+          "remark": "包装对象：ZJG150654BH×2\n规则：2件/袋；用袋：1袋"
         }
       ]
     },
@@ -2830,7 +2830,7 @@
           "color_ver": "白色",
           "color_ver_vi": "màu trắng",
           "qty": "4",
-          "remark": "包装：LGS833ZYKBH×2、LGS833ZKBH×1、LGS833YKBH×1；1件/袋"
+          "remark": "包装对象：LGS833ZYKBH×2、LGS833ZKBH×1、LGS833YKBH×1\n规则：1件/袋；用袋：4袋"
         },
         {
           "stt": "",
@@ -2849,7 +2849,7 @@
           "color_ver": "白色",
           "color_ver_vi": "màu trắng",
           "qty": "2",
-          "remark": "包装：LGS333XHHLBH×1、LGS333XQHLBH×1、LGS833SQHLBH×2；2件/袋"
+          "remark": "包装对象：LGS333XHHLBH×1、LGS333XQHLBH×1、LGS833SQHLBH×2\n规则：2件/袋；用袋：2袋"
         },
         {
           "stt": "",
@@ -2868,7 +2868,7 @@
           "color_ver": "白色",
           "color_ver_vi": "màu trắng",
           "qty": "1",
-          "remark": "包装：ZJG150654BH×2；2件/袋"
+          "remark": "包装对象：ZJG150654BH×2\n规则：2件/袋；用袋：1袋"
         }
       ]
     },
@@ -4263,7 +4263,7 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "4",
-          "remark": "包装：LGS833ZYKBH×2、LGS833ZKBH×1、LGS833YKBH×1；1件/袋"
+          "remark": "包装对象：LGS833ZYKBH×2、LGS833ZKBH×1、LGS833YKBH×1\n规则：1件/袋；用袋：4袋"
         },
         {
           "stt": "",
@@ -4282,7 +4282,7 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "2",
-          "remark": "包装：LGS333XHHLBH×1、LGS333XQHLBH×1、LGS833SQHLBH×2；2件/袋"
+          "remark": "包装对象：LGS333XHHLBH×1、LGS333XQHLBH×1、LGS833SQHLBH×2\n规则：2件/袋；用袋：2袋"
         },
         {
           "stt": "",
@@ -4301,7 +4301,7 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "1",
-          "remark": "包装：ZJG150654BH×2；2件/袋"
+          "remark": "包装对象：ZJG150654BH×2\n规则：2件/袋；用袋：1袋"
         }
       ]
     }

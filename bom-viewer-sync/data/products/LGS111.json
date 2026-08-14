@@ -857,7 +857,7 @@
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
           "qty": "2",
-          "remark": "包装：LGS101ZCKBH×2、LGS101YCKBH×2；2件/袋"
+          "remark": "包装对象：LGS101ZCKBH×2、LGS101YCKBH×2\n规则：2件/袋；用袋：2袋"
         },
         {
           "stt": "",
@@ -876,7 +876,7 @@
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
           "qty": "1",
-          "remark": "包装：LGS101HLBH×4；4件/袋"
+          "remark": "包装对象：LGS101HLBH×4\n规则：4件/袋；用袋：1袋"
         }
       ]
     },
@@ -1731,7 +1731,7 @@
           "color_ver": "白色",
           "color_ver_vi": "màu trắng",
           "qty": "2",
-          "remark": "包装：LGS101ZCKBH×2、LGS101YCKBH×2；2件/袋"
+          "remark": "包装对象：LGS101ZCKBH×2、LGS101YCKBH×2\n规则：2件/袋；用袋：2袋"
         },
         {
           "stt": "",
@@ -1750,7 +1750,7 @@
           "color_ver": "白色",
           "color_ver_vi": "màu trắng",
           "qty": "1",
-          "remark": "包装：LGS101HLBH×4；4件/袋"
+          "remark": "包装对象：LGS101HLBH×4\n规则：4件/袋；用袋：1袋"
         }
       ]
     },
@@ -2605,7 +2605,7 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "2",
-          "remark": "包装：LGS101ZCKBH×2、LGS101YCKBH×2；2件/袋"
+          "remark": "包装对象：LGS101ZCKBH×2、LGS101YCKBH×2\n规则：2件/袋；用袋：2袋"
         },
         {
           "stt": "",
@@ -2624,7 +2624,7 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "1",
-          "remark": "包装：LGS101HLBH×4；4件/袋"
+          "remark": "包装对象：LGS101HLBH×4\n规则：4件/袋；用袋：1袋"
         }
       ]
     }

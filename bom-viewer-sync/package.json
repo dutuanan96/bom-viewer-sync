@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "audit:data": "node scripts/sync-product-bom-remarks.mjs --check && node scripts/audit-data.mjs",
+    "audit:data": "node scripts/normalize-pe-packaging-remarks.mjs --check && node scripts/sync-product-bom-remarks.mjs --check && node scripts/audit-data.mjs",
     "audit:rollback": "node scripts/audit-data.mjs --data data.js",
     "audit:material-assets": "node scripts/audit-material-assets.mjs --mapping scripts/material-asset-mapping.json",
     "audit:runtime-deps": "node scripts/audit-runtime-dependencies.mjs",
