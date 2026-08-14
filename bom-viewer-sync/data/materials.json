@@ -26850,41 +26850,6 @@
           }
         ]
       },
-      "mat_1a4uz67": {
-        "id": "mat_1a4uz67",
-        "code": "LGS420YZKWHGK",
-        "name": {
-          "zh": "LGS131_231_420_421-右中框",
-          "vi": "LGS131_231_420_421-Khung giữa phải"
-        },
-        "spec": {
-          "zh": "576x335x15mm",
-          "vi": "576x335x15mm"
-        },
-        "material": {
-          "zh": "Q195",
-          "vi": "Q195"
-        },
-        "color": {
-          "zh": "白砂纹",
-          "vi": "trắng nhám"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [],
-        "models3d": [
-          {
-            "name": "LGS421_420-S_231_131-右中框.glb",
-            "path": "models3d/catalog/LGS421-420-S-231-131-f5fccd7c.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS421-420-S-231-131-f5fccd7c.glb",
-            "matched_name": "LGS421_420-S_231_131-右中框",
-            "score": 1100,
-            "bytes": 165832
-          }
-        ]
-      },
       "mat_t3dlni": {
         "id": "mat_t3dlni",
         "code": "BCDB350327003WH",
@@ -26961,41 +26926,6 @@
             "score": 1100,
             "bytes": 19620,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-35x32-5x18-7-0b6b8af7.glb"
-          }
-        ]
-      },
-      "mat_v9mt29": {
-        "id": "mat_v9mt29",
-        "code": "LGS420ZZKWHGK",
-        "name": {
-          "zh": "LGS131_231_420_421-左中框",
-          "vi": "LGS131_231_420_421-Khung giữa trái"
-        },
-        "spec": {
-          "zh": "576x335x15mm",
-          "vi": "576x335x15mm"
-        },
-        "material": {
-          "zh": "Q195",
-          "vi": "Q195"
-        },
-        "color": {
-          "zh": "白砂纹",
-          "vi": "trắng nhám"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [],
-        "models3d": [
-          {
-            "name": "LGS421_420-S_231_131-左中框.glb",
-            "path": "models3d/catalog/LGS421-420-S-231-131-1b6e803a.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS421-420-S-231-131-1b6e803a.glb",
-            "matched_name": "LGS421_420-S_231_131-左中框",
-            "score": 1100,
-            "bytes": 165832
           }
         ]
       },
@@ -81922,24 +81852,6 @@
         "order": 1
       },
       {
-        "id": "bomc_mat_1a4uz67_mat_fg1515065800",
-        "parentType": "material",
-        "parentId": "mat_1a4uz67",
-        "materialId": "mat_fg1515065800",
-        "childMaterialId": "mat_fg1515065800",
-        "qty": "0.2",
-        "order": 0
-      },
-      {
-        "id": "bomc_mat_1a4uz67_mat_fg1515066170",
-        "parentType": "material",
-        "parentId": "mat_1a4uz67",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
-        "qty": "0.05",
-        "order": 1
-      },
-      {
         "id": "bomc_mat_1a4wu1_mat_fg1515065566",
         "parentType": "material",
         "parentId": "mat_1a4wu1",
@@ -84001,24 +83913,6 @@
         "order": 0
       },
       {
-        "id": "bomc_mat_v9mt29_mat_fg1515065800",
-        "parentType": "material",
-        "parentId": "mat_v9mt29",
-        "materialId": "mat_fg1515065800",
-        "childMaterialId": "mat_fg1515065800",
-        "qty": "0.2",
-        "order": 0
-      },
-      {
-        "id": "bomc_mat_v9mt29_mat_fg1515066170",
-        "parentType": "material",
-        "parentId": "mat_v9mt29",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
-        "qty": "0.05",
-        "order": 1
-      },
-      {
         "id": "bomc_mat_w17o44_mat_fg1515064876",
         "parentType": "material",
         "parentId": "mat_w17o44",
@@ -85084,24 +84978,6 @@
         "order": 2
       },
       {
-        "id": "bomc_mat_1a4uz67_mat_m6gs1515wh",
-        "parentType": "material",
-        "parentId": "mat_1a4uz67",
-        "materialId": "mat_m6gs1515wh",
-        "childMaterialId": "mat_m6gs1515wh",
-        "qty": "2",
-        "order": 2
-      },
-      {
-        "id": "bomc_mat_1a4uz67_mat_m6lmlm",
-        "parentType": "material",
-        "parentId": "mat_1a4uz67",
-        "materialId": "mat_m6lmlm",
-        "childMaterialId": "mat_m6lmlm",
-        "qty": "1",
-        "order": 2
-      },
-      {
         "id": "bomc_mat_102nmy7_mat_m6gs1515bh",
         "parentType": "material",
         "parentId": "mat_102nmy7",
@@ -85204,24 +85080,6 @@
         "id": "bomc_mat_9jiypu_mat_m6lmlm",
         "parentType": "material",
         "parentId": "mat_9jiypu",
-        "materialId": "mat_m6lmlm",
-        "childMaterialId": "mat_m6lmlm",
-        "qty": "1",
-        "order": 2
-      },
-      {
-        "id": "bomc_mat_v9mt29_mat_m6gs1515wh",
-        "parentType": "material",
-        "parentId": "mat_v9mt29",
-        "materialId": "mat_m6gs1515wh",
-        "childMaterialId": "mat_m6gs1515wh",
-        "qty": "2",
-        "order": 2
-      },
-      {
-        "id": "bomc_mat_v9mt29_mat_m6lmlm",
-        "parentType": "material",
-        "parentId": "mat_v9mt29",
         "materialId": "mat_m6lmlm",
         "childMaterialId": "mat_m6lmlm",
         "qty": "1",
@@ -87703,15 +87561,6 @@
         "order": 2
       },
       {
-        "id": "bomc_mat_1a4uz67_mat_1rrn212",
-        "parentType": "material",
-        "parentId": "mat_1a4uz67",
-        "materialId": "mat_1rrn212",
-        "childMaterialId": "mat_1rrn212",
-        "qty": "1",
-        "order": 2
-      },
-      {
         "id": "bomc_mat_102nmy7_mat_1rrn212",
         "parentType": "material",
         "parentId": "mat_102nmy7",
@@ -87751,15 +87600,6 @@
         "id": "bomc_mat_9jiypu_mat_1rrn212",
         "parentType": "material",
         "parentId": "mat_9jiypu",
-        "materialId": "mat_1rrn212",
-        "childMaterialId": "mat_1rrn212",
-        "qty": "1",
-        "order": 2
-      },
-      {
-        "id": "bomc_mat_v9mt29_mat_1rrn212",
-        "parentType": "material",
-        "parentId": "mat_v9mt29",
         "materialId": "mat_1rrn212",
         "childMaterialId": "mat_1rrn212",
         "qty": "1",
