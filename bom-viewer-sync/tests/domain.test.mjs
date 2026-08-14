@@ -111,13 +111,15 @@ test('BOM tree expands recursive material parents', () => {
         leaf: { id: 'leaf', code: 'LEAF', name: { zh: 'Leaf' } },
       },
       bomEntries: [
-        { id: 'p', parentType: 'product', productCode: 'P1', color: 'black', materialId: 'parent', order: 1 },
-        { id: 'c', parentType: 'material', parentId: 'parent', productCode: 'P1', color: 'black', materialId: 'child', childMaterialId: 'child', order: 1 },
-        { id: 'l', parentType: 'material', parentId: 'child', productCode: 'P1', color: 'black', materialId: 'leaf', childMaterialId: 'leaf', order: 1 },
+        { id: 'p', parentType: 'product', productCode: 'P1', color: 'black', materialId: 'parent', qty: '2', order: 1 },
+        { id: 'c', parentType: 'material', parentId: 'parent', productCode: 'P1', color: 'black', materialId: 'child', childMaterialId: 'child', qty: '1', order: 1 },
+        { id: 'l', parentType: 'material', parentId: 'child', productCode: 'P1', color: 'black', materialId: 'leaf', childMaterialId: 'leaf', qty: '3+1', order: 1 },
       ],
     },
   };
   assert.deepEqual(buildBomTreeRows(payload, 'P1', 'black').map((row) => row._level), [1, 2, 3]);
+  assert.deepEqual(buildBomTreeRows(payload, 'P1', 'black').map((row) => row._effectiveQty), ['2', '2', '6+2']);
+  assert.deepEqual(buildBomTreeRows(payload, 'P1', 'black').map((row) => row.qty), ['2', '1', '3+1']);
 });
 
 test('where-used remains a pure domain query', () => {

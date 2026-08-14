@@ -271,7 +271,7 @@ function safeBomRow(row, color) {
     nameVi: row?.name_vi || '',
     specZh: row?.spec || '',
     specVi: row?.spec_vi || '',
-    quantity: row?.qty || '',
+    quantity: row?._effectiveQty || row?.qty || '',
     level: Number(row?._level || 1),
     color,
   };

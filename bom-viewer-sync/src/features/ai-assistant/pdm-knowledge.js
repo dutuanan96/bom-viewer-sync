@@ -123,7 +123,7 @@ function toBomRowSummary(row) {
     spec,
     attributeZh: typeof row.attr_zh === 'string' ? row.attr_zh : (row.attr?.zh || ''),
     materialZh: typeof row.material_zh === 'string' ? row.material_zh : (row.material?.zh || ''),
-    qty: row.qty || row.quantity || '',
+    qty: row._effectiveQty || row.qty || row.quantity || '',
     unit: row.unit || '',
     level: row._level || 1,
     hasChildren: Boolean(row._hasChildren),

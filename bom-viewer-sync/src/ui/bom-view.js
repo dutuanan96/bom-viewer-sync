@@ -38,7 +38,7 @@ function bomInspectorHtml() {
   <div class="inspector-section">
     ${this.inspectorField(this.label('headers')[2], selected.comp_code || '-')}
     ${this.inspectorField(this.label('headers')[4], materialText(selected, 'spec', this.state.lang) || '-')}
-    ${this.inspectorField(this.label('headers')[8], selected.qty || '-')}
+    ${this.inspectorField(this.label('headers')[8], selected._effectiveQty || selected.qty || '-')}
     ${this.inspectorField(this.label('headers')[7], materialText(selected, 'attr', this.state.lang) || '-')}
   </div>
   ${this.replaceControlHtml(selected)}
@@ -383,7 +383,7 @@ function cellHtml(material, field, index) {
   if (field === 'attr') {
     return `<td>${this.renderAttrBadge(value)}</td>`;
   }
-  if (field === 'qty') return `<td><span class="qty">${escapeHTML(value)}</span></td>`;
+  if (field === 'qty') return `<td><span class="qty">${escapeHTML(material._effectiveQty || value)}</span></td>`;
   if (field === 'color') return `<td>${this.renderColorDot(value)}</td>`;
   return `<td>${this.highlight(value)}</td>`;
 }

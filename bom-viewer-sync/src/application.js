@@ -3823,7 +3823,7 @@ class BomApplication {
       rows.push([material._level || 1, material.mat_code || '', material.comp_code || '', materialText(material, 'name', this.state.lang),
       materialText(material, 'spec', this.state.lang), materialText(material, 'material', this.state.lang),
       materialText(material, 'color', this.state.lang), materialText(material, 'attr', this.state.lang),
-      material.qty || '']);
+      material._effectiveQty || material.qty || '']);
     });
     return rows;
   }

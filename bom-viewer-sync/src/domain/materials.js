@@ -588,7 +588,7 @@ function sortMaterials(materials, options) {
 function compareMaterial(left, right, options) {
   const { sortCol, sortAsc, lang, attrOrder } = options;
   if (sortCol === 'stt') return directional((parseInt(left.stt, 10) || 0) - (parseInt(right.stt, 10) || 0), sortAsc);
-  if (sortCol === 'qty') return directional(parseQty(left.qty) - parseQty(right.qty), sortAsc);
+  if (sortCol === 'qty') return directional(parseQty(left._effectiveQty ?? left.qty) - parseQty(right._effectiveQty ?? right.qty), sortAsc);
   if (sortCol === 'attr') {
     const diff = (attrOrder[left.attr_zh] ?? 99) - (attrOrder[right.attr_zh] ?? 99);
     if (diff !== 0) return directional(diff, sortAsc);

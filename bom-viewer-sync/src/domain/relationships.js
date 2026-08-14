@@ -22,6 +22,27 @@ function childMaterialId(entry) {
   return entry?.childMaterialId || entry?.materialId || '';
 }
 
+function quantityTotal(value) {
+  const parts = String(value ?? '').split('+').map((part) => part.trim());
+  if (!parts.length || parts.some((part) => !/^\d+(?:\.\d+)?$/.test(part))) return null;
+  const total = parts.reduce((sum, part) => sum + Number(part), 0);
+  return Number.isFinite(total) ? total : null;
+}
+
+function formatQuantity(value) {
+  const rounded = Math.round((value + Number.EPSILON) * 1e9) / 1e9;
+  return String(rounded);
+}
+
+function effectiveQuantityText(ownQuantity, parentMultiplier = 1) {
+  const ownParts = String(ownQuantity ?? '').split('+').map((part) => part.trim());
+  if (!ownParts.length || !Number.isFinite(parentMultiplier) ||
+    ownParts.some((part) => !/^\d+(?:\.\d+)?$/.test(part))) {
+    return String(ownQuantity ?? '');
+  }
+  return ownParts.map((part) => formatQuantity(Number(part) * parentMultiplier)).join('+');
+}
+
 function relationMatchesScope(entry, productCode, colorName) {
   const entryProduct = String(entry?.productCode || '');
   const entryColor = String(entry?.color || '');
@@ -85,7 +106,7 @@ function buildBomTreeRows(payload, productCode, colorName) {
     .map((entry) => entry.id));
   const treeRows = [];
 
-  function appendChildren(parentRow, parentMaterialId, level, materialPath) {
+  function appendChildren(parentRow, parentMaterialId, level, materialPath, parentMultiplier) {
     const childrenEntries = materialChildEntries(source, parentMaterialId, productCode, colorName);
     if (!childrenEntries.length) return;
     parentRow._hasChildren = true;
@@ -95,13 +116,16 @@ function buildBomTreeRows(payload, productCode, colorName) {
       const childRecord = source.materialDb.materials[childId];
       if (!childRecord) return;
       const childRow = legacyRowFromRecord(childRecord, entry);
+      const childQuantity = quantityTotal(childRow.qty);
+      childRow._effectiveQty = effectiveQuantityText(childRow.qty, parentMultiplier);
       childRow._level = level + 1;
       childRow._parentEntryId = parentRow._entryId;
       childRow._rootEntryId = parentRow._rootEntryId || parentRow._entryId;
       treeRows.push(childRow);
       const nextPath = new Set(materialPath);
       nextPath.add(childId);
-      appendChildren(childRow, childId, childRow._level, nextPath);
+      appendChildren(childRow, childId, childRow._level, nextPath,
+        childQuantity === null ? parentMultiplier : parentMultiplier * childQuantity);
     });
   }
 
@@ -109,8 +133,9 @@ function buildBomTreeRows(payload, productCode, colorName) {
     .filter((row) => !coveredEntryIds.has(row._entryId))
     .forEach((row) => {
       row._level = 1;
+      row._effectiveQty = effectiveQuantityText(row.qty);
       treeRows.push(row);
-      appendChildren(row, row._materialId, 1, new Set([row._materialId]));
+      appendChildren(row, row._materialId, 1, new Set([row._materialId]), quantityTotal(row.qty) ?? 1);
     });
   return treeRows;
 }
@@ -164,5 +189,6 @@ export {
   hasChildMaterialRelation,
   scopeLabel,
   materialChildEntries,
+  effectiveQuantityText,
   syncLegacyBomFromMaterialDb,
 };
