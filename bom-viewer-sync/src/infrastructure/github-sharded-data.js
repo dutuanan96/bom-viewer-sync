@@ -102,10 +102,11 @@ export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.
       return { ...lastSourceMetadata };
     },
 
-    async loadPublic() {
+    async loadPublic(options = {}) {
       try {
         const cacheBust = now();
-        if (!publicCommit || cacheBust - publicCommit.checkedAt >= PUBLIC_COMMIT_REFRESH_MS) {
+        const forceRefresh = options?.forceRefresh === true;
+        if (forceRefresh || !publicCommit || cacheBust - publicCommit.checkedAt >= PUBLIC_COMMIT_REFRESH_MS) {
           const commitData = await githubJson(
             `${apiBase}/commits/${encodeURIComponent(branch)}`,
             { cache: 'no-store' },

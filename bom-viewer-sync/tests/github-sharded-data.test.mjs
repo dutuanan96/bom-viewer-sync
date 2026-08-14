@@ -114,6 +114,35 @@ test('github-sharded-data adapter tests', async (t) => {
     assert.equal(commitRequests, 1);
   });
 
+  await t.test('loadPublic forceRefresh resolves a new commit inside the public refresh window', async () => {
+    let now = 0;
+    let commitRequests = 0;
+    const fetchImpl = async (url) => {
+      if (url.includes('/commits/main')) {
+        commitRequests += 1;
+        const sha = commitRequests === 1 ? 'e'.repeat(40) : 'f'.repeat(40);
+        return { ok: true, json: async () => ({ sha }) };
+      }
+      if (url.includes('manifest.json')) {
+        return { ok: true, text: async () => JSON.stringify({ version: 1, products: PRODUCT_IDS }) };
+      }
+      if (url.includes('materials.json')) {
+        return { ok: true, text: async () => JSON.stringify({ materialDb: { materials: {}, bomEntries: [] }, drawings: {}, manuals: {}, models3d: {} }) };
+      }
+      const productMatch = url.match(/products\/(P\d+)\.json/);
+      if (productMatch) return { ok: true, text: async () => JSON.stringify({ id: productMatch[1], colors: [], materials: [] }) };
+      return { ok: false, status: 404 };
+    };
+    const adapter = createGithubShardedDataAdapter({ config, fetchImpl, now: () => now });
+
+    await adapter.loadPublic();
+    now = 60 * 1000;
+    await adapter.loadPublic({ forceRefresh: true });
+
+    assert.equal(commitRequests, 2);
+    assert.equal(adapter.getSourceMetadata().commitSha, 'f'.repeat(40));
+  });
+
   await t.test('loadForWrite fetches tree and blobs', async () => {
     const fetchArgs = [];
     const contents = cutoverShardContents();

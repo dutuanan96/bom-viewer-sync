@@ -2074,7 +2074,7 @@ class BomApplication {
     if (action === 'save' && this.isAdmin()) this.saveCloud();
     if (action === 'view-changes' && this.isAdmin()) this.showDiffModal(actionElement);
     if (action === 'bom-history') this.showBomHistoryModal(actionElement);
-    if (action === 'reload') this.loadCloud({ silent: false });
+    if (action === 'reload') this.loadCloud({ silent: false, forceRefresh: true });
     if (action === 'discard' && this.isAdmin()) this.discard();
     if (action === 'material-db' && this.isAdmin()) { this.state.materialDbPage = 1; this.openMaterialDatabase(); }
     if (action === 'mdb-prev-page') {
@@ -3571,7 +3571,7 @@ class BomApplication {
     try {
       const previousNotifications = this.notifications();
       const firstLoad = !this.state.lastLoadAt;
-      const payload = await this.githubData.loadPublic();
+      const payload = await this.githubData.loadPublic({ forceRefresh: options?.forceRefresh === true });
       if ((this.state.dirty || this.state.materialDraft) && silent) return false;
       const incoming = this.newNotifications(previousNotifications, payload.notifications);
       this.applyPayload(payload, { preserveView: silent });
