@@ -5,7 +5,7 @@ const repoRoot = path.resolve(import.meta.dirname, '..');
 const dataRoot = path.join(repoRoot, 'data');
 const checkOnly = process.argv.includes('--check');
 const packagingRemarkPrefix = /^内包装[：:]\s*/;
-const unconfirmedSerialLabelRemark = /^(\[包装\] 贴附编号=[^；]+；颜色=[^；]+)；贴附对象=待确认$/;
+const redundantSerialLabelRemark = /^\[包装\] 贴附编号=[^；]+；颜色=[^；]+(?:；贴附对象=待确认)?$/;
 const materialsPath = path.join(dataRoot, 'materials.json');
 const materialsPayload = JSON.parse(readFileSync(materialsPath, 'utf8'));
 const materialIdsByCode = new Map();
@@ -21,11 +21,10 @@ const mismatches = [];
 
 for (const entry of materialsPayload.materialDb.bomEntries || []) {
   const remark = String(entry?.remark || '').trim();
-  const normalizedRemark = remark.replace(unconfirmedSerialLabelRemark, '$1');
-  if (remark === normalizedRemark) continue;
-  mismatches.push(`${entry.productCode}/${entry.color}/${entry.materialId}: unconfirmed serial-label target`);
+  if (!redundantSerialLabelRemark.test(remark)) continue;
+  mismatches.push(`${entry.productCode}/${entry.color}/${entry.materialId}: redundant serial-label remark`);
   if (!checkOnly) {
-    entry.remark = normalizedRemark;
+    entry.remark = '';
     serialLabelRemarksUpdated += 1;
   }
 }
