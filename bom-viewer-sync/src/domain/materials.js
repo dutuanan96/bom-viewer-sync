@@ -157,8 +157,65 @@ function scanBomVersionIntoDb(db, source, productCode, product, revisionLabel, i
       };
       db.bomEntries.push(entry);
       productEntries.push({ entry, material: canonical });
+      appendNestedMaterialEntries(
+        db,
+        source,
+        productCode,
+        colorName,
+        canonical,
+        material.materials || [],
+        revisionLabel,
+        isDraft,
+      );
     });
     productEntriesByColor.set(`${productCode}|${colorName}|${revisionLabel || ''}`, productEntries);
+  });
+}
+
+function appendNestedMaterialEntries(db, source, productCode, colorName, parentMaterial, children, revisionLabel, isDraft) {
+  const parentId = materialIdFor(parentMaterial, productCode);
+  (children || []).forEach((material, index) => {
+    const canonical = canonicalLegacyMaterial(material, productCode);
+    const materialId = materialIdFor(canonical, productCode);
+    if (!db.materials[materialId]) db.materials[materialId] = materialRecordFromLegacy(canonical, productCode);
+    const record = db.materials[materialId];
+    seedAsset(
+      record.drawings,
+      findBomAssets((source.drawings || {})[productCode], material),
+      findBomAssets((source.drawings || {})[productCode], canonical),
+    );
+    seedAsset(
+      record.models3d,
+      findBomAssets((source.models3d || {})[productCode], material),
+      findBomAssets((source.models3d || {})[productCode], canonical),
+    );
+    db.bomEntries.push({
+      id: stableId('bomc', `${productCode}|${colorName}|${parentId}|${materialId}|${index}|${revisionLabel || ''}`),
+      parentType: 'material',
+      parentId,
+      productCode,
+      color: colorName,
+      materialId,
+      childMaterialId: materialId,
+      stt: String(material.stt || ''),
+      comp_code: String(material.comp_code || ''),
+      qty: String(material.qty || ''),
+      color_ver: String(material.color_ver || colorName),
+      color_ver_vi: String(material.color_ver_vi || colorName),
+      order: index,
+      revision: revisionLabel,
+      isDraft,
+    });
+    appendNestedMaterialEntries(
+      db,
+      source,
+      productCode,
+      colorName,
+      canonical,
+      material.materials || [],
+      revisionLabel,
+      isDraft,
+    );
   });
 }
 
@@ -206,6 +263,14 @@ function appendHardwarePackEntries(db, entries, key) {
   }
   if (!hardwarePack) return;
   hardwareChildren.forEach((item, index) => {
+    const exists = db.bomEntries.some((entry) => (
+      entry.parentType === 'material' &&
+      entry.parentId === hardwarePack.entry.materialId &&
+      entry.productCode === hardwarePack.entry.productCode &&
+      entry.color === hardwarePack.entry.color &&
+      relationChildMaterialId(entry) === item.entry.materialId
+    ));
+    if (exists) return;
     const childEntry = {
       id: stableId('bomc', `${key}|${hardwarePack.entry.materialId}|${item.entry.materialId}|${index}`),
       parentType: 'material',
@@ -225,6 +290,8 @@ function appendHardwarePackEntries(db, entries, key) {
     };
     db.bomEntries.push(childEntry);
   });
+  const flatHardwareEntryIds = new Set(hardwareChildren.map((item) => item.entry.id));
+  db.bomEntries = db.bomEntries.filter((entry) => !flatHardwareEntryIds.has(entry.id));
 }
 
 function createMaterialDatabase(payload) {
@@ -279,12 +346,97 @@ function normalizeMaterialDatabase(payload) {
   return createMaterialDatabase(payload);
 }
 
+function relationChildMaterialId(entry) {
+  return entry?.childMaterialId || entry?.materialId || '';
+}
+
+function relationAppliesToProduct(entry, productCode, color) {
+  const scopedProduct = String(entry?.productCode || '');
+  const scopedColor = String(entry?.color || '');
+  return (!scopedProduct || scopedProduct === productCode) && (!scopedColor || scopedColor === color);
+}
+
+function productUsageEntries(materialDb, targetMaterialIds, fallbackProductCode = '') {
+  const entries = materialDb?.bomEntries || [];
+  const childrenByParent = new Map();
+  entries.forEach((entry) => {
+    if (entry?.parentType !== 'material' || !entry.parentId || !relationChildMaterialId(entry)) return;
+    if (!childrenByParent.has(entry.parentId)) childrenByParent.set(entry.parentId, []);
+    childrenByParent.get(entry.parentId).push(entry);
+  });
+
+  function pathToTarget(materialId, productCode, color, visited = new Set()) {
+    if (targetMaterialIds.has(materialId)) return [materialId];
+    if (!materialId || visited.has(materialId)) return null;
+    const nextVisited = new Set(visited);
+    nextVisited.add(materialId);
+    for (const relation of childrenByParent.get(materialId) || []) {
+      if (!relationAppliesToProduct(relation, productCode, color)) continue;
+      const childId = relationChildMaterialId(relation);
+      const childPath = pathToTarget(childId, productCode, color, nextVisited);
+      if (childPath) return [materialId, ...childPath];
+    }
+    return null;
+  }
+
+  const results = new Map();
+  entries.filter((entry) => entry?.parentType === 'product' && entry.materialId).forEach((entry) => {
+    const productCode = String(entry.productCode || fallbackProductCode || '');
+    const color = String(entry.color || '');
+    const path = pathToTarget(entry.materialId, productCode, color);
+    if (!path) return;
+    const usageType = path.length === 1 ? 'direct' : 'indirect';
+    const usage = usageType === 'direct'
+      ? { ...entry, productCode, usageType, viaMaterialId: '' }
+      : {
+        ...entry,
+        productCode,
+        materialId: path[path.length - 1],
+        sourceEntryId: entry.id || '',
+        usageType,
+        viaMaterialId: entry.materialId,
+        materialPath: path,
+      };
+    const key = `${productCode}|${color}|${entry.revision || ''}`;
+    const existing = results.get(key);
+    if (!existing || (existing.usageType === 'direct' && usageType === 'indirect')) results.set(key, usage);
+  });
+  return Array.from(results.values());
+}
+
+function usageStatus(revisionSet, revision) {
+  const currentRevision = String(revisionSet?.currentRevision || '');
+  const effectiveRevision = String(revisionSet?.effectiveRevision || currentRevision);
+  if (revision && revision === effectiveRevision) return 'effective';
+  if (revision && revision === currentRevision) return 'draft';
+  return revision ? 'historical' : 'effective';
+}
+
 function materialWhereUsed(payload, materialId) {
   const entries = (payload?.materialDb?.bomEntries || []);
   const effectiveEntries = (payload?.materialDb?.effectiveEntries || []);
-  const allEntries = [...entries, ...effectiveEntries];
   const currentMaterial = payload?.materialDb?.materials?.[materialId];
-  const revisionEntries = [];
+  const currentDb = {
+    materials: payload?.materialDb?.materials || {},
+    bomEntries: [...entries, ...effectiveEntries],
+  };
+  const productEntries = productUsageEntries(currentDb, new Set([materialId]));
+  const revisionEntryMap = new Map();
+  const usageEntryMap = new Map();
+
+  productEntries.forEach((entry) => {
+    const revisionSet = payload?.productRevisions?.[entry.productCode];
+    const revision = String(entry.revision || revisionSet?.currentRevision || '');
+    const usage = {
+      productCode: entry.productCode,
+      color: String(entry.color || ''),
+      revision,
+      status: usageStatus(revisionSet, revision),
+      usageType: entry.usageType,
+      viaMaterialId: entry.viaMaterialId || '',
+    };
+    usageEntryMap.set(`${usage.productCode}|${usage.color}|${usage.revision}|${usage.usageType}`, usage);
+  });
 
   Object.entries(payload?.productRevisions || {}).forEach(([productCode, revisionSet]) => {
     (revisionSet?.revisions || []).forEach((revision) => {
@@ -294,20 +446,31 @@ function materialWhereUsed(payload, materialId) {
         .filter((material) => material?.id === materialId || (currentMaterial?.code && material?.code === currentMaterial.code))
         .map((material) => material.id);
       if (!snapshotMaterialIds.length) return;
-      const isReferenced = (snapshotDb.bomEntries || []).some((entry) => (
-        snapshotMaterialIds.includes(entry.parentId) ||
-        snapshotMaterialIds.includes(entry.materialId) ||
-        snapshotMaterialIds.includes(entry.childMaterialId)
-      ));
-      if (isReferenced) revisionEntries.push({ productCode, revision: String(revision?.revision || '') });
+      const snapshotUsage = productUsageEntries(snapshotDb, new Set(snapshotMaterialIds), productCode);
+      if (!snapshotUsage.length) return;
+      const revisionCode = String(revision?.revision || '');
+      revisionEntryMap.set(`${productCode}|${revisionCode}`, { productCode, revision: revisionCode });
+      snapshotUsage.forEach((entry) => {
+        const usage = {
+          productCode,
+          color: String(entry.color || ''),
+          revision: revisionCode,
+          status: usageStatus(revisionSet, revisionCode),
+          usageType: entry.usageType,
+          viaMaterialId: entry.viaMaterialId || '',
+        };
+        const key = `${usage.productCode}|${usage.color}|${usage.revision}|${usage.usageType}`;
+        if (!usageEntryMap.has(key)) usageEntryMap.set(key, usage);
+      });
     });
   });
 
   return {
-    productEntries: allEntries.filter((entry) => entry.parentType === 'product' && entry.materialId === materialId),
+    productEntries,
     parentEntries: entries.filter((entry) => entry.parentType === 'material' && entry.materialId === materialId),
     childEntries: entries.filter((entry) => entry.parentType === 'material' && entry.parentId === materialId),
-    revisionEntries,
+    revisionEntries: Array.from(revisionEntryMap.values()),
+    usageEntries: Array.from(usageEntryMap.values()),
   };
 }
 

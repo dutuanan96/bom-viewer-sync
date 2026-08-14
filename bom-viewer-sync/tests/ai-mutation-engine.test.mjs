@@ -664,3 +664,45 @@ test('mutation-engine: parent-child structure actions are deterministic and cycl
   });
   assert.equal(removed.payload.materialDb.bomEntries.some(entry => entry.id === relation.id), false);
 });
+
+test('mutation-engine: hardware items use scoped hardware-pack relations only', () => {
+  const snapshot = proposalSnapshot();
+  snapshot.payload.bom.LGS001.colors.push('white');
+  snapshot.payload.bom.LGS001.color_info.white = { sku: 'LGS001-W', materials: [] };
+  snapshot.payload.materialDb.materials.PACK = {
+    id: 'PACK',
+    code: 'LGS001WJBBH',
+    name: { zh: 'LGS001五金包' },
+    attr: { zh: '零件' },
+  };
+  snapshot.payload.materialDb.materials.HW = {
+    id: 'HW',
+    code: 'SCREW',
+    name: { zh: '螺丝' },
+    attr: { zh: '五金包' },
+  };
+  snapshot.payload.materialDb.bomEntries.push(
+    { id: 'pack-black', parentType: 'product', parentId: 'LGS001', productCode: 'LGS001', color: 'black', materialId: 'PACK', qty: '1' },
+    { id: 'pack-white', parentType: 'product', parentId: 'LGS001', productCode: 'LGS001', color: 'white', materialId: 'PACK', qty: '1' },
+  );
+
+  assert.throws(() => applyMutationProposalTransaction(snapshot, {
+    operations: [{
+      operationType: 'add_bom_item',
+      targetId: 'LGS001',
+      payload: { color: 'black', materialId: 'HW', comp_code: '1', quantity: 2 },
+    }],
+  }), /hardware-pack parent/i);
+
+  const transaction = applyMutationProposalTransaction(snapshot, {
+    operations: [{
+      operationType: 'add_material_child',
+      targetId: 'PACK',
+      payload: { materialId: 'HW', quantity: 2 },
+    }],
+  });
+  const relations = transaction.payload.materialDb.bomEntries.filter((entry) => (
+    entry.parentType === 'material' && entry.parentId === 'PACK' && entry.childMaterialId === 'HW'
+  ));
+  assert.deepEqual(relations.map((entry) => `${entry.productCode}/${entry.color}`).sort(), ['LGS001/black', 'LGS001/white']);
+});

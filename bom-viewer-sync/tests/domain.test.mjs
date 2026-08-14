@@ -152,6 +152,115 @@ test('where-used retains references from immutable product revisions', () => {
   assert.deepEqual(materialWhereUsed(payload, 'current').revisionEntries, [{ productCode: 'P1', revision: 'V3' }]);
 });
 
+test('where-used resolves product usage through a material parent without a duplicate product row', () => {
+  const payload = {
+    materialDb: {
+      materials: {
+        pack: { id: 'pack', code: 'P1WJBBH', name: { zh: 'P1五金包' } },
+        child: { id: 'child', code: 'SCREW', attr: { zh: '五金包' } },
+      },
+      bomEntries: [
+        { id: 'pack-entry', parentType: 'product', productCode: 'P1', color: 'black', materialId: 'pack' },
+        { id: 'child-entry', parentType: 'material', parentId: 'pack', productCode: 'P1', color: 'black', materialId: 'child', childMaterialId: 'child' },
+      ],
+    },
+    productRevisions: {
+      P1: { currentRevision: 'V2', effectiveRevision: 'V2', revisions: [] },
+    },
+  };
+
+  const usage = materialWhereUsed(payload, 'child');
+  assert.deepEqual(usage.productEntries.map((entry) => ({
+    productCode: entry.productCode,
+    color: entry.color,
+    usageType: entry.usageType,
+    viaMaterialId: entry.viaMaterialId,
+  })), [{ productCode: 'P1', color: 'black', usageType: 'indirect', viaMaterialId: 'pack' }]);
+  assert.deepEqual(usage.usageEntries.map((entry) => ({
+    productCode: entry.productCode,
+    revision: entry.revision,
+    status: entry.status,
+    usageType: entry.usageType,
+  })), [{ productCode: 'P1', revision: 'V2', status: 'effective', usageType: 'indirect' }]);
+});
+
+test('where-used reports historical indirect usage from a revision snapshot', () => {
+  const payload = {
+    materialDb: {
+      materials: { child: { id: 'child', code: 'SCREW' } },
+      bomEntries: [],
+    },
+    productRevisions: {
+      P1: {
+        currentRevision: 'V2',
+        effectiveRevision: 'V2',
+        revisions: [{
+          revision: 'V1',
+          snapshot: {
+            materialDb: {
+              materials: {
+                oldPack: { id: 'oldPack', code: 'P1WJBBH' },
+                oldChild: { id: 'oldChild', code: 'SCREW' },
+              },
+              bomEntries: [
+                { parentType: 'product', productCode: 'P1', color: 'black', materialId: 'oldPack' },
+                { parentType: 'material', parentId: 'oldPack', productCode: 'P1', color: 'black', materialId: 'oldChild', childMaterialId: 'oldChild' },
+              ],
+            },
+          },
+        }],
+      },
+    },
+  };
+
+  const usage = materialWhereUsed(payload, 'child');
+  assert.deepEqual(usage.revisionEntries, [{ productCode: 'P1', revision: 'V1' }]);
+  assert.deepEqual(usage.usageEntries.map((entry) => ({
+    productCode: entry.productCode,
+    revision: entry.revision,
+    status: entry.status,
+    usageType: entry.usageType,
+  })), [{ productCode: 'P1', revision: 'V1', status: 'historical', usageType: 'indirect' }]);
+});
+
+test('legacy normalization collapses flat hardware duplicates into one parent-child path', () => {
+  const hardwareChild = {
+    stt: '1',
+    mat_code: 'SCREW',
+    name_zh: '螺丝',
+    attr_zh: '五金包',
+    qty: '2',
+  };
+  const payload = normalizePayload({
+    bom: {
+      LGS001: {
+        colors: ['black'],
+        color_info: {
+          black: {
+            materials: [{
+              stt: '0',
+              mat_code: 'LGS001WJBBH',
+              name_zh: 'LGS001五金包',
+              attr_zh: '零件',
+              qty: '1',
+              materials: [hardwareChild],
+            }, hardwareChild],
+          },
+        },
+      },
+    },
+  });
+  const child = Object.values(payload.materialDb.materials).find((material) => material.code === 'SCREW');
+  const pack = Object.values(payload.materialDb.materials).find((material) => material.code === 'LGS001WJBBH');
+  const directEntries = payload.materialDb.bomEntries.filter((entry) => entry.parentType === 'product');
+  const childEntries = payload.materialDb.bomEntries.filter((entry) => entry.parentType === 'material');
+
+  assert.deepEqual(directEntries.map((entry) => entry.materialId), [pack.id]);
+  assert.equal(childEntries.length, 1);
+  assert.equal(childEntries[0].parentId, pack.id);
+  assert.equal(childEntries[0].childMaterialId, child.id);
+});
+
 test('BOM navigation normalizes legacy payloads at the domain seam', () => {
   const legacyPayload = {
     bom: {

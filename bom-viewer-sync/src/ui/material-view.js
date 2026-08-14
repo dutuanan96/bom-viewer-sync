@@ -215,18 +215,10 @@ function filteredMaterialRecords() {
 
 function materialDbRowHtml(record) {
   const whereUsed = materialWhereUsed(this.state.payload, record.id);
-  const usedProducts = Array.from(new Set(whereUsed.productEntries.map((entry) => entry.productCode))).sort();
-  const historicalRevisions = Array.from(new Set(whereUsed.revisionEntries
-    .map((entry) => `${entry.productCode}${entry.revision ? ` · ${entry.revision}` : ''}`)))
-    .sort();
   const showActions = this.isAdmin();
   const localized = (pair) => this.state.lang === 'vi' ? (pair?.vi || pair?.zh || '') : (pair?.zh || pair?.vi || '');
-  const spuPills = usedProducts.length || historicalRevisions.length
-    ? [
-      ...usedProducts.map((s) => `<span class="spu-pill">${escapeHTML(s)}</span>`),
-      ...historicalRevisions.map((value) => `<span class="spu-pill" title="${escapeHTML(this.label('historicalRevisionUsage'))}">${escapeHTML(value)}</span>`),
-    ].join('')
-    : '<span class="mdb-empty">-</span>';
+  const usageItems = this.materialUsageItems(whereUsed);
+  const spuPills = this.materialUsagePills(record.id, usageItems, 3);
   const editButton = `<button class="drawing-btn" title="${escapeHTML(this.label('editMaterial'))}" type="button" data-edit-db-material="${escapeHTML(record.id)}"><span class="material-symbols-outlined" style="font-size: 16px;">edit</span></button>`;
   return `<tr data-material-row="${escapeHTML(record.id)}">
     <td class="mdb-col-code"><span class="mat-code">${this.highlight(escapeHTML(record.code || ''))}</span></td>
@@ -338,7 +330,7 @@ function materialMasterRelationshipsHtml(record) {
   return `<section class="material-master-section">
     <h2>${escapeHTML(this.label('bomRelationships'))}</h2>
     <div class="material-master-relations">
-      ${this.materialMasterProductUsage(whereUsed.productEntries)}
+      ${this.materialMasterProductUsage(whereUsed.usageEntries)}
       ${this.materialMasterRelationList(this.label('parentMaterial'), whereUsed.parentEntries, 'parent')}
       ${this.materialMasterRelationList(this.label('childMaterial'), whereUsed.childEntries, 'child')}
     </div>
@@ -346,15 +338,75 @@ function materialMasterRelationshipsHtml(record) {
 }
 
 function materialMasterProductUsage(entries) {
-  const usageKeys = Array.from(new Set((entries || []).filter(e => e.productCode).map(e => {
-    const revLabel = e.revision ? (e.isDraft ? ` (${e.revision} Nháp)` : ` (${e.revision})`) : '';
-    return JSON.stringify({ code: e.productCode, label: `${e.productCode}${revLabel}` });
-  }))).map(k => JSON.parse(k)).sort((a, b) => a.label.localeCompare(b.label));
-
-  const pills = usageKeys.length
-    ? usageKeys.map((item) => `<span class="spu-pill" data-spu="${escapeHTML(item.code)}">${escapeHTML(item.label)}</span>`).join('')
+  const usageItems = this.materialUsageItems({ usageEntries: entries || [] });
+  const pills = usageItems.length
+    ? usageItems.map((item) => `<span class="spu-pill" data-spu="${escapeHTML(item.productCode)}">${escapeHTML(item.label)}</span>`).join('')
     : '<span class="mdb-empty">-</span>';
   return `<div class="material-master-relation"><strong>${escapeHTML(this.label('whereUsed'))}</strong><div class="spu-pill-list">${pills}</div></div>`;
+}
+
+function materialUsageItems(whereUsed) {
+  const materials = this.state.materialDb?.materials || this.state.payload?.materialDb?.materials || {};
+  const unique = new Map();
+  (whereUsed?.usageEntries || []).filter((entry) => entry.productCode).forEach((entry) => {
+    const statusLabel = entry.status === 'historical'
+      ? this.label('historicalRevisionUsage')
+      : entry.status === 'draft'
+        ? this.label('draftUsage')
+        : this.label('effectiveUsage');
+    const via = entry.usageType === 'indirect' ? materials[entry.viaMaterialId] : null;
+    const viaLabel = via?.code || '';
+    const revisionLabel = entry.revision ? ` · ${entry.revision}` : '';
+    const indirectLabel = entry.usageType === 'indirect'
+      ? ` · ${this.label('indirectUsage')}${viaLabel ? `: ${viaLabel}` : ''}`
+      : '';
+    const key = `${entry.productCode}|${entry.revision || ''}|${entry.status}|${entry.usageType}|${viaLabel}`;
+    if (!unique.has(key)) {
+      unique.set(key, {
+        ...entry,
+        label: `${entry.productCode}${revisionLabel} · ${statusLabel}${indirectLabel}`,
+      });
+    }
+  });
+  return Array.from(unique.values()).sort((left, right) => left.label.localeCompare(right.label));
+}
+
+function materialUsagePills(materialId, usageItems, limit = 3) {
+  if (!usageItems.length) return '<span class="mdb-empty">-</span>';
+  const visible = usageItems.slice(0, limit);
+  const pills = visible.map((item) => `<span class="spu-pill" title="${escapeHTML(item.label)}">${escapeHTML(item.label)}</span>`);
+  const remaining = usageItems.length - visible.length;
+  if (remaining > 0) {
+    pills.push(`<button class="spu-pill usage-more" type="button" data-material-usage="${escapeHTML(materialId)}" title="${escapeHTML(this.label('usageDetails'))}">+${remaining}</button>`);
+  }
+  return pills.join('');
+}
+
+function openMaterialUsageDetails(materialId) {
+  const record = this.state.materialDb?.materials?.[materialId];
+  if (!record) return;
+  const usageItems = this.materialUsageItems(materialWhereUsed(this.state.payload, materialId));
+  this.query('#materialUsageOverlay')?.remove();
+  const rows = usageItems.length
+    ? usageItems.map((item) => `<li class="pdm-modal-list-item"><span class="pdm-modal-list-item-code">${escapeHTML(item.productCode)}</span><span class="pdm-modal-list-item-name">${escapeHTML(item.label)}</span></li>`).join('')
+    : '<li class="pdm-modal-list-item"><span class="mdb-empty">-</span></li>';
+  document.body.insertAdjacentHTML('beforeend', `<div id="materialUsageOverlay" class="pdm-modal-overlay">
+    <div class="pdm-modal-content" role="dialog" aria-modal="true" aria-labelledby="materialUsageTitle">
+      <div class="pdm-modal-header">
+        <h2 id="materialUsageTitle">${escapeHTML(this.label('usageDetails'))} · ${escapeHTML(record.code || materialId)}</h2>
+        <button class="pdm-modal-close" type="button" data-close-material-usage aria-label="${escapeHTML(this.label('close'))}">&times;</button>
+      </div>
+      <div class="pdm-modal-body"><ul class="pdm-modal-list">${rows}</ul></div>
+    </div>
+  </div>`);
+  const overlay = this.query('#materialUsageOverlay');
+  const close = () => {
+    overlay.classList.remove('open');
+    setTimeout(() => overlay.remove(), 200);
+  };
+  overlay.querySelector('[data-close-material-usage]')?.addEventListener('click', close);
+  overlay.addEventListener('click', (event) => { if (event.target === overlay) close(); });
+  requestAnimationFrame(() => overlay.classList.add('open'));
 }
 
 function materialMasterRelationList(title, entries, direction) {
@@ -455,6 +507,9 @@ export const materialViewMethods = {
   materialMasterInput,
   materialMasterRelationshipsHtml,
   materialMasterProductUsage,
+  materialUsageItems,
+  materialUsagePills,
+  openMaterialUsageDetails,
   materialMasterRelationList,
   materialMasterRelationRow,
   materialMasterAssetsHtml,

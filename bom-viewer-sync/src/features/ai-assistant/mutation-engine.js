@@ -2,6 +2,7 @@ import { ERROR_CODES, validateMutation, validateMutationProposal } from './contr
 import { describePayloadChanges } from '../notifications.js';
 import { syncLegacyBomFromMaterialDb } from '../../domain/relationships.js';
 import {
+  isHardwarePackSummary,
   materialWhereUsed,
   replaceBomEntryMaterial,
   stableId,
@@ -372,7 +373,9 @@ export function applyMutationToPayload(payload, mutation) {
   } else if (operationType === 'add_bom_item') {
     const product = payload.bom?.[targetId];
     if (!product?.color_info?.[opPayload.color]) throw new Error(`Product/color ${targetId}/${opPayload.color} not found.`);
-    if (!payload.materialDb?.materials?.[opPayload.materialId]) throw new Error(`Material ${opPayload.materialId} not found.`);
+    const material = payload.materialDb?.materials?.[opPayload.materialId];
+    if (!material) throw new Error(`Material ${opPayload.materialId} not found.`);
+    if (material.attr?.zh === '五金包') throw new Error('Hardware-pack items must be added through a hardware-pack parent.');
     const scopedEntries = payload.materialDb.bomEntries.filter(entry => (
       (entry.productCode === targetId || entry.parentId === targetId) && entry.color === opPayload.color
     ));
@@ -450,6 +453,11 @@ export function applyMutationToPayload(payload, mutation) {
       throw new Error(`Material ${childId} not found in BOM for product ${targetId} (${color}).`);
     }
   } else if (operationType === 'replace_bom_item') {
+    const targetEntry = payload.materialDb?.bomEntries?.find(item => item.id === targetId);
+    const replacement = payload.materialDb?.materials?.[opPayload.materialId];
+    if (targetEntry?.parentType === 'product' && replacement?.attr?.zh === '五金包') {
+      throw new Error('Hardware-pack items must be added through a hardware-pack parent.');
+    }
     const entry = replaceBomEntryMaterial(payload, targetId, opPayload.materialId);
     if (!entry) throw new Error(`BOM entry ${targetId} or material ${opPayload.materialId} not found.`);
     shouldSyncBom = true;
@@ -459,34 +467,45 @@ export function applyMutationToPayload(payload, mutation) {
     if (payload.materialDb.bomEntries.length === before) throw new Error(`BOM entry ${targetId} not found.`);
     shouldSyncBom = true;
   } else if (operationType === 'add_material_child') {
-    if (!payload.materialDb?.materials?.[targetId]) throw new Error(`Parent material ${targetId} not found.`);
+    const parentMaterial = payload.materialDb?.materials?.[targetId];
+    if (!parentMaterial) throw new Error(`Parent material ${targetId} not found.`);
     if (!payload.materialDb?.materials?.[opPayload.materialId]) throw new Error(`Child material ${opPayload.materialId} not found.`);
-    const duplicate = payload.materialDb.bomEntries.some(entry => (
+    const parentScopes = isHardwarePackSummary(parentMaterial)
+      ? payload.materialDb.bomEntries.filter((entry) => entry.parentType === 'product' && entry.materialId === targetId)
+      : [];
+    const scopes = parentScopes.length
+      ? parentScopes.map((entry) => ({ productCode: entry.productCode, color: entry.color }))
+      : [{ productCode: '', color: '' }];
+    const missingScopes = scopes.filter((scope) => !payload.materialDb.bomEntries.some((entry) => (
       entry.parentType === 'material' &&
       entry.parentId === targetId &&
-      (entry.childMaterialId || entry.materialId) === opPayload.materialId
-    ));
-    if (duplicate) throw new Error(`Material child relation ${targetId}/${opPayload.materialId} already exists.`);
+      (entry.childMaterialId || entry.materialId) === opPayload.materialId &&
+      (entry.productCode || '') === scope.productCode &&
+      (entry.color || '') === scope.color
+    )));
+    if (!missingScopes.length) throw new Error(`Material child relation ${targetId}/${opPayload.materialId} already exists.`);
     const scopedEntries = payload.materialDb.bomEntries.filter(entry => entry.parentType === 'material' && entry.parentId === targetId);
-    let entryId = stableId('bomc', `${targetId}|${opPayload.materialId}|${scopedEntries.length}`);
-    let suffix = 1;
-    while (payload.materialDb.bomEntries.some(entry => entry.id === entryId)) {
-      entryId = stableId('bomc', `${targetId}|${opPayload.materialId}|${scopedEntries.length}|${suffix++}`);
-    }
-    payload.materialDb.bomEntries.push({
-      id: entryId,
-      parentType: 'material',
-      parentId: targetId,
-      productCode: '',
-      color: '',
-      materialId: opPayload.materialId,
-      childMaterialId: opPayload.materialId,
-      stt: '',
-      comp_code: '',
-      qty: String(opPayload.quantity),
-      color_ver: '',
-      color_ver_vi: '',
-      order: scopedEntries.length,
+    missingScopes.forEach((scope, index) => {
+      let entryId = stableId('bomc', `${targetId}|${opPayload.materialId}|${scope.productCode}|${scope.color}|${scopedEntries.length + index}`);
+      let suffix = 1;
+      while (payload.materialDb.bomEntries.some(entry => entry.id === entryId)) {
+        entryId = stableId('bomc', `${targetId}|${opPayload.materialId}|${scope.productCode}|${scope.color}|${scopedEntries.length + index}|${suffix++}`);
+      }
+      payload.materialDb.bomEntries.push({
+        id: entryId,
+        parentType: 'material',
+        parentId: targetId,
+        productCode: scope.productCode,
+        color: scope.color,
+        materialId: opPayload.materialId,
+        childMaterialId: opPayload.materialId,
+        stt: '',
+        comp_code: '',
+        qty: String(opPayload.quantity),
+        color_ver: scope.color,
+        color_ver_vi: scope.color,
+        order: scopedEntries.length + index,
+      });
     });
     shouldSyncBom = true;
   } else if (operationType === 'update_material_child_quantity') {

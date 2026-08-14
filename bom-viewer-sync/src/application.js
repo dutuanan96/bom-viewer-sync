@@ -3,6 +3,7 @@ import {
   createMaterialDatabase,
   filterMaterials,
   findBomAssets,
+  isHardwarePackSummary,
   localizedValue,
   materialText,
   materialWhereUsed,
@@ -219,6 +220,11 @@ const TEXT = {
     materialDeleted: '物料已删除',
     materialDeleteBlocked: '该物料已被 BOM 使用，不能删除',
     historicalRevisionUsage: '仅历史版本',
+    effectiveUsage: '使用中',
+    draftUsage: '草稿',
+    indirectUsage: '经父项',
+    usageDetails: '使用位置明细',
+    hardwareItemRequiresParent: '五金包物料必须通过五金包父项添加',
     addMaterial: '新增物料',
     add2D: '添加 2D',
     add3D: '添加 3D',
@@ -615,6 +621,11 @@ const TEXT = {
     materialDeleted: 'Đã xóa vật liệu',
     materialDeleteBlocked: 'Vật liệu đang được BOM sử dụng, không thể xóa',
     historicalRevisionUsage: 'Chỉ dùng ở phiên bản lịch sử',
+    effectiveUsage: 'Đang sử dụng',
+    draftUsage: 'Bản nháp',
+    indirectUsage: 'Qua vật liệu cha',
+    usageDetails: 'Chi tiết nơi sử dụng',
+    hardwareItemRequiresParent: 'Vật liệu ngũ kim phải được thêm qua vật liệu cha 五金包',
     addMaterial: 'Thêm vật liệu',
     add2D: 'Thêm 2D',
     add3D: 'Thêm 3D',
@@ -1810,12 +1821,17 @@ class BomApplication {
       const editDbMaterial = event.target.closest('[data-edit-db-material]');
       const editStructureParent = event.target.closest('[data-edit-structure-parent]');
       const editStructureChild = event.target.closest('[data-edit-structure-child]');
+      const materialUsage = event.target.closest('[data-material-usage]');
       const openBomProduct = event.target.closest('[data-open-bom-product]');
       const bomRow = event.target.closest('[data-bom-entry]');
       const materialRow = event.target.closest('[data-material-row]');
       const drawing = event.target.closest('[data-drawing-row]');
       const model3d = event.target.closest('[data-model3d-row]');
       const levelToggle = event.target.closest('[data-level-toggle]');
+      if (materialUsage) {
+        this.openMaterialUsageDetails(materialUsage.dataset.materialUsage);
+        return;
+      }
       if (levelToggle) {
         const entryId = levelToggle.dataset.levelToggle;
         const tbody = levelToggle.closest('tbody');
@@ -2095,16 +2111,31 @@ class BomApplication {
   addChildMaterialFromPrompt() {
     this.openMaterialSelector(this.label('addChildMaterial'), (material) => {
       const parentId = this.state.selectedParentId;
-      if (hasChildMaterialRelation(this.state.materialDb.bomEntries, parentId, material.id)) {
+      const parent = this.state.materialDb.materials[parentId];
+      const parentScopes = isHardwarePackSummary(parent)
+        ? this.state.materialDb.bomEntries.filter((entry) => entry.parentType === 'product' && entry.materialId === parentId)
+        : [];
+      const scopes = parentScopes.length
+        ? parentScopes.map((entry) => ({ productCode: entry.productCode, color: entry.color }))
+        : [{ productCode: '', color: '' }];
+      const missingScopes = scopes.filter((scope) => !this.state.materialDb.bomEntries.some((entry) => (
+        entry.parentType === 'material' &&
+        entry.parentId === parentId &&
+        (entry.childMaterialId || entry.materialId) === material.id &&
+        (entry.productCode || '') === scope.productCode &&
+        (entry.color || '') === scope.color
+      )));
+      if (!missingScopes.length) {
         this.setStatus(this.label('childMaterialExists'), 'error');
         return;
       }
-      const newEntry = {
-        id: stableId('bomc', `${Date.now()}|${parentId}|${material.id}`),
+      const createdAt = Date.now();
+      missingScopes.forEach((scope, index) => this.state.materialDb.bomEntries.push({
+        id: stableId('bomc', `${createdAt}|${parentId}|${material.id}|${scope.productCode}|${scope.color}|${index}`),
         parentType: 'material',
         parentId: parentId,
-        productCode: '',
-        color: '',
+        productCode: scope.productCode,
+        color: scope.color,
         materialId: material.id,
         childMaterialId: material.id,
         stt: '',
@@ -2112,9 +2143,8 @@ class BomApplication {
         qty: '1',
         color_ver: '',
         color_ver_vi: '',
-        order: Date.now()
-      };
-      this.state.materialDb.bomEntries.push(newEntry);
+        order: createdAt + index
+      }));
       this.markDirty();
       this.renderStructureDetail();
     });
@@ -2715,6 +2745,10 @@ class BomApplication {
     this.state.selectedEntryId = material._entryId;
     this.state.selectedMaterialId = material._materialId || '';
     this.openMaterialSelector(this.label('replaceMaterialPrompt'), (record) => {
+      if (record.attr?.zh === '五金包') {
+        this.setStatus(this.label('hardwareItemRequiresParent'), 'error');
+        return;
+      }
       const entry = replaceBomEntryMaterial(this.state.payload, material._entryId, record.id);
       if (!entry) {
         this.setStatus(this.label('bomRowNotFound'), 'error');
@@ -2750,6 +2784,10 @@ class BomApplication {
     const record = this.findMaterialRecord(input?.value || this.state.replaceQuery);
     if (!record) {
       this.setStatus(this.label('materialNotFound'), 'error');
+      return;
+    }
+    if (record.attr?.zh === '五金包') {
+      this.setStatus(this.label('hardwareItemRequiresParent'), 'error');
       return;
     }
     const entry = replaceBomEntryMaterial(this.state.payload, selected._entryId, record.id);
@@ -3247,6 +3285,10 @@ class BomApplication {
   addBomRowFromPrompt() {
     if (!this.canEditProductRevision()) return;
     this.openMaterialSelector(this.label('addBomRow'), (record) => {
+      if (record.attr?.zh === '五金包') {
+        this.setStatus(this.label('hardwareItemRequiresParent'), 'error');
+        return;
+      }
       this.openPdmPrompt(this.label('addBomRow'), [
         { key: 'comp_code', label: this.label('bomCompCode') },
         { key: 'qty', label: this.label('bomQty'), defaultValue: '1', required: true }

@@ -214,6 +214,19 @@ test('Material Database edit action is explicit and compact', () => {
   assert.match(appSource, /data-edit-db-material=/);
 });
 
+test('Material where-used stays compact and exposes full usage details', () => {
+  const context = {
+    label: (key) => key,
+  };
+  const usageItems = Array.from({ length: 5 }, (_, index) => ({ label: `LGS00${index + 1}` }));
+  const html = materialViewMethods.materialUsagePills.call(context, 'material-1', usageItems, 3);
+
+  assert.equal((html.match(/class="spu-pill"/g) || []).length, 3);
+  assert.match(html, /data-material-usage="material-1"/);
+  assert.match(html, />\+2<\/button>/);
+  assert.match(appSource, /openMaterialUsageDetails/);
+});
+
 test('Material Database and structure-detail rows do not open Material Master on plain row click', () => {
   assert.match(appSource, /!materialRow\.closest\('\.material-db-view, \.structure-detail-view'\)/);
 });

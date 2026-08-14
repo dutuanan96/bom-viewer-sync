@@ -18,6 +18,7 @@
     "migrate:dry-run": "node scripts/migrate-data-dry-run.mjs",
     "migrate:material-assets": "node scripts/audit-material-assets.mjs --mapping scripts/material-asset-mapping.json",
     "migrate:staging": "node scripts/migrate-data-staging.mjs",
+    "normalize:hardware-pack-bom": "node scripts/normalize-hardware-pack-bom.mjs",
     "smoke:contents-assets": "node scripts/smoke-github-contents-assets.mjs",
     "test:node": "node --test tests/*.test.mjs",
     "test:e2e": "playwright test",

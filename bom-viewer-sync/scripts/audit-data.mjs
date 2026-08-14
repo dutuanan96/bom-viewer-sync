@@ -6,6 +6,7 @@
 import { lstatSync, readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { resolveBomRows } from '../src/domain/bom.js';
+import { isHardwarePackSummary } from '../src/domain/materials.js';
 import { parseDataJsPayload } from '../src/infrastructure/github-data.js';
 import { assertCutoverShardCount, parseLogicalShardFiles } from '../src/domain/sharded-files.js';
 
@@ -117,6 +118,45 @@ entryKeys.forEach((ids, key) => {
   if (ids.length > 1) {
     report('WARNING', 'DUPLICATE_ENTRY', `Duplicate BOM entries for key ${key}`, ids);
   }
+});
+
+// 6.1 Hardware-pack items have one canonical path: product -> pack -> item.
+const materialRelationKeys = new Map();
+bomEntries.filter((entry) => entry.parentType === 'material').forEach((entry) => {
+  const childId = entry.childMaterialId || entry.materialId || '';
+  const key = `${entry.parentId}|${entry.productCode || ''}|${entry.color || ''}|${childId}|${entry.qty || ''}`;
+  if (!materialRelationKeys.has(key)) materialRelationKeys.set(key, []);
+  materialRelationKeys.get(key).push(entry.id);
+});
+materialRelationKeys.forEach((ids, key) => {
+  if (ids.length > 1) {
+    report('ERROR', 'DUPLICATE_MATERIAL_RELATION', `Duplicate material relations for key ${key}`, ids);
+  }
+});
+
+const hardwarePackRelations = bomEntries.filter((entry) => (
+  entry.parentType === 'material' && isHardwarePackSummary(materials[entry.parentId])
+));
+hardwarePackRelations.forEach((entry) => {
+  if (!entry.productCode || !entry.color) {
+    report('ERROR', 'UNSCOPED_HARDWARE_RELATION', `Hardware-pack relation ${entry.id} has no product/color scope`, entry);
+    return;
+  }
+  const parentIsUsed = bomEntries.some((candidate) => (
+    candidate.parentType === 'product' &&
+    candidate.materialId === entry.parentId &&
+    candidate.productCode === entry.productCode &&
+    candidate.color === entry.color
+  ));
+  if (!parentIsUsed) {
+    report('ERROR', 'UNREACHABLE_HARDWARE_RELATION', `Hardware-pack relation ${entry.id} is not reachable from ${entry.productCode}/${entry.color}`, entry);
+  }
+});
+
+bomEntries.filter((entry) => (
+  entry.parentType === 'product' && materials[entry.materialId]?.attr?.zh === '五金包'
+)).forEach((entry) => {
+  report('ERROR', 'DIRECT_HARDWARE_ITEM', `Hardware item ${materials[entry.materialId]?.code || entry.materialId} must be linked through a hardware pack in ${entry.productCode}/${entry.color}`, entry);
 });
 
 // 7. Parent-child circular references
