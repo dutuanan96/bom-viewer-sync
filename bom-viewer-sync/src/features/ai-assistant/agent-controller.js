@@ -365,6 +365,7 @@ function contextFromToolResult(toolCall, toolResult) {
       nameZh: String(row?.nameZh || '').slice(0, 160),
       spec: String(row?.spec || '').slice(0, 120),
       qty: String(row?.qty || '').slice(0, 40),
+      remark: String(row?.remark || '').slice(0, 240),
       unit: String(row?.unit || '').slice(0, 20),
     })).filter(row => row.matCode || row.nameZh);
     if (bomRows.length > 1) context.bomCandidates = bomRows;

@@ -209,15 +209,27 @@ export function formatLocalToolFallback(t, { toolCall, toolResult } = {}) {
     }
     lines.push(`${tr('ai.localFallback.matches', 'Matches')}: ${toolResult.matchedRows ?? toolResult.totalRows ?? 0}`);
     if (rows.length > 1) {
-      lines.push('| 序号 | 物料编码 | 名称 | 规格 | 数量 |');
-      lines.push('| --- | --- | --- | --- | --- |');
+      lines.push('| 序号 | 物料编码 | 名称 | 规格 | 数量 | 备注 |');
+      lines.push('| --- | --- | --- | --- | --- | --- |');
       lines.push(...rows.map((row, index) => (
-        `| ${index + 1} | ${row.matCode || row.materialId || '-'} | ${row.nameZh || row.nameVi || '-'} | ${row.spec || '-'} | ${row.qty || '-'} |`
+        `| ${index + 1} | ${row.matCode || row.materialId || '-'} | ${row.nameZh || row.nameVi || '-'} | ${row.spec || '-'} | ${row.qty || '-'} | ${row.remark || '-'} |`
       )));
     } else if (rows[0]) {
       const row = rows[0];
-      lines.push(`- ${row.matCode || row.materialId || ''} — ${row.nameZh || row.nameVi || ''} — ${row.spec || ''} x${row.qty || ''}`.trim());
+      lines.push(`- ${row.matCode || row.materialId || ''} — ${row.nameZh || row.nameVi || ''} — ${row.spec || ''} x${row.qty || ''}${row.remark ? ` — ${row.remark}` : ''}`.trim());
     }
+    return lines.join('\n').slice(0, 5000);
+  }
+
+  if (toolCall.name === 'get_structure_mapping') {
+    lines.push(`${tr('ai.localFallback.scope', 'Scope')}: ${toolResult.productCode || ''}`);
+    if (!toolResult.found) {
+      lines.push(tr('ai.localFallback.noStructureMapping', 'No owner-confirmed structural mapping was found.'));
+      return lines.join('\n').slice(0, 5000);
+    }
+    lines.push(...(toolResult.mappings || []).slice(0, 8).map(mapping => (
+      `- ${mapping.id}: ${mapping.explanationZh || ''} [${(mapping.target?.materialCodes || []).join(', ')}]`
+    )));
     return lines.join('\n').slice(0, 5000);
   }
 
@@ -459,6 +471,10 @@ const TOOL_SCHEMAS = {
   get_bom: {
     description: 'Get BOM rows for a product',
     parameters: { type: 'object', properties: { productId: PRODUCT_ID_SCHEMA, color: NON_EMPTY_STRING_SCHEMA, query: NON_EMPTY_STRING_SCHEMA }, required: ['productId'], additionalProperties: false }
+  },
+  get_structure_mapping: {
+    description: 'Get owner-confirmed Excel-to-PDM structural mapping. Read-only; returns only deterministic confirmed mappings.',
+    parameters: { type: 'object', properties: { productId: PRODUCT_ID_SCHEMA, query: NON_EMPTY_STRING_SCHEMA }, required: ['productId'], additionalProperties: false }
   },
   get_revision_history: {
     description: 'Get revision history and status (draft, released) for a product',

@@ -1199,8 +1199,8 @@
                       "spec_vi": "A4",
                       "material_zh": "铜版纸",
                       "material_vi": "giấy couché",
-                      "color_zh": "黑白",
-                      "color_vi": "黑白",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
                       "attr_zh": "包材",
                       "attr_vi": "vật liệu đóng gói",
                       "color_ver": "复古色",
@@ -2202,8 +2202,8 @@
                       "spec_vi": "A4",
                       "material_zh": "铜版纸",
                       "material_vi": "giấy couché",
-                      "color_zh": "黑白",
-                      "color_vi": "黑白",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
                       "attr_zh": "包材",
                       "attr_vi": "vật liệu đóng gói",
                       "color_ver": "黑色",
@@ -3854,8 +3854,8 @@
                     "vi": "giấy couché"
                   },
                   "color": {
-                    "zh": "黑白",
-                    "vi": "黑白"
+                    "zh": "白底黑字",
+                    "vi": "nền trắng chữ đen"
                   },
                   "attr": {
                     "zh": "包材",

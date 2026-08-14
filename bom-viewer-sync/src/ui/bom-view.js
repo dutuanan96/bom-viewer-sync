@@ -240,6 +240,7 @@ function tableColgroupHtml() {
     <col class="col-color">
     <col class="col-attr">
     <col class="col-qty">
+    <col class="col-remark">
     <col class="col-2d">
     <col class="col-3d">
     ${editAction}
@@ -316,7 +317,8 @@ function tableHeadHtml() {
     ['material', headers[5]],
     ['color', headers[6]],
     ['attr', headers[7]],
-    ['qty', headers[8]]
+    ['qty', headers[8]],
+    ['remark', this.label('bomRemark')]
   ].map(([col, label]) => `<th><button class="th-button" type="button" data-sort="${col}">${escapeHTML(label)} ${this.sortIcon(col)}</button></th>`);
   const editAction = this.canEditProductRevision() && this.state.editMode ? '<th>\u64cd\u4f5c</th>' : '';
   return `<tr>${sortable.join('')}<th>${escapeHTML(headers[9])}</th><th>3D</th>${editAction}</tr>`;
@@ -356,6 +358,7 @@ function rowHtml(material, index) {
     ${this.cellHtml(material, 'color', index)}
     ${this.cellHtml(material, 'attr', index)}
     ${this.cellHtml(material, 'qty', index)}
+    ${this.remarkCellHtml(material)}
     <td class="drawing-cell">${this.drawingCellHtml(material, index)}</td>
     <td class="model3d-cell">${this.model3dCellHtml(material, index)}</td>
     ${editAction}
@@ -388,6 +391,12 @@ function cellHtml(material, field, index) {
   return `<td>${this.highlight(value)}</td>`;
 }
 
+function remarkCellHtml(material) {
+  const remark = String(material.remark || '').trim();
+  const content = remark ? this.highlight(remark) : '<span class="mdb-empty">-</span>';
+  return `<td class="bom-remark" title="${escapeHTML(remark)}">${content}</td>`;
+}
+
 function renderAttrBadge(attrValue) {
   if (!attrValue) return '<span class="mdb-empty">-</span>';
   const valLower = attrValue.toLowerCase();
@@ -409,6 +418,8 @@ function renderColorDot(colorStr) {
     hex = 'linear-gradient(135deg, #ffffff 50%, #1a1a1a 50%)';
     extraStyle = 'border: 1px solid #c3c6d6;';
   }
+  else if (lower.includes('\u84dd\u5e95\u9ed1\u5b57') || lower.includes('n\u1ec1n xanh d\u01b0\u01a1ng')) hex = '#3b82f6';
+  else if (lower.includes('\u7eff\u5e95\u9ed1\u5b57') || lower.includes('n\u1ec1n xanh l\u00e1')) hex = '#10b981';
   else if (lower.includes('\u9540\u950c') || lower.includes('m\u1ea1 k\u1ebdm') || lower.includes('k\u1ebdm')) hex = '#94a3b8';
   else if (lower.includes('\u7eb8') || lower.includes('gi\u1ea5y')) hex = '#d7c5a0';
   else if (lower.includes('\u672c\u8272') || lower.includes('t\u1ef1 nhi\u00ean')) hex = '#e2e8f0';
@@ -511,6 +522,7 @@ export const bomViewMethods = {
   componentNumberCellHtml,
   materialStackCellHtml,
   cellHtml,
+  remarkCellHtml,
   renderAttrBadge,
   renderColorDot,
   editInput,

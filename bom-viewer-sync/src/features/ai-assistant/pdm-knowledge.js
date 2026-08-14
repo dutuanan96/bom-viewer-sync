@@ -9,6 +9,7 @@ import { normalizeProductRevisionRegistry } from '../../domain/revisions.js';
 import { classifyMaterialFamily, summarizeMaterialFamilies } from './pdm-ontology.js';
 import { evaluateEquivalence, detectDataQualityWarnings } from './pdm-equivalence.js';
 import { componentSearchTerms, detectProductShorthand, resolveConcept, resolveConcepts, parseDimensions, checkDimensionProximity } from './pdm-terminology.js';
+import { findStructureMappings } from './structure-mapping.js';
 
 // Maximum results returned by search operations
 const MAX_SEARCH_RESULTS = 50;
@@ -124,6 +125,7 @@ function toBomRowSummary(row) {
     attributeZh: typeof row.attr_zh === 'string' ? row.attr_zh : (row.attr?.zh || ''),
     materialZh: typeof row.material_zh === 'string' ? row.material_zh : (row.material?.zh || ''),
     qty: row._effectiveQty || row.qty || row.quantity || '',
+    remark: String(row.remark || ''),
     unit: row.unit || '',
     level: row._level || 1,
     hasChildren: Boolean(row._hasChildren),
@@ -347,13 +349,14 @@ function toEffectivityEventSummary(event) {
 export class PdmKnowledge {
   /**
    * @param {{ sourceMetadata: object, payload: object }} snapshot
-   * @param {{ aliasMap?: object }} options
+   * @param {{ aliasMap?: object, structureMapping?: object }} options
    */
   constructor(snapshot = {}, options = {}) {
     this._snapshot = snapshot;
     this._sourceMetadata = snapshot.sourceMetadata || snapshot.payload?.sourceMetadata || {};
     this._payload = snapshot.payload || snapshot;
     this._aliasMap = options.aliasMap || {};
+    this._structureMapping = options.structureMapping || { mappings: [] };
     this._revisionRegistry = normalizeProductRevisionRegistry(this._payload);
   }
 
@@ -486,6 +489,18 @@ export class PdmKnowledge {
       focused,
       truncated: selectedRows.length > MAX_BOM_ROWS,
       evidence: buildEvidence(this._sourceMetadata, productId, `data/products/${productId}.json`),
+    };
+  }
+
+  getStructureMapping({ productId, query = '' } = {}) {
+    if (!this._payload.bom?.[productId]) throw new Error(`Not found: ${productId}`);
+    const mappings = findStructureMappings(this._structureMapping, { productId, query });
+    return {
+      productCode: productId,
+      query: String(query || ''),
+      mappings,
+      found: mappings.length > 0,
+      evidence: buildEvidence(this._sourceMetadata, productId, 'knowledge/structure-mapping.json'),
     };
   }
 
@@ -975,6 +990,7 @@ export class PdmKnowledge {
               summary.spec,
               summary.materialZh,
               summary.attributeZh,
+              summary.remark,
             ].filter(Boolean).join(' ');
             if (!matcher.test(searchable)) continue;
 

@@ -2794,15 +2794,15 @@ body.pdm-shell {
 
 /* BOM column widths */
 .bom-table .col-level {
-  width: 60px;
+  width: 4%;
 }
 
 .bom-table .col-mat-code {
-  width: 140px;
+  width: 11%;
 }
 
 .bom-table .col-comp-code {
-  width: 75px;
+  width: 7%;
 }
 
 .bom-table.editing .col-comp-code {
@@ -2811,27 +2811,31 @@ body.pdm-shell {
 }
 
 .bom-table .col-description {
-  width: auto;
+  width: 13%;
 }
 
 .bom-table .col-spec {
-  width: auto;
+  width: 13%;
 }
 
 .bom-table .col-material {
-  width: 140px;
+  width: 11%;
 }
 
 .bom-table .col-color {
-  width: 90px;
+  width: 7%;
 }
 
 .bom-table .col-attr {
-  width: 80px;
+  width: 6%;
 }
 
 .bom-table .col-qty {
-  width: 55px;
+  width: 5%;
+}
+
+.bom-table .col-remark {
+  width: 14%;
 }
 
 .bom-table.editing .col-qty {
@@ -2840,11 +2844,11 @@ body.pdm-shell {
 }
 
 .bom-table .col-2d {
-  width: 70px;
+  width: 4%;
 }
 
 .bom-table .col-3d {
-  width: 70px;
+  width: 4%;
 }
 
 .bom-table td:has(.edit-input) {
@@ -2882,6 +2886,36 @@ body.pdm-shell {
 .bom-table td>div {
   white-space: nowrap;
   word-break: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bom-table .bom-remark {
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 1100px) {
+  .bom-table .col-material,
+  .bom-table th:nth-child(6),
+  .bom-table td:nth-child(6),
+  .bom-table .col-3d,
+  .bom-table th:nth-child(12),
+  .bom-table td:nth-child(12) {
+    display: none;
+  }
+}
+
+@media (max-width: 820px) {
+  .bom-table .col-color,
+  .bom-table th:nth-child(7),
+  .bom-table td:nth-child(7),
+  .bom-table .col-attr,
+  .bom-table th:nth-child(8),
+  .bom-table td:nth-child(8) {
+    display: none;
+  }
 }
 
 /* Stacked material/color cell stays top-aligned */
@@ -4524,6 +4558,10 @@ table,
   width: 100%;
   border-collapse: collapse;
   table-layout: auto !important;
+}
+
+.bom-table {
+  table-layout: fixed !important;
 }
 
 th,

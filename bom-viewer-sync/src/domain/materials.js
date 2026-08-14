@@ -113,6 +113,7 @@ function legacyRowFromRecord(record, entry) {
     color_ver: entry.color_ver || '',
     color_ver_vi: entry.color_ver_vi || entry.color_ver || '',
     qty: entry.qty || '',
+    remark: entry.remark || '',
     _materialId: record.id,
     _entryId: entry.id,
     _materialRecord: record
@@ -149,6 +150,7 @@ function scanBomVersionIntoDb(db, source, productCode, product, revisionLabel, i
         stt: String(material.stt || ''),
         comp_code: String(material.comp_code || ''),
         qty: String(material.qty || ''),
+        remark: String(material.remark || ''),
         color_ver: String(material.color_ver || colorData.color_ver || colorName),
         color_ver_vi: String(material.color_ver_vi || colorData.color_ver_vi || colorName),
         order: index,

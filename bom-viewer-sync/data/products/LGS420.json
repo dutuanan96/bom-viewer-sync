@@ -32,6 +32,7 @@
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
           "qty": "1",
+          "remark": "",
           "materials": [
             {
               "stt": "1",
@@ -49,7 +50,8 @@
               "attr_vi": "túi ngũ kim",
               "color_ver": "复古色",
               "color_ver_vi": "màu gỗ cổ",
-              "qty": "8"
+              "qty": "8",
+              "remark": ""
             },
             {
               "stt": "2",
@@ -67,7 +69,8 @@
               "attr_vi": "túi ngũ kim",
               "color_ver": "复古色",
               "color_ver_vi": "màu gỗ cổ",
-              "qty": "2"
+              "qty": "2",
+              "remark": ""
             },
             {
               "stt": "3",
@@ -85,7 +88,8 @@
               "attr_vi": "túi ngũ kim",
               "color_ver": "复古色",
               "color_ver_vi": "màu gỗ cổ",
-              "qty": "19+2"
+              "qty": "19+2",
+              "remark": ""
             },
             {
               "stt": "4",
@@ -103,7 +107,8 @@
               "attr_vi": "túi ngũ kim",
               "color_ver": "复古色",
               "color_ver_vi": "màu gỗ cổ",
-              "qty": "12+2"
+              "qty": "12+2",
+              "remark": ""
             },
             {
               "stt": "5",
@@ -121,7 +126,8 @@
               "attr_vi": "túi ngũ kim",
               "color_ver": "复古色",
               "color_ver_vi": "màu gỗ cổ",
-              "qty": "8+2"
+              "qty": "8+2",
+              "remark": ""
             },
             {
               "stt": "6",
@@ -139,7 +145,8 @@
               "attr_vi": "túi ngũ kim",
               "color_ver": "复古色",
               "color_ver_vi": "màu gỗ cổ",
-              "qty": "4+1"
+              "qty": "4+1",
+              "remark": ""
             },
             {
               "stt": "7",
@@ -157,7 +164,8 @@
               "attr_vi": "túi ngũ kim",
               "color_ver": "复古色",
               "color_ver_vi": "màu gỗ cổ",
-              "qty": "2"
+              "qty": "2",
+              "remark": ""
             },
             {
               "stt": "8",
@@ -175,7 +183,8 @@
               "attr_vi": "túi ngũ kim",
               "color_ver": "复古色",
               "color_ver_vi": "màu gỗ cổ",
-              "qty": "2"
+              "qty": "2",
+              "remark": ""
             },
             {
               "stt": "9",
@@ -193,7 +202,8 @@
               "attr_vi": "túi ngũ kim",
               "color_ver": "复古色",
               "color_ver_vi": "màu gỗ cổ",
-              "qty": "2"
+              "qty": "2",
+              "remark": ""
             },
             {
               "stt": "10",
@@ -211,7 +221,8 @@
               "attr_vi": "túi ngũ kim",
               "color_ver": "复古色",
               "color_ver_vi": "màu gỗ cổ",
-              "qty": "1"
+              "qty": "1",
+              "remark": ""
             },
             {
               "stt": "11",
@@ -229,7 +240,8 @@
               "attr_vi": "túi ngũ kim",
               "color_ver": "复古色",
               "color_ver_vi": "màu gỗ cổ",
-              "qty": "1"
+              "qty": "1",
+              "remark": ""
             },
             {
               "stt": "12",
@@ -247,7 +259,8 @@
               "attr_vi": "túi ngũ kim",
               "color_ver": "复古色",
               "color_ver_vi": "màu gỗ cổ",
-              "qty": "3"
+              "qty": "3",
+              "remark": ""
             }
           ]
         },
@@ -268,6 +281,7 @@
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
           "qty": "1",
+          "remark": "",
           "materials": [
             {
               "stt": "",
@@ -285,7 +299,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "0.125"
+              "qty": "0.125",
+              "remark": ""
             },
             {
               "stt": "",
@@ -303,7 +318,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "2"
+              "qty": "2",
+              "remark": ""
             },
             {
               "stt": "",
@@ -321,7 +337,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "2"
+              "qty": "2",
+              "remark": ""
             }
           ]
         },
@@ -342,6 +359,7 @@
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
           "qty": "1",
+          "remark": "",
           "materials": [
             {
               "stt": "",
@@ -359,7 +377,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "0.125"
+              "qty": "0.125",
+              "remark": ""
             },
             {
               "stt": "",
@@ -377,7 +396,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "2"
+              "qty": "2",
+              "remark": ""
             }
           ]
         },
@@ -397,7 +417,8 @@
           "attr_vi": "linh kiện",
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "4",
@@ -415,7 +436,8 @@
           "attr_vi": "linh kiện",
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "5",
@@ -433,7 +455,8 @@
           "attr_vi": "linh kiện",
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "6",
@@ -451,7 +474,8 @@
           "attr_vi": "linh kiện",
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
-          "qty": "5"
+          "qty": "5",
+          "remark": ""
         },
         {
           "stt": "7",
@@ -470,6 +494,7 @@
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
           "qty": "1",
+          "remark": "",
           "materials": [
             {
               "stt": "",
@@ -487,7 +512,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "0.125"
+              "qty": "0.125",
+              "remark": ""
             },
             {
               "stt": "",
@@ -505,7 +531,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "2"
+              "qty": "2",
+              "remark": ""
             }
           ]
         },
@@ -526,6 +553,7 @@
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
           "qty": "1",
+          "remark": "",
           "materials": [
             {
               "stt": "",
@@ -543,7 +571,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "0.2"
+              "qty": "0.2",
+              "remark": ""
             },
             {
               "stt": "",
@@ -561,7 +590,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "0.05"
+              "qty": "0.05",
+              "remark": ""
             },
             {
               "stt": "",
@@ -579,7 +609,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "2"
+              "qty": "2",
+              "remark": ""
             },
             {
               "stt": "",
@@ -597,7 +628,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "1"
+              "qty": "1",
+              "remark": ""
             },
             {
               "stt": "",
@@ -615,7 +647,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "1"
+              "qty": "1",
+              "remark": ""
             }
           ]
         },
@@ -635,7 +668,8 @@
           "attr_vi": "linh kiện",
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
-          "qty": "2"
+          "qty": "2",
+          "remark": ""
         },
         {
           "stt": "10",
@@ -653,7 +687,8 @@
           "attr_vi": "linh kiện",
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
-          "qty": "2"
+          "qty": "2",
+          "remark": ""
         },
         {
           "stt": "11",
@@ -671,7 +706,8 @@
           "attr_vi": "linh kiện",
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
-          "qty": "2"
+          "qty": "2",
+          "remark": ""
         },
         {
           "stt": "12",
@@ -689,7 +725,8 @@
           "attr_vi": "linh kiện",
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
-          "qty": "2"
+          "qty": "2",
+          "remark": ""
         },
         {
           "stt": "13",
@@ -708,6 +745,7 @@
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
           "qty": "2",
+          "remark": "",
           "materials": [
             {
               "stt": "",
@@ -725,7 +763,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "0.125"
+              "qty": "0.125",
+              "remark": ""
             },
             {
               "stt": "",
@@ -743,7 +782,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "2"
+              "qty": "2",
+              "remark": ""
             }
           ]
         },
@@ -764,6 +804,7 @@
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
           "qty": "1",
+          "remark": "",
           "materials": [
             {
               "stt": "",
@@ -781,7 +822,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "0.2"
+              "qty": "0.2",
+              "remark": ""
             },
             {
               "stt": "",
@@ -799,7 +841,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "0.05"
+              "qty": "0.05",
+              "remark": ""
             },
             {
               "stt": "",
@@ -817,7 +860,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "2"
+              "qty": "2",
+              "remark": ""
             },
             {
               "stt": "",
@@ -835,7 +879,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "1"
+              "qty": "1",
+              "remark": ""
             },
             {
               "stt": "",
@@ -853,7 +898,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "1"
+              "qty": "1",
+              "remark": ""
             }
           ]
         },
@@ -873,7 +919,8 @@
           "attr_vi": "linh kiện",
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
-          "qty": "2"
+          "qty": "2",
+          "remark": ""
         },
         {
           "stt": "16",
@@ -892,6 +939,7 @@
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
           "qty": "2",
+          "remark": "",
           "materials": [
             {
               "stt": "",
@@ -909,7 +957,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "0.25"
+              "qty": "0.25",
+              "remark": ""
             },
             {
               "stt": "",
@@ -927,7 +976,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "2"
+              "qty": "2",
+              "remark": ""
             }
           ]
         },
@@ -947,7 +997,8 @@
           "attr_vi": "linh kiện",
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "18",
@@ -965,7 +1016,8 @@
           "attr_vi": "linh kiện",
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "19",
@@ -983,7 +1035,8 @@
           "attr_vi": "linh kiện",
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
-          "qty": "2"
+          "qty": "2",
+          "remark": ""
         },
         {
           "stt": "1",
@@ -1001,7 +1054,8 @@
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "复古色",
           "color_ver_vi": "复古色",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "2",
@@ -1019,7 +1073,8 @@
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "复古色",
           "color_ver_vi": "复古色",
-          "qty": "4"
+          "qty": "4",
+          "remark": ""
         },
         {
           "stt": "3",
@@ -1037,7 +1092,8 @@
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "复古色",
           "color_ver_vi": "复古色",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "4",
@@ -1055,7 +1111,8 @@
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "复古色",
           "color_ver_vi": "复古色",
-          "qty": "2"
+          "qty": "2",
+          "remark": ""
         },
         {
           "stt": "5",
@@ -1073,7 +1130,8 @@
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "复古色",
           "color_ver_vi": "复古色",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "6",
@@ -1091,7 +1149,8 @@
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "复古色",
           "color_ver_vi": "复古色",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "7",
@@ -1109,7 +1168,8 @@
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "复古色",
           "color_ver_vi": "复古色",
-          "qty": "12"
+          "qty": "12",
+          "remark": ""
         },
         {
           "stt": "8",
@@ -1127,7 +1187,8 @@
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "复古色",
           "color_ver_vi": "复古色",
-          "qty": "4"
+          "qty": "4",
+          "remark": ""
         },
         {
           "stt": "9",
@@ -1139,13 +1200,14 @@
           "spec_vi": "A4",
           "material_zh": "铜版纸",
           "material_vi": "giấy couché",
-          "color_zh": "黑白",
-          "color_vi": "đen trắng",
+          "color_zh": "白底黑字",
+          "color_vi": "nền trắng chữ đen",
           "attr_zh": "包材",
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "复古色",
           "color_ver_vi": "复古色",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "10",
@@ -1157,13 +1219,14 @@
           "spec_vi": "∅10mm",
           "material_zh": "不干胶纸",
           "material_vi": "giấy tự dính",
-          "color_zh": "按样",
-          "color_vi": "theo mẫu",
+          "color_zh": "白底黑字",
+          "color_vi": "nền trắng chữ đen",
           "attr_zh": "包材",
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "复古色",
           "color_ver_vi": "复古色",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "11",
@@ -1175,13 +1238,14 @@
           "spec_vi": "∅10mm",
           "material_zh": "不干胶纸",
           "material_vi": "giấy tự dính",
-          "color_zh": "按样",
-          "color_vi": "theo mẫu",
+          "color_zh": "白底黑字",
+          "color_vi": "nền trắng chữ đen",
           "attr_zh": "包材",
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "复古色",
           "color_ver_vi": "复古色",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "12",
@@ -1193,13 +1257,14 @@
           "spec_vi": "35x12mm",
           "material_zh": "不干胶纸",
           "material_vi": "giấy tự dính",
-          "color_zh": "按样",
-          "color_vi": "theo mẫu",
+          "color_zh": "白底黑字",
+          "color_vi": "nền trắng chữ đen",
           "attr_zh": "包材",
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "复古色",
           "color_ver_vi": "复古色",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "13",
@@ -1217,7 +1282,198 @@
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "复古色",
           "color_ver_vi": "复古色",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
+        },
+        {
+          "stt": "",
+          "mat_code": "C110LADHZ",
+          "comp_code": "",
+          "name_zh": "序号标 C1",
+          "name_vi": "nhãn STT C1",
+          "spec": "∅10mm",
+          "spec_vi": "∅10mm",
+          "material_zh": "不干胶纸",
+          "material_vi": "giấy tự dính",
+          "color_zh": "蓝底黑字",
+          "color_vi": "nền xanh dương chữ đen",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "复古色",
+          "color_ver_vi": "màu gỗ cổ",
+          "qty": "1",
+          "remark": "[包装] 贴附编号=C1；颜色=蓝底黑字；贴附对象=待确认"
+        },
+        {
+          "stt": "",
+          "mat_code": "C210LVDHZ",
+          "comp_code": "",
+          "name_zh": "序号标 C2",
+          "name_vi": "nhãn STT C2",
+          "spec": "∅10mm",
+          "spec_vi": "∅10mm",
+          "material_zh": "不干胶纸",
+          "material_vi": "giấy tự dính",
+          "color_zh": "绿底黑字",
+          "color_vi": "nền xanh lá chữ đen",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "复古色",
+          "color_ver_vi": "màu gỗ cổ",
+          "qty": "1",
+          "remark": "[包装] 贴附编号=C2；颜色=绿底黑字；贴附对象=待确认"
+        },
+        {
+          "stt": "",
+          "mat_code": "D10BADHZ",
+          "comp_code": "",
+          "name_zh": "序号标 D",
+          "name_vi": "nhãn STT D",
+          "spec": "∅10mm",
+          "spec_vi": "∅10mm",
+          "material_zh": "不干胶纸",
+          "material_vi": "giấy tự dính",
+          "color_zh": "白底黑字",
+          "color_vi": "nền trắng chữ đen",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "复古色",
+          "color_ver_vi": "màu gỗ cổ",
+          "qty": "2",
+          "remark": "[包装] 贴附编号=D；颜色=白底黑字；贴附对象=待确认"
+        },
+        {
+          "stt": "",
+          "mat_code": "E10BADHZ",
+          "comp_code": "",
+          "name_zh": "序号标 E",
+          "name_vi": "nhãn STT E",
+          "spec": "∅10mm",
+          "spec_vi": "∅10mm",
+          "material_zh": "不干胶纸",
+          "material_vi": "giấy tự dính",
+          "color_zh": "白底黑字",
+          "color_vi": "nền trắng chữ đen",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "复古色",
+          "color_ver_vi": "màu gỗ cổ",
+          "qty": "2",
+          "remark": "[包装] 贴附编号=E；颜色=白底黑字；贴附对象=待确认"
+        },
+        {
+          "stt": "",
+          "mat_code": "F110BADHZ",
+          "comp_code": "",
+          "name_zh": "序号标 F1",
+          "name_vi": "nhãn STT F1",
+          "spec": "∅10mm",
+          "spec_vi": "∅10mm",
+          "material_zh": "不干胶纸",
+          "material_vi": "giấy tự dính",
+          "color_zh": "白底黑字",
+          "color_vi": "nền trắng chữ đen",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "复古色",
+          "color_ver_vi": "màu gỗ cổ",
+          "qty": "1",
+          "remark": "[包装] 贴附编号=F1；颜色=白底黑字；贴附对象=待确认"
+        },
+        {
+          "stt": "",
+          "mat_code": "F210BADHZ",
+          "comp_code": "",
+          "name_zh": "序号标 F2",
+          "name_vi": "nhãn STT F2",
+          "spec": "∅10mm",
+          "spec_vi": "∅10mm",
+          "material_zh": "不干胶纸",
+          "material_vi": "giấy tự dính",
+          "color_zh": "白底黑字",
+          "color_vi": "nền trắng chữ đen",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "复古色",
+          "color_ver_vi": "màu gỗ cổ",
+          "qty": "1",
+          "remark": "[包装] 贴附编号=F2；颜色=白底黑字；贴附对象=待确认"
+        },
+        {
+          "stt": "",
+          "mat_code": "G10BADHZ",
+          "comp_code": "",
+          "name_zh": "序号标 G",
+          "name_vi": "nhãn STT G",
+          "spec": "∅10mm",
+          "spec_vi": "∅10mm",
+          "material_zh": "不干胶纸",
+          "material_vi": "giấy tự dính",
+          "color_zh": "白底黑字",
+          "color_vi": "nền trắng chữ đen",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "复古色",
+          "color_ver_vi": "màu gỗ cổ",
+          "qty": "1",
+          "remark": "[包装] 贴附编号=G；颜色=白底黑字；贴附对象=待确认"
+        },
+        {
+          "stt": "",
+          "mat_code": "PE620X400",
+          "comp_code": "",
+          "name_zh": "PE袋",
+          "name_vi": "túi PE",
+          "spec": "620×400mm",
+          "spec_vi": "620×400mm",
+          "material_zh": "PE",
+          "material_vi": "PE",
+          "color_zh": "透明",
+          "color_vi": "trong suốt",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "复古色",
+          "color_ver_vi": "màu gỗ cổ",
+          "qty": "4",
+          "remark": "[包装] 包装对象=待确认；PE袋=620*400；用量=4袋"
+        },
+        {
+          "stt": "",
+          "mat_code": "PE780X60",
+          "comp_code": "",
+          "name_zh": "PE袋",
+          "name_vi": "túi PE",
+          "spec": "780×60mm",
+          "spec_vi": "780×60mm",
+          "material_zh": "PE",
+          "material_vi": "PE",
+          "color_zh": "透明",
+          "color_vi": "trong suốt",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "复古色",
+          "color_ver_vi": "màu gỗ cổ",
+          "qty": "2",
+          "remark": "[包装] 包装对象=待确认；PE袋=780*60；用量=2袋"
+        },
+        {
+          "stt": "",
+          "mat_code": "PE400X220",
+          "comp_code": "",
+          "name_zh": "PE袋",
+          "name_vi": "túi PE",
+          "spec": "400×220mm",
+          "spec_vi": "400×220mm",
+          "material_zh": "PE",
+          "material_vi": "PE",
+          "color_zh": "透明",
+          "color_vi": "trong suốt",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "复古色",
+          "color_ver_vi": "màu gỗ cổ",
+          "qty": "1",
+          "remark": "[包装] 包装对象=待确认；PE袋=400*220；用量=1袋"
         }
       ]
     },
@@ -1247,6 +1503,7 @@
           "color_ver": "白色",
           "color_ver_vi": "白色",
           "qty": "1",
+          "remark": "",
           "materials": [
             {
               "stt": "1",
@@ -1264,7 +1521,8 @@
               "attr_vi": "túi ngũ kim",
               "color_ver": "白色",
               "color_ver_vi": "白色",
-              "qty": "2"
+              "qty": "2",
+              "remark": ""
             },
             {
               "stt": "2",
@@ -1282,7 +1540,8 @@
               "attr_vi": "túi ngũ kim",
               "color_ver": "白色",
               "color_ver_vi": "白色",
-              "qty": "1"
+              "qty": "1",
+              "remark": ""
             },
             {
               "stt": "3",
@@ -1300,7 +1559,8 @@
               "attr_vi": "túi ngũ kim",
               "color_ver": "白色",
               "color_ver_vi": "白色",
-              "qty": "1"
+              "qty": "1",
+              "remark": ""
             },
             {
               "stt": "4",
@@ -1318,7 +1578,8 @@
               "attr_vi": "túi ngũ kim",
               "color_ver": "白色",
               "color_ver_vi": "白色",
-              "qty": "3"
+              "qty": "3",
+              "remark": ""
             },
             {
               "stt": "5",
@@ -1336,7 +1597,8 @@
               "attr_vi": "túi ngũ kim",
               "color_ver": "白色",
               "color_ver_vi": "白色",
-              "qty": "8"
+              "qty": "8",
+              "remark": ""
             },
             {
               "stt": "6",
@@ -1354,7 +1616,8 @@
               "attr_vi": "túi ngũ kim",
               "color_ver": "白色",
               "color_ver_vi": "白色",
-              "qty": "2"
+              "qty": "2",
+              "remark": ""
             },
             {
               "stt": "7",
@@ -1372,7 +1635,8 @@
               "attr_vi": "túi ngũ kim",
               "color_ver": "白色",
               "color_ver_vi": "白色",
-              "qty": "19+2"
+              "qty": "19+2",
+              "remark": ""
             },
             {
               "stt": "8",
@@ -1390,7 +1654,8 @@
               "attr_vi": "túi ngũ kim",
               "color_ver": "白色",
               "color_ver_vi": "白色",
-              "qty": "12+2"
+              "qty": "12+2",
+              "remark": ""
             },
             {
               "stt": "9",
@@ -1408,7 +1673,8 @@
               "attr_vi": "túi ngũ kim",
               "color_ver": "白色",
               "color_ver_vi": "白色",
-              "qty": "8+2"
+              "qty": "8+2",
+              "remark": ""
             },
             {
               "stt": "10",
@@ -1426,7 +1692,8 @@
               "attr_vi": "túi ngũ kim",
               "color_ver": "白色",
               "color_ver_vi": "白色",
-              "qty": "4+1"
+              "qty": "4+1",
+              "remark": ""
             },
             {
               "stt": "11",
@@ -1444,7 +1711,8 @@
               "attr_vi": "túi ngũ kim",
               "color_ver": "白色",
               "color_ver_vi": "白色",
-              "qty": "2"
+              "qty": "2",
+              "remark": ""
             },
             {
               "stt": "13",
@@ -1462,7 +1730,8 @@
               "attr_vi": "túi ngũ kim",
               "color_ver": "白色",
               "color_ver_vi": "白色",
-              "qty": "2"
+              "qty": "2",
+              "remark": ""
             }
           ]
         },
@@ -1483,6 +1752,7 @@
           "color_ver": "白色",
           "color_ver_vi": "màu trắng",
           "qty": "1",
+          "remark": "",
           "materials": [
             {
               "stt": "",
@@ -1500,7 +1770,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "0.125"
+              "qty": "0.125",
+              "remark": ""
             },
             {
               "stt": "",
@@ -1518,7 +1789,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "2"
+              "qty": "2",
+              "remark": ""
             },
             {
               "stt": "",
@@ -1536,7 +1808,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "2"
+              "qty": "2",
+              "remark": ""
             }
           ]
         },
@@ -1557,6 +1830,7 @@
           "color_ver": "白色",
           "color_ver_vi": "màu trắng",
           "qty": "1",
+          "remark": "",
           "materials": [
             {
               "stt": "",
@@ -1574,7 +1848,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "0.125"
+              "qty": "0.125",
+              "remark": ""
             },
             {
               "stt": "",
@@ -1592,7 +1867,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "2"
+              "qty": "2",
+              "remark": ""
             }
           ]
         },
@@ -1612,7 +1888,8 @@
           "attr_vi": "linh kiện",
           "color_ver": "白色",
           "color_ver_vi": "màu trắng",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "4",
@@ -1630,7 +1907,8 @@
           "attr_vi": "linh kiện",
           "color_ver": "白色",
           "color_ver_vi": "màu trắng",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "5",
@@ -1648,7 +1926,8 @@
           "attr_vi": "linh kiện",
           "color_ver": "白色",
           "color_ver_vi": "màu trắng",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "6",
@@ -1666,7 +1945,8 @@
           "attr_vi": "linh kiện",
           "color_ver": "白色",
           "color_ver_vi": "màu trắng",
-          "qty": "5"
+          "qty": "5",
+          "remark": ""
         },
         {
           "stt": "7",
@@ -1685,6 +1965,7 @@
           "color_ver": "白色",
           "color_ver_vi": "màu trắng",
           "qty": "1",
+          "remark": "",
           "materials": [
             {
               "stt": "",
@@ -1702,7 +1983,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "0.125"
+              "qty": "0.125",
+              "remark": ""
             },
             {
               "stt": "",
@@ -1720,7 +2002,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "2"
+              "qty": "2",
+              "remark": ""
             }
           ]
         },
@@ -1741,6 +2024,7 @@
           "color_ver": "白色",
           "color_ver_vi": "màu trắng",
           "qty": "1",
+          "remark": "",
           "materials": [
             {
               "stt": "",
@@ -1758,7 +2042,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "0.2"
+              "qty": "0.2",
+              "remark": ""
             },
             {
               "stt": "",
@@ -1776,7 +2061,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "0.05"
+              "qty": "0.05",
+              "remark": ""
             },
             {
               "stt": "",
@@ -1794,7 +2080,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "2"
+              "qty": "2",
+              "remark": ""
             },
             {
               "stt": "",
@@ -1812,7 +2099,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "1"
+              "qty": "1",
+              "remark": ""
             },
             {
               "stt": "",
@@ -1830,7 +2118,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "1"
+              "qty": "1",
+              "remark": ""
             }
           ]
         },
@@ -1850,7 +2139,8 @@
           "attr_vi": "linh kiện",
           "color_ver": "白色",
           "color_ver_vi": "màu trắng",
-          "qty": "2"
+          "qty": "2",
+          "remark": ""
         },
         {
           "stt": "10",
@@ -1868,7 +2158,8 @@
           "attr_vi": "linh kiện",
           "color_ver": "白色",
           "color_ver_vi": "màu trắng",
-          "qty": "2"
+          "qty": "2",
+          "remark": ""
         },
         {
           "stt": "11",
@@ -1886,7 +2177,8 @@
           "attr_vi": "linh kiện",
           "color_ver": "白色",
           "color_ver_vi": "màu trắng",
-          "qty": "2"
+          "qty": "2",
+          "remark": ""
         },
         {
           "stt": "12",
@@ -1904,7 +2196,8 @@
           "attr_vi": "linh kiện",
           "color_ver": "白色",
           "color_ver_vi": "màu trắng",
-          "qty": "2"
+          "qty": "2",
+          "remark": ""
         },
         {
           "stt": "13",
@@ -1923,6 +2216,7 @@
           "color_ver": "白色",
           "color_ver_vi": "màu trắng",
           "qty": "2",
+          "remark": "",
           "materials": [
             {
               "stt": "",
@@ -1940,7 +2234,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "0.125"
+              "qty": "0.125",
+              "remark": ""
             },
             {
               "stt": "",
@@ -1958,7 +2253,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "2"
+              "qty": "2",
+              "remark": ""
             }
           ]
         },
@@ -1979,6 +2275,7 @@
           "color_ver": "白色",
           "color_ver_vi": "màu trắng",
           "qty": "1",
+          "remark": "",
           "materials": [
             {
               "stt": "",
@@ -1996,7 +2293,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "0.2"
+              "qty": "0.2",
+              "remark": ""
             },
             {
               "stt": "",
@@ -2014,7 +2312,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "0.05"
+              "qty": "0.05",
+              "remark": ""
             },
             {
               "stt": "",
@@ -2032,7 +2331,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "2"
+              "qty": "2",
+              "remark": ""
             },
             {
               "stt": "",
@@ -2050,7 +2350,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "1"
+              "qty": "1",
+              "remark": ""
             },
             {
               "stt": "",
@@ -2068,7 +2369,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "1"
+              "qty": "1",
+              "remark": ""
             }
           ]
         },
@@ -2088,7 +2390,8 @@
           "attr_vi": "linh kiện",
           "color_ver": "白色",
           "color_ver_vi": "màu trắng",
-          "qty": "2"
+          "qty": "2",
+          "remark": ""
         },
         {
           "stt": "16",
@@ -2107,6 +2410,7 @@
           "color_ver": "白色",
           "color_ver_vi": "màu trắng",
           "qty": "2",
+          "remark": "",
           "materials": [
             {
               "stt": "",
@@ -2124,7 +2428,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "0.25"
+              "qty": "0.25",
+              "remark": ""
             },
             {
               "stt": "",
@@ -2142,7 +2447,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "2"
+              "qty": "2",
+              "remark": ""
             }
           ]
         },
@@ -2162,7 +2468,8 @@
           "attr_vi": "linh kiện",
           "color_ver": "白色",
           "color_ver_vi": "màu trắng",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "18",
@@ -2180,7 +2487,8 @@
           "attr_vi": "linh kiện",
           "color_ver": "白色",
           "color_ver_vi": "màu trắng",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "19",
@@ -2198,7 +2506,8 @@
           "attr_vi": "linh kiện",
           "color_ver": "白色",
           "color_ver_vi": "màu trắng",
-          "qty": "2"
+          "qty": "2",
+          "remark": ""
         },
         {
           "stt": "1",
@@ -2216,7 +2525,8 @@
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "白色",
           "color_ver_vi": "白色",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "2",
@@ -2234,7 +2544,8 @@
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "白色",
           "color_ver_vi": "白色",
-          "qty": "4"
+          "qty": "4",
+          "remark": ""
         },
         {
           "stt": "3",
@@ -2252,7 +2563,8 @@
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "白色",
           "color_ver_vi": "白色",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "4",
@@ -2270,7 +2582,8 @@
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "白色",
           "color_ver_vi": "白色",
-          "qty": "2"
+          "qty": "2",
+          "remark": ""
         },
         {
           "stt": "5",
@@ -2288,7 +2601,8 @@
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "白色",
           "color_ver_vi": "白色",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "6",
@@ -2306,7 +2620,8 @@
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "白色",
           "color_ver_vi": "白色",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "7",
@@ -2324,7 +2639,8 @@
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "白色",
           "color_ver_vi": "白色",
-          "qty": "12"
+          "qty": "12",
+          "remark": ""
         },
         {
           "stt": "8",
@@ -2342,7 +2658,8 @@
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "白色",
           "color_ver_vi": "白色",
-          "qty": "4"
+          "qty": "4",
+          "remark": ""
         },
         {
           "stt": "9",
@@ -2354,13 +2671,14 @@
           "spec_vi": "A4",
           "material_zh": "铜版纸",
           "material_vi": "giấy couché",
-          "color_zh": "黑白",
-          "color_vi": "đen trắng",
+          "color_zh": "白底黑字",
+          "color_vi": "nền trắng chữ đen",
           "attr_zh": "包材",
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "白色",
           "color_ver_vi": "白色",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "10",
@@ -2372,13 +2690,14 @@
           "spec_vi": "∅10mm",
           "material_zh": "不干胶纸",
           "material_vi": "giấy tự dính",
-          "color_zh": "按样",
-          "color_vi": "theo mẫu",
+          "color_zh": "白底黑字",
+          "color_vi": "nền trắng chữ đen",
           "attr_zh": "包材",
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "白色",
           "color_ver_vi": "白色",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "11",
@@ -2390,13 +2709,14 @@
           "spec_vi": "∅10mm",
           "material_zh": "不干胶纸",
           "material_vi": "giấy tự dính",
-          "color_zh": "按样",
-          "color_vi": "theo mẫu",
+          "color_zh": "白底黑字",
+          "color_vi": "nền trắng chữ đen",
           "attr_zh": "包材",
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "白色",
           "color_ver_vi": "白色",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "12",
@@ -2408,13 +2728,14 @@
           "spec_vi": "35x12mm",
           "material_zh": "不干胶纸",
           "material_vi": "giấy tự dính",
-          "color_zh": "按样",
-          "color_vi": "theo mẫu",
+          "color_zh": "白底黑字",
+          "color_vi": "nền trắng chữ đen",
           "attr_zh": "包材",
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "白色",
           "color_ver_vi": "白色",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "13",
@@ -2432,7 +2753,198 @@
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "白色",
           "color_ver_vi": "白色",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
+        },
+        {
+          "stt": "",
+          "mat_code": "C110LADHZ",
+          "comp_code": "",
+          "name_zh": "序号标 C1",
+          "name_vi": "nhãn STT C1",
+          "spec": "∅10mm",
+          "spec_vi": "∅10mm",
+          "material_zh": "不干胶纸",
+          "material_vi": "giấy tự dính",
+          "color_zh": "蓝底黑字",
+          "color_vi": "nền xanh dương chữ đen",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "白色",
+          "color_ver_vi": "màu trắng",
+          "qty": "1",
+          "remark": "[包装] 贴附编号=C1；颜色=蓝底黑字；贴附对象=待确认"
+        },
+        {
+          "stt": "",
+          "mat_code": "C210LVDHZ",
+          "comp_code": "",
+          "name_zh": "序号标 C2",
+          "name_vi": "nhãn STT C2",
+          "spec": "∅10mm",
+          "spec_vi": "∅10mm",
+          "material_zh": "不干胶纸",
+          "material_vi": "giấy tự dính",
+          "color_zh": "绿底黑字",
+          "color_vi": "nền xanh lá chữ đen",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "白色",
+          "color_ver_vi": "màu trắng",
+          "qty": "1",
+          "remark": "[包装] 贴附编号=C2；颜色=绿底黑字；贴附对象=待确认"
+        },
+        {
+          "stt": "",
+          "mat_code": "D10BADHZ",
+          "comp_code": "",
+          "name_zh": "序号标 D",
+          "name_vi": "nhãn STT D",
+          "spec": "∅10mm",
+          "spec_vi": "∅10mm",
+          "material_zh": "不干胶纸",
+          "material_vi": "giấy tự dính",
+          "color_zh": "白底黑字",
+          "color_vi": "nền trắng chữ đen",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "白色",
+          "color_ver_vi": "màu trắng",
+          "qty": "2",
+          "remark": "[包装] 贴附编号=D；颜色=白底黑字；贴附对象=待确认"
+        },
+        {
+          "stt": "",
+          "mat_code": "E10BADHZ",
+          "comp_code": "",
+          "name_zh": "序号标 E",
+          "name_vi": "nhãn STT E",
+          "spec": "∅10mm",
+          "spec_vi": "∅10mm",
+          "material_zh": "不干胶纸",
+          "material_vi": "giấy tự dính",
+          "color_zh": "白底黑字",
+          "color_vi": "nền trắng chữ đen",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "白色",
+          "color_ver_vi": "màu trắng",
+          "qty": "2",
+          "remark": "[包装] 贴附编号=E；颜色=白底黑字；贴附对象=待确认"
+        },
+        {
+          "stt": "",
+          "mat_code": "F110BADHZ",
+          "comp_code": "",
+          "name_zh": "序号标 F1",
+          "name_vi": "nhãn STT F1",
+          "spec": "∅10mm",
+          "spec_vi": "∅10mm",
+          "material_zh": "不干胶纸",
+          "material_vi": "giấy tự dính",
+          "color_zh": "白底黑字",
+          "color_vi": "nền trắng chữ đen",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "白色",
+          "color_ver_vi": "màu trắng",
+          "qty": "1",
+          "remark": "[包装] 贴附编号=F1；颜色=白底黑字；贴附对象=待确认"
+        },
+        {
+          "stt": "",
+          "mat_code": "F210BADHZ",
+          "comp_code": "",
+          "name_zh": "序号标 F2",
+          "name_vi": "nhãn STT F2",
+          "spec": "∅10mm",
+          "spec_vi": "∅10mm",
+          "material_zh": "不干胶纸",
+          "material_vi": "giấy tự dính",
+          "color_zh": "白底黑字",
+          "color_vi": "nền trắng chữ đen",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "白色",
+          "color_ver_vi": "màu trắng",
+          "qty": "1",
+          "remark": "[包装] 贴附编号=F2；颜色=白底黑字；贴附对象=待确认"
+        },
+        {
+          "stt": "",
+          "mat_code": "G10BADHZ",
+          "comp_code": "",
+          "name_zh": "序号标 G",
+          "name_vi": "nhãn STT G",
+          "spec": "∅10mm",
+          "spec_vi": "∅10mm",
+          "material_zh": "不干胶纸",
+          "material_vi": "giấy tự dính",
+          "color_zh": "白底黑字",
+          "color_vi": "nền trắng chữ đen",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "白色",
+          "color_ver_vi": "màu trắng",
+          "qty": "1",
+          "remark": "[包装] 贴附编号=G；颜色=白底黑字；贴附对象=待确认"
+        },
+        {
+          "stt": "",
+          "mat_code": "PE620X400",
+          "comp_code": "",
+          "name_zh": "PE袋",
+          "name_vi": "túi PE",
+          "spec": "620×400mm",
+          "spec_vi": "620×400mm",
+          "material_zh": "PE",
+          "material_vi": "PE",
+          "color_zh": "透明",
+          "color_vi": "trong suốt",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "白色",
+          "color_ver_vi": "màu trắng",
+          "qty": "4",
+          "remark": "[包装] 包装对象=待确认；PE袋=620*400；用量=4袋"
+        },
+        {
+          "stt": "",
+          "mat_code": "PE780X60",
+          "comp_code": "",
+          "name_zh": "PE袋",
+          "name_vi": "túi PE",
+          "spec": "780×60mm",
+          "spec_vi": "780×60mm",
+          "material_zh": "PE",
+          "material_vi": "PE",
+          "color_zh": "透明",
+          "color_vi": "trong suốt",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "白色",
+          "color_ver_vi": "màu trắng",
+          "qty": "2",
+          "remark": "[包装] 包装对象=待确认；PE袋=780*60；用量=2袋"
+        },
+        {
+          "stt": "",
+          "mat_code": "PE400X220",
+          "comp_code": "",
+          "name_zh": "PE袋",
+          "name_vi": "túi PE",
+          "spec": "400×220mm",
+          "spec_vi": "400×220mm",
+          "material_zh": "PE",
+          "material_vi": "PE",
+          "color_zh": "透明",
+          "color_vi": "trong suốt",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "白色",
+          "color_ver_vi": "màu trắng",
+          "qty": "1",
+          "remark": "[包装] 包装对象=待确认；PE袋=400*220；用量=1袋"
         }
       ]
     },
@@ -2462,6 +2974,7 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "1",
+          "remark": "",
           "materials": [
             {
               "stt": "1",
@@ -2479,7 +2992,8 @@
               "attr_vi": "túi ngũ kim",
               "color_ver": "黑色",
               "color_ver_vi": "màu đen",
-              "qty": "8"
+              "qty": "8",
+              "remark": ""
             },
             {
               "stt": "2",
@@ -2497,7 +3011,8 @@
               "attr_vi": "túi ngũ kim",
               "color_ver": "黑色",
               "color_ver_vi": "màu đen",
-              "qty": "2"
+              "qty": "2",
+              "remark": ""
             },
             {
               "stt": "3",
@@ -2515,7 +3030,8 @@
               "attr_vi": "túi ngũ kim",
               "color_ver": "黑色",
               "color_ver_vi": "màu đen",
-              "qty": "19+2"
+              "qty": "19+2",
+              "remark": ""
             },
             {
               "stt": "4",
@@ -2533,7 +3049,8 @@
               "attr_vi": "túi ngũ kim",
               "color_ver": "黑色",
               "color_ver_vi": "màu đen",
-              "qty": "12+2"
+              "qty": "12+2",
+              "remark": ""
             },
             {
               "stt": "5",
@@ -2551,7 +3068,8 @@
               "attr_vi": "túi ngũ kim",
               "color_ver": "黑色",
               "color_ver_vi": "màu đen",
-              "qty": "8+2"
+              "qty": "8+2",
+              "remark": ""
             },
             {
               "stt": "6",
@@ -2569,7 +3087,8 @@
               "attr_vi": "túi ngũ kim",
               "color_ver": "黑色",
               "color_ver_vi": "màu đen",
-              "qty": "4+1"
+              "qty": "4+1",
+              "remark": ""
             },
             {
               "stt": "7",
@@ -2587,7 +3106,8 @@
               "attr_vi": "túi ngũ kim",
               "color_ver": "黑色",
               "color_ver_vi": "màu đen",
-              "qty": "2"
+              "qty": "2",
+              "remark": ""
             },
             {
               "stt": "8",
@@ -2605,7 +3125,8 @@
               "attr_vi": "túi ngũ kim",
               "color_ver": "黑色",
               "color_ver_vi": "màu đen",
-              "qty": "2"
+              "qty": "2",
+              "remark": ""
             },
             {
               "stt": "9",
@@ -2623,7 +3144,8 @@
               "attr_vi": "túi ngũ kim",
               "color_ver": "黑色",
               "color_ver_vi": "màu đen",
-              "qty": "2"
+              "qty": "2",
+              "remark": ""
             },
             {
               "stt": "10",
@@ -2641,7 +3163,8 @@
               "attr_vi": "túi ngũ kim",
               "color_ver": "黑色",
               "color_ver_vi": "màu đen",
-              "qty": "1"
+              "qty": "1",
+              "remark": ""
             },
             {
               "stt": "11",
@@ -2659,7 +3182,8 @@
               "attr_vi": "túi ngũ kim",
               "color_ver": "黑色",
               "color_ver_vi": "màu đen",
-              "qty": "1"
+              "qty": "1",
+              "remark": ""
             },
             {
               "stt": "12",
@@ -2677,7 +3201,8 @@
               "attr_vi": "túi ngũ kim",
               "color_ver": "黑色",
               "color_ver_vi": "màu đen",
-              "qty": "3"
+              "qty": "3",
+              "remark": ""
             }
           ]
         },
@@ -2698,6 +3223,7 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "1",
+          "remark": "",
           "materials": [
             {
               "stt": "",
@@ -2715,7 +3241,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "0.125"
+              "qty": "0.125",
+              "remark": ""
             },
             {
               "stt": "",
@@ -2733,7 +3260,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "2"
+              "qty": "2",
+              "remark": ""
             },
             {
               "stt": "",
@@ -2751,7 +3279,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "2"
+              "qty": "2",
+              "remark": ""
             }
           ]
         },
@@ -2772,6 +3301,7 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "1",
+          "remark": "",
           "materials": [
             {
               "stt": "",
@@ -2789,7 +3319,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "0.125"
+              "qty": "0.125",
+              "remark": ""
             },
             {
               "stt": "",
@@ -2807,7 +3338,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "2"
+              "qty": "2",
+              "remark": ""
             }
           ]
         },
@@ -2827,7 +3359,8 @@
           "attr_vi": "linh kiện",
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "4",
@@ -2845,7 +3378,8 @@
           "attr_vi": "linh kiện",
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "5",
@@ -2863,7 +3397,8 @@
           "attr_vi": "linh kiện",
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "6",
@@ -2881,7 +3416,8 @@
           "attr_vi": "linh kiện",
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
-          "qty": "5"
+          "qty": "5",
+          "remark": ""
         },
         {
           "stt": "7",
@@ -2900,6 +3436,7 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "1",
+          "remark": "",
           "materials": [
             {
               "stt": "",
@@ -2917,7 +3454,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "0.125"
+              "qty": "0.125",
+              "remark": ""
             },
             {
               "stt": "",
@@ -2935,7 +3473,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "2"
+              "qty": "2",
+              "remark": ""
             }
           ]
         },
@@ -2956,6 +3495,7 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "1",
+          "remark": "",
           "materials": [
             {
               "stt": "",
@@ -2973,7 +3513,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "0.2"
+              "qty": "0.2",
+              "remark": ""
             },
             {
               "stt": "",
@@ -2991,7 +3532,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "0.05"
+              "qty": "0.05",
+              "remark": ""
             },
             {
               "stt": "",
@@ -3009,7 +3551,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "2"
+              "qty": "2",
+              "remark": ""
             },
             {
               "stt": "",
@@ -3027,7 +3570,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "1"
+              "qty": "1",
+              "remark": ""
             },
             {
               "stt": "",
@@ -3045,7 +3589,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "1"
+              "qty": "1",
+              "remark": ""
             }
           ]
         },
@@ -3065,7 +3610,8 @@
           "attr_vi": "linh kiện",
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
-          "qty": "2"
+          "qty": "2",
+          "remark": ""
         },
         {
           "stt": "10",
@@ -3083,7 +3629,8 @@
           "attr_vi": "linh kiện",
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
-          "qty": "2"
+          "qty": "2",
+          "remark": ""
         },
         {
           "stt": "11",
@@ -3101,7 +3648,8 @@
           "attr_vi": "linh kiện",
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
-          "qty": "2"
+          "qty": "2",
+          "remark": ""
         },
         {
           "stt": "12",
@@ -3119,7 +3667,8 @@
           "attr_vi": "linh kiện",
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
-          "qty": "2"
+          "qty": "2",
+          "remark": ""
         },
         {
           "stt": "13",
@@ -3138,6 +3687,7 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "2",
+          "remark": "",
           "materials": [
             {
               "stt": "",
@@ -3155,7 +3705,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "0.125"
+              "qty": "0.125",
+              "remark": ""
             },
             {
               "stt": "",
@@ -3173,7 +3724,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "2"
+              "qty": "2",
+              "remark": ""
             }
           ]
         },
@@ -3194,6 +3746,7 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "1",
+          "remark": "",
           "materials": [
             {
               "stt": "",
@@ -3211,7 +3764,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "0.2"
+              "qty": "0.2",
+              "remark": ""
             },
             {
               "stt": "",
@@ -3229,7 +3783,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "0.05"
+              "qty": "0.05",
+              "remark": ""
             },
             {
               "stt": "",
@@ -3247,7 +3802,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "2"
+              "qty": "2",
+              "remark": ""
             },
             {
               "stt": "",
@@ -3265,7 +3821,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "1"
+              "qty": "1",
+              "remark": ""
             },
             {
               "stt": "",
@@ -3283,7 +3840,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "1"
+              "qty": "1",
+              "remark": ""
             }
           ]
         },
@@ -3303,7 +3861,8 @@
           "attr_vi": "linh kiện",
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
-          "qty": "2"
+          "qty": "2",
+          "remark": ""
         },
         {
           "stt": "16",
@@ -3322,6 +3881,7 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "2",
+          "remark": "",
           "materials": [
             {
               "stt": "",
@@ -3339,7 +3899,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "0.25"
+              "qty": "0.25",
+              "remark": ""
             },
             {
               "stt": "",
@@ -3357,7 +3918,8 @@
               "attr_vi": "Nguyên vật liệu",
               "color_ver": "",
               "color_ver_vi": "",
-              "qty": "2"
+              "qty": "2",
+              "remark": ""
             }
           ]
         },
@@ -3377,7 +3939,8 @@
           "attr_vi": "linh kiện",
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "18",
@@ -3395,7 +3958,8 @@
           "attr_vi": "linh kiện",
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "19",
@@ -3413,7 +3977,8 @@
           "attr_vi": "linh kiện",
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
-          "qty": "2"
+          "qty": "2",
+          "remark": ""
         },
         {
           "stt": "1",
@@ -3431,7 +3996,8 @@
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "黑色",
           "color_ver_vi": "黑色",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "2",
@@ -3449,7 +4015,8 @@
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "黑色",
           "color_ver_vi": "黑色",
-          "qty": "4"
+          "qty": "4",
+          "remark": ""
         },
         {
           "stt": "3",
@@ -3467,7 +4034,8 @@
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "黑色",
           "color_ver_vi": "黑色",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "4",
@@ -3485,7 +4053,8 @@
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "黑色",
           "color_ver_vi": "黑色",
-          "qty": "2"
+          "qty": "2",
+          "remark": ""
         },
         {
           "stt": "5",
@@ -3503,7 +4072,8 @@
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "黑色",
           "color_ver_vi": "黑色",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "6",
@@ -3521,7 +4091,8 @@
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "黑色",
           "color_ver_vi": "黑色",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "7",
@@ -3539,7 +4110,8 @@
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "黑色",
           "color_ver_vi": "黑色",
-          "qty": "12"
+          "qty": "12",
+          "remark": ""
         },
         {
           "stt": "8",
@@ -3557,7 +4129,8 @@
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "黑色",
           "color_ver_vi": "黑色",
-          "qty": "4"
+          "qty": "4",
+          "remark": ""
         },
         {
           "stt": "9",
@@ -3569,13 +4142,14 @@
           "spec_vi": "A4",
           "material_zh": "铜版纸",
           "material_vi": "giấy couché",
-          "color_zh": "黑白",
-          "color_vi": "đen trắng",
+          "color_zh": "白底黑字",
+          "color_vi": "nền trắng chữ đen",
           "attr_zh": "包材",
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "黑色",
           "color_ver_vi": "黑色",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "10",
@@ -3587,13 +4161,14 @@
           "spec_vi": "∅10mm",
           "material_zh": "不干胶纸",
           "material_vi": "giấy tự dính",
-          "color_zh": "按样",
-          "color_vi": "theo mẫu",
+          "color_zh": "白底黑字",
+          "color_vi": "nền trắng chữ đen",
           "attr_zh": "包材",
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "黑色",
           "color_ver_vi": "黑色",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "11",
@@ -3605,13 +4180,14 @@
           "spec_vi": "∅10mm",
           "material_zh": "不干胶纸",
           "material_vi": "giấy tự dính",
-          "color_zh": "按样",
-          "color_vi": "theo mẫu",
+          "color_zh": "白底黑字",
+          "color_vi": "nền trắng chữ đen",
           "attr_zh": "包材",
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "黑色",
           "color_ver_vi": "黑色",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "12",
@@ -3623,13 +4199,14 @@
           "spec_vi": "35x12mm",
           "material_zh": "不干胶纸",
           "material_vi": "giấy tự dính",
-          "color_zh": "按样",
-          "color_vi": "theo mẫu",
+          "color_zh": "白底黑字",
+          "color_vi": "nền trắng chữ đen",
           "attr_zh": "包材",
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "黑色",
           "color_ver_vi": "黑色",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
         },
         {
           "stt": "13",
@@ -3647,7 +4224,198 @@
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "黑色",
           "color_ver_vi": "黑色",
-          "qty": "1"
+          "qty": "1",
+          "remark": ""
+        },
+        {
+          "stt": "",
+          "mat_code": "C110LADHZ",
+          "comp_code": "",
+          "name_zh": "序号标 C1",
+          "name_vi": "nhãn STT C1",
+          "spec": "∅10mm",
+          "spec_vi": "∅10mm",
+          "material_zh": "不干胶纸",
+          "material_vi": "giấy tự dính",
+          "color_zh": "蓝底黑字",
+          "color_vi": "nền xanh dương chữ đen",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "黑色",
+          "color_ver_vi": "màu đen",
+          "qty": "1",
+          "remark": "[包装] 贴附编号=C1；颜色=蓝底黑字；贴附对象=待确认"
+        },
+        {
+          "stt": "",
+          "mat_code": "C210LVDHZ",
+          "comp_code": "",
+          "name_zh": "序号标 C2",
+          "name_vi": "nhãn STT C2",
+          "spec": "∅10mm",
+          "spec_vi": "∅10mm",
+          "material_zh": "不干胶纸",
+          "material_vi": "giấy tự dính",
+          "color_zh": "绿底黑字",
+          "color_vi": "nền xanh lá chữ đen",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "黑色",
+          "color_ver_vi": "màu đen",
+          "qty": "1",
+          "remark": "[包装] 贴附编号=C2；颜色=绿底黑字；贴附对象=待确认"
+        },
+        {
+          "stt": "",
+          "mat_code": "D10BADHZ",
+          "comp_code": "",
+          "name_zh": "序号标 D",
+          "name_vi": "nhãn STT D",
+          "spec": "∅10mm",
+          "spec_vi": "∅10mm",
+          "material_zh": "不干胶纸",
+          "material_vi": "giấy tự dính",
+          "color_zh": "白底黑字",
+          "color_vi": "nền trắng chữ đen",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "黑色",
+          "color_ver_vi": "màu đen",
+          "qty": "2",
+          "remark": "[包装] 贴附编号=D；颜色=白底黑字；贴附对象=待确认"
+        },
+        {
+          "stt": "",
+          "mat_code": "E10BADHZ",
+          "comp_code": "",
+          "name_zh": "序号标 E",
+          "name_vi": "nhãn STT E",
+          "spec": "∅10mm",
+          "spec_vi": "∅10mm",
+          "material_zh": "不干胶纸",
+          "material_vi": "giấy tự dính",
+          "color_zh": "白底黑字",
+          "color_vi": "nền trắng chữ đen",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "黑色",
+          "color_ver_vi": "màu đen",
+          "qty": "2",
+          "remark": "[包装] 贴附编号=E；颜色=白底黑字；贴附对象=待确认"
+        },
+        {
+          "stt": "",
+          "mat_code": "F110BADHZ",
+          "comp_code": "",
+          "name_zh": "序号标 F1",
+          "name_vi": "nhãn STT F1",
+          "spec": "∅10mm",
+          "spec_vi": "∅10mm",
+          "material_zh": "不干胶纸",
+          "material_vi": "giấy tự dính",
+          "color_zh": "白底黑字",
+          "color_vi": "nền trắng chữ đen",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "黑色",
+          "color_ver_vi": "màu đen",
+          "qty": "1",
+          "remark": "[包装] 贴附编号=F1；颜色=白底黑字；贴附对象=待确认"
+        },
+        {
+          "stt": "",
+          "mat_code": "F210BADHZ",
+          "comp_code": "",
+          "name_zh": "序号标 F2",
+          "name_vi": "nhãn STT F2",
+          "spec": "∅10mm",
+          "spec_vi": "∅10mm",
+          "material_zh": "不干胶纸",
+          "material_vi": "giấy tự dính",
+          "color_zh": "白底黑字",
+          "color_vi": "nền trắng chữ đen",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "黑色",
+          "color_ver_vi": "màu đen",
+          "qty": "1",
+          "remark": "[包装] 贴附编号=F2；颜色=白底黑字；贴附对象=待确认"
+        },
+        {
+          "stt": "",
+          "mat_code": "G10BADHZ",
+          "comp_code": "",
+          "name_zh": "序号标 G",
+          "name_vi": "nhãn STT G",
+          "spec": "∅10mm",
+          "spec_vi": "∅10mm",
+          "material_zh": "不干胶纸",
+          "material_vi": "giấy tự dính",
+          "color_zh": "白底黑字",
+          "color_vi": "nền trắng chữ đen",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "黑色",
+          "color_ver_vi": "màu đen",
+          "qty": "1",
+          "remark": "[包装] 贴附编号=G；颜色=白底黑字；贴附对象=待确认"
+        },
+        {
+          "stt": "",
+          "mat_code": "PE620X400",
+          "comp_code": "",
+          "name_zh": "PE袋",
+          "name_vi": "túi PE",
+          "spec": "620×400mm",
+          "spec_vi": "620×400mm",
+          "material_zh": "PE",
+          "material_vi": "PE",
+          "color_zh": "透明",
+          "color_vi": "trong suốt",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "黑色",
+          "color_ver_vi": "màu đen",
+          "qty": "4",
+          "remark": "[包装] 包装对象=待确认；PE袋=620*400；用量=4袋"
+        },
+        {
+          "stt": "",
+          "mat_code": "PE780X60",
+          "comp_code": "",
+          "name_zh": "PE袋",
+          "name_vi": "túi PE",
+          "spec": "780×60mm",
+          "spec_vi": "780×60mm",
+          "material_zh": "PE",
+          "material_vi": "PE",
+          "color_zh": "透明",
+          "color_vi": "trong suốt",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "黑色",
+          "color_ver_vi": "màu đen",
+          "qty": "2",
+          "remark": "[包装] 包装对象=待确认；PE袋=780*60；用量=2袋"
+        },
+        {
+          "stt": "",
+          "mat_code": "PE400X220",
+          "comp_code": "",
+          "name_zh": "PE袋",
+          "name_vi": "túi PE",
+          "spec": "400×220mm",
+          "spec_vi": "400×220mm",
+          "material_zh": "PE",
+          "material_vi": "PE",
+          "color_zh": "透明",
+          "color_vi": "trong suốt",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "黑色",
+          "color_ver_vi": "màu đen",
+          "qty": "1",
+          "remark": "[包装] 包装对象=待确认；PE袋=400*220；用量=1袋"
         }
       ]
     }

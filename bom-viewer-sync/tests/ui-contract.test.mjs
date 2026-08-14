@@ -875,7 +875,7 @@ test('edit row updates only the selected BOM entry and uses the localized title'
   let promptTitle = null;
   app.openPdmPrompt = (title, _fields, onConfirm) => {
     promptTitle = title;
-    onConfirm({ comp_code: 'B', qty: '3' });
+    onConfirm({ comp_code: 'B', qty: '3', remark: 'Packaging note' });
   };
 
   app.editBomRowFromPrompt(0);
@@ -883,8 +883,36 @@ test('edit row updates only the selected BOM entry and uses the localized title'
   assert.equal(promptTitle, 'editRow');
   assert.equal(payload.materialDb.bomEntries[0].comp_code, 'B');
   assert.equal(payload.materialDb.bomEntries[0].qty, '3');
+  assert.equal(payload.materialDb.bomEntries[0].remark, 'Packaging note');
   assert.equal(app.state.dirty, true);
   assert.deepEqual(status, { message: 'bomRowUpdated', type: 'dirty' });
+});
+
+test('BOM remark cell preserves the full note in its tooltip', () => {
+  const app = Object.create(BomApplication.prototype);
+  app.highlight = (value) => value;
+
+  const html = app.remarkCellHtml({ remark: 'Two rails per bag' });
+
+  assert.match(html, /class="bom-remark"/);
+  assert.match(html, /title="Two rails per bag"/);
+});
+
+test('white-background black-text color has a two-tone color icon', () => {
+  const app = Object.create(BomApplication.prototype);
+  app.highlight = (value) => value;
+
+  const html = app.renderColorDot('白底黑字');
+
+  assert.match(html, /linear-gradient/);
+});
+
+test('blue and green label backgrounds take precedence over black text in color icons', () => {
+  const app = Object.create(BomApplication.prototype);
+  app.highlight = (value) => value;
+
+  assert.match(app.renderColorDot('蓝底黑字'), /#3b82f6/);
+  assert.match(app.renderColorDot('绿底黑字'), /#10b981/);
 });
 
 test('BOM row update boundary rejects material master fields', () => {

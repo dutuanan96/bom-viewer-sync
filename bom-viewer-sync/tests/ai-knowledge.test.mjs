@@ -7,6 +7,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { PdmKnowledge } from '../src/features/ai-assistant/pdm-knowledge.js';
+import structureMapping from '../knowledge/structure-mapping.json' with { type: 'json' };
 
 test('AI prompt pack defines the six evidence-bound PDM specialists', () => {
   const promptPack = JSON.parse(readFileSync(resolve('knowledge/ai/prompt-pack.json'), 'utf-8'));
@@ -323,6 +324,15 @@ test('R1.3 integration: all results are bounded and have evidence', () => {
   assert.ok(evidence.sourceCommit, 'must have sourceCommit in evidence');
 });
 
+test('R1.3: get_bom exposes a BOM entry remark without internal row state', () => {
+  const snapshot = structuredClone(UNIT_SNAPSHOT);
+  snapshot.payload.materialDb.bomEntries[0].remark = 'Two units per bag';
+  const kb = new PdmKnowledge(snapshot);
+  const result = kb.getBom({ productId: 'LGS433' });
+
+  assert.ok(result.rows.some(row => row.remark === 'Two units per bag'));
+});
+
 test('Catalog analysis retains complete rows for export while bounding visible results', () => {
   const snapshot = {
     sourceMetadata: { commitSha: 'c'.repeat(40), shardRoot: 'data', manifestVersion: 1, updatedAt: '2026-08-11T00:00:00Z' },
@@ -435,4 +445,16 @@ test('R1.3 integration: variant gaps and frame dimensions are derived from canon
   assert.equal(nearHeight.needsClarification, true);
   assert.equal(nearHeight.clarificationCode, 'dimension_near_match');
   assert.ok(nearHeight.clarificationData.nearValues.includes(659));
+});
+
+test('structure mapping returns only owner-confirmed deterministic records', () => {
+  const knowledge = new PdmKnowledge(loadCanonicalSnapshot(), { structureMapping });
+  const lgs033 = knowledge.getStructureMapping({ productId: 'LGS033', query: '1458 U形折弯' });
+  assert.equal(lgs033.found, true);
+  assert.equal(lgs033.mappings[0].id, 'MAP-LGS033-177');
+  assert.equal(lgs033.mappings[0].target.materialCodes[0], 'LGS033ZYKBH');
+
+  const unknown = knowledge.getStructureMapping({ productId: 'LGS031', query: 'unconfirmed component' });
+  assert.equal(unknown.found, false);
+  assert.deepEqual(unknown.mappings, []);
 });

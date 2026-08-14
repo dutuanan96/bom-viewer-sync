@@ -130,6 +130,18 @@ test('where-used remains a pure domain query', () => {
   assert.ok(result.childEntries.length > 0);
 });
 
+test('BOM row remarks remain product-entry metadata', () => {
+  const payload = {
+    materialDb: {
+      materials: { mat1: { id: 'mat1', code: 'MAT-1', name: { zh: 'Material' } } },
+      bomEntries: [{ id: 'entry-1', parentType: 'product', productCode: 'P1', color: 'black', materialId: 'mat1', qty: '1', remark: 'Pack two per bag' }],
+    },
+  };
+  const [row] = resolveBomRows(payload, 'P1', 'black');
+
+  assert.equal(row.remark, 'Pack two per bag');
+});
+
 test('where-used retains references from immutable product revisions', () => {
   const payload = {
     materialDb: {

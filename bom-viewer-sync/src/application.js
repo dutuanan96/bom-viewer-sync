@@ -46,6 +46,7 @@ import {
 } from './domain/relationships.js';
 import { AI_PROMPT_PACK_VERSION, createAiAssistantFeature } from './features/ai-assistant/index.js';
 import { PdmKnowledge } from './features/ai-assistant/pdm-knowledge.js';
+import structureMapping from '../knowledge/structure-mapping.json' with { type: 'json' };
 import { PdmDiscovery } from './features/ai-assistant/pdm-discovery.js';
 import {
   applyMutationProposalTransaction,
@@ -894,6 +895,7 @@ Object.assign(TEXT.zh, {
   'ai.localFallback.representativeColor': '代表颜色',
   'ai.localFallback.representativeColorPolicy': '未指定颜色；每个产品仅统计一个代表颜色，优先顺序：黑色(BH) → 复古色(KD) → 白色(WH) → 该产品的第一个可用颜色。',
   'ai.localFallback.resultsTruncated': '共匹配 {total} 条；当前仅显示前 50 条。请下载 Excel 查看全部结果。',
+  'ai.localFallback.noStructureMapping': '未找到已确认的结构映射。',
   'ai.localFallback.added': '新增',
   'ai.localFallback.removed': '删除',
   'ai.localFallback.modified': '修改',
@@ -976,8 +978,9 @@ Object.assign(TEXT.zh, {
   addBomRow: '添加物料',
   editRow: '编辑行',
   bomRowUpdated: 'BOM 行已更新，请保存更改',
-  bomCompCode: '部件编号',
-  bomQty: '数量',
+    bomCompCode: '部件编号',
+    bomQty: '数量',
+    bomRemark: '备注',
   createRevision: '新建版本',
   currentRevision: '当前版本',
   newRevision: '新版本',
@@ -1044,6 +1047,7 @@ Object.assign(TEXT.vi, {
   'ai.localFallback.representativeColor': 'Màu đại diện',
   'ai.localFallback.representativeColorPolicy': 'Không chỉ định màu; mỗi sản phẩm chỉ thống kê một màu đại diện theo thứ tự: Đen (BH) → Màu cổ điển (KD) → Trắng (WH) → màu khả dụng đầu tiên.',
   'ai.localFallback.resultsTruncated': 'Có tổng cộng {total} kết quả phù hợp; hiện chỉ hiển thị 50 kết quả đầu. Hãy tải Excel để xem toàn bộ kết quả.',
+  'ai.localFallback.noStructureMapping': 'Chưa tìm thấy mapping cấu trúc đã được xác nhận.',
   'ai.localFallback.added': 'Thêm',
   'ai.localFallback.removed': 'Xóa',
   'ai.localFallback.modified': 'Sửa đổi',
@@ -1126,8 +1130,9 @@ Object.assign(TEXT.vi, {
   addBomRow: 'Thêm vật liệu',
   editRow: 'Sửa dòng',
   bomRowUpdated: 'Đã cập nhật dòng BOM, hãy lưu thay đổi',
-  bomCompCode: 'Mã linh kiện',
-  bomQty: 'Số lượng',
+    bomCompCode: 'Mã linh kiện',
+    bomQty: 'Số lượng',
+    bomRemark: 'Ghi chú',
   createRevision: 'Tạo phiên bản',
   currentRevision: 'Phiên bản hiện tại',
   newRevision: 'Phiên bản mới',
@@ -1434,7 +1439,10 @@ class BomApplication {
           return discovery[discoveryMethodName](call.arguments);
         }
 
-        const knowledge = new PdmKnowledge(snapshot, { aliasMap: CONFIRMED_MARKETPLACE_ALIASES });
+        const knowledge = new PdmKnowledge(snapshot, {
+          aliasMap: CONFIRMED_MARKETPLACE_ALIASES,
+          structureMapping,
+        });
         const methodName = call.name.replace(/_([a-z])/g, g => g[1].toUpperCase());
         if (typeof knowledge[methodName] === 'function') {
           return knowledge[methodName](call.arguments);
@@ -2827,7 +2835,7 @@ class BomApplication {
 
   updateMaterial(index, field, value) {
     const material = this.state.lastRows[index];
-    if (!material || (field !== 'comp_code' && field !== 'qty')) return;
+    if (!material || (field !== 'comp_code' && field !== 'qty' && field !== 'remark')) return;
     if (material._materialId && this.state.materialDb?.materials?.[material._materialId]) {
       this.updateMaterialDbBackedRow(material, field, value);
     } else {
@@ -2839,7 +2847,7 @@ class BomApplication {
 
   updateMaterialDbBackedRow(material, field, value) {
     const entry = this.state.materialDb.bomEntries.find((item) => item.id === material._entryId);
-    if (field === 'comp_code' || field === 'qty') {
+    if (field === 'comp_code' || field === 'qty' || field === 'remark') {
       if (entry) entry[field] = value;
       return;
     }
@@ -3268,12 +3276,14 @@ class BomApplication {
     if (!material?._entryId) return;
     this.openPdmPrompt(this.label('editRow'), [
       { key: 'comp_code', label: this.label('bomCompCode'), defaultValue: material.comp_code || '' },
-      { key: 'qty', label: this.label('bomQty'), defaultValue: material.qty || '1', required: true }
+      { key: 'qty', label: this.label('bomQty'), defaultValue: material.qty || '1', required: true },
+      { key: 'remark', label: this.label('bomRemark'), defaultValue: material.remark || '' }
     ], (values) => {
       const entry = this.state.payload.materialDb.bomEntries.find(e => e.id === material._entryId);
       if (entry) {
         entry.comp_code = values.comp_code || '';
         entry.qty = values.qty || '1';
+        entry.remark = values.remark || '';
         this.state.materialDb = this.state.payload.materialDb;
         this.markDirty();
         this.renderContent();
@@ -3291,7 +3301,8 @@ class BomApplication {
       }
       this.openPdmPrompt(this.label('addBomRow'), [
         { key: 'comp_code', label: this.label('bomCompCode') },
-        { key: 'qty', label: this.label('bomQty'), defaultValue: '1', required: true }
+        { key: 'qty', label: this.label('bomQty'), defaultValue: '1', required: true },
+        { key: 'remark', label: this.label('bomRemark') }
       ], (values) => {
         const rows = this.bomRows();
         const entry = {
@@ -3304,6 +3315,7 @@ class BomApplication {
           stt: String(rows.length + 1),
           comp_code: values.comp_code || '',
           qty: values.qty || '1',
+          remark: values.remark || '',
           color_ver: this.state.currentColor,
           color_ver_vi: this.state.currentColor,
           order: rows.length

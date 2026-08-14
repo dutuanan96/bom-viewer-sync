@@ -18,7 +18,17 @@ const READ_TOOLS = [
   'inspect_pdm_schema',
   'get_pdm_help',
   'analyze_pdm',
+  'get_structure_mapping',
 ];
+
+test('routes structural mapping questions to deterministic mapping lookup', () => {
+  const route = routePdmIntent({
+    query: 'LGS033 1458mm khung U mapping thế nào?',
+    availableTools: READ_TOOLS,
+  });
+  assert.equal(route.intent, 'structure_mapping');
+  assert.equal(route.preferredTool, 'get_structure_mapping');
+});
 
 test('routes explicit Admin edit requests to the governed proposal tool', () => {
   const route = routePdmIntent({

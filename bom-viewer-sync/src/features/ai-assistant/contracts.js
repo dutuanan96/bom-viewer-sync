@@ -14,6 +14,7 @@ export const ALLOWED_TOOLS = Object.freeze(new Set([
   'get_product',
   'resolve_sku',
   'get_bom',
+  'get_structure_mapping',
   'compare_boms',
   'get_material',
   'where_used',
@@ -86,6 +87,7 @@ const TOOL_ARGUMENT_RULES = Object.freeze({
   get_product: { required: ['productId'], allowed: ['productId'] },
   resolve_sku: { required: ['alias'], allowed: ['alias'] },
   get_bom: { required: ['productId'], allowed: ['productId', 'color', 'query'] },
+  get_structure_mapping: { required: ['productId'], allowed: ['productId', 'query'] },
   compare_boms: {
     required: ['productId1', 'productId2'],
     allowed: ['productId1', 'color1', 'productId2', 'color2']

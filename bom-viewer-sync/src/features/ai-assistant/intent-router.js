@@ -292,6 +292,10 @@ export function routePdmIntent({
           ? contextualShorthandProductIds
         : isContextualFollowUp && priorProductIds.length > 0 ? priorProductIds : historicalProductIds;
   const entities = materialIds.length > 0 ? { productIds, materialIds } : { productIds };
+  const structureMappingPattern = /展开|折弯|u形|映射|结构|内衬管|连接管|连接件|c[nơ]c|khung\s*u|u\s*hình|mapping|bent\s*frame/i;
+  if (productIds.length === 1 && structureMappingPattern.test(text) && tools.has('get_structure_mapping')) {
+    return result('structure_mapping', { ...entities, searchQuery: text }, 'get_structure_mapping');
+  }
   if (revisions.length > 0) entities.revisions = revisions;
   // Attach resolved colors whenever the resolved variant's product is among the
   // chosen productIds — whether the product id came from the query or resolution.
