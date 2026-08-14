@@ -228,7 +228,7 @@ export function formatLocalToolFallback(t, { toolCall, toolResult } = {}) {
       return lines.join('\n').slice(0, 5000);
     }
     lines.push(...(toolResult.mappings || []).slice(0, 8).map(mapping => (
-      `- ${mapping.id}: ${mapping.explanationZh || ''} [${(mapping.target?.materialCodes || []).join(', ')}]${mapping.packagingRuleStatus === 'pending' ? ` — ${tr('ai.localFallback.packagingRulePending', 'Packaging rule pending confirmation')}` : ''}`
+      `- ${mapping.id}: ${mapping.explanationZh || ''} [${(mapping.target?.materialCodes || []).join(', ')}]${mapping.packagingRule?.summaryZh ? ` — ${mapping.packagingRule.summaryZh}` : ''}${mapping.packagingRuleStatus === 'pending' ? ` — ${tr('ai.localFallback.packagingRulePending', 'Packaging rule pending confirmation')}` : ''}`
     )));
     return lines.join('\n').slice(0, 5000);
   }

@@ -456,7 +456,24 @@ test('structure mapping returns deterministic records and exposes pending packag
 
   const packaging = knowledge.getStructureMapping({ productId: 'LGS031', query: 'PE袋 620' });
   assert.equal(packaging.found, true);
-  assert.equal(packaging.mappings[0].packagingRuleStatus, 'pending');
+  assert.equal(packaging.mappings[0].packagingRuleStatus, 'confirmed');
+  assert.equal(packaging.mappings[0].packagingRule.summaryZh, '包装：LGS031ZYKBH×2、LGS031ZZKBH×1、LGS031YZKBH×1；1件/袋');
+
+  const lgs032Packaging = knowledge.getStructureMapping({ productId: 'LGS032', query: 'PE袋 1160' });
+  assert.equal(lgs032Packaging.found, true);
+  assert.equal(lgs032Packaging.mappings[0].packagingRule.summaryZh, '包装：LGS032XHLBH×1、LGS032XQHLBH×1；2件/袋');
+
+  const lgs033Packaging = knowledge.getStructureMapping({ productId: 'LGS033', query: 'PE袋 720' });
+  assert.equal(lgs033Packaging.found, true);
+  assert.equal(lgs033Packaging.mappings[0].packagingRule.summaryZh, '包装：LGS033ZYKBH×2、LGS033ZKBH×1、LGS033YKBH×1；1件/袋');
+
+  const lgs043Packaging = knowledge.getStructureMapping({ productId: 'LGS043', query: 'PE袋 1000' });
+  assert.equal(lgs043Packaging.found, true);
+  assert.equal(lgs043Packaging.mappings[0].packagingRule.summaryZh, '包装：LGS043SHLBH×2、LGS043ZHLBH×2、LGS043XHLBH×2；2件/袋');
+
+  const lgs101Packaging = knowledge.getStructureMapping({ productId: 'LGS101', query: 'PE袋 420' });
+  assert.equal(lgs101Packaging.found, true);
+  assert.equal(lgs101Packaging.mappings[0].packagingRule.summaryZh, '包装：LGS101HLBH×2；2件/袋');
 
   const unknown = knowledge.getStructureMapping({ productId: 'LGS031', query: 'unconfirmed component' });
   assert.equal(unknown.found, false);

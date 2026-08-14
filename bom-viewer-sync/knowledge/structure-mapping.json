@@ -208,9 +208,16 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS031 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS031ZYKBH×2",
+        "targetMaterialCodes": [
+          "LGS031ZYKBH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS031-010",
@@ -233,9 +240,16 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS031 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS031ZZKBH×1",
+        "targetMaterialCodes": [
+          "LGS031ZZKBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS031-011",
@@ -258,9 +272,16 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS031 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS031YZKBH×1",
+        "targetMaterialCodes": [
+          "LGS031YZKBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS031-012",
@@ -283,9 +304,16 @@
       },
       "relationship": "direct",
       "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS031 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS031XHLBH×4",
+        "targetMaterialCodes": [
+          "LGS031XHLBH"
+        ],
+        "targetQuantity": 4
+      }
     },
     {
       "id": "MAP-LGS031-013",
@@ -308,9 +336,19 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS031 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS031ZYKBH×2、LGS031ZZKBH×1、LGS031YZKBH×1；1件/袋",
+        "targetMaterialCodes": [
+          "LGS031ZYKBH",
+          "LGS031ZZKBH",
+          "LGS031YZKBH"
+        ],
+        "targetQuantity": 4,
+        "unitsPerBag": 1
+      }
     },
     {
       "id": "MAP-LGS031-014",
@@ -333,9 +371,17 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS031 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS031XHLBH×4；2件/袋",
+        "targetMaterialCodes": [
+          "LGS031XHLBH"
+        ],
+        "targetQuantity": 4,
+        "unitsPerBag": 2
+      }
     },
     {
       "id": "MAP-LGS032-015",
@@ -649,9 +695,9 @@
       },
       "target": {
         "materialCodes": [
-          "LGS043YKBH"
+          "LGS043ZKBH"
         ],
-        "name": "LGS043-S-右侧框",
+        "name": "LGS043-S-左侧框",
         "spec": "657x335x15mm",
         "quantity": 1
       },
@@ -718,9 +764,9 @@
       },
       "target": {
         "materialCodes": [
-          "LGS043YZKBH"
+          "LGS043ZZKBH"
         ],
-        "name": "LGS043-S-中框右",
+        "name": "LGS043-S-中框左",
         "spec": "657x335x15mm",
         "quantity": 1
       },
@@ -902,9 +948,9 @@
       },
       "target": {
         "materialCodes": [
-          "LGS043XZQSLBH"
+          "LGS043XZHSLBH"
         ],
-        "name": "LGS043-S-底部竖杆前",
+        "name": "LGS043-S-底部竖杆后",
         "spec": "198x15x15mm",
         "quantity": 1
       },
@@ -978,10 +1024,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS043 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS043ZKBH×1",
+        "targetMaterialCodes": [
+          "LGS043ZKBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS043-043",
@@ -1003,10 +1056,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS043 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS043YKBH×1",
+        "targetMaterialCodes": [
+          "LGS043YKBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS043-044",
@@ -1028,10 +1088,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS043 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS043ZZKBH×1",
+        "targetMaterialCodes": [
+          "LGS043ZZKBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS043-045",
@@ -1053,10 +1120,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS043 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS043YZKBH×1",
+        "targetMaterialCodes": [
+          "LGS043YZKBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS043-046",
@@ -1078,10 +1152,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS043 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS043SHLBH×2",
+        "targetMaterialCodes": [
+          "LGS043SHLBH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS043-047",
@@ -1103,10 +1184,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS043 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS043ZHLBH×2",
+        "targetMaterialCodes": [
+          "LGS043ZHLBH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS043-048",
@@ -1128,10 +1216,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS043 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS043XHLBH×2",
+        "targetMaterialCodes": [
+          "LGS043XHLBH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS043-049",
@@ -1153,10 +1248,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS043 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS043SZKBH×2",
+        "targetMaterialCodes": [
+          "LGS043SZKBH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS043-050",
@@ -1178,10 +1280,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS043 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS043XZHSLBH×1",
+        "targetMaterialCodes": [
+          "LGS043XZHSLBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS043-051",
@@ -1203,10 +1312,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS043 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS043XZQSLBH×1",
+        "targetMaterialCodes": [
+          "LGS043XZQSLBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS043-052",
@@ -1228,10 +1344,17 @@
         "quantity": 4
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS043 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS043ZYKHLBH×4",
+        "targetMaterialCodes": [
+          "LGS043ZYKHLBH"
+        ],
+        "targetQuantity": 4
+      }
     },
     {
       "id": "MAP-LGS043-053",
@@ -1254,9 +1377,20 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS043 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS043ZZKBH×1、LGS043YZKBH×1、LGS043ZKBH×1、LGS043YKBH×1；1件/袋",
+        "targetMaterialCodes": [
+          "LGS043ZZKBH",
+          "LGS043YZKBH",
+          "LGS043ZKBH",
+          "LGS043YKBH"
+        ],
+        "targetQuantity": 4,
+        "unitsPerBag": 1
+      }
     },
     {
       "id": "MAP-LGS043-054",
@@ -1279,9 +1413,17 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS043 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS043SZKBH×2；1件/袋",
+        "targetMaterialCodes": [
+          "LGS043SZKBH"
+        ],
+        "targetQuantity": 2,
+        "unitsPerBag": 1
+      }
     },
     {
       "id": "MAP-LGS043-055",
@@ -1304,9 +1446,19 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS043 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS043SHLBH×2、LGS043ZHLBH×2、LGS043XHLBH×2；2件/袋",
+        "targetMaterialCodes": [
+          "LGS043SHLBH",
+          "LGS043ZHLBH",
+          "LGS043XHLBH"
+        ],
+        "targetQuantity": 6,
+        "unitsPerBag": 2
+      }
     },
     {
       "id": "MAP-LGS043-056",
@@ -1329,9 +1481,18 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS043 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS043XZHSLBH×1、LGS043XZQSLBH×1；2件/袋",
+        "targetMaterialCodes": [
+          "LGS043XZHSLBH",
+          "LGS043XZQSLBH"
+        ],
+        "targetQuantity": 2,
+        "unitsPerBag": 2
+      }
     },
     {
       "id": "MAP-LGS043-057",
@@ -1346,17 +1507,25 @@
       },
       "target": {
         "materialCodes": [
-          "PE720X400"
+          "PE400X60"
         ],
         "name": "PE袋",
-        "spec": "720×400mm",
+        "spec": "400×60mm",
         "quantity": 4
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS043 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS043ZYKHLBH×4；1件/袋",
+        "targetMaterialCodes": [
+          "LGS043ZYKHLBH"
+        ],
+        "targetQuantity": 4,
+        "unitsPerBag": 1
+      }
     },
     {
       "id": "MAP-LGS131-058",
@@ -1631,10 +1800,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS131 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS131ZZKBHGK×1",
+        "targetMaterialCodes": [
+          "LGS131ZZKBHGK"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS131-070",
@@ -1656,10 +1832,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS131 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS131YZKBHGK×1",
+        "targetMaterialCodes": [
+          "LGS131YZKBHGK"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS131-071",
@@ -1681,10 +1864,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS131 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS131ZYKBH×2",
+        "targetMaterialCodes": [
+          "LGS131ZYKBH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS131-072",
@@ -1706,10 +1896,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS131 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS131XHLBH×2",
+        "targetMaterialCodes": [
+          "LGS131XHLBH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS131-073",
@@ -1731,10 +1928,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS131 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS131SHLBH×1",
+        "targetMaterialCodes": [
+          "LGS131SHLBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS131-074",
@@ -1756,10 +1960,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS131 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS131SHLBHGK×1",
+        "targetMaterialCodes": [
+          "LGS131SHLBHGK"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS131-075",
@@ -1782,9 +1993,19 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS131 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS131ZZKBHGK×1、LGS131YZKBHGK×1、LGS131ZYKBH×2；1件/袋",
+        "targetMaterialCodes": [
+          "LGS131ZZKBHGK",
+          "LGS131YZKBHGK",
+          "LGS131ZYKBH"
+        ],
+        "targetQuantity": 4,
+        "unitsPerBag": 1
+      }
     },
     {
       "id": "MAP-LGS131-076",
@@ -1807,9 +2028,19 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS131 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS131SHLBH×1、LGS131SHLBHGK×1、LGS131XHLBH×2；2件/袋",
+        "targetMaterialCodes": [
+          "LGS131SHLBH",
+          "LGS131SHLBHGK",
+          "LGS131XHLBH"
+        ],
+        "targetQuantity": 4,
+        "unitsPerBag": 2
+      }
     },
     {
       "id": "MAP-LGS132-077",
@@ -2475,10 +2706,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS231 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS131ZZKBHGK×1",
+        "targetMaterialCodes": [
+          "LGS131ZZKBHGK"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS231-106",
@@ -2500,10 +2738,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS231 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS131YZKBHGK×1",
+        "targetMaterialCodes": [
+          "LGS131YZKBHGK"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS231-107",
@@ -2525,10 +2770,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS231 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS131ZYKBH×2",
+        "targetMaterialCodes": [
+          "LGS131ZYKBH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS231-108",
@@ -2550,10 +2802,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS231 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS131XHLBH×2",
+        "targetMaterialCodes": [
+          "LGS131XHLBH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS231-109",
@@ -2575,10 +2834,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS231 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS131SHLBH×1",
+        "targetMaterialCodes": [
+          "LGS131SHLBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS231-110",
@@ -2600,10 +2866,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS231 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS131SHLBHGK×1",
+        "targetMaterialCodes": [
+          "LGS131SHLBHGK"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS231-111",
@@ -2626,9 +2899,19 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS231 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS131ZZKBHGK×1、LGS131YZKBHGK×1、LGS131ZYKBH×2；1件/袋",
+        "targetMaterialCodes": [
+          "LGS131ZZKBHGK",
+          "LGS131YZKBHGK",
+          "LGS131ZYKBH"
+        ],
+        "targetQuantity": 4,
+        "unitsPerBag": 1
+      }
     },
     {
       "id": "MAP-LGS231-112",
@@ -2651,9 +2934,19 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS231 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS131SHLBH×1、LGS131SHLBHGK×1、LGS131XHLBH×2；2件/袋",
+        "targetMaterialCodes": [
+          "LGS131SHLBH",
+          "LGS131SHLBHGK",
+          "LGS131XHLBH"
+        ],
+        "targetQuantity": 4,
+        "unitsPerBag": 2
+      }
     },
     {
       "id": "MAP-LGS232-113",
@@ -3342,10 +3635,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS420 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS131ZZKBHGK×1",
+        "targetMaterialCodes": [
+          "LGS131ZZKBHGK"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS420-143",
@@ -3367,10 +3667,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS420 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS131YZKBHGK×1",
+        "targetMaterialCodes": [
+          "LGS131YZKBHGK"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS420-144",
@@ -3392,10 +3699,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS420 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS131ZYKBH×2",
+        "targetMaterialCodes": [
+          "LGS131ZYKBH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS420-145",
@@ -3417,10 +3731,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS420 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS420XHLBH×2",
+        "targetMaterialCodes": [
+          "LGS420XHLBH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS420-146",
@@ -3442,10 +3763,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS420 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS420SHLBH×1",
+        "targetMaterialCodes": [
+          "LGS420SHLBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS420-147",
@@ -3467,10 +3795,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS420 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS420SHLBHGK×1",
+        "targetMaterialCodes": [
+          "LGS420SHLBHGK"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS420-148",
@@ -3492,10 +3827,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS420 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS420ZLKBH×1",
+        "targetMaterialCodes": [
+          "LGS420ZLKBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS420-149",
@@ -3518,9 +3860,19 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS420 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS131ZZKBHGK×1、LGS131YZKBHGK×1、LGS131ZYKBH×2；1件/袋",
+        "targetMaterialCodes": [
+          "LGS131ZZKBHGK",
+          "LGS131YZKBHGK",
+          "LGS131ZYKBH"
+        ],
+        "targetQuantity": 4,
+        "unitsPerBag": 1
+      }
     },
     {
       "id": "MAP-LGS420-150",
@@ -3543,9 +3895,19 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS420 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS420SHLBH×1、LGS420SHLBHGK×1、LGS420XHLBH×2；2件/袋",
+        "targetMaterialCodes": [
+          "LGS420SHLBH",
+          "LGS420SHLBHGK",
+          "LGS420XHLBH"
+        ],
+        "targetQuantity": 4,
+        "unitsPerBag": 2
+      }
     },
     {
       "id": "MAP-LGS420-151",
@@ -3568,9 +3930,17 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS420 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS420ZLKBH×1；1件/袋",
+        "targetMaterialCodes": [
+          "LGS420ZLKBH"
+        ],
+        "targetQuantity": 1,
+        "unitsPerBag": 1
+      }
     },
     {
       "id": "MAP-LGS421-152",
@@ -3868,10 +4238,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS421 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS131ZZKBHGK×1",
+        "targetMaterialCodes": [
+          "LGS131ZZKBHGK"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS421-165",
@@ -3893,10 +4270,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS421 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS131YZKBHGK×1",
+        "targetMaterialCodes": [
+          "LGS131YZKBHGK"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS421-166",
@@ -3918,10 +4302,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS421 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS131ZYKBH×2",
+        "targetMaterialCodes": [
+          "LGS131ZYKBH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS421-167",
@@ -3943,10 +4334,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS421 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS421XHLBH×2",
+        "targetMaterialCodes": [
+          "LGS421XHLBH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS421-168",
@@ -3968,10 +4366,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS421 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS421SHLBH×1",
+        "targetMaterialCodes": [
+          "LGS421SHLBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS421-169",
@@ -3993,10 +4398,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS421 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS421QHLBH×1",
+        "targetMaterialCodes": [
+          "LGS421QHLBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS421-170",
@@ -4018,10 +4430,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS421 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS420ZLKBH×1",
+        "targetMaterialCodes": [
+          "LGS420ZLKBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS421-171",
@@ -4044,9 +4463,19 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS421 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS131ZZKBHGK×1、LGS131YZKBHGK×1、LGS131ZYKBH×2；1件/袋",
+        "targetMaterialCodes": [
+          "LGS131ZZKBHGK",
+          "LGS131YZKBHGK",
+          "LGS131ZYKBH"
+        ],
+        "targetQuantity": 4,
+        "unitsPerBag": 1
+      }
     },
     {
       "id": "MAP-LGS421-172",
@@ -4069,9 +4498,19 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS421 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS421SHLBH×1、LGS421QHLBH×1、LGS421XHLBH×2；2件/袋",
+        "targetMaterialCodes": [
+          "LGS421SHLBH",
+          "LGS421QHLBH",
+          "LGS421XHLBH"
+        ],
+        "targetQuantity": 4,
+        "unitsPerBag": 2
+      }
     },
     {
       "id": "MAP-LGS421-173",
@@ -4094,9 +4533,17 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS421 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS420ZLKBH×1；1件/袋",
+        "targetMaterialCodes": [
+          "LGS420ZLKBH"
+        ],
+        "targetQuantity": 1,
+        "unitsPerBag": 1
+      }
     },
     {
       "id": "MAP-LGS033-174",
@@ -4111,9 +4558,9 @@
       },
       "target": {
         "materialCodes": [
-          "LGS033YKBH"
+          "LGS033ZKBH"
         ],
-        "name": "LGS033右侧框",
+        "name": "LGS033左侧框",
         "spec": "659x290x15mm",
         "quantity": 1
       },
@@ -4157,11 +4604,12 @@
       },
       "target": {
         "materialCodes": [
+          "LGS033ZKBH",
           "LGS033YKBH"
         ],
-        "name": "LGS033右侧框",
+        "name": "LGS033左右侧框",
         "spec": "659x290x15mm",
-        "quantity": 1
+        "quantity": 2
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
@@ -4325,10 +4773,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS033 BOM 编号、规格、数量与已确认同类包装规则一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：ZJG150654BH×2",
+        "targetMaterialCodes": [
+          "ZJG150654BH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS033-184",
@@ -4350,10 +4805,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS033 BOM 编号、规格、数量与已确认同类包装规则一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS033ZYKBH×2",
+        "targetMaterialCodes": [
+          "LGS033ZYKBH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS033-185",
@@ -4375,10 +4837,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS033 BOM 编号、规格、数量与已确认同类包装规则一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS033ZKBH×1",
+        "targetMaterialCodes": [
+          "LGS033ZKBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS033-186",
@@ -4400,10 +4869,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS033 BOM 编号、规格、数量与已确认同类包装规则一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS033YKBH×1",
+        "targetMaterialCodes": [
+          "LGS033YKBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS033-187",
@@ -4425,10 +4901,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS033 BOM 编号、规格、数量与已确认同类包装规则一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS033QHHLBH×2",
+        "targetMaterialCodes": [
+          "LGS033QHHLBH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS033-188",
@@ -4451,9 +4934,19 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS033 BOM 编号、规格、数量与已确认同类包装规则一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS033ZYKBH×2、LGS033ZKBH×1、LGS033YKBH×1；1件/袋",
+        "targetMaterialCodes": [
+          "LGS033ZYKBH",
+          "LGS033ZKBH",
+          "LGS033YKBH"
+        ],
+        "targetQuantity": 4,
+        "unitsPerBag": 1
+      }
     },
     {
       "id": "MAP-LGS033-189",
@@ -4476,9 +4969,17 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS033 BOM 编号、规格、数量与已确认同类包装规则一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS033QHHLBH×2；2件/袋",
+        "targetMaterialCodes": [
+          "LGS033QHHLBH"
+        ],
+        "targetQuantity": 2,
+        "unitsPerBag": 2
+      }
     },
     {
       "id": "MAP-LGS133-190",
@@ -5144,10 +5645,17 @@
         "quantity": 4
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS233 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：ZJG15065423BH×4",
+        "targetMaterialCodes": [
+          "ZJG15065423BH"
+        ],
+        "targetQuantity": 4
+      }
     },
     {
       "id": "MAP-LGS233-219",
@@ -5169,10 +5677,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS233 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS133ZYKBH×2",
+        "targetMaterialCodes": [
+          "LGS133ZYKBH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS233-220",
@@ -5194,10 +5709,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS233 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS233ZKBH×1",
+        "targetMaterialCodes": [
+          "LGS233ZKBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS233-221",
@@ -5219,10 +5741,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS233 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS233YKBH×1",
+        "targetMaterialCodes": [
+          "LGS233YKBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS233-222",
@@ -5244,10 +5773,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS233 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS233XHYHLBH×1",
+        "targetMaterialCodes": [
+          "LGS233XHYHLBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS233-223",
@@ -5269,10 +5805,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS233 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS233XQYHLBH×1",
+        "targetMaterialCodes": [
+          "LGS233XQYHLBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS233-224",
@@ -5294,10 +5837,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS233 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS233XHZHLBH×1",
+        "targetMaterialCodes": [
+          "LGS233XHZHLBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS233-225",
@@ -5319,10 +5869,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS233 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS233XQZHLBH×1",
+        "targetMaterialCodes": [
+          "LGS233XQZHLBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS233-226",
@@ -5344,10 +5901,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS233 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS233SZQHLBH×2",
+        "targetMaterialCodes": [
+          "LGS233SZQHLBH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS233-227",
@@ -5370,9 +5934,19 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS233 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS133ZYKBH×2、LGS233ZKBH×1、LGS233YKBH×1；1件/袋",
+        "targetMaterialCodes": [
+          "LGS133ZYKBH",
+          "LGS233ZKBH",
+          "LGS233YKBH"
+        ],
+        "targetQuantity": 4,
+        "unitsPerBag": 1
+      }
     },
     {
       "id": "MAP-LGS233-228",
@@ -5395,9 +5969,20 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS233 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS233XHYHLBH×1、LGS233XQYHLBH×1、LGS233XHZHLBH×1、LGS233XQZHLBH×1；2件/袋",
+        "targetMaterialCodes": [
+          "LGS233XHYHLBH",
+          "LGS233XQYHLBH",
+          "LGS233XHZHLBH",
+          "LGS233XQZHLBH"
+        ],
+        "targetQuantity": 4,
+        "unitsPerBag": 2
+      }
     },
     {
       "id": "MAP-LGS233-229",
@@ -5420,9 +6005,17 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS233 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS233SZQHLBH×2；2件/袋",
+        "targetMaterialCodes": [
+          "LGS233SZQHLBH"
+        ],
+        "targetQuantity": 2,
+        "unitsPerBag": 2
+      }
     },
     {
       "id": "MAP-LGS333-230",
@@ -5743,10 +6336,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS333 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：ZJG150654BH×2",
+        "targetMaterialCodes": [
+          "ZJG150654BH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS333-244",
@@ -5768,10 +6368,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS333 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS333SQHLBH×2",
+        "targetMaterialCodes": [
+          "LGS333SQHLBH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS333-245",
@@ -5793,10 +6400,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS333 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS333ZKBH×1",
+        "targetMaterialCodes": [
+          "LGS333ZKBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS333-246",
@@ -5818,10 +6432,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS333 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS333YKBH×1",
+        "targetMaterialCodes": [
+          "LGS333YKBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS333-247",
@@ -5843,10 +6464,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS333 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS333XHHLBH×1",
+        "targetMaterialCodes": [
+          "LGS333XHHLBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS333-248",
@@ -5868,10 +6496,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS333 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS333XQHLBH×1",
+        "targetMaterialCodes": [
+          "LGS333XQHLBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS333-249",
@@ -5893,10 +6528,17 @@
         "quantity": 3
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS333 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS333SZKBH×3",
+        "targetMaterialCodes": [
+          "LGS333SZKBH"
+        ],
+        "targetQuantity": 3
+      }
     },
     {
       "id": "MAP-LGS333-250",
@@ -5918,10 +6560,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS333 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：3911515XZHSLBH×2",
+        "targetMaterialCodes": [
+          "3911515XZHSLBH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS333-251",
@@ -5943,10 +6592,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS333 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：3911515XZQSLBH×2",
+        "targetMaterialCodes": [
+          "3911515XZQSLBH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS333-252",
@@ -5957,7 +6613,7 @@
       "source": {
         "name": "PE袋",
         "spec": "720*350",
-        "quantity": 4
+        "quantity": 2
       },
       "target": {
         "materialCodes": [
@@ -5965,13 +6621,22 @@
         ],
         "name": "PE袋",
         "spec": "720×350mm",
-        "quantity": 4
+        "quantity": 2
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "负责人确认：LGS333 PE720X350 实际用量为2；Excel记录4为错误",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS333ZKBH×1、LGS333YKBH×1；1件/袋",
+        "targetMaterialCodes": [
+          "LGS333ZKBH",
+          "LGS333YKBH"
+        ],
+        "targetQuantity": 2,
+        "unitsPerBag": 1
+      }
     },
     {
       "id": "MAP-LGS333-253",
@@ -5994,9 +6659,19 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS333 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS333XHHLBH×1、LGS333XQHLBH×1、LGS333SQHLBH×2；2件/袋",
+        "targetMaterialCodes": [
+          "LGS333XHHLBH",
+          "LGS333XQHLBH",
+          "LGS333SQHLBH"
+        ],
+        "targetQuantity": 4,
+        "unitsPerBag": 2
+      }
     },
     {
       "id": "MAP-LGS333-254",
@@ -6011,17 +6686,26 @@
       },
       "target": {
         "materialCodes": [
-          "PE1160X60"
+          "PE460X60"
         ],
         "name": "PE袋",
-        "spec": "1160×60mm",
+        "spec": "460×60mm",
         "quantity": 2
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS333 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：3911515XZHSLBH×2、3911515XZQSLBH×2；2件/袋",
+        "targetMaterialCodes": [
+          "3911515XZHSLBH",
+          "3911515XZQSLBH"
+        ],
+        "targetQuantity": 4,
+        "unitsPerBag": 2
+      }
     },
     {
       "id": "MAP-LGS333-255",
@@ -6044,9 +6728,17 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS333 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS333SZKBH×3；1件/袋",
+        "targetMaterialCodes": [
+          "LGS333SZKBH"
+        ],
+        "targetQuantity": 3,
+        "unitsPerBag": 1
+      }
     },
     {
       "id": "MAP-LGS334-256",
@@ -6505,10 +7197,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS334 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS334SZKBH×1",
+        "targetMaterialCodes": [
+          "LGS334SZKBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS334-276",
@@ -6530,10 +7229,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS334 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS334ZCKZYBH×2",
+        "targetMaterialCodes": [
+          "LGS334ZCKZYBH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS334-277",
@@ -6555,10 +7261,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS334 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS334ZKBH×1",
+        "targetMaterialCodes": [
+          "LGS334ZKBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS334-278",
@@ -6580,10 +7293,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS334 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS334YKBH×1",
+        "targetMaterialCodes": [
+          "LGS334YKBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS334-279",
@@ -6605,10 +7325,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS334 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS334SQZHLBH×2",
+        "targetMaterialCodes": [
+          "LGS334SQZHLBH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS334-280",
@@ -6630,10 +7357,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS334 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS334SQYHLBH×2",
+        "targetMaterialCodes": [
+          "LGS334SQYHLBH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS334-281",
@@ -6655,10 +7389,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS334 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS334XHZHLBH×1",
+        "targetMaterialCodes": [
+          "LGS334XHZHLBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS334-282",
@@ -6680,10 +7421,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS334 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS334XQZHLBH×1",
+        "targetMaterialCodes": [
+          "LGS334XQZHLBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS334-283",
@@ -6705,10 +7453,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS334 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS334XHYHLBH×1",
+        "targetMaterialCodes": [
+          "LGS334XHYHLBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS334-284",
@@ -6730,10 +7485,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS334 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS334XQYHLBH×1",
+        "targetMaterialCodes": [
+          "LGS334XQYHLBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS334-285",
@@ -6755,10 +7517,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS334 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：3911515XZHSLBH×2",
+        "targetMaterialCodes": [
+          "3911515XZHSLBH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS334-286",
@@ -6780,10 +7549,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS334 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：3911515XZQSLBH×2",
+        "targetMaterialCodes": [
+          "3911515XZQSLBH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS334-287",
@@ -6805,10 +7581,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS334 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：ZJG150654BH×2",
+        "targetMaterialCodes": [
+          "ZJG150654BH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS334-288",
@@ -6831,9 +7614,18 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS334 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS334ZKBH×1、LGS334YKBH×1；1件/袋",
+        "targetMaterialCodes": [
+          "LGS334ZKBH",
+          "LGS334YKBH"
+        ],
+        "targetQuantity": 2,
+        "unitsPerBag": 1
+      }
     },
     {
       "id": "MAP-LGS334-289",
@@ -6848,17 +7640,26 @@
       },
       "target": {
         "materialCodes": [
-          "PE720X400"
+          "PE400X220"
         ],
         "name": "PE袋",
-        "spec": "720×400mm",
+        "spec": "400×220mm",
         "quantity": 2
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS334 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS334SZKBH×1（1件/袋）、LGS334ZCKZYBH×2（2件/袋）",
+        "targetMaterialCodes": [
+          "LGS334SZKBH",
+          "LGS334ZCKZYBH"
+        ],
+        "targetQuantity": 3,
+        "unitsPerBag": null
+      }
     },
     {
       "id": "MAP-LGS334-290",
@@ -6881,9 +7682,22 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS334 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS334SQZHLBH×2、LGS334SQYHLBH×2、LGS334XHZHLBH×1、LGS334XQZHLBH×1、LGS334XHYHLBH×1、LGS334XQYHLBH×1；2件/袋",
+        "targetMaterialCodes": [
+          "LGS334SQZHLBH",
+          "LGS334SQYHLBH",
+          "LGS334XHZHLBH",
+          "LGS334XQZHLBH",
+          "LGS334XHYHLBH",
+          "LGS334XQYHLBH"
+        ],
+        "targetQuantity": 8,
+        "unitsPerBag": 2
+      }
     },
     {
       "id": "MAP-LGS334-291",
@@ -6898,17 +7712,26 @@
       },
       "target": {
         "materialCodes": [
-          "PE720X400"
+          "PE460X60"
         ],
         "name": "PE袋",
-        "spec": "720×400mm",
+        "spec": "460×60mm",
         "quantity": 2
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS334 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：3911515XZHSLBH×2、3911515XZQSLBH×2；2件/袋",
+        "targetMaterialCodes": [
+          "3911515XZHSLBH",
+          "3911515XZQSLBH"
+        ],
+        "targetQuantity": 4,
+        "unitsPerBag": 2
+      }
     },
     {
       "id": "MAP-LGS433-292",
@@ -8057,10 +8880,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS723 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS723SQHLBH×2",
+        "targetMaterialCodes": [
+          "LGS723SQHLBH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS723-342",
@@ -8082,10 +8912,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS723 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS723ZZQHLBH×2",
+        "targetMaterialCodes": [
+          "LGS723ZZQHLBH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS723-343",
@@ -8107,10 +8944,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS723 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS723ZKBH×1",
+        "targetMaterialCodes": [
+          "LGS723ZKBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS723-344",
@@ -8132,10 +8976,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS723 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS723YKBH×1",
+        "targetMaterialCodes": [
+          "LGS723YKBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS723-345",
@@ -8157,10 +9008,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS723 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS723XHHLBH×1",
+        "targetMaterialCodes": [
+          "LGS723XHHLBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS723-346",
@@ -8182,10 +9040,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS723 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS723XQHLBH×1",
+        "targetMaterialCodes": [
+          "LGS723XQHLBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS723-347",
@@ -8207,10 +9072,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS723 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS333SZKBH×2",
+        "targetMaterialCodes": [
+          "LGS333SZKBH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS723-348",
@@ -8232,10 +9104,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS723 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS723XZQSLBH×1",
+        "targetMaterialCodes": [
+          "LGS723XZQSLBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS723-349",
@@ -8257,10 +9136,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS723 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS723XZHSLBH×1",
+        "targetMaterialCodes": [
+          "LGS723XZHSLBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS723-350",
@@ -8281,11 +9167,20 @@
         "spec": "720×350mm",
         "quantity": 2
       },
-      "relationship": "rule_confirmed",
+      "relationship": "packaging",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS723 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS723ZKBH×1、LGS723YKBH×1；1件/袋",
+        "targetMaterialCodes": [
+          "LGS723ZKBH",
+          "LGS723YKBH"
+        ],
+        "targetQuantity": 2,
+        "unitsPerBag": 1
+      }
     },
     {
       "id": "MAP-LGS723-351",
@@ -8306,11 +9201,22 @@
         "spec": "1160×60mm",
         "quantity": 3
       },
-      "relationship": "rule_confirmed",
+      "relationship": "packaging",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS723 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS723ZZQHLBH×2、LGS723XQHLBH×1、LGS723XHHLBH×1、LGS723SQHLBH×2；2件/袋",
+        "targetMaterialCodes": [
+          "LGS723ZZQHLBH",
+          "LGS723XQHLBH",
+          "LGS723XHHLBH",
+          "LGS723SQHLBH"
+        ],
+        "targetQuantity": 6,
+        "unitsPerBag": 2
+      }
     },
     {
       "id": "MAP-LGS723-352",
@@ -8331,11 +9237,20 @@
         "spec": "460×60mm",
         "quantity": 1
       },
-      "relationship": "rule_confirmed",
+      "relationship": "packaging",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS723 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS723XZQSLBH×1、LGS723XZHSLBH×1；2件/袋",
+        "targetMaterialCodes": [
+          "LGS723XZQSLBH",
+          "LGS723XZHSLBH"
+        ],
+        "targetQuantity": 2,
+        "unitsPerBag": 2
+      }
     },
     {
       "id": "MAP-LGS723-353",
@@ -8350,17 +9265,25 @@
       },
       "target": {
         "materialCodes": [
-          "PE720X350"
+          "PE350X220"
         ],
         "name": "PE袋",
-        "spec": "720×350mm",
+        "spec": "350×220mm",
         "quantity": 2
       },
-      "relationship": "rule_confirmed",
+      "relationship": "packaging",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS723 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS333SZKBH×2；1件/袋",
+        "targetMaterialCodes": [
+          "LGS333SZKBH"
+        ],
+        "targetQuantity": 2,
+        "unitsPerBag": 1
+      }
     },
     {
       "id": "MAP-LGS733-354",
@@ -8704,10 +9627,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS733 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS733SQHLBH×2",
+        "targetMaterialCodes": [
+          "LGS733SQHLBH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS733-369",
@@ -8729,10 +9659,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS733 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS333SQHLBH×2",
+        "targetMaterialCodes": [
+          "LGS333SQHLBH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS733-370",
@@ -8754,10 +9691,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS733 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS723ZKBH×1",
+        "targetMaterialCodes": [
+          "LGS723ZKBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS733-371",
@@ -8779,10 +9723,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS733 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS723YKBH×1",
+        "targetMaterialCodes": [
+          "LGS723YKBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS733-372",
@@ -8804,10 +9755,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS733 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS333XHHLBH×1",
+        "targetMaterialCodes": [
+          "LGS333XHHLBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS733-373",
@@ -8829,10 +9787,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS733 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS333XQHLBH×1",
+        "targetMaterialCodes": [
+          "LGS333XQHLBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS733-374",
@@ -8854,10 +9819,17 @@
         "quantity": 3
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS733 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS333SZKBH×3",
+        "targetMaterialCodes": [
+          "LGS333SZKBH"
+        ],
+        "targetQuantity": 3
+      }
     },
     {
       "id": "MAP-LGS733-375",
@@ -8879,10 +9851,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS733 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS723XZHSLBH×2",
+        "targetMaterialCodes": [
+          "LGS723XZHSLBH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS733-376",
@@ -8904,10 +9883,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS733 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS723XZQSLBH×2",
+        "targetMaterialCodes": [
+          "LGS723XZQSLBH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS733-377",
@@ -8929,10 +9915,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS733 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：ZJG150654BH×2",
+        "targetMaterialCodes": [
+          "ZJG150654BH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS733-378",
@@ -8953,11 +9946,20 @@
         "spec": "720×350mm",
         "quantity": 2
       },
-      "relationship": "rule_confirmed",
+      "relationship": "packaging",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS733 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS723ZKBH×1、LGS723YKBH×1；1件/袋",
+        "targetMaterialCodes": [
+          "LGS723ZKBH",
+          "LGS723YKBH"
+        ],
+        "targetQuantity": 2,
+        "unitsPerBag": 1
+      }
     },
     {
       "id": "MAP-LGS733-379",
@@ -8978,11 +9980,22 @@
         "spec": "1160×60mm",
         "quantity": 3
       },
-      "relationship": "rule_confirmed",
+      "relationship": "packaging",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS733 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS333XHHLBH×1、LGS333XQHLBH×1、LGS333SQHLBH×2、LGS733SQHLBH×2；2件/袋",
+        "targetMaterialCodes": [
+          "LGS333XHHLBH",
+          "LGS333XQHLBH",
+          "LGS333SQHLBH",
+          "LGS733SQHLBH"
+        ],
+        "targetQuantity": 6,
+        "unitsPerBag": 2
+      }
     },
     {
       "id": "MAP-LGS733-380",
@@ -8997,17 +10010,26 @@
       },
       "target": {
         "materialCodes": [
-          "PE720X350"
+          "PE460X60"
         ],
         "name": "PE袋",
-        "spec": "720×350mm",
+        "spec": "460×60mm",
         "quantity": 2
       },
-      "relationship": "rule_confirmed",
+      "relationship": "packaging",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS733 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS723XZHSLBH×2、LGS723XZQSLBH×2；2件/袋",
+        "targetMaterialCodes": [
+          "LGS723XZHSLBH",
+          "LGS723XZQSLBH"
+        ],
+        "targetQuantity": 4,
+        "unitsPerBag": 2
+      }
     },
     {
       "id": "MAP-LGS733-381",
@@ -9022,17 +10044,25 @@
       },
       "target": {
         "materialCodes": [
-          "PE720X350"
+          "PE350X220"
         ],
         "name": "PE袋",
-        "spec": "720×350mm",
+        "spec": "350×220mm",
         "quantity": 2
       },
-      "relationship": "rule_confirmed",
+      "relationship": "packaging",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS733 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS333SZKBH×3；2袋（1件/袋、2件/袋）",
+        "targetMaterialCodes": [
+          "LGS333SZKBH"
+        ],
+        "targetQuantity": 3,
+        "unitsPerBag": null
+      }
     },
     {
       "id": "MAP-LGS733-382",
@@ -9053,11 +10083,19 @@
         "spec": "100×60mm",
         "quantity": 1
       },
-      "relationship": "rule_confirmed",
+      "relationship": "packaging",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS733 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：ZJG150654BH×2；2件/袋",
+        "targetMaterialCodes": [
+          "ZJG150654BH"
+        ],
+        "targetQuantity": 2,
+        "unitsPerBag": 2
+      }
     },
     {
       "id": "MAP-LGS833-383",
@@ -9332,10 +10370,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS833 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS833SQHLBH×2",
+        "targetMaterialCodes": [
+          "LGS833SQHLBH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS833-395",
@@ -9357,10 +10402,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS833 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS833ZKBH×1",
+        "targetMaterialCodes": [
+          "LGS833ZKBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS833-396",
@@ -9382,10 +10434,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS833 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS833YKBH×1",
+        "targetMaterialCodes": [
+          "LGS833YKBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS833-397",
@@ -9407,10 +10466,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS833 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS333XHHLBH×1",
+        "targetMaterialCodes": [
+          "LGS333XHHLBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS833-398",
@@ -9432,10 +10498,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS833 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS333XQHLBH×1",
+        "targetMaterialCodes": [
+          "LGS333XQHLBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS833-399",
@@ -9457,10 +10530,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS833 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS833ZYKBH×2",
+        "targetMaterialCodes": [
+          "LGS833ZYKBH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS833-400",
@@ -9482,10 +10562,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS833 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：ZJG150654BH×2",
+        "targetMaterialCodes": [
+          "ZJG150654BH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS833-401",
@@ -9506,11 +10593,21 @@
         "spec": "720×350mm",
         "quantity": 4
       },
-      "relationship": "rule_confirmed",
+      "relationship": "packaging",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS833 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS833ZYKBH×2、LGS833ZKBH×1、LGS833YKBH×1；1件/袋",
+        "targetMaterialCodes": [
+          "LGS833ZYKBH",
+          "LGS833ZKBH",
+          "LGS833YKBH"
+        ],
+        "targetQuantity": 4,
+        "unitsPerBag": 1
+      }
     },
     {
       "id": "MAP-LGS833-402",
@@ -9531,11 +10628,21 @@
         "spec": "1160×60mm",
         "quantity": 2
       },
-      "relationship": "rule_confirmed",
+      "relationship": "packaging",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS833 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS333XHHLBH×1、LGS333XQHLBH×1、LGS833SQHLBH×2；2件/袋",
+        "targetMaterialCodes": [
+          "LGS333XHHLBH",
+          "LGS333XQHLBH",
+          "LGS833SQHLBH"
+        ],
+        "targetQuantity": 4,
+        "unitsPerBag": 2
+      }
     },
     {
       "id": "MAP-LGS833-403",
@@ -9556,11 +10663,19 @@
         "spec": "100×60mm",
         "quantity": 1
       },
-      "relationship": "rule_confirmed",
+      "relationship": "packaging",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS833 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：ZJG150654BH×2；2件/袋",
+        "targetMaterialCodes": [
+          "ZJG150654BH"
+        ],
+        "targetQuantity": 2,
+        "unitsPerBag": 2
+      }
     },
     {
       "id": "MAP-LGS834-404",
@@ -10089,9 +11204,18 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS101 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS101ZCKBH×1、LGS101YCKBH×1；1件/袋",
+        "targetMaterialCodes": [
+          "LGS101ZCKBH",
+          "LGS101YCKBH"
+        ],
+        "targetQuantity": 2,
+        "unitsPerBag": 1
+      }
     },
     {
       "id": "MAP-LGS101-427",
@@ -10114,9 +11238,17 @@
       },
       "relationship": "rule_confirmed",
       "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "evidence": "LGS101 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS101HLBH×2；2件/袋",
+        "targetMaterialCodes": [
+          "LGS101HLBH"
+        ],
+        "targetQuantity": 2,
+        "unitsPerBag": 2
+      }
     },
     {
       "id": "MAP-LGS101-428",
@@ -10138,10 +11270,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS101 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS101ZCKBH×1",
+        "targetMaterialCodes": [
+          "LGS101ZCKBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS101-429",
@@ -10163,10 +11302,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS101 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS101YCKBH×1",
+        "targetMaterialCodes": [
+          "LGS101YCKBH"
+        ],
+        "targetQuantity": 1
+      }
     },
     {
       "id": "MAP-LGS101-430",
@@ -10188,10 +11334,17 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS101 BOM 编号、规格与数量一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LGS101HLBH×2",
+        "targetMaterialCodes": [
+          "LGS101HLBH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS111-431",
@@ -10328,10 +11481,19 @@
         "quantity": 2
       },
       "relationship": "rule_confirmed",
-      "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "LGS111 为 LGS101 双套组合，规则映射已确认",
+      "evidence": "LGS111 BOM 编号、规格、数量与负责人确认一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS101ZCKBH×2、LGS101YCKBH×2；2件/袋",
+        "targetMaterialCodes": [
+          "LGS101ZCKBH",
+          "LGS101YCKBH"
+        ],
+        "targetQuantity": 4,
+        "unitsPerBag": 2
+      }
     },
     {
       "id": "MAP-LGS111-437",
@@ -10353,10 +11515,18 @@
         "quantity": 1
       },
       "relationship": "rule_confirmed",
-      "explanationZh": "规则映射已确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "LGS111 为 LGS101 双套组合，规则映射已确认",
+      "evidence": "LGS111 BOM 编号、规格、数量与负责人确认一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS101HLBH×4；4件/袋",
+        "targetMaterialCodes": [
+          "LGS101HLBH"
+        ],
+        "targetQuantity": 4,
+        "unitsPerBag": 4
+      }
     },
     {
       "id": "MAP-LGS111-438",
@@ -10378,10 +11548,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "LGS111 为 LGS101 双套组合，规则映射已确认",
+      "evidence": "LGS111 BOM 编号、规格、数量与负责人确认一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "编号对应：LGS101ZCKBH×2",
+        "targetMaterialCodes": [
+          "LGS101ZCKBH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS111-439",
@@ -10403,10 +11580,17 @@
         "quantity": 1
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "LGS111 为 LGS101 双套组合，规则映射已确认",
+      "evidence": "LGS111 BOM 编号、规格、数量与负责人确认一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "编号对应：LGS101YCKBH×2",
+        "targetMaterialCodes": [
+          "LGS101YCKBH"
+        ],
+        "targetQuantity": 2
+      }
     },
     {
       "id": "MAP-LGS111-440",
@@ -10428,10 +11612,1994 @@
         "quantity": 2
       },
       "relationship": "direct",
-      "explanationZh": "已自动确认",
-      "evidence": "铁件BOM(1) 与 PDM 已确认映射",
+      "explanationZh": "LGS111 为 LGS101 双套组合，规则映射已确认",
+      "evidence": "LGS111 BOM 编号、规格、数量与负责人确认一致",
       "category": "packaging",
-      "packagingRuleStatus": "pending"
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "编号对应：LGS101HLBH×4",
+        "targetMaterialCodes": [
+          "LGS101HLBH"
+        ],
+        "targetQuantity": 4
+      }
+    },
+    {
+      "id": "RULE-LGS032-LABEL-BL",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS032"
+      ],
+      "source": {
+        "name": "序号标BL",
+        "spec": "XHBBL010",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBL010"
+        ],
+        "name": "序号标BL",
+        "spec": "",
+        "quantity": 1
+      },
+      "relationship": "rule_confirmed",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS032 BOM 编号、规格、数量与负责人确认一致",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZZ001BH×6",
+        "targetMaterialCodes": [
+          "SLHGZZ001BH"
+        ],
+        "targetQuantity": 6
+      }
+    },
+    {
+      "id": "RULE-LGS032-LABEL-BR",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS032"
+      ],
+      "source": {
+        "name": "序号标BR",
+        "spec": "XHBBR010",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBR010"
+        ],
+        "name": "序号标BR",
+        "spec": "",
+        "quantity": 1
+      },
+      "relationship": "rule_confirmed",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS032 BOM 编号、规格、数量与负责人确认一致",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZY001BH×6",
+        "targetMaterialCodes": [
+          "SLHGZY001BH"
+        ],
+        "targetQuantity": 6
+      }
+    },
+    {
+      "id": "RULE-LGS032-PE720X350",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS032"
+      ],
+      "source": {
+        "name": "PE袋",
+        "spec": "PE720X350",
+        "quantity": 4
+      },
+      "target": {
+        "materialCodes": [
+          "PE720X350"
+        ],
+        "name": "PE袋",
+        "spec": "",
+        "quantity": 4
+      },
+      "relationship": "rule_confirmed",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS032 BOM 编号、规格、数量与负责人确认一致",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS032ZZKBH×1、LGS032YZKBH×1、LGS032ZKBH647×1、LGS032YKBH647×1；1件/袋",
+        "targetMaterialCodes": [
+          "LGS032ZZKBH",
+          "LGS032YZKBH",
+          "LGS032ZKBH647",
+          "LGS032YKBH647"
+        ],
+        "targetQuantity": 4,
+        "unitsPerBag": 1
+      }
+    },
+    {
+      "id": "RULE-LGS032-PE1160X60",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS032"
+      ],
+      "source": {
+        "name": "PE袋",
+        "spec": "PE1160X60",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "PE1160X60"
+        ],
+        "name": "PE袋",
+        "spec": "",
+        "quantity": 1
+      },
+      "relationship": "rule_confirmed",
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS032 BOM 编号、规格、数量与负责人确认一致",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS032XHLBH×1、LGS032XQHLBH×1；2件/袋",
+        "targetMaterialCodes": [
+          "LGS032XHLBH",
+          "LGS032XQHLBH"
+        ],
+        "targetQuantity": 2,
+        "unitsPerBag": 2
+      }
+    },
+    {
+      "id": "RULE-LGS033-LABEL-BL",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS033"
+      ],
+      "source": {
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBL010"
+        ],
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZZ001BH×9",
+        "targetMaterialCodes": [
+          "SLHGZZ001BH"
+        ],
+        "targetQuantity": 9
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS033 BOM 编号、规格、数量与已确认同类包装规则一致"
+    },
+    {
+      "id": "RULE-LGS033-LABEL-BR",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS033"
+      ],
+      "source": {
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBR010"
+        ],
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZY001BH×9",
+        "targetMaterialCodes": [
+          "SLHGZY001BH"
+        ],
+        "targetQuantity": 9
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS033 BOM 编号、规格、数量与已确认同类包装规则一致"
+    },
+    {
+      "id": "RULE-LGS043-LABEL-BL",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS043"
+      ],
+      "source": {
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBL010"
+        ],
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZZ002BH×11",
+        "targetMaterialCodes": [
+          "SLHGZZ002BH"
+        ],
+        "targetQuantity": 11
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS043 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS043-LABEL-BR",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS043"
+      ],
+      "source": {
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBR010"
+        ],
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZY002BH×11",
+        "targetMaterialCodes": [
+          "SLHGZY002BH"
+        ],
+        "targetQuantity": 11
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS043 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS101-LABEL-X04",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS101"
+      ],
+      "source": {
+        "name": "序号标 X04",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBX04"
+        ],
+        "name": "序号标 X04",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：LG05473BH×1",
+        "targetMaterialCodes": [
+          "LG05473BH"
+        ],
+        "targetQuantity": 1
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS101 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS101-LABEL-BL",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS101"
+      ],
+      "source": {
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBL010"
+        ],
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZZ001BH×1",
+        "targetMaterialCodes": [
+          "SLHGZZ001BH"
+        ],
+        "targetQuantity": 1
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS101 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS101-LABEL-BR",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS101"
+      ],
+      "source": {
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBR010"
+        ],
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZY001BH×1",
+        "targetMaterialCodes": [
+          "SLHGZY001BH"
+        ],
+        "targetQuantity": 1
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS101 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS111-LABEL-X04",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS111"
+      ],
+      "source": {
+        "name": "序号标 X04",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBX04"
+        ],
+        "name": "序号标 X04",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "编号对应：LG05473BH×2",
+        "targetMaterialCodes": [
+          "LG05473BH"
+        ],
+        "targetQuantity": 2
+      },
+      "explanationZh": "LGS111 为 LGS101 双套组合，规则映射已确认",
+      "evidence": "LGS111 BOM 编号、规格、数量与负责人确认一致"
+    },
+    {
+      "id": "RULE-LGS111-LABEL-BL",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS111"
+      ],
+      "source": {
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBL010"
+        ],
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "编号对应：SLHGZZ001BH×2",
+        "targetMaterialCodes": [
+          "SLHGZZ001BH"
+        ],
+        "targetQuantity": 2
+      },
+      "explanationZh": "LGS111 为 LGS101 双套组合，规则映射已确认",
+      "evidence": "LGS111 BOM 编号、规格、数量与负责人确认一致"
+    },
+    {
+      "id": "RULE-LGS111-LABEL-BR",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS111"
+      ],
+      "source": {
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBR010"
+        ],
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "编号对应：SLHGZY001BH×2",
+        "targetMaterialCodes": [
+          "SLHGZY001BH"
+        ],
+        "targetQuantity": 2
+      },
+      "explanationZh": "LGS111 为 LGS101 双套组合，规则映射已确认",
+      "evidence": "LGS111 BOM 编号、规格、数量与负责人确认一致"
+    },
+    {
+      "id": "RULE-LGS131-LABEL-BL",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS131"
+      ],
+      "source": {
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBL010"
+        ],
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZZ002BH×1",
+        "targetMaterialCodes": [
+          "SLHGZZ002BH"
+        ],
+        "targetQuantity": 1
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS131 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS131-LABEL-BR",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS131"
+      ],
+      "source": {
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBR010"
+        ],
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZY002BH×1",
+        "targetMaterialCodes": [
+          "SLHGZY002BH"
+        ],
+        "targetQuantity": 1
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS131 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS132-PE720X400",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS132"
+      ],
+      "source": {
+        "name": "PE袋",
+        "spec": "720*400",
+        "quantity": 4
+      },
+      "target": {
+        "materialCodes": [
+          "PE720X400"
+        ],
+        "name": "PE袋",
+        "spec": "720*400",
+        "quantity": 4
+      },
+      "relationship": "packaging",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS132ZZKBH×1、LGS132YZKBH×1、LGS132ZKBH×1、LGS132YKBH×1；1件/袋",
+        "targetMaterialCodes": [
+          "LGS132ZZKBH",
+          "LGS132YZKBH",
+          "LGS132ZKBH",
+          "LGS132YKBH"
+        ],
+        "targetQuantity": 4,
+        "unitsPerBag": 1
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS132 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS132-PE780X60",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS132"
+      ],
+      "source": {
+        "name": "PE袋",
+        "spec": "780*60",
+        "quantity": 2
+      },
+      "target": {
+        "materialCodes": [
+          "PE780X60"
+        ],
+        "name": "PE袋",
+        "spec": "780*60",
+        "quantity": 2
+      },
+      "relationship": "packaging",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS132XHYHLBH×1、LGS132SQYHLBH×1、LGS132XHZHLBH×1、LGS132SQZHLBH×1；2件/袋",
+        "targetMaterialCodes": [
+          "LGS132XHYHLBH",
+          "LGS132SQYHLBH",
+          "LGS132XHZHLBH",
+          "LGS132SQZHLBH"
+        ],
+        "targetQuantity": 4,
+        "unitsPerBag": 2
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS132 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS132-PE600X60",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS132"
+      ],
+      "source": {
+        "name": "PE袋",
+        "spec": "600*60",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "PE600X60"
+        ],
+        "name": "PE袋",
+        "spec": "600*60",
+        "quantity": 1
+      },
+      "relationship": "packaging",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS132SHLBH×2；2件/袋",
+        "targetMaterialCodes": [
+          "LGS132SHLBH"
+        ],
+        "targetQuantity": 2,
+        "unitsPerBag": 2
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS132 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS132-LABEL-BL",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS132"
+      ],
+      "source": {
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBL010"
+        ],
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZZ002BH×6",
+        "targetMaterialCodes": [
+          "SLHGZZ002BH"
+        ],
+        "targetQuantity": 6
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS132 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS132-LABEL-BR",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS132"
+      ],
+      "source": {
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBR010"
+        ],
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZY002BH×6",
+        "targetMaterialCodes": [
+          "SLHGZY002BH"
+        ],
+        "targetQuantity": 6
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS132 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS133-PE720X400",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS133"
+      ],
+      "source": {
+        "name": "PE袋",
+        "spec": "720*400",
+        "quantity": 4
+      },
+      "target": {
+        "materialCodes": [
+          "PE720X400"
+        ],
+        "name": "PE袋",
+        "spec": "720*400",
+        "quantity": 4
+      },
+      "relationship": "packaging",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS133ZYKBH×2、LGS133ZKBH×1、LGS133YKBH×1；1件/袋",
+        "targetMaterialCodes": [
+          "LGS133ZYKBH",
+          "LGS133ZKBH",
+          "LGS133YKBH"
+        ],
+        "targetQuantity": 4,
+        "unitsPerBag": 1
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS133 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS133-PE830X60",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS133"
+      ],
+      "source": {
+        "name": "PE袋",
+        "spec": "830*60",
+        "quantity": 2
+      },
+      "target": {
+        "materialCodes": [
+          "PE830X60"
+        ],
+        "name": "PE袋",
+        "spec": "830*60",
+        "quantity": 2
+      },
+      "relationship": "packaging",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS133XQYHLBH×1、LGS133XHYHLBH×1、LGS133XQZHLBH×1、LGS133XHZHLBH×1；2件/袋",
+        "targetMaterialCodes": [
+          "LGS133XQYHLBH",
+          "LGS133XHYHLBH",
+          "LGS133XQZHLBH",
+          "LGS133XHZHLBH"
+        ],
+        "targetQuantity": 4,
+        "unitsPerBag": 2
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS133 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS133-PE600X60",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS133"
+      ],
+      "source": {
+        "name": "PE袋",
+        "spec": "600*60",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "PE600X60"
+        ],
+        "name": "PE袋",
+        "spec": "600*60",
+        "quantity": 1
+      },
+      "relationship": "packaging",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS133SZQHLBH×2；2件/袋",
+        "targetMaterialCodes": [
+          "LGS133SZQHLBH"
+        ],
+        "targetQuantity": 2,
+        "unitsPerBag": 2
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS133 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS133-LABEL-BL",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS133"
+      ],
+      "source": {
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBL010"
+        ],
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZZ002BH×9",
+        "targetMaterialCodes": [
+          "SLHGZZ002BH"
+        ],
+        "targetQuantity": 9
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS133 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS133-LABEL-BR",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS133"
+      ],
+      "source": {
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBR010"
+        ],
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZY002BH×9",
+        "targetMaterialCodes": [
+          "SLHGZY002BH"
+        ],
+        "targetQuantity": 9
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS133 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS231-LABEL-BL",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS231"
+      ],
+      "source": {
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBL010"
+        ],
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZZ002BH×1",
+        "targetMaterialCodes": [
+          "SLHGZZ002BH"
+        ],
+        "targetQuantity": 1
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS231 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS231-LABEL-BR",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS231"
+      ],
+      "source": {
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBR010"
+        ],
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZY002BH×1",
+        "targetMaterialCodes": [
+          "SLHGZY002BH"
+        ],
+        "targetQuantity": 1
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS231 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS232-PE720X400",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS232"
+      ],
+      "source": {
+        "name": "PE袋",
+        "spec": "720*400",
+        "quantity": 4
+      },
+      "target": {
+        "materialCodes": [
+          "PE720X400"
+        ],
+        "name": "PE袋",
+        "spec": "720*400",
+        "quantity": 4
+      },
+      "relationship": "packaging",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS132ZZKBH×1、LGS132YZKBH×1、LGS132ZKBH×1、LGS132YKBH×1；1件/袋",
+        "targetMaterialCodes": [
+          "LGS132ZZKBH",
+          "LGS132YZKBH",
+          "LGS132ZKBH",
+          "LGS132YKBH"
+        ],
+        "targetQuantity": 4,
+        "unitsPerBag": 1
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS232 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS232-PE1000X60",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS232"
+      ],
+      "source": {
+        "name": "PE袋",
+        "spec": "1000*60",
+        "quantity": 2
+      },
+      "target": {
+        "materialCodes": [
+          "PE1000X60"
+        ],
+        "name": "PE袋",
+        "spec": "1000*60",
+        "quantity": 2
+      },
+      "relationship": "packaging",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS232XHYHLBH×1、LGS232SQYHLBH×1、LGS232XHZHLBH×1、LGS232SQZHLBH×1；2件/袋",
+        "targetMaterialCodes": [
+          "LGS232XHYHLBH",
+          "LGS232SQYHLBH",
+          "LGS232XHZHLBH",
+          "LGS232SQZHLBH"
+        ],
+        "targetQuantity": 4,
+        "unitsPerBag": 2
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS232 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS232-PE600X60",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS232"
+      ],
+      "source": {
+        "name": "PE袋",
+        "spec": "600*60",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "PE600X60"
+        ],
+        "name": "PE袋",
+        "spec": "600*60",
+        "quantity": 1
+      },
+      "relationship": "packaging",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS232SHLBH×2；2件/袋",
+        "targetMaterialCodes": [
+          "LGS232SHLBH"
+        ],
+        "targetQuantity": 2,
+        "unitsPerBag": 2
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS232 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS232-LABEL-BL",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS232"
+      ],
+      "source": {
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBL010"
+        ],
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZZ002BH×6",
+        "targetMaterialCodes": [
+          "SLHGZZ002BH"
+        ],
+        "targetQuantity": 6
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS232 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS232-LABEL-BR",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS232"
+      ],
+      "source": {
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBR010"
+        ],
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZY002BH×6",
+        "targetMaterialCodes": [
+          "SLHGZY002BH"
+        ],
+        "targetQuantity": 6
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS232 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS233-LABEL-BL",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS233"
+      ],
+      "source": {
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBL010"
+        ],
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZZ002BH×9",
+        "targetMaterialCodes": [
+          "SLHGZZ002BH"
+        ],
+        "targetQuantity": 9
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS233 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS233-LABEL-BR",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS233"
+      ],
+      "source": {
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBR010"
+        ],
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZY002BH×9",
+        "targetMaterialCodes": [
+          "SLHGZY002BH"
+        ],
+        "targetQuantity": 9
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS233 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS333-LABEL-BL",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS333"
+      ],
+      "source": {
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBL010"
+        ],
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZZ001BH×10",
+        "targetMaterialCodes": [
+          "SLHGZZ001BH"
+        ],
+        "targetQuantity": 10
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS333 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS333-LABEL-BR",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS333"
+      ],
+      "source": {
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBR010"
+        ],
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZY001BH×10",
+        "targetMaterialCodes": [
+          "SLHGZY001BH"
+        ],
+        "targetQuantity": 10
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS333 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS334-LABEL-BL",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS334"
+      ],
+      "source": {
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBL010"
+        ],
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZZ002BH×10",
+        "targetMaterialCodes": [
+          "SLHGZZ002BH"
+        ],
+        "targetQuantity": 10
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS334 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS334-LABEL-BR",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS334"
+      ],
+      "source": {
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBR010"
+        ],
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZY002BH×10",
+        "targetMaterialCodes": [
+          "SLHGZY002BH"
+        ],
+        "targetQuantity": 10
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS334 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS420-LABEL-BL",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS420"
+      ],
+      "source": {
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBL010"
+        ],
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZZ002BH×2",
+        "targetMaterialCodes": [
+          "SLHGZZ002BH"
+        ],
+        "targetQuantity": 2
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS420 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS420-LABEL-BR",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS420"
+      ],
+      "source": {
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBR010"
+        ],
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZY002BH×2",
+        "targetMaterialCodes": [
+          "SLHGZY002BH"
+        ],
+        "targetQuantity": 2
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS420 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS421-LABEL-BL",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS421"
+      ],
+      "source": {
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBL010"
+        ],
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZZ002BH×2",
+        "targetMaterialCodes": [
+          "SLHGZZ002BH"
+        ],
+        "targetQuantity": 2
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS421 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS421-LABEL-BR",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS421"
+      ],
+      "source": {
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBR010"
+        ],
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZY002BH×2",
+        "targetMaterialCodes": [
+          "SLHGZY002BH"
+        ],
+        "targetQuantity": 2
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS421 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS433-PE720X350",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS433"
+      ],
+      "source": {
+        "name": "PE袋",
+        "spec": "720*350",
+        "quantity": 2
+      },
+      "target": {
+        "materialCodes": [
+          "PE720X350"
+        ],
+        "name": "PE袋",
+        "spec": "720×350mm",
+        "quantity": 2
+      },
+      "relationship": "packaging",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS333ZKBH×1、LGS333YKBH×1；1件/袋",
+        "targetMaterialCodes": [
+          "LGS333ZKBH",
+          "LGS333YKBH"
+        ],
+        "targetQuantity": 2,
+        "unitsPerBag": 1
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "负责人确认：LGS433 PE720X350 实际用量为2；与LGS333为同类Excel记录错误"
+    },
+    {
+      "id": "RULE-LGS434-PE720X400",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS434"
+      ],
+      "source": {
+        "name": "PE袋",
+        "spec": "720*400",
+        "quantity": 2
+      },
+      "target": {
+        "materialCodes": [
+          "PE720X400"
+        ],
+        "name": "PE袋",
+        "spec": "720*400",
+        "quantity": 2
+      },
+      "relationship": "packaging",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS434ZKWH×1、LGS434YKWH×1；1件/袋",
+        "targetMaterialCodes": [
+          "LGS434ZKWH",
+          "LGS434YKWH"
+        ],
+        "targetQuantity": 2,
+        "unitsPerBag": 1
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS434 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS434-PE400X220",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS434"
+      ],
+      "source": {
+        "name": "PE袋",
+        "spec": "400*220",
+        "quantity": 2
+      },
+      "target": {
+        "materialCodes": [
+          "PE400X220"
+        ],
+        "name": "PE袋",
+        "spec": "400*220",
+        "quantity": 2
+      },
+      "relationship": "packaging",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS434SZKWH×2；1件/袋",
+        "targetMaterialCodes": [
+          "LGS434SZKWH"
+        ],
+        "targetQuantity": 2,
+        "unitsPerBag": 1
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS434 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS434-PE830X60",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS434"
+      ],
+      "source": {
+        "name": "PE袋",
+        "spec": "830*60",
+        "quantity": 4
+      },
+      "target": {
+        "materialCodes": [
+          "PE830X60"
+        ],
+        "name": "PE袋",
+        "spec": "830*60",
+        "quantity": 4
+      },
+      "relationship": "packaging",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS334XQYHLWH×1、LGS334XHYHLWH×1、LGS334XQZHLWH×1、LGS334XHZHLWH×1、LGS434SQZHLDEPWH×1、LGS434SHZHLDEPWH×1、LGS434SQYHLDEPWH×1、LGS434SHYHLDEPWH×1、LGS434DBHLWH×2；合计10件/4袋（2–3件/袋）",
+        "targetMaterialCodes": [
+          "LGS334XQYHLWH",
+          "LGS334XHYHLWH",
+          "LGS334XQZHLWH",
+          "LGS334XHZHLWH",
+          "LGS434SQZHLDEPWH",
+          "LGS434SHZHLDEPWH",
+          "LGS434SQYHLDEPWH",
+          "LGS434SHYHLDEPWH",
+          "LGS434DBHLWH"
+        ],
+        "targetQuantity": 10,
+        "unitsPerBag": null
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS434 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS434-PE460X60",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS434"
+      ],
+      "source": {
+        "name": "PE袋",
+        "spec": "460*60",
+        "quantity": 2
+      },
+      "target": {
+        "materialCodes": [
+          "PE460X60"
+        ],
+        "name": "PE袋",
+        "spec": "460*60",
+        "quantity": 2
+      },
+      "relationship": "packaging",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：3911515XZHSLWH×2、391515XZQSLWH×2；2件/袋",
+        "targetMaterialCodes": [
+          "3911515XZHSLWH",
+          "391515XZQSLWH"
+        ],
+        "targetQuantity": 4,
+        "unitsPerBag": 2
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS434 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS434-LABEL-BL",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS434"
+      ],
+      "source": {
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBL010"
+        ],
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZZ002WH×8",
+        "targetMaterialCodes": [
+          "SLHGZZ002WH"
+        ],
+        "targetQuantity": 8
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS434 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS434-LABEL-BR",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS434"
+      ],
+      "source": {
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBR010"
+        ],
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZY002WH×8",
+        "targetMaterialCodes": [
+          "SLHGZY002WH"
+        ],
+        "targetQuantity": 8
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS434 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS723-LABEL-BL",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS723"
+      ],
+      "source": {
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBL010"
+        ],
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZZ001BH×5",
+        "targetMaterialCodes": [
+          "SLHGZZ001BH"
+        ],
+        "targetQuantity": 5
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS723 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS723-LABEL-BR",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS723"
+      ],
+      "source": {
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBR010"
+        ],
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZY001BH×5",
+        "targetMaterialCodes": [
+          "SLHGZY001BH"
+        ],
+        "targetQuantity": 5
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS723 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS733-LABEL-BL",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS733"
+      ],
+      "source": {
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBL010"
+        ],
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZZ001BH×7",
+        "targetMaterialCodes": [
+          "SLHGZZ001BH"
+        ],
+        "targetQuantity": 7
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS733 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS733-LABEL-BR",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS733"
+      ],
+      "source": {
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBR010"
+        ],
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZY001BH×7",
+        "targetMaterialCodes": [
+          "SLHGZY001BH"
+        ],
+        "targetQuantity": 7
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS733 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS833-LABEL-BL",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS833"
+      ],
+      "source": {
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBL010"
+        ],
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZZ001BH×6",
+        "targetMaterialCodes": [
+          "SLHGZZ001BH"
+        ],
+        "targetQuantity": 6
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS833 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS833-LABEL-BR",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS833"
+      ],
+      "source": {
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBR010"
+        ],
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZY001BH×6",
+        "targetMaterialCodes": [
+          "SLHGZY001BH"
+        ],
+        "targetQuantity": 6
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS833 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS834-PE720X400",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS834"
+      ],
+      "source": {
+        "name": "PE袋",
+        "spec": "720*400",
+        "quantity": 4
+      },
+      "target": {
+        "materialCodes": [
+          "PE720X400"
+        ],
+        "name": "PE袋",
+        "spec": "720×400mm",
+        "quantity": 4
+      },
+      "relationship": "packaging",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS834ZYKWH×2、LGS834ZKWH×1、LGS834YKWH×1；1件/袋",
+        "targetMaterialCodes": [
+          "LGS834ZYKWH",
+          "LGS834ZKWH",
+          "LGS834YKWH"
+        ],
+        "targetQuantity": 4,
+        "unitsPerBag": 1
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS834 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS834-PE830X60",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS834"
+      ],
+      "source": {
+        "name": "PE袋",
+        "spec": "830*60",
+        "quantity": 4
+      },
+      "target": {
+        "materialCodes": [
+          "PE830X60"
+        ],
+        "name": "PE袋",
+        "spec": "830×60mm",
+        "quantity": 4
+      },
+      "relationship": "packaging",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "包装：LGS334XQYHLWH×1、LGS334XHYHLWH×1、LGS334XQZHLWH×1、LGS334XHZHLWH×1、LGS834QSYHLWH×2、LGS834QSZHLWH×2；2件/袋",
+        "targetMaterialCodes": [
+          "LGS334XQYHLWH",
+          "LGS334XHYHLWH",
+          "LGS334XQZHLWH",
+          "LGS334XHZHLWH",
+          "LGS834QSYHLWH",
+          "LGS834QSZHLWH"
+        ],
+        "targetQuantity": 8,
+        "unitsPerBag": 2
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS834 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS834-LABEL-BL",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS834"
+      ],
+      "source": {
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBL010"
+        ],
+        "name": "序号标BL",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZZ002WH×6",
+        "targetMaterialCodes": [
+          "SLHGZZ002WH"
+        ],
+        "targetQuantity": 6
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS834 BOM 编号、规格与数量一致"
+    },
+    {
+      "id": "RULE-LGS834-LABEL-BR",
+      "status": "confirmed",
+      "productCodes": [
+        "LGS834"
+      ],
+      "source": {
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "target": {
+        "materialCodes": [
+          "XHBBR010"
+        ],
+        "name": "序号标BR",
+        "spec": "∅10mm",
+        "quantity": 1
+      },
+      "relationship": "packaging-label",
+      "category": "packaging",
+      "packagingRuleStatus": "confirmed",
+      "packagingRule": {
+        "summaryZh": "贴附：SLHGZY002WH×6",
+        "targetMaterialCodes": [
+          "SLHGZY002WH"
+        ],
+        "targetQuantity": 6
+      },
+      "explanationZh": "规则映射已确认",
+      "evidence": "LGS834 BOM 编号、规格与数量一致"
     }
   ]
 }
