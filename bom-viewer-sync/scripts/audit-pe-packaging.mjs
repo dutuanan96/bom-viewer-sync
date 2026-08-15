@@ -11,7 +11,8 @@ function materialByCode(materials) {
 
 function packagingTargets(remark) {
   const targets = new Map();
-  for (const [, code, rawQty] of String(remark || '').matchAll(TARGET_PATTERN)) {
+  const packagingLine = String(remark || '').match(/^\s*包装对象[：:]\s*(.*)$/m)?.[1] || '';
+  for (const [, code, rawQty] of packagingLine.matchAll(TARGET_PATTERN)) {
     targets.set(code, (targets.get(code) || 0) + Number(rawQty));
   }
   return targets;

@@ -33,7 +33,7 @@ test('PE packaging audit distinguishes supplier packaging, incorrect color and m
               { mat_code: 'FOOTBH', name_zh: '底脚', qty: '2' },
               { mat_code: 'FRAMEWH', name_zh: '横杆', qty: '1' },
               { mat_code: 'MISSINGBH', name_zh: '横杆', qty: '1' },
-              { mat_code: 'PE100X60', name_zh: 'PE袋', qty: '1', remark: '包装对象：FRAMEBH×1；规格：1098×15×290' },
+              { mat_code: 'PE100X60', name_zh: 'PE袋', qty: '1', remark: '包装对象：FRAMEBH×1；规格：1098×15×290\n规则：FRAMEBH×1；用袋：1袋' },
             ],
           },
         },
