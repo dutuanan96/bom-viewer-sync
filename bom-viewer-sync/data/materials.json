@@ -33582,7 +33582,13 @@
             "name": "LGS032-S-右侧框.pdf"
           }
         ],
-        "models3d": []
+        "models3d": [
+          {
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS032-S-1ca3461c.glb",
+            "name": "LGS032-S-右侧框.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS032-S-1ca3461c.glb"
+          }
+        ]
       },
       "mat_fwib1i": {
         "id": "mat_fwib1i",
@@ -33607,8 +33613,19 @@
           "zh": "零件",
           "vi": "linh kiện"
         },
-        "drawings": [],
-        "models3d": []
+        "drawings": [
+          {
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@7c77b9527669f33fb4b8561cc57b31783f29e349/assets/pdfs/LGS032ZKBH647_562f0b0b70fbafd5f7b1b100e4535fb0bf16468d69a143b7c8898f0eef212788_LGS032-S-_.pdf",
+            "name": "LGS032-S-左侧框.pdf"
+          }
+        ],
+        "models3d": [
+          {
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS032-S-33f48cfd.glb",
+            "name": "LGS032-S-左侧框.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS032-S-33f48cfd.glb"
+          }
+        ]
       },
       "mat_1c0a8em": {
         "id": "mat_1c0a8em",

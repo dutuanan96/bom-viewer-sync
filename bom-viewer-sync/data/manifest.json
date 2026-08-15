@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-15T08:33:23.226Z",
+  "updatedAt": "2026-08-15T08:48:57.042Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -132711,6 +132711,36 @@
   },
   "notifications": [
     {
+      "id": "notif_1fksomw",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-15T08:48:57.042Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "LGS032YKBH647",
+          "field": "models3d",
+          "before": "",
+          "after": "LGS032-S-右侧框.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS032-S-1ca3461c.glb"
+        },
+        {
+          "kind": "material",
+          "code": "LGS032ZKBH647",
+          "field": "drawings",
+          "before": "",
+          "after": "LGS032-S-左侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@7c77b9527669f33fb4b8561cc57b31783f29e349/assets/pdfs/LGS032ZKBH647_562f0b0b70fbafd5f7b1b100e4535fb0bf16468d69a143b7c8898f0eef212788_LGS032-S-_.pdf"
+        },
+        {
+          "kind": "material",
+          "code": "LGS032ZKBH647",
+          "field": "models3d",
+          "before": "",
+          "after": "LGS032-S-左侧框.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS032-S-33f48cfd.glb"
+        }
+      ]
+    },
+    {
       "id": "notif_1an1njm",
       "type": "github-save",
       "actor": "admin",
@@ -133638,36 +133668,6 @@
           "field": "",
           "before": "",
           "after": ""
-        }
-      ]
-    },
-    {
-      "id": "notif_fut7fi",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-13T07:40:35.031Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "NLPLS6010WZ",
-          "field": "color",
-          "before": "白色 / màu trắng",
-          "after": "镀锌 / mạ kẽm"
-        },
-        {
-          "kind": "material_added",
-          "code": "NLPLS6018BZ",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "material",
-          "code": "NLPLS6022WZ",
-          "field": "color",
-          "before": "白色 / màu trắng",
-          "after": "镀锌 / mạ kẽm"
         }
       ]
     }
@@ -139519,6 +139519,38 @@
       }
     ],
     "LGS032": [
+      {
+        "id": "history_flpj73",
+        "productCode": "LGS032",
+        "revision": "V3.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "产品高度变更679mm改为671",
+        "createdAt": "2026-08-15T08:48:57.042Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS032YKBH647",
+            "field": "models3d",
+            "before": "",
+            "after": "LGS032-S-右侧框.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS032-S-1ca3461c.glb"
+          },
+          {
+            "kind": "material",
+            "code": "LGS032ZKBH647",
+            "field": "drawings",
+            "before": "",
+            "after": "LGS032-S-左侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@7c77b9527669f33fb4b8561cc57b31783f29e349/assets/pdfs/LGS032ZKBH647_562f0b0b70fbafd5f7b1b100e4535fb0bf16468d69a143b7c8898f0eef212788_LGS032-S-_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS032ZKBH647",
+            "field": "models3d",
+            "before": "",
+            "after": "LGS032-S-左侧框.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS032-S-33f48cfd.glb"
+          }
+        ]
+      },
       {
         "id": "history_1vjzs1q",
         "productCode": "LGS032",
