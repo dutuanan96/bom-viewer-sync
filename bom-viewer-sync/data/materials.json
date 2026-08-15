@@ -86118,6 +86118,36 @@
         "order": 55
       },
       {
+        "id": "bom_032pe420fg",
+        "parentType": "product",
+        "parentId": "LGS032",
+        "productCode": "LGS032",
+        "color": "复古色",
+        "materialId": "mat_tfld2c",
+        "stt": "",
+        "comp_code": "",
+        "qty": "1",
+        "remark": "包装对象：LGS032SHLBH×2\n规则：2件/袋；用袋：1袋",
+        "color_ver": "复古色",
+        "color_ver_vi": "màu gỗ cổ",
+        "order": 56
+      },
+      {
+        "id": "bom_032pe420bh",
+        "parentType": "product",
+        "parentId": "LGS032",
+        "productCode": "LGS032",
+        "color": "黑色",
+        "materialId": "mat_tfld2c",
+        "stt": "",
+        "comp_code": "",
+        "qty": "1",
+        "remark": "包装对象：LGS032SHLBH×2\n规则：2件/袋；用袋：1袋",
+        "color_ver": "黑色",
+        "color_ver_vi": "màu đen",
+        "order": 56
+      },
+      {
         "id": "bom_1tlm9wm",
         "parentType": "product",
         "parentId": "LGS132",

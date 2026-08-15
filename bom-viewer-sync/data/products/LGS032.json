@@ -1380,6 +1380,25 @@
           "color_ver_vi": "màu gỗ cổ",
           "qty": "1",
           "remark": "包装对象：LGS032XHLBH×1、LGS032XQHLBH×1\n规则：2件/袋；用袋：1袋"
+        },
+        {
+          "stt": "",
+          "mat_code": "PE420X60",
+          "comp_code": "",
+          "name_zh": "PE袋",
+          "name_vi": "túi PE",
+          "spec": "420×60mm",
+          "spec_vi": "420×60mm",
+          "material_zh": "PE",
+          "material_vi": "PE",
+          "color_zh": "透明",
+          "color_vi": "trong suốt",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "复古色",
+          "color_ver_vi": "màu gỗ cổ",
+          "qty": "1",
+          "remark": "包装对象：LGS032SHLBH×2\n规则：2件/袋；用袋：1袋"
         }
       ]
     },
@@ -2758,6 +2777,25 @@
           "color_ver_vi": "màu đen",
           "qty": "1",
           "remark": "包装对象：LGS032XHLBH×1、LGS032XQHLBH×1\n规则：2件/袋；用袋：1袋"
+        },
+        {
+          "stt": "",
+          "mat_code": "PE420X60",
+          "comp_code": "",
+          "name_zh": "PE袋",
+          "name_vi": "túi PE",
+          "spec": "420×60mm",
+          "spec_vi": "420×60mm",
+          "material_zh": "PE",
+          "material_vi": "PE",
+          "color_zh": "透明",
+          "color_vi": "trong suốt",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "黑色",
+          "color_ver_vi": "màu đen",
+          "qty": "1",
+          "remark": "包装对象：LGS032SHLBH×2\n规则：2件/袋；用袋：1袋"
         }
       ]
     }
