@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-15T07:57:15.623Z",
+  "updatedAt": "2026-08-15T08:33:23.226Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -132711,6 +132711,71 @@
   },
   "notifications": [
     {
+      "id": "notif_1an1njm",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-15T08:33:23.226Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "LGS033YKBH647",
+          "field": "drawings",
+          "before": "LGS033右侧框.pdf|https://drive.google.com/file/d/1_IvtWcI5qm6PC_VgMCDoaSspl92WiuuV/view?usp=sharing",
+          "after": "LGS033右侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs033ykbh647-ded5d4e7.pdf"
+        },
+        {
+          "kind": "material",
+          "code": "LGS033YKWH647",
+          "field": "drawings",
+          "before": "LGS033右侧框.pdf|https://drive.google.com/file/d/1_IvtWcI5qm6PC_VgMCDoaSspl92WiuuV/view?usp=sharing",
+          "after": "LGS033右侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs033ykwh647-ded5d4e7.pdf"
+        },
+        {
+          "kind": "material",
+          "code": "LGS033ZKBH647",
+          "field": "drawings",
+          "before": "LGS033左侧框.pdf|https://drive.google.com/file/d/1B2HLxUqQEyc5B-eKS1_7Z5bbFkDXXOki/view?usp=sharing",
+          "after": "LGS033左侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs033zkbh647-7ed39cf2.pdf"
+        },
+        {
+          "kind": "material",
+          "code": "LGS033ZKWH647",
+          "field": "drawings",
+          "before": "LGS033左侧框.pdf|https://drive.google.com/file/d/1B2HLxUqQEyc5B-eKS1_7Z5bbFkDXXOki/view?usp=sharing",
+          "after": "LGS033左侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs033zkwh647-7ed39cf2.pdf"
+        },
+        {
+          "kind": "material",
+          "code": "LGS043YKBH647",
+          "field": "drawings",
+          "before": "LGS043-S-右侧框.pdf|https://drive.google.com/file/d/12F0rhoIN91lvXoAt-Zs8o-qg5CziQEUg/view?usp=sharing",
+          "after": "LGS043-S-右侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs043ykbh647-05375de2.pdf"
+        },
+        {
+          "kind": "material",
+          "code": "LGS043ZKBH647",
+          "field": "drawings",
+          "before": "LGS043-S-左侧框.pdf|https://drive.google.com/file/d/1LkfqDeNZgCPFcdMepdrvUOGD7fpvsQ0R/view?usp=sharing",
+          "after": "LGS043-S-左侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs043zkbh647-4704d4b5.pdf"
+        },
+        {
+          "kind": "material",
+          "code": "LGS132YKBH647",
+          "field": "drawings",
+          "before": "LGS132_232-S-侧框右.pdf|https://drive.google.com/file/d/1bk5TbcKGqJxgJAIs_26y0w5HGCB3FPxQ/view?usp=sharing",
+          "after": "LGS232_132-S-侧框右.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs132ykbh647-45f568c7.pdf"
+        },
+        {
+          "kind": "material",
+          "code": "LGS132ZKBH647",
+          "field": "drawings",
+          "before": "LGS132_232-S-侧框左.pdf|https://drive.google.com/file/d/1h0SB9xHb13dZwO22G3HNH7Yp-VFGUHIP/view?usp=sharing",
+          "after": "LGS232_132-S-侧框左.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs132zkbh647-ff6261d9.pdf"
+        }
+      ]
+    },
+    {
       "id": "notif_1o6z74w",
       "type": "github-save",
       "actor": "admin",
@@ -133605,14 +133670,6 @@
           "after": "镀锌 / mạ kẽm"
         }
       ]
-    },
-    {
-      "id": "notif_1jbyvy6",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-12T07:27:38.863Z",
-      "version": 2,
-      "changes": []
     }
   ],
   "bomHistory": {
@@ -134390,6 +134447,45 @@
       }
     ],
     "LGS233": [
+      {
+        "id": "history_wezbme",
+        "productCode": "LGS233",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-15T08:33:23.226Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS233YKBH647",
+            "field": "drawings",
+            "before": "LGS233右侧框.pdf|https://drive.google.com/file/d/1V4ToDAL9ybN_Zqn7Orwgc7nVDH-ASary/view?usp=sharing",
+            "after": "LGS233右侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs233ykbh647-9b4d4259.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS233YKWH647",
+            "field": "drawings",
+            "before": "LGS233右侧框.pdf|https://drive.google.com/file/d/1V4ToDAL9ybN_Zqn7Orwgc7nVDH-ASary/view?usp=sharing",
+            "after": "LGS233右侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs233ykwh647-9b4d4259.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS233ZKBH647",
+            "field": "drawings",
+            "before": "LGS233左侧框.pdf|https://drive.google.com/file/d/1Ez1VDIkh49d_2ZC4x0K1aV0VH_avuhYv/view?usp=sharing",
+            "after": "LGS233左侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs233zkbh647-3b3d4fc4.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS233ZKWH647",
+            "field": "drawings",
+            "before": "LGS233左侧框.pdf|https://drive.google.com/file/d/1Ez1VDIkh49d_2ZC4x0K1aV0VH_avuhYv/view?usp=sharing",
+            "after": "LGS233左侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs233zkwh647-3b3d4fc4.pdf"
+          }
+        ]
+      },
       {
         "id": "history_1k2m13k",
         "productCode": "LGS233",
@@ -135289,6 +135385,31 @@
     ],
     "LGS334": [
       {
+        "id": "history_1cv69su",
+        "productCode": "LGS334",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-15T08:33:23.226Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS334YKBH647",
+            "field": "drawings",
+            "before": "LGS334_434右侧框.pdf|https://drive.google.com/file/d/1KZSnxf9KGgE65vp0NHndUAcqK87cCsZy/view?usp=sharing",
+            "after": "LGS334_434右侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs334ykbh647-d6f27cea.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS334ZKBH647",
+            "field": "drawings",
+            "before": "LGS334_434左侧框.pdf|https://drive.google.com/file/d/1SULZe07TnK1acAycKFz6IgZ-yf1llVUc/view?usp=sharing",
+            "after": "LGS334_434左侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs334zkbh647-8f50b826.pdf"
+          }
+        ]
+      },
+      {
         "id": "history_13psj5i",
         "productCode": "LGS334",
         "revision": "V4.1",
@@ -135741,6 +135862,45 @@
       }
     ],
     "LGS434": [
+      {
+        "id": "history_halt4b",
+        "productCode": "LGS434",
+        "revision": "V5.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-15T08:33:23.226Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS334YKBH647",
+            "field": "drawings",
+            "before": "LGS334_434右侧框.pdf|https://drive.google.com/file/d/1KZSnxf9KGgE65vp0NHndUAcqK87cCsZy/view?usp=sharing",
+            "after": "LGS334_434右侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs334ykbh647-d6f27cea.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS334ZKBH647",
+            "field": "drawings",
+            "before": "LGS334_434左侧框.pdf|https://drive.google.com/file/d/1SULZe07TnK1acAycKFz6IgZ-yf1llVUc/view?usp=sharing",
+            "after": "LGS334_434左侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs334zkbh647-8f50b826.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS434YKWH647",
+            "field": "drawings",
+            "before": "LGS334_434右侧框.pdf|https://drive.google.com/file/d/129_7WuQkNE-1GBRpy6sS7Xy2FJ3mEbD8/view?usp=sharing",
+            "after": "LGS334_434右侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs434ykwh647-d6f27cea.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS434ZKWH647",
+            "field": "drawings",
+            "before": "LGS334_434左侧框.pdf|https://drive.google.com/file/d/18edtlD4pJtkqlS6krD-8JB86Rsy9DwtR/view?usp=sharing",
+            "after": "LGS334_434左侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs434zkwh647-8f50b826.pdf"
+          }
+        ]
+      },
       {
         "id": "history_5aczqu",
         "productCode": "LGS434",
@@ -137675,6 +137835,52 @@
     ],
     "LGS333": [
       {
+        "id": "history_cnlohg",
+        "productCode": "LGS333",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-15T08:33:23.226Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS333YKBH647",
+            "field": "drawings",
+            "before": "LGS333-433右侧框.pdf|https://drive.google.com/file/d/1-7w2i6qudn2CTXMWdTbES428cVwlYlWb/view?usp=sharing",
+            "after": "LGS333-433右侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs333ykbh647-93ba9266.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS333YKWH647",
+            "field": "drawings",
+            "before": "LGS333-433右侧框.pdf|https://drive.google.com/file/d/1-7w2i6qudn2CTXMWdTbES428cVwlYlWb/view?usp=sharing",
+            "after": "LGS333-433右侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs333ykwh647-93ba9266.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS333ZKBH647",
+            "field": "drawings",
+            "before": "LGS333-433左侧框.pdf|https://drive.google.com/file/d/10TDMSiQvOfkmZV4MO-te_tF8DxtyWuJy/view?usp=sharing",
+            "after": "LGS333-433左侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs333zkbh647-4e4b17b0.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS333ZKWH647",
+            "field": "drawings",
+            "before": "LGS333-433左侧框.pdf|https://drive.google.com/file/d/10TDMSiQvOfkmZV4MO-te_tF8DxtyWuJy/view?usp=sharing",
+            "after": "LGS333-433左侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs333zkwh647-4e4b17b0.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "ZJG150641WH",
+            "field": "drawings",
+            "before": "54底脚.pdf|https://drive.google.com/file/d/1wtron5rMWGkFJf7ExlwRJZ738poWuHO6/view?usp=sharing",
+            "after": "41底脚.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf"
+          }
+        ]
+      },
+      {
         "id": "history_1wmn6rc",
         "productCode": "LGS333",
         "revision": "V4.1",
@@ -138504,6 +138710,31 @@
       }
     ],
     "LGS232": [
+      {
+        "id": "history_1k8jfqp",
+        "productCode": "LGS232",
+        "revision": "V3.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-15T08:33:23.226Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS132YKBH647",
+            "field": "drawings",
+            "before": "LGS132_232-S-侧框右.pdf|https://drive.google.com/file/d/1bk5TbcKGqJxgJAIs_26y0w5HGCB3FPxQ/view?usp=sharing",
+            "after": "LGS232_132-S-侧框右.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs132ykbh647-45f568c7.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS132ZKBH647",
+            "field": "drawings",
+            "before": "LGS132_232-S-侧框左.pdf|https://drive.google.com/file/d/1h0SB9xHb13dZwO22G3HNH7Yp-VFGUHIP/view?usp=sharing",
+            "after": "LGS232_132-S-侧框左.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs132zkbh647-ff6261d9.pdf"
+          }
+        ]
+      },
       {
         "id": "history_vy3e99",
         "productCode": "LGS232",
@@ -139697,6 +139928,52 @@
       }
     ],
     "LGS033": [
+      {
+        "id": "history_1nqabon",
+        "productCode": "LGS033",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-15T08:33:23.226Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS033YKBH647",
+            "field": "drawings",
+            "before": "LGS033右侧框.pdf|https://drive.google.com/file/d/1_IvtWcI5qm6PC_VgMCDoaSspl92WiuuV/view?usp=sharing",
+            "after": "LGS033右侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs033ykbh647-ded5d4e7.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS033YKWH647",
+            "field": "drawings",
+            "before": "LGS033右侧框.pdf|https://drive.google.com/file/d/1_IvtWcI5qm6PC_VgMCDoaSspl92WiuuV/view?usp=sharing",
+            "after": "LGS033右侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs033ykwh647-ded5d4e7.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS033ZKBH647",
+            "field": "drawings",
+            "before": "LGS033左侧框.pdf|https://drive.google.com/file/d/1B2HLxUqQEyc5B-eKS1_7Z5bbFkDXXOki/view?usp=sharing",
+            "after": "LGS033左侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs033zkbh647-7ed39cf2.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS033ZKWH647",
+            "field": "drawings",
+            "before": "LGS033左侧框.pdf|https://drive.google.com/file/d/1B2HLxUqQEyc5B-eKS1_7Z5bbFkDXXOki/view?usp=sharing",
+            "after": "LGS033左侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs033zkwh647-7ed39cf2.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "ZJG150641WH",
+            "field": "drawings",
+            "before": "54底脚.pdf|https://drive.google.com/file/d/1wtron5rMWGkFJf7ExlwRJZ738poWuHO6/view?usp=sharing",
+            "after": "41底脚.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf"
+          }
+        ]
+      },
       {
         "id": "history_5d4pjx",
         "productCode": "LGS033",
@@ -141034,6 +141311,31 @@
     ],
     "LGS132": [
       {
+        "id": "history_mfkhbq",
+        "productCode": "LGS132",
+        "revision": "V3.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-15T08:33:23.226Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS132YKBH647",
+            "field": "drawings",
+            "before": "LGS132_232-S-侧框右.pdf|https://drive.google.com/file/d/1bk5TbcKGqJxgJAIs_26y0w5HGCB3FPxQ/view?usp=sharing",
+            "after": "LGS232_132-S-侧框右.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs132ykbh647-45f568c7.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS132ZKBH647",
+            "field": "drawings",
+            "before": "LGS132_232-S-侧框左.pdf|https://drive.google.com/file/d/1h0SB9xHb13dZwO22G3HNH7Yp-VFGUHIP/view?usp=sharing",
+            "after": "LGS232_132-S-侧框左.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs132zkbh647-ff6261d9.pdf"
+          }
+        ]
+      },
+      {
         "id": "history_83okt8",
         "productCode": "LGS132",
         "revision": "V3.1",
@@ -141475,6 +141777,31 @@
       }
     ],
     "LGS133": [
+      {
+        "id": "history_1vw566b",
+        "productCode": "LGS133",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-15T08:33:23.226Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS133YKBH647",
+            "field": "drawings",
+            "before": "LGS133右侧框.pdf|https://drive.google.com/file/d/17lnLpYUqY6yQT9P2YH6Azz5qegeKbz95/view?usp=sharing",
+            "after": "LGS133右侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs133ykbh647-e9e5445a.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS133ZKBH647",
+            "field": "drawings",
+            "before": "LGS133左侧框.pdf|https://drive.google.com/file/d/14WxFTmgJ1ekHItoQWuK-3ytH2DUHKyv5/view?usp=sharing",
+            "after": "LGS133左侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs133zkbh647-f5c5947b.pdf"
+          }
+        ]
+      },
       {
         "id": "history_eemqt",
         "productCode": "LGS133",
@@ -141950,6 +142277,52 @@
       }
     ],
     "LGS433": [
+      {
+        "id": "history_1rvcdmb",
+        "productCode": "LGS433",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-15T08:33:23.226Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS333YKBH647",
+            "field": "drawings",
+            "before": "LGS333-433右侧框.pdf|https://drive.google.com/file/d/1-7w2i6qudn2CTXMWdTbES428cVwlYlWb/view?usp=sharing",
+            "after": "LGS333-433右侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs333ykbh647-93ba9266.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS333YKWH647",
+            "field": "drawings",
+            "before": "LGS333-433右侧框.pdf|https://drive.google.com/file/d/1-7w2i6qudn2CTXMWdTbES428cVwlYlWb/view?usp=sharing",
+            "after": "LGS333-433右侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs333ykwh647-93ba9266.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS333ZKBH647",
+            "field": "drawings",
+            "before": "LGS333-433左侧框.pdf|https://drive.google.com/file/d/10TDMSiQvOfkmZV4MO-te_tF8DxtyWuJy/view?usp=sharing",
+            "after": "LGS333-433左侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs333zkbh647-4e4b17b0.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS333ZKWH647",
+            "field": "drawings",
+            "before": "LGS333-433左侧框.pdf|https://drive.google.com/file/d/10TDMSiQvOfkmZV4MO-te_tF8DxtyWuJy/view?usp=sharing",
+            "after": "LGS333-433左侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs333zkwh647-4e4b17b0.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "ZJG150641WH",
+            "field": "drawings",
+            "before": "54底脚.pdf|https://drive.google.com/file/d/1wtron5rMWGkFJf7ExlwRJZ738poWuHO6/view?usp=sharing",
+            "after": "41底脚.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf"
+          }
+        ]
+      },
       {
         "id": "history_1tkmnxh",
         "productCode": "LGS433",
@@ -142904,6 +143277,45 @@
     ],
     "LGS723": [
       {
+        "id": "history_1d6qgp8",
+        "productCode": "LGS723",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-15T08:33:23.226Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS723YKBH647",
+            "field": "drawings",
+            "before": "LGS723_733右侧框.pdf|https://drive.google.com/file/d/110V4wFzBRoUJXFV6rjDSIutSUlpBrceF/view?usp=sharing",
+            "after": "LGS723_733右侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs723ykbh647-9bf038bf.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS723YKWH647",
+            "field": "drawings",
+            "before": "LGS723_733右侧框.pdf|https://drive.google.com/file/d/110V4wFzBRoUJXFV6rjDSIutSUlpBrceF/view?usp=sharing",
+            "after": "LGS723_733右侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs723ykwh647-9bf038bf.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS723ZKBH647",
+            "field": "drawings",
+            "before": "LGS723_733左侧框.pdf|https://drive.google.com/file/d/1A3Sc5irImonR32RvwyA_lQ4-8FNPWdyb/view?usp=sharing",
+            "after": "LGS723_733左侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs723zkbh647-ea6a04ac.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS723ZKWH647",
+            "field": "drawings",
+            "before": "LGS723_733左侧框.pdf|https://drive.google.com/file/d/1A3Sc5irImonR32RvwyA_lQ4-8FNPWdyb/view?usp=sharing",
+            "after": "LGS723_733左侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs723zkwh647-ea6a04ac.pdf"
+          }
+        ]
+      },
+      {
         "id": "history_1ll8uom",
         "productCode": "LGS723",
         "revision": "V4.1",
@@ -143568,6 +143980,52 @@
       }
     ],
     "LGS733": [
+      {
+        "id": "history_1vhz09s",
+        "productCode": "LGS733",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-15T08:33:23.226Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS723YKBH647",
+            "field": "drawings",
+            "before": "LGS723_733右侧框.pdf|https://drive.google.com/file/d/110V4wFzBRoUJXFV6rjDSIutSUlpBrceF/view?usp=sharing",
+            "after": "LGS723_733右侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs723ykbh647-9bf038bf.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS723YKWH647",
+            "field": "drawings",
+            "before": "LGS723_733右侧框.pdf|https://drive.google.com/file/d/110V4wFzBRoUJXFV6rjDSIutSUlpBrceF/view?usp=sharing",
+            "after": "LGS723_733右侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs723ykwh647-9bf038bf.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS723ZKBH647",
+            "field": "drawings",
+            "before": "LGS723_733左侧框.pdf|https://drive.google.com/file/d/1A3Sc5irImonR32RvwyA_lQ4-8FNPWdyb/view?usp=sharing",
+            "after": "LGS723_733左侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs723zkbh647-ea6a04ac.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS723ZKWH647",
+            "field": "drawings",
+            "before": "LGS723_733左侧框.pdf|https://drive.google.com/file/d/1A3Sc5irImonR32RvwyA_lQ4-8FNPWdyb/view?usp=sharing",
+            "after": "LGS723_733左侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs723zkwh647-ea6a04ac.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "ZJG150641WH",
+            "field": "drawings",
+            "before": "54底脚.pdf|https://drive.google.com/file/d/1wtron5rMWGkFJf7ExlwRJZ738poWuHO6/view?usp=sharing",
+            "after": "41底脚.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf"
+          }
+        ]
+      },
       {
         "id": "history_18mo6jo",
         "productCode": "LGS733",
@@ -144403,6 +144861,52 @@
     ],
     "LGS833": [
       {
+        "id": "history_uajgun",
+        "productCode": "LGS833",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-15T08:33:23.226Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS833YKBH647",
+            "field": "drawings",
+            "before": "LGS833右侧框.pdf|https://drive.google.com/file/d/1PXsC9kcCYiYAZmtG6sCSpcq3GS8j0GhI/view?usp=sharing",
+            "after": "LGS833右侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs833ykbh647-5a0d567a.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS833YKWH647",
+            "field": "drawings",
+            "before": "LGS833右侧框.pdf|https://drive.google.com/file/d/1PXsC9kcCYiYAZmtG6sCSpcq3GS8j0GhI/view?usp=sharing",
+            "after": "LGS833右侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs833ykwh647-5a0d567a.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS833ZKBH647",
+            "field": "drawings",
+            "before": "LGS833左侧框.pdf|https://drive.google.com/file/d/1XODzeR79UK4ZzZtbMrldNSidplmOeC5o/view?usp=sharing",
+            "after": "LGS833左侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs833zkbh647-db7af8d5.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS833ZKWH647",
+            "field": "drawings",
+            "before": "LGS833左侧框.pdf|https://drive.google.com/file/d/1XODzeR79UK4ZzZtbMrldNSidplmOeC5o/view?usp=sharing",
+            "after": "LGS833左侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs833zkwh647-db7af8d5.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "ZJG150641WH",
+            "field": "drawings",
+            "before": "54底脚.pdf|https://drive.google.com/file/d/1wtron5rMWGkFJf7ExlwRJZ738poWuHO6/view?usp=sharing",
+            "after": "41底脚.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf"
+          }
+        ]
+      },
+      {
         "id": "history_qkjy41",
         "productCode": "LGS833",
         "revision": "V4.1",
@@ -145044,6 +145548,52 @@
       }
     ],
     "LGS834": [
+      {
+        "id": "history_iu75f0",
+        "productCode": "LGS834",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-15T08:33:23.226Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS834YKBH647",
+            "field": "drawings",
+            "before": "LGS834右侧框.pdf|https://drive.google.com/file/d/1uIMF7SDSTn5Sj6NkaixRq_CMkDoHqqdY/view?usp=sharing",
+            "after": "LGS834右侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs834ykbh647-dcb6f52e.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS834YKWH647",
+            "field": "drawings",
+            "before": "LGS834右侧框.pdf|https://drive.google.com/file/d/1uIMF7SDSTn5Sj6NkaixRq_CMkDoHqqdY/view?usp=sharing",
+            "after": "LGS834右侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs834ykwh647-dcb6f52e.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS834ZKBH647",
+            "field": "drawings",
+            "before": "LGS834左侧框.pdf|https://drive.google.com/file/d/1Ycj2BHr9mX2IZL5Zz82I5_BCEMXZkQ0M/view?usp=sharing",
+            "after": "LGS834左侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs834zkbh647-b8c46711.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS834ZKWH647",
+            "field": "drawings",
+            "before": "LGS834左侧框.pdf|https://drive.google.com/file/d/1Ycj2BHr9mX2IZL5Zz82I5_BCEMXZkQ0M/view?usp=sharing",
+            "after": "LGS834左侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs834zkwh647-b8c46711.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "ZJG150641WH",
+            "field": "drawings",
+            "before": "54底脚.pdf|https://drive.google.com/file/d/1wtron5rMWGkFJf7ExlwRJZ738poWuHO6/view?usp=sharing",
+            "after": "41底脚.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf"
+          }
+        ]
+      },
       {
         "id": "history_1qrrx0d",
         "productCode": "LGS834",
@@ -145851,6 +146401,31 @@
       }
     ],
     "LGS043": [
+      {
+        "id": "history_1pjuoqn",
+        "productCode": "LGS043",
+        "revision": "V3.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-15T08:33:23.226Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS043YKBH647",
+            "field": "drawings",
+            "before": "LGS043-S-右侧框.pdf|https://drive.google.com/file/d/12F0rhoIN91lvXoAt-Zs8o-qg5CziQEUg/view?usp=sharing",
+            "after": "LGS043-S-右侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs043ykbh647-05375de2.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS043ZKBH647",
+            "field": "drawings",
+            "before": "LGS043-S-左侧框.pdf|https://drive.google.com/file/d/1LkfqDeNZgCPFcdMepdrvUOGD7fpvsQ0R/view?usp=sharing",
+            "after": "LGS043-S-左侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs043zkbh647-4704d4b5.pdf"
+          }
+        ]
+      },
       {
         "id": "history_1e1jtgx",
         "productCode": "LGS043",
