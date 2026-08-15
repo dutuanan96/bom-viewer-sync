@@ -3,7 +3,7 @@ import path from 'node:path';
 import { assertCutoverShardCount, parseLogicalShardFiles } from '../src/domain/sharded-files.js';
 
 const SUPPLIER_PACKAGING_PATTERN = /拉杆|底脚/;
-const TARGET_PATTERN = /([A-Z0-9_]+)[×x](\d+)/g;
+const TARGET_PATTERN = /([A-Z0-9_]*[A-Z_][A-Z0-9_]*)[×x](\d+)/g;
 
 function materialByCode(materials) {
   return new Map(Object.values(materials).map((material) => [material.code, material]));
