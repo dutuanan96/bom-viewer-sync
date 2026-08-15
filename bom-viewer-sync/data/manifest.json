@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-15T08:48:57.042Z",
+  "updatedAt": "2026-08-15T08:51:37.323Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -132711,6 +132711,29 @@
   },
   "notifications": [
     {
+      "id": "notif_11enirs",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-15T08:51:37.323Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "FG1515064804",
+          "field": "code",
+          "before": "FG1515064804647",
+          "after": "FG1515064804"
+        },
+        {
+          "kind": "material",
+          "code": "FG1515064816",
+          "field": "code",
+          "before": "FG1515064816647",
+          "after": "FG1515064816"
+        }
+      ]
+    },
+    {
       "id": "notif_1fksomw",
       "type": "github-save",
       "actor": "admin",
@@ -133647,29 +133670,6 @@
       "createdAt": "2026-08-13T07:54:15.397Z",
       "version": 2,
       "changes": []
-    },
-    {
-      "id": "notif_1mleyt4",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-13T07:49:54.564Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material_added",
-          "code": "2601502ZHKTP",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "material_added",
-          "code": "3051502ZHKTP",
-          "field": "",
-          "before": "",
-          "after": ""
-        }
-      ]
     }
   ],
   "bomHistory": {
@@ -134447,6 +134447,24 @@
       }
     ],
     "LGS233": [
+      {
+        "id": "history_1wigk6",
+        "productCode": "LGS233",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-15T08:51:37.323Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "FG1515064804",
+            "field": "code",
+            "before": "FG1515064804647",
+            "after": "FG1515064804"
+          }
+        ]
+      },
       {
         "id": "history_wezbme",
         "productCode": "LGS233",
@@ -135385,6 +135403,24 @@
     ],
     "LGS334": [
       {
+        "id": "history_fhvth8",
+        "productCode": "LGS334",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-15T08:51:37.323Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "FG1515064804",
+            "field": "code",
+            "before": "FG1515064804647",
+            "after": "FG1515064804"
+          }
+        ]
+      },
+      {
         "id": "history_1cv69su",
         "productCode": "LGS334",
         "revision": "V4.1",
@@ -135862,6 +135898,24 @@
       }
     ],
     "LGS434": [
+      {
+        "id": "history_1b3an2n",
+        "productCode": "LGS434",
+        "revision": "V5.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-15T08:51:37.323Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "FG1515064804",
+            "field": "code",
+            "before": "FG1515064804647",
+            "after": "FG1515064804"
+          }
+        ]
+      },
       {
         "id": "history_halt4b",
         "productCode": "LGS434",
@@ -137835,6 +137889,24 @@
     ],
     "LGS333": [
       {
+        "id": "history_1ox1pq3",
+        "productCode": "LGS333",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-15T08:51:37.323Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "FG1515064804",
+            "field": "code",
+            "before": "FG1515064804647",
+            "after": "FG1515064804"
+          }
+        ]
+      },
+      {
         "id": "history_cnlohg",
         "productCode": "LGS333",
         "revision": "V4.1",
@@ -138711,6 +138783,24 @@
     ],
     "LGS232": [
       {
+        "id": "history_1g5rux7",
+        "productCode": "LGS232",
+        "revision": "V3.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-15T08:51:37.323Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "FG1515064816",
+            "field": "code",
+            "before": "FG1515064816647",
+            "after": "FG1515064816"
+          }
+        ]
+      },
+      {
         "id": "history_1k8jfqp",
         "productCode": "LGS232",
         "revision": "V3.1",
@@ -139520,6 +139610,24 @@
     ],
     "LGS032": [
       {
+        "id": "history_1urc5i1",
+        "productCode": "LGS032",
+        "revision": "V3.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "产品高度变更679mm改为671",
+        "createdAt": "2026-08-15T08:51:37.323Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "FG1515064816",
+            "field": "code",
+            "before": "FG1515064816647",
+            "after": "FG1515064816"
+          }
+        ]
+      },
+      {
         "id": "history_flpj73",
         "productCode": "LGS032",
         "revision": "V3.1",
@@ -139960,6 +140068,24 @@
       }
     ],
     "LGS033": [
+      {
+        "id": "history_162ixl8",
+        "productCode": "LGS033",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-15T08:51:37.323Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "FG1515064804",
+            "field": "code",
+            "before": "FG1515064804647",
+            "after": "FG1515064804"
+          }
+        ]
+      },
       {
         "id": "history_1nqabon",
         "productCode": "LGS033",
@@ -141343,6 +141469,24 @@
     ],
     "LGS132": [
       {
+        "id": "history_6ogmfo",
+        "productCode": "LGS132",
+        "revision": "V3.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-15T08:51:37.323Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "FG1515064816",
+            "field": "code",
+            "before": "FG1515064816647",
+            "after": "FG1515064816"
+          }
+        ]
+      },
+      {
         "id": "history_mfkhbq",
         "productCode": "LGS132",
         "revision": "V3.1",
@@ -141809,6 +141953,24 @@
       }
     ],
     "LGS133": [
+      {
+        "id": "history_1ys5itd",
+        "productCode": "LGS133",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-15T08:51:37.323Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "FG1515064804",
+            "field": "code",
+            "before": "FG1515064804647",
+            "after": "FG1515064804"
+          }
+        ]
+      },
       {
         "id": "history_1vw566b",
         "productCode": "LGS133",
@@ -142309,6 +142471,24 @@
       }
     ],
     "LGS433": [
+      {
+        "id": "history_1cqk1e0",
+        "productCode": "LGS433",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-15T08:51:37.323Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "FG1515064804",
+            "field": "code",
+            "before": "FG1515064804647",
+            "after": "FG1515064804"
+          }
+        ]
+      },
       {
         "id": "history_1rvcdmb",
         "productCode": "LGS433",
@@ -143309,6 +143489,24 @@
     ],
     "LGS723": [
       {
+        "id": "history_ad7iv8",
+        "productCode": "LGS723",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-15T08:51:37.323Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "FG1515064804",
+            "field": "code",
+            "before": "FG1515064804647",
+            "after": "FG1515064804"
+          }
+        ]
+      },
+      {
         "id": "history_1d6qgp8",
         "productCode": "LGS723",
         "revision": "V4.1",
@@ -144012,6 +144210,24 @@
       }
     ],
     "LGS733": [
+      {
+        "id": "history_22dwl3",
+        "productCode": "LGS733",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-15T08:51:37.323Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "FG1515064804",
+            "field": "code",
+            "before": "FG1515064804647",
+            "after": "FG1515064804"
+          }
+        ]
+      },
       {
         "id": "history_1vhz09s",
         "productCode": "LGS733",
@@ -144893,6 +145109,24 @@
     ],
     "LGS833": [
       {
+        "id": "history_7xrlpw",
+        "productCode": "LGS833",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-15T08:51:37.323Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "FG1515064804",
+            "field": "code",
+            "before": "FG1515064804647",
+            "after": "FG1515064804"
+          }
+        ]
+      },
+      {
         "id": "history_uajgun",
         "productCode": "LGS833",
         "revision": "V4.1",
@@ -145580,6 +145814,24 @@
       }
     ],
     "LGS834": [
+      {
+        "id": "history_1ufvok3",
+        "productCode": "LGS834",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-15T08:51:37.323Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "FG1515064804",
+            "field": "code",
+            "before": "FG1515064804647",
+            "after": "FG1515064804"
+          }
+        ]
+      },
       {
         "id": "history_iu75f0",
         "productCode": "LGS834",
@@ -146433,6 +146685,24 @@
       }
     ],
     "LGS043": [
+      {
+        "id": "history_xiqbf9",
+        "productCode": "LGS043",
+        "revision": "V3.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-15T08:51:37.323Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "FG1515064816",
+            "field": "code",
+            "before": "FG1515064816647",
+            "after": "FG1515064816"
+          }
+        ]
+      },
       {
         "id": "history_1pjuoqn",
         "productCode": "LGS043",
