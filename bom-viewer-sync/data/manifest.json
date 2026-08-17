@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-15T08:51:37.323Z",
+  "updatedAt": "2026-08-17T03:20:42.495Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -132711,6 +132711,29 @@
   },
   "notifications": [
     {
+      "id": "notif_1pj77i",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-17T03:20:42.495Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "LGS334XHYHLBH",
+          "field": "drawings",
+          "before": "LGS334_434_834-底部横杆右-后_组件|https://drive.google.com/file/d/1_VjJQDfHzQRde_7En4irqRfRrtGpfV7x/view?usp=sharing",
+          "after": "LGS334_434_834-底部横杆右-后_组件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@f815ccb053f050fd1578c12da4eb16ae5b97350a/assets/pdfs/LGS334XHYHLBH_dcfdcb74d1cf9a0b558dddd460aea0e157b64ad29df0cb2134d66a76b4ab0502_LGS334_434_834-_-_.pdf"
+        },
+        {
+          "kind": "material",
+          "code": "LGS334XHYHLWH",
+          "field": "drawings",
+          "before": "LGS334_434_834-底部横杆右-后_组件|https://drive.google.com/file/d/1_VjJQDfHzQRde_7En4irqRfRrtGpfV7x/view?usp=sharing",
+          "after": "LGS334_434_834-底部横杆右-后_组件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@d2872a30f03305061315cfd6bcd41a5d3c5b308a/assets/pdfs/LGS334XHYHLWH_dcfdcb74d1cf9a0b558dddd460aea0e157b64ad29df0cb2134d66a76b4ab0502_LGS334_434_834-_-_.pdf"
+        }
+      ]
+    },
+    {
       "id": "notif_11enirs",
       "type": "github-save",
       "actor": "admin",
@@ -133662,14 +133685,6 @@
           "after": ""
         }
       ]
-    },
-    {
-      "id": "notif_8u5dc6",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-13T07:54:15.397Z",
-      "version": 2,
-      "changes": []
     }
   ],
   "bomHistory": {
@@ -135403,6 +135418,24 @@
     ],
     "LGS334": [
       {
+        "id": "history_pyn91d",
+        "productCode": "LGS334",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-17T03:20:42.495Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS334XHYHLBH",
+            "field": "drawings",
+            "before": "LGS334_434_834-底部横杆右-后_组件|https://drive.google.com/file/d/1_VjJQDfHzQRde_7En4irqRfRrtGpfV7x/view?usp=sharing",
+            "after": "LGS334_434_834-底部横杆右-后_组件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@f815ccb053f050fd1578c12da4eb16ae5b97350a/assets/pdfs/LGS334XHYHLBH_dcfdcb74d1cf9a0b558dddd460aea0e157b64ad29df0cb2134d66a76b4ab0502_LGS334_434_834-_-_.pdf"
+          }
+        ]
+      },
+      {
         "id": "history_fhvth8",
         "productCode": "LGS334",
         "revision": "V4.1",
@@ -135898,6 +135931,31 @@
       }
     ],
     "LGS434": [
+      {
+        "id": "history_1rkopcj",
+        "productCode": "LGS434",
+        "revision": "V5.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-17T03:20:42.495Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS334XHYHLBH",
+            "field": "drawings",
+            "before": "LGS334_434_834-底部横杆右-后_组件|https://drive.google.com/file/d/1_VjJQDfHzQRde_7En4irqRfRrtGpfV7x/view?usp=sharing",
+            "after": "LGS334_434_834-底部横杆右-后_组件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@f815ccb053f050fd1578c12da4eb16ae5b97350a/assets/pdfs/LGS334XHYHLBH_dcfdcb74d1cf9a0b558dddd460aea0e157b64ad29df0cb2134d66a76b4ab0502_LGS334_434_834-_-_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS334XHYHLWH",
+            "field": "drawings",
+            "before": "LGS334_434_834-底部横杆右-后_组件|https://drive.google.com/file/d/1_VjJQDfHzQRde_7En4irqRfRrtGpfV7x/view?usp=sharing",
+            "after": "LGS334_434_834-底部横杆右-后_组件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@d2872a30f03305061315cfd6bcd41a5d3c5b308a/assets/pdfs/LGS334XHYHLWH_dcfdcb74d1cf9a0b558dddd460aea0e157b64ad29df0cb2134d66a76b4ab0502_LGS334_434_834-_-_.pdf"
+          }
+        ]
+      },
       {
         "id": "history_1b3an2n",
         "productCode": "LGS434",
@@ -145814,6 +145872,31 @@
       }
     ],
     "LGS834": [
+      {
+        "id": "history_13fmejj",
+        "productCode": "LGS834",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-17T03:20:42.495Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS334XHYHLBH",
+            "field": "drawings",
+            "before": "LGS334_434_834-底部横杆右-后_组件|https://drive.google.com/file/d/1_VjJQDfHzQRde_7En4irqRfRrtGpfV7x/view?usp=sharing",
+            "after": "LGS334_434_834-底部横杆右-后_组件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@f815ccb053f050fd1578c12da4eb16ae5b97350a/assets/pdfs/LGS334XHYHLBH_dcfdcb74d1cf9a0b558dddd460aea0e157b64ad29df0cb2134d66a76b4ab0502_LGS334_434_834-_-_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS334XHYHLWH",
+            "field": "drawings",
+            "before": "LGS334_434_834-底部横杆右-后_组件|https://drive.google.com/file/d/1_VjJQDfHzQRde_7En4irqRfRrtGpfV7x/view?usp=sharing",
+            "after": "LGS334_434_834-底部横杆右-后_组件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@d2872a30f03305061315cfd6bcd41a5d3c5b308a/assets/pdfs/LGS334XHYHLWH_dcfdcb74d1cf9a0b558dddd460aea0e157b64ad29df0cb2134d66a76b4ab0502_LGS334_434_834-_-_.pdf"
+          }
+        ]
+      },
       {
         "id": "history_1ufvok3",
         "productCode": "LGS834",
