@@ -174,7 +174,7 @@ test.describe('Orphan BOM Remediation Admin Proposal UI Flow', () => {
     const handoffBtn = page.locator('#btn-handoff-load-ecn');
     await expect(handoffBtn).toBeAttached({ timeout: 15000 });
     await handoffBtn.scrollIntoViewIfNeeded();
-    await expect(handoffBtn).toContainText('继续加载 ECN-2026-0710-LGS 方案');
+    await expect(handoffBtn).toContainText('继续加载工程变更方案 (ECN)');
 
     // Verify app state is dirty with 0 orphans remaining
     const appState = await page.evaluate(() => ({
