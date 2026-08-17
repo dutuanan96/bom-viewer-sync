@@ -54,17 +54,19 @@ export function scanPdfFiles(dir) {
   return results;
 }
 
-export function matchMaterial(fileName, materials) {
+export function matchMaterials(fileName, materials) {
   const cleanName = fileName.replace(/\.pdf$/i, '').trim();
   const cleanNameLower = cleanName.toLowerCase();
+  const matches = [];
 
   // 1. Direct code exact match (case-insensitive)
   for (const [id, m] of Object.entries(materials)) {
     const code = String(m.code || '').trim();
     if (code && cleanNameLower === code.toLowerCase()) {
-      return { id, material: m, matchType: 'exact_code' };
+      matches.push({ id, material: m, matchType: 'exact_code' });
     }
   }
+  if (matches.length > 0) return matches;
 
   // 2. File name starts with or contains material code
   for (const [id, m] of Object.entries(materials)) {
@@ -72,20 +74,22 @@ export function matchMaterial(fileName, materials) {
     if (code && code.length >= 4) {
       const codeRegex = new RegExp(`(^|[^a-zA-Z0-9])${code}([^a-zA-Z0-9]|$)`, 'i');
       if (codeRegex.test(cleanName)) {
-        return { id, material: m, matchType: 'contained_code' };
+        matches.push({ id, material: m, matchType: 'contained_code' });
       }
     }
   }
+  if (matches.length > 0) return matches;
 
-  // 3. Chinese name exact match
+  // 3. Chinese name exact match (matches all color variants of this component)
   for (const [id, m] of Object.entries(materials)) {
     const zhName = String(m.name?.zh || '').trim();
     if (zhName && cleanName === zhName) {
-      return { id, material: m, matchType: 'exact_zh_name' };
+      matches.push({ id, material: m, matchType: 'exact_zh_name' });
     }
   }
+  if (matches.length > 0) return matches;
 
-  return null;
+  return [];
 }
 
 export function computeFileHash(buffer) {
@@ -102,45 +106,49 @@ export function syncDrawingsFromDirectory(sourceDir, options = {}) {
   const updated = [];
 
   for (const pdf of pdfs) {
-    const match = matchMaterial(pdf.fileName, materials);
-    if (!match) {
+    const fileMatches = matchMaterials(pdf.fileName, materials);
+    if (!fileMatches.length) {
       unmatched.push(pdf);
       continue;
     }
 
-    const { id, material } = match;
-    matched.push({ pdf, material, id });
-
     const fileBuffer = readFileSync(pdf.fullPath);
     const hash = computeFileHash(fileBuffer);
-    const catalogFileName = `drawing-${id.replace(/^mat_/, '')}-${hash}.pdf`;
-    const targetCatalogPath = path.join(catalogDir, catalogFileName);
-    const relativePath = `drawings/catalog/${catalogFileName}`;
-    const cdnUrl = `https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/${relativePath}`;
 
-    const existingDrawing = (material.drawings || [])[0];
-    const isAlreadySynced = existingDrawing && existingDrawing.path === relativePath && existingDrawing.url === cdnUrl;
+    for (const match of fileMatches) {
+      const { id, material } = match;
+      matched.push({ pdf, material, id });
 
-    if (!isAlreadySynced) {
-      if (!options.dryRun) {
-        mkdirSync(catalogDir, { recursive: true });
-        writeFileSync(targetCatalogPath, fileBuffer);
-        material.drawings = [
-          {
-            name: `${material.name?.zh || material.code}.pdf`,
-            path: relativePath,
-            url: cdnUrl,
-            previewUrl: cdnUrl,
-          },
-        ];
+      const catalogFileName = `drawing-${id.replace(/^mat_/, '')}-${hash}.pdf`;
+      const targetCatalogPath = path.join(catalogDir, catalogFileName);
+      const relativePath = `drawings/catalog/${catalogFileName}`;
+      const cdnUrl = `https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/${relativePath}`;
+
+      const existingDrawing = (material.drawings || [])[0];
+      const isAlreadySynced = existingDrawing && existingDrawing.path === relativePath && existingDrawing.url === cdnUrl;
+
+      if (!isAlreadySynced) {
+        if (!options.dryRun) {
+          mkdirSync(catalogDir, { recursive: true });
+          writeFileSync(targetCatalogPath, fileBuffer);
+          material.drawings = [
+            {
+              name: `${material.name?.zh || material.code}.pdf`,
+              path: relativePath,
+              url: cdnUrl,
+              previewUrl: cdnUrl,
+            },
+          ];
+        }
+        updated.push({
+          id,
+          code: material.code,
+          name: material.name?.zh,
+          color: material.color?.zh,
+          file: pdf.fileName,
+          catalogFileName,
+        });
       }
-      updated.push({
-        id,
-        code: material.code,
-        name: material.name?.zh,
-        file: pdf.fileName,
-        catalogFileName,
-      });
     }
   }
 
