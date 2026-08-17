@@ -9,7 +9,7 @@
       "name": "3列3层基础款10抽斗柜-57inch烟墨黑",
       "name_zh": "3列3层基础款10抽斗柜-57inch烟墨黑",
       "name_vi": "LGS334-3 cột 3 tầng cơ bản 10 tủ ngăn kéo-57inch",
-      "size": "350Dx1468Wx681Hmm",
+      "size": "350Dx1468Wx671Hmm",
       "color_ver": "黑色",
       "color_ver_vi": "màu đen",
       "materials": [
@@ -983,12 +983,12 @@
         },
         {
           "stt": "13",
-          "mat_code": "LGS334YKBH",
+          "mat_code": "LGS334YKBH647",
           "comp_code": "E",
           "name_zh": "LGS334_434右侧框",
           "name_vi": "LGS334_434 khung bên phải",
-          "spec": "659x335x15mm",
-          "spec_vi": "659x335x15mm",
+          "spec": "647x335x15mm",
+          "spec_vi": "647x335x15mm",
           "material_zh": "Q195",
           "material_vi": "Q195",
           "color_zh": "黑砂纹",
@@ -1002,12 +1002,12 @@
           "materials": [
             {
               "stt": "",
-              "mat_code": "FG1515065011",
+              "mat_code": "FG1515064804",
               "comp_code": "",
               "name_zh": "方管",
               "name_vi": "Sắt hộp",
-              "spec": "15×15×0.6Tmm，长度 5011mm",
-              "spec_vi": "15×15×0.6Tmm, dài 5011mm",
+              "spec": "15×15×0.6Tmm，长度 4804mm",
+              "spec_vi": "15×15×0.6Tmm, dài 4804mm",
               "material_zh": "Q195",
               "material_vi": "Q195",
               "color_zh": "光亮",
@@ -1080,12 +1080,12 @@
         },
         {
           "stt": "14",
-          "mat_code": "LGS334ZKBH",
+          "mat_code": "LGS334ZKBH647",
           "comp_code": "D",
           "name_zh": "LGS334_434左侧框",
           "name_vi": "LGS334_434 khung bên trái",
-          "spec": "659x335x15mm",
-          "spec_vi": "659x335x15mm",
+          "spec": "647x335x15mm",
+          "spec_vi": "647x335x15mm",
           "material_zh": "Q195",
           "material_vi": "Q195",
           "color_zh": "黑砂纹",
@@ -1099,12 +1099,12 @@
           "materials": [
             {
               "stt": "",
-              "mat_code": "FG1515065011",
+              "mat_code": "FG1515064804",
               "comp_code": "",
               "name_zh": "方管",
               "name_vi": "Sắt hộp",
-              "spec": "15×15×0.6Tmm，长度 5011mm",
-              "spec_vi": "15×15×0.6Tmm, dài 5011mm",
+              "spec": "15×15×0.6Tmm，长度 4804mm",
+              "spec_vi": "15×15×0.6Tmm, dài 4804mm",
               "material_zh": "Q195",
               "material_vi": "Q195",
               "color_zh": "光亮",
@@ -2002,5 +2002,6 @@
     }
   },
   "name_zh": "3列3层基础款10抽斗柜-57inch烟墨黑",
-  "name_vi": "LGS334-3 cột 3 tầng cơ bản 10 tủ ngăn kéo-57inch"
+  "name_vi": "LGS334-3 cột 3 tầng cơ bản 10 tủ ngăn kéo-57inch",
+  "revision": "V4.1"
 }

@@ -131,7 +131,7 @@ test('stability: catalog attributes find the five-drawer and seven-drawer produc
   assert.deepEqual(fiveDrawer.results.map(item => item.productCode), ['LGS723']);
   assert.deepEqual(sevenDrawer.results.map(item => item.productCode), ['LGS733']);
   assert.deepEqual(width.results.map(item => item.productCode), ['LGS723']);
-  assert.equal(width.results[0].variants[0].size, '300Dx987Wx681Hmm');
+  assert.equal(width.results[0].variants[0].size, '300Dx987Wx671Hmm');
   assert.deepEqual(fiveDrawerScrew.results.map(item => item.productCode), ['LGS723']);
   assert.equal(fiveDrawerScrew.results[0].matchingMaterials[0].matCode, 'NLPLS6022BZ');
   assert.equal(fiveDrawerScrew.results[0].matchingMaterials[0].qty, '30+2');

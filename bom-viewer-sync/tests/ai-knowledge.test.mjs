@@ -436,15 +436,15 @@ test('R1.3 integration: variant gaps and frame dimensions are derived from canon
   assert.equal(variant.requestedVariantExists, false);
   assert.deepEqual(variant.dataQualityWarnings[0].availableColors, ['复古色', '黑色']);
 
-  const exactHeight = knowledge.analyzePdm({ query: '那有几个铁框有高度657mm' });
+  const exactHeight = knowledge.analyzePdm({ query: '那有几个铁框有高度647mm' });
   assert.equal(exactHeight.needsClarification, false);
   assert.ok(exactHeight.results.length > 0);
-  assert.ok(exactHeight.results.every(item => item.spec.startsWith('657x')));
+  assert.ok(exactHeight.results.every(item => item.spec.startsWith('647x')));
 
-  const nearHeight = knowledge.analyzePdm({ query: '那有几个铁框有高度660mm' });
+  const nearHeight = knowledge.analyzePdm({ query: '那有几个铁框有高度650mm' });
   assert.equal(nearHeight.needsClarification, true);
   assert.equal(nearHeight.clarificationCode, 'dimension_near_match');
-  assert.ok(nearHeight.clarificationData.nearValues.includes(659));
+  assert.ok(nearHeight.clarificationData.nearValues.includes(647));
 });
 
 test('structure mapping returns deterministic records and exposes pending packaging rules', () => {

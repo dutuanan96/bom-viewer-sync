@@ -508,11 +508,17 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k, ope
         
         const fieldParts = String(d.field || '').split('.');
         const fieldSuffix = fieldParts.pop();
-        const translatedSuffix = fieldSuffix ? (t('ai.proposal.field.' + fieldSuffix) || fieldSuffix) : '';
+        const rawFieldKey = 'ai.proposal.field.' + fieldSuffix;
+        const translatedFieldVal = t(rawFieldKey);
+        const translatedSuffix = fieldSuffix ? (translatedFieldVal && translatedFieldVal !== rawFieldKey ? translatedFieldVal : fieldSuffix) : '';
         const translatedField = fieldParts.length > 0 ? `${fieldParts.join('.')} - ${translatedSuffix}` : translatedSuffix;
 
+        const rawKindKey = 'ai.proposal.kind.' + d.kind;
+        const translatedKindVal = t(rawKindKey);
+        const translatedKind = (translatedKindVal && translatedKindVal !== rawKindKey) ? translatedKindVal : d.kind;
+
         for (const [value, className] of [
-          [t('ai.proposal.kind.' + d.kind) || d.kind, ''],
+          [translatedKind, ''],
           [d.code, ''],
           ...(hasRevision ? [[revision, '']] : []),
           [translatedField, ''],
@@ -689,6 +695,19 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k, ope
         exportButton.textContent = t('ai.localFallback.exportedExcel');
       });
       msgEl.appendChild(exportButton);
+    }
+
+    if (msg.actionButton) {
+      const actionButton = document.createElement('button');
+      actionButton.type = 'button';
+      actionButton.className = 'btn btn-primary ai-action-button';
+      if (msg.actionButton.id) actionButton.id = msg.actionButton.id;
+      actionButton.textContent = msg.actionButton.label;
+      actionButton.addEventListener('click', () => {
+        actionButton.disabled = true;
+        msg.actionButton.onClick?.();
+      });
+      msgEl.appendChild(actionButton);
     }
 
     // Render citations safely

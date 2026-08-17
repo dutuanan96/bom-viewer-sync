@@ -195,8 +195,12 @@ export function describePayloadChanges(previousPayload, nextPayload) {
       const parentCode = prevEntry.parentType === 'product' ? parentId : (previousMaterials[parentId]?.code || parentId);
       const childCode = previousMaterials[childId]?.code || childId;
       let parentLabel = String(parentCode || '');
-      if (prevEntry.parentType === 'product' && prevEntry.color && previous.bom?.[parentCode]?.color_info?.[prevEntry.color]?.sku) {
-        parentLabel = String(previous.bom[parentCode].color_info[prevEntry.color].sku);
+      if (prevEntry.parentType === 'product' && prevEntry.color) {
+        if (previous.bom?.[parentCode]?.color_info?.[prevEntry.color]?.sku) {
+          parentLabel = String(previous.bom[parentCode].color_info[prevEntry.color].sku);
+        } else {
+          parentLabel = `${parentCode} (${prevEntry.color})`;
+        }
       }
       changes.push({ kind: 'bom_deleted', code: parentLabel, field: String(childCode || ''), before: '', after: '' });
     }

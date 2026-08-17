@@ -62,8 +62,8 @@ test('source-of-truth quantities match the canonical PDM snapshot', () => {
     assert.equal(row.level, corpus.facts[expectedRef].bom_level);
   }
 
-  assert.equal(knowledge.getProduct({ productId: 'LGS723' }).variants[0].size, '300Dx987Wx681Hmm');
-  assert.equal(knowledge.getProduct({ productId: 'LGS733' }).variants[0].size, '300Dx1138Wx681Hmm');
+  assert.equal(knowledge.getProduct({ productId: 'LGS723' }).variants[0].size, '300Dx987Wx671Hmm');
+  assert.equal(knowledge.getProduct({ productId: 'LGS733' }).variants[0].size, '300Dx1138Wx671Hmm');
 });
 
 test('focused BOM lookup keeps the matching nested component and its parent', () => {

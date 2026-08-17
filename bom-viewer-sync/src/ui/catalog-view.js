@@ -2,6 +2,7 @@ import { createPdmNavigation } from '../domain/bom.js';
 import { normalizeText, queryMatches, stripProductColorName } from '../domain/materials.js';
 import { assetDisplayUrl } from '../infrastructure/assets.js';
 import { escapeHTML } from './shared-view.js';
+import { findOrphanBomEntries } from '../features/orphan-cleanup/orphan-bom-proposal-builder.js';
 
 const HISTORY_KIND_LABELS = {
   material: 'diffKindMaterial',
@@ -110,7 +111,19 @@ function renderProductCatalog() {
   const existing = content.querySelectorAll('.table-container');
   if (existing) existing.forEach(el => el.remove());
   const rows = this.productCatalogRows();
-  const addProductBtn = this.isAdmin() ? `<div class="table-actions"><button class="btn btn-primary" type="button" data-action="add-product"><span class="material-symbols-outlined">add</span> ${escapeHTML(this.label('addProduct'))}</button></div>` : '';
+  const isEcnActive = Boolean(this.state?.ecnProposalActive);
+  const isOrphanActive = Boolean(this.state?.orphanProposalActive);
+  const orphanEntries = this.isAdmin() ? findOrphanBomEntries(this.state.payload) : [];
+  const orphanCleanupBtn = (this.isAdmin() && orphanEntries.length > 0)
+    ? `<button class="btn btn-outline ${isOrphanActive ? 'disabled' : ''}" type="button" data-action="load-orphan-cleanup-proposal" id="btn-cleanup-orphan-bom" ${isOrphanActive ? 'disabled' : ''}><span class="material-symbols-outlined">mop</span> ${escapeHTML(this.label('loadOrphanCleanupProposal'))} (${orphanEntries.length})</button>`
+    : '';
+  const addProductBtn = this.isAdmin()
+    ? `<div class="table-actions">` +
+      orphanCleanupBtn +
+      `<button class="btn btn-outline ${isEcnActive ? 'disabled' : ''}" type="button" data-action="load-ecn-proposal" id="btn-load-ecn-proposal" ${isEcnActive ? 'disabled' : ''}><span class="material-symbols-outlined">engineering</span> ${escapeHTML(this.label('loadEcnProposal'))}</button>` +
+      `<button class="btn btn-primary" type="button" data-action="add-product"><span class="material-symbols-outlined">add</span> ${escapeHTML(this.label('addProduct'))}</button>` +
+      `</div>`
+    : '';
   content.insertAdjacentHTML('beforeend', `<div class="table-container product-catalog-view">
     <div class="table-toolbar">
       <div class="table-title"><span class="material-symbols-outlined">inventory_2</span><strong>${escapeHTML(this.label('productCatalogTitle'))}</strong><span class="count">${rows.length} ${escapeHTML(this.label('products'))}</span></div>

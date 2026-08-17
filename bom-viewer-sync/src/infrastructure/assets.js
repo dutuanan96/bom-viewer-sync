@@ -88,9 +88,26 @@ export function assetDisplayUrl(asset, locationLike = globalThis.location) {
   return isLocalDocument && pathUrl ? pathUrl : remoteUrl || pathUrl;
 }
 
-export function pdfFrameUrl(url) {
+export function pdfFrameUrl(url, locationLike = globalThis.location) {
   const value = String(url || '').trim();
   const match = value.match(/drive\.google\.com\/file\/d\/([^/?#]+)/i);
   if (match) return `https://drive.google.com/file/d/${encodeURIComponent(match[1])}/preview`;
+
+  const isLocalDocument = ['file:', 'http:'].includes(locationLike?.protocol)
+    && ['', 'localhost', '127.0.0.1'].includes(locationLike?.hostname || '');
+
+  // If local document and url contains local catalog drawing path, use local relative path
+  if (isLocalDocument) {
+    const localMatch = value.match(/(?:drawings\/catalog\/[^/?#]+\.pdf)$/i);
+    if (localMatch) return localMatch[0];
+  }
+
+  // Convert raw.githubusercontent.com to jsdelivr CDN for iframe embedding
+  const rawMatch = value.match(/raw\.githubusercontent\.com\/([^/]+)\/([^/]+)\/([^/]+)\/(.+)/i);
+  if (rawMatch) {
+    const [, user, repo, branch, filePath] = rawMatch;
+    return `https://cdn.jsdelivr.net/gh/${user}/${repo}@${branch}/${filePath}`;
+  }
+
   return value || 'about:blank';
 }

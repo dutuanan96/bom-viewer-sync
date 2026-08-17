@@ -45,6 +45,7 @@ export const TASK_TYPES = Object.freeze([
   'update_bom_quantity',
   'replace_bom_item',
   'remove_bom_item',
+  'remove_orphan_bom_entry',
   'add_material_child',
   'update_material_child_quantity',
   'remove_material_child',

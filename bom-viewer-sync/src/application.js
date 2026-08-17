@@ -52,6 +52,8 @@ import {
   applyMutationProposalTransaction,
   buildMutationProposalReview,
 } from './features/ai-assistant/mutation-engine.js';
+import { buildEcnProposalBatches } from './features/ecn-proposal/ecn-2026-0710-proposal-builder.js';
+import { buildOrphanBomCleanupBatches, findOrphanBomEntries } from './features/orphan-cleanup/orphan-bom-proposal-builder.js';
 import { createLocalAiStore } from './features/ai-assistant/local-store.js';
 import { createMemoryManager } from './features/ai-assistant/memory-manager.js';
 import {
@@ -422,6 +424,7 @@ const TEXT = {
     'ai.proposal.kind.product': '产品',
     'ai.proposal.kind.product_added': '新增产品',
     'ai.proposal.kind.bom_added': '新增 BOM',
+    'ai.proposal.kind.bom_deleted': '删除 BOM 行',
     'ai.proposal.kind.bom_material_changed': 'BOM 物料变更',
     'ai.proposal.kind.revision': '版本',
     'ai.proposal.field.spec': '规格',
@@ -480,6 +483,7 @@ const TEXT = {
     materialCodeExists: '该物料编码已存在',
     'ai.warning.delete_material': '删除物料在提交到 GitHub 后将不可恢复。',
     'ai.warning.remove_bom_item': '移除 BOM 关联可能会影响生产数量。',
+    'ai.warning.remove_orphan_bom_entry': '移除无主 BOM 关联以清理历史废弃数据。',
     'ai.warning.replace_bom_item': '替换 BOM 物料可能会改变适配、功能、采购来源或版本范围。',
     'ai.warning.create_material': '请验证物料编码是否规范且未重复。',
     'ai.warning.add_bom_item': '请验证产品、颜色、部件编码、数量及物料身份是否正确。',
@@ -706,6 +710,7 @@ const TEXT = {
     'ai.proposal.kind.product': 'Sản phẩm',
     'ai.proposal.kind.product_added': 'Thêm sản phẩm',
     'ai.proposal.kind.bom_added': 'Thêm BOM',
+    'ai.proposal.kind.bom_deleted': 'Xóa dòng BOM',
     'ai.proposal.kind.bom_material_changed': 'Đổi vật liệu BOM',
     'ai.proposal.kind.revision': 'Phiên bản',
     'ai.proposal.field.spec': 'Quy cách',
@@ -867,6 +872,7 @@ const TEXT = {
     'ai.workspace.greeting': '👋 Xin chào! Tôi là Trợ lý AI của JinTai PDM.\n\nHãy nhập câu hỏi của bạn xuống bên dưới, tôi đã sẵn sàng hỗ trợ bạn bất cứ lúc nào! 🤩',
     'ai.warning.delete_material': 'Xóa vật liệu là hành động không thể hoàn tác sau khi tải lên GitHub.',
     'ai.warning.remove_bom_item': 'Xóa liên kết BOM có thể ảnh hưởng đến số lượng sản xuất.',
+    'ai.warning.remove_orphan_bom_entry': 'Xóa liên kết BOM mồ côi để dọn dẹp dữ liệu lịch sử đã bị loại bỏ.',
     'ai.warning.replace_bom_item': 'Thay thế vật liệu BOM có thể làm thay đổi sự phù hợp, chức năng, nguồn mua hoặc phạm vi phiên bản.',
     'ai.warning.create_material': 'Vui lòng xác minh mã vật liệu là chuẩn và không bị trùng lặp.',
     'ai.warning.add_bom_item': 'Vui lòng xác minh sản phẩm, màu sắc, mã linh kiện, số lượng và thông tin vật liệu.',
@@ -962,6 +968,19 @@ Object.assign(TEXT.zh, {
   notificationUpdatedTitle: 'PDM 数据已更新',
   notificationUpdatedBody: '检测到新的 PDM 数据版本。',
   notificationUnread: '未读通知',
+  loadEcnProposal: '加载 ECN-2026-0710-LGS 方案',
+  loadEcnProposalDone: 'ECN-2026-0710-LGS：所有批次已应用完毕。',
+  ecnProposalBlockedDirty: '无法在存在未保存更改时加载 ECN 方案，请先保存或放弃更改。',
+  ecnBlockedOrphansExist: '检测到数据库中存在 {count} 项历史无主 BOM 行。请先完成「清理无主 BOM 行」，再加载 ECN 方案。',
+  ecnProposalCancelled: 'ECN 方案流程已取消或失效。',
+  ecnProposalError: 'ECN 方案处理失败',
+  loadOrphanCleanupProposal: '清理无主 BOM 行',
+  orphanProposalLoading: '已开启无主 BOM 行清理方案，请在右侧 AI 抽屉中查看并审批。',
+  loadOrphanCleanupDone: '无主 BOM 行清理完毕，所有数据校验完全通过。',
+  continueLoadEcnProposal: '继续加载 ECN-2026-0710-LGS 方案',
+  ecnProposalLoading: '已开启 ECN 方案，请在右侧 AI 抽屉中查看并审批。',
+  orphanProposalBlockedDirty: '无法在存在未保存更改时清理无主 BOM 行，请先保存或放弃更改。',
+  orphanProposalCancelled: '无主 BOM 行清理流程已取消或失效。',
   addProduct: '新增产品',
   addProductPromptCode: '产品编码',
   addProductPromptCodePlaceholder: '例: LGS999',
@@ -1115,6 +1134,19 @@ Object.assign(TEXT.vi, {
   notificationUpdatedTitle: 'Dữ liệu PDM đã cập nhật',
   notificationUpdatedBody: 'Phát hiện phiên bản dữ liệu PDM mới.',
   notificationUnread: 'Thông báo chưa đọc',
+  loadEcnProposal: 'Nạp proposal ECN-2026-0710-LGS',
+  loadEcnProposalDone: 'ECN-2026-0710-LGS: Tất cả các batch đã được áp dụng.',
+  ecnProposalBlockedDirty: 'Không thể nạp proposal ECN khi có thay đổi chưa lưu. Vui lòng lưu hoặc hủy thay đổi trước.',
+  ecnBlockedOrphansExist: 'Phát hiện còn {count} dòng BOM mồ côi trong cơ sở dữ liệu. Vui lòng hoàn tất «Dọn dẹp BOM mồ côi» trước khi nạp phương án ECN.',
+  ecnProposalCancelled: 'Quy trình proposal ECN đã bị hủy hoặc không còn hiệu lực.',
+  ecnProposalError: 'Xử lý proposal ECN thất bại',
+  loadOrphanCleanupProposal: 'Dọn dẹp BOM mồ côi',
+  orphanProposalLoading: 'Đã mở phương án dọn dẹp BOM mồ côi, vui lòng xem và duyệt tại ngăn AI bên phải.',
+  loadOrphanCleanupDone: 'Đã dọn dẹp xong toàn bộ BOM mồ côi, dữ liệu đạt chuẩn 100%.',
+  continueLoadEcnProposal: 'Tiếp tục nạp ECN-2026-0710-LGS',
+  ecnProposalLoading: 'Đã mở phương án ECN, vui lòng xem và duyệt tại ngăn AI bên phải.',
+  orphanProposalBlockedDirty: 'Không thể dọn dẹp BOM mồ côi khi có thay đổi chưa lưu. Vui lòng lưu hoặc hủy thay đổi trước.',
+  orphanProposalCancelled: 'Quy trình dọn dẹp BOM mồ côi đã bị hủy hoặc không còn hiệu lực.',
   addProduct: 'Thêm sản phẩm',
   addProductPromptCode: 'Mã sản phẩm',
   addProductPromptCodePlaceholder: 'Ví dụ: LGS999',
@@ -1265,6 +1297,11 @@ class BomApplication {
       sortAsc: true,
       editMode: false,
       dirty: false,
+      ecnProposalActive: false,
+      ecnProposalRunId: null,
+      orphanProposalActive: false,
+      orphanProposalRunId: null,
+      remediationHandoffEligible: false,
       lastRows: [],
       lastLoadAt: '',
       notificationOpen: false,
@@ -1482,6 +1519,8 @@ class BomApplication {
       }
     };
 
+    this.toggleAiChat = toggleChat;
+
     this._handleAiFabClick = (e) => {
       e.stopPropagation();
       toggleChat();
@@ -1544,6 +1583,326 @@ class BomApplication {
       settingsModal.setAttribute('aria-hidden', 'true');
       settingsModal.classList.remove('open');
     });
+  }
+
+  _isRemediationHandoffValid() {
+    if (!this.state.remediationHandoffEligible) return false;
+    const orphans = findOrphanBomEntries(this.state.payload);
+    if (orphans.length > 0) return false;
+
+    const changes = describeNormalizedPayloadChanges(this.state.loadedPayload, this.state.payload);
+    if (!changes.length) return false;
+
+    const orphanIds = new Set(findOrphanBomEntries(this.state.loadedPayload).map((e) => e.id));
+    for (const change of changes) {
+      if (change.kind !== 'bom_deleted') return false;
+    }
+
+    const currentEntriesById = (this.state.payload?.materialDb?.bomEntries || [])
+      .reduce((acc, e) => { acc[e.id] = e; return acc; }, {});
+    const loadedEntries = this.state.loadedPayload?.materialDb?.bomEntries || [];
+    for (const entry of loadedEntries) {
+      if (!currentEntriesById[entry.id] && !orphanIds.has(entry.id)) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  loadEcnProposalBatch(options = {}) {
+    if (!this.isAdmin()) return;
+    if (this.state.ecnProposalActive) return;
+
+    const orphans = findOrphanBomEntries(this.state.payload);
+    if (orphans.length > 0) {
+      const msg = (this.label('ecnBlockedOrphansExist') || '检测到数据库中存在 {count} 项历史无主 BOM 行。请先完成「清理无主 BOM 行」，再加载 ECN 方案。')
+        .replace('{count}', String(orphans.length));
+      this.setStatus(msg, 'error');
+      this.toggleAiChat?.(true);
+      if (this.aiFeature?.ui?.renderMessage) {
+        this.aiFeature.ui.renderMessage({
+          role: 'assistant',
+          text: msg,
+          actionButton: {
+            id: 'btn-run-orphan-first',
+            label: `${this.label('loadOrphanCleanupProposal')} (${orphans.length})`,
+            onClick: () => {
+              this.loadOrphanCleanupProposalBatch();
+            },
+          },
+        });
+      }
+      return;
+    }
+
+    const isRemediationHandoff = this._isRemediationHandoffValid();
+    if (this.state.materialDraft || (this.state.dirty && !isRemediationHandoff)) {
+      this.setStatus(this.label('ecnProposalBlockedDirty'), 'error');
+      if (this.aiFeature?.ui?.renderMessage) {
+        this.aiFeature.ui.renderMessage({
+          role: 'assistant',
+          text: this.label('ecnProposalBlockedDirty'),
+        });
+      }
+      return;
+    }
+
+    this.state.remediationHandoffEligible = false;
+    const runId = `ecn_run_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
+    this.state.ecnProposalRunId = runId;
+    this.state.ecnProposalActive = true;
+    this.syncEcnProposalButtonState();
+    this.setStatus(this.label('ecnProposalLoading'), 'info');
+    this.toggleAiChat?.(true);
+    this._executeNextEcnProposalBatch(runId);
+  }
+
+  _executeNextEcnProposalBatch(runId) {
+    if (!this.isAdmin()) {
+      this.state.ecnProposalActive = false;
+      this.state.ecnProposalRunId = null;
+      this.syncEcnProposalButtonState();
+      return;
+    }
+    if (this.state.ecnProposalRunId !== runId || !this.state.ecnProposalActive) {
+      return;
+    }
+    const snapshot = this.getSnapshot();
+    const batches = buildEcnProposalBatches(snapshot.payload, 40);
+    if (!batches.length) {
+      this.state.ecnProposalActive = false;
+      this.state.ecnProposalRunId = null;
+      this.syncEcnProposalButtonState();
+      if (this.aiFeature?.ui?.renderMessage) {
+        this.aiFeature.ui.renderMessage({ role: 'assistant', text: this.label('loadEcnProposalDone') });
+      }
+      return;
+    }
+    this._renderEcnProposalBatch(batches[0], runId);
+  }
+
+  _renderEcnProposalBatch(batch, runId) {
+    if (!this.isAdmin()) {
+      this.state.ecnProposalActive = false;
+      this.state.ecnProposalRunId = null;
+      this.syncEcnProposalButtonState();
+      return;
+    }
+    if (this.state.ecnProposalRunId !== runId || !this.state.ecnProposalActive) {
+      return;
+    }
+    try {
+      const rawSnapshot = this.getSnapshot();
+      const snapshot = {
+        ...rawSnapshot,
+        dirty: false,
+      };
+      const review = buildMutationProposalReview(snapshot, { operations: batch.operations }, (k) => this.label(k));
+      this.aiFeature.ui.renderMessage({
+        role: 'assistant',
+        text: batch.summary,
+        proposal: { operations: batch.operations },
+        proposalReview: review,
+        diff: review.finalDiff,
+        snapshot: snapshot,
+        lifecycleChoiceConfirmed: true,
+        onApprove: (selectedProposal) => {
+          if (this.state.ecnProposalRunId !== runId || !this.state.ecnProposalActive) {
+            if (this.aiFeature?.ui?.renderMessage) {
+              this.aiFeature.ui.renderMessage({
+                role: 'assistant',
+                text: this.label('ecnProposalCancelled'),
+              });
+            }
+            return;
+          }
+          try {
+            const currentSnapshot = {
+              ...this.getSnapshot(),
+              dirty: false,
+            };
+            const transaction = applyMutationProposalTransaction(currentSnapshot, selectedProposal);
+            this.applyAiMutation({
+              proposal: selectedProposal,
+              changes: transaction.changes,
+              payload: transaction.payload,
+              sourceCommit: currentSnapshot.sourceMetadata?.commitSha,
+            });
+            // Load next batch after UI settles; re-computes from new payload so only remaining ops appear
+            setTimeout(() => this._executeNextEcnProposalBatch(runId), 0);
+          } catch (e) {
+            this.state.ecnProposalActive = false;
+            this.state.ecnProposalRunId = null;
+            this.syncEcnProposalButtonState();
+            this.aiFeature.ui.renderMessage({ role: 'assistant', text: this.label('ai.proposal.applyError') || 'Error applying proposal' });
+          }
+        },
+        onViewChanges: () => { this.showDiffModal(); },
+        // Note: onSave is intentionally omitted so ECN proposal remains local-only for review without saving to GitHub.
+      });
+    } catch (error) {
+      this.state.ecnProposalActive = false;
+      this.state.ecnProposalRunId = null;
+      this.syncEcnProposalButtonState();
+      const errorMsg = `${this.label('ecnProposalError')}: ${error.message}`;
+      this.setStatus(errorMsg, 'error');
+      if (this.aiFeature?.ui?.renderMessage) {
+        this.aiFeature.ui.renderMessage({
+          role: 'assistant',
+          text: errorMsg,
+        });
+      }
+    }
+  }
+
+  syncEcnProposalButtonState() {
+    const btn = this.query('#btn-load-ecn-proposal');
+    if (btn) {
+      const active = Boolean(this.state?.ecnProposalActive);
+      btn.disabled = active;
+      btn.classList.toggle('disabled', active);
+    }
+  }
+
+  loadOrphanCleanupProposalBatch() {
+    if (!this.isAdmin()) return;
+    if (this.state.orphanProposalActive) return;
+
+    if (this.state.dirty || this.state.materialDraft) {
+      this.setStatus(this.label('orphanProposalBlockedDirty'), 'error');
+      if (this.aiFeature?.ui?.renderMessage) {
+        this.aiFeature.ui.renderMessage({
+          role: 'assistant',
+          text: this.label('orphanProposalBlockedDirty'),
+        });
+      }
+      return;
+    }
+
+    const runId = `orphan_run_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
+    this.state.orphanProposalRunId = runId;
+    this.state.orphanProposalActive = true;
+    this.syncOrphanCleanupButtonState();
+    this.setStatus(this.label('orphanProposalLoading'), 'info');
+    this.toggleAiChat?.(true);
+    this._executeNextOrphanCleanupBatch(runId);
+  }
+
+  _executeNextOrphanCleanupBatch(runId) {
+    if (!this.isAdmin()) {
+      this.state.orphanProposalActive = false;
+      this.state.orphanProposalRunId = null;
+      this.syncOrphanCleanupButtonState();
+      return;
+    }
+    if (this.state.orphanProposalRunId !== runId || !this.state.orphanProposalActive) {
+      return;
+    }
+    const snapshot = this.getSnapshot();
+    const batches = buildOrphanBomCleanupBatches(snapshot.payload, 40);
+    if (!batches.length) {
+      this.state.orphanProposalActive = false;
+      this.state.orphanProposalRunId = null;
+      this.state.remediationHandoffEligible = true;
+      this.syncOrphanCleanupButtonState();
+      this.renderContent();
+      if (this.aiFeature?.ui?.renderMessage) {
+        this.aiFeature.ui.renderMessage({
+          role: 'assistant',
+          text: this.label('loadOrphanCleanupDone'),
+          actionButton: {
+            id: 'btn-handoff-load-ecn',
+            label: this.label('continueLoadEcnProposal'),
+            onClick: () => {
+              this.loadEcnProposalBatch();
+            },
+          },
+        });
+      }
+      return;
+    }
+    this._renderOrphanCleanupBatch(batches[0], runId);
+  }
+
+  _renderOrphanCleanupBatch(batch, runId) {
+    if (!this.isAdmin()) {
+      this.state.orphanProposalActive = false;
+      this.state.orphanProposalRunId = null;
+      this.syncOrphanCleanupButtonState();
+      return;
+    }
+    if (this.state.orphanProposalRunId !== runId || !this.state.orphanProposalActive) {
+      return;
+    }
+    try {
+      const rawSnapshot = this.getSnapshot();
+      const snapshot = {
+        ...rawSnapshot,
+        dirty: false,
+      };
+      const review = buildMutationProposalReview(snapshot, { operations: batch.operations }, (k) => this.label(k));
+      this.aiFeature.ui.renderMessage({
+        role: 'assistant',
+        text: batch.summary,
+        proposal: { operations: batch.operations },
+        proposalReview: review,
+        diff: review.finalDiff,
+        snapshot: snapshot,
+        lifecycleChoiceConfirmed: true,
+        onApprove: (selectedProposal) => {
+          if (this.state.orphanProposalRunId !== runId || !this.state.orphanProposalActive) {
+            if (this.aiFeature?.ui?.renderMessage) {
+              this.aiFeature.ui.renderMessage({
+                role: 'assistant',
+                text: this.label('orphanProposalCancelled'),
+              });
+            }
+            return;
+          }
+          try {
+            const currentSnapshot = {
+              ...this.getSnapshot(),
+              dirty: false,
+            };
+            const transaction = applyMutationProposalTransaction(currentSnapshot, selectedProposal);
+            this.applyAiMutation({
+              proposal: selectedProposal,
+              changes: transaction.changes,
+              payload: transaction.payload,
+              sourceCommit: currentSnapshot.sourceMetadata?.commitSha,
+            });
+            setTimeout(() => this._executeNextOrphanCleanupBatch(runId), 0);
+          } catch (e) {
+            this.state.orphanProposalActive = false;
+            this.state.orphanProposalRunId = null;
+            this.syncOrphanCleanupButtonState();
+            this.aiFeature.ui.renderMessage({ role: 'assistant', text: this.label('ai.proposal.applyError') || 'Error applying proposal' });
+          }
+        },
+        onViewChanges: () => { this.showDiffModal(); },
+      });
+    } catch (error) {
+      this.state.orphanProposalActive = false;
+      this.state.orphanProposalRunId = null;
+      this.syncOrphanCleanupButtonState();
+      const errorMsg = `${this.label('ecnProposalError')}: ${error.message}`;
+      this.setStatus(errorMsg, 'error');
+      if (this.aiFeature?.ui?.renderMessage) {
+        this.aiFeature.ui.renderMessage({
+          role: 'assistant',
+          text: errorMsg,
+        });
+      }
+    }
+  }
+
+  syncOrphanCleanupButtonState() {
+    const btn = this.query('#btn-cleanup-orphan-bom');
+    if (btn) {
+      const active = Boolean(this.state?.orphanProposalActive);
+      btn.disabled = active;
+      btn.classList.toggle('disabled', active);
+    }
   }
 
   applyAiMutation({ proposal, changes, payload, sourceCommit }) {
@@ -2116,6 +2475,8 @@ class BomApplication {
     if (action === 'create-product-revision' && this.isAdmin()) this.createProductRevisionFromPrompt();
     if (action === 'release-product-revision' && this.isAdmin()) this.releaseProductRevisionFromPrompt();
     if (action === 'withdraw-revision' && this.isAdmin()) this.withdrawProductRevisionFromPrompt();
+    if (action === 'load-ecn-proposal' && this.isAdmin()) this.loadEcnProposalBatch();
+    if (action === 'load-orphan-cleanup-proposal' && this.isAdmin()) this.loadOrphanCleanupProposalBatch();
   }
 
   addChildMaterialFromPrompt() {
@@ -3548,6 +3909,7 @@ class BomApplication {
 
   markDirty() {
     this.state.dirty = true;
+    this.state.remediationHandoffEligible = false;
     this.renderStatus();
     this.syncDirtyVisibility();
   }
@@ -3561,6 +3923,12 @@ class BomApplication {
       this.applyPayload(this.state.loadedPayload);
       this.state.editMode = false;
       this.state.dirty = false;
+      this.state.ecnProposalActive = false;
+      this.state.ecnProposalRunId = null;
+      this.syncEcnProposalButtonState();
+      this.state.orphanProposalActive = false;
+      this.state.orphanProposalRunId = null;
+      this.syncOrphanCleanupButtonState();
       this.renderAll();
     });
   }
@@ -3612,6 +3980,13 @@ class BomApplication {
     this.state.pendingMaterialAssets = {};
     this.state.loadedPayload = clone(this.state.payload);
     this.state.dirty = false;
+    this.state.ecnProposalActive = false;
+    this.state.ecnProposalRunId = null;
+    this.syncEcnProposalButtonState();
+    this.state.orphanProposalActive = false;
+    this.state.orphanProposalRunId = null;
+    this.state.remediationHandoffEligible = false;
+    this.syncOrphanCleanupButtonState();
     this.state.selectedMaterialId = '';
     this.state.selectedEntryId = '';
     this.state.selectedRevision = '';
@@ -3804,7 +4179,8 @@ class BomApplication {
   openDrawing(index) {
     const material = this.state.lastRows[index];
     const drawing = material ? this.drawingsFor(material)[0] : null;
-    if (drawing) this.showModal(drawing.url, drawing.name, drawing.path || materialText(material, 'name', this.state.lang));
+    const materialName = material ? materialText(material, 'name', this.state.lang) : '';
+    if (drawing) this.showModal(drawing.url, drawing.name, materialName || drawing.name || '');
   }
 
   openModel3d(index) {
@@ -3816,7 +4192,8 @@ class BomApplication {
   openMaterialDrawing(materialId) {
     const material = this.state.materialDb?.materials?.[materialId];
     const drawing = material && material.drawings ? material.drawings[0] : null;
-    if (drawing) this.showModal(drawing.url, drawing.name, drawing.path || localizedValue(material.name, this.state.lang));
+    const materialName = material ? localizedValue(material.name, this.state.lang) : '';
+    if (drawing) this.showModal(drawing.url, drawing.name, materialName || drawing.name || '');
   }
 
   openMaterialModel3d(materialId) {

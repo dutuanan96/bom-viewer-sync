@@ -50,6 +50,7 @@ const ALLOWED_PROPOSAL_OPERATIONS = Object.freeze(new Set([
   'update_bom_quantity',
   'replace_bom_item',
   'remove_bom_item',
+  'remove_orphan_bom_entry',
   'add_material_child',
   'update_material_child_quantity',
   'remove_material_child',
@@ -377,7 +378,7 @@ export function validateMutation(mutation) {
       throw policyError('update_material payload contains missing or extra fields');
     }
     validateMaterialPatch(mutation.payload.patch);
-  } else if (mutation.operationType === 'delete_material' || mutation.operationType === 'remove_bom_item') {
+  } else if (mutation.operationType === 'delete_material' || mutation.operationType === 'remove_bom_item' || mutation.operationType === 'remove_orphan_bom_entry') {
     if (Object.keys(mutation.payload).length !== 0) {
       throw policyError(`${mutation.operationType} payload must be empty`);
     }

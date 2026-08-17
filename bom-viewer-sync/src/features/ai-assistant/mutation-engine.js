@@ -142,10 +142,33 @@ export function validateMutationContext(snapshot, mutation) {
     throw err;
   }
 
+  if (mutation.operationType === 'remove_orphan_bom_entry') {
+    const entry = snapshot.payload?.materialDb?.bomEntries?.find(item => item.id === mutation.targetId);
+    if (!entry) {
+      const err = new Error(`Orphan BOM entry ${mutation.targetId} not found.`);
+      err.code = ERROR_CODES.AI_POLICY_BLOCKED;
+      throw err;
+    }
+    if (entry.parentType === 'material') {
+      const err = new Error(`BOM entry ${mutation.targetId} is a material parent entry, not an orphan product BOM entry.`);
+      err.code = ERROR_CODES.AI_POLICY_BLOCKED;
+      throw err;
+    }
+    const pid = entry.productCode || entry.parentId;
+    const product = snapshot.payload?.bom?.[pid];
+    const isOrphan = !product || (entry.color && !product.color_info?.[entry.color]);
+    if (!isOrphan) {
+      const err = new Error(`BOM entry ${mutation.targetId} belongs to active product color ${pid}/${entry.color} and is not an orphan entry.`);
+      err.code = ERROR_CODES.AI_POLICY_BLOCKED;
+      throw err;
+    }
+  }
+
   if (
     !masterDataOperations.has(mutation.operationType)
     && !revisionOperations.has(mutation.operationType)
     && mutation.operationType !== 'consolidate_materials'
+    && mutation.operationType !== 'remove_orphan_bom_entry'
   ) {
     if (!isEditable) {
       const err = new Error(`BOM mutations require a draft revision for product ${targetProductCode || ''}.`);
@@ -461,7 +484,7 @@ export function applyMutationToPayload(payload, mutation) {
     const entry = replaceBomEntryMaterial(payload, targetId, opPayload.materialId);
     if (!entry) throw new Error(`BOM entry ${targetId} or material ${opPayload.materialId} not found.`);
     shouldSyncBom = true;
-  } else if (operationType === 'remove_bom_item') {
+  } else if (operationType === 'remove_bom_item' || operationType === 'remove_orphan_bom_entry') {
     const before = payload.materialDb?.bomEntries?.length || 0;
     payload.materialDb.bomEntries = (payload.materialDb?.bomEntries || []).filter(entry => entry.id !== targetId);
     if (payload.materialDb.bomEntries.length === before) throw new Error(`BOM entry ${targetId} not found.`);
@@ -569,6 +592,7 @@ function operationRisk(operationType) {
   if ([
     'delete_material',
     'remove_bom_item',
+    'remove_orphan_bom_entry',
     'replace_bom_item',
     'delete_material_structure',
     'release_product_revision',
@@ -591,6 +615,7 @@ function operationWarnings(operation, payload, t = (k) => k, { suppressDuplicate
   const warnings = [];
   if (operation.operationType === 'delete_material') warnings.push(t('ai.warning.delete_material'));
   if (operation.operationType === 'remove_bom_item') warnings.push(t('ai.warning.remove_bom_item'));
+  if (operation.operationType === 'remove_orphan_bom_entry') warnings.push(t('ai.warning.remove_orphan_bom_entry') || t('ai.warning.remove_bom_item'));
   if (operation.operationType === 'replace_bom_item') warnings.push(t('ai.warning.replace_bom_item'));
   if (operation.operationType === 'create_material') warnings.push(t('ai.warning.create_material'));
   if (operation.operationType === 'consolidate_materials') warnings.push(t('ai.warning.consolidate_materials'));
@@ -730,7 +755,7 @@ function enrichCreateMaterialMutation(materials, sourceMutation) {
   return { mutation, warnings };
 }
 
-function verifyProposalPayload(payload) {
+function verifyProposalPayload(payload, originalPayload = null, operations = []) {
   const errors = [];
   const warnings = [];
   const materials = payload.materialDb?.materials || {};
@@ -765,7 +790,13 @@ function verifyProposalPayload(payload) {
       const productId = entry.productCode || entry.parentId;
       if (!payload.bom?.[productId]) errors.push(`BOM entry ${entry.id} references missing product ${productId}.`);
       else if (entry.color && !payload.bom[productId]?.color_info?.[entry.color]) {
-        errors.push(`BOM entry ${entry.id} references missing color ${productId}/${entry.color}.`);
+        const wasPreExisting = originalPayload?.materialDb?.bomEntries?.some(orig => orig.id === entry.id && orig.color === entry.color);
+        const isRemediatingOrphans = operations?.length > 0 && operations.every(op => op.operationType === 'remove_orphan_bom_entry');
+        if (wasPreExisting && isRemediatingOrphans) {
+          warnings.push(`BOM entry ${entry.id} references missing color ${productId}/${entry.color} (pending remediation).`);
+        } else {
+          errors.push(`BOM entry ${entry.id} references missing color ${productId}/${entry.color}.`);
+        }
       }
     }
   }
@@ -849,7 +880,7 @@ export function buildMutationProposalReview(snapshot, proposalInput, t = (k) => 
     error.code = ERROR_CODES.AI_POLICY_BLOCKED;
     throw error;
   }
-  const verification = verifyProposalPayload(payload);
+  const verification = verifyProposalPayload(payload, snapshot.payload, proposal.operations);
   if (!verification.valid) {
     const error = new Error(`Proposal verification failed: ${verification.errors.join(' ')}`);
     error.code = ERROR_CODES.AI_POLICY_BLOCKED;

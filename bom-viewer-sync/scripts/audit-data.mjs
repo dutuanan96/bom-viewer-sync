@@ -1,7 +1,7 @@
 /**
  * PDM Data Integrity Audit Script
  * Checks for: duplicate materials, orphan entries, missing fields,
- * parent-child inconsistencies, BOM entry issues.
+ * parent-child inconsistencies, BOM entry issues, drawing & asset validity.
  */
 import { lstatSync, readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
@@ -222,6 +222,28 @@ Object.entries(payload.bom || {}).forEach(([code, product]) => {
   }
 });
 
+// 10. Material Drawing & Asset Integrity
+Object.entries(materials).forEach(([id, m]) => {
+  (m.drawings || []).forEach((d, idx) => {
+    if (!d.name) {
+      report('ERROR', 'DRAWING', `Material ${m.code || id} drawing #${idx} missing name`, d);
+    }
+    const url = String(d.url || '').trim();
+    if (!url) {
+      report('ERROR', 'DRAWING', `Material ${m.code || id} drawing #${idx} missing url`, d);
+    } else {
+      if (url.endsWith('_pdf')) {
+        report('ERROR', 'DRAWING', `Material ${m.code || id} drawing url ends in _pdf instead of .pdf: ${url}`, d);
+      }
+      const isDrive = url.includes('drive.google.com');
+      const isPdf = url.toLowerCase().endsWith('.pdf') || (url.includes('?') && url.split('?')[0].toLowerCase().endsWith('.pdf'));
+      if (!isDrive && !isPdf) {
+        report('ERROR', 'DRAWING', `Material ${m.code || id} drawing url must end in .pdf or be Google Drive: ${url}`, d);
+      }
+    }
+  });
+});
+
 // Print results
 console.log(`\n=== AUDIT RESULTS ===`);
 console.log(`Total issues: ${issues.length}`);
@@ -240,7 +262,7 @@ if (warnings.length) {
   warnings.forEach(w => console.log(`[${w.category}] ${w.message}`));
 }
 
-// 10. Summary stats
+// 11. Summary stats
 const productsWithBom = Object.entries(payload.bom || {}).map(([code, product]) => {
   const colorCount = Object.keys(product.color_info || {}).length;
   const totalRows = Object.entries(product.color_info || {}).reduce((sum, [cn]) =>
