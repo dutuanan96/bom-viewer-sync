@@ -244,6 +244,35 @@ Object.entries(materials).forEach(([id, m]) => {
   });
 });
 
+// 11. Drawing consistency across shared materials (single source of truth)
+const specGroups = new Map();
+Object.entries(materials).forEach(([id, m]) => {
+  const nameZh = String(m.name?.zh || '').trim();
+  const specZh = String(m.spec?.zh || '').trim();
+  const rawMatZh = String(m.material?.zh || '').trim();
+  const attrZh = String(m.attr?.zh || '').trim();
+  const drawings = m.drawings || [];
+  if (!drawings.length) return;
+
+  const key = `${nameZh} | ${specZh} | ${rawMatZh} | ${attrZh}`;
+  if (!specGroups.has(key)) specGroups.set(key, []);
+  specGroups.get(key).push({ id, code: m.code, drawings });
+});
+
+specGroups.forEach((items, key) => {
+  if (items.length <= 1) return;
+  const urls = new Set();
+  items.forEach(it => (it.drawings || []).forEach(d => d.url && urls.add(d.url)));
+  if (urls.size > 1) {
+    report(
+      'WARNING',
+      'DRAWING_FRAGMENTATION',
+      `Shared material group [${key}] has ${urls.size} distinct drawing URLs across ${items.length} materials (${items.map(i => i.code).join(', ')})`,
+      { distinctUrls: [...urls] }
+    );
+  }
+});
+
 // Print results
 console.log(`\n=== AUDIT RESULTS ===`);
 console.log(`Total issues: ${issues.length}`);

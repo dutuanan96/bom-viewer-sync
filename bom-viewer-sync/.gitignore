@@ -11,4 +11,5 @@ outputs/
 tmp/
 pnpm-lock.yaml
 pnpm-workspace.yaml
+scratch/
 
