@@ -21,6 +21,7 @@
     "migrate:staging": "node scripts/migrate-data-staging.mjs",
     "normalize:hardware-pack-bom": "node scripts/normalize-hardware-pack-bom.mjs",
     "smoke:contents-assets": "node scripts/smoke-github-contents-assets.mjs",
+    "sync:drawings": "node scripts/sync-drawing-assets.mjs",
     "test:node": "node --test tests/*.test.mjs",
     "test:e2e": "playwright test",
     "test": "npm run test:node && npm run test:e2e"
