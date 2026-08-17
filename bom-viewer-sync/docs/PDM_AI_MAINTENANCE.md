@@ -115,6 +115,29 @@ localized name does not make two material records duplicates; material codes
 remain unique while a new code or specification may reuse canonical
 classification values.
 
+## Material Drawing Assets and Single Source of Truth
+
+- Canonical repository 2D drawings are placed in `drawings/catalog/` with hashed
+  names and served over jsDelivr CDN.
+- Shared Google Drive 2D drawings are mapped to `G:\My Drive\2D图纸_按LGS分组\`.
+- All shared materials sharing the exact same technical specification (`name.zh`,
+  `spec.zh`, `material.zh`, `attr.zh`) MUST share the exact same drawing URL
+  (Single Source of Truth).
+- Automated drawing sync: `npm run sync:drawings` (`scripts/sync-drawing-assets.mjs`).
+- Automated consolidation: `scripts/consolidate-shared-material-drawings.mjs`.
+- Strict consistency gate: `tests/drawing-consistency.test.mjs` and Section 11 of
+  `scripts/audit-data.mjs`.
+
+## Engineering Change (ECN) Proposal Workflows
+
+- The Admin button `加载工程变更方案 (ECN)` (`#btn-load-ecn-proposal`) in `catalog-view.js`
+  provides a generalized entry point for loading batch engineering changes and
+  structural BOM mutations into the AI Assistant.
+- Proposal builders (`src/features/ecn-proposal/`, `src/features/orphan-cleanup/`)
+  produce deterministic, validated mutation batches.
+- Each proposal batch displays clear before/after diffs and requires explicit Admin
+  approval before local state application.
+
 ## Memory and improvement cycle
 
 Personal memory is browser-local, governed, bounded, and subordinate to current

@@ -28,6 +28,8 @@ keeps edits local, and performs an explicit GitHub save only after user action.
 | `src/features/ai-assistant/mutation-engine.js` | Admin proposal transaction, risk, and verification |
 | `src/features/ai-assistant/engineering-drawing-commonality.js` | Evidence-bound drawing analysis |
 | `src/features/ai-assistant/improvement-cycle.js` | Viewer candidate and Admin review workflow |
+| `src/features/ecn-proposal/` | Deterministic Engineering Change Notice (ECN) proposal builders |
+| `src/features/orphan-cleanup/` | Deterministic orphan BOM entry remediation proposal builders |
 | `src/features/material-asset-upload.js` | Pending file validation and resolution |
 | `src/infrastructure/github-sharded-data.js` | Exact shard reads and writer delegation |
 | `src/infrastructure/github-git-data.js` | Atomic Git Data write sequence |

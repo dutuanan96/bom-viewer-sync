@@ -28134,8 +28134,9 @@
         },
         "drawings": [
           {
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@d2872a30f03305061315cfd6bcd41a5d3c5b308a/assets/pdfs/LGS334XHYHLWH_dcfdcb74d1cf9a0b558dddd460aea0e157b64ad29df0cb2134d66a76b4ab0502_LGS334_434_834-_-_.pdf",
-            "name": "LGS334_434_834-底部横杆右-后_组件.pdf"
+            "name": "LGS334_434_834-底部横杆右-后_组件.pdf",
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@f815ccb053f050fd1578c12da4eb16ae5b97350a/assets/pdfs/LGS334XHYHLBH_dcfdcb74d1cf9a0b558dddd460aea0e157b64ad29df0cb2134d66a76b4ab0502_LGS334_434_834-_-_.pdf",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@f815ccb053f050fd1578c12da4eb16ae5b97350a/assets/pdfs/LGS334XHYHLBH_dcfdcb74d1cf9a0b558dddd460aea0e157b64ad29df0cb2134d66a76b4ab0502_LGS334_434_834-_-_.pdf"
           }
         ],
         "models3d": [

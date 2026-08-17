@@ -24,6 +24,27 @@ Read these files before changing this repository:
 - Never commit credentials, API keys, raw prompts, local absolute paths, logs,
   browser profiles, or temporary review output.
 
+## 2D Drawing Asset Management & Single Source of Truth
+
+- Canonical repo drawing assets reside under `drawings/catalog/drawing-<hash>.pdf`
+  and are served through jsDelivr CDN.
+- Shared Google Drive drawings are mounted locally at `G:\My Drive\2D图纸_按LGS分组\`.
+- Any shared materials with identical technical specifications (`name.zh`, `spec.zh`,
+  `material.zh`, `attr.zh`) MUST share the exact same canonical drawing URL.
+- Drawing consistency is strictly enforced by `tests/drawing-consistency.test.mjs`
+  and Section 11 of `scripts/audit-data.mjs`.
+- Automated drawing asset synchronization is driven via `npm run sync:drawings`
+  (`scripts/sync-drawing-assets.mjs`).
+
+## Engineering Change (ECN) & AI Mutation Proposals
+
+- The Admin button `加载工程变更方案 (ECN)` (`#btn-load-ecn-proposal`) serves as the
+  generic gateway for loading, inspecting, and batch-applying engineering change
+  proposals.
+- All AI mutations are structured local proposals requiring explicit Admin approval.
+- Proposal cards must validate data integrity, run token validity, dirty state, and
+  display clear before/after diffs before execution.
+
 ## Extending an AI Admin capability
 
 1. Identify the existing Admin button or domain workflow.
@@ -41,3 +62,4 @@ Read these files before changing this repository:
 
 Do not grant the model a generic code, DOM, filesystem, network-write, or
 GitHub-write tool to imitate an Admin button.
+
