@@ -2832,7 +2832,8 @@ body.pdm-shell {
 }
 
 .bom-table .col-remark {
-  width: 14%;
+  width: 15%;
+  min-width: 130px;
 }
 
 .bom-table.editing .col-qty {
@@ -2889,8 +2890,14 @@ body.pdm-shell {
 
 .bom-table .bom-remark {
   white-space: pre-line;
-  word-break: break-word;
-  overflow-wrap: anywhere;
+  word-break: normal;
+  overflow-wrap: break-word;
+  line-height: 1.45;
+}
+
+.bom-table .bom-remark-token {
+  display: inline-block;
+  white-space: nowrap;
 }
 
 @media (max-width: 1100px) {

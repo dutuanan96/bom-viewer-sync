@@ -391,9 +391,23 @@ function cellHtml(material, field, index) {
   return `<td>${this.highlight(value)}</td>`;
 }
 
+function formatBomRemark(remark, highlightFn) {
+  if (!remark) return '';
+  const lines = String(remark).split('\n');
+  return lines.map((line) => {
+    const parts = line.split(/(包装对象：|规则：|用袋：|合计：|、|；|;|\s\+\s)/g).filter(Boolean);
+    return parts.map((part) => {
+      if (['包装对象：', '规则：', '用袋：', '合计：', '、', '；', ';', ' + '].includes(part)) {
+        return highlightFn(part);
+      }
+      return `<span class="bom-remark-token">${highlightFn(part)}</span>`;
+    }).join('');
+  }).join('\n');
+}
+
 function remarkCellHtml(material) {
   const remark = String(material.remark || '').trim();
-  const content = remark ? this.highlight(remark) : '<span class="mdb-empty">-</span>';
+  const content = remark ? formatBomRemark(remark, this.highlight.bind(this)) : '<span class="mdb-empty">-</span>';
   return `<td class="bom-remark" title="${escapeHTML(remark)}">${content}</td>`;
 }
 
