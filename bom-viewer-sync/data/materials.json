@@ -39140,7 +39140,10 @@
             "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "Cái"
+        }
       },
       "mat_m6gs1515wh": {
         "id": "mat_m6gs1515wh",
@@ -39173,7 +39176,10 @@
             "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8dfe1e2e0aeb4c28fb32d589a2a3464e260ad458/assets/models/M6GS1515WH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "Cái"
+        }
       },
       "mat_m6ylm139": {
         "id": "mat_m6ylm139",
@@ -39234,12 +39240,15 @@
         "drawings": [],
         "models3d": [
           {
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb",
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38.glb",
             "name": "拉铆螺母",
-            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb"
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38.glb"
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "颗",
+          "vi": "Con"
+        }
       },
       "mat_ljp16143": {
         "id": "mat_ljp16143",

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-18T00:30:41.925Z",
+  "updatedAt": "2026-08-18T07:22:58.784Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -133998,6 +133998,43 @@
   },
   "notifications": [
     {
+      "id": "notif_18b49z0",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-18T07:22:58.784Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "M6GS1515BH",
+          "field": "unit",
+          "before": "根",
+          "after": "[object Object]"
+        },
+        {
+          "kind": "material",
+          "code": "M6GS1515WH",
+          "field": "unit",
+          "before": "根",
+          "after": "[object Object]"
+        },
+        {
+          "kind": "material",
+          "code": "M6LMLM",
+          "field": "unit",
+          "before": "根",
+          "after": "[object Object]"
+        },
+        {
+          "kind": "material",
+          "code": "M6LMLM",
+          "field": "models3d",
+          "before": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb",
+          "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38.glb"
+        }
+      ]
+    },
+    {
       "id": "notif_1rmeps6",
       "type": "github-save",
       "actor": "admin",
@@ -134907,33 +134944,49 @@
           "after": "圆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@5676a1fbc873e9095222c1b95fb3b235e8c03dc9/assets/models/M6YLM139_ea2dc3561c993a2825abd6aa0c42dd0d3e481bfa5b4928a589e97fc92074c885_glb"
         }
       ]
-    },
-    {
-      "id": "notif_1jidse2",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-13T09:07:45.516Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS032",
-          "field": "effectiveRevision",
-          "before": "V3",
-          "after": "V3.1"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS032",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
-        }
-      ]
     }
   ],
   "bomHistory": {
     "LGS111": [
+      {
+        "id": "history_nacgo0",
+        "productCode": "LGS111",
+        "revision": "V2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-18T07:22:58.784Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38.glb"
+          }
+        ]
+      },
       {
         "id": "history_1va6bmg",
         "productCode": "LGS111",
@@ -135191,6 +135244,38 @@
       }
     ],
     "LGS231": [
+      {
+        "id": "history_1l8bqh0",
+        "productCode": "LGS231",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-18T07:22:58.784Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38.glb"
+          }
+        ]
+      },
       {
         "id": "history_1qsfocb",
         "productCode": "LGS231",
@@ -135707,6 +135792,45 @@
       }
     ],
     "LGS233": [
+      {
+        "id": "history_g35tbf",
+        "productCode": "LGS233",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-18T07:22:58.784Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38.glb"
+          }
+        ]
+      },
       {
         "id": "history_1wigk6",
         "productCode": "LGS233",
@@ -136663,6 +136787,38 @@
     ],
     "LGS334": [
       {
+        "id": "history_a9uo8g",
+        "productCode": "LGS334",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-18T07:22:58.784Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38.glb"
+          }
+        ]
+      },
+      {
         "id": "history_pyn91d",
         "productCode": "LGS334",
         "revision": "V4.1",
@@ -137176,6 +137332,45 @@
       }
     ],
     "LGS434": [
+      {
+        "id": "history_3z2hgi",
+        "productCode": "LGS434",
+        "revision": "V5.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-18T07:22:58.784Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38.glb"
+          }
+        ]
+      },
       {
         "id": "history_1rkopcj",
         "productCode": "LGS434",
@@ -138218,6 +138413,45 @@
     ],
     "LGS420": [
       {
+        "id": "history_26try9",
+        "productCode": "LGS420",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-18T07:22:58.784Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38.glb"
+          }
+        ]
+      },
+      {
         "id": "history_p9oya5",
         "productCode": "LGS420",
         "revision": "V4",
@@ -138743,6 +138977,38 @@
     ],
     "LGS421": [
       {
+        "id": "history_1nv85o9",
+        "productCode": "LGS421",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-18T07:22:58.784Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38.glb"
+          }
+        ]
+      },
+      {
         "id": "history_sdqol6",
         "productCode": "LGS421",
         "revision": "V4",
@@ -139191,6 +139457,45 @@
       }
     ],
     "LGS333": [
+      {
+        "id": "history_17b04xa",
+        "productCode": "LGS333",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-18T07:22:58.784Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38.glb"
+          }
+        ]
+      },
       {
         "id": "history_1ox1pq3",
         "productCode": "LGS333",
@@ -140086,6 +140391,38 @@
     ],
     "LGS232": [
       {
+        "id": "history_cpx9kn",
+        "productCode": "LGS232",
+        "revision": "V3.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-18T07:22:58.784Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38.glb"
+          }
+        ]
+      },
+      {
         "id": "history_1g5rux7",
         "productCode": "LGS232",
         "revision": "V3.1",
@@ -140773,6 +141110,24 @@
     ],
     "LGS031": [
       {
+        "id": "history_1qrjki8",
+        "productCode": "LGS031",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-18T07:22:58.784Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          }
+        ]
+      },
+      {
         "id": "history_8qkqea",
         "productCode": "LGS031",
         "revision": "V3",
@@ -140912,6 +141267,38 @@
       }
     ],
     "LGS032": [
+      {
+        "id": "history_wtpmat",
+        "productCode": "LGS032",
+        "revision": "V3.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "产品高度变更679mm改为671",
+        "createdAt": "2026-08-18T07:22:58.784Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38.glb"
+          }
+        ]
+      },
       {
         "id": "history_1urc5i1",
         "productCode": "LGS032",
@@ -141371,6 +141758,45 @@
       }
     ],
     "LGS033": [
+      {
+        "id": "history_15k64lh",
+        "productCode": "LGS033",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-18T07:22:58.784Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38.glb"
+          }
+        ]
+      },
       {
         "id": "history_162ixl8",
         "productCode": "LGS033",
@@ -142022,6 +142448,45 @@
     ],
     "LGS101": [
       {
+        "id": "history_9fgetb",
+        "productCode": "LGS101",
+        "revision": "V2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-18T07:22:58.784Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38.glb"
+          }
+        ]
+      },
+      {
         "id": "history_1woziob",
         "productCode": "LGS101",
         "revision": "V2",
@@ -142260,6 +142725,45 @@
       }
     ],
     "LGS131": [
+      {
+        "id": "history_hj6ft6",
+        "productCode": "LGS131",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-18T07:22:58.784Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38.glb"
+          }
+        ]
+      },
       {
         "id": "history_wuin2i",
         "productCode": "LGS131",
@@ -142772,6 +143276,38 @@
     ],
     "LGS132": [
       {
+        "id": "history_1gy3j3c",
+        "productCode": "LGS132",
+        "revision": "V3.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-18T07:22:58.784Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38.glb"
+          }
+        ]
+      },
+      {
         "id": "history_6ogmfo",
         "productCode": "LGS132",
         "revision": "V3.1",
@@ -143256,6 +143792,38 @@
       }
     ],
     "LGS133": [
+      {
+        "id": "history_ly3pot",
+        "productCode": "LGS133",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-18T07:22:58.784Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38.glb"
+          }
+        ]
+      },
       {
         "id": "history_1ys5itd",
         "productCode": "LGS133",
@@ -143774,6 +144342,45 @@
       }
     ],
     "LGS433": [
+      {
+        "id": "history_odjmvl",
+        "productCode": "LGS433",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-18T07:22:58.784Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38.glb"
+          }
+        ]
+      },
       {
         "id": "history_1cqk1e0",
         "productCode": "LGS433",
@@ -144792,6 +145399,45 @@
     ],
     "LGS723": [
       {
+        "id": "history_19q3zfh",
+        "productCode": "LGS723",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-18T07:22:58.784Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38.glb"
+          }
+        ]
+      },
+      {
         "id": "history_ad7iv8",
         "productCode": "LGS723",
         "revision": "V4.1",
@@ -145513,6 +146159,45 @@
       }
     ],
     "LGS733": [
+      {
+        "id": "history_1crrqcq",
+        "productCode": "LGS733",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-18T07:22:58.784Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38.glb"
+          }
+        ]
+      },
       {
         "id": "history_22dwl3",
         "productCode": "LGS733",
@@ -146412,6 +147097,45 @@
     ],
     "LGS833": [
       {
+        "id": "history_od13pp",
+        "productCode": "LGS833",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-18T07:22:58.784Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38.glb"
+          }
+        ]
+      },
+      {
         "id": "history_70wcps",
         "productCode": "LGS833",
         "revision": "V4.1",
@@ -147142,6 +147866,45 @@
       }
     ],
     "LGS834": [
+      {
+        "id": "history_1ueg2sm",
+        "productCode": "LGS834",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-18T07:22:58.784Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "M6LMLM",
+            "field": "models3d",
+            "before": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb",
+            "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38.glb"
+          }
+        ]
+      },
       {
         "id": "history_13fmejj",
         "productCode": "LGS834",
@@ -148038,6 +148801,24 @@
       }
     ],
     "LGS043": [
+      {
+        "id": "history_7pvyr",
+        "productCode": "LGS043",
+        "revision": "V3.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-18T07:22:58.784Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515BH",
+            "field": "unit",
+            "before": "根",
+            "after": "[object Object]"
+          }
+        ]
+      },
       {
         "id": "history_xiqbf9",
         "productCode": "LGS043",
