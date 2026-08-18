@@ -610,16 +610,17 @@ function replaceBomEntryMaterial(payload, entryId, materialId) {
 function updateMaterialRecord(payload, materialId, patch) {
   const record = payload?.materialDb?.materials?.[materialId];
   if (!record || !patch) return null;
-  // Normalize existing unit to bilingual object for compat before merging
+  // Normalize existing unit string → bilingual object before merging
   if (record.unit && typeof record.unit === 'string') {
     record.unit = { zh: record.unit, vi: record.unit };
   }
   ['name', 'spec', 'material', 'color', 'attr', 'unit'].forEach((field) => {
-    if (!patch[field]) return;
-    const existing = record[field] || {};
+    const pf = patch[field];
+    if (!pf || typeof pf !== 'object') return;
+    const existing = (record[field] && typeof record[field] === 'object') ? record[field] : {};
     record[field] = {
-      zh: String(patch[field].zh ?? existing.zh ?? ''),
-      vi: String(patch[field].vi ?? existing.vi ?? patch[field].zh ?? existing.zh ?? '')
+      zh: String(pf.zh ?? existing.zh ?? ''),
+      vi: String(pf.vi ?? existing.vi ?? pf.zh ?? existing.zh ?? '')
     };
   });
   if (Object.prototype.hasOwnProperty.call(patch, 'code')) record.code = String(patch.code || '');

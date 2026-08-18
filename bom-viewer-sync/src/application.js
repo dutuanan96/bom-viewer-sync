@@ -3278,6 +3278,11 @@ class BomApplication {
         this.state.materialDraft.code = input.value.trim();
         return;
       }
+      // Normalize: if field value is a plain string (e.g. legacy unit '个'), convert to bilingual object
+      if (typeof this.state.materialDraft[field] === 'string') {
+        const s = this.state.materialDraft[field];
+        this.state.materialDraft[field] = { zh: s, vi: s };
+      }
       this.state.materialDraft[field] = this.state.materialDraft[field] || {};
       this.state.materialDraft[field][lang] = input.value;
     });
