@@ -50,7 +50,8 @@
               "color_ver": "复古色",
               "color_ver_vi": "màu gỗ cổ",
               "qty": "6",
-              "remark": ""
+              "remark": "",
+              "unit": "只"
             },
             {
               "stt": "2",
@@ -69,7 +70,8 @@
               "color_ver": "复古色",
               "color_ver_vi": "màu gỗ cổ",
               "qty": "6",
-              "remark": ""
+              "remark": "",
+              "unit": "只"
             },
             {
               "stt": "3",
@@ -88,7 +90,8 @@
               "color_ver": "复古色",
               "color_ver_vi": "màu gỗ cổ",
               "qty": "20+2",
-              "remark": ""
+              "remark": "",
+              "unit": "颗"
             },
             {
               "stt": "4",
@@ -107,7 +110,8 @@
               "color_ver": "复古色",
               "color_ver_vi": "màu gỗ cổ",
               "qty": "4+1",
-              "remark": ""
+              "remark": "",
+              "unit": "个"
             },
             {
               "stt": "5",
@@ -126,7 +130,8 @@
               "color_ver": "复古色",
               "color_ver_vi": "màu gỗ cổ",
               "qty": "8+2",
-              "remark": ""
+              "remark": "",
+              "unit": "颗"
             },
             {
               "stt": "6",
@@ -145,7 +150,8 @@
               "color_ver": "复古色",
               "color_ver_vi": "màu gỗ cổ",
               "qty": "12+2",
-              "remark": ""
+              "remark": "",
+              "unit": "颗"
             },
             {
               "stt": "7",
@@ -164,7 +170,8 @@
               "color_ver": "复古色",
               "color_ver_vi": "màu gỗ cổ",
               "qty": "2",
-              "remark": ""
+              "remark": "",
+              "unit": "颗"
             },
             {
               "stt": "8",
@@ -183,7 +190,8 @@
               "color_ver": "复古色",
               "color_ver_vi": "màu gỗ cổ",
               "qty": "2",
-              "remark": ""
+              "remark": "",
+              "unit": "颗"
             },
             {
               "stt": "9",
@@ -202,7 +210,8 @@
               "color_ver": "复古色",
               "color_ver_vi": "màu gỗ cổ",
               "qty": "2",
-              "remark": ""
+              "remark": "",
+              "unit": "颗"
             },
             {
               "stt": "10",
@@ -221,7 +230,8 @@
               "color_ver": "复古色",
               "color_ver_vi": "màu gỗ cổ",
               "qty": "1",
-              "remark": ""
+              "remark": "",
+              "unit": "颗"
             },
             {
               "stt": "11",
@@ -240,7 +250,8 @@
               "color_ver": "复古色",
               "color_ver_vi": "màu gỗ cổ",
               "qty": "1",
-              "remark": ""
+              "remark": "",
+              "unit": "只"
             },
             {
               "stt": "12",
@@ -259,9 +270,11 @@
               "color_ver": "复古色",
               "color_ver_vi": "màu gỗ cổ",
               "qty": "2",
-              "remark": ""
+              "remark": "",
+              "unit": "个"
             }
-          ]
+          ],
+          "unit": "套"
         },
         {
           "stt": "1",
@@ -280,7 +293,8 @@
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
           "qty": "1",
-          "remark": ""
+          "remark": "",
+          "unit": "个"
         },
         {
           "stt": "2",
@@ -299,7 +313,8 @@
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
           "qty": "1",
-          "remark": ""
+          "remark": "",
+          "unit": "块"
         },
         {
           "stt": "3",
@@ -318,7 +333,8 @@
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
           "qty": "1",
-          "remark": ""
+          "remark": "",
+          "unit": "块"
         },
         {
           "stt": "4",
@@ -337,7 +353,8 @@
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
           "qty": "1",
-          "remark": ""
+          "remark": "",
+          "unit": "块"
         },
         {
           "stt": "5",
@@ -356,7 +373,8 @@
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
           "qty": "6",
-          "remark": ""
+          "remark": "",
+          "unit": "根"
         },
         {
           "stt": "6",
@@ -375,7 +393,8 @@
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
           "qty": "6",
-          "remark": ""
+          "remark": "",
+          "unit": "根"
         },
         {
           "stt": "7",
@@ -413,7 +432,8 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "0.25",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             },
             {
               "stt": "",
@@ -432,9 +452,11 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "2",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             }
-          ]
+          ],
+          "unit": "个"
         },
         {
           "stt": "8",
@@ -472,7 +494,8 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "0.25",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             },
             {
               "stt": "",
@@ -491,9 +514,11 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "2",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             }
-          ]
+          ],
+          "unit": "个"
         },
         {
           "stt": "9",
@@ -531,7 +556,8 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "0.045455",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             },
             {
               "stt": "",
@@ -550,7 +576,8 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "2",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             },
             {
               "stt": "",
@@ -569,7 +596,8 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "0.333333",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             },
             {
               "stt": "",
@@ -588,9 +616,11 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "1",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             }
-          ]
+          ],
+          "unit": "个"
         },
         {
           "stt": "10",
@@ -628,7 +658,8 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "0.045455",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             },
             {
               "stt": "",
@@ -647,7 +678,8 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "2",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             },
             {
               "stt": "",
@@ -666,7 +698,8 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "0.333333",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             },
             {
               "stt": "",
@@ -685,9 +718,11 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "1",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             }
-          ]
+          ],
+          "unit": "个"
         },
         {
           "stt": "11",
@@ -725,7 +760,8 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "0.2",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             },
             {
               "stt": "",
@@ -744,7 +780,8 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "3",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             },
             {
               "stt": "",
@@ -763,7 +800,8 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "2",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             },
             {
               "stt": "",
@@ -782,9 +820,11 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "2",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             }
-          ]
+          ],
+          "unit": "根"
         },
         {
           "stt": "12",
@@ -822,7 +862,8 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "0.2",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             },
             {
               "stt": "",
@@ -841,7 +882,8 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "2",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             },
             {
               "stt": "",
@@ -860,7 +902,8 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "2",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             },
             {
               "stt": "",
@@ -879,9 +922,11 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "1",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             }
-          ]
+          ],
+          "unit": "根"
         },
         {
           "stt": "13",
@@ -919,7 +964,8 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "0.0625",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             },
             {
               "stt": "",
@@ -938,9 +984,11 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "2",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             }
-          ]
+          ],
+          "unit": "根"
         },
         {
           "stt": "14",
@@ -978,7 +1026,8 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "1",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             },
             {
               "stt": "",
@@ -997,7 +1046,8 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "1",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             },
             {
               "stt": "",
@@ -1016,7 +1066,8 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "1",
-              "remark": ""
+              "remark": "",
+              "unit": "颗"
             },
             {
               "stt": "",
@@ -1035,9 +1086,11 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "0.006897",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             }
-          ]
+          ],
+          "unit": "个"
         },
         {
           "stt": "15",
@@ -1056,7 +1109,8 @@
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
           "qty": "2",
-          "remark": ""
+          "remark": "",
+          "unit": "根"
         },
         {
           "stt": "16",
@@ -1075,7 +1129,8 @@
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
           "qty": "6",
-          "remark": "6个 = 2包×3个装"
+          "remark": "6个 = 2包×3个装",
+          "unit": "个"
         },
         {
           "stt": "17",
@@ -1094,7 +1149,8 @@
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
           "qty": "6",
-          "remark": "6个 = 1包×6个装"
+          "remark": "6个 = 1包×6个装",
+          "unit": "块"
         },
         {
           "stt": "18",
@@ -1113,7 +1169,8 @@
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
           "qty": "1",
-          "remark": ""
+          "remark": "",
+          "unit": "根"
         },
         {
           "stt": "19",
@@ -1132,7 +1189,8 @@
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
           "qty": "5",
-          "remark": ""
+          "remark": "",
+          "unit": "根"
         },
         {
           "stt": "1",
@@ -1151,7 +1209,8 @@
           "color_ver": "复古色",
           "color_ver_vi": "复古色",
           "qty": "1",
-          "remark": ""
+          "remark": "",
+          "unit": "个"
         },
         {
           "stt": "2",
@@ -1170,7 +1229,8 @@
           "color_ver": "复古色",
           "color_ver_vi": "复古色",
           "qty": "4",
-          "remark": ""
+          "remark": "",
+          "unit": "个"
         },
         {
           "stt": "3",
@@ -1189,7 +1249,8 @@
           "color_ver": "复古色",
           "color_ver_vi": "复古色",
           "qty": "2",
-          "remark": ""
+          "remark": "",
+          "unit": "张"
         },
         {
           "stt": "4",
@@ -1208,7 +1269,8 @@
           "color_ver": "复古色",
           "color_ver_vi": "复古色",
           "qty": "2",
-          "remark": ""
+          "remark": "",
+          "unit": "块"
         },
         {
           "stt": "5",
@@ -1227,7 +1289,8 @@
           "color_ver": "复古色",
           "color_ver_vi": "复古色",
           "qty": "2",
-          "remark": ""
+          "remark": "",
+          "unit": "块"
         },
         {
           "stt": "6",
@@ -1246,7 +1309,8 @@
           "color_ver": "复古色",
           "color_ver_vi": "复古色",
           "qty": "12",
-          "remark": ""
+          "remark": "",
+          "unit": "个"
         },
         {
           "stt": "7",
@@ -1265,7 +1329,8 @@
           "color_ver": "复古色",
           "color_ver_vi": "复古色",
           "qty": "1",
-          "remark": ""
+          "remark": "",
+          "unit": "本"
         },
         {
           "stt": "8",
@@ -1284,7 +1349,8 @@
           "color_ver": "复古色",
           "color_ver_vi": "复古色",
           "qty": "1",
-          "remark": ""
+          "remark": "",
+          "unit": "张"
         },
         {
           "stt": "9",
@@ -1303,7 +1369,8 @@
           "color_ver": "复古色",
           "color_ver_vi": "复古色",
           "qty": "1",
-          "remark": ""
+          "remark": "",
+          "unit": "张"
         },
         {
           "stt": "10",
@@ -1322,7 +1389,8 @@
           "color_ver": "复古色",
           "color_ver_vi": "复古色",
           "qty": "1",
-          "remark": ""
+          "remark": "",
+          "unit": "张"
         },
         {
           "stt": "11",
@@ -1341,7 +1409,8 @@
           "color_ver": "复古色",
           "color_ver_vi": "复古色",
           "qty": "1",
-          "remark": ""
+          "remark": "",
+          "unit": "张"
         },
         {
           "stt": "",
@@ -1360,7 +1429,8 @@
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
           "qty": "4",
-          "remark": "包装对象：LGS032ZZKBH×1、LGS032YZKBH×1、LGS032ZKBH647×1、LGS032YKBH647×1\n规则：1件/袋；用袋：4袋"
+          "remark": "包装对象：LGS032ZZKBH×1、LGS032YZKBH×1、LGS032ZKBH647×1、LGS032YKBH647×1\n规则：1件/袋；用袋：4袋",
+          "unit": "个"
         },
         {
           "stt": "",
@@ -1379,7 +1449,8 @@
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
           "qty": "1",
-          "remark": "包装对象：LGS032XHLBH×1、LGS032XQHLBH×1\n规则：2件/袋；用袋：1袋"
+          "remark": "包装对象：LGS032XHLBH×1、LGS032XQHLBH×1\n规则：2件/袋；用袋：1袋",
+          "unit": "个"
         },
         {
           "stt": "",
@@ -1398,7 +1469,8 @@
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
           "qty": "1",
-          "remark": "包装对象：LGS032SHLBH×2\n规则：2件/袋；用袋：1袋"
+          "remark": "包装对象：LGS032SHLBH×2\n规则：2件/袋；用袋：1袋",
+          "unit": "个"
         }
       ]
     },
@@ -1447,7 +1519,8 @@
               "color_ver": "黑色",
               "color_ver_vi": "màu đen",
               "qty": "6",
-              "remark": ""
+              "remark": "",
+              "unit": "只"
             },
             {
               "stt": "2",
@@ -1466,7 +1539,8 @@
               "color_ver": "黑色",
               "color_ver_vi": "màu đen",
               "qty": "6",
-              "remark": ""
+              "remark": "",
+              "unit": "只"
             },
             {
               "stt": "3",
@@ -1485,7 +1559,8 @@
               "color_ver": "黑色",
               "color_ver_vi": "màu đen",
               "qty": "20+2",
-              "remark": ""
+              "remark": "",
+              "unit": "颗"
             },
             {
               "stt": "4",
@@ -1504,7 +1579,8 @@
               "color_ver": "黑色",
               "color_ver_vi": "màu đen",
               "qty": "4+1",
-              "remark": ""
+              "remark": "",
+              "unit": "个"
             },
             {
               "stt": "5",
@@ -1523,7 +1599,8 @@
               "color_ver": "黑色",
               "color_ver_vi": "màu đen",
               "qty": "8+2",
-              "remark": ""
+              "remark": "",
+              "unit": "颗"
             },
             {
               "stt": "6",
@@ -1542,7 +1619,8 @@
               "color_ver": "黑色",
               "color_ver_vi": "màu đen",
               "qty": "12+2",
-              "remark": ""
+              "remark": "",
+              "unit": "颗"
             },
             {
               "stt": "7",
@@ -1561,7 +1639,8 @@
               "color_ver": "黑色",
               "color_ver_vi": "màu đen",
               "qty": "2",
-              "remark": ""
+              "remark": "",
+              "unit": "颗"
             },
             {
               "stt": "8",
@@ -1580,7 +1659,8 @@
               "color_ver": "黑色",
               "color_ver_vi": "màu đen",
               "qty": "2",
-              "remark": ""
+              "remark": "",
+              "unit": "颗"
             },
             {
               "stt": "9",
@@ -1599,7 +1679,8 @@
               "color_ver": "黑色",
               "color_ver_vi": "màu đen",
               "qty": "2",
-              "remark": ""
+              "remark": "",
+              "unit": "颗"
             },
             {
               "stt": "10",
@@ -1618,7 +1699,8 @@
               "color_ver": "黑色",
               "color_ver_vi": "màu đen",
               "qty": "1",
-              "remark": ""
+              "remark": "",
+              "unit": "颗"
             },
             {
               "stt": "11",
@@ -1637,7 +1719,8 @@
               "color_ver": "黑色",
               "color_ver_vi": "màu đen",
               "qty": "1",
-              "remark": ""
+              "remark": "",
+              "unit": "只"
             },
             {
               "stt": "12",
@@ -1656,9 +1739,11 @@
               "color_ver": "黑色",
               "color_ver_vi": "màu đen",
               "qty": "2",
-              "remark": ""
+              "remark": "",
+              "unit": "个"
             }
-          ]
+          ],
+          "unit": "套"
         },
         {
           "stt": "1",
@@ -1677,7 +1762,8 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "1",
-          "remark": ""
+          "remark": "",
+          "unit": "个"
         },
         {
           "stt": "2",
@@ -1696,7 +1782,8 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "1",
-          "remark": ""
+          "remark": "",
+          "unit": "块"
         },
         {
           "stt": "3",
@@ -1715,7 +1802,8 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "1",
-          "remark": ""
+          "remark": "",
+          "unit": "块"
         },
         {
           "stt": "4",
@@ -1734,7 +1822,8 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "1",
-          "remark": ""
+          "remark": "",
+          "unit": "块"
         },
         {
           "stt": "5",
@@ -1753,7 +1842,8 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "6",
-          "remark": ""
+          "remark": "",
+          "unit": "根"
         },
         {
           "stt": "6",
@@ -1772,7 +1862,8 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "6",
-          "remark": ""
+          "remark": "",
+          "unit": "根"
         },
         {
           "stt": "7",
@@ -1810,7 +1901,8 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "0.25",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             },
             {
               "stt": "",
@@ -1829,9 +1921,11 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "2",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             }
-          ]
+          ],
+          "unit": "个"
         },
         {
           "stt": "8",
@@ -1869,7 +1963,8 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "0.25",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             },
             {
               "stt": "",
@@ -1888,9 +1983,11 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "2",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             }
-          ]
+          ],
+          "unit": "个"
         },
         {
           "stt": "9",
@@ -1928,7 +2025,8 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "0.045455",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             },
             {
               "stt": "",
@@ -1947,7 +2045,8 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "2",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             },
             {
               "stt": "",
@@ -1966,7 +2065,8 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "0.333333",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             },
             {
               "stt": "",
@@ -1985,9 +2085,11 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "1",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             }
-          ]
+          ],
+          "unit": "个"
         },
         {
           "stt": "10",
@@ -2025,7 +2127,8 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "0.045455",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             },
             {
               "stt": "",
@@ -2044,7 +2147,8 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "2",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             },
             {
               "stt": "",
@@ -2063,7 +2167,8 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "0.333333",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             },
             {
               "stt": "",
@@ -2082,9 +2187,11 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "1",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             }
-          ]
+          ],
+          "unit": "个"
         },
         {
           "stt": "11",
@@ -2122,7 +2229,8 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "0.2",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             },
             {
               "stt": "",
@@ -2141,7 +2249,8 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "3",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             },
             {
               "stt": "",
@@ -2160,7 +2269,8 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "2",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             },
             {
               "stt": "",
@@ -2179,9 +2289,11 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "2",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             }
-          ]
+          ],
+          "unit": "根"
         },
         {
           "stt": "12",
@@ -2219,7 +2331,8 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "0.2",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             },
             {
               "stt": "",
@@ -2238,7 +2351,8 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "2",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             },
             {
               "stt": "",
@@ -2257,7 +2371,8 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "2",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             },
             {
               "stt": "",
@@ -2276,9 +2391,11 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "1",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             }
-          ]
+          ],
+          "unit": "根"
         },
         {
           "stt": "13",
@@ -2316,7 +2433,8 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "0.0625",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             },
             {
               "stt": "",
@@ -2335,9 +2453,11 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "2",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             }
-          ]
+          ],
+          "unit": "根"
         },
         {
           "stt": "14",
@@ -2375,7 +2495,8 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "1",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             },
             {
               "stt": "",
@@ -2394,7 +2515,8 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "1",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             },
             {
               "stt": "",
@@ -2413,7 +2535,8 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "1",
-              "remark": ""
+              "remark": "",
+              "unit": "颗"
             },
             {
               "stt": "",
@@ -2432,9 +2555,11 @@
               "color_ver": "",
               "color_ver_vi": "",
               "qty": "0.006897",
-              "remark": ""
+              "remark": "",
+              "unit": "根"
             }
-          ]
+          ],
+          "unit": "个"
         },
         {
           "stt": "15",
@@ -2453,7 +2578,8 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "2",
-          "remark": ""
+          "remark": "",
+          "unit": "根"
         },
         {
           "stt": "16",
@@ -2472,7 +2598,8 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "6",
-          "remark": "6个 = 2包×3个装"
+          "remark": "6个 = 2包×3个装",
+          "unit": "个"
         },
         {
           "stt": "17",
@@ -2491,7 +2618,8 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "6",
-          "remark": "6个 = 1包×6个装"
+          "remark": "6个 = 1包×6个装",
+          "unit": "块"
         },
         {
           "stt": "18",
@@ -2510,7 +2638,8 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "1",
-          "remark": ""
+          "remark": "",
+          "unit": "根"
         },
         {
           "stt": "19",
@@ -2529,7 +2658,8 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "5",
-          "remark": ""
+          "remark": "",
+          "unit": "根"
         },
         {
           "stt": "1",
@@ -2548,7 +2678,8 @@
           "color_ver": "黑色",
           "color_ver_vi": "黑色",
           "qty": "1",
-          "remark": ""
+          "remark": "",
+          "unit": "个"
         },
         {
           "stt": "2",
@@ -2567,7 +2698,8 @@
           "color_ver": "黑色",
           "color_ver_vi": "黑色",
           "qty": "4",
-          "remark": ""
+          "remark": "",
+          "unit": "个"
         },
         {
           "stt": "3",
@@ -2586,7 +2718,8 @@
           "color_ver": "黑色",
           "color_ver_vi": "黑色",
           "qty": "2",
-          "remark": ""
+          "remark": "",
+          "unit": "张"
         },
         {
           "stt": "4",
@@ -2605,7 +2738,8 @@
           "color_ver": "黑色",
           "color_ver_vi": "黑色",
           "qty": "2",
-          "remark": ""
+          "remark": "",
+          "unit": "块"
         },
         {
           "stt": "5",
@@ -2624,7 +2758,8 @@
           "color_ver": "黑色",
           "color_ver_vi": "黑色",
           "qty": "2",
-          "remark": ""
+          "remark": "",
+          "unit": "块"
         },
         {
           "stt": "6",
@@ -2643,7 +2778,8 @@
           "color_ver": "黑色",
           "color_ver_vi": "黑色",
           "qty": "12",
-          "remark": ""
+          "remark": "",
+          "unit": "个"
         },
         {
           "stt": "7",
@@ -2662,7 +2798,8 @@
           "color_ver": "黑色",
           "color_ver_vi": "黑色",
           "qty": "1",
-          "remark": ""
+          "remark": "",
+          "unit": "本"
         },
         {
           "stt": "8",
@@ -2681,7 +2818,8 @@
           "color_ver": "黑色",
           "color_ver_vi": "黑色",
           "qty": "1",
-          "remark": ""
+          "remark": "",
+          "unit": "张"
         },
         {
           "stt": "9",
@@ -2700,7 +2838,8 @@
           "color_ver": "黑色",
           "color_ver_vi": "黑色",
           "qty": "1",
-          "remark": ""
+          "remark": "",
+          "unit": "张"
         },
         {
           "stt": "10",
@@ -2719,7 +2858,8 @@
           "color_ver": "黑色",
           "color_ver_vi": "黑色",
           "qty": "1",
-          "remark": ""
+          "remark": "",
+          "unit": "张"
         },
         {
           "stt": "11",
@@ -2738,7 +2878,8 @@
           "color_ver": "黑色",
           "color_ver_vi": "黑色",
           "qty": "1",
-          "remark": ""
+          "remark": "",
+          "unit": "张"
         },
         {
           "stt": "",
@@ -2757,7 +2898,8 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "4",
-          "remark": "包装对象：LGS032ZZKBH×1、LGS032YZKBH×1、LGS032ZKBH647×1、LGS032YKBH647×1\n规则：1件/袋；用袋：4袋"
+          "remark": "包装对象：LGS032ZZKBH×1、LGS032YZKBH×1、LGS032ZKBH647×1、LGS032YKBH647×1\n规则：1件/袋；用袋：4袋",
+          "unit": "个"
         },
         {
           "stt": "",
@@ -2776,7 +2918,8 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "1",
-          "remark": "包装对象：LGS032XHLBH×1、LGS032XQHLBH×1\n规则：2件/袋；用袋：1袋"
+          "remark": "包装对象：LGS032XHLBH×1、LGS032XQHLBH×1\n规则：2件/袋；用袋：1袋",
+          "unit": "个"
         },
         {
           "stt": "",
@@ -2795,7 +2938,8 @@
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
           "qty": "1",
-          "remark": "包装对象：LGS032SHLBH×2\n规则：2件/袋；用袋：1袋"
+          "remark": "包装对象：LGS032SHLBH×2\n规则：2件/袋；用袋：1袋",
+          "unit": "个"
         }
       ]
     }

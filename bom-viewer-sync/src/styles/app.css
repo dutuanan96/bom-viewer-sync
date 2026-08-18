@@ -903,6 +903,19 @@ tr:last-child td {
   white-space: nowrap;
 }
 
+/* Unit badge */
+.bom-unit {
+  display: inline-block;
+  font-size: 0.82em;
+  font-weight: 500;
+  color: var(--color-text-muted, #6b7280);
+  background: var(--color-surface-2, rgba(0,0,0,0.06));
+  border-radius: 4px;
+  padding: 1px 5px;
+  text-align: center;
+  white-space: nowrap;
+}
+
 .drawing-cell {
   min-width: 0;
 }
@@ -2825,6 +2838,12 @@ body.pdm-shell {
 
 .bom-table .col-attr {
   width: 6%;
+}
+
+.bom-table .col-unit {
+  width: 4%;
+  min-width: 40px;
+  text-align: center;
 }
 
 .bom-table .col-qty {

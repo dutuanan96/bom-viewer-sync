@@ -72,6 +72,57 @@ function seedAsset(target, ...assetGroups) {
   }
 }
 
+function inferMaterialUnit(recordOrMaterial) {
+  const explicitUnit = recordOrMaterial?.unit;
+  if (explicitUnit && typeof explicitUnit === 'string' && explicitUnit.trim()) {
+    return explicitUnit.trim();
+  }
+
+  const attr = String(
+    recordOrMaterial?.attr?.zh ||
+    recordOrMaterial?.attr_zh ||
+    recordOrMaterial?.attr ||
+    ''
+  ).trim();
+
+  const name = String(
+    recordOrMaterial?.name?.zh ||
+    recordOrMaterial?.name_zh ||
+    recordOrMaterial?.name ||
+    ''
+  ).toLowerCase();
+
+  // --- 原材料 group ---
+  if (attr === '原材料') return '根';
+
+  // --- 五金包 group (hardware bag items) ---
+  if (attr === '五金包') {
+    if (/螺丝|螺钉|自攻|螺母|铆钉/.test(name)) return '颗';
+    if (/脚|把手|扳手|螺丝刀/.test(name)) return '只';
+    return '个';
+  }
+
+  // --- 包材 group (packaging) ---
+  if (attr === '包材') {
+    if (/泡沫|海绵|垫片板|发泡/.test(name)) return '块';
+    if (/说明书|手册/.test(name)) return '本';
+    if (/纸卡|警告标|产地标|序号标|贴纸|标签/.test(name) && !/护角/.test(name)) return '张';
+    return '个';
+  }
+
+  // --- 零件 group (parts) ---
+  if (attr === '零件') {
+    if (/五金包|铁件|工具包|配件包/.test(name)) return '套';
+    if (/螺丝|螺钉|自攻螺/.test(name)) return '颗';
+    if (/扳手|螺丝刀/.test(name)) return '只';
+    if (/板|泡沫|海绵/.test(name) && !/横梁|后梁|前梁/.test(name)) return '块';
+    if (/横梁|竖梁|拉杆|杆|灯带|管|撑|线|导轨|条/.test(name)) return '根';
+    return '个';
+  }
+
+  return '个';
+}
+
 function materialRecordFromLegacy(material, productCode) {
   const canonical = canonicalLegacyMaterial(material, productCode);
   const id = materialIdFor(canonical, productCode);
@@ -83,6 +134,7 @@ function materialRecordFromLegacy(material, productCode) {
     material: localizedPair(canonical.material_zh, canonical.material_vi),
     color: localizedPair(canonical.color_zh, canonical.color_vi),
     attr: localizedPair(canonical.attr_zh, canonical.attr_vi),
+    unit: String(canonical.unit || inferMaterialUnit(canonical) || ''),
     drawings: [],
     models3d: []
   };
@@ -112,6 +164,7 @@ function legacyRowFromRecord(record, entry) {
     attr_vi: record.attr?.vi || record.attr?.zh || '',
     color_ver: entry.color_ver || '',
     color_ver_vi: entry.color_ver_vi || entry.color_ver || '',
+    unit: record.unit || inferMaterialUnit(record) || '',
     qty: entry.qty || '',
     remark: entry.remark || '',
     _materialId: record.id,
@@ -343,7 +396,11 @@ function createMaterialDatabase(payload) {
 
 function normalizeMaterialDatabase(payload) {
   if (payload?.materialDb?.materials && payload?.materialDb?.bomEntries) {
-    return clone(payload.materialDb);
+    const db = clone(payload.materialDb);
+    for (const record of Object.values(db.materials || {})) {
+      if (!record.unit) record.unit = inferMaterialUnit(record);
+    }
+    return db;
   }
   return createMaterialDatabase(payload);
 }
@@ -659,6 +716,7 @@ export {
   queryMatches,
   isHardwarePackSummary,
   legacyRowFromRecord,
+  inferMaterialUnit,
   uniqueValues,
   findBomAssetEntry,
   findBomAssets,

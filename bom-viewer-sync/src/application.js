@@ -3,6 +3,7 @@ import {
   createMaterialDatabase,
   filterMaterials,
   findBomAssets,
+  inferMaterialUnit,
   isHardwarePackSummary,
   localizedValue,
   materialText,
@@ -175,7 +176,7 @@ const TEXT = {
     emptyText: '点击左侧产品或使用搜索',
     noResultTitle: '没有找到结果',
     noResultText: '请调整筛选条件或搜索词',
-    headers: ['序号', '物料编码', '部件编号', '物料名称', '规格型号', '材质', '颜色', '属性', '数量', '2D 图纸'],
+    headers: ['序号', '物料编码', '部件编号', '物料名称', '规格型号', '材质', '颜色', '属性', '单位', '用量', '2D 图纸'],
     sidebarTitle: 'PDM 导航',
     sidebarProductGroup: '产品',
     sidebarParentGroup: '父项物料',
@@ -578,7 +579,7 @@ const TEXT = {
     emptyText: 'Click sản phẩm bên trái hoặc tìm kiếm',
     noResultTitle: 'Không tìm thấy',
     noResultText: 'Thử đổi bộ lọc hoặc từ khóa tìm kiếm',
-    headers: ['STT', 'Mã VL', 'Mã linh kiện', 'Tên vật liệu', 'Quy cách', 'Chất liệu', 'Màu', 'Thuộc tính', 'SL', 'Bản vẽ 2D'],
+    headers: ['STT', 'Mã VL', 'Mã linh kiện', 'Tên vật liệu', 'Quy cách', 'Chất liệu', 'Màu', 'Thuộc tính', 'Đơn vị', 'Định mức', 'Bản vẽ 2D'],
     sidebarTitle: 'Điều hướng PDM',
     sidebarProductGroup: 'Sản phẩm',
     sidebarParentGroup: 'Vật liệu cha',
@@ -999,7 +1000,8 @@ Object.assign(TEXT.zh, {
   editRow: '编辑行',
   bomRowUpdated: 'BOM 行已更新，请保存更改',
     bomCompCode: '部件编号',
-    bomQty: '数量',
+    bomUnit: '单位',
+    bomQty: '用量',
     bomRemark: '备注',
   createRevision: '新建版本',
   currentRevision: '当前版本',
@@ -1165,7 +1167,8 @@ Object.assign(TEXT.vi, {
   editRow: 'Sửa dòng',
   bomRowUpdated: 'Đã cập nhật dòng BOM, hãy lưu thay đổi',
     bomCompCode: 'Mã linh kiện',
-    bomQty: 'Số lượng',
+    bomUnit: 'Đơn vị',
+    bomQty: 'Định mức',
     bomRemark: 'Ghi chú',
   createRevision: 'Tạo phiên bản',
   currentRevision: 'Phiên bản hiện tại',
@@ -4209,14 +4212,32 @@ class BomApplication {
   }
 
   rowsForExport() {
-    const rows = [['层级', '物料编码', '部件编号', '物料名称', '规格型号', '材质', '颜色', '属性', '数量']];
+    // Product context header block
+    const colorData = this.colorData();
+    const sku = colorData?.sku || this.state.currentSku || '';
+    const spu = this.state.currentSku || '';
+    const colorName = this.state.currentColor || colorData?.color_ver || '';
+    const size = colorData?.size || '';
+    const productName = colorData ? this.localizedProductName(colorData) : '';
+    const lang = this.state.lang;
+    const headerLabel = (zh, vi) => lang === 'vi' ? vi : zh;
+    const productRows = [
+      [headerLabel('SPU', 'SPU'), spu, headerLabel('SKU', 'SKU'), sku],
+      [headerLabel('产品名称', 'Tên sản phẩm'), productName],
+      [headerLabel('规格', 'Kích thước'), size, headerLabel('颜色', 'Màu sắc'), colorName],
+      [],
+    ];
+    const colHeader = ['层级', '物料编码', '部件编号', '物料名称', '规格型号', '材质', '颜色', '属性', '单位', '用量'];
+    const dataRows = [];
     this.filteredRows().forEach((material) => {
-      rows.push([material._level || 1, material.mat_code || '', material.comp_code || '', materialText(material, 'name', this.state.lang),
-      materialText(material, 'spec', this.state.lang), materialText(material, 'material', this.state.lang),
-      materialText(material, 'color', this.state.lang), materialText(material, 'attr', this.state.lang),
-      material._effectiveQty || material.qty || '']);
+      dataRows.push([material._level || 1, material.mat_code || '', material.comp_code || '',
+        materialText(material, 'name', lang), materialText(material, 'spec', lang),
+        materialText(material, 'material', lang), materialText(material, 'color', lang),
+        materialText(material, 'attr', lang),
+        material.unit || material._materialRecord?.unit || this.state.materialDb?.materials?.[material._materialId]?.unit || inferMaterialUnit(material._materialRecord || material) || '',
+        material._effectiveQty || material.qty || '']);
     });
-    return rows;
+    return [...productRows, colHeader, ...dataRows];
   }
 
   copyTable() {
@@ -4245,7 +4266,10 @@ class BomApplication {
       filename = `MaterialDB_${this.state.lang}_${this.state.searchQuery || 'all'}.xlsx`;
     } else {
       rows = this.rowsForExport();
-      filename = `BOM_${this.state.currentSku}_${this.state.currentColor}_${this.state.lang}.xlsx`;
+      const colorData = this.colorData();
+      const sku = colorData?.sku || this.state.currentSku || '';
+      const colorName = this.state.currentColor || colorData?.color_ver || '';
+      filename = `BOM_${sku}_${colorName}_${this.state.lang}.xlsx`;
     }
     const ws = XLSX.utils.aoa_to_sheet(rows);
     // Auto-width columns
@@ -4256,7 +4280,7 @@ class BomApplication {
     });
     ws['!cols'] = colWidths.map((w) => ({ wch: w }));
     const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, 'Materials');
+    XLSX.utils.book_append_sheet(wb, ws, this.state.adminView === 'materials' ? 'Materials' : 'BOM');
     XLSX.writeFile(wb, filename);
     this.setStatus(this.label('exportExcel') + ' ✓', 'saved');
   }

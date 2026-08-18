@@ -359,10 +359,16 @@ function payloadForProductRevision(payload, productCode, selectedRevision) {
     const snapshotProductEntries = (snapshot.materialDb.bomEntries || []).filter((e) => e.parentType === 'product');
     
     snapshot.materialDb.bomEntries = [...snapshotProductEntries, ...globalMaterialEntries];
-    snapshot.materialDb.materials = {
+    const mergedMaterials = {
       ...payload.materialDb.materials,
       ...(snapshot.materialDb.materials || {})
     };
+    for (const [id, m] of Object.entries(mergedMaterials)) {
+      if (!m.unit && payload.materialDb.materials?.[id]?.unit) {
+        m.unit = payload.materialDb.materials[id].unit;
+      }
+    }
+    snapshot.materialDb.materials = mergedMaterials;
   }
 
   return {

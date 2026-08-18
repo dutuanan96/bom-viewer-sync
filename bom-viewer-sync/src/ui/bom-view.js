@@ -1,5 +1,6 @@
 import {
   filterMaterials,
+  inferMaterialUnit,
   localizedValue,
   materialText,
   materialWhereUsed,
@@ -30,6 +31,7 @@ function bomInspectorHtml() {
   const selected = this.selectedBomRow();
   if (!selected) return this.productInspectorHtml();
   const name = materialText(selected, 'name', this.state.lang);
+  const unit = selected.unit || selected._materialRecord?.unit || inferMaterialUnit(selected._materialRecord || selected) || '-';
   return `<div class="inspector-header">
     <span class="eyebrow">${escapeHTML(this.label('selectedBomRow'))}</span>
     <h2>${escapeHTML(selected.mat_code || this.label('noSelection'))}</h2>
@@ -38,7 +40,8 @@ function bomInspectorHtml() {
   <div class="inspector-section">
     ${this.inspectorField(this.label('headers')[2], selected.comp_code || '-')}
     ${this.inspectorField(this.label('headers')[4], materialText(selected, 'spec', this.state.lang) || '-')}
-    ${this.inspectorField(this.label('headers')[8], selected._effectiveQty || selected.qty || '-')}
+    ${this.inspectorField(this.label('bomUnit'), unit)}
+    ${this.inspectorField(this.label('bomQty'), selected._effectiveQty || selected.qty || '-')}
     ${this.inspectorField(this.label('headers')[7], materialText(selected, 'attr', this.state.lang) || '-')}
   </div>
   ${this.replaceControlHtml(selected)}
@@ -239,6 +242,7 @@ function tableColgroupHtml() {
     <col class="col-material">
     <col class="col-color">
     <col class="col-attr">
+    <col class="col-unit">
     <col class="col-qty">
     <col class="col-remark">
     <col class="col-2d">
@@ -317,11 +321,12 @@ function tableHeadHtml() {
     ['material', headers[5]],
     ['color', headers[6]],
     ['attr', headers[7]],
-    ['qty', headers[8]],
+    ['unit', headers[8]],
+    ['qty', headers[9]],
     ['remark', this.label('bomRemark')]
   ].map(([col, label]) => `<th><button class="th-button" type="button" data-sort="${col}">${escapeHTML(label)} ${this.sortIcon(col)}</button></th>`);
-  const editAction = this.canEditProductRevision() && this.state.editMode ? '<th>\u64cd\u4f5c</th>' : '';
-  return `<tr>${sortable.join('')}<th>${escapeHTML(headers[9])}</th><th>3D</th>${editAction}</tr>`;
+  const editAction = this.canEditProductRevision() && this.state.editMode ? '<th>操作</th>' : '';
+  return `<tr>${sortable.join('')}<th>${escapeHTML(headers[10])}</th><th>3D</th>${editAction}</tr>`;
 }
 
 function rowHtml(material, index) {
@@ -357,6 +362,7 @@ function rowHtml(material, index) {
     ${this.cellHtml(material, 'material', index)}
     ${this.cellHtml(material, 'color', index)}
     ${this.cellHtml(material, 'attr', index)}
+    ${this.unitCellHtml(material)}
     ${this.cellHtml(material, 'qty', index)}
     ${this.remarkCellHtml(material)}
     <td class="drawing-cell">${this.drawingCellHtml(material, index)}</td>
@@ -409,6 +415,18 @@ function remarkCellHtml(material) {
   const remark = String(material.remark || '').trim();
   const content = remark ? formatBomRemark(remark, this.highlight.bind(this)) : '<span class="mdb-empty">-</span>';
   return `<td class="bom-remark" title="${escapeHTML(remark)}">${content}</td>`;
+}
+
+function unitCellHtml(material) {
+  const unit = String(
+    material.unit ||
+    material._materialRecord?.unit ||
+    this.state.materialDb?.materials?.[material._materialId]?.unit ||
+    inferMaterialUnit(material._materialRecord || material) ||
+    ''
+  ).trim();
+  if (!unit) return '<td><span class="mdb-empty">-</span></td>';
+  return `<td><span class="bom-unit">${escapeHTML(unit)}</span></td>`;
 }
 
 function renderAttrBadge(attrValue) {
@@ -537,6 +555,7 @@ export const bomViewMethods = {
   materialStackCellHtml,
   cellHtml,
   remarkCellHtml,
+  unitCellHtml,
   renderAttrBadge,
   renderColorDot,
   editInput,

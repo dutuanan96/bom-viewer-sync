@@ -13012,7 +13012,8 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "套"
       },
       "mat_gm18ar": {
         "id": "mat_gm18ar",
@@ -13047,7 +13048,8 @@
             "score": 1100,
             "bytes": 466004
           }
-        ]
+        ],
+        "unit": "只"
       },
       "mat_vz636a": {
         "id": "mat_vz636a",
@@ -13090,7 +13092,8 @@
             "score": 1300,
             "bytes": 1007376
           }
-        ]
+        ],
+        "unit": "只"
       },
       "mat_1112bk6": {
         "id": "mat_1112bk6",
@@ -13125,7 +13128,8 @@
             "score": 1100,
             "bytes": 392404
           }
-        ]
+        ],
+        "unit": "颗"
       },
       "mat_1xlo8bk": {
         "id": "mat_1xlo8bk",
@@ -13160,7 +13164,8 @@
             "score": 1100,
             "bytes": 235852
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_6zvz0v": {
         "id": "mat_6zvz0v",
@@ -13201,7 +13206,8 @@
             "name": "M6x12内六角螺丝",
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
           }
-        ]
+        ],
+        "unit": "颗"
       },
       "mat_1bb87nh": {
         "id": "mat_1bb87nh",
@@ -13236,7 +13242,8 @@
             "score": 1100,
             "bytes": 445256
           }
-        ]
+        ],
+        "unit": "颗"
       },
       "mat_1cjiqmc": {
         "id": "mat_1cjiqmc",
@@ -13271,7 +13278,8 @@
             "score": 1100,
             "bytes": 325680
           }
-        ]
+        ],
+        "unit": "颗"
       },
       "mat_3cqqc3": {
         "id": "mat_3cqqc3",
@@ -13306,7 +13314,8 @@
             "score": 1100,
             "bytes": 107900
           }
-        ]
+        ],
+        "unit": "颗"
       },
       "mat_qqu0zl": {
         "id": "mat_qqu0zl",
@@ -13341,7 +13350,8 @@
             "score": 1100,
             "bytes": 569836
           }
-        ]
+        ],
+        "unit": "颗"
       },
       "mat_1atkf4g": {
         "id": "mat_1atkf4g",
@@ -13376,7 +13386,8 @@
             "score": 1100,
             "bytes": 192696
           }
-        ]
+        ],
+        "unit": "颗"
       },
       "mat_1h3f36d": {
         "id": "mat_1h3f36d",
@@ -13411,7 +13422,8 @@
             "score": 1100,
             "bytes": 9560
           }
-        ]
+        ],
+        "unit": "只"
       },
       "mat_1a142pp": {
         "id": "mat_1a142pp",
@@ -13446,7 +13458,8 @@
             "score": 1100,
             "bytes": 1230356
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1obgiqc": {
         "id": "mat_1obgiqc",
@@ -13489,7 +13502,8 @@
             "score": 1300,
             "bytes": 67980
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_60k6bf": {
         "id": "mat_60k6bf",
@@ -13524,7 +13538,8 @@
             "score": 1100,
             "bytes": 3421116
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_47zmys": {
         "id": "mat_47zmys",
@@ -13560,7 +13575,8 @@
             "bytes": 23472
           }
         ],
-        "spec_vi": "以实际为准"
+        "spec_vi": "以实际为准",
+        "unit": "根"
       },
       "mat_fbtabe": {
         "id": "mat_fbtabe",
@@ -13603,7 +13619,8 @@
             "score": 1100,
             "bytes": 124412
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_4ijpok": {
         "id": "mat_4ijpok",
@@ -13646,7 +13663,8 @@
             "score": 1300,
             "bytes": 1383884
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1wjqvgi": {
         "id": "mat_1wjqvgi",
@@ -13689,7 +13707,8 @@
             "score": 1300,
             "bytes": 124412
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1mub6k0": {
         "id": "mat_1mub6k0",
@@ -13732,7 +13751,8 @@
             "score": 1300,
             "bytes": 25284
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1y1cbym": {
         "id": "mat_1y1cbym",
@@ -13775,7 +13795,8 @@
             "score": 1300,
             "bytes": 74800
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_9qvt4i": {
         "id": "mat_9qvt4i",
@@ -13818,7 +13839,8 @@
             "score": 1300,
             "bytes": 1360244
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_jhdqp1": {
         "id": "mat_jhdqp1",
@@ -13861,7 +13883,8 @@
             "score": 1300,
             "bytes": 68368
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_jzm77n": {
         "id": "mat_jzm77n",
@@ -13887,7 +13910,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_jl4zmg": {
         "id": "mat_jl4zmg",
@@ -13913,7 +13937,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_kmfvry": {
         "id": "mat_kmfvry",
@@ -13939,7 +13964,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_1jumyhx": {
         "id": "mat_1jumyhx",
@@ -13965,7 +13991,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_1s4itvb": {
         "id": "mat_1s4itvb",
@@ -13991,7 +14018,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_f60urh": {
         "id": "mat_f60urh",
@@ -14017,7 +14045,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_z3s5zi": {
         "id": "mat_z3s5zi",
@@ -14043,7 +14072,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_1yn9mh4": {
         "id": "mat_1yn9mh4",
@@ -14069,7 +14099,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "本"
       },
       "mat_vkr7eo": {
         "id": "mat_vkr7eo",
@@ -14112,7 +14143,8 @@
             "score": 1100,
             "bytes": 67980
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_n9hhug": {
         "id": "mat_n9hhug",
@@ -14154,7 +14186,8 @@
             "score": 1100,
             "bytes": 19736
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_n4mxs4": {
         "id": "mat_n4mxs4",
@@ -14197,7 +14230,8 @@
             "score": 1100,
             "bytes": 25284
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1kzaom8": {
         "id": "mat_1kzaom8",
@@ -14223,7 +14257,8 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "套"
       },
       "mat_1qb66wl": {
         "id": "mat_1qb66wl",
@@ -14266,7 +14301,8 @@
             "score": 1300,
             "bytes": 67992
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1lhiznh": {
         "id": "mat_1lhiznh",
@@ -14309,7 +14345,8 @@
             "score": 1300,
             "bytes": 25284
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_18qhtjq": {
         "id": "mat_18qhtjq",
@@ -14352,7 +14389,8 @@
             "score": 1300,
             "bytes": 55144
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_hkpgus": {
         "id": "mat_hkpgus",
@@ -14395,7 +14433,8 @@
             "score": 1300,
             "bytes": 143692
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_xclnm": {
         "id": "mat_xclnm",
@@ -14438,7 +14477,8 @@
             "score": 1300,
             "bytes": 143692
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_a987en": {
         "id": "mat_a987en",
@@ -14481,7 +14521,8 @@
             "score": 1300,
             "bytes": 123960
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_n3m59f": {
         "id": "mat_n3m59f",
@@ -14524,7 +14565,8 @@
             "score": 1150,
             "bytes": 123952
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1rtvq61": {
         "id": "mat_1rtvq61",
@@ -14567,7 +14609,8 @@
             "score": 1300,
             "bytes": 234320
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_y1jc49": {
         "id": "mat_y1jc49",
@@ -14610,7 +14653,8 @@
             "score": 1300,
             "bytes": 152880
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_kihop7": {
         "id": "mat_kihop7",
@@ -14653,7 +14697,8 @@
             "score": 1300,
             "bytes": 68368
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1m5b6t5": {
         "id": "mat_1m5b6t5",
@@ -14696,7 +14741,8 @@
             "score": 1300,
             "bytes": 19716
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_zjg150654bh": {
         "id": "mat_zjg150654bh",
@@ -14739,7 +14785,8 @@
             "score": 1100,
             "bytes": 349028
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_q03tfs": {
         "id": "mat_q03tfs",
@@ -14782,7 +14829,8 @@
             "score": 1300,
             "bytes": 25716
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_e7msyx": {
         "id": "mat_e7msyx",
@@ -14817,7 +14865,8 @@
             "score": 1100,
             "bytes": 1330884
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_r787pi": {
         "id": "mat_r787pi",
@@ -14853,7 +14902,8 @@
             "bytes": 23472
           }
         ],
-        "spec_vi": "以实际为准"
+        "spec_vi": "以实际为准",
+        "unit": "根"
       },
       "mat_4ipzfw": {
         "id": "mat_4ipzfw",
@@ -14879,7 +14929,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_155vezs": {
         "id": "mat_155vezs",
@@ -14905,7 +14956,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_14l5oxj": {
         "id": "mat_14l5oxj",
@@ -14931,7 +14983,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_12v3k9d": {
         "id": "mat_12v3k9d",
@@ -14957,7 +15010,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_1w2hwc": {
         "id": "mat_1w2hwc",
@@ -14983,7 +15037,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_18wm8e4": {
         "id": "mat_18wm8e4",
@@ -15009,7 +15064,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_1x4jobj": {
         "id": "mat_1x4jobj",
@@ -15035,7 +15091,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "本"
       },
       "mat_f3e6hw": {
         "id": "mat_f3e6hw",
@@ -15061,7 +15118,8 @@
           "vi": "túi ngũ kim"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_11xnz3b": {
         "id": "mat_11xnz3b",
@@ -15104,7 +15162,8 @@
             "score": 1100,
             "bytes": 67992
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1ssx9nz": {
         "id": "mat_1ssx9nz",
@@ -15147,7 +15206,8 @@
             "score": 1100,
             "bytes": 25284
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_d04g9a": {
         "id": "mat_d04g9a",
@@ -15190,7 +15250,8 @@
             "score": 1100,
             "bytes": 55144
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_vizwaa": {
         "id": "mat_vizwaa",
@@ -15216,7 +15277,8 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "套"
       },
       "mat_1wfxpuy": {
         "id": "mat_1wfxpuy",
@@ -15259,7 +15321,8 @@
             "score": 1300,
             "bytes": 333568
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_uh0r7i": {
         "id": "mat_uh0r7i",
@@ -15302,7 +15365,8 @@
             "score": 1300,
             "bytes": 137160
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_zxvtau": {
         "id": "mat_zxvtau",
@@ -15345,7 +15409,8 @@
             "score": 1300,
             "bytes": 323492
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_bt9s5c": {
         "id": "mat_bt9s5c",
@@ -15388,7 +15453,8 @@
             "score": 1300,
             "bytes": 323448
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1czvzaz": {
         "id": "mat_1czvzaz",
@@ -15431,7 +15497,8 @@
             "score": 1300,
             "bytes": 134024
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_2dpho0": {
         "id": "mat_2dpho0",
@@ -15474,7 +15541,8 @@
             "score": 1300,
             "bytes": 49492
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1c1n9dj": {
         "id": "mat_1c1n9dj",
@@ -15516,7 +15584,8 @@
             "score": 1100,
             "bytes": 19736
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1jrbb68": {
         "id": "mat_1jrbb68",
@@ -15551,7 +15620,8 @@
             "score": 1100,
             "bytes": 1320
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_18unhiq": {
         "id": "mat_18unhiq",
@@ -15577,7 +15647,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_18i5rbs": {
         "id": "mat_18i5rbs",
@@ -15603,7 +15674,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_rkasfe": {
         "id": "mat_rkasfe",
@@ -15629,7 +15701,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_88x7gi": {
         "id": "mat_88x7gi",
@@ -15655,7 +15728,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "本"
       },
       "mat_1v7zezh": {
         "id": "mat_1v7zezh",
@@ -15697,7 +15771,8 @@
             "score": 1300,
             "bytes": 1360244
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_9m6mcz": {
         "id": "mat_9m6mcz",
@@ -15739,7 +15814,8 @@
             "score": 1300,
             "bytes": 1383884
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1tlmea4": {
         "id": "mat_1tlmea4",
@@ -15782,7 +15858,8 @@
             "score": 1100,
             "bytes": 349028
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_og5q7i": {
         "id": "mat_og5q7i",
@@ -15825,7 +15902,8 @@
             "score": 1100,
             "bytes": 333568
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_mrpvcq": {
         "id": "mat_mrpvcq",
@@ -15868,7 +15946,8 @@
             "score": 1100,
             "bytes": 137160
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1u2o2aq": {
         "id": "mat_1u2o2aq",
@@ -15911,7 +15990,8 @@
             "score": 1100,
             "bytes": 323492
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_w17o44": {
         "id": "mat_w17o44",
@@ -15954,7 +16034,8 @@
             "score": 1100,
             "bytes": 323448
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_12nagin": {
         "id": "mat_12nagin",
@@ -15997,7 +16078,8 @@
             "score": 1100,
             "bytes": 134024
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1vjuwsw": {
         "id": "mat_1vjuwsw",
@@ -16040,7 +16122,8 @@
             "score": 1100,
             "bytes": 49492
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_16qztuh": {
         "id": "mat_16qztuh",
@@ -16082,7 +16165,8 @@
             "score": 1100,
             "bytes": 19736
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_zmmild": {
         "id": "mat_zmmild",
@@ -16117,7 +16201,8 @@
             "score": 1100,
             "bytes": 392404
           }
-        ]
+        ],
+        "unit": "颗"
       },
       "mat_cau6z8": {
         "id": "mat_cau6z8",
@@ -16158,7 +16243,8 @@
             "bytes": 150108,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
           }
-        ]
+        ],
+        "unit": "颗"
       },
       "mat_1fhhxvk": {
         "id": "mat_1fhhxvk",
@@ -16200,7 +16286,8 @@
             "score": 1100,
             "bytes": 1007376
           }
-        ]
+        ],
+        "unit": "只"
       },
       "mat_m5oo3m": {
         "id": "mat_m5oo3m",
@@ -16235,7 +16322,8 @@
             "score": 1100,
             "bytes": 445256
           }
-        ]
+        ],
+        "unit": "颗"
       },
       "mat_1h27jfj": {
         "id": "mat_1h27jfj",
@@ -16270,7 +16358,8 @@
             "score": 1100,
             "bytes": 466004
           }
-        ]
+        ],
+        "unit": "只"
       },
       "mat_1kajjg0": {
         "id": "mat_1kajjg0",
@@ -16296,7 +16385,8 @@
           "vi": "túi ngũ kim"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_kv4rjs": {
         "id": "mat_kv4rjs",
@@ -16322,7 +16412,8 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "套"
       },
       "mat_omjsvf": {
         "id": "mat_omjsvf",
@@ -16365,7 +16456,8 @@
             "score": 1300,
             "bytes": 92640
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1oq7npc": {
         "id": "mat_1oq7npc",
@@ -16400,7 +16492,8 @@
             "score": 1100,
             "bytes": 3024192
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_13imrat": {
         "id": "mat_13imrat",
@@ -16436,7 +16529,8 @@
             "bytes": 23472
           }
         ],
-        "spec_vi": "以实际为准"
+        "spec_vi": "以实际为准",
+        "unit": "根"
       },
       "mat_11fc11y": {
         "id": "mat_11fc11y",
@@ -16479,7 +16573,8 @@
             "score": 1300,
             "bytes": 118768
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_123o1qz": {
         "id": "mat_123o1qz",
@@ -16522,7 +16617,8 @@
             "score": 1300,
             "bytes": 163220
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_12fzcb7": {
         "id": "mat_12fzcb7",
@@ -16565,7 +16661,8 @@
             "score": 1300,
             "bytes": 1360388
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1ty5nnx": {
         "id": "mat_1ty5nnx",
@@ -16608,7 +16705,8 @@
             "score": 1300,
             "bytes": 76768
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1rh7bpp": {
         "id": "mat_1rh7bpp",
@@ -16651,7 +16749,8 @@
             "score": 1300,
             "bytes": 1381544
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1doysbp": {
         "id": "mat_1doysbp",
@@ -16694,7 +16793,8 @@
             "score": 1300,
             "bytes": 68344
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_12jfji0": {
         "id": "mat_12jfji0",
@@ -16729,7 +16829,8 @@
             "score": 1000,
             "bytes": 1288
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_m0tg2h": {
         "id": "mat_m0tg2h",
@@ -16764,7 +16865,8 @@
             "score": 1000,
             "bytes": 1288
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_2ck3el": {
         "id": "mat_2ck3el",
@@ -16807,7 +16909,8 @@
             "bytes": 19620,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-30x32-5x14-8-7daf9fc4.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1c6st8c": {
         "id": "mat_1c6st8c",
@@ -16850,7 +16953,8 @@
             "score": 1300,
             "bytes": 68972
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_l8dl4j": {
         "id": "mat_l8dl4j",
@@ -16893,7 +16997,8 @@
             "score": 1300,
             "bytes": 80496
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_g2p12m": {
         "id": "mat_g2p12m",
@@ -16936,7 +17041,8 @@
             "score": 1300,
             "bytes": 68564
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_hekpv9": {
         "id": "mat_hekpv9",
@@ -16979,7 +17085,8 @@
             "score": 1300,
             "bytes": 163220
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_nw76sd": {
         "id": "mat_nw76sd",
@@ -17022,7 +17129,8 @@
             "score": 1300,
             "bytes": 104788
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_11z8dbl": {
         "id": "mat_11z8dbl",
@@ -17065,7 +17173,8 @@
             "score": 1300,
             "bytes": 76768
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_nh3ucr": {
         "id": "mat_nh3ucr",
@@ -17108,7 +17217,8 @@
             "score": 1300,
             "bytes": 81920
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_3vmq3z": {
         "id": "mat_3vmq3z",
@@ -17151,7 +17261,8 @@
             "score": 1300,
             "bytes": 37380
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_ddvfek": {
         "id": "mat_ddvfek",
@@ -17194,7 +17305,8 @@
             "score": 1300,
             "bytes": 100308
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_176ypwr": {
         "id": "mat_176ypwr",
@@ -17220,7 +17332,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_oa6sg0": {
         "id": "mat_oa6sg0",
@@ -17246,7 +17359,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_tvlrt5": {
         "id": "mat_tvlrt5",
@@ -17272,7 +17386,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_jnusy2": {
         "id": "mat_jnusy2",
@@ -17298,7 +17413,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_lzuegb": {
         "id": "mat_lzuegb",
@@ -17324,7 +17440,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_1fyjuq3": {
         "id": "mat_1fyjuq3",
@@ -17350,7 +17467,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "本"
       },
       "mat_144gpyx": {
         "id": "mat_144gpyx",
@@ -17385,7 +17503,8 @@
             "score": 1100,
             "bytes": 6960
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_z2ynke": {
         "id": "mat_z2ynke",
@@ -17428,7 +17547,8 @@
             "score": 1100,
             "bytes": 118768
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1830k8o": {
         "id": "mat_1830k8o",
@@ -17471,7 +17591,8 @@
             "bytes": 19620,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-35x32-5x18-7-0b6b8af7.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_nchy3z": {
         "id": "mat_nchy3z",
@@ -17514,7 +17635,8 @@
             "bytes": 19620,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-30x32-5x14-8-7daf9fc4.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_zg24ut": {
         "id": "mat_zg24ut",
@@ -17557,7 +17679,8 @@
             "score": 1100,
             "bytes": 37380
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1neszoo": {
         "id": "mat_1neszoo",
@@ -17600,7 +17723,8 @@
             "score": 1100,
             "bytes": 100308
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_190xuc6": {
         "id": "mat_190xuc6",
@@ -17643,7 +17767,8 @@
             "score": 1300,
             "bytes": 25292
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_zsk428": {
         "id": "mat_zsk428",
@@ -17678,7 +17803,8 @@
             "score": 1100,
             "bytes": 55152
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1xv1vur": {
         "id": "mat_1xv1vur",
@@ -17721,7 +17847,8 @@
             "score": 1300,
             "bytes": 181744
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_wed6vp": {
         "id": "mat_wed6vp",
@@ -17764,7 +17891,8 @@
             "score": 1300,
             "bytes": 181740
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1igk9g2": {
         "id": "mat_1igk9g2",
@@ -17807,7 +17935,8 @@
             "score": 1300,
             "bytes": 67608
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1wdxes7": {
         "id": "mat_1wdxes7",
@@ -17841,7 +17970,8 @@
             "score": 1004
           }
         ],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_1ak3o25": {
         "id": "mat_1ak3o25",
@@ -17883,7 +18013,8 @@
             "score": 1100,
             "bytes": 13556
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_3b1sho": {
         "id": "mat_3b1sho",
@@ -17909,7 +18040,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_1horzo8": {
         "id": "mat_1horzo8",
@@ -17935,7 +18067,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_kug5sb": {
         "id": "mat_kug5sb",
@@ -17961,7 +18094,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_j7tycr": {
         "id": "mat_j7tycr",
@@ -17987,7 +18121,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "本"
       },
       "mat_1in3dp6": {
         "id": "mat_1in3dp6",
@@ -18031,7 +18166,8 @@
             "bytes": 200376,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-8d926653.glb"
           }
-        ]
+        ],
+        "unit": "只"
       },
       "mat_17i74ya": {
         "id": "mat_17i74ya",
@@ -18074,7 +18210,8 @@
             "score": 1100,
             "bytes": 25292
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1gnzdio": {
         "id": "mat_1gnzdio",
@@ -18109,7 +18246,8 @@
             "score": 1100,
             "bytes": 55152
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1qd0kxj": {
         "id": "mat_1qd0kxj",
@@ -18152,7 +18290,8 @@
             "score": 1100,
             "bytes": 181744
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_10b5jch": {
         "id": "mat_10b5jch",
@@ -18195,7 +18334,8 @@
             "score": 1100,
             "bytes": 181740
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_u9ajuu": {
         "id": "mat_u9ajuu",
@@ -18238,7 +18378,8 @@
             "score": 1100,
             "bytes": 67608
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1nzejn": {
         "id": "mat_1nzejn",
@@ -18272,7 +18413,8 @@
             "score": 1004
           }
         ],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_ongyuj": {
         "id": "mat_ongyuj",
@@ -18314,7 +18456,8 @@
             "score": 1100,
             "bytes": 13556
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_npcl6z": {
         "id": "mat_npcl6z",
@@ -18349,7 +18492,8 @@
             "score": 1100,
             "bytes": 1320
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_aqgyo3": {
         "id": "mat_aqgyo3",
@@ -18384,7 +18528,8 @@
             "score": 1100,
             "bytes": 235852
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_pyi632": {
         "id": "mat_pyi632",
@@ -18427,7 +18572,8 @@
             "score": 1100,
             "bytes": 25292
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_14ytbfo": {
         "id": "mat_14ytbfo",
@@ -18462,7 +18608,8 @@
             "score": 1100,
             "bytes": 55152
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1hafqtb": {
         "id": "mat_1hafqtb",
@@ -18504,7 +18651,8 @@
             "score": 1100,
             "bytes": 13556
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_am8632": {
         "id": "mat_am8632",
@@ -18530,7 +18678,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_fsi9u8": {
         "id": "mat_fsi9u8",
@@ -18556,7 +18705,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_dqhrxf": {
         "id": "mat_dqhrxf",
@@ -18582,7 +18732,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_cll1rl": {
         "id": "mat_cll1rl",
@@ -18608,7 +18759,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "本"
       },
       "mat_1ns752w": {
         "id": "mat_1ns752w",
@@ -18634,7 +18786,8 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "套"
       },
       "mat_2888jc": {
         "id": "mat_2888jc",
@@ -18677,7 +18830,8 @@
             "score": 1300,
             "bytes": 73980
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_19kxkg5": {
         "id": "mat_19kxkg5",
@@ -18712,7 +18866,8 @@
             "score": 1100,
             "bytes": 1214848
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_az72aa": {
         "id": "mat_az72aa",
@@ -18748,7 +18903,8 @@
             "bytes": 23472
           }
         ],
-        "spec_vi": "以实际为准"
+        "spec_vi": "以实际为准",
+        "unit": "根"
       },
       "mat_w8i5w5": {
         "id": "mat_w8i5w5",
@@ -18791,7 +18947,8 @@
             "score": 1300,
             "bytes": 92636
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_hgpr0j": {
         "id": "mat_hgpr0j",
@@ -18834,7 +18991,8 @@
             "score": 1300,
             "bytes": 74800
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_oncevp": {
         "id": "mat_oncevp",
@@ -18877,7 +19035,8 @@
             "score": 1300,
             "bytes": 165832
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1gm73v6": {
         "id": "mat_1gm73v6",
@@ -18919,7 +19078,8 @@
             "score": 1300,
             "bytes": 68340
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_eqfs2r": {
         "id": "mat_eqfs2r",
@@ -18962,7 +19122,8 @@
             "score": 1300,
             "bytes": 165832
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_bd2rte": {
         "id": "mat_bd2rte",
@@ -19005,7 +19166,8 @@
             "score": 1300,
             "bytes": 25284
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1ck23i4": {
         "id": "mat_1ck23i4",
@@ -19048,7 +19210,8 @@
             "score": 1300,
             "bytes": 174732
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1dfnbc4": {
         "id": "mat_1dfnbc4",
@@ -19091,7 +19254,8 @@
             "score": 1300,
             "bytes": 55524
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_qkk8e7": {
         "id": "mat_qkk8e7",
@@ -19117,7 +19281,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_b91fei": {
         "id": "mat_b91fei",
@@ -19143,7 +19308,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_13k6uej": {
         "id": "mat_13k6uej",
@@ -19169,7 +19335,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_1t4zwnx": {
         "id": "mat_1t4zwnx",
@@ -19195,7 +19362,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "本"
       },
       "mat_w5a1nd": {
         "id": "mat_w5a1nd",
@@ -19230,7 +19398,8 @@
             "score": 1100,
             "bytes": 1230356
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_ec7ii0": {
         "id": "mat_ec7ii0",
@@ -19273,7 +19442,8 @@
             "score": 1100,
             "bytes": 73980
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_ceodip": {
         "id": "mat_ceodip",
@@ -19316,7 +19486,8 @@
             "score": 1100,
             "bytes": 92636
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1u74z93": {
         "id": "mat_1u74z93",
@@ -19359,7 +19530,8 @@
             "score": 1100,
             "bytes": 74800
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_drjei6": {
         "id": "mat_drjei6",
@@ -19402,7 +19574,8 @@
             "score": 1100,
             "bytes": 165832
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1rpj3u1": {
         "id": "mat_1rpj3u1",
@@ -19444,7 +19617,8 @@
             "score": 980,
             "bytes": 1381544
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_e8hltc": {
         "id": "mat_e8hltc",
@@ -19479,7 +19653,8 @@
             "score": 1000,
             "bytes": 1312
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1gbo2nh": {
         "id": "mat_1gbo2nh",
@@ -19522,7 +19697,8 @@
             "bytes": 19732,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-55x32-5x18-7-a957120a.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1cl8qyu": {
         "id": "mat_1cl8qyu",
@@ -19565,7 +19741,8 @@
             "bytes": 68340,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS231-131-8264a80a.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_dv766g": {
         "id": "mat_dv766g",
@@ -19608,7 +19785,8 @@
             "score": 1100,
             "bytes": 165832
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_7fso7y": {
         "id": "mat_7fso7y",
@@ -19651,7 +19829,8 @@
             "score": 1100,
             "bytes": 25284
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_hyluwn": {
         "id": "mat_hyluwn",
@@ -19693,7 +19872,8 @@
             "score": 980,
             "bytes": 1360388
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_rjdsu7": {
         "id": "mat_rjdsu7",
@@ -19740,7 +19920,8 @@
             "score": 1300,
             "bytes": 25284
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1nm2vtt": {
         "id": "mat_1nm2vtt",
@@ -19784,7 +19965,8 @@
             "bytes": 174732,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS231-131-593b50c9.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_fxovzg": {
         "id": "mat_fxovzg",
@@ -19826,7 +20008,8 @@
             "score": 1100,
             "bytes": 25716
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_nbwft0": {
         "id": "mat_nbwft0",
@@ -19869,7 +20052,8 @@
             "score": 1100,
             "bytes": 55524
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_vwmnnz": {
         "id": "mat_vwmnnz",
@@ -19904,7 +20088,8 @@
             "score": 1100,
             "bytes": 325680
           }
-        ]
+        ],
+        "unit": "颗"
       },
       "mat_454fv0": {
         "id": "mat_454fv0",
@@ -19947,7 +20132,8 @@
             "score": 1100,
             "bytes": 73980
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_kvoxk2": {
         "id": "mat_kvoxk2",
@@ -19990,7 +20176,8 @@
             "score": 1100,
             "bytes": 25284
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1nudryo": {
         "id": "mat_1nudryo",
@@ -20033,7 +20220,8 @@
             "score": 1100,
             "bytes": 55524
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_a59xey": {
         "id": "mat_a59xey",
@@ -20059,7 +20247,8 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "套"
       },
       "mat_5ebwyj": {
         "id": "mat_5ebwyj",
@@ -20102,7 +20291,8 @@
             "score": 1300,
             "bytes": 55524
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_104yt1d": {
         "id": "mat_104yt1d",
@@ -20137,7 +20327,8 @@
             "score": 1100,
             "bytes": 23472
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_17un1su": {
         "id": "mat_17un1su",
@@ -20173,7 +20364,8 @@
             "bytes": 23472
           }
         ],
-        "spec_vi": "以实际为准"
+        "spec_vi": "以实际为准",
+        "unit": "根"
       },
       "mat_14gzmfl": {
         "id": "mat_14gzmfl",
@@ -20216,7 +20408,8 @@
             "score": 1300,
             "bytes": 143680
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_uqc731": {
         "id": "mat_uqc731",
@@ -20259,7 +20452,8 @@
             "score": 1300,
             "bytes": 73980
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_19efzk8": {
         "id": "mat_19efzk8",
@@ -20302,7 +20496,8 @@
             "score": 1300,
             "bytes": 118172
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1rnuupu": {
         "id": "mat_1rnuupu",
@@ -20345,7 +20540,8 @@
             "score": 1300,
             "bytes": 144916
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1s9cpq1": {
         "id": "mat_1s9cpq1",
@@ -20388,7 +20584,8 @@
             "score": 1300,
             "bytes": 104184
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_124asps": {
         "id": "mat_124asps",
@@ -20431,7 +20628,8 @@
             "score": 1300,
             "bytes": 55144
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1yw5hcz": {
         "id": "mat_1yw5hcz",
@@ -20475,7 +20673,8 @@
             "bytes": 310352,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS132-S-ceab0d0c.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1q0gpue": {
         "id": "mat_1q0gpue",
@@ -20519,7 +20718,8 @@
             "bytes": 351792,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS132-S-caec5e17.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1qbjq6m": {
         "id": "mat_1qbjq6m",
@@ -20562,7 +20762,8 @@
             "score": 1300,
             "bytes": 118176
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1vnrvil": {
         "id": "mat_1vnrvil",
@@ -20605,7 +20806,8 @@
             "score": 1300,
             "bytes": 143680
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1831ikd": {
         "id": "mat_1831ikd",
@@ -20648,7 +20850,8 @@
             "score": 1300,
             "bytes": 25284
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_68bk9b": {
         "id": "mat_68bk9b",
@@ -20691,7 +20894,8 @@
             "score": 1300,
             "bytes": 92636
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1xc3use": {
         "id": "mat_1xc3use",
@@ -20717,7 +20921,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_7slohk": {
         "id": "mat_7slohk",
@@ -20743,7 +20948,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_56918o": {
         "id": "mat_56918o",
@@ -20769,7 +20975,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_1xtqc89": {
         "id": "mat_1xtqc89",
@@ -20795,7 +21002,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_1xcsc3e": {
         "id": "mat_1xcsc3e",
@@ -20821,7 +21029,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "本"
       },
       "mat_13xu9yo": {
         "id": "mat_13xu9yo",
@@ -20847,7 +21056,8 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "套"
       },
       "mat_p4j2j4": {
         "id": "mat_p4j2j4",
@@ -20890,7 +21100,8 @@
             "score": 1300,
             "bytes": 53416
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_oh65yk": {
         "id": "mat_oh65yk",
@@ -20933,7 +21144,8 @@
             "score": 1300,
             "bytes": 94836
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1ss85ek": {
         "id": "mat_1ss85ek",
@@ -20977,7 +21189,8 @@
             "bytes": 304524,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS133-d76f7b79.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_ivadk": {
         "id": "mat_ivadk",
@@ -21021,7 +21234,8 @@
             "bytes": 345944,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS133-3291193a.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_60b6s5": {
         "id": "mat_60b6s5",
@@ -21064,7 +21278,8 @@
             "score": 1300,
             "bytes": 43440
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_yn6ipo": {
         "id": "mat_yn6ipo",
@@ -21107,7 +21322,8 @@
             "score": 1300,
             "bytes": 161552
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1827l54": {
         "id": "mat_1827l54",
@@ -21150,7 +21366,8 @@
             "score": 1300,
             "bytes": 323496
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_10c3lie": {
         "id": "mat_10c3lie",
@@ -21193,7 +21410,8 @@
             "score": 1300,
             "bytes": 323452
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1qvoxdd": {
         "id": "mat_1qvoxdd",
@@ -21236,7 +21454,8 @@
             "score": 1300,
             "bytes": 68352
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_173uydn": {
         "id": "mat_173uydn",
@@ -21279,7 +21498,8 @@
             "bytes": 19736,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-32-5x46x17-3-6bbff05b.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_10fit6a": {
         "id": "mat_10fit6a",
@@ -21314,7 +21534,8 @@
             "score": 1100,
             "bytes": 1312
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_g8cdcq": {
         "id": "mat_g8cdcq",
@@ -21340,7 +21561,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_1eub13o": {
         "id": "mat_1eub13o",
@@ -21366,7 +21588,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_x8jdfj": {
         "id": "mat_x8jdfj",
@@ -21392,7 +21615,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_15yxbyv": {
         "id": "mat_15yxbyv",
@@ -21418,7 +21642,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "本"
       },
       "mat_1vplus2": {
         "id": "mat_1vplus2",
@@ -21444,7 +21669,8 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "套"
       },
       "mat_vf7fia": {
         "id": "mat_vf7fia",
@@ -21487,7 +21713,8 @@
             "score": 1300,
             "bytes": 73980
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1gwv2qn": {
         "id": "mat_1gwv2qn",
@@ -21522,7 +21749,8 @@
             "score": 1100,
             "bytes": 23472
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1oeda3c": {
         "id": "mat_1oeda3c",
@@ -21558,7 +21786,8 @@
             "bytes": 23472
           }
         ],
-        "spec_vi": "以实际为准"
+        "spec_vi": "以实际为准",
+        "unit": "根"
       },
       "mat_1uoz287": {
         "id": "mat_1uoz287",
@@ -21601,7 +21830,8 @@
             "score": 1300,
             "bytes": 25284
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1xbfswb": {
         "id": "mat_1xbfswb",
@@ -21643,7 +21873,8 @@
             "score": 1300,
             "bytes": 68340
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1gxgiey": {
         "id": "mat_1gxgiey",
@@ -21686,7 +21917,8 @@
             "score": 1300,
             "bytes": 55524
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_icjixd": {
         "id": "mat_icjixd",
@@ -21712,7 +21944,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_1vgr2rk": {
         "id": "mat_1vgr2rk",
@@ -21738,7 +21971,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_1w49ly5": {
         "id": "mat_1w49ly5",
@@ -21764,7 +21998,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_1kj81gm": {
         "id": "mat_1kj81gm",
@@ -21790,7 +22025,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "本"
       },
       "mat_ef7aky": {
         "id": "mat_ef7aky",
@@ -21833,7 +22069,8 @@
             "score": 1100,
             "bytes": 73980
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_14ndfbd": {
         "id": "mat_14ndfbd",
@@ -21876,7 +22113,8 @@
             "bytes": 19732,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-55x32-5x18-7-a957120a.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_n5atot": {
         "id": "mat_n5atot",
@@ -21919,7 +22157,8 @@
             "score": 1100,
             "bytes": 25284
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_o8idgq": {
         "id": "mat_o8idgq",
@@ -21962,7 +22201,8 @@
             "score": 1100,
             "bytes": 55524
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1l0vqwo": {
         "id": "mat_1l0vqwo",
@@ -21988,7 +22228,8 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "套"
       },
       "mat_1qgjwyt": {
         "id": "mat_1qgjwyt",
@@ -22031,7 +22272,8 @@
             "score": 1300,
             "bytes": 92640
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_3en4g4": {
         "id": "mat_3en4g4",
@@ -22066,7 +22308,8 @@
             "score": 1100,
             "bytes": 1362944
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1abho09": {
         "id": "mat_1abho09",
@@ -22102,7 +22345,8 @@
             "bytes": 23472
           }
         ],
-        "spec_vi": "以实际为准"
+        "spec_vi": "以实际为准",
+        "unit": "根"
       },
       "mat_y4dw7k": {
         "id": "mat_y4dw7k",
@@ -22145,7 +22389,8 @@
             "score": 1300,
             "bytes": 73984
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1rjnfat": {
         "id": "mat_1rjnfat",
@@ -22188,7 +22433,8 @@
             "score": 1300,
             "bytes": 144912
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_14ed99c": {
         "id": "mat_14ed99c",
@@ -22231,7 +22477,8 @@
             "score": 1300,
             "bytes": 104180
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_mzzijl": {
         "id": "mat_mzzijl",
@@ -22275,7 +22522,8 @@
             "bytes": 351808,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-S-dbd7b41e.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_moakt4": {
         "id": "mat_moakt4",
@@ -22319,7 +22567,8 @@
             "bytes": 310352,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-S-62a92bc8.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1x8g7vm": {
         "id": "mat_1x8g7vm",
@@ -22362,7 +22611,8 @@
             "score": 1300,
             "bytes": 55144
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_11qvqlu": {
         "id": "mat_11qvqlu",
@@ -22405,7 +22655,8 @@
             "score": 1300,
             "bytes": 55528
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_a0lrz5": {
         "id": "mat_a0lrz5",
@@ -22452,7 +22703,8 @@
             "name": "LGS131_231_232-中间层板",
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb"
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_14avval": {
         "id": "mat_14avval",
@@ -22478,7 +22730,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_1wv5gal": {
         "id": "mat_1wv5gal",
@@ -22504,7 +22757,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_bg6yqf": {
         "id": "mat_bg6yqf",
@@ -22530,7 +22784,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_ewl3bc": {
         "id": "mat_ewl3bc",
@@ -22556,7 +22811,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_1u1pj2h": {
         "id": "mat_1u1pj2h",
@@ -22582,7 +22838,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "本"
       },
       "mat_skpun8": {
         "id": "mat_skpun8",
@@ -22625,7 +22882,8 @@
             "score": 1100,
             "bytes": 73984
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_146xrzm": {
         "id": "mat_146xrzm",
@@ -22668,7 +22926,8 @@
             "score": 1100,
             "bytes": 55144
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_pkh08y": {
         "id": "mat_pkh08y",
@@ -22711,7 +22970,8 @@
             "score": 1100,
             "bytes": 55528
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1mjwg57": {
         "id": "mat_1mjwg57",
@@ -22759,7 +23019,8 @@
             "name": "LGS131_231_232-中间层板",
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb"
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_8qmew6": {
         "id": "mat_8qmew6",
@@ -22785,7 +23046,8 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "套"
       },
       "mat_hi2evh": {
         "id": "mat_hi2evh",
@@ -22828,7 +23090,8 @@
             "score": 1300,
             "bytes": 53416
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_17sx58d": {
         "id": "mat_17sx58d",
@@ -22871,7 +23134,8 @@
             "score": 1300,
             "bytes": 94836
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1iggj1x": {
         "id": "mat_1iggj1x",
@@ -22915,7 +23179,8 @@
             "bytes": 304524,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS233-3dbbb9dc.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_yoxn6d": {
         "id": "mat_yoxn6d",
@@ -22959,7 +23224,8 @@
             "bytes": 345944,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS233-925d3bc7.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1d06182": {
         "id": "mat_1d06182",
@@ -23002,7 +23268,8 @@
             "score": 1300,
             "bytes": 55536
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1q541zc": {
         "id": "mat_1q541zc",
@@ -23045,7 +23312,8 @@
             "score": 1300,
             "bytes": 364200
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1no586y": {
         "id": "mat_1no586y",
@@ -23088,7 +23356,8 @@
             "score": 1300,
             "bytes": 364156
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1i48u1f": {
         "id": "mat_1i48u1f",
@@ -23131,7 +23400,8 @@
             "score": 1300,
             "bytes": 105440
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_hbnb0h": {
         "id": "mat_hbnb0h",
@@ -23174,7 +23444,8 @@
             "bytes": 19732,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-55x32-5x17-3-06810ff8.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_17pzu53": {
         "id": "mat_17pzu53",
@@ -23217,7 +23488,8 @@
             "bytes": 19732,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-55x32-5x18-7-a957120a.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1jrw8mg": {
         "id": "mat_1jrw8mg",
@@ -23252,7 +23524,8 @@
             "score": 1000,
             "bytes": 1312
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_12e9s1f": {
         "id": "mat_12e9s1f",
@@ -23278,7 +23551,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_1jyk6kk": {
         "id": "mat_1jyk6kk",
@@ -23304,7 +23578,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_ogmirw": {
         "id": "mat_ogmirw",
@@ -23330,7 +23605,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "本"
       },
       "mat_1oizyxm": {
         "id": "mat_1oizyxm",
@@ -23356,7 +23632,8 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "套"
       },
       "mat_1w2y2v": {
         "id": "mat_1w2y2v",
@@ -23398,7 +23675,8 @@
             "score": 1100,
             "bytes": 161552
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_zcr2u1": {
         "id": "mat_zcr2u1",
@@ -23441,7 +23719,8 @@
             "score": 1100,
             "bytes": 53416
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_10y1ts9": {
         "id": "mat_10y1ts9",
@@ -23484,7 +23763,8 @@
             "score": 1100,
             "bytes": 94836
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1saxqhd": {
         "id": "mat_1saxqhd",
@@ -23528,7 +23808,8 @@
             "bytes": 304524,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS233-3dbbb9dc.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1tpfqgh": {
         "id": "mat_1tpfqgh",
@@ -23572,7 +23853,8 @@
             "bytes": 345944,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS233-925d3bc7.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_10by5z2": {
         "id": "mat_10by5z2",
@@ -23615,7 +23897,8 @@
             "score": 1100,
             "bytes": 55536
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1729e7g": {
         "id": "mat_1729e7g",
@@ -23658,7 +23941,8 @@
             "score": 1100,
             "bytes": 364200
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_pro7lq": {
         "id": "mat_pro7lq",
@@ -23701,7 +23985,8 @@
             "score": 1100,
             "bytes": 364156
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_63xn5z": {
         "id": "mat_63xn5z",
@@ -23744,7 +24029,8 @@
             "score": 1100,
             "bytes": 105440
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1wasq9b": {
         "id": "mat_1wasq9b",
@@ -23787,7 +24073,8 @@
             "bytes": 19732,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-55x32-5x17-3-06810ff8.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_11f5sua": {
         "id": "mat_11f5sua",
@@ -23830,7 +24117,8 @@
             "score": 1100,
             "bytes": 55536
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_hin4d7": {
         "id": "mat_hin4d7",
@@ -23873,7 +24161,8 @@
             "bytes": 19732,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-55x32-5x17-3-06810ff8.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_ap6bm8": {
         "id": "mat_ap6bm8",
@@ -23899,7 +24188,8 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "套"
       },
       "mat_1lklzl6": {
         "id": "mat_1lklzl6",
@@ -23942,7 +24232,8 @@
             "score": 1300,
             "bytes": 347780
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_kxxwj6": {
         "id": "mat_kxxwj6",
@@ -23985,7 +24276,8 @@
             "score": 1300,
             "bytes": 347736
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_q6iqc0": {
         "id": "mat_q6iqc0",
@@ -24029,7 +24321,8 @@
             "bytes": 69588,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS333-334-433-434-a9dc54e9.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1iy168m": {
         "id": "mat_1iy168m",
@@ -24073,7 +24366,8 @@
             "bytes": 68776,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS333-334-433-434-60bd1d2e.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_18zk1lh": {
         "id": "mat_18zk1lh",
@@ -24116,7 +24410,8 @@
             "score": 1300,
             "bytes": 215476
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1ap9n9l": {
         "id": "mat_1ap9n9l",
@@ -24159,7 +24454,8 @@
             "score": 1300,
             "bytes": 81924
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_ar6mnm": {
         "id": "mat_ar6mnm",
@@ -24202,7 +24498,8 @@
             "score": 1300,
             "bytes": 129072
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_26giyy": {
         "id": "mat_26giyy",
@@ -24245,7 +24542,8 @@
             "score": 1300,
             "bytes": 43444
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_w8qr6q": {
         "id": "mat_w8qr6q",
@@ -24287,7 +24585,8 @@
             "score": 1100,
             "bytes": 19740
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_12wl5hj": {
         "id": "mat_12wl5hj",
@@ -24322,7 +24621,8 @@
             "score": 1000,
             "bytes": 1320
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_19mq71u": {
         "id": "mat_19mq71u",
@@ -24348,7 +24648,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_1bo9pcf": {
         "id": "mat_1bo9pcf",
@@ -24374,7 +24675,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_181ztx5": {
         "id": "mat_181ztx5",
@@ -24400,7 +24702,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "本"
       },
       "mat_1263x50": {
         "id": "mat_1263x50",
@@ -24426,7 +24729,8 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "套"
       },
       "mat_buidda": {
         "id": "mat_buidda",
@@ -24469,7 +24773,8 @@
             "score": 1100,
             "bytes": 347780
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_16ou3ja": {
         "id": "mat_16ou3ja",
@@ -24512,7 +24817,8 @@
             "score": 1100,
             "bytes": 347736
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_599nfo": {
         "id": "mat_599nfo",
@@ -24556,7 +24862,8 @@
             "bytes": 69588,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS333-334-433-434-a9dc54e9.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_4ri0yq": {
         "id": "mat_4ri0yq",
@@ -24600,7 +24907,8 @@
             "bytes": 68776,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS333-334-433-434-60bd1d2e.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1lhv5f5": {
         "id": "mat_1lhv5f5",
@@ -24643,7 +24951,8 @@
             "score": 1100,
             "bytes": 215476
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_dbxt4t": {
         "id": "mat_dbxt4t",
@@ -24686,7 +24995,8 @@
             "score": 1100,
             "bytes": 81924
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_iynxd2": {
         "id": "mat_iynxd2",
@@ -24729,7 +25039,8 @@
             "score": 1100,
             "bytes": 129072
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1ik0lc6": {
         "id": "mat_1ik0lc6",
@@ -24772,7 +25083,8 @@
             "score": 1100,
             "bytes": 43444
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1jr1p4e": {
         "id": "mat_1jr1p4e",
@@ -24814,7 +25126,8 @@
             "score": 1100,
             "bytes": 19740
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1nlgdwj": {
         "id": "mat_1nlgdwj",
@@ -24849,7 +25162,8 @@
             "score": 1000,
             "bytes": 1320
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_nm1raj": {
         "id": "mat_nm1raj",
@@ -24892,7 +25206,8 @@
             "score": 1100,
             "bytes": 43444
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1aqkble": {
         "id": "mat_1aqkble",
@@ -24934,7 +25249,8 @@
             "score": 1100,
             "bytes": 19740
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1fkvd56": {
         "id": "mat_1fkvd56",
@@ -24960,7 +25276,8 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "套"
       },
       "mat_8edcv4": {
         "id": "mat_8edcv4",
@@ -25004,7 +25321,8 @@
             "bytes": 316668,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-75373bec.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_5e7rnx": {
         "id": "mat_5e7rnx",
@@ -25047,7 +25365,8 @@
             "score": 1300,
             "bytes": 49488
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_6aufm8": {
         "id": "mat_6aufm8",
@@ -25099,7 +25418,8 @@
             "bytes": 94804,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-f806e3c3.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1df0gky": {
         "id": "mat_1df0gky",
@@ -25151,7 +25471,8 @@
             "bytes": 135540,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-404054ab.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_14esgeh": {
         "id": "mat_14esgeh",
@@ -25195,7 +25516,8 @@
             "bytes": 304528,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-80df7708.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1cp9ev": {
         "id": "mat_1cp9ev",
@@ -25236,7 +25558,8 @@
             "bytes": 345972,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-fd7277cd.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1b8xuq1": {
         "id": "mat_1b8xuq1",
@@ -25279,7 +25602,8 @@
             "score": 1300,
             "bytes": 347784
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_ld6eph": {
         "id": "mat_ld6eph",
@@ -25322,7 +25646,8 @@
             "score": 1300,
             "bytes": 347740
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_hfxkdc": {
         "id": "mat_hfxkdc",
@@ -25365,7 +25690,8 @@
             "score": 1300,
             "bytes": 107708
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1eefe0m": {
         "id": "mat_1eefe0m",
@@ -25408,7 +25734,8 @@
             "score": 1300,
             "bytes": 77712
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_k8w6yo": {
         "id": "mat_k8w6yo",
@@ -25451,7 +25778,8 @@
             "bytes": 19736,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-34x32-5x16-8-932464b7.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1b7en7f": {
         "id": "mat_1b7en7f",
@@ -25494,7 +25822,8 @@
             "bytes": 19736,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-32-5x46x18-7-84948470.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_b833ce": {
         "id": "mat_b833ce",
@@ -25529,7 +25858,8 @@
             "score": 1000,
             "bytes": 1316
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_vchwt4": {
         "id": "mat_vchwt4",
@@ -25555,7 +25885,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_632u7i": {
         "id": "mat_632u7i",
@@ -25581,7 +25912,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_rjeops": {
         "id": "mat_rjeops",
@@ -25607,7 +25939,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_1iauhtm": {
         "id": "mat_1iauhtm",
@@ -25633,7 +25966,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "本"
       },
       "mat_1rk0cpy": {
         "id": "mat_1rk0cpy",
@@ -25659,7 +25993,8 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "套"
       },
       "mat_otkyhl": {
         "id": "mat_otkyhl",
@@ -25702,7 +26037,8 @@
             "score": 1300,
             "bytes": 174744
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_r88xvx": {
         "id": "mat_r88xvx",
@@ -25745,7 +26081,8 @@
             "score": 1300,
             "bytes": 81920
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_lgs420_zlk_wh": {
         "id": "mat_lgs420_zlk_wh",
@@ -25788,7 +26125,8 @@
             "score": 1300,
             "bytes": 81920
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_19l4tvp": {
         "id": "mat_19l4tvp",
@@ -25831,7 +26169,8 @@
             "score": 1300,
             "bytes": 73980
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_5abs6g": {
         "id": "mat_5abs6g",
@@ -25874,7 +26213,8 @@
             "score": 1300,
             "bytes": 92648
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_lgs420_shl_wh": {
         "id": "mat_lgs420_shl_wh",
@@ -25917,7 +26257,8 @@
             "score": 1300,
             "bytes": 92648
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1nmpx5d": {
         "id": "mat_1nmpx5d",
@@ -25960,7 +26301,8 @@
             "bytes": 19620,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-35x32-5x18-7-0b6b8af7.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_mk6qft": {
         "id": "mat_mk6qft",
@@ -26003,7 +26345,8 @@
             "score": 1300,
             "bytes": 80488
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_lgs420_xhl_wh": {
         "id": "mat_lgs420_xhl_wh",
@@ -26046,7 +26389,8 @@
             "score": 1300,
             "bytes": 80488
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_id7glj": {
         "id": "mat_id7glj",
@@ -26089,7 +26433,8 @@
             "score": 1300,
             "bytes": 25292
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_2vw9io": {
         "id": "mat_2vw9io",
@@ -26132,7 +26477,8 @@
             "score": 1300,
             "bytes": 31332
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_d078gb": {
         "id": "mat_d078gb",
@@ -26175,7 +26521,8 @@
             "score": 1300,
             "bytes": 55524
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_13gmbo7": {
         "id": "mat_13gmbo7",
@@ -26201,7 +26548,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_1l5q11e": {
         "id": "mat_1l5q11e",
@@ -26227,7 +26575,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_1m8fmss": {
         "id": "mat_1m8fmss",
@@ -26253,7 +26602,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_ntwtuy": {
         "id": "mat_ntwtuy",
@@ -26279,7 +26629,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "本"
       },
       "mat_116mdz4": {
         "id": "mat_116mdz4",
@@ -26322,7 +26673,8 @@
             "score": 1100,
             "bytes": 174744
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_30bgcz": {
         "id": "mat_30bgcz",
@@ -26365,7 +26717,8 @@
             "score": 1100,
             "bytes": 73980
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_t3dlni": {
         "id": "mat_t3dlni",
@@ -26400,7 +26753,8 @@
             "score": 1000,
             "bytes": 1288
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1giutrz": {
         "id": "mat_1giutrz",
@@ -26443,7 +26797,8 @@
             "bytes": 19620,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-35x32-5x18-7-0b6b8af7.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_gw6ko9": {
         "id": "mat_gw6ko9",
@@ -26486,7 +26841,8 @@
             "score": 1100,
             "bytes": 25292
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1floh00": {
         "id": "mat_1floh00",
@@ -26529,7 +26885,8 @@
             "score": 1100,
             "bytes": 31332
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_htbxj1": {
         "id": "mat_htbxj1",
@@ -26572,7 +26929,8 @@
             "score": 1100,
             "bytes": 55524
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_37j9ck": {
         "id": "mat_37j9ck",
@@ -26607,7 +26965,8 @@
             "score": 1100,
             "bytes": 235852
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_jomqlz": {
         "id": "mat_jomqlz",
@@ -26650,7 +27009,8 @@
             "score": 1100,
             "bytes": 73980
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_jz7mz1": {
         "id": "mat_jz7mz1",
@@ -26693,7 +27053,8 @@
             "score": 1100,
             "bytes": 25292
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_16xr32c": {
         "id": "mat_16xr32c",
@@ -26736,7 +27097,8 @@
             "score": 1100,
             "bytes": 31332
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_e7xndl": {
         "id": "mat_e7xndl",
@@ -26779,7 +27141,8 @@
             "score": 1100,
             "bytes": 55524
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1wtvppo": {
         "id": "mat_1wtvppo",
@@ -26805,7 +27168,8 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "套"
       },
       "mat_13thln9": {
         "id": "mat_13thln9",
@@ -26848,7 +27212,8 @@
             "score": 1300,
             "bytes": 55528
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_xc5t5n": {
         "id": "mat_xc5t5n",
@@ -26891,7 +27256,8 @@
             "score": 1300,
             "bytes": 174772
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1tg07on": {
         "id": "mat_1tg07on",
@@ -26934,7 +27300,8 @@
             "score": 1300,
             "bytes": 73980
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_14lrnc4": {
         "id": "mat_14lrnc4",
@@ -26976,7 +27343,8 @@
             "score": 1300,
             "bytes": 25292
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1f7665v": {
         "id": "mat_1f7665v",
@@ -27019,7 +27387,8 @@
             "bytes": 19736,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-32-5x46x18-7-84948470.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_6ahijn": {
         "id": "mat_6ahijn",
@@ -27062,7 +27431,8 @@
             "score": 1300,
             "bytes": 80496
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_gwxili": {
         "id": "mat_gwxili",
@@ -27105,7 +27475,8 @@
             "score": 1300,
             "bytes": 31336
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1tm1usa": {
         "id": "mat_1tm1usa",
@@ -27131,7 +27502,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_1wnz538": {
         "id": "mat_1wnz538",
@@ -27157,7 +27529,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_c7w0xy": {
         "id": "mat_c7w0xy",
@@ -27183,7 +27556,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_14q15qf": {
         "id": "mat_14q15qf",
@@ -27209,7 +27583,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "本"
       },
       "mat_152p9on": {
         "id": "mat_152p9on",
@@ -27252,7 +27627,8 @@
             "score": 1100,
             "bytes": 55528
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1b56tkd": {
         "id": "mat_1b56tkd",
@@ -27295,7 +27671,8 @@
             "score": 1100,
             "bytes": 73980
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1tcgi6o": {
         "id": "mat_1tcgi6o",
@@ -27338,7 +27715,8 @@
             "score": 1100,
             "bytes": 25292
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_48vmvy": {
         "id": "mat_48vmvy",
@@ -27381,7 +27759,8 @@
             "score": 1100,
             "bytes": 31336
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_f21qte": {
         "id": "mat_f21qte",
@@ -27407,7 +27786,8 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "套"
       },
       "mat_13ngar9": {
         "id": "mat_13ngar9",
@@ -27450,7 +27830,8 @@
             "score": 1300,
             "bytes": 25296
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_tpkfy0": {
         "id": "mat_tpkfy0",
@@ -27493,7 +27874,8 @@
             "score": 1300,
             "bytes": 55852
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1tozvar": {
         "id": "mat_1tozvar",
@@ -27536,7 +27918,8 @@
             "score": 1300,
             "bytes": 81612
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1c39qwo": {
         "id": "mat_1c39qwo",
@@ -27579,7 +27962,8 @@
             "score": 1300,
             "bytes": 142616
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_xb1hml": {
         "id": "mat_xb1hml",
@@ -27605,7 +27989,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_1uylybq": {
         "id": "mat_1uylybq",
@@ -27631,7 +28016,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_1df1w8e": {
         "id": "mat_1df1w8e",
@@ -27657,7 +28043,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_eo7uym": {
         "id": "mat_eo7uym",
@@ -27683,7 +28070,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "本"
       },
       "mat_xhsgou": {
         "id": "mat_xhsgou",
@@ -27709,7 +28097,8 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "套"
       },
       "mat_1h8pvnn": {
         "id": "mat_1h8pvnn",
@@ -27752,7 +28141,8 @@
             "score": 1100,
             "bytes": 25296
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_rq2fvs": {
         "id": "mat_rq2fvs",
@@ -27795,7 +28185,8 @@
             "score": 1100,
             "bytes": 55852
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_47xasn": {
         "id": "mat_47xasn",
@@ -27838,7 +28229,8 @@
             "score": 1100,
             "bytes": 81612
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_cgc524": {
         "id": "mat_cgc524",
@@ -27881,7 +28273,8 @@
             "score": 1100,
             "bytes": 142616
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_6fu6p3": {
         "id": "mat_6fu6p3",
@@ -27924,7 +28317,8 @@
             "score": 1100,
             "bytes": 25296
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_pii5l8": {
         "id": "mat_pii5l8",
@@ -27967,7 +28361,8 @@
             "score": 1100,
             "bytes": 55852
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_wo2pto": {
         "id": "mat_wo2pto",
@@ -27993,7 +28388,8 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "套"
       },
       "mat_1p91tqs": {
         "id": "mat_1p91tqs",
@@ -28028,7 +28424,8 @@
             "score": 1100,
             "bytes": 1363320
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1j506i6": {
         "id": "mat_1j506i6",
@@ -28064,7 +28461,8 @@
             "bytes": 23472
           }
         ],
-        "spec_vi": "以实际为准"
+        "spec_vi": "以实际为准",
+        "unit": "根"
       },
       "mat_1glusot": {
         "id": "mat_1glusot",
@@ -28107,7 +28505,8 @@
             "bytes": 304528,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-80df7708.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1t1yeyb": {
         "id": "mat_1t1yeyb",
@@ -28149,7 +28548,8 @@
             "bytes": 345972,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-fd7277cd.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1p7u36s": {
         "id": "mat_1p7u36s",
@@ -28201,7 +28601,8 @@
             "bytes": 94804,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-12cb6679.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1ppmijq": {
         "id": "mat_1ppmijq",
@@ -28253,7 +28654,8 @@
             "bytes": 135540,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-da84b3da.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1kx2y8e": {
         "id": "mat_1kx2y8e",
@@ -28295,7 +28697,8 @@
             "score": 1300,
             "bytes": 347784
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1c0opfy": {
         "id": "mat_1c0opfy",
@@ -28337,7 +28740,8 @@
             "score": 1300,
             "bytes": 347740
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1gdsuz4": {
         "id": "mat_1gdsuz4",
@@ -28381,7 +28785,8 @@
             "bytes": 326120,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS434-0debe9f9.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1xtwol6": {
         "id": "mat_1xtwol6",
@@ -28425,7 +28830,8 @@
             "bytes": 326120,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS434-a307927e.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_agnrrb": {
         "id": "mat_agnrrb",
@@ -28468,7 +28874,8 @@
             "score": 1300,
             "bytes": 49488
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_su5niu": {
         "id": "mat_su5niu",
@@ -28511,7 +28918,8 @@
             "score": 1300,
             "bytes": 75024
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_m5bx08": {
         "id": "mat_m5bx08",
@@ -28554,7 +28962,8 @@
             "score": 1300,
             "bytes": 75024
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_pfjvcb": {
         "id": "mat_pfjvcb",
@@ -28597,7 +29006,8 @@
             "score": 1300,
             "bytes": 67944
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1vyqhah": {
         "id": "mat_1vyqhah",
@@ -28640,7 +29050,8 @@
             "score": 1300,
             "bytes": 25300
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_cu94o3": {
         "id": "mat_cu94o3",
@@ -28683,7 +29094,8 @@
             "score": 1300,
             "bytes": 106004
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1h5x3ty": {
         "id": "mat_1h5x3ty",
@@ -28726,7 +29138,8 @@
             "score": 1300,
             "bytes": 105440
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1wpm92s": {
         "id": "mat_1wpm92s",
@@ -28769,7 +29182,8 @@
             "bytes": 19736,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-34x32-5x16-8-932464b7.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1lehgzz": {
         "id": "mat_1lehgzz",
@@ -28812,7 +29226,8 @@
             "bytes": 19736,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-32-5x46x18-7-84948470.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_m6z0ft": {
         "id": "mat_m6z0ft",
@@ -28847,7 +29262,8 @@
             "score": 1000,
             "bytes": 1316
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_5zydbi": {
         "id": "mat_5zydbi",
@@ -28882,7 +29298,8 @@
             "score": 1100,
             "bytes": 1312
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_m4w2jf": {
         "id": "mat_m4w2jf",
@@ -28908,7 +29325,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_10pdifs": {
         "id": "mat_10pdifs",
@@ -28934,7 +29352,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_vo3se5": {
         "id": "mat_vo3se5",
@@ -28960,7 +29379,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_1zbn": {
         "id": "mat_1zbn",
@@ -28986,7 +29406,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_1eerq6d": {
         "id": "mat_1eerq6d",
@@ -29012,7 +29433,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "本"
       },
       "mat_1l7qniw": {
         "id": "mat_1l7qniw",
@@ -29038,7 +29460,8 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "套"
       },
       "mat_5p95gk": {
         "id": "mat_5p95gk",
@@ -29082,7 +29505,8 @@
             "bytes": 326120,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS434-0debe9f9.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_i2358e": {
         "id": "mat_i2358e",
@@ -29126,7 +29550,8 @@
             "bytes": 326120,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS434-a307927e.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_sezogz": {
         "id": "mat_sezogz",
@@ -29169,7 +29594,8 @@
             "score": 1100,
             "bytes": 49488
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_amfjdu": {
         "id": "mat_amfjdu",
@@ -29212,7 +29638,8 @@
             "score": 1100,
             "bytes": 75024
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1menews": {
         "id": "mat_1menews",
@@ -29255,7 +29682,8 @@
             "score": 1100,
             "bytes": 75024
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1f2zwcf": {
         "id": "mat_1f2zwcf",
@@ -29298,7 +29726,8 @@
             "score": 1100,
             "bytes": 67944
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_yb1n71": {
         "id": "mat_yb1n71",
@@ -29341,7 +29770,8 @@
             "score": 1100,
             "bytes": 25300
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1f17fyv": {
         "id": "mat_1f17fyv",
@@ -29384,7 +29814,8 @@
             "score": 1100,
             "bytes": 106004
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_lp5qnm": {
         "id": "mat_lp5qnm",
@@ -29427,7 +29858,8 @@
             "score": 1100,
             "bytes": 105440
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1i95gjy": {
         "id": "mat_1i95gjy",
@@ -29453,7 +29885,8 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "套"
       },
       "mat_wy55e2": {
         "id": "mat_wy55e2",
@@ -29496,7 +29929,8 @@
             "score": 1300,
             "bytes": 37396
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_lnv5px": {
         "id": "mat_lnv5px",
@@ -29539,7 +29973,8 @@
             "score": 1300,
             "bytes": 67948
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_14qtlh3": {
         "id": "mat_14qtlh3",
@@ -29582,7 +30017,8 @@
             "bytes": 68964,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS723-733-afa914dc.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_156bb4x": {
         "id": "mat_156bb4x",
@@ -29625,7 +30061,8 @@
             "bytes": 68560,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS723-733-b0456735.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_3lp5fv": {
         "id": "mat_3lp5fv",
@@ -29668,7 +30105,8 @@
             "score": 1300,
             "bytes": 408728
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_xveuf7": {
         "id": "mat_xveuf7",
@@ -29711,7 +30149,8 @@
             "score": 1300,
             "bytes": 395880
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_z1ksh1": {
         "id": "mat_z1ksh1",
@@ -29754,7 +30193,8 @@
             "score": 1300,
             "bytes": 104780
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1q4p8m4": {
         "id": "mat_1q4p8m4",
@@ -29797,7 +30237,8 @@
             "score": 1300,
             "bytes": 80488
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_hhw1hs": {
         "id": "mat_hhw1hs",
@@ -29840,7 +30281,8 @@
             "score": 1300,
             "bytes": 162620
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_zia7op": {
         "id": "mat_zia7op",
@@ -29883,7 +30325,8 @@
             "score": 1300,
             "bytes": 92636
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_11onhu3": {
         "id": "mat_11onhu3",
@@ -29925,7 +30368,8 @@
             "score": 1100,
             "bytes": 19736
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_117swgv": {
         "id": "mat_117swgv",
@@ -29967,7 +30411,8 @@
             "score": 1100,
             "bytes": 19736
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1stu7v4": {
         "id": "mat_1stu7v4",
@@ -30002,7 +30447,8 @@
             "score": 1000,
             "bytes": 1312
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_5e9lxq": {
         "id": "mat_5e9lxq",
@@ -30037,7 +30483,8 @@
             "score": 1000,
             "bytes": 1312
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_mhacta": {
         "id": "mat_mhacta",
@@ -30063,7 +30510,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_qaach6": {
         "id": "mat_qaach6",
@@ -30089,7 +30537,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_cg3y7a": {
         "id": "mat_cg3y7a",
@@ -30115,7 +30564,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "本"
       },
       "mat_1roqu8i": {
         "id": "mat_1roqu8i",
@@ -30141,7 +30591,8 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "套"
       },
       "mat_sz5k7a": {
         "id": "mat_sz5k7a",
@@ -30184,7 +30635,8 @@
             "score": 1100,
             "bytes": 37396
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1hij4ub": {
         "id": "mat_1hij4ub",
@@ -30227,7 +30679,8 @@
             "score": 1100,
             "bytes": 67948
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_xdi0eb": {
         "id": "mat_xdi0eb",
@@ -30270,7 +30723,8 @@
             "bytes": 68964,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS723-733-afa914dc.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_pficjp": {
         "id": "mat_pficjp",
@@ -30313,7 +30767,8 @@
             "bytes": 68560,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS723-733-b0456735.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1wolu5r": {
         "id": "mat_1wolu5r",
@@ -30356,7 +30811,8 @@
             "score": 1100,
             "bytes": 408728
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_17k49h3": {
         "id": "mat_17k49h3",
@@ -30399,7 +30855,8 @@
             "score": 1100,
             "bytes": 395880
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1ej5b41": {
         "id": "mat_1ej5b41",
@@ -30442,7 +30899,8 @@
             "score": 1100,
             "bytes": 104780
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_30h4o": {
         "id": "mat_30h4o",
@@ -30485,7 +30943,8 @@
             "score": 1100,
             "bytes": 80488
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_13sggbo": {
         "id": "mat_13sggbo",
@@ -30528,7 +30987,8 @@
             "score": 1100,
             "bytes": 162620
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_jttbz1": {
         "id": "mat_jttbz1",
@@ -30571,7 +31031,8 @@
             "score": 1100,
             "bytes": 92636
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_qks5j1": {
         "id": "mat_qks5j1",
@@ -30613,7 +31074,8 @@
             "score": 1100,
             "bytes": 19736
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1q3oqep": {
         "id": "mat_1q3oqep",
@@ -30655,7 +31117,8 @@
             "score": 1100,
             "bytes": 19736
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1x7fvd0": {
         "id": "mat_1x7fvd0",
@@ -30690,7 +31153,8 @@
             "score": 1000,
             "bytes": 1312
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_cvvqhe": {
         "id": "mat_cvvqhe",
@@ -30725,7 +31189,8 @@
             "score": 1000,
             "bytes": 1312
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_7vkzy2": {
         "id": "mat_7vkzy2",
@@ -30768,7 +31233,8 @@
             "score": 1100,
             "bytes": 37396
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_71td7r": {
         "id": "mat_71td7r",
@@ -30811,7 +31277,8 @@
             "score": 1100,
             "bytes": 67948
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_tr0vtl": {
         "id": "mat_tr0vtl",
@@ -30853,7 +31320,8 @@
             "score": 1100,
             "bytes": 19736
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_oyn5dx": {
         "id": "mat_oyn5dx",
@@ -30895,7 +31363,8 @@
             "score": 1100,
             "bytes": 19736
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_nwntso": {
         "id": "mat_nwntso",
@@ -30921,7 +31390,8 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "套"
       },
       "mat_1va23cf": {
         "id": "mat_1va23cf",
@@ -30964,7 +31434,8 @@
             "score": 1300,
             "bytes": 134052
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_650qus": {
         "id": "mat_650qus",
@@ -31007,7 +31478,8 @@
             "score": 1300,
             "bytes": 43440
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1nqpmoa": {
         "id": "mat_1nqpmoa",
@@ -31050,7 +31522,8 @@
             "score": 1300,
             "bytes": 80048
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_afrb0d": {
         "id": "mat_afrb0d",
@@ -31093,7 +31566,8 @@
             "score": 1300,
             "bytes": 111532
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_izo0id": {
         "id": "mat_izo0id",
@@ -31119,7 +31593,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_jvzvz7": {
         "id": "mat_jvzvz7",
@@ -31145,7 +31620,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_72g4dx": {
         "id": "mat_72g4dx",
@@ -31171,7 +31647,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "本"
       },
       "mat_79w01o": {
         "id": "mat_79w01o",
@@ -31197,7 +31674,8 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "套"
       },
       "mat_t6uv63": {
         "id": "mat_t6uv63",
@@ -31240,7 +31718,8 @@
             "score": 1100,
             "bytes": 134052
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_5h1u50": {
         "id": "mat_5h1u50",
@@ -31283,7 +31762,8 @@
             "score": 1100,
             "bytes": 43440
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_d3wd1i": {
         "id": "mat_d3wd1i",
@@ -31326,7 +31806,8 @@
             "score": 1100,
             "bytes": 80048
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1guejt5": {
         "id": "mat_1guejt5",
@@ -31369,7 +31850,8 @@
             "score": 1100,
             "bytes": 111532
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_12mzg80": {
         "id": "mat_12mzg80",
@@ -31412,7 +31894,8 @@
             "score": 1100,
             "bytes": 43440
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_rbt2m2": {
         "id": "mat_rbt2m2",
@@ -31455,7 +31938,8 @@
             "score": 1100,
             "bytes": 80048
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_iz7b5u": {
         "id": "mat_iz7b5u",
@@ -31481,7 +31965,8 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "套"
       },
       "mat_2vnmn6": {
         "id": "mat_2vnmn6",
@@ -31524,7 +32009,8 @@
             "score": 1300,
             "bytes": 49488
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1pvwwdc": {
         "id": "mat_1pvwwdc",
@@ -31567,7 +32053,8 @@
             "score": 1300,
             "bytes": 67952
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_zqjrj2": {
         "id": "mat_zqjrj2",
@@ -31610,7 +32097,8 @@
             "score": 1300,
             "bytes": 94932
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_swn8m": {
         "id": "mat_swn8m",
@@ -31653,7 +32141,8 @@
             "score": 1300,
             "bytes": 371636
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1vmuz0w": {
         "id": "mat_1vmuz0w",
@@ -31696,7 +32185,8 @@
             "score": 1300,
             "bytes": 371592
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_bp4kod": {
         "id": "mat_bp4kod",
@@ -31739,7 +32229,8 @@
             "score": 1300,
             "bytes": 92648
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1sxx25l": {
         "id": "mat_1sxx25l",
@@ -31765,7 +32256,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_i7io6q": {
         "id": "mat_i7io6q",
@@ -31791,7 +32283,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_1b2bhbe": {
         "id": "mat_1b2bhbe",
@@ -31817,7 +32310,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "本"
       },
       "mat_ojeoxq": {
         "id": "mat_ojeoxq",
@@ -31843,7 +32337,8 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "套"
       },
       "mat_1pq7i26": {
         "id": "mat_1pq7i26",
@@ -31886,7 +32381,8 @@
             "score": 1100,
             "bytes": 49488
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_12hfy4g": {
         "id": "mat_12hfy4g",
@@ -31929,7 +32425,8 @@
             "score": 1100,
             "bytes": 67952
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1kyxkwq": {
         "id": "mat_1kyxkwq",
@@ -31972,7 +32469,8 @@
             "score": 1100,
             "bytes": 94932
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1txifxu": {
         "id": "mat_1txifxu",
@@ -32015,7 +32513,8 @@
             "score": 1100,
             "bytes": 371636
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_ym9pes": {
         "id": "mat_ym9pes",
@@ -32058,7 +32557,8 @@
             "score": 1100,
             "bytes": 371592
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1a4wu1": {
         "id": "mat_1a4wu1",
@@ -32101,7 +32601,8 @@
             "score": 1100,
             "bytes": 92648
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1iqpenm": {
         "id": "mat_1iqpenm",
@@ -32144,7 +32645,8 @@
             "score": 1100,
             "bytes": 49488
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1h188fo": {
         "id": "mat_1h188fo",
@@ -32187,7 +32689,8 @@
             "score": 1100,
             "bytes": 67952
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_15tu9ws": {
         "id": "mat_15tu9ws",
@@ -32213,7 +32716,8 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "套"
       },
       "mat_8cuivm": {
         "id": "mat_8cuivm",
@@ -32248,7 +32752,8 @@
             "score": 1100,
             "bytes": 3645220
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_ijhbi8": {
         "id": "mat_ijhbi8",
@@ -32284,7 +32789,8 @@
             "bytes": 23472
           }
         ],
-        "spec_vi": "以实际为准"
+        "spec_vi": "以实际为准",
+        "unit": "根"
       },
       "mat_yaaag6": {
         "id": "mat_yaaag6",
@@ -32327,7 +32833,8 @@
             "score": 1300,
             "bytes": 94936
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_oao0nc": {
         "id": "mat_oao0nc",
@@ -32370,7 +32877,8 @@
             "score": 1300,
             "bytes": 395928
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1cayegz": {
         "id": "mat_1cayegz",
@@ -32413,7 +32921,8 @@
             "score": 1300,
             "bytes": 73992
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1ciaujk": {
         "id": "mat_1ciaujk",
@@ -32457,7 +32966,8 @@
             "bytes": 43440,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS834-965a8955.glb"
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1mhyz4q": {
         "id": "mat_1mhyz4q",
@@ -32500,7 +33010,8 @@
             "score": 1300,
             "bytes": 395884
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1n1bns7": {
         "id": "mat_1n1bns7",
@@ -32543,7 +33054,8 @@
             "score": 1300,
             "bytes": 55536
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1v7m89j": {
         "id": "mat_1v7m89j",
@@ -32584,7 +33096,8 @@
             "bytes": 500088,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS834-b3b7dce0.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_16kpy8h": {
         "id": "mat_16kpy8h",
@@ -32627,7 +33140,8 @@
             "score": 1300,
             "bytes": 62260
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_14eey53": {
         "id": "mat_14eey53",
@@ -32653,7 +33167,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_suju4a": {
         "id": "mat_suju4a",
@@ -32679,7 +33194,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_lb26hw": {
         "id": "mat_lb26hw",
@@ -32705,7 +33221,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_182mzqh": {
         "id": "mat_182mzqh",
@@ -32731,7 +33248,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "本"
       },
       "mat_1y58it7": {
         "id": "mat_1y58it7",
@@ -32766,7 +33284,8 @@
             "score": 1100,
             "bytes": 601180
           }
-        ]
+        ],
+        "unit": "颗"
       },
       "mat_111ooi0": {
         "id": "mat_111ooi0",
@@ -32792,7 +33311,8 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "套"
       },
       "mat_hqo7w2": {
         "id": "mat_hqo7w2",
@@ -32835,7 +33355,8 @@
             "score": 1100,
             "bytes": 94936
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1wae5ws": {
         "id": "mat_1wae5ws",
@@ -32878,7 +33399,8 @@
             "score": 1100,
             "bytes": 395928
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_3q69bb": {
         "id": "mat_3q69bb",
@@ -32921,7 +33443,8 @@
             "score": 1100,
             "bytes": 73992
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_gnmbro": {
         "id": "mat_gnmbro",
@@ -32965,7 +33488,8 @@
             "bytes": 43440,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS834-965a8955.glb"
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_1ws9h7i": {
         "id": "mat_1ws9h7i",
@@ -33008,7 +33532,8 @@
             "score": 1100,
             "bytes": 395884
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1c8fkn7": {
         "id": "mat_1c8fkn7",
@@ -33051,7 +33576,8 @@
             "score": 1100,
             "bytes": 55536
           }
-        ]
+        ],
+        "unit": "块"
       },
       "mat_t6gqeb": {
         "id": "mat_t6gqeb",
@@ -33093,7 +33619,8 @@
             "bytes": 500088,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS834-b3b7dce0.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_i7u7xx": {
         "id": "mat_i7u7xx",
@@ -33136,7 +33663,8 @@
             "score": 1100,
             "bytes": 62260
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1v65kq0": {
         "id": "mat_1v65kq0",
@@ -33171,7 +33699,8 @@
             "score": 1100,
             "bytes": 601180
           }
-        ]
+        ],
+        "unit": "颗"
       },
       "mat_1pz6zfm": {
         "id": "mat_1pz6zfm",
@@ -33197,7 +33726,8 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "套"
       },
       "mat_1migwq8": {
         "id": "mat_1migwq8",
@@ -33223,7 +33753,8 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "套"
       },
       "mat_wjbwh_LGS033": {
         "id": "mat_wjbwh_LGS033",
@@ -33249,7 +33780,8 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "套"
       },
       "mat_wjbwh_LGS101": {
         "id": "mat_wjbwh_LGS101",
@@ -33275,7 +33807,8 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "套"
       },
       "mat_wjbwh_LGS111": {
         "id": "mat_wjbwh_LGS111",
@@ -33301,7 +33834,8 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "套"
       },
       "mat_wjbwh_LGS131": {
         "id": "mat_wjbwh_LGS131",
@@ -33327,7 +33861,8 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "套"
       },
       "mat_wjbwh_LGS420": {
         "id": "mat_wjbwh_LGS420",
@@ -33353,7 +33888,8 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "套"
       },
       "mat_zgls3560wh_mrdf0jhj": {
         "id": "mat_zgls3560wh_mrdf0jhj",
@@ -33388,7 +33924,8 @@
             "score": 1100,
             "bytes": 569836
           }
-        ]
+        ],
+        "unit": "颗"
       },
       "mat_pxy79y": {
         "id": "mat_pxy79y",
@@ -33425,7 +33962,8 @@
             "name": "LGS032-S-右侧框.glb",
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS032-S-1ca3461c.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_fwib1i": {
         "id": "mat_fwib1i",
@@ -33462,7 +34000,8 @@
             "name": "LGS032-S-左侧框.glb",
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS032-S-33f48cfd.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_1c0a8em": {
         "id": "mat_1c0a8em",
@@ -33488,7 +34027,8 @@
           "vi": "linh kiện"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_11qynpo": {
         "id": "mat_11qynpo",
@@ -33532,7 +34072,8 @@
             "bytes": 200376,
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-8d926653.glb"
           }
-        ]
+        ],
+        "unit": "只"
       },
       "mat_2d65p2": {
         "id": "mat_2d65p2",
@@ -33558,7 +34099,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_wv88e4": {
         "id": "mat_wv88e4",
@@ -33584,7 +34126,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_1vl94so": {
         "id": "mat_1vl94so",
@@ -33610,7 +34153,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_nouv5v": {
         "id": "mat_nouv5v",
@@ -33636,7 +34180,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_n8u8g0": {
         "id": "mat_n8u8g0",
@@ -33662,7 +34207,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_gwfd2t": {
         "id": "mat_gwfd2t",
@@ -33688,7 +34234,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_ei4evl": {
         "id": "mat_ei4evl",
@@ -33714,7 +34261,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_saty1g": {
         "id": "mat_saty1g",
@@ -33740,7 +34288,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_g9x9j0": {
         "id": "mat_g9x9j0",
@@ -33766,7 +34315,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_6xzqtj": {
         "id": "mat_6xzqtj",
@@ -33792,7 +34342,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_1v6qwm4": {
         "id": "mat_1v6qwm4",
@@ -33818,7 +34369,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_ayo60c": {
         "id": "mat_ayo60c",
@@ -33844,7 +34396,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_1pj4rve": {
         "id": "mat_1pj4rve",
@@ -33870,7 +34423,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_1vuwzp4": {
         "id": "mat_1vuwzp4",
@@ -33896,7 +34450,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_cszdcw": {
         "id": "mat_cszdcw",
@@ -33922,7 +34477,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_mqyvn5": {
         "id": "mat_mqyvn5",
@@ -33948,7 +34504,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_15zz7k0": {
         "id": "mat_15zz7k0",
@@ -33974,7 +34531,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_ww0pm": {
         "id": "mat_ww0pm",
@@ -34000,7 +34558,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_rww39x": {
         "id": "mat_rww39x",
@@ -34026,7 +34585,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_1mutszd": {
         "id": "mat_1mutszd",
@@ -34052,7 +34612,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_13xlet7": {
         "id": "mat_13xlet7",
@@ -34078,7 +34639,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_jrudv0": {
         "id": "mat_jrudv0",
@@ -34104,7 +34666,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_1xdrjls": {
         "id": "mat_1xdrjls",
@@ -34130,7 +34693,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_n1impu": {
         "id": "mat_n1impu",
@@ -34156,7 +34720,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_62tvr6": {
         "id": "mat_62tvr6",
@@ -34182,7 +34747,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_yrn9p": {
         "id": "mat_yrn9p",
@@ -34208,7 +34774,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_gsrkb1": {
         "id": "mat_gsrkb1",
@@ -34234,7 +34801,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_1ni1t9e": {
         "id": "mat_1ni1t9e",
@@ -34260,7 +34828,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_xzg4gv": {
         "id": "mat_xzg4gv",
@@ -34286,7 +34855,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_sxpjmo": {
         "id": "mat_sxpjmo",
@@ -34312,7 +34882,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_12260sl": {
         "id": "mat_12260sl",
@@ -34338,7 +34909,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_hqfgwl": {
         "id": "mat_hqfgwl",
@@ -34364,7 +34936,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_xqhu0t": {
         "id": "mat_xqhu0t",
@@ -34401,7 +34974,8 @@
             "name": "LGS334支撑框-左右",
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-ee797800.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_32cbe1d8": {
         "id": "mat_32cbe1d8",
@@ -34427,7 +35001,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_c8495ac8": {
         "id": "mat_c8495ac8",
@@ -34453,7 +35028,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_109794cd": {
         "id": "mat_109794cd",
@@ -34479,7 +35055,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_158239a3": {
         "id": "mat_158239a3",
@@ -34505,7 +35082,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_f948ccae": {
         "id": "mat_f948ccae",
@@ -34531,7 +35109,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_db986d22": {
         "id": "mat_db986d22",
@@ -34557,7 +35136,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_62402ffc": {
         "id": "mat_62402ffc",
@@ -34583,7 +35163,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_b8a3a2a7": {
         "id": "mat_b8a3a2a7",
@@ -34609,7 +35190,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_eeb58660": {
         "id": "mat_eeb58660",
@@ -34635,7 +35217,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_aa900d9": {
         "id": "mat_aa900d9",
@@ -34661,7 +35244,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_bd455f2a": {
         "id": "mat_bd455f2a",
@@ -34687,7 +35271,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_f9514bd9": {
         "id": "mat_f9514bd9",
@@ -34713,7 +35298,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_9a435dcb": {
         "id": "mat_9a435dcb",
@@ -34739,7 +35325,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_c0dd53c9": {
         "id": "mat_c0dd53c9",
@@ -34765,7 +35352,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_4670bee3": {
         "id": "mat_4670bee3",
@@ -34791,7 +35379,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_f9fe8108": {
         "id": "mat_f9fe8108",
@@ -34817,7 +35406,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_f8a38cc5": {
         "id": "mat_f8a38cc5",
@@ -34843,7 +35433,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_e695f9b6": {
         "id": "mat_e695f9b6",
@@ -34869,7 +35460,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_c921e0a0": {
         "id": "mat_c921e0a0",
@@ -34895,7 +35487,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_8501e1c0": {
         "id": "mat_8501e1c0",
@@ -34921,7 +35514,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_1d417265": {
         "id": "mat_1d417265",
@@ -34947,7 +35541,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_577aa171": {
         "id": "mat_577aa171",
@@ -34973,7 +35568,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_deecf98a": {
         "id": "mat_deecf98a",
@@ -34999,7 +35595,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_25d5c595": {
         "id": "mat_25d5c595",
@@ -35025,7 +35622,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_b8cef361": {
         "id": "mat_b8cef361",
@@ -35051,7 +35649,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_f9e7ce0c": {
         "id": "mat_f9e7ce0c",
@@ -35077,7 +35676,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_22c89077": {
         "id": "mat_22c89077",
@@ -35103,7 +35703,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_d5d3b236": {
         "id": "mat_d5d3b236",
@@ -35129,7 +35730,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_cf5de0": {
         "id": "mat_cf5de0",
@@ -35155,7 +35757,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_50f2aa9a": {
         "id": "mat_50f2aa9a",
@@ -35181,7 +35784,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_9a7ead7": {
         "id": "mat_9a7ead7",
@@ -35207,7 +35811,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_8173de0a": {
         "id": "mat_8173de0a",
@@ -35233,7 +35838,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_9f410bf4": {
         "id": "mat_9f410bf4",
@@ -35259,7 +35865,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_d7b4a685": {
         "id": "mat_d7b4a685",
@@ -35285,7 +35892,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_d851e72": {
         "id": "mat_d851e72",
@@ -35311,7 +35919,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_eeea8dfd": {
         "id": "mat_eeea8dfd",
@@ -35337,7 +35946,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_4ba2c174": {
         "id": "mat_4ba2c174",
@@ -35363,7 +35973,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_10a5682": {
         "id": "mat_10a5682",
@@ -35389,7 +36000,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_e0c034c0": {
         "id": "mat_e0c034c0",
@@ -35415,7 +36027,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_a577f4be": {
         "id": "mat_a577f4be",
@@ -35441,7 +36054,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_718c11fa": {
         "id": "mat_718c11fa",
@@ -35467,7 +36081,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_262fa983": {
         "id": "mat_262fa983",
@@ -35493,7 +36108,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_7f7a80de": {
         "id": "mat_7f7a80de",
@@ -35519,7 +36135,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_9741e74a": {
         "id": "mat_9741e74a",
@@ -35545,7 +36162,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_dd376149": {
         "id": "mat_dd376149",
@@ -35571,7 +36189,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_5f8fa42a": {
         "id": "mat_5f8fa42a",
@@ -35597,7 +36216,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_7d6993ff": {
         "id": "mat_7d6993ff",
@@ -35623,7 +36243,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_37e12ec2": {
         "id": "mat_37e12ec2",
@@ -35649,7 +36270,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_114fbcfe": {
         "id": "mat_114fbcfe",
@@ -35675,7 +36297,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_d3918268": {
         "id": "mat_d3918268",
@@ -35701,7 +36324,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_94c8359a": {
         "id": "mat_94c8359a",
@@ -35727,7 +36351,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_bbcef81a": {
         "id": "mat_bbcef81a",
@@ -35753,7 +36378,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_c8662a8": {
         "id": "mat_c8662a8",
@@ -35779,7 +36405,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_cbdb237a": {
         "id": "mat_cbdb237a",
@@ -35805,7 +36432,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_ecfb80ac": {
         "id": "mat_ecfb80ac",
@@ -35831,7 +36459,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_b4456118": {
         "id": "mat_b4456118",
@@ -35857,7 +36486,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_38e2cedc": {
         "id": "mat_38e2cedc",
@@ -35883,7 +36513,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_7f4f7948": {
         "id": "mat_7f4f7948",
@@ -35909,7 +36540,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_1312d251": {
         "id": "mat_1312d251",
@@ -35935,7 +36567,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_6fb71488": {
         "id": "mat_6fb71488",
@@ -35961,7 +36594,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_13db3874": {
         "id": "mat_13db3874",
@@ -35987,7 +36621,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_dea38e8c": {
         "id": "mat_dea38e8c",
@@ -36013,7 +36648,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_30320565": {
         "id": "mat_30320565",
@@ -36039,7 +36675,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_c5919fca": {
         "id": "mat_c5919fca",
@@ -36065,7 +36702,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_a16aff4a": {
         "id": "mat_a16aff4a",
@@ -36091,7 +36729,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_54630d2": {
         "id": "mat_54630d2",
@@ -36117,7 +36756,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_2ad87dbf": {
         "id": "mat_2ad87dbf",
@@ -36143,7 +36783,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_8d7c1a14": {
         "id": "mat_8d7c1a14",
@@ -36169,7 +36810,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_bcf16a1f": {
         "id": "mat_bcf16a1f",
@@ -36195,7 +36837,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_9e0cde82": {
         "id": "mat_9e0cde82",
@@ -36221,7 +36864,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_ba1f961b": {
         "id": "mat_ba1f961b",
@@ -36247,7 +36891,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_db62b2b1": {
         "id": "mat_db62b2b1",
@@ -36273,7 +36918,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_2bc759a5": {
         "id": "mat_2bc759a5",
@@ -36299,7 +36945,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_5ac2f87d": {
         "id": "mat_5ac2f87d",
@@ -36325,7 +36972,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_4d21ee0c": {
         "id": "mat_4d21ee0c",
@@ -36351,7 +36999,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_4c21ec79": {
         "id": "mat_4c21ec79",
@@ -36377,7 +37026,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_156c8490": {
         "id": "mat_156c8490",
@@ -36403,7 +37053,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_e1ff333e": {
         "id": "mat_e1ff333e",
@@ -36429,7 +37080,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_700c814c": {
         "id": "mat_700c814c",
@@ -36455,7 +37107,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_bbc46abe": {
         "id": "mat_bbc46abe",
@@ -36481,7 +37134,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_df30760e": {
         "id": "mat_df30760e",
@@ -36507,7 +37161,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_a825d96": {
         "id": "mat_a825d96",
@@ -36533,7 +37188,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_bb978e9": {
         "id": "mat_bb978e9",
@@ -36559,7 +37215,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "块"
       },
       "mat_cfbcdb57": {
         "id": "mat_cfbcdb57",
@@ -36585,7 +37242,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_57847cce": {
         "id": "mat_57847cce",
@@ -36611,7 +37269,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_ea33e97b": {
         "id": "mat_ea33e97b",
@@ -36637,7 +37296,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_bbd6d3d6": {
         "id": "mat_bbd6d3d6",
@@ -36663,7 +37323,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_88c3a9b5": {
         "id": "mat_88c3a9b5",
@@ -36689,7 +37350,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_abb3a84f": {
         "id": "mat_abb3a84f",
@@ -36715,7 +37377,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_95d5449b": {
         "id": "mat_95d5449b",
@@ -36741,7 +37404,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_1fe3a81a": {
         "id": "mat_1fe3a81a",
@@ -36767,7 +37431,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_786c1637": {
         "id": "mat_786c1637",
@@ -36793,7 +37458,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_16db0ff8": {
         "id": "mat_16db0ff8",
@@ -36819,7 +37485,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_ff1aeb6c": {
         "id": "mat_ff1aeb6c",
@@ -36845,7 +37512,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_d2578faa": {
         "id": "mat_d2578faa",
@@ -36871,7 +37539,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_d46219af": {
         "id": "mat_d46219af",
@@ -36897,7 +37566,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_ac45c701": {
         "id": "mat_ac45c701",
@@ -36923,7 +37593,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_f08b9a47": {
         "id": "mat_f08b9a47",
@@ -36949,7 +37620,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_dd0500_wh": {
         "id": "mat_dd0500_wh",
@@ -36984,7 +37656,8 @@
             "score": 1100,
             "bytes": 1362944
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_dd0650_wh": {
         "id": "mat_dd0650_wh",
@@ -37019,7 +37692,8 @@
             "score": 1100,
             "bytes": 1363320
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_dd0900_wh": {
         "id": "mat_dd0900_wh",
@@ -37054,7 +37728,8 @@
             "score": 1100,
             "bytes": 3024192
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_dd1050_wh": {
         "id": "mat_dd1050_wh",
@@ -37089,7 +37764,8 @@
             "score": 1100,
             "bytes": 3421116
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_dd1350_wh": {
         "id": "mat_dd1350_wh",
@@ -37124,7 +37800,8 @@
             "score": 1100,
             "bytes": 3645220
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_dd1500_wh": {
         "id": "mat_dd1500_wh",
@@ -37159,7 +37836,8 @@
             "score": 1100,
             "bytes": 1214848
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_fg132132065990": {
         "id": "mat_fg132132065990",
@@ -37185,7 +37863,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg132132066150": {
         "id": "mat_fg132132066150",
@@ -37211,7 +37890,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515064864": {
         "id": "mat_fg1515064864",
@@ -37237,7 +37917,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515064876": {
         "id": "mat_fg1515064876",
@@ -37263,7 +37944,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515065000": {
         "id": "mat_fg1515065000",
@@ -37289,7 +37971,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515065011": {
         "id": "mat_fg1515065011",
@@ -37315,7 +37998,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515065382": {
         "id": "mat_fg1515065382",
@@ -37341,7 +38025,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515065430": {
         "id": "mat_fg1515065430",
@@ -37367,7 +38052,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515065464": {
         "id": "mat_fg1515065464",
@@ -37393,7 +38079,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515065560": {
         "id": "mat_fg1515065560",
@@ -37419,7 +38106,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515065566": {
         "id": "mat_fg1515065566",
@@ -37445,7 +38133,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515065598": {
         "id": "mat_fg1515065598",
@@ -37471,7 +38160,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515065630": {
         "id": "mat_fg1515065630",
@@ -37497,7 +38187,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515065655": {
         "id": "mat_fg1515065655",
@@ -37523,7 +38214,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515065662": {
         "id": "mat_fg1515065662",
@@ -37549,7 +38241,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515065663": {
         "id": "mat_fg1515065663",
@@ -37575,7 +38268,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515065680": {
         "id": "mat_fg1515065680",
@@ -37601,7 +38295,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515065718": {
         "id": "mat_fg1515065718",
@@ -37627,7 +38322,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515065752": {
         "id": "mat_fg1515065752",
@@ -37653,7 +38349,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515065753": {
         "id": "mat_fg1515065753",
@@ -37679,7 +38376,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515065766": {
         "id": "mat_fg1515065766",
@@ -37705,7 +38403,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515065782": {
         "id": "mat_fg1515065782",
@@ -37731,7 +38430,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515065790": {
         "id": "mat_fg1515065790",
@@ -37757,7 +38457,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515065800": {
         "id": "mat_fg1515065800",
@@ -37783,7 +38484,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515065814": {
         "id": "mat_fg1515065814",
@@ -37809,7 +38511,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515065846": {
         "id": "mat_fg1515065846",
@@ -37835,7 +38538,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515065884": {
         "id": "mat_fg1515065884",
@@ -37861,7 +38565,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515065886": {
         "id": "mat_fg1515065886",
@@ -37887,7 +38592,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515065900": {
         "id": "mat_fg1515065900",
@@ -37913,7 +38619,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515065918": {
         "id": "mat_fg1515065918",
@@ -37939,7 +38646,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515065930": {
         "id": "mat_fg1515065930",
@@ -37965,7 +38673,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515065935": {
         "id": "mat_fg1515065935",
@@ -37991,7 +38700,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515065994": {
         "id": "mat_fg1515065994",
@@ -38017,7 +38727,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515066010": {
         "id": "mat_fg1515066010",
@@ -38043,7 +38754,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515066013": {
         "id": "mat_fg1515066013",
@@ -38069,7 +38781,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515066082": {
         "id": "mat_fg1515066082",
@@ -38095,7 +38808,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515066091": {
         "id": "mat_fg1515066091",
@@ -38121,7 +38835,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515066150": {
         "id": "mat_fg1515066150",
@@ -38147,7 +38862,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515066170": {
         "id": "mat_fg1515066170",
@@ -38173,7 +38889,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515066182": {
         "id": "mat_fg1515066182",
@@ -38199,7 +38916,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg28136066150": {
         "id": "mat_fg28136066150",
@@ -38225,7 +38943,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg3015065632": {
         "id": "mat_fg3015065632",
@@ -38251,7 +38970,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg3015065740": {
         "id": "mat_fg3015065740",
@@ -38277,7 +38997,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_xngxra": {
         "id": "mat_xngxra",
@@ -38309,7 +39030,8 @@
             "name": "M6x18内六角螺丝",
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x22-a232250e.glb"
           }
-        ]
+        ],
+        "unit": "颗"
       },
       "mat_1mb8hvn": {
         "id": "mat_1mb8hvn",
@@ -38346,7 +39068,8 @@
             "name": "左右中框铁片",
             "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@565cd3cf5cd08874c93c7f376762c60e7bdea19a/assets/models/2601502ZHKTP_acdf88203f526cd81cda19d612d61d78b03055471b9b61abd8f560d292de4ea9_glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_1rrn212": {
         "id": "mat_1rrn212",
@@ -38383,7 +39106,8 @@
             "name": "左右中框铁片.glb",
             "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@51fc05166cce45eb57a956e41a3a752d871fcfc5/assets/models/3051502ZHKTP_acdf88203f526cd81cda19d612d61d78b03055471b9b61abd8f560d292de4ea9_glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_m6gs1515bh": {
         "id": "mat_m6gs1515bh",
@@ -38415,7 +39139,8 @@
             "name": "M6管塞",
             "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_m6gs1515wh": {
         "id": "mat_m6gs1515wh",
@@ -38447,7 +39172,8 @@
             "name": "M6管塞",
             "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8dfe1e2e0aeb4c28fb32d589a2a3464e260ad458/assets/models/M6GS1515WH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_m6ylm139": {
         "id": "mat_m6ylm139",
@@ -38479,7 +39205,8 @@
             "name": "圆螺母",
             "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@5676a1fbc873e9095222c1b95fb3b235e8c03dc9/assets/models/M6YLM139_ea2dc3561c993a2825abd6aa0c42dd0d3e481bfa5b4928a589e97fc92074c885_glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_m6lmlm": {
         "id": "mat_m6lmlm",
@@ -38511,7 +39238,8 @@
             "name": "拉铆螺母",
             "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_ljp16143": {
         "id": "mat_ljp16143",
@@ -38543,7 +39271,8 @@
             "name": "连接片.glb",
             "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@bdf905e14c27da53781fd700f6371f1b3e76bfb9/assets/models/LJP16143_65756221cb15e40f24b4d21d40c95360509fa8592e188ae2c1b6de106d10b568_glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_nlpls6018wz": {
         "id": "mat_nlpls6018wz",
@@ -38575,7 +39304,8 @@
             "name": "M6x18内六角螺丝",
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x22-a232250e.glb"
           }
-        ]
+        ],
+        "unit": "颗"
       },
       "mat_m6lmp2881385": {
         "id": "mat_m6lmp2881385",
@@ -38607,7 +39337,8 @@
             "name": "M6螺母片",
             "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@6f6acea992a2b3f2c6508263f7c8856fea4e5a09/assets/models/M6LMP2881385_bc59d1a75c7849aed869a966464d2c5fb8ac3261af0bef4e2b5f83ff4bb2329a_M6_.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_80132132ljj": {
         "id": "mat_80132132ljj",
@@ -38646,7 +39377,8 @@
             "name": "连接件.glb",
             "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b466c6278ccd606aa58b3683b18e569f544fe237/assets/models/80132132LJJ_cdf346ad25222f8607787ed8602e102c819affdb932d091a6844d9d4f316a919_glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_2n8di5": {
         "id": "mat_2n8di5",
@@ -38683,7 +39415,8 @@
             "name": "54底脚23.glb",
             "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@bd7b3398b233802bafe00f40b5f8e4fdaf717cad/assets/models/ZJG15065423BH_78788b812d4e465d405139f2ed163f50c39cc664552ecd486b423bb3330a27aa_54_23.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_einzrx": {
         "id": "mat_einzrx",
@@ -38715,7 +39448,8 @@
             "name": "M6x28内六角螺丝",
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x37-515cea03.glb"
           }
-        ]
+        ],
+        "unit": "颗"
       },
       "mat_9tyhnt": {
         "id": "mat_9tyhnt",
@@ -38747,7 +39481,8 @@
             "name": "",
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x37-515cea03.glb"
           }
-        ]
+        ],
+        "unit": "颗"
       },
       "mat_ptgjme": {
         "id": "mat_ptgjme",
@@ -38784,7 +39519,8 @@
             "name": "54底脚23.glb",
             "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@bd7b3398b233802bafe00f40b5f8e4fdaf717cad/assets/models/ZJG15065423BH_78788b812d4e465d405139f2ed163f50c39cc664552ecd486b423bb3330a27aa_54_23.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_15fi16t": {
         "id": "mat_15fi16t",
@@ -38810,7 +39546,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_10x5lpk": {
         "id": "mat_10x5lpk",
@@ -38836,7 +39573,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_aj1kjf": {
         "id": "mat_aj1kjf",
@@ -38862,7 +39600,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_1pnxr7": {
         "id": "mat_1pnxr7",
@@ -38888,7 +39627,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_1pq7afj": {
         "id": "mat_1pq7afj",
@@ -38914,7 +39654,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_1xizpk5": {
         "id": "mat_1xizpk5",
@@ -38940,7 +39681,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_r4e971": {
         "id": "mat_r4e971",
@@ -38966,7 +39708,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_bz0tqx": {
         "id": "mat_bz0tqx",
@@ -38992,7 +39735,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_fibxq7": {
         "id": "mat_fibxq7",
@@ -39018,7 +39762,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_m77d5q": {
         "id": "mat_m77d5q",
@@ -39044,7 +39789,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_1o55ssz": {
         "id": "mat_1o55ssz",
@@ -39070,7 +39816,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_1ty0z50": {
         "id": "mat_1ty0z50",
@@ -39096,7 +39843,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_h1ewyu": {
         "id": "mat_h1ewyu",
@@ -39122,7 +39870,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_hjpzcd": {
         "id": "mat_hjpzcd",
@@ -39148,7 +39897,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_1dsad7u": {
         "id": "mat_1dsad7u",
@@ -39174,7 +39924,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_71376w": {
         "id": "mat_71376w",
@@ -39200,7 +39951,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_1oyc0ds": {
         "id": "mat_1oyc0ds",
@@ -39226,7 +39978,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_4n489n": {
         "id": "mat_4n489n",
@@ -39252,7 +40005,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_1t4px74": {
         "id": "mat_1t4px74",
@@ -39278,7 +40032,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_12c3oi": {
         "id": "mat_12c3oi",
@@ -39304,7 +40059,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_nmaraq": {
         "id": "mat_nmaraq",
@@ -39330,7 +40086,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_1eeqkrr": {
         "id": "mat_1eeqkrr",
@@ -39356,7 +40113,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_pucead": {
         "id": "mat_pucead",
@@ -39382,7 +40140,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "张"
       },
       "mat_1qxxwtg": {
         "id": "mat_1qxxwtg",
@@ -39408,7 +40167,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_tfld2c": {
         "id": "mat_tfld2c",
@@ -39434,7 +40194,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_7t24tn": {
         "id": "mat_7t24tn",
@@ -39460,7 +40221,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_w3jdl6": {
         "id": "mat_w3jdl6",
@@ -39486,7 +40248,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_14zid2t": {
         "id": "mat_14zid2t",
@@ -39512,7 +40275,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_fuk41z": {
         "id": "mat_fuk41z",
@@ -39538,7 +40302,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_2mqovu": {
         "id": "mat_2mqovu",
@@ -39564,7 +40329,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_m1920k": {
         "id": "mat_m1920k",
@@ -39590,7 +40356,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_1o488o": {
         "id": "mat_1o488o",
@@ -39616,7 +40383,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_18s9e2x": {
         "id": "mat_18s9e2x",
@@ -39642,7 +40410,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_srhu9k": {
         "id": "mat_srhu9k",
@@ -39668,7 +40437,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_1eb2scv": {
         "id": "mat_1eb2scv",
@@ -39694,7 +40464,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_1oe9icu": {
         "id": "mat_1oe9icu",
@@ -39720,7 +40491,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_12eui9w": {
         "id": "mat_12eui9w",
@@ -39746,7 +40518,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_n6dztq": {
         "id": "mat_n6dztq",
@@ -39772,7 +40545,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_yc5tps": {
         "id": "mat_yc5tps",
@@ -39798,7 +40572,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_kpwulk": {
         "id": "mat_kpwulk",
@@ -39824,7 +40599,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_1ss3c8v": {
         "id": "mat_1ss3c8v",
@@ -39850,7 +40626,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_1qpianr": {
         "id": "mat_1qpianr",
@@ -39876,7 +40653,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_fzjmbj": {
         "id": "mat_fzjmbj",
@@ -39902,7 +40680,8 @@
           "vi": "vật liệu đóng gói"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "个"
       },
       "mat_1yu2lds": {
         "id": "mat_1yu2lds",
@@ -39939,7 +40718,8 @@
             "name": "LGS421-S-顶部横杆前.glb",
             "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@667e425ad081103ddff932f25ff3a3b71f9ba459/assets/models/LGS421QHLBH_5a14900f860a00e6e6509b12b112a5f3c166fb695e5b0e5a4d4fc4ea1243c042_LGS421-S-_.glb"
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_y8rp64": {
         "id": "mat_y8rp64",
@@ -39965,7 +40745,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_lgs433szkzbh": {
         "id": "mat_lgs433szkzbh",
@@ -40008,7 +40789,8 @@
             "score": 1100,
             "bytes": 81612
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_lgs433szkzwh": {
         "id": "mat_lgs433szkzwh",
@@ -40051,7 +40833,8 @@
             "score": 1300,
             "bytes": 81612
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_lgs434szkzbh": {
         "id": "mat_lgs434szkzbh",
@@ -40094,7 +40877,8 @@
             "score": 1100,
             "bytes": 106004
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_lgs434szkzwh": {
         "id": "mat_lgs434szkzwh",
@@ -40137,7 +40921,8 @@
             "score": 1300,
             "bytes": 106004
           }
-        ]
+        ],
+        "unit": "根"
       },
       "mat_fg1515064816647": {
         "id": "mat_fg1515064816647",
@@ -40163,7 +40948,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_fg1515064804647": {
         "id": "mat_fg1515064804647",
@@ -40189,7 +40975,8 @@
           "vi": "Nguyên vật liệu"
         },
         "drawings": [],
-        "models3d": []
+        "models3d": [],
+        "unit": "根"
       },
       "mat_zjg150641wh": {
         "id": "mat_zjg150641wh",
@@ -40229,7 +41016,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/54-21ec9115.glb",
             "path": "models3d/catalog/54-21ec9115.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_zjg15064123bh": {
         "id": "mat_zjg15064123bh",
@@ -40268,7 +41056,8 @@
             "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@bd7b3398b233802bafe00f40b5f8e4fdaf717cad/assets/models/ZJG15065423BH_78788b812d4e465d405139f2ed163f50c39cc664552ecd486b423bb3330a27aa_54_23.glb",
             "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@bd7b3398b233802bafe00f40b5f8e4fdaf717cad/assets/models/ZJG15065423BH_78788b812d4e465d405139f2ed163f50c39cc664552ecd486b423bb3330a27aa_54_23.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_zjg15064123wh": {
         "id": "mat_zjg15064123wh",
@@ -40307,7 +41096,8 @@
             "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@bd7b3398b233802bafe00f40b5f8e4fdaf717cad/assets/models/ZJG15065423BH_78788b812d4e465d405139f2ed163f50c39cc664552ecd486b423bb3330a27aa_54_23.glb",
             "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@bd7b3398b233802bafe00f40b5f8e4fdaf717cad/assets/models/ZJG15065423BH_78788b812d4e465d405139f2ed163f50c39cc664552ecd486b423bb3330a27aa_54_23.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_lgs043zkbh647": {
         "id": "mat_lgs043zkbh647",
@@ -40347,7 +41137,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS043-S-6e36d2c8.glb",
             "path": "models3d/catalog/LGS043-S-6e36d2c8.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_lgs043ykbh647": {
         "id": "mat_lgs043ykbh647",
@@ -40387,7 +41178,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS043-S-8bb2c99c.glb",
             "path": "models3d/catalog/LGS043-S-8bb2c99c.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_lgs132zkbh647": {
         "id": "mat_lgs132zkbh647",
@@ -40427,7 +41219,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS132-232-S-a4baa9fd.glb",
             "path": "models3d/catalog/LGS132-232-S-a4baa9fd.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_lgs132ykbh647": {
         "id": "mat_lgs132ykbh647",
@@ -40467,7 +41260,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS132-232-S-3e157531.glb",
             "path": "models3d/catalog/LGS132-232-S-3e157531.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_lgs033zkbh647": {
         "id": "mat_lgs033zkbh647",
@@ -40507,7 +41301,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS033-a0a6bb6c.glb",
             "path": "models3d/catalog/LGS033-a0a6bb6c.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_lgs033ykbh647": {
         "id": "mat_lgs033ykbh647",
@@ -40547,7 +41342,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS033-060b2041.glb",
             "path": "models3d/catalog/LGS033-060b2041.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_lgs033zkwh647": {
         "id": "mat_lgs033zkwh647",
@@ -40587,7 +41383,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS033-a0a6bb6c.glb",
             "path": "models3d/catalog/LGS033-a0a6bb6c.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_lgs033ykwh647": {
         "id": "mat_lgs033ykwh647",
@@ -40627,7 +41424,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS033-060b2041.glb",
             "path": "models3d/catalog/LGS033-060b2041.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_lgs133zkbh647": {
         "id": "mat_lgs133zkbh647",
@@ -40667,7 +41465,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS133-3f9d959c.glb",
             "path": "models3d/catalog/LGS133-3f9d959c.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_lgs133ykbh647": {
         "id": "mat_lgs133ykbh647",
@@ -40707,7 +41506,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS133-2a6389ab.glb",
             "path": "models3d/catalog/LGS133-2a6389ab.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_lgs233zkbh647": {
         "id": "mat_lgs233zkbh647",
@@ -40747,7 +41547,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS233-04494dd1.glb",
             "path": "models3d/catalog/LGS233-04494dd1.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_lgs233ykbh647": {
         "id": "mat_lgs233ykbh647",
@@ -40787,7 +41588,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS233-614e3863.glb",
             "path": "models3d/catalog/LGS233-614e3863.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_lgs233zkwh647": {
         "id": "mat_lgs233zkwh647",
@@ -40827,7 +41629,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS233-04494dd1.glb",
             "path": "models3d/catalog/LGS233-04494dd1.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_lgs233ykwh647": {
         "id": "mat_lgs233ykwh647",
@@ -40867,7 +41670,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS233-614e3863.glb",
             "path": "models3d/catalog/LGS233-614e3863.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_lgs333zkbh647": {
         "id": "mat_lgs333zkbh647",
@@ -40907,7 +41711,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS333-433-dddd0e5e.glb",
             "path": "models3d/catalog/LGS333-433-dddd0e5e.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_lgs333ykbh647": {
         "id": "mat_lgs333ykbh647",
@@ -40947,7 +41752,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS333-433-391f4191.glb",
             "path": "models3d/catalog/LGS333-433-391f4191.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_lgs333zkwh647": {
         "id": "mat_lgs333zkwh647",
@@ -40987,7 +41793,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS333-433-dddd0e5e.glb",
             "path": "models3d/catalog/LGS333-433-dddd0e5e.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_lgs333ykwh647": {
         "id": "mat_lgs333ykwh647",
@@ -41027,7 +41834,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS333-433-391f4191.glb",
             "path": "models3d/catalog/LGS333-433-391f4191.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_lgs334zkbh647": {
         "id": "mat_lgs334zkbh647",
@@ -41067,7 +41875,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-2aafb973.glb",
             "path": "models3d/catalog/LGS334-434-2aafb973.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_lgs334ykbh647": {
         "id": "mat_lgs334ykbh647",
@@ -41107,7 +41916,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-900ca01c.glb",
             "path": "models3d/catalog/LGS334-434-900ca01c.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_lgs434zkwh647": {
         "id": "mat_lgs434zkwh647",
@@ -41147,7 +41957,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-2aafb973.glb",
             "path": "models3d/catalog/LGS334-434-2aafb973.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_lgs434ykwh647": {
         "id": "mat_lgs434ykwh647",
@@ -41187,7 +41998,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-900ca01c.glb",
             "path": "models3d/catalog/LGS334-434-900ca01c.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_lgs723zkbh647": {
         "id": "mat_lgs723zkbh647",
@@ -41227,7 +42039,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS723-733-1a2e91c6.glb",
             "path": "models3d/catalog/LGS723-733-1a2e91c6.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_lgs723ykbh647": {
         "id": "mat_lgs723ykbh647",
@@ -41267,7 +42080,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS723-733-21fe9fd6.glb",
             "path": "models3d/catalog/LGS723-733-21fe9fd6.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_lgs723zkwh647": {
         "id": "mat_lgs723zkwh647",
@@ -41307,7 +42121,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS723-733-1a2e91c6.glb",
             "path": "models3d/catalog/LGS723-733-1a2e91c6.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_lgs723ykwh647": {
         "id": "mat_lgs723ykwh647",
@@ -41347,7 +42162,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS723-733-21fe9fd6.glb",
             "path": "models3d/catalog/LGS723-733-21fe9fd6.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_lgs833zkbh647": {
         "id": "mat_lgs833zkbh647",
@@ -41387,7 +42203,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS833-d557b2fa.glb",
             "path": "models3d/catalog/LGS833-d557b2fa.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_lgs833ykbh647": {
         "id": "mat_lgs833ykbh647",
@@ -41427,7 +42244,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS833-461f920f.glb",
             "path": "models3d/catalog/LGS833-461f920f.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_lgs833zkwh647": {
         "id": "mat_lgs833zkwh647",
@@ -41467,7 +42285,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS833-d557b2fa.glb",
             "path": "models3d/catalog/LGS833-d557b2fa.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_lgs833ykwh647": {
         "id": "mat_lgs833ykwh647",
@@ -41507,7 +42326,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS833-461f920f.glb",
             "path": "models3d/catalog/LGS833-461f920f.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_lgs834zkbh647": {
         "id": "mat_lgs834zkbh647",
@@ -41547,7 +42367,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS834-fbf16cd4.glb",
             "path": "models3d/catalog/LGS834-fbf16cd4.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_lgs834ykbh647": {
         "id": "mat_lgs834ykbh647",
@@ -41587,7 +42408,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS834-489cd105.glb",
             "path": "models3d/catalog/LGS834-489cd105.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_lgs834zkwh647": {
         "id": "mat_lgs834zkwh647",
@@ -41627,7 +42449,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS834-fbf16cd4.glb",
             "path": "models3d/catalog/LGS834-fbf16cd4.glb"
           }
-        ]
+        ],
+        "unit": "个"
       },
       "mat_lgs834ykwh647": {
         "id": "mat_lgs834ykwh647",
@@ -41667,7 +42490,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS834-489cd105.glb",
             "path": "models3d/catalog/LGS834-489cd105.glb"
           }
-        ]
+        ],
+        "unit": "个"
       }
     },
     "bomEntries": [

@@ -197,7 +197,7 @@ function renderStructureDetail() {
       <th>${escapeHTML(this.label('headers')[5])}</th>
       <th>${escapeHTML(this.label('headers')[6])}</th>
       <th>${escapeHTML(this.label('headers')[7])}</th>
-      <th class="str-col-num">${escapeHTML(this.label('headers')[8])}</th>
+      <th class="str-col-num">${escapeHTML(this.label('headers')[9])}</th>
       <th class="str-col-num">2D</th>
       <th class="str-col-num">3D</th>
       <th class="str-col-used">${escapeHTML(this.label('whereUsed'))}</th>
