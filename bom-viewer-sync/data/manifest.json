@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-17T03:20:42.495Z",
+  "updatedAt": "2026-08-18T00:30:41.925Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -122376,12 +122376,12 @@
     },
     "LGS833": {
       "currentRevision": "V4.1",
-      "effectiveRevision": "V4",
+      "effectiveRevision": "V4.1",
       "currentRevisionInfo": {
         "sourceRevision": "V4",
         "createdAt": "2026-08-15T07:53:09.326Z",
         "changeReason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -132705,11 +132705,42 @@
           "previousRevision": "",
           "occurredAt": "2026-07-30T08:21:00.254Z",
           "reason": "LGS833纸箱物料编码已修正"
+        },
+        {
+          "id": "effectivity_msxxf7v4",
+          "action": "release",
+          "revision": "V4.1",
+          "previousRevision": "V4",
+          "occurredAt": "2026-08-18T00:30:36.688Z",
+          "reason": "更改"
         }
       ]
     }
   },
   "notifications": [
+    {
+      "id": "notif_1rmeps6",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-18T00:30:41.925Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS833",
+          "field": "effectiveRevision",
+          "before": "V4",
+          "after": "V4.1"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS833",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        }
+      ]
+    },
     {
       "id": "notif_1pj77i",
       "type": "github-save",
@@ -133618,71 +133649,6 @@
           "field": "workflowState",
           "before": "draft",
           "after": "released"
-        }
-      ]
-    },
-    {
-      "id": "notif_1c0wd2i",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-13T09:06:22.790Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "2601502ZHKTP",
-          "field": "drawings",
-          "before": "",
-          "after": "260左右中框铁片.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@824ee2fe20b32a6e67622492d6383ff22bfcfd8c/assets/pdfs/2601502ZHKTP_cd1313c45e73776f582a88a712c9b052e3d9cb9c68eec77c5f14c0e88ef7b66f_260_.pdf"
-        },
-        {
-          "kind": "material",
-          "code": "2601502ZHKTP",
-          "field": "models3d",
-          "before": "",
-          "after": "左右中框铁片|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@565cd3cf5cd08874c93c7f376762c60e7bdea19a/assets/models/2601502ZHKTP_acdf88203f526cd81cda19d612d61d78b03055471b9b61abd8f560d292de4ea9_glb"
-        },
-        {
-          "kind": "material_deleted",
-          "code": "M6GS1515BH",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "material_deleted",
-          "code": "M6GS1515WH",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "material_deleted",
-          "code": "M6YLM139",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "material_deleted",
-          "code": "M6LMLM",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "material_deleted",
-          "code": "LJP16143",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "material_deleted",
-          "code": "NLPLS6018WZ",
-          "field": "",
-          "before": "",
-          "after": ""
         }
       ]
     }
@@ -145166,6 +145132,31 @@
       }
     ],
     "LGS833": [
+      {
+        "id": "history_70wcps",
+        "productCode": "LGS833",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-18T00:30:41.925Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS833",
+            "field": "effectiveRevision",
+            "before": "V4",
+            "after": "V4.1"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS833",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
       {
         "id": "history_7xrlpw",
         "productCode": "LGS833",
