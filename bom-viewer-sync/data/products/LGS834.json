@@ -2297,7 +2297,10 @@
           "attr_vi": "linh kiện",
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
-          "unit": "个",
+          "unit": {
+            "zh": "个",
+            "vi": "个"
+          },
           "qty": "2",
           "remark": "",
           "materials": [

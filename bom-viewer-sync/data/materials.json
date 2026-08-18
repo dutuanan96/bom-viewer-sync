@@ -34026,9 +34026,23 @@
           "zh": "零件",
           "vi": "linh kiện"
         },
-        "drawings": [],
-        "models3d": [],
-        "unit": "个"
+        "drawings": [
+          {
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf",
+            "name": "41底脚.pdf"
+          }
+        ],
+        "models3d": [
+          {
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/54-21ec9115.glb",
+            "name": "54底脚.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/54-21ec9115.glb"
+          }
+        ],
+        "unit": {
+          "zh": "个",
+          "vi": "个"
+        }
       },
       "mat_11qynpo": {
         "id": "mat_11qynpo",
