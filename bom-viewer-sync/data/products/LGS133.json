@@ -380,12 +380,12 @@
             },
             {
               "stt": "",
-              "mat_code": "NLPLS6028BZ",
+              "mat_code": "NLPLS6030BZ",
               "comp_code": "",
-              "name_zh": "M6x28内六角螺丝",
-              "name_vi": "M6x28 ốc lục giác",
-              "spec": "M6x28mm",
-              "spec_vi": "M6x28mm",
+              "name_zh": "M6x30内六角螺丝",
+              "name_vi": "M6x30 ốc lục giác",
+              "spec": "M6x30mm",
+              "spec_vi": "M6x30mm",
               "material_zh": "#10",
               "material_vi": "#10",
               "color_zh": "黑色",
@@ -394,7 +394,10 @@
               "attr_vi": "túi ngũ kim",
               "color_ver": "",
               "color_ver_vi": "",
-              "unit": "颗",
+              "unit": {
+                "zh": "颗",
+                "vi": "颗"
+              },
               "qty": "1",
               "remark": ""
             }

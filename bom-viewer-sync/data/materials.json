@@ -39443,14 +39443,14 @@
       },
       "mat_einzrx": {
         "id": "mat_einzrx",
-        "code": "NLPLS6028BZ",
+        "code": "NLPLS6030BZ",
         "name": {
-          "zh": "M6x28内六角螺丝",
-          "vi": "M6x28 ốc lục giác"
+          "zh": "M6x30内六角螺丝",
+          "vi": "M6x30 ốc lục giác"
         },
         "spec": {
-          "zh": "M6x28mm",
-          "vi": "M6x28mm"
+          "zh": "M6x30mm",
+          "vi": "M6x30mm"
         },
         "material": {
           "zh": "#10",
@@ -39472,18 +39472,21 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x37-515cea03.glb"
           }
         ],
-        "unit": "颗"
+        "unit": {
+          "zh": "颗",
+          "vi": "颗"
+        }
       },
       "mat_9tyhnt": {
         "id": "mat_9tyhnt",
-        "code": "NLPLS6028WZ",
+        "code": "NLPLS6030WZ",
         "name": {
-          "zh": "M6x28内六角螺丝",
-          "vi": "M6x28 ốc lục giác"
+          "zh": "M6x30内六角螺丝",
+          "vi": "M6x30 ốc lục giác"
         },
         "spec": {
-          "zh": "M6x28mm",
-          "vi": "M6x2M6x28mm8mm"
+          "zh": "M6x30mm",
+          "vi": "M6x30mm"
         },
         "material": {
           "zh": "#10",
@@ -39505,7 +39508,10 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x37-515cea03.glb"
           }
         ],
-        "unit": "颗"
+        "unit": {
+          "zh": "颗",
+          "vi": "颗"
+        }
       },
       "mat_ptgjme": {
         "id": "mat_ptgjme",
