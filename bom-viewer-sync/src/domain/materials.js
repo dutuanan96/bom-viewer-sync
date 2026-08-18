@@ -610,6 +610,7 @@ function updateMaterialRecord(payload, materialId, patch) {
     };
   });
   if (Object.prototype.hasOwnProperty.call(patch, 'code')) record.code = String(patch.code || '');
+  if (Object.prototype.hasOwnProperty.call(patch, 'unit')) record.unit = String(patch.unit || '');
   if (Object.prototype.hasOwnProperty.call(patch, 'drawings')) record.drawings = clone(patch.drawings);
   if (Object.prototype.hasOwnProperty.call(patch, 'models3d')) record.models3d = clone(patch.models3d);
   return record;

@@ -247,6 +247,7 @@ const TEXT = {
     materialComposition: '材质',
     materialColor: '颜色',
     materialAttribute: '属性',
+    materialUnit: '单位',
     selectMaterial: '选择物料',
     searchPlaceholder: '搜索物料编码、名称、规格...',
     selectBtn: '选择',
@@ -650,6 +651,7 @@ const TEXT = {
     materialComposition: 'Chất liệu',
     materialColor: 'Màu',
     materialAttribute: 'Thuộc tính',
+    materialUnit: 'Đơn vị',
     selectMaterial: 'Chọn vật liệu',
     searchPlaceholder: 'Tìm mã vật liệu, tên, quy cách...',
     selectBtn: 'Chọn',
@@ -3449,6 +3451,10 @@ class BomApplication {
       const lang = input.dataset.lang || 'zh';
       if (field === 'code') {
         patch.code = input.value.trim();
+        return;
+      }
+      if (field === 'unit') {
+        patch.unit = input.value.trim();
         return;
       }
       patch[field] = patch[field] || {};

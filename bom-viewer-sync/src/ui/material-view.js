@@ -272,6 +272,7 @@ function materialMasterFormHtml(record) {
     <div class="material-master-form">
       ${this.materialMasterReadonly(this.label('materialId'), record.id)}
       ${this.materialMasterCodeInput(record)}
+      ${this.materialMasterUnitInput(record)}
       ${pairs.map(([field, label]) => `${this.materialMasterInput(record, field, label, 'zh', dict)}${this.materialMasterInput(record, field, label, 'vi', dict)}`).join('')}
     </div>
   </section>`;
@@ -283,6 +284,18 @@ function materialMasterReadonly(label, value) {
 
 function materialMasterCodeInput(record) {
   return `<label class="material-master-field"><span>${escapeHTML(this.label('materialCode'))}</span><input class="edit-input" data-material-master-edit="code" value="${escapeHTML(record.code || '')}"></label>`;
+}
+
+const STANDARD_UNITS = ['个', '块', '套', '根', '只', '颗', '张', '本', 'pcs', 'm', 'm²', 'kg'];
+
+function materialMasterUnitInput(record) {
+  const value = escapeHTML(record.unit || '');
+  const datalistHtml = `<datalist id="dl-unit">${STANDARD_UNITS.map(u => `<option value="${escapeHTML(u)}"></option>`).join('')}</datalist>`;
+  return `<label class="material-master-field" for="mm-unit">
+    <span>${escapeHTML(this.label('materialUnit'))}</span>
+    ${datalistHtml}
+    <input id="mm-unit" class="edit-input" data-material-master-edit="unit" value="${value}" list="dl-unit" placeholder="个 / 块 / 套 / 根..." autocomplete="off">
+  </label>`;
 }
 
 // Fields with a finite, well-defined set of values: show a combobox picker.
@@ -505,6 +518,7 @@ export const materialViewMethods = {
   materialMasterFormHtml,
   materialMasterReadonly,
   materialMasterCodeInput,
+  materialMasterUnitInput,
   materialMasterInput,
   materialMasterRelationshipsHtml,
   materialMasterProductUsage,
