@@ -3159,6 +3159,16 @@ body.pdm-shell {
   min-width: 0;
 }
 
+.material-master-field--full {
+  grid-column: 1 / -1;
+}
+
+.mdb-col-unit {
+  width: 48px;
+  min-width: 40px;
+  text-align: center;
+}
+
 .material-master-field span,
 .material-master-relation strong,
 .material-master-asset-list strong {

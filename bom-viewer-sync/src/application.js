@@ -3453,10 +3453,6 @@ class BomApplication {
         patch.code = input.value.trim();
         return;
       }
-      if (field === 'unit') {
-        patch.unit = input.value.trim();
-        return;
-      }
       patch[field] = patch[field] || {};
       patch[field][lang] = input.value;
     });
@@ -4240,7 +4236,7 @@ class BomApplication {
         materialText(material, 'name', lang), materialText(material, 'spec', lang),
         materialText(material, 'material', lang), materialText(material, 'color', lang),
         materialText(material, 'attr', lang),
-        material.unit || material._materialRecord?.unit || this.state.materialDb?.materials?.[material._materialId]?.unit || inferMaterialUnit(material._materialRecord || material) || '',
+        (() => { const u = material.unit || material._materialRecord?.unit || this.state.materialDb?.materials?.[material._materialId]?.unit || inferMaterialUnit(material._materialRecord || material) || ''; return (u && typeof u === 'object') ? (lang === 'vi' ? u.vi : u.zh) || u.zh || '' : String(u); })(),
         material._effectiveQty || material.qty || '']);
     });
     return [...productRows, colHeader, ...dataRows];

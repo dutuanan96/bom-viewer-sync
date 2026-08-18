@@ -80,6 +80,7 @@ function renderMaterialDatabase() {
       <th class="mdb-col-mat">${escapeHTML(this.label('materialComposition'))}</th>
       <th class="mdb-col-color">${escapeHTML(this.label('materialColor'))}</th>
       <th class="mdb-col-attr">${escapeHTML(this.label('materialAttribute'))}</th>
+      <th class="mdb-col-unit">${escapeHTML(this.label('materialUnit'))}</th>
       <th class="mdb-col-num">2D</th>
       <th class="mdb-col-num">3D</th>
       <th class="mdb-col-used">${escapeHTML(this.label('whereUsed'))}</th>
@@ -223,6 +224,7 @@ function materialDbRowHtml(record) {
     <td class="mdb-col-mat"><div>${this.highlight(localized(record.material))}</div></td>
     <td><div>${this.renderColorDot(localized(record.color))}</div></td>
     <td><div>${this.renderAttrBadge(localized(record.attr))}</div></td>
+    <td class="mdb-center mdb-col-unit"><span>${escapeHTML((() => { const u = record.unit; if (!u) return '-'; if (typeof u === 'object') return (this.state.lang === 'vi' ? u.vi : u.zh) || u.zh || '-'; return u; })())}</span></td>
     <td class="mdb-center">${(record.drawings || []).length ? `<button class="drawing-btn primary" type="button" data-drawing-material="${escapeHTML(record.id)}"><span class="material-symbols-outlined" style="font-size: 16px;">image</span></button>` : '<span class="mdb-empty">-</span>'}</td>
     <td class="mdb-center">${(record.models3d || []).length ? `<button class="drawing-btn primary" type="button" data-model3d-material="${escapeHTML(record.id)}"><span class="material-symbols-outlined" style="font-size: 16px;">3d_rotation</span></button>` : '<span class="mdb-empty">-</span>'}</td>
     <td class="mdb-col-used"><div class="spu-pill-list">${spuPills}</div></td>
@@ -264,7 +266,8 @@ function materialMasterFormHtml(record) {
     ['spec', this.label('specification')],
     ['material', this.label('materialComposition')],
     ['color', this.label('materialColor')],
-    ['attr', this.label('materialAttribute')]
+    ['attr', this.label('materialAttribute')],
+    ['unit', this.label('materialUnit')]
   ];
   const dict = this.bilingualDict || null;
   return `<section class="material-master-section">
@@ -272,7 +275,6 @@ function materialMasterFormHtml(record) {
     <div class="material-master-form">
       ${this.materialMasterReadonly(this.label('materialId'), record.id)}
       ${this.materialMasterCodeInput(record)}
-      ${this.materialMasterUnitInput(record)}
       ${pairs.map(([field, label]) => `${this.materialMasterInput(record, field, label, 'zh', dict)}${this.materialMasterInput(record, field, label, 'vi', dict)}`).join('')}
     </div>
   </section>`;
@@ -287,22 +289,18 @@ function materialMasterCodeInput(record) {
 }
 
 const STANDARD_UNITS = ['个', '块', '套', '根', '只', '颗', '张', '本', 'pcs', 'm', 'm²', 'kg'];
-
-function materialMasterUnitInput(record) {
-  const value = escapeHTML(record.unit || '');
-  const datalistHtml = `<datalist id="dl-unit">${STANDARD_UNITS.map(u => `<option value="${escapeHTML(u)}"></option>`).join('')}</datalist>`;
-  return `<label class="material-master-field" for="mm-unit">
-    <span>${escapeHTML(this.label('materialUnit'))}</span>
-    ${datalistHtml}
-    <input id="mm-unit" class="edit-input" data-material-master-edit="unit" value="${value}" list="dl-unit" placeholder="个 / 块 / 套 / 根..." autocomplete="off">
-  </label>`;
-}
+// materialMasterUnitInput is superseded by unit being in the pairs array; kept for export compat.
+function materialMasterUnitInput(_record) { return ''; }
 
 // Fields with a finite, well-defined set of values: show a combobox picker.
 const COMBOBOX_FIELDS = new Set(['material', 'color', 'attr']);
 
 function materialMasterInput(record, field, label, lang, dict) {
-  const value = record[field]?.[lang] || '';
+  // Backward compat: unit may be stored as a plain string in older data
+  const rawFieldVal = record[field];
+  const value = (field === 'unit' && typeof rawFieldVal === 'string')
+    ? rawFieldVal
+    : (rawFieldVal?.[lang] || '');
   const langLabel = lang === 'zh' ? this.label('chinese') : this.label('vietnamese');
   const inputId = `mm-${field}-${lang}`;
   const placeholder = escapeHTML(this.label('bilingualPickerPlaceholder') || '');
@@ -317,6 +315,17 @@ function materialMasterInput(record, field, label, lang, dict) {
         <input id="${inputId}" class="edit-input" data-material-master-edit="${escapeHTML(field)}" data-lang="${escapeHTML(lang)}" data-bilingual-provenance="${provenance}" value="${escapeHTML(value)}" placeholder="${placeholder}" autocomplete="off">
         <button type="button" class="field-picker-btn" data-action="open-field-picker" data-field="${escapeHTML(field)}" data-lang="${escapeHTML(lang)}" aria-label="${ariaLabel}" aria-expanded="false" aria-controls="${pickerId}">▾</button>
       </div>
+    </label>`;
+  }
+
+  // Unit field: use standard units datalist
+  if (field === 'unit') {
+    const datalistId = `dl-unit-${lang}`;
+    const unitDatalist = `<datalist id="${datalistId}">${STANDARD_UNITS.map(u => `<option value="${escapeHTML(u)}"></option>`).join('')}</datalist>`;
+    return `<label class="material-master-field" for="${inputId}">
+      <span>${escapeHTML(label)} · ${escapeHTML(langLabel)}</span>
+      ${unitDatalist}
+      <input id="${inputId}" class="edit-input" data-material-master-edit="${escapeHTML(field)}" data-lang="${escapeHTML(lang)}" data-bilingual-provenance="${provenance}" value="${escapeHTML(value)}" list="${datalistId}" placeholder="个 / cái..." autocomplete="off">
     </label>`;
   }
 

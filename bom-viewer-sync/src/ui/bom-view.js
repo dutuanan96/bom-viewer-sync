@@ -31,7 +31,8 @@ function bomInspectorHtml() {
   const selected = this.selectedBomRow();
   if (!selected) return this.productInspectorHtml();
   const name = materialText(selected, 'name', this.state.lang);
-  const unit = selected.unit || selected._materialRecord?.unit || inferMaterialUnit(selected._materialRecord || selected) || '-';
+  const rawUnit = selected.unit || selected._materialRecord?.unit || inferMaterialUnit(selected._materialRecord || selected);
+  const unit = resolveUnit(rawUnit, this.state.lang) || '-';
   return `<div class="inspector-header">
     <span class="eyebrow">${escapeHTML(this.label('selectedBomRow'))}</span>
     <h2>${escapeHTML(selected.mat_code || this.label('noSelection'))}</h2>
@@ -417,14 +418,20 @@ function remarkCellHtml(material) {
   return `<td class="bom-remark" title="${escapeHTML(remark)}">${content}</td>`;
 }
 
+function resolveUnit(unitField, lang) {
+  if (!unitField) return '';
+  if (typeof unitField === 'object') {
+    return (lang === 'vi' ? unitField.vi : unitField.zh) || unitField.zh || unitField.vi || '';
+  }
+  return String(unitField).trim();
+}
+
 function unitCellHtml(material) {
-  const unit = String(
-    material.unit ||
+  const rawUnit = material.unit ||
     material._materialRecord?.unit ||
     this.state.materialDb?.materials?.[material._materialId]?.unit ||
-    inferMaterialUnit(material._materialRecord || material) ||
-    ''
-  ).trim();
+    inferMaterialUnit(material._materialRecord || material);
+  const unit = resolveUnit(rawUnit, this.state.lang);
   if (!unit) return '<td><span class="mdb-empty">-</span></td>';
   return `<td><span class="bom-unit">${escapeHTML(unit)}</span></td>`;
 }

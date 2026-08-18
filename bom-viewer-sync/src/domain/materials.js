@@ -74,8 +74,16 @@ function seedAsset(target, ...assetGroups) {
 
 function inferMaterialUnit(recordOrMaterial) {
   const explicitUnit = recordOrMaterial?.unit;
-  if (explicitUnit && typeof explicitUnit === 'string' && explicitUnit.trim()) {
-    return explicitUnit.trim();
+  if (explicitUnit) {
+    // Bilingual object { zh, vi }
+    if (typeof explicitUnit === 'object') {
+      const zh = (explicitUnit.zh || '').trim();
+      if (zh) return zh;
+    }
+    // Plain string (legacy data)
+    if (typeof explicitUnit === 'string' && explicitUnit.trim()) {
+      return explicitUnit.trim();
+    }
   }
 
   const attr = String(
@@ -602,15 +610,19 @@ function replaceBomEntryMaterial(payload, entryId, materialId) {
 function updateMaterialRecord(payload, materialId, patch) {
   const record = payload?.materialDb?.materials?.[materialId];
   if (!record || !patch) return null;
-  ['name', 'spec', 'material', 'color', 'attr'].forEach((field) => {
+  // Normalize existing unit to bilingual object for compat before merging
+  if (record.unit && typeof record.unit === 'string') {
+    record.unit = { zh: record.unit, vi: record.unit };
+  }
+  ['name', 'spec', 'material', 'color', 'attr', 'unit'].forEach((field) => {
     if (!patch[field]) return;
+    const existing = record[field] || {};
     record[field] = {
-      zh: String(patch[field].zh ?? record[field]?.zh ?? ''),
-      vi: String(patch[field].vi ?? record[field]?.vi ?? patch[field].zh ?? record[field]?.zh ?? '')
+      zh: String(patch[field].zh ?? existing.zh ?? ''),
+      vi: String(patch[field].vi ?? existing.vi ?? patch[field].zh ?? existing.zh ?? '')
     };
   });
   if (Object.prototype.hasOwnProperty.call(patch, 'code')) record.code = String(patch.code || '');
-  if (Object.prototype.hasOwnProperty.call(patch, 'unit')) record.unit = String(patch.unit || '');
   if (Object.prototype.hasOwnProperty.call(patch, 'drawings')) record.drawings = clone(patch.drawings);
   if (Object.prototype.hasOwnProperty.call(patch, 'models3d')) record.models3d = clone(patch.models3d);
   return record;
