@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-19T03:38:17.977Z",
+  "updatedAt": "2026-08-19T03:45:35.287Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -119278,12 +119278,12 @@
     },
     "LGS133": {
       "currentRevision": "V4.1",
-      "effectiveRevision": "V4",
+      "effectiveRevision": "V4.1",
       "currentRevisionInfo": {
         "sourceRevision": "V4",
         "createdAt": "2026-08-15T07:52:52.032Z",
         "changeReason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -123575,6 +123575,14 @@
           "revision": "V4",
           "previousRevision": "",
           "occurredAt": "2026-08-13T10:47:11.551Z",
+          "reason": "更新"
+        },
+        {
+          "id": "effectivity_mszjtr08",
+          "action": "release",
+          "revision": "V4.1",
+          "previousRevision": "V4",
+          "occurredAt": "2026-08-19T03:45:32.408Z",
           "reason": "更新"
         }
       ]
@@ -134079,6 +134087,29 @@
   },
   "notifications": [
     {
+      "id": "notif_zy8ccm",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-19T03:45:35.287Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS133",
+          "field": "effectiveRevision",
+          "before": "V4",
+          "after": "V4.1"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS133",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        }
+      ]
+    },
+    {
       "id": "notif_68wu7y",
       "type": "github-save",
       "actor": "admin",
@@ -135049,43 +135080,6 @@
           "field": "workflowState",
           "before": "draft",
           "after": "released"
-        }
-      ]
-    },
-    {
-      "id": "notif_a856eo",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-13T10:50:01.771Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS233",
-          "field": "effectiveRevision",
-          "before": "V4",
-          "after": ""
-        },
-        {
-          "kind": "revision",
-          "code": "LGS233",
-          "field": "workflowState",
-          "before": "released",
-          "after": "draft"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS233KD02S",
-          "field": "",
-          "before": "ZJG150654BH",
-          "after": "ZJG15065423BH"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS233BH02S",
-          "field": "",
-          "before": "ZJG150654BH",
-          "after": "ZJG15065423BH"
         }
       ]
     }
@@ -144852,6 +144846,31 @@
       }
     ],
     "LGS133": [
+      {
+        "id": "history_pgxbzv",
+        "productCode": "LGS133",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-19T03:45:35.287Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS133",
+            "field": "effectiveRevision",
+            "before": "V4",
+            "after": "V4.1"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS133",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
       {
         "id": "history_wxaomu",
         "productCode": "LGS133",

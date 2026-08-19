@@ -400,7 +400,10 @@
           "attr_vi": "linh kiện",
           "color_ver": "白色",
           "color_ver_vi": "màu trắng",
-          "unit": "根",
+          "unit": {
+            "zh": "根",
+            "vi": "thanh"
+          },
           "qty": "5",
           "remark": ""
         },
@@ -2502,7 +2505,10 @@
           "attr_vi": "linh kiện",
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
-          "unit": "根",
+          "unit": {
+            "zh": "根",
+            "vi": "thanh"
+          },
           "qty": "5",
           "remark": ""
         },
