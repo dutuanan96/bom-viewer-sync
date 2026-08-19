@@ -41571,15 +41571,15 @@
           {
             "name": "连接件.pdf",
             "path": "drawings/catalog/drawing-80132132ljj-afa05758.pdf",
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-80132132ljj-afa05758.pdf",
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@c900cbbb125ca7f977f652ab264c6405e4bf7d89/assets/pdfs/80132132LJJ_ec7690c37d5e56565bb0b646aba12985a5c0d36d7652e2925c0ccf203ba4c1f4_pdf.pdf",
             "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-80132132ljj-afa05758.pdf"
           }
         ],
         "models3d": [
           {
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b466c6278ccd606aa58b3683b18e569f544fe237/assets/models/80132132LJJ_cdf346ad25222f8607787ed8602e102c819affdb932d091a6844d9d4f316a919_glb",
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@17d0e4bbb8d01534e4a1d853754048b6389f6997/assets/models/80132132LJJ_e2576f91d2b184be849046d87a16b464fdc6eb23ca701f1df8adee7f83629b0e_glb.glb",
             "name": "连接件.glb",
-            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b466c6278ccd606aa58b3683b18e569f544fe237/assets/models/80132132LJJ_cdf346ad25222f8607787ed8602e102c819affdb932d091a6844d9d4f316a919_glb"
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@17d0e4bbb8d01534e4a1d853754048b6389f6997/assets/models/80132132LJJ_e2576f91d2b184be849046d87a16b464fdc6eb23ca701f1df8adee7f83629b0e_glb.glb"
           }
         ],
         "unit": {
