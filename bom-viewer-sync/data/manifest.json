@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-18T09:00:31.956Z",
+  "updatedAt": "2026-08-19T01:59:34.070Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -133998,6 +133998,52 @@
   },
   "notifications": [
     {
+      "id": "notif_1l2mwj6",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-19T01:59:34.070Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "LJJ8028136",
+          "field": "drawings",
+          "before": "",
+          "after": "连接件(4个螺母).pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@e2cb955d680b1cb5448d74685e48c1067c6492c3/assets/pdfs/LJJ8028136_488374528966f1dfdd585e0a9c77bd81e2b438892e7e0404cee8cd2213114565_4_.pdf"
+        },
+        {
+          "kind": "material",
+          "code": "LJJ8028136",
+          "field": "models3d",
+          "before": "",
+          "after": "连接件(4个螺母).glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8bfb98c6c430e586d2226e81d099234eb6298ade/assets/models/LJJ8028136_9cb82ebfcf9d5f9e396e49cf54d13df6d21c3378801e849f7d8fdbac83655425_4_.glb"
+        }
+      ]
+    },
+    {
+      "id": "notif_l9ak0k",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-19T01:56:26.248Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "80132132LJJ",
+          "field": "drawings",
+          "before": "连接件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-80132132ljj-afa05758.pdf",
+          "after": "连接件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@c900cbbb125ca7f977f652ab264c6405e4bf7d89/assets/pdfs/80132132LJJ_ec7690c37d5e56565bb0b646aba12985a5c0d36d7652e2925c0ccf203ba4c1f4_pdf.pdf"
+        },
+        {
+          "kind": "material",
+          "code": "80132132LJJ",
+          "field": "models3d",
+          "before": "连接件.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b466c6278ccd606aa58b3683b18e569f544fe237/assets/models/80132132LJJ_cdf346ad25222f8607787ed8602e102c819affdb932d091a6844d9d4f316a919_glb",
+          "after": "连接件.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@17d0e4bbb8d01534e4a1d853754048b6389f6997/assets/models/80132132LJJ_e2576f91d2b184be849046d87a16b464fdc6eb23ca701f1df8adee7f83629b0e_glb.glb"
+        }
+      ]
+    },
+    {
       "id": "notif_7jumls",
       "type": "github-save",
       "actor": "admin",
@@ -134877,80 +134923,6 @@
           "after": ""
         }
       ]
-    },
-    {
-      "id": "notif_15c8kmo",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-13T10:13:44.289Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "bom_added",
-          "code": "LGS032XHLBH",
-          "field": "M6YLM139",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "bom_added",
-          "code": "LGS032XQHLBH",
-          "field": "M6YLM139",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "bom_deleted",
-          "code": "LGS032XHLBH",
-          "field": "M6GS1515BH",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "bom_deleted",
-          "code": "LGS032XQHLBH",
-          "field": "M6GS1515BH",
-          "before": "",
-          "after": ""
-        }
-      ]
-    },
-    {
-      "id": "notif_1csfyxg",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-13T10:10:31.840Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "bom_added",
-          "code": "LGS131XHLBH",
-          "field": "M6YLM139",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "bom_added",
-          "code": "LGS131XHLWH",
-          "field": "M6YLM139",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "bom_deleted",
-          "code": "LGS131XHLBH",
-          "field": "M6GS1515BH",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "bom_deleted",
-          "code": "LGS131XHLWH",
-          "field": "M6GS1515WH",
-          "before": "",
-          "after": ""
-        }
-      ]
     }
   ],
   "bomHistory": {
@@ -135799,6 +135771,31 @@
       }
     ],
     "LGS233": [
+      {
+        "id": "history_8xew7x",
+        "productCode": "LGS233",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-19T01:56:26.248Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "80132132LJJ",
+            "field": "drawings",
+            "before": "连接件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-80132132ljj-afa05758.pdf",
+            "after": "连接件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@c900cbbb125ca7f977f652ab264c6405e4bf7d89/assets/pdfs/80132132LJJ_ec7690c37d5e56565bb0b646aba12985a5c0d36d7652e2925c0ccf203ba4c1f4_pdf.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "80132132LJJ",
+            "field": "models3d",
+            "before": "连接件.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b466c6278ccd606aa58b3683b18e569f544fe237/assets/models/80132132LJJ_cdf346ad25222f8607787ed8602e102c819affdb932d091a6844d9d4f316a919_glb",
+            "after": "连接件.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@17d0e4bbb8d01534e4a1d853754048b6389f6997/assets/models/80132132LJJ_e2576f91d2b184be849046d87a16b464fdc6eb23ca701f1df8adee7f83629b0e_glb.glb"
+          }
+        ]
+      },
       {
         "id": "history_1a7fd8l",
         "productCode": "LGS233",
@@ -136861,6 +136858,31 @@
     ],
     "LGS334": [
       {
+        "id": "history_o2h9ff",
+        "productCode": "LGS334",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-19T01:56:26.248Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "80132132LJJ",
+            "field": "drawings",
+            "before": "连接件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-80132132ljj-afa05758.pdf",
+            "after": "连接件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@c900cbbb125ca7f977f652ab264c6405e4bf7d89/assets/pdfs/80132132LJJ_ec7690c37d5e56565bb0b646aba12985a5c0d36d7652e2925c0ccf203ba4c1f4_pdf.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "80132132LJJ",
+            "field": "models3d",
+            "before": "连接件.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b466c6278ccd606aa58b3683b18e569f544fe237/assets/models/80132132LJJ_cdf346ad25222f8607787ed8602e102c819affdb932d091a6844d9d4f316a919_glb",
+            "after": "连接件.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@17d0e4bbb8d01534e4a1d853754048b6389f6997/assets/models/80132132LJJ_e2576f91d2b184be849046d87a16b464fdc6eb23ca701f1df8adee7f83629b0e_glb.glb"
+          }
+        ]
+      },
+      {
         "id": "history_a9uo8g",
         "productCode": "LGS334",
         "revision": "V4.1",
@@ -137406,6 +137428,31 @@
       }
     ],
     "LGS434": [
+      {
+        "id": "history_bwpbjo",
+        "productCode": "LGS434",
+        "revision": "V5.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-19T01:56:26.248Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "80132132LJJ",
+            "field": "drawings",
+            "before": "连接件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-80132132ljj-afa05758.pdf",
+            "after": "连接件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@c900cbbb125ca7f977f652ab264c6405e4bf7d89/assets/pdfs/80132132LJJ_ec7690c37d5e56565bb0b646aba12985a5c0d36d7652e2925c0ccf203ba4c1f4_pdf.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "80132132LJJ",
+            "field": "models3d",
+            "before": "连接件.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b466c6278ccd606aa58b3683b18e569f544fe237/assets/models/80132132LJJ_cdf346ad25222f8607787ed8602e102c819affdb932d091a6844d9d4f316a919_glb",
+            "after": "连接件.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@17d0e4bbb8d01534e4a1d853754048b6389f6997/assets/models/80132132LJJ_e2576f91d2b184be849046d87a16b464fdc6eb23ca701f1df8adee7f83629b0e_glb.glb"
+          }
+        ]
+      },
       {
         "id": "history_3z2hgi",
         "productCode": "LGS434",
@@ -140497,6 +140544,31 @@
     ],
     "LGS232": [
       {
+        "id": "history_qmxgoo",
+        "productCode": "LGS232",
+        "revision": "V3.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-19T01:56:26.248Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "80132132LJJ",
+            "field": "drawings",
+            "before": "连接件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-80132132ljj-afa05758.pdf",
+            "after": "连接件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@c900cbbb125ca7f977f652ab264c6405e4bf7d89/assets/pdfs/80132132LJJ_ec7690c37d5e56565bb0b646aba12985a5c0d36d7652e2925c0ccf203ba4c1f4_pdf.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "80132132LJJ",
+            "field": "models3d",
+            "before": "连接件.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b466c6278ccd606aa58b3683b18e569f544fe237/assets/models/80132132LJJ_cdf346ad25222f8607787ed8602e102c819affdb932d091a6844d9d4f316a919_glb",
+            "after": "连接件.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@17d0e4bbb8d01534e4a1d853754048b6389f6997/assets/models/80132132LJJ_e2576f91d2b184be849046d87a16b464fdc6eb23ca701f1df8adee7f83629b0e_glb.glb"
+          }
+        ]
+      },
+      {
         "id": "history_1rdagm",
         "productCode": "LGS232",
         "revision": "V3.1",
@@ -143478,6 +143550,31 @@
     ],
     "LGS132": [
       {
+        "id": "history_1cyx1c3",
+        "productCode": "LGS132",
+        "revision": "V3.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-19T01:56:26.248Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "80132132LJJ",
+            "field": "drawings",
+            "before": "连接件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-80132132ljj-afa05758.pdf",
+            "after": "连接件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@c900cbbb125ca7f977f652ab264c6405e4bf7d89/assets/pdfs/80132132LJJ_ec7690c37d5e56565bb0b646aba12985a5c0d36d7652e2925c0ccf203ba4c1f4_pdf.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "80132132LJJ",
+            "field": "models3d",
+            "before": "连接件.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b466c6278ccd606aa58b3683b18e569f544fe237/assets/models/80132132LJJ_cdf346ad25222f8607787ed8602e102c819affdb932d091a6844d9d4f316a919_glb",
+            "after": "连接件.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@17d0e4bbb8d01534e4a1d853754048b6389f6997/assets/models/80132132LJJ_e2576f91d2b184be849046d87a16b464fdc6eb23ca701f1df8adee7f83629b0e_glb.glb"
+          }
+        ]
+      },
+      {
         "id": "history_n45d1",
         "productCode": "LGS132",
         "revision": "V3.1",
@@ -144026,6 +144123,31 @@
       }
     ],
     "LGS133": [
+      {
+        "id": "history_wxaomu",
+        "productCode": "LGS133",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-19T01:56:26.248Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "80132132LJJ",
+            "field": "drawings",
+            "before": "连接件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-80132132ljj-afa05758.pdf",
+            "after": "连接件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@c900cbbb125ca7f977f652ab264c6405e4bf7d89/assets/pdfs/80132132LJJ_ec7690c37d5e56565bb0b646aba12985a5c0d36d7652e2925c0ccf203ba4c1f4_pdf.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "80132132LJJ",
+            "field": "models3d",
+            "before": "连接件.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b466c6278ccd606aa58b3683b18e569f544fe237/assets/models/80132132LJJ_cdf346ad25222f8607787ed8602e102c819affdb932d091a6844d9d4f316a919_glb",
+            "after": "连接件.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@17d0e4bbb8d01534e4a1d853754048b6389f6997/assets/models/80132132LJJ_e2576f91d2b184be849046d87a16b464fdc6eb23ca701f1df8adee7f83629b0e_glb.glb"
+          }
+        ]
+      },
       {
         "id": "history_1i2op9m",
         "productCode": "LGS133",
@@ -148235,6 +148357,56 @@
       }
     ],
     "LGS834": [
+      {
+        "id": "history_1bm8k2r",
+        "productCode": "LGS834",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-19T01:59:34.070Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LJJ8028136",
+            "field": "drawings",
+            "before": "",
+            "after": "连接件(4个螺母).pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@e2cb955d680b1cb5448d74685e48c1067c6492c3/assets/pdfs/LJJ8028136_488374528966f1dfdd585e0a9c77bd81e2b438892e7e0404cee8cd2213114565_4_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LJJ8028136",
+            "field": "models3d",
+            "before": "",
+            "after": "连接件(4个螺母).glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8bfb98c6c430e586d2226e81d099234eb6298ade/assets/models/LJJ8028136_9cb82ebfcf9d5f9e396e49cf54d13df6d21c3378801e849f7d8fdbac83655425_4_.glb"
+          }
+        ]
+      },
+      {
+        "id": "history_16ev0k0",
+        "productCode": "LGS834",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-19T01:56:26.248Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "80132132LJJ",
+            "field": "drawings",
+            "before": "连接件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-80132132ljj-afa05758.pdf",
+            "after": "连接件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@c900cbbb125ca7f977f652ab264c6405e4bf7d89/assets/pdfs/80132132LJJ_ec7690c37d5e56565bb0b646aba12985a5c0d36d7652e2925c0ccf203ba4c1f4_pdf.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "80132132LJJ",
+            "field": "models3d",
+            "before": "连接件.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b466c6278ccd606aa58b3683b18e569f544fe237/assets/models/80132132LJJ_cdf346ad25222f8607787ed8602e102c819affdb932d091a6844d9d4f316a919_glb",
+            "after": "连接件.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@17d0e4bbb8d01534e4a1d853754048b6389f6997/assets/models/80132132LJJ_e2576f91d2b184be849046d87a16b464fdc6eb23ca701f1df8adee7f83629b0e_glb.glb"
+          }
+        ]
+      },
       {
         "id": "history_xwpyxa",
         "productCode": "LGS834",

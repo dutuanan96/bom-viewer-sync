@@ -40553,15 +40553,15 @@
           {
             "name": "连接件.pdf",
             "path": "drawings/catalog/drawing-80132132ljj-afa05758.pdf",
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-80132132ljj-afa05758.pdf",
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@c900cbbb125ca7f977f652ab264c6405e4bf7d89/assets/pdfs/80132132LJJ_ec7690c37d5e56565bb0b646aba12985a5c0d36d7652e2925c0ccf203ba4c1f4_pdf.pdf",
             "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-80132132ljj-afa05758.pdf"
           }
         ],
         "models3d": [
           {
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b466c6278ccd606aa58b3683b18e569f544fe237/assets/models/80132132LJJ_cdf346ad25222f8607787ed8602e102c819affdb932d091a6844d9d4f316a919_glb",
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@17d0e4bbb8d01534e4a1d853754048b6389f6997/assets/models/80132132LJJ_e2576f91d2b184be849046d87a16b464fdc6eb23ca701f1df8adee7f83629b0e_glb.glb",
             "name": "连接件.glb",
-            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b466c6278ccd606aa58b3683b18e569f544fe237/assets/models/80132132LJJ_cdf346ad25222f8607787ed8602e102c819affdb932d091a6844d9d4f316a919_glb"
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@17d0e4bbb8d01534e4a1d853754048b6389f6997/assets/models/80132132LJJ_e2576f91d2b184be849046d87a16b464fdc6eb23ca701f1df8adee7f83629b0e_glb.glb"
           }
         ],
         "unit": {
@@ -42077,8 +42077,19 @@
           "zh": "原材料",
           "vi": "Nguyên vật liệu"
         },
-        "drawings": [],
-        "models3d": [],
+        "drawings": [
+          {
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@e2cb955d680b1cb5448d74685e48c1067c6492c3/assets/pdfs/LJJ8028136_488374528966f1dfdd585e0a9c77bd81e2b438892e7e0404cee8cd2213114565_4_.pdf",
+            "name": "连接件(4个螺母).pdf"
+          }
+        ],
+        "models3d": [
+          {
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8bfb98c6c430e586d2226e81d099234eb6298ade/assets/models/LJJ8028136_9cb82ebfcf9d5f9e396e49cf54d13df6d21c3378801e849f7d8fdbac83655425_4_.glb",
+            "name": "连接件(4个螺母).glb",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8bfb98c6c430e586d2226e81d099234eb6298ade/assets/models/LJJ8028136_9cb82ebfcf9d5f9e396e49cf54d13df6d21c3378801e849f7d8fdbac83655425_4_.glb"
+          }
+        ],
         "unit": {
           "zh": "根",
           "vi": "thanh"
