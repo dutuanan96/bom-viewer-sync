@@ -43095,8 +43095,19 @@
           "zh": "原材料",
           "vi": "Nguyên vật liệu"
         },
-        "drawings": [],
-        "models3d": [],
+        "drawings": [
+          {
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@e2cb955d680b1cb5448d74685e48c1067c6492c3/assets/pdfs/LJJ8028136_488374528966f1dfdd585e0a9c77bd81e2b438892e7e0404cee8cd2213114565_4_.pdf",
+            "name": "连接件(4个螺母).pdf"
+          }
+        ],
+        "models3d": [
+          {
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8bfb98c6c430e586d2226e81d099234eb6298ade/assets/models/LJJ8028136_9cb82ebfcf9d5f9e396e49cf54d13df6d21c3378801e849f7d8fdbac83655425_4_.glb",
+            "name": "连接件(4个螺母).glb",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8bfb98c6c430e586d2226e81d099234eb6298ade/assets/models/LJJ8028136_9cb82ebfcf9d5f9e396e49cf54d13df6d21c3378801e849f7d8fdbac83655425_4_.glb"
+          }
+        ],
         "unit": {
           "zh": "根",
           "vi": "thanh"
