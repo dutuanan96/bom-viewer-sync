@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-19T10:04:31.151Z",
+  "updatedAt": "2026-08-19T10:11:00.408Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -134175,6 +134175,14 @@
   },
   "notifications": [
     {
+      "id": "notif_rcf5lu",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-19T10:11:00.408Z",
+      "version": 2,
+      "changes": []
+    },
+    {
       "id": "notif_xd8kjc",
       "type": "github-save",
       "actor": "admin",
@@ -135211,14 +135219,6 @@
           "after": ""
         }
       ]
-    },
-    {
-      "id": "notif_8a16w8",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-14T06:42:06.601Z",
-      "version": 2,
-      "changes": []
     }
   ],
   "bomHistory": {
