@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-19T03:22:17.193Z",
+  "updatedAt": "2026-08-19T03:23:43.264Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -6393,12 +6393,12 @@
     },
     "LGS733": {
       "currentRevision": "V4.1",
-      "effectiveRevision": "V4",
+      "effectiveRevision": "V4.1",
       "currentRevisionInfo": {
         "sourceRevision": "V4",
         "createdAt": "2026-08-15T07:53:09.038Z",
         "changeReason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -18990,17 +18990,25 @@
           "previousRevision": "V4",
           "occurredAt": "2026-08-12T03:02:47.145Z",
           "reason": "更新"
+        },
+        {
+          "id": "effectivity_mszj1otx",
+          "action": "release",
+          "revision": "V4.1",
+          "previousRevision": "V4",
+          "occurredAt": "2026-08-19T03:23:43.221Z",
+          "reason": "更新"
         }
       ]
     },
     "LGS433": {
       "currentRevision": "V4.1",
-      "effectiveRevision": "V4",
+      "effectiveRevision": "V4.1",
       "currentRevisionInfo": {
         "sourceRevision": "V4",
         "createdAt": "2026-08-15T07:52:59.283Z",
         "changeReason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -30034,6 +30042,14 @@
           "revision": "V4",
           "previousRevision": "",
           "occurredAt": "2026-08-14T09:27:05.686Z",
+          "reason": "更新"
+        },
+        {
+          "id": "effectivity_mszj1ot2",
+          "action": "release",
+          "revision": "V4.1",
+          "previousRevision": "V4",
+          "occurredAt": "2026-08-19T03:23:43.190Z",
           "reason": "更新"
         }
       ]
@@ -46563,12 +46579,12 @@
     },
     "LGS434": {
       "currentRevision": "V5.1",
-      "effectiveRevision": "V5",
+      "effectiveRevision": "V5.1",
       "currentRevisionInfo": {
         "sourceRevision": "V5",
         "createdAt": "2026-08-15T07:52:59.460Z",
         "changeReason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -58397,6 +58413,14 @@
           "previousRevision": "",
           "occurredAt": "2026-08-12T03:51:24.788Z",
           "reason": "更新"
+        },
+        {
+          "id": "effectivity_mszj1ori",
+          "action": "release",
+          "revision": "V5.1",
+          "previousRevision": "V5",
+          "occurredAt": "2026-08-19T03:23:43.134Z",
+          "reason": "更新"
         }
       ]
     },
@@ -64866,12 +64890,12 @@
     },
     "LGS043": {
       "currentRevision": "V3.1",
-      "effectiveRevision": "V3",
+      "effectiveRevision": "V3.1",
       "currentRevisionInfo": {
         "sourceRevision": "V3",
         "createdAt": "2026-08-15T07:52:51.653Z",
         "changeReason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -73393,6 +73417,14 @@
           "revision": "V3",
           "previousRevision": "",
           "occurredAt": "2026-08-06T09:39:01.565Z",
+          "reason": "更新"
+        },
+        {
+          "id": "effectivity_mszj1ouo",
+          "action": "release",
+          "revision": "V3.1",
+          "previousRevision": "V3",
+          "occurredAt": "2026-08-19T03:23:43.248Z",
           "reason": "更新"
         }
       ]
@@ -84647,12 +84679,12 @@
     },
     "LGS834": {
       "currentRevision": "V4.1",
-      "effectiveRevision": "V4",
+      "effectiveRevision": "V4.1",
       "currentRevisionInfo": {
         "sourceRevision": "V4",
         "createdAt": "2026-08-15T07:53:09.550Z",
         "changeReason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -94284,17 +94316,25 @@
           "previousRevision": "",
           "occurredAt": "2026-07-30T07:37:16.991Z",
           "reason": "LGS834纸箱物料编码已修正"
+        },
+        {
+          "id": "effectivity_mszj1oub",
+          "action": "release",
+          "revision": "V4.1",
+          "previousRevision": "V4",
+          "occurredAt": "2026-08-19T03:23:43.235Z",
+          "reason": "更新"
         }
       ]
     },
     "LGS232": {
       "currentRevision": "V3.1",
-      "effectiveRevision": "V3",
+      "effectiveRevision": "V3.1",
       "currentRevisionInfo": {
         "sourceRevision": "V3",
         "createdAt": "2026-08-15T07:52:51.796Z",
         "changeReason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -102418,17 +102458,25 @@
           "previousRevision": "",
           "occurredAt": "2026-08-12T03:37:37.162Z",
           "reason": "更新"
+        },
+        {
+          "id": "effectivity_mszj1os5",
+          "action": "release",
+          "revision": "V3.1",
+          "previousRevision": "V3",
+          "occurredAt": "2026-08-19T03:23:43.157Z",
+          "reason": "更新"
         }
       ]
     },
     "LGS723": {
       "currentRevision": "V4.1",
-      "effectiveRevision": "V4",
+      "effectiveRevision": "V4.1",
       "currentRevisionInfo": {
         "sourceRevision": "V4",
         "createdAt": "2026-08-15T07:52:59.552Z",
         "changeReason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -113920,6 +113968,14 @@
           "previousRevision": "",
           "occurredAt": "2026-08-12T03:51:24.790Z",
           "reason": "更新"
+        },
+        {
+          "id": "effectivity_mszj1oti",
+          "action": "release",
+          "revision": "V4.1",
+          "previousRevision": "V4",
+          "occurredAt": "2026-08-19T03:23:43.206Z",
+          "reason": "更新"
         }
       ]
     },
@@ -113970,12 +114026,12 @@
     },
     "LGS132": {
       "currentRevision": "V3.1",
-      "effectiveRevision": "V3",
+      "effectiveRevision": "V3.1",
       "currentRevisionInfo": {
         "sourceRevision": "V3",
         "createdAt": "2026-08-15T07:52:51.730Z",
         "changeReason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -119201,7 +119257,16 @@
           }
         }
       ],
-      "effectivityEvents": []
+      "effectivityEvents": [
+        {
+          "id": "effectivity_mszj1osn",
+          "action": "release",
+          "revision": "V3.1",
+          "previousRevision": "V3",
+          "occurredAt": "2026-08-19T03:23:43.175Z",
+          "reason": "更新"
+        }
+      ]
     },
     "LGS133": {
       "currentRevision": "V4.1",
@@ -134006,6 +134071,71 @@
   },
   "notifications": [
     {
+      "id": "notif_1clpp2y",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-19T03:23:43.264Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS733",
+          "field": "effectiveRevision",
+          "before": "V4",
+          "after": "V4.1"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS733",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS433",
+          "field": "effectiveRevision",
+          "before": "V4",
+          "after": "V4.1"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS433",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS434",
+          "field": "effectiveRevision",
+          "before": "V5",
+          "after": "V5.1"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS434",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS043",
+          "field": "effectiveRevision",
+          "before": "V3",
+          "after": "V3.1"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS043",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        }
+      ]
+    },
+    {
       "id": "notif_bm2cq8",
       "type": "github-save",
       "actor": "admin",
@@ -134948,36 +135078,6 @@
           "field": "workflowState",
           "before": "draft",
           "after": "released"
-        }
-      ]
-    },
-    {
-      "id": "notif_tyeymo",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-13T10:46:10.666Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS133",
-          "field": "effectiveRevision",
-          "before": "V4",
-          "after": ""
-        },
-        {
-          "kind": "revision",
-          "code": "LGS133",
-          "field": "workflowState",
-          "before": "released",
-          "after": "draft"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS133KD02S",
-          "field": "",
-          "before": "ZJG150654BH",
-          "after": "ZJG15065423BH"
         }
       ]
     }
@@ -137549,6 +137649,31 @@
       }
     ],
     "LGS434": [
+      {
+        "id": "history_ext39z",
+        "productCode": "LGS434",
+        "revision": "V5.1",
+        "action": "release",
+        "actor": "admin",
+        "reason": "更新",
+        "createdAt": "2026-08-19T03:23:43.264Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS434",
+            "field": "effectiveRevision",
+            "before": "V5",
+            "after": "V5.1"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS434",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
       {
         "id": "history_ebn8ek",
         "productCode": "LGS434",
@@ -140817,6 +140942,31 @@
     ],
     "LGS232": [
       {
+        "id": "history_1xky5f",
+        "productCode": "LGS232",
+        "revision": "V3.1",
+        "action": "release",
+        "actor": "admin",
+        "reason": "更新",
+        "createdAt": "2026-08-19T03:23:43.264Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS232",
+            "field": "effectiveRevision",
+            "before": "V3",
+            "after": "V3.1"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS232",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
+      {
         "id": "history_1sjm42o",
         "productCode": "LGS232",
         "revision": "V3.1",
@@ -144039,6 +144189,31 @@
     ],
     "LGS132": [
       {
+        "id": "history_1iuadc0",
+        "productCode": "LGS132",
+        "revision": "V3.1",
+        "action": "release",
+        "actor": "admin",
+        "reason": "更新",
+        "createdAt": "2026-08-19T03:23:43.264Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS132",
+            "field": "effectiveRevision",
+            "before": "V3",
+            "after": "V3.1"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS132",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
+      {
         "id": "history_1mhaxvu",
         "productCode": "LGS132",
         "revision": "V3.1",
@@ -145259,6 +145434,31 @@
     ],
     "LGS433": [
       {
+        "id": "history_1d7icxw",
+        "productCode": "LGS433",
+        "revision": "V4.1",
+        "action": "release",
+        "actor": "admin",
+        "reason": "更新",
+        "createdAt": "2026-08-19T03:23:43.264Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS433",
+            "field": "effectiveRevision",
+            "before": "V4",
+            "after": "V4.1"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS433",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
+      {
         "id": "history_13ylsjo",
         "productCode": "LGS433",
         "revision": "V4.1",
@@ -146393,6 +146593,31 @@
     ],
     "LGS723": [
       {
+        "id": "history_4vjhps",
+        "productCode": "LGS723",
+        "revision": "V4.1",
+        "action": "release",
+        "actor": "admin",
+        "reason": "更新",
+        "createdAt": "2026-08-19T03:23:43.264Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS723",
+            "field": "effectiveRevision",
+            "before": "V4",
+            "after": "V4.1"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS723",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
+      {
         "id": "history_6u753c",
         "productCode": "LGS723",
         "revision": "V4.1",
@@ -147199,6 +147424,31 @@
       }
     ],
     "LGS733": [
+      {
+        "id": "history_1r3vydb",
+        "productCode": "LGS733",
+        "revision": "V4.1",
+        "action": "release",
+        "actor": "admin",
+        "reason": "更新",
+        "createdAt": "2026-08-19T03:23:43.264Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS733",
+            "field": "effectiveRevision",
+            "before": "V4",
+            "after": "V4.1"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS733",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
       {
         "id": "history_1wb25qv",
         "productCode": "LGS733",
@@ -149063,6 +149313,31 @@
     ],
     "LGS834": [
       {
+        "id": "history_aj464r",
+        "productCode": "LGS834",
+        "revision": "V4.1",
+        "action": "release",
+        "actor": "admin",
+        "reason": "更新",
+        "createdAt": "2026-08-19T03:23:43.264Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS834",
+            "field": "effectiveRevision",
+            "before": "V4",
+            "after": "V4.1"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS834",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
+      {
         "id": "history_10jyvvc",
         "productCode": "LGS834",
         "revision": "V4.1",
@@ -150118,6 +150393,31 @@
       }
     ],
     "LGS043": [
+      {
+        "id": "history_11y3fl1",
+        "productCode": "LGS043",
+        "revision": "V3.1",
+        "action": "release",
+        "actor": "admin",
+        "reason": "更新",
+        "createdAt": "2026-08-19T03:23:43.264Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS043",
+            "field": "effectiveRevision",
+            "before": "V3",
+            "after": "V3.1"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS043",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
       {
         "id": "history_14woyd6",
         "productCode": "LGS043",
