@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-19T10:39:05.521Z",
+  "updatedAt": "2026-08-19T10:40:30.368Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -64946,12 +64946,12 @@
     },
     "LGS043": {
       "currentRevision": "V3.1",
-      "effectiveRevision": "V3",
+      "effectiveRevision": "V3.1",
       "currentRevisionInfo": {
         "sourceRevision": "V3",
         "createdAt": "2026-08-15T07:52:51.653Z",
         "changeReason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -73489,6 +73489,14 @@
           "revision": "V3.1",
           "previousRevision": "V3.1",
           "occurredAt": "2026-08-19T10:37:48.616Z",
+          "reason": "更新"
+        },
+        {
+          "id": "effectivity_mszynedp",
+          "action": "release",
+          "revision": "V3.1",
+          "previousRevision": "V3",
+          "occurredAt": "2026-08-19T10:40:30.349Z",
           "reason": "更新"
         }
       ]
@@ -134183,6 +134191,29 @@
   },
   "notifications": [
     {
+      "id": "notif_1kmsqsq",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-19T10:40:30.368Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS043",
+          "field": "effectiveRevision",
+          "before": "V3",
+          "after": "V3.1"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS043",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        }
+      ]
+    },
+    {
       "id": "notif_qgaptg",
       "type": "github-save",
       "actor": "admin",
@@ -135209,29 +135240,6 @@
           "field": "models3d",
           "before": "",
           "after": "LGS421-S-顶部横杆前.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@667e425ad081103ddff932f25ff3a3b71f9ba459/assets/models/LGS421QHLBH_5a14900f860a00e6e6509b12b112a5f3c166fb695e5b0e5a4d4fc4ea1243c042_LGS421-S-_.glb"
-        }
-      ]
-    },
-    {
-      "id": "notif_1yyo4kw",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-14T09:27:08.201Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS433",
-          "field": "effectiveRevision",
-          "before": "",
-          "after": "V4"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS433",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
         }
       ]
     }
@@ -150921,6 +150929,31 @@
       }
     ],
     "LGS043": [
+      {
+        "id": "history_n49u7p",
+        "productCode": "LGS043",
+        "revision": "V3.1",
+        "action": "release",
+        "actor": "admin",
+        "reason": "更新",
+        "createdAt": "2026-08-19T10:40:30.368Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS043",
+            "field": "effectiveRevision",
+            "before": "V3",
+            "after": "V3.1"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS043",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
       {
         "id": "history_12rldeq",
         "productCode": "LGS043",
