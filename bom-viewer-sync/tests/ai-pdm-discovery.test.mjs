@@ -25,27 +25,27 @@ function loadCanonicalSnapshot() {
 
 const discovery = new PdmDiscovery(loadCanonicalSnapshot());
 
-test('findDuplicateMaterials groups exact paper-card master-data duplicates with BOM impact', () => {
-  const result = discovery.findDuplicateMaterials({ name: '\u7eb8\u5361' });
+test('findDuplicateMaterials groups exact master-data duplicates with BOM impact', () => {
+  const result = discovery.findDuplicateMaterials({ name: '\u5e73\u53e3\u7bb1' });
   const target = result.duplicateGroups.find(group => (
-    group.material.spec.zh === '\u5355\u74e61100x100mm'
+    group.material.spec.zh === '1185x330x105mm'
   ));
 
   assert.ok(result.totalGroups >= 1);
   assert.ok(target);
-  assert.ok(target.sourceMaterialCodes.includes('LGS031ZK'));
-  assert.ok(target.sourceMaterialCodes.includes('LGS833ZK'));
+  assert.ok(target.sourceMaterialCodes.includes('LGS333PKXKD'));
+  assert.ok(target.sourceMaterialCodes.includes('LGS833PKXBH'));
   assert.ok(target.materialCount >= 5);
-  assert.equal(target.affectedBomEntryCount, 0);
+  assert.ok(target.affectedBomEntryCount >= 1);
   assert.ok(result.auditedMaterials.length >= 20);
   assert.equal(result.totalAuditedMaterials, result.auditedMaterials.length);
   assert.equal(result.evidence.sourceCommit, 'a'.repeat(40));
 });
 
-test('findDuplicateMaterials does not flag normalized paper-card translations as mismatches', () => {
-  const result = discovery.findDuplicateMaterials({ name: '\u7eb8\u5361' });
+test('findDuplicateMaterials does not flag normalized translations as mismatches', () => {
+  const result = discovery.findDuplicateMaterials({ name: '\u5e73\u53e3\u7bb1' });
   const candidate = result.suspectedDuplicateGroups.find(group => (
-    group.material.spec.zh === '\u5355\u74e6785x100mm'
+    group.material.spec.zh === '1185x330x105mm'
   ));
 
   assert.equal(candidate, undefined);
