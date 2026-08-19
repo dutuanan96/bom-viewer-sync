@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-19T10:40:30.368Z",
+  "updatedAt": "2026-08-19T10:44:57.415Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -134191,6 +134191,57 @@
   },
   "notifications": [
     {
+      "id": "notif_1d0lz9i",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-19T10:44:57.415Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "bom_added",
+          "code": "LGS043YZKBH647",
+          "field": "FG1515064930",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "bom_added",
+          "code": "LGS043YZKBH647",
+          "field": "FG1515066170",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "bom_added",
+          "code": "LGS043YZKBH647",
+          "field": "M6GS1515BH",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "bom_added",
+          "code": "LGS043ZZKBH647",
+          "field": "FG1515064930",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "bom_added",
+          "code": "LGS043ZZKBH647",
+          "field": "FG1515066170",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "bom_added",
+          "code": "LGS043ZZKBH647",
+          "field": "M6GS1515BH",
+          "before": "",
+          "after": ""
+        }
+      ]
+    },
+    {
       "id": "notif_1kmsqsq",
       "type": "github-save",
       "actor": "admin",
@@ -135217,29 +135268,6 @@
           "field": "models3d",
           "before": "500-灯带.glb|models3d/catalog/500-57ceb403.glb",
           "after": ""
-        }
-      ]
-    },
-    {
-      "id": "notif_1i9t09w",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-14T09:36:27.819Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "LGS421QHLBH",
-          "field": "drawings",
-          "before": "",
-          "after": "LGS421-S-顶部横杆前.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8c44e8b8f122e8bc3d0a10553e90046891691cb2/assets/pdfs/LGS421QHLBH_65c5b142cecb043f721dc3e37567397ac4629fb93de65733b6b20c94273b833c_LGS421-S-_.pdf"
-        },
-        {
-          "kind": "material",
-          "code": "LGS421QHLBH",
-          "field": "models3d",
-          "before": "",
-          "after": "LGS421-S-顶部横杆前.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@667e425ad081103ddff932f25ff3a3b71f9ba459/assets/models/LGS421QHLBH_5a14900f860a00e6e6509b12b112a5f3c166fb695e5b0e5a4d4fc4ea1243c042_LGS421-S-_.glb"
         }
       ]
     }
@@ -150929,6 +150957,59 @@
       }
     ],
     "LGS043": [
+      {
+        "id": "history_1grir2v",
+        "productCode": "LGS043",
+        "revision": "V3.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-19T10:44:57.415Z",
+        "changes": [
+          {
+            "kind": "bom_added",
+            "code": "LGS043YZKBH647",
+            "field": "FG1515064930",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS043YZKBH647",
+            "field": "FG1515066170",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS043YZKBH647",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS043ZZKBH647",
+            "field": "FG1515064930",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS043ZZKBH647",
+            "field": "FG1515066170",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS043ZZKBH647",
+            "field": "M6GS1515BH",
+            "before": "",
+            "after": ""
+          }
+        ]
+      },
       {
         "id": "history_n49u7p",
         "productCode": "LGS043",
