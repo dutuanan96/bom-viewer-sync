@@ -153,7 +153,17 @@ function buildPreferredToolCall(route, query) {
         : null;
     case 'compare_boms':
       return productIds.length >= 2
-        ? { name: 'compare_boms', arguments: { productId1: productIds[0], productId2: productIds[1] } }
+        ? {
+            name: 'compare_boms',
+            arguments: {
+              productId1: productIds[0],
+              productId2: productIds[1],
+              ...(colors[0] ? { color1: colors[0] } : {}),
+              ...(colors[1] ? { color2: colors[1] } : {}),
+              ...(route.entities?.componentConcept ? { componentConcept: route.entities.componentConcept } : {}),
+              ...(route.entities?.metric ? { metric: route.entities.metric } : {}),
+            }
+          }
         : null;
     case 'resolve_sku':
       return aliases[0] ? { name: 'resolve_sku', arguments: { alias: aliases[0] } } : null;
@@ -162,6 +172,15 @@ function buildPreferredToolCall(route, query) {
       return materialIds[0] ? { name: route.preferredTool, arguments: { materialId: materialIds[0] } } : null;
     case 'search_products':
       return query?.trim() ? { name: 'search_products', arguments: { query } } : null;
+    case 'analyze_ecn_impact':
+      return {
+        name: 'analyze_ecn_impact',
+        arguments: {
+          targetMaterialId: route.entities?.targetMaterialId || materialIds[0] || '',
+          ...(route.entities?.newSpec ? { newSpec: route.entities.newSpec } : {}),
+          targetProductIds: productIds,
+        }
+      };
     default:
       return null;
   }

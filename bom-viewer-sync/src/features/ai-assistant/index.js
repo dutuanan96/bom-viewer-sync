@@ -151,14 +151,29 @@ function contextForRoute(route, snapshot, fallback = {}, query = '') {
   )));
 }
 
+function formatQuantityNumber(qty) {
+  if (typeof qty === 'number') {
+    return Number.isInteger(qty) ? String(qty) : String(Number(qty.toFixed(4)));
+  }
+  const str = String(qty ?? '').trim();
+  if (/^\d+\.\d+$/.test(str)) {
+    const num = parseFloat(str);
+    return isNaN(num) ? str : String(Number(num.toFixed(4)));
+  }
+  return str;
+}
+
 function compactMaterialRow(row) {
   const value = row?.after || row;
+  const compCode = value?.componentCode || value?.compCode;
+  const compLabel = compCode && compCode !== '无' ? `[${compCode}] ` : '';
+  const qty = value?.quantity || value?.qty || value?.quantities?.[0];
   return [
     value?.color ? `[${value.color}]` : '',
-    value?.materialCode || value?.componentCode || value?.code || value?.materialId || '',
+    `${compLabel}${value?.matCode || value?.materialCode || value?.code || ''}`.trim(),
     value?.nameZh || value?.nameVi || '',
-    value?.specZh || value?.specVi || '',
-    value?.quantity ? `x${value.quantity}` : '',
+    value?.spec || value?.specZh || value?.specVi || '',
+    qty ? `x${qty}` : '',
   ].filter(Boolean).join(' ');
 }
 
@@ -300,22 +315,143 @@ export function formatLocalToolFallback(t, { toolCall, toolResult } = {}) {
   if (toolCall.name === 'compare_boms') {
     const p1 = toolResult.product1?.productCode || '';
     const p2 = toolResult.product2?.productCode || '';
-    lines.push(`${tr('ai.localFallback.scope', 'Scope')}: ${p1} (${toolResult.product1?.color || '-'}) vs ${p2} (${toolResult.product2?.color || '-'})`);
-    lines.push(`${tr('ai.localFallback.exactCommon', 'Exact Common')}: ${toolResult.summary?.commonCount || 0}`);
-    lines.push(...(toolResult.common || []).slice(0, 6).map(row => `= ${compactMaterialRow(row)}`));
+    const rev1 = toolResult.product1?.revision || '';
+    const rev2 = toolResult.product2?.revision || '';
+    const c1 = toolResult.product1?.color || '-';
+    const c2 = toolResult.product2?.color || '-';
+    const p1Display = rev1 ? `${p1} (${rev1} ${c1})` : `${p1} (${c1})`;
+    const p2Display = rev2 ? `${p2} (${rev2} ${c2})` : `${p2} (${c2})`;
+    lines.push(`${tr('ai.localFallback.scope', 'Scope')}: ${p1Display} vs ${p2Display}`);
+    if (typeof toolResult.summary?.similarityScore === 'number') {
+      const pct = Math.round(toolResult.summary.similarityScore * 100);
+      lines.push(`${tr('ai.localFallback.similarityScore', 'BOM Similarity')}: ${pct}%`);
+    }
+    const commonCount = toolResult.summary?.commonCount || 0;
+    const identicalCount = toolResult.summary?.identicalCount ?? (toolResult.common || []).filter(item => !item.componentCodeDifferent && !item.quantityOrUnitDifferent).length;
+    const qtyDiffCount = toolResult.summary?.quantityOrUnitDifferenceCount || 0;
+    const labelDiffCount = toolResult.summary?.labelDifferenceCount || 0;
+
+    let breakdown = `${tr('ai.localFallback.commonMaterials', 'Common Materials')}: ${commonCount}`;
+    if (commonCount > 0) {
+      breakdown += ` (${tr('ai.localFallback.identicalMatch', 'Identical')}: ${identicalCount} | ${tr('ai.localFallback.quantityDifference', 'Qty Diff')}: ${qtyDiffCount}`;
+      if (labelDiffCount > 0) {
+        breakdown += ` | ⚠️ ${tr('ai.localFallback.labelDifferenceWarning', 'Label Diff')}: ${labelDiffCount}`;
+      }
+      breakdown += ')';
+    }
+    lines.push(breakdown);
+
+    const labelDiffItems = toolResult.labelDifferences || (toolResult.common || []).filter(item => item.componentCodeDifferent);
+    if (labelDiffItems.length > 0) {
+      lines.push(`\n📋 **${tr('ai.localFallback.packingDifferenceReminder', 'Packaging Difference Notice')}:**`);
+      for (const item of labelDiffItems) {
+        const comp1 = item.comp1 || item.componentCode1 || '无';
+        const comp2 = item.comp2 || item.componentCode2 || '无';
+        const q1 = item.qty1 || item.product1?.quantities?.join('+') || item.product1?.qty || '1';
+        const q2 = item.qty2 || item.product2?.quantities?.join('+') || item.product2?.qty || '1';
+        const name = item.nameZh || item.nameVi || item.matCode || '';
+        const qtyNotice = (q1 !== q2 || item.quantityOrUnitDifferent) ? ` (${p1} x${formatQuantityNumber(q1)} ↔ ${p2} x${formatQuantityNumber(q2)})` : '';
+        lines.push(`- **${name}**: ${p1} [${comp1}] ↔ ${p2} [${comp2}]${qtyNotice}`);
+      }
+    }
+
+    const commonRows = toolResult.common || [];
+    if (commonRows.length > 0) {
+      const groups = new Map();
+      const normalizeAttr = raw => {
+        const str = String(raw || '').trim();
+        if (/包材|包装/i.test(str)) return '包材';
+        if (/五金/i.test(str)) return '五金包';
+        if (/零件|结构/i.test(str)) return '零件';
+        if (/布/i.test(str)) return '布件';
+        if (/电器|电子|配件/i.test(raw)) return '电器';
+        if (/原材料|原料/i.test(str)) return '原材料';
+        return str || tr('ai.localFallback.unclassified', 'Unclassified');
+      };
+      for (const row of commonRows) {
+        const attr = normalizeAttr(row.attributeZh);
+        if (!groups.has(attr)) groups.set(attr, []);
+        groups.get(attr).push(row);
+      }
+
+      const attrPriority = attr => {
+        if (/零件|结构/i.test(attr)) return 1;
+        if (/五金/i.test(attr)) return 2;
+        if (/布/i.test(attr)) return 3;
+        if (/电器|电子|配件/i.test(attr)) return 4;
+        if (/包材|包装/i.test(attr)) return 5;
+        if (/原材料|原料/i.test(attr)) return 6;
+        return 99;
+      };
+
+      const sortedGroups = [...groups.entries()].sort(([a], [b]) => (
+        attrPriority(a) - attrPriority(b) || a.localeCompare(b)
+      ));
+
+      const headers = [
+        tr('ai.localFallback.tableIndex', 'No.'),
+        tr('ai.localFallback.tableMaterialCode', 'Material Code'),
+        tr('ai.localFallback.tableName', 'Name'),
+        tr('ai.localFallback.tableSpec', 'Specification'),
+        `${p1} ${tr('ai.localFallback.totalQuantity', 'Quantity')}`,
+        `${p2} ${tr('ai.localFallback.totalQuantity', 'Quantity')}`,
+        tr('ai.localFallback.status', 'Status'),
+      ];
+
+      for (const [attrName, rows] of sortedGroups) {
+        lines.push(`\n**${attrName}** (${rows.length}):`);
+        lines.push(`| ${headers.join(' | ')} |`);
+        lines.push(`| ${headers.map(() => '---').join(' | ')} |`);
+        const sortedRows = [...rows].sort((left, right) => {
+          if (left.componentCodeDifferent !== right.componentCodeDifferent) {
+            return left.componentCodeDifferent ? -1 : 1;
+          }
+          if (left.quantityOrUnitDifferent !== right.quantityOrUnitDifferent) {
+            return left.quantityOrUnitDifferent ? -1 : 1;
+          }
+          return (left.matCode || '').localeCompare(right.matCode || '');
+        });
+
+        lines.push(...sortedRows.map((row, index) => {
+          const rawQ1 = row.product1?.quantities?.map(formatQuantityNumber).join('+') || formatQuantityNumber(row.product1?.quantity || row.product1?.qty || '1');
+          const rawQ2 = row.product2?.quantities?.map(formatQuantityNumber).join('+') || formatQuantityNumber(row.product2?.quantity || row.product2?.qty || '1');
+          const comp1 = row.componentCode1 || row.product1?.componentCode || '';
+          const comp2 = row.componentCode2 || row.product2?.componentCode || '';
+          const p1Label = comp1 && comp1 !== '无' ? `[${comp1}] x${rawQ1}` : `x${rawQ1}`;
+          const p2Label = comp2 && comp2 !== '无' ? `[${comp2}] x${rawQ2}` : `x${rawQ2}`;
+          let status = tr('ai.localFallback.identicalMatch', 'Identical');
+          if (row.componentCodeDifferent && row.quantityOrUnitDifferent) {
+            status = `⚠️ ${tr('ai.localFallback.labelDifferenceWarning', 'Label Diff')} [${comp1} vs ${comp2}] · ${tr('ai.localFallback.quantityDifference', 'Qty Diff')}`;
+          } else if (row.componentCodeDifferent) {
+            status = `⚠️ ${tr('ai.localFallback.labelDifferenceWarning', 'Label Diff')} [${comp1} vs ${comp2}]`;
+          } else if (row.quantityOrUnitDifferent) {
+            status = tr('ai.localFallback.quantityDifference', 'Qty Diff');
+          }
+          return `| ${[
+            index + 1,
+            row.matCode || row.materialCode || '-',
+            row.nameZh || row.nameVi || '-',
+            row.spec || '-',
+            p1Label,
+            p2Label,
+            status,
+          ].join(' | ')} |`;
+        }));
+      }
+    }
     if (toolResult.summary?.probableCommonCount > 0) {
-      lines.push(`${tr('ai.localFallback.probableCommon', 'Probable Common')}: ${toolResult.summary.probableCommonCount}`);
-      lines.push(...(toolResult.probableCommon || []).slice(0, 6).map(item => `~ ${compactMaterialRow(item.product1)} <==> ${compactMaterialRow(item.product2)}`));
+      lines.push(`\n${tr('ai.localFallback.probableCommon', 'Probable Common')}: ${toolResult.summary.probableCommonCount}`);
+      lines.push(...(toolResult.probableCommon || []).slice(0, 10).map(item => `~ ${compactMaterialRow(item.product1)} <==> ${compactMaterialRow(item.product2)}`));
     }
     if (toolResult.summary?.dataQualityWarningCount > 0) {
-      lines.push(`${tr('ai.localFallback.dataQualityWarnings', 'Data Quality Warnings')}: ${toolResult.summary.dataQualityWarningCount}`);
-      lines.push(...(toolResult.dataQualityWarnings || []).slice(0, 6).map(w => (
+      lines.push(`\n${tr('ai.localFallback.dataQualityWarnings', 'Data Quality Warnings')}: ${toolResult.summary.dataQualityWarningCount}`);
+      lines.push(...(toolResult.dataQualityWarnings || []).slice(0, 10).map(w => (
         `! ${w.item1 || ''} ↔ ${w.item2 || ''}: ${tr('ai.localFallback.attributeConflict', 'conflicting BOM attributes')}`
       )));
     }
-    lines.push(`${tr('ai.localFallback.onlyProduct', 'Only')} ${p1}: ${toolResult.summary?.onlyProduct1Count || 0}`);
+    lines.push(`\n${tr('ai.localFallback.onlyProduct', 'Only')} ${p1}: ${toolResult.summary?.onlyProduct1Count || 0}`);
     lines.push(`${tr('ai.localFallback.onlyProduct', 'Only')} ${p2}: ${toolResult.summary?.onlyProduct2Count || 0}`);
-    return lines.join('\n').slice(0, 5000);
+    return lines.join('\n').slice(0, 20000);
   }
 
   if (toolCall.name === 'analyze_pdm') {
@@ -340,12 +476,12 @@ export function formatLocalToolFallback(t, { toolCall, toolResult } = {}) {
         tr('ai.localFallback.tableIndex', 'No.'),
         tr('ai.localFallback.tableSpec', 'Specification'),
         tr('ai.localFallback.materialTypeCount', 'Material Types'),
-        tr('ai.localFallback.usedProductsWithRevision', 'Used In (Effective Revision)'),
+        tr('ai.localFallback.usedProductsWithRevision', '[Comp Code] Used In (Effective Revision)'),
       ];
       lines.push(`| ${headers.join(' | ')} |`);
       lines.push(`| ${headers.map(() => '---').join(' | ')} |`);
       lines.push(...results.map((result, index) => (
-        `| ${[index + 1, result.spec || '-', result.materialCount ?? 0, (result.usedInProductRevisions || []).join(', ') || '-'].join(' | ')} |`
+        `| ${[index + 1, result.spec || '-', result.materialCount ?? 0, (result.usedInProductRevisions || []).join('<br>') || '-'].join(' | ')} |`
       )));
       if (toolResult.truncated) lines.push(`| ${headers.map(() => '...').join(' | ')} |`);
       if (toolResult.representativeColorPolicy) {
@@ -364,10 +500,10 @@ export function formatLocalToolFallback(t, { toolCall, toolResult } = {}) {
         tr('ai.localFallback.tableName', 'Name'),
         tr('ai.localFallback.tableSpec', 'Specification'),
         hasProductRevisionLabels
-          ? tr('ai.localFallback.usedProductsWithRevision', 'Used In (Effective Revision)')
+          ? tr('ai.localFallback.usedProductsWithRevision', '[Comp Code] Used In (Effective Revision)')
           : tr('ai.localFallback.usedProducts', 'Used In'),
       ];
-      if (hasRepresentativeColor) headers.push(tr('ai.localFallback.representativeColor', 'Representative Color'));
+      if (hasRepresentativeColor) headers.push(tr('ai.localFallback.representativeColor', 'Representative Product Color'));
       if (hasEffectiveRevision) headers.push(tr('ai.localFallback.effectiveRevision', 'Effective Revision'));
       lines.push(`| ${headers.join(' | ')} |`);
       lines.push(`| ${headers.map(() => '---').join(' | ')} |`);
@@ -377,7 +513,7 @@ export function formatLocalToolFallback(t, { toolCall, toolResult } = {}) {
           result.materialCode,
           result.nameZh || '-',
           result.spec || '-',
-          (hasProductRevisionLabels ? result.usedInProductRevisions : result.usedInProducts || []).join(', ') || '-',
+          (hasProductRevisionLabels ? result.usedInProductRevisions : result.usedInProducts || []).join('<br>') || '-',
           ...(hasRepresentativeColor ? [(result.representativeColors || []).join(', ') || '-'] : []),
           ...(hasEffectiveRevision ? [(result.effectiveRevisions || []).join(', ') || '-'] : []),
         ].join(' | ')} |`
@@ -447,6 +583,52 @@ export function formatLocalToolFallback(t, { toolCall, toolResult } = {}) {
     for (const warning of (toolResult.warnings || []).slice(0, 8)) lines.push(`! ${warning}`);
     lines.push(tr('ai.drawing.singleApproval', 'Engineering confirmation is required before production decisions.'));
     return lines.join('\n').slice(0, 5000);
+  }
+
+  if (toolCall.name === 'analyze_ecn_impact') {
+    lines.push(`## 🛠️ ${tr('ai.ecn.impactTitle', '工程变更影响分析 (ECN Impact Analysis)')}`);
+    lines.push(`**${tr('ai.ecn.targetMaterial', '目标物料')}**: ${toolResult.targetMaterial?.nameZh || ''} (${toolResult.targetMaterial?.code || toolCall.arguments?.targetMaterialId})`);
+    if (toolResult.targetMaterial?.specZh) {
+      lines.push(`**${tr('ai.ecn.currentSpec', '现行规格')}**: ${toolResult.targetMaterial.specZh}`);
+    }
+    if (toolResult.changeSummary?.newSpec) {
+      lines.push(`**${tr('ai.ecn.newSpec', '拟变更规格')}**: ${toolResult.changeSummary.newSpec}`);
+    }
+    lines.push(`**${tr('ai.ecn.affectedScope', '受影响范围')}**: ${toolResult.totalAffectedProducts || 0} 个产品 (${toolResult.totalAffectedOccurrences || 0} 处BOM使用)\n`);
+
+    if (toolResult.affectedProducts?.length > 0) {
+      lines.push(`| 序号 | 产品型号 | 现行业务版本 | 使用颜色 | 序号标 | 现行用量 |`);
+      lines.push(`| --- | --- | --- | --- | --- | --- |`);
+      toolResult.affectedProducts.forEach((p, idx) => {
+        lines.push(`| ${idx + 1} | **${p.productCode}** | ${p.revision || '-'} | ${(p.colors || []).join(', ') || '-'} | [${(p.compCodes || []).join('/') || '无'}] | ${(p.quantities || []).join(', ') || '-'} |`);
+      });
+      lines.push('');
+    }
+
+    const streams = toolResult.impactStreams || {};
+    lines.push(`### 🏭 ${tr('ai.ecn.factoryStreams', '四维业务影响与行动清单')}:`);
+    
+    // 1. Label stream
+    lines.push(`\n#### 🏷️ 1. ${tr('ai.ecn.labelStream', '序号标与装配说明书 (Label & Assembly Manual)')}`);
+    (streams.labelStream?.items || []).forEach(item => lines.push(`- ${item}`));
+    (streams.labelStream?.actions || []).forEach(act => lines.push(`  - ⚡ **行动**: ${act}`));
+
+    // 2. Hardware stream
+    lines.push(`\n#### 🔩 2. ${tr('ai.ecn.hardwareStream', '五金包与采购库存 (Hardware & Procurement)')}`);
+    (streams.hardwareStream?.items || []).forEach(item => lines.push(`- ${item}`));
+    (streams.hardwareStream?.actions || []).forEach(act => lines.push(`  - ⚡ **行动**: ${act}`));
+
+    // 3. Drawing stream
+    lines.push(`\n#### 📐 3. ${tr('ai.ecn.drawingStream', '2D图纸与车间模具 (Drawings & Tooling)')}`);
+    (streams.drawingStream?.items || []).forEach(item => lines.push(`- ${item}`));
+    (streams.drawingStream?.actions || []).forEach(act => lines.push(`  - ⚡ **行动**: ${act}`));
+
+    // 4. Packaging stream
+    lines.push(`\n#### 📦 4. ${tr('ai.ecn.packagingStream', '外箱包材与装柜容积 (Carton & Logistics)')}`);
+    (streams.packagingStream?.items || []).forEach(item => lines.push(`- ${item}`));
+    (streams.packagingStream?.actions || []).forEach(act => lines.push(`  - ⚡ **行动**: ${act}`));
+
+    return lines.join('\n');
   }
 
   return '';
@@ -639,7 +821,7 @@ const TOOL_SCHEMAS = {
       additionalProperties: false,
     },
   },
-  check_drawing_commonality: {
+    check_drawing_commonality: {
     description: 'Inspect exact PDM PDF drawings and assess whether matched front/front or rear/rear parts are candidates for common use. Read-only and engineering approval remains required.',
     parameters: {
       type: 'object',
@@ -647,7 +829,24 @@ const TOOL_SCHEMAS = {
       required: ['query'],
       additionalProperties: false,
     },
-  }
+  },
+  analyze_ecn_impact: {
+    description: 'Analyze technical change impacts across four factory streams (Labels/SOP, Hardware/Procurement, Drawings/Mechanical, Packaging/Logistics) and generate structured ECN proposal operations.',
+    parameters: {
+      type: 'object',
+      properties: {
+        targetMaterialId: NON_EMPTY_STRING_SCHEMA,
+        newSpec: NON_EMPTY_STRING_SCHEMA,
+        newQty: NON_EMPTY_STRING_SCHEMA,
+        newLabel: NON_EMPTY_STRING_SCHEMA,
+        newCode: NON_EMPTY_STRING_SCHEMA,
+        targetProductIds: { type: 'array', items: PRODUCT_ID_SCHEMA },
+        reason: NON_EMPTY_STRING_SCHEMA,
+      },
+      required: ['targetMaterialId'],
+      additionalProperties: false,
+    },
+  },
 };
 
 export function buildAvailableTools(modelInfo) {

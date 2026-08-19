@@ -234,3 +234,38 @@ test('R2.4: per-turn budget message does not tell the user to start a new conver
   assert.ok(budgetLine);
   assert.doesNotMatch(budgetLine, /\u65b0\u5efa\u5bf9\u8bdd/);
 });
+
+test('R2.4: workspace renders multiple categorized markdown tables and intervening text', () => {
+  const feature = createAiAssistantFeature({
+    runTool: async () => {},
+    getSnapshot: () => ({ selection: {} })
+  });
+
+  const markdownWithMultipleTables = [
+    'Header info text',
+    '**零件** (2):',
+    '| 序号 | 物料编码 | 名称 |',
+    '| --- | --- | --- |',
+    '| 1 | P001 | Part 1 |',
+    '| 2 | P002 | Part 2 |',
+    '**包材** (1):',
+    '| 序号 | 物料编码 | 名称 |',
+    '| --- | --- | --- |',
+    '| 1 | B001 | Box 1 |',
+    'Footer summary text'
+  ].join('\n');
+
+  feature.ui.renderMessage({ role: 'assistant', text: markdownWithMultipleTables });
+
+  const messagesContainer = feature.ui.workspaceElement.children[0];
+  const row = messagesContainer.children[messagesContainer.children.length - 1];
+  const body = row.children.find(child => child.className === 'ai-message');
+  const tables = findAll(body, node => node?.className === 'ai-message-table-wrap');
+  const texts = findAll(body, node => node?.className === 'ai-message-text');
+
+  assert.equal(tables.length, 2, 'Must render both markdown tables');
+  assert.ok(texts.some(t => t.textContent.includes('Header info text')));
+  assert.ok(texts.some(t => t.textContent.includes('包材 (1):')));
+  assert.ok(texts.some(t => t.textContent.includes('Footer summary text')));
+});
+

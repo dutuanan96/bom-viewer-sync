@@ -645,42 +645,74 @@ export function createWorkspaceView({ onSend, onClear, onStop, t = (k) => k, ope
           .replace(/^(\s*)\*\s+/, '$1- ')
           .replace(/^(\s*)#{1,6}\s+/, '$1'))
         .join('\n');
-      const tableLines = normalizedText.split('\n');
-      const tableStart = tableLines.findIndex((line, index) => (
-        /^\|.+\|$/.test(line.trim()) && /^\|(?:\s*:?-{3,}:?\s*\|)+$/.test((tableLines[index + 1] || '').trim())
-      ));
+      const lines = normalizedText.split('\n');
+
       const appendText = value => {
-        if (!value) return;
+        const trimmed = String(value || '').trim();
+        if (!trimmed) return;
         const textEl = document.createElement('div');
         textEl.className = 'ai-message-text';
-        textEl.textContent = value;
+        textEl.textContent = trimmed;
         msgEl.appendChild(textEl);
       };
-      if (tableStart < 0) {
-        appendText(normalizedText);
-      } else {
-        appendText(tableLines.slice(0, tableStart).join('\n'));
-        const rows = [];
-        for (let index = tableStart; index < tableLines.length; index += 1) {
-          const line = tableLines[index].trim();
-          if (!/^\|.+\|$/.test(line)) break;
-          if (index === tableStart + 1) continue;
-          rows.push(line.slice(1, -1).split('|').map(cell => cell.trim()));
+
+      let currentTextLines = [];
+      let i = 0;
+      while (i < lines.length) {
+        const line = lines[i];
+        const nextLine = lines[i + 1] || '';
+        const isTableStart = /^\|.+\|$/.test(line.trim()) && /^\|(?:\s*:?-{3,}:?\s*\|)+$/.test(nextLine.trim());
+
+        if (isTableStart) {
+          if (currentTextLines.length > 0) {
+            appendText(currentTextLines.join('\n'));
+            currentTextLines = [];
+          }
+
+          const rows = [];
+          rows.push(line.trim().slice(1, -1).split('|').map(cell => cell.trim()));
+          i += 2; // skip header and delimiter
+
+          while (i < lines.length && /^\|.+\|$/.test(lines[i].trim())) {
+            rows.push(lines[i].trim().slice(1, -1).split('|').map(cell => cell.trim()));
+            i += 1;
+          }
+
+          const wrapper = document.createElement('div');
+          wrapper.className = 'ai-message-table-wrap';
+          const table = document.createElement('table');
+          table.className = 'ai-message-table';
+          const header = document.createElement('thead');
+          const headerRow = document.createElement('tr');
+          rows[0].forEach(cell => {
+            const th = document.createElement('th');
+            th.textContent = cell;
+            headerRow.appendChild(th);
+          });
+          header.appendChild(headerRow);
+          table.appendChild(header);
+
+          const body = document.createElement('tbody');
+          rows.slice(1).forEach(row => {
+            const tr = document.createElement('tr');
+            row.forEach(cell => {
+              const td = document.createElement('td');
+              td.textContent = cell;
+              tr.appendChild(td);
+            });
+            body.appendChild(tr);
+          });
+          table.appendChild(body);
+          wrapper.appendChild(table);
+          msgEl.appendChild(wrapper);
+        } else {
+          currentTextLines.push(line);
+          i += 1;
         }
-        const wrapper = document.createElement('div');
-        wrapper.className = 'ai-message-table-wrap';
-        const table = document.createElement('table');
-        table.className = 'ai-message-table';
-        const header = document.createElement('thead');
-        const headerRow = document.createElement('tr');
-        rows[0].forEach(cell => { const th = document.createElement('th'); th.textContent = cell; headerRow.appendChild(th); });
-        header.appendChild(headerRow);
-        table.appendChild(header);
-        const body = document.createElement('tbody');
-        rows.slice(1).forEach(row => { const tr = document.createElement('tr'); row.forEach(cell => { const td = document.createElement('td'); td.textContent = cell; tr.appendChild(td); }); body.appendChild(tr); });
-        table.appendChild(body);
-        wrapper.appendChild(table);
-        msgEl.appendChild(wrapper);
+      }
+
+      if (currentTextLines.length > 0) {
+        appendText(currentTextLines.join('\n'));
       }
     }
 

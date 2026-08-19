@@ -33,6 +33,7 @@ export const ALLOWED_TOOLS = Object.freeze(new Set([
   'analyze_engineering_drawing',
   'check_drawing_commonality',
   'find_duplicate_materials',
+  'analyze_ecn_impact',
 ]));
 
 const ALLOWED_PROPOSAL_OPERATIONS = Object.freeze(new Set([
@@ -91,7 +92,7 @@ const TOOL_ARGUMENT_RULES = Object.freeze({
   get_structure_mapping: { required: ['productId'], allowed: ['productId', 'query'] },
   compare_boms: {
     required: ['productId1', 'productId2'],
-    allowed: ['productId1', 'color1', 'productId2', 'color2']
+    allowed: ['productId1', 'color1', 'productId2', 'color2', 'componentConcept', 'metric']
   },
   get_material: { required: ['materialId'], allowed: ['materialId'] },
   where_used: { required: ['materialId'], allowed: ['materialId'] },
@@ -116,12 +117,50 @@ const TOOL_ARGUMENT_RULES = Object.freeze({
   analyze_engineering_drawing: { required: ['query', 'productId'], allowed: ['query', 'productId'] },
   check_drawing_commonality: { required: ['query'], allowed: ['query'] },
   find_duplicate_materials: { required: [], allowed: ['name'] },
+  analyze_ecn_impact: {
+    required: ['targetMaterialId'],
+    allowed: ['targetMaterialId', 'newSpec', 'newQty', 'newLabel', 'newCode', 'targetProductIds', 'reason', 'change', 'componentConcept']
+  },
 });
 
 function policyError(message) {
   const err = new Error(message);
   err.code = ERROR_CODES.AI_POLICY_BLOCKED;
   return err;
+}
+
+function validateEcnChange(change) {
+  if (!change || typeof change !== 'object' || Array.isArray(change)) {
+    throw policyError('analyze_ecn_impact.change must be an object');
+  }
+  const allowedKeys = ['field', 'operator', 'value', 'unit'];
+  const keys = Object.keys(change);
+  for (const k of keys) {
+    if (!allowedKeys.includes(k)) {
+      throw policyError(`unexpected field in analyze_ecn_impact.change: ${k}`);
+    }
+  }
+  for (const k of allowedKeys) {
+    if (!(k in change)) {
+      throw policyError(`analyze_ecn_impact.change.${k} is required`);
+    }
+  }
+  if (change.field !== 'length') {
+    throw policyError('unsupported ECN relative field: only length is supported');
+  }
+  if (change.operator !== 'delta') {
+    throw policyError('unsupported ECN relative operator: only delta is supported');
+  }
+  if (typeof change.value !== 'number' || !Number.isFinite(change.value)) {
+    throw policyError('ECN change.value must be a finite number');
+  }
+  if (change.unit !== 'mm') {
+    throw policyError('ECN change.unit must be mm');
+  }
+  const MAX_ALLOWED_DELTA_MM = 100;
+  if (Math.abs(change.value) > MAX_ALLOWED_DELTA_MM) {
+    throw policyError(`ECN delta value exceeds allowed limit of ${MAX_ALLOWED_DELTA_MM}mm`);
+  }
 }
 
 function limitError(message) {
@@ -177,6 +216,19 @@ function validateToolArguments(toolName, args) {
     if (!(field in args) || field === 'payload') continue;
     if (toolName === 'apply_mutation' && field === 'operations') {
       if (!Array.isArray(args.operations)) throw policyError('apply_mutation.operations must be an array');
+      continue;
+    }
+    if (toolName === 'analyze_ecn_impact' && field === 'targetProductIds') {
+      if (!Array.isArray(args.targetProductIds)) throw policyError('analyze_ecn_impact.targetProductIds must be an array');
+      for (const pid of args.targetProductIds) {
+        if (typeof pid !== 'string' || !PRODUCT_ID_PATTERN.test(pid)) {
+          throw policyError('analyze_ecn_impact.targetProductIds items must match LGS followed by 3 or 4 digits');
+        }
+      }
+      continue;
+    }
+    if (toolName === 'analyze_ecn_impact' && field === 'change') {
+      validateEcnChange(args.change);
       continue;
     }
     if (typeof args[field] !== 'string') throw policyError(`${toolName}.${field} must be a string`);

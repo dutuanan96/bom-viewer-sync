@@ -258,6 +258,15 @@ function buildPreferredToolCall(route, query) {
         name: 'find_duplicate_materials',
         arguments: route.entities?.materialName ? { name: route.entities.materialName } : {},
       };
+    case 'analyze_ecn_impact':
+      return {
+        name: 'analyze_ecn_impact',
+        arguments: {
+          targetMaterialId: route.entities?.targetMaterialId || materialIds[0] || '',
+          ...(route.entities?.newSpec ? { newSpec: route.entities.newSpec } : {}),
+          targetProductIds: productIds,
+        },
+      };
     case 'get_pdm_help':
       return { name: 'get_pdm_help', arguments: query?.trim() ? { topic: query } : {} };
     case 'analyze_pdm':
