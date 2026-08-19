@@ -13586,46 +13586,6 @@
           "vi": "cái"
         }
       },
-      "mat_47zmys": {
-        "id": "mat_47zmys",
-        "code": "DD1050R1",
-        "name": {
-          "zh": "自粘灯带固定卡扣",
-          "vi": "Đồ gài cố định đèn led"
-        },
-        "spec": {
-          "zh": "以实际为准",
-          "vi": "Tùy thực tế"
-        },
-        "material": {
-          "zh": "PP",
-          "vi": "PP"
-        },
-        "color": {
-          "zh": "本色",
-          "vi": "màu tự nhiên"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [],
-        "models3d": [
-          {
-            "name": "自粘灯带固定卡扣.glb",
-            "path": "models3d/catalog/model-823c4ecb.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-823c4ecb.glb",
-            "matched_name": "自粘灯带固定卡扣",
-            "score": 1100,
-            "bytes": 23472
-          }
-        ],
-        "spec_vi": "以实际为准",
-        "unit": {
-          "zh": "根",
-          "vi": "thanh"
-        }
-      },
       "mat_fbtabe": {
         "id": "mat_fbtabe",
         "code": "LGS031YZKBH",
@@ -14013,36 +13973,6 @@
         "unit": {
           "zh": "个",
           "vi": "cái"
-        }
-      },
-      "mat_kmfvry": {
-        "id": "mat_kmfvry",
-        "code": "LGS031ZK",
-        "name": {
-          "zh": "纸卡",
-          "vi": "giấy lót"
-        },
-        "spec": {
-          "zh": "单瓦1100x100mm",
-          "vi": "sóng đơn 1100x100mm"
-        },
-        "material": {
-          "zh": "瓦楞纸单瓦",
-          "vi": "giấy carton sóng đơn"
-        },
-        "color": {
-          "zh": "纸色",
-          "vi": "màu giấy"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "张",
-          "vi": "tờ"
         }
       },
       "mat_1jumyhx": {
@@ -15015,46 +14945,6 @@
           "vi": "thanh"
         }
       },
-      "mat_r787pi": {
-        "id": "mat_r787pi",
-        "code": "DD0310R1",
-        "name": {
-          "zh": "自粘灯带固定卡扣",
-          "vi": "Đồ gài cố định đèn led"
-        },
-        "spec": {
-          "zh": "以实际为准",
-          "vi": "Tùy thực tế"
-        },
-        "material": {
-          "zh": "PP",
-          "vi": "PP"
-        },
-        "color": {
-          "zh": "本色",
-          "vi": "màu tự nhiên"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [],
-        "models3d": [
-          {
-            "name": "自粘灯带固定卡扣.glb",
-            "path": "models3d/catalog/model-823c4ecb.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-823c4ecb.glb",
-            "matched_name": "自粘灯带固定卡扣",
-            "score": 1100,
-            "bytes": 23472
-          }
-        ],
-        "spec_vi": "以实际为准",
-        "unit": {
-          "zh": "根",
-          "vi": "thanh"
-        }
-      },
       "mat_4ipzfw": {
         "id": "mat_4ipzfw",
         "code": "LGS032PKXKD",
@@ -15113,36 +15003,6 @@
         "unit": {
           "zh": "个",
           "vi": "cái"
-        }
-      },
-      "mat_14l5oxj": {
-        "id": "mat_14l5oxj",
-        "code": "LGS032ZK",
-        "name": {
-          "zh": "纸卡",
-          "vi": "giấy lót"
-        },
-        "spec": {
-          "zh": "单瓦1100x100mm",
-          "vi": "sóng đơn 1100x100mm"
-        },
-        "material": {
-          "zh": "瓦楞纸单瓦",
-          "vi": "giấy carton sóng đơn"
-        },
-        "color": {
-          "zh": "纸色",
-          "vi": "màu giấy"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "张",
-          "vi": "tờ"
         }
       },
       "mat_12v3k9d": {
@@ -15891,36 +15751,6 @@
         "unit": {
           "zh": "个",
           "vi": "cái"
-        }
-      },
-      "mat_rkasfe": {
-        "id": "mat_rkasfe",
-        "code": "LGS033ZK",
-        "name": {
-          "zh": "纸卡",
-          "vi": "giấy lót"
-        },
-        "spec": {
-          "zh": "单瓦1100x100mm",
-          "vi": "sóng đơn 1100x100mm"
-        },
-        "material": {
-          "zh": "瓦楞纸单瓦",
-          "vi": "giấy carton sóng đơn"
-        },
-        "color": {
-          "zh": "纸色",
-          "vi": "màu giấy"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "张",
-          "vi": "tờ"
         }
       },
       "mat_88x7gi": {
@@ -16772,46 +16602,6 @@
         "unit": {
           "zh": "个",
           "vi": "cái"
-        }
-      },
-      "mat_13imrat": {
-        "id": "mat_13imrat",
-        "code": "DD0900R1",
-        "name": {
-          "zh": "自粘灯带固定卡扣",
-          "vi": "Đồ gài cố định đèn led"
-        },
-        "spec": {
-          "zh": "以实际为准",
-          "vi": "Tùy thực tế"
-        },
-        "material": {
-          "zh": "PP",
-          "vi": "PP"
-        },
-        "color": {
-          "zh": "本色",
-          "vi": "màu tự nhiên"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [],
-        "models3d": [
-          {
-            "name": "自粘灯带固定卡扣.glb",
-            "path": "models3d/catalog/model-823c4ecb.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-823c4ecb.glb",
-            "matched_name": "自粘灯带固定卡扣",
-            "score": 1100,
-            "bytes": 23472
-          }
-        ],
-        "spec_vi": "以实际为准",
-        "unit": {
-          "zh": "根",
-          "vi": "thanh"
         }
       },
       "mat_11fc11y": {
@@ -18439,36 +18229,6 @@
           "vi": "cái"
         }
       },
-      "mat_1horzo8": {
-        "id": "mat_1horzo8",
-        "code": "ZHJ5050055",
-        "name": {
-          "zh": "纸护角",
-          "vi": "giấy nẹp"
-        },
-        "spec": {
-          "zh": "50x50x55mm",
-          "vi": "50x50x100mm"
-        },
-        "material": {
-          "zh": "瓦楞纸",
-          "vi": "giấy carton"
-        },
-        "color": {
-          "zh": "纸色",
-          "vi": "màu giấy"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "个",
-          "vi": "cái"
-        }
-      },
       "mat_kug5sb": {
         "id": "mat_kug5sb",
         "code": "LGS101ZK",
@@ -18927,45 +18687,6 @@
           "vi": "miếng"
         }
       },
-      "mat_aqgyo3": {
-        "id": "mat_aqgyo3",
-        "code": "GSSNZGLS5040WH",
-        "name": {
-          "zh": "ST5x38内六角过山丝",
-          "vi": "lông đền nhựa"
-        },
-        "spec": {
-          "zh": "Ø5x38mm",
-          "vi": "đường kính ngoài 15.5×lỗ trong 8.0×dày 2.0mm"
-        },
-        "material": {
-          "zh": "#10",
-          "vi": "PP"
-        },
-        "color": {
-          "zh": "镀锌",
-          "vi": "mạ kẽm"
-        },
-        "attr": {
-          "zh": "五金包",
-          "vi": "túi ngũ kim"
-        },
-        "drawings": [],
-        "models3d": [
-          {
-            "name": "ST5X38内六角过山丝.glb",
-            "path": "models3d/catalog/ST5X38-062c35cb.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/ST5X38-062c35cb.glb",
-            "matched_name": "ST5X38内六角过山丝",
-            "score": 1100,
-            "bytes": 235852
-          }
-        ],
-        "unit": {
-          "zh": "个",
-          "vi": "cái"
-        }
-      },
       "mat_pyi632": {
         "id": "mat_pyi632",
         "code": "LGS101CB101BH",
@@ -19128,66 +18849,6 @@
           "vi": "cái"
         }
       },
-      "mat_fsi9u8": {
-        "id": "mat_fsi9u8",
-        "code": "ZHJ5050065",
-        "name": {
-          "zh": "纸护角",
-          "vi": "giấy nẹp"
-        },
-        "spec": {
-          "zh": "50x50x65mm",
-          "vi": "50x50x100mm"
-        },
-        "material": {
-          "zh": "瓦楞纸",
-          "vi": "giấy carton"
-        },
-        "color": {
-          "zh": "纸色",
-          "vi": "màu giấy"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "个",
-          "vi": "cái"
-        }
-      },
-      "mat_dqhrxf": {
-        "id": "mat_dqhrxf",
-        "code": "LGS111ZK",
-        "name": {
-          "zh": "纸卡",
-          "vi": "giấy lót"
-        },
-        "spec": {
-          "zh": "单瓦785x100mm",
-          "vi": "sóng đơn 785x100mm"
-        },
-        "material": {
-          "zh": "瓦楞纸单瓦",
-          "vi": "giấy carton sóng đơn"
-        },
-        "color": {
-          "zh": "纸色",
-          "vi": "màu giấy"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "张",
-          "vi": "tờ"
-        }
-      },
       "mat_cll1rl": {
         "id": "mat_cll1rl",
         "code": "LGS111SMS",
@@ -19329,46 +18990,6 @@
             "bytes": 1214848
           }
         ],
-        "unit": {
-          "zh": "根",
-          "vi": "thanh"
-        }
-      },
-      "mat_az72aa": {
-        "id": "mat_az72aa",
-        "code": "DD1500R1",
-        "name": {
-          "zh": "自粘灯带固定卡扣",
-          "vi": "Đồ gài cố định đèn led"
-        },
-        "spec": {
-          "zh": "以实际为准",
-          "vi": "Tùy thực tế"
-        },
-        "material": {
-          "zh": "PP",
-          "vi": "PP"
-        },
-        "color": {
-          "zh": "本色",
-          "vi": "màu tự nhiên"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [],
-        "models3d": [
-          {
-            "name": "自粘灯带固定卡扣.glb",
-            "path": "models3d/catalog/model-823c4ecb.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-823c4ecb.glb",
-            "matched_name": "自粘灯带固定卡扣",
-            "score": 1100,
-            "bytes": 23472
-          }
-        ],
-        "spec_vi": "以实际为准",
         "unit": {
           "zh": "根",
           "vi": "thanh"
@@ -19807,36 +19428,6 @@
         "unit": {
           "zh": "个",
           "vi": "cái"
-        }
-      },
-      "mat_13k6uej": {
-        "id": "mat_13k6uej",
-        "code": "LGS131ZK",
-        "name": {
-          "zh": "纸卡",
-          "vi": "giấy lót"
-        },
-        "spec": {
-          "zh": "单瓦860x100mm",
-          "vi": "sóng đơn 860x100mm"
-        },
-        "material": {
-          "zh": "瓦楞纸单瓦",
-          "vi": "giấy carton sóng đơn"
-        },
-        "color": {
-          "zh": "纸色",
-          "vi": "màu giấy"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "张",
-          "vi": "tờ"
         }
       },
       "mat_1t4zwnx": {
@@ -20898,46 +20489,6 @@
             "bytes": 23472
           }
         ],
-        "unit": {
-          "zh": "根",
-          "vi": "thanh"
-        }
-      },
-      "mat_17un1su": {
-        "id": "mat_17un1su",
-        "code": "DD0400R1",
-        "name": {
-          "zh": "自粘灯带固定卡扣",
-          "vi": "Đồ gài cố định đèn led"
-        },
-        "spec": {
-          "zh": "以实际为准",
-          "vi": "Tùy thực tế"
-        },
-        "material": {
-          "zh": "PP",
-          "vi": "PP"
-        },
-        "color": {
-          "zh": "本色",
-          "vi": "màu tự nhiên"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [],
-        "models3d": [
-          {
-            "name": "自粘灯带固定卡扣.glb",
-            "path": "models3d/catalog/model-823c4ecb.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-823c4ecb.glb",
-            "matched_name": "自粘灯带固定卡扣",
-            "score": 1100,
-            "bytes": 23472
-          }
-        ],
-        "spec_vi": "以实际为准",
         "unit": {
           "zh": "根",
           "vi": "thanh"
@@ -22260,36 +21811,6 @@
           "vi": "miếng"
         }
       },
-      "mat_x8jdfj": {
-        "id": "mat_x8jdfj",
-        "code": "LGS133ZK",
-        "name": {
-          "zh": "纸卡",
-          "vi": "giấy lót"
-        },
-        "spec": {
-          "zh": "单瓦785x100mm",
-          "vi": "sóng đơn 785x100mm"
-        },
-        "material": {
-          "zh": "瓦楞纸单瓦",
-          "vi": "giấy carton sóng đơn"
-        },
-        "color": {
-          "zh": "纸色",
-          "vi": "màu giấy"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "张",
-          "vi": "tờ"
-        }
-      },
       "mat_15yxbyv": {
         "id": "mat_15yxbyv",
         "code": "LGS133SMS",
@@ -22436,46 +21957,6 @@
           "vi": "thanh"
         }
       },
-      "mat_1oeda3c": {
-        "id": "mat_1oeda3c",
-        "code": "DD1700R1",
-        "name": {
-          "zh": "自粘灯带固定卡扣",
-          "vi": "Đồ gài cố định đèn led"
-        },
-        "spec": {
-          "zh": "以实际为准",
-          "vi": "Tùy thực tế"
-        },
-        "material": {
-          "zh": "PP",
-          "vi": "PP"
-        },
-        "color": {
-          "zh": "本色",
-          "vi": "màu tự nhiên"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [],
-        "models3d": [
-          {
-            "name": "自粘灯带固定卡扣.glb",
-            "path": "models3d/catalog/model-823c4ecb.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-823c4ecb.glb",
-            "matched_name": "自粘灯带固定卡扣",
-            "score": 1100,
-            "bytes": 23472
-          }
-        ],
-        "spec_vi": "以实际为准",
-        "unit": {
-          "zh": "根",
-          "vi": "thanh"
-        }
-      },
       "mat_1uoz287": {
         "id": "mat_1uoz287",
         "code": "LGS231CBZYKD",
@@ -22521,52 +22002,6 @@
         "unit": {
           "zh": "块",
           "vi": "miếng"
-        }
-      },
-      "mat_1xbfswb": {
-        "id": "mat_1xbfswb",
-        "code": "LGS231XHLBH",
-        "name": {
-          "zh": "LGS131_231-底部横杆",
-          "vi": "LGS131_231-thanh dưới"
-        },
-        "spec": {
-          "zh": "556x15x15mm",
-          "vi": "556x15x15mm"
-        },
-        "material": {
-          "zh": "Q195",
-          "vi": "Q195"
-        },
-        "color": {
-          "zh": "黑砂纹",
-          "vi": "đen nhám"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [
-          {
-            "name": "LGS231_131-底部横杆.pdf",
-            "path": "Google Drive > LGS131 > LGS231_131-底部横杆.pdf",
-            "url": "https://drive.google.com/file/d/1FUU__9zitdfI53em6S-2Du2_vKFzQlXv/view?usp=sharing",
-            "previewUrl": "https://drive.google.com/file/d/1FUU__9zitdfI53em6S-2Du2_vKFzQlXv/view?usp=sharing"
-          }
-        ],
-        "models3d": [
-          {
-            "name": "LGS231_131-底部横杆.glb",
-            "path": "models3d/catalog/LGS231-131-8264a80a.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS231-131-8264a80a.glb",
-            "matched_name": "LGS231_131-底部横杆",
-            "score": 1300,
-            "bytes": 68340
-          }
-        ],
-        "unit": {
-          "zh": "根",
-          "vi": "thanh"
         }
       },
       "mat_1gxgiey": {
@@ -23040,46 +22475,6 @@
           "vi": "cái"
         }
       },
-      "mat_1abho09": {
-        "id": "mat_1abho09",
-        "code": "DD0500R1",
-        "name": {
-          "zh": "自粘灯带固定卡扣",
-          "vi": "Đồ gài cố định đèn led"
-        },
-        "spec": {
-          "zh": "以实际为准",
-          "vi": "Tùy thực tế"
-        },
-        "material": {
-          "zh": "PP",
-          "vi": "PP"
-        },
-        "color": {
-          "zh": "本色",
-          "vi": "màu tự nhiên"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [],
-        "models3d": [
-          {
-            "name": "自粘灯带固定卡扣.glb",
-            "path": "models3d/catalog/model-823c4ecb.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-823c4ecb.glb",
-            "matched_name": "自粘灯带固定卡扣",
-            "score": 1100,
-            "bytes": 23472
-          }
-        ],
-        "spec_vi": "以实际为准",
-        "unit": {
-          "zh": "根",
-          "vi": "thanh"
-        }
-      },
       "mat_y4dw7k": {
         "id": "mat_y4dw7k",
         "code": "LGS232DB102KD",
@@ -23490,36 +22885,6 @@
         "unit": {
           "zh": "个",
           "vi": "cái"
-        }
-      },
-      "mat_1wv5gal": {
-        "id": "mat_1wv5gal",
-        "code": "LGS232ZK",
-        "name": {
-          "zh": "纸卡",
-          "vi": "giấy lót"
-        },
-        "spec": {
-          "zh": "单瓦1100x100mm",
-          "vi": "sóng đơn 1100x100mm"
-        },
-        "material": {
-          "zh": "瓦楞纸单瓦",
-          "vi": "giấy carton sóng đơn"
-        },
-        "color": {
-          "zh": "纸色",
-          "vi": "màu giấy"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "张",
-          "vi": "tờ"
         }
       },
       "mat_bg6yqf": {
@@ -25554,36 +24919,6 @@
           "vi": "cái"
         }
       },
-      "mat_1bo9pcf": {
-        "id": "mat_1bo9pcf",
-        "code": "LGS333ZK",
-        "name": {
-          "zh": "纸卡",
-          "vi": "giấy lót"
-        },
-        "spec": {
-          "zh": "单瓦1100x100mm",
-          "vi": "sóng đơn 1100x100mm"
-        },
-        "material": {
-          "zh": "瓦楞纸单瓦",
-          "vi": "giấy carton sóng đơn"
-        },
-        "color": {
-          "zh": "纸色",
-          "vi": "màu giấy"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "张",
-          "vi": "tờ"
-        }
-      },
       "mat_181ztx5": {
         "id": "mat_181ztx5",
         "code": "LGS333SMS",
@@ -26911,36 +26246,6 @@
           "vi": "cái"
         }
       },
-      "mat_rjeops": {
-        "id": "mat_rjeops",
-        "code": "LGS334ZK",
-        "name": {
-          "zh": "纸卡",
-          "vi": "giấy lót"
-        },
-        "spec": {
-          "zh": "单瓦840x100mm",
-          "vi": "sóng đơn 840x100mm"
-        },
-        "material": {
-          "zh": "瓦楞纸单瓦",
-          "vi": "giấy carton sóng đơn"
-        },
-        "color": {
-          "zh": "纸色",
-          "vi": "màu giấy"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "张",
-          "vi": "tờ"
-        }
-      },
       "mat_1iauhtm": {
         "id": "mat_1iauhtm",
         "code": "LGS334SMS",
@@ -27623,36 +26928,6 @@
         "unit": {
           "zh": "个",
           "vi": "cái"
-        }
-      },
-      "mat_1m8fmss": {
-        "id": "mat_1m8fmss",
-        "code": "LGS420ZK",
-        "name": {
-          "zh": "纸卡",
-          "vi": "giấy lót"
-        },
-        "spec": {
-          "zh": "单瓦860x100mm",
-          "vi": "sóng đơn 860x100mm"
-        },
-        "material": {
-          "zh": "瓦楞纸单瓦",
-          "vi": "giấy carton sóng đơn"
-        },
-        "color": {
-          "zh": "纸色",
-          "vi": "màu giấy"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "张",
-          "vi": "tờ"
         }
       },
       "mat_ntwtuy": {
@@ -28404,52 +27679,6 @@
           "vi": "miếng"
         }
       },
-      "mat_14lrnc4": {
-        "id": "mat_14lrnc4",
-        "code": "LGS421CBZYKD",
-        "name": {
-          "zh": "LGS420_421-S-侧板层板",
-          "vi": "LGS420_421-S-Tấm tầng bên"
-        },
-        "spec": {
-          "zh": "386.5x335x12mm",
-          "vi": "386.5x335x12mm"
-        },
-        "material": {
-          "zh": "PB",
-          "vi": "PB"
-        },
-        "color": {
-          "zh": "复古色",
-          "vi": "màu gỗ cổ"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [
-          {
-            "name": "LGS421_420-S-侧板层板.pdf",
-            "path": "Google Drive > LGS420-S > LGS421_420-S-侧板层板.pdf",
-            "url": "https://drive.google.com/file/d/1RlXTcYsD8uD3BNkOZ6sgt3Y8SluGUL-U/view?usp=sharing",
-            "previewUrl": "https://drive.google.com/file/d/1RlXTcYsD8uD3BNkOZ6sgt3Y8SluGUL-U/view?usp=sharing"
-          }
-        ],
-        "models3d": [
-          {
-            "name": "LGS421_420-S-侧板层板.glb",
-            "path": "models3d/catalog/LGS421-420-S-f54d6035.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS421-420-S-f54d6035.glb",
-            "matched_name": "LGS421_420-S-侧板层板",
-            "score": 1300,
-            "bytes": 25292
-          }
-        ],
-        "unit": {
-          "zh": "块",
-          "vi": "miếng"
-        }
-      },
       "mat_1f7665v": {
         "id": "mat_1f7665v",
         "code": "BC460327187KD",
@@ -28805,53 +28034,6 @@
           "vi": "miếng"
         }
       },
-      "mat_1tcgi6o": {
-        "id": "mat_1tcgi6o",
-        "code": "LGS421CBZYBH",
-        "name": {
-          "zh": "LGS420_421-S-侧板层板",
-          "vi": "LGS420_421-S-Tấm tầng bên"
-        },
-        "spec": {
-          "zh": "386.5x335x12mm",
-          "vi": "386.5x335x12mm"
-        },
-        "material": {
-          "zh": "PB",
-          "vi": "PB"
-        },
-        "color": {
-          "zh": "黑色",
-          "vi": "màu đen"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [
-          {
-            "name": "LGS421_420-S-侧板层板.pdf",
-            "path": "Google Drive > LGS420-S > LGS421_420-S-侧板层板.pdf",
-            "url": "https://drive.google.com/file/d/1RlXTcYsD8uD3BNkOZ6sgt3Y8SluGUL-U/view?usp=sharing",
-            "matched_name": "LGS421_420-S-侧板层板",
-            "score": 1014
-          }
-        ],
-        "models3d": [
-          {
-            "name": "LGS421_420-S-侧板层板.glb",
-            "path": "models3d/catalog/LGS421-420-S-f54d6035.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS421-420-S-f54d6035.glb",
-            "matched_name": "LGS421_420-S-侧板层板",
-            "score": 1100,
-            "bytes": 25292
-          }
-        ],
-        "unit": {
-          "zh": "块",
-          "vi": "miếng"
-        }
-      },
       "mat_48vmvy": {
         "id": "mat_48vmvy",
         "code": "LGS421CBZBH",
@@ -29175,36 +28357,6 @@
         "unit": {
           "zh": "块",
           "vi": "miếng"
-        }
-      },
-      "mat_1df1w8e": {
-        "id": "mat_1df1w8e",
-        "code": "LGS433ZK",
-        "name": {
-          "zh": "纸卡",
-          "vi": "giấy lót"
-        },
-        "spec": {
-          "zh": "单瓦1100x100mm",
-          "vi": "sóng đơn 1100x100mm"
-        },
-        "material": {
-          "zh": "瓦楞纸单瓦",
-          "vi": "giấy carton sóng đơn"
-        },
-        "color": {
-          "zh": "纸色",
-          "vi": "màu giấy"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "张",
-          "vi": "tờ"
         }
       },
       "mat_eo7uym": {
@@ -29616,46 +28768,6 @@
         "unit": {
           "zh": "个",
           "vi": "cái"
-        }
-      },
-      "mat_1j506i6": {
-        "id": "mat_1j506i6",
-        "code": "DD0650R1",
-        "name": {
-          "zh": "自粘灯带固定卡扣",
-          "vi": "Đồ gài cố định đèn led"
-        },
-        "spec": {
-          "zh": "以实际为准",
-          "vi": "Tùy thực tế"
-        },
-        "material": {
-          "zh": "PP",
-          "vi": "PP"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [],
-        "models3d": [
-          {
-            "name": "自粘灯带固定卡扣.glb",
-            "path": "models3d/catalog/model-823c4ecb.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-823c4ecb.glb",
-            "matched_name": "自粘灯带固定卡扣",
-            "score": 1100,
-            "bytes": 23472
-          }
-        ],
-        "spec_vi": "以实际为准",
-        "unit": {
-          "zh": "根",
-          "vi": "thanh"
         }
       },
       "mat_1glusot": {
@@ -30640,36 +29752,6 @@
         "unit": {
           "zh": "块",
           "vi": "miếng"
-        }
-      },
-      "mat_1zbn": {
-        "id": "mat_1zbn",
-        "code": "LGS434ZK",
-        "name": {
-          "zh": "纸卡",
-          "vi": "giấy lót"
-        },
-        "spec": {
-          "zh": "单瓦840x100mm",
-          "vi": "sóng đơn 840x100mm"
-        },
-        "material": {
-          "zh": "瓦楞纸单瓦",
-          "vi": "giấy carton sóng đơn"
-        },
-        "color": {
-          "zh": "纸色",
-          "vi": "màu giấy"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "张",
-          "vi": "tờ"
         }
       },
       "mat_1eerq6d": {
@@ -33021,36 +32103,6 @@
           "vi": "cái"
         }
       },
-      "mat_jvzvz7": {
-        "id": "mat_jvzvz7",
-        "code": "LGS733ZK",
-        "name": {
-          "zh": "纸卡",
-          "vi": "giấy lót"
-        },
-        "spec": {
-          "zh": "单瓦1100x100mm",
-          "vi": "sóng đơn 1100x100mm"
-        },
-        "material": {
-          "zh": "瓦楞纸单瓦",
-          "vi": "giấy carton sóng đơn"
-        },
-        "color": {
-          "zh": "纸色",
-          "vi": "màu giấy"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "张",
-          "vi": "tờ"
-        }
-      },
       "mat_72g4dx": {
         "id": "mat_72g4dx",
         "code": "LGS733SMS",
@@ -33735,36 +32787,6 @@
           "vi": "cái"
         }
       },
-      "mat_i7io6q": {
-        "id": "mat_i7io6q",
-        "code": "LGS833ZK",
-        "name": {
-          "zh": "纸卡",
-          "vi": "giấy lót"
-        },
-        "spec": {
-          "zh": "单瓦1100x100mm",
-          "vi": "sóng đơn 1100x100mm"
-        },
-        "material": {
-          "zh": "瓦楞纸单瓦",
-          "vi": "giấy carton sóng đơn"
-        },
-        "color": {
-          "zh": "纸色",
-          "vi": "màu giấy"
-        },
-        "attr": {
-          "zh": "包材",
-          "vi": "vật liệu đóng gói"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "张",
-          "vi": "tờ"
-        }
-      },
       "mat_1b2bhbe": {
         "id": "mat_1b2bhbe",
         "code": "LGS833SMS",
@@ -34268,46 +33290,6 @@
         "unit": {
           "zh": "个",
           "vi": "cái"
-        }
-      },
-      "mat_ijhbi8": {
-        "id": "mat_ijhbi8",
-        "code": "DD1350R1",
-        "name": {
-          "zh": "自粘灯带固定卡扣",
-          "vi": "Đồ gài cố định đèn led"
-        },
-        "spec": {
-          "zh": "以实际为准",
-          "vi": "Tùy thực tế"
-        },
-        "material": {
-          "zh": "PP",
-          "vi": "PP"
-        },
-        "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [],
-        "models3d": [
-          {
-            "name": "自粘灯带固定卡扣.glb",
-            "path": "models3d/catalog/model-823c4ecb.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-823c4ecb.glb",
-            "matched_name": "自粘灯带固定卡扣",
-            "score": 1100,
-            "bytes": 23472
-          }
-        ],
-        "spec_vi": "以实际为准",
-        "unit": {
-          "zh": "根",
-          "vi": "thanh"
         }
       },
       "mat_yaaag6": {
@@ -44986,6 +43968,36 @@
           "zh": "个",
           "vi": "cái"
         }
+      },
+      "mat_ddgdkkr1": {
+        "id": "mat_ddgdkkr1",
+        "code": "DDGDKKR1",
+        "name": {
+          "zh": "自粘灯带固定卡扣",
+          "vi": "Khóa cố định dây đèn tự dính"
+        },
+        "spec": {
+          "zh": "以实际为准",
+          "vi": "theo thực tế"
+        },
+        "material": {
+          "zh": "PP",
+          "vi": "PP"
+        },
+        "color": {
+          "zh": "白色",
+          "vi": "màu trắng"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "根",
+          "vi": "thanh"
+        }
       }
     },
     "bomEntries": [
@@ -45051,7 +44063,7 @@
         "parentId": "LGS031",
         "productCode": "LGS031",
         "color": "复古色",
-        "materialId": "mat_47zmys",
+        "materialId": "mat_ddgdkkr1",
         "stt": "4",
         "comp_code": "R1",
         "qty": "5",
@@ -45249,7 +44261,7 @@
         "parentId": "LGS031",
         "productCode": "LGS031",
         "color": "黑色",
-        "materialId": "mat_47zmys",
+        "materialId": "mat_ddgdkkr1",
         "stt": "4",
         "comp_code": "R1",
         "qty": "5",
@@ -45659,7 +44671,7 @@
         "parentId": "LGS032",
         "productCode": "LGS032",
         "color": "复古色",
-        "materialId": "mat_r787pi",
+        "materialId": "mat_ddgdkkr1",
         "stt": "19",
         "comp_code": "R1",
         "qty": "5",
@@ -45941,7 +44953,7 @@
         "parentId": "LGS032",
         "productCode": "LGS032",
         "color": "黑色",
-        "materialId": "mat_r787pi",
+        "materialId": "mat_ddgdkkr1",
         "stt": "19",
         "comp_code": "R1",
         "qty": "5",
@@ -46337,7 +45349,7 @@
         "parentId": "LGS043",
         "productCode": "LGS043",
         "color": "复古色",
-        "materialId": "mat_13imrat",
+        "materialId": "mat_ddgdkkr1",
         "stt": "4",
         "comp_code": "R1",
         "qty": "5",
@@ -46707,7 +45719,7 @@
         "parentId": "LGS043",
         "productCode": "LGS043",
         "color": "黑色",
-        "materialId": "mat_13imrat",
+        "materialId": "mat_ddgdkkr1",
         "stt": "4",
         "comp_code": "R1",
         "qty": "5",
@@ -47929,7 +46941,7 @@
         "parentId": "LGS131",
         "productCode": "LGS131",
         "color": "复古色",
-        "materialId": "mat_az72aa",
+        "materialId": "mat_ddgdkkr1",
         "stt": "4",
         "comp_code": "R1",
         "qty": "5",
@@ -48183,7 +47195,7 @@
         "parentId": "LGS131",
         "productCode": "LGS131",
         "color": "白色",
-        "materialId": "mat_az72aa",
+        "materialId": "mat_ddgdkkr1",
         "stt": "4",
         "comp_code": "R1",
         "qty": "5",
@@ -48451,7 +47463,7 @@
         "parentId": "LGS131",
         "productCode": "LGS131",
         "color": "黑色",
-        "materialId": "mat_az72aa",
+        "materialId": "mat_ddgdkkr1",
         "stt": "4",
         "comp_code": "R1",
         "qty": "5",
@@ -48719,7 +47731,7 @@
         "parentId": "LGS132",
         "productCode": "LGS132",
         "color": "黑色",
-        "materialId": "mat_17un1su",
+        "materialId": "mat_ddgdkkr1",
         "stt": "4",
         "comp_code": "R1",
         "qty": "5",
@@ -49326,7 +48338,7 @@
         "parentId": "LGS231",
         "productCode": "LGS231",
         "color": "复古色",
-        "materialId": "mat_1oeda3c",
+        "materialId": "mat_ddgdkkr1",
         "stt": "6",
         "comp_code": "R1",
         "qty": "5",
@@ -49594,7 +48606,7 @@
         "parentId": "LGS231",
         "productCode": "LGS231",
         "color": "黑色",
-        "materialId": "mat_1oeda3c",
+        "materialId": "mat_ddgdkkr1",
         "stt": "6",
         "comp_code": "R1",
         "qty": "5",
@@ -49834,7 +48846,7 @@
         "parentId": "LGS232",
         "productCode": "LGS232",
         "color": "复古色",
-        "materialId": "mat_1abho09",
+        "materialId": "mat_ddgdkkr1",
         "stt": "4",
         "comp_code": "R1",
         "qty": "5",
@@ -50158,7 +49170,7 @@
         "parentId": "LGS232",
         "productCode": "LGS232",
         "color": "黑色",
-        "materialId": "mat_1abho09",
+        "materialId": "mat_ddgdkkr1",
         "stt": "4",
         "comp_code": "R1",
         "qty": "5",
@@ -52313,7 +51325,7 @@
         "parentId": "LGS420",
         "productCode": "LGS420",
         "color": "复古色",
-        "materialId": "mat_az72aa",
+        "materialId": "mat_ddgdkkr1",
         "stt": "6",
         "comp_code": "R1",
         "qty": "5",
@@ -52581,7 +51593,7 @@
         "parentId": "LGS420",
         "productCode": "LGS420",
         "color": "白色",
-        "materialId": "mat_az72aa",
+        "materialId": "mat_ddgdkkr1",
         "stt": "6",
         "comp_code": "R1",
         "qty": "5",
@@ -52863,7 +51875,7 @@
         "parentId": "LGS420",
         "productCode": "LGS420",
         "color": "黑色",
-        "materialId": "mat_az72aa",
+        "materialId": "mat_ddgdkkr1",
         "stt": "6",
         "comp_code": "R1",
         "qty": "5",
@@ -53159,7 +52171,7 @@
         "parentId": "LGS421",
         "productCode": "LGS421",
         "color": "复古色",
-        "materialId": "mat_1oeda3c",
+        "materialId": "mat_ddgdkkr1",
         "stt": "7",
         "comp_code": "R1",
         "qty": "5",
@@ -53187,7 +52199,7 @@
         "parentId": "LGS421",
         "productCode": "LGS421",
         "color": "复古色",
-        "materialId": "mat_14lrnc4",
+        "materialId": "mat_id7glj",
         "stt": "9",
         "comp_code": "A4",
         "qty": "2",
@@ -53441,7 +52453,7 @@
         "parentId": "LGS421",
         "productCode": "LGS421",
         "color": "黑色",
-        "materialId": "mat_1oeda3c",
+        "materialId": "mat_ddgdkkr1",
         "stt": "7",
         "comp_code": "R1",
         "qty": "5",
@@ -53469,7 +52481,7 @@
         "parentId": "LGS421",
         "productCode": "LGS421",
         "color": "黑色",
-        "materialId": "mat_1tcgi6o",
+        "materialId": "mat_jz7mz1",
         "stt": "9",
         "comp_code": "A4",
         "qty": "2",
@@ -53695,7 +52707,7 @@
         "parentId": "LGS433",
         "productCode": "LGS433",
         "color": "复古色",
-        "materialId": "mat_1abho09",
+        "materialId": "mat_ddgdkkr1",
         "stt": "5",
         "comp_code": "R1",
         "qty": "5",
@@ -54007,7 +53019,7 @@
         "parentId": "LGS433",
         "productCode": "LGS433",
         "color": "白色",
-        "materialId": "mat_1abho09",
+        "materialId": "mat_ddgdkkr1",
         "stt": "5",
         "comp_code": "R1",
         "qty": "5",
@@ -54319,7 +53331,7 @@
         "parentId": "LGS433",
         "productCode": "LGS433",
         "color": "黑色",
-        "materialId": "mat_1abho09",
+        "materialId": "mat_ddgdkkr1",
         "stt": "5",
         "comp_code": "R1",
         "qty": "5",
@@ -54645,7 +53657,7 @@
         "parentId": "LGS434",
         "productCode": "LGS434",
         "color": "白色",
-        "materialId": "mat_1j506i6",
+        "materialId": "mat_ddgdkkr1",
         "stt": "6",
         "comp_code": "R1",
         "qty": "5",
@@ -55055,7 +54067,7 @@
         "parentId": "LGS434",
         "productCode": "LGS434",
         "color": "黑色",
-        "materialId": "mat_1j506i6",
+        "materialId": "mat_ddgdkkr1",
         "stt": "6",
         "comp_code": "R1",
         "qty": "5",
@@ -55451,7 +54463,7 @@
         "parentId": "LGS723",
         "productCode": "LGS723",
         "color": "复古色",
-        "materialId": "mat_13imrat",
+        "materialId": "mat_ddgdkkr1",
         "stt": "5",
         "comp_code": "R1",
         "qty": "5",
@@ -55763,7 +54775,7 @@
         "parentId": "LGS723",
         "productCode": "LGS723",
         "color": "白色",
-        "materialId": "mat_13imrat",
+        "materialId": "mat_ddgdkkr1",
         "stt": "5",
         "comp_code": "R1",
         "qty": "5",
@@ -56075,7 +55087,7 @@
         "parentId": "LGS723",
         "productCode": "LGS723",
         "color": "黑色",
-        "materialId": "mat_13imrat",
+        "materialId": "mat_ddgdkkr1",
         "stt": "5",
         "comp_code": "R1",
         "qty": "5",
@@ -56345,7 +55357,7 @@
         "parentId": "LGS733",
         "productCode": "LGS733",
         "color": "复古色",
-        "materialId": "mat_47zmys",
+        "materialId": "mat_ddgdkkr1",
         "stt": "2",
         "comp_code": "R1",
         "qty": "5",
@@ -56671,7 +55683,7 @@
         "parentId": "LGS733",
         "productCode": "LGS733",
         "color": "白色",
-        "materialId": "mat_47zmys",
+        "materialId": "mat_ddgdkkr1",
         "stt": "2",
         "comp_code": "R1",
         "qty": "5",
@@ -56997,7 +56009,7 @@
         "parentId": "LGS733",
         "productCode": "LGS733",
         "color": "黑色",
-        "materialId": "mat_47zmys",
+        "materialId": "mat_ddgdkkr1",
         "stt": "2",
         "comp_code": "R1",
         "qty": "5",
@@ -57323,7 +56335,7 @@
         "parentId": "LGS833",
         "productCode": "LGS833",
         "color": "复古色",
-        "materialId": "mat_47zmys",
+        "materialId": "mat_ddgdkkr1",
         "stt": "2",
         "comp_code": "R1",
         "qty": "5",
@@ -57577,7 +56589,7 @@
         "parentId": "LGS833",
         "productCode": "LGS833",
         "color": "白色",
-        "materialId": "mat_47zmys",
+        "materialId": "mat_ddgdkkr1",
         "stt": "2",
         "comp_code": "R1",
         "qty": "5",
@@ -57831,7 +56843,7 @@
         "parentId": "LGS833",
         "productCode": "LGS833",
         "color": "黑色",
-        "materialId": "mat_47zmys",
+        "materialId": "mat_ddgdkkr1",
         "stt": "2",
         "comp_code": "R1",
         "qty": "5",
@@ -58085,7 +57097,7 @@
         "parentId": "LGS834",
         "productCode": "LGS834",
         "color": "白色",
-        "materialId": "mat_ijhbi8",
+        "materialId": "mat_ddgdkkr1",
         "stt": "2",
         "comp_code": "R1",
         "qty": "5",
@@ -58395,7 +57407,7 @@
         "parentId": "LGS834",
         "productCode": "LGS834",
         "color": "黑色",
-        "materialId": "mat_ijhbi8",
+        "materialId": "mat_ddgdkkr1",
         "stt": "2",
         "comp_code": "R1",
         "qty": "5",
@@ -66762,8 +65774,8 @@
         "parentId": "mat_wjbwh_LGS101",
         "productCode": "LGS101",
         "color": "白色",
-        "materialId": "mat_aqgyo3",
-        "childMaterialId": "mat_aqgyo3",
+        "materialId": "mat_37j9ck",
+        "childMaterialId": "mat_37j9ck",
         "stt": "",
         "comp_code": "10",
         "qty": "4+1",
@@ -66912,8 +65924,8 @@
         "parentId": "mat_wjbwh_LGS111",
         "productCode": "LGS111",
         "color": "白色",
-        "materialId": "mat_aqgyo3",
-        "childMaterialId": "mat_aqgyo3",
+        "materialId": "mat_37j9ck",
+        "childMaterialId": "mat_37j9ck",
         "stt": "",
         "comp_code": "10",
         "qty": "8+2",
@@ -67047,8 +66059,8 @@
         "parentId": "mat_wjbwh_LGS131",
         "productCode": "LGS131",
         "color": "白色",
-        "materialId": "mat_aqgyo3",
-        "childMaterialId": "mat_aqgyo3",
+        "materialId": "mat_37j9ck",
+        "childMaterialId": "mat_37j9ck",
         "stt": "4",
         "comp_code": "4",
         "qty": "12+2",
@@ -77564,15 +76576,6 @@
         "stt": ""
       },
       {
-        "id": "bomc_mat_1xbfswb_mat_fg1515065630",
-        "parentType": "material",
-        "parentId": "mat_1xbfswb",
-        "materialId": "mat_fg1515065630",
-        "childMaterialId": "mat_fg1515065630",
-        "qty": "0.1",
-        "order": 0
-      },
-      {
         "id": "bomc_mat_1xtwol6_mat_fg132132066150",
         "parentType": "material",
         "parentId": "mat_1xtwol6",
@@ -79894,15 +78897,6 @@
         "order": 4,
         "comp_code": "",
         "stt": ""
-      },
-      {
-        "id": "bomc_mat_1xbfswb_mat_m6gs1515bh",
-        "parentType": "material",
-        "parentId": "mat_1xbfswb",
-        "materialId": "mat_m6gs1515bh",
-        "childMaterialId": "mat_m6gs1515bh",
-        "qty": "2",
-        "order": 1
       },
       {
         "id": "bomc_mat_1ck23i4_mat_m6ylm139",
