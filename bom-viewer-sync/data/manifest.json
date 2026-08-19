@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-19T09:40:10.146Z",
+  "updatedAt": "2026-08-19T10:04:31.151Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -134175,6 +134175,29 @@
   },
   "notifications": [
     {
+      "id": "notif_xd8kjc",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-19T10:04:31.151Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material_added",
+          "code": "LGS043YZKBH647",
+          "field": "",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "material_added",
+          "code": "LGS043ZZKBH647",
+          "field": "",
+          "before": "",
+          "after": ""
+        }
+      ]
+    },
+    {
       "id": "notif_1v41ti6",
       "type": "github-save",
       "actor": "admin",
@@ -135196,29 +135219,6 @@
       "createdAt": "2026-08-14T06:42:06.601Z",
       "version": 2,
       "changes": []
-    },
-    {
-      "id": "notif_s7krl8",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-14T06:39:16.637Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "LGS834QSYHLBH",
-          "field": "drawings",
-          "before": "LGS834顶部横杆右_组件|https://drive.google.com/file/d/1y8q0X4FyIc_gOlGkkZU0MTbnl8R9fqY1/view?usp=sharing",
-          "after": "LGS834顶部横杆右_组件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@e6c025f3c276f69844e5a55ae98d82e2d7a73f06/assets/pdfs/LGS834QSYHLBH_732f4accae6ff7fae5e6773ef33669f0209d63620ce0f89ba813f1d01bf83c35_LGS834_.pdf"
-        },
-        {
-          "kind": "material",
-          "code": "LGS834QSYHLWH",
-          "field": "drawings",
-          "before": "LGS834顶部横杆右_组件|https://drive.google.com/file/d/1y8q0X4FyIc_gOlGkkZU0MTbnl8R9fqY1/view?usp=sharing",
-          "after": "LGS834顶部横杆右_组件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@7e3ae4b1fe5b10246e8a0def5a6ab08c95b2efce/assets/pdfs/LGS834QSYHLWH_732f4accae6ff7fae5e6773ef33669f0209d63620ce0f89ba813f1d01bf83c35_LGS834_.pdf"
-        }
-      ]
     }
   ],
   "bomHistory": {

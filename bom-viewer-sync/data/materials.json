@@ -43998,6 +43998,88 @@
           "zh": "根",
           "vi": "thanh"
         }
+      },
+      "mat_z6w24w": {
+        "id": "mat_z6w24w",
+        "code": "LGS043YZKBH647",
+        "name": {
+          "zh": "LGS043-S-中框右",
+          "vi": "LGS043-S-Khung giữa phải"
+        },
+        "spec": {
+          "zh": "647x335x15mm",
+          "vi": "647x335x15mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "黑砂纹",
+          "vi": "đen nhám"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [
+          {
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@22146eef0bf0748774d9b5d063195c91f5af4581/assets/pdfs/LGS043YZKBH647_aa6bac78710f77cfe7282b15feaf1d2f5dc9c26d7f634d3c330217cf15fac5a6_LGS043-S-_.pdf",
+            "name": "LGS043-S-中框右.pdf"
+          }
+        ],
+        "models3d": [
+          {
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS043-S-be2a8150.glb",
+            "name": "LGS043-S-中框右.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS043-S-be2a8150.glb"
+          }
+        ],
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
+      },
+      "mat_4o19ga": {
+        "id": "mat_4o19ga",
+        "code": "LGS043ZZKBH647",
+        "name": {
+          "zh": "LGS043-S-中框左",
+          "vi": "LGS043-S-Khung giữa trái"
+        },
+        "spec": {
+          "zh": "647x335x15mm",
+          "vi": "647x335x647x335x15mm15mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "黑砂纹",
+          "vi": "đen nhám"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [
+          {
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@6c7ced6ce339c140039ccbd2eee05352100e781c/assets/pdfs/LGS043ZZKBH647_cf7a668dc562b84a53ccb9becca683f72b3e9c7d51ec5aae70ffd7c88e4cb50e_LGS043-S-_.pdf",
+            "name": "LGS043-S-中框左.pdf"
+          }
+        ],
+        "models3d": [
+          {
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS043-S-634c7dc1.glb",
+            "name": "LGS043-S-中框左.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS043-S-634c7dc1.glb"
+          }
+        ],
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       }
     },
     "bomEntries": [
