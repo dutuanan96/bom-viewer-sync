@@ -44080,6 +44080,36 @@
           "zh": "个",
           "vi": "cái"
         }
+      },
+      "mat_fg1515064930": {
+        "id": "mat_fg1515064930",
+        "code": "FG1515064930",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 4930mm",
+          "vi": "15×15×0.6Tmm, dài 4930mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "根",
+          "vi": "thanh"
+        }
       }
     },
     "bomEntries": [
