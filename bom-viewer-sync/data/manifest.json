@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-19T10:44:57.415Z",
+  "updatedAt": "2026-08-19T10:53:05.034Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -134191,6 +134191,43 @@
   },
   "notifications": [
     {
+      "id": "notif_sa0u7u",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-19T10:53:05.034Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "bom_added",
+          "code": "LGS032ZKBH647",
+          "field": "FG1515064804",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "bom_added",
+          "code": "LGS032YKBH647",
+          "field": "FG1515064804",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "bom_deleted",
+          "code": "LGS032ZKBH647",
+          "field": "FG1515064816",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "bom_deleted",
+          "code": "LGS032YKBH647",
+          "field": "FG1515064816",
+          "before": "",
+          "after": ""
+        }
+      ]
+    },
+    {
       "id": "notif_1d0lz9i",
       "type": "github-save",
       "actor": "admin",
@@ -135203,71 +135240,6 @@
           "field": "workflowState",
           "before": "draft",
           "after": "released"
-        }
-      ]
-    },
-    {
-      "id": "notif_mng3ni",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-14T10:40:48.867Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "BC350327187BH",
-          "field": "drawings",
-          "before": "LGS布抽35x32.5x18.7.pdf|https://drive.google.com/file/d/1OrVYBYN38vg2spBjMB7iB3RyJqxnh-CP/view?usp=sharing;LGS布抽32.5x35x18.7.pdf|https://drive.google.com/file/d/1OrVYBYN38vg2spBjMB7iB3RyJqxnh-CP/view?usp=sharing",
-          "after": "LGS布抽35x32.5x18.7.pdf|https://drive.google.com/file/d/1OrVYBYN38vg2spBjMB7iB3RyJqxnh-CP/view?usp=sharing"
-        },
-        {
-          "kind": "material",
-          "code": "BC350327187KD",
-          "field": "drawings",
-          "before": "LGS布抽32.5x35x18.7.pdf|https://drive.google.com/file/d/1OrVYBYN38vg2spBjMB7iB3RyJqxnh-CP/view?usp=sharing;LGS布抽35x32.5x18.7.pdf|https://drive.google.com/file/d/1OrVYBYN38vg2spBjMB7iB3RyJqxnh-CP/view?usp=sharing",
-          "after": "LGS布抽32.5x35x18.7.pdf|https://drive.google.com/file/d/1OrVYBYN38vg2spBjMB7iB3RyJqxnh-CP/view?usp=sharing"
-        },
-        {
-          "kind": "material",
-          "code": "BC350327187WH",
-          "field": "drawings",
-          "before": "LGS布抽32.5x35x18.7.pdf|https://drive.google.com/file/d/1OrVYBYN38vg2spBjMB7iB3RyJqxnh-CP/view?usp=sharing;LGS布抽35x32.5x18.7.pdf|https://drive.google.com/file/d/1OrVYBYN38vg2spBjMB7iB3RyJqxnh-CP/view?usp=sharing",
-          "after": "LGS布抽32.5x35x18.7.pdf|https://drive.google.com/file/d/1OrVYBYN38vg2spBjMB7iB3RyJqxnh-CP/view?usp=sharing"
-        },
-        {
-          "kind": "material",
-          "code": "BCLS024019022WH",
-          "field": "drawings",
-          "before": "圆把手.pdf|https://drive.google.com/file/d/1R31yLyW5gbixNrwLEP_bm_o29uOhJRCe/view?usp=sharing",
-          "after": ""
-        },
-        {
-          "kind": "material",
-          "code": "BCLS024019022WH",
-          "field": "models3d",
-          "before": "圆把手.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-8d926653.glb",
-          "after": ""
-        },
-        {
-          "kind": "material",
-          "code": "DD0310R1",
-          "field": "models3d",
-          "before": "自粘灯带固定卡扣.glb|models3d/catalog/model-823c4ecb.glb",
-          "after": "310-灯带.glb|models3d/catalog/310-5baebd21.glb"
-        },
-        {
-          "kind": "material",
-          "code": "DD0500R1",
-          "field": "models3d",
-          "before": "自粘灯带固定卡扣.glb|models3d/catalog/model-823c4ecb.glb",
-          "after": "500-灯带.glb|models3d/catalog/500-57ceb403.glb"
-        },
-        {
-          "kind": "material",
-          "code": "DD0500WH",
-          "field": "models3d",
-          "before": "500-灯带.glb|models3d/catalog/500-57ceb403.glb",
-          "after": ""
         }
       ]
     }
@@ -142435,6 +142407,45 @@
       }
     ],
     "LGS032": [
+      {
+        "id": "history_17c7irb",
+        "productCode": "LGS032",
+        "revision": "V3.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "产品高度变更679mm改为671",
+        "createdAt": "2026-08-19T10:53:05.034Z",
+        "changes": [
+          {
+            "kind": "bom_added",
+            "code": "LGS032ZKBH647",
+            "field": "FG1515064804",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS032YKBH647",
+            "field": "FG1515064804",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS032ZKBH647",
+            "field": "FG1515064816",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS032YKBH647",
+            "field": "FG1515064816",
+            "before": "",
+            "after": ""
+          }
+        ]
+      },
       {
         "id": "history_1yws4o0",
         "productCode": "LGS032",
