@@ -13387,7 +13387,10 @@
             "bytes": 192696
           }
         ],
-        "unit": "颗"
+        "unit": {
+          "zh": "只",
+          "vi": "cái"
+        }
       },
       "mat_1h3f36d": {
         "id": "mat_1h3f36d",
@@ -13539,7 +13542,10 @@
             "bytes": 3421116
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_47zmys": {
         "id": "mat_47zmys",
@@ -13664,7 +13670,10 @@
             "bytes": 1383884
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_1wjqvgi": {
         "id": "mat_1wjqvgi",
@@ -13840,7 +13849,10 @@
             "bytes": 1360244
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_jhdqp1": {
         "id": "mat_jhdqp1",
@@ -16493,7 +16505,10 @@
             "bytes": 3024192
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_13imrat": {
         "id": "mat_13imrat",
@@ -16662,7 +16677,10 @@
             "bytes": 1360388
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_1ty5nnx": {
         "id": "mat_1ty5nnx",
@@ -16750,7 +16768,10 @@
             "bytes": 1381544
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_1doysbp": {
         "id": "mat_1doysbp",
@@ -21101,7 +21122,10 @@
             "bytes": 53416
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_oh65yk": {
         "id": "mat_oh65yk",
@@ -21145,7 +21169,10 @@
             "bytes": 94836
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_1ss85ek": {
         "id": "mat_1ss85ek",
@@ -21190,7 +21217,10 @@
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS133-d76f7b79.glb"
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_ivadk": {
         "id": "mat_ivadk",
@@ -21235,7 +21265,10 @@
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS133-3291193a.glb"
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_60b6s5": {
         "id": "mat_60b6s5",
@@ -21455,7 +21488,10 @@
             "bytes": 68352
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_173uydn": {
         "id": "mat_173uydn",
@@ -22114,7 +22150,10 @@
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-55x32-5x18-7-a957120a.glb"
           }
         ],
-        "unit": "个"
+        "unit": {
+          "zh": "套",
+          "vi": "bộ"
+        }
       },
       "mat_n5atot": {
         "id": "mat_n5atot",
@@ -22309,7 +22348,10 @@
             "bytes": 1362944
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_1abho09": {
         "id": "mat_1abho09",
@@ -23091,7 +23133,10 @@
             "bytes": 53416
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_17sx58d": {
         "id": "mat_17sx58d",
@@ -23135,7 +23180,10 @@
             "bytes": 94836
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_1iggj1x": {
         "id": "mat_1iggj1x",
@@ -23180,7 +23228,10 @@
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS233-3dbbb9dc.glb"
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_yoxn6d": {
         "id": "mat_yoxn6d",
@@ -23225,7 +23276,10 @@
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS233-925d3bc7.glb"
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_1d06182": {
         "id": "mat_1d06182",
@@ -23401,7 +23455,10 @@
             "bytes": 105440
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_hbnb0h": {
         "id": "mat_hbnb0h",
@@ -24162,7 +24219,10 @@
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-55x32-5x17-3-06810ff8.glb"
           }
         ],
-        "unit": "个"
+        "unit": {
+          "zh": "套",
+          "vi": "bộ"
+        }
       },
       "mat_ap6bm8": {
         "id": "mat_ap6bm8",
@@ -24233,7 +24293,10 @@
             "bytes": 347780
           }
         ],
-        "unit": "个"
+        "unit": {
+          "zh": "套",
+          "vi": "bộ"
+        }
       },
       "mat_kxxwj6": {
         "id": "mat_kxxwj6",
@@ -24277,7 +24340,10 @@
             "bytes": 347736
           }
         ],
-        "unit": "个"
+        "unit": {
+          "zh": "套",
+          "vi": "bộ"
+        }
       },
       "mat_q6iqc0": {
         "id": "mat_q6iqc0",
@@ -24411,7 +24477,10 @@
             "bytes": 215476
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "套",
+          "vi": "bộ"
+        }
       },
       "mat_1ap9n9l": {
         "id": "mat_1ap9n9l",
@@ -24455,7 +24524,10 @@
             "bytes": 81924
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "套",
+          "vi": "bộ"
+        }
       },
       "mat_ar6mnm": {
         "id": "mat_ar6mnm",
@@ -24499,7 +24571,10 @@
             "bytes": 129072
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "套",
+          "vi": "bộ"
+        }
       },
       "mat_26giyy": {
         "id": "mat_26giyy",
@@ -25322,7 +25397,10 @@
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-75373bec.glb"
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_5e7rnx": {
         "id": "mat_5e7rnx",
@@ -25419,7 +25497,10 @@
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-f806e3c3.glb"
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_1df0gky": {
         "id": "mat_1df0gky",
@@ -25472,7 +25553,10 @@
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-404054ab.glb"
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_14esgeh": {
         "id": "mat_14esgeh",
@@ -25517,7 +25601,10 @@
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-80df7708.glb"
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_1cp9ev": {
         "id": "mat_1cp9ev",
@@ -25559,7 +25646,10 @@
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-fd7277cd.glb"
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_1b8xuq1": {
         "id": "mat_1b8xuq1",
@@ -25691,7 +25781,10 @@
             "bytes": 107708
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_1eefe0m": {
         "id": "mat_1eefe0m",
@@ -25735,7 +25828,10 @@
             "bytes": 77712
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_k8w6yo": {
         "id": "mat_k8w6yo",
@@ -27919,7 +28015,10 @@
             "bytes": 81612
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_1c39qwo": {
         "id": "mat_1c39qwo",
@@ -27963,7 +28062,10 @@
             "bytes": 142616
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_xb1hml": {
         "id": "mat_xb1hml",
@@ -28425,7 +28527,10 @@
             "bytes": 1363320
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_1j506i6": {
         "id": "mat_1j506i6",
@@ -29506,7 +29611,10 @@
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS434-0debe9f9.glb"
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_i2358e": {
         "id": "mat_i2358e",
@@ -29551,7 +29659,10 @@
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS434-a307927e.glb"
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_sezogz": {
         "id": "mat_sezogz",
@@ -29639,7 +29750,10 @@
             "bytes": 75024
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_1menews": {
         "id": "mat_1menews",
@@ -29683,7 +29797,10 @@
             "bytes": 75024
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_1f2zwcf": {
         "id": "mat_1f2zwcf",
@@ -29815,7 +29932,10 @@
             "bytes": 106004
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_lp5qnm": {
         "id": "mat_lp5qnm",
@@ -29859,7 +29979,10 @@
             "bytes": 105440
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_1i95gjy": {
         "id": "mat_1i95gjy",
@@ -30018,7 +30141,10 @@
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS723-733-afa914dc.glb"
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_156bb4x": {
         "id": "mat_156bb4x",
@@ -30062,7 +30188,10 @@
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS723-733-b0456735.glb"
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_3lp5fv": {
         "id": "mat_3lp5fv",
@@ -30194,7 +30323,10 @@
             "bytes": 104780
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_1q4p8m4": {
         "id": "mat_1q4p8m4",
@@ -30238,7 +30370,10 @@
             "bytes": 80488
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_hhw1hs": {
         "id": "mat_hhw1hs",
@@ -30282,7 +30417,10 @@
             "bytes": 162620
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_zia7op": {
         "id": "mat_zia7op",
@@ -30326,7 +30464,10 @@
             "bytes": 92636
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_11onhu3": {
         "id": "mat_11onhu3",
@@ -31567,7 +31708,10 @@
             "bytes": 111532
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "套",
+          "vi": "bộ"
+        }
       },
       "mat_izo0id": {
         "id": "mat_izo0id",
@@ -32230,7 +32374,10 @@
             "bytes": 92648
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_1sxx25l": {
         "id": "mat_1sxx25l",
@@ -32753,7 +32900,10 @@
             "bytes": 3645220
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_ijhbi8": {
         "id": "mat_ijhbi8",
@@ -33620,7 +33770,10 @@
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS834-b3b7dce0.glb"
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_i7u7xx": {
         "id": "mat_i7u7xx",
@@ -33664,7 +33817,10 @@
             "bytes": 62260
           }
         ],
-        "unit": "根"
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       },
       "mat_1v65kq0": {
         "id": "mat_1v65kq0",
