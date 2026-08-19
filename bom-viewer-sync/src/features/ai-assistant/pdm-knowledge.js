@@ -10,6 +10,7 @@ import { classifyMaterialFamily, summarizeMaterialFamilies } from './pdm-ontolog
 import { evaluateEquivalence, detectDataQualityWarnings } from './pdm-equivalence.js';
 import { componentSearchTerms, detectProductShorthand, resolveConcept, resolveConcepts, parseDimensions, checkDimensionProximity } from './pdm-terminology.js';
 import { findStructureMappings } from './structure-mapping.js';
+import { analyzeEcnImpact as runEcnImpactEngine } from './ecn-impact-engine.js';
 
 // Maximum results returned by search operations
 const MAX_SEARCH_RESULTS = 50;
@@ -72,6 +73,34 @@ function requestedColorFromQuery(query, bom) {
   };
 }
 
+function formatProductRevisionsWithCompCodes(productRevisions, productComponentCodes) {
+  const revMap = productRevisions instanceof Map ? productRevisions : new Map(Object.entries(productRevisions || {}));
+  const groups = new Map();
+  for (const [productCode, revision] of revMap.entries()) {
+    const rawCompCodes = productComponentCodes instanceof Map ? productComponentCodes.get(productCode) : productComponentCodes?.[productCode];
+    const validCodes = rawCompCodes ? [...rawCompCodes].filter(c => c && c !== '无') : [];
+    const compLabel = validCodes.length > 0 ? validCodes.sort((a, b) => a.localeCompare(b, undefined, { numeric: true })).join('/') : '';
+    if (!groups.has(compLabel)) {
+      groups.set(compLabel, []);
+    }
+    groups.get(compLabel).push(`${productCode} (${revision})`);
+  }
+
+  const sortedEntries = [...groups.entries()].sort(([codeA], [codeB]) => {
+    if (!codeA) return 1;
+    if (!codeB) return -1;
+    return codeA.localeCompare(codeB, undefined, { numeric: true });
+  });
+
+  return sortedEntries.map(([compCode, products]) => {
+    const sortedProducts = products.sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+    if (!compCode) {
+      return sortedProducts.join(', ');
+    }
+    return `[${compCode}] ${sortedProducts.join(', ')}`;
+  });
+}
+
 /**
  * Build a safe evidence object from source metadata + record context.
  * Requires a 40-char commitSha to be present.
@@ -114,7 +143,7 @@ function toProductSummary(productCode, product) {
 function toBomRowSummary(row) {
   const nameZh = typeof row.name_zh === 'string' ? row.name_zh : (row.name?.zh || (typeof row.name === 'string' ? row.name : ''));
   const nameVi = typeof row.name_vi === 'string' ? row.name_vi : (row.name?.vi || '');
-  const spec = typeof row.spec === 'string' ? row.spec : (row.spec?.zh || '');
+  const spec = typeof row.spec === 'string' ? row.spec : (row.spec?.zh || row.spec_zh || row._materialRecord?.spec?.zh || (typeof row._materialRecord?.spec === 'string' ? row._materialRecord.spec : '') || '');
   return {
     matCode: row.mat_code || row._materialRecord?.code || row._materialId || '',
     materialId: row._materialId || '',
@@ -122,12 +151,14 @@ function toBomRowSummary(row) {
     nameZh,
     nameVi,
     spec,
-    attributeZh: typeof row.attr_zh === 'string' ? row.attr_zh : (row.attr?.zh || ''),
-    materialZh: typeof row.material_zh === 'string' ? row.material_zh : (row.material?.zh || ''),
-    qty: row._effectiveQty || row.qty || row.quantity || '',
+    attributeZh: typeof row.attr_zh === 'string'
+      ? row.attr_zh
+      : (row.attr?.zh || row._materialRecord?.attr_zh || row._materialRecord?.attr?.zh || (typeof row.attr === 'string' ? row.attr : '')),
+    materialZh: typeof row.material_zh === 'string' ? row.material_zh : (row.material?.zh || row._materialRecord?.material?.zh || (typeof row._materialRecord?.material === 'string' ? row._materialRecord.material : '') || ''),
+    qty: row._effectiveQty ?? row.qty ?? row.quantity ?? '',
     remark: String(row.remark || ''),
     unit: row.unit || '',
-    level: row._level || 1,
+    level: row._level || row.level || 1,
     hasChildren: Boolean(row._hasChildren),
   };
 }
@@ -227,21 +258,19 @@ function focusedBomRows(rows, query) {
     .slice(0, MAX_FOCUSED_BOM_ROWS)
     .map(index => rows[index]);
 }
-
 function normalizedQuantity(value) {
-  const text = String(value ?? '').trim();
-  if (!text) return null;
-  const normalized = text.replace(',', '.');
-  if (/^-?\d+(?:\.\d+)?$/.test(normalized)) return Number(normalized);
-  if (/^\d+(?:\.\d+)?(?:\s*\+\s*\d+(?:\.\d+)?)+$/.test(normalized)) {
-    return normalized.split('+').reduce((sum, part) => sum + Number(part.trim()), 0);
-  }
-  return null;
+  if (typeof value === 'number') return value;
+  const match = String(value || '').match(/^-?\d+(?:\.\d+)?/);
+  return match ? Number(match[0]) : null;
 }
 
 function quantityParts(value) {
-  const text = String(value ?? '').trim().replace(',', '.');
-  if (!/^\d+(?:\.\d+)?(?:\s*\+\s*\d+(?:\.\d+)?)*$/.test(text)) return null;
+  const text = String(value || '').trim();
+  if (!text) return null;
+  if (!text.includes('+')) {
+    const amount = normalizedQuantity(text);
+    return amount === null ? null : { normal: amount, spare: 0, total: amount };
+  }
   const parts = text.split('+').map(part => Number(part.trim()));
   return {
     normal: parts[0],
@@ -257,12 +286,15 @@ function aggregateBomRows(rows) {
     if (!matCode) continue;
     const materialId = String(row.materialId || '').trim();
     const level = Number(row.level || 1);
+    // JinTai business rule: BOM level is part of operational identity.
+    // L1 (direct assembly / outer packing / hardware bag parent) and L2 (hardware bag internal kitting)
+    // are not interchangeable in factory shop-floor routing.
     const matchKey = `${materialId || matCode}|${level}`;
     if (!grouped.has(matchKey)) {
       grouped.set(matchKey, {
         matCode,
         materialId: materialId || null,
-        componentCode: row.componentCode || '',
+        componentCodes: new Set(),
         level,
         nameZh: row.nameZh || '',
         nameVi: row.nameVi || '',
@@ -277,6 +309,10 @@ function aggregateBomRows(rows) {
     }
     const group = grouped.get(matchKey);
     group.rowCount += 1;
+    const cCode = String(row.componentCode || '').trim();
+    if (cCode && cCode !== '无') {
+      group.componentCodes.add(cCode);
+    }
     const quantityText = String(row.qty ?? '').trim();
     if (quantityText) group.quantities.push(quantityText);
     const unit = String(row.unit || '').trim();
@@ -300,10 +336,11 @@ function aggregateBomRows(rows) {
         ? Number(structuredQuantities.reduce((sum, value) => sum + value.spare, 0).toFixed(6))
         : null;
       const units = [...group.units].sort();
+      const compCodeJoined = [...group.componentCodes].sort().join('/') || '';
       return [matchKey, {
         matCode: group.matCode,
         materialId: group.materialId,
-        componentCode: group.componentCode,
+        componentCode: compCodeJoined,
         level: group.level,
         nameZh: group.nameZh,
         nameVi: group.nameVi,
@@ -324,7 +361,13 @@ function aggregateBomRows(rows) {
 }
 
 function comparableBomValue(item) {
-  return `${item.quantityText}|${item.units.join('|')}`;
+  if (item.normalQuantity !== null && item.normalQuantity !== undefined) {
+    const normal = item.normalQuantity;
+    const spare = item.spareQuantity || 0;
+    const canonicalUnits = (item.units || []).map(u => String(u).trim().toLowerCase()).sort().join('|');
+    return `N:${normal}|S:${spare}|U:${canonicalUnits}`;
+  }
+  return `${item.quantityText}|${(item.units || []).join('|')}`;
 }
 
 function toRevisionSummary(revision) {
@@ -621,7 +664,7 @@ export class PdmKnowledge {
   /**
    * Compare BOM rows between two product+color combinations.
    */
-  compareBoms({ productId1, color1, productId2, color2 } = {}) {
+  compareBoms({ productId1, color1, productId2, color2, componentConcept = '', metric = '' } = {}) {
     const bom = this._payload.bom || {};
     if (!bom[productId1]) throw new Error(`Not found: product ${productId1}`);
     if (!bom[productId2]) throw new Error(`Not found: product ${productId2}`);
@@ -638,8 +681,8 @@ export class PdmKnowledge {
       (colors1.length > 1 || colors2.length > 1);
     const fullRows1 = buildBomTreeRows(this._payload, productId1, resolvedColor1);
     const fullRows2 = buildBomTreeRows(this._payload, productId2, resolvedColor2);
-    const rows1 = fullRows1.slice(0, MAX_BOM_ROWS).map(toBomRowSummary);
-    const rows2 = fullRows2.slice(0, MAX_BOM_ROWS).map(toBomRowSummary);
+    const rows1 = fullRows1.map(toBomRowSummary);
+    const rows2 = fullRows2.map(toBomRowSummary);
     const aggregated1 = aggregateBomRows(rows1);
     const aggregated2 = aggregateBomRows(rows2);
     const common = [];
@@ -652,16 +695,25 @@ export class PdmKnowledge {
         onlyProduct1.push({ ...product1, materialFamily: classifyMaterialFamily(product1) });
         continue;
       }
+      const comp1 = String(product1.componentCode || '').trim();
+      const comp2 = String(product2.componentCode || '').trim();
+      const hasComp1 = Boolean(comp1 && comp1 !== '无');
+      const hasComp2 = Boolean(comp2 && comp2 !== '无');
+      const componentCodeDifferent = Boolean((hasComp1 && hasComp2 && comp1 !== comp2) || (hasComp1 !== hasComp2));
       const commonItem = {
         matCode: product1.matCode,
         materialId: product1.materialId || product2.materialId,
         level: product1.level,
         nameZh: product1.nameZh || product2.nameZh,
+        nameVi: product1.nameVi || product2.nameVi,
         spec: product1.spec || product2.spec,
         attributeZh: product1.attributeZh || product2.attributeZh,
         materialZh: product1.materialZh || product2.materialZh,
         product1,
         product2,
+        componentCode1: comp1 || (hasComp2 ? '无' : ''),
+        componentCode2: comp2 || (hasComp1 ? '无' : ''),
+        componentCodeDifferent,
         quantityOrUnitDifferent: comparableBomValue(product1) !== comparableBomValue(product2)
       };
       common.push({ ...commonItem, materialFamily: classifyMaterialFamily(commonItem) });
@@ -715,6 +767,7 @@ export class PdmKnowledge {
     );
 
     const quantityOrUnitDifferences = common.filter(item => item.quantityOrUnitDifferent);
+    const labelDifferences = common.filter(item => item.componentCodeDifferent);
     const commonByAttribute = {};
     for (const item of common) {
       const attribute = item.attributeZh || 'unclassified';
@@ -736,9 +789,65 @@ export class PdmKnowledge {
       quantityOrUnitDifferences.length > MAX_COMPARISON_RESULTS ||
       dataQualityWarnings.length > MAX_COMPARISON_RESULTS;
 
+    const revision1 = bom[productId1]?.revision || bom[productId1]?.rev || '';
+    const revision2 = bom[productId2]?.revision || bom[productId2]?.rev || '';
+    const identicalItems = common.filter(item => !item.componentCodeDifferent && !item.quantityOrUnitDifferent);
+
+    // Concept-specific calculation (e.g. fastener total quantity)
+    let conceptComparison = null;
+    if (componentConcept) {
+      const isMatchingConcept = (row) => {
+        if (componentConcept === 'fastener') {
+          return /五金|螺丝|螺钉|螺母|foot|bolt|screw/iu.test(row.attributeZh || '') ||
+            /五金|螺丝|螺钉|螺母|bolt|screw/iu.test(row.nameZh || '') ||
+            /M\d+/i.test(row.spec || '');
+        }
+        if (componentConcept === 'drawer_fabric') {
+          return /布抽|抽屉|drawer/iu.test(row.nameZh || '') || /布抽/iu.test(row.attributeZh || '');
+        }
+        if (componentConcept === 'hardware_bag') {
+          return /五金包|配件包|hardware bag/iu.test(row.nameZh || '');
+        }
+        if (componentConcept === 'crossbar') {
+          return /横梁|上横梁|下横梁|crossbar/iu.test(row.nameZh || '');
+        }
+        if (componentConcept === 'vertical_beam') {
+          return /竖梁|立柱|vertical beam/iu.test(row.nameZh || '');
+        }
+        if (componentConcept === 'packaging_carton') {
+          return /纸箱|外箱|carton/iu.test(row.nameZh || '') || /包材|包装/iu.test(row.attributeZh || '');
+        }
+        return false;
+      };
+      let q1 = 0;
+      let q2 = 0;
+      for (const r of rows1) {
+        if (isMatchingConcept(r)) q1 += parseFloat(r.qty) || 1;
+      }
+      for (const r of rows2) {
+        if (isMatchingConcept(r)) q2 += parseFloat(r.qty) || 1;
+      }
+      conceptComparison = {
+        concept: componentConcept,
+        product1Quantity: q1,
+        product2Quantity: q2,
+        difference: Math.abs(q1 - q2),
+        moreQuantityProduct: q1 > q2 ? productId1 : (q2 > q1 ? productId2 : 'equal'),
+      };
+    }
+
+    const metricResult = metric ? {
+      metric,
+      value: metric === 'similarity_ratio' ? Math.round(similarityScore * 100)
+        : metric === 'difference_count' ? (remainingOnly1.length + remainingOnly2.length + quantityOrUnitDifferences.length)
+        : metric === 'total_quantity' ? (conceptComparison ? { product1Quantity: conceptComparison.product1Quantity, product2Quantity: conceptComparison.product2Quantity, moreQuantityProduct: conceptComparison.moreQuantityProduct } : null)
+        : null,
+    } : null;
+
     return {
       product1: {
         productCode: productId1,
+        revision: revision1,
         color: resolvedColor1,
         totalRows: fullRows1.length,
         materialCount: aggregated1.size,
@@ -746,24 +855,43 @@ export class PdmKnowledge {
       },
       product2: {
         productCode: productId2,
+        revision: revision2,
         color: resolvedColor2,
         totalRows: fullRows2.length,
         materialCount: aggregated2.size,
         truncated: fullRows2.length > MAX_BOM_ROWS
       },
+      componentConcept: componentConcept || null,
+      conceptComparison,
+      metric: metric || null,
+      metricResult,
       summary: {
         commonCount: common.length,
+        identicalCount: identicalItems.length,
         onlyProduct1Count: remainingOnly1.length,
         onlyProduct2Count: remainingOnly2.length,
         probableCommonCount: probableCommon.length,
         dataQualityWarningCount: dataQualityWarnings.length,
         quantityOrUnitDifferenceCount: quantityOrUnitDifferences.length,
+        labelDifferenceCount: labelDifferences.length,
         similarityScore,
         equivalenceSimilarityScore,
         commonByAttribute,
-        commonByMaterialFamily
+        commonByMaterialFamily,
+        conceptComparison,
+        metricResult,
       },
       common: common.slice(0, MAX_COMPARISON_RESULTS),
+      labelDifferences: labelDifferences.map(item => ({
+        matCode: item.matCode,
+        nameZh: item.nameZh,
+        nameVi: item.nameVi,
+        spec: item.spec,
+        comp1: item.componentCode1,
+        comp2: item.componentCode2,
+        qty1: item.product1?.quantities?.join('+') || item.product1?.qty || '1',
+        qty2: item.product2?.quantities?.join('+') || item.product2?.qty || '1',
+      })),
       probableCommon: probableCommon.slice(0, MAX_COMPARISON_RESULTS),
       onlyProduct1: remainingOnly1.slice(0, MAX_COMPARISON_RESULTS),
       onlyProduct2: remainingOnly2.slice(0, MAX_COMPARISON_RESULTS),
@@ -1019,6 +1147,7 @@ export class PdmKnowledge {
                 usedInProducts: new Set(),
                 usedInSkus: new Set(),
                 productRevisions: new Map(),
+                productComponentCodes: new Map(),
                 representativeColors: new Set(),
                 productRepresentativeColors: new Map(),
                 effectiveRevisions: new Set(),
@@ -1030,6 +1159,13 @@ export class PdmKnowledge {
             component.usedInSkus.add(
               product.color_info?.[color]?.sku || (color ? `${productCode}/${color}` : productCode),
             );
+            const compCode = String(summary.componentCode || '').trim();
+            if (!component.productComponentCodes.has(productCode)) {
+              component.productComponentCodes.set(productCode, new Set());
+            }
+            if (compCode && compCode !== '无') {
+              component.productComponentCodes.get(productCode).add(compCode);
+            }
             component.representativeColors.add(color);
             if (!component.productRepresentativeColors.has(productCode)) {
               component.productRepresentativeColors.set(productCode, new Set());
@@ -1049,9 +1185,7 @@ export class PdmKnowledge {
           materialCodes: [...component.materialCodes].filter(Boolean).sort(),
           usedInProducts: [...component.usedInProducts].sort(),
           usedInSkus: [...component.usedInSkus].sort(),
-          usedInProductRevisions: [...component.productRevisions.entries()]
-            .sort(([left], [right]) => left.localeCompare(right))
-            .map(([productCode, revision]) => `${productCode} (${revision})`),
+          usedInProductRevisions: formatProductRevisionsWithCompCodes(component.productRevisions, component.productComponentCodes),
           representativeColors: [...component.representativeColors].sort((left, right) => (
             colorPriority(left) - colorPriority(right) || left.localeCompare(right)
           )),
@@ -1081,11 +1215,15 @@ export class PdmKnowledge {
       const productOrderedResults = wantsProductOrder
         ? componentResults.flatMap(component => component.usedInProducts.map(productCode => {
           const { productRepresentativeColors, ...componentResult } = component;
+          const singleRev = (component.productRevisions instanceof Map ? component.productRevisions.get(productCode) : null) || '-';
+          const rawCompCodes = component.productComponentCodes instanceof Map ? component.productComponentCodes.get(productCode) : null;
+          const validCodes = rawCompCodes ? [...rawCompCodes].filter(c => c && c !== '无') : [];
+          const compPrefix = validCodes.length > 0 ? `[${validCodes.sort((a, b) => a.localeCompare(b, undefined, { numeric: true })).join('/')}] ` : '';
           return {
-          ...componentResult,
-          usedInProducts: [productCode],
-          usedInProductRevisions: component.usedInProductRevisions.filter(label => label.startsWith(`${productCode} (`)),
-          representativeColors: productRepresentativeColors[productCode] || component.representativeColors,
+            ...componentResult,
+            usedInProducts: [productCode],
+            usedInProductRevisions: [`${compPrefix}${productCode} (${singleRev})`],
+            representativeColors: productRepresentativeColors[productCode] || component.representativeColors,
           };
         })).sort((left, right) => (
           left.usedInProducts[0].localeCompare(right.usedInProducts[0])
@@ -1101,12 +1239,19 @@ export class PdmKnowledge {
             spec: component.spec,
             materialCodes: new Set(),
             usedInProducts: new Set(),
-            usedInProductRevisions: new Set(),
+            productRevisions: new Map(),
+            productComponentCodes: new Map(),
             representativeColors: new Set(),
           };
           for (const code of component.materialCodes || [component.materialCode]) group.materialCodes.add(code);
           for (const productCode of component.usedInProducts) group.usedInProducts.add(productCode);
-          for (const productRevision of component.usedInProductRevisions) group.usedInProductRevisions.add(productRevision);
+          for (const [prod, rev] of (component.productRevisions || new Map()).entries()) {
+            group.productRevisions.set(prod, rev);
+          }
+          for (const [prod, codes] of (component.productComponentCodes || new Map()).entries()) {
+            if (!group.productComponentCodes.has(prod)) group.productComponentCodes.set(prod, new Set());
+            for (const c of codes) group.productComponentCodes.get(prod).add(c);
+          }
           for (const color of component.representativeColors) group.representativeColors.add(color);
           groups.set(key, group);
           return groups;
@@ -1115,7 +1260,7 @@ export class PdmKnowledge {
           materialCount: group.materialCodes.size,
           materialCodes: [...group.materialCodes].sort(),
           usedInProducts: [...group.usedInProducts].sort(),
-          usedInProductRevisions: [...group.usedInProductRevisions].sort(),
+          usedInProductRevisions: formatProductRevisionsWithCompCodes(group.productRevisions, group.productComponentCodes),
           representativeColors: [...group.representativeColors].sort((left, right) => colorPriority(left) - colorPriority(right) || left.localeCompare(right)),
         })).sort((left, right) => left.spec.localeCompare(right.spec))
         : productOrderedResults;
@@ -1457,5 +1602,15 @@ export class PdmKnowledge {
       colors,
       evidence: buildEvidence(this._sourceMetadata, productId, `data/products/${productId}.json`),
     };
+  }
+
+  /**
+   * Analyze ECN & Technical Change Impact across factory streams.
+   */
+  analyzeEcnImpact(options = {}) {
+    return runEcnImpactEngine({
+      ...options,
+      snapshot: { payload: this._payload, sourceMetadata: this._sourceMetadata },
+    });
   }
 }

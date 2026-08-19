@@ -1,11 +1,27 @@
-import { detectProductShorthand, foldPdmText, resolveConcept } from './pdm-terminology.js';
+// src/features/ai-assistant/intent-router.js
+import {
+  detectProductShorthand,
+  foldPdmText,
+  resolveConcept,
+  extractComponentConcept,
+  extractMetric,
+  parseRelativeChange,
+} from './pdm-terminology.js';
+import {
+  normalizeConversationState,
+  extractReferenceExpressions,
+  resolveReferences,
+  applyContextTransition,
+  inferExpectedReferenceType,
+  filterReferentsBySemanticFocus,
+} from './context-resolution.js';
 
 const PRODUCT_PATTERN = /\bLGS\d{3,4}\b/gi;
 const ALIAS_PATTERN = /\bULGS\d{3,4}[A-Z0-9]+\b/gi;
-const MATERIAL_PATTERN = /\bmat_[a-z0-9]+\b/gi;
+const MATERIAL_PATTERN = /\b(?:mat|MAT|CARTON)_[a-zA-Z0-9_]+\b/g;
 const REVISION_PATTERN = /\b(?:[A-Z]\.)?V?\d+(?:\.\d+)+\b|\bV\d+\b/gi;
 const DIMENSION_PATTERN = /\b\d+(?:\.\d+)?\s*(?:x|\u00d7|\*)\s*\d+(?:\.\d+)?(?:\s*(?:x|\u00d7|\*)\s*\d+(?:\.\d+)?)?(?:\s*mm)?\b/iu;
-const SINGLE_DIMENSION_PATTERN = /\d+(?:\.\d+)?\s*mm/iu;
+const SINGLE_DIMENSION_PATTERN = /(?:(?:宽度?|高度?|深度?|长度?)\s*\d{1,4}(?:\.\d+)?|\b\d{1,4}(?:\.\d+)?\s*(?:(?:mm|cm|li|inch|in)\b|分米|毫米|厘米|寸|吋|宽|高|长|深))/giu;
 const PRODUCT_SINGLE_DIMENSION_PATTERN = /(?:宽度?|高度?|深度?|长度?)\s*\d+(?:\.\d+)?(?:\s*mm)?|\d+(?:\.\d+)?\s*(?:mm\s*)?(?:宽|高|深|长)/iu;
 const PRODUCT_DETAIL_PATTERN = /颜色|色号|尺寸|宽度?|高度?|深度?|产品编号|产品编码|\bSKU\b|màu|kích thước|\b(?:color|size|width|height|depth)\b/iu;
 const PRODUCT_FILTER_PATTERN = /(?:一|二|两|三|四|五|\d+)\s*列|(?:一|二|三|四|五|六|七|八|九|十|\d+)\s*(?:个)?抽(?:屉)?|带灯|带电|有灯|有电|\b(?:columns?|drawers?|with light|with power)\b/iu;
@@ -35,6 +51,59 @@ const FOLDED_COMPONENT_LOOKUP_PATTERN = /\b(?:dung gi|dung loai nao|loai nao|ma 
 const FOLDED_REVISION_PATTERN = /\b(?:phien ban|version|ban nhap|hien hanh|da phat hanh|trang thai)\b/iu;
 const FOLDED_COMPARISON_PATTERN = /\b(?:so sanh|doi chieu|khac nhau|giong nhau|dung chung|chung nhau)\b/iu;
 const FOLDED_DISCOVERY_PATTERN = /\b(?:tim|tra|kiem tra|liet ke|cho xem)\b.{0,40}\b(?:vat lieu|linh kien|quy cach|kich thuoc|ma)\b|\b(?:vat lieu|linh kien|quy cach|kich thuoc)\b.{0,40}\b(?:nao|gi|bao nhieu)\b/iu;
+
+const SPEC_PATTERN = /\b(?:(?:M|ST)\d+(?:\.\d+)?(?:\s*(?:x|×|\*)\s*\d+(?:\.\d+)?)?(?:\s*mm)?|\d+(?:\.\d+)?\s*(?:x|×|\*)\s*\d+(?:\.\d+)?(?:\s*(?:x|×|\*)\s*\d+(?:\.\d+)?)?\s*mm|\d+(?:\.\d+)?\s*mm)\b/gi;
+
+function extractKnownSpecs(text) {
+  const matches = [];
+  const regex = new RegExp(SPEC_PATTERN.source, 'gi');
+  let m;
+  while ((m = regex.exec(text)) !== null) {
+    matches.push({
+      raw: m[0],
+      canonical: m[0].replace(/×|\*/g, 'x').replace(/\s+/g, ''),
+      start: m.index,
+      end: m.index + m[0].length,
+    });
+  }
+  return matches;
+}
+
+function parseExplicitSpecReplacement(text) {
+  const specs = extractKnownSpecs(text);
+  if (specs.length < 2) return null;
+
+  const patterns = [
+    /(?:改为|换成|变成|修改为|更换为|thành|thay bằng|sang|đổi thành|to|into)\s*([^\s,;]+)/iu,
+    /([^\s,;]+)\s*(?:改为|换成|变成|修改为|更换为|thành|thay bằng|sang|đổi thành|->|=>|→)/iu,
+  ];
+
+  for (const pat of patterns) {
+    const match = text.match(pat);
+    if (match) {
+      const matchedText = match[1] || match[0];
+      const targetSpec = specs.find(s => matchedText.includes(s.raw));
+      if (targetSpec) {
+        const otherSpec = specs.find(s => s !== targetSpec);
+        if (otherSpec) {
+          const isTargetNew = /改为|换成|变成|修改为|更换为|thành|thay bằng|sang|đổi thành|to|into/iu.test(match[0]);
+          return isTargetNew
+            ? { oldSpec: otherSpec.canonical, newSpec: targetSpec.canonical }
+            : { oldSpec: targetSpec.canonical, newSpec: otherSpec.canonical };
+        }
+      }
+    }
+  }
+
+  if (specs.length === 2) {
+    return {
+      oldSpec: specs[0].canonical,
+      newSpec: specs[1].canonical,
+    };
+  }
+
+  return null;
+}
 
 function selectBomCandidate(query, candidates, selectedCandidate = null) {
   if (!Array.isArray(candidates) || candidates.length === 0) return null;
@@ -94,41 +163,33 @@ export const PDM_INTENTS = Object.freeze({
   REVISION_COMPARE: 'revision_compare',
   BOM_LOOKUP: 'bom_lookup',
   BOM_COMPARE: 'bom_compare',
+  PRODUCT_LOOKUP: 'product_lookup',
   MATERIAL_DETAIL: 'material_detail',
   MATERIAL_USAGE: 'material_usage',
+  DUPLICATE_MATERIALS: 'duplicate_materials',
   MARKETPLACE: 'marketplace',
-  SKU_ALIAS: 'sku_alias',
-  DISCOVERY: 'discovery',
+  CATALOG_ANALYSIS: 'catalog_analysis',
   PDM_SEARCH: 'pdm_search',
-  RECENT_CHANGES: 'recent_changes',
+  DRAWING_COMMONALITY: 'drawing_commonality',
+  DRAWING_ANALYSIS: 'drawing_analysis',
+  PROPOSAL: 'proposal',
   HELP: 'help',
   SCHEMA: 'schema',
   GREETING: 'greeting',
-  CATALOG_ANALYSIS: 'catalog_analysis',
-  DRAWING_ANALYSIS: 'drawing_analysis',
-  DRAWING_COMMONALITY: 'drawing_commonality',
-  DUPLICATE_MATERIALS: 'duplicate_materials',
-  PROPOSAL: 'proposal',
   AMBIGUOUS: 'ambiguous',
+  ECN_IMPACT: 'ecn_impact',
 });
 
-function toolNames(availableTools) {
-  return new Set((Array.isArray(availableTools) ? availableTools : [])
-    .map(tool => typeof tool === 'string' ? tool : tool?.function?.name)
-    .filter(Boolean));
+function toolNames(availableTools = []) {
+  return new Set(availableTools.map(t => (typeof t === 'string' ? t : (t?.function?.name || t?.name))).filter(Boolean));
 }
 
 function uniqueMatches(text, pattern) {
-  return [...new Set((text.match(pattern) || []).map(value => value.toUpperCase()))];
+  return [...new Set(Array.from(String(text || '').matchAll(pattern), m => m[0].toUpperCase()))];
 }
 
 function productMatches(text) {
-  const matches = uniqueMatches(text, PRODUCT_PATTERN);
-  const shorthand = String(text || '').match(/\bLGS(\d{3,4})\s*(?:and|&|\/|,|v\u00e0|v\u1edbi|\u548c|\u4e0e|\u53ca)\s*(\d{3,4})\b/iu);
-  if (shorthand) {
-    matches.push(`LGS${shorthand[1]}`, `LGS${shorthand[2]}`);
-  }
-  return [...new Set(matches)];
+  return uniqueMatches(text, PRODUCT_PATTERN);
 }
 
 function revisionMatches(text) {
@@ -149,8 +210,14 @@ function result(intent, entities, preferredTool, confidence = 'deterministic') {
   });
 }
 
-function ambiguous(entities) {
-  return result(PDM_INTENTS.AMBIGUOUS, entities, null, 'ambiguous');
+function ambiguous(entities, clarificationCode = null, candidates = []) {
+  const res = result(PDM_INTENTS.AMBIGUOUS, entities, null, 'ambiguous');
+  return Object.freeze({
+    ...res,
+    needsClarification: true,
+    ...(clarificationCode ? { clarificationCode } : {}),
+    ...(candidates.length > 0 ? { candidates: Object.freeze(candidates) } : {}),
+  });
 }
 
 function strategyTokens(value) {
@@ -175,6 +242,9 @@ function strategySimilarity(left, right) {
 }
 
 function learnedRoute(text, entities, tools, learnedStrategies) {
+  const NEGATIVE_SALES_PATTERN = /bán chạy|sales|doanh thu|thị trường|best seller|销量|热销|好卖|卖得好/iu;
+  if (NEGATIVE_SALES_PATTERN.test(text)) return null;
+
   const candidates = (Array.isArray(learnedStrategies) ? learnedStrategies : [])
     .filter(memory => (
       memory?.status === 'confirmed'
@@ -189,8 +259,8 @@ function learnedRoute(text, entities, tools, learnedStrategies) {
   const best = candidates[0];
   if (!best || best.similarity < 0.6) return null;
   return result(
-    best.memory.scope.intent || PDM_INTENTS.AMBIGUOUS,
-    { ...entities, searchQuery: text },
+    best.memory.scope.intent || PDM_INTENTS.PDM_SEARCH,
+    { ...entities, ...(best.memory.scope.entities || {}) },
     best.memory.scope.preferredTool,
     'learned',
   );
@@ -208,6 +278,44 @@ export function routePdmIntent({
   const text = String(query || '').trim();
   const foldedText = foldPdmText(text);
   const tools = toolNames(availableTools);
+  const normState = normalizeConversationState(conversationContext);
+
+  // 1. Pending Clarification State Lock
+  if (normState.pendingClarification) {
+    const isCancel = /hủy|bỏ qua|thôi|cancel|取消/iu.test(text);
+    const hasExplicitNewProducts = productMatches(text).length > 0;
+    if (!isCancel && !hasExplicitNewProducts) {
+      const refExpr = extractReferenceExpressions(text);
+      const refRes = resolveReferences({ referenceExpr: refExpr, state: normState });
+      if (refRes.resolved) {
+        const resolvedTarget = refRes.resolved.id || refRes.resolved.mat_code || refRes.resolved;
+        if (refRes.resumeFrame) {
+          const resume = refRes.resumeFrame;
+          return result(resume.intent || PDM_INTENTS.ECN_IMPACT, {
+            productIds: normState.scope.productIds,
+            targetMaterialId: resolvedTarget,
+            componentConcept: resume.frame?.componentConcept || 'fastener',
+            change: resume.frame?.change,
+            searchQuery: text,
+          }, resume.preferredTool || 'analyze_ecn_impact');
+        }
+        const tool = tools.has('get_material') ? 'get_material' : (tools.has('analyze_ecn_impact') ? 'analyze_ecn_impact' : null);
+        return result(PDM_INTENTS.MATERIAL_DETAIL, {
+          productIds: normState.scope.productIds,
+          materialIds: [resolvedTarget],
+          targetMaterialId: resolvedTarget,
+        }, tool);
+      }
+      if (refRes.needsClarification) {
+        const candidates = refRes.candidates || (normState.pendingClarification.candidates || []).map(c => c.id || c);
+        return ambiguous({
+          productIds: normState.scope.productIds,
+          candidates,
+        }, normState.pendingClarification.type || 'reference_ambiguous', candidates);
+      }
+    }
+  }
+
   if (DUPLICATE_MATERIAL_PATTERN.test(text) && tools.has('find_duplicate_materials')) {
     const name = /\u7eb8\u5361/iu.test(text) ? '\u7eb8\u5361' : '';
     const intent = MUTATION_REQUEST_PATTERN.test(text)
@@ -215,14 +323,23 @@ export function routePdmIntent({
       : PDM_INTENTS.DUPLICATE_MATERIALS;
     return result(intent, { ...(name ? { materialName: name } : {}) }, 'find_duplicate_materials');
   }
+
+  // 2. Explicit Entity Extraction & Dimensions Stripping
   const explicitProductIds = productMatches(text);
-  const shorthandProduct = detectProductShorthand(text);
-  const bareProductPair = text.match(/(?:^|[^\d])(\d{3,4})\s*(?:\u548c|\u4e0e|\u53ca|and|với|và|&|\/|,)\s*(\d{3,4})(?:[^\d]|$)/iu);
+  const textWithoutDimensions = text
+    .replace(DIMENSION_PATTERN, ' ')
+    .replace(SINGLE_DIMENSION_PATTERN, ' ')
+    .replace(SPEC_PATTERN, ' ');
+  const allShorthands = (textWithoutDimensions.match(/\b\d{3,4}\b/g) || []).map(num => `LGS${num}`);
+  const shorthandProduct = detectProductShorthand(textWithoutDimensions);
+  const bareProductPair = textWithoutDimensions.match(/(?:^|[^\d])(\d{3,4})\s*(?:\u548c|\u4e0e|\u53ca|and|với|và|&|\/|,|vs|v\.s|so\s+với|\s+)\s*(\d{3,4})(?:[^\d]|$)/iu);
   const shorthandProductIds = bareProductPair
     ? [`LGS${bareProductPair[1]}`, `LGS${bareProductPair[2]}`]
-    : shorthandProduct
-      ? [shorthandProduct.candidateProductId]
-      : [];
+    : allShorthands.length > 0
+      ? [...new Set(allShorthands)].slice(0, 2)
+      : shorthandProduct
+        ? [shorthandProduct.candidateProductId]
+        : [];
   const resolved = Array.isArray(resolvedEntities) ? resolvedEntities : [];
   const resolvedProductTargets = resolved.filter(entity => (
     entity?.type === 'product' || entity?.type === 'product-variant'
@@ -232,19 +349,61 @@ export function routePdmIntent({
     .filter(entity => entity.type === 'product-variant' && typeof entity.color === 'string' && entity.color)
     .map(entity => entity.color);
   const isRecentChanges = RECENT_CHANGES_PATTERN.test(text);
-  const priorProductIds = Array.isArray(conversationContext?.productIds) ? conversationContext.productIds : [];
-  const priorRevisions = Array.isArray(conversationContext?.revisions) ? conversationContext.revisions : [];
+
+  const queryProductIds = [...new Set([...explicitProductIds, ...shorthandProductIds])];
+  const directProductIds = queryProductIds.length > 0 ? queryProductIds : resolvedProductIds;
+
+  const extractedColor = (text.match(/白色|黑色|复古色|白色带灯|黑色带电|白色带电|黑色带灯|màu\s*(?:gỗ|trắng|đen)|\b(?:black|white|rustic|vintage|wh|bh|kd)\b/iu) || [])[0]
+    ? ((text.match(/白色|\bwhite\b|\bwh\b/iu) ? '白色' : '') || (text.match(/黑色|\bblack\b|\bbh\b/iu) ? '黑色' : '') || (text.match(/复古色|màu\s*gỗ|\brustic\b|\bvintage\b|\bkd\b/iu) ? '复古色' : '') || (text.match(/màu\s*trắng/iu) ? '白色' : '') || (text.match(/màu\s*đen/iu) ? '黑色' : ''))
+    : null;
+
+  const explicitMaterialIds = [...new Set(
+    (text.match(MATERIAL_PATTERN) || []).map(val => {
+      const trimmed = String(val).trim();
+      return trimmed.startsWith('mat_') ? trimmed.toLowerCase() : trimmed.toUpperCase();
+    })
+  )];
+  const resolvedMaterialIds = resolved
+    .filter(entity => entity?.type === 'material' && typeof entity.materialId === 'string')
+    .map(entity => entity.materialId);
+  let materialIds = explicitMaterialIds.length > 0 ? explicitMaterialIds : [...new Set(resolvedMaterialIds)];
+
+  const activeConcept = extractComponentConcept(text) || normState.focus.componentConcept || null;
+  const activeMetric = extractMetric(text) || normState.focus.metric || null;
+
+  // 3. State Transition Matrix (Anti-Stale Scope Switch)
+  const transitionedState = applyContextTransition({
+    state: normState,
+    explicitEntities: {
+      productIds: directProductIds.length > 0 ? directProductIds : normState.scope.productIds,
+      colors: extractedColor ? [extractedColor] : (resolvedColors.length > 0 ? resolvedColors : []),
+      materialIds: explicitMaterialIds,
+      componentConcept: activeConcept,
+      metric: activeMetric,
+    },
+    query: text,
+  });
+
+  const priorProductIds = transitionedState.scope.productIds;
+  const previousScopeProductIds = normState.scope.productIds;
+  const priorRevisions = normState.scope.revisions;
   const priorSearchQuery = typeof conversationContext?.searchQuery === 'string' ? conversationContext.searchQuery.trim() : '';
   const explicitScope = explicitProductIds.length > 0 ? explicitProductIds : resolvedProductIds;
   const priorScopeMatches = explicitScope.length === 0 || (
-    explicitScope.length === priorProductIds.length && explicitScope.every((value, index) => value === priorProductIds[index])
+    previousScopeProductIds.length > 0 &&
+    explicitScope.length === previousScopeProductIds.length &&
+    explicitScope.every((value, index) => value === previousScopeProductIds[index])
   );
   const isRevisionComparisonFollowUp = REVISION_COMPARISON_REFERENCE_PATTERN.test(text);
+  const isFollowUpKeyword = /thế|còn|thì sao|thế nào|với cả|chỉ xem|tem nào|phần nào|bao bì|ốc|vít|五金|包材|序号标|不同|一样|那|呢|怎么样/iu.test(text);
+  const hasComponentFollowUp = Boolean(extractComponentConcept(text) && priorProductIds.length > 0);
   const isContextualFollowUp = !isRecentChanges && (
     COMPARISON_FOLLOW_UP_PATTERN.test(text) ||
     REFERENTIAL_FOLLOW_UP_PATTERN.test(text) ||
     REVISION_CHANGE_PATTERN.test(text) || REVISION_STATUS_PATTERN.test(text) ||
-    isRevisionComparisonFollowUp || revisionMatches(text).length > 0
+    isRevisionComparisonFollowUp || revisionMatches(text).length > 0 ||
+    isFollowUpKeyword || hasComponentFollowUp ||
+    (normState.activeTask === 'bom_compare' && explicitProductIds.length === 0 && shorthandProductIds.length === 0)
   );
   const historicalProductIds = explicitProductIds.length === 0 && isContextualFollowUp
     ? uniqueMatches(
@@ -265,58 +424,234 @@ export function routePdmIntent({
     ...(!isRecentChanges && priorScopeMatches && (REVISION_CHANGE_PATTERN.test(text) || isRevisionComparisonFollowUp) ? priorRevisions : []),
     ...(!isRecentChanges && priorScopeMatches && (REVISION_CHANGE_PATTERN.test(text) || isRevisionComparisonFollowUp) ? revisionMatches(historyText) : []),
   ])].sort((left, right) => left.localeCompare(right, undefined, { numeric: true })).slice(0, 2);
-  const explicitMaterialIds = [...new Set((text.match(MATERIAL_PATTERN) || []).map(value => value.toLowerCase()))];
-  const resolvedMaterialIds = resolved
-    .filter(entity => entity?.type === 'material' && typeof entity.materialId === 'string')
-    .map(entity => entity.materialId);
-  const materialIds = explicitMaterialIds.length > 0 ? explicitMaterialIds : [...new Set(resolvedMaterialIds)];
+
   const selectedProduct = String(selection?.productCode || '').toUpperCase();
   const canUseSelection = explicitProductIds.length === 0
     && /^LGS\d{3,4}$/.test(selectedProduct)
     && (INTENT_PATTERNS.currentProduct.test(text) || DRAWING_COMMONALITY_PATTERN.test(text));
-  const contextualShorthandProductIds = (
-    shorthandProductIds.length === 1
-    && INTENT_PATTERNS.comparison.test(text)
-    && priorProductIds.length === 1
-    && priorProductIds[0] !== shorthandProductIds[0]
+
+  const mergedDirectProductIds = [...new Set(directProductIds)];
+
+  const isRevisionQuery = isRevisionComparisonFollowUp
+    || REVISION_STATUS_PATTERN.test(text)
+    || REVISION_CHANGE_PATTERN.test(text)
+    || INTENT_PATTERNS.revision.test(text);
+
+  const contextualDirectProductIds = (
+    mergedDirectProductIds.length === 1
+    && !isRevisionQuery
+    && explicitProductIds.length === 0
+    && (INTENT_PATTERNS.comparison.test(text) || COMPARISON_FOLLOW_UP_PATTERN.test(text))
+    && previousScopeProductIds.length === 1
+    && previousScopeProductIds[0] !== mergedDirectProductIds[0]
   )
-    ? [priorProductIds[0], shorthandProductIds[0]]
-    : shorthandProductIds;
-  const productIds = canUseSelection
+    ? [previousScopeProductIds[0], mergedDirectProductIds[0]]
+    : mergedDirectProductIds;
+
+  let productIds = canUseSelection
     ? [selectedProduct]
-    : explicitProductIds.length > 0
-      ? explicitProductIds
-      : resolvedProductIds.length > 0
-        ? resolvedProductIds
-        : contextualShorthandProductIds.length > 0
-          ? contextualShorthandProductIds
-        : isContextualFollowUp && priorProductIds.length > 0 ? priorProductIds : historicalProductIds;
-  const entities = materialIds.length > 0 ? { productIds, materialIds } : { productIds };
+    : contextualDirectProductIds.length > 0
+      ? contextualDirectProductIds
+      : isContextualFollowUp && priorProductIds.length > 0 ? priorProductIds : historicalProductIds;
+
+  if (productIds.length > 0 && transitionedState.scope.productIds.length === 0) {
+    transitionedState.scope.productIds = [...productIds];
+    transitionedState.referents.products = productIds.map(id => ({ id, type: 'product' }));
+  }
+
+  if (DRAWING_COMMONALITY_PATTERN.test(text)) {
+    transitionedState.focus.documentType = 'engineering_drawing';
+  }
+
+  const hasSemanticState = Boolean(
+    transitionedState.scope.color ||
+    transitionedState.scope.productIds.length >= 2 ||
+    transitionedState.focus.componentConcept ||
+    transitionedState.focus.metric ||
+    transitionedState.focus.documentType ||
+    conversationContext?.scope ||
+    conversationContext?.focus ||
+    (conversationContext?.turnCount && conversationContext.turnCount > 0) ||
+    conversationContext?.productIds?.length ||
+    conversationContext?.color ||
+    conversationContext?.componentConcept ||
+    conversationContext?.activeIntent ||
+    conversationContext?.comparison
+  );
+
+  const entities = {
+    productIds,
+    ...(materialIds.length > 0 ? { materialIds } : {}),
+    ...(transitionedState.scope.color ? { color: transitionedState.scope.color, colors: [transitionedState.scope.color] } : {}),
+    ...(activeConcept ? { componentConcept: activeConcept } : {}),
+    ...(activeMetric ? { metric: activeMetric } : {}),
+    ...(hasSemanticState ? { scope: transitionedState.scope, focus: transitionedState.focus } : {}),
+  };
+
+  if (GREETING_PATTERN.test(text) && productIds.length === 0 && materialIds.length === 0) {
+    return result(PDM_INTENTS.GREETING, entities, null, 'greeting');
+  }
+
+  if (isRecentChanges && tools.has('list_recent_changes')) {
+    return result('recent_changes', entities, 'list_recent_changes');
+  }
+
+  if (INTENT_PATTERNS.discovery.test(text) && productIds.length === 0 && !DIMENSION_PATTERN.test(text) && tools.has('search_products')) {
+    return result('discovery', entities, 'search_products');
+  }
+
+  if (SCHEMA_PATTERN.test(text) && tools.has('inspect_pdm_schema')) {
+    return result(PDM_INTENTS.SCHEMA, entities, 'inspect_pdm_schema');
+  }
+
+  if (SCHEMA_PATTERN.test(text)) {
+    return result(PDM_INTENTS.SCHEMA, entities, null);
+  }
+
+  const learned = learnedRoute(text, entities, tools, learnedStrategies);
+  if (learned) return learned;
+
+  if (aliases.length > 0 && INTENT_PATTERNS.alias.test(text) && tools.has('resolve_sku')) {
+    return result(PDM_INTENTS.SKU_ALIAS, { productIds, aliases }, 'resolve_sku');
+  }
+
+  if (aliases.length > 0 && tools.has('get_product_by_alias')) {
+    return result(PDM_INTENTS.ALIAS, { ...entities, alias: aliases[0] }, 'get_product_by_alias');
+  }
+
+  if (
+    AFFIRMATION_PATTERN.test(text)
+    && priorProductIds.length === 1
+    && priorSearchQuery
+    && tools.has('analyze_pdm')
+  ) {
+    const digits = priorProductIds[0].slice(3);
+    const confirmedQuery = priorSearchQuery.replace(new RegExp(`\\b${digits}\\b`, 'g'), priorProductIds[0]);
+    return result(
+      PDM_INTENTS.CATALOG_ANALYSIS,
+      { ...entities, productIds: priorProductIds, searchQuery: confirmedQuery },
+      'analyze_pdm',
+    );
+  }
+
+  if (
+    EXPAND_USAGE_PATTERN.test(text)
+    && priorProductIds.length >= 2
+    && priorSearchQuery
+    && tools.has('analyze_pdm')
+  ) {
+    return result(
+      PDM_INTENTS.CATALOG_ANALYSIS,
+      { ...entities, productIds: priorProductIds, searchQuery: `${priorSearchQuery} ${text}` },
+      'analyze_pdm',
+    );
+  }
+
+  const EXPLICIT_CATALOG_PATTERN = /\b(?:all\s+lgs|所有\s*lgs|tất\s+cả\s+lgs|所有的?)\b/iu;
+  const VIETNAMESE_CATALOG_PATTERN = /\b(?:tất\s+cả(?:\s+các)?|toàn\s+bộ|mọi)\s+(?:các\s+)?lgs\b/iu;
+  const CATALOG_ANALYSIS_PATTERN = /\b(?:all\s+lgs|tất\s+cả\s+lgs)\b|所有(?:的)?\s*lgs|有几个柜子|有几种铁框|多种布抽|有多零件|共有几个|共用部件|客诉|所有(?:的)?五金包|五金包.{0,16}共用/iu;
+  const CATALOG_COMPONENT_QUESTION_PATTERN = /(?:产品|SKU).{0,24}(?:用|使用|包含|有).{0,24}(?:上横梁|竖梁|竖零件|纸箱|carton|upper crossbar|vertical beam)|(?:上横梁|竖梁|竖零件|纸箱|carton|upper crossbar|vertical beam).{0,24}(?:哪(?:一|些|个)|哪些|共用|独用).{0,12}(?:产品|SKU)?|(?:largest|biggest|maximum|最大的?|最大).{0,20}(?:carton|纸箱)/iu;
+
+  const isCatalogQuery = (
+    EXPLICIT_CATALOG_PATTERN.test(text) ||
+    VIETNAMESE_CATALOG_PATTERN.test(text) ||
+    CATALOG_COMPONENT_QUESTION_PATTERN.test(text) ||
+    CATALOG_ANALYSIS_PATTERN.test(text) ||
+    /(?:哪个|哪一个|哪些).{0,10}(?:产品|SKU|型号)/iu.test(text) ||
+    (productIds.length === 0 && (PRODUCT_SINGLE_DIMENSION_PATTERN.test(text) || PRODUCT_FILTER_PATTERN.test(text)))
+  );
+
+  // 4. Universal Referential Safety Gate (P0-1)
+  const refExpr = extractReferenceExpressions(text);
+  const isExplicitMultiProductQuery = directProductIds.length >= 2;
+  const isMultiProductComparison = productIds.length >= 2 && /共用|dùng chung|xài chung|so sánh|khác nhau|difference|compare|\bvs\b/iu.test(text);
+  const isEcnRel = Boolean(parseRelativeChange(text));
+  let refRes = null;
+  if (refExpr && !isExplicitMultiProductQuery && !isEcnRel && !isCatalogQuery && !isMultiProductComparison) {
+    const expectedType = inferExpectedReferenceType(text);
+    refRes = resolveReferences({
+      referenceExpr: refExpr,
+      state: transitionedState,
+      expectedType,
+      semanticFocus: activeConcept,
+    });
+    if (refRes.needsClarification) {
+      return ambiguous({
+        ...entities,
+        candidates: refRes.candidates || [],
+      }, refRes.clarificationCode || 'ambiguous_reference', refRes.candidates || []);
+    }
+    if (refRes.resolved) {
+      if (refRes.resolvedType === 'products') {
+        productIds = Array.isArray(refRes.resolved) ? refRes.resolved : [refRes.resolved];
+        entities.productIds = [...productIds];
+        transitionedState.scope.productIds = [...productIds];
+      } else {
+        const resolvedId = refRes.resolved.id || refRes.resolved.mat_code || refRes.resolved;
+        if (refRes.resolvedType === 'material') {
+          materialIds = [resolvedId];
+          entities.materialIds = [resolvedId];
+          entities.targetMaterialId = resolvedId;
+          transitionedState.focus.materialId = resolvedId;
+        } else if (refRes.resolvedType === 'product') {
+          productIds = [resolvedId];
+          entities.productIds = [resolvedId];
+          transitionedState.scope.productIds = [resolvedId];
+        }
+      }
+    }
+  }
+
+  // ECN & Spec Extraction
+  const isEcnQuery = /ecn|thay đổi|biến động|đổi|thay|ảnh hưởng|tác động|工程变更|变更影响|如果|改为|换成|变成|修改为|更换|修改规格|有什么影响|影响什么|影响哪些/iu.test(text);
+  const relativeChange = parseRelativeChange(text);
+  const specReplacement = parseExplicitSpecReplacement(text);
+  const oldSpec = specReplacement ? specReplacement.oldSpec : '';
+  const newSpec = specReplacement ? specReplacement.newSpec : '';
+  const knownSpecs = extractKnownSpecs(text);
+  const singleSpec = (!oldSpec && knownSpecs.length === 1) ? knownSpecs[0].canonical : '';
+  const componentMatched = PRODUCT_BOM_COMPONENT_PATTERN.test(text) || Boolean(oldSpec) || Boolean(singleSpec);
+
   const structureMappingPattern = /展开|折弯|u形|映射|结构|内衬管|连接管|连接件|包装规则|包装对象|贴附规则|贴附对象|pe袋|đóng\s*gói|quy\s*tắc\s*đóng\s*gói|c[nơ]c|khung\s*u|u\s*hình|mapping|bent\s*frame|packaging/i;
   if (productIds.length === 1 && structureMappingPattern.test(text) && tools.has('get_structure_mapping')) {
     return result('structure_mapping', { ...entities, searchQuery: text }, 'get_structure_mapping');
   }
-  if (revisions.length > 0) entities.revisions = revisions;
-  // Attach resolved colors whenever the resolved variant's product is among the
-  // chosen productIds — whether the product id came from the query or resolution.
-  // (Previously colors were dropped when an explicit product id was present,
-  //  silently defaulting get_bom to the first color — P1 correctness.)
-  const resolvedColorProducts = resolvedProductTargets
-    .filter(entity => entity.type === 'product-variant' && typeof entity.color === 'string' && entity.color)
-    .map(entity => entity.productCode);
-  if (resolvedColors.length > 0 && productIds.some(code => resolvedColorProducts.includes(code))) {
-    entities.colors = resolvedColors;
+
+  const isWhereUsedQuery = (MATERIAL_USAGE_PATTERN.test(text) || (
+    /dùng ở đâu|ở đâu|在哪里|where used/i.test(text) && materialIds.length === 1
+  )) && !isEcnQuery && !relativeChange && !newSpec;
+  if (isWhereUsedQuery && materialIds.length === 1 && tools.has('where_used')) {
+    return result(PDM_INTENTS.MATERIAL_USAGE, entities, 'where_used');
   }
 
+  if (revisions.length === 2 && tools.has('compare_revisions')) {
+    return result(PDM_INTENTS.REVISION_COMPARE, { ...entities, revisions }, 'compare_revisions');
+  }
+
+  const isComponentUsageCompare = /dùng\s+(?:loại|ốc|vải|ngăn\s+kéo|khung|mã|gì)|xài\s+(?:loại|ốc|vải|ngăn\s+kéo|khung|mã|gì)|dùng\s+ốc|dùng\s+ngăn\s+kéo|dùng\s+khung|dùng\s+thùng|dùng\s+vải|xài\s+ốc|xài\s+ngăn\s+kéo|xài\s+khung|xài\s+thùng|xài\s+vải/iu.test(text);
+
+  const isComparisonQuery = productIds.length >= 2 && !(refRes && refRes.resolvedType === 'material') && (
+    INTENT_PATTERNS.comparison.test(text) ||
+    COMPARISON_FOLLOW_UP_PATTERN.test(text) ||
+    FOLDED_COMPARISON_PATTERN.test(foldedText) ||
+    isComponentUsageCompare ||
+    Boolean(activeConcept && activeMetric) ||
+    Boolean(extractedColor) ||
+    normState.activeTask === 'bom_compare' ||
+    directProductIds.length >= 2 ||
+    /dùng chung|xài chung|giống nhau|khác nhau|so sánh|đối chiếu|so\s+với|so\s+\d+|共用|不同|区别|对比|比较|一样|一样不一样|bom|物料|五金|螺丝|cái gì|\bvs\b|\bv\.s\b|với|và|&|khác|lắp vừa|lắp cho|dùng cho/i.test(text)
+  ) && !/bán chạy|doanh thu|sales|bán được|đắt hơn|rẻ hơn|giá/i.test(text);
+
+  // 5. BOM Candidate Ordinal Routing
   const explicitProductInQuery = PRODUCT_PATTERN.test(text);
   PRODUCT_PATTERN.lastIndex = 0;
   const selectedBomCandidate = !explicitProductInQuery
-    ? selectBomCandidate(text, conversationContext?.bomCandidates, conversationContext?.selectedBomCandidate)
+    ? selectBomCandidate(text, transitionedState.referents.bomCandidates, null)
     : null;
-  if (selectedBomCandidate && conversationContext?.productIds?.length === 1 && tools.has('get_bom')) {
+  if (selectedBomCandidate && transitionedState.scope.productIds.length === 1 && tools.has('get_bom')) {
     return result(
       PDM_INTENTS.BOM_LOOKUP,
-      { productIds: conversationContext.productIds, componentQuery: selectedBomCandidate.matCode },
+      { productIds: transitionedState.scope.productIds, componentQuery: selectedBomCandidate.matCode },
       'get_bom',
     );
   }
@@ -385,12 +720,78 @@ export function routePdmIntent({
     );
   }
 
-  if (MATERIAL_USAGE_PATTERN.test(text) && materialIds.length === 1 && tools.has('where_used')) {
-    return result(PDM_INTENTS.MATERIAL_USAGE, entities, 'where_used');
+  // 6. ECN Impact & Relative Changes
+  const isScopeSwitched = queryProductIds.length > 0 && (
+    queryProductIds.length !== normState.scope.productIds.length ||
+    queryProductIds.some((id, idx) => id !== normState.scope.productIds[idx])
+  );
+  const inheritedMaterialId = isScopeSwitched ? null : transitionedState.focus.materialId;
+
+  if (isEcnQuery && relativeChange && tools.has('analyze_ecn_impact')) {
+    if (isScopeSwitched && !materialIds[0] && !oldSpec && !singleSpec) {
+      return ambiguous({
+        ...entities,
+        change: relativeChange,
+      }, 'scope_switched_material_lost');
+    }
+
+    let targetMat = materialIds[0] || oldSpec || singleSpec || inheritedMaterialId || '';
+    if (!targetMat) {
+      const refExpr = extractReferenceExpressions(text);
+      if (refExpr) {
+        const refRes = resolveReferences({
+          referenceExpr: refExpr,
+          state: transitionedState,
+          expectedType: 'material',
+          semanticFocus: activeConcept,
+        });
+        if (refRes.needsClarification) {
+          return ambiguous({
+            ...entities,
+            change: relativeChange,
+            candidates: refRes.candidates || [],
+          }, refRes.clarificationCode || 'ambiguous_material_reference', refRes.candidates || []);
+        }
+        if (refRes.resolved) {
+          targetMat = refRes.resolved.id || refRes.resolved.mat_code || refRes.resolved;
+        }
+      }
+    }
+
+    if (!targetMat) {
+      return ambiguous({
+        ...entities,
+        change: relativeChange,
+      }, 'target_not_specified');
+    }
+
+    return result(PDM_INTENTS.ECN_IMPACT, {
+      ...entities,
+      targetMaterialId: targetMat,
+      componentConcept: activeConcept || 'fastener',
+      change: relativeChange,
+      searchQuery: text,
+    }, 'analyze_ecn_impact');
+  }
+
+  if (isEcnQuery && (materialIds.length >= 1 || componentMatched) && tools.has('analyze_ecn_impact')) {
+    const targetMaterialId = materialIds[0] || oldSpec || singleSpec || '';
+    if (targetMaterialId) {
+      return result(PDM_INTENTS.ECN_IMPACT, {
+        ...entities,
+        targetMaterialId,
+        ...(newSpec ? { newSpec } : {}),
+        searchQuery: text,
+      }, 'analyze_ecn_impact');
+    }
   }
 
   if (MATERIAL_DETAIL_PATTERN.test(text) && materialIds.length === 1 && tools.has('get_material')) {
     return result(PDM_INTENTS.MATERIAL_DETAIL, entities, 'get_material');
+  }
+
+  if (refExpr && !isEcnQuery && !isComparisonQuery && materialIds.length === 1 && tools.has('get_material')) {
+    return result(PDM_INTENTS.MATERIAL_DETAIL, { ...entities, targetMaterialId: materialIds[0] }, 'get_material');
   }
 
   if (INTENT_PATTERNS.marketplace.test(text)) {
@@ -414,23 +815,6 @@ export function routePdmIntent({
     'packaging_material',
     'drawer_bottom',
   ].includes(requestedConcept?.conceptId) || /\u5305\u6750|\u5305\u88c5/u.test(text);
-  if (
-    productIds.length === 1
-    && (PRODUCT_BOM_COMPONENT_PATTERN.test(text) || basicBomConcept || FOLDED_COMPONENT_LOOKUP_PATTERN.test(foldedText))
-    && (!detectProductShorthand(text) || PRODUCT_BOM_COMPONENT_PATTERN.test(text))
-    && !PRODUCT_VARIANT_GAP_PATTERN.test(text)
-    && tools.has('get_bom')
-  ) {
-    return result(PDM_INTENTS.BOM_LOOKUP, { ...entities, componentQuery: text }, 'get_bom');
-  }
-
-  if (
-    productIds.length >= 2
-    && ['crossbar', 'upper_crossbar', 'bottom_crossbar', 'vertical_beam'].includes(requestedConcept?.conceptId)
-    && tools.has('analyze_pdm')
-  ) {
-    return result(PDM_INTENTS.CATALOG_ANALYSIS, { ...entities, productIds: productIds.slice(0, 2), searchQuery: text }, 'analyze_pdm');
-  }
 
   if (
     SPECIFICATION_ONLY_FOLLOW_UP_PATTERN.test(text)
@@ -445,11 +829,23 @@ export function routePdmIntent({
   }
 
   if (
-    INTENT_PATTERNS.comparison.test(text)
-    && productIds.length >= 2
+    productIds.length >= 2
+    && ['crossbar', 'upper_crossbar', 'bottom_crossbar', 'vertical_beam'].includes(requestedConcept?.conceptId)
+    && tools.has('analyze_pdm')
+  ) {
+    return result(PDM_INTENTS.CATALOG_ANALYSIS, { ...entities, productIds: productIds.slice(0, 2), searchQuery: text }, 'analyze_pdm');
+  }
+
+  if (
+    isComparisonQuery
     && tools.has('compare_boms')
   ) {
-    return result(PDM_INTENTS.BOM_COMPARE, { productIds: productIds.slice(0, 2) }, 'compare_boms');
+    return result(PDM_INTENTS.BOM_COMPARE, {
+      ...entities,
+      productIds: productIds.slice(0, 2),
+      ...(activeConcept ? { componentConcept: activeConcept } : {}),
+      ...(activeMetric ? { metric: activeMetric } : {}),
+    }, 'compare_boms');
   }
 
   if (
@@ -459,14 +855,20 @@ export function routePdmIntent({
     return result(PDM_INTENTS.CATALOG_ANALYSIS, { ...entities, searchQuery: text }, 'analyze_pdm');
   }
 
-  if (tools.has('analyze_pdm') && detectProductShorthand(text) && !PRODUCT_DETAIL_PATTERN.test(text)) {
+  if (
+    productIds.length === 1
+    && (PRODUCT_BOM_COMPONENT_PATTERN.test(text) || basicBomConcept || Boolean(singleSpec) || knownSpecs.length > 0 || FOLDED_COMPONENT_LOOKUP_PATTERN.test(foldedText))
+    && (!detectProductShorthand(text) || PRODUCT_BOM_COMPONENT_PATTERN.test(text) || Boolean(singleSpec) || knownSpecs.length > 0)
+    && !PRODUCT_VARIANT_GAP_PATTERN.test(text)
+    && tools.has('get_bom')
+  ) {
+    return result(PDM_INTENTS.BOM_LOOKUP, { ...entities, componentQuery: text }, 'get_bom');
+  }
+
+  if (productIds.length < 2 && tools.has('analyze_pdm') && detectProductShorthand(text) && !PRODUCT_DETAIL_PATTERN.test(text) && !singleSpec && knownSpecs.length === 0) {
     return result(PDM_INTENTS.CATALOG_ANALYSIS, { ...entities, searchQuery: text }, 'analyze_pdm');
   }
 
-  const EXPLICIT_CATALOG_PATTERN = /\b(?:all\s+lgs|所有\s*lgs|tất\s+cả\s+lgs|所有的?)\b/iu;
-  const VIETNAMESE_CATALOG_PATTERN = /\b(?:tất\s+cả(?:\s+các)?|toàn\s+bộ|mọi)\s+(?:các\s+)?lgs\b/iu;
-  const CATALOG_ANALYSIS_PATTERN = /\b(?:all\s+lgs|tất\s+cả\s+lgs)\b|所有(?:的)?\s*lgs|有几个柜子|有几种铁框|多种布抽|有多零件|共有几个|共用部件|客诉|所有(?:的)?五金包|五金包.{0,16}共用/iu;
-  const CATALOG_COMPONENT_QUESTION_PATTERN = /(?:产品|SKU).{0,24}(?:用|使用|包含|有).{0,24}(?:上横梁|竖梁|竖零件|纸箱|carton|upper crossbar|vertical beam)|(?:上横梁|竖梁|竖零件|纸箱|carton|upper crossbar|vertical beam).{0,24}(?:哪(?:一|些|个)|哪些|共用|独用).{0,12}(?:产品|SKU)?|(?:largest|biggest|maximum|最大的?|最大).{0,20}(?:carton|纸箱)/iu;
   if (
     tools.has('analyze_pdm') &&
     (
@@ -518,46 +920,54 @@ export function routePdmIntent({
     return result(PDM_INTENTS.HELP, entities, 'get_pdm_help');
   }
 
-  if (SCHEMA_PATTERN.test(text) && tools.has('inspect_pdm_schema')) {
-    return result(PDM_INTENTS.SCHEMA, entities, 'inspect_pdm_schema');
-  }
-
-  if (isRecentChanges && tools.has('list_recent_changes')) {
-    return result(PDM_INTENTS.RECENT_CHANGES, entities, 'list_recent_changes');
-  }
-
-  if (
-    productIds.length === 1 && revisions.length === 2 &&
-    (REVISION_CHANGE_PATTERN.test(text) || isRevisionComparisonFollowUp) && tools.has('compare_revisions')
-  ) {
+  if (productIds.length === 1 && revisions.length === 2 && (REVISION_CHANGE_PATTERN.test(text) || isRevisionComparisonFollowUp) && tools.has('compare_revisions')) {
     return result(PDM_INTENTS.REVISION_COMPARE, entities, 'compare_revisions');
   }
 
-  if (INTENT_PATTERNS.comparison.test(text) || FOLDED_COMPARISON_PATTERN.test(foldedText) || productIds.length >= 2 || (COMPARISON_FOLLOW_UP_PATTERN.test(text) && productIds.length >= 2)) {
-    if (productIds.length >= 2 && tools.has('compare_boms')) {
-      return result(PDM_INTENTS.BOM_COMPARE, { productIds: productIds.slice(0, 2) }, 'compare_boms');
+  if (
+    (INTENT_PATTERNS.revision.test(text) || REVISION_STATUS_PATTERN.test(text) || FOLDED_REVISION_PATTERN.test(foldedText))
+    && productIds.length === 1
+    && (tools.has('get_revision_history') || tools.has('get_product'))
+  ) {
+    const prefTool = tools.has('get_revision_history') ? 'get_revision_history' : 'get_product';
+    return result(PDM_INTENTS.REVISION_STATUS, entities, prefTool);
+  }
+
+  if (
+    productIds.length === 1
+    && (PRODUCT_DETAIL_PATTERN.test(text) || FOLDED_PRODUCT_DETAIL_PATTERN.test(foldedText) || INTENT_PATTERNS.currentProduct.test(text))
+    && !PRODUCT_BOM_COMPONENT_PATTERN.test(text)
+    && !INTENT_PATTERNS.bom.test(text)
+    && !basicBomConcept
+    && !singleSpec
+    && knownSpecs.length === 0
+    && tools.has('get_product')
+  ) {
+    return result(PDM_INTENTS.PRODUCT_LOOKUP, entities, 'get_product');
+  }
+
+  if (
+    INTENT_PATTERNS.bom.test(text) ||
+    PRODUCT_SCOPED_LOOKUP_PATTERN.test(text) ||
+    PDM_DISCOVERY_PATTERN.test(text) ||
+    FOLDED_DISCOVERY_PATTERN.test(foldedText) ||
+    FOLDED_COMPONENT_LOOKUP_PATTERN.test(foldedText)
+  ) {
+    if (productIds.length === 1 && tools.has('get_bom')) {
+      const componentQuery = text
+        .replace(PRODUCT_PATTERN, ' ')
+        .replace(REVISION_PATTERN, ' ')
+        .trim();
+      return result(
+        PDM_INTENTS.BOM_LOOKUP,
+        { ...entities, ...(componentQuery ? { componentQuery } : {}) },
+        'get_bom',
+      );
     }
-    return ambiguous(entities);
   }
 
-  if ((INTENT_PATTERNS.revision.test(text) || REVISION_STATUS_PATTERN.test(text) || FOLDED_REVISION_PATTERN.test(foldedText)) && productIds.length === 1 && tools.has('get_revision_history')) {
-    return result(PDM_INTENTS.REVISION_STATUS, entities, 'get_revision_history');
-  }
-
-  if (aliases.length > 0 && INTENT_PATTERNS.alias.test(text) && tools.has('resolve_sku')) {
-    return result(PDM_INTENTS.SKU_ALIAS, { productIds, aliases }, 'resolve_sku');
-  }
-
-  if (INTENT_PATTERNS.bom.test(text) && productIds.length === 1 && tools.has('get_bom')) {
-    return result(PDM_INTENTS.BOM_LOOKUP, entities, 'get_bom');
-  }
-
-  if (productIds.length === 1 && (PRODUCT_DETAIL_PATTERN.test(text) || FOLDED_PRODUCT_DETAIL_PATTERN.test(foldedText)) && tools.has('get_product')) {
-    return result(PDM_INTENTS.DISCOVERY, entities, 'get_product');
-  }
-
-  if (GREETING_PATTERN.test(text) && Object.keys(entities).every(k => !entities[k] || entities[k].length === 0)) {
-    return result(PDM_INTENTS.GREETING, entities, null, 'greeting');
+  if (productIds.length === 1 && (PRODUCT_DETAIL_PATTERN.test(text) || FOLDED_PRODUCT_DETAIL_PATTERN.test(foldedText) || INTENT_PATTERNS.currentProduct.test(text)) && tools.has('get_product')) {
+    return result(PDM_INTENTS.PRODUCT_LOOKUP, entities, 'get_product');
   }
 
   const searchProductId = productIds.length === 1 && (
@@ -572,22 +982,12 @@ export function routePdmIntent({
   }
 
   if ((DIMENSION_PATTERN.test(text) || PDM_DISCOVERY_PATTERN.test(text) || FOLDED_DISCOVERY_PATTERN.test(foldedText)) && tools.has('search_pdm')) {
-    const searchEntities = searchProductId
-      ? {
-          ...entities,
-          searchQuery: text,
-          searchProductId,
-        }
-      : entities;
-    return result(PDM_INTENTS.PDM_SEARCH, searchEntities, 'search_pdm');
+    return result(PDM_INTENTS.PDM_SEARCH, {
+      ...entities,
+      searchQuery: text,
+      ...(searchProductId ? { searchProductId } : {}),
+    }, 'search_pdm');
   }
-
-  if (INTENT_PATTERNS.discovery.test(text) && tools.has('search_products')) {
-    return result(PDM_INTENTS.DISCOVERY, entities, 'search_products');
-  }
-
-  const learned = learnedRoute(text, entities, tools, learnedStrategies);
-  if (learned) return learned;
 
   return ambiguous(entities);
 }

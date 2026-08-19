@@ -100,10 +100,17 @@ const CONCEPT_SYNONYMS = Object.freeze({
   },
   metal_tube: {
     canonicalZh: '铁件',
-    canonicalVi: 'linh ki\u1ec7n s\u1eaft',
+    canonicalVi: 'linh kiện sắt',
     canonicalEn: 'metal part',
-    aliases: ['\u94c1\u4ef6', '\u7ba1\u6750', 'metal part', 'metal tube', 'linh ki\u1ec7n s\u1eaft', '\u1ed1ng s\u1eaft'],
-    searchAliases: ['\u94c1\u7ba1', '\u65b9\u7ba1', '\u5706\u7ba1', '\u94c1\u7f51', '\u7f51\u67b6'],
+    aliases: ['铁件', '管材', 'metal part', 'metal tube', 'linh kiện sắt', 'ống sắt'],
+    searchAliases: ['铁管', '方管', '圆管', '铁网', '网架'],
+  },
+  fastener: {
+    canonicalZh: '螺丝紧固件',
+    canonicalVi: 'ốc vít',
+    canonicalEn: 'fastener',
+    aliases: ['螺丝', '螺钉', '螺母', 'ốc', 'vít', 'ốc vít', 'bu lông', 'bulong', 'screw', 'screws', 'bolt', 'bolts', 'fastener', 'fasteners', 'oc', 'vit', 'oc vit'],
+    searchAliases: ['螺丝', '螺钉', '螺母', '外六角螺丝', '内六角螺丝', '平头螺丝', '自攻螺丝', 'screw', 'bolt'],
   },
 });
 
@@ -240,4 +247,108 @@ export function checkDimensionProximity(targetValue, datasetValues = []) {
       ? `No exact match for ${targetValue}mm, but nearby value(s) ${nearMatches.join(', ')}mm exist. Did you mean exact ${targetValue}mm or approximate matching?`
       : null,
   };
+}
+
+/**
+ * Extract component concept from unstructured text.
+ */
+export function extractComponentConcept(text = '') {
+  const t = String(text).toLowerCase();
+  const folded = foldPdmText(t);
+  if (/\b(?:ốc|vít|bu lông|bulong|ốc vít|screws?|bolts?|fasteners?)\b|螺丝|螺钉|螺母|五金件/iu.test(t) || /\b(?:oc|vit|oc vit|bu long)\b/iu.test(folded)) {
+    return 'fastener';
+  }
+  if (/\b(?:ngăn kéo|túi vải|hộc kéo|drawers?|fabric drawers?)\b|布抽|抽屉/iu.test(t) || /\b(?:ngan keo|tui vai|hoc keo)\b/iu.test(folded)) {
+    return 'drawer_fabric';
+  }
+  if (/\b(?:túi ngũ kim|túi phụ kiện|hardware bags?)\b|五金包|配件包/iu.test(t) || /\b(?:tui ngu kim|tui phu kien)\b/iu.test(folded)) {
+    return 'hardware_bag';
+  }
+  if (/\b(?:thanh ngang|thanh giằng|crossbars?)\b|横梁|上横梁|下横梁/iu.test(t) || /\b(?:thanh ngang|thanh giang)\b/iu.test(folded)) {
+    return 'crossbar';
+  }
+  if (/\b(?:thanh đứng|cột đứng|vertical beams?|columns?)\b|竖梁|立柱/iu.test(t) || /\b(?:thanh dung|cot dung)\b/iu.test(folded)) {
+    return 'vertical_beam';
+  }
+  if (/\b(?:thùng|hộp|bao bì|cartons?|packages?)\b|纸箱|包材|外箱/iu.test(t) || /\b(?:thung|hop|bao bi)\b/iu.test(folded)) {
+    return 'packaging_carton';
+  }
+  return null;
+}
+
+/**
+ * Extract comparison / lookup metric from unstructured text.
+ */
+export function extractMetric(text = '') {
+  const t = String(text).toLowerCase();
+  const folded = foldPdmText(t);
+
+  // 1. similarity_ratio (e.g. "giống nhau bao nhiêu %", "相似度", "similarity")
+  if (
+    /giống nhau.{0,15}(?:bao nhiêu\s*%|mấy\s*%)|similarity|相似度|trùng nhau.{0,15}%|bao nhiêu\s*%/iu.test(t) ||
+    /giong nhau.{0,15}(?:bao nhieu\s*%|may\s*%)|bao nhieu\s*%/iu.test(folded)
+  ) {
+    return 'similarity_ratio';
+  }
+
+  // 2. difference_count (e.g. "khác nhau bao nhiêu", "mấy điểm khác", "多少.*不同")
+  if (
+    /khác nhau.{0,15}bao nhiêu|mấy điểm khác|bao nhiêu điểm khác|多少.*不同|几处不同|how many differences/iu.test(t) ||
+    /khac nhau.{0,15}bao nhieu|may diem khac|bao nhieu diem khac/iu.test(folded)
+  ) {
+    return 'difference_count';
+  }
+
+  // 3. total_quantity (e.g. "tốn ốc", "nhiều ốc hơn", "dùng nhiều hơn", "多少螺丝", "how many screws")
+  if (
+    /tốn|nhiều hơn|ít hơn|bao nhiêu ốc|nhiều ốc|ít ốc|số lượng|多|少|多少螺丝|用得多|用得少|数量|more screws|fewer screws|how many screws|total quantity|quantity/iu.test(t) ||
+    /ton|nhieu hon|it hon|bao nhieu oc|nhieu oc|it oc|so luong/iu.test(folded)
+  ) {
+    return 'total_quantity';
+  }
+
+  // 4. commonality (e.g. "dùng chung", "共用")
+  if (
+    /chung|dùng chung|xài chung|tương thích|giao nhau|共用|通用|互换|common|shared|interchangeable/iu.test(t) ||
+    /chung|dung chung|xai chung|tuong thich/iu.test(folded)
+  ) {
+    return 'commonality';
+  }
+
+  // 5. difference (e.g. "khác nhau", "不同")
+  if (
+    /khác|khác nhau|lệch|chênh lệch|phân biệt|不同|差异|区别|different|difference/iu.test(t) ||
+    /khac|khac nhau|lech|chenh lech/iu.test(folded)
+  ) {
+    return 'difference';
+  }
+
+  return null;
+}
+
+/**
+ * Parse relative change expressions (e.g. "dài hơn 3 li", "tăng 3mm", "加长3mm").
+ */
+export function parseRelativeChange(text = '') {
+  const t = String(text).toLowerCase();
+  const match = t.match(/(?:dài hơn|ngắn hơn|tăng|giảm|加长|缩短|增加|减少|thêm|bớt)\s*(\d+(?:\.\d+)?)\s*(mm|li|cm|毫米)?|(\+|-)\s*(\d+(?:\.\d+)?)\s*(mm|li|cm|毫米)?/iu);
+  if (match) {
+    const rawVal = parseFloat(match[1] || match[4]);
+    let unit = (match[2] || match[5] || 'mm').toLowerCase();
+    let valInMm = rawVal;
+    if (unit === 'li' || unit === '毫米') valInMm = rawVal;
+    if (unit === 'cm') valInMm = rawVal * 10;
+    
+    const isDecrease = /ngắn hơn|giảm|缩短|减少|bớt|-/iu.test(match[0]);
+    const operator = 'delta';
+    const deltaValue = isDecrease ? -valInMm : valInMm;
+
+    return {
+      field: 'length',
+      operator,
+      value: deltaValue,
+      unit: 'mm',
+    };
+  }
+  return null;
 }

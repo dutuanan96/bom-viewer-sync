@@ -578,6 +578,48 @@ test('13c3. Catalog material table states the full count before Excel export', (
   assert.match(text, /共匹配 99 条；当前仅显示前 50 条。请下载 Excel 查看全部结果。/);
 });
 
+test('13c4. Catalog material table includes comp_code prefix in usedInProductRevisions and uses updated headers', () => {
+  const translations = {
+    'ai.localFallback.notice': '本地结果',
+    'ai.localFallback.scope': '范围',
+    'ai.localFallback.totalMatches': '总计',
+    'ai.localFallback.tableIndex': '序号',
+    'ai.localFallback.tableMaterialCode': '物料编码',
+    'ai.localFallback.tableName': '名称',
+    'ai.localFallback.tableSpec': '规格',
+    'ai.localFallback.usedProductsWithRevision': '[编号] 使用产品（生效版本）',
+    'ai.localFallback.representativeColor': '代表产品颜色',
+  };
+  const text = formatLocalToolFallback(key => translations[key] || key, {
+    toolCall: { name: 'analyze_pdm', arguments: { query: '帮我统计所有的布抽' } },
+    toolResult: {
+      scope: 'all',
+      totalCount: 2,
+      representativeColorPolicy: true,
+      results: [
+        {
+          materialCode: 'BC257282168BH',
+          nameZh: 'LGS布抽25.7x28.2x16.8',
+          spec: '257x282x168mm',
+          usedInProductRevisions: ['[Y10] LGS333 (V4.1), LGS433 (V4.1), LGS733 (V4.1)'],
+          representativeColors: ['黑色'],
+        },
+        {
+          materialCode: 'BCLS129228BH',
+          nameZh: '把手',
+          spec: '129x22x8mm',
+          usedInProductRevisions: ['[2] LGS031 (V3), LGS032 (V3.1)', '[4] LGS033 (V4.1), LGS333 (V4.1)'],
+          representativeColors: ['黑色'],
+        },
+      ],
+    },
+  });
+
+  assert.match(text, /\| 序号 \| 物料编码 \| 名称 \| 规格 \| \[编号\] 使用产品（生效版本） \| 代表产品颜色 \|/);
+  assert.match(text, /\[Y10\] LGS333 \(V4\.1\), LGS433 \(V4\.1\), LGS733 \(V4\.1\)/);
+  assert.match(text, /\[2\] LGS031 \(V3\), LGS032 \(V3\.1\)<br>\[4\] LGS033 \(V4\.1\), LGS333 \(V4\.1\)/);
+});
+
 test('13d. General fabric-drawer lookup excludes its strips and bottom boards', () => {
   const snapshot = {
     sourceMetadata: mockSnapshot.sourceMetadata,
@@ -634,4 +676,369 @@ test('Grounding verifier for analyze_pdm and compare_boms', () => {
   });
   assert.equal(groundingCompare.valid, true);
   assert.ok(groundingCompare.requirements.includes('probable equivalence'));
+});
+
+test('14. BOM comparison generates structured table with similarity, sticker label diffs, and excludes manuals', () => {
+  const compareRes = {
+    product1: { productCode: 'LGS733', revision: 'V4.1', color: '复古色' },
+    product2: { productCode: 'LGS723', revision: 'V4.1', color: '复古色' },
+    summary: {
+      commonCount: 2,
+      identicalCount: 0,
+      onlyProduct1Count: 1,
+      onlyProduct2Count: 1,
+      probableCommonCount: 0,
+      quantityOrUnitDifferenceCount: 1,
+      labelDifferenceCount: 1,
+      similarityScore: 0.5,
+    },
+    labelDifferences: [
+      {
+        matCode: 'LGS723XZQSLBH',
+        nameZh: 'LGS723_733-中竖梁-前',
+        comp1: 'L2',
+        comp2: 'L1',
+      },
+    ],
+    common: [
+      {
+        matCode: 'LGS723XZQSLBH',
+        nameZh: 'LGS723_733-中竖梁-前',
+        spec: '198x15x15mm',
+        attributeZh: '零件',
+        componentCode1: 'L2',
+        componentCode2: 'L1',
+        componentCodeDifferent: true,
+        product1: { quantities: ['2'] },
+        product2: { quantities: ['2'] },
+      },
+      {
+        matCode: 'NLPLS6022BZ',
+        nameZh: 'M6x22内六角螺丝',
+        spec: 'M6x22mm',
+        attributeZh: '零件',
+        componentCode1: '3',
+        componentCode2: '3',
+        componentCodeDifferent: false,
+        product1: { quantities: ['16'] },
+        product2: { quantities: ['12'] },
+        quantityOrUnitDifferent: true,
+      },
+    ],
+  };
+
+  const translations = {
+    'ai.localFallback.notice': '本地结果',
+    'ai.localFallback.scope': '范围',
+    'ai.localFallback.similarityScore': 'BOM 相似度',
+    'ai.localFallback.commonMaterials': '共同物料',
+    'ai.localFallback.identicalMatch': '完全一致',
+    'ai.localFallback.packingDifferenceReminder': '包装差异提醒（注意序号标不同）',
+    'ai.localFallback.labelDifferenceWarning': '序号标差异',
+    'ai.localFallback.tableIndex': '序号',
+    'ai.localFallback.tableMaterialCode': '物料编码',
+    'ai.localFallback.tableName': '名称',
+    'ai.localFallback.tableSpec': '规格',
+    'ai.localFallback.totalQuantity': '总用量',
+    'ai.localFallback.status': '状态',
+    'ai.localFallback.quantityDifference': '用量差异',
+  };
+
+  const text = formatLocalToolFallback(key => translations[key] || key, {
+    toolCall: { name: 'compare_boms', arguments: { productId1: 'LGS733', productId2: 'LGS723' } },
+    toolResult: compareRes,
+  });
+
+  assert.match(text, /范围: LGS733 \(V4\.1 复古色\) vs LGS723 \(V4\.1 复古色\)/);
+  assert.match(text, /BOM 相似度: 50%/);
+  assert.match(text, /共同物料: 2 \(完全一致: 0 \| 用量差异: 1 \| ⚠️ 序号标差异: 1\)/);
+  assert.match(text, /📋 \*\*包装差异提醒（注意序号标不同）:\*\*/);
+  assert.match(text, /- \*\*LGS723_733-中竖梁-前\*\*: LGS733 \[L2\] ↔ LGS723 \[L1\]/);
+  assert.match(text, /\*\*零件\*\* \(2\):/);
+  assert.match(text, /\| 序号 \| 物料编码 \| 名称 \| 规格 \| LGS733 总用量 \| LGS723 总用量 \| 状态 \|/);
+  assert.match(text, /LGS723XZQSLBH/);
+  assert.match(text, /序号标差异 \[L2 vs L1\]/);
+  assert.match(text, /用量差异/);
+});
+
+test('15. BOM comparison renders dual difference (label + quantity) and callout quantities', () => {
+  const compareRes = {
+    product1: { productCode: 'LGS723', revision: 'V4.1', color: '复古色' },
+    product2: { productCode: 'LGS733', revision: 'V4.1', color: '复古色' },
+    summary: {
+      commonCount: 1,
+      identicalCount: 0,
+      quantityOrUnitDifferenceCount: 1,
+      labelDifferenceCount: 1,
+      similarityScore: 1.0,
+    },
+    labelDifferences: [
+      {
+        matCode: 'LGS723XZQSLBH',
+        nameZh: 'LGS723_733-中竖梁-前',
+        comp1: 'L1',
+        comp2: 'L2',
+        qty1: '1',
+        qty2: '2',
+      },
+    ],
+    common: [
+      {
+        matCode: 'LGS723XZQSLBH',
+        nameZh: 'LGS723_733-中竖梁-前',
+        spec: '198x15x15mm',
+        attributeZh: '零件',
+        componentCode1: 'L1',
+        componentCode2: 'L2',
+        componentCodeDifferent: true,
+        quantityOrUnitDifferent: true,
+        product1: { qty: '1' },
+        product2: { qty: '2' },
+      },
+    ],
+  };
+
+  const translations = {
+    'ai.localFallback.notice': '本地结果',
+    'ai.localFallback.scope': '范围',
+    'ai.localFallback.similarityScore': 'BOM 相似度',
+    'ai.localFallback.commonMaterials': '共同物料',
+    'ai.localFallback.identicalMatch': '完全一致',
+    'ai.localFallback.packingDifferenceReminder': '包装差异提醒（注意序号标不同）',
+    'ai.localFallback.labelDifferenceWarning': '序号标差异',
+    'ai.localFallback.tableIndex': '序号',
+    'ai.localFallback.tableMaterialCode': '物料编码',
+    'ai.localFallback.tableName': '名称',
+    'ai.localFallback.tableSpec': '规格',
+    'ai.localFallback.totalQuantity': '总用量',
+    'ai.localFallback.status': '状态',
+    'ai.localFallback.quantityDifference': '用量差异',
+  };
+
+  const text = formatLocalToolFallback(key => translations[key] || key, {
+    toolCall: { name: 'compare_boms', arguments: { productId1: 'LGS723', productId2: 'LGS733' } },
+    toolResult: compareRes,
+  });
+
+  assert.match(text, /⚠️ 序号标差异 \[L1 vs L2\] · 用量差异/);
+  assert.match(text, /- \*\*LGS723_733-中竖梁-前\*\*: LGS723 \[L1\] ↔ LGS733 \[L2\] \(LGS723 x1 ↔ LGS733 x2\)/);
+});
+
+test('16. JinTai rule: Same material at Level 1 vs Level 2 is NOT common', () => {
+  const p1 = {
+    productCode: 'PROD_A',
+    revision: 'V1.0',
+    colors: ['默认'],
+    color_info: {
+      '默认': {
+        materials: [
+          { mat_code: 'BOLT_M6', name_zh: 'M6螺丝', spec_zh: 'M6x22', _level: 1, qty: '4', unit: 'pcs' },
+        ],
+      },
+    },
+  };
+  const p2 = {
+    productCode: 'PROD_B',
+    revision: 'V1.0',
+    colors: ['默认'],
+    color_info: {
+      '默认': {
+        materials: [
+          {
+            mat_code: 'WJB_BAG',
+            name_zh: '五金包',
+            spec_zh: '一套',
+            qty: '1',
+            materials: [
+              { mat_code: 'BOLT_M6', name_zh: 'M6螺丝', spec_zh: 'M6x22', qty: '4', unit: 'pcs' },
+            ],
+          },
+        ],
+      },
+    },
+  };
+  const knowledge = new PdmKnowledge({
+    sourceMetadata: { commitSha: '0123456789012345678901234567890123456789' },
+    payload: {
+      bom: { PROD_A: p1, PROD_B: p2 },
+      materialDb: {
+        BOLT_M6: { code: 'BOLT_M6', name: { zh: 'M6螺丝' }, spec: { zh: 'M6x22' }, attr: { zh: '五金' } },
+        WJB_BAG: { code: 'WJB_BAG', name: { zh: '五金包' }, spec: { zh: '一套' }, attr: { zh: '五金' } },
+      },
+    },
+  });
+
+  const res = knowledge.compareBoms({ productId1: 'PROD_A', productId2: 'PROD_B' });
+  assert.equal(res.summary.commonCount, 0, 'Level 1 and Level 2 instances of the same material are not grouped as common');
+  assert.equal(res.onlyProduct1.length, 1);
+  assert.equal(res.onlyProduct2.length, 1);
+});
+
+test('17. Product-specific packaging semantic filter excludes manuals and includes shared packaging', () => {
+  const p1 = {
+    productCode: 'PROD_A',
+    revision: 'V1.0',
+    colors: ['默认'],
+    color_info: {
+      '默认': {
+        materials: [
+          { mat_code: 'PROD_A_SMS', name_zh: '说明书', spec_zh: 'A4', _level: 1, qty: '1', unit: '本' },
+          { mat_code: 'ZHJ001', name_zh: '纸护角', spec_zh: '43x16mm', _level: 1, qty: '4', unit: '个' },
+        ],
+      },
+    },
+  };
+  const p2 = {
+    productCode: 'PROD_B',
+    revision: 'V1.0',
+    colors: ['默认'],
+    color_info: {
+      '默认': {
+        materials: [
+          { mat_code: 'PROD_B_SMS', name_zh: '说明书', spec_zh: 'A4', _level: 1, qty: '1', unit: '本' },
+          { mat_code: 'ZHJ002', name_zh: '纸护角', spec_zh: '43x16mm', _level: 1, qty: '4', unit: '个' },
+        ],
+      },
+    },
+  };
+  const knowledge = new PdmKnowledge({
+    sourceMetadata: { commitSha: '0123456789012345678901234567890123456789' },
+    payload: {
+      bom: { PROD_A: p1, PROD_B: p2 },
+      materialDb: {
+        PROD_A_SMS: { code: 'PROD_A_SMS', name: { zh: '说明书' }, spec: { zh: 'A4' }, attr: { zh: '包材' } },
+        PROD_B_SMS: { code: 'PROD_B_SMS', name: { zh: '说明书' }, spec: { zh: 'A4' }, attr: { zh: '包材' } },
+        ZHJ001: { code: 'ZHJ001', name: { zh: '纸护角' }, spec: { zh: '43x16mm' }, attr: { zh: '包材' } },
+        ZHJ002: { code: 'ZHJ002', name: { zh: '纸护角' }, spec: { zh: '43x16mm' }, attr: { zh: '包材' } },
+      },
+    },
+  });
+
+  const res = knowledge.compareBoms({ productId1: 'PROD_A', productId2: 'PROD_B' });
+  const probableCodes = (res.probableCommon || []).map(item => `${item.product1.matCode}<->${item.product2.matCode}`);
+  assert.ok(probableCodes.includes('ZHJ001<->ZHJ002'), 'Generic packaging is matched as probable common');
+  assert.ok(!probableCodes.some(c => c.includes('SMS')), 'Product-specific manual is strictly excluded from probable common');
+});
+
+test('18. Numeric quantity comparator distinguishes 4+1 from 5 and matches 1+2 to 3', () => {
+  const p1 = {
+    productCode: 'PROD_A',
+    revision: 'V1.0',
+    colors: ['默认'],
+    color_info: {
+      '默认': {
+        materials: [
+          { mat_code: 'MAT_SPLIT', name_zh: '螺丝A', spec_zh: 'M6', _level: 1, qty: '1', unit: 'pcs' },
+          { mat_code: 'MAT_SPLIT', name_zh: '螺丝A', spec_zh: 'M6', _level: 1, qty: '2', unit: 'pcs' },
+          { mat_code: 'MAT_SPARE', name_zh: '螺丝B', spec_zh: 'M6', _level: 1, qty: '4+1', unit: 'pcs' },
+        ],
+      },
+    },
+  };
+  const p2 = {
+    productCode: 'PROD_B',
+    revision: 'V1.0',
+    colors: ['默认'],
+    color_info: {
+      '默认': {
+        materials: [
+          { mat_code: 'MAT_SPLIT', name_zh: '螺丝A', spec_zh: 'M6', _level: 1, qty: '3', unit: 'pcs' },
+          { mat_code: 'MAT_SPARE', name_zh: '螺丝B', spec_zh: 'M6', _level: 1, qty: '5', unit: 'pcs' },
+        ],
+      },
+    },
+  };
+  const knowledge = new PdmKnowledge({
+    sourceMetadata: { commitSha: '0123456789012345678901234567890123456789' },
+    payload: {
+      bom: { PROD_A: p1, PROD_B: p2 },
+      materialDb: {
+        MAT_SPLIT: { code: 'MAT_SPLIT', name: { zh: '螺丝A' }, spec: { zh: 'M6' }, attr: { zh: '五金' } },
+        MAT_SPARE: { code: 'MAT_SPARE', name: { zh: '螺丝B' }, spec: { zh: 'M6' }, attr: { zh: '五金' } },
+      },
+    },
+  });
+
+  const res = knowledge.compareBoms({ productId1: 'PROD_A', productId2: 'PROD_B' });
+  const splitItem = res.common.find(item => item.matCode === 'MAT_SPLIT');
+  const spareItem = res.common.find(item => item.matCode === 'MAT_SPARE');
+
+  assert.equal(splitItem.quantityOrUnitDifferent, false, '1+2 aggregated to 3 matches 3 without quantity difference');
+  assert.equal(spareItem.quantityOrUnitDifferent, true, '4+1 (4 normal + 1 spare) differs from 5 (5 normal)');
+});
+
+test('19. Label coverage difference: [L1] vs none is detected as 序号标差异', () => {
+  const p1 = {
+    productCode: 'PROD_A',
+    revision: 'V1.0',
+    colors: ['默认'],
+    color_info: {
+      '默认': {
+        materials: [
+          { mat_code: 'MAT_LABEL', comp_code: 'L1', name_zh: '竖梁', spec_zh: '198mm', _level: 1, qty: '1', unit: 'pcs' },
+        ],
+      },
+    },
+  };
+  const p2 = {
+    productCode: 'PROD_B',
+    revision: 'V1.0',
+    colors: ['默认'],
+    color_info: {
+      '默认': {
+        materials: [
+          { mat_code: 'MAT_LABEL', comp_code: '', name_zh: '竖梁', spec_zh: '198mm', _level: 1, qty: '1', unit: 'pcs' },
+        ],
+      },
+    },
+  };
+  const knowledge = new PdmKnowledge({
+    sourceMetadata: { commitSha: '0123456789012345678901234567890123456789' },
+    payload: {
+      bom: { PROD_A: p1, PROD_B: p2 },
+      materialDb: {
+        MAT_LABEL: { code: 'MAT_LABEL', name: { zh: '竖梁' }, spec: { zh: '198mm' }, attr: { zh: '零件' } },
+      },
+    },
+  });
+
+  const res = knowledge.compareBoms({ productId1: 'PROD_A', productId2: 'PROD_B' });
+  const item = res.common[0];
+  assert.equal(item.componentCodeDifferent, true, 'One side with [L1] and other with no label is flagged as componentCodeDifferent');
+  assert.equal(item.componentCode1, 'L1');
+  assert.equal(item.componentCode2, '无');
+  assert.equal(res.summary.labelDifferenceCount, 1);
+});
+
+test('20. Large BOM > 200 rows computes complete Jaccard similarity without pre-truncation', () => {
+  const TOTAL_ROWS = 250;
+  const materials1 = [];
+  const materials2 = [];
+  const materialDb = {};
+
+  for (let i = 1; i <= TOTAL_ROWS; i++) {
+    const code = `MAT_ROW_${String(i).padStart(3, '0')}`;
+    materials1.push({ mat_code: code, name_zh: `物料${i}`, spec_zh: 'STD', _level: 1, qty: '1', unit: 'pcs' });
+    materials2.push({ mat_code: code, name_zh: `物料${i}`, spec_zh: 'STD', _level: 1, qty: '1', unit: 'pcs' });
+    materialDb[code] = { code, name: { zh: `物料${i}` }, spec: { zh: 'STD' }, attr: { zh: '零件' } };
+  }
+
+  const knowledge = new PdmKnowledge({
+    sourceMetadata: { commitSha: '0123456789012345678901234567890123456789' },
+    payload: {
+      bom: {
+        PROD_LARGE_A: { productCode: 'PROD_LARGE_A', revision: 'V1.0', colors: ['默认'], color_info: { '默认': { materials: materials1 } } },
+        PROD_LARGE_B: { productCode: 'PROD_LARGE_B', revision: 'V1.0', colors: ['默认'], color_info: { '默认': { materials: materials2 } } },
+      },
+      materialDb,
+    },
+  });
+
+  const res = knowledge.compareBoms({ productId1: 'PROD_LARGE_A', productId2: 'PROD_LARGE_B' });
+  assert.equal(res.product1.totalRows, 250);
+  assert.equal(res.product2.totalRows, 250);
+  assert.equal(res.summary.commonCount, 250, 'All 250 rows are computed in common count');
+  assert.equal(res.summary.similarityScore, 1.0, 'Jaccard similarity is exactly 100% across all 250 rows');
+  assert.equal(res.truncated, true, 'Result is marked truncated for UI display bounding');
+  assert.equal(res.common.length, 100, 'Display list is safely bounded to MAX_COMPARISON_RESULTS');
 });

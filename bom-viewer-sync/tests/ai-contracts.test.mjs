@@ -364,3 +364,116 @@ test('apply_mutation validates product, revision, structure, and asset patterns'
     },
   }), /https|PDF/i);
 });
+
+test('validateToolCall accepts compare_boms with componentConcept and metric', () => {
+  assert.doesNotThrow(() => validateToolCall({
+    name: 'compare_boms',
+    arguments: {
+      productId1: 'LGS723',
+      productId2: 'LGS733',
+      componentConcept: 'fastener',
+      metric: 'total_quantity',
+    },
+  }));
+});
+
+test('validateToolCall enforces strict schema for analyze_ecn_impact change object', () => {
+  // Valid change
+  assert.doesNotThrow(() => validateToolCall({
+    name: 'analyze_ecn_impact',
+    arguments: {
+      targetMaterialId: 'MAT_BOLT_M6',
+      change: {
+        field: 'length',
+        operator: 'delta',
+        value: 3,
+        unit: 'mm',
+      },
+    },
+  }));
+
+  // Unsupported field (e.g. width)
+  assert.throws(() => validateToolCall({
+    name: 'analyze_ecn_impact',
+    arguments: {
+      targetMaterialId: 'MAT_BOLT_M6',
+      change: {
+        field: 'width',
+        operator: 'delta',
+        value: 3,
+        unit: 'mm',
+      },
+    },
+  }), /unsupported ECN relative field/i);
+
+  // Unsupported operator (e.g. set)
+  assert.throws(() => validateToolCall({
+    name: 'analyze_ecn_impact',
+    arguments: {
+      targetMaterialId: 'MAT_BOLT_M6',
+      change: {
+        field: 'length',
+        operator: 'set',
+        value: 3,
+        unit: 'mm',
+      },
+    },
+  }), /unsupported ECN relative operator/i);
+
+  // Non-finite value
+  assert.throws(() => validateToolCall({
+    name: 'analyze_ecn_impact',
+    arguments: {
+      targetMaterialId: 'MAT_BOLT_M6',
+      change: {
+        field: 'length',
+        operator: 'delta',
+        value: '3',
+        unit: 'mm',
+      },
+    },
+  }), /finite number/i);
+
+  // Unsupported unit (e.g. cm)
+  assert.throws(() => validateToolCall({
+    name: 'analyze_ecn_impact',
+    arguments: {
+      targetMaterialId: 'MAT_BOLT_M6',
+      change: {
+        field: 'length',
+        operator: 'delta',
+        value: 3,
+        unit: 'cm',
+      },
+    },
+  }), /unit must be mm/i);
+
+  // Out of bound delta (>100mm)
+  assert.throws(() => validateToolCall({
+    name: 'analyze_ecn_impact',
+    arguments: {
+      targetMaterialId: 'MAT_BOLT_M6',
+      change: {
+        field: 'length',
+        operator: 'delta',
+        value: 200,
+        unit: 'mm',
+      },
+    },
+  }), /allowed limit/i);
+
+  // Extra unexpected keys
+  assert.throws(() => validateToolCall({
+    name: 'analyze_ecn_impact',
+    arguments: {
+      targetMaterialId: 'MAT_BOLT_M6',
+      change: {
+        field: 'length',
+        operator: 'delta',
+        value: 3,
+        unit: 'mm',
+        extra: 'bad',
+      },
+    },
+  }), /unexpected field in analyze_ecn_impact\.change/i);
+});

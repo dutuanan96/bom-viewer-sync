@@ -43,6 +43,20 @@ function coreName(name) {
     .trim();
 }
 
+function isProductSpecificPrintedItem(name) {
+  const normalized = normalizeText(name);
+  if (/说明书|组装说明|安装说明|\bmanual\b|\binstruction\b/i.test(normalized)) {
+    return true;
+  }
+  if (/(?:外箱|内盒|彩盒|纸箱)/i.test(normalized)) {
+    if (/护角|纸卡|纸板|蜂窝/i.test(normalized)) {
+      return false;
+    }
+    return true;
+  }
+  return false;
+}
+
 function assetLocator(asset) {
   return normalizeText(asset?.sourceUrl || asset?.previewUrl || asset?.url || asset?.path || '');
 }
@@ -113,6 +127,17 @@ export function evaluateEquivalence(item1, item2, snapshot = {}, context = {}) {
       score: 100,
       reasons: ['exact_material_identity'],
       conflicts: [],
+    };
+  }
+
+  if (isProductSpecificPrintedItem(name1) || isProductSpecificPrintedItem(name2)) {
+    return {
+      isExact: false,
+      isProbable: false,
+      confidence: 'none',
+      score: 0,
+      reasons: [],
+      conflicts: ['product_specific_printed_item'],
     };
   }
 
