@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-19T09:27:45.556Z",
+  "updatedAt": "2026-08-19T09:29:42.739Z",
   "products": [
     "LGS031",
     "LGS032",
@@ -40637,12 +40637,12 @@
     },
     "LGS334": {
       "currentRevision": "V4.1",
-      "effectiveRevision": "V4",
+      "effectiveRevision": "V4.1",
       "currentRevisionInfo": {
         "sourceRevision": "V4",
         "createdAt": "2026-08-15T07:52:59.233Z",
         "changeReason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -46598,6 +46598,14 @@
           "previousRevision": "V4.1",
           "occurredAt": "2026-08-19T09:26:17.537Z",
           "reason": "54底脚更新"
+        },
+        {
+          "id": "effectivity_mszw4cvp",
+          "action": "release",
+          "revision": "V4.1",
+          "previousRevision": "V4",
+          "occurredAt": "2026-08-19T09:29:42.709Z",
+          "reason": "更新"
         }
       ]
     },
@@ -134119,6 +134127,29 @@
   },
   "notifications": [
     {
+      "id": "notif_v65mt2",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-19T09:29:42.739Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS334",
+          "field": "effectiveRevision",
+          "before": "V4",
+          "after": "V4.1"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS334",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        }
+      ]
+    },
+    {
       "id": "notif_1ml9q6u",
       "type": "github-save",
       "actor": "admin",
@@ -135075,43 +135106,6 @@
           "field": "",
           "before": "ZJG150654WH",
           "after": "ZJG15065423WH"
-        }
-      ]
-    },
-    {
-      "id": "notif_9xkruc",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-13T11:11:24.505Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "bom_added",
-          "code": "ZJG15065423WH",
-          "field": "FG1515066010",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "bom_added",
-          "code": "ZJG15065423WH",
-          "field": "M6GS1515WH",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "bom_added",
-          "code": "ZJG15065423WH",
-          "field": "M6YLM139",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "bom_added",
-          "code": "ZJG15065423WH",
-          "field": "NLPLS6018WZ",
-          "before": "",
-          "after": ""
         }
       ]
     }
@@ -137137,6 +137131,31 @@
       }
     ],
     "LGS334": [
+      {
+        "id": "history_1gns7qm",
+        "productCode": "LGS334",
+        "revision": "V4.1",
+        "action": "release",
+        "actor": "admin",
+        "reason": "更新",
+        "createdAt": "2026-08-19T09:29:42.739Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS334",
+            "field": "effectiveRevision",
+            "before": "V4",
+            "after": "V4.1"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS334",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
       {
         "id": "history_1pv2g0b",
         "productCode": "LGS334",
