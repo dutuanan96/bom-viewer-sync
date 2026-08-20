@@ -1782,7 +1782,7 @@
       ]
     },
     "白色": {
-      "sku": "LGS420W101S",
+      "sku": "LGS420W101V1S",
       "name": "云白色4列2层2抽开放式带灯带电布抽电视柜-63inch",
       "name_zh": "云白色4列2层2抽开放式带灯带电布抽电视柜-63inch",
       "name_vi": "màu trắng mây 4 cột 2 tầng 2 Tủ đựng TV kiểu ngăn kéo mở có đèn và điện-63inch",
@@ -3557,7 +3557,7 @@
       ]
     },
     "黑色": {
-      "sku": "LGS420B101S",
+      "sku": "LGS420B101V1S",
       "name": "烟墨黑4列2层2抽开放式带灯带电布抽电视柜-63inch",
       "name_zh": "烟墨黑4列2层2抽开放式带灯带电布抽电视柜-63inch",
       "name_vi": "đen khói 4 cột 2 tầng 2 Tủ đựng TV kiểu ngăn kéo mở có đèn và điện-63inch",
@@ -5333,5 +5333,6 @@
     }
   },
   "name_zh": "复古色4列2层2抽开放式带灯带电布抽电视柜-63inch",
-  "name_vi": "màu gỗ cổ 4 cột 2 tầng 2 Tủ đựng TV kiểu ngăn kéo mở có đèn và điện-63inch"
+  "name_vi": "màu gỗ cổ 4 cột 2 tầng 2 Tủ đựng TV kiểu ngăn kéo mở có đèn và điện-63inch",
+  "revision": "V4.1"
 }

@@ -6,7 +6,7 @@
   ],
   "color_info": {
     "复古色": {
-      "sku": "LGS231K101S",
+      "sku": "LGS231K101V1S",
       "name": "复古色3列2层1抽开放式带灯带电布抽电视柜-70inch",
       "name_zh": "复古色3列2层1抽开放式带灯带电布抽电视柜-70inch",
       "name_vi": "màu gỗ cổ 3 cột 2 tầng 1 Tủ đựng TV kiểu ngăn kéo mở có đèn và điện-70inch",
@@ -1687,7 +1687,7 @@
       ]
     },
     "黑色": {
-      "sku": "LGS231B101S",
+      "sku": "LGS231B101V1S",
       "name": "烟墨黑3列2层1抽开放式带灯带电布抽电视柜-70inch",
       "name_zh": "烟墨黑3列2层1抽开放式带灯带电布抽电视柜-70inch",
       "name_vi": "đen khói 3 cột 2 tầng 1 Tủ đựng TV kiểu ngăn kéo mở có đèn và điện-70inch",
@@ -3369,5 +3369,6 @@
     }
   },
   "name_zh": "复古色3列2层1抽开放式带灯带电布抽电视柜-70inch",
-  "name_vi": "màu gỗ cổ 3 cột 2 tầng 1 Tủ đựng TV kiểu ngăn kéo mở có đèn và điện-70inch"
+  "name_vi": "màu gỗ cổ 3 cột 2 tầng 1 Tủ đựng TV kiểu ngăn kéo mở có đèn và điện-70inch",
+  "revision": "V3.1"
 }
