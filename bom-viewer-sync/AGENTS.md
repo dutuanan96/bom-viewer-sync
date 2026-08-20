@@ -6,6 +6,7 @@ Read these files before changing this repository:
 2. `docs/ARCHITECTURE.md`
 3. `docs/PDM_AI_MAINTENANCE.md`
 4. `docs/RELEASE.md`
+5. `docs/pdm-ai-master-manual/README.md`
 
 ## Non-negotiable boundaries
 
