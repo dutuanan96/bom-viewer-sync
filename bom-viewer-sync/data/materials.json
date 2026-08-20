@@ -38866,96 +38866,6 @@
           "vi": "thanh"
         }
       },
-      "mat_fg132132065990": {
-        "id": "mat_fg132132065990",
-        "code": "FG132132065990",
-        "name": {
-          "zh": "方管",
-          "vi": "Sắt hộp"
-        },
-        "spec": {
-          "zh": "13.2×13.2×0.6Tmm，长度 5990mm",
-          "vi": "13.2×13.2×0.6Tmm, dài 5990mm"
-        },
-        "material": {
-          "zh": "Q195",
-          "vi": "Q195"
-        },
-        "color": {
-          "zh": "光亮",
-          "vi": "sáng bóng"
-        },
-        "attr": {
-          "zh": "原材料",
-          "vi": "Nguyên vật liệu"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "根",
-          "vi": "thanh"
-        }
-      },
-      "mat_fg132132066150": {
-        "id": "mat_fg132132066150",
-        "code": "FG132132066150",
-        "name": {
-          "zh": "方管",
-          "vi": "Sắt hộp"
-        },
-        "spec": {
-          "zh": "13.2×13.2×0.6Tmm，长度 6150mm",
-          "vi": "13.2×13.2×0.6Tmm, dài 6150mm"
-        },
-        "material": {
-          "zh": "Q195",
-          "vi": "Q195"
-        },
-        "color": {
-          "zh": "光亮",
-          "vi": "sáng bóng"
-        },
-        "attr": {
-          "zh": "原材料",
-          "vi": "Nguyên vật liệu"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "根",
-          "vi": "thanh"
-        }
-      },
-      "mat_fg1515064864": {
-        "id": "mat_fg1515064864",
-        "code": "FG1515064864",
-        "name": {
-          "zh": "方管",
-          "vi": "Sắt hộp"
-        },
-        "spec": {
-          "zh": "15×15×0.6Tmm，长度 4864mm",
-          "vi": "15×15×0.6Tmm, dài 4864mm"
-        },
-        "material": {
-          "zh": "Q195",
-          "vi": "Q195"
-        },
-        "color": {
-          "zh": "光亮",
-          "vi": "sáng bóng"
-        },
-        "attr": {
-          "zh": "原材料",
-          "vi": "Nguyên vật liệu"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "根",
-          "vi": "thanh"
-        }
-      },
       "mat_fg1515064876": {
         "id": "mat_fg1515064876",
         "code": "FG1515064876",
@@ -38966,36 +38876,6 @@
         "spec": {
           "zh": "15×15×0.6Tmm，长度 4876mm",
           "vi": "15×15×0.6Tmm, dài 4876mm"
-        },
-        "material": {
-          "zh": "Q195",
-          "vi": "Q195"
-        },
-        "color": {
-          "zh": "光亮",
-          "vi": "sáng bóng"
-        },
-        "attr": {
-          "zh": "原材料",
-          "vi": "Nguyên vật liệu"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "根",
-          "vi": "thanh"
-        }
-      },
-      "mat_fg1515065000": {
-        "id": "mat_fg1515065000",
-        "code": "FG1515065000",
-        "name": {
-          "zh": "方管",
-          "vi": "Sắt hộp"
-        },
-        "spec": {
-          "zh": "15×15×0.6Tmm，长度 5000mm",
-          "vi": "15×15×0.6Tmm, dài 5000mm"
         },
         "material": {
           "zh": "Q195",
@@ -39136,36 +39016,6 @@
           "vi": "thanh"
         }
       },
-      "mat_fg1515065560": {
-        "id": "mat_fg1515065560",
-        "code": "FG1515065560",
-        "name": {
-          "zh": "方管",
-          "vi": "Sắt hộp"
-        },
-        "spec": {
-          "zh": "15×15×0.6Tmm，长度 5560mm",
-          "vi": "15×15×0.6Tmm, dài 5560mm"
-        },
-        "material": {
-          "zh": "Q195",
-          "vi": "Q195"
-        },
-        "color": {
-          "zh": "光亮",
-          "vi": "sáng bóng"
-        },
-        "attr": {
-          "zh": "原材料",
-          "vi": "Nguyên vật liệu"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "根",
-          "vi": "thanh"
-        }
-      },
       "mat_fg1515065566": {
         "id": "mat_fg1515065566",
         "code": "FG1515065566",
@@ -39236,66 +39086,6 @@
         "spec": {
           "zh": "15×15×0.6Tmm，长度 5630mm",
           "vi": "15×15×0.6Tmm, dài 5630mm"
-        },
-        "material": {
-          "zh": "Q195",
-          "vi": "Q195"
-        },
-        "color": {
-          "zh": "光亮",
-          "vi": "sáng bóng"
-        },
-        "attr": {
-          "zh": "原材料",
-          "vi": "Nguyên vật liệu"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "根",
-          "vi": "thanh"
-        }
-      },
-      "mat_fg1515065655": {
-        "id": "mat_fg1515065655",
-        "code": "FG1515065655",
-        "name": {
-          "zh": "方管",
-          "vi": "Sắt hộp"
-        },
-        "spec": {
-          "zh": "15×15×0.6Tmm，长度 5655mm",
-          "vi": "15×15×0.6Tmm, dài 5655mm"
-        },
-        "material": {
-          "zh": "Q195",
-          "vi": "Q195"
-        },
-        "color": {
-          "zh": "光亮",
-          "vi": "sáng bóng"
-        },
-        "attr": {
-          "zh": "原材料",
-          "vi": "Nguyên vật liệu"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "根",
-          "vi": "thanh"
-        }
-      },
-      "mat_fg1515065662": {
-        "id": "mat_fg1515065662",
-        "code": "FG1515065662",
-        "name": {
-          "zh": "方管",
-          "vi": "Sắt hộp"
-        },
-        "spec": {
-          "zh": "15×15×0.6Tmm，长度 5662mm",
-          "vi": "15×15×0.6Tmm, dài 5662mm"
         },
         "material": {
           "zh": "Q195",
@@ -39406,66 +39196,6 @@
           "vi": "thanh"
         }
       },
-      "mat_fg1515065752": {
-        "id": "mat_fg1515065752",
-        "code": "FG1515065752",
-        "name": {
-          "zh": "方管",
-          "vi": "Sắt hộp"
-        },
-        "spec": {
-          "zh": "15×15×0.6Tmm，长度 5752mm",
-          "vi": "15×15×0.6Tmm, dài 5752mm"
-        },
-        "material": {
-          "zh": "Q195",
-          "vi": "Q195"
-        },
-        "color": {
-          "zh": "光亮",
-          "vi": "sáng bóng"
-        },
-        "attr": {
-          "zh": "原材料",
-          "vi": "Nguyên vật liệu"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "根",
-          "vi": "thanh"
-        }
-      },
-      "mat_fg1515065753": {
-        "id": "mat_fg1515065753",
-        "code": "FG1515065753",
-        "name": {
-          "zh": "方管",
-          "vi": "Sắt hộp"
-        },
-        "spec": {
-          "zh": "15×15×0.6Tmm，长度 5753mm",
-          "vi": "15×15×0.6Tmm, dài 5753mm"
-        },
-        "material": {
-          "zh": "Q195",
-          "vi": "Q195"
-        },
-        "color": {
-          "zh": "光亮",
-          "vi": "sáng bóng"
-        },
-        "attr": {
-          "zh": "原材料",
-          "vi": "Nguyên vật liệu"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "根",
-          "vi": "thanh"
-        }
-      },
       "mat_fg1515065766": {
         "id": "mat_fg1515065766",
         "code": "FG1515065766",
@@ -39476,96 +39206,6 @@
         "spec": {
           "zh": "15×15×0.6Tmm，长度 5766mm",
           "vi": "15×15×0.6Tmm, dài 5766mm"
-        },
-        "material": {
-          "zh": "Q195",
-          "vi": "Q195"
-        },
-        "color": {
-          "zh": "光亮",
-          "vi": "sáng bóng"
-        },
-        "attr": {
-          "zh": "原材料",
-          "vi": "Nguyên vật liệu"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "根",
-          "vi": "thanh"
-        }
-      },
-      "mat_fg1515065782": {
-        "id": "mat_fg1515065782",
-        "code": "FG1515065782",
-        "name": {
-          "zh": "方管",
-          "vi": "Sắt hộp"
-        },
-        "spec": {
-          "zh": "15×15×0.6Tmm，长度 5782mm",
-          "vi": "15×15×0.6Tmm, dài 5782mm"
-        },
-        "material": {
-          "zh": "Q195",
-          "vi": "Q195"
-        },
-        "color": {
-          "zh": "光亮",
-          "vi": "sáng bóng"
-        },
-        "attr": {
-          "zh": "原材料",
-          "vi": "Nguyên vật liệu"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "根",
-          "vi": "thanh"
-        }
-      },
-      "mat_fg1515065790": {
-        "id": "mat_fg1515065790",
-        "code": "FG1515065790",
-        "name": {
-          "zh": "方管",
-          "vi": "Sắt hộp"
-        },
-        "spec": {
-          "zh": "15×15×0.6Tmm，长度 5790mm",
-          "vi": "15×15×0.6Tmm, dài 5790mm"
-        },
-        "material": {
-          "zh": "Q195",
-          "vi": "Q195"
-        },
-        "color": {
-          "zh": "光亮",
-          "vi": "sáng bóng"
-        },
-        "attr": {
-          "zh": "原材料",
-          "vi": "Nguyên vật liệu"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "根",
-          "vi": "thanh"
-        }
-      },
-      "mat_fg1515065800": {
-        "id": "mat_fg1515065800",
-        "code": "FG1515065800",
-        "name": {
-          "zh": "方管",
-          "vi": "Sắt hộp"
-        },
-        "spec": {
-          "zh": "15×15×0.6Tmm，长度 5800mm",
-          "vi": "15×15×0.6Tmm, dài 5800mm"
         },
         "material": {
           "zh": "Q195",
@@ -39646,66 +39286,6 @@
           "vi": "thanh"
         }
       },
-      "mat_fg1515065884": {
-        "id": "mat_fg1515065884",
-        "code": "FG1515065884",
-        "name": {
-          "zh": "方管",
-          "vi": "Sắt hộp"
-        },
-        "spec": {
-          "zh": "15×15×0.6Tmm，长度 5884mm",
-          "vi": "15×15×0.6Tmm, dài 5884mm"
-        },
-        "material": {
-          "zh": "Q195",
-          "vi": "Q195"
-        },
-        "color": {
-          "zh": "光亮",
-          "vi": "sáng bóng"
-        },
-        "attr": {
-          "zh": "原材料",
-          "vi": "Nguyên vật liệu"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "根",
-          "vi": "thanh"
-        }
-      },
-      "mat_fg1515065886": {
-        "id": "mat_fg1515065886",
-        "code": "FG1515065886",
-        "name": {
-          "zh": "方管",
-          "vi": "Sắt hộp"
-        },
-        "spec": {
-          "zh": "15×15×0.6Tmm，长度 5886mm",
-          "vi": "15×15×0.6Tmm, dài 5886mm"
-        },
-        "material": {
-          "zh": "Q195",
-          "vi": "Q195"
-        },
-        "color": {
-          "zh": "光亮",
-          "vi": "sáng bóng"
-        },
-        "attr": {
-          "zh": "原材料",
-          "vi": "Nguyên vật liệu"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "根",
-          "vi": "thanh"
-        }
-      },
       "mat_fg1515065900": {
         "id": "mat_fg1515065900",
         "code": "FG1515065900",
@@ -39716,66 +39296,6 @@
         "spec": {
           "zh": "15×15×0.6Tmm，长度 5900mm",
           "vi": "15×15×0.6Tmm, dài 5900mm"
-        },
-        "material": {
-          "zh": "Q195",
-          "vi": "Q195"
-        },
-        "color": {
-          "zh": "光亮",
-          "vi": "sáng bóng"
-        },
-        "attr": {
-          "zh": "原材料",
-          "vi": "Nguyên vật liệu"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "根",
-          "vi": "thanh"
-        }
-      },
-      "mat_fg1515065918": {
-        "id": "mat_fg1515065918",
-        "code": "FG1515065918",
-        "name": {
-          "zh": "方管",
-          "vi": "Sắt hộp"
-        },
-        "spec": {
-          "zh": "15×15×0.6Tmm，长度 5918mm",
-          "vi": "15×15×0.6Tmm, dài 5918mm"
-        },
-        "material": {
-          "zh": "Q195",
-          "vi": "Q195"
-        },
-        "color": {
-          "zh": "光亮",
-          "vi": "sáng bóng"
-        },
-        "attr": {
-          "zh": "原材料",
-          "vi": "Nguyên vật liệu"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "根",
-          "vi": "thanh"
-        }
-      },
-      "mat_fg1515065930": {
-        "id": "mat_fg1515065930",
-        "code": "FG1515065930",
-        "name": {
-          "zh": "方管",
-          "vi": "Sắt hộp"
-        },
-        "spec": {
-          "zh": "15×15×0.6Tmm，长度 5930mm",
-          "vi": "15×15×0.6Tmm, dài 5930mm"
         },
         "material": {
           "zh": "Q195",
@@ -39856,36 +39376,6 @@
           "vi": "thanh"
         }
       },
-      "mat_fg1515066010": {
-        "id": "mat_fg1515066010",
-        "code": "FG1515066010",
-        "name": {
-          "zh": "方管",
-          "vi": "Sắt hộp"
-        },
-        "spec": {
-          "zh": "15×15×0.6Tmm，长度 6010mm",
-          "vi": "15×15×0.6Tmm, dài 6010mm"
-        },
-        "material": {
-          "zh": "Q195",
-          "vi": "Q195"
-        },
-        "color": {
-          "zh": "光亮",
-          "vi": "sáng bóng"
-        },
-        "attr": {
-          "zh": "原材料",
-          "vi": "Nguyên vật liệu"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "根",
-          "vi": "thanh"
-        }
-      },
       "mat_fg1515066013": {
         "id": "mat_fg1515066013",
         "code": "FG1515066013",
@@ -39896,36 +39386,6 @@
         "spec": {
           "zh": "15×15×0.6Tmm，长度 6013mm",
           "vi": "15×15×0.6Tmm, dài 6013mm"
-        },
-        "material": {
-          "zh": "Q195",
-          "vi": "Q195"
-        },
-        "color": {
-          "zh": "光亮",
-          "vi": "sáng bóng"
-        },
-        "attr": {
-          "zh": "原材料",
-          "vi": "Nguyên vật liệu"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "根",
-          "vi": "thanh"
-        }
-      },
-      "mat_fg1515066082": {
-        "id": "mat_fg1515066082",
-        "code": "FG1515066082",
-        "name": {
-          "zh": "方管",
-          "vi": "Sắt hộp"
-        },
-        "spec": {
-          "zh": "15×15×0.6Tmm，长度 6082mm",
-          "vi": "15×15×0.6Tmm, dài 6082mm"
         },
         "material": {
           "zh": "Q195",
@@ -40006,36 +39466,6 @@
           "vi": "thanh"
         }
       },
-      "mat_fg1515066170": {
-        "id": "mat_fg1515066170",
-        "code": "FG1515066170",
-        "name": {
-          "zh": "方管",
-          "vi": "Sắt hộp"
-        },
-        "spec": {
-          "zh": "15×15×0.6Tmm，长度 6170mm",
-          "vi": "15×15×0.6Tmm, dài 6170mm"
-        },
-        "material": {
-          "zh": "Q195",
-          "vi": "Q195"
-        },
-        "color": {
-          "zh": "光亮",
-          "vi": "sáng bóng"
-        },
-        "attr": {
-          "zh": "原材料",
-          "vi": "Nguyên vật liệu"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "根",
-          "vi": "thanh"
-        }
-      },
       "mat_fg1515066182": {
         "id": "mat_fg1515066182",
         "code": "FG1515066182",
@@ -40046,96 +39476,6 @@
         "spec": {
           "zh": "15×15×0.6Tmm，长度 6182mm",
           "vi": "15×15×0.6Tmm, dài 6182mm"
-        },
-        "material": {
-          "zh": "Q195",
-          "vi": "Q195"
-        },
-        "color": {
-          "zh": "光亮",
-          "vi": "sáng bóng"
-        },
-        "attr": {
-          "zh": "原材料",
-          "vi": "Nguyên vật liệu"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "根",
-          "vi": "thanh"
-        }
-      },
-      "mat_fg28136066150": {
-        "id": "mat_fg28136066150",
-        "code": "FG28136066150",
-        "name": {
-          "zh": "方管",
-          "vi": "Sắt hộp"
-        },
-        "spec": {
-          "zh": "28×13.6×0.6Tmm，长度 6150mm",
-          "vi": "28×13.6×0.6Tmm, dài 6150mm"
-        },
-        "material": {
-          "zh": "Q195",
-          "vi": "Q195"
-        },
-        "color": {
-          "zh": "光亮",
-          "vi": "sáng bóng"
-        },
-        "attr": {
-          "zh": "原材料",
-          "vi": "Nguyên vật liệu"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "根",
-          "vi": "thanh"
-        }
-      },
-      "mat_fg3015065632": {
-        "id": "mat_fg3015065632",
-        "code": "FG3015065632",
-        "name": {
-          "zh": "方管",
-          "vi": "Sắt hộp"
-        },
-        "spec": {
-          "zh": "30×15×0.6Tmm，长度 5632mm",
-          "vi": "30×15×0.6Tmm, dài 5632mm"
-        },
-        "material": {
-          "zh": "Q195",
-          "vi": "Q195"
-        },
-        "color": {
-          "zh": "光亮",
-          "vi": "sáng bóng"
-        },
-        "attr": {
-          "zh": "原材料",
-          "vi": "Nguyên vật liệu"
-        },
-        "drawings": [],
-        "models3d": [],
-        "unit": {
-          "zh": "根",
-          "vi": "thanh"
-        }
-      },
-      "mat_fg3015065740": {
-        "id": "mat_fg3015065740",
-        "code": "FG3015065740",
-        "name": {
-          "zh": "方管",
-          "vi": "Sắt hộp"
-        },
-        "spec": {
-          "zh": "30×15×0.6Tmm，长度 5740mm",
-          "vi": "30×15×0.6Tmm, dài 5740mm"
         },
         "material": {
           "zh": "Q195",
@@ -40519,49 +39859,6 @@
             "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@6f6acea992a2b3f2c6508263f7c8856fea4e5a09/assets/models/M6LMP2881385_bc59d1a75c7849aed869a966464d2c5fb8ac3261af0bef4e2b5f83ff4bb2329a_M6_.glb",
             "name": "M6螺母片",
             "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@6f6acea992a2b3f2c6508263f7c8856fea4e5a09/assets/models/M6LMP2881385_bc59d1a75c7849aed869a966464d2c5fb8ac3261af0bef4e2b5f83ff4bb2329a_M6_.glb"
-          }
-        ],
-        "unit": {
-          "zh": "根",
-          "vi": "thanh"
-        }
-      },
-      "mat_80132132ljj": {
-        "id": "mat_80132132ljj",
-        "code": "80132132LJJ",
-        "name": {
-          "zh": "连接件",
-          "vi": "Chi tiết nối"
-        },
-        "spec": {
-          "zh": "80x13.2x13.2mm",
-          "vi": "80x13.2x13.2mm"
-        },
-        "material": {
-          "zh": "Q195",
-          "vi": "Q195"
-        },
-        "color": {
-          "zh": "光亮",
-          "vi": "sáng bóng"
-        },
-        "attr": {
-          "zh": "原材料",
-          "vi": "Nguyên vật liệu"
-        },
-        "drawings": [
-          {
-            "name": "连接件.pdf",
-            "path": "drawings/catalog/drawing-80132132ljj-afa05758.pdf",
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@c900cbbb125ca7f977f652ab264c6405e4bf7d89/assets/pdfs/80132132LJJ_ec7690c37d5e56565bb0b646aba12985a5c0d36d7652e2925c0ccf203ba4c1f4_pdf.pdf",
-            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-80132132ljj-afa05758.pdf"
-          }
-        ],
-        "models3d": [
-          {
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@17d0e4bbb8d01534e4a1d853754048b6389f6997/assets/models/80132132LJJ_e2576f91d2b184be849046d87a16b464fdc6eb23ca701f1df8adee7f83629b0e_glb.glb",
-            "name": "连接件.glb",
-            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@17d0e4bbb8d01534e4a1d853754048b6389f6997/assets/models/80132132LJJ_e2576f91d2b184be849046d87a16b464fdc6eb23ca701f1df8adee7f83629b0e_glb.glb"
           }
         ],
         "unit": {
@@ -42054,47 +41351,6 @@
           "vi": "thanh"
         }
       },
-      "mat_y8rp64": {
-        "id": "mat_y8rp64",
-        "code": "LJJ8028136",
-        "name": {
-          "zh": "连接件(4个螺母)",
-          "vi": "Chi tiết nối (4 đai ốc)"
-        },
-        "spec": {
-          "zh": "80x28x13.6mm",
-          "vi": "80x28x13.6mm"
-        },
-        "material": {
-          "zh": "Q195",
-          "vi": "Q195"
-        },
-        "color": {
-          "zh": "光亮",
-          "vi": "sáng bóng"
-        },
-        "attr": {
-          "zh": "原材料",
-          "vi": "Nguyên vật liệu"
-        },
-        "drawings": [
-          {
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@e2cb955d680b1cb5448d74685e48c1067c6492c3/assets/pdfs/LJJ8028136_488374528966f1dfdd585e0a9c77bd81e2b438892e7e0404cee8cd2213114565_4_.pdf",
-            "name": "连接件(4个螺母).pdf"
-          }
-        ],
-        "models3d": [
-          {
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8bfb98c6c430e586d2226e81d099234eb6298ade/assets/models/LJJ8028136_9cb82ebfcf9d5f9e396e49cf54d13df6d21c3378801e849f7d8fdbac83655425_4_.glb",
-            "name": "连接件(4个螺母).glb",
-            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8bfb98c6c430e586d2226e81d099234eb6298ade/assets/models/LJJ8028136_9cb82ebfcf9d5f9e396e49cf54d13df6d21c3378801e849f7d8fdbac83655425_4_.glb"
-          }
-        ],
-        "unit": {
-          "zh": "根",
-          "vi": "thanh"
-        }
-      },
       "mat_lgs433szkzbh": {
         "id": "mat_lgs433szkzbh",
         "code": "LGS433SZKZBH",
@@ -42278,36 +41534,6 @@
             "bytes": 106004
           }
         ],
-        "unit": {
-          "zh": "根",
-          "vi": "thanh"
-        }
-      },
-      "mat_fg1515064816647": {
-        "id": "mat_fg1515064816647",
-        "code": "FG1515064816",
-        "name": {
-          "zh": "方管",
-          "vi": "Sắt hộp"
-        },
-        "spec": {
-          "zh": "15×15×0.6Tmm，长度 4816mm",
-          "vi": "15×15×0.6Tmm, dài 4816mm"
-        },
-        "material": {
-          "zh": "Q195",
-          "vi": "Q195"
-        },
-        "color": {
-          "zh": "光亮",
-          "vi": "sáng bóng"
-        },
-        "attr": {
-          "zh": "原材料",
-          "vi": "Nguyên vật liệu"
-        },
-        "drawings": [],
-        "models3d": [],
         "unit": {
           "zh": "根",
           "vi": "thanh"
@@ -42921,8 +42147,8 @@
           "vi": "LGS233 khung bên trái"
         },
         "spec": {
-          "zh": "647x380x15mm",
-          "vi": "647x380x15mm"
+          "zh": "647x335x15mm",
+          "vi": "647x335x15mm"
         },
         "material": {
           "zh": "Q195",
@@ -42965,8 +42191,8 @@
           "vi": "LGS233 khung bên phải"
         },
         "spec": {
-          "zh": "647x380x15mm",
-          "vi": "647x380x15mm"
+          "zh": "647x335x15mm",
+          "vi": "647x335x15mm"
         },
         "material": {
           "zh": "Q195",
@@ -43009,8 +42235,8 @@
           "vi": "LGS233 khung bên trái"
         },
         "spec": {
-          "zh": "647x380x15mm",
-          "vi": "647x380x15mm"
+          "zh": "647x335x15mm",
+          "vi": "647x335x15mm"
         },
         "material": {
           "zh": "Q195",
@@ -43053,8 +42279,8 @@
           "vi": "LGS233 khung bên phải"
         },
         "spec": {
-          "zh": "647x380x15mm",
-          "vi": "647x380x15mm"
+          "zh": "647x335x15mm",
+          "vi": "647x335x15mm"
         },
         "material": {
           "zh": "Q195",
@@ -44009,6 +43235,126 @@
         "spec": {
           "zh": "15×15×0.6Tmm，长度 4930mm",
           "vi": "15×15×0.6Tmm, dài 4930mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "根",
+          "vi": "thanh"
+        }
+      },
+      "mat_fg132132105190": {
+        "id": "mat_fg132132105190",
+        "code": "FG132132105190",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "13.2×13.2×1Tmm，长度 5190mm",
+          "vi": "13.2×13.2×1Tmm, dài 5190mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "根",
+          "vi": "thanh"
+        }
+      },
+      "mat_fg3015065014": {
+        "id": "mat_fg3015065014",
+        "code": "FG3015065014",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "30×15×0.6Tmm，长度 5014mm",
+          "vi": "30×15×0.6Tmm, dài 5014mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "根",
+          "vi": "thanh"
+        }
+      },
+      "mat_fg3015066550": {
+        "id": "mat_fg3015066550",
+        "code": "FG3015066550",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "30×15×0.6Tmm，长度 6550mm",
+          "vi": "30×15×0.6Tmm, dài 6550mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "根",
+          "vi": "thanh"
+        }
+      },
+      "mat_fg28136065190": {
+        "id": "mat_fg28136065190",
+        "code": "FG28136065190",
+        "name": {
+          "zh": "方管",
+          "vi": "Sắt hộp"
+        },
+        "spec": {
+          "zh": "28×13.6×0.6Tmm，长度 5190mm",
+          "vi": "28×13.6×0.6Tmm, dài 5190mm"
         },
         "material": {
           "zh": "Q195",
@@ -75289,8 +74635,8 @@
         "id": "bomc_mat_10c3lie_mat_fg1515066170",
         "parentType": "material",
         "parentId": "mat_10c3lie",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "qty": "0.05",
         "order": 2,
         "comp_code": "",
@@ -75311,8 +74657,8 @@
         "id": "bomc_mat_116mdz4_mat_fg1515065886",
         "parentType": "material",
         "parentId": "mat_116mdz4",
-        "materialId": "mat_fg1515065886",
-        "childMaterialId": "mat_fg1515065886",
+        "materialId": "mat_fg1515065900",
+        "childMaterialId": "mat_fg1515065900",
         "qty": "0.125",
         "order": 1,
         "comp_code": "",
@@ -75322,8 +74668,8 @@
         "id": "bomc_mat_11z8dbl_mat_fg1515065000",
         "parentType": "material",
         "parentId": "mat_11z8dbl",
-        "materialId": "mat_fg1515065000",
-        "childMaterialId": "mat_fg1515065000",
+        "materialId": "mat_fg1515065011",
+        "childMaterialId": "mat_fg1515065011",
         "qty": "0.333333",
         "order": 1,
         "comp_code": "",
@@ -75333,8 +74679,8 @@
         "id": "bomc_mat_11z8dbl_mat_fg1515066170",
         "parentType": "material",
         "parentId": "mat_11z8dbl",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "qty": "0.05",
         "order": 2,
         "comp_code": "",
@@ -75344,8 +74690,8 @@
         "id": "bomc_mat_123o1qz_mat_fg1515065000",
         "parentType": "material",
         "parentId": "mat_123o1qz",
-        "materialId": "mat_fg1515065000",
-        "childMaterialId": "mat_fg1515065000",
+        "materialId": "mat_fg1515065011",
+        "childMaterialId": "mat_fg1515065011",
         "qty": "0.333333",
         "order": 1,
         "comp_code": "",
@@ -75355,8 +74701,8 @@
         "id": "bomc_mat_123o1qz_mat_fg1515066170",
         "parentType": "material",
         "parentId": "mat_123o1qz",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "qty": "0.05",
         "order": 2,
         "comp_code": "",
@@ -75366,8 +74712,8 @@
         "id": "bomc_mat_12nagin_mat_fg1515065560",
         "parentType": "material",
         "parentId": "mat_12nagin",
-        "materialId": "mat_fg1515065560",
-        "childMaterialId": "mat_fg1515065560",
+        "materialId": "mat_fg1515065566",
+        "childMaterialId": "mat_fg1515065566",
         "qty": "0.2",
         "order": 1,
         "comp_code": "",
@@ -75377,8 +74723,8 @@
         "id": "bomc_mat_13sggbo_mat_fg1515065752",
         "parentType": "material",
         "parentId": "mat_13sggbo",
-        "materialId": "mat_fg1515065752",
-        "childMaterialId": "mat_fg1515065752",
+        "materialId": "mat_fg1515065766",
+        "childMaterialId": "mat_fg1515065766",
         "qty": "0.166667",
         "order": 1,
         "comp_code": "",
@@ -75396,22 +74742,11 @@
         "stt": ""
       },
       {
-        "id": "bomc_mat_14esgeh_mat_fg132132066150",
-        "parentType": "material",
-        "parentId": "mat_14esgeh",
-        "materialId": "mat_fg132132066150",
-        "childMaterialId": "mat_fg132132066150",
-        "qty": "0.013158",
-        "order": 1,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
         "id": "bomc_mat_14esgeh_mat_fg1515066082",
         "parentType": "material",
         "parentId": "mat_14esgeh",
-        "materialId": "mat_fg1515066082",
-        "childMaterialId": "mat_fg1515066082",
+        "materialId": "mat_fg1515066091",
+        "childMaterialId": "mat_fg1515066091",
         "qty": "0.111111",
         "order": 2,
         "comp_code": "",
@@ -75421,8 +74756,8 @@
         "id": "bomc_mat_14gzmfl_mat_fg1515066082",
         "parentType": "material",
         "parentId": "mat_14gzmfl",
-        "materialId": "mat_fg1515066082",
-        "childMaterialId": "mat_fg1515066082",
+        "materialId": "mat_fg1515066091",
+        "childMaterialId": "mat_fg1515066091",
         "qty": "0.25",
         "order": 1,
         "comp_code": "",
@@ -75432,8 +74767,8 @@
         "id": "bomc_mat_14qtlh3_mat_fg1515066010",
         "parentType": "material",
         "parentId": "mat_14qtlh3",
-        "materialId": "mat_fg1515066010",
-        "childMaterialId": "mat_fg1515066010",
+        "materialId": "mat_fg1515066013",
+        "childMaterialId": "mat_fg1515066013",
         "qty": "0.033333",
         "order": 1,
         "comp_code": "",
@@ -75443,8 +74778,8 @@
         "id": "bomc_mat_156bb4x_mat_fg1515066010",
         "parentType": "material",
         "parentId": "mat_156bb4x",
-        "materialId": "mat_fg1515066010",
-        "childMaterialId": "mat_fg1515066010",
+        "materialId": "mat_fg1515066013",
+        "childMaterialId": "mat_fg1515066013",
         "qty": "0.033333",
         "order": 1,
         "comp_code": "",
@@ -75454,9 +74789,9 @@
         "id": "bomc_mat_16kpy8h_mat_fg3015065740",
         "parentType": "material",
         "parentId": "mat_16kpy8h",
-        "materialId": "mat_fg3015065740",
-        "childMaterialId": "mat_fg3015065740",
-        "qty": "0.142857",
+        "materialId": "mat_fg3015066550",
+        "childMaterialId": "mat_fg3015066550",
+        "qty": "0.125",
         "order": 1,
         "comp_code": "",
         "stt": ""
@@ -75476,8 +74811,8 @@
         "id": "bomc_mat_16ou3ja_mat_fg1515065790",
         "parentType": "material",
         "parentId": "mat_16ou3ja",
-        "materialId": "mat_fg1515065790",
-        "childMaterialId": "mat_fg1515065790",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "qty": "0.045455",
         "order": 2,
         "comp_code": "",
@@ -75498,8 +74833,8 @@
         "id": "bomc_mat_1729e7g_mat_fg1515066170",
         "parentType": "material",
         "parentId": "mat_1729e7g",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "qty": "0.05",
         "order": 2,
         "comp_code": "",
@@ -75520,8 +74855,8 @@
         "id": "bomc_mat_17k49h3_mat_fg1515065790",
         "parentType": "material",
         "parentId": "mat_17k49h3",
-        "materialId": "mat_fg1515065790",
-        "childMaterialId": "mat_fg1515065790",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "qty": "0.045455",
         "order": 2,
         "comp_code": "",
@@ -75553,8 +74888,8 @@
         "id": "bomc_mat_1827l54_mat_fg1515066170",
         "parentType": "material",
         "parentId": "mat_1827l54",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "qty": "0.05",
         "order": 2,
         "comp_code": "",
@@ -75575,8 +74910,8 @@
         "id": "bomc_mat_19efzk8_mat_fg1515065000",
         "parentType": "material",
         "parentId": "mat_19efzk8",
-        "materialId": "mat_fg1515065000",
-        "childMaterialId": "mat_fg1515065000",
+        "materialId": "mat_fg1515065011",
+        "childMaterialId": "mat_fg1515065011",
         "qty": "0.333333",
         "order": 1,
         "comp_code": "",
@@ -75586,8 +74921,8 @@
         "id": "bomc_mat_19efzk8_mat_fg1515066170",
         "parentType": "material",
         "parentId": "mat_19efzk8",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "qty": "0.05",
         "order": 2,
         "comp_code": "",
@@ -75608,8 +74943,8 @@
         "id": "bomc_mat_1ap9n9l_mat_fg1515065884",
         "parentType": "material",
         "parentId": "mat_1ap9n9l",
-        "materialId": "mat_fg1515065884",
-        "childMaterialId": "mat_fg1515065884",
+        "materialId": "mat_fg1515065900",
+        "childMaterialId": "mat_fg1515065900",
         "qty": "0.111111",
         "order": 1,
         "comp_code": "",
@@ -75630,8 +74965,8 @@
         "id": "bomc_mat_1b8xuq1_mat_fg1515066170",
         "parentType": "material",
         "parentId": "mat_1b8xuq1",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "qty": "0.05",
         "order": 2,
         "comp_code": "",
@@ -75652,8 +74987,8 @@
         "id": "bomc_mat_1c0opfy_mat_fg1515066170",
         "parentType": "material",
         "parentId": "mat_1c0opfy",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "qty": "0.05",
         "order": 2,
         "comp_code": "",
@@ -75674,8 +75009,8 @@
         "id": "bomc_mat_1c6st8c_mat_fg1515066010",
         "parentType": "material",
         "parentId": "mat_1c6st8c",
-        "materialId": "mat_fg1515066010",
-        "childMaterialId": "mat_fg1515066010",
+        "materialId": "mat_fg1515066013",
+        "childMaterialId": "mat_fg1515066013",
         "qty": "0.033333",
         "order": 1,
         "comp_code": "",
@@ -75704,22 +75039,11 @@
         "stt": ""
       },
       {
-        "id": "bomc_mat_1cp9ev_mat_fg132132066150",
-        "parentType": "material",
-        "parentId": "mat_1cp9ev",
-        "materialId": "mat_fg132132066150",
-        "childMaterialId": "mat_fg132132066150",
-        "qty": "0.013158",
-        "order": 1,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
         "id": "bomc_mat_1cp9ev_mat_fg1515066082",
         "parentType": "material",
         "parentId": "mat_1cp9ev",
-        "materialId": "mat_fg1515066082",
-        "childMaterialId": "mat_fg1515066082",
+        "materialId": "mat_fg1515066091",
+        "childMaterialId": "mat_fg1515066091",
         "qty": "0.111111",
         "order": 2,
         "comp_code": "",
@@ -75729,8 +75053,8 @@
         "id": "bomc_mat_1czvzaz_mat_fg1515065560",
         "parentType": "material",
         "parentId": "mat_1czvzaz",
-        "materialId": "mat_fg1515065560",
-        "childMaterialId": "mat_fg1515065560",
+        "materialId": "mat_fg1515065566",
+        "childMaterialId": "mat_fg1515065566",
         "qty": "0.2",
         "order": 1,
         "comp_code": "",
@@ -75773,8 +75097,8 @@
         "id": "bomc_mat_1ej5b41_mat_fg1515065752",
         "parentType": "material",
         "parentId": "mat_1ej5b41",
-        "materialId": "mat_fg1515065752",
-        "childMaterialId": "mat_fg1515065752",
+        "materialId": "mat_fg1515065766",
+        "childMaterialId": "mat_fg1515065766",
         "qty": "0.166667",
         "order": 1,
         "comp_code": "",
@@ -75792,35 +75116,13 @@
         "stt": ""
       },
       {
-        "id": "bomc_mat_1gdsuz4_mat_fg132132066150",
-        "parentType": "material",
-        "parentId": "mat_1gdsuz4",
-        "materialId": "mat_fg132132066150",
-        "childMaterialId": "mat_fg132132066150",
-        "qty": "0.013158",
-        "order": 1,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
         "id": "bomc_mat_1gdsuz4_mat_fg1515065782",
         "parentType": "material",
         "parentId": "mat_1gdsuz4",
-        "materialId": "mat_fg1515065782",
-        "childMaterialId": "mat_fg1515065782",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "qty": "0.125",
         "order": 2,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
-        "id": "bomc_mat_1glusot_mat_fg132132066150",
-        "parentType": "material",
-        "parentId": "mat_1glusot",
-        "materialId": "mat_fg132132066150",
-        "childMaterialId": "mat_fg132132066150",
-        "qty": "0.013158",
-        "order": 1,
         "comp_code": "",
         "stt": ""
       },
@@ -75828,8 +75130,8 @@
         "id": "bomc_mat_1glusot_mat_fg1515066082",
         "parentType": "material",
         "parentId": "mat_1glusot",
-        "materialId": "mat_fg1515066082",
-        "childMaterialId": "mat_fg1515066082",
+        "materialId": "mat_fg1515066091",
+        "childMaterialId": "mat_fg1515066091",
         "qty": "0.111111",
         "order": 2,
         "comp_code": "",
@@ -75875,17 +75177,6 @@
         "materialId": "mat_fg1515065630",
         "childMaterialId": "mat_fg1515065630",
         "qty": "0.1",
-        "order": 1,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
-        "id": "bomc_mat_1iggj1x_mat_fg132132066150",
-        "parentType": "material",
-        "parentId": "mat_1iggj1x",
-        "materialId": "mat_fg132132066150",
-        "childMaterialId": "mat_fg132132066150",
-        "qty": "0.013158",
         "order": 1,
         "comp_code": "",
         "stt": ""
@@ -75938,8 +75229,8 @@
         "id": "bomc_mat_1kx2y8e_mat_fg1515066170",
         "parentType": "material",
         "parentId": "mat_1kx2y8e",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "qty": "0.05",
         "order": 2,
         "comp_code": "",
@@ -75982,8 +75273,8 @@
         "id": "bomc_mat_1lklzl6_mat_fg1515065790",
         "parentType": "material",
         "parentId": "mat_1lklzl6",
-        "materialId": "mat_fg1515065790",
-        "childMaterialId": "mat_fg1515065790",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "qty": "0.045455",
         "order": 2,
         "comp_code": "",
@@ -76004,8 +75295,8 @@
         "id": "bomc_mat_1menews_mat_fg1515065782",
         "parentType": "material",
         "parentId": "mat_1menews",
-        "materialId": "mat_fg1515065782",
-        "childMaterialId": "mat_fg1515065782",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "qty": "0.125",
         "order": 1,
         "comp_code": "",
@@ -76026,8 +75317,8 @@
         "id": "bomc_mat_1mhyz4q_mat_fg1515066170",
         "parentType": "material",
         "parentId": "mat_1mhyz4q",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "qty": "0.05",
         "order": 2,
         "comp_code": "",
@@ -76059,8 +75350,8 @@
         "id": "bomc_mat_1no586y_mat_fg1515066170",
         "parentType": "material",
         "parentId": "mat_1no586y",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "qty": "0.05",
         "order": 2,
         "comp_code": "",
@@ -76089,28 +75380,6 @@
         "stt": ""
       },
       {
-        "id": "bomc_mat_1q0gpue_mat_fg132132065990",
-        "parentType": "material",
-        "parentId": "mat_1q0gpue",
-        "materialId": "mat_fg132132065990",
-        "childMaterialId": "mat_fg132132065990",
-        "qty": "0.013514",
-        "order": 1,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
-        "id": "bomc_mat_1q0gpue_mat_fg132132066150",
-        "parentType": "material",
-        "parentId": "mat_1q0gpue",
-        "materialId": "mat_fg132132066150",
-        "childMaterialId": "mat_fg132132066150",
-        "qty": "0.013158",
-        "order": 2,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
         "id": "bomc_mat_1q0gpue_mat_fg1515065382",
         "parentType": "material",
         "parentId": "mat_1q0gpue",
@@ -76125,8 +75394,8 @@
         "id": "bomc_mat_1q4p8m4_mat_fg1515065752",
         "parentType": "material",
         "parentId": "mat_1q4p8m4",
-        "materialId": "mat_fg1515065752",
-        "childMaterialId": "mat_fg1515065752",
+        "materialId": "mat_fg1515065766",
+        "childMaterialId": "mat_fg1515065766",
         "qty": "0.166667",
         "order": 1,
         "comp_code": "",
@@ -76147,8 +75416,8 @@
         "id": "bomc_mat_1q541zc_mat_fg1515066170",
         "parentType": "material",
         "parentId": "mat_1q541zc",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "qty": "0.05",
         "order": 2,
         "comp_code": "",
@@ -76158,8 +75427,8 @@
         "id": "bomc_mat_1qbjq6m_mat_fg1515065000",
         "parentType": "material",
         "parentId": "mat_1qbjq6m",
-        "materialId": "mat_fg1515065000",
-        "childMaterialId": "mat_fg1515065000",
+        "materialId": "mat_fg1515065011",
+        "childMaterialId": "mat_fg1515065011",
         "qty": "0.333333",
         "order": 1,
         "comp_code": "",
@@ -76169,8 +75438,8 @@
         "id": "bomc_mat_1qbjq6m_mat_fg1515066170",
         "parentType": "material",
         "parentId": "mat_1qbjq6m",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "qty": "0.05",
         "order": 2,
         "comp_code": "",
@@ -76202,8 +75471,8 @@
         "id": "bomc_mat_1qvoxdd_mat_fg1515065662",
         "parentType": "material",
         "parentId": "mat_1qvoxdd",
-        "materialId": "mat_fg1515065662",
-        "childMaterialId": "mat_fg1515065662",
+        "materialId": "mat_fg1515065663",
+        "childMaterialId": "mat_fg1515065663",
         "qty": "0.083333",
         "order": 1,
         "comp_code": "",
@@ -76254,17 +75523,6 @@
         "stt": ""
       },
       {
-        "id": "bomc_mat_1saxqhd_mat_fg132132066150",
-        "parentType": "material",
-        "parentId": "mat_1saxqhd",
-        "materialId": "mat_fg132132066150",
-        "childMaterialId": "mat_fg132132066150",
-        "qty": "0.013158",
-        "order": 1,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
         "id": "bomc_mat_1saxqhd_mat_fg1515066013",
         "parentType": "material",
         "parentId": "mat_1saxqhd",
@@ -76276,35 +75534,13 @@
         "stt": ""
       },
       {
-        "id": "bomc_mat_1ss85ek_mat_fg132132066150",
-        "parentType": "material",
-        "parentId": "mat_1ss85ek",
-        "materialId": "mat_fg132132066150",
-        "childMaterialId": "mat_fg132132066150",
-        "qty": "0.013158",
-        "order": 1,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
         "id": "bomc_mat_1ss85ek_mat_fg1515065782",
         "parentType": "material",
         "parentId": "mat_1ss85ek",
-        "materialId": "mat_fg1515065782",
-        "childMaterialId": "mat_fg1515065782",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "qty": "0.125",
         "order": 2,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
-        "id": "bomc_mat_1t1yeyb_mat_fg132132066150",
-        "parentType": "material",
-        "parentId": "mat_1t1yeyb",
-        "materialId": "mat_fg132132066150",
-        "childMaterialId": "mat_fg132132066150",
-        "qty": "0.013158",
-        "order": 1,
         "comp_code": "",
         "stt": ""
       },
@@ -76312,8 +75548,8 @@
         "id": "bomc_mat_1t1yeyb_mat_fg1515066082",
         "parentType": "material",
         "parentId": "mat_1t1yeyb",
-        "materialId": "mat_fg1515066082",
-        "childMaterialId": "mat_fg1515066082",
+        "materialId": "mat_fg1515066091",
+        "childMaterialId": "mat_fg1515066091",
         "qty": "0.111111",
         "order": 2,
         "comp_code": "",
@@ -76323,8 +75559,8 @@
         "id": "bomc_mat_1tlmea4_mat_fg1515066010",
         "parentType": "material",
         "parentId": "mat_1tlmea4",
-        "materialId": "mat_fg1515066010",
-        "childMaterialId": "mat_fg1515066010",
+        "materialId": "mat_fg1515066013",
+        "childMaterialId": "mat_fg1515066013",
         "qty": "0.009091",
         "order": 1,
         "comp_code": "",
@@ -76334,20 +75570,9 @@
         "id": "bomc_mat_1tozvar_mat_fg1515065884",
         "parentType": "material",
         "parentId": "mat_1tozvar",
-        "materialId": "mat_fg1515065884",
-        "childMaterialId": "mat_fg1515065884",
+        "materialId": "mat_fg1515065900",
+        "childMaterialId": "mat_fg1515065900",
         "qty": "0.111111",
-        "order": 1,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
-        "id": "bomc_mat_1tpfqgh_mat_fg132132066150",
-        "parentType": "material",
-        "parentId": "mat_1tpfqgh",
-        "materialId": "mat_fg132132066150",
-        "childMaterialId": "mat_fg132132066150",
-        "qty": "0.013158",
         "order": 1,
         "comp_code": "",
         "stt": ""
@@ -76378,8 +75603,8 @@
         "id": "bomc_mat_1txifxu_mat_fg1515065790",
         "parentType": "material",
         "parentId": "mat_1txifxu",
-        "materialId": "mat_fg1515065790",
-        "childMaterialId": "mat_fg1515065790",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "qty": "0.045455",
         "order": 2,
         "comp_code": "",
@@ -76389,8 +75614,8 @@
         "id": "bomc_mat_1ty5nnx_mat_fg1515065000",
         "parentType": "material",
         "parentId": "mat_1ty5nnx",
-        "materialId": "mat_fg1515065000",
-        "childMaterialId": "mat_fg1515065000",
+        "materialId": "mat_fg1515065011",
+        "childMaterialId": "mat_fg1515065011",
         "qty": "0.333333",
         "order": 1,
         "comp_code": "",
@@ -76400,8 +75625,8 @@
         "id": "bomc_mat_1ty5nnx_mat_fg1515066170",
         "parentType": "material",
         "parentId": "mat_1ty5nnx",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "qty": "0.05",
         "order": 2,
         "comp_code": "",
@@ -76422,8 +75647,8 @@
         "id": "bomc_mat_1u2o2aq_mat_fg1515065790",
         "parentType": "material",
         "parentId": "mat_1u2o2aq",
-        "materialId": "mat_fg1515065790",
-        "childMaterialId": "mat_fg1515065790",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "qty": "0.045455",
         "order": 2,
         "comp_code": "",
@@ -76444,9 +75669,9 @@
         "id": "bomc_mat_1v7m89j_mat_fg28136066150",
         "parentType": "material",
         "parentId": "mat_1v7m89j",
-        "materialId": "mat_fg28136066150",
-        "childMaterialId": "mat_fg28136066150",
-        "qty": "0.013158",
+        "materialId": "mat_fg28136065190",
+        "childMaterialId": "mat_fg28136065190",
+        "qty": "0.015625",
         "order": 1,
         "comp_code": "",
         "stt": ""
@@ -76455,9 +75680,9 @@
         "id": "bomc_mat_1v7m89j_mat_fg3015065632",
         "parentType": "material",
         "parentId": "mat_1v7m89j",
-        "materialId": "mat_fg3015065632",
-        "childMaterialId": "mat_fg3015065632",
-        "qty": "0.111111",
+        "materialId": "mat_fg3015065014",
+        "childMaterialId": "mat_fg3015065014",
+        "qty": "0.125",
         "order": 2,
         "comp_code": "",
         "stt": ""
@@ -76488,8 +75713,8 @@
         "id": "bomc_mat_1vmuz0w_mat_fg1515065790",
         "parentType": "material",
         "parentId": "mat_1vmuz0w",
-        "materialId": "mat_fg1515065790",
-        "childMaterialId": "mat_fg1515065790",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "qty": "0.045455",
         "order": 2,
         "comp_code": "",
@@ -76499,8 +75724,8 @@
         "id": "bomc_mat_1vnrvil_mat_fg1515066082",
         "parentType": "material",
         "parentId": "mat_1vnrvil",
-        "materialId": "mat_fg1515066082",
-        "childMaterialId": "mat_fg1515066082",
+        "materialId": "mat_fg1515066091",
+        "childMaterialId": "mat_fg1515066091",
         "qty": "0.25",
         "order": 1,
         "comp_code": "",
@@ -76510,8 +75735,8 @@
         "id": "bomc_mat_1w2y2v_mat_fg1515066082",
         "parentType": "material",
         "parentId": "mat_1w2y2v",
-        "materialId": "mat_fg1515066082",
-        "childMaterialId": "mat_fg1515066082",
+        "materialId": "mat_fg1515066091",
+        "childMaterialId": "mat_fg1515066091",
         "qty": "0.25",
         "order": 1,
         "comp_code": "",
@@ -76532,8 +75757,8 @@
         "id": "bomc_mat_1wae5ws_mat_fg1515066170",
         "parentType": "material",
         "parentId": "mat_1wae5ws",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "qty": "0.05",
         "order": 2,
         "comp_code": "",
@@ -76543,21 +75768,10 @@
         "id": "bomc_mat_1wjqvgi_mat_fg1515065790",
         "parentType": "material",
         "parentId": "mat_1wjqvgi",
-        "materialId": "mat_fg1515065790",
-        "childMaterialId": "mat_fg1515065790",
-        "qty": "0.045455",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
+        "qty": "0.245455",
         "order": 1,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
-        "id": "bomc_mat_1wjqvgi_mat_fg1515065800",
-        "parentType": "material",
-        "parentId": "mat_1wjqvgi",
-        "materialId": "mat_fg1515065800",
-        "childMaterialId": "mat_fg1515065800",
-        "qty": "0.2",
-        "order": 2,
         "comp_code": "",
         "stt": ""
       },
@@ -76576,8 +75790,8 @@
         "id": "bomc_mat_1wolu5r_mat_fg1515065790",
         "parentType": "material",
         "parentId": "mat_1wolu5r",
-        "materialId": "mat_fg1515065790",
-        "childMaterialId": "mat_fg1515065790",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "qty": "0.045455",
         "order": 2,
         "comp_code": "",
@@ -76598,21 +75812,10 @@
         "id": "bomc_mat_1ws9h7i_mat_fg1515066170",
         "parentType": "material",
         "parentId": "mat_1ws9h7i",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "qty": "0.05",
         "order": 2,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
-        "id": "bomc_mat_1xtwol6_mat_fg132132066150",
-        "parentType": "material",
-        "parentId": "mat_1xtwol6",
-        "materialId": "mat_fg132132066150",
-        "childMaterialId": "mat_fg132132066150",
-        "qty": "0.013158",
-        "order": 1,
         "comp_code": "",
         "stt": ""
       },
@@ -76620,8 +75823,8 @@
         "id": "bomc_mat_1xtwol6_mat_fg1515065782",
         "parentType": "material",
         "parentId": "mat_1xtwol6",
-        "materialId": "mat_fg1515065782",
-        "childMaterialId": "mat_fg1515065782",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "qty": "0.125",
         "order": 2,
         "comp_code": "",
@@ -76650,28 +75853,6 @@
         "stt": ""
       },
       {
-        "id": "bomc_mat_1yw5hcz_mat_fg132132065990",
-        "parentType": "material",
-        "parentId": "mat_1yw5hcz",
-        "materialId": "mat_fg132132065990",
-        "childMaterialId": "mat_fg132132065990",
-        "qty": "0.013514",
-        "order": 1,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
-        "id": "bomc_mat_1yw5hcz_mat_fg132132066150",
-        "parentType": "material",
-        "parentId": "mat_1yw5hcz",
-        "materialId": "mat_fg132132066150",
-        "childMaterialId": "mat_fg132132066150",
-        "qty": "0.013158",
-        "order": 2,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
         "id": "bomc_mat_1yw5hcz_mat_fg1515065382",
         "parentType": "material",
         "parentId": "mat_1yw5hcz",
@@ -76686,8 +75867,8 @@
         "id": "bomc_mat_30h4o_mat_fg1515065752",
         "parentType": "material",
         "parentId": "mat_30h4o",
-        "materialId": "mat_fg1515065752",
-        "childMaterialId": "mat_fg1515065752",
+        "materialId": "mat_fg1515065766",
+        "childMaterialId": "mat_fg1515065766",
         "qty": "0.166667",
         "order": 1,
         "comp_code": "",
@@ -76708,8 +75889,8 @@
         "id": "bomc_mat_3lp5fv_mat_fg1515065790",
         "parentType": "material",
         "parentId": "mat_3lp5fv",
-        "materialId": "mat_fg1515065790",
-        "childMaterialId": "mat_fg1515065790",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "qty": "0.045455",
         "order": 2,
         "comp_code": "",
@@ -76719,8 +75900,8 @@
         "id": "bomc_mat_47xasn_mat_fg1515065884",
         "parentType": "material",
         "parentId": "mat_47xasn",
-        "materialId": "mat_fg1515065884",
-        "childMaterialId": "mat_fg1515065884",
+        "materialId": "mat_fg1515065900",
+        "childMaterialId": "mat_fg1515065900",
         "qty": "0.111111",
         "order": 1,
         "comp_code": "",
@@ -76752,20 +75933,9 @@
         "id": "bomc_mat_5abs6g_mat_fg1515065886",
         "parentType": "material",
         "parentId": "mat_5abs6g",
-        "materialId": "mat_fg1515065886",
-        "childMaterialId": "mat_fg1515065886",
+        "materialId": "mat_fg1515065900",
+        "childMaterialId": "mat_fg1515065900",
         "qty": "0.125",
-        "order": 1,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
-        "id": "bomc_mat_5p95gk_mat_fg132132066150",
-        "parentType": "material",
-        "parentId": "mat_5p95gk",
-        "materialId": "mat_fg132132066150",
-        "childMaterialId": "mat_fg132132066150",
-        "qty": "0.013158",
         "order": 1,
         "comp_code": "",
         "stt": ""
@@ -76774,8 +75944,8 @@
         "id": "bomc_mat_5p95gk_mat_fg1515065782",
         "parentType": "material",
         "parentId": "mat_5p95gk",
-        "materialId": "mat_fg1515065782",
-        "childMaterialId": "mat_fg1515065782",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "qty": "0.125",
         "order": 2,
         "comp_code": "",
@@ -76796,8 +75966,8 @@
         "id": "bomc_mat_68bk9b_mat_fg1515065662",
         "parentType": "material",
         "parentId": "mat_68bk9b",
-        "materialId": "mat_fg1515065662",
-        "childMaterialId": "mat_fg1515065662",
+        "materialId": "mat_fg1515065663",
+        "childMaterialId": "mat_fg1515065663",
         "qty": "0.083333",
         "order": 1,
         "comp_code": "",
@@ -76807,8 +75977,8 @@
         "id": "bomc_mat_6ahijn_mat_fg1515065753",
         "parentType": "material",
         "parentId": "mat_6ahijn",
-        "materialId": "mat_fg1515065753",
-        "childMaterialId": "mat_fg1515065753",
+        "materialId": "mat_fg1515065766",
+        "childMaterialId": "mat_fg1515065766",
         "qty": "0.166667",
         "order": 1,
         "comp_code": "",
@@ -76826,22 +75996,11 @@
         "stt": ""
       },
       {
-        "id": "bomc_mat_8edcv4_mat_fg132132066150",
-        "parentType": "material",
-        "parentId": "mat_8edcv4",
-        "materialId": "mat_fg132132066150",
-        "childMaterialId": "mat_fg132132066150",
-        "qty": "0.013158",
-        "order": 1,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
         "id": "bomc_mat_8edcv4_mat_fg1515066082",
         "parentType": "material",
         "parentId": "mat_8edcv4",
-        "materialId": "mat_fg1515066082",
-        "childMaterialId": "mat_fg1515066082",
+        "materialId": "mat_fg1515066091",
+        "childMaterialId": "mat_fg1515066091",
         "qty": "0.111111",
         "order": 2,
         "comp_code": "",
@@ -76862,8 +76021,8 @@
         "id": "bomc_mat_amfjdu_mat_fg1515065782",
         "parentType": "material",
         "parentId": "mat_amfjdu",
-        "materialId": "mat_fg1515065782",
-        "childMaterialId": "mat_fg1515065782",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "qty": "0.125",
         "order": 1,
         "comp_code": "",
@@ -76906,8 +76065,8 @@
         "id": "bomc_mat_bt9s5c_mat_fg1515065790",
         "parentType": "material",
         "parentId": "mat_bt9s5c",
-        "materialId": "mat_fg1515065790",
-        "childMaterialId": "mat_fg1515065790",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "qty": "0.045455",
         "order": 2,
         "comp_code": "",
@@ -76928,8 +76087,8 @@
         "id": "bomc_mat_buidda_mat_fg1515065790",
         "parentType": "material",
         "parentId": "mat_buidda",
-        "materialId": "mat_fg1515065790",
-        "childMaterialId": "mat_fg1515065790",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "qty": "0.045455",
         "order": 2,
         "comp_code": "",
@@ -76972,8 +76131,8 @@
         "id": "bomc_mat_dbxt4t_mat_fg1515065884",
         "parentType": "material",
         "parentId": "mat_dbxt4t",
-        "materialId": "mat_fg1515065884",
-        "childMaterialId": "mat_fg1515065884",
+        "materialId": "mat_fg1515065900",
+        "childMaterialId": "mat_fg1515065900",
         "qty": "0.111111",
         "order": 1,
         "comp_code": "",
@@ -76983,8 +76142,8 @@
         "id": "bomc_mat_drjei6_mat_fg1515065800",
         "parentType": "material",
         "parentId": "mat_drjei6",
-        "materialId": "mat_fg1515065800",
-        "childMaterialId": "mat_fg1515065800",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "qty": "0.2",
         "order": 1,
         "comp_code": "",
@@ -76994,8 +76153,8 @@
         "id": "bomc_mat_drjei6_mat_fg1515066170",
         "parentType": "material",
         "parentId": "mat_drjei6",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "qty": "0.05",
         "order": 2,
         "comp_code": "",
@@ -77005,8 +76164,8 @@
         "id": "bomc_mat_dv766g_mat_fg1515065800",
         "parentType": "material",
         "parentId": "mat_dv766g",
-        "materialId": "mat_fg1515065800",
-        "childMaterialId": "mat_fg1515065800",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "qty": "0.2",
         "order": 1,
         "comp_code": "",
@@ -77016,8 +76175,8 @@
         "id": "bomc_mat_dv766g_mat_fg1515066170",
         "parentType": "material",
         "parentId": "mat_dv766g",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "qty": "0.05",
         "order": 2,
         "comp_code": "",
@@ -77027,8 +76186,8 @@
         "id": "bomc_mat_eqfs2r_mat_fg1515065800",
         "parentType": "material",
         "parentId": "mat_eqfs2r",
-        "materialId": "mat_fg1515065800",
-        "childMaterialId": "mat_fg1515065800",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "qty": "0.2",
         "order": 1,
         "comp_code": "",
@@ -77038,8 +76197,8 @@
         "id": "bomc_mat_eqfs2r_mat_fg1515066170",
         "parentType": "material",
         "parentId": "mat_eqfs2r",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "qty": "0.05",
         "order": 2,
         "comp_code": "",
@@ -77049,21 +76208,10 @@
         "id": "bomc_mat_fbtabe_mat_fg1515065790",
         "parentType": "material",
         "parentId": "mat_fbtabe",
-        "materialId": "mat_fg1515065790",
-        "childMaterialId": "mat_fg1515065790",
-        "qty": "0.045455",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
+        "qty": "0.245455",
         "order": 1,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
-        "id": "bomc_mat_fbtabe_mat_fg1515065800",
-        "parentType": "material",
-        "parentId": "mat_fbtabe",
-        "materialId": "mat_fg1515065800",
-        "childMaterialId": "mat_fg1515065800",
-        "qty": "0.2",
-        "order": 2,
         "comp_code": "",
         "stt": ""
       },
@@ -77071,8 +76219,8 @@
         "id": "bomc_mat_fwib1i_mat_fg1515065790",
         "parentType": "material",
         "parentId": "mat_fwib1i",
-        "materialId": "mat_fg1515065790",
-        "childMaterialId": "mat_fg1515065790",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "qty": "0.045455",
         "order": 2,
         "comp_code": "",
@@ -77082,8 +76230,8 @@
         "id": "bomc_mat_g2p12m_mat_fg1515066010",
         "parentType": "material",
         "parentId": "mat_g2p12m",
-        "materialId": "mat_fg1515066010",
-        "childMaterialId": "mat_fg1515066010",
+        "materialId": "mat_fg1515066013",
+        "childMaterialId": "mat_fg1515066013",
         "qty": "0.033333",
         "order": 1,
         "comp_code": "",
@@ -77093,8 +76241,8 @@
         "id": "bomc_mat_hekpv9_mat_fg1515065000",
         "parentType": "material",
         "parentId": "mat_hekpv9",
-        "materialId": "mat_fg1515065000",
-        "childMaterialId": "mat_fg1515065000",
+        "materialId": "mat_fg1515065011",
+        "childMaterialId": "mat_fg1515065011",
         "qty": "0.333333",
         "order": 1,
         "comp_code": "",
@@ -77104,8 +76252,8 @@
         "id": "bomc_mat_hekpv9_mat_fg1515066170",
         "parentType": "material",
         "parentId": "mat_hekpv9",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "qty": "0.05",
         "order": 2,
         "comp_code": "",
@@ -77137,8 +76285,8 @@
         "id": "bomc_mat_hhw1hs_mat_fg1515065752",
         "parentType": "material",
         "parentId": "mat_hhw1hs",
-        "materialId": "mat_fg1515065752",
-        "childMaterialId": "mat_fg1515065752",
+        "materialId": "mat_fg1515065766",
+        "childMaterialId": "mat_fg1515065766",
         "qty": "0.166667",
         "order": 1,
         "comp_code": "",
@@ -77170,20 +76318,9 @@
         "id": "bomc_mat_hqo7w2_mat_fg1515065655",
         "parentType": "material",
         "parentId": "mat_hqo7w2",
-        "materialId": "mat_fg1515065655",
-        "childMaterialId": "mat_fg1515065655",
+        "materialId": "mat_fg1515065663",
+        "childMaterialId": "mat_fg1515065663",
         "qty": "0.2",
-        "order": 1,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
-        "id": "bomc_mat_i2358e_mat_fg132132066150",
-        "parentType": "material",
-        "parentId": "mat_i2358e",
-        "materialId": "mat_fg132132066150",
-        "childMaterialId": "mat_fg132132066150",
-        "qty": "0.013158",
         "order": 1,
         "comp_code": "",
         "stt": ""
@@ -77192,8 +76329,8 @@
         "id": "bomc_mat_i2358e_mat_fg1515065782",
         "parentType": "material",
         "parentId": "mat_i2358e",
-        "materialId": "mat_fg1515065782",
-        "childMaterialId": "mat_fg1515065782",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "qty": "0.125",
         "order": 2,
         "comp_code": "",
@@ -77203,20 +76340,9 @@
         "id": "bomc_mat_i7u7xx_mat_fg3015065740",
         "parentType": "material",
         "parentId": "mat_i7u7xx",
-        "materialId": "mat_fg3015065740",
-        "childMaterialId": "mat_fg3015065740",
-        "qty": "0.142857",
-        "order": 1,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
-        "id": "bomc_mat_ivadk_mat_fg132132066150",
-        "parentType": "material",
-        "parentId": "mat_ivadk",
-        "materialId": "mat_fg132132066150",
-        "childMaterialId": "mat_fg132132066150",
-        "qty": "0.013158",
+        "materialId": "mat_fg3015066550",
+        "childMaterialId": "mat_fg3015066550",
+        "qty": "0.125",
         "order": 1,
         "comp_code": "",
         "stt": ""
@@ -77225,8 +76351,8 @@
         "id": "bomc_mat_ivadk_mat_fg1515065782",
         "parentType": "material",
         "parentId": "mat_ivadk",
-        "materialId": "mat_fg1515065782",
-        "childMaterialId": "mat_fg1515065782",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "qty": "0.125",
         "order": 2,
         "comp_code": "",
@@ -77258,8 +76384,8 @@
         "id": "bomc_mat_jttbz1_mat_fg1515065752",
         "parentType": "material",
         "parentId": "mat_jttbz1",
-        "materialId": "mat_fg1515065752",
-        "childMaterialId": "mat_fg1515065752",
+        "materialId": "mat_fg1515065766",
+        "childMaterialId": "mat_fg1515065766",
         "qty": "0.166667",
         "order": 1,
         "comp_code": "",
@@ -77291,8 +76417,8 @@
         "id": "bomc_mat_kxxwj6_mat_fg1515065790",
         "parentType": "material",
         "parentId": "mat_kxxwj6",
-        "materialId": "mat_fg1515065790",
-        "childMaterialId": "mat_fg1515065790",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "qty": "0.045455",
         "order": 2,
         "comp_code": "",
@@ -77302,8 +76428,8 @@
         "id": "bomc_mat_l8dl4j_mat_fg1515065752",
         "parentType": "material",
         "parentId": "mat_l8dl4j",
-        "materialId": "mat_fg1515065752",
-        "childMaterialId": "mat_fg1515065752",
+        "materialId": "mat_fg1515065766",
+        "childMaterialId": "mat_fg1515065766",
         "qty": "0.166667",
         "order": 1,
         "comp_code": "",
@@ -77324,8 +76450,8 @@
         "id": "bomc_mat_ld6eph_mat_fg1515066170",
         "parentType": "material",
         "parentId": "mat_ld6eph",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "qty": "0.05",
         "order": 2,
         "comp_code": "",
@@ -77346,8 +76472,8 @@
         "id": "bomc_mat_m5bx08_mat_fg1515065782",
         "parentType": "material",
         "parentId": "mat_m5bx08",
-        "materialId": "mat_fg1515065782",
-        "childMaterialId": "mat_fg1515065782",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "qty": "0.125",
         "order": 1,
         "comp_code": "",
@@ -77357,32 +76483,10 @@
         "id": "bomc_mat_mk6qft_mat_fg1515065886",
         "parentType": "material",
         "parentId": "mat_mk6qft",
-        "materialId": "mat_fg1515065886",
-        "childMaterialId": "mat_fg1515065886",
+        "materialId": "mat_fg1515065900",
+        "childMaterialId": "mat_fg1515065900",
         "qty": "0.125",
         "order": 1,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
-        "id": "bomc_mat_moakt4_mat_fg132132065990",
-        "parentType": "material",
-        "parentId": "mat_moakt4",
-        "materialId": "mat_fg132132065990",
-        "childMaterialId": "mat_fg132132065990",
-        "qty": "0.013514",
-        "order": 1,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
-        "id": "bomc_mat_moakt4_mat_fg132132066150",
-        "parentType": "material",
-        "parentId": "mat_moakt4",
-        "materialId": "mat_fg132132066150",
-        "childMaterialId": "mat_fg132132066150",
-        "qty": "0.013158",
-        "order": 2,
         "comp_code": "",
         "stt": ""
       },
@@ -77409,28 +76513,6 @@
         "stt": ""
       },
       {
-        "id": "bomc_mat_mzzijl_mat_fg132132065990",
-        "parentType": "material",
-        "parentId": "mat_mzzijl",
-        "materialId": "mat_fg132132065990",
-        "childMaterialId": "mat_fg132132065990",
-        "qty": "0.013514",
-        "order": 1,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
-        "id": "bomc_mat_mzzijl_mat_fg132132066150",
-        "parentType": "material",
-        "parentId": "mat_mzzijl",
-        "materialId": "mat_fg132132066150",
-        "childMaterialId": "mat_fg132132066150",
-        "qty": "0.013158",
-        "order": 2,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
         "id": "bomc_mat_mzzijl_mat_fg1515065663",
         "parentType": "material",
         "parentId": "mat_mzzijl",
@@ -77445,8 +76527,8 @@
         "id": "bomc_mat_nh3ucr_mat_fg1515065930",
         "parentType": "material",
         "parentId": "mat_nh3ucr",
-        "materialId": "mat_fg1515065930",
-        "childMaterialId": "mat_fg1515065930",
+        "materialId": "mat_fg1515065935",
+        "childMaterialId": "mat_fg1515065935",
         "qty": "0.111111",
         "order": 1,
         "comp_code": "",
@@ -77456,8 +76538,8 @@
         "id": "bomc_mat_nw76sd_mat_fg1515065752",
         "parentType": "material",
         "parentId": "mat_nw76sd",
-        "materialId": "mat_fg1515065752",
-        "childMaterialId": "mat_fg1515065752",
+        "materialId": "mat_fg1515065766",
+        "childMaterialId": "mat_fg1515065766",
         "qty": "0.166667",
         "order": 1,
         "comp_code": "",
@@ -77478,8 +76560,8 @@
         "id": "bomc_mat_oao0nc_mat_fg1515066170",
         "parentType": "material",
         "parentId": "mat_oao0nc",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "qty": "0.05",
         "order": 2,
         "comp_code": "",
@@ -77489,8 +76571,8 @@
         "id": "bomc_mat_oh65yk_mat_fg1515065782",
         "parentType": "material",
         "parentId": "mat_oh65yk",
-        "materialId": "mat_fg1515065782",
-        "childMaterialId": "mat_fg1515065782",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "qty": "0.125",
         "order": 1,
         "comp_code": "",
@@ -77500,8 +76582,8 @@
         "id": "bomc_mat_omjsvf_mat_fg1515065752",
         "parentType": "material",
         "parentId": "mat_omjsvf",
-        "materialId": "mat_fg1515065752",
-        "childMaterialId": "mat_fg1515065752",
+        "materialId": "mat_fg1515065766",
+        "childMaterialId": "mat_fg1515065766",
         "qty": "0.166667",
         "order": 1,
         "comp_code": "",
@@ -77511,8 +76593,8 @@
         "id": "bomc_mat_oncevp_mat_fg1515065800",
         "parentType": "material",
         "parentId": "mat_oncevp",
-        "materialId": "mat_fg1515065800",
-        "childMaterialId": "mat_fg1515065800",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "qty": "0.2",
         "order": 1,
         "comp_code": "",
@@ -77522,8 +76604,8 @@
         "id": "bomc_mat_oncevp_mat_fg1515066170",
         "parentType": "material",
         "parentId": "mat_oncevp",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "qty": "0.05",
         "order": 2,
         "comp_code": "",
@@ -77533,8 +76615,8 @@
         "id": "bomc_mat_otkyhl_mat_fg1515065886",
         "parentType": "material",
         "parentId": "mat_otkyhl",
-        "materialId": "mat_fg1515065886",
-        "childMaterialId": "mat_fg1515065886",
+        "materialId": "mat_fg1515065900",
+        "childMaterialId": "mat_fg1515065900",
         "qty": "0.125",
         "order": 1,
         "comp_code": "",
@@ -77544,8 +76626,8 @@
         "id": "bomc_mat_p4j2j4_mat_fg1515065782",
         "parentType": "material",
         "parentId": "mat_p4j2j4",
-        "materialId": "mat_fg1515065782",
-        "childMaterialId": "mat_fg1515065782",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "qty": "0.125",
         "order": 1,
         "comp_code": "",
@@ -77555,8 +76637,8 @@
         "id": "bomc_mat_pficjp_mat_fg1515066010",
         "parentType": "material",
         "parentId": "mat_pficjp",
-        "materialId": "mat_fg1515066010",
-        "childMaterialId": "mat_fg1515066010",
+        "materialId": "mat_fg1515066013",
+        "childMaterialId": "mat_fg1515066013",
         "qty": "0.033333",
         "order": 1,
         "comp_code": "",
@@ -77577,8 +76659,8 @@
         "id": "bomc_mat_pro7lq_mat_fg1515066170",
         "parentType": "material",
         "parentId": "mat_pro7lq",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "qty": "0.05",
         "order": 2,
         "comp_code": "",
@@ -77588,8 +76670,8 @@
         "id": "bomc_mat_pxy79y_mat_fg1515065790",
         "parentType": "material",
         "parentId": "mat_pxy79y",
-        "materialId": "mat_fg1515065790",
-        "childMaterialId": "mat_fg1515065790",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "qty": "0.045455",
         "order": 2,
         "comp_code": "",
@@ -77610,8 +76692,8 @@
         "id": "bomc_mat_r88xvx_mat_fg1515065918",
         "parentType": "material",
         "parentId": "mat_r88xvx",
-        "materialId": "mat_fg1515065918",
-        "childMaterialId": "mat_fg1515065918",
+        "materialId": "mat_fg1515065935",
+        "childMaterialId": "mat_fg1515065935",
         "qty": "0.125",
         "order": 1,
         "comp_code": "",
@@ -77621,8 +76703,8 @@
         "id": "bomc_mat_su5niu_mat_fg1515065782",
         "parentType": "material",
         "parentId": "mat_su5niu",
-        "materialId": "mat_fg1515065782",
-        "childMaterialId": "mat_fg1515065782",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "qty": "0.125",
         "order": 1,
         "comp_code": "",
@@ -77643,8 +76725,8 @@
         "id": "bomc_mat_swn8m_mat_fg1515065790",
         "parentType": "material",
         "parentId": "mat_swn8m",
-        "materialId": "mat_fg1515065790",
-        "childMaterialId": "mat_fg1515065790",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "qty": "0.045455",
         "order": 2,
         "comp_code": "",
@@ -77654,9 +76736,9 @@
         "id": "bomc_mat_t6gqeb_mat_fg28136066150",
         "parentType": "material",
         "parentId": "mat_t6gqeb",
-        "materialId": "mat_fg28136066150",
-        "childMaterialId": "mat_fg28136066150",
-        "qty": "0.013158",
+        "materialId": "mat_fg28136065190",
+        "childMaterialId": "mat_fg28136065190",
+        "qty": "0.015625",
         "order": 1,
         "comp_code": "",
         "stt": ""
@@ -77665,9 +76747,9 @@
         "id": "bomc_mat_t6gqeb_mat_fg3015065632",
         "parentType": "material",
         "parentId": "mat_t6gqeb",
-        "materialId": "mat_fg3015065632",
-        "childMaterialId": "mat_fg3015065632",
-        "qty": "0.111111",
+        "materialId": "mat_fg3015065014",
+        "childMaterialId": "mat_fg3015065014",
+        "qty": "0.125",
         "order": 2,
         "comp_code": "",
         "stt": ""
@@ -77720,8 +76802,8 @@
         "id": "bomc_mat_w17o44_mat_fg1515065790",
         "parentType": "material",
         "parentId": "mat_w17o44",
-        "materialId": "mat_fg1515065790",
-        "childMaterialId": "mat_fg1515065790",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "qty": "0.045455",
         "order": 2,
         "comp_code": "",
@@ -77753,21 +76835,10 @@
         "id": "bomc_mat_xc5t5n_mat_fg1515065752",
         "parentType": "material",
         "parentId": "mat_xc5t5n",
-        "materialId": "mat_fg1515065752",
-        "childMaterialId": "mat_fg1515065752",
-        "qty": "0.083333",
+        "materialId": "mat_fg1515065766",
+        "childMaterialId": "mat_fg1515065766",
+        "qty": "0.166666",
         "order": 1,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
-        "id": "bomc_mat_xc5t5n_mat_fg1515065753",
-        "parentType": "material",
-        "parentId": "mat_xc5t5n",
-        "materialId": "mat_fg1515065753",
-        "childMaterialId": "mat_fg1515065753",
-        "qty": "0.083333",
-        "order": 2,
         "comp_code": "",
         "stt": ""
       },
@@ -77786,8 +76857,8 @@
         "id": "bomc_mat_xdi0eb_mat_fg1515066010",
         "parentType": "material",
         "parentId": "mat_xdi0eb",
-        "materialId": "mat_fg1515066010",
-        "childMaterialId": "mat_fg1515066010",
+        "materialId": "mat_fg1515066013",
+        "childMaterialId": "mat_fg1515066013",
         "qty": "0.033333",
         "order": 1,
         "comp_code": "",
@@ -77819,8 +76890,8 @@
         "id": "bomc_mat_xveuf7_mat_fg1515065790",
         "parentType": "material",
         "parentId": "mat_xveuf7",
-        "materialId": "mat_fg1515065790",
-        "childMaterialId": "mat_fg1515065790",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "qty": "0.045455",
         "order": 2,
         "comp_code": "",
@@ -77841,8 +76912,8 @@
         "id": "bomc_mat_yaaag6_mat_fg1515065655",
         "parentType": "material",
         "parentId": "mat_yaaag6",
-        "materialId": "mat_fg1515065655",
-        "childMaterialId": "mat_fg1515065655",
+        "materialId": "mat_fg1515065663",
+        "childMaterialId": "mat_fg1515065663",
         "qty": "0.2",
         "order": 1,
         "comp_code": "",
@@ -77863,8 +76934,8 @@
         "id": "bomc_mat_ym9pes_mat_fg1515065790",
         "parentType": "material",
         "parentId": "mat_ym9pes",
-        "materialId": "mat_fg1515065790",
-        "childMaterialId": "mat_fg1515065790",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "qty": "0.045455",
         "order": 2,
         "comp_code": "",
@@ -77874,20 +76945,9 @@
         "id": "bomc_mat_yn6ipo_mat_fg1515066082",
         "parentType": "material",
         "parentId": "mat_yn6ipo",
-        "materialId": "mat_fg1515066082",
-        "childMaterialId": "mat_fg1515066082",
+        "materialId": "mat_fg1515066091",
+        "childMaterialId": "mat_fg1515066091",
         "qty": "0.25",
-        "order": 1,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
-        "id": "bomc_mat_yoxn6d_mat_fg132132066150",
-        "parentType": "material",
-        "parentId": "mat_yoxn6d",
-        "materialId": "mat_fg132132066150",
-        "childMaterialId": "mat_fg132132066150",
-        "qty": "0.013158",
         "order": 1,
         "comp_code": "",
         "stt": ""
@@ -77907,8 +76967,8 @@
         "id": "bomc_mat_z1ksh1_mat_fg1515065752",
         "parentType": "material",
         "parentId": "mat_z1ksh1",
-        "materialId": "mat_fg1515065752",
-        "childMaterialId": "mat_fg1515065752",
+        "materialId": "mat_fg1515065766",
+        "childMaterialId": "mat_fg1515065766",
         "qty": "0.166667",
         "order": 1,
         "comp_code": "",
@@ -77929,8 +76989,8 @@
         "id": "bomc_mat_zia7op_mat_fg1515065752",
         "parentType": "material",
         "parentId": "mat_zia7op",
-        "materialId": "mat_fg1515065752",
-        "childMaterialId": "mat_fg1515065752",
+        "materialId": "mat_fg1515065766",
+        "childMaterialId": "mat_fg1515065766",
         "qty": "0.166667",
         "order": 1,
         "comp_code": "",
@@ -77962,8 +77022,8 @@
         "id": "bomc_mat_zxvtau_mat_fg1515065790",
         "parentType": "material",
         "parentId": "mat_zxvtau",
-        "materialId": "mat_fg1515065790",
-        "childMaterialId": "mat_fg1515065790",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "qty": "0.045455",
         "order": 2,
         "comp_code": "",
@@ -77973,8 +77033,8 @@
         "id": "bomc_mat_zjg150654bh_mat_fg1515066010",
         "parentType": "material",
         "parentId": "mat_zjg150654bh",
-        "materialId": "mat_fg1515066010",
-        "childMaterialId": "mat_fg1515066010",
+        "materialId": "mat_fg1515066013",
+        "childMaterialId": "mat_fg1515066013",
         "qty": "0.009091",
         "order": 1,
         "comp_code": "",
@@ -77984,8 +77044,8 @@
         "id": "bomc_mat_lgs420_zlk_wh_mat_fg1515065918",
         "parentType": "material",
         "parentId": "mat_lgs420_zlk_wh",
-        "materialId": "mat_fg1515065918",
-        "childMaterialId": "mat_fg1515065918",
+        "materialId": "mat_fg1515065935",
+        "childMaterialId": "mat_fg1515065935",
         "qty": "0.125",
         "order": 1,
         "comp_code": "",
@@ -77995,8 +77055,8 @@
         "id": "bomc_mat_lgs420_shl_wh_mat_fg1515065886",
         "parentType": "material",
         "parentId": "mat_lgs420_shl_wh",
-        "materialId": "mat_fg1515065886",
-        "childMaterialId": "mat_fg1515065886",
+        "materialId": "mat_fg1515065900",
+        "childMaterialId": "mat_fg1515065900",
         "qty": "0.125",
         "order": 1,
         "comp_code": "",
@@ -78006,8 +77066,8 @@
         "id": "bomc_mat_lgs420_xhl_wh_mat_fg1515065886",
         "parentType": "material",
         "parentId": "mat_lgs420_xhl_wh",
-        "materialId": "mat_fg1515065886",
-        "childMaterialId": "mat_fg1515065886",
+        "materialId": "mat_fg1515065900",
+        "childMaterialId": "mat_fg1515065900",
         "qty": "0.125",
         "order": 1,
         "comp_code": "",
@@ -78019,8 +77079,8 @@
         "parentId": "mat_n3m59f",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515064864",
-        "childMaterialId": "mat_fg1515064864",
+        "materialId": "mat_fg1515064876",
+        "childMaterialId": "mat_fg1515064876",
         "stt": "",
         "comp_code": "",
         "qty": "0.333333",
@@ -78034,8 +77094,8 @@
         "parentId": "mat_n3m59f",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515065790",
-        "childMaterialId": "mat_fg1515065790",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "stt": "",
         "comp_code": "",
         "qty": "0.045455",
@@ -78049,8 +77109,8 @@
         "parentId": "mat_a987en",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515064864",
-        "childMaterialId": "mat_fg1515064864",
+        "materialId": "mat_fg1515064876",
+        "childMaterialId": "mat_fg1515064876",
         "stt": "",
         "comp_code": "",
         "qty": "0.333333",
@@ -78064,8 +77124,8 @@
         "parentId": "mat_a987en",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515065790",
-        "childMaterialId": "mat_fg1515065790",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "stt": "",
         "comp_code": "",
         "qty": "0.045455",
@@ -79171,17 +78231,6 @@
         "stt": ""
       },
       {
-        "id": "bomc_mat_1q0gpue_mat_80132132ljj",
-        "parentType": "material",
-        "parentId": "mat_1q0gpue",
-        "materialId": "mat_80132132ljj",
-        "childMaterialId": "mat_80132132ljj",
-        "qty": "1",
-        "order": 7,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
         "id": "bomc_mat_1yw5hcz_mat_m6ylm139",
         "parentType": "material",
         "parentId": "mat_1yw5hcz",
@@ -79200,17 +78249,6 @@
         "childMaterialId": "mat_ljp16143",
         "qty": "1",
         "order": 5,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
-        "id": "bomc_mat_1yw5hcz_mat_80132132ljj",
-        "parentType": "material",
-        "parentId": "mat_1yw5hcz",
-        "materialId": "mat_80132132ljj",
-        "childMaterialId": "mat_80132132ljj",
-        "qty": "1",
-        "order": 6,
         "comp_code": "",
         "stt": ""
       },
@@ -79292,17 +78330,6 @@
         "stt": ""
       },
       {
-        "id": "bomc_mat_ivadk_mat_80132132ljj",
-        "parentType": "material",
-        "parentId": "mat_ivadk",
-        "materialId": "mat_80132132ljj",
-        "childMaterialId": "mat_80132132ljj",
-        "qty": "1",
-        "order": 5,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
         "id": "bomc_mat_1ss85ek_mat_m6ylm139",
         "parentType": "material",
         "parentId": "mat_1ss85ek",
@@ -79310,17 +78337,6 @@
         "childMaterialId": "mat_m6ylm139",
         "qty": "1",
         "order": 3,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
-        "id": "bomc_mat_1ss85ek_mat_80132132ljj",
-        "parentType": "material",
-        "parentId": "mat_1ss85ek",
-        "materialId": "mat_80132132ljj",
-        "childMaterialId": "mat_80132132ljj",
-        "qty": "1",
-        "order": 4,
         "comp_code": "",
         "stt": ""
       },
@@ -79490,17 +78506,6 @@
         "stt": ""
       },
       {
-        "id": "bomc_mat_mzzijl_mat_80132132ljj",
-        "parentType": "material",
-        "parentId": "mat_mzzijl",
-        "materialId": "mat_80132132ljj",
-        "childMaterialId": "mat_80132132ljj",
-        "qty": "1",
-        "order": 7,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
         "id": "bomc_mat_moakt4_mat_m6ylm139",
         "parentType": "material",
         "parentId": "mat_moakt4",
@@ -79519,17 +78524,6 @@
         "childMaterialId": "mat_ljp16143",
         "qty": "1",
         "order": 5,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
-        "id": "bomc_mat_moakt4_mat_80132132ljj",
-        "parentType": "material",
-        "parentId": "mat_moakt4",
-        "materialId": "mat_80132132ljj",
-        "childMaterialId": "mat_80132132ljj",
-        "qty": "1",
-        "order": 6,
         "comp_code": "",
         "stt": ""
       },
@@ -79622,17 +78616,6 @@
         "stt": ""
       },
       {
-        "id": "bomc_mat_yoxn6d_mat_80132132ljj",
-        "parentType": "material",
-        "parentId": "mat_yoxn6d",
-        "materialId": "mat_80132132ljj",
-        "childMaterialId": "mat_80132132ljj",
-        "qty": "1",
-        "order": 5,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
         "id": "bomc_mat_1tpfqgh_mat_m6ylm139",
         "parentType": "material",
         "parentId": "mat_1tpfqgh",
@@ -79655,17 +78638,6 @@
         "stt": ""
       },
       {
-        "id": "bomc_mat_1tpfqgh_mat_80132132ljj",
-        "parentType": "material",
-        "parentId": "mat_1tpfqgh",
-        "materialId": "mat_80132132ljj",
-        "childMaterialId": "mat_80132132ljj",
-        "qty": "1",
-        "order": 5,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
         "id": "bomc_mat_1iggj1x_mat_m6ylm139",
         "parentType": "material",
         "parentId": "mat_1iggj1x",
@@ -79677,17 +78649,6 @@
         "stt": ""
       },
       {
-        "id": "bomc_mat_1iggj1x_mat_80132132ljj",
-        "parentType": "material",
-        "parentId": "mat_1iggj1x",
-        "materialId": "mat_80132132ljj",
-        "childMaterialId": "mat_80132132ljj",
-        "qty": "1",
-        "order": 4,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
         "id": "bomc_mat_1saxqhd_mat_m6ylm139",
         "parentType": "material",
         "parentId": "mat_1saxqhd",
@@ -79695,17 +78656,6 @@
         "childMaterialId": "mat_m6ylm139",
         "qty": "1",
         "order": 3,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
-        "id": "bomc_mat_1saxqhd_mat_80132132ljj",
-        "parentType": "material",
-        "parentId": "mat_1saxqhd",
-        "materialId": "mat_80132132ljj",
-        "childMaterialId": "mat_80132132ljj",
-        "qty": "1",
-        "order": 4,
         "comp_code": "",
         "stt": ""
       },
@@ -80106,17 +79056,6 @@
         "stt": ""
       },
       {
-        "id": "bomc_mat_1cp9ev_mat_80132132ljj",
-        "parentType": "material",
-        "parentId": "mat_1cp9ev",
-        "materialId": "mat_80132132ljj",
-        "childMaterialId": "mat_80132132ljj",
-        "qty": "1",
-        "order": 5,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
         "id": "bomc_mat_1t1yeyb_mat_m6ylm139",
         "parentType": "material",
         "parentId": "mat_1t1yeyb",
@@ -80139,17 +79078,6 @@
         "stt": ""
       },
       {
-        "id": "bomc_mat_1t1yeyb_mat_80132132ljj",
-        "parentType": "material",
-        "parentId": "mat_1t1yeyb",
-        "materialId": "mat_80132132ljj",
-        "childMaterialId": "mat_80132132ljj",
-        "qty": "1",
-        "order": 5,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
         "id": "bomc_mat_14esgeh_mat_m6ylm139",
         "parentType": "material",
         "parentId": "mat_14esgeh",
@@ -80161,17 +79089,6 @@
         "stt": ""
       },
       {
-        "id": "bomc_mat_14esgeh_mat_80132132ljj",
-        "parentType": "material",
-        "parentId": "mat_14esgeh",
-        "materialId": "mat_80132132ljj",
-        "childMaterialId": "mat_80132132ljj",
-        "qty": "1",
-        "order": 4,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
         "id": "bomc_mat_1glusot_mat_m6ylm139",
         "parentType": "material",
         "parentId": "mat_1glusot",
@@ -80179,17 +79096,6 @@
         "childMaterialId": "mat_m6ylm139",
         "qty": "1",
         "order": 3,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
-        "id": "bomc_mat_1glusot_mat_80132132ljj",
-        "parentType": "material",
-        "parentId": "mat_1glusot",
-        "materialId": "mat_80132132ljj",
-        "childMaterialId": "mat_80132132ljj",
-        "qty": "1",
-        "order": 4,
         "comp_code": "",
         "stt": ""
       },
@@ -80377,17 +79283,6 @@
         "childMaterialId": "mat_m6ylm139",
         "qty": "1",
         "order": 3,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
-        "id": "bomc_mat_8edcv4_mat_80132132ljj",
-        "parentType": "material",
-        "parentId": "mat_8edcv4",
-        "materialId": "mat_80132132ljj",
-        "childMaterialId": "mat_80132132ljj",
-        "qty": "1",
-        "order": 4,
         "comp_code": "",
         "stt": ""
       },
@@ -80667,17 +79562,6 @@
         "stt": ""
       },
       {
-        "id": "bomc_mat_i2358e_mat_80132132ljj",
-        "parentType": "material",
-        "parentId": "mat_i2358e",
-        "materialId": "mat_80132132ljj",
-        "childMaterialId": "mat_80132132ljj",
-        "qty": "1",
-        "order": 5,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
         "id": "bomc_mat_1xtwol6_mat_m6ylm139",
         "parentType": "material",
         "parentId": "mat_1xtwol6",
@@ -80696,17 +79580,6 @@
         "childMaterialId": "mat_ljp16143",
         "qty": "1",
         "order": 4,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
-        "id": "bomc_mat_1xtwol6_mat_80132132ljj",
-        "parentType": "material",
-        "parentId": "mat_1xtwol6",
-        "materialId": "mat_80132132ljj",
-        "childMaterialId": "mat_80132132ljj",
-        "qty": "1",
-        "order": 5,
         "comp_code": "",
         "stt": ""
       },
@@ -80733,17 +79606,6 @@
         "stt": ""
       },
       {
-        "id": "bomc_mat_5p95gk_mat_80132132ljj",
-        "parentType": "material",
-        "parentId": "mat_5p95gk",
-        "materialId": "mat_80132132ljj",
-        "childMaterialId": "mat_80132132ljj",
-        "qty": "1",
-        "order": 5,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
         "id": "bomc_mat_1gdsuz4_mat_m6ylm139",
         "parentType": "material",
         "parentId": "mat_1gdsuz4",
@@ -80762,17 +79624,6 @@
         "childMaterialId": "mat_ljp16143",
         "qty": "1",
         "order": 4,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
-        "id": "bomc_mat_1gdsuz4_mat_80132132ljj",
-        "parentType": "material",
-        "parentId": "mat_1gdsuz4",
-        "materialId": "mat_80132132ljj",
-        "childMaterialId": "mat_80132132ljj",
-        "qty": "1",
-        "order": 5,
         "comp_code": "",
         "stt": ""
       },
@@ -81612,8 +80463,8 @@
         "parentId": "mat_2n8di5",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515066010",
-        "childMaterialId": "mat_fg1515066010",
+        "materialId": "mat_fg1515066013",
+        "childMaterialId": "mat_fg1515066013",
         "stt": "",
         "comp_code": "",
         "qty": "0.009091",
@@ -81672,8 +80523,8 @@
         "parentId": "mat_ptgjme",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515066010",
-        "childMaterialId": "mat_fg1515066010",
+        "materialId": "mat_fg1515066013",
+        "childMaterialId": "mat_fg1515066013",
         "stt": "",
         "comp_code": "",
         "qty": "0.009091",
@@ -87846,21 +86697,10 @@
         "id": "bomc_1rfmuit",
         "parentType": "material",
         "parentId": "mat_1yu2lds",
-        "materialId": "mat_fg1515065752",
-        "childMaterialId": "mat_fg1515065752",
-        "qty": "0.083333",
+        "materialId": "mat_fg1515065766",
+        "childMaterialId": "mat_fg1515065766",
+        "qty": "0.166666",
         "order": 1,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
-        "id": "bomc_1r5n8tu",
-        "parentType": "material",
-        "parentId": "mat_1yu2lds",
-        "materialId": "mat_fg1515065753",
-        "childMaterialId": "mat_fg1515065753",
-        "qty": "0.083333",
-        "order": 2,
         "comp_code": "",
         "stt": ""
       },
@@ -87940,45 +86780,6 @@
         "order": 9
       },
       {
-        "id": "bomc_sxzix5",
-        "parentType": "material",
-        "parentId": "mat_y8rp64",
-        "materialId": "mat_m6lmlm",
-        "childMaterialId": "mat_m6lmlm",
-        "qty": "4",
-        "order": 1,
-        "comp_code": "",
-        "stt": ""
-      },
-      {
-        "id": "bom_199sqen",
-        "parentType": "product",
-        "parentId": "LGS834",
-        "productCode": "LGS834",
-        "color": "白色",
-        "materialId": "mat_y8rp64",
-        "stt": "",
-        "comp_code": "",
-        "qty": "2",
-        "color_ver": "白色",
-        "color_ver_vi": "màu trắng",
-        "order": 66
-      },
-      {
-        "id": "bom_1r5tvwz",
-        "parentType": "product",
-        "parentId": "LGS834",
-        "productCode": "LGS834",
-        "color": "黑色",
-        "materialId": "mat_y8rp64",
-        "stt": "",
-        "comp_code": "",
-        "qty": "2",
-        "color_ver": "黑色",
-        "color_ver_vi": "màu đen",
-        "order": 66
-      },
-      {
         "id": "bom_voqz4h",
         "parentType": "product",
         "parentId": "LGS433",
@@ -88027,8 +86828,8 @@
         "id": "bomc_mat_lgs433szkzbh_mat_fg1515065884",
         "parentType": "material",
         "parentId": "mat_lgs433szkzbh",
-        "materialId": "mat_fg1515065884",
-        "childMaterialId": "mat_fg1515065884",
+        "materialId": "mat_fg1515065900",
+        "childMaterialId": "mat_fg1515065900",
         "qty": "0.111111",
         "order": 1,
         "comp_code": "",
@@ -88049,8 +86850,8 @@
         "id": "bomc_mat_lgs433szkzwh_mat_fg1515065884",
         "parentType": "material",
         "parentId": "mat_lgs433szkzwh",
-        "materialId": "mat_fg1515065884",
-        "childMaterialId": "mat_fg1515065884",
+        "materialId": "mat_fg1515065900",
+        "childMaterialId": "mat_fg1515065900",
         "qty": "0.111111",
         "order": 1,
         "comp_code": "",
@@ -88160,8 +86961,8 @@
         "parentId": "mat_1c0a8em",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515066010",
-        "childMaterialId": "mat_fg1515066010",
+        "materialId": "mat_fg1515066013",
+        "childMaterialId": "mat_fg1515066013",
         "stt": "",
         "comp_code": "",
         "qty": "0.006897",
@@ -88175,8 +86976,8 @@
         "parentId": "mat_zjg150641wh",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515066010",
-        "childMaterialId": "mat_fg1515066010",
+        "materialId": "mat_fg1515066013",
+        "childMaterialId": "mat_fg1515066013",
         "stt": "",
         "comp_code": "",
         "qty": "0.006897",
@@ -88235,8 +87036,8 @@
         "parentId": "mat_zjg15064123bh",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515066010",
-        "childMaterialId": "mat_fg1515066010",
+        "materialId": "mat_fg1515066013",
+        "childMaterialId": "mat_fg1515066013",
         "stt": "",
         "comp_code": "",
         "qty": "0.006897",
@@ -88295,8 +87096,8 @@
         "parentId": "mat_zjg15064123wh",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515066010",
-        "childMaterialId": "mat_fg1515066010",
+        "materialId": "mat_fg1515066013",
+        "childMaterialId": "mat_fg1515066013",
         "stt": "",
         "comp_code": "",
         "qty": "0.006897",
@@ -88370,8 +87171,8 @@
         "parentId": "mat_lgs043zkbh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "stt": "",
         "comp_code": "",
         "qty": "0.05",
@@ -88415,8 +87216,8 @@
         "parentId": "mat_lgs043ykbh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "stt": "",
         "comp_code": "",
         "qty": "0.05",
@@ -88460,8 +87261,8 @@
         "parentId": "mat_lgs132zkbh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "stt": "",
         "comp_code": "",
         "qty": "0.05",
@@ -88520,8 +87321,8 @@
         "parentId": "mat_lgs132ykbh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "stt": "",
         "comp_code": "",
         "qty": "0.05",
@@ -88580,8 +87381,8 @@
         "parentId": "mat_lgs033zkbh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515065790",
-        "childMaterialId": "mat_fg1515065790",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "stt": "",
         "comp_code": "",
         "qty": "0.045455",
@@ -88625,8 +87426,8 @@
         "parentId": "mat_lgs033ykbh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515065790",
-        "childMaterialId": "mat_fg1515065790",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "stt": "",
         "comp_code": "",
         "qty": "0.045455",
@@ -88685,8 +87486,8 @@
         "parentId": "mat_lgs033zkwh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515065790",
-        "childMaterialId": "mat_fg1515065790",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "stt": "",
         "comp_code": "",
         "qty": "0.045455",
@@ -88745,8 +87546,8 @@
         "parentId": "mat_lgs033ykwh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515065790",
-        "childMaterialId": "mat_fg1515065790",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "stt": "",
         "comp_code": "",
         "qty": "0.045455",
@@ -88805,8 +87606,8 @@
         "parentId": "mat_lgs133zkbh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "stt": "",
         "comp_code": "",
         "qty": "0.05",
@@ -88865,8 +87666,8 @@
         "parentId": "mat_lgs133ykbh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "stt": "",
         "comp_code": "",
         "qty": "0.05",
@@ -88910,8 +87711,8 @@
         "parentId": "mat_lgs233zkbh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515064804647",
-        "childMaterialId": "mat_fg1515064804647",
+        "materialId": "mat_fg1515064930",
+        "childMaterialId": "mat_fg1515064930",
         "stt": "",
         "comp_code": "",
         "qty": "0.333333",
@@ -88925,8 +87726,8 @@
         "parentId": "mat_lgs233zkbh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "stt": "",
         "comp_code": "",
         "qty": "0.05",
@@ -88970,8 +87771,8 @@
         "parentId": "mat_lgs233ykbh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515064804647",
-        "childMaterialId": "mat_fg1515064804647",
+        "materialId": "mat_fg1515064930",
+        "childMaterialId": "mat_fg1515064930",
         "stt": "",
         "comp_code": "",
         "qty": "0.333333",
@@ -88985,8 +87786,8 @@
         "parentId": "mat_lgs233ykbh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "stt": "",
         "comp_code": "",
         "qty": "0.05",
@@ -89030,8 +87831,8 @@
         "parentId": "mat_lgs233zkwh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515064804647",
-        "childMaterialId": "mat_fg1515064804647",
+        "materialId": "mat_fg1515064930",
+        "childMaterialId": "mat_fg1515064930",
         "stt": "",
         "comp_code": "",
         "qty": "0.333333",
@@ -89045,8 +87846,8 @@
         "parentId": "mat_lgs233zkwh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "stt": "",
         "comp_code": "",
         "qty": "0.05",
@@ -89090,8 +87891,8 @@
         "parentId": "mat_lgs233ykwh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515064804647",
-        "childMaterialId": "mat_fg1515064804647",
+        "materialId": "mat_fg1515064930",
+        "childMaterialId": "mat_fg1515064930",
         "stt": "",
         "comp_code": "",
         "qty": "0.333333",
@@ -89105,8 +87906,8 @@
         "parentId": "mat_lgs233ykwh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "stt": "",
         "comp_code": "",
         "qty": "0.05",
@@ -89165,8 +87966,8 @@
         "parentId": "mat_lgs333zkbh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515065790",
-        "childMaterialId": "mat_fg1515065790",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "stt": "",
         "comp_code": "",
         "qty": "0.045455",
@@ -89225,8 +88026,8 @@
         "parentId": "mat_lgs333ykbh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515065790",
-        "childMaterialId": "mat_fg1515065790",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "stt": "",
         "comp_code": "",
         "qty": "0.045455",
@@ -89285,8 +88086,8 @@
         "parentId": "mat_lgs333zkwh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515065790",
-        "childMaterialId": "mat_fg1515065790",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "stt": "",
         "comp_code": "",
         "qty": "0.045455",
@@ -89345,8 +88146,8 @@
         "parentId": "mat_lgs333ykwh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515065790",
-        "childMaterialId": "mat_fg1515065790",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "stt": "",
         "comp_code": "",
         "qty": "0.045455",
@@ -89405,8 +88206,8 @@
         "parentId": "mat_lgs334zkbh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "stt": "",
         "comp_code": "",
         "qty": "0.05",
@@ -89465,8 +88266,8 @@
         "parentId": "mat_lgs334ykbh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "stt": "",
         "comp_code": "",
         "qty": "0.05",
@@ -89525,8 +88326,8 @@
         "parentId": "mat_lgs434zkwh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "stt": "",
         "comp_code": "",
         "qty": "0.05",
@@ -89585,8 +88386,8 @@
         "parentId": "mat_lgs434ykwh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "stt": "",
         "comp_code": "",
         "qty": "0.05",
@@ -89645,8 +88446,8 @@
         "parentId": "mat_lgs723zkbh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "stt": "",
         "comp_code": "",
         "qty": "0.05",
@@ -89705,8 +88506,8 @@
         "parentId": "mat_lgs723ykbh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "stt": "",
         "comp_code": "",
         "qty": "0.05",
@@ -89765,8 +88566,8 @@
         "parentId": "mat_lgs723zkwh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "stt": "",
         "comp_code": "",
         "qty": "0.05",
@@ -89825,8 +88626,8 @@
         "parentId": "mat_lgs723ykwh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "stt": "",
         "comp_code": "",
         "qty": "0.05",
@@ -89885,8 +88686,8 @@
         "parentId": "mat_lgs833zkbh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515065790",
-        "childMaterialId": "mat_fg1515065790",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "stt": "",
         "comp_code": "",
         "qty": "0.045455",
@@ -89945,8 +88746,8 @@
         "parentId": "mat_lgs833ykbh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515065790",
-        "childMaterialId": "mat_fg1515065790",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "stt": "",
         "comp_code": "",
         "qty": "0.045455",
@@ -90005,8 +88806,8 @@
         "parentId": "mat_lgs833zkwh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515065790",
-        "childMaterialId": "mat_fg1515065790",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "stt": "",
         "comp_code": "",
         "qty": "0.045455",
@@ -90065,8 +88866,8 @@
         "parentId": "mat_lgs833ykwh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515065790",
-        "childMaterialId": "mat_fg1515065790",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
         "stt": "",
         "comp_code": "",
         "qty": "0.045455",
@@ -90125,8 +88926,8 @@
         "parentId": "mat_lgs834zkbh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "stt": "",
         "comp_code": "",
         "qty": "0.05",
@@ -90185,8 +88986,8 @@
         "parentId": "mat_lgs834ykbh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "stt": "",
         "comp_code": "",
         "qty": "0.05",
@@ -90245,8 +89046,8 @@
         "parentId": "mat_lgs834zkwh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "stt": "",
         "comp_code": "",
         "qty": "0.05",
@@ -90305,8 +89106,8 @@
         "parentId": "mat_lgs834ykwh647",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515066170",
-        "childMaterialId": "mat_fg1515066170",
+        "materialId": "mat_fg1515066182",
+        "childMaterialId": "mat_fg1515066182",
         "stt": "",
         "comp_code": "",
         "qty": "0.05",
@@ -90350,8 +89151,8 @@
         "parentId": "mat_fwib1i",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515064816647",
-        "childMaterialId": "mat_fg1515064816647",
+        "materialId": "mat_fg1515064804647",
+        "childMaterialId": "mat_fg1515064804647",
         "stt": "",
         "comp_code": "",
         "qty": "0.333333",
@@ -90365,14 +89166,223 @@
         "parentId": "mat_pxy79y",
         "productCode": "",
         "color": "",
-        "materialId": "mat_fg1515064816647",
-        "childMaterialId": "mat_fg1515064816647",
+        "materialId": "mat_fg1515064804647",
+        "childMaterialId": "mat_fg1515064804647",
         "stt": "",
         "comp_code": "",
         "qty": "0.333333",
         "color_ver": "",
         "color_ver_vi": "",
         "order": 3
+      },
+      {
+        "id": "bomc_mat_14esgeh_mat_fg132132105190",
+        "parentType": "material",
+        "parentId": "mat_14esgeh",
+        "materialId": "mat_fg132132105190",
+        "childMaterialId": "mat_fg132132105190",
+        "qty": "0.015625",
+        "order": 1,
+        "comp_code": "",
+        "stt": ""
+      },
+      {
+        "id": "bomc_mat_1cp9ev_mat_fg132132105190",
+        "parentType": "material",
+        "parentId": "mat_1cp9ev",
+        "materialId": "mat_fg132132105190",
+        "childMaterialId": "mat_fg132132105190",
+        "qty": "0.015625",
+        "order": 1,
+        "comp_code": "",
+        "stt": ""
+      },
+      {
+        "id": "bomc_mat_1gdsuz4_mat_fg132132105190",
+        "parentType": "material",
+        "parentId": "mat_1gdsuz4",
+        "materialId": "mat_fg132132105190",
+        "childMaterialId": "mat_fg132132105190",
+        "qty": "0.015625",
+        "order": 1,
+        "comp_code": "",
+        "stt": ""
+      },
+      {
+        "id": "bomc_mat_1glusot_mat_fg132132105190",
+        "parentType": "material",
+        "parentId": "mat_1glusot",
+        "materialId": "mat_fg132132105190",
+        "childMaterialId": "mat_fg132132105190",
+        "qty": "0.015625",
+        "order": 1,
+        "comp_code": "",
+        "stt": ""
+      },
+      {
+        "id": "bomc_mat_1iggj1x_mat_fg132132105190",
+        "parentType": "material",
+        "parentId": "mat_1iggj1x",
+        "materialId": "mat_fg132132105190",
+        "childMaterialId": "mat_fg132132105190",
+        "qty": "0.015625",
+        "order": 1,
+        "comp_code": "",
+        "stt": ""
+      },
+      {
+        "id": "bomc_mat_1q0gpue_mat_fg132132105190",
+        "parentType": "material",
+        "parentId": "mat_1q0gpue",
+        "materialId": "mat_fg132132105190",
+        "childMaterialId": "mat_fg132132105190",
+        "qty": "0.015625",
+        "order": 1,
+        "comp_code": "",
+        "stt": ""
+      },
+      {
+        "id": "bomc_mat_1saxqhd_mat_fg132132105190",
+        "parentType": "material",
+        "parentId": "mat_1saxqhd",
+        "materialId": "mat_fg132132105190",
+        "childMaterialId": "mat_fg132132105190",
+        "qty": "0.015625",
+        "order": 1,
+        "comp_code": "",
+        "stt": ""
+      },
+      {
+        "id": "bomc_mat_1ss85ek_mat_fg132132105190",
+        "parentType": "material",
+        "parentId": "mat_1ss85ek",
+        "materialId": "mat_fg132132105190",
+        "childMaterialId": "mat_fg132132105190",
+        "qty": "0.015625",
+        "order": 1,
+        "comp_code": "",
+        "stt": ""
+      },
+      {
+        "id": "bomc_mat_1t1yeyb_mat_fg132132105190",
+        "parentType": "material",
+        "parentId": "mat_1t1yeyb",
+        "materialId": "mat_fg132132105190",
+        "childMaterialId": "mat_fg132132105190",
+        "qty": "0.015625",
+        "order": 1,
+        "comp_code": "",
+        "stt": ""
+      },
+      {
+        "id": "bomc_mat_1tpfqgh_mat_fg132132105190",
+        "parentType": "material",
+        "parentId": "mat_1tpfqgh",
+        "materialId": "mat_fg132132105190",
+        "childMaterialId": "mat_fg132132105190",
+        "qty": "0.015625",
+        "order": 1,
+        "comp_code": "",
+        "stt": ""
+      },
+      {
+        "id": "bomc_mat_1xtwol6_mat_fg132132105190",
+        "parentType": "material",
+        "parentId": "mat_1xtwol6",
+        "materialId": "mat_fg132132105190",
+        "childMaterialId": "mat_fg132132105190",
+        "qty": "0.015625",
+        "order": 1,
+        "comp_code": "",
+        "stt": ""
+      },
+      {
+        "id": "bomc_mat_1yw5hcz_mat_fg132132105190",
+        "parentType": "material",
+        "parentId": "mat_1yw5hcz",
+        "materialId": "mat_fg132132105190",
+        "childMaterialId": "mat_fg132132105190",
+        "qty": "0.015625",
+        "order": 1,
+        "comp_code": "",
+        "stt": ""
+      },
+      {
+        "id": "bomc_mat_5p95gk_mat_fg132132105190",
+        "parentType": "material",
+        "parentId": "mat_5p95gk",
+        "materialId": "mat_fg132132105190",
+        "childMaterialId": "mat_fg132132105190",
+        "qty": "0.015625",
+        "order": 1,
+        "comp_code": "",
+        "stt": ""
+      },
+      {
+        "id": "bomc_mat_8edcv4_mat_fg132132105190",
+        "parentType": "material",
+        "parentId": "mat_8edcv4",
+        "materialId": "mat_fg132132105190",
+        "childMaterialId": "mat_fg132132105190",
+        "qty": "0.015625",
+        "order": 1,
+        "comp_code": "",
+        "stt": ""
+      },
+      {
+        "id": "bomc_mat_i2358e_mat_fg132132105190",
+        "parentType": "material",
+        "parentId": "mat_i2358e",
+        "materialId": "mat_fg132132105190",
+        "childMaterialId": "mat_fg132132105190",
+        "qty": "0.015625",
+        "order": 1,
+        "comp_code": "",
+        "stt": ""
+      },
+      {
+        "id": "bomc_mat_ivadk_mat_fg132132105190",
+        "parentType": "material",
+        "parentId": "mat_ivadk",
+        "materialId": "mat_fg132132105190",
+        "childMaterialId": "mat_fg132132105190",
+        "qty": "0.015625",
+        "order": 1,
+        "comp_code": "",
+        "stt": ""
+      },
+      {
+        "id": "bomc_mat_moakt4_mat_fg132132105190",
+        "parentType": "material",
+        "parentId": "mat_moakt4",
+        "materialId": "mat_fg132132105190",
+        "childMaterialId": "mat_fg132132105190",
+        "qty": "0.015625",
+        "order": 1,
+        "comp_code": "",
+        "stt": ""
+      },
+      {
+        "id": "bomc_mat_mzzijl_mat_fg132132105190",
+        "parentType": "material",
+        "parentId": "mat_mzzijl",
+        "materialId": "mat_fg132132105190",
+        "childMaterialId": "mat_fg132132105190",
+        "qty": "0.015625",
+        "order": 1,
+        "comp_code": "",
+        "stt": ""
+      },
+      {
+        "id": "bomc_mat_yoxn6d_mat_fg132132105190",
+        "parentType": "material",
+        "parentId": "mat_yoxn6d",
+        "materialId": "mat_fg132132105190",
+        "childMaterialId": "mat_fg132132105190",
+        "qty": "0.015625",
+        "order": 1,
+        "comp_code": "",
+        "stt": ""
       }
     ]
   }
