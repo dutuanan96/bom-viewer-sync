@@ -446,14 +446,14 @@ export function buildAllEcnOperations(payload) {
     operations.push({
       operationType: 'add_material_child',
       targetId: 'mat_1c0a8em',
-      payload: { materialId: 'mat_fg1515066013', quantity: 0.006897 },
+      payload: { materialId: 'mat_fg1515066013', quantity: 0.006993 },
     });
   }
 
   // ZJG150641WH: all 4 components (only add if material was just created above)
   if (!materials['mat_zjg150641wh']) {
     operations.push(
-      { operationType: 'add_material_child', targetId: 'mat_zjg150641wh', payload: { materialId: 'mat_fg1515066013', quantity: 0.006897 } },
+      { operationType: 'add_material_child', targetId: 'mat_zjg150641wh', payload: { materialId: 'mat_fg1515066013', quantity: 0.006993 } },
       { operationType: 'add_material_child', targetId: 'mat_zjg150641wh', payload: { materialId: 'mat_m6gs1515wh', quantity: 1 } },
       { operationType: 'add_material_child', targetId: 'mat_zjg150641wh', payload: { materialId: 'mat_m6ylm139', quantity: 1 } },
       { operationType: 'add_material_child', targetId: 'mat_zjg150641wh', payload: { materialId: 'mat_nlpls6018wz', quantity: 1 } }
@@ -463,7 +463,7 @@ export function buildAllEcnOperations(payload) {
   // ZJG15064123BH: all 4 components
   if (!materials['mat_zjg15064123bh']) {
     operations.push(
-      { operationType: 'add_material_child', targetId: 'mat_zjg15064123bh', payload: { materialId: 'mat_fg1515066013', quantity: 0.006897 } },
+      { operationType: 'add_material_child', targetId: 'mat_zjg15064123bh', payload: { materialId: 'mat_fg1515066013', quantity: 0.006993 } },
       { operationType: 'add_material_child', targetId: 'mat_zjg15064123bh', payload: { materialId: 'mat_m6gs1515bh', quantity: 1 } },
       { operationType: 'add_material_child', targetId: 'mat_zjg15064123bh', payload: { materialId: 'mat_m6ylm139', quantity: 1 } },
       { operationType: 'add_material_child', targetId: 'mat_zjg15064123bh', payload: { materialId: 'mat_einzrx', quantity: 1 } }
@@ -473,7 +473,7 @@ export function buildAllEcnOperations(payload) {
   // ZJG15064123WH: all 4 components
   if (!materials['mat_zjg15064123wh']) {
     operations.push(
-      { operationType: 'add_material_child', targetId: 'mat_zjg15064123wh', payload: { materialId: 'mat_fg1515066013', quantity: 0.006897 } },
+      { operationType: 'add_material_child', targetId: 'mat_zjg15064123wh', payload: { materialId: 'mat_fg1515066013', quantity: 0.006993 } },
       { operationType: 'add_material_child', targetId: 'mat_zjg15064123wh', payload: { materialId: 'mat_m6gs1515wh', quantity: 1 } },
       { operationType: 'add_material_child', targetId: 'mat_zjg15064123wh', payload: { materialId: 'mat_m6ylm139', quantity: 1 } },
       { operationType: 'add_material_child', targetId: 'mat_zjg15064123wh', payload: { materialId: 'mat_9tyhnt', quantity: 1 } }

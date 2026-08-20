@@ -142,7 +142,7 @@ test('ECN-2026-0710-LGS Rev 1.4 Proposal Verification', async (t) => {
     }
   });
 
-  await t.test('Foot 41 sub-BOMs contain FG1515066013 with quantity 0.006897 and full 4 components', () => {
+  await t.test('Foot 41 sub-BOMs contain FG1515066013 with quantity 0.006993 and full 4 components', () => {
     const footConfigs = [
       { code: 'ZJG150641BH', pipe: 'FG1515066013', plug: 'M6GS1515BH', nut: 'M6YLM139', screw: 'NLPLS6018BZ' },
       { code: 'ZJG150641WH', pipe: 'FG1515066013', plug: 'M6GS1515WH', nut: 'M6YLM139', screw: 'NLPLS6018WZ' },
@@ -161,7 +161,7 @@ test('ECN-2026-0710-LGS Rev 1.4 Proposal Verification', async (t) => {
         return cm?.code === config.pipe;
       });
       assert.ok(pipeChild, `${config.code} must have pipe ${config.pipe}`);
-      assert.equal(Number(pipeChild.qty), 0.006897, `${config.code} pipe quantity must be 0.006897`);
+      assert.equal(Number(pipeChild.qty), 0.006993, `${config.code} pipe quantity must be 0.006993`);
 
       const plugChild = children.find(c => {
         const cm = materials[c.childMaterialId || c.materialId];
