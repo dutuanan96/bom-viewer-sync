@@ -666,29 +666,6 @@
             },
             {
               "stt": "",
-              "mat_code": "FG1515064816",
-              "comp_code": "",
-              "name_zh": "方管",
-              "name_vi": "Sắt hộp",
-              "spec": "15×15×0.6Tmm，长度 4816mm",
-              "spec_vi": "15×15×0.6Tmm, dài 4816mm",
-              "material_zh": "Q195",
-              "material_vi": "Q195",
-              "color_zh": "光亮",
-              "color_vi": "sáng bóng",
-              "attr_zh": "原材料",
-              "attr_vi": "Nguyên vật liệu",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "根",
-                "vi": "thanh"
-              },
-              "qty": "0.333333",
-              "remark": ""
-            },
-            {
-              "stt": "",
               "mat_code": "M6LMLM",
               "comp_code": "",
               "name_zh": "M6拉铆螺母",
@@ -708,6 +685,29 @@
                 "vi": "viên"
               },
               "qty": "1",
+              "remark": ""
+            },
+            {
+              "stt": "",
+              "mat_code": "FG1515064804",
+              "comp_code": "",
+              "name_zh": "方管",
+              "name_vi": "Sắt hộp",
+              "spec": "15×15×0.6Tmm，长度 4804mm",
+              "spec_vi": "15×15×0.6Tmm, dài 4804mm",
+              "material_zh": "Q195",
+              "material_vi": "Q195",
+              "color_zh": "光亮",
+              "color_vi": "sáng bóng",
+              "attr_zh": "原材料",
+              "attr_vi": "Nguyên vật liệu",
+              "color_ver": "",
+              "color_ver_vi": "",
+              "unit": {
+                "zh": "根",
+                "vi": "thanh"
+              },
+              "qty": "0.333333",
               "remark": ""
             }
           ]
@@ -783,29 +783,6 @@
             },
             {
               "stt": "",
-              "mat_code": "FG1515064816",
-              "comp_code": "",
-              "name_zh": "方管",
-              "name_vi": "Sắt hộp",
-              "spec": "15×15×0.6Tmm，长度 4816mm",
-              "spec_vi": "15×15×0.6Tmm, dài 4816mm",
-              "material_zh": "Q195",
-              "material_vi": "Q195",
-              "color_zh": "光亮",
-              "color_vi": "sáng bóng",
-              "attr_zh": "原材料",
-              "attr_vi": "Nguyên vật liệu",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "根",
-                "vi": "thanh"
-              },
-              "qty": "0.333333",
-              "remark": ""
-            },
-            {
-              "stt": "",
               "mat_code": "M6LMLM",
               "comp_code": "",
               "name_zh": "M6拉铆螺母",
@@ -825,6 +802,29 @@
                 "vi": "viên"
               },
               "qty": "1",
+              "remark": ""
+            },
+            {
+              "stt": "",
+              "mat_code": "FG1515064804",
+              "comp_code": "",
+              "name_zh": "方管",
+              "name_vi": "Sắt hộp",
+              "spec": "15×15×0.6Tmm，长度 4804mm",
+              "spec_vi": "15×15×0.6Tmm, dài 4804mm",
+              "material_zh": "Q195",
+              "material_vi": "Q195",
+              "color_zh": "光亮",
+              "color_vi": "sáng bóng",
+              "attr_zh": "原材料",
+              "attr_vi": "Nguyên vật liệu",
+              "color_ver": "",
+              "color_ver_vi": "",
+              "unit": {
+                "zh": "根",
+                "vi": "thanh"
+              },
+              "qty": "0.333333",
               "remark": ""
             }
           ]
@@ -1359,7 +1359,10 @@
           "attr_vi": "linh kiện",
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
-          "unit": "根",
+          "unit": {
+            "zh": "根",
+            "vi": "thanh"
+          },
           "qty": "5",
           "remark": ""
         },
@@ -2348,29 +2351,6 @@
             },
             {
               "stt": "",
-              "mat_code": "FG1515064816",
-              "comp_code": "",
-              "name_zh": "方管",
-              "name_vi": "Sắt hộp",
-              "spec": "15×15×0.6Tmm，长度 4816mm",
-              "spec_vi": "15×15×0.6Tmm, dài 4816mm",
-              "material_zh": "Q195",
-              "material_vi": "Q195",
-              "color_zh": "光亮",
-              "color_vi": "sáng bóng",
-              "attr_zh": "原材料",
-              "attr_vi": "Nguyên vật liệu",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "根",
-                "vi": "thanh"
-              },
-              "qty": "0.333333",
-              "remark": ""
-            },
-            {
-              "stt": "",
               "mat_code": "M6LMLM",
               "comp_code": "",
               "name_zh": "M6拉铆螺母",
@@ -2390,6 +2370,29 @@
                 "vi": "viên"
               },
               "qty": "1",
+              "remark": ""
+            },
+            {
+              "stt": "",
+              "mat_code": "FG1515064804",
+              "comp_code": "",
+              "name_zh": "方管",
+              "name_vi": "Sắt hộp",
+              "spec": "15×15×0.6Tmm，长度 4804mm",
+              "spec_vi": "15×15×0.6Tmm, dài 4804mm",
+              "material_zh": "Q195",
+              "material_vi": "Q195",
+              "color_zh": "光亮",
+              "color_vi": "sáng bóng",
+              "attr_zh": "原材料",
+              "attr_vi": "Nguyên vật liệu",
+              "color_ver": "",
+              "color_ver_vi": "",
+              "unit": {
+                "zh": "根",
+                "vi": "thanh"
+              },
+              "qty": "0.333333",
               "remark": ""
             }
           ]
@@ -2465,29 +2468,6 @@
             },
             {
               "stt": "",
-              "mat_code": "FG1515064816",
-              "comp_code": "",
-              "name_zh": "方管",
-              "name_vi": "Sắt hộp",
-              "spec": "15×15×0.6Tmm，长度 4816mm",
-              "spec_vi": "15×15×0.6Tmm, dài 4816mm",
-              "material_zh": "Q195",
-              "material_vi": "Q195",
-              "color_zh": "光亮",
-              "color_vi": "sáng bóng",
-              "attr_zh": "原材料",
-              "attr_vi": "Nguyên vật liệu",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "根",
-                "vi": "thanh"
-              },
-              "qty": "0.333333",
-              "remark": ""
-            },
-            {
-              "stt": "",
               "mat_code": "M6LMLM",
               "comp_code": "",
               "name_zh": "M6拉铆螺母",
@@ -2507,6 +2487,29 @@
                 "vi": "viên"
               },
               "qty": "1",
+              "remark": ""
+            },
+            {
+              "stt": "",
+              "mat_code": "FG1515064804",
+              "comp_code": "",
+              "name_zh": "方管",
+              "name_vi": "Sắt hộp",
+              "spec": "15×15×0.6Tmm，长度 4804mm",
+              "spec_vi": "15×15×0.6Tmm, dài 4804mm",
+              "material_zh": "Q195",
+              "material_vi": "Q195",
+              "color_zh": "光亮",
+              "color_vi": "sáng bóng",
+              "attr_zh": "原材料",
+              "attr_vi": "Nguyên vật liệu",
+              "color_ver": "",
+              "color_ver_vi": "",
+              "unit": {
+                "zh": "根",
+                "vi": "thanh"
+              },
+              "qty": "0.333333",
               "remark": ""
             }
           ]
@@ -3041,7 +3044,10 @@
           "attr_vi": "linh kiện",
           "color_ver": "黑色",
           "color_ver_vi": "màu đen",
-          "unit": "根",
+          "unit": {
+            "zh": "根",
+            "vi": "thanh"
+          },
           "qty": "5",
           "remark": ""
         },
