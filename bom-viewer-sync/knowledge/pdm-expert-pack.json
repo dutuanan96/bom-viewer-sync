@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "packVersion": "1.0.0",
-  "updatedAt": "2026-07-17T00:00:00Z",
-  "description": "PDM domain expert context for AI assistants. Read-only invariants and key domain rules.",
+  "packVersion": "1.2.0",
+  "updatedAt": "2026-08-20T10:38:00Z",
+  "description": "PDM domain expert context for AI assistants. Parametric manufacturing rules, raw material physics, and complete component taxonomy.",
   "invariants": [
     "currentRevision is the latest design revision. effectiveRevision is the one currently in production.",
     "Draft creation does not release and does not change effectivity.",
@@ -10,8 +10,72 @@
     "The 24 runtime shards in data/ are the single source of truth. data.js is rollback/migration only.",
     "Source metadata (commitSha, shardRoot, manifestVersion, updatedAt) must come from the GitHub response, not synthesized.",
     "Fuzzy matches must not be labeled as exact. Exact alias requires product and internal SKU to exist in the snapshot.",
-    "AI must not send the full payload to the model. Only bounded, normalized tool results are safe to include."
+    "AI must not send the full payload to the model. Only bounded, normalized tool results are safe to include.",
+    "Pipe consumption rates must NEVER exceed raw tube capacity: cuts * cutLength <= rawLength. Clamping waste must remain in [50mm ~ 110mm]."
   ],
+  "manufacturingRules": {
+    "cncClampingPhysics": {
+      "description": "Dynamic CNC tube cutting physics. Laser tube cutting machines require a minimum clamping tail waste (typically 50mm to 80mm).",
+      "formulaCuts": "cuts = Math.floor((rawPipeLength - minClampWaste) / cutLength)",
+      "formulaRate": "consumptionRate = 1 / cuts",
+      "formulaWaste": "actualClampWaste = rawPipeLength - (cuts * cutLength)",
+      "recommendedClampWasteRange": [50, 95],
+      "shortageRiskGuard": "If (cuts * cutLength > rawPipeLength), the consumption rate is invalid and WILL cause procurement shortage."
+    },
+    "uBendFrames": {
+      "description": "Continuous inverted U-bend frames (Side frames, Middle frames, Support frames).",
+      "rules": [
+        "If frame has bottom M6 threaded caps (M6GS1515BH/WH, 3mm flange): cutHeight = nominalHeight - 3mm. Unfolded cutLength = cutHeight * 2 + nominalWidth.",
+        "If frame has flush-welded submerged round nuts (M6YLM139, 0mm flange): cutHeight = nominalHeight. Unfolded cutLength = cutHeight * 2 + nominalWidth.",
+        "Support frames (支撑框) oriented as [Width]x[Height]x15mm: cutLength = height * 2 + width."
+      ]
+    },
+    "compositeWeldedFramesWithLedPlate": {
+      "description": "Composite welded middle frames with flat top steel plate specifically designed for sticking LED light strip tape.",
+      "components": [
+        "2 vertical posts (前中框 & 后中框): cutHeight = nominalHeight - 3mm (for bottom M6 caps). Total length = cutHeight * 2. Rate = 1 / Math.floor((rawLen - 70) / (cutHeight * 2)).",
+        "1 bottom cross rail (短横梁): cutWidth = nominalWidth - 2 * 15mm = nominalWidth - 30mm (e.g. 260mm or 305mm). Rate = 1 / Math.floor((rawLen - 70) / cutWidth).",
+        "1 top flat steel plate (260/305左右中框铁片, 260x15x2mm or 305x15x2mm): Flat surface engineered for sticking LED light strips.",
+        "2 bottom M6 plastic pipe caps (M6GS1515BH/WH) + 1 sidewall pull rivet nut (M6LMLM)."
+      ]
+    },
+    "splicedBeams": {
+      "description": "Two-piece spliced longitudinal beams for compact packaging.",
+      "rules": [
+        "Main outer tube cut length = nominalOverallLength - 40mm.",
+        "Inner sleeve reinforcement insert: Fixed 80mm length (protrudes 40mm past splice center).",
+        "Inner sleeve for 15x15x0.6T square tubes: FG132132105190 (13.2x13.2x1Tmm, 5190mm, 64 cuts/tube, rate = 0.015625).",
+        "Inner sleeve for 30x15x0.6T rectangular tubes: FG28136065190 (28x13.6x0.6Tmm, 5190mm, 64 cuts/tube, rate = 0.015625)."
+      ]
+    },
+    "feetComponents": {
+      "description": "Leveling feet sub-assemblies with pipe section, cap, weld nut, and leveling screw.",
+      "rules": [
+        "Foot 41 (41底脚): Cut length = 41.5mm. On FG1515066013 (6013mm): max 143 cuts (5934.5mm), clamp waste = 78.5mm, rate = 1/143 = 0.006993.",
+        "Foot 54 (54底脚): Cut length = 54.0mm. On FG1515066013 (6013mm): max 110 cuts (5940mm), clamp waste = 73.0mm, rate = 1/110 = 0.009091.",
+        "Foot 51 (51底脚): Cut length = 51.0mm. On FG1515065680 (5680mm): max 110 cuts (5610mm), clamp waste = 70.0mm, rate = 1/110 = 0.009091."
+      ]
+    }
+  },
+  "materialTaxonomyAndComponentKnowledge": {
+    "materialAttributes": {
+      "原材料": "Raw profile materials (Pipes in standard lengths: FG1515, FG3015, FG132132, FG28136).",
+      "零件": "Manufactured parts, welded sub-assemblies, boards, and metal structures.",
+      "五金包": "Hardware bags containing assembly screws, nuts, brackets, and allen keys.",
+      "配件": "Purchased accessories, non-woven fabric drawers, handles, LED strips, power sockets.",
+      "包材": "Packaging materials (Cartons, EPE foam edge protectors, corner guards, polybags)."
+    },
+    "hardwareAndFastenersCatalog": {
+      "M6GS1515BH_WH": "M6 square plastic pipe cap with internal thread (15x15mm, 3mm outer flange). Used at tube bottoms to accept leveling feet or frame anchors.",
+      "M6YLM139": "M6 round weld nut (M6x13.9mm). Welded flush into tube bottoms for seamless U-bend connection.",
+      "M6LMLM": "M6 hexagonal pull rivet nut. Installed on tube sidewalls for transverse cross-member screw fastening.",
+      "NLPLS6018BZ_WZ": "M6x18mm adjustable leveling foot screw with plastic base (Black/White).",
+      "NLPLS6030BZ_WZ": "M6x30mm (23mm thread) adjustable leveling foot screw with plastic base (Black/White).",
+      "LJP16143": "16x14x3.0mm welded steel connection bracket (4 pcs per support frame).",
+      "2601502ZHKTP": "260x15x2mm top flat steel mounting plate for 290mm-wide middle frames (LED strip base).",
+      "3051502ZHKTP": "305x15x2mm top flat steel mounting plate for 335mm-wide middle frames (LED strip base)."
+    }
+  },
   "productRevisionStructure": {
     "type": "object",
     "fields": {
