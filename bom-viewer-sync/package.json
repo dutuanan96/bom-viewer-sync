@@ -18,6 +18,7 @@
     "eval:pdm-workflow": "node scripts/eval-pdm-workflow.mjs",
     "migrate:dry-run": "node scripts/migrate-data-dry-run.mjs",
     "migrate:material-assets": "node scripts/audit-material-assets.mjs --mapping scripts/material-asset-mapping.json",
+    "migrate:align-variant-skus": "node scripts/align-variant-sku-codes.mjs",
     "migrate:september-sku-codes": "node scripts/migrate-september-2026-sku-codes.mjs",
     "migrate:staging": "node scripts/migrate-data-staging.mjs",
     "normalize:hardware-pack-bom": "node scripts/normalize-hardware-pack-bom.mjs",

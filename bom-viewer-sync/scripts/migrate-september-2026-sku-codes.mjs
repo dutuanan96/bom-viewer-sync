@@ -111,14 +111,14 @@ function applyProposal(payload, productCode, color, canEditRevision, operations)
   ).payload;
 }
 
-function migrateProduct(payload, migration) {
+export function applySkuCorrectionRevision(payload, migration, occurredAt, reason = CHANGE_REASON) {
   validateMigrationSource(payload, migration);
   const [firstSkuChange, ...remainingSkuChanges] = migration.skuChanges;
   let nextPayload = applyProposal(payload, migration.productCode, firstSkuChange.color, false, [
     {
       operationType: 'create_product_revision',
       targetId: migration.productCode,
-      payload: { revision: migration.nextRevision, changeReason: CHANGE_REASON },
+      payload: { revision: migration.nextRevision, changeReason: reason },
     },
     {
       operationType: 'update_product',
@@ -137,13 +137,34 @@ function migrateProduct(payload, migration) {
     ]);
   }
 
-  return applyProposal(nextPayload, migration.productCode, firstSkuChange.color, true, [
+  nextPayload = applyProposal(nextPayload, migration.productCode, firstSkuChange.color, true, [
     {
       operationType: 'release_product_revision',
       targetId: migration.productCode,
-      payload: { reason: CHANGE_REASON },
+      payload: { reason },
     },
   ]);
+
+  const changes = describePayloadChanges(payload, nextPayload);
+  if (changes.some((change) => change.kind.startsWith('bom_') || change.kind.startsWith('material'))) {
+    throw new Error('SKU correction must not modify BOM or material master data');
+  }
+  nextPayload.updatedAt = occurredAt;
+  nextPayload = appendBomHistory(nextPayload, payload, changes, {
+    actor: 'pdm-sku-migration',
+    action: 'release',
+    reason,
+    createdAt: occurredAt,
+  });
+  return {
+    payload: appendNotificationEvent(nextPayload, {
+      type: 'sku-code-migration',
+      actor: 'pdm-sku-migration',
+      changes,
+      createdAt: occurredAt,
+    }),
+    changes,
+  };
 }
 
 export async function readCanonicalPayload(root = ROOT) {
@@ -168,7 +189,7 @@ export function buildSeptember2026SkuMigration(payload, occurredAt) {
 
   let nextPayload = clone(payload);
   for (const migration of SEPTEMBER_2026_SKU_MIGRATIONS) {
-    nextPayload = migrateProduct(nextPayload, migration);
+    nextPayload = applySkuCorrectionRevision(nextPayload, migration, occurredAt).payload;
   }
 
   const changes = describePayloadChanges(previousPayload, nextPayload);
@@ -176,20 +197,6 @@ export function buildSeptember2026SkuMigration(payload, occurredAt) {
     throw new Error('SKU migration must not modify BOM or material master data');
   }
   if (changes.length !== 15) throw new Error(`Unexpected SKU migration change count: ${changes.length}`);
-
-  nextPayload.updatedAt = occurredAt;
-  nextPayload = appendBomHistory(nextPayload, previousPayload, changes, {
-    actor: 'pdm-sku-migration',
-    action: 'release',
-    reason: CHANGE_REASON,
-    createdAt: occurredAt,
-  });
-  nextPayload = appendNotificationEvent(nextPayload, {
-    type: 'sku-code-migration',
-    actor: 'pdm-sku-migration',
-    changes,
-    createdAt: occurredAt,
-  });
 
   return { payload: nextPayload, changes, alreadyApplied: false };
 }
