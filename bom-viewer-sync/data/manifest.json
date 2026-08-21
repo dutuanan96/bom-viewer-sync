@@ -470,6 +470,15 @@
         "driveId": "1uGpL00AWeLardXkZCKUeFvxGcUj8B5zG",
         "directUrl": "https://drive.google.com/thumbnail?id=1uGpL00AWeLardXkZCKUeFvxGcUj8B5zG&sz=w1600"
       }
+    },
+    "5106": {
+      "复古色": {
+        "name": "5106_KD.jpg",
+        "path": "product-images/5106_KD.jpg",
+        "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/5106_KD.jpg",
+        "source": "github",
+        "directUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/product-images/5106_KD.jpg"
+      }
     }
   },
   "productRevisions": {

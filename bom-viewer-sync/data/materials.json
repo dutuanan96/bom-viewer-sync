@@ -3358,6 +3358,14 @@
         "path": "Google Drive > LGS834 > LGS834-S-A4-说明书-V4.pdf",
         "url": "https://drive.google.com/file/d/1735SJl4GLXHaR-e8dHJgW21FSmvxQvWd/view?usp=sharing"
       }
+    ],
+    "5106": [
+      {
+        "name": "说明书（5815-5L）储物架(2抽)-20220808.pdf",
+        "path": "drawings/catalog/manual-5106-5815-5l.pdf",
+        "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/manual-5106-5815-5l.pdf",
+        "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/manual-5106-5815-5l.pdf"
+      }
     ]
   },
   "models3d": {
@@ -12982,6 +12990,19 @@
           "matched_name": "ST3.5X12平头十字自攻螺丝",
           "score": 1100,
           "bytes": 325680
+        }
+      ]
+    },
+    "5106": {
+      "2抽置物架5106": [
+        {
+          "name": "2抽置物架5106.glb",
+          "path": "models3d/catalog/model-product-5106-e95b5a6c.glb",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/models3d/catalog/model-product-5106-e95b5a6c.glb",
+          "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/models3d/catalog/model-product-5106-e95b5a6c.glb",
+          "matched_name": "5106 assembly",
+          "score": 1600,
+          "bytes": 5262708
         }
       ]
     }
