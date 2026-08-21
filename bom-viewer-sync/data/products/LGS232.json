@@ -503,12 +503,12 @@
           "materials": [
             {
               "stt": "",
-              "mat_code": "FG1515066082",
+              "mat_code": "FG1515066091",
               "comp_code": "",
               "name_zh": "方管",
               "name_vi": "Sắt hộp",
-              "spec": "15×15×0.6Tmm，长度 6082mm",
-              "spec_vi": "15×15×0.6Tmm, dài 6082mm",
+              "spec": "15×15×0.6Tmm，长度 6091mm",
+              "spec_vi": "15×15×0.6Tmm, dài 6091mm",
               "material_zh": "Q195",
               "material_vi": "Q195",
               "color_zh": "光亮",
@@ -620,12 +620,12 @@
             },
             {
               "stt": "",
-              "mat_code": "FG1515066170",
+              "mat_code": "FG1515066182",
               "comp_code": "",
               "name_zh": "方管",
               "name_vi": "Sắt hộp",
-              "spec": "15×15×0.6Tmm，长度 6170mm",
-              "spec_vi": "15×15×0.6Tmm, dài 6170mm",
+              "spec": "15×15×0.6Tmm，长度 6182mm",
+              "spec_vi": "15×15×0.6Tmm, dài 6182mm",
               "material_zh": "Q195",
               "material_vi": "Q195",
               "color_zh": "光亮",
@@ -1086,12 +1086,12 @@
             },
             {
               "stt": "",
-              "mat_code": "FG1515066010",
+              "mat_code": "FG1515066013",
               "comp_code": "",
               "name_zh": "方管",
               "name_vi": "Sắt hộp",
-              "spec": "15×15×0.6Tmm，长度 6010mm",
-              "spec_vi": "15×15×0.6Tmm, dài 6010mm",
+              "spec": "15×15×0.6Tmm，长度 6013mm",
+              "spec_vi": "15×15×0.6Tmm, dài 6013mm",
               "material_zh": "Q195",
               "material_vi": "Q195",
               "color_zh": "光亮",
@@ -1104,7 +1104,7 @@
                 "zh": "根",
                 "vi": "thanh"
               },
-              "qty": "0.006897",
+              "qty": "0.006993",
               "remark": ""
             }
           ]
@@ -1157,12 +1157,12 @@
           "materials": [
             {
               "stt": "",
-              "mat_code": "FG132132065990",
+              "mat_code": "FG132132105190",
               "comp_code": "",
               "name_zh": "方管",
               "name_vi": "Sắt hộp",
-              "spec": "13.2×13.2×0.6Tmm，长度 5990mm",
-              "spec_vi": "13.2×13.2×0.6Tmm, dài 5990mm",
+              "spec": "13.2×13.2×1Tmm，长度 5190mm",
+              "spec_vi": "13.2×13.2×1Tmm, dài 5190mm",
               "material_zh": "Q195",
               "material_vi": "Q195",
               "color_zh": "光亮",
@@ -1175,30 +1175,7 @@
                 "zh": "根",
                 "vi": "thanh"
               },
-              "qty": "0.013514",
-              "remark": ""
-            },
-            {
-              "stt": "",
-              "mat_code": "FG132132066150",
-              "comp_code": "",
-              "name_zh": "方管",
-              "name_vi": "Sắt hộp",
-              "spec": "13.2×13.2×0.6Tmm，长度 6150mm",
-              "spec_vi": "13.2×13.2×0.6Tmm, dài 6150mm",
-              "material_zh": "Q195",
-              "material_vi": "Q195",
-              "color_zh": "光亮",
-              "color_vi": "sáng bóng",
-              "attr_zh": "原材料",
-              "attr_vi": "Nguyên vật liệu",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "根",
-                "vi": "thanh"
-              },
-              "qty": "0.013158",
+              "qty": "0.015625",
               "remark": ""
             },
             {
@@ -1292,29 +1269,6 @@
               },
               "qty": "1",
               "remark": ""
-            },
-            {
-              "stt": "",
-              "mat_code": "80132132LJJ",
-              "comp_code": "",
-              "name_zh": "连接件",
-              "name_vi": "Chi tiết nối",
-              "spec": "80x13.2x13.2mm",
-              "spec_vi": "80x13.2x13.2mm",
-              "material_zh": "Q195",
-              "material_vi": "Q195",
-              "color_zh": "光亮",
-              "color_vi": "sáng bóng",
-              "attr_zh": "原材料",
-              "attr_vi": "Nguyên vật liệu",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "根",
-                "vi": "thanh"
-              },
-              "qty": "1",
-              "remark": ""
             }
           ]
         },
@@ -1343,12 +1297,12 @@
           "materials": [
             {
               "stt": "",
-              "mat_code": "FG132132065990",
+              "mat_code": "FG132132105190",
               "comp_code": "",
               "name_zh": "方管",
               "name_vi": "Sắt hộp",
-              "spec": "13.2×13.2×0.6Tmm，长度 5990mm",
-              "spec_vi": "13.2×13.2×0.6Tmm, dài 5990mm",
+              "spec": "13.2×13.2×1Tmm，长度 5190mm",
+              "spec_vi": "13.2×13.2×1Tmm, dài 5190mm",
               "material_zh": "Q195",
               "material_vi": "Q195",
               "color_zh": "光亮",
@@ -1361,30 +1315,7 @@
                 "zh": "根",
                 "vi": "thanh"
               },
-              "qty": "0.013514",
-              "remark": ""
-            },
-            {
-              "stt": "",
-              "mat_code": "FG132132066150",
-              "comp_code": "",
-              "name_zh": "方管",
-              "name_vi": "Sắt hộp",
-              "spec": "13.2×13.2×0.6Tmm，长度 6150mm",
-              "spec_vi": "13.2×13.2×0.6Tmm, dài 6150mm",
-              "material_zh": "Q195",
-              "material_vi": "Q195",
-              "color_zh": "光亮",
-              "color_vi": "sáng bóng",
-              "attr_zh": "原材料",
-              "attr_vi": "Nguyên vật liệu",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "根",
-                "vi": "thanh"
-              },
-              "qty": "0.013158",
+              "qty": "0.015625",
               "remark": ""
             },
             {
@@ -1441,29 +1372,6 @@
               "name_vi": "Tấm nối",
               "spec": "16x14x3.0mm",
               "spec_vi": "16x14x3.0mm",
-              "material_zh": "Q195",
-              "material_vi": "Q195",
-              "color_zh": "光亮",
-              "color_vi": "sáng bóng",
-              "attr_zh": "原材料",
-              "attr_vi": "Nguyên vật liệu",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "根",
-                "vi": "thanh"
-              },
-              "qty": "1",
-              "remark": ""
-            },
-            {
-              "stt": "",
-              "mat_code": "80132132LJJ",
-              "comp_code": "",
-              "name_zh": "连接件",
-              "name_vi": "Chi tiết nối",
-              "spec": "80x13.2x13.2mm",
-              "spec_vi": "80x13.2x13.2mm",
               "material_zh": "Q195",
               "material_vi": "Q195",
               "color_zh": "光亮",
@@ -1575,12 +1483,12 @@
             },
             {
               "stt": "",
-              "mat_code": "FG1515066170",
+              "mat_code": "FG1515066182",
               "comp_code": "",
               "name_zh": "方管",
               "name_vi": "Sắt hộp",
-              "spec": "15×15×0.6Tmm，长度 6170mm",
-              "spec_vi": "15×15×0.6Tmm, dài 6170mm",
+              "spec": "15×15×0.6Tmm，长度 6182mm",
+              "spec_vi": "15×15×0.6Tmm, dài 6182mm",
               "material_zh": "Q195",
               "material_vi": "Q195",
               "color_zh": "光亮",
@@ -1669,12 +1577,12 @@
           "materials": [
             {
               "stt": "",
-              "mat_code": "FG1515066082",
+              "mat_code": "FG1515066091",
               "comp_code": "",
               "name_zh": "方管",
               "name_vi": "Sắt hộp",
-              "spec": "15×15×0.6Tmm，长度 6082mm",
-              "spec_vi": "15×15×0.6Tmm, dài 6082mm",
+              "spec": "15×15×0.6Tmm，长度 6091mm",
+              "spec_vi": "15×15×0.6Tmm, dài 6091mm",
               "material_zh": "Q195",
               "material_vi": "Q195",
               "color_zh": "光亮",
@@ -2629,12 +2537,12 @@
           "materials": [
             {
               "stt": "",
-              "mat_code": "FG1515066082",
+              "mat_code": "FG1515066091",
               "comp_code": "",
               "name_zh": "方管",
               "name_vi": "Sắt hộp",
-              "spec": "15×15×0.6Tmm，长度 6082mm",
-              "spec_vi": "15×15×0.6Tmm, dài 6082mm",
+              "spec": "15×15×0.6Tmm，长度 6091mm",
+              "spec_vi": "15×15×0.6Tmm, dài 6091mm",
               "material_zh": "Q195",
               "material_vi": "Q195",
               "color_zh": "光亮",
@@ -2746,12 +2654,12 @@
             },
             {
               "stt": "",
-              "mat_code": "FG1515066170",
+              "mat_code": "FG1515066182",
               "comp_code": "",
               "name_zh": "方管",
               "name_vi": "Sắt hộp",
-              "spec": "15×15×0.6Tmm，长度 6170mm",
-              "spec_vi": "15×15×0.6Tmm, dài 6170mm",
+              "spec": "15×15×0.6Tmm，长度 6182mm",
+              "spec_vi": "15×15×0.6Tmm, dài 6182mm",
               "material_zh": "Q195",
               "material_vi": "Q195",
               "color_zh": "光亮",
@@ -3212,12 +3120,12 @@
             },
             {
               "stt": "",
-              "mat_code": "FG1515066010",
+              "mat_code": "FG1515066013",
               "comp_code": "",
               "name_zh": "方管",
               "name_vi": "Sắt hộp",
-              "spec": "15×15×0.6Tmm，长度 6010mm",
-              "spec_vi": "15×15×0.6Tmm, dài 6010mm",
+              "spec": "15×15×0.6Tmm，长度 6013mm",
+              "spec_vi": "15×15×0.6Tmm, dài 6013mm",
               "material_zh": "Q195",
               "material_vi": "Q195",
               "color_zh": "光亮",
@@ -3230,7 +3138,7 @@
                 "zh": "根",
                 "vi": "thanh"
               },
-              "qty": "0.006897",
+              "qty": "0.006993",
               "remark": ""
             }
           ]
@@ -3283,12 +3191,12 @@
           "materials": [
             {
               "stt": "",
-              "mat_code": "FG132132065990",
+              "mat_code": "FG132132105190",
               "comp_code": "",
               "name_zh": "方管",
               "name_vi": "Sắt hộp",
-              "spec": "13.2×13.2×0.6Tmm，长度 5990mm",
-              "spec_vi": "13.2×13.2×0.6Tmm, dài 5990mm",
+              "spec": "13.2×13.2×1Tmm，长度 5190mm",
+              "spec_vi": "13.2×13.2×1Tmm, dài 5190mm",
               "material_zh": "Q195",
               "material_vi": "Q195",
               "color_zh": "光亮",
@@ -3301,30 +3209,7 @@
                 "zh": "根",
                 "vi": "thanh"
               },
-              "qty": "0.013514",
-              "remark": ""
-            },
-            {
-              "stt": "",
-              "mat_code": "FG132132066150",
-              "comp_code": "",
-              "name_zh": "方管",
-              "name_vi": "Sắt hộp",
-              "spec": "13.2×13.2×0.6Tmm，长度 6150mm",
-              "spec_vi": "13.2×13.2×0.6Tmm, dài 6150mm",
-              "material_zh": "Q195",
-              "material_vi": "Q195",
-              "color_zh": "光亮",
-              "color_vi": "sáng bóng",
-              "attr_zh": "原材料",
-              "attr_vi": "Nguyên vật liệu",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "根",
-                "vi": "thanh"
-              },
-              "qty": "0.013158",
+              "qty": "0.015625",
               "remark": ""
             },
             {
@@ -3418,29 +3303,6 @@
               },
               "qty": "1",
               "remark": ""
-            },
-            {
-              "stt": "",
-              "mat_code": "80132132LJJ",
-              "comp_code": "",
-              "name_zh": "连接件",
-              "name_vi": "Chi tiết nối",
-              "spec": "80x13.2x13.2mm",
-              "spec_vi": "80x13.2x13.2mm",
-              "material_zh": "Q195",
-              "material_vi": "Q195",
-              "color_zh": "光亮",
-              "color_vi": "sáng bóng",
-              "attr_zh": "原材料",
-              "attr_vi": "Nguyên vật liệu",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "根",
-                "vi": "thanh"
-              },
-              "qty": "1",
-              "remark": ""
             }
           ]
         },
@@ -3469,12 +3331,12 @@
           "materials": [
             {
               "stt": "",
-              "mat_code": "FG132132065990",
+              "mat_code": "FG132132105190",
               "comp_code": "",
               "name_zh": "方管",
               "name_vi": "Sắt hộp",
-              "spec": "13.2×13.2×0.6Tmm，长度 5990mm",
-              "spec_vi": "13.2×13.2×0.6Tmm, dài 5990mm",
+              "spec": "13.2×13.2×1Tmm，长度 5190mm",
+              "spec_vi": "13.2×13.2×1Tmm, dài 5190mm",
               "material_zh": "Q195",
               "material_vi": "Q195",
               "color_zh": "光亮",
@@ -3487,30 +3349,7 @@
                 "zh": "根",
                 "vi": "thanh"
               },
-              "qty": "0.013514",
-              "remark": ""
-            },
-            {
-              "stt": "",
-              "mat_code": "FG132132066150",
-              "comp_code": "",
-              "name_zh": "方管",
-              "name_vi": "Sắt hộp",
-              "spec": "13.2×13.2×0.6Tmm，长度 6150mm",
-              "spec_vi": "13.2×13.2×0.6Tmm, dài 6150mm",
-              "material_zh": "Q195",
-              "material_vi": "Q195",
-              "color_zh": "光亮",
-              "color_vi": "sáng bóng",
-              "attr_zh": "原材料",
-              "attr_vi": "Nguyên vật liệu",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "根",
-                "vi": "thanh"
-              },
-              "qty": "0.013158",
+              "qty": "0.015625",
               "remark": ""
             },
             {
@@ -3567,29 +3406,6 @@
               "name_vi": "Tấm nối",
               "spec": "16x14x3.0mm",
               "spec_vi": "16x14x3.0mm",
-              "material_zh": "Q195",
-              "material_vi": "Q195",
-              "color_zh": "光亮",
-              "color_vi": "sáng bóng",
-              "attr_zh": "原材料",
-              "attr_vi": "Nguyên vật liệu",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "根",
-                "vi": "thanh"
-              },
-              "qty": "1",
-              "remark": ""
-            },
-            {
-              "stt": "",
-              "mat_code": "80132132LJJ",
-              "comp_code": "",
-              "name_zh": "连接件",
-              "name_vi": "Chi tiết nối",
-              "spec": "80x13.2x13.2mm",
-              "spec_vi": "80x13.2x13.2mm",
               "material_zh": "Q195",
               "material_vi": "Q195",
               "color_zh": "光亮",
@@ -3701,12 +3517,12 @@
             },
             {
               "stt": "",
-              "mat_code": "FG1515066170",
+              "mat_code": "FG1515066182",
               "comp_code": "",
               "name_zh": "方管",
               "name_vi": "Sắt hộp",
-              "spec": "15×15×0.6Tmm，长度 6170mm",
-              "spec_vi": "15×15×0.6Tmm, dài 6170mm",
+              "spec": "15×15×0.6Tmm，长度 6182mm",
+              "spec_vi": "15×15×0.6Tmm, dài 6182mm",
               "material_zh": "Q195",
               "material_vi": "Q195",
               "color_zh": "光亮",
@@ -3795,12 +3611,12 @@
           "materials": [
             {
               "stt": "",
-              "mat_code": "FG1515066082",
+              "mat_code": "FG1515066091",
               "comp_code": "",
               "name_zh": "方管",
               "name_vi": "Sắt hộp",
-              "spec": "15×15×0.6Tmm，长度 6082mm",
-              "spec_vi": "15×15×0.6Tmm, dài 6082mm",
+              "spec": "15×15×0.6Tmm，长度 6091mm",
+              "spec_vi": "15×15×0.6Tmm, dài 6091mm",
               "material_zh": "Q195",
               "material_vi": "Q195",
               "color_zh": "光亮",
