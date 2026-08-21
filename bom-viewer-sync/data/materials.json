@@ -1,5 +1,133 @@
 {
   "drawings": {
+    "5106": {
+      "vt5106db101|5106顶板": [
+        {
+          "name": "5106顶板.pdf",
+          "path": "drawings/catalog/drawing-5106-vt5106db101-fd054906.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-vt5106db101-fd054906.pdf",
+          "matched_name": "5106顶板",
+          "score": 1200
+        }
+      ],
+      "vt5106cb101|5106层板": [
+        {
+          "name": "5106层板.pdf",
+          "path": "drawings/catalog/drawing-5106-vt5106cb101-672bfda7.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-vt5106cb101-672bfda7.pdf",
+          "matched_name": "5106层板",
+          "score": 1200
+        }
+      ],
+      "vt5106zk|5106左侧框": [
+        {
+          "name": "5106左侧框.pdf",
+          "path": "drawings/catalog/drawing-5106-vt5106zk-7d9186f1.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-vt5106zk-7d9186f1.pdf",
+          "matched_name": "5106左侧框",
+          "score": 1200
+        }
+      ],
+      "vt5106yk|5106右侧框": [
+        {
+          "name": "5106右侧框.pdf",
+          "path": "drawings/catalog/drawing-5106-vt5106yk-cab60475.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-vt5106yk-cab60475.pdf",
+          "matched_name": "5106右侧框",
+          "score": 1200
+        }
+      ],
+      "vt5106hl|5106横梁": [
+        {
+          "name": "5106横梁.pdf",
+          "path": "drawings/catalog/drawing-5106-vt5106hl-021ee6e0.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-vt5106hl-021ee6e0.pdf",
+          "matched_name": "5106横梁",
+          "score": 1200
+        }
+      ],
+      "vtbc400380195rust|40x38x19.5布抽": [
+        {
+          "name": "40x38x19.5布抽.pdf",
+          "path": "drawings/catalog/drawing-5106-vtbc400380195rust-25287f45.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-vtbc400380195rust-25287f45.pdf",
+          "matched_name": "40x38x19.5布抽",
+          "score": 1200
+        }
+      ],
+      "vtbc400380190rust|40x38x19布抽": [
+        {
+          "name": "40x38x19布抽.pdf",
+          "path": "drawings/catalog/drawing-5106-vtbc400380190rust-4519dd45.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-vtbc400380190rust-4519dd45.pdf",
+          "matched_name": "40x38x19布抽",
+          "score": 1200
+        }
+      ],
+      "vt5106tq|5106侧框连接片": [
+        {
+          "name": "5106侧框连接片.pdf",
+          "path": "drawings/catalog/drawing-5106-vt5106tq-e9c18229.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-vt5106tq-e9c18229.pdf",
+          "matched_name": "5106侧框连接片",
+          "score": 1200
+        }
+      ],
+      "5106前侧框|5106前侧框": [
+        {
+          "name": "5106前侧框.pdf",
+          "path": "drawings/catalog/drawing-5106-5106前侧框-99379822.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-5106前侧框-99379822.pdf",
+          "matched_name": "5106前侧框",
+          "score": 1200
+        }
+      ],
+      "5106后侧框|5106后侧框": [
+        {
+          "name": "5106后侧框.pdf",
+          "path": "drawings/catalog/drawing-5106-5106后侧框-b1f38eb4.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-5106后侧框-b1f38eb4.pdf",
+          "matched_name": "5106后侧框",
+          "score": 1200
+        }
+      ],
+      "5106侧框横梁(两孔)|5106侧框横梁(两孔)": [
+        {
+          "name": "5106侧框横梁(两孔).pdf",
+          "path": "drawings/catalog/drawing-5106-5106侧框横梁两孔-02274eb4.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-5106侧框横梁两孔-02274eb4.pdf",
+          "matched_name": "5106侧框横梁(两孔)",
+          "score": 1200
+        }
+      ],
+      "5106布抽条左|5106布抽条左": [
+        {
+          "name": "5106布抽条左.pdf",
+          "path": "drawings/catalog/drawing-5106-5106布抽条左-8428187f.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-5106布抽条左-8428187f.pdf",
+          "matched_name": "5106布抽条左",
+          "score": 1200
+        }
+      ],
+      "5106布抽条右|5106布抽条右": [
+        {
+          "name": "5106布抽条右.pdf",
+          "path": "drawings/catalog/drawing-5106-5106布抽条右-9277851f.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-5106布抽条右-9277851f.pdf",
+          "matched_name": "5106布抽条右",
+          "score": 1200
+        }
+      ],
+      "vtbcls129228wh|把手": [
+        {
+          "name": "把手.pdf",
+          "path": "drawings/catalog/drawing-5106-vtbcls129228wh-a647e951.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-vtbcls129228wh-a647e951.pdf",
+          "matched_name": "把手",
+          "score": 1200
+        }
+      ]
+    },
     "LGS031": {
       "lgs031yzkbh|lgs031右中框": [
         {
@@ -3202,137 +3330,17 @@
           "score": 1002
         }
       ]
-    },
-    "5106": {
-      "vt5106db101|5106顶板": [
-        {
-          "name": "5106顶板.pdf",
-          "path": "drawings/catalog/drawing-5106-vt5106db101-fd054906.pdf",
-          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-vt5106db101-fd054906.pdf",
-          "matched_name": "5106顶板",
-          "score": 1200
-        }
-      ],
-      "vt5106cb101|5106层板": [
-        {
-          "name": "5106层板.pdf",
-          "path": "drawings/catalog/drawing-5106-vt5106cb101-672bfda7.pdf",
-          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-vt5106cb101-672bfda7.pdf",
-          "matched_name": "5106层板",
-          "score": 1200
-        }
-      ],
-      "vt5106zk|5106左侧框": [
-        {
-          "name": "5106左侧框.pdf",
-          "path": "drawings/catalog/drawing-5106-vt5106zk-7d9186f1.pdf",
-          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-vt5106zk-7d9186f1.pdf",
-          "matched_name": "5106左侧框",
-          "score": 1200
-        }
-      ],
-      "vt5106yk|5106右侧框": [
-        {
-          "name": "5106右侧框.pdf",
-          "path": "drawings/catalog/drawing-5106-vt5106yk-cab60475.pdf",
-          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-vt5106yk-cab60475.pdf",
-          "matched_name": "5106右侧框",
-          "score": 1200
-        }
-      ],
-      "vt5106hl|5106横梁": [
-        {
-          "name": "5106横梁.pdf",
-          "path": "drawings/catalog/drawing-5106-vt5106hl-021ee6e0.pdf",
-          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-vt5106hl-021ee6e0.pdf",
-          "matched_name": "5106横梁",
-          "score": 1200
-        }
-      ],
-      "vtbc400380195rust|40x38x19.5布抽": [
-        {
-          "name": "40x38x19.5布抽.pdf",
-          "path": "drawings/catalog/drawing-5106-vtbc400380195rust-25287f45.pdf",
-          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-vtbc400380195rust-25287f45.pdf",
-          "matched_name": "40x38x19.5布抽",
-          "score": 1200
-        }
-      ],
-      "vtbc400380190rust|40x38x19布抽": [
-        {
-          "name": "40x38x19布抽.pdf",
-          "path": "drawings/catalog/drawing-5106-vtbc400380190rust-4519dd45.pdf",
-          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-vtbc400380190rust-4519dd45.pdf",
-          "matched_name": "40x38x19布抽",
-          "score": 1200
-        }
-      ],
-      "vt5106tq|5106侧框连接片": [
-        {
-          "name": "5106侧框连接片.pdf",
-          "path": "drawings/catalog/drawing-5106-vt5106tq-e9c18229.pdf",
-          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-vt5106tq-e9c18229.pdf",
-          "matched_name": "5106侧框连接片",
-          "score": 1200
-        }
-      ],
-      "5106前侧框|5106前侧框": [
-        {
-          "name": "5106前侧框.pdf",
-          "path": "drawings/catalog/drawing-5106-5106前侧框-99379822.pdf",
-          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-5106前侧框-99379822.pdf",
-          "matched_name": "5106前侧框",
-          "score": 1200
-        }
-      ],
-      "5106后侧框|5106后侧框": [
-        {
-          "name": "5106后侧框.pdf",
-          "path": "drawings/catalog/drawing-5106-5106后侧框-b1f38eb4.pdf",
-          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-5106后侧框-b1f38eb4.pdf",
-          "matched_name": "5106后侧框",
-          "score": 1200
-        }
-      ],
-      "5106侧框横梁(两孔)|5106侧框横梁(两孔)": [
-        {
-          "name": "5106侧框横梁(两孔).pdf",
-          "path": "drawings/catalog/drawing-5106-5106侧框横梁两孔-02274eb4.pdf",
-          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-5106侧框横梁两孔-02274eb4.pdf",
-          "matched_name": "5106侧框横梁(两孔)",
-          "score": 1200
-        }
-      ],
-      "5106布抽条左|5106布抽条左": [
-        {
-          "name": "5106布抽条左.pdf",
-          "path": "drawings/catalog/drawing-5106-5106布抽条左-8428187f.pdf",
-          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-5106布抽条左-8428187f.pdf",
-          "matched_name": "5106布抽条左",
-          "score": 1200
-        }
-      ],
-      "5106布抽条右|5106布抽条右": [
-        {
-          "name": "5106布抽条右.pdf",
-          "path": "drawings/catalog/drawing-5106-5106布抽条右-9277851f.pdf",
-          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-5106布抽条右-9277851f.pdf",
-          "matched_name": "5106布抽条右",
-          "score": 1200
-        }
-      ],
-      "vtbcls129228wh|把手": [
-        {
-          "name": "把手.pdf",
-          "path": "drawings/catalog/drawing-5106-vtbcls129228wh-a647e951.pdf",
-          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-vtbcls129228wh-a647e951.pdf",
-          "matched_name": "把手",
-          "score": 1200
-        }
-      ]
     }
   },
   "manuals": {
+    "5106": [
+      {
+        "name": "说明书（5815-5L）储物架(2抽)-20220808.pdf",
+        "path": "drawings/catalog/manual-5106-f965b3dc.pdf",
+        "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/manual-5106-f965b3dc.pdf",
+        "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/manual-5106-f965b3dc.pdf"
+      }
+    ],
     "LGS031": [
       {
         "name": "LGS031-S-A4-说明书-V3.pdf",
@@ -3486,17 +3494,152 @@
         "path": "Google Drive > LGS834 > LGS834-S-A4-说明书-V4.pdf",
         "url": "https://drive.google.com/file/d/1735SJl4GLXHaR-e8dHJgW21FSmvxQvWd/view?usp=sharing"
       }
-    ],
-    "5106": [
-      {
-        "name": "说明书（5815-5L）储物架(2抽)-20220808.pdf",
-        "path": "drawings/catalog/manual-5106-f965b3dc.pdf",
-        "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/manual-5106-f965b3dc.pdf",
-        "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/manual-5106-f965b3dc.pdf"
-      }
     ]
   },
   "models3d": {
+    "5106": {
+      "2抽置物架5106": [
+        {
+          "name": "2抽置物架5106.glb",
+          "path": "models3d/catalog/model-product-5106-e95b5a6c.glb",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/models3d/catalog/model-product-5106-e95b5a6c.glb",
+          "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/models3d/catalog/model-product-5106-e95b5a6c.glb",
+          "matched_name": "5106 assembly",
+          "score": 1600,
+          "bytes": 5262708
+        }
+      ],
+      "vt5106db101|5106顶板": [
+        {
+          "name": "5106顶板.glb",
+          "path": "models3d/catalog/model-5106-5106db101kd-b3c8a5db.glb",
+          "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/models3d/catalog/model-5106-5106db101kd-b3c8a5db.glb",
+          "matched_name": "5106顶板",
+          "score": 1300,
+          "bytes": 100000
+        }
+      ],
+      "vt5106cb101|5106层板": [
+        {
+          "name": "5106层板.glb",
+          "path": "models3d/catalog/model-5106-5106cb101kd-51b71776.glb",
+          "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/models3d/catalog/model-5106-5106cb101kd-51b71776.glb",
+          "matched_name": "5106层板",
+          "score": 1300,
+          "bytes": 100000
+        }
+      ],
+      "vt5106zk|5106左侧框": [
+        {
+          "name": "5106左侧框.glb",
+          "path": "models3d/catalog/model-5106-5106zzkbh-b09351f4.glb",
+          "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/models3d/catalog/model-5106-5106zzkbh-b09351f4.glb",
+          "matched_name": "5106左侧框",
+          "score": 1300,
+          "bytes": 100000
+        }
+      ],
+      "vt5106yk|5106右侧框": [
+        {
+          "name": "5106右侧框.glb",
+          "path": "models3d/catalog/model-5106-5106yzkbh-f1d44a92.glb",
+          "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/models3d/catalog/model-5106-5106yzkbh-f1d44a92.glb",
+          "matched_name": "5106右侧框",
+          "score": 1300,
+          "bytes": 100000
+        }
+      ],
+      "vt5106hl|5106横梁": [
+        {
+          "name": "5106横梁.glb",
+          "path": "models3d/catalog/model-5106-5106hlbh-7fc38cf1.glb",
+          "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/models3d/catalog/model-5106-5106hlbh-7fc38cf1.glb",
+          "matched_name": "5106横梁",
+          "score": 1300,
+          "bytes": 100000
+        }
+      ],
+      "vtbc400380195rust|40X38X19.3布抽": [
+        {
+          "name": "40x38x19.3布抽.glb",
+          "path": "models3d/catalog/model-5106-bc400380195kd-479c4cf8.glb",
+          "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/models3d/catalog/model-5106-bc400380195kd-479c4cf8.glb",
+          "matched_name": "40X38X19.3布抽",
+          "score": 1300,
+          "bytes": 100000
+        }
+      ],
+      "vtbc400380190rust|40X38X19布抽": [
+        {
+          "name": "40x38x19布抽.glb",
+          "path": "models3d/catalog/model-5106-bc400380190kd-7a3983a8.glb",
+          "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/models3d/catalog/model-5106-bc400380190kd-7a3983a8.glb",
+          "matched_name": "40X38X19布抽",
+          "score": 1300,
+          "bytes": 100000
+        }
+      ],
+      "vtbcdb39037023|39.5x37.5布抽底板": [
+        {
+          "name": "40x38x19.3布抽底板.glb",
+          "path": "models3d/catalog/model-5106-bcdb393370003bh-2ab704a2.glb",
+          "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/models3d/catalog/model-5106-bcdb393370003bh-2ab704a2.glb",
+          "matched_name": "39.5x37.5布抽底板",
+          "score": 1300,
+          "bytes": 100000
+        }
+      ],
+      "vt5106tq|5106侧框连接片": [
+        {
+          "name": "5106侧框连接片.glb",
+          "path": "models3d/catalog/model-5106-3601502zhktp-3f7e250a.glb",
+          "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/models3d/catalog/model-5106-3601502zhktp-3f7e250a.glb",
+          "matched_name": "5106侧框连接片",
+          "score": 1300,
+          "bytes": 100000
+        }
+      ],
+      "5106布抽条左|5106布抽条左": [
+        {
+          "name": "5106布抽条左.glb",
+          "path": "models3d/catalog/model-5106-5106bctz-4fb7f2f0.glb",
+          "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/models3d/catalog/model-5106-5106bctz-4fb7f2f0.glb",
+          "matched_name": "5106布抽条左",
+          "score": 1300,
+          "bytes": 100000
+        }
+      ],
+      "5106布抽条右|5106布抽条右": [
+        {
+          "name": "5106布抽条右.glb",
+          "path": "models3d/catalog/model-5106-5106bcty-5e921673.glb",
+          "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/models3d/catalog/model-5106-5106bcty-5e921673.glb",
+          "matched_name": "5106布抽条右",
+          "score": 1300,
+          "bytes": 100000
+        }
+      ],
+      "vtzgls5050|自攻螺丝": [
+        {
+          "name": "ST5x50内六角自攻螺丝.glb",
+          "path": "models3d/catalog/model-5106-st5x50nlxzgls-53338e94.glb",
+          "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/models3d/catalog/model-5106-st5x50nlxzgls-53338e94.glb",
+          "matched_name": "自攻螺丝",
+          "score": 1300,
+          "bytes": 100000
+        }
+      ],
+      "vttzjd619619bh|调整脚钉": [
+        {
+          "name": "M6调节脚.glb",
+          "path": "models3d/catalog/model-5106-tzjd619619bh-0543bed4.glb",
+          "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/models3d/catalog/model-5106-tzjd619619bh-0543bed4.glb",
+          "matched_name": "调整脚钉",
+          "score": 1300,
+          "bytes": 100000
+        }
+      ]
+    },
     "LGS031": {
       "lgs031三列两层一抽开放式带灯带电布抽电视柜": [
         {
@@ -13118,149 +13261,6 @@
           "matched_name": "ST3.5X12平头十字自攻螺丝",
           "score": 1100,
           "bytes": 325680
-        }
-      ]
-    },
-    "5106": {
-      "2抽置物架5106": [
-        {
-          "name": "2抽置物架5106.glb",
-          "path": "models3d/catalog/model-product-5106-e95b5a6c.glb",
-          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/models3d/catalog/model-product-5106-e95b5a6c.glb",
-          "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/models3d/catalog/model-product-5106-e95b5a6c.glb",
-          "matched_name": "5106 assembly",
-          "score": 1600,
-          "bytes": 5262708
-        }
-      ],
-      "vt5106db101|5106顶板": [
-        {
-          "name": "5106顶板.glb",
-          "path": "models3d/catalog/model-5106-5106db101kd-b3c8a5db.glb",
-          "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/models3d/catalog/model-5106-5106db101kd-b3c8a5db.glb",
-          "matched_name": "5106顶板",
-          "score": 1300,
-          "bytes": 100000
-        }
-      ],
-      "vt5106cb101|5106层板": [
-        {
-          "name": "5106层板.glb",
-          "path": "models3d/catalog/model-5106-5106cb101kd-51b71776.glb",
-          "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/models3d/catalog/model-5106-5106cb101kd-51b71776.glb",
-          "matched_name": "5106层板",
-          "score": 1300,
-          "bytes": 100000
-        }
-      ],
-      "vt5106zk|5106左侧框": [
-        {
-          "name": "5106左侧框.glb",
-          "path": "models3d/catalog/model-5106-5106zzkbh-b09351f4.glb",
-          "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/models3d/catalog/model-5106-5106zzkbh-b09351f4.glb",
-          "matched_name": "5106左侧框",
-          "score": 1300,
-          "bytes": 100000
-        }
-      ],
-      "vt5106yk|5106右侧框": [
-        {
-          "name": "5106右侧框.glb",
-          "path": "models3d/catalog/model-5106-5106yzkbh-f1d44a92.glb",
-          "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/models3d/catalog/model-5106-5106yzkbh-f1d44a92.glb",
-          "matched_name": "5106右侧框",
-          "score": 1300,
-          "bytes": 100000
-        }
-      ],
-      "vt5106hl|5106横梁": [
-        {
-          "name": "5106横梁.glb",
-          "path": "models3d/catalog/model-5106-5106hlbh-7fc38cf1.glb",
-          "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/models3d/catalog/model-5106-5106hlbh-7fc38cf1.glb",
-          "matched_name": "5106横梁",
-          "score": 1300,
-          "bytes": 100000
-        }
-      ],
-      "vtbc400380195rust|40X38X19.3布抽": [
-        {
-          "name": "40x38x19.3布抽.glb",
-          "path": "models3d/catalog/model-5106-bc400380195kd-479c4cf8.glb",
-          "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/models3d/catalog/model-5106-bc400380195kd-479c4cf8.glb",
-          "matched_name": "40X38X19.3布抽",
-          "score": 1300,
-          "bytes": 100000
-        }
-      ],
-      "vtbc400380190rust|40X38X19布抽": [
-        {
-          "name": "40x38x19布抽.glb",
-          "path": "models3d/catalog/model-5106-bc400380190kd-7a3983a8.glb",
-          "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/models3d/catalog/model-5106-bc400380190kd-7a3983a8.glb",
-          "matched_name": "40X38X19布抽",
-          "score": 1300,
-          "bytes": 100000
-        }
-      ],
-      "vtbcdb39037023|39.5x37.5布抽底板": [
-        {
-          "name": "40x38x19.3布抽底板.glb",
-          "path": "models3d/catalog/model-5106-bcdb393370003bh-2ab704a2.glb",
-          "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/models3d/catalog/model-5106-bcdb393370003bh-2ab704a2.glb",
-          "matched_name": "39.5x37.5布抽底板",
-          "score": 1300,
-          "bytes": 100000
-        }
-      ],
-      "vt5106tq|5106侧框连接片": [
-        {
-          "name": "5106侧框连接片.glb",
-          "path": "models3d/catalog/model-5106-3601502zhktp-3f7e250a.glb",
-          "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/models3d/catalog/model-5106-3601502zhktp-3f7e250a.glb",
-          "matched_name": "5106侧框连接片",
-          "score": 1300,
-          "bytes": 100000
-        }
-      ],
-      "5106布抽条左|5106布抽条左": [
-        {
-          "name": "5106布抽条左.glb",
-          "path": "models3d/catalog/model-5106-5106bctz-4fb7f2f0.glb",
-          "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/models3d/catalog/model-5106-5106bctz-4fb7f2f0.glb",
-          "matched_name": "5106布抽条左",
-          "score": 1300,
-          "bytes": 100000
-        }
-      ],
-      "5106布抽条右|5106布抽条右": [
-        {
-          "name": "5106布抽条右.glb",
-          "path": "models3d/catalog/model-5106-5106bcty-5e921673.glb",
-          "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/models3d/catalog/model-5106-5106bcty-5e921673.glb",
-          "matched_name": "5106布抽条右",
-          "score": 1300,
-          "bytes": 100000
-        }
-      ],
-      "vtzgls5050|自攻螺丝": [
-        {
-          "name": "ST5x50内六角自攻螺丝.glb",
-          "path": "models3d/catalog/model-5106-st5x50nlxzgls-53338e94.glb",
-          "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/models3d/catalog/model-5106-st5x50nlxzgls-53338e94.glb",
-          "matched_name": "自攻螺丝",
-          "score": 1300,
-          "bytes": 100000
-        }
-      ],
-      "vttzjd619619bh|调整脚钉": [
-        {
-          "name": "M6调节脚.glb",
-          "path": "models3d/catalog/model-5106-tzjd619619bh-0543bed4.glb",
-          "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/models3d/catalog/model-5106-tzjd619619bh-0543bed4.glb",
-          "matched_name": "调整脚钉",
-          "score": 1300,
-          "bytes": 100000
         }
       ]
     }
@@ -43710,19 +43710,15 @@
         },
         "drawings": [
           {
-            "name": "5106顶板.pdf",
-            "path": "drawings/catalog/drawing-5106db101kd-4d89f326.pdf",
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106db101kd-4d89f326.pdf"
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@2b96707e0f1ee5ea19d8aea7ade4c32a532b25fd/assets/pdfs/5106DB101KD_fd0549065e9c97a0749c13aa8159fed5825051c80de4a51356145134b2486050_5106_.pdf",
+            "name": "5106顶板.pdf"
           }
         ],
         "models3d": [
           {
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@93974f62947a4f8fb7a499bd6310de022d001feb/assets/models/5106DB101KD_b3c8a5db5d74bd7b0f49a6f5759a9b91a1a641051bc146923ec6b992061152e5_5106_.glb",
             "name": "5106顶板.glb",
-            "path": "models3d/catalog/model-5106-5106db101kd-b3c8a5db.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-5106db101kd-b3c8a5db.glb",
-            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-5106db101kd-b3c8a5db.glb",
-            "matched_name": "5106顶板",
-            "bytes": 49460
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@93974f62947a4f8fb7a499bd6310de022d001feb/assets/models/5106DB101KD_b3c8a5db5d74bd7b0f49a6f5759a9b91a1a641051bc146923ec6b992061152e5_5106_.glb"
           }
         ]
       },
@@ -43755,19 +43751,15 @@
         },
         "drawings": [
           {
-            "name": "5106层板.pdf",
-            "path": "drawings/catalog/drawing-5106cb101kd-73872481.pdf",
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106cb101kd-73872481.pdf"
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@59e3d6bbb2ed25931816cc195eea1da288ef865a/assets/pdfs/5106CB101KD_672bfda780f9082e88791add235d4692607680054b05eedbbbf0be25d517318a_5106_.pdf",
+            "name": "5106层板.pdf"
           }
         ],
         "models3d": [
           {
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@06be3c85b6bedf64ae367e348f3aa7ccb0869517/assets/models/5106CB101KD_51b71776d03d1b130c625b6da4aaf2e791fe0d7040b361a618b9fd8b4cafd274_5106_.glb",
             "name": "5106层板.glb",
-            "path": "models3d/catalog/model-5106-5106cb101kd-51b71776.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-5106cb101kd-51b71776.glb",
-            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-5106cb101kd-51b71776.glb",
-            "matched_name": "5106层板",
-            "bytes": 25272
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@06be3c85b6bedf64ae367e348f3aa7ccb0869517/assets/models/5106CB101KD_51b71776d03d1b130c625b6da4aaf2e791fe0d7040b361a618b9fd8b4cafd274_5106_.glb"
           }
         ]
       },
@@ -43800,19 +43792,15 @@
         },
         "drawings": [
           {
-            "name": "5106左侧框.pdf",
-            "path": "drawings/catalog/drawing-5106zzkbh-c9e18401.pdf",
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106zzkbh-c9e18401.pdf"
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@26d8eddc76e8efd3938168e38e0f060d826931fa/assets/pdfs/5106ZZKBH_7d9186f107df6e041a7f47ec37a706cbf16676dcbf80c30b9559928a6a4ef74d_5106_.pdf",
+            "name": "5106左侧框.pdf"
           }
         ],
         "models3d": [
           {
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@404388527dac29508c79ed97f48e811178caa135/assets/models/5106ZZKBH_b09351f4873eb4bff5570fdcd07c0d08af1f9540e2170cced2e6684c724bba30_5106_.glb",
             "name": "5106左侧框.glb",
-            "path": "models3d/catalog/model-5106-5106zzkbh-b09351f4.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-5106zzkbh-b09351f4.glb",
-            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-5106zzkbh-b09351f4.glb",
-            "matched_name": "5106左侧框",
-            "bytes": 135344
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@404388527dac29508c79ed97f48e811178caa135/assets/models/5106ZZKBH_b09351f4873eb4bff5570fdcd07c0d08af1f9540e2170cced2e6684c724bba30_5106_.glb"
           }
         ]
       },
@@ -43890,19 +43878,15 @@
         },
         "drawings": [
           {
-            "name": "5106横梁.pdf",
-            "path": "drawings/catalog/drawing-5106hlbh-f675e6f6.pdf",
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106hlbh-f675e6f6.pdf"
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@a9815cb74d0bec163225e0f058b687751f865a47/assets/pdfs/5106HLBH_021ee6e07fe4cfa51174abeb0f3fd4a2d832e285366cc5878a15bf8f6f2cdcd4_5106_.pdf",
+            "name": "5106横梁.pdf"
           }
         ],
         "models3d": [
           {
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b26dc23ceb0c980f95c8392e4c17fed88d92c35a/assets/models/5106HLBH_7fc38cf1192177191abfb0ab91618c61e9e4a7b1a14c54cb65862f6d8b2fe420_5106_.glb",
             "name": "5106横梁.glb",
-            "path": "models3d/catalog/model-5106-5106hlbh-7fc38cf1.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-5106hlbh-7fc38cf1.glb",
-            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-5106hlbh-7fc38cf1.glb",
-            "matched_name": "5106横梁",
-            "bytes": 49692
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b26dc23ceb0c980f95c8392e4c17fed88d92c35a/assets/models/5106HLBH_7fc38cf1192177191abfb0ab91618c61e9e4a7b1a14c54cb65862f6d8b2fe420_5106_.glb"
           }
         ]
       },
@@ -43935,19 +43919,15 @@
         },
         "drawings": [
           {
-            "name": "40x38x19.5布抽.pdf",
-            "path": "drawings/catalog/drawing-bc400380195kd-f0a73437.pdf",
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bc400380195kd-f0a73437.pdf"
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@c1d7c1a2369930c5602dae733a9f38938ee6aba1/assets/pdfs/BC400380195KD_25287f45ee3098dc1813863549733e26fd6d8281dbaeff1a6af0ea0f7b227f26_40x38x19.5_.pdf",
+            "name": "40x38x19.5布抽.pdf"
           }
         ],
         "models3d": [
           {
-            "name": "40x38x19.3布抽.glb",
-            "path": "models3d/catalog/model-5106-bc400380195kd-479c4cf8.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-bc400380195kd-479c4cf8.glb",
-            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-bc400380195kd-479c4cf8.glb",
-            "matched_name": "40x38x19.5布抽",
-            "bytes": 13416
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@04afa4c3aeed6a061f9cce79df5fa00815b1f56a/assets/models/BC400380195KD_479c4cf811570bb342d485cacdea456c04e367c7265ba9e565a71dd451e1315e_40x38x19.3_.glb",
+            "name": "40X38X19.5布抽.glb",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@04afa4c3aeed6a061f9cce79df5fa00815b1f56a/assets/models/BC400380195KD_479c4cf811570bb342d485cacdea456c04e367c7265ba9e565a71dd451e1315e_40x38x19.3_.glb"
           }
         ]
       },
@@ -43980,19 +43960,15 @@
         },
         "drawings": [
           {
-            "name": "40x38x19布抽.pdf",
-            "path": "drawings/catalog/drawing-bc400380190kd-fe175a51.pdf",
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bc400380190kd-fe175a51.pdf"
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@500c27f96bb0553e66559ecb933e4f6f49142524/assets/pdfs/BC400380190KD_4519dd45a44a70046b0e0d799562599367b1e529320778c0455b39729747368f_40x38x19_.pdf",
+            "name": "40x38x19布抽.pdf"
           }
         ],
         "models3d": [
           {
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@711488e9d800a11a2a88e7a148a41f1e6b91e52c/assets/models/BC400380190KD_7a3983a82ca9e1f1b637cbd61364692a92fb05b1b54cc9364bc37209670b5fd1_40x38x19_.glb",
             "name": "40x38x19布抽.glb",
-            "path": "models3d/catalog/model-5106-bc400380190kd-7a3983a8.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-bc400380190kd-7a3983a8.glb",
-            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-bc400380190kd-7a3983a8.glb",
-            "matched_name": "40x38x19布抽",
-            "bytes": 13416
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@711488e9d800a11a2a88e7a148a41f1e6b91e52c/assets/models/BC400380190KD_7a3983a82ca9e1f1b637cbd61364692a92fb05b1b54cc9364bc37209670b5fd1_40x38x19_.glb"
           }
         ]
       },
@@ -44103,19 +44079,15 @@
         },
         "drawings": [
           {
-            "name": "5106侧框连接片.pdf",
-            "path": "drawings/catalog/drawing-3601502zhktp-dcf5b9fd.pdf",
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-3601502zhktp-dcf5b9fd.pdf"
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@238d2667b8eb07a51464372e4ba72e0876c3b81e/assets/pdfs/3601502ZHKTP_e9c1822953f0896a8bb1f02cf9e6cb096a297d6fd7d99a4b2b003fd8e1e4e13c_5106_.pdf",
+            "name": "5106侧框连接片.pdf"
           }
         ],
         "models3d": [
           {
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@c911723007a5e7ad3198237d745274bab6764c22/assets/models/3601502ZHKTP_3f7e250af74d9113277d4168fd98c633e2320f918d6cd7f059147eef7bcb88ab_5106_.glb",
             "name": "5106侧框连接片.glb",
-            "path": "models3d/catalog/model-5106-3601502zhktp-3f7e250a.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-3601502zhktp-3f7e250a.glb",
-            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-3601502zhktp-3f7e250a.glb",
-            "matched_name": "5106侧框连接片",
-            "bytes": 13272
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@c911723007a5e7ad3198237d745274bab6764c22/assets/models/3601502ZHKTP_3f7e250af74d9113277d4168fd98c633e2320f918d6cd7f059147eef7bcb88ab_5106_.glb"
           }
         ]
       },
@@ -44148,19 +44120,15 @@
         },
         "drawings": [
           {
-            "name": "5106布抽条左.pdf",
-            "path": "drawings/catalog/drawing-5106bctz-8b211010.pdf",
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106bctz-8b211010.pdf"
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@dc7e91812438eb79893ab4b1eb07faccf7c188e7/assets/pdfs/5106BCTZ_8428187fe4ef6c6ba00aaef3b1759afea634f63f49b7899d5105e4359ba4fc96_5106_.pdf",
+            "name": "5106布抽条左.pdf"
           }
         ],
         "models3d": [
           {
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@e846b768b1c4e52e875ede415f778e471f3fb395/assets/models/5106BCTZ_4fb7f2f06f5be82dff6d48b52b9f2cb494b1c05d2b5f7171b07a7968ec99de1c_5106_.glb",
             "name": "5106布抽条左.glb",
-            "path": "models3d/catalog/model-5106-5106bctz-4fb7f2f0.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-5106bctz-4fb7f2f0.glb",
-            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-5106bctz-4fb7f2f0.glb",
-            "matched_name": "5106布抽条左",
-            "bytes": 6676
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@e846b768b1c4e52e875ede415f778e471f3fb395/assets/models/5106BCTZ_4fb7f2f06f5be82dff6d48b52b9f2cb494b1c05d2b5f7171b07a7968ec99de1c_5106_.glb"
           }
         ]
       },
@@ -44193,19 +44161,15 @@
         },
         "drawings": [
           {
-            "name": "5106布抽条右.pdf",
-            "path": "drawings/catalog/drawing-5106bcty-c07cb7ff.pdf",
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106bcty-c07cb7ff.pdf"
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@2204b173e5552d57e00caafcfa3c9b06d947bcc1/assets/pdfs/5106BCTY_9277851f795a28a04b74924498e6b3a15ac9ef63763109e743c274dfb1a7688b_5106_.pdf",
+            "name": "5106布抽条右.pdf"
           }
         ],
         "models3d": [
           {
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@5d1823be9314ff80c7b6837b16c513cd1f80cff6/assets/models/5106BCTY_5e921673b04ef9ac4c6a1ad94d5621c58e2606e06f8196adde3ea98c61279b12_5106_.glb",
             "name": "5106布抽条右.glb",
-            "path": "models3d/catalog/model-5106-5106bcty-5e921673.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-5106bcty-5e921673.glb",
-            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-5106bcty-5e921673.glb",
-            "matched_name": "5106布抽条右",
-            "bytes": 6700
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@5d1823be9314ff80c7b6837b16c513cd1f80cff6/assets/models/5106BCTY_5e921673b04ef9ac4c6a1ad94d5621c58e2606e06f8196adde3ea98c61279b12_5106_.glb"
           }
         ]
       },
@@ -90673,7 +90637,7 @@
         "materialId": "mat_5106db101kd",
         "qty": "1",
         "order": 1,
-        "comp_code": "A",
+        "comp_code": "C",
         "stt": "1",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
@@ -90689,7 +90653,7 @@
         "materialId": "mat_5106cb101kd",
         "qty": "1",
         "order": 2,
-        "comp_code": "B",
+        "comp_code": "F",
         "stt": "2",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
@@ -90705,7 +90669,7 @@
         "materialId": "mat_5106zzkbh",
         "qty": "1",
         "order": 3,
-        "comp_code": "C",
+        "comp_code": "A",
         "stt": "3",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
@@ -90721,7 +90685,7 @@
         "materialId": "mat_5106yzkbh",
         "qty": "1",
         "order": 4,
-        "comp_code": "D",
+        "comp_code": "B",
         "stt": "4",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
@@ -90753,7 +90717,7 @@
         "materialId": "mat_bc400380195kd",
         "qty": "1",
         "order": 6,
-        "comp_code": "E1",
+        "comp_code": "E",
         "stt": "6",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
@@ -90769,7 +90733,7 @@
         "materialId": "mat_bc400380190kd",
         "qty": "1",
         "order": 7,
-        "comp_code": "E2",
+        "comp_code": "E",
         "stt": "7",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
@@ -90785,7 +90749,7 @@
         "materialId": "mat_bcdb393370003bh",
         "qty": "2",
         "order": 8,
-        "comp_code": "F",
+        "comp_code": "D",
         "stt": "8",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
