@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-21T11:21:07.559Z",
+  "updatedAt": "2026-08-21T11:23:06.573Z",
   "products": [
     "5106",
     "LGS031",
@@ -489,7 +489,7 @@
         "sourceRevision": "V1",
         "createdAt": "2026-08-20T15:40:43.164Z",
         "changeReason": "DU HOME SPU 5106 V1 初始发布 (依据2抽置物架5106.xlsx与说明书官方BOM建立)",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -1259,6 +1259,14 @@
           "revision": "V1",
           "previousRevision": "V1",
           "occurredAt": "2026-08-21T11:11:55.060Z",
+          "reason": "更新"
+        },
+        {
+          "id": "effectivity_mt2v1w38",
+          "action": "release",
+          "revision": "V1",
+          "previousRevision": "V1",
+          "occurredAt": "2026-08-21T11:23:06.548Z",
           "reason": "更新"
         }
       ]
@@ -134982,6 +134990,22 @@
   },
   "notifications": [
     {
+      "id": "notif_15faqre",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-21T11:23:06.573Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "5106",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        }
+      ]
+    },
+    {
       "id": "notif_x87a48",
       "type": "github-save",
       "actor": "admin",
@@ -136059,26 +136083,28 @@
           "after": "V4.1"
         }
       ]
-    },
-    {
-      "id": "notif_s6impc",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-14T10:45:17.553Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "bom_qty_changed",
-          "code": "LGS131XHLWH",
-          "field": "M6YLM139",
-          "before": "1",
-          "after": "2"
-        }
-      ]
     }
   ],
   "bomHistory": {
     "5106": [
+      {
+        "id": "history_tl37yt",
+        "productCode": "5106",
+        "revision": "V1",
+        "action": "release",
+        "actor": "admin",
+        "reason": "更新",
+        "createdAt": "2026-08-21T11:23:06.573Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "5106",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
       {
         "id": "history_1cpk8bz",
         "productCode": "5106",
