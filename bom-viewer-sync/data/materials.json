@@ -76,8 +76,8 @@
       "5106前侧框|5106前侧框": [
         {
           "name": "5106前侧框.pdf",
-          "path": "drawings/catalog/drawing-5106-5106前侧框-99379822.pdf",
-          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-5106前侧框-99379822.pdf",
+          "path": "drawings/catalog/drawing-5106-qsk-99379822.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-qsk-99379822.pdf",
           "matched_name": "5106前侧框",
           "score": 1200
         }
@@ -85,8 +85,8 @@
       "5106后侧框|5106后侧框": [
         {
           "name": "5106后侧框.pdf",
-          "path": "drawings/catalog/drawing-5106-5106后侧框-b1f38eb4.pdf",
-          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-5106后侧框-b1f38eb4.pdf",
+          "path": "drawings/catalog/drawing-5106-hsk-b1f38eb4.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-hsk-b1f38eb4.pdf",
           "matched_name": "5106后侧框",
           "score": 1200
         }
@@ -94,8 +94,8 @@
       "5106侧框横梁(两孔)|5106侧框横梁(两孔)": [
         {
           "name": "5106侧框横梁(两孔).pdf",
-          "path": "drawings/catalog/drawing-5106-5106侧框横梁两孔-02274eb4.pdf",
-          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-5106侧框横梁两孔-02274eb4.pdf",
+          "path": "drawings/catalog/drawing-5106-skhl2k-02274eb4.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-skhl2k-02274eb4.pdf",
           "matched_name": "5106侧框横梁(两孔)",
           "score": 1200
         }
@@ -103,8 +103,8 @@
       "5106布抽条左|5106布抽条左": [
         {
           "name": "5106布抽条左.pdf",
-          "path": "drawings/catalog/drawing-5106-5106布抽条左-8428187f.pdf",
-          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-5106布抽条左-8428187f.pdf",
+          "path": "drawings/catalog/drawing-5106-bctz-8428187f.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-bctz-8428187f.pdf",
           "matched_name": "5106布抽条左",
           "score": 1200
         }
@@ -112,8 +112,8 @@
       "5106布抽条右|5106布抽条右": [
         {
           "name": "5106布抽条右.pdf",
-          "path": "drawings/catalog/drawing-5106-5106布抽条右-9277851f.pdf",
-          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-5106布抽条右-9277851f.pdf",
+          "path": "drawings/catalog/drawing-5106-bcty-9277851f.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-bcty-9277851f.pdf",
           "matched_name": "5106布抽条右",
           "score": 1200
         }
@@ -121,10 +121,10 @@
       "vtbcls129228wh|把手": [
         {
           "name": "把手.pdf",
-          "path": "drawings/catalog/drawing-5106-vtbcls129228wh-a647e951.pdf",
-          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-vtbcls129228wh-a647e951.pdf",
+          "path": "drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
           "matched_name": "把手",
-          "score": 1200
+          "score": 1002
         }
       ]
     },
@@ -213,8 +213,8 @@
       "bcls129228bh|把手": [
         {
           "name": "把手.pdf",
-          "path": "Google Drive > LGS031 > 把手.pdf",
-          "url": "https://drive.google.com/file/d/17iRe22OzZBcqxeKDklynZPnKkHgAHT8U/view?usp=sharing",
+          "path": "drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
           "matched_name": "把手",
           "score": 1002
         }
@@ -359,8 +359,8 @@
       "bcls129228bh|把手": [
         {
           "name": "把手.pdf",
-          "path": "Google Drive > LGS032-S > 把手.pdf",
-          "url": "https://drive.google.com/file/d/1r55O5-hvg599_nSAkvnTvAguR21-Ivfo/view?usp=sharing",
+          "path": "drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
           "matched_name": "把手",
           "score": 1002
         }
@@ -460,8 +460,8 @@
       "bcls129228bh|把手": [
         {
           "name": "把手.pdf",
-          "path": "Google Drive > LGS033 > 把手.pdf",
-          "url": "https://drive.google.com/file/d/1li083nkUnbkfHRRwiA32CvKn0tx9fFay/view?usp=sharing",
+          "path": "drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
           "matched_name": "把手",
           "score": 1002
         }
@@ -624,8 +624,8 @@
       "bcls129228bh|把手": [
         {
           "name": "把手.pdf",
-          "path": "Google Drive > LGS043-S > 把手.pdf",
-          "url": "https://drive.google.com/file/d/1SgWZD259NZLgTTGAmc3hvWvH4alMLduN/view?usp=sharing",
+          "path": "drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
           "matched_name": "把手",
           "score": 1002
         }
@@ -927,8 +927,8 @@
       "bcls129228bh|把手": [
         {
           "name": "把手.pdf",
-          "path": "Google Drive > LGS131 > 把手.pdf",
-          "url": "https://drive.google.com/file/d/1eIpO-bmPeHwZjiOkMG7-TsUVg__bo1V7/view?usp=sharing",
+          "path": "drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
           "matched_name": "把手",
           "score": 1002
         }
@@ -1100,8 +1100,8 @@
       "bcls129228bh|把手": [
         {
           "name": "把手.pdf",
-          "path": "Google Drive > LGS132-S > 把手.pdf",
-          "url": "https://drive.google.com/file/d/1TDB3sxhp35HiR7Er52Tro7CFBd7VQ6yF/view?usp=sharing",
+          "path": "drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
           "matched_name": "把手",
           "score": 1002
         }
@@ -1255,8 +1255,8 @@
       "bcls129228bh|把手": [
         {
           "name": "把手.pdf",
-          "path": "Google Drive > LGS133 > 把手.pdf",
-          "url": "https://drive.google.com/file/d/14m-D8F_e3QIyRtJOpQlebXQDL9KnNtHP/view?usp=sharing",
+          "path": "drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
           "matched_name": "把手",
           "score": 1002
         }
@@ -1392,8 +1392,8 @@
       "bcls129228bh|把手": [
         {
           "name": "把手.pdf",
-          "path": "Google Drive > LGS231 > 把手.pdf",
-          "url": "https://drive.google.com/file/d/1XsstgBaS3Vj4IkUzv-MXn0eGJxUdxDQO/view?usp=sharing",
+          "path": "drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
           "matched_name": "把手",
           "score": 1002
         }
@@ -1565,8 +1565,8 @@
       "bcls129228bh|把手": [
         {
           "name": "把手.pdf",
-          "path": "Google Drive > LGS232-S > 把手.pdf",
-          "url": "https://drive.google.com/file/d/1Lm4dOv3H8k59h-XACgKmXzlq4dOziJW-/view?usp=sharing",
+          "path": "drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
           "matched_name": "把手",
           "score": 1002
         }
@@ -1720,8 +1720,8 @@
       "bcls129228bh|把手": [
         {
           "name": "把手.pdf",
-          "path": "Google Drive > LGS233 > 把手.pdf",
-          "url": "https://drive.google.com/file/d/1fFJeSsbCzj34ZcXHE2DeYRO1rAV_NUzx/view?usp=sharing",
+          "path": "drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
           "matched_name": "把手",
           "score": 1002
         }
@@ -1866,8 +1866,8 @@
       "bcls129228bh|把手": [
         {
           "name": "把手.pdf",
-          "path": "Google Drive > LGS333 > 把手.pdf",
-          "url": "https://drive.google.com/file/d/1W_j2bi86H7nuLmBXVv1-MM22R6exyReS/view?usp=sharing",
+          "path": "drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
           "matched_name": "把手",
           "score": 1002
         }
@@ -2048,8 +2048,8 @@
       "bcls129228bh|把手": [
         {
           "name": "把手.pdf",
-          "path": "Google Drive > LGS334 > 把手.pdf",
-          "url": "https://drive.google.com/file/d/1L9zMGR8NIEZvfZikTIGaBV0vwH20WYkV/view?usp=sharing",
+          "path": "drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
           "matched_name": "把手",
           "score": 1002
         }
@@ -2194,8 +2194,8 @@
       "bcls129228bh|把手": [
         {
           "name": "把手.pdf",
-          "path": "Google Drive > LGS420-S > 把手.pdf",
-          "url": "https://drive.google.com/file/d/1kHcESZ8qoTOWH3tq-zEOkWXnwFnfiT58/view?usp=sharing",
+          "path": "drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
           "matched_name": "把手",
           "score": 1002
         }
@@ -2331,8 +2331,8 @@
       "bcls129228bh|把手": [
         {
           "name": "把手.pdf",
-          "path": "Google Drive > LGS421-S > 把手.pdf",
-          "url": "https://drive.google.com/file/d/1rwXYc0D6H72v7qfyXNPEHKTgViqrSCnY/view?usp=sharing",
+          "path": "drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
           "matched_name": "把手",
           "score": 1002
         }
@@ -2495,8 +2495,8 @@
       "bcls129228bh|把手": [
         {
           "name": "把手.pdf",
-          "path": "Google Drive > LGS433 > 把手.pdf",
-          "url": "https://drive.google.com/file/d/19LbuVGah_hdbVZ8PQru77B1pDLx6cIfJ/view?usp=sharing",
+          "path": "drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
           "matched_name": "把手",
           "score": 1002
         }
@@ -2722,8 +2722,8 @@
       "bcls129228wh|把手": [
         {
           "name": "把手.pdf",
-          "path": "Google Drive > LGS434 > 把手.pdf",
-          "url": "https://drive.google.com/file/d/1GHFkxqBgoPq-Pzb--SA9U0w-u2JCDx7Q/view?usp=sharing",
+          "path": "drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
           "matched_name": "把手",
           "score": 1002
         }
@@ -2877,8 +2877,8 @@
       "bcls129228bh|把手": [
         {
           "name": "把手.pdf",
-          "path": "Google Drive > LGS723 > 把手.pdf",
-          "url": "https://drive.google.com/file/d/1iGcgBtkqqdqZhZ1zPqIEIOwboN9i0sVq/view?usp=sharing",
+          "path": "drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
           "matched_name": "把手",
           "score": 1002
         }
@@ -3032,8 +3032,8 @@
       "bcls129228bh|把手": [
         {
           "name": "把手.pdf",
-          "path": "Google Drive > LGS733 > 把手.pdf",
-          "url": "https://drive.google.com/file/d/1t_IZiZF50bETxYJ0pqlCfTteiq3XtPXG/view?usp=sharing",
+          "path": "drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
           "matched_name": "把手",
           "score": 1002
         }
@@ -3160,8 +3160,8 @@
       "bcls129228bh|把手": [
         {
           "name": "把手.pdf",
-          "path": "Google Drive > LGS833 > 把手.pdf",
-          "url": "https://drive.google.com/file/d/1AanaFuQl_Gnto0u4sLVOwDw_odeyt-Sd/view?usp=sharing",
+          "path": "drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
           "matched_name": "把手",
           "score": 1002
         }
@@ -3324,8 +3324,8 @@
       "bcls129228wh|把手": [
         {
           "name": "把手.pdf",
-          "path": "Google Drive > LGS834 > 把手.pdf",
-          "url": "https://drive.google.com/file/d/1r8p7Nhh0SWIyaxS9TFcvqbBcaEPC_rIF/view?usp=sharing",
+          "path": "drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+          "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
           "matched_name": "把手",
           "score": 1002
         }
@@ -16636,7 +16636,7 @@
         },
         "drawings": [
           {
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@62aa00058bf6665ad42eb57c809665b7ba181dd2/assets/pdfs/BCLS129228WH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf",
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@d0732d938fcca58e9ce36d3a10a5a379dfb7b854/assets/pdfs/BCLS129228BH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf",
             "name": "把手.pdf"
           }
         ],
@@ -92155,7 +92155,7 @@
         "vi": "chi tiết"
       },
       "drawings": [
-        "5106前侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-5106前侧框-99379822.pdf"
+        "5106前侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-qsk-99379822.pdf"
       ],
       "models3d": []
     },
@@ -92186,7 +92186,7 @@
         "vi": "chi tiết"
       },
       "drawings": [
-        "5106后侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-5106后侧框-b1f38eb4.pdf"
+        "5106后侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-hsk-b1f38eb4.pdf"
       ],
       "models3d": []
     },
@@ -92246,7 +92246,7 @@
         "vi": "chi tiết"
       },
       "drawings": [
-        "5106侧框横梁(两孔).pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-5106侧框横梁两孔-02274eb4.pdf"
+        "5106侧框横梁(两孔).pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-skhl2k-02274eb4.pdf"
       ],
       "models3d": []
     },
@@ -92277,7 +92277,7 @@
         "vi": "chi tiết"
       },
       "drawings": [
-        "5106布抽条左.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-5106布抽条左-8428187f.pdf"
+        "5106布抽条左.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-bctz-8428187f.pdf"
       ],
       "models3d": [
         "5106布抽条左.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/models3d/catalog/model-5106-5106bctz-4fb7f2f0.glb"
@@ -92343,7 +92343,7 @@
         "vi": "chi tiết"
       },
       "drawings": [
-        "5106布抽条右.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-5106布抽条右-9277851f.pdf"
+        "5106布抽条右.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106-bcty-9277851f.pdf"
       ],
       "models3d": [
         "5106布抽条右.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/models3d/catalog/model-5106-5106bcty-5e921673.glb"
