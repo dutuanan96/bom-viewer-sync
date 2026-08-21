@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-21T11:23:06.573Z",
+  "updatedAt": "2026-08-21T11:28:26.263Z",
   "products": [
     "5106",
     "LGS031",
@@ -134990,6 +134990,22 @@
   },
   "notifications": [
     {
+      "id": "notif_m3l6ko",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-21T11:28:26.263Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "BCLS129228BH",
+          "field": "models3d",
+          "before": "把手.glb|models3d/catalog/model-ae20b397.glb",
+          "after": "把手.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb"
+        }
+      ]
+    },
+    {
       "id": "notif_15faqre",
       "type": "github-save",
       "actor": "admin",
@@ -136018,75 +136034,28 @@
           "after": "LGS232_132-S-侧框左.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs132zkbh647-ff6261d9.pdf"
         }
       ]
-    },
-    {
-      "id": "notif_1o6z74w",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-15T07:57:15.623Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "product",
-          "code": "LGS033",
-          "field": "revision",
-          "before": "",
-          "after": "V4.1"
-        },
-        {
-          "kind": "product",
-          "code": "LGS043",
-          "field": "revision",
-          "before": "",
-          "after": "V3.1"
-        },
-        {
-          "kind": "product",
-          "code": "LGS132",
-          "field": "revision",
-          "before": "V3",
-          "after": "V3.1"
-        },
-        {
-          "kind": "product",
-          "code": "LGS133",
-          "field": "revision",
-          "before": "V4",
-          "after": "V4.1"
-        },
-        {
-          "kind": "product",
-          "code": "LGS232",
-          "field": "revision",
-          "before": "",
-          "after": "V3.1"
-        },
-        {
-          "kind": "product",
-          "code": "LGS233",
-          "field": "revision",
-          "before": "",
-          "after": "V4.1"
-        },
-        {
-          "kind": "product",
-          "code": "LGS333",
-          "field": "revision",
-          "before": "",
-          "after": "V4.1"
-        },
-        {
-          "kind": "product",
-          "code": "LGS334",
-          "field": "revision",
-          "before": "",
-          "after": "V4.1"
-        }
-      ]
     }
   ],
   "bomHistory": {
     "5106": [
+      {
+        "id": "history_adlzza",
+        "productCode": "5106",
+        "revision": "V1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "DU HOME SPU 5106 V1 初始发布 (依据2抽置物架5106.xlsx与说明书官方BOM建立)",
+        "createdAt": "2026-08-21T11:28:26.263Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "models3d",
+            "before": "把手.glb|models3d/catalog/model-ae20b397.glb",
+            "after": "把手.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb"
+          }
+        ]
+      },
       {
         "id": "history_tl37yt",
         "productCode": "5106",
@@ -136621,6 +136590,24 @@
       }
     ],
     "LGS231": [
+      {
+        "id": "history_1olvtte",
+        "productCode": "LGS231",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-21T11:28:26.263Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "models3d",
+            "before": "把手.glb|models3d/catalog/model-ae20b397.glb",
+            "after": "把手.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb"
+          }
+        ]
+      },
       {
         "id": "history_y7mh9z",
         "productCode": "LGS231",
@@ -137208,6 +137195,24 @@
       }
     ],
     "LGS233": [
+      {
+        "id": "history_qp45a8",
+        "productCode": "LGS233",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-21T11:28:26.263Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "models3d",
+            "before": "把手.glb|models3d/catalog/model-ae20b397.glb",
+            "after": "把手.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb"
+          }
+        ]
+      },
       {
         "id": "history_7nzkcs",
         "productCode": "LGS233",
@@ -138391,6 +138396,24 @@
     ],
     "LGS334": [
       {
+        "id": "history_94pwke",
+        "productCode": "LGS334",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-21T11:28:26.263Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "models3d",
+            "before": "把手.glb|models3d/catalog/model-ae20b397.glb",
+            "after": "把手.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb"
+          }
+        ]
+      },
+      {
         "id": "history_1gns7qm",
         "productCode": "LGS334",
         "revision": "V4.1",
@@ -139043,6 +139066,24 @@
       }
     ],
     "LGS434": [
+      {
+        "id": "history_1j74mx9",
+        "productCode": "LGS434",
+        "revision": "V5.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-21T11:28:26.263Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "models3d",
+            "before": "把手.glb|models3d/catalog/model-ae20b397.glb",
+            "after": "把手.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb"
+          }
+        ]
+      },
       {
         "id": "history_d89f35",
         "productCode": "LGS434",
@@ -140277,6 +140318,24 @@
     ],
     "LGS420": [
       {
+        "id": "history_17wv7uq",
+        "productCode": "LGS420",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-21T11:28:26.263Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "models3d",
+            "before": "把手.glb|models3d/catalog/model-ae20b397.glb",
+            "after": "把手.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb"
+          }
+        ]
+      },
+      {
         "id": "history_7dp2no",
         "productCode": "LGS420",
         "revision": "V4",
@@ -140887,6 +140946,24 @@
     ],
     "LGS421": [
       {
+        "id": "history_i7x54b",
+        "productCode": "LGS421",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-21T11:28:26.263Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "models3d",
+            "before": "把手.glb|models3d/catalog/model-ae20b397.glb",
+            "after": "把手.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb"
+          }
+        ]
+      },
+      {
         "id": "history_pn8qdy",
         "productCode": "LGS421",
         "revision": "V4",
@@ -141434,6 +141511,24 @@
       }
     ],
     "LGS333": [
+      {
+        "id": "history_5jf5r5",
+        "productCode": "LGS333",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-21T11:28:26.263Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "models3d",
+            "before": "把手.glb|models3d/catalog/model-ae20b397.glb",
+            "after": "把手.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb"
+          }
+        ]
+      },
       {
         "id": "history_xmcytv",
         "productCode": "LGS333",
@@ -142425,6 +142520,24 @@
     ],
     "LGS232": [
       {
+        "id": "history_1bri8dt",
+        "productCode": "LGS232",
+        "revision": "V3.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-21T11:28:26.263Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "models3d",
+            "before": "把手.glb|models3d/catalog/model-ae20b397.glb",
+            "after": "把手.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb"
+          }
+        ]
+      },
+      {
         "id": "history_1xky5f",
         "productCode": "LGS232",
         "revision": "V3.1",
@@ -143265,6 +143378,24 @@
     ],
     "LGS031": [
       {
+        "id": "history_13prjik",
+        "productCode": "LGS031",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-21T11:28:26.263Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "models3d",
+            "before": "把手.glb|models3d/catalog/model-ae20b397.glb",
+            "after": "把手.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb"
+          }
+        ]
+      },
+      {
         "id": "history_py1ci1",
         "productCode": "LGS031",
         "revision": "V3",
@@ -143461,6 +143592,24 @@
       }
     ],
     "LGS032": [
+      {
+        "id": "history_1rqlx9z",
+        "productCode": "LGS032",
+        "revision": "V3.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "产品高度变更679mm改为671",
+        "createdAt": "2026-08-21T11:28:26.263Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "models3d",
+            "before": "把手.glb|models3d/catalog/model-ae20b397.glb",
+            "after": "把手.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb"
+          }
+        ]
+      },
       {
         "id": "history_17c7irb",
         "productCode": "LGS032",
@@ -144076,6 +144225,24 @@
       }
     ],
     "LGS033": [
+      {
+        "id": "history_1x5mlym",
+        "productCode": "LGS033",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-21T11:28:26.263Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "models3d",
+            "before": "把手.glb|models3d/catalog/model-ae20b397.glb",
+            "after": "把手.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb"
+          }
+        ]
+      },
       {
         "id": "history_1i9dx2k",
         "productCode": "LGS033",
@@ -145126,6 +145293,24 @@
     ],
     "LGS131": [
       {
+        "id": "history_122fed1",
+        "productCode": "LGS131",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-21T11:28:26.263Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "models3d",
+            "before": "把手.glb|models3d/catalog/model-ae20b397.glb",
+            "after": "把手.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb"
+          }
+        ]
+      },
+      {
         "id": "history_1smbfh9",
         "productCode": "LGS131",
         "revision": "V3",
@@ -145735,6 +145920,24 @@
       }
     ],
     "LGS132": [
+      {
+        "id": "history_9t06wm",
+        "productCode": "LGS132",
+        "revision": "V3.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-21T11:28:26.263Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "models3d",
+            "before": "把手.glb|models3d/catalog/model-ae20b397.glb",
+            "after": "把手.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb"
+          }
+        ]
+      },
       {
         "id": "history_1iuadc0",
         "productCode": "LGS132",
@@ -146366,6 +146569,24 @@
       }
     ],
     "LGS133": [
+      {
+        "id": "history_i5aq8v",
+        "productCode": "LGS133",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-21T11:28:26.263Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "models3d",
+            "before": "把手.glb|models3d/catalog/model-ae20b397.glb",
+            "after": "把手.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb"
+          }
+        ]
+      },
       {
         "id": "history_jp893z",
         "productCode": "LGS133",
@@ -147062,6 +147283,24 @@
       }
     ],
     "LGS433": [
+      {
+        "id": "history_17m5vgy",
+        "productCode": "LGS433",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-21T11:28:26.263Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "models3d",
+            "before": "把手.glb|models3d/catalog/model-ae20b397.glb",
+            "after": "把手.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb"
+          }
+        ]
+      },
       {
         "id": "history_1d7icxw",
         "productCode": "LGS433",
@@ -148222,6 +148461,24 @@
     ],
     "LGS723": [
       {
+        "id": "history_jnd0me",
+        "productCode": "LGS723",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-21T11:28:26.263Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "models3d",
+            "before": "把手.glb|models3d/catalog/model-ae20b397.glb",
+            "after": "把手.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb"
+          }
+        ]
+      },
+      {
         "id": "history_4vjhps",
         "productCode": "LGS723",
         "revision": "V4.1",
@@ -149053,6 +149310,24 @@
       }
     ],
     "LGS733": [
+      {
+        "id": "history_1y0mdqt",
+        "productCode": "LGS733",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-21T11:28:26.263Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "models3d",
+            "before": "把手.glb|models3d/catalog/model-ae20b397.glb",
+            "after": "把手.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb"
+          }
+        ]
+      },
       {
         "id": "history_1r3vydb",
         "productCode": "LGS733",
@@ -150094,6 +150369,24 @@
     ],
     "LGS833": [
       {
+        "id": "history_15sqcgm",
+        "productCode": "LGS833",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-21T11:28:26.263Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "models3d",
+            "before": "把手.glb|models3d/catalog/model-ae20b397.glb",
+            "after": "把手.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb"
+          }
+        ]
+      },
+      {
         "id": "history_4ee188",
         "productCode": "LGS833",
         "revision": "V4.1",
@@ -150941,6 +151234,24 @@
       }
     ],
     "LGS834": [
+      {
+        "id": "history_1fgc2ft",
+        "productCode": "LGS834",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-21T11:28:26.263Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "models3d",
+            "before": "把手.glb|models3d/catalog/model-ae20b397.glb",
+            "after": "把手.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb"
+          }
+        ]
+      },
       {
         "id": "history_aj464r",
         "productCode": "LGS834",
@@ -152022,6 +152333,24 @@
       }
     ],
     "LGS043": [
+      {
+        "id": "history_u5i4rv",
+        "productCode": "LGS043",
+        "revision": "V3.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-21T11:28:26.263Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "models3d",
+            "before": "把手.glb|models3d/catalog/model-ae20b397.glb",
+            "after": "把手.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb"
+          }
+        ]
+      },
       {
         "id": "history_1grir2v",
         "productCode": "LGS043",
