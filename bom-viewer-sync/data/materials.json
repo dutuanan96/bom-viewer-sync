@@ -13361,9 +13361,8 @@
         },
         "drawings": [
           {
-            "name": "把手.pdf",
-            "path": "drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf"
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@d0732d938fcca58e9ce36d3a10a5a379dfb7b854/assets/pdfs/BCLS129228BH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf",
+            "name": "把手.pdf"
           }
         ],
         "models3d": [
@@ -16637,9 +16636,8 @@
         },
         "drawings": [
           {
-            "name": "把手.pdf",
-            "path": "drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf"
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@62aa00058bf6665ad42eb57c809665b7ba181dd2/assets/pdfs/BCLS129228WH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf",
+            "name": "把手.pdf"
           }
         ],
         "models3d": [
@@ -16649,7 +16647,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb",
             "matched_name": "把手",
             "score": 1100,
-            "bytes": 1007376
+            "bytes": 1007376,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb"
           }
         ],
         "unit": {

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-21T11:28:26.263Z",
+  "updatedAt": "2026-08-21T11:31:13.259Z",
   "products": [
     "5106",
     "LGS031",
@@ -134990,6 +134990,36 @@
   },
   "notifications": [
     {
+      "id": "notif_1p44a96",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-21T11:31:13.259Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "BCLS129228BH",
+          "field": "drawings",
+          "before": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+          "after": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@d0732d938fcca58e9ce36d3a10a5a379dfb7b854/assets/pdfs/BCLS129228BH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf"
+        },
+        {
+          "kind": "material",
+          "code": "BCLS129228WH",
+          "field": "drawings",
+          "before": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+          "after": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@62aa00058bf6665ad42eb57c809665b7ba181dd2/assets/pdfs/BCLS129228WH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf"
+        },
+        {
+          "kind": "material",
+          "code": "BCLS129228WH",
+          "field": "models3d",
+          "before": "把手.glb|models3d/catalog/model-ae20b397.glb",
+          "after": "把手.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb"
+        }
+      ]
+    },
+    {
       "id": "notif_m3l6ko",
       "type": "github-save",
       "actor": "admin",
@@ -135969,75 +135999,28 @@
           "after": "LGS032-S-左侧框.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS032-S-33f48cfd.glb"
         }
       ]
-    },
-    {
-      "id": "notif_1an1njm",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-15T08:33:23.226Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "LGS033YKBH647",
-          "field": "drawings",
-          "before": "LGS033右侧框.pdf|https://drive.google.com/file/d/1_IvtWcI5qm6PC_VgMCDoaSspl92WiuuV/view?usp=sharing",
-          "after": "LGS033右侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs033ykbh647-ded5d4e7.pdf"
-        },
-        {
-          "kind": "material",
-          "code": "LGS033YKWH647",
-          "field": "drawings",
-          "before": "LGS033右侧框.pdf|https://drive.google.com/file/d/1_IvtWcI5qm6PC_VgMCDoaSspl92WiuuV/view?usp=sharing",
-          "after": "LGS033右侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs033ykwh647-ded5d4e7.pdf"
-        },
-        {
-          "kind": "material",
-          "code": "LGS033ZKBH647",
-          "field": "drawings",
-          "before": "LGS033左侧框.pdf|https://drive.google.com/file/d/1B2HLxUqQEyc5B-eKS1_7Z5bbFkDXXOki/view?usp=sharing",
-          "after": "LGS033左侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs033zkbh647-7ed39cf2.pdf"
-        },
-        {
-          "kind": "material",
-          "code": "LGS033ZKWH647",
-          "field": "drawings",
-          "before": "LGS033左侧框.pdf|https://drive.google.com/file/d/1B2HLxUqQEyc5B-eKS1_7Z5bbFkDXXOki/view?usp=sharing",
-          "after": "LGS033左侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs033zkwh647-7ed39cf2.pdf"
-        },
-        {
-          "kind": "material",
-          "code": "LGS043YKBH647",
-          "field": "drawings",
-          "before": "LGS043-S-右侧框.pdf|https://drive.google.com/file/d/12F0rhoIN91lvXoAt-Zs8o-qg5CziQEUg/view?usp=sharing",
-          "after": "LGS043-S-右侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs043ykbh647-05375de2.pdf"
-        },
-        {
-          "kind": "material",
-          "code": "LGS043ZKBH647",
-          "field": "drawings",
-          "before": "LGS043-S-左侧框.pdf|https://drive.google.com/file/d/1LkfqDeNZgCPFcdMepdrvUOGD7fpvsQ0R/view?usp=sharing",
-          "after": "LGS043-S-左侧框.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs043zkbh647-4704d4b5.pdf"
-        },
-        {
-          "kind": "material",
-          "code": "LGS132YKBH647",
-          "field": "drawings",
-          "before": "LGS132_232-S-侧框右.pdf|https://drive.google.com/file/d/1bk5TbcKGqJxgJAIs_26y0w5HGCB3FPxQ/view?usp=sharing",
-          "after": "LGS232_132-S-侧框右.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs132ykbh647-45f568c7.pdf"
-        },
-        {
-          "kind": "material",
-          "code": "LGS132ZKBH647",
-          "field": "drawings",
-          "before": "LGS132_232-S-侧框左.pdf|https://drive.google.com/file/d/1h0SB9xHb13dZwO22G3HNH7Yp-VFGUHIP/view?usp=sharing",
-          "after": "LGS232_132-S-侧框左.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-lgs132zkbh647-ff6261d9.pdf"
-        }
-      ]
     }
   ],
   "bomHistory": {
     "5106": [
+      {
+        "id": "history_wevso7",
+        "productCode": "5106",
+        "revision": "V1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "DU HOME SPU 5106 V1 初始发布 (依据2抽置物架5106.xlsx与说明书官方BOM建立)",
+        "createdAt": "2026-08-21T11:31:13.259Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "drawings",
+            "before": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+            "after": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@d0732d938fcca58e9ce36d3a10a5a379dfb7b854/assets/pdfs/BCLS129228BH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf"
+          }
+        ]
+      },
       {
         "id": "history_adlzza",
         "productCode": "5106",
@@ -136590,6 +136573,24 @@
       }
     ],
     "LGS231": [
+      {
+        "id": "history_1w6qs2j",
+        "productCode": "LGS231",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-21T11:31:13.259Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "drawings",
+            "before": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+            "after": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@d0732d938fcca58e9ce36d3a10a5a379dfb7b854/assets/pdfs/BCLS129228BH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf"
+          }
+        ]
+      },
       {
         "id": "history_1olvtte",
         "productCode": "LGS231",
@@ -137195,6 +137196,38 @@
       }
     ],
     "LGS233": [
+      {
+        "id": "history_o9jz07",
+        "productCode": "LGS233",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-21T11:31:13.259Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "drawings",
+            "before": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+            "after": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@d0732d938fcca58e9ce36d3a10a5a379dfb7b854/assets/pdfs/BCLS129228BH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "BCLS129228WH",
+            "field": "drawings",
+            "before": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+            "after": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@62aa00058bf6665ad42eb57c809665b7ba181dd2/assets/pdfs/BCLS129228WH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "BCLS129228WH",
+            "field": "models3d",
+            "before": "把手.glb|models3d/catalog/model-ae20b397.glb",
+            "after": "把手.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb"
+          }
+        ]
+      },
       {
         "id": "history_qp45a8",
         "productCode": "LGS233",
@@ -138396,6 +138429,24 @@
     ],
     "LGS334": [
       {
+        "id": "history_fyaov",
+        "productCode": "LGS334",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-21T11:31:13.259Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "drawings",
+            "before": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+            "after": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@d0732d938fcca58e9ce36d3a10a5a379dfb7b854/assets/pdfs/BCLS129228BH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf"
+          }
+        ]
+      },
+      {
         "id": "history_94pwke",
         "productCode": "LGS334",
         "revision": "V4.1",
@@ -139066,6 +139117,38 @@
       }
     ],
     "LGS434": [
+      {
+        "id": "history_1lm1pcq",
+        "productCode": "LGS434",
+        "revision": "V5.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-21T11:31:13.259Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "drawings",
+            "before": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+            "after": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@d0732d938fcca58e9ce36d3a10a5a379dfb7b854/assets/pdfs/BCLS129228BH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "BCLS129228WH",
+            "field": "drawings",
+            "before": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+            "after": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@62aa00058bf6665ad42eb57c809665b7ba181dd2/assets/pdfs/BCLS129228WH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "BCLS129228WH",
+            "field": "models3d",
+            "before": "把手.glb|models3d/catalog/model-ae20b397.glb",
+            "after": "把手.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb"
+          }
+        ]
+      },
       {
         "id": "history_1j74mx9",
         "productCode": "LGS434",
@@ -140318,6 +140401,38 @@
     ],
     "LGS420": [
       {
+        "id": "history_1fqnrip",
+        "productCode": "LGS420",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-21T11:31:13.259Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "drawings",
+            "before": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+            "after": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@d0732d938fcca58e9ce36d3a10a5a379dfb7b854/assets/pdfs/BCLS129228BH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "BCLS129228WH",
+            "field": "drawings",
+            "before": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+            "after": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@62aa00058bf6665ad42eb57c809665b7ba181dd2/assets/pdfs/BCLS129228WH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "BCLS129228WH",
+            "field": "models3d",
+            "before": "把手.glb|models3d/catalog/model-ae20b397.glb",
+            "after": "把手.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb"
+          }
+        ]
+      },
+      {
         "id": "history_17wv7uq",
         "productCode": "LGS420",
         "revision": "V4",
@@ -140946,6 +141061,24 @@
     ],
     "LGS421": [
       {
+        "id": "history_1sh0tw6",
+        "productCode": "LGS421",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-21T11:31:13.259Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "drawings",
+            "before": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+            "after": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@d0732d938fcca58e9ce36d3a10a5a379dfb7b854/assets/pdfs/BCLS129228BH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf"
+          }
+        ]
+      },
+      {
         "id": "history_i7x54b",
         "productCode": "LGS421",
         "revision": "V4",
@@ -141511,6 +141644,38 @@
       }
     ],
     "LGS333": [
+      {
+        "id": "history_12kesqu",
+        "productCode": "LGS333",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-21T11:31:13.259Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "drawings",
+            "before": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+            "after": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@d0732d938fcca58e9ce36d3a10a5a379dfb7b854/assets/pdfs/BCLS129228BH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "BCLS129228WH",
+            "field": "drawings",
+            "before": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+            "after": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@62aa00058bf6665ad42eb57c809665b7ba181dd2/assets/pdfs/BCLS129228WH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "BCLS129228WH",
+            "field": "models3d",
+            "before": "把手.glb|models3d/catalog/model-ae20b397.glb",
+            "after": "把手.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb"
+          }
+        ]
+      },
       {
         "id": "history_5jf5r5",
         "productCode": "LGS333",
@@ -142520,6 +142685,24 @@
     ],
     "LGS232": [
       {
+        "id": "history_53p980",
+        "productCode": "LGS232",
+        "revision": "V3.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-21T11:31:13.259Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "drawings",
+            "before": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+            "after": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@d0732d938fcca58e9ce36d3a10a5a379dfb7b854/assets/pdfs/BCLS129228BH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf"
+          }
+        ]
+      },
+      {
         "id": "history_1bri8dt",
         "productCode": "LGS232",
         "revision": "V3.1",
@@ -143378,6 +143561,24 @@
     ],
     "LGS031": [
       {
+        "id": "history_8y5hr5",
+        "productCode": "LGS031",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-21T11:31:13.259Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "drawings",
+            "before": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+            "after": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@d0732d938fcca58e9ce36d3a10a5a379dfb7b854/assets/pdfs/BCLS129228BH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf"
+          }
+        ]
+      },
+      {
         "id": "history_13prjik",
         "productCode": "LGS031",
         "revision": "V3",
@@ -143592,6 +143793,24 @@
       }
     ],
     "LGS032": [
+      {
+        "id": "history_g66tui",
+        "productCode": "LGS032",
+        "revision": "V3.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "产品高度变更679mm改为671",
+        "createdAt": "2026-08-21T11:31:13.259Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "drawings",
+            "before": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+            "after": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@d0732d938fcca58e9ce36d3a10a5a379dfb7b854/assets/pdfs/BCLS129228BH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf"
+          }
+        ]
+      },
       {
         "id": "history_1rqlx9z",
         "productCode": "LGS032",
@@ -144225,6 +144444,38 @@
       }
     ],
     "LGS033": [
+      {
+        "id": "history_gob711",
+        "productCode": "LGS033",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-21T11:31:13.259Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "drawings",
+            "before": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+            "after": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@d0732d938fcca58e9ce36d3a10a5a379dfb7b854/assets/pdfs/BCLS129228BH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "BCLS129228WH",
+            "field": "drawings",
+            "before": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+            "after": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@62aa00058bf6665ad42eb57c809665b7ba181dd2/assets/pdfs/BCLS129228WH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "BCLS129228WH",
+            "field": "models3d",
+            "before": "把手.glb|models3d/catalog/model-ae20b397.glb",
+            "after": "把手.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb"
+          }
+        ]
+      },
       {
         "id": "history_1x5mlym",
         "productCode": "LGS033",
@@ -145293,6 +145544,38 @@
     ],
     "LGS131": [
       {
+        "id": "history_1wmjxxe",
+        "productCode": "LGS131",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-21T11:31:13.259Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "drawings",
+            "before": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+            "after": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@d0732d938fcca58e9ce36d3a10a5a379dfb7b854/assets/pdfs/BCLS129228BH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "BCLS129228WH",
+            "field": "drawings",
+            "before": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+            "after": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@62aa00058bf6665ad42eb57c809665b7ba181dd2/assets/pdfs/BCLS129228WH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "BCLS129228WH",
+            "field": "models3d",
+            "before": "把手.glb|models3d/catalog/model-ae20b397.glb",
+            "after": "把手.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb"
+          }
+        ]
+      },
+      {
         "id": "history_122fed1",
         "productCode": "LGS131",
         "revision": "V3",
@@ -145920,6 +146203,24 @@
       }
     ],
     "LGS132": [
+      {
+        "id": "history_1w4kvr",
+        "productCode": "LGS132",
+        "revision": "V3.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-21T11:31:13.259Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "drawings",
+            "before": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+            "after": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@d0732d938fcca58e9ce36d3a10a5a379dfb7b854/assets/pdfs/BCLS129228BH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf"
+          }
+        ]
+      },
       {
         "id": "history_9t06wm",
         "productCode": "LGS132",
@@ -146569,6 +146870,24 @@
       }
     ],
     "LGS133": [
+      {
+        "id": "history_1dvxq0y",
+        "productCode": "LGS133",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-21T11:31:13.259Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "drawings",
+            "before": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+            "after": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@d0732d938fcca58e9ce36d3a10a5a379dfb7b854/assets/pdfs/BCLS129228BH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf"
+          }
+        ]
+      },
       {
         "id": "history_i5aq8v",
         "productCode": "LGS133",
@@ -147283,6 +147602,38 @@
       }
     ],
     "LGS433": [
+      {
+        "id": "history_igwl9d",
+        "productCode": "LGS433",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-21T11:31:13.259Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "drawings",
+            "before": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+            "after": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@d0732d938fcca58e9ce36d3a10a5a379dfb7b854/assets/pdfs/BCLS129228BH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "BCLS129228WH",
+            "field": "drawings",
+            "before": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+            "after": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@62aa00058bf6665ad42eb57c809665b7ba181dd2/assets/pdfs/BCLS129228WH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "BCLS129228WH",
+            "field": "models3d",
+            "before": "把手.glb|models3d/catalog/model-ae20b397.glb",
+            "after": "把手.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb"
+          }
+        ]
+      },
       {
         "id": "history_17m5vgy",
         "productCode": "LGS433",
@@ -148461,6 +148812,38 @@
     ],
     "LGS723": [
       {
+        "id": "history_168m0p9",
+        "productCode": "LGS723",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-21T11:31:13.259Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "drawings",
+            "before": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+            "after": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@d0732d938fcca58e9ce36d3a10a5a379dfb7b854/assets/pdfs/BCLS129228BH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "BCLS129228WH",
+            "field": "drawings",
+            "before": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+            "after": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@62aa00058bf6665ad42eb57c809665b7ba181dd2/assets/pdfs/BCLS129228WH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "BCLS129228WH",
+            "field": "models3d",
+            "before": "把手.glb|models3d/catalog/model-ae20b397.glb",
+            "after": "把手.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb"
+          }
+        ]
+      },
+      {
         "id": "history_jnd0me",
         "productCode": "LGS723",
         "revision": "V4.1",
@@ -149310,6 +149693,38 @@
       }
     ],
     "LGS733": [
+      {
+        "id": "history_2laz36",
+        "productCode": "LGS733",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-21T11:31:13.259Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "drawings",
+            "before": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+            "after": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@d0732d938fcca58e9ce36d3a10a5a379dfb7b854/assets/pdfs/BCLS129228BH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "BCLS129228WH",
+            "field": "drawings",
+            "before": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+            "after": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@62aa00058bf6665ad42eb57c809665b7ba181dd2/assets/pdfs/BCLS129228WH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "BCLS129228WH",
+            "field": "models3d",
+            "before": "把手.glb|models3d/catalog/model-ae20b397.glb",
+            "after": "把手.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb"
+          }
+        ]
+      },
       {
         "id": "history_1y0mdqt",
         "productCode": "LGS733",
@@ -150369,6 +150784,38 @@
     ],
     "LGS833": [
       {
+        "id": "history_1dvodfh",
+        "productCode": "LGS833",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-21T11:31:13.259Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "drawings",
+            "before": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+            "after": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@d0732d938fcca58e9ce36d3a10a5a379dfb7b854/assets/pdfs/BCLS129228BH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "BCLS129228WH",
+            "field": "drawings",
+            "before": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+            "after": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@62aa00058bf6665ad42eb57c809665b7ba181dd2/assets/pdfs/BCLS129228WH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "BCLS129228WH",
+            "field": "models3d",
+            "before": "把手.glb|models3d/catalog/model-ae20b397.glb",
+            "after": "把手.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb"
+          }
+        ]
+      },
+      {
         "id": "history_15sqcgm",
         "productCode": "LGS833",
         "revision": "V4.1",
@@ -151234,6 +151681,38 @@
       }
     ],
     "LGS834": [
+      {
+        "id": "history_agy3i6",
+        "productCode": "LGS834",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-21T11:31:13.259Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "drawings",
+            "before": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+            "after": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@d0732d938fcca58e9ce36d3a10a5a379dfb7b854/assets/pdfs/BCLS129228BH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "BCLS129228WH",
+            "field": "drawings",
+            "before": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+            "after": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@62aa00058bf6665ad42eb57c809665b7ba181dd2/assets/pdfs/BCLS129228WH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "BCLS129228WH",
+            "field": "models3d",
+            "before": "把手.glb|models3d/catalog/model-ae20b397.glb",
+            "after": "把手.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb"
+          }
+        ]
+      },
       {
         "id": "history_1fgc2ft",
         "productCode": "LGS834",
@@ -152333,6 +152812,24 @@
       }
     ],
     "LGS043": [
+      {
+        "id": "history_5dhrkm",
+        "productCode": "LGS043",
+        "revision": "V3.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-21T11:31:13.259Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BCLS129228BH",
+            "field": "drawings",
+            "before": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+            "after": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@d0732d938fcca58e9ce36d3a10a5a379dfb7b854/assets/pdfs/BCLS129228BH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf"
+          }
+        ]
+      },
       {
         "id": "history_u5i4rv",
         "productCode": "LGS043",
