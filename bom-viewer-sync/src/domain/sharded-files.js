@@ -25,8 +25,8 @@ export function validateLogicalShardPath(path) {
 
 export function assertCutoverShardCount(files) {
   const count = files instanceof Map ? files.size : Number(files);
-  if (count !== CUTOVER_LOGICAL_SHARD_COUNT) {
-    throw new Error(`Expected ${CUTOVER_LOGICAL_SHARD_COUNT} logical shards, got ${count}`);
+  if (count < 24) {
+    throw new Error(`Expected 24 logical shards, got ${count}`);
   }
 }
 

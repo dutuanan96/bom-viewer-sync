@@ -2,6 +2,7 @@
   "version": 2,
   "updatedAt": "2026-08-20T08:40:43.164Z",
   "products": [
+    "5106",
     "LGS031",
     "LGS032",
     "LGS033",
@@ -134187,6 +134188,18 @@
           "reason": "更改"
         }
       ]
+    },
+    "5106": {
+      "currentRevision": "V1",
+      "effectiveRevision": "V1",
+      "currentRevisionInfo": {
+        "sourceRevision": "",
+        "createdAt": "2026-08-21T17:28:00.000Z",
+        "changeReason": "DU HOME 2抽置物架5106 初始版本",
+        "workflowState": "released"
+      },
+      "revisions": [],
+      "effectivityEvents": []
     }
   },
   "notifications": [

@@ -13083,10 +13083,8 @@
         "drawings": [
           {
             "name": "把手.pdf",
-            "path": "Google Drive > LGS031 > 把手.pdf",
-            "url": "https://drive.google.com/file/d/17iRe22OzZBcqxeKDklynZPnKkHgAHT8U/view?usp=sharing",
-            "matched_name": "把手",
-            "score": 1002
+            "path": "drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf"
           }
         ],
         "models3d": [
@@ -16360,9 +16358,8 @@
         "drawings": [
           {
             "name": "把手.pdf",
-            "path": "Google Drive > LGS031 > 把手.pdf",
-            "url": "https://drive.google.com/file/d/17iRe22OzZBcqxeKDklynZPnKkHgAHT8U/view?usp=sharing",
-            "previewUrl": "https://drive.google.com/file/d/17iRe22OzZBcqxeKDklynZPnKkHgAHT8U/view?usp=sharing"
+            "path": "drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf"
           }
         ],
         "models3d": [
@@ -43374,6 +43371,993 @@
           "zh": "根",
           "vi": "thanh"
         }
+      },
+      "mat_fg1515065510": {
+        "id": "mat_fg1515065510",
+        "code": "FG1515065510",
+        "name": {
+          "zh": "方管",
+          "vi": "sắt hộp"
+        },
+        "spec": {
+          "zh": "15×15×0.6Tmm，长度 5510mm",
+          "vi": "15×15×0.6Tmm，chiều dài 5510mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "unit": {
+          "zh": "根",
+          "vi": "thanh"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_5106db101kd": {
+        "id": "mat_5106db101kd",
+        "code": "5106DB101KD",
+        "name": {
+          "zh": "5106-顶板",
+          "vi": "5106-tấm trên"
+        },
+        "spec": {
+          "zh": "450x400x12mm",
+          "vi": "450x400x12mm"
+        },
+        "material": {
+          "zh": "PB",
+          "vi": "PB"
+        },
+        "color": {
+          "zh": "复古色",
+          "vi": "màu gỗ cổ"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "unit": {
+          "zh": "块",
+          "vi": "miếng"
+        },
+        "drawings": [
+          {
+            "name": "5106顶板.pdf",
+            "path": "drawings/catalog/drawing-5106db101kd-4d89f326.pdf",
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106db101kd-4d89f326.pdf"
+          }
+        ],
+        "models3d": [
+          {
+            "name": "5106顶板.glb",
+            "path": "models3d/catalog/model-5106-5106db101kd-b3c8a5db.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-5106db101kd-b3c8a5db.glb",
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-5106db101kd-b3c8a5db.glb",
+            "matched_name": "5106顶板",
+            "bytes": 49460
+          }
+        ]
+      },
+      "mat_5106cb101kd": {
+        "id": "mat_5106cb101kd",
+        "code": "5106CB101KD",
+        "name": {
+          "zh": "5106-层板",
+          "vi": "5106-tấm giữa"
+        },
+        "spec": {
+          "zh": "410x390x12mm",
+          "vi": "410x390x12mm"
+        },
+        "material": {
+          "zh": "PB",
+          "vi": "PB"
+        },
+        "color": {
+          "zh": "复古色",
+          "vi": "màu gỗ cổ"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "unit": {
+          "zh": "块",
+          "vi": "miếng"
+        },
+        "drawings": [
+          {
+            "name": "5106层板.pdf",
+            "path": "drawings/catalog/drawing-5106cb101kd-73872481.pdf",
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106cb101kd-73872481.pdf"
+          }
+        ],
+        "models3d": [
+          {
+            "name": "5106层板.glb",
+            "path": "models3d/catalog/model-5106-5106cb101kd-51b71776.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-5106cb101kd-51b71776.glb",
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-5106cb101kd-51b71776.glb",
+            "matched_name": "5106层板",
+            "bytes": 25272
+          }
+        ]
+      },
+      "mat_5106zzkbh": {
+        "id": "mat_5106zzkbh",
+        "code": "5106ZZKBH",
+        "name": {
+          "zh": "5106左侧框",
+          "vi": "5106Khung bên trái"
+        },
+        "spec": {
+          "zh": "680x390x32mm",
+          "vi": "680x390x32mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "黑砂纹",
+          "vi": "đen cát"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        },
+        "drawings": [
+          {
+            "name": "5106左侧框.pdf",
+            "path": "drawings/catalog/drawing-5106zzkbh-c9e18401.pdf",
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106zzkbh-c9e18401.pdf"
+          }
+        ],
+        "models3d": [
+          {
+            "name": "5106左侧框.glb",
+            "path": "models3d/catalog/model-5106-5106zzkbh-b09351f4.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-5106zzkbh-b09351f4.glb",
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-5106zzkbh-b09351f4.glb",
+            "matched_name": "5106左侧框",
+            "bytes": 135344
+          }
+        ]
+      },
+      "mat_5106yzkbh": {
+        "id": "mat_5106yzkbh",
+        "code": "5106YZKBH",
+        "name": {
+          "zh": "5106右侧框",
+          "vi": "5106Khung bên phải"
+        },
+        "spec": {
+          "zh": "680x390x32mm",
+          "vi": "680x390x32mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "黑砂纹",
+          "vi": "đen cát"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        },
+        "drawings": [
+          {
+            "name": "5106右侧框.pdf",
+            "path": "drawings/catalog/drawing-5106yzkbh-e5fef50f.pdf",
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106yzkbh-e5fef50f.pdf"
+          }
+        ],
+        "models3d": [
+          {
+            "name": "5106右侧框.glb",
+            "path": "models3d/catalog/model-5106-5106yzkbh-f1d44a92.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-5106yzkbh-f1d44a92.glb",
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-5106yzkbh-f1d44a92.glb",
+            "matched_name": "5106右侧框",
+            "bytes": 135400
+          }
+        ]
+      },
+      "mat_5106hlbh": {
+        "id": "mat_5106hlbh",
+        "code": "5106HLBH",
+        "name": {
+          "zh": "5106-横梁",
+          "vi": "5106-thanh giằng"
+        },
+        "spec": {
+          "zh": "411x15x15mm",
+          "vi": "411x15x15mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "黑砂纹",
+          "vi": "đen cát"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "unit": {
+          "zh": "根",
+          "vi": "thanh"
+        },
+        "drawings": [
+          {
+            "name": "5106横梁.pdf",
+            "path": "drawings/catalog/drawing-5106hlbh-f675e6f6.pdf",
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106hlbh-f675e6f6.pdf"
+          }
+        ],
+        "models3d": [
+          {
+            "name": "5106横梁.glb",
+            "path": "models3d/catalog/model-5106-5106hlbh-7fc38cf1.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-5106hlbh-7fc38cf1.glb",
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-5106hlbh-7fc38cf1.glb",
+            "matched_name": "5106横梁",
+            "bytes": 49692
+          }
+        ]
+      },
+      "mat_bc400380195kd": {
+        "id": "mat_bc400380195kd",
+        "code": "BC400380195KD",
+        "name": {
+          "zh": "40X38X19.5布抽",
+          "vi": "Túi vải 40x38x19.5"
+        },
+        "spec": {
+          "zh": "400x380x195mm",
+          "vi": "400x380x195mm"
+        },
+        "material": {
+          "zh": "MDF&纸板&无纺布",
+          "vi": "MDF&giấy&vải không dệt"
+        },
+        "color": {
+          "zh": "复古色",
+          "vi": "màu gỗ cổ"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        },
+        "drawings": [
+          {
+            "name": "40x38x19.5布抽.pdf",
+            "path": "drawings/catalog/drawing-bc400380195kd-f0a73437.pdf",
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bc400380195kd-f0a73437.pdf"
+          }
+        ],
+        "models3d": [
+          {
+            "name": "40x38x19.3布抽.glb",
+            "path": "models3d/catalog/model-5106-bc400380195kd-479c4cf8.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-bc400380195kd-479c4cf8.glb",
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-bc400380195kd-479c4cf8.glb",
+            "matched_name": "40x38x19.5布抽",
+            "bytes": 13416
+          }
+        ]
+      },
+      "mat_bc400380190kd": {
+        "id": "mat_bc400380190kd",
+        "code": "BC400380190KD",
+        "name": {
+          "zh": "40X38X19布抽",
+          "vi": "Túi vải 40x38x19"
+        },
+        "spec": {
+          "zh": "400x380x190mm",
+          "vi": "400x380x190mm"
+        },
+        "material": {
+          "zh": "MDF&纸板&无纺布",
+          "vi": "MDF&giấy&vải không dệt"
+        },
+        "color": {
+          "zh": "复古色",
+          "vi": "màu gỗ cổ"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        },
+        "drawings": [
+          {
+            "name": "40x38x19布抽.pdf",
+            "path": "drawings/catalog/drawing-bc400380190kd-fe175a51.pdf",
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bc400380190kd-fe175a51.pdf"
+          }
+        ],
+        "models3d": [
+          {
+            "name": "40x38x19布抽.glb",
+            "path": "models3d/catalog/model-5106-bc400380190kd-7a3983a8.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-bc400380190kd-7a3983a8.glb",
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-bc400380190kd-7a3983a8.glb",
+            "matched_name": "40x38x19布抽",
+            "bytes": 13416
+          }
+        ]
+      },
+      "mat_bcdb393370003bh": {
+        "id": "mat_bcdb393370003bh",
+        "code": "BCDB393370003BH",
+        "name": {
+          "zh": "39.5x37.5布抽底板",
+          "vi": "Đáy túi 39.5x37.5"
+        },
+        "spec": {
+          "zh": "393x370x3mm",
+          "vi": "393x370x3mm"
+        },
+        "material": {
+          "zh": "MDF&无纺布",
+          "vi": "MDF&vải không dệt"
+        },
+        "color": {
+          "zh": "黑色",
+          "vi": "màu đen"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "unit": {
+          "zh": "块",
+          "vi": "miếng"
+        },
+        "drawings": [],
+        "models3d": [
+          {
+            "name": "40x38x19.3布抽底板.glb",
+            "path": "models3d/catalog/model-5106-bcdb393370003bh-2ab704a2.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-bcdb393370003bh-2ab704a2.glb",
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-bcdb393370003bh-2ab704a2.glb",
+            "matched_name": "39.5x37.5布抽底板",
+            "bytes": 1068
+          }
+        ]
+      },
+      "mat_tzjd619619bh": {
+        "id": "mat_tzjd619619bh",
+        "code": "TZJD619619BH",
+        "name": {
+          "zh": "调整脚钉",
+          "vi": "chân điều chỉnh"
+        },
+        "spec": {
+          "zh": "M6*Ø19x6mm",
+          "vi": "M6*Ø19x6mm"
+        },
+        "material": {
+          "zh": "PP&镀锌碳钢",
+          "vi": "PP&thép mạ kẽm"
+        },
+        "color": {
+          "zh": "黑色",
+          "vi": "màu đen"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "unit": {
+          "zh": "只",
+          "vi": "cái"
+        },
+        "drawings": [],
+        "models3d": [
+          {
+            "name": "M6调节脚.glb",
+            "path": "models3d/catalog/model-5106-tzjd619619bh-0543bed4.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-tzjd619619bh-0543bed4.glb",
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-tzjd619619bh-0543bed4.glb",
+            "matched_name": "调整脚钉",
+            "bytes": 111580
+          }
+        ]
+      },
+      "mat_3601502zhktp": {
+        "id": "mat_3601502zhktp",
+        "code": "3601502ZHKTP",
+        "name": {
+          "zh": "5106侧框连接片",
+          "vi": "5106 miếng sắt nối khung bên"
+        },
+        "spec": {
+          "zh": "360x15x2mm",
+          "vi": "360x15x2mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "unit": {
+          "zh": "根",
+          "vi": "thanh"
+        },
+        "drawings": [
+          {
+            "name": "5106侧框连接片.pdf",
+            "path": "drawings/catalog/drawing-3601502zhktp-dcf5b9fd.pdf",
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-3601502zhktp-dcf5b9fd.pdf"
+          }
+        ],
+        "models3d": [
+          {
+            "name": "5106侧框连接片.glb",
+            "path": "models3d/catalog/model-5106-3601502zhktp-3f7e250a.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-3601502zhktp-3f7e250a.glb",
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-3601502zhktp-3f7e250a.glb",
+            "matched_name": "5106侧框连接片",
+            "bytes": 13272
+          }
+        ]
+      },
+      "mat_5106bctz": {
+        "id": "mat_5106bctz",
+        "code": "5106BCTZ",
+        "name": {
+          "zh": "5106布抽条左",
+          "vi": "5106 Thanh ngăn kéo trái"
+        },
+        "spec": {
+          "zh": "380x17x15mm, 1Tmm",
+          "vi": "380x17x15mm, 1Tmm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "unit": {
+          "zh": "根",
+          "vi": "thanh"
+        },
+        "drawings": [
+          {
+            "name": "5106布抽条左.pdf",
+            "path": "drawings/catalog/drawing-5106bctz-8b211010.pdf",
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106bctz-8b211010.pdf"
+          }
+        ],
+        "models3d": [
+          {
+            "name": "5106布抽条左.glb",
+            "path": "models3d/catalog/model-5106-5106bctz-4fb7f2f0.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-5106bctz-4fb7f2f0.glb",
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-5106bctz-4fb7f2f0.glb",
+            "matched_name": "5106布抽条左",
+            "bytes": 6676
+          }
+        ]
+      },
+      "mat_5106bcty": {
+        "id": "mat_5106bcty",
+        "code": "5106BCTY",
+        "name": {
+          "zh": "5106布抽条右",
+          "vi": "5106 Thanh ngăn kéo phải"
+        },
+        "spec": {
+          "zh": "380x17x15mm, 1Tmm",
+          "vi": "380x17x15mm, 1Tmm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "光亮",
+          "vi": "sáng bóng"
+        },
+        "attr": {
+          "zh": "原材料",
+          "vi": "Nguyên vật liệu"
+        },
+        "unit": {
+          "zh": "根",
+          "vi": "thanh"
+        },
+        "drawings": [
+          {
+            "name": "5106布抽条右.pdf",
+            "path": "drawings/catalog/drawing-5106bcty-c07cb7ff.pdf",
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-5106bcty-c07cb7ff.pdf"
+          }
+        ],
+        "models3d": [
+          {
+            "name": "5106布抽条右.glb",
+            "path": "models3d/catalog/model-5106-5106bcty-5e921673.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-5106bcty-5e921673.glb",
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-5106bcty-5e921673.glb",
+            "matched_name": "5106布抽条右",
+            "bytes": 6700
+          }
+        ]
+      },
+      "mat_5106wjbbh": {
+        "id": "mat_5106wjbbh",
+        "code": "5106WJBBH",
+        "name": {
+          "zh": "5106五金包",
+          "vi": "5106Túi ngũ kim"
+        },
+        "spec": {
+          "zh": "详见明细",
+          "vi": "Xem chi tiết"
+        },
+        "material": {
+          "zh": "无",
+          "vi": "không"
+        },
+        "color": {
+          "zh": "黑色",
+          "vi": "màu đen"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "unit": {
+          "zh": "套",
+          "vi": "bộ"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_st5x50nlxzgls": {
+        "id": "mat_st5x50nlxzgls",
+        "code": "ST5X50NLXZGLS",
+        "name": {
+          "zh": "ST5X50内六角自攻螺丝",
+          "vi": "vít tự xoắn gỗ ST5x50"
+        },
+        "spec": {
+          "zh": "Ø5x50mm",
+          "vi": "Ø5x50mm"
+        },
+        "material": {
+          "zh": "#10",
+          "vi": "#10"
+        },
+        "color": {
+          "zh": "黑色",
+          "vi": "màu đen"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "unit": {
+          "zh": "颗",
+          "vi": "viên"
+        },
+        "drawings": [],
+        "models3d": [
+          {
+            "name": "M6x38内六角自攻螺丝.glb",
+            "path": "models3d/catalog/model-5106-st5x50nlxzgls-53338e94.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-st5x50nlxzgls-53338e94.glb",
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-st5x50nlxzgls-53338e94.glb",
+            "matched_name": "ST5X50内六角自攻螺丝",
+            "bytes": 221824
+          }
+        ]
+      },
+      "mat_nlpls6010bh": {
+        "id": "mat_nlpls6010bh",
+        "code": "NLPLS6010BH",
+        "name": {
+          "zh": "M6x10内六角螺丝",
+          "vi": "vít M6x10"
+        },
+        "spec": {
+          "zh": "M6x10mm",
+          "vi": "M6x10mm"
+        },
+        "material": {
+          "zh": "#10",
+          "vi": "#10"
+        },
+        "color": {
+          "zh": "黑色",
+          "vi": "màu đen"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "unit": {
+          "zh": "颗",
+          "vi": "viên"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_pe750x450": {
+        "id": "mat_pe750x450",
+        "code": "PE750X450",
+        "name": {
+          "zh": "PE袋",
+          "vi": "túi PE"
+        },
+        "spec": {
+          "zh": "750×450mm",
+          "vi": "750×450mm"
+        },
+        "material": {
+          "zh": "PE",
+          "vi": "PE"
+        },
+        "color": {
+          "zh": "透明",
+          "vi": "trong suốt"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_a10badhz": {
+        "id": "mat_a10badhz",
+        "code": "A10BADHZ",
+        "name": {
+          "zh": "序号标 A",
+          "vi": "nhãn STT A"
+        },
+        "spec": {
+          "zh": "∅10mm",
+          "vi": "∅10mm"
+        },
+        "material": {
+          "zh": "不干胶纸",
+          "vi": "giấy tự dính"
+        },
+        "color": {
+          "zh": "白底黑字",
+          "vi": "chữ đen nền trắng"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "unit": {
+          "zh": "张",
+          "vi": "tờ"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_b10badhz": {
+        "id": "mat_b10badhz",
+        "code": "B10BADHZ",
+        "name": {
+          "zh": "序号标 B",
+          "vi": "nhãn STT B"
+        },
+        "spec": {
+          "zh": "∅10mm",
+          "vi": "∅10mm"
+        },
+        "material": {
+          "zh": "不干胶纸",
+          "vi": "giấy tự dính"
+        },
+        "color": {
+          "zh": "白底黑字",
+          "vi": "chữ đen nền trắng"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "unit": {
+          "zh": "张",
+          "vi": "tờ"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_5106zfxkd": {
+        "id": "mat_5106zfxkd",
+        "code": "5106ZFXKD",
+        "name": {
+          "zh": "中封箱",
+          "vi": "thùng đóng giữa"
+        },
+        "spec": {
+          "zh": "740x425x100mm",
+          "vi": "740x425x100mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy sóng"
+        },
+        "color": {
+          "zh": "黄字",
+          "vi": "chữ vàng"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_zk700100": {
+        "id": "mat_zk700100",
+        "code": "ZK700100",
+        "name": {
+          "zh": "纸卡",
+          "vi": "tấm bìa carton"
+        },
+        "spec": {
+          "zh": "单瓦700x100mm",
+          "vi": "sóng đơn 700x100mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy sóng"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "unit": {
+          "zh": "张",
+          "vi": "tờ"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_pm4009010": {
+        "id": "mat_pm4009010",
+        "code": "PM4009010",
+        "name": {
+          "zh": "泡沫",
+          "vi": "mút xốp"
+        },
+        "spec": {
+          "zh": "18g,400x90x10mm",
+          "vi": "18g,400x90x10mm"
+        },
+        "material": {
+          "zh": "EPS泡沫",
+          "vi": "EPS mút xốp"
+        },
+        "color": {
+          "zh": "白色",
+          "vi": "màu trắng"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "unit": {
+          "zh": "块",
+          "vi": "miếng"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_pm39010019": {
+        "id": "mat_pm39010019",
+        "code": "PM39010019",
+        "name": {
+          "zh": "泡沫",
+          "vi": "mút xốp"
+        },
+        "spec": {
+          "zh": "16g,390x100x19mm",
+          "vi": "16g,390x100x19mm"
+        },
+        "material": {
+          "zh": "EPS泡沫",
+          "vi": "EPS mút xốp"
+        },
+        "color": {
+          "zh": "白色",
+          "vi": "màu trắng"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "unit": {
+          "zh": "块",
+          "vi": "miếng"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_pm3902315": {
+        "id": "mat_pm3902315",
+        "code": "PM3902315",
+        "name": {
+          "zh": "泡沫",
+          "vi": "mút xốp"
+        },
+        "spec": {
+          "zh": "16g,390x23x15mm",
+          "vi": "16g,390x23x15mm"
+        },
+        "material": {
+          "zh": "EPS泡沫",
+          "vi": "EPS mút xốp"
+        },
+        "color": {
+          "zh": "白色",
+          "vi": "màu trắng"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "unit": {
+          "zh": "块",
+          "vi": "miếng"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_pm5909010": {
+        "id": "mat_pm5909010",
+        "code": "PM5909010",
+        "name": {
+          "zh": "泡沫",
+          "vi": "mút xốp"
+        },
+        "spec": {
+          "zh": "16g,590x90x10mm",
+          "vi": "16g,590x90x10mm"
+        },
+        "material": {
+          "zh": "EPS泡沫",
+          "vi": "EPS mút xốp"
+        },
+        "color": {
+          "zh": "白色",
+          "vi": "màu trắng"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "unit": {
+          "zh": "块",
+          "vi": "miếng"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_pm5905015": {
+        "id": "mat_pm5905015",
+        "code": "PM5905015",
+        "name": {
+          "zh": "泡沫",
+          "vi": "mút xốp"
+        },
+        "spec": {
+          "zh": "16g,590x50x15mm",
+          "vi": "16g,590x50x15mm"
+        },
+        "material": {
+          "zh": "EPS泡沫",
+          "vi": "EPS mút xốp"
+        },
+        "color": {
+          "zh": "白色",
+          "vi": "màu trắng"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "unit": {
+          "zh": "块",
+          "vi": "miếng"
+        },
+        "drawings": [],
+        "models3d": []
+      },
+      "mat_5106sms": {
+        "id": "mat_5106sms",
+        "code": "5106SMS",
+        "name": {
+          "zh": "说明书",
+          "vi": "sách hướng dẫn"
+        },
+        "spec": {
+          "zh": "A4",
+          "vi": "A4"
+        },
+        "material": {
+          "zh": "铜版纸",
+          "vi": "giấy couché"
+        },
+        "color": {
+          "zh": "白底黑字",
+          "vi": "chữ đen nền trắng"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "unit": {
+          "zh": "本",
+          "vi": "quyển"
+        },
+        "drawings": [],
+        "models3d": []
       }
     },
     "bomEntries": [
@@ -89383,6 +90367,674 @@
         "order": 1,
         "comp_code": "",
         "stt": ""
+      },
+      {
+        "id": "bom_5106_kd_000",
+        "parentType": "product",
+        "parentId": "5106",
+        "productId": "5106",
+        "productCode": "5106",
+        "color": "复古色",
+        "materialId": "mat_5106wjbbh",
+        "qty": "1",
+        "order": 0,
+        "comp_code": "无",
+        "stt": "0",
+        "color_ver": "复古色",
+        "color_ver_vi": "màu gỗ cổ",
+        "remark": "详见五金明细表"
+      },
+      {
+        "id": "bom_5106_kd_001",
+        "parentType": "product",
+        "parentId": "5106",
+        "productId": "5106",
+        "productCode": "5106",
+        "color": "复古色",
+        "materialId": "mat_5106db101kd",
+        "qty": "1",
+        "order": 1,
+        "comp_code": "A",
+        "stt": "1",
+        "color_ver": "复古色",
+        "color_ver_vi": "màu gỗ cổ",
+        "remark": ""
+      },
+      {
+        "id": "bom_5106_kd_002",
+        "parentType": "product",
+        "parentId": "5106",
+        "productId": "5106",
+        "productCode": "5106",
+        "color": "复古色",
+        "materialId": "mat_5106cb101kd",
+        "qty": "1",
+        "order": 2,
+        "comp_code": "B",
+        "stt": "2",
+        "color_ver": "复古色",
+        "color_ver_vi": "màu gỗ cổ",
+        "remark": ""
+      },
+      {
+        "id": "bom_5106_kd_003",
+        "parentType": "product",
+        "parentId": "5106",
+        "productId": "5106",
+        "productCode": "5106",
+        "color": "复古色",
+        "materialId": "mat_5106zzkbh",
+        "qty": "1",
+        "order": 3,
+        "comp_code": "C",
+        "stt": "3",
+        "color_ver": "复古色",
+        "color_ver_vi": "màu gỗ cổ",
+        "remark": "组焊件"
+      },
+      {
+        "id": "bom_5106_kd_004",
+        "parentType": "product",
+        "parentId": "5106",
+        "productId": "5106",
+        "productCode": "5106",
+        "color": "复古色",
+        "materialId": "mat_5106yzkbh",
+        "qty": "1",
+        "order": 4,
+        "comp_code": "D",
+        "stt": "4",
+        "color_ver": "复古色",
+        "color_ver_vi": "màu gỗ cổ",
+        "remark": "组焊件"
+      },
+      {
+        "id": "bom_5106_kd_005",
+        "parentType": "product",
+        "parentId": "5106",
+        "productId": "5106",
+        "productCode": "5106",
+        "color": "复古色",
+        "materialId": "mat_5106hlbh",
+        "qty": "2",
+        "order": 5,
+        "comp_code": "G",
+        "stt": "5",
+        "color_ver": "复古色",
+        "color_ver_vi": "màu gỗ cổ",
+        "remark": "两端焊M6圆螺母"
+      },
+      {
+        "id": "bom_5106_kd_006",
+        "parentType": "product",
+        "parentId": "5106",
+        "productId": "5106",
+        "productCode": "5106",
+        "color": "复古色",
+        "materialId": "mat_bc400380195kd",
+        "qty": "1",
+        "order": 6,
+        "comp_code": "E1",
+        "stt": "6",
+        "color_ver": "复古色",
+        "color_ver_vi": "màu gỗ cổ",
+        "remark": "1个 = 1包×1个装"
+      },
+      {
+        "id": "bom_5106_kd_007",
+        "parentType": "product",
+        "parentId": "5106",
+        "productId": "5106",
+        "productCode": "5106",
+        "color": "复古色",
+        "materialId": "mat_bc400380190kd",
+        "qty": "1",
+        "order": 7,
+        "comp_code": "E2",
+        "stt": "7",
+        "color_ver": "复古色",
+        "color_ver_vi": "màu gỗ cổ",
+        "remark": "1个 = 1包×1个装"
+      },
+      {
+        "id": "bom_5106_kd_008",
+        "parentType": "product",
+        "parentId": "5106",
+        "productId": "5106",
+        "productCode": "5106",
+        "color": "复古色",
+        "materialId": "mat_bcdb393370003bh",
+        "qty": "2",
+        "order": 8,
+        "comp_code": "F",
+        "stt": "8",
+        "color_ver": "复古色",
+        "color_ver_vi": "màu gỗ cổ",
+        "remark": "2个 = 1包×2个装"
+      },
+      {
+        "id": "bom_5106_kd_009",
+        "parentType": "product",
+        "parentId": "5106",
+        "productId": "5106",
+        "productCode": "5106",
+        "color": "复古色",
+        "materialId": "mat_pe750x450",
+        "qty": "2",
+        "order": 9,
+        "comp_code": "无",
+        "stt": "9",
+        "color_ver": "复古色",
+        "color_ver_vi": "màu gỗ cổ",
+        "remark": "包装对象：5106ZZKBH×1、5106YZKBH×1\n规则：1件/袋；用袋：2袋"
+      },
+      {
+        "id": "bom_5106_kd_010",
+        "parentType": "product",
+        "parentId": "5106",
+        "productId": "5106",
+        "productCode": "5106",
+        "color": "复古色",
+        "materialId": "mat_yc5tps",
+        "qty": "1",
+        "order": 10,
+        "comp_code": "无",
+        "stt": "10",
+        "color_ver": "复古色",
+        "color_ver_vi": "màu gỗ cổ",
+        "remark": "包装对象：5106HLBH×2\n规则：2件/袋；用袋：1袋"
+      },
+      {
+        "id": "bom_5106_kd_011",
+        "parentType": "product",
+        "parentId": "5106",
+        "productId": "5106",
+        "productCode": "5106",
+        "color": "复古色",
+        "materialId": "mat_a10badhz",
+        "qty": "1",
+        "order": 11,
+        "comp_code": "无",
+        "stt": "11",
+        "color_ver": "复古色",
+        "color_ver_vi": "màu gỗ cổ",
+        "remark": ""
+      },
+      {
+        "id": "bom_5106_kd_012",
+        "parentType": "product",
+        "parentId": "5106",
+        "productId": "5106",
+        "productCode": "5106",
+        "color": "复古色",
+        "materialId": "mat_b10badhz",
+        "qty": "1",
+        "order": 12,
+        "comp_code": "无",
+        "stt": "12",
+        "color_ver": "复古色",
+        "color_ver_vi": "màu gỗ cổ",
+        "remark": ""
+      },
+      {
+        "id": "bom_5106_kd_013",
+        "parentType": "product",
+        "parentId": "5106",
+        "productId": "5106",
+        "productCode": "5106",
+        "color": "复古色",
+        "materialId": "mat_m77d5q",
+        "qty": "2",
+        "order": 13,
+        "comp_code": "无",
+        "stt": "13",
+        "color_ver": "复古色",
+        "color_ver_vi": "màu gỗ cổ",
+        "remark": ""
+      },
+      {
+        "id": "bom_5106_kd_014",
+        "parentType": "product",
+        "parentId": "5106",
+        "productId": "5106",
+        "productCode": "5106",
+        "color": "复古色",
+        "materialId": "mat_z3s5zi",
+        "qty": "1",
+        "order": 14,
+        "comp_code": "无",
+        "stt": "14",
+        "color_ver": "复古色",
+        "color_ver_vi": "màu gỗ cổ",
+        "remark": ""
+      },
+      {
+        "id": "bom_5106_kd_015",
+        "parentType": "product",
+        "parentId": "5106",
+        "productId": "5106",
+        "productCode": "5106",
+        "color": "复古色",
+        "materialId": "mat_f60urh",
+        "qty": "1",
+        "order": 15,
+        "comp_code": "无",
+        "stt": "15",
+        "color_ver": "复古色",
+        "color_ver_vi": "màu gỗ cổ",
+        "remark": ""
+      },
+      {
+        "id": "bom_5106_kd_016",
+        "parentType": "product",
+        "parentId": "5106",
+        "productId": "5106",
+        "productCode": "5106",
+        "color": "复古色",
+        "materialId": "mat_5106zfxkd",
+        "qty": "1",
+        "order": 16,
+        "comp_code": "无",
+        "stt": "16",
+        "color_ver": "复古色",
+        "color_ver_vi": "màu gỗ cổ",
+        "remark": ""
+      },
+      {
+        "id": "bom_5106_kd_017",
+        "parentType": "product",
+        "parentId": "5106",
+        "productId": "5106",
+        "productCode": "5106",
+        "color": "复古色",
+        "materialId": "mat_b8cef361",
+        "qty": "4",
+        "order": 17,
+        "comp_code": "无",
+        "stt": "17",
+        "color_ver": "复古色",
+        "color_ver_vi": "màu gỗ cổ",
+        "remark": ""
+      },
+      {
+        "id": "bom_5106_kd_018",
+        "parentType": "product",
+        "parentId": "5106",
+        "productId": "5106",
+        "productCode": "5106",
+        "color": "复古色",
+        "materialId": "mat_zk700100",
+        "qty": "1",
+        "order": 18,
+        "comp_code": "无",
+        "stt": "18",
+        "color_ver": "复古色",
+        "color_ver_vi": "màu gỗ cổ",
+        "remark": ""
+      },
+      {
+        "id": "bom_5106_kd_019",
+        "parentType": "product",
+        "parentId": "5106",
+        "productId": "5106",
+        "productCode": "5106",
+        "color": "复古色",
+        "materialId": "mat_1s4itvb",
+        "qty": "8",
+        "order": 19,
+        "comp_code": "无",
+        "stt": "19",
+        "color_ver": "复古色",
+        "color_ver_vi": "màu gỗ cổ",
+        "remark": ""
+      },
+      {
+        "id": "bom_5106_kd_020",
+        "parentType": "product",
+        "parentId": "5106",
+        "productId": "5106",
+        "productCode": "5106",
+        "color": "复古色",
+        "materialId": "mat_pm4009010",
+        "qty": "2",
+        "order": 20,
+        "comp_code": "无",
+        "stt": "20",
+        "color_ver": "复古色",
+        "color_ver_vi": "màu gỗ cổ",
+        "remark": ""
+      },
+      {
+        "id": "bom_5106_kd_021",
+        "parentType": "product",
+        "parentId": "5106",
+        "productId": "5106",
+        "productCode": "5106",
+        "color": "复古色",
+        "materialId": "mat_pm39010019",
+        "qty": "2",
+        "order": 21,
+        "comp_code": "无",
+        "stt": "21",
+        "color_ver": "复古色",
+        "color_ver_vi": "màu gỗ cổ",
+        "remark": ""
+      },
+      {
+        "id": "bom_5106_kd_022",
+        "parentType": "product",
+        "parentId": "5106",
+        "productId": "5106",
+        "productCode": "5106",
+        "color": "复古色",
+        "materialId": "mat_pm3902315",
+        "qty": "3",
+        "order": 22,
+        "comp_code": "无",
+        "stt": "22",
+        "color_ver": "复古色",
+        "color_ver_vi": "màu gỗ cổ",
+        "remark": ""
+      },
+      {
+        "id": "bom_5106_kd_023",
+        "parentType": "product",
+        "parentId": "5106",
+        "productId": "5106",
+        "productCode": "5106",
+        "color": "复古色",
+        "materialId": "mat_pm5909010",
+        "qty": "1",
+        "order": 23,
+        "comp_code": "无",
+        "stt": "23",
+        "color_ver": "复古色",
+        "color_ver_vi": "màu gỗ cổ",
+        "remark": ""
+      },
+      {
+        "id": "bom_5106_kd_024",
+        "parentType": "product",
+        "parentId": "5106",
+        "productId": "5106",
+        "productCode": "5106",
+        "color": "复古色",
+        "materialId": "mat_pm5905015",
+        "qty": "1",
+        "order": 24,
+        "comp_code": "无",
+        "stt": "24",
+        "color_ver": "复古色",
+        "color_ver_vi": "màu gỗ cổ",
+        "remark": ""
+      },
+      {
+        "id": "bom_5106_kd_025",
+        "parentType": "product",
+        "parentId": "5106",
+        "productId": "5106",
+        "productCode": "5106",
+        "color": "复古色",
+        "materialId": "mat_5106sms",
+        "qty": "1",
+        "order": 25,
+        "comp_code": "无",
+        "stt": "25",
+        "color_ver": "复古色",
+        "color_ver_vi": "màu gỗ cổ",
+        "remark": ""
+      },
+      {
+        "id": "bomc_mat_5106wjbbh_mat_st5x50nlxzgls_0",
+        "parentType": "material",
+        "parentId": "mat_5106wjbbh",
+        "materialId": "mat_st5x50nlxzgls",
+        "childMaterialId": "mat_st5x50nlxzgls",
+        "qty": "4",
+        "order": 1,
+        "comp_code": "",
+        "stt": "1",
+        "remark": "固定顶板与层板"
+      },
+      {
+        "id": "bomc_mat_5106wjbbh_mat_vz636a_1",
+        "parentType": "material",
+        "parentId": "mat_5106wjbbh",
+        "materialId": "mat_vz636a",
+        "childMaterialId": "mat_vz636a",
+        "qty": "2",
+        "order": 2,
+        "comp_code": "",
+        "stt": "2",
+        "remark": "配M4x10自攻螺钉"
+      },
+      {
+        "id": "bomc_mat_5106wjbbh_mat_1bb87nh_2",
+        "parentType": "material",
+        "parentId": "mat_5106wjbbh",
+        "materialId": "mat_1bb87nh",
+        "childMaterialId": "mat_1bb87nh",
+        "qty": "5",
+        "order": 3,
+        "comp_code": "",
+        "stt": "2",
+        "remark": "备用1颗 (共5颗)"
+      },
+      {
+        "id": "bomc_mat_5106wjbbh_mat_nlpls6010bh_3",
+        "parentType": "material",
+        "parentId": "mat_5106wjbbh",
+        "materialId": "mat_nlpls6010bh",
+        "childMaterialId": "mat_nlpls6010bh",
+        "qty": "5",
+        "order": 4,
+        "comp_code": "",
+        "stt": "3",
+        "remark": "备用1颗 (共5颗)"
+      },
+      {
+        "id": "bomc_mat_5106wjbbh_mat_1112bk6_4",
+        "parentType": "material",
+        "parentId": "mat_5106wjbbh",
+        "materialId": "mat_1112bk6",
+        "childMaterialId": "mat_1112bk6",
+        "qty": "5",
+        "order": 5,
+        "comp_code": "",
+        "stt": "4",
+        "remark": "备用1颗 (共5颗)"
+      },
+      {
+        "id": "bomc_mat_5106wjbbh_mat_3cqqc3_5",
+        "parentType": "material",
+        "parentId": "mat_5106wjbbh",
+        "materialId": "mat_3cqqc3",
+        "childMaterialId": "mat_3cqqc3",
+        "qty": "2",
+        "order": 6,
+        "comp_code": "",
+        "stt": "5",
+        "remark": "防倒固定"
+      },
+      {
+        "id": "bomc_mat_5106wjbbh_mat_1atkf4g_6",
+        "parentType": "material",
+        "parentId": "mat_5106wjbbh",
+        "materialId": "mat_1atkf4g",
+        "childMaterialId": "mat_1atkf4g",
+        "qty": "1",
+        "order": 7,
+        "comp_code": "",
+        "stt": "6",
+        "remark": "组装工具"
+      },
+      {
+        "id": "bomc_mat_5106wjbbh_mat_qqu0zl_7",
+        "parentType": "material",
+        "parentId": "mat_5106wjbbh",
+        "materialId": "mat_qqu0zl",
+        "childMaterialId": "mat_qqu0zl",
+        "qty": "2",
+        "order": 8,
+        "comp_code": "",
+        "stt": "7",
+        "remark": "防倒固定"
+      },
+      {
+        "id": "bomc_mat_5106wjbbh_mat_tzjd619619bh_8",
+        "parentType": "material",
+        "parentId": "mat_5106wjbbh",
+        "materialId": "mat_tzjd619619bh",
+        "childMaterialId": "mat_tzjd619619bh",
+        "qty": "4",
+        "order": 9,
+        "comp_code": "",
+        "stt": "8",
+        "remark": "底脚"
+      },
+      {
+        "id": "bomc_mat_5106zzkbh_mat_fg1515065510_0",
+        "parentType": "material",
+        "parentId": "mat_5106zzkbh",
+        "materialId": "mat_fg1515065510",
+        "childMaterialId": "mat_fg1515065510",
+        "qty": "0.250000",
+        "order": 1,
+        "comp_code": "",
+        "stt": "",
+        "remark": "切 2 根 680mm 前后立柱 (2/8 根)"
+      },
+      {
+        "id": "bomc_mat_5106zzkbh_mat_fg1515065846_1",
+        "parentType": "material",
+        "parentId": "mat_5106zzkbh",
+        "materialId": "mat_fg1515065846",
+        "childMaterialId": "mat_fg1515065846",
+        "qty": "0.125000",
+        "order": 2,
+        "comp_code": "",
+        "stt": "",
+        "remark": "切 2 根 360mm 侧框横梁 (2/16 根)"
+      },
+      {
+        "id": "bomc_mat_5106zzkbh_mat_m6ylm139_2",
+        "parentType": "material",
+        "parentId": "mat_5106zzkbh",
+        "materialId": "mat_m6ylm139",
+        "childMaterialId": "mat_m6ylm139",
+        "qty": "2",
+        "order": 3,
+        "comp_code": "",
+        "stt": "",
+        "remark": "沉入平齐焊接立柱底部"
+      },
+      {
+        "id": "bomc_mat_5106zzkbh_mat_3601502zhktp_3",
+        "parentType": "material",
+        "parentId": "mat_5106zzkbh",
+        "materialId": "mat_3601502zhktp",
+        "childMaterialId": "mat_3601502zhktp",
+        "qty": "1",
+        "order": 4,
+        "comp_code": "",
+        "stt": "",
+        "remark": "焊于侧框顶部"
+      },
+      {
+        "id": "bomc_mat_5106zzkbh_mat_5106bctz_4",
+        "parentType": "material",
+        "parentId": "mat_5106zzkbh",
+        "materialId": "mat_5106bctz",
+        "childMaterialId": "mat_5106bctz",
+        "qty": "2",
+        "order": 5,
+        "comp_code": "",
+        "stt": "",
+        "remark": "焊接于内侧导轨"
+      },
+      {
+        "id": "bomc_mat_5106yzkbh_mat_fg1515065510_0",
+        "parentType": "material",
+        "parentId": "mat_5106yzkbh",
+        "materialId": "mat_fg1515065510",
+        "childMaterialId": "mat_fg1515065510",
+        "qty": "0.250000",
+        "order": 1,
+        "comp_code": "",
+        "stt": "",
+        "remark": "切 2 根 680mm 前后立柱 (2/8 根)"
+      },
+      {
+        "id": "bomc_mat_5106yzkbh_mat_fg1515065846_1",
+        "parentType": "material",
+        "parentId": "mat_5106yzkbh",
+        "materialId": "mat_fg1515065846",
+        "childMaterialId": "mat_fg1515065846",
+        "qty": "0.125000",
+        "order": 2,
+        "comp_code": "",
+        "stt": "",
+        "remark": "切 2 根 360mm 侧框横梁 (2/16 根)"
+      },
+      {
+        "id": "bomc_mat_5106yzkbh_mat_m6ylm139_2",
+        "parentType": "material",
+        "parentId": "mat_5106yzkbh",
+        "materialId": "mat_m6ylm139",
+        "childMaterialId": "mat_m6ylm139",
+        "qty": "2",
+        "order": 3,
+        "comp_code": "",
+        "stt": "",
+        "remark": "沉入平齐焊接立柱底部"
+      },
+      {
+        "id": "bomc_mat_5106yzkbh_mat_3601502zhktp_3",
+        "parentType": "material",
+        "parentId": "mat_5106yzkbh",
+        "materialId": "mat_3601502zhktp",
+        "childMaterialId": "mat_3601502zhktp",
+        "qty": "1",
+        "order": 4,
+        "comp_code": "",
+        "stt": "",
+        "remark": "焊于侧框顶部"
+      },
+      {
+        "id": "bomc_mat_5106yzkbh_mat_5106bcty_4",
+        "parentType": "material",
+        "parentId": "mat_5106yzkbh",
+        "materialId": "mat_5106bcty",
+        "childMaterialId": "mat_5106bcty",
+        "qty": "2",
+        "order": 5,
+        "comp_code": "",
+        "stt": "",
+        "remark": "焊接于内侧导轨"
+      },
+      {
+        "id": "bomc_mat_5106hlbh_mat_fg1515065011_0",
+        "parentType": "material",
+        "parentId": "mat_5106hlbh",
+        "materialId": "mat_fg1515065011",
+        "childMaterialId": "mat_fg1515065011",
+        "qty": "0.083333",
+        "order": 1,
+        "comp_code": "",
+        "stt": "",
+        "remark": "切 1 根 411mm 横梁 (1/12 根)"
+      },
+      {
+        "id": "bomc_mat_5106hlbh_mat_m6ylm139_1",
+        "parentType": "material",
+        "parentId": "mat_5106hlbh",
+        "materialId": "mat_m6ylm139",
+        "childMaterialId": "mat_m6ylm139",
+        "qty": "2",
+        "order": 2,
+        "comp_code": "",
+        "stt": "",
+        "remark": "沉入平齐焊接横梁两端"
       }
     ]
   }

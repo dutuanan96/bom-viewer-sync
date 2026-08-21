@@ -12,4 +12,13 @@ tmp/
 pnpm-lock.yaml
 pnpm-workspace.yaml
 scratch/
-
+review-bom-comparison/
+review-prompt-nli-ecn/
+*.rar
+*.log
+dom_output.txt
+test_output.txt
+index_diff.txt
+index_old.js
+temp_debug.js
+jintai-pdm-codex-pack/
