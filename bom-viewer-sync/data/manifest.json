@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-22T00:58:04.776Z",
+  "updatedAt": "2026-08-22T01:08:54.386Z",
   "products": [
     "5106",
     "LGS031",
@@ -135006,6 +135006,71 @@
   },
   "notifications": [
     {
+      "id": "notif_1kmidbq",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-22T01:08:54.386Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "5106SMS",
+          "field": "name",
+          "before": "说明书 / sách hướng dẫn",
+          "after": " 5106说明书 /  5106 sách hướng dẫn"
+        },
+        {
+          "kind": "material",
+          "code": "LGS031SMS",
+          "field": "name",
+          "before": "说明书 / sách hướng dẫn",
+          "after": "LGS031说明书 / LGS031 sách hướng dẫn"
+        },
+        {
+          "kind": "material",
+          "code": "LGS032SMS",
+          "field": "name",
+          "before": "说明书 / sách hướng dẫn",
+          "after": "LGS032说明书 / LGS032 sách hướng dẫn"
+        },
+        {
+          "kind": "material",
+          "code": "LGS033SMS",
+          "field": "name",
+          "before": "说明书 / sách hướng dẫn",
+          "after": "LGS033说明书 / LGS033 sách hướng dẫn"
+        },
+        {
+          "kind": "material",
+          "code": "LGS043SMS",
+          "field": "name",
+          "before": "说明书 / sách hướng dẫn",
+          "after": "LGS043说明书 / LGS043 sách hướng dẫn"
+        },
+        {
+          "kind": "material",
+          "code": "LGS101SMS",
+          "field": "name",
+          "before": "说明书 / sách hướng dẫn",
+          "after": "LGS101说明书 / LGS101 sách hướng dẫn"
+        },
+        {
+          "kind": "material",
+          "code": "LGS111SMS",
+          "field": "name",
+          "before": "说明书 / sách hướng dẫn",
+          "after": "LGS111说明书 / LGS111 sách hướng dẫn"
+        },
+        {
+          "kind": "material",
+          "code": "LGS131SMS",
+          "field": "name",
+          "before": "说明书 / sách hướng dẫn",
+          "after": "LGS131说明书 / LGS131sách hướng dẫn"
+        }
+      ]
+    },
+    {
       "id": "notif_6iz27u",
       "type": "github-save",
       "actor": "admin",
@@ -135992,33 +136057,28 @@
           "after": "released"
         }
       ]
-    },
-    {
-      "id": "notif_1pj77i",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-17T03:20:42.495Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "LGS334XHYHLBH",
-          "field": "drawings",
-          "before": "LGS334_434_834-底部横杆右-后_组件|https://drive.google.com/file/d/1_VjJQDfHzQRde_7En4irqRfRrtGpfV7x/view?usp=sharing",
-          "after": "LGS334_434_834-底部横杆右-后_组件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@f815ccb053f050fd1578c12da4eb16ae5b97350a/assets/pdfs/LGS334XHYHLBH_dcfdcb74d1cf9a0b558dddd460aea0e157b64ad29df0cb2134d66a76b4ab0502_LGS334_434_834-_-_.pdf"
-        },
-        {
-          "kind": "material",
-          "code": "LGS334XHYHLWH",
-          "field": "drawings",
-          "before": "LGS334_434_834-底部横杆右-后_组件|https://drive.google.com/file/d/1_VjJQDfHzQRde_7En4irqRfRrtGpfV7x/view?usp=sharing",
-          "after": "LGS334_434_834-底部横杆右-后_组件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@d2872a30f03305061315cfd6bcd41a5d3c5b308a/assets/pdfs/LGS334XHYHLWH_dcfdcb74d1cf9a0b558dddd460aea0e157b64ad29df0cb2134d66a76b4ab0502_LGS334_434_834-_-_.pdf"
-        }
-      ]
     }
   ],
   "bomHistory": {
     "5106": [
+      {
+        "id": "history_15jwbwb",
+        "productCode": "5106",
+        "revision": "V1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "DU HOME SPU 5106 V1 初始发布 (依据2抽置物架5106.xlsx与说明书官方BOM建立)",
+        "createdAt": "2026-08-22T01:08:54.386Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "5106SMS",
+            "field": "name",
+            "before": "说明书 / sách hướng dẫn",
+            "after": " 5106说明书 /  5106 sách hướng dẫn"
+          }
+        ]
+      },
       {
         "id": "history_1kh6yz1",
         "productCode": "5106",
@@ -136325,6 +136385,24 @@
       }
     ],
     "LGS111": [
+      {
+        "id": "history_15e44j6",
+        "productCode": "LGS111",
+        "revision": "V2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-22T01:08:54.386Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS111SMS",
+            "field": "name",
+            "before": "说明书 / sách hướng dẫn",
+            "after": "LGS111说明书 / LGS111 sách hướng dẫn"
+          }
+        ]
+      },
       {
         "id": "history_1m3c4z0",
         "productCode": "LGS111",
@@ -136646,6 +136724,24 @@
       }
     ],
     "LGS231": [
+      {
+        "id": "history_j6cplb",
+        "productCode": "LGS231",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-22T01:08:54.386Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS231SMS",
+            "field": "name",
+            "before": "说明书 / sách hướng dẫn",
+            "after": "LGS231说明书 / LGS231 sách hướng dẫn"
+          }
+        ]
+      },
       {
         "id": "history_1w6qs2j",
         "productCode": "LGS231",
@@ -137269,6 +137365,24 @@
       }
     ],
     "LGS233": [
+      {
+        "id": "history_9u5tpd",
+        "productCode": "LGS233",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-22T01:08:54.386Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS233SMS",
+            "field": "name",
+            "before": "说明书 / sách hướng dẫn",
+            "after": "LGS233说明书 / LGS233 sách hướng dẫn"
+          }
+        ]
+      },
       {
         "id": "history_o9jz07",
         "productCode": "LGS233",
@@ -138502,6 +138616,24 @@
     ],
     "LGS334": [
       {
+        "id": "history_1iibooz",
+        "productCode": "LGS334",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-22T01:08:54.386Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS334SMS",
+            "field": "name",
+            "before": "说明书 / sách hướng dẫn",
+            "after": "LGS334说明书 / LGS334 sách hướng dẫn"
+          }
+        ]
+      },
+      {
         "id": "history_fyaov",
         "productCode": "LGS334",
         "revision": "V4.1",
@@ -139190,6 +139322,24 @@
       }
     ],
     "LGS434": [
+      {
+        "id": "history_1l54a5w",
+        "productCode": "LGS434",
+        "revision": "V5.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-22T01:08:54.386Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS434SMS",
+            "field": "name",
+            "before": "说明书 / sách hướng dẫn",
+            "after": "LGS434说明书 / LGS434 sách hướng dẫn"
+          }
+        ]
+      },
       {
         "id": "history_1lm1pcq",
         "productCode": "LGS434",
@@ -140474,6 +140624,24 @@
     ],
     "LGS420": [
       {
+        "id": "history_4r06fz",
+        "productCode": "LGS420",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-22T01:08:54.386Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS420SMS",
+            "field": "name",
+            "before": "说明书 / sách hướng dẫn",
+            "after": "LGS420说明书 / LGS420 sách hướng dẫn"
+          }
+        ]
+      },
+      {
         "id": "history_1fqnrip",
         "productCode": "LGS420",
         "revision": "V4",
@@ -141134,6 +141302,24 @@
     ],
     "LGS421": [
       {
+        "id": "history_g7wabi",
+        "productCode": "LGS421",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-22T01:08:54.386Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS421SMS",
+            "field": "name",
+            "before": "说明书 / sách hướng dẫn",
+            "after": "LGS421说明书 / LGS421 sách hướng dẫn"
+          }
+        ]
+      },
+      {
         "id": "history_1sh0tw6",
         "productCode": "LGS421",
         "revision": "V4",
@@ -141717,6 +141903,24 @@
       }
     ],
     "LGS333": [
+      {
+        "id": "history_89j6lc",
+        "productCode": "LGS333",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-22T01:08:54.386Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS333SMS",
+            "field": "name",
+            "before": "说明书 / sách hướng dẫn",
+            "after": "LGS333说明书 / LGS333 sách hướng dẫn"
+          }
+        ]
+      },
       {
         "id": "history_12kesqu",
         "productCode": "LGS333",
@@ -142758,6 +142962,24 @@
     ],
     "LGS232": [
       {
+        "id": "history_8q4m9c",
+        "productCode": "LGS232",
+        "revision": "V3.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-22T01:08:54.386Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS232SMS",
+            "field": "name",
+            "before": "说明书 / sách hướng dẫn",
+            "after": "LGS232说明书 / LGS232 sách hướng dẫn"
+          }
+        ]
+      },
+      {
         "id": "history_53p980",
         "productCode": "LGS232",
         "revision": "V3.1",
@@ -143634,6 +143856,24 @@
     ],
     "LGS031": [
       {
+        "id": "history_1x8kcud",
+        "productCode": "LGS031",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-22T01:08:54.386Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS031SMS",
+            "field": "name",
+            "before": "说明书 / sách hướng dẫn",
+            "after": "LGS031说明书 / LGS031 sách hướng dẫn"
+          }
+        ]
+      },
+      {
         "id": "history_8y5hr5",
         "productCode": "LGS031",
         "revision": "V3",
@@ -143866,6 +144106,24 @@
       }
     ],
     "LGS032": [
+      {
+        "id": "history_2nqw1e",
+        "productCode": "LGS032",
+        "revision": "V3.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "产品高度变更679mm改为671",
+        "createdAt": "2026-08-22T01:08:54.386Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS032SMS",
+            "field": "name",
+            "before": "说明书 / sách hướng dẫn",
+            "after": "LGS032说明书 / LGS032 sách hướng dẫn"
+          }
+        ]
+      },
       {
         "id": "history_g66tui",
         "productCode": "LGS032",
@@ -144517,6 +144775,24 @@
       }
     ],
     "LGS033": [
+      {
+        "id": "history_kmr7mb",
+        "productCode": "LGS033",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-22T01:08:54.386Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS033SMS",
+            "field": "name",
+            "before": "说明书 / sách hướng dẫn",
+            "after": "LGS033说明书 / LGS033 sách hướng dẫn"
+          }
+        ]
+      },
       {
         "id": "history_gob711",
         "productCode": "LGS033",
@@ -145314,6 +145590,24 @@
     ],
     "LGS101": [
       {
+        "id": "history_1dcb6xh",
+        "productCode": "LGS101",
+        "revision": "V2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-22T01:08:54.386Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS101SMS",
+            "field": "name",
+            "before": "说明书 / sách hướng dẫn",
+            "after": "LGS101说明书 / LGS101 sách hướng dẫn"
+          }
+        ]
+      },
+      {
         "id": "history_1c5tvjz",
         "productCode": "LGS101",
         "revision": "V2",
@@ -145616,6 +145910,24 @@
       }
     ],
     "LGS131": [
+      {
+        "id": "history_khokbw",
+        "productCode": "LGS131",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-22T01:08:54.386Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS131SMS",
+            "field": "name",
+            "before": "说明书 / sách hướng dẫn",
+            "after": "LGS131说明书 / LGS131sách hướng dẫn"
+          }
+        ]
+      },
       {
         "id": "history_1wmjxxe",
         "productCode": "LGS131",
@@ -146276,6 +146588,24 @@
       }
     ],
     "LGS132": [
+      {
+        "id": "history_2ezw7f",
+        "productCode": "LGS132",
+        "revision": "V3.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-22T01:08:54.386Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS132SMS",
+            "field": "name",
+            "before": "说明书 / sách hướng dẫn",
+            "after": "LGS132说明书 / LGS132 sách hướng dẫn"
+          }
+        ]
+      },
       {
         "id": "history_1w4kvr",
         "productCode": "LGS132",
@@ -146943,6 +147273,24 @@
       }
     ],
     "LGS133": [
+      {
+        "id": "history_1x63oi2",
+        "productCode": "LGS133",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-22T01:08:54.386Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS133SMS",
+            "field": "name",
+            "before": "说明书 / sách hướng dẫn",
+            "after": "LGS133说明书 / LGS133 sách hướng dẫn"
+          }
+        ]
+      },
       {
         "id": "history_1dvxq0y",
         "productCode": "LGS133",
@@ -147675,6 +148023,24 @@
       }
     ],
     "LGS433": [
+      {
+        "id": "history_8dv59r",
+        "productCode": "LGS433",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-22T01:08:54.386Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS433SMS",
+            "field": "name",
+            "before": "说明书 / sách hướng dẫn",
+            "after": "LGS433说明书 / LGS433 sách hướng dẫn"
+          }
+        ]
+      },
       {
         "id": "history_igwl9d",
         "productCode": "LGS433",
@@ -148885,6 +149251,24 @@
     ],
     "LGS723": [
       {
+        "id": "history_1etncjf",
+        "productCode": "LGS723",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-22T01:08:54.386Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS723SMS",
+            "field": "name",
+            "before": "说明书 / sách hướng dẫn",
+            "after": "LGS723说明书 / LGS723 sách hướng dẫn"
+          }
+        ]
+      },
+      {
         "id": "history_168m0p9",
         "productCode": "LGS723",
         "revision": "V4.1",
@@ -149766,6 +150150,24 @@
       }
     ],
     "LGS733": [
+      {
+        "id": "history_14b3b0s",
+        "productCode": "LGS733",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-22T01:08:54.386Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS733SMS",
+            "field": "name",
+            "before": "说明书 / sách hướng dẫn",
+            "after": "LGS733说明书 / LGS733 sách hướng dẫn"
+          }
+        ]
+      },
       {
         "id": "history_2laz36",
         "productCode": "LGS733",
@@ -150857,6 +151259,24 @@
     ],
     "LGS833": [
       {
+        "id": "history_19t8l4b",
+        "productCode": "LGS833",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-22T01:08:54.386Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS833SMS",
+            "field": "name",
+            "before": "说明书 / sách hướng dẫn",
+            "after": "LGS833说明书 / LGS833 sách hướng dẫn"
+          }
+        ]
+      },
+      {
         "id": "history_1dvodfh",
         "productCode": "LGS833",
         "revision": "V4.1",
@@ -151754,6 +152174,24 @@
       }
     ],
     "LGS834": [
+      {
+        "id": "history_1ck03pk",
+        "productCode": "LGS834",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-22T01:08:54.386Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS834SMS",
+            "field": "name",
+            "before": "说明书 / sách hướng dẫn",
+            "after": "LGS834说明书 / LGS834 sách hướng dẫn"
+          }
+        ]
+      },
       {
         "id": "history_agy3i6",
         "productCode": "LGS834",
@@ -152885,6 +153323,24 @@
       }
     ],
     "LGS043": [
+      {
+        "id": "history_s5h9z2",
+        "productCode": "LGS043",
+        "revision": "V3.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-22T01:08:54.386Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS043SMS",
+            "field": "name",
+            "before": "说明书 / sách hướng dẫn",
+            "after": "LGS043说明书 / LGS043 sách hướng dẫn"
+          }
+        ]
+      },
       {
         "id": "history_5dhrkm",
         "productCode": "LGS043",
