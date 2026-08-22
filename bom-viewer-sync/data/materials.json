@@ -91037,7 +91037,7 @@
         "order": 1,
         "comp_code": "",
         "stt": "1",
-        "remark": "固定顶板与层板"
+        "remark": "固定层板"
       },
       {
         "id": "bomc_mat_5106wjbbh_mat_vz636a_1",
@@ -91057,7 +91057,7 @@
         "parentId": "mat_5106wjbbh",
         "materialId": "mat_1bb87nh",
         "childMaterialId": "mat_1bb87nh",
-        "qty": "5",
+        "qty": "4+1",
         "order": 3,
         "comp_code": "",
         "stt": "2",
@@ -91069,7 +91069,7 @@
         "parentId": "mat_5106wjbbh",
         "materialId": "mat_nlpls6010bh",
         "childMaterialId": "mat_nlpls6010bh",
-        "qty": "5",
+        "qty": "4+1",
         "order": 4,
         "comp_code": "",
         "stt": "3",
@@ -91081,7 +91081,7 @@
         "parentId": "mat_5106wjbbh",
         "materialId": "mat_1112bk6",
         "childMaterialId": "mat_1112bk6",
-        "qty": "5",
+        "qty": "4+1",
         "order": 5,
         "comp_code": "",
         "stt": "4",
@@ -91265,7 +91265,7 @@
         "order": 1,
         "comp_code": "",
         "stt": "",
-        "remark": "切 1 根 411mm 横梁 (1/12 根)"
+        "remark": "切 2 根 411mm 横梁 (2/12 根)"
       },
       {
         "id": "bomc_mat_5106hlbh_mat_m6ylm139_1",
@@ -91277,7 +91277,7 @@
         "order": 2,
         "comp_code": "",
         "stt": "",
-        "remark": "沉入平齐焊接横梁两端"
+        "remark": ""
       }
     ],
     "VT5106WJB": {
