@@ -44569,8 +44569,17 @@
             "path": "drawings/catalog/drawing-n9hhug-a4146384.pdf"
           }
         ],
-        "models3d": [],
-        "unit": "个"
+        "models3d": [
+          {
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-35x28x18-7-3549de43.glb",
+            "name": "LGS布抽35x28.2x18.7",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-35x28x18-7-3549de43.glb"
+          }
+        ],
+        "unit": {
+          "zh": "个",
+          "vi": "个"
+        }
       },
       "mat_bc460327187swh": {
         "id": "mat_bc460327187swh",
@@ -44726,8 +44735,17 @@
             "path": "drawings/catalog/drawing-w8qr6q-075e44dd.pdf"
           }
         ],
-        "models3d": [],
-        "unit": "个"
+        "models3d": [
+          {
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-25-7x28x16-8-5b14edee.glb",
+            "name": "LGS布抽25.7x28.2x16.8",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-25-7x28x16-8-5b14edee.glb"
+          }
+        ],
+        "unit": {
+          "zh": "个",
+          "vi": "个"
+        }
       },
       "mat_bc340327168swh": {
         "id": "mat_bc340327168swh",
@@ -44801,8 +44819,17 @@
             "path": "drawings/catalog/drawing-11onhu3-d5938da4.pdf"
           }
         ],
-        "models3d": [],
-        "unit": "个"
+        "models3d": [
+          {
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-30x28x16-8-c3a4a1a2.glb",
+            "name": "LGS布抽30x28.2x16.8",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-30x28x16-8-c3a4a1a2.glb"
+          }
+        ],
+        "unit": {
+          "zh": "个",
+          "vi": "个"
+        }
       },
       "mat_bc460282187swh": {
         "id": "mat_bc460282187swh",
@@ -44835,8 +44862,17 @@
             "path": "drawings/catalog/drawing-117swgv-d573cb03.pdf"
           }
         ],
-        "models3d": [],
-        "unit": "个"
+        "models3d": [
+          {
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-46x28x18-7-8bfa6b85.glb",
+            "name": "LGS布抽46x28.2x18.7",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-46x28x18-7-8bfa6b85.glb"
+          }
+        ],
+        "unit": {
+          "zh": "个",
+          "vi": "个"
+        }
       },
       "mat_bc350282150swh": {
         "id": "mat_bc350282150swh",
@@ -44869,8 +44905,17 @@
             "path": "drawings/catalog/drawing-1ak3o25-7e1abda3.pdf"
           }
         ],
-        "models3d": [],
-        "unit": "个"
+        "models3d": [
+          {
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-35x28x15-60f009c9.glb",
+            "name": "LGS布抽35x28.2x15",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-35x28x15-60f009c9.glb"
+          }
+        ],
+        "unit": {
+          "zh": "个",
+          "vi": "个"
+        }
       },
       "mat_lgs032pkxswh": {
         "id": "mat_lgs032pkxswh",

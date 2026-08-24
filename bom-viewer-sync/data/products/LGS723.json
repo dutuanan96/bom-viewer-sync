@@ -6907,7 +6907,10 @@
           "attr_vi": "linh kiện",
           "color_ver": "山纹黑",
           "color_ver_vi": "màu đen vân gỗ",
-          "unit": "个",
+          "unit": {
+            "zh": "个",
+            "vi": "个"
+          },
           "qty": "3",
           "remark": "3个 = 1包×3个装"
         },
@@ -6927,7 +6930,10 @@
           "attr_vi": "linh kiện",
           "color_ver": "山纹黑",
           "color_ver_vi": "màu đen vân gỗ",
-          "unit": "个",
+          "unit": {
+            "zh": "个",
+            "vi": "个"
+          },
           "qty": "2",
           "remark": "2个 = 1包×2个装"
         },

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-24T10:08:59.849Z",
+  "updatedAt": "2026-08-24T10:51:16.133Z",
   "products": [
     "5106",
     "LGS031",
@@ -272128,6 +272128,71 @@
   },
   "notifications": [
     {
+      "id": "notif_1w71g0e",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-24T10:51:16.133Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "BC257282168SWH",
+          "field": "unit",
+          "before": "个",
+          "after": "[object Object]"
+        },
+        {
+          "kind": "material",
+          "code": "BC257282168SWH",
+          "field": "models3d",
+          "before": "",
+          "after": "LGS布抽25.7x28.2x16.8|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-25-7x28x16-8-5b14edee.glb"
+        },
+        {
+          "kind": "material",
+          "code": "BC300282168SWH",
+          "field": "unit",
+          "before": "个",
+          "after": "[object Object]"
+        },
+        {
+          "kind": "material",
+          "code": "BC300282168SWH",
+          "field": "models3d",
+          "before": "",
+          "after": "LGS布抽30x28.2x16.8|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-30x28x16-8-c3a4a1a2.glb"
+        },
+        {
+          "kind": "material",
+          "code": "BC350282150SWH",
+          "field": "unit",
+          "before": "个",
+          "after": "[object Object]"
+        },
+        {
+          "kind": "material",
+          "code": "BC350282150SWH",
+          "field": "models3d",
+          "before": "",
+          "after": "LGS布抽35x28.2x15|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-35x28x15-60f009c9.glb"
+        },
+        {
+          "kind": "material",
+          "code": "BC350282187SWH",
+          "field": "unit",
+          "before": "个",
+          "after": "[object Object]"
+        },
+        {
+          "kind": "material",
+          "code": "BC350282187SWH",
+          "field": "models3d",
+          "before": "",
+          "after": "LGS布抽35x28.2x18.7|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-35x28x18-7-3549de43.glb"
+        }
+      ]
+    },
+    {
       "id": "notif_1j6ikzs",
       "type": "github-save",
       "actor": "admin",
@@ -273345,29 +273410,6 @@
           "after": "released"
         }
       ]
-    },
-    {
-      "id": "notif_1yz4x6i",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-19T03:51:18.812Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS334",
-          "field": "effectiveRevision",
-          "before": "V4",
-          "after": "V4.1"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS334",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
-        }
-      ]
     }
   ],
   "bomHistory": {
@@ -273696,6 +273738,31 @@
       }
     ],
     "LGS111": [
+      {
+        "id": "history_5cnde1",
+        "productCode": "LGS111",
+        "revision": "V2.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-08-24T10:51:16.133Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BC350282150SWH",
+            "field": "unit",
+            "before": "个",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "BC350282150SWH",
+            "field": "models3d",
+            "before": "",
+            "after": "LGS布抽35x28.2x15|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-35x28x15-60f009c9.glb"
+          }
+        ]
+      },
       {
         "id": "history_6ag06r",
         "productCode": "LGS111",
@@ -281073,6 +281140,45 @@
     ],
     "LGS333": [
       {
+        "id": "history_fksfut",
+        "productCode": "LGS333",
+        "revision": "V4.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-08-24T10:51:16.133Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BC257282168SWH",
+            "field": "unit",
+            "before": "个",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "BC257282168SWH",
+            "field": "models3d",
+            "before": "",
+            "after": "LGS布抽25.7x28.2x16.8|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-25-7x28x16-8-5b14edee.glb"
+          },
+          {
+            "kind": "material",
+            "code": "BC350282187SWH",
+            "field": "unit",
+            "before": "个",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "BC350282187SWH",
+            "field": "models3d",
+            "before": "",
+            "after": "LGS布抽35x28.2x18.7|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-35x28x18-7-3549de43.glb"
+          }
+        ]
+      },
+      {
         "id": "history_1uarx8y",
         "productCode": "LGS333",
         "revision": "V4.2",
@@ -283951,6 +284057,31 @@
       }
     ],
     "LGS032": [
+      {
+        "id": "history_11ne6vd",
+        "productCode": "LGS032",
+        "revision": "V3.3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-COLOR: 新增 4 个已确认颜色 SKU；按已发布颜色 BOM 替换指定颜色物料。",
+        "createdAt": "2026-08-24T10:51:16.133Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BC350282187SWH",
+            "field": "unit",
+            "before": "个",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "BC350282187SWH",
+            "field": "models3d",
+            "before": "",
+            "after": "LGS布抽35x28.2x18.7|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-35x28x18-7-3549de43.glb"
+          }
+        ]
+      },
       {
         "id": "history_nf344u",
         "productCode": "LGS032",
@@ -287365,6 +287496,31 @@
       }
     ],
     "LGS101": [
+      {
+        "id": "history_100zz3e",
+        "productCode": "LGS101",
+        "revision": "V2.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-08-24T10:51:16.133Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BC350282150SWH",
+            "field": "unit",
+            "before": "个",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "BC350282150SWH",
+            "field": "models3d",
+            "before": "",
+            "after": "LGS布抽35x28.2x15|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-35x28x15-60f009c9.glb"
+          }
+        ]
+      },
       {
         "id": "history_10ih7fo",
         "productCode": "LGS101",
@@ -293211,6 +293367,45 @@
     ],
     "LGS723": [
       {
+        "id": "history_hed4d2",
+        "productCode": "LGS723",
+        "revision": "V4.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-08-24T10:51:16.133Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BC300282168SWH",
+            "field": "unit",
+            "before": "个",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "BC300282168SWH",
+            "field": "models3d",
+            "before": "",
+            "after": "LGS布抽30x28.2x16.8|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-30x28x16-8-c3a4a1a2.glb"
+          },
+          {
+            "kind": "material",
+            "code": "BC460282187SWH",
+            "field": "unit",
+            "before": "个",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "BC460282187SWH",
+            "field": "models3d",
+            "before": "",
+            "after": "LGS布抽46x28.2x18.7|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-46x28x18-7-8bfa6b85.glb"
+          }
+        ]
+      },
+      {
         "id": "history_4tdw00",
         "productCode": "LGS723",
         "revision": "V4.2",
@@ -294746,6 +294941,45 @@
       }
     ],
     "LGS733": [
+      {
+        "id": "history_1eoha49",
+        "productCode": "LGS733",
+        "revision": "V4.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-08-24T10:51:16.133Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BC257282168SWH",
+            "field": "unit",
+            "before": "个",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "BC257282168SWH",
+            "field": "models3d",
+            "before": "",
+            "after": "LGS布抽25.7x28.2x16.8|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-25-7x28x16-8-5b14edee.glb"
+          },
+          {
+            "kind": "material",
+            "code": "BC350282187SWH",
+            "field": "unit",
+            "before": "个",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "BC350282187SWH",
+            "field": "models3d",
+            "before": "",
+            "after": "LGS布抽35x28.2x18.7|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-35x28x18-7-3549de43.glb"
+          }
+        ]
+      },
       {
         "id": "history_1cms47q",
         "productCode": "LGS733",
@@ -296532,6 +296766,31 @@
       }
     ],
     "LGS833": [
+      {
+        "id": "history_1m9s0q4",
+        "productCode": "LGS833",
+        "revision": "V4.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-08-24T10:51:16.133Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "BC350282187SWH",
+            "field": "unit",
+            "before": "个",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "BC350282187SWH",
+            "field": "models3d",
+            "before": "",
+            "after": "LGS布抽35x28.2x18.7|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-35x28x18-7-3549de43.glb"
+          }
+        ]
+      },
       {
         "id": "history_6tbc2x",
         "productCode": "LGS833",
