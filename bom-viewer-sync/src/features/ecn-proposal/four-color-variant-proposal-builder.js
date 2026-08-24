@@ -34,7 +34,14 @@ const COLOR_VARIANTS = Object.freeze([
       ['LGS032XHLBH', 'LGS032XHLWH'], ['LGS032XQHLBH', 'LGS032XQHLWH'], ['LGS032SHLBH', 'LGS032SHLWH'],
       ['ZJG150641BH', 'ZJG150641WH'], ['LG05254BH', 'LG05254WH'], ['BC350282187BH', 'BC350282187WH'],
       ['BCDB350282003BH', 'BCDB350282003WH'], ['LGS032PKXBH', 'LGS032PKXWH'],
+      ['LGS032ZKBH647', 'LGS032ZKWH647'], ['LGS032YKBH647', 'LGS032YKWH647'], ['DD0310', 'DD0310WH'],
     ],
+    materialColorOverrides: { DD0310WH: { zh: '白泊板', vi: 'trắng bóng' } },
+    childReplacements: [
+      ['M6GS1515BH', 'M6GS1515WH'],
+      ['NLPLS6018BZ', 'NLPLS6018WZ'],
+    ],
+    skipMaterialChildCopy: ['LGS032WJBBH'],
     hardwareChildren: [
       ['TZJD629825WH', '6'], ['BCLS129228WH', '6'], ['NLPLS6022WZ', '20+2'], ['GSSNZGLS5040WZ', '4+1'],
       ['NLPLS6010WZ', '8+2'], ['ZGLS4010WZ', '12+2'], ['PTZGLS6308WZ', '2'], ['SLPZLS6030WH', '2'],
@@ -98,7 +105,11 @@ function buildMasterDataOperations(payload, configs) {
       const source = findMaterialByCode(materials, sourceCode);
       if (!source) throw new Error(`Source material ${sourceCode} not found.`);
       targetCodes.add(targetCode);
-      operations.push(materialCreateOperation(source, targetCode, config.color));
+      operations.push(materialCreateOperation(
+        source,
+        targetCode,
+        config.materialColorOverrides?.[targetCode] || config.color,
+      ));
     }
   }
   return operations;
@@ -185,13 +196,93 @@ function buildHardwareChildOperations(payload, configs) {
   return operations;
 }
 
+function buildMisScopedHardwareChildRemovalOperations(payload, configs) {
+  const materials = payload?.materialDb?.materials || {};
+  const entries = payload?.materialDb?.bomEntries || [];
+  const operations = [];
+  for (const config of configs) {
+    if (!config.hardwareChildren?.length) continue;
+    const product = payload?.bom?.[config.spu];
+    const targetColor = findColorBySku(product, config.sku);
+    const sourceHardware = findMaterialByCode(materials, config.replacements[0]?.[0]);
+    if (!targetColor || !sourceHardware) continue;
+    for (const entry of entries.filter((candidate) => candidate.parentType === 'material'
+      && candidate.parentId === sourceHardware.id
+      && candidate.productCode === config.spu
+      && candidate.color === targetColor)) {
+      operations.push({ operationType: 'remove_material_child', targetId: entry.id, payload: {} });
+    }
+  }
+  return operations;
+}
+
+function targetMaterialId(materials, code) {
+  return findMaterialByCode(materials, code)?.id || `mat_${code.toLowerCase()}`;
+}
+
+function normalizeQuantity(quantity) {
+  const value = String(quantity || '').trim();
+  return /^\d+(?:\.\d+)?$/.test(value) ? Number(value) : value;
+}
+
+function buildMaterialChildOperations(payload, configs) {
+  const materials = payload?.materialDb?.materials || {};
+  const entries = payload?.materialDb?.bomEntries || [];
+  const operations = [];
+  for (const config of configs) {
+    const childReplacements = new Map(config.childReplacements || []);
+    const skipSources = new Set(config.skipMaterialChildCopy || []);
+    for (const [sourceCode, targetCode] of config.replacements) {
+      if (skipSources.has(sourceCode)) continue;
+      const source = findMaterialByCode(materials, sourceCode);
+      if (!source) throw new Error(`Source material ${sourceCode} not found.`);
+      const parentId = targetMaterialId(materials, targetCode);
+      const sourceChildren = entries.filter((entry) => entry.parentType === 'material' && entry.parentId === source.id);
+      const handledChildren = new Set();
+      for (const sourceChild of sourceChildren) {
+        const sourceChildMaterial = materials[sourceChild.childMaterialId || sourceChild.materialId];
+        if (!sourceChildMaterial) throw new Error(`Child material for ${sourceCode} not found.`);
+        const childCode = childReplacements.get(sourceChildMaterial.code) || sourceChildMaterial.code;
+        const child = findMaterialByCode(materials, childCode);
+        if (!child) throw new Error(`Target child material ${childCode} not found.`);
+        const childKey = `${child.id}|${String(sourceChild.qty)}`;
+        if (handledChildren.has(childKey)) continue;
+        handledChildren.add(childKey);
+        const existing = entries.filter((entry) => entry.parentType === 'material'
+          && entry.parentId === parentId
+          && (entry.childMaterialId || entry.materialId) === child.id);
+        if (!existing.length) {
+          operations.push({
+            operationType: 'add_material_child',
+            targetId: parentId,
+            payload: { materialId: child.id, quantity: normalizeQuantity(sourceChild.qty) },
+          });
+        } else if (!existing.some((entry) => String(entry.qty) === String(sourceChild.qty))) {
+          operations.push({
+            operationType: 'update_material_child_quantity',
+            targetId: parentId,
+            payload: {
+              childId: child.id,
+              originalQuantity: normalizeQuantity(existing[0].qty),
+              quantity: normalizeQuantity(sourceChild.qty),
+            },
+          });
+        }
+      }
+    }
+  }
+  return operations;
+}
+
 export function buildAllFourColorVariantOperations(payload) {
   const configs = pendingConfigs(payload);
   return [
-    ...buildMasterDataOperations(payload, configs),
+    ...buildMasterDataOperations(payload, COLOR_VARIANTS),
     ...buildVariantOperations(payload, configs),
     ...buildReplacementOperations(payload, COLOR_VARIANTS),
+    ...buildMaterialChildOperations(payload, COLOR_VARIANTS),
     ...buildHardwareChildOperations(payload, COLOR_VARIANTS),
+    ...buildMisScopedHardwareChildRemovalOperations(payload, COLOR_VARIANTS),
   ];
 }
 
