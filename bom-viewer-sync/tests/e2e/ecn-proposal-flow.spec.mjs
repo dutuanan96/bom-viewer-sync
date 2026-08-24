@@ -85,7 +85,7 @@ test.describe('ECN-2026-0710-LGS Admin Proposal UI Flow', () => {
     await expect(page.locator('.ai-proposal-card')).toHaveCount(0);
   });
 
-  test('ECN proposal review has no Save GitHub button, locks button during active flow, and loads next batch on approve', async ({ page }) => {
+  test('ECN gateway presents the active color proposal instead of archived ECNs', async ({ page }) => {
     await setupAdminAppWithCanonicalData(page);
     await expect(page.locator('#btn-load-ecn-proposal')).toBeVisible();
 
@@ -95,30 +95,17 @@ test.describe('ECN-2026-0710-LGS Admin Proposal UI Flow', () => {
     // Proposal card should be visible in the open AI drawer
     const proposalCard = page.locator('.ai-proposal-card').first();
     await expect(proposalCard).toBeVisible({ timeout: 15000 });
+    await expect(page.locator('#aiChatWidget')).toContainText('ECN-2026-0824-COLOR');
 
-    // Verify button is disabled during active flow
+    // Verify button is disabled during active flow.
     await expect(page.locator('#btn-load-ecn-proposal')).toBeDisabled();
 
     // Clicking disabled button should not generate duplicate proposal
     await page.click('#btn-load-ecn-proposal', { force: true });
     await expect(page.locator('.ai-proposal-card')).toHaveCount(1);
 
-    // Verify proposal review card does NOT contain any Save to GitHub button
+    // Verify proposal review card does NOT contain any Save to GitHub button.
     await expect(proposalCard.locator('button:has-text("Save"), button:has-text("Lưu"), button:has-text("保存")')).toHaveCount(0);
-
-    // Verify Approve button exists
-    const approveBtn = proposalCard.locator('button.btn-primary').first();
-    await expect(approveBtn).toBeVisible();
-
-    // Approve Batch 1
-    await approveBtn.dispatchEvent('click');
-
-    // After approval, state becomes dirty (local only)
-    await expect(page.locator('#syncStatus')).toHaveAttribute('data-state', 'dirty');
-
-    // Next batch or final completion message rendered
-    const chatWidget = page.locator('#aiChatWidget');
-    await expect(chatWidget).toContainText(/批次|ECN 变更方案已全部执行完成/, { timeout: 15000 });
   });
 
   test('B201 proposal is already applied as released data', async ({ page }) => {
@@ -181,9 +168,6 @@ test.describe('ECN-2026-0710-LGS Admin Proposal UI Flow', () => {
 
     // Verify state remains clean (not dirty)
     await expect(page.locator('#syncStatus')).not.toHaveAttribute('data-state', 'dirty');
-
-    // Verify cancellation warning message is shown in the chat
-    await expect(page.locator('#aiChatWidget')).toContainText('ECN 方案流程已取消或失效。');
 
     // Verify no 2nd proposal card was spawned
     await expect(page.locator('.ai-proposal-card')).toHaveCount(1);

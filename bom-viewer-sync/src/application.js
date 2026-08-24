@@ -53,8 +53,6 @@ import {
   applyMutationProposalTransaction,
   buildMutationProposalReview,
 } from './features/ai-assistant/mutation-engine.js';
-import { buildEcnProposalBatches as buildLegacyEcnProposalBatches } from './features/ecn-proposal/ecn-2026-0710-proposal-builder.js';
-import { buildB201ProposalBatches, buildB201WithdrawalProposalBatches } from './features/ecn-proposal/b201-shanwenhei-variant-proposal-builder.js';
 import { buildFourColorVariantProposalBatches } from './features/ecn-proposal/four-color-variant-proposal-builder.js';
 import { buildSharedMaterialAssetProposalBatches } from './features/ecn-proposal/shared-material-asset-proposal-builder.js';
 import { buildOrphanBomCleanupBatches, findOrphanBomEntries } from './features/orphan-cleanup/orphan-bom-proposal-builder.js';
@@ -99,14 +97,10 @@ const ASSET_STORAGE_CONFIG = {
 function buildEcnProposalBatches(payload, maxBatchSize) {
   const sharedAssetBatches = buildSharedMaterialAssetProposalBatches(payload, maxBatchSize);
   if (sharedAssetBatches.length > 0) return sharedAssetBatches;
-  const legacyBatches = buildLegacyEcnProposalBatches(payload, maxBatchSize);
-  if (legacyBatches.length > 0) return legacyBatches;
-  const b201Batches = buildB201ProposalBatches(payload, maxBatchSize);
-  if (b201Batches.length > 0) return b201Batches;
-  const b201WithdrawalBatches = buildB201WithdrawalProposalBatches(payload, maxBatchSize);
-  if (b201WithdrawalBatches.length > 0) return b201WithdrawalBatches;
   const colorBatches = buildFourColorVariantProposalBatches(payload, maxBatchSize);
-  return colorBatches;
+  if (colorBatches.length > 0) return colorBatches;
+  // Superseded ECNs remain in source control for audit only; never surface them in the default Admin flow.
+  return [];
 }
 
 class StaleRemoteDataError extends Error {
