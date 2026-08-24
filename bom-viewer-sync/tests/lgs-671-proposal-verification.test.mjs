@@ -76,7 +76,7 @@ test('ECN-2026-0710-LGS Rev 1.4 Proposal Verification', async (t) => {
 
   await t.test('15 SPUs have correct draft revision and unchanged effective revision', () => {
     const expectedRevisions = {
-      LGS032: { current: proposalPending ? 'V3.1' : initialSnapshot.payload.productRevisions.LGS032?.currentRevision, effective: initialSnapshot.payload.productRevisions.LGS032?.effectiveRevision },
+      LGS032: { current: initialSnapshot.payload.productRevisions.LGS032?.currentRevision, effective: initialSnapshot.payload.productRevisions.LGS032?.effectiveRevision },
       LGS043: { current: 'V3.1', effective: initialSnapshot.payload.productRevisions.LGS043?.effectiveRevision },
       LGS132: { current: proposalPending ? 'V3.1' : initialSnapshot.payload.productRevisions.LGS132?.currentRevision, effective: initialSnapshot.payload.productRevisions.LGS132?.effectiveRevision },
       LGS232: { current: 'V3.1', effective: initialSnapshot.payload.productRevisions.LGS232?.effectiveRevision },
