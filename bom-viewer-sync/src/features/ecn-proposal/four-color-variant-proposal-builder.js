@@ -19,10 +19,12 @@ const COLOR_VARIANTS = Object.freeze([
     spu: 'LGS132', sourceSku: 'LGS132B101S', sku: 'LGS132K101S', color: { zh: '复古色', vi: 'màu gỗ cổ' },
     name: { zh: '复古色3列3层6抽开放式带灯带电布抽电视柜-57inch', vi: 'màu gỗ cổ 3 cột 3 tầng 6 Tủ đựng TV kiểu ngăn kéo mở có đèn và điện-57inch' },
     replacements: [
-      ['LGS132DB101BH', 'LGS132DB101KD'], ['LGS132YZKBH', 'LGS132YZKKD'], ['LGS132DB102BH', 'LGS132DB102KD'],
-      ['LGS132CBXBH', 'LGS132CBXKD'], ['LGS132ZZKBH', 'LGS132ZZKKD'], ['LGS132CBSBH', 'LGS132CBSKD'],
+      ['LGS132DB101BH', 'LGS132DB101KD'], ['LGS132DB102BH', 'LGS132DB102KD'],
+      ['LGS132CBXBH', 'LGS132CBXKD'], ['LGS132CBSBH', 'LGS132CBSKD'],
       ['BC460327187BH', 'BC460327187KD'], ['LGS132ZFXBH', 'LGS132ZFXKD'],
     ],
+    repairReplacements: [['LGS132YZKKD', 'LGS132YZKBH'], ['LGS132ZZKKD', 'LGS132ZZKBH']],
+    obsoleteMaterialCodes: ['LGS132YZKKD', 'LGS132ZZKKD'],
   },
   {
     spu: 'LGS032', sourceSku: 'LGS032B101S', sku: 'LGS032W101S', color: { zh: '白色', vi: 'màu trắng' },
@@ -36,7 +38,16 @@ const COLOR_VARIANTS = Object.freeze([
       ['BCDB350282003BH', 'BCDB350282003WH'], ['LGS032PKXBH', 'LGS032PKXWH'],
       ['LGS032ZKBH647', 'LGS032ZKWH647'], ['LGS032YKBH647', 'LGS032YKWH647'], ['DD0310', 'DD0310WH'],
     ],
-    materialColorOverrides: { DD0310WH: { zh: '白泊板', vi: 'trắng bóng' } },
+    materialColorOverrides: {
+      DD0310WH: { zh: '白泊板', vi: 'trắng bóng' },
+      LGS032ZZKWH: { zh: '白砂纹', vi: 'trắng nhám' },
+      LGS032YZKWH: { zh: '白砂纹', vi: 'trắng nhám' },
+      LGS032XHLWH: { zh: '白砂纹', vi: 'trắng nhám' },
+      LGS032XQHLWH: { zh: '白砂纹', vi: 'trắng nhám' },
+      LGS032SHLWH: { zh: '白砂纹', vi: 'trắng nhám' },
+      LGS032ZKWH647: { zh: '白砂纹', vi: 'trắng nhám' },
+      LGS032YKWH647: { zh: '白砂纹', vi: 'trắng nhám' },
+    },
     childReplacements: [
       ['M6GS1515BH', 'M6GS1515WH'],
       ['NLPLS6018BZ', 'NLPLS6018WZ'],
@@ -150,7 +161,7 @@ function buildReplacementOperations(payload, configs) {
     const product = payload?.bom?.[config.spu];
     const targetColor = findColorBySku(product, config.sku);
     if (!targetColor) continue;
-    for (const [sourceCode, targetCode] of config.replacements) {
+    for (const [sourceCode, targetCode] of [...config.replacements, ...(config.repairReplacements || [])]) {
       const source = findMaterialByCode(materials, sourceCode);
       const target = findMaterialByCode(materials, targetCode);
       if (!source || !target) continue;
@@ -159,6 +170,46 @@ function buildReplacementOperations(payload, configs) {
         && candidate.color === targetColor
         && candidate.materialId === source.id)) {
         operations.push({ operationType: 'replace_bom_item', targetId: entry.id, payload: { materialId: target.id } });
+      }
+    }
+  }
+  return operations;
+}
+
+function buildMaterialColorOperations(payload, configs) {
+  const materials = payload?.materialDb?.materials || {};
+  const operations = [];
+  for (const config of configs) {
+    for (const [code, color] of Object.entries(config.materialColorOverrides || {})) {
+      const material = findMaterialByCode(materials, code);
+      if (!material || JSON.stringify(material.color) === JSON.stringify(color)) continue;
+      operations.push({
+        operationType: 'update_material',
+        targetId: material.id,
+        payload: { patch: { color } },
+      });
+    }
+  }
+  return operations;
+}
+
+function buildObsoleteMaterialOperations(payload, configs) {
+  const materials = payload?.materialDb?.materials || {};
+  const entries = payload?.materialDb?.bomEntries || [];
+  const operations = [];
+  for (const config of configs) {
+    const product = payload?.bom?.[config.spu];
+    const targetColor = findColorBySku(product, config.sku);
+    const repairSources = new Set((config.repairReplacements || []).map(([sourceCode]) => sourceCode));
+    for (const code of config.obsoleteMaterialCodes || []) {
+      const material = findMaterialByCode(materials, code);
+      if (!material || !repairSources.has(code)) continue;
+      const usage = entries.filter((entry) => entry.materialId === material.id || entry.childMaterialId === material.id);
+      const onlyRepairedProductUsage = usage.every((entry) => entry.parentType === 'product'
+        && entry.productCode === config.spu
+        && entry.color === targetColor);
+      if (onlyRepairedProductUsage) {
+        operations.push({ operationType: 'delete_material', targetId: material.id, payload: {} });
       }
     }
   }
@@ -280,9 +331,11 @@ export function buildAllFourColorVariantOperations(payload) {
     ...buildMasterDataOperations(payload, COLOR_VARIANTS),
     ...buildVariantOperations(payload, configs),
     ...buildReplacementOperations(payload, COLOR_VARIANTS),
+    ...buildMaterialColorOperations(payload, COLOR_VARIANTS),
     ...buildMaterialChildOperations(payload, COLOR_VARIANTS),
     ...buildHardwareChildOperations(payload, COLOR_VARIANTS),
     ...buildMisScopedHardwareChildRemovalOperations(payload, COLOR_VARIANTS),
+    ...buildObsoleteMaterialOperations(payload, COLOR_VARIANTS),
   ];
 }
 
