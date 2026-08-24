@@ -42,7 +42,6 @@ function loadCanonicalSnapshot() {
 test('ECN-2026-0710-LGS Rev 1.4 Proposal Verification', async (t) => {
   const initialSnapshot = loadCanonicalSnapshot();
   const batches = buildEcnProposalBatches(initialSnapshot.payload, 40);
-  const proposalPending = batches.length > 0;
 
   await t.test('All proposal batches conform to schema and operation limits (<= 50 ops)', () => {
     assert.ok(Array.isArray(batches));
@@ -78,7 +77,7 @@ test('ECN-2026-0710-LGS Rev 1.4 Proposal Verification', async (t) => {
     const expectedRevisions = {
       LGS032: { current: initialSnapshot.payload.productRevisions.LGS032?.currentRevision, effective: initialSnapshot.payload.productRevisions.LGS032?.effectiveRevision },
       LGS043: { current: 'V3.1', effective: initialSnapshot.payload.productRevisions.LGS043?.effectiveRevision },
-      LGS132: { current: proposalPending ? 'V3.1' : initialSnapshot.payload.productRevisions.LGS132?.currentRevision, effective: initialSnapshot.payload.productRevisions.LGS132?.effectiveRevision },
+      LGS132: { current: initialSnapshot.payload.productRevisions.LGS132?.currentRevision, effective: initialSnapshot.payload.productRevisions.LGS132?.effectiveRevision },
       LGS232: { current: 'V3.1', effective: initialSnapshot.payload.productRevisions.LGS232?.effectiveRevision },
       LGS033: { current: 'V4.1', effective: initialSnapshot.payload.productRevisions.LGS033?.effectiveRevision },
       LGS133: { current: 'V4.1', effective: initialSnapshot.payload.productRevisions.LGS133?.effectiveRevision },
@@ -93,10 +92,8 @@ test('ECN-2026-0710-LGS Rev 1.4 Proposal Verification', async (t) => {
       LGS834: { current: 'V4.1', effective: initialSnapshot.payload.productRevisions.LGS834?.effectiveRevision },
     };
 
-    if (!proposalPending) {
-      for (const [spu, expected] of Object.entries(expectedRevisions)) {
-        expected.current = initialSnapshot.payload.productRevisions[spu]?.currentRevision;
-      }
+    for (const [spu, expected] of Object.entries(expectedRevisions)) {
+      expected.current = initialSnapshot.payload.productRevisions[spu]?.currentRevision;
     }
 
     for (const [spu, expected] of Object.entries(expectedRevisions)) {
