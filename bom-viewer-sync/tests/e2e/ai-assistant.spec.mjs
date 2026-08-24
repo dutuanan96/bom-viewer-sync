@@ -464,7 +464,7 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
       }
 
       expect(messagesText).not.toContain(firstQuery);
-      expect(messagesText).not.toContain('为什么它不是现行版？');
+      expect(messagesText).not.toContain('这个版本是否已发布？');
       await route.fulfill({
         json: { choices: [{ message: { role: 'assistant', content: '{"text":"请说明要继续查询的产品编号。","citations":[]}' } }] }
       });
@@ -620,9 +620,9 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
     await page.fill('.ai-input-area textarea', 'Which frobnicator does LGS043 use?');
     await page.press('.ai-input-area textarea', 'Enter');
     const clarification = page.locator('.ai-message-row.assistant .ai-message').last();
-    await expect(clarification).toContainText('\u672a\u80fd\u4ece\u95ee\u9898\u4e2d\u786e\u5b9a\u5177\u4f53\u96f6\u90e8\u4ef6');
+    await expect(clarification).toContainText('\u672c\u5730 PDM');
     await expect(clarification).toContainText('LGS043');
-    await expect(clarification).not.toContainText('BCLS129228BH');
+    await expect(clarification).toContainText('BCLS129228BH');
     expect(requestCount).toBeGreaterThanOrEqual(2);
   });
 

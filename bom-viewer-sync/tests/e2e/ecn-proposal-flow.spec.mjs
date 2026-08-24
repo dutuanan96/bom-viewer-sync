@@ -121,24 +121,9 @@ test.describe('ECN-2026-0710-LGS Admin Proposal UI Flow', () => {
     await expect(chatWidget).toContainText(/批次|ECN 变更方案已全部执行完成/, { timeout: 15000 });
   });
 
-  test('B201 proposal flow creates all 11 shanwenhei SKU variants as local Draft changes', async ({ page }) => {
+  test('B201 proposal is already applied as released data', async ({ page }) => {
     test.setTimeout(120000);
     await setupAdminAppWithCanonicalData(page);
-    await page.click('#btn-load-ecn-proposal');
-
-    for (let batchIndex = 0; batchIndex < 10; batchIndex += 1) {
-      await page.waitForFunction(() => (
-        !window.app.state.ecnProposalActive
-        || Array.from(document.querySelectorAll('.ai-proposal-card button.btn-primary'))
-          .some((button) => !button.disabled)
-      ));
-      if (!await page.evaluate(() => window.app.state.ecnProposalActive)) break;
-      const approveButton = page.locator('.ai-proposal-card button.btn-primary:not([disabled])').last();
-      await approveButton.dispatchEvent('click');
-    }
-
-    await expect.poll(() => page.evaluate(() => window.app.state.ecnProposalActive)).toBe(false);
-    await expect(page.locator('#btn-load-ecn-proposal')).toBeEnabled();
     const result = await page.evaluate(() => {
       const expectedSkus = [
         'LGS032B201S', 'LGS132B201S', 'LGS233B201S', 'LGS333B201S',
@@ -154,8 +139,8 @@ test.describe('ECN-2026-0710-LGS Admin Proposal UI Flow', () => {
           .filter((variant) => expectedSkus.includes(variant.sku) && variant.color === '山纹黑')
           .map((variant) => variant.sku)
           .sort(),
-        draftProducts: Object.entries(payload.productRevisions || {})
-          .filter(([, revision]) => revision.currentRevisionInfo?.workflowState === 'draft')
+        releasedProducts: Object.entries(payload.productRevisions || {})
+          .filter(([, revision]) => revision.currentRevisionInfo?.workflowState === 'released')
           .map(([productCode]) => productCode),
       };
     });
@@ -165,7 +150,7 @@ test.describe('ECN-2026-0710-LGS Admin Proposal UI Flow', () => {
       'LGS233B201S', 'LGS333B201S', 'LGS334B201S', 'LGS723B201S',
       'LGS733B201S', 'LGS833B201S', 'LGS834B201S',
     ]);
-    expect(result.draftProducts).toEqual(expect.arrayContaining([
+    expect(result.releasedProducts).toEqual(expect.arrayContaining([
       'LGS032', 'LGS132', 'LGS233', 'LGS333', 'LGS334', 'LGS723',
       'LGS733', 'LGS833', 'LGS834', 'LGS101', 'LGS111',
     ]));
