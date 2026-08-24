@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-24T08:34:12.435Z",
+  "updatedAt": "2026-08-24T09:09:17.345Z",
   "products": [
     "5106",
     "LGS031",
@@ -272104,6 +272104,71 @@
   },
   "notifications": [
     {
+      "id": "notif_ns91z4",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-24T09:09:17.345Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material_added",
+          "code": "DD0310WH",
+          "field": "",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "material_added",
+          "code": "LGS032YKWH647",
+          "field": "",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "material_added",
+          "code": "LGS032ZKWH647",
+          "field": "",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS032W101S",
+          "field": "",
+          "before": "LGS032ZKBH647",
+          "after": "LGS032ZKWH647"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS032W101S",
+          "field": "",
+          "before": "LGS032YKBH647",
+          "after": "LGS032YKWH647"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS032W101S",
+          "field": "",
+          "before": "DD0310",
+          "after": "DD0310WH"
+        },
+        {
+          "kind": "bom_added",
+          "code": "LGS132YZKKD",
+          "field": "FG1515066091",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "bom_added",
+          "code": "LGS132YZKKD",
+          "field": "M6YLM139",
+          "before": "",
+          "after": ""
+        }
+      ]
+    },
+    {
       "id": "notif_tvgwo0",
       "type": "github-save",
       "actor": "admin",
@@ -273277,71 +273342,6 @@
           "field": "workflowState",
           "before": "draft",
           "after": "released"
-        }
-      ]
-    },
-    {
-      "id": "notif_bm2cq8",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-19T03:22:17.193Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material_added",
-          "code": "DD0310R1",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "material_added",
-          "code": "DD0400R1",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "material_added",
-          "code": "DD0500R1",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "material_added",
-          "code": "DD0650R1",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "material_added",
-          "code": "DD0900R1",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "material_added",
-          "code": "DD1050R1",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "material_added",
-          "code": "DD1350R1",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "material_added",
-          "code": "DD1500R1",
-          "field": "",
-          "before": "",
-          "after": ""
         }
       ]
     }
@@ -283928,6 +283928,311 @@
     ],
     "LGS032": [
       {
+        "id": "history_1rve5qu",
+        "productCode": "LGS032",
+        "revision": "V3.3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-COLOR: 新增 4 个已确认颜色 SKU；按已发布颜色 BOM 替换指定颜色物料。",
+        "createdAt": "2026-08-24T09:09:17.345Z",
+        "changes": [
+          {
+            "kind": "material_added",
+            "code": "DD0310WH",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_added",
+            "code": "LGS032YKWH647",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "material_added",
+            "code": "LGS032ZKWH647",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_material_changed",
+            "code": "LGS032W101S",
+            "field": "",
+            "before": "LGS032ZKBH647",
+            "after": "LGS032ZKWH647"
+          },
+          {
+            "kind": "bom_material_changed",
+            "code": "LGS032W101S",
+            "field": "",
+            "before": "LGS032YKBH647",
+            "after": "LGS032YKWH647"
+          },
+          {
+            "kind": "bom_material_changed",
+            "code": "LGS032W101S",
+            "field": "",
+            "before": "DD0310",
+            "after": "DD0310WH"
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS032ZZKWH",
+            "field": "FG1515065900",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS032ZZKWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS032YZKWH",
+            "field": "FG1515065900",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS032YZKWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS032XHLWH",
+            "field": "FG1515065566",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS032XHLWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS032XHLWH",
+            "field": "LJP16143",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS032XHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS032XQHLWH",
+            "field": "FG1515065566",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS032XQHLWH",
+            "field": "LJP16143",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS032XQHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS032XQHLWH",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS032SHLWH",
+            "field": "FG1515065766",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS032SHLWH",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS032ZKWH647",
+            "field": "FG1515065814",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS032ZKWH647",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS032ZKWH647",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS032ZKWH647",
+            "field": "FG1515064804",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS032ZKWH647",
+            "field": "FG1515064816647",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS032YKWH647",
+            "field": "FG1515065814",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS032YKWH647",
+            "field": "M6GS1515WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS032YKWH647",
+            "field": "M6LMLM",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS032YKWH647",
+            "field": "FG1515064804",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS032YKWH647",
+            "field": "FG1515064816647",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS032WJBBH",
+            "field": "TZJD629825BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS032WJBBH",
+            "field": "BCLS129228BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS032WJBBH",
+            "field": "NLPLS6022BZ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS032WJBBH",
+            "field": "GSSNZGLS5040BZ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS032WJBBH",
+            "field": "NLPLS6010BZ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS032WJBBH",
+            "field": "ZGLS4010CZ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS032WJBBH",
+            "field": "PTZGLS6308BZ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS032WJBBH",
+            "field": "SLPZLS6030WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS032WJBBH",
+            "field": "ZGLS3560BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS032WJBBH",
+            "field": "LNSLSD65254BZ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS032WJBBH",
+            "field": "LNBS57253BZ",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS032WJBBH",
+            "field": "NLDP15508020BH",
+            "before": "",
+            "after": ""
+          }
+        ]
+      },
+      {
         "id": "history_gjwpap",
         "productCode": "LGS032",
         "revision": "V3.3",
@@ -288422,6 +288727,45 @@
       }
     ],
     "LGS132": [
+      {
+        "id": "history_20jom5",
+        "productCode": "LGS132",
+        "revision": "V3.3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-COLOR: 新增 4 个已确认颜色 SKU；按已发布颜色 BOM 替换指定颜色物料。",
+        "createdAt": "2026-08-24T09:09:17.345Z",
+        "changes": [
+          {
+            "kind": "bom_added",
+            "code": "LGS132YZKKD",
+            "field": "FG1515066091",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS132YZKKD",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS132ZZKKD",
+            "field": "FG1515066091",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS132ZZKKD",
+            "field": "M6YLM139",
+            "before": "",
+            "after": ""
+          }
+        ]
+      },
       {
         "id": "history_13j64lb",
         "productCode": "LGS132",
