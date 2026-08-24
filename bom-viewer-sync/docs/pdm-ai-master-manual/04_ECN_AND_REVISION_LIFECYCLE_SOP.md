@@ -39,7 +39,7 @@ When engineering changes occur (e.g., cabinet height reduction, material standar
 
 ## 3. Supported Atomic Proposal Operations
 
-1. `create_product` / `create_product_variant` / `update_product`
+1. `create_product` / `update_product`
 2. `create_product_revision` / `release_product_revision` / `withdraw_product_revision`
 3. `create_material` / `update_material` / `update_material_field` / `delete_material`
 4. `add_bom_item` / `update_bom_item` / `update_bom_quantity` / `replace_bom_item` / `remove_bom_item` / `remove_orphan_bom_entry`
