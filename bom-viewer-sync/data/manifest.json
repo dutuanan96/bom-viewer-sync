@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-24T05:28:03.143Z",
+  "updatedAt": "2026-08-24T05:47:54.500Z",
   "products": [
     "5106",
     "LGS031",
@@ -1289,12 +1289,12 @@
     },
     "LGS032": {
       "currentRevision": "V3.2",
-      "effectiveRevision": "V3.2",
+      "effectiveRevision": "V3.1",
       "currentRevisionInfo": {
         "sourceRevision": "V3.1",
         "createdAt": "2026-08-24T05:24:48.826Z",
         "changeReason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
-        "workflowState": "released"
+        "workflowState": "draft"
       },
       "revisions": [
         {
@@ -14658,17 +14658,25 @@
           "previousRevision": "V3.1",
           "occurredAt": "2026-08-24T05:28:02.969Z",
           "reason": "更新"
+        },
+        {
+          "id": "effectivity_mt6tdou1",
+          "action": "withdraw",
+          "revision": "V3.2",
+          "previousRevision": "V3.2",
+          "occurredAt": "2026-08-24T05:47:22.489Z",
+          "reason": "Withdraw prematurely released B201 Shanwenhei variant for Draft review."
         }
       ]
     },
     "LGS733": {
       "currentRevision": "V4.2",
-      "effectiveRevision": "V4.2",
+      "effectiveRevision": "V4.1",
       "currentRevisionInfo": {
         "sourceRevision": "V4.1",
         "createdAt": "2026-08-24T05:24:49.584Z",
         "changeReason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
-        "workflowState": "released"
+        "workflowState": "draft"
       },
       "revisions": [
         {
@@ -41224,6 +41232,14 @@
           "previousRevision": "V4.1",
           "occurredAt": "2026-08-24T05:28:03.072Z",
           "reason": "更新"
+        },
+        {
+          "id": "effectivity_mt6tdoy1",
+          "action": "withdraw",
+          "revision": "V4.2",
+          "previousRevision": "V4.2",
+          "occurredAt": "2026-08-24T05:47:22.633Z",
+          "reason": "Withdraw prematurely released B201 Shanwenhei variant for Draft review."
         }
       ]
     },
@@ -52282,12 +52298,12 @@
     },
     "LGS333": {
       "currentRevision": "V4.2",
-      "effectiveRevision": "V4.2",
+      "effectiveRevision": "V4.1",
       "currentRevisionInfo": {
         "sourceRevision": "V4.1",
         "createdAt": "2026-08-24T05:24:49.439Z",
         "changeReason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
-        "workflowState": "released"
+        "workflowState": "draft"
       },
       "revisions": [
         {
@@ -74577,17 +74593,25 @@
           "previousRevision": "V4.1",
           "occurredAt": "2026-08-24T05:28:02.944Z",
           "reason": "更新"
+        },
+        {
+          "id": "effectivity_mt6tdow3",
+          "action": "withdraw",
+          "revision": "V4.2",
+          "previousRevision": "V4.2",
+          "occurredAt": "2026-08-24T05:47:22.563Z",
+          "reason": "Withdraw prematurely released B201 Shanwenhei variant for Draft review."
         }
       ]
     },
     "LGS334": {
       "currentRevision": "V4.2",
-      "effectiveRevision": "V4.2",
+      "effectiveRevision": "V4.1",
       "currentRevisionInfo": {
         "sourceRevision": "V4.1",
         "createdAt": "2026-08-24T05:24:49.487Z",
         "changeReason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
-        "workflowState": "released"
+        "workflowState": "draft"
       },
       "revisions": [
         {
@@ -86963,6 +86987,14 @@
           "previousRevision": "V4.1",
           "occurredAt": "2026-08-24T05:28:02.916Z",
           "reason": "更新"
+        },
+        {
+          "id": "effectivity_mt6tdowp",
+          "action": "withdraw",
+          "revision": "V4.2",
+          "previousRevision": "V4.2",
+          "occurredAt": "2026-08-24T05:47:22.585Z",
+          "reason": "Withdraw prematurely released B201 Shanwenhei variant for Draft review."
         }
       ]
     },
@@ -105181,12 +105213,12 @@
     },
     "LGS101": {
       "currentRevision": "V2.1",
-      "effectiveRevision": "V2.1",
+      "effectiveRevision": "V2",
       "currentRevisionInfo": {
         "sourceRevision": "V2",
         "createdAt": "2026-08-24T05:24:49.748Z",
         "changeReason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
-        "workflowState": "released"
+        "workflowState": "draft"
       },
       "revisions": [
         {
@@ -113050,6 +113082,14 @@
           "previousRevision": "V2",
           "occurredAt": "2026-08-24T05:28:02.996Z",
           "reason": "更新"
+        },
+        {
+          "id": "effectivity_mt6tdp01",
+          "action": "withdraw",
+          "revision": "V2.1",
+          "previousRevision": "V2.1",
+          "occurredAt": "2026-08-24T05:47:22.705Z",
+          "reason": "Withdraw prematurely released B201 Shanwenhei variant for Draft review."
         }
       ]
     },
@@ -121641,12 +121681,12 @@
     },
     "LGS111": {
       "currentRevision": "V2.1",
-      "effectiveRevision": "V2.1",
+      "effectiveRevision": "V2",
       "currentRevisionInfo": {
         "sourceRevision": "V2",
         "createdAt": "2026-08-24T05:24:55.827Z",
         "changeReason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
-        "workflowState": "released"
+        "workflowState": "draft"
       },
       "revisions": [
         {
@@ -129125,6 +129165,14 @@
           "previousRevision": "V2",
           "occurredAt": "2026-08-24T05:28:02.856Z",
           "reason": "更新"
+        },
+        {
+          "id": "effectivity_mt6tdp0p",
+          "action": "withdraw",
+          "revision": "V2.1",
+          "previousRevision": "V2.1",
+          "occurredAt": "2026-08-24T05:47:22.729Z",
+          "reason": "Withdraw prematurely released B201 Shanwenhei variant for Draft review."
         }
       ]
     },
@@ -129207,12 +129255,12 @@
     },
     "LGS233": {
       "currentRevision": "V4.2",
-      "effectiveRevision": "V4.2",
+      "effectiveRevision": "V4.1",
       "currentRevisionInfo": {
         "sourceRevision": "V4.1",
         "createdAt": "2026-08-24T05:24:49.392Z",
         "changeReason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
-        "workflowState": "released"
+        "workflowState": "draft"
       },
       "revisions": [
         {
@@ -152325,6 +152373,14 @@
           "previousRevision": "V4.1",
           "occurredAt": "2026-08-24T05:28:02.888Z",
           "reason": "更新"
+        },
+        {
+          "id": "effectivity_mt6tdove",
+          "action": "withdraw",
+          "revision": "V4.2",
+          "previousRevision": "V4.2",
+          "occurredAt": "2026-08-24T05:47:22.538Z",
+          "reason": "Withdraw prematurely released B201 Shanwenhei variant for Draft review."
         }
       ]
     },
@@ -152407,12 +152463,12 @@
     },
     "LGS834": {
       "currentRevision": "V4.2",
-      "effectiveRevision": "V4.2",
+      "effectiveRevision": "V4.1",
       "currentRevisionInfo": {
         "sourceRevision": "V4.1",
         "createdAt": "2026-08-24T05:24:49.694Z",
         "changeReason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
-        "workflowState": "released"
+        "workflowState": "draft"
       },
       "revisions": [
         {
@@ -172363,6 +172419,14 @@
           "previousRevision": "V4.1",
           "occurredAt": "2026-08-24T05:28:03.119Z",
           "reason": "更新"
+        },
+        {
+          "id": "effectivity_mt6tdozb",
+          "action": "withdraw",
+          "revision": "V4.2",
+          "previousRevision": "V4.2",
+          "occurredAt": "2026-08-24T05:47:22.679Z",
+          "reason": "Withdraw prematurely released B201 Shanwenhei variant for Draft review."
         }
       ]
     },
@@ -180510,12 +180574,12 @@
     },
     "LGS723": {
       "currentRevision": "V4.2",
-      "effectiveRevision": "V4.2",
+      "effectiveRevision": "V4.1",
       "currentRevisionInfo": {
         "sourceRevision": "V4.1",
         "createdAt": "2026-08-24T05:24:49.535Z",
         "changeReason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
-        "workflowState": "released"
+        "workflowState": "draft"
       },
       "revisions": [
         {
@@ -204766,6 +204830,14 @@
           "previousRevision": "V4.1",
           "occurredAt": "2026-08-24T05:28:03.047Z",
           "reason": "更新"
+        },
+        {
+          "id": "effectivity_mt6tdoxd",
+          "action": "withdraw",
+          "revision": "V4.2",
+          "previousRevision": "V4.2",
+          "occurredAt": "2026-08-24T05:47:22.609Z",
+          "reason": "Withdraw prematurely released B201 Shanwenhei variant for Draft review."
         }
       ]
     },
@@ -204816,12 +204888,12 @@
     },
     "LGS132": {
       "currentRevision": "V3.2",
-      "effectiveRevision": "V3.2",
+      "effectiveRevision": "V3.1",
       "currentRevisionInfo": {
         "sourceRevision": "V3.1",
         "createdAt": "2026-08-24T05:24:49.043Z",
         "changeReason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
-        "workflowState": "released"
+        "workflowState": "draft"
       },
       "revisions": [
         {
@@ -215611,6 +215683,14 @@
           "previousRevision": "V3.1",
           "occurredAt": "2026-08-24T05:28:03.021Z",
           "reason": "更新"
+        },
+        {
+          "id": "effectivity_mt6tdouo",
+          "action": "withdraw",
+          "revision": "V3.2",
+          "previousRevision": "V3.2",
+          "occurredAt": "2026-08-24T05:47:22.512Z",
+          "reason": "Withdraw prematurely released B201 Shanwenhei variant for Draft review."
         }
       ]
     },
@@ -220004,12 +220084,12 @@
     },
     "LGS833": {
       "currentRevision": "V4.2",
-      "effectiveRevision": "V4.2",
+      "effectiveRevision": "V4.1",
       "currentRevisionInfo": {
         "sourceRevision": "V4.1",
         "createdAt": "2026-08-24T05:24:49.640Z",
         "changeReason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
-        "workflowState": "released"
+        "workflowState": "draft"
       },
       "revisions": [
         {
@@ -242048,11 +242128,84 @@
           "previousRevision": "V4.1",
           "occurredAt": "2026-08-24T05:28:03.094Z",
           "reason": "更新"
+        },
+        {
+          "id": "effectivity_mt6tdoyn",
+          "action": "withdraw",
+          "revision": "V4.2",
+          "previousRevision": "V4.2",
+          "occurredAt": "2026-08-24T05:47:22.655Z",
+          "reason": "Withdraw prematurely released B201 Shanwenhei variant for Draft review."
         }
       ]
     }
   },
   "notifications": [
+    {
+      "id": "notif_csc0hc",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-24T05:47:54.500Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS032",
+          "field": "effectiveRevision",
+          "before": "V3.2",
+          "after": "V3.1"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS032",
+          "field": "workflowState",
+          "before": "released",
+          "after": "draft"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS733",
+          "field": "effectiveRevision",
+          "before": "V4.2",
+          "after": "V4.1"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS733",
+          "field": "workflowState",
+          "before": "released",
+          "after": "draft"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS333",
+          "field": "effectiveRevision",
+          "before": "V4.2",
+          "after": "V4.1"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS333",
+          "field": "workflowState",
+          "before": "released",
+          "after": "draft"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS334",
+          "field": "effectiveRevision",
+          "before": "V4.2",
+          "after": "V4.1"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS334",
+          "field": "workflowState",
+          "before": "released",
+          "after": "draft"
+        }
+      ]
+    },
     {
       "id": "notif_z26lps",
       "type": "github-save",
@@ -243145,36 +243298,6 @@
           "after": "[object Object]"
         }
       ]
-    },
-    {
-      "id": "notif_1tvutue",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-18T08:51:41.214Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "ZJG150641BH",
-          "field": "unit",
-          "before": "个",
-          "after": "[object Object]"
-        },
-        {
-          "kind": "material",
-          "code": "ZJG150641BH",
-          "field": "drawings",
-          "before": "",
-          "after": "41底脚.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf"
-        },
-        {
-          "kind": "material",
-          "code": "ZJG150641BH",
-          "field": "models3d",
-          "before": "",
-          "after": "54底脚.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/54-21ec9115.glb"
-        }
-      ]
     }
   ],
   "bomHistory": {
@@ -243503,6 +243626,31 @@
       }
     ],
     "LGS111": [
+      {
+        "id": "history_jda848",
+        "productCode": "LGS111",
+        "revision": "V2.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-08-24T05:47:54.500Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS111",
+            "field": "effectiveRevision",
+            "before": "V2.1",
+            "after": "V2"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS111",
+            "field": "workflowState",
+            "before": "released",
+            "after": "draft"
+          }
+        ]
+      },
       {
         "id": "history_ifweu8",
         "productCode": "LGS111",
@@ -244841,6 +244989,31 @@
       }
     ],
     "LGS233": [
+      {
+        "id": "history_5bme4f",
+        "productCode": "LGS233",
+        "revision": "V4.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-08-24T05:47:54.500Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS233",
+            "field": "effectiveRevision",
+            "before": "V4.2",
+            "after": "V4.1"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS233",
+            "field": "workflowState",
+            "before": "released",
+            "after": "draft"
+          }
+        ]
+      },
       {
         "id": "history_1cgdnur",
         "productCode": "LGS233",
@@ -246575,6 +246748,31 @@
       }
     ],
     "LGS334": [
+      {
+        "id": "history_1wecgdp",
+        "productCode": "LGS334",
+        "revision": "V4.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-08-24T05:47:54.500Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS334",
+            "field": "effectiveRevision",
+            "before": "V4.2",
+            "after": "V4.1"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS334",
+            "field": "workflowState",
+            "before": "released",
+            "after": "draft"
+          }
+        ]
+      },
       {
         "id": "history_n6ylrt",
         "productCode": "LGS334",
@@ -250450,6 +250648,31 @@
     ],
     "LGS333": [
       {
+        "id": "history_acnp02",
+        "productCode": "LGS333",
+        "revision": "V4.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-08-24T05:47:54.500Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS333",
+            "field": "effectiveRevision",
+            "before": "V4.2",
+            "after": "V4.1"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS333",
+            "field": "workflowState",
+            "before": "released",
+            "after": "draft"
+          }
+        ]
+      },
+      {
         "id": "history_k5gsy",
         "productCode": "LGS333",
         "revision": "V4.2",
@@ -253169,6 +253392,31 @@
     ],
     "LGS032": [
       {
+        "id": "history_1ndhrvc",
+        "productCode": "LGS032",
+        "revision": "V3.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-08-24T05:47:54.500Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS032",
+            "field": "effectiveRevision",
+            "before": "V3.2",
+            "after": "V3.1"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS032",
+            "field": "workflowState",
+            "before": "released",
+            "after": "draft"
+          }
+        ]
+      },
+      {
         "id": "history_1mg3ylc",
         "productCode": "LGS032",
         "revision": "V3.2",
@@ -255140,6 +255388,31 @@
     ],
     "LGS101": [
       {
+        "id": "history_1vlkewz",
+        "productCode": "LGS101",
+        "revision": "V2.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-08-24T05:47:54.500Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS101",
+            "field": "effectiveRevision",
+            "before": "V2.1",
+            "after": "V2"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS101",
+            "field": "workflowState",
+            "before": "released",
+            "after": "draft"
+          }
+        ]
+      },
+      {
         "id": "history_1vp9s1j",
         "productCode": "LGS101",
         "revision": "V2.1",
@@ -256510,6 +256783,31 @@
       }
     ],
     "LGS132": [
+      {
+        "id": "history_122s7it",
+        "productCode": "LGS132",
+        "revision": "V3.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-08-24T05:47:54.500Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS132",
+            "field": "effectiveRevision",
+            "before": "V3.2",
+            "after": "V3.1"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS132",
+            "field": "workflowState",
+            "before": "released",
+            "after": "draft"
+          }
+        ]
+      },
       {
         "id": "history_h0kvtd",
         "productCode": "LGS132",
@@ -259714,6 +260012,31 @@
     ],
     "LGS723": [
       {
+        "id": "history_inuw5h",
+        "productCode": "LGS723",
+        "revision": "V4.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-08-24T05:47:54.500Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS723",
+            "field": "effectiveRevision",
+            "before": "V4.2",
+            "after": "V4.1"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS723",
+            "field": "workflowState",
+            "before": "released",
+            "after": "draft"
+          }
+        ]
+      },
+      {
         "id": "history_12jt03l",
         "productCode": "LGS723",
         "revision": "V4.2",
@@ -261153,6 +261476,31 @@
       }
     ],
     "LGS733": [
+      {
+        "id": "history_1f6ya66",
+        "productCode": "LGS733",
+        "revision": "V4.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-08-24T05:47:54.500Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS733",
+            "field": "effectiveRevision",
+            "before": "V4.2",
+            "after": "V4.1"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS733",
+            "field": "workflowState",
+            "before": "released",
+            "after": "draft"
+          }
+        ]
+      },
       {
         "id": "history_ov9j7i",
         "productCode": "LGS733",
@@ -262837,6 +263185,31 @@
     ],
     "LGS833": [
       {
+        "id": "history_1j11d4l",
+        "productCode": "LGS833",
+        "revision": "V4.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-08-24T05:47:54.500Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS833",
+            "field": "effectiveRevision",
+            "before": "V4.2",
+            "after": "V4.1"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS833",
+            "field": "workflowState",
+            "before": "released",
+            "after": "draft"
+          }
+        ]
+      },
+      {
         "id": "history_1k2uv1t",
         "productCode": "LGS833",
         "revision": "V4.2",
@@ -264250,6 +264623,31 @@
       }
     ],
     "LGS834": [
+      {
+        "id": "history_1srnpve",
+        "productCode": "LGS834",
+        "revision": "V4.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-08-24T05:47:54.500Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS834",
+            "field": "effectiveRevision",
+            "before": "V4.2",
+            "after": "V4.1"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS834",
+            "field": "workflowState",
+            "before": "released",
+            "after": "draft"
+          }
+        ]
+      },
       {
         "id": "history_nn38ju",
         "productCode": "LGS834",
