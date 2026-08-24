@@ -41,6 +41,10 @@ function proposalBomProductTargets(payload, operations) {
       targets.add(operation.targetId);
       continue;
     }
+    if (operation.operationType === 'create_product_variant') {
+      targets.add(operation.targetId);
+      continue;
+    }
     if (!['update_bom_quantity', 'replace_bom_item', 'remove_bom_item', 'update_bom_item'].includes(operation.operationType)) continue;
     const entry = entriesById.get(operation.targetId);
     if (entry?.parentType === 'product') targets.add(entry.productCode || entry.parentId);
@@ -81,7 +85,10 @@ export function validateMutationContext(snapshot, mutation) {
 
   // Determine the actual target product for BOM/Revision mutations to check if it has a Draft revision
   let targetProductCode = null;
-  if (mutation.operationType === 'update_product' || revisionOperations.has(mutation.operationType) || mutation.operationType === 'add_bom_item') {
+  if (mutation.operationType === 'update_product'
+    || mutation.operationType === 'create_product_variant'
+    || revisionOperations.has(mutation.operationType)
+    || mutation.operationType === 'add_bom_item') {
     targetProductCode = mutation.targetId;
   } else if (['update_bom_quantity', 'replace_bom_item', 'remove_bom_item', 'update_bom_item'].includes(mutation.operationType)) {
     const entry = snapshot.payload?.materialDb?.bomEntries?.find(item => item.id === mutation.targetId);
@@ -116,6 +123,18 @@ export function validateMutationContext(snapshot, mutation) {
       err.code = ERROR_CODES.AI_POLICY_BLOCKED;
       throw err;
     }
+  }
+  if (mutation.operationType === 'create_product_variant') {
+    const product = snapshot.payload?.bom?.[mutation.targetId];
+    const sourceColor = mutation.payload.sourceColor;
+    const targetColor = mutation.payload.color.zh.trim();
+    if (!product) throw new Error(`Product ${mutation.targetId} not found.`);
+    if (!product.color_info?.[sourceColor]) throw new Error(`Source color ${mutation.targetId}/${sourceColor} not found.`);
+    if (product.color_info?.[targetColor]) throw new Error(`Product/color ${mutation.targetId}/${targetColor} already exists.`);
+    const requestedSku = mutation.payload.sku.trim().toUpperCase();
+    const duplicateSku = Object.values(snapshot.payload?.bom || {}).some((candidate) =>
+      Object.values(candidate?.color_info || {}).some((info) => String(info?.sku || '').trim().toUpperCase() === requestedSku));
+    if (duplicateSku) throw new Error(`Product SKU ${requestedSku} already exists.`);
   }
   const isAssociatedBomRevision = ['create_product_revision', 'withdraw_product_revision'].includes(mutation.operationType)
     && snapshot.allowedCreateRevisionTargetIds?.has(mutation.targetId);
@@ -306,6 +325,46 @@ export function applyMutationToPayload(payload, mutation) {
         },
       },
     };
+  } else if (operationType === 'create_product_variant') {
+    const product = payload.bom?.[targetId];
+    const sourceColor = opPayload.sourceColor;
+    const targetColor = opPayload.color.zh.trim();
+    const sourceColorData = product?.color_info?.[sourceColor];
+    if (!product || !sourceColorData) throw new Error(`Source product/color ${targetId}/${sourceColor} not found.`);
+    if (product.color_info?.[targetColor]) throw new Error(`Product/color ${targetId}/${targetColor} already exists.`);
+
+    product.colors = [...new Set([...(product.colors || []), targetColor])];
+    product.color_info[targetColor] = {
+      ...clone(sourceColorData),
+      sku: opPayload.sku.trim().toUpperCase(),
+      name: opPayload.name.zh || opPayload.name.vi,
+      name_zh: opPayload.name.zh || opPayload.name.vi,
+      name_vi: opPayload.name.vi || opPayload.name.zh,
+      color_ver: targetColor,
+      color_ver_vi: opPayload.color.vi || targetColor,
+      materials: [],
+    };
+
+    const sourceEntries = (payload.materialDb?.bomEntries || []).filter((entry) =>
+      (entry.productCode === targetId || entry.parentId === targetId)
+      && entry.color === sourceColor);
+    const existingIds = new Set((payload.materialDb?.bomEntries || []).map((entry) => entry.id));
+    const clonedEntries = sourceEntries.map((entry, index) => {
+      let entryId = stableId('bomv', `${entry.id}|${targetColor}`);
+      let suffix = 1;
+      while (existingIds.has(entryId)) entryId = stableId('bomv', `${entry.id}|${targetColor}|${suffix++}`);
+      existingIds.add(entryId);
+      return {
+        ...clone(entry),
+        id: entryId,
+        color: targetColor,
+        color_ver: targetColor,
+        color_ver_vi: opPayload.color.vi || targetColor,
+        order: Number.isFinite(Number(entry.order)) ? Number(entry.order) : index,
+      };
+    });
+    payload.materialDb.bomEntries.push(...clonedEntries);
+    shouldSyncBom = true;
   } else if (operationType === 'update_product') {
     const product = payload.bom?.[targetId];
     const colorData = product?.color_info?.[opPayload.color];
@@ -601,6 +660,7 @@ function operationRisk(operationType) {
   ].includes(operationType)) return 'high';
   if ([
     'create_product',
+    'create_product_variant',
     'create_product_revision',
     'create_material',
     'add_bom_item',
@@ -621,6 +681,7 @@ function operationWarnings(operation, payload, t = (k) => k, { suppressDuplicate
   if (operation.operationType === 'consolidate_materials') warnings.push(t('ai.warning.consolidate_materials'));
   if (operation.operationType === 'add_bom_item') warnings.push(t('ai.warning.add_bom_item'));
   if (operation.operationType === 'create_product') warnings.push(t('ai.warning.create_product'));
+  if (operation.operationType === 'create_product_variant') warnings.push(t('ai.warning.create_product_variant'));
   if (operation.operationType === 'create_product_revision') warnings.push(t('ai.warning.create_product_revision'));
   if (operation.operationType === 'release_product_revision') warnings.push(t('ai.warning.release_product_revision'));
   if (operation.operationType === 'withdraw_product_revision') warnings.push(t('ai.warning.withdraw_product_revision'));

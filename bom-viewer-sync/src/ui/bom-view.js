@@ -462,6 +462,7 @@ function renderColorDot(colorStr) {
   else if (lower.includes('\u9540\u950c') || lower.includes('m\u1ea1 k\u1ebdm') || lower.includes('k\u1ebdm')) hex = '#94a3b8';
   else if (lower.includes('\u7eb8') || lower.includes('gi\u1ea5y')) hex = '#d7c5a0';
   else if (lower.includes('\u672c\u8272') || lower.includes('t\u1ef1 nhi\u00ean')) hex = '#e2e8f0';
+  else if (lower.includes('\u5c71\u7eb9\u9ed1') || lower.includes('v\u00e2n g\u1ed7')) hex = '#8a96a3';
   else if (lower.includes('\u590d\u53e4') || lower.includes('g\u1ed7 c\u1ed5')) hex = '#8b5a2b';
   else if (lower.includes('n\u00e2u') || lower.includes('brown')) hex = '#8b5a2b';
   else if (lower.includes('\u539f\u6728') || lower.includes('g\u1ed7') || lower.includes('oak')) hex = '#d2b48c';
