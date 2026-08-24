@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-24T05:26:47.165Z",
+  "updatedAt": "2026-08-24T05:28:03.143Z",
   "products": [
     "5106",
     "LGS031",
@@ -1289,12 +1289,12 @@
     },
     "LGS032": {
       "currentRevision": "V3.2",
-      "effectiveRevision": "V3.1",
+      "effectiveRevision": "V3.2",
       "currentRevisionInfo": {
         "sourceRevision": "V3.1",
         "createdAt": "2026-08-24T05:24:48.826Z",
         "changeReason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -14650,17 +14650,25 @@
           "previousRevision": "V3",
           "occurredAt": "2026-08-19T03:21:54.821Z",
           "reason": "更新"
+        },
+        {
+          "id": "effectivity_mt6sou55",
+          "action": "release",
+          "revision": "V3.2",
+          "previousRevision": "V3.1",
+          "occurredAt": "2026-08-24T05:28:02.969Z",
+          "reason": "更新"
         }
       ]
     },
     "LGS733": {
       "currentRevision": "V4.2",
-      "effectiveRevision": "V4.1",
+      "effectiveRevision": "V4.2",
       "currentRevisionInfo": {
         "sourceRevision": "V4.1",
         "createdAt": "2026-08-24T05:24:49.584Z",
         "changeReason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -41208,6 +41216,14 @@
           "previousRevision": "V4",
           "occurredAt": "2026-08-19T03:23:43.221Z",
           "reason": "更新"
+        },
+        {
+          "id": "effectivity_mt6sou80",
+          "action": "release",
+          "revision": "V4.2",
+          "previousRevision": "V4.1",
+          "occurredAt": "2026-08-24T05:28:03.072Z",
+          "reason": "更新"
         }
       ]
     },
@@ -52266,12 +52282,12 @@
     },
     "LGS333": {
       "currentRevision": "V4.2",
-      "effectiveRevision": "V4.1",
+      "effectiveRevision": "V4.2",
       "currentRevisionInfo": {
         "sourceRevision": "V4.1",
         "createdAt": "2026-08-24T05:24:49.439Z",
         "changeReason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -74553,17 +74569,25 @@
           "previousRevision": "V4",
           "occurredAt": "2026-08-19T03:52:56.711Z",
           "reason": "更新"
+        },
+        {
+          "id": "effectivity_mt6sou4g",
+          "action": "release",
+          "revision": "V4.2",
+          "previousRevision": "V4.1",
+          "occurredAt": "2026-08-24T05:28:02.944Z",
+          "reason": "更新"
         }
       ]
     },
     "LGS334": {
       "currentRevision": "V4.2",
-      "effectiveRevision": "V4.1",
+      "effectiveRevision": "V4.2",
       "currentRevisionInfo": {
         "sourceRevision": "V4.1",
         "createdAt": "2026-08-24T05:24:49.487Z",
         "changeReason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -86930,6 +86954,14 @@
           "revision": "V4.1",
           "previousRevision": "V4",
           "occurredAt": "2026-08-19T09:29:42.709Z",
+          "reason": "更新"
+        },
+        {
+          "id": "effectivity_mt6sou3o",
+          "action": "release",
+          "revision": "V4.2",
+          "previousRevision": "V4.1",
+          "occurredAt": "2026-08-24T05:28:02.916Z",
           "reason": "更新"
         }
       ]
@@ -105149,12 +105181,12 @@
     },
     "LGS101": {
       "currentRevision": "V2.1",
-      "effectiveRevision": "V2",
+      "effectiveRevision": "V2.1",
       "currentRevisionInfo": {
         "sourceRevision": "V2",
         "createdAt": "2026-08-24T05:24:49.748Z",
         "changeReason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -113009,6 +113041,14 @@
           "revision": "V2",
           "previousRevision": "",
           "occurredAt": "2026-08-06T09:39:07.326Z",
+          "reason": "更新"
+        },
+        {
+          "id": "effectivity_mt6sou5w",
+          "action": "release",
+          "revision": "V2.1",
+          "previousRevision": "V2",
+          "occurredAt": "2026-08-24T05:28:02.996Z",
           "reason": "更新"
         }
       ]
@@ -121601,12 +121641,12 @@
     },
     "LGS111": {
       "currentRevision": "V2.1",
-      "effectiveRevision": "V2",
+      "effectiveRevision": "V2.1",
       "currentRevisionInfo": {
         "sourceRevision": "V2",
         "createdAt": "2026-08-24T05:24:55.827Z",
         "changeReason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -129077,6 +129117,14 @@
           "previousRevision": "",
           "occurredAt": "2026-08-06T09:39:12.463Z",
           "reason": "更新"
+        },
+        {
+          "id": "effectivity_mt6sou20",
+          "action": "release",
+          "revision": "V2.1",
+          "previousRevision": "V2",
+          "occurredAt": "2026-08-24T05:28:02.856Z",
+          "reason": "更新"
         }
       ]
     },
@@ -129159,12 +129207,12 @@
     },
     "LGS233": {
       "currentRevision": "V4.2",
-      "effectiveRevision": "V4.1",
+      "effectiveRevision": "V4.2",
       "currentRevisionInfo": {
         "sourceRevision": "V4.1",
         "createdAt": "2026-08-24T05:24:49.392Z",
         "changeReason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -152269,6 +152317,14 @@
           "previousRevision": "V4",
           "occurredAt": "2026-08-19T09:40:10.093Z",
           "reason": "更新"
+        },
+        {
+          "id": "effectivity_mt6sou2x",
+          "action": "release",
+          "revision": "V4.2",
+          "previousRevision": "V4.1",
+          "occurredAt": "2026-08-24T05:28:02.888Z",
+          "reason": "更新"
         }
       ]
     },
@@ -152351,12 +152407,12 @@
     },
     "LGS834": {
       "currentRevision": "V4.2",
-      "effectiveRevision": "V4.1",
+      "effectiveRevision": "V4.2",
       "currentRevisionInfo": {
         "sourceRevision": "V4.1",
         "createdAt": "2026-08-24T05:24:49.694Z",
         "changeReason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -172299,6 +172355,14 @@
           "previousRevision": "V4",
           "occurredAt": "2026-08-19T03:23:43.235Z",
           "reason": "更新"
+        },
+        {
+          "id": "effectivity_mt6sou9b",
+          "action": "release",
+          "revision": "V4.2",
+          "previousRevision": "V4.1",
+          "occurredAt": "2026-08-24T05:28:03.119Z",
+          "reason": "更新"
         }
       ]
     },
@@ -180446,12 +180510,12 @@
     },
     "LGS723": {
       "currentRevision": "V4.2",
-      "effectiveRevision": "V4.1",
+      "effectiveRevision": "V4.2",
       "currentRevisionInfo": {
         "sourceRevision": "V4.1",
         "createdAt": "2026-08-24T05:24:49.535Z",
         "changeReason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -204694,6 +204758,14 @@
           "previousRevision": "V4",
           "occurredAt": "2026-08-19T03:23:43.206Z",
           "reason": "更新"
+        },
+        {
+          "id": "effectivity_mt6sou7b",
+          "action": "release",
+          "revision": "V4.2",
+          "previousRevision": "V4.1",
+          "occurredAt": "2026-08-24T05:28:03.047Z",
+          "reason": "更新"
         }
       ]
     },
@@ -204744,12 +204816,12 @@
     },
     "LGS132": {
       "currentRevision": "V3.2",
-      "effectiveRevision": "V3.1",
+      "effectiveRevision": "V3.2",
       "currentRevisionInfo": {
         "sourceRevision": "V3.1",
         "createdAt": "2026-08-24T05:24:49.043Z",
         "changeReason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -215531,6 +215603,14 @@
           "previousRevision": "V3",
           "occurredAt": "2026-08-19T03:23:43.175Z",
           "reason": "更新"
+        },
+        {
+          "id": "effectivity_mt6sou6l",
+          "action": "release",
+          "revision": "V3.2",
+          "previousRevision": "V3.1",
+          "occurredAt": "2026-08-24T05:28:03.021Z",
+          "reason": "更新"
         }
       ]
     },
@@ -219924,12 +220004,12 @@
     },
     "LGS833": {
       "currentRevision": "V4.2",
-      "effectiveRevision": "V4.1",
+      "effectiveRevision": "V4.2",
       "currentRevisionInfo": {
         "sourceRevision": "V4.1",
         "createdAt": "2026-08-24T05:24:49.640Z",
         "changeReason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -241960,11 +242040,84 @@
           "previousRevision": "V4",
           "occurredAt": "2026-08-18T00:30:36.688Z",
           "reason": "更改"
+        },
+        {
+          "id": "effectivity_mt6sou8m",
+          "action": "release",
+          "revision": "V4.2",
+          "previousRevision": "V4.1",
+          "occurredAt": "2026-08-24T05:28:03.094Z",
+          "reason": "更新"
         }
       ]
     }
   },
   "notifications": [
+    {
+      "id": "notif_z26lps",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-24T05:28:03.143Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS032",
+          "field": "effectiveRevision",
+          "before": "V3.1",
+          "after": "V3.2"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS032",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS733",
+          "field": "effectiveRevision",
+          "before": "V4.1",
+          "after": "V4.2"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS733",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS333",
+          "field": "effectiveRevision",
+          "before": "V4.1",
+          "after": "V4.2"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS333",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS334",
+          "field": "effectiveRevision",
+          "before": "V4.1",
+          "after": "V4.2"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS334",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        }
+      ]
+    },
     {
       "id": "notif_krftc8",
       "type": "github-save",
@@ -243022,43 +243175,6 @@
           "after": "54底脚.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/54-21ec9115.glb"
         }
       ]
-    },
-    {
-      "id": "notif_18b49z0",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-18T07:22:58.784Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "M6GS1515BH",
-          "field": "unit",
-          "before": "根",
-          "after": "[object Object]"
-        },
-        {
-          "kind": "material",
-          "code": "M6GS1515WH",
-          "field": "unit",
-          "before": "根",
-          "after": "[object Object]"
-        },
-        {
-          "kind": "material",
-          "code": "M6LMLM",
-          "field": "unit",
-          "before": "根",
-          "after": "[object Object]"
-        },
-        {
-          "kind": "material",
-          "code": "M6LMLM",
-          "field": "models3d",
-          "before": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38_glb",
-          "after": "拉铆螺母|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@37c15cd61999e78dec72ef47241fad7cee697a80/assets/models/M6LMLM_61e43d92c3cbedf01c418075a3e36fe4da05c43f729304044651c25c80b09e38.glb"
-        }
-      ]
     }
   ],
   "bomHistory": {
@@ -243387,6 +243503,31 @@
       }
     ],
     "LGS111": [
+      {
+        "id": "history_ifweu8",
+        "productCode": "LGS111",
+        "revision": "V2.1",
+        "action": "release",
+        "actor": "admin",
+        "reason": "更新",
+        "createdAt": "2026-08-24T05:28:03.143Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS111",
+            "field": "effectiveRevision",
+            "before": "V2",
+            "after": "V2.1"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS111",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
       {
         "id": "history_15krohe",
         "productCode": "LGS111",
@@ -244700,6 +244841,31 @@
       }
     ],
     "LGS233": [
+      {
+        "id": "history_1cgdnur",
+        "productCode": "LGS233",
+        "revision": "V4.2",
+        "action": "release",
+        "actor": "admin",
+        "reason": "更新",
+        "createdAt": "2026-08-24T05:28:03.143Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS233",
+            "field": "effectiveRevision",
+            "before": "V4.1",
+            "after": "V4.2"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS233",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
       {
         "id": "history_e29sv7",
         "productCode": "LGS233",
@@ -246409,6 +246575,31 @@
       }
     ],
     "LGS334": [
+      {
+        "id": "history_n6ylrt",
+        "productCode": "LGS334",
+        "revision": "V4.2",
+        "action": "release",
+        "actor": "admin",
+        "reason": "更新",
+        "createdAt": "2026-08-24T05:28:03.143Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS334",
+            "field": "effectiveRevision",
+            "before": "V4.1",
+            "after": "V4.2"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS334",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
       {
         "id": "history_jj8nrx",
         "productCode": "LGS334",
@@ -250259,6 +250450,31 @@
     ],
     "LGS333": [
       {
+        "id": "history_k5gsy",
+        "productCode": "LGS333",
+        "revision": "V4.2",
+        "action": "release",
+        "actor": "admin",
+        "reason": "更新",
+        "createdAt": "2026-08-24T05:28:03.143Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS333",
+            "field": "effectiveRevision",
+            "before": "V4.1",
+            "after": "V4.2"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS333",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
+      {
         "id": "history_1spk6vv",
         "productCode": "LGS333",
         "revision": "V4.2",
@@ -252953,6 +253169,31 @@
     ],
     "LGS032": [
       {
+        "id": "history_1mg3ylc",
+        "productCode": "LGS032",
+        "revision": "V3.2",
+        "action": "release",
+        "actor": "admin",
+        "reason": "更新",
+        "createdAt": "2026-08-24T05:28:03.143Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS032",
+            "field": "effectiveRevision",
+            "before": "V3.1",
+            "after": "V3.2"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS032",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
+      {
         "id": "history_1nw0fxd",
         "productCode": "LGS032",
         "revision": "V3.2",
@@ -254899,6 +255140,31 @@
     ],
     "LGS101": [
       {
+        "id": "history_1vp9s1j",
+        "productCode": "LGS101",
+        "revision": "V2.1",
+        "action": "release",
+        "actor": "admin",
+        "reason": "更新",
+        "createdAt": "2026-08-24T05:28:03.143Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS101",
+            "field": "effectiveRevision",
+            "before": "V2",
+            "after": "V2.1"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS101",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
+      {
         "id": "history_1i3iqnd",
         "productCode": "LGS101",
         "revision": "V2.1",
@@ -256244,6 +256510,31 @@
       }
     ],
     "LGS132": [
+      {
+        "id": "history_h0kvtd",
+        "productCode": "LGS132",
+        "revision": "V3.2",
+        "action": "release",
+        "actor": "admin",
+        "reason": "更新",
+        "createdAt": "2026-08-24T05:28:03.143Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS132",
+            "field": "effectiveRevision",
+            "before": "V3.1",
+            "after": "V3.2"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS132",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
       {
         "id": "history_1jrd1b",
         "productCode": "LGS132",
@@ -259423,6 +259714,31 @@
     ],
     "LGS723": [
       {
+        "id": "history_12jt03l",
+        "productCode": "LGS723",
+        "revision": "V4.2",
+        "action": "release",
+        "actor": "admin",
+        "reason": "更新",
+        "createdAt": "2026-08-24T05:28:03.143Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS723",
+            "field": "effectiveRevision",
+            "before": "V4.1",
+            "after": "V4.2"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS723",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
+      {
         "id": "history_1ptg7qq",
         "productCode": "LGS723",
         "revision": "V4.2",
@@ -260837,6 +261153,31 @@
       }
     ],
     "LGS733": [
+      {
+        "id": "history_ov9j7i",
+        "productCode": "LGS733",
+        "revision": "V4.2",
+        "action": "release",
+        "actor": "admin",
+        "reason": "更新",
+        "createdAt": "2026-08-24T05:28:03.143Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS733",
+            "field": "effectiveRevision",
+            "before": "V4.1",
+            "after": "V4.2"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS733",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
       {
         "id": "history_l1wigs",
         "productCode": "LGS733",
@@ -262496,6 +262837,31 @@
     ],
     "LGS833": [
       {
+        "id": "history_1k2uv1t",
+        "productCode": "LGS833",
+        "revision": "V4.2",
+        "action": "release",
+        "actor": "admin",
+        "reason": "更新",
+        "createdAt": "2026-08-24T05:28:03.143Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS833",
+            "field": "effectiveRevision",
+            "before": "V4.1",
+            "after": "V4.2"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS833",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
+      {
         "id": "history_1jv0vpv",
         "productCode": "LGS833",
         "revision": "V4.2",
@@ -263884,6 +264250,31 @@
       }
     ],
     "LGS834": [
+      {
+        "id": "history_nn38ju",
+        "productCode": "LGS834",
+        "revision": "V4.2",
+        "action": "release",
+        "actor": "admin",
+        "reason": "更新",
+        "createdAt": "2026-08-24T05:28:03.143Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS834",
+            "field": "effectiveRevision",
+            "before": "V4.1",
+            "after": "V4.2"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS834",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
       {
         "id": "history_yga4li",
         "productCode": "LGS834",
