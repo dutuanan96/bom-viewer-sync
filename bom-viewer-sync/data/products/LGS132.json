@@ -4446,7 +4446,7 @@
         },
         {
           "stt": "5",
-          "mat_code": "LGS132YZKKD",
+          "mat_code": "LGS132YZKBH",
           "comp_code": "C2",
           "name_zh": "LGS132_232-S-中框右",
           "name_vi": "LGS132_232-S-Khung giữa phải",
@@ -4454,13 +4454,16 @@
           "spec_vi": "584x335x15mm",
           "material_zh": "Q195",
           "material_vi": "Q195",
-          "color_zh": "复古色",
-          "color_vi": "màu gỗ cổ",
+          "color_zh": "黑砂纹",
+          "color_vi": "đen nhám",
           "attr_zh": "零件",
           "attr_vi": "linh kiện",
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
-          "unit": "个",
+          "unit": {
+            "zh": "个",
+            "vi": "cái"
+          },
           "qty": "1",
           "remark": "",
           "materials": [
@@ -5511,7 +5514,7 @@
         },
         {
           "stt": "20",
-          "mat_code": "LGS132ZZKKD",
+          "mat_code": "LGS132ZZKBH",
           "comp_code": "C1",
           "name_zh": "LGS132_232-S-中框左",
           "name_vi": "LGS132_232-S-Khung giữa trái",
@@ -5519,13 +5522,16 @@
           "spec_vi": "584x335x15mm",
           "material_zh": "Q195",
           "material_vi": "Q195",
-          "color_zh": "复古色",
-          "color_vi": "màu gỗ cổ",
+          "color_zh": "黑砂纹",
+          "color_vi": "đen nhám",
           "attr_zh": "零件",
           "attr_vi": "linh kiện",
           "color_ver": "复古色",
           "color_ver_vi": "màu gỗ cổ",
-          "unit": "个",
+          "unit": {
+            "zh": "个",
+            "vi": "cái"
+          },
           "qty": "1",
           "remark": "",
           "materials": [

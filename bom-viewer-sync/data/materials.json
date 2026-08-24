@@ -45276,39 +45276,6 @@
         "models3d": [],
         "unit": "块"
       },
-      "mat_lgs132yzkkd": {
-        "id": "mat_lgs132yzkkd",
-        "code": "LGS132YZKKD",
-        "name": {
-          "zh": "LGS132_232-S-中框右",
-          "vi": "LGS132_232-S-Khung giữa phải"
-        },
-        "spec": {
-          "zh": "584x335x15mm",
-          "vi": "584x335x15mm"
-        },
-        "material": {
-          "zh": "Q195",
-          "vi": "Q195"
-        },
-        "color": {
-          "zh": "复古色",
-          "vi": "màu gỗ cổ"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [
-          {
-            "name": "LGS132_232-S-中框右.pdf",
-            "url": "https://drive.google.com/file/d/1E34TTdp668tfOuwGT9CZybqKRoelwhGO/view?usp=sharing",
-            "path": "Google Drive > LGS132-S > LGS132_232-S-中框右.pdf"
-          }
-        ],
-        "models3d": [],
-        "unit": "个"
-      },
       "mat_lgs132db102kd": {
         "id": "mat_lgs132db102kd",
         "code": "LGS132DB102KD",
@@ -45374,39 +45341,6 @@
         ],
         "models3d": [],
         "unit": "块"
-      },
-      "mat_lgs132zzkkd": {
-        "id": "mat_lgs132zzkkd",
-        "code": "LGS132ZZKKD",
-        "name": {
-          "zh": "LGS132_232-S-中框左",
-          "vi": "LGS132_232-S-Khung giữa trái"
-        },
-        "spec": {
-          "zh": "584x335x15mm",
-          "vi": "584x335x15mm"
-        },
-        "material": {
-          "zh": "Q195",
-          "vi": "Q195"
-        },
-        "color": {
-          "zh": "复古色",
-          "vi": "màu gỗ cổ"
-        },
-        "attr": {
-          "zh": "零件",
-          "vi": "linh kiện"
-        },
-        "drawings": [
-          {
-            "name": "LGS132_232-S-中框左.pdf",
-            "url": "https://drive.google.com/file/d/14h1HZyDOa7WpZREySZBUn-uWTsJS47nW/view?usp=sharing",
-            "path": "Google Drive > LGS132-S > LGS132_232-S-中框左.pdf"
-          }
-        ],
-        "models3d": [],
-        "unit": "个"
       },
       "mat_lgs132cbskd": {
         "id": "mat_lgs132cbskd",
@@ -45583,8 +45517,8 @@
           "vi": "Q195"
         },
         "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
+          "zh": "白砂纹",
+          "vi": "trắng nhám"
         },
         "attr": {
           "zh": "零件",
@@ -45598,7 +45532,10 @@
           }
         ],
         "models3d": [],
-        "unit": "个"
+        "unit": {
+          "zh": "个",
+          "vi": "个"
+        }
       },
       "mat_lgs032yzkwh": {
         "id": "mat_lgs032yzkwh",
@@ -45616,8 +45553,8 @@
           "vi": "Q195"
         },
         "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
+          "zh": "白砂纹",
+          "vi": "trắng nhám"
         },
         "attr": {
           "zh": "零件",
@@ -45631,7 +45568,10 @@
           }
         ],
         "models3d": [],
-        "unit": "个"
+        "unit": {
+          "zh": "个",
+          "vi": "个"
+        }
       },
       "mat_lgs032xhlwh": {
         "id": "mat_lgs032xhlwh",
@@ -45649,8 +45589,8 @@
           "vi": "Q195"
         },
         "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
+          "zh": "白砂纹",
+          "vi": "trắng nhám"
         },
         "attr": {
           "zh": "零件",
@@ -45664,7 +45604,10 @@
           }
         ],
         "models3d": [],
-        "unit": "根"
+        "unit": {
+          "zh": "根",
+          "vi": "根"
+        }
       },
       "mat_lgs032xqhlwh": {
         "id": "mat_lgs032xqhlwh",
@@ -45682,8 +45625,8 @@
           "vi": "Q195"
         },
         "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
+          "zh": "白砂纹",
+          "vi": "trắng nhám"
         },
         "attr": {
           "zh": "零件",
@@ -45697,7 +45640,10 @@
           }
         ],
         "models3d": [],
-        "unit": "根"
+        "unit": {
+          "zh": "根",
+          "vi": "根"
+        }
       },
       "mat_lgs032shlwh": {
         "id": "mat_lgs032shlwh",
@@ -45715,8 +45661,8 @@
           "vi": "Q195"
         },
         "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
+          "zh": "白砂纹",
+          "vi": "trắng nhám"
         },
         "attr": {
           "zh": "零件",
@@ -45730,7 +45676,10 @@
           }
         ],
         "models3d": [],
-        "unit": "根"
+        "unit": {
+          "zh": "根",
+          "vi": "根"
+        }
       },
       "mat_lgs032zkwh647": {
         "id": "mat_lgs032zkwh647",
@@ -45748,8 +45697,8 @@
           "vi": "Q195"
         },
         "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
+          "zh": "白砂纹",
+          "vi": "trắng nhám"
         },
         "attr": {
           "zh": "零件",
@@ -45768,7 +45717,10 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS032-S-33f48cfd.glb"
           }
         ],
-        "unit": "个"
+        "unit": {
+          "zh": "个",
+          "vi": "个"
+        }
       },
       "mat_lgs032ykwh647": {
         "id": "mat_lgs032ykwh647",
@@ -45786,8 +45738,8 @@
           "vi": "Q195"
         },
         "color": {
-          "zh": "白色",
-          "vi": "màu trắng"
+          "zh": "白砂纹",
+          "vi": "trắng nhám"
         },
         "attr": {
           "zh": "零件",
@@ -45806,7 +45758,10 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS032-S-1ca3461c.glb"
           }
         ],
-        "unit": "个"
+        "unit": {
+          "zh": "个",
+          "vi": "个"
+        }
       },
       "mat_dd0310wh": {
         "id": "mat_dd0310wh",
@@ -101866,7 +101821,7 @@
         "parentId": "LGS132",
         "productCode": "LGS132",
         "color": "复古色",
-        "materialId": "mat_lgs132yzkkd",
+        "materialId": "mat_14gzmfl",
         "stt": "5",
         "comp_code": "C2",
         "qty": "1",
@@ -102078,7 +102033,7 @@
         "parentId": "LGS132",
         "productCode": "LGS132",
         "color": "复古色",
-        "materialId": "mat_lgs132zzkkd",
+        "materialId": "mat_1vnrvil",
         "stt": "20",
         "comp_code": "C1",
         "qty": "1",
@@ -103182,66 +103137,6 @@
         "color_ver": "白色",
         "color_ver_vi": "白色",
         "order": 11
-      },
-      {
-        "id": "bomc_6xj3y1",
-        "parentType": "material",
-        "parentId": "mat_lgs132yzkkd",
-        "productCode": "",
-        "color": "",
-        "materialId": "mat_fg1515066091",
-        "childMaterialId": "mat_fg1515066091",
-        "stt": "",
-        "comp_code": "",
-        "qty": "0.25",
-        "color_ver": "",
-        "color_ver_vi": "",
-        "order": 0
-      },
-      {
-        "id": "bomc_pa9m5z",
-        "parentType": "material",
-        "parentId": "mat_lgs132yzkkd",
-        "productCode": "",
-        "color": "",
-        "materialId": "mat_m6ylm139",
-        "childMaterialId": "mat_m6ylm139",
-        "stt": "",
-        "comp_code": "",
-        "qty": "2",
-        "color_ver": "",
-        "color_ver_vi": "",
-        "order": 1
-      },
-      {
-        "id": "bomc_1dmh9ry",
-        "parentType": "material",
-        "parentId": "mat_lgs132zzkkd",
-        "productCode": "",
-        "color": "",
-        "materialId": "mat_fg1515066091",
-        "childMaterialId": "mat_fg1515066091",
-        "stt": "",
-        "comp_code": "",
-        "qty": "0.25",
-        "color_ver": "",
-        "color_ver_vi": "",
-        "order": 0
-      },
-      {
-        "id": "bomc_1chzkr0",
-        "parentType": "material",
-        "parentId": "mat_lgs132zzkkd",
-        "productCode": "",
-        "color": "",
-        "materialId": "mat_m6ylm139",
-        "childMaterialId": "mat_m6ylm139",
-        "stt": "",
-        "comp_code": "",
-        "qty": "2",
-        "color_ver": "",
-        "color_ver_vi": "",
-        "order": 1
       },
       {
         "id": "bomc_ni8az7",

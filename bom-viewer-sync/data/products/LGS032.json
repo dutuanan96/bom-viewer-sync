@@ -5622,13 +5622,16 @@
           "spec_vi": "584x290x15mm",
           "material_zh": "Q195",
           "material_vi": "Q195",
-          "color_zh": "白色",
-          "color_vi": "màu trắng",
+          "color_zh": "白砂纹",
+          "color_vi": "trắng nhám",
           "attr_zh": "零件",
           "attr_vi": "linh kiện",
           "color_ver": "白色",
           "color_ver_vi": "màu trắng",
-          "unit": "个",
+          "unit": {
+            "zh": "个",
+            "vi": "个"
+          },
           "qty": "1",
           "remark": "",
           "materials": [
@@ -5690,13 +5693,16 @@
           "spec_vi": "584x290x15mm",
           "material_zh": "Q195",
           "material_vi": "Q195",
-          "color_zh": "白色",
-          "color_vi": "màu trắng",
+          "color_zh": "白砂纹",
+          "color_vi": "trắng nhám",
           "attr_zh": "零件",
           "attr_vi": "linh kiện",
           "color_ver": "白色",
           "color_ver_vi": "màu trắng",
-          "unit": "个",
+          "unit": {
+            "zh": "个",
+            "vi": "个"
+          },
           "qty": "1",
           "remark": "",
           "materials": [
@@ -5758,13 +5764,16 @@
           "spec_vi": "647x290x15mm",
           "material_zh": "Q195",
           "material_vi": "Q195",
-          "color_zh": "白色",
-          "color_vi": "màu trắng",
+          "color_zh": "白砂纹",
+          "color_vi": "trắng nhám",
           "attr_zh": "零件",
           "attr_vi": "linh kiện",
           "color_ver": "白色",
           "color_ver_vi": "màu trắng",
-          "unit": "个",
+          "unit": {
+            "zh": "个",
+            "vi": "个"
+          },
           "qty": "1",
           "remark": "",
           "materials": [
@@ -5892,13 +5901,16 @@
           "spec_vi": "647x290x15mm",
           "material_zh": "Q195",
           "material_vi": "Q195",
-          "color_zh": "白色",
-          "color_vi": "màu trắng",
+          "color_zh": "白砂纹",
+          "color_vi": "trắng nhám",
           "attr_zh": "零件",
           "attr_vi": "linh kiện",
           "color_ver": "白色",
           "color_ver_vi": "màu trắng",
-          "unit": "个",
+          "unit": {
+            "zh": "个",
+            "vi": "个"
+          },
           "qty": "1",
           "remark": "",
           "materials": [
@@ -6026,13 +6038,16 @@
           "spec_vi": "1098x31x15mm",
           "material_zh": "Q195",
           "material_vi": "Q195",
-          "color_zh": "白色",
-          "color_vi": "màu trắng",
+          "color_zh": "白砂纹",
+          "color_vi": "trắng nhám",
           "attr_zh": "零件",
           "attr_vi": "linh kiện",
           "color_ver": "白色",
           "color_ver_vi": "màu trắng",
-          "unit": "根",
+          "unit": {
+            "zh": "根",
+            "vi": "根"
+          },
           "qty": "1",
           "remark": "",
           "materials": [
@@ -6140,13 +6155,16 @@
           "spec_vi": "1098x31x15mm",
           "material_zh": "Q195",
           "material_vi": "Q195",
-          "color_zh": "白色",
-          "color_vi": "màu trắng",
+          "color_zh": "白砂纹",
+          "color_vi": "trắng nhám",
           "attr_zh": "零件",
           "attr_vi": "linh kiện",
           "color_ver": "白色",
           "color_ver_vi": "màu trắng",
-          "unit": "根",
+          "unit": {
+            "zh": "根",
+            "vi": "根"
+          },
           "qty": "1",
           "remark": "",
           "materials": [
@@ -6254,13 +6272,16 @@
           "spec_vi": "356x15x15mm",
           "material_zh": "Q195",
           "material_vi": "Q195",
-          "color_zh": "白色",
-          "color_vi": "màu trắng",
+          "color_zh": "白砂纹",
+          "color_vi": "trắng nhám",
           "attr_zh": "零件",
           "attr_vi": "linh kiện",
           "color_ver": "白色",
           "color_ver_vi": "màu trắng",
-          "unit": "根",
+          "unit": {
+            "zh": "根",
+            "vi": "根"
+          },
           "qty": "2",
           "remark": "",
           "materials": [
