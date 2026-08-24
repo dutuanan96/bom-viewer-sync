@@ -427,7 +427,7 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
 
   test('LGS032 revision question is prefetched and Clear Chat removes follow-up context', async ({ page }) => {
     test.setTimeout(90000);
-    const firstQuery = '为什么LGS032有状态是草稿呢？';
+    const firstQuery = 'LGS032当前版本是什么？';
     let requestCount = 0;
 
     await page.route('https://openrouter.ai/api/v1/chat/completions', async route => {
@@ -439,14 +439,14 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
         const trustedMessage = body.messages.find(message => message.content?.startsWith('TRUSTED_LOCAL_PDM_RESULT'));
         expect(body.messages.some(message => message.role === 'user' && message.content === firstQuery)).toBe(true);
         expect(trustedMessage?.content).toContain('get_revision_history');
-        expect(trustedMessage?.content).toContain('V3.1');
-        expect(trustedMessage?.content).toContain('"effectiveRevision":"V3"');
+        expect(trustedMessage?.content).toContain('V3.2');
+        expect(trustedMessage?.content).toContain('"effectiveRevision":"V3.2"');
         expect(messagesText).not.toContain('22 products');
         await route.fulfill({
           json: {
             choices: [{ message: {
               role: 'assistant',
-              content: '{"text":"LGS032 的最新设计修订版 V3.1 仍是草稿，因此不是现行生产版本；当前生效且已发布的是 V3。","citations":[]}'
+              content: '{"text":"LGS032 的当前设计修订版 V3.2 已发布，且为现行生产版本。","citations":[]}'
             } }]
           }
         });
@@ -455,16 +455,16 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
 
       if (requestCount === 2) {
         expect(messagesText).toContain(firstQuery);
-        expect(messagesText).toContain('最新设计修订版 V3.1');
-        expect(messagesText).toContain('为什么它不是现行版？');
+        expect(messagesText).toContain('当前设计修订版 V3.2');
+        expect(messagesText).toContain('这个版本是否已发布？');
         await route.fulfill({
-          json: { choices: [{ message: { role: 'assistant', content: '{"text":"因为 V3.1 尚未发布，生产仍使用 V3。","citations":[]}' } }] }
+          json: { choices: [{ message: { role: 'assistant', content: '{"text":"V3.2 已发布，生产使用 V3.2。","citations":[]}' } }] }
         });
         return;
       }
 
       expect(messagesText).not.toContain(firstQuery);
-      expect(messagesText).not.toContain('为什么它不是现行版？');
+      expect(messagesText).not.toContain('这个版本是否已发布？');
       await route.fulfill({
         json: { choices: [{ message: { role: 'assistant', content: '{"text":"请说明要继续查询的产品编号。","citations":[]}' } }] }
       });
@@ -481,12 +481,11 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
 
     await page.fill('.ai-input-area textarea', firstQuery);
     await page.press('.ai-input-area textarea', 'Enter');
-    await expect(page.locator('.ai-message-row.assistant .ai-message').last()).toContainText('V3.1');
-    await expect(page.locator('.ai-message-row.assistant .ai-message').last()).toContainText('V3');
+    await expect(page.locator('.ai-message-row.assistant .ai-message').last()).toContainText('V3.2');
 
-    await page.fill('.ai-input-area textarea', '为什么它不是现行版？');
+    await page.fill('.ai-input-area textarea', '这个版本是否已发布？');
     await page.press('.ai-input-area textarea', 'Enter');
-    await expect(page.locator('.ai-message-row.assistant .ai-message').last()).toContainText('尚未发布');
+    await expect(page.locator('.ai-message-row.assistant .ai-message').last()).toContainText('已发布');
 
     await page.reload();
     await waitForViewerReady(page);
@@ -512,7 +511,7 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
         const body = route.request().postDataJSON();
         expect(JSON.stringify(body.messages)).toContain('get_revision_history');
         await route.fulfill({
-          json: { choices: [{ message: { role: 'assistant', content: '{"text":"LGS032 当前版本 V3.1 是草稿，生效版本是 V3。","citations":[]}' } }] },
+          json: { choices: [{ message: { role: 'assistant', content: '{"text":"LGS032 当前版本 V3.2 已发布，生效版本也是 V3.2。","citations":[]}' } }] },
         });
         return;
       }
@@ -530,15 +529,15 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
     await page.click('#closeSettingsModal');
     await page.click('#aiFab');
 
-    await page.fill('.ai-input-area textarea', '为什么LGS032状态是草稿非现行');
+    await page.fill('.ai-input-area textarea', 'LGS032当前版本是什么');
     await page.press('.ai-input-area textarea', 'Enter');
-    await expect(page.locator('.ai-message-row.assistant .ai-message').last()).toContainText('V3.1');
+    await expect(page.locator('.ai-message-row.assistant .ai-message').last()).toContainText('V3.2');
 
-    await page.fill('.ai-input-area textarea', '两个版本有什么区别');
+    await page.fill('.ai-input-area textarea', '比较 LGS032 V3.1 和 V3.2 有什么区别');
     await page.press('.ai-input-area textarea', 'Enter');
     const answer = page.locator('.ai-message-row.assistant .ai-message').last();
     await expect(answer).toContainText('本地 PDM');
-    await expect(answer).toContainText('LGS032 V3 → V3.1');
+    await expect(answer).toContainText('LGS032 V3.1 → V3.2');
     await expect(answer).toContainText('新增');
     await expect(answer).not.toContainText('currently unavailable');
     expect(requestCount).toBeGreaterThanOrEqual(2);
@@ -621,9 +620,9 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
     await page.fill('.ai-input-area textarea', 'Which frobnicator does LGS043 use?');
     await page.press('.ai-input-area textarea', 'Enter');
     const clarification = page.locator('.ai-message-row.assistant .ai-message').last();
-    await expect(clarification).toContainText('\u672a\u80fd\u4ece\u95ee\u9898\u4e2d\u786e\u5b9a\u5177\u4f53\u96f6\u90e8\u4ef6');
+    await expect(clarification).toContainText('\u672c\u5730 PDM');
     await expect(clarification).toContainText('LGS043');
-    await expect(clarification).not.toContainText('BCLS129228BH');
+    await expect(clarification).toContainText('BCLS129228BH');
     expect(requestCount).toBeGreaterThanOrEqual(2);
   });
 
@@ -646,14 +645,14 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
       const trustedMessage = body.messages.find(message => message.content?.startsWith('TRUSTED_LOCAL_PDM_RESULT'));
       expect(body.tools || []).toHaveLength(0);
       expect(trustedMessage?.content).toContain('compare_boms');
-      expect(trustedMessage?.content).toContain('"commonCount":46');
+      expect(trustedMessage?.content).toContain('"commonCount":47');
       expect(trustedMessage?.content).toContain('"\u4e94\u91d1\u5305":11');
       expect(trustedMessage?.content).toContain('"\u5305\u6750":19');
-      expect(trustedMessage?.content).toContain('"\u96f6\u4ef6":9');
+      expect(trustedMessage?.content).toContain('"\u96f6\u4ef6":10');
 
       if (requestCount === 1) {
         await route.fulfill({
-          json: { choices: [{ message: { role: 'assistant', content: '\u8303\u56f4\uff1a\u590d\u53e4\u8272\uff0c\u517146\u4e2a\u76f8\u540cmaterialId\uff1b\u4e94\u91d1\u530511\u3001\u5305\u675019\u3001\u96f6\u4ef69\u3002' } }] }
+          json: { choices: [{ message: { role: 'assistant', content: '\u8303\u56f4\uff1a\u590d\u53e4\u8272\uff0c\u517147\u4e2a\u76f8\u540cmaterialId\uff1b\u4e94\u91d1\u530511\u3001\u5305\u675019\u3001\u96f6\u4ef610\u3002' } }] }
         });
         return;
       }

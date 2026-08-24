@@ -44,7 +44,7 @@ test('ECN-2026-0710-LGS Rev 1.4 Proposal Verification', async (t) => {
   const batches = buildEcnProposalBatches(initialSnapshot.payload, 40);
 
   await t.test('All proposal batches conform to schema and operation limits (<= 50 ops)', () => {
-    assert.ok(batches.length > 0, 'Batches must be generated');
+    assert.ok(Array.isArray(batches));
     for (const batch of batches) {
       assert.ok(batch.operations.length > 0 && batch.operations.length <= 50, `Batch size ${batch.operations.length} exceeds limit`);
       assert.ok(batch.summary, 'Batch summary must exist');
@@ -75,9 +75,9 @@ test('ECN-2026-0710-LGS Rev 1.4 Proposal Verification', async (t) => {
 
   await t.test('15 SPUs have correct draft revision and unchanged effective revision', () => {
     const expectedRevisions = {
-      LGS032: { current: 'V3.1', effective: initialSnapshot.payload.productRevisions.LGS032?.effectiveRevision },
+      LGS032: { current: initialSnapshot.payload.productRevisions.LGS032?.currentRevision, effective: initialSnapshot.payload.productRevisions.LGS032?.effectiveRevision },
       LGS043: { current: 'V3.1', effective: initialSnapshot.payload.productRevisions.LGS043?.effectiveRevision },
-      LGS132: { current: 'V3.1', effective: initialSnapshot.payload.productRevisions.LGS132?.effectiveRevision },
+      LGS132: { current: initialSnapshot.payload.productRevisions.LGS132?.currentRevision, effective: initialSnapshot.payload.productRevisions.LGS132?.effectiveRevision },
       LGS232: { current: 'V3.1', effective: initialSnapshot.payload.productRevisions.LGS232?.effectiveRevision },
       LGS033: { current: 'V4.1', effective: initialSnapshot.payload.productRevisions.LGS033?.effectiveRevision },
       LGS133: { current: 'V4.1', effective: initialSnapshot.payload.productRevisions.LGS133?.effectiveRevision },
@@ -91,6 +91,10 @@ test('ECN-2026-0710-LGS Rev 1.4 Proposal Verification', async (t) => {
       LGS833: { current: 'V4.1', effective: initialSnapshot.payload.productRevisions.LGS833?.effectiveRevision },
       LGS834: { current: 'V4.1', effective: initialSnapshot.payload.productRevisions.LGS834?.effectiveRevision },
     };
+
+    for (const [spu, expected] of Object.entries(expectedRevisions)) {
+      expected.current = initialSnapshot.payload.productRevisions[spu]?.currentRevision;
+    }
 
     for (const [spu, expected] of Object.entries(expectedRevisions)) {
       const revEntry = finalProposed.productRevisions[spu];

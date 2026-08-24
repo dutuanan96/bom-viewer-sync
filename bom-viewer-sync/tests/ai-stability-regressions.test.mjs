@@ -140,8 +140,8 @@ test('stability: catalog attributes find the five-drawer and seven-drawer produc
 test('stability: product details expose bilingual colors, SKUs, and sizes', () => {
   const product = new PdmKnowledge(snapshot).getProduct({ productId: 'LGS723' });
 
-  assert.deepEqual(product.colors, ['复古色', '白色', '黑色']);
-  assert.equal(product.variants.length, 3);
+  assert.deepEqual(product.colors, ['复古色', '白色', '黑色', '山纹黑']);
+  assert.equal(product.variants.length, 4);
   assert.ok(product.variants.every(variant => variant.colorVi && variant.sku && variant.size));
 });
 

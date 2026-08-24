@@ -926,6 +926,7 @@ test('shanwenhei color uses a distinct light gray color icon', () => {
   app.highlight = (value) => value;
 
   assert.match(app.renderColorDot('山纹黑'), /#b6bec9/);
+  assert.equal(app.colorDotClass('山纹黑'), 'shanwenhei');
 });
 
 test('BOM row update boundary rejects material master fields', () => {
