@@ -53,7 +53,8 @@ import {
   applyMutationProposalTransaction,
   buildMutationProposalReview,
 } from './features/ai-assistant/mutation-engine.js';
-import { buildEcnProposalBatches } from './features/ecn-proposal/ecn-2026-0710-proposal-builder.js';
+import { buildEcnProposalBatches as buildLegacyEcnProposalBatches } from './features/ecn-proposal/ecn-2026-0710-proposal-builder.js';
+import { buildB201ProposalBatches } from './features/ecn-proposal/b201-shanwenhei-variant-proposal-builder.js';
 import { buildOrphanBomCleanupBatches, findOrphanBomEntries } from './features/orphan-cleanup/orphan-bom-proposal-builder.js';
 import { createLocalAiStore } from './features/ai-assistant/local-store.js';
 import { createMemoryManager } from './features/ai-assistant/memory-manager.js';
@@ -92,6 +93,13 @@ const ASSET_STORAGE_CONFIG = {
   repo: 'bom-viewer-assets',
   branch: 'main',
 };
+
+function buildEcnProposalBatches(payload, maxBatchSize) {
+  const legacyBatches = buildLegacyEcnProposalBatches(payload, maxBatchSize);
+  return legacyBatches.length > 0
+    ? legacyBatches
+    : buildB201ProposalBatches(payload, maxBatchSize);
+}
 
 class StaleRemoteDataError extends Error {
   constructor() {
@@ -490,6 +498,7 @@ const TEXT = {
     'ai.warning.create_material': '请验证物料编码是否规范且未重复。',
     'ai.warning.add_bom_item': '请验证产品、颜色、部件编码、数量及物料身份是否正确。',
     'ai.warning.create_product': '请验证产品编码、初始 SKU、颜色及本地化名称。',
+    'ai.warning.create_product_variant': '请验证来源颜色、新 SKU、颜色及复制后的完整 BOM。',
     'ai.warning.create_product_revision': '创建版本会对当前产品及 BOM 状态进行快照。',
     'ai.warning.release_product_revision': '发布将更改当前生效的生产版本，并需要 Admin 明确批准。',
     'ai.warning.withdraw_product_revision': '撤回将恢复上一个生效版本，并需要 Admin 明确批准。',
@@ -880,6 +889,7 @@ const TEXT = {
     'ai.warning.create_material': 'Vui lòng xác minh mã vật liệu là chuẩn và không bị trùng lặp.',
     'ai.warning.add_bom_item': 'Vui lòng xác minh sản phẩm, màu sắc, mã linh kiện, số lượng và thông tin vật liệu.',
     'ai.warning.create_product': 'Vui lòng xác minh mã sản phẩm, SKU ban đầu, màu sắc và tên địa phương hóa.',
+    'ai.warning.create_product_variant': 'Vui lòng xác minh màu nguồn, SKU mới, màu sắc và toàn bộ BOM sau khi sao chép.',
     'ai.warning.create_product_revision': 'Tạo phiên bản sẽ chụp nhanh trạng thái hiện tại của sản phẩm và BOM.',
     'ai.warning.release_product_revision': 'Phát hành sẽ thay đổi phiên bản sản xuất hiện hành và yêu cầu Admin phê duyệt rõ ràng.',
     'ai.warning.withdraw_product_revision': 'Thu hồi sẽ khôi phục phiên bản hiện hành trước đó và yêu cầu Admin phê duyệt rõ ràng.',
