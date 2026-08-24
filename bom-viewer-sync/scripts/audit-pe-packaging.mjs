@@ -1,6 +1,6 @@
 import { lstatSync, readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
-import { assertCutoverShardCount, parseLogicalShardFiles } from '../src/domain/sharded-files.js';
+import { assertLogicalShardCount, parseLogicalShardFiles } from '../src/domain/sharded-files.js';
 
 const SUPPLIER_PACKAGING_PATTERN = /拉杆|底脚/;
 const TARGET_PATTERN = /([A-Z0-9_]*[A-Z_][A-Z0-9_]*)[×x](\d+)/g;
@@ -117,7 +117,7 @@ function readCanonicalShardPayload(repoRoot) {
     if (!entry.isFile()) throw new Error(`Canonical product shard is not a file: ${entry.name}`);
     files.set(`products/${entry.name}`, readFileSync(path.join(dataRoot, 'products', entry.name), 'utf8'));
   }
-  assertCutoverShardCount(files);
+  assertLogicalShardCount(files);
   return parseLogicalShardFiles(files);
 }
 

@@ -1,8 +1,5 @@
 import { assembleShardedPayload, splitPayloadToShards, validateProductId } from './sharded-data.js';
 
-export const CUTOVER_PRODUCT_SHARD_COUNT = 22;
-export const CUTOVER_LOGICAL_SHARD_COUNT = 24;
-
 function stringify(value) {
   return `${JSON.stringify(value, null, 2)}\n`;
 }
@@ -23,10 +20,10 @@ export function validateLogicalShardPath(path) {
   return path;
 }
 
-export function assertCutoverShardCount(files) {
+export function assertLogicalShardCount(files) {
   const count = files instanceof Map ? files.size : Number(files);
-  if (count < 24) {
-    throw new Error(`Expected 24 logical shards, got ${count}`);
+  if (!Number.isInteger(count) || count < 3) {
+    throw new Error(`Expected at least 3 logical shards, got ${count}`);
   }
 }
 

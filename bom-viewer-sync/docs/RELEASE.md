@@ -37,7 +37,7 @@ Do not publish:
 - evidence archives
 - local review artifacts
 
-Runtime data changes use the Admin exact 24 shards save flow. They are not part
+Runtime data changes use the Admin manifest-defined shard save flow. They are not part
 of code or mirror publication.
 
 ## Preconditions

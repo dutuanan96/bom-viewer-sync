@@ -3,7 +3,7 @@ import { execFileSync } from 'node:child_process';
 import { readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import test from 'node:test';
-import { assertCutoverShardCount, parseLogicalShardFiles } from '../src/domain/sharded-files.js';
+import { assertLogicalShardCount, parseLogicalShardFiles } from '../src/domain/sharded-files.js';
 
 const repoRoot = path.resolve(import.meta.dirname, '..');
 async function readCanonicalPayload() {
@@ -16,7 +16,7 @@ async function readCanonicalPayload() {
     assert.match(entry.name, /^[A-Za-z0-9_-]+\.json$/, `Unexpected product shard: ${entry.name}`);
     files.set(`products/${entry.name}`, readFileSync(path.join(repoRoot, 'data', 'products', entry.name), 'utf8'));
   }
-  assertCutoverShardCount(files);
+  assertLogicalShardCount(files);
   return parseLogicalShardFiles(files);
 }
 

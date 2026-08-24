@@ -24,7 +24,7 @@ test('AI debug guide is readable, self-contained, and operational', () => {
   assert.match(guide, /npm run check/);
   assert.match(guide, /github-sharded-data\.js/);
   assert.match(guide, /github-git-data\.js/);
-  assert.match(guide, /exact 24 shards/);
+  assert.match(guide, /manifest-defined shard set/);
   assert.match(guide, /expectedHeadSha/);
   assert.match(guide, /force:false/);
   assert.match(guide, /there is no `data\.js` fallback/);

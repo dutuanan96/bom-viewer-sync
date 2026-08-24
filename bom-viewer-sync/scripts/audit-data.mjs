@@ -8,7 +8,7 @@ import path from 'node:path';
 import { resolveBomRows } from '../src/domain/bom.js';
 import { isHardwarePackSummary } from '../src/domain/materials.js';
 import { parseDataJsPayload } from '../src/infrastructure/github-data.js';
-import { assertCutoverShardCount, parseLogicalShardFiles } from '../src/domain/sharded-files.js';
+import { assertLogicalShardCount, parseLogicalShardFiles } from '../src/domain/sharded-files.js';
 
 const repoRoot = path.resolve(import.meta.dirname, '..');
 const dataArgumentIndex = process.argv.indexOf('--data');
@@ -30,7 +30,7 @@ function readCanonicalShardPayload() {
     logicalFiles.set(logicalPath, readFileSync(path.join(productsRoot, entry.name), 'utf8'));
   }
 
-  assertCutoverShardCount(logicalFiles);
+  assertLogicalShardCount(logicalFiles);
   return parseLogicalShardFiles(logicalFiles);
 }
 
@@ -40,7 +40,7 @@ const payload = dataPath
   : await readCanonicalShardPayload();
 console.log(dataPath
   ? 'Audit source: rollback snapshot (not canonical runtime data)'
-  : 'Audit source: canonical runtime shards (24)');
+  : 'Audit source: canonical runtime shards');
 
 const issues = [];
 function report(severity, category, message, detail) {
