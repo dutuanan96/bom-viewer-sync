@@ -45,6 +45,7 @@ The exact operation allowlist is:
 
 ```text
 create_product
+create_product_variant
 update_product
 create_product_revision
 release_product_revision
@@ -67,6 +68,12 @@ delete_material_structure
 Each operation has exact top-level and payload keys. Unknown operations,
 additional fields, invalid IDs, unsafe URLs, stale context, dirty state,
 revision violations, used-material deletion, and structure cycles fail closed.
+
+`create_product_variant` clones one exact existing source color and all of its
+scoped product/material BOM relationships into a new color on the same product.
+Its exact payload is `{sourceColor,color:{zh,vi},name:{zh,vi},sku}`. It requires
+a current Draft revision, rejects duplicate colors or SKUs, and remains subject
+to per-operation Admin review before local application.
 
 Proposal execution is:
 
