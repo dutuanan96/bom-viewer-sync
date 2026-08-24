@@ -54,7 +54,7 @@ import {
   buildMutationProposalReview,
 } from './features/ai-assistant/mutation-engine.js';
 import { buildEcnProposalBatches as buildLegacyEcnProposalBatches } from './features/ecn-proposal/ecn-2026-0710-proposal-builder.js';
-import { buildB201ProposalBatches } from './features/ecn-proposal/b201-shanwenhei-variant-proposal-builder.js';
+import { buildB201ProposalBatches, buildB201WithdrawalProposalBatches } from './features/ecn-proposal/b201-shanwenhei-variant-proposal-builder.js';
 import { buildOrphanBomCleanupBatches, findOrphanBomEntries } from './features/orphan-cleanup/orphan-bom-proposal-builder.js';
 import { createLocalAiStore } from './features/ai-assistant/local-store.js';
 import { createMemoryManager } from './features/ai-assistant/memory-manager.js';
@@ -96,9 +96,11 @@ const ASSET_STORAGE_CONFIG = {
 
 function buildEcnProposalBatches(payload, maxBatchSize) {
   const legacyBatches = buildLegacyEcnProposalBatches(payload, maxBatchSize);
-  return legacyBatches.length > 0
-    ? legacyBatches
-    : buildB201ProposalBatches(payload, maxBatchSize);
+  if (legacyBatches.length > 0) return legacyBatches;
+  const b201Batches = buildB201ProposalBatches(payload, maxBatchSize);
+  return b201Batches.length > 0
+    ? b201Batches
+    : buildB201WithdrawalProposalBatches(payload, maxBatchSize);
 }
 
 class StaleRemoteDataError extends Error {

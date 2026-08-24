@@ -191,3 +191,25 @@ export function buildB201ProposalBatches(payload, maxBatchSize = 40) {
   }
   return batches;
 }
+
+export function buildB201WithdrawalProposalBatches(payload, maxBatchSize = 40) {
+  const operations = VARIANT_CONFIGS
+    .filter((config) => {
+      const product = payload?.bom?.[config.spu];
+      const targetColor = findColorBySku(product, config.sku);
+      const revision = payload?.productRevisions?.[config.spu];
+      return targetColor
+        && revision?.currentRevisionInfo?.workflowState === 'released'
+        && revision.currentRevisionInfo?.changeReason === CHANGE_REASON;
+    })
+    .map((config) => ({
+      operationType: 'withdraw_product_revision',
+      targetId: config.spu,
+      payload: { reason: 'Withdraw prematurely released B201 Shanwenhei variant for Draft review.' },
+    }));
+  if (!operations.length) return [];
+  return [{
+    summary: `ECN-2026-0824-B201: withdraw ${operations.length} prematurely released Shanwenhei revisions`,
+    operations: operations.slice(0, maxBatchSize),
+  }];
+}

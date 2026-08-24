@@ -45,6 +45,10 @@ function proposalBomProductTargets(payload, operations) {
       targets.add(operation.targetId);
       continue;
     }
+    if (operation.operationType === 'withdraw_product_revision') {
+      targets.add(operation.targetId);
+      continue;
+    }
     if (!['update_bom_quantity', 'replace_bom_item', 'remove_bom_item', 'update_bom_item'].includes(operation.operationType)) continue;
     const entry = entriesById.get(operation.targetId);
     if (entry?.parentType === 'product') targets.add(entry.productCode || entry.parentId);
