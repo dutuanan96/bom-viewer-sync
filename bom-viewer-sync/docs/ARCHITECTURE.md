@@ -60,7 +60,7 @@ line endings.
 
 ## Runtime Data
 
-Canonical runtime data is the exact 24 shards:
+Canonical runtime data is the manifest-defined shard set:
 
 ```text
 data/manifest.json
@@ -77,7 +77,7 @@ Viewer data flow:
 configured branch
   -> exact commit
   -> cache-busted commit-pinned shard URLs
-  -> exact shard validation
+  -> manifest-defined shard validation
   -> payload assembly and normalization
   -> read-only rendering
 ```

@@ -1,6 +1,5 @@
 import {
-  CUTOVER_PRODUCT_SHARD_COUNT,
-  assertCutoverShardCount,
+  assertLogicalShardCount,
   buildLogicalShardFiles,
   parseLogicalShardFiles,
   toRepositoryShardFiles,
@@ -149,9 +148,7 @@ export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.
           if (seenProductIds.has(id)) throw new Error(`Duplicate product ID in manifest: ${id}`);
           seenProductIds.add(id);
         }
-        if (manifest.products.length !== CUTOVER_PRODUCT_SHARD_COUNT) {
-          assertCutoverShardCount(manifest.products.length + 2);
-        }
+        assertLogicalShardCount(manifest.products.length + 2);
 
         const materialsContent = await fetchRaw('materials.json');
         const files = new Map([
@@ -164,7 +161,7 @@ export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.
           files.set(`products/${id}.json`, content);
         }));
 
-        assertCutoverShardCount(files);
+        assertLogicalShardCount(files);
         const payload = await parseLogicalShardFiles(files);
         const snapshotSha = await contentSnapshotSha(files);
 
@@ -262,7 +259,7 @@ export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.
           if (expectedPaths.has(productPath)) throw new Error(`Duplicate product ID in manifest: ${id}`);
           expectedPaths.add(productPath);
         }
-        assertCutoverShardCount(expectedPaths.size);
+        assertLogicalShardCount(expectedPaths.size);
 
         for (const logicalPath of entriesByPath.keys()) {
           if (!expectedPaths.has(logicalPath)) throw new Error(`Unexpected logical shard: ${logicalPath}`);
@@ -276,7 +273,7 @@ export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.
           files.set(logicalPath, await fetchBlob(entriesByPath.get(logicalPath)));
         }));
 
-        assertCutoverShardCount(files);
+        assertLogicalShardCount(files);
         const payload = await parseLogicalShardFiles(files);
 
         // Same priority as loadPublic — no new Date() fallback.
@@ -301,7 +298,7 @@ export function createGithubShardedDataAdapter({ config, fetchImpl = globalThis.
     async write({ token, expectedHeadSha, payload, message }) {
       try {
         const logicalFiles = buildLogicalShardFiles(payload);
-        assertCutoverShardCount(logicalFiles);
+        assertLogicalShardCount(logicalFiles);
         const repoFiles = toRepositoryShardFiles(logicalFiles, shardRoot);
 
         if (!writerFactory) throw new Error('writerFactory is required for write');

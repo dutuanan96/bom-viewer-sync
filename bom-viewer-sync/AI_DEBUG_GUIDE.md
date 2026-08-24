@@ -74,7 +74,7 @@ npm run build
 Build output is deterministic across LF/CRLF worktrees. Generated freshness
 checks normalize line endings before comparison.
 
-Canonical runtime data is the exact 24 shards:
+Canonical runtime data is the manifest-defined shard set:
 
 ```text
 data/manifest.json
@@ -101,7 +101,7 @@ Viewer:
 viewer.html
   -> resolve configured branch to an exact commit
   -> load cache-busted, commit-pinned shard URLs
-  -> require the exact 24 shards
+  -> require every shard declared by the manifest
   -> assemble and normalize the payload
   -> render read-only product, BOM, material, and structure views
 ```
@@ -119,7 +119,7 @@ admin.html + app-admin.js + styles.css
   -> re-read current remote payload and expectedHeadSha
   -> preserve remote notification history
   -> append the save notification
-  -> serialize the exact 24 shards
+  -> serialize every shard declared by the manifest
   -> create blobs, tree, and commit
   -> update the branch ref once with force:false
 ```
@@ -201,7 +201,7 @@ For local portable acceptance, open Viewer and Admin through the required
 
 1. Viewer is read-only and standalone.
 2. Generated artifacts are never manual edit targets.
-3. Runtime reads and writes exactly 24 shards.
+3. Runtime reads and writes every shard declared by the manifest.
 4. `data.js` is never a runtime source.
 5. Admin uses the current remote payload and `expectedHeadSha` before save.
 6. The Git ref update is non-force with `force:false`.

@@ -28,7 +28,7 @@ The project produces two standalone browser entrypoints:
 - `admin.html` with `app-admin.js` for authorized editing and GitHub-backed
   saves.
 
-Runtime data is stored in the exact 24 shards under:
+Runtime data is stored in manifest-defined shards under:
 
 ```text
 data/manifest.json

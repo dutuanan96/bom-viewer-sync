@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { createGithubShardedDataAdapter } from '../src/infrastructure/github-sharded-data.js';
 
 const PRODUCT_IDS = Array.from({ length: 22 }, (_, index) => `P${index + 1}`);
+const EXPANDED_PRODUCT_IDS = [...PRODUCT_IDS, 'P23'];
 
 function cutoverShardContents() {
   return new Map([
@@ -60,6 +61,23 @@ test('github-sharded-data adapter tests', async (t) => {
     assert.equal(metadata.manifestVersion, 1);
     // Commit mock has no date, manifest has no updatedAt, so updatedAt should be null (no new Date() fallback)
     assert.equal(metadata.updatedAt, null);
+  });
+
+  await t.test('loadPublic accepts an expanded manifest shard set', async () => {
+    const adapter = createGithubShardedDataAdapter({
+      config,
+      fetchImpl: async (url) => {
+        if (url.includes('/commits/main')) return { ok: true, json: async () => ({ sha: 'a'.repeat(40) }) };
+        if (url.includes('manifest.json')) return { ok: true, text: async () => JSON.stringify({ version: 1, products: EXPANDED_PRODUCT_IDS }) };
+        if (url.includes('materials.json')) return { ok: true, text: async () => JSON.stringify({ materialDb: { materials: {}, bomEntries: [] }, drawings: {}, manuals: {}, models3d: {} }) };
+        const productMatch = url.match(/products\/(P\d+)\.json/);
+        if (productMatch) return { ok: true, text: async () => JSON.stringify({ id: productMatch[1], colors: [], materials: [] }) };
+        throw new Error(`Unexpected request: ${url}`);
+      },
+    });
+
+    const payload = await adapter.loadPublic();
+    assert.ok(payload.bom.P23);
   });
 
   await t.test('loadPublic fails rather than mixing shards when the commit lookup is rate limited', async () => {
@@ -319,22 +337,23 @@ test('Adversarial Matrix: GitHub Sharded Adapter', async (t) => {
     assert.equal(fetchArgs.some((url) => url.includes('products/A/B.json')), false);
   });
 
-  await t.test('loadPublic rejects a reduced but internally consistent shard set', async () => {
+  await t.test('loadPublic rejects a manifest when a declared shard is missing', async () => {
     const adapter = createGithubShardedDataAdapter({
       config,
       fetchImpl: async (url) => {
         if (url.includes('commits/main')) return { ok: true, json: async () => ({ sha: 'a'.repeat(40) }) };
-        if (url.includes('manifest.json')) return { ok: true, text: async () => JSON.stringify({ version: 2, products: ['P1'] }) };
+        if (url.includes('manifest.json')) return { ok: true, text: async () => JSON.stringify({ version: 2, products: ['P1', 'P2'] }) };
         if (url.includes('materials.json')) return { ok: true, text: async () => JSON.stringify({ materialDb: { materials: {}, bomEntries: [] } }) };
         if (url.includes('products/P1.json')) return { ok: true, text: async () => JSON.stringify({ id: 'P1' }) };
+        if (url.includes('products/P2.json')) return { ok: false, status: 404 };
         throw new Error(`Unexpected request: ${url}`);
       },
     });
 
-    await assert.rejects(adapter.loadPublic(), /Expected 24 logical shards, got 3/);
+    await assert.rejects(adapter.loadPublic(), /Failed to load products\/P2.json/);
   });
 
-  await t.test('loadForWrite rejects a reduced but internally consistent shard tree', async () => {
+  await t.test('loadForWrite accepts a manifest-defined shard tree', async () => {
     const commitSha = 'a'.repeat(40);
     const treeSha = 'b'.repeat(40);
     const contents = new Map([
@@ -355,7 +374,8 @@ test('Adversarial Matrix: GitHub Sharded Adapter', async (t) => {
       },
     });
 
-    await assert.rejects(adapter.loadForWrite('token'), /Expected 24 logical shards, got 3/);
+    const result = await adapter.loadForWrite('token');
+    assert.ok(result.payload.bom.P1);
   });
 
   await t.test('loadForWrite binds the recursive tree response to the requested SHA', async () => {
@@ -458,13 +478,13 @@ test('Adversarial Matrix: GitHub Sharded Adapter', async (t) => {
     assert.doesNotMatch(`${error.name}|${error.message}|${error.code}|${error.status}|${error.stack}`, new RegExp(token));
   });
 
-  await t.test('write rejects a reduced shard set before constructing a writer', async () => {
+  await t.test('write serializes a manifest-defined shard set', async () => {
     let writerFactoryCalled = false;
     const adapter = createGithubShardedDataAdapter({
       config,
       writerFactory: () => {
         writerFactoryCalled = true;
-        return { writeFiles: async () => ({ commitSha: 'unused' }) };
+        return { writeFiles: async () => ({ commitSha: 'b'.repeat(40) }) };
       },
     });
     const payload = {
@@ -473,11 +493,9 @@ test('Adversarial Matrix: GitHub Sharded Adapter', async (t) => {
       materialDb: { materials: {}, bomEntries: [] },
     };
 
-    await assert.rejects(
-      adapter.write({ token: 'token', expectedHeadSha: 'a'.repeat(40), payload }),
-      /Expected 24 logical shards, got 3/,
-    );
-    assert.equal(writerFactoryCalled, false);
+    const result = await adapter.write({ token: 'token', expectedHeadSha: 'a'.repeat(40), payload });
+    assert.equal(result.commitSha, 'b'.repeat(40));
+    assert.equal(writerFactoryCalled, true);
   });
 });
 

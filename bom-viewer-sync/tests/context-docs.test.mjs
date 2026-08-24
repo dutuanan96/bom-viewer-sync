@@ -59,7 +59,7 @@ test('durable documents have distinct responsibilities and navigation', () => {
 
 test('documentation preserves source, data, and mirror safety boundaries', () => {
   const combined = [...documents.values()].join('\n');
-  assert.match(combined, /exact 24 shards/);
+  assert.match(combined, /manifest-defined shard set/);
   assert.match(combined, /`data\.js` is .*rollback/i);
   assert.match(combined, /Generated artifacts are never hand-edited/);
   assert.match(combined, /Mirrors are non-canonical/);
