@@ -13486,17 +13486,9 @@
         "models3d": [
           {
             "name": "M6x10内六角螺丝.glb",
-            "path": "models3d/catalog/M6x10-1a5aa14f.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
-            "matched_name": "M6X10内六角螺丝",
-            "score": 1100,
-            "bytes": 150108,
-            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
-          },
-          {
             "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
-            "name": "M6x12内六角螺丝",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
+            "path": "models3d/catalog/M6x10-1a5aa14f.glb"
           }
         ],
         "unit": {
@@ -16592,18 +16584,10 @@
         "drawings": [],
         "models3d": [
           {
-            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
-            "name": "M6x12内六角螺丝",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
-          },
-          {
             "name": "M6x10内六角螺丝.glb",
-            "path": "models3d/catalog/M6x10-1a5aa14f.glb",
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
-            "matched_name": "M6X10内六角螺丝",
-            "score": 1100,
-            "bytes": 150108,
-            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+            "path": "models3d/catalog/M6x10-1a5aa14f.glb"
           }
         ],
         "unit": {
@@ -19446,11 +19430,9 @@
         "models3d": [
           {
             "name": "LGS231_131-底部横杆.glb",
-            "path": "models3d/catalog/LGS231-131-8264a80a.glb",
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS231-131-8264a80a.glb",
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS231-131-8264a80a.glb",
-            "matched_name": "LGS231_131-底部横杆",
-            "score": 1300,
-            "bytes": 68340
+            "path": "models3d/catalog/LGS231-131-8264a80a.glb"
           }
         ],
         "unit": {
@@ -19587,11 +19569,9 @@
         "models3d": [
           {
             "name": "LGS231_131-顶部横杆后.glb",
-            "path": "models3d/catalog/LGS231-131-593b50c9.glb",
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS231-131-593b50c9.glb",
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS231-131-593b50c9.glb",
-            "matched_name": "LGS231_131-顶部横杆后",
-            "score": 1300,
-            "bytes": 174732
+            "path": "models3d/catalog/LGS231-131-593b50c9.glb"
           }
         ],
         "unit": {
@@ -20315,17 +20295,9 @@
         ],
         "models3d": [
           {
-            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb",
             "name": "LGS131_231_232-中间层板",
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb",
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb"
-          },
-          {
-            "name": "LGS232_231_131-中间层板.glb",
-            "path": "models3d/catalog/LGS232-231-131-6e6242dc.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb",
-            "matched_name": "LGS232_231_131-中间层板",
-            "score": 1300,
-            "bytes": 25284
           }
         ],
         "unit": {
@@ -23115,16 +23087,8 @@
         ],
         "models3d": [
           {
-            "name": "LGS232_231_131-中间层板.glb",
-            "path": "models3d/catalog/LGS232-231-131-6e6242dc.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb",
-            "matched_name": "LGS232_231_131-中间层板",
-            "score": 1300,
-            "bytes": 25284
-          },
-          {
-            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb",
             "name": "LGS131_231_232-中间层板",
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb",
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb"
           }
         ],
@@ -23427,17 +23391,8 @@
         ],
         "models3d": [
           {
-            "name": "LGS232_231_131-中间层板.glb",
-            "path": "models3d/catalog/LGS232-231-131-6e6242dc.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb",
-            "matched_name": "LGS232_231_131-中间层板",
-            "score": 1100,
-            "bytes": 25284,
-            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb"
-          },
-          {
-            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb",
             "name": "LGS131_231_232-中间层板",
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb",
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb"
           }
         ],
@@ -25970,21 +25925,9 @@
         "models3d": [
           {
             "name": "LGS334_434-底部横杆左-前.glb",
-            "path": "models3d/catalog/LGS334-434-12cb6679.glb",
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-12cb6679.glb",
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-12cb6679.glb",
-            "matched_name": "LGS334_434_834-底部横杆左-前",
-            "score": 1300,
-            "bytes": 94804,
-            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-12cb6679.glb"
-          },
-          {
-            "name": "LGS334_434_834-底部横杆左-前.glb",
-            "path": "models3d/catalog/LGS334-434-834-f806e3c3.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-f806e3c3.glb",
-            "matched_name": "LGS334_434_834-底部横杆左-前",
-            "score": 1300,
-            "bytes": 94804,
-            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-f806e3c3.glb"
+            "path": "models3d/catalog/LGS334-434-12cb6679.glb"
           }
         ],
         "unit": {
@@ -26025,22 +25968,10 @@
         ],
         "models3d": [
           {
-            "name": "LGS334_434-底部横杆左-后.glb",
-            "path": "models3d/catalog/LGS334-434-da84b3da.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-da84b3da.glb",
-            "matched_name": "LGS334_434_834-底部横杆左-后",
-            "score": 1300,
-            "bytes": 135540,
-            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-da84b3da.glb"
-          },
-          {
             "name": "LGS334_434_834-底部横杆左-后.glb",
-            "path": "models3d/catalog/LGS334-434-834-404054ab.glb",
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-404054ab.glb",
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-404054ab.glb",
-            "matched_name": "LGS334_434_834-底部横杆左-后",
-            "score": 1300,
-            "bytes": 135540,
-            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-404054ab.glb"
+            "path": "models3d/catalog/LGS334-434-834-404054ab.glb"
           }
         ],
         "unit": {
@@ -29172,22 +29103,10 @@
         ],
         "models3d": [
           {
-            "name": "LGS334_434_834-底部横杆左-前.glb",
-            "path": "models3d/catalog/LGS334-434-834-f806e3c3.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-f806e3c3.glb",
-            "matched_name": "LGS334_434_834-底部横杆左-前",
-            "score": 1300,
-            "bytes": 94804,
-            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-f806e3c3.glb"
-          },
-          {
             "name": "LGS334_434-底部横杆左-前.glb",
-            "path": "models3d/catalog/LGS334-434-12cb6679.glb",
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-12cb6679.glb",
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-12cb6679.glb",
-            "matched_name": "LGS334_434_834-底部横杆左-前",
-            "score": 1300,
-            "bytes": 94804,
-            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-12cb6679.glb"
+            "path": "models3d/catalog/LGS334-434-12cb6679.glb"
           }
         ],
         "unit": {
@@ -29229,21 +29148,9 @@
         "models3d": [
           {
             "name": "LGS334_434_834-底部横杆左-后.glb",
-            "path": "models3d/catalog/LGS334-434-834-404054ab.glb",
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-404054ab.glb",
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-404054ab.glb",
-            "matched_name": "LGS334_434_834-底部横杆左-后",
-            "score": 1300,
-            "bytes": 135540,
-            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-404054ab.glb"
-          },
-          {
-            "name": "LGS334_434-底部横杆左-后.glb",
-            "path": "models3d/catalog/LGS334-434-da84b3da.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-da84b3da.glb",
-            "matched_name": "LGS334_434_834-底部横杆左-后",
-            "score": 1300,
-            "bytes": 135540,
-            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-da84b3da.glb"
+            "path": "models3d/catalog/LGS334-434-834-404054ab.glb"
           }
         ],
         "unit": {
@@ -34903,8 +34810,10 @@
         },
         "drawings": [
           {
-            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf",
-            "name": "41底脚.pdf"
+            "name": "41底脚.pdf",
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf",
+            "path": "drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf"
           }
         ],
         "models3d": [
@@ -39952,9 +39861,9 @@
         "drawings": [],
         "models3d": [
           {
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8dfe1e2e0aeb4c28fb32d589a2a3464e260ad458/assets/models/M6GS1515WH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb",
             "name": "M6管塞",
-            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8dfe1e2e0aeb4c28fb32d589a2a3464e260ad458/assets/models/M6GS1515WH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
           }
         ],
         "unit": {
@@ -41958,9 +41867,9 @@
         "drawings": [
           {
             "name": "41底脚(螺纹长23mm).pdf",
-            "path": "drawings/catalog/drawing-zjg15064123wh-21add5e1.pdf",
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-zjg15064123wh-21add5e1.pdf",
-            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-zjg15064123wh-21add5e1.pdf"
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-zjg15064123bh-21add5e1.pdf",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-zjg15064123bh-21add5e1.pdf",
+            "path": "drawings/catalog/drawing-zjg15064123bh-21add5e1.pdf"
           }
         ],
         "models3d": [
@@ -42265,9 +42174,9 @@
         "drawings": [
           {
             "name": "LGS033左侧框.pdf",
-            "path": "drawings/catalog/drawing-lgs033zkwh647-7ed39cf2.pdf",
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs033zkwh647-7ed39cf2.pdf",
-            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs033zkwh647-7ed39cf2.pdf"
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs033zkbh647-7ed39cf2.pdf",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs033zkbh647-7ed39cf2.pdf",
+            "path": "drawings/catalog/drawing-lgs033zkbh647-7ed39cf2.pdf"
           }
         ],
         "models3d": [
@@ -42309,9 +42218,9 @@
         "drawings": [
           {
             "name": "LGS033右侧框.pdf",
-            "path": "drawings/catalog/drawing-lgs033ykwh647-ded5d4e7.pdf",
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs033ykwh647-ded5d4e7.pdf",
-            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs033ykwh647-ded5d4e7.pdf"
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs033ykbh647-ded5d4e7.pdf",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs033ykbh647-ded5d4e7.pdf",
+            "path": "drawings/catalog/drawing-lgs033ykbh647-ded5d4e7.pdf"
           }
         ],
         "models3d": [
@@ -42529,9 +42438,9 @@
         "drawings": [
           {
             "name": "LGS233左侧框.pdf",
-            "path": "drawings/catalog/drawing-lgs233zkwh647-3b3d4fc4.pdf",
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs233zkwh647-3b3d4fc4.pdf",
-            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs233zkwh647-3b3d4fc4.pdf"
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs233zkbh647-3b3d4fc4.pdf",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs233zkbh647-3b3d4fc4.pdf",
+            "path": "drawings/catalog/drawing-lgs233zkbh647-3b3d4fc4.pdf"
           }
         ],
         "models3d": [
@@ -42573,9 +42482,9 @@
         "drawings": [
           {
             "name": "LGS233右侧框.pdf",
-            "path": "drawings/catalog/drawing-lgs233ykwh647-9b4d4259.pdf",
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs233ykwh647-9b4d4259.pdf",
-            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs233ykwh647-9b4d4259.pdf"
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs233ykbh647-9b4d4259.pdf",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs233ykbh647-9b4d4259.pdf",
+            "path": "drawings/catalog/drawing-lgs233ykbh647-9b4d4259.pdf"
           }
         ],
         "models3d": [
@@ -42705,9 +42614,9 @@
         "drawings": [
           {
             "name": "LGS333-433左侧框.pdf",
-            "path": "drawings/catalog/drawing-lgs333zkwh647-4e4b17b0.pdf",
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs333zkwh647-4e4b17b0.pdf",
-            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs333zkwh647-4e4b17b0.pdf"
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs333zkbh647-4e4b17b0.pdf",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs333zkbh647-4e4b17b0.pdf",
+            "path": "drawings/catalog/drawing-lgs333zkbh647-4e4b17b0.pdf"
           }
         ],
         "models3d": [
@@ -42749,9 +42658,9 @@
         "drawings": [
           {
             "name": "LGS333-433右侧框.pdf",
-            "path": "drawings/catalog/drawing-lgs333ykwh647-93ba9266.pdf",
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs333ykwh647-93ba9266.pdf",
-            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs333ykwh647-93ba9266.pdf"
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs333ykbh647-93ba9266.pdf",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs333ykbh647-93ba9266.pdf",
+            "path": "drawings/catalog/drawing-lgs333ykbh647-93ba9266.pdf"
           }
         ],
         "models3d": [
@@ -42881,9 +42790,9 @@
         "drawings": [
           {
             "name": "LGS334_434左侧框.pdf",
-            "path": "drawings/catalog/drawing-lgs434zkwh647-8f50b826.pdf",
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs434zkwh647-8f50b826.pdf",
-            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs434zkwh647-8f50b826.pdf"
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs334zkbh647-8f50b826.pdf",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs334zkbh647-8f50b826.pdf",
+            "path": "drawings/catalog/drawing-lgs334zkbh647-8f50b826.pdf"
           }
         ],
         "models3d": [
@@ -42925,9 +42834,9 @@
         "drawings": [
           {
             "name": "LGS334_434右侧框.pdf",
-            "path": "drawings/catalog/drawing-lgs434ykwh647-d6f27cea.pdf",
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs434ykwh647-d6f27cea.pdf",
-            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs434ykwh647-d6f27cea.pdf"
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs334ykbh647-d6f27cea.pdf",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs334ykbh647-d6f27cea.pdf",
+            "path": "drawings/catalog/drawing-lgs334ykbh647-d6f27cea.pdf"
           }
         ],
         "models3d": [
@@ -43057,9 +42966,9 @@
         "drawings": [
           {
             "name": "LGS723_733左侧框.pdf",
-            "path": "drawings/catalog/drawing-lgs723zkwh647-ea6a04ac.pdf",
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs723zkwh647-ea6a04ac.pdf",
-            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs723zkwh647-ea6a04ac.pdf"
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs723zkbh647-ea6a04ac.pdf",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs723zkbh647-ea6a04ac.pdf",
+            "path": "drawings/catalog/drawing-lgs723zkbh647-ea6a04ac.pdf"
           }
         ],
         "models3d": [
@@ -43101,9 +43010,9 @@
         "drawings": [
           {
             "name": "LGS723_733右侧框.pdf",
-            "path": "drawings/catalog/drawing-lgs723ykwh647-9bf038bf.pdf",
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs723ykwh647-9bf038bf.pdf",
-            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs723ykwh647-9bf038bf.pdf"
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs723ykbh647-9bf038bf.pdf",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs723ykbh647-9bf038bf.pdf",
+            "path": "drawings/catalog/drawing-lgs723ykbh647-9bf038bf.pdf"
           }
         ],
         "models3d": [
@@ -43233,9 +43142,9 @@
         "drawings": [
           {
             "name": "LGS833左侧框.pdf",
-            "path": "drawings/catalog/drawing-lgs833zkwh647-db7af8d5.pdf",
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs833zkwh647-db7af8d5.pdf",
-            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs833zkwh647-db7af8d5.pdf"
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs833zkbh647-db7af8d5.pdf",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs833zkbh647-db7af8d5.pdf",
+            "path": "drawings/catalog/drawing-lgs833zkbh647-db7af8d5.pdf"
           }
         ],
         "models3d": [
@@ -43277,9 +43186,9 @@
         "drawings": [
           {
             "name": "LGS833右侧框.pdf",
-            "path": "drawings/catalog/drawing-lgs833ykwh647-5a0d567a.pdf",
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs833ykwh647-5a0d567a.pdf",
-            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs833ykwh647-5a0d567a.pdf"
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs833ykbh647-5a0d567a.pdf",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs833ykbh647-5a0d567a.pdf",
+            "path": "drawings/catalog/drawing-lgs833ykbh647-5a0d567a.pdf"
           }
         ],
         "models3d": [
@@ -43409,9 +43318,9 @@
         "drawings": [
           {
             "name": "LGS834左侧框.pdf",
-            "path": "drawings/catalog/drawing-lgs834zkwh647-b8c46711.pdf",
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs834zkwh647-b8c46711.pdf",
-            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs834zkwh647-b8c46711.pdf"
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs834zkbh647-b8c46711.pdf",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs834zkbh647-b8c46711.pdf",
+            "path": "drawings/catalog/drawing-lgs834zkbh647-b8c46711.pdf"
           }
         ],
         "models3d": [
@@ -43453,9 +43362,9 @@
         "drawings": [
           {
             "name": "LGS834右侧框.pdf",
-            "path": "drawings/catalog/drawing-lgs834ykwh647-dcb6f52e.pdf",
-            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs834ykwh647-dcb6f52e.pdf",
-            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs834ykwh647-dcb6f52e.pdf"
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs834ykbh647-dcb6f52e.pdf",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs834ykbh647-dcb6f52e.pdf",
+            "path": "drawings/catalog/drawing-lgs834ykbh647-dcb6f52e.pdf"
           }
         ],
         "models3d": [
