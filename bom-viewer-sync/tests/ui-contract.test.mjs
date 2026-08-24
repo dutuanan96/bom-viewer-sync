@@ -921,11 +921,11 @@ test('blue and green label backgrounds take precedence over black text in color 
   assert.match(app.renderColorDot('绿底黑字'), /#10b981/);
 });
 
-test('shanwenhei color uses the approved gray-brown color icon', () => {
+test('shanwenhei color uses a distinct light gray color icon', () => {
   const app = Object.create(BomApplication.prototype);
   app.highlight = (value) => value;
 
-  assert.match(app.renderColorDot('山纹黑'), /#8a96a3/);
+  assert.match(app.renderColorDot('山纹黑'), /#b6bec9/);
 });
 
 test('BOM row update boundary rejects material master fields', () => {

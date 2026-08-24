@@ -5,6 +5,7 @@ import path from 'node:path';
 import { applyMutationProposalTransaction } from '../src/features/ai-assistant/mutation-engine.js';
 import {
   buildB201ProposalBatches,
+  buildB201WithdrawalProposalBatches,
   VARIANT_CONFIGS,
 } from '../src/features/ecn-proposal/b201-shanwenhei-variant-proposal-builder.js';
 
@@ -58,6 +59,10 @@ function shanWenHeiCode(code) {
 
 test('B201 shanwenhei variants clone black BOMs and replace only fabric drawers and SKU cartons', async (t) => {
   const initialSnapshot = loadCanonicalSnapshot();
+  if (VARIANT_CONFIGS.every((config) => colorBySku(initialSnapshot.payload.bom[config.spu], config.sku))) {
+    t.skip('canonical snapshot already contains the approved B201 variants');
+    return;
+  }
   const initialPayload = structuredClone(initialSnapshot.payload);
   let snapshot = initialSnapshot;
   let batchCount = 0;
@@ -148,4 +153,18 @@ test('B201 shanwenhei variants clone black BOMs and replace only fabric drawers 
       assert.deepEqual(after, before);
     }
   });
+});
+
+test('B201 withdrawal proposal restores the preceding effective revisions while preserving the B201 Drafts', () => {
+  const snapshot = loadCanonicalSnapshot();
+  const batches = buildB201WithdrawalProposalBatches(snapshot.payload);
+  assert.equal(batches.length, 1);
+  assert.equal(batches[0].operations.length, 11);
+  const transaction = applyMutationProposalTransaction(snapshot, batches[0]);
+  for (const config of VARIANT_CONFIGS) {
+    const revision = transaction.payload.productRevisions[config.spu];
+    assert.equal(revision.currentRevisionInfo.workflowState, 'draft');
+    assert.equal(revision.effectiveRevision, revision.currentRevisionInfo.sourceRevision);
+    assert.equal(colorBySku(transaction.payload.bom[config.spu], config.sku), '山纹黑');
+  }
 });
