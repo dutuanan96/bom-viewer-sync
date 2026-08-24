@@ -514,6 +514,13 @@ function validateBoundedString(value, label, required, maxLength = 200) {
 }
 
 function validatePositiveQuantity(value, label) {
+  if (typeof value === 'string') {
+    const parts = value.split('+');
+    if (parts.length > 2 || parts.some((part) => !/^\d+$/.test(part) || Number(part) <= 0)) {
+      throw new Error(`invalid ${label}`);
+    }
+    return;
+  }
   if (!Number.isFinite(value) || value <= 0 || value > 1_000_000) throw new Error(`invalid ${label}`);
 }
 
