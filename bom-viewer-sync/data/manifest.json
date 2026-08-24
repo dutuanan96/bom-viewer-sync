@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-24T09:28:47.018Z",
+  "updatedAt": "2026-08-24T09:35:22.980Z",
   "products": [
     "5106",
     "LGS031",
@@ -221854,12 +221854,12 @@
     },
     "LGS132": {
       "currentRevision": "V3.3",
-      "effectiveRevision": "V3.2",
+      "effectiveRevision": "V3.3",
       "currentRevisionInfo": {
         "sourceRevision": "V3.2",
         "createdAt": "2026-08-24T08:31:40.962Z",
         "changeReason": "ECN-2026-0824-COLOR: 新增 4 个已确认颜色 SKU；按已发布颜色 BOM 替换指定颜色物料。",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -241012,6 +241012,14 @@
           "revision": "V3.2",
           "previousRevision": "V3.1",
           "occurredAt": "2026-08-24T05:51:54.453Z",
+          "reason": "更新"
+        },
+        {
+          "id": "effectivity_mt71iug4",
+          "action": "release",
+          "revision": "V3.3",
+          "previousRevision": "V3.2",
+          "occurredAt": "2026-08-24T09:35:19.972Z",
           "reason": "更新"
         }
       ]
@@ -272104,6 +272112,29 @@
   },
   "notifications": [
     {
+      "id": "notif_1nav4ys",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-24T09:35:22.980Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS132",
+          "field": "effectiveRevision",
+          "before": "V3.2",
+          "after": "V3.3"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS132",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        }
+      ]
+    },
+    {
       "id": "notif_19i3c1m",
       "type": "github-save",
       "actor": "admin",
@@ -273316,29 +273347,6 @@
         {
           "kind": "revision",
           "code": "LGS133",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
-        }
-      ]
-    },
-    {
-      "id": "notif_68wu7y",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-19T03:38:17.977Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS033",
-          "field": "effectiveRevision",
-          "before": "V4",
-          "after": "V4.1"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS033",
           "field": "workflowState",
           "before": "draft",
           "after": "released"
@@ -288836,6 +288844,31 @@
       }
     ],
     "LGS132": [
+      {
+        "id": "history_aa3583",
+        "productCode": "LGS132",
+        "revision": "V3.3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-COLOR: 新增 4 个已确认颜色 SKU；按已发布颜色 BOM 替换指定颜色物料。",
+        "createdAt": "2026-08-24T09:35:22.980Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS132",
+            "field": "effectiveRevision",
+            "before": "V3.2",
+            "after": "V3.3"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS132",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
       {
         "id": "history_4ywaue",
         "productCode": "LGS132",
