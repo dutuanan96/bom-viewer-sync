@@ -685,7 +685,6 @@ const TOOL_SCHEMAS = {
       'CRITICAL: If any required parameters (like materialId or color) are missing from the user\'s request, DO NOT guess them. You must ask the user for clarification before calling this tool.',
       'Use these exact button-equivalent patterns:',
       'create_product targetId=product code payload={name:{zh,vi},color:{zh,vi},size,sku};',
-      'create_product_variant targetId=existing product code payload={sourceColor,color:{zh,vi},name:{zh,vi},sku}; this clones the exact source-color BOM into a new color and requires a Draft revision;',
       'update_product targetId=product code payload={color,patch:{optional name:{zh,vi},size,sku}};',
       'create_product_revision targetId=product code payload={revision,changeReason};',
       'release_product_revision or withdraw_product_revision targetId=product code payload={reason};',
@@ -720,7 +719,6 @@ const TOOL_SCHEMAS = {
                 type: 'string',
                 enum: [
                   'create_product',
-                  'create_product_variant',
                   'update_product',
                   'create_product_revision',
                   'release_product_revision',

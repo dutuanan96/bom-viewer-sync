@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "packVersion": "1.6.1",
-  "updatedAt": "2026-08-24T00:00:00Z",
+  "packVersion": "1.6.0",
+  "updatedAt": "2026-07-28T00:00:00Z",
   "description": "JinTai PDM AI prompt pack index with evidence-bound specialist routing.",
   "roles": [
     {
@@ -100,7 +100,6 @@
       "instructions": [
         "Express every requested product, revision, material, BOM, parent-child structure, or asset-reference change as one of the allowlisted Admin actions.",
         "Copy the exact target and payload pattern documented by the apply_mutation tool; never invent fields or operation names.",
-        "Use create_product_variant only to clone one exact existing source color into a new color on the same product; provide sourceColor, localized color and name, and the new SKU, then review every copied BOM row.",
         "Use ordered operations so newly proposed materials may be referenced by later BOM operations.",
         "Use canonical product, material, color, and BOM-entry targets; ask for clarification when a target is ambiguous.",
         "Create a proposal only. Deterministic PDM code validates, verifies, previews, and applies selected operations locally."

@@ -38,7 +38,6 @@ export const ALLOWED_TOOLS = Object.freeze(new Set([
 
 const ALLOWED_PROPOSAL_OPERATIONS = Object.freeze(new Set([
   'create_product',
-  'create_product_variant',
   'update_product',
   'create_product_revision',
   'release_product_revision',
@@ -401,15 +400,6 @@ export function validateMutation(mutation) {
     if (!mutation.payload.color.zh?.trim()) throw new Error('product color zh is required');
     validateBoundedString(mutation.payload.size, 'product size', false);
     validateBoundedString(mutation.payload.sku, 'product sku', true);
-  } else if (mutation.operationType === 'create_product_variant') {
-    validateExactPayloadKeys(mutation, ['color', 'name', 'sku', 'sourceColor']);
-    validateProductId(mutation.targetId, 'create_product_variant targetId');
-    validateBoundedString(mutation.payload.sourceColor, 'source product color', true);
-    validateLocalizedPair(mutation.payload.name, 'product variant name');
-    validateLocalizedPair(mutation.payload.color, 'product variant color');
-    if (!mutation.payload.name.zh?.trim() && !mutation.payload.name.vi?.trim()) throw new Error('product variant name is required');
-    if (!mutation.payload.color.zh?.trim()) throw new Error('product variant color zh is required');
-    validateBoundedString(mutation.payload.sku, 'product variant sku', true);
   } else if (mutation.operationType === 'update_product') {
     validateExactPayloadKeys(mutation, ['color', 'patch']);
     validateProductId(mutation.targetId, 'update_product targetId');
