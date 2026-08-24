@@ -95,6 +95,16 @@ test('corrective ECN completes all nested color BOM mappings without creating an
     assert.equal(snapshot.payload.productRevisions[spu].currentRevision, revision, `${spu} revision must stay unchanged`);
   }
 
+  const lgs132VintageEntries = productEntries(snapshot.payload, 'LGS132', '复古色');
+  const lgs132VintageCodes = new Set(lgs132VintageEntries
+    .map((entry) => snapshot.payload.materialDb.materials[entry.materialId].code));
+  assert.ok(lgs132VintageCodes.has('LGS132YZKBH'));
+  assert.ok(lgs132VintageCodes.has('LGS132ZZKBH'));
+  assert.ok(!lgs132VintageCodes.has('LGS132YZKKD'));
+  assert.ok(!lgs132VintageCodes.has('LGS132ZZKKD'));
+  assert.equal(materialByCode(snapshot.payload, 'LGS132YZKKD'), undefined);
+  assert.equal(materialByCode(snapshot.payload, 'LGS132ZZKKD'), undefined);
+
   const whiteChildReplacements = new Map([
     ['M6GS1515BH', 'M6GS1515WH'],
     ['NLPLS6018BZ', 'NLPLS6018WZ'],
@@ -133,6 +143,12 @@ test('corrective ECN completes all nested color BOM mappings without creating an
   assert.ok(lgs032WhiteCodes.has('LGS032YKWH647'));
   assert.ok(lgs032WhiteCodes.has('DD0310WH'));
   assert.ok(!lgs032WhiteCodes.has('DD0310'));
+  for (const code of [
+    'LGS032ZZKWH', 'LGS032YZKWH', 'LGS032XHLWH', 'LGS032XQHLWH',
+    'LGS032SHLWH', 'LGS032ZKWH647', 'LGS032YKWH647',
+  ]) {
+    assert.equal(materialByCode(snapshot.payload, code).color.zh, '白砂纹', `${code} must use white textured paint`);
+  }
 
   const hardwarePack = materialByCode(snapshot.payload, 'LGS032WJBWH');
   const hardwareChildren = snapshot.payload.materialDb.bomEntries
