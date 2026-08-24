@@ -216,6 +216,7 @@ function productColorDotHtml(product, color) {
 
 function colorDotClass(label) {
   const text = String(label || '');
+  if (/山纹黑|vân gỗ/i.test(text)) return 'shanwenhei';
   if (/黑|black/i.test(text)) return 'black';
   if (/白|white/i.test(text)) return 'white';
   if (/复古|古|brown|gỗ|go|cổ|co/i.test(text)) return 'brown';

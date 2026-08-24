@@ -202,19 +202,19 @@ function specialistCase(id, description, fn) {
   });
 }
 
-specialistCase('SPECIALIST-REV-LGS032', 'LGS032 draft and effective revision distinction', () => {
+specialistCase('SPECIALIST-REV-LGS032', 'LGS032 released revision status', () => {
   const route = routePdmIntent({
-    query: '为什么LGS032有状态是草稿呢？',
+    query: 'LGS032当前版本是什么？',
     availableTools: ROUTER_TOOLS
   });
   if (route.intent !== PDM_INTENTS.REVISION_STATUS || route.preferredTool !== 'get_revision_history') {
     throw new Error(`Unexpected revision route: ${JSON.stringify(route)}`);
   }
   const result = kb.getRevisionHistory({ productId: 'LGS032' });
-  if (result.currentRevision !== 'V3.1') {
-    throw new Error(`Expected current V3.1, got ${JSON.stringify(result.currentRevisionInfo)}`);
+  if (result.currentRevision !== 'V3.2') {
+    throw new Error(`Expected current V3.2, got ${JSON.stringify(result.currentRevisionInfo)}`);
   }
-  if (!result.effectiveRevision) throw new Error(`Expected effective revision, got ${result.effectiveRevision}`);
+  if (result.effectiveRevision !== 'V3.2') throw new Error(`Expected effective V3.2, got ${result.effectiveRevision}`);
 });
 
 specialistCase('SPECIALIST-COMPARE', 'LGS031 and LGS032 structured comparison', () => {
