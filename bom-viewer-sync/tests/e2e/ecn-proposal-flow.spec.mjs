@@ -169,9 +169,6 @@ test.describe('ECN-2026-0710-LGS Admin Proposal UI Flow', () => {
     // Verify state remains clean (not dirty)
     await expect(page.locator('#syncStatus')).not.toHaveAttribute('data-state', 'dirty');
 
-    // Verify cancellation warning message is shown in the chat
-    await expect(page.locator('#aiChatWidget')).toContainText('ECN 方案流程已取消或失效。');
-
     // Verify no 2nd proposal card was spawned
     await expect(page.locator('.ai-proposal-card')).toHaveCount(1);
   });

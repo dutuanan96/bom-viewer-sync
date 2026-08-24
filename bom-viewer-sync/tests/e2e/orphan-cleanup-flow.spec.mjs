@@ -192,7 +192,7 @@ test.describe('Orphan BOM Remediation Admin Proposal UI Flow', () => {
     // Verify ECN Batch 1 proposal card is loaded on the current local snapshot
     const ecnCard = page.locator('.ai-proposal-card').last();
     await expect(ecnCard).toBeAttached({ timeout: 15000 });
-    await expect(page.locator('#aiChatWidget')).toContainText('ECN-2026-0710-LGS Rev 1.4: Master Data Batch 1');
+    await expect(page.locator('#aiChatWidget')).toContainText('ECN-2026-0824-COLOR: 新增颜色 SKU 批次 1');
   });
 
   test('unrelated dirty change invalidates handoff and blocks loading ECN proposal', async ({ page }) => {
