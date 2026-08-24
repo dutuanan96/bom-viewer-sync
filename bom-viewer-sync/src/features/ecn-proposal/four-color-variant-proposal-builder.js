@@ -204,11 +204,16 @@ function buildObsoleteMaterialOperations(payload, configs) {
     for (const code of config.obsoleteMaterialCodes || []) {
       const material = findMaterialByCode(materials, code);
       if (!material || !repairSources.has(code)) continue;
-      const usage = entries.filter((entry) => entry.materialId === material.id || entry.childMaterialId === material.id);
-      const onlyRepairedProductUsage = usage.every((entry) => entry.parentType === 'product'
+      const childRelations = entries.filter((entry) => entry.parentType === 'material' && entry.parentId === material.id);
+      const externalUsage = entries.filter((entry) => (entry.materialId === material.id || entry.childMaterialId === material.id)
+        && entry.parentId !== material.id);
+      const onlyRepairedProductUsage = externalUsage.every((entry) => entry.parentType === 'product'
         && entry.productCode === config.spu
         && entry.color === targetColor);
       if (onlyRepairedProductUsage) {
+        for (const relation of childRelations) {
+          operations.push({ operationType: 'remove_material_child', targetId: relation.id, payload: {} });
+        }
         operations.push({ operationType: 'delete_material', targetId: material.id, payload: {} });
       }
     }

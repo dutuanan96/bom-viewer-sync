@@ -170,3 +170,29 @@ test('corrective ECN completes all nested color BOM mappings without creating an
     0,
   );
 });
+
+test('corrective ECN removes prior KD frame child relations before deleting the erroneous masters', () => {
+  let snapshot = loadCanonicalSnapshot();
+  const kdFrame = materialByCode(snapshot.payload, 'LGS132YZKKD');
+  const rawTube = materialByCode(snapshot.payload, 'FG1515066091');
+  snapshot.payload.materialDb.bomEntries.push({
+    id: 'test_kd_frame_child',
+    parentType: 'material',
+    parentId: kdFrame.id,
+    productCode: '',
+    color: '',
+    materialId: rawTube.id,
+    childMaterialId: rawTube.id,
+    qty: '0.25',
+    order: 0,
+  });
+
+  for (let batchCount = 0; batchCount < 4; batchCount += 1) {
+    const [batch] = buildFourColorVariantProposalBatches(snapshot.payload, 40);
+    if (!batch) break;
+    snapshot = { ...snapshot, payload: applyMutationProposalTransaction(snapshot, batch).payload };
+  }
+
+  assert.equal(materialByCode(snapshot.payload, 'LGS132YZKKD'), undefined);
+  assert.equal(buildFourColorVariantProposalBatches(snapshot.payload, 40).length, 0);
+});
