@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-24T05:51:54.604Z",
+  "updatedAt": "2026-08-24T07:14:36.869Z",
   "products": [
     "5106",
     "LGS031",
@@ -242230,6 +242230,71 @@
   },
   "notifications": [
     {
+      "id": "notif_1u5y70o",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-24T07:14:36.869Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "LGS033YKWH647",
+          "field": "drawings",
+          "before": "LGS033右侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs033ykwh647-ded5d4e7.pdf",
+          "after": "LGS033右侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs033ykbh647-ded5d4e7.pdf"
+        },
+        {
+          "kind": "material",
+          "code": "LGS033ZKWH647",
+          "field": "drawings",
+          "before": "LGS033左侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs033zkwh647-7ed39cf2.pdf",
+          "after": "LGS033左侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs033zkbh647-7ed39cf2.pdf"
+        },
+        {
+          "kind": "material",
+          "code": "LGS131CBZWH",
+          "field": "models3d",
+          "before": "LGS131_231_232-中间层板|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb;LGS232_231_131-中间层板.glb|models3d/catalog/LGS232-231-131-6e6242dc.glb",
+          "after": "LGS131_231_232-中间层板|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb"
+        },
+        {
+          "kind": "material",
+          "code": "LGS131SHLBHGK",
+          "field": "models3d",
+          "before": "LGS231_131-顶部横杆后.glb|models3d/catalog/LGS231-131-593b50c9.glb",
+          "after": "LGS231_131-顶部横杆后.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS231-131-593b50c9.glb"
+        },
+        {
+          "kind": "material",
+          "code": "LGS131XHLBH",
+          "field": "models3d",
+          "before": "LGS231_131-底部横杆.glb|models3d/catalog/LGS231-131-8264a80a.glb",
+          "after": "LGS231_131-底部横杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS231-131-8264a80a.glb"
+        },
+        {
+          "kind": "material",
+          "code": "LGS232CBSBH",
+          "field": "models3d",
+          "before": "LGS232_231_131-中间层板.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb;LGS131_231_232-中间层板|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb",
+          "after": "LGS131_231_232-中间层板|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb"
+        },
+        {
+          "kind": "material",
+          "code": "LGS232CBSKD",
+          "field": "models3d",
+          "before": "LGS232_231_131-中间层板.glb|models3d/catalog/LGS232-231-131-6e6242dc.glb;LGS131_231_232-中间层板|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb",
+          "after": "LGS131_231_232-中间层板|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb"
+        },
+        {
+          "kind": "material",
+          "code": "LGS233YKWH647",
+          "field": "drawings",
+          "before": "LGS233右侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs233ykwh647-9b4d4259.pdf",
+          "after": "LGS233右侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs233ykbh647-9b4d4259.pdf"
+        }
+      ]
+    },
+    {
       "id": "notif_1x4s9so",
       "type": "github-save",
       "actor": "admin",
@@ -243363,29 +243428,6 @@
           "after": "连接件(4个螺母).glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8bfb98c6c430e586d2226e81d099234eb6298ade/assets/models/LJJ8028136_9cb82ebfcf9d5f9e396e49cf54d13df6d21c3378801e849f7d8fdbac83655425_4_.glb"
         }
       ]
-    },
-    {
-      "id": "notif_l9ak0k",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-19T01:56:26.248Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "80132132LJJ",
-          "field": "drawings",
-          "before": "连接件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-80132132ljj-afa05758.pdf",
-          "after": "连接件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@c900cbbb125ca7f977f652ab264c6405e4bf7d89/assets/pdfs/80132132LJJ_ec7690c37d5e56565bb0b646aba12985a5c0d36d7652e2925c0ccf203ba4c1f4_pdf.pdf"
-        },
-        {
-          "kind": "material",
-          "code": "80132132LJJ",
-          "field": "models3d",
-          "before": "连接件.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b466c6278ccd606aa58b3683b18e569f544fe237/assets/models/80132132LJJ_cdf346ad25222f8607787ed8602e102c819affdb932d091a6844d9d4f316a919_glb",
-          "after": "连接件.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@17d0e4bbb8d01534e4a1d853754048b6389f6997/assets/models/80132132LJJ_e2576f91d2b184be849046d87a16b464fdc6eb23ca701f1df8adee7f83629b0e_glb.glb"
-        }
-      ]
     }
   ],
   "bomHistory": {
@@ -243714,6 +243756,38 @@
       }
     ],
     "LGS111": [
+      {
+        "id": "history_6ag06r",
+        "productCode": "LGS111",
+        "revision": "V2.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-08-24T07:14:36.869Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "models3d",
+            "before": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8dfe1e2e0aeb4c28fb32d589a2a3464e260ad458/assets/models/M6GS1515WH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6010BZ",
+            "field": "models3d",
+            "before": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb;M6x12内六角螺丝|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
+            "after": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6010WZ",
+            "field": "models3d",
+            "before": "M6x12内六角螺丝|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb;M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
+            "after": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+          }
+        ]
+      },
       {
         "id": "history_1sjacv8",
         "productCode": "LGS111",
@@ -244462,6 +244536,52 @@
     ],
     "LGS231": [
       {
+        "id": "history_3ndde4",
+        "productCode": "LGS231",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-24T07:14:36.869Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS131SHLBHGK",
+            "field": "models3d",
+            "before": "LGS231_131-顶部横杆后.glb|models3d/catalog/LGS231-131-593b50c9.glb",
+            "after": "LGS231_131-顶部横杆后.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS231-131-593b50c9.glb"
+          },
+          {
+            "kind": "material",
+            "code": "LGS131XHLBH",
+            "field": "models3d",
+            "before": "LGS231_131-底部横杆.glb|models3d/catalog/LGS231-131-8264a80a.glb",
+            "after": "LGS231_131-底部横杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS231-131-8264a80a.glb"
+          },
+          {
+            "kind": "material",
+            "code": "LGS232CBSBH",
+            "field": "models3d",
+            "before": "LGS232_231_131-中间层板.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb;LGS131_231_232-中间层板|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb",
+            "after": "LGS131_231_232-中间层板|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb"
+          },
+          {
+            "kind": "material",
+            "code": "LGS232CBSKD",
+            "field": "models3d",
+            "before": "LGS232_231_131-中间层板.glb|models3d/catalog/LGS232-231-131-6e6242dc.glb;LGS131_231_232-中间层板|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb",
+            "after": "LGS131_231_232-中间层板|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6010BZ",
+            "field": "models3d",
+            "before": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb;M6x12内六角螺丝|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
+            "after": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+          }
+        ]
+      },
+      {
         "id": "history_j6cplb",
         "productCode": "LGS231",
         "revision": "V3",
@@ -245102,6 +245222,52 @@
       }
     ],
     "LGS233": [
+      {
+        "id": "history_1rag41u",
+        "productCode": "LGS233",
+        "revision": "V4.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-08-24T07:14:36.869Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS233YKWH647",
+            "field": "drawings",
+            "before": "LGS233右侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs233ykwh647-9b4d4259.pdf",
+            "after": "LGS233右侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs233ykbh647-9b4d4259.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS233ZKWH647",
+            "field": "drawings",
+            "before": "LGS233左侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs233zkwh647-3b3d4fc4.pdf",
+            "after": "LGS233左侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs233zkbh647-3b3d4fc4.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "models3d",
+            "before": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8dfe1e2e0aeb4c28fb32d589a2a3464e260ad458/assets/models/M6GS1515WH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6010BZ",
+            "field": "models3d",
+            "before": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb;M6x12内六角螺丝|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
+            "after": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6010WZ",
+            "field": "models3d",
+            "before": "M6x12内六角螺丝|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb;M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
+            "after": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+          }
+        ]
+      },
       {
         "id": "history_19dgi53",
         "productCode": "LGS233",
@@ -246887,6 +247053,38 @@
     ],
     "LGS334": [
       {
+        "id": "history_1bzdfei",
+        "productCode": "LGS334",
+        "revision": "V4.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-08-24T07:14:36.869Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS334XHZHLBH",
+            "field": "models3d",
+            "before": "LGS334_434-底部横杆左-后.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-da84b3da.glb;LGS334_434_834-底部横杆左-后.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-404054ab.glb",
+            "after": "LGS334_434_834-底部横杆左-后.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-404054ab.glb"
+          },
+          {
+            "kind": "material",
+            "code": "LGS334XQZHLBH",
+            "field": "models3d",
+            "before": "LGS334_434-底部横杆左-前.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-12cb6679.glb;LGS334_434_834-底部横杆左-前.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-f806e3c3.glb",
+            "after": "LGS334_434-底部横杆左-前.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-12cb6679.glb"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6010BZ",
+            "field": "models3d",
+            "before": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb;M6x12内六角螺丝|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
+            "after": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+          }
+        ]
+      },
+      {
         "id": "history_1pg3xzx",
         "productCode": "LGS334",
         "revision": "V4.2",
@@ -248190,6 +248388,80 @@
       }
     ],
     "LGS434": [
+      {
+        "id": "history_muat1b",
+        "productCode": "LGS434",
+        "revision": "V5.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-24T07:14:36.869Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS334XHZHLBH",
+            "field": "models3d",
+            "before": "LGS334_434-底部横杆左-后.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-da84b3da.glb;LGS334_434_834-底部横杆左-后.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-404054ab.glb",
+            "after": "LGS334_434_834-底部横杆左-后.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-404054ab.glb"
+          },
+          {
+            "kind": "material",
+            "code": "LGS334XHZHLWH",
+            "field": "models3d",
+            "before": "LGS334_434_834-底部横杆左-后.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-404054ab.glb;LGS334_434-底部横杆左-后.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-da84b3da.glb",
+            "after": "LGS334_434_834-底部横杆左-后.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-404054ab.glb"
+          },
+          {
+            "kind": "material",
+            "code": "LGS334XQZHLBH",
+            "field": "models3d",
+            "before": "LGS334_434-底部横杆左-前.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-12cb6679.glb;LGS334_434_834-底部横杆左-前.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-f806e3c3.glb",
+            "after": "LGS334_434-底部横杆左-前.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-12cb6679.glb"
+          },
+          {
+            "kind": "material",
+            "code": "LGS334XQZHLWH",
+            "field": "models3d",
+            "before": "LGS334_434_834-底部横杆左-前.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-f806e3c3.glb;LGS334_434-底部横杆左-前.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-12cb6679.glb",
+            "after": "LGS334_434-底部横杆左-前.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-12cb6679.glb"
+          },
+          {
+            "kind": "material",
+            "code": "LGS434YKWH647",
+            "field": "drawings",
+            "before": "LGS334_434右侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs434ykwh647-d6f27cea.pdf",
+            "after": "LGS334_434右侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs334ykbh647-d6f27cea.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS434ZKWH647",
+            "field": "drawings",
+            "before": "LGS334_434左侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs434zkwh647-8f50b826.pdf",
+            "after": "LGS334_434左侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs334zkbh647-8f50b826.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "models3d",
+            "before": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8dfe1e2e0aeb4c28fb32d589a2a3464e260ad458/assets/models/M6GS1515WH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6010BZ",
+            "field": "models3d",
+            "before": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb;M6x12内六角螺丝|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
+            "after": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6010WZ",
+            "field": "models3d",
+            "before": "M6x12内六角螺丝|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb;M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
+            "after": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+          }
+        ]
+      },
       {
         "id": "history_1usct3y",
         "productCode": "LGS434",
@@ -249531,6 +249803,38 @@
     ],
     "LGS420": [
       {
+        "id": "history_6zco6u",
+        "productCode": "LGS420",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-24T07:14:36.869Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "models3d",
+            "before": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8dfe1e2e0aeb4c28fb32d589a2a3464e260ad458/assets/models/M6GS1515WH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6010BZ",
+            "field": "models3d",
+            "before": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb;M6x12内六角螺丝|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
+            "after": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6010WZ",
+            "field": "models3d",
+            "before": "M6x12内六角螺丝|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb;M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
+            "after": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+          }
+        ]
+      },
+      {
         "id": "history_4r06fz",
         "productCode": "LGS420",
         "revision": "V4",
@@ -250209,6 +250513,24 @@
     ],
     "LGS421": [
       {
+        "id": "history_1n7yvcl",
+        "productCode": "LGS421",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-24T07:14:36.869Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "NLPLS6010BZ",
+            "field": "models3d",
+            "before": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb;M6x12内六角螺丝|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
+            "after": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+          }
+        ]
+      },
+      {
         "id": "history_g7wabi",
         "productCode": "LGS421",
         "revision": "V4",
@@ -250810,6 +251132,59 @@
       }
     ],
     "LGS333": [
+      {
+        "id": "history_1uarx8y",
+        "productCode": "LGS333",
+        "revision": "V4.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-08-24T07:14:36.869Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS333YKWH647",
+            "field": "drawings",
+            "before": "LGS333-433右侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs333ykwh647-93ba9266.pdf",
+            "after": "LGS333-433右侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs333ykbh647-93ba9266.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS333ZKWH647",
+            "field": "drawings",
+            "before": "LGS333-433左侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs333zkwh647-4e4b17b0.pdf",
+            "after": "LGS333-433左侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs333zkbh647-4e4b17b0.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "models3d",
+            "before": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8dfe1e2e0aeb4c28fb32d589a2a3464e260ad458/assets/models/M6GS1515WH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6010BZ",
+            "field": "models3d",
+            "before": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb;M6x12内六角螺丝|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
+            "after": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6010WZ",
+            "field": "models3d",
+            "before": "M6x12内六角螺丝|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb;M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
+            "after": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+          },
+          {
+            "kind": "material",
+            "code": "ZJG150641BH",
+            "field": "drawings",
+            "before": "41底脚.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf",
+            "after": "41底脚.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf"
+          }
+        ]
+      },
       {
         "id": "history_19zyrd2",
         "productCode": "LGS333",
@@ -252410,6 +252785,45 @@
     ],
     "LGS232": [
       {
+        "id": "history_sn0cak",
+        "productCode": "LGS232",
+        "revision": "V3.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-24T07:14:36.869Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS232CBSBH",
+            "field": "models3d",
+            "before": "LGS232_231_131-中间层板.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb;LGS131_231_232-中间层板|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb",
+            "after": "LGS131_231_232-中间层板|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb"
+          },
+          {
+            "kind": "material",
+            "code": "LGS232CBSKD",
+            "field": "models3d",
+            "before": "LGS232_231_131-中间层板.glb|models3d/catalog/LGS232-231-131-6e6242dc.glb;LGS131_231_232-中间层板|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb",
+            "after": "LGS131_231_232-中间层板|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6010BZ",
+            "field": "models3d",
+            "before": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb;M6x12内六角螺丝|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
+            "after": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+          },
+          {
+            "kind": "material",
+            "code": "ZJG150641BH",
+            "field": "drawings",
+            "before": "41底脚.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf",
+            "after": "41底脚.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf"
+          }
+        ]
+      },
+      {
         "id": "history_m8jw0",
         "productCode": "LGS232",
         "revision": "V3.1",
@@ -253329,6 +253743,24 @@
     ],
     "LGS031": [
       {
+        "id": "history_109mc1m",
+        "productCode": "LGS031",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-24T07:14:36.869Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "NLPLS6010BZ",
+            "field": "models3d",
+            "before": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb;M6x12内六角螺丝|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
+            "after": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+          }
+        ]
+      },
+      {
         "id": "history_1x8kcud",
         "productCode": "LGS031",
         "revision": "V3",
@@ -253579,6 +254011,31 @@
       }
     ],
     "LGS032": [
+      {
+        "id": "history_12b77z4",
+        "productCode": "LGS032",
+        "revision": "V3.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-08-24T07:14:36.869Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "NLPLS6010BZ",
+            "field": "models3d",
+            "before": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb;M6x12内六角螺丝|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
+            "after": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+          },
+          {
+            "kind": "material",
+            "code": "ZJG150641BH",
+            "field": "drawings",
+            "before": "41底脚.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf",
+            "after": "41底脚.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf"
+          }
+        ]
+      },
       {
         "id": "history_psx4dg",
         "productCode": "LGS032",
@@ -254741,6 +255198,59 @@
     ],
     "LGS033": [
       {
+        "id": "history_1lkuj9t",
+        "productCode": "LGS033",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-24T07:14:36.869Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS033YKWH647",
+            "field": "drawings",
+            "before": "LGS033右侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs033ykwh647-ded5d4e7.pdf",
+            "after": "LGS033右侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs033ykbh647-ded5d4e7.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS033ZKWH647",
+            "field": "drawings",
+            "before": "LGS033左侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs033zkwh647-7ed39cf2.pdf",
+            "after": "LGS033左侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs033zkbh647-7ed39cf2.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "models3d",
+            "before": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8dfe1e2e0aeb4c28fb32d589a2a3464e260ad458/assets/models/M6GS1515WH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6010BZ",
+            "field": "models3d",
+            "before": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb;M6x12内六角螺丝|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
+            "after": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6010WZ",
+            "field": "models3d",
+            "before": "M6x12内六角螺丝|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb;M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
+            "after": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+          },
+          {
+            "kind": "material",
+            "code": "ZJG150641BH",
+            "field": "drawings",
+            "before": "41底脚.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf",
+            "after": "41底脚.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf"
+          }
+        ]
+      },
+      {
         "id": "history_1pgb2gi",
         "productCode": "LGS033",
         "revision": "V4.1",
@@ -255601,6 +256111,38 @@
     ],
     "LGS101": [
       {
+        "id": "history_10ih7fo",
+        "productCode": "LGS101",
+        "revision": "V2.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-08-24T07:14:36.869Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "models3d",
+            "before": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8dfe1e2e0aeb4c28fb32d589a2a3464e260ad458/assets/models/M6GS1515WH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6010BZ",
+            "field": "models3d",
+            "before": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb;M6x12内六角螺丝|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
+            "after": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6010WZ",
+            "field": "models3d",
+            "before": "M6x12内六角螺丝|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb;M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
+            "after": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+          }
+        ]
+      },
+      {
         "id": "history_17angsr",
         "productCode": "LGS101",
         "revision": "V2.1",
@@ -256344,6 +256886,73 @@
     ],
     "LGS131": [
       {
+        "id": "history_1jt6bck",
+        "productCode": "LGS131",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-08-24T07:14:36.869Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS131CBZWH",
+            "field": "models3d",
+            "before": "LGS131_231_232-中间层板|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb;LGS232_231_131-中间层板.glb|models3d/catalog/LGS232-231-131-6e6242dc.glb",
+            "after": "LGS131_231_232-中间层板|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb"
+          },
+          {
+            "kind": "material",
+            "code": "LGS131SHLBHGK",
+            "field": "models3d",
+            "before": "LGS231_131-顶部横杆后.glb|models3d/catalog/LGS231-131-593b50c9.glb",
+            "after": "LGS231_131-顶部横杆后.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS231-131-593b50c9.glb"
+          },
+          {
+            "kind": "material",
+            "code": "LGS131XHLBH",
+            "field": "models3d",
+            "before": "LGS231_131-底部横杆.glb|models3d/catalog/LGS231-131-8264a80a.glb",
+            "after": "LGS231_131-底部横杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS231-131-8264a80a.glb"
+          },
+          {
+            "kind": "material",
+            "code": "LGS232CBSBH",
+            "field": "models3d",
+            "before": "LGS232_231_131-中间层板.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb;LGS131_231_232-中间层板|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb",
+            "after": "LGS131_231_232-中间层板|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb"
+          },
+          {
+            "kind": "material",
+            "code": "LGS232CBSKD",
+            "field": "models3d",
+            "before": "LGS232_231_131-中间层板.glb|models3d/catalog/LGS232-231-131-6e6242dc.glb;LGS131_231_232-中间层板|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb",
+            "after": "LGS131_231_232-中间层板|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "models3d",
+            "before": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8dfe1e2e0aeb4c28fb32d589a2a3464e260ad458/assets/models/M6GS1515WH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6010BZ",
+            "field": "models3d",
+            "before": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb;M6x12内六角螺丝|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
+            "after": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6010WZ",
+            "field": "models3d",
+            "before": "M6x12内六角螺丝|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb;M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
+            "after": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+          }
+        ]
+      },
+      {
         "id": "history_khokbw",
         "productCode": "LGS131",
         "revision": "V3",
@@ -257021,6 +257630,31 @@
       }
     ],
     "LGS132": [
+      {
+        "id": "history_q68f85",
+        "productCode": "LGS132",
+        "revision": "V3.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-08-24T07:14:36.869Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "NLPLS6010BZ",
+            "field": "models3d",
+            "before": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb;M6x12内六角螺丝|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
+            "after": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+          },
+          {
+            "kind": "material",
+            "code": "ZJG150641BH",
+            "field": "drawings",
+            "before": "41底脚.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf",
+            "after": "41底脚.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf"
+          }
+        ]
+      },
       {
         "id": "history_1my9gat",
         "productCode": "LGS132",
@@ -258227,6 +258861,24 @@
     ],
     "LGS133": [
       {
+        "id": "history_1sa2vrl",
+        "productCode": "LGS133",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-24T07:14:36.869Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "NLPLS6010BZ",
+            "field": "models3d",
+            "before": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb;M6x12内六角螺丝|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
+            "after": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+          }
+        ]
+      },
+      {
         "id": "history_1cggdx6",
         "productCode": "LGS133",
         "revision": "V4.1",
@@ -259001,6 +259653,59 @@
       }
     ],
     "LGS433": [
+      {
+        "id": "history_kwqm91",
+        "productCode": "LGS433",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-24T07:14:36.869Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS333YKWH647",
+            "field": "drawings",
+            "before": "LGS333-433右侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs333ykwh647-93ba9266.pdf",
+            "after": "LGS333-433右侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs333ykbh647-93ba9266.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS333ZKWH647",
+            "field": "drawings",
+            "before": "LGS333-433左侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs333zkwh647-4e4b17b0.pdf",
+            "after": "LGS333-433左侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs333zkbh647-4e4b17b0.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "models3d",
+            "before": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8dfe1e2e0aeb4c28fb32d589a2a3464e260ad458/assets/models/M6GS1515WH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6010BZ",
+            "field": "models3d",
+            "before": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb;M6x12内六角螺丝|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
+            "after": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6010WZ",
+            "field": "models3d",
+            "before": "M6x12内六角螺丝|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb;M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
+            "after": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+          },
+          {
+            "kind": "material",
+            "code": "ZJG150641BH",
+            "field": "drawings",
+            "before": "41底脚.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf",
+            "after": "41底脚.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf"
+          }
+        ]
+      },
       {
         "id": "history_171gyeu",
         "productCode": "LGS433",
@@ -260274,6 +260979,52 @@
       }
     ],
     "LGS723": [
+      {
+        "id": "history_4tdw00",
+        "productCode": "LGS723",
+        "revision": "V4.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-08-24T07:14:36.869Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS723YKWH647",
+            "field": "drawings",
+            "before": "LGS723_733右侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs723ykwh647-9bf038bf.pdf",
+            "after": "LGS723_733右侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs723ykbh647-9bf038bf.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS723ZKWH647",
+            "field": "drawings",
+            "before": "LGS723_733左侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs723zkwh647-ea6a04ac.pdf",
+            "after": "LGS723_733左侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs723zkbh647-ea6a04ac.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "models3d",
+            "before": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8dfe1e2e0aeb4c28fb32d589a2a3464e260ad458/assets/models/M6GS1515WH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6010BZ",
+            "field": "models3d",
+            "before": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb;M6x12内六角螺丝|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
+            "after": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6010WZ",
+            "field": "models3d",
+            "before": "M6x12内六角螺丝|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb;M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
+            "after": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+          }
+        ]
+      },
       {
         "id": "history_yvknat",
         "productCode": "LGS723",
@@ -261764,6 +262515,59 @@
       }
     ],
     "LGS733": [
+      {
+        "id": "history_1cms47q",
+        "productCode": "LGS733",
+        "revision": "V4.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-08-24T07:14:36.869Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS723YKWH647",
+            "field": "drawings",
+            "before": "LGS723_733右侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs723ykwh647-9bf038bf.pdf",
+            "after": "LGS723_733右侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs723ykbh647-9bf038bf.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS723ZKWH647",
+            "field": "drawings",
+            "before": "LGS723_733左侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs723zkwh647-ea6a04ac.pdf",
+            "after": "LGS723_733左侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs723zkbh647-ea6a04ac.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "models3d",
+            "before": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8dfe1e2e0aeb4c28fb32d589a2a3464e260ad458/assets/models/M6GS1515WH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6010BZ",
+            "field": "models3d",
+            "before": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb;M6x12内六角螺丝|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
+            "after": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6010WZ",
+            "field": "models3d",
+            "before": "M6x12内六角螺丝|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb;M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
+            "after": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+          },
+          {
+            "kind": "material",
+            "code": "ZJG150641BH",
+            "field": "drawings",
+            "before": "41底脚.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf",
+            "after": "41底脚.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf"
+          }
+        ]
+      },
       {
         "id": "history_1eqr236",
         "productCode": "LGS733",
@@ -263498,6 +264302,59 @@
     ],
     "LGS833": [
       {
+        "id": "history_6tbc2x",
+        "productCode": "LGS833",
+        "revision": "V4.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-08-24T07:14:36.869Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS833YKWH647",
+            "field": "drawings",
+            "before": "LGS833右侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs833ykwh647-5a0d567a.pdf",
+            "after": "LGS833右侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs833ykbh647-5a0d567a.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS833ZKWH647",
+            "field": "drawings",
+            "before": "LGS833左侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs833zkwh647-db7af8d5.pdf",
+            "after": "LGS833左侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs833zkbh647-db7af8d5.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "models3d",
+            "before": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8dfe1e2e0aeb4c28fb32d589a2a3464e260ad458/assets/models/M6GS1515WH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6010BZ",
+            "field": "models3d",
+            "before": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb;M6x12内六角螺丝|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
+            "after": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6010WZ",
+            "field": "models3d",
+            "before": "M6x12内六角螺丝|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb;M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
+            "after": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+          },
+          {
+            "kind": "material",
+            "code": "ZJG150641BH",
+            "field": "drawings",
+            "before": "41底脚.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf",
+            "after": "41底脚.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf"
+          }
+        ]
+      },
+      {
         "id": "history_1gf80h1",
         "productCode": "LGS833",
         "revision": "V4.2",
@@ -264961,6 +265818,87 @@
       }
     ],
     "LGS834": [
+      {
+        "id": "history_1qzam8h",
+        "productCode": "LGS834",
+        "revision": "V4.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-08-24T07:14:36.869Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS334XHZHLBH",
+            "field": "models3d",
+            "before": "LGS334_434-底部横杆左-后.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-da84b3da.glb;LGS334_434_834-底部横杆左-后.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-404054ab.glb",
+            "after": "LGS334_434_834-底部横杆左-后.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-404054ab.glb"
+          },
+          {
+            "kind": "material",
+            "code": "LGS334XHZHLWH",
+            "field": "models3d",
+            "before": "LGS334_434_834-底部横杆左-后.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-404054ab.glb;LGS334_434-底部横杆左-后.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-da84b3da.glb",
+            "after": "LGS334_434_834-底部横杆左-后.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-404054ab.glb"
+          },
+          {
+            "kind": "material",
+            "code": "LGS334XQZHLBH",
+            "field": "models3d",
+            "before": "LGS334_434-底部横杆左-前.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-12cb6679.glb;LGS334_434_834-底部横杆左-前.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-f806e3c3.glb",
+            "after": "LGS334_434-底部横杆左-前.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-12cb6679.glb"
+          },
+          {
+            "kind": "material",
+            "code": "LGS334XQZHLWH",
+            "field": "models3d",
+            "before": "LGS334_434_834-底部横杆左-前.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-834-f806e3c3.glb;LGS334_434-底部横杆左-前.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-12cb6679.glb",
+            "after": "LGS334_434-底部横杆左-前.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-434-12cb6679.glb"
+          },
+          {
+            "kind": "material",
+            "code": "LGS834YKWH647",
+            "field": "drawings",
+            "before": "LGS834右侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs834ykwh647-dcb6f52e.pdf",
+            "after": "LGS834右侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs834ykbh647-dcb6f52e.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS834ZKWH647",
+            "field": "drawings",
+            "before": "LGS834左侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs834zkwh647-b8c46711.pdf",
+            "after": "LGS834左侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs834zkbh647-b8c46711.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "M6GS1515WH",
+            "field": "models3d",
+            "before": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8dfe1e2e0aeb4c28fb32d589a2a3464e260ad458/assets/models/M6GS1515WH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb",
+            "after": "M6管塞|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@494f610f4393187a8aeddee0233b4e76435705c3/assets/models/M6GS1515BH_e9910b0c6c7e2c7aa6e60057b15303461082c33c2be79daba4cf0694894f399a_M6_.glb"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6010BZ",
+            "field": "models3d",
+            "before": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb;M6x12内六角螺丝|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
+            "after": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS6010WZ",
+            "field": "models3d",
+            "before": "M6x12内六角螺丝|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb;M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb",
+            "after": "M6x10内六角螺丝.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/M6x10-1a5aa14f.glb"
+          },
+          {
+            "kind": "material",
+            "code": "ZJG150641BH",
+            "field": "drawings",
+            "before": "41底脚.pdf|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf",
+            "after": "41底脚.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf"
+          }
+        ]
+      },
       {
         "id": "history_1n26qdq",
         "productCode": "LGS834",
