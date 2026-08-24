@@ -97,6 +97,8 @@ const ASSET_STORAGE_CONFIG = {
 };
 
 function buildEcnProposalBatches(payload, maxBatchSize) {
+  const sharedAssetBatches = buildSharedMaterialAssetProposalBatches(payload, maxBatchSize);
+  if (sharedAssetBatches.length > 0) return sharedAssetBatches;
   const legacyBatches = buildLegacyEcnProposalBatches(payload, maxBatchSize);
   if (legacyBatches.length > 0) return legacyBatches;
   const b201Batches = buildB201ProposalBatches(payload, maxBatchSize);
@@ -104,9 +106,7 @@ function buildEcnProposalBatches(payload, maxBatchSize) {
   const b201WithdrawalBatches = buildB201WithdrawalProposalBatches(payload, maxBatchSize);
   if (b201WithdrawalBatches.length > 0) return b201WithdrawalBatches;
   const colorBatches = buildFourColorVariantProposalBatches(payload, maxBatchSize);
-  return colorBatches.length > 0
-    ? colorBatches
-    : buildSharedMaterialAssetProposalBatches(payload, maxBatchSize);
+  return colorBatches;
 }
 
 class StaleRemoteDataError extends Error {
