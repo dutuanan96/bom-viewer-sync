@@ -34205,11 +34205,8 @@
         },
         "drawings": [
           {
-            "name": "LGS834层板.pdf",
-            "path": "Google Drive > LGS834 > LGS834层板.pdf",
-            "url": "https://drive.google.com/file/d/1TrZlhKsIuxSvyHln4qMCyOo2AYp7DDrh/view?usp=sharing",
-            "matched_name": "LGS834层板",
-            "score": 1008
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@36f4622cc3c00be15f1efa662c98fe9c770ac154/assets/pdfs/LGS834CB201BH_d581203d4d1fc30b9b6c4fc3ff2ec0c33ffebcac81f488c9ab23bc41f46b9c6e_LGS834_.pdf",
+            "name": "LGS834层板.pdf"
           }
         ],
         "models3d": [

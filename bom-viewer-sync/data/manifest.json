@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-24T10:51:16.133Z",
+  "updatedAt": "2026-08-27T00:31:13.978Z",
   "products": [
     "5106",
     "LGS031",
@@ -272128,6 +272128,22 @@
   },
   "notifications": [
     {
+      "id": "notif_1th8qry",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-27T00:31:13.978Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "LGS834CB201BH",
+          "field": "drawings",
+          "before": "LGS834层板.pdf|https://drive.google.com/file/d/1TrZlhKsIuxSvyHln4qMCyOo2AYp7DDrh/view?usp=sharing",
+          "after": "LGS834层板.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@36f4622cc3c00be15f1efa662c98fe9c770ac154/assets/pdfs/LGS834CB201BH_d581203d4d1fc30b9b6c4fc3ff2ec0c33ffebcac81f488c9ab23bc41f46b9c6e_LGS834_.pdf"
+        }
+      ]
+    },
+    {
       "id": "notif_1w71g0e",
       "type": "github-save",
       "actor": "admin",
@@ -273385,29 +273401,6 @@
           "field": "",
           "before": "ZJG150654BH",
           "after": "ZJG150641BH"
-        }
-      ]
-    },
-    {
-      "id": "notif_hulxwm",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-19T03:52:58.488Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS333",
-          "field": "effectiveRevision",
-          "before": "V4",
-          "after": "V4.1"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS333",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
         }
       ]
     }
@@ -298308,6 +298301,24 @@
       }
     ],
     "LGS834": [
+      {
+        "id": "history_10jkk4w",
+        "productCode": "LGS834",
+        "revision": "V4.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-08-27T00:31:13.978Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS834CB201BH",
+            "field": "drawings",
+            "before": "LGS834层板.pdf|https://drive.google.com/file/d/1TrZlhKsIuxSvyHln4qMCyOo2AYp7DDrh/view?usp=sharing",
+            "after": "LGS834层板.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@36f4622cc3c00be15f1efa662c98fe9c770ac154/assets/pdfs/LGS834CB201BH_d581203d4d1fc30b9b6c4fc3ff2ec0c33ffebcac81f488c9ab23bc41f46b9c6e_LGS834_.pdf"
+          }
+        ]
+      },
       {
         "id": "history_1qzam8h",
         "productCode": "LGS834",
