@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-27T00:31:13.978Z",
+  "updatedAt": "2026-08-27T00:36:39.425Z",
   "products": [
     "5106",
     "LGS031",
@@ -272128,6 +272128,36 @@
   },
   "notifications": [
     {
+      "id": "notif_4loiui",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-27T00:36:39.425Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "LGS043CB101BH",
+          "field": "drawings",
+          "before": "LGS043-S-层板.pdf|https://drive.google.com/file/d/12qn59Rtc5CB1jB3nHO3Igs7yW5UrGfsa/view?usp=sharing",
+          "after": "LGS043-S-层板.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@576e98935092a04c6a04d9c9a4c43b2b8f4b23c0/assets/pdfs/LGS043CB101BH_aee2292d22db6dbbf27bc7e7870dce0320b94d207f0e78d691a4eb615a233cee_LGS043-S-_.pdf"
+        },
+        {
+          "kind": "material",
+          "code": "LGS043CB101BH",
+          "field": "models3d",
+          "before": "LGS043-S-层板.glb|models3d/catalog/LGS043-S-a4dfcb25.glb",
+          "after": "LGS043-S-层板.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS043-S-a4dfcb25.glb"
+        },
+        {
+          "kind": "material",
+          "code": "LGS834CB201WH",
+          "field": "drawings",
+          "before": "LGS834层板.pdf|https://drive.google.com/file/d/1TrZlhKsIuxSvyHln4qMCyOo2AYp7DDrh/view?usp=sharing",
+          "after": "LGS834层板|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@36f4622cc3c00be15f1efa662c98fe9c770ac154/assets/pdfs/LGS834CB201BH_d581203d4d1fc30b9b6c4fc3ff2ec0c33ffebcac81f488c9ab23bc41f46b9c6e_LGS834_.pdf"
+        }
+      ]
+    },
+    {
       "id": "notif_1th8qry",
       "type": "github-save",
       "actor": "admin",
@@ -273371,36 +273401,6 @@
           "field": "workflowState",
           "before": "draft",
           "after": "released"
-        }
-      ]
-    },
-    {
-      "id": "notif_1ml9q6u",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-19T09:27:45.556Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS334",
-          "field": "effectiveRevision",
-          "before": "V4.1",
-          "after": "V4"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS334",
-          "field": "workflowState",
-          "before": "released",
-          "after": "draft"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS334BH02S",
-          "field": "",
-          "before": "ZJG150654BH",
-          "after": "ZJG150641BH"
         }
       ]
     }
@@ -298302,6 +298302,24 @@
     ],
     "LGS834": [
       {
+        "id": "history_16fr4hm",
+        "productCode": "LGS834",
+        "revision": "V4.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-08-27T00:36:39.425Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS834CB201WH",
+            "field": "drawings",
+            "before": "LGS834层板.pdf|https://drive.google.com/file/d/1TrZlhKsIuxSvyHln4qMCyOo2AYp7DDrh/view?usp=sharing",
+            "after": "LGS834层板|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@36f4622cc3c00be15f1efa662c98fe9c770ac154/assets/pdfs/LGS834CB201BH_d581203d4d1fc30b9b6c4fc3ff2ec0c33ffebcac81f488c9ab23bc41f46b9c6e_LGS834_.pdf"
+          }
+        ]
+      },
+      {
         "id": "history_10jkk4w",
         "productCode": "LGS834",
         "revision": "V4.2",
@@ -300097,6 +300115,31 @@
       }
     ],
     "LGS043": [
+      {
+        "id": "history_g1yov5",
+        "productCode": "LGS043",
+        "revision": "V3.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-27T00:36:39.425Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS043CB101BH",
+            "field": "drawings",
+            "before": "LGS043-S-层板.pdf|https://drive.google.com/file/d/12qn59Rtc5CB1jB3nHO3Igs7yW5UrGfsa/view?usp=sharing",
+            "after": "LGS043-S-层板.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@576e98935092a04c6a04d9c9a4c43b2b8f4b23c0/assets/pdfs/LGS043CB101BH_aee2292d22db6dbbf27bc7e7870dce0320b94d207f0e78d691a4eb615a233cee_LGS043-S-_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS043CB101BH",
+            "field": "models3d",
+            "before": "LGS043-S-层板.glb|models3d/catalog/LGS043-S-a4dfcb25.glb",
+            "after": "LGS043-S-层板.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS043-S-a4dfcb25.glb"
+          }
+        ]
+      },
       {
         "id": "history_1fbkzge",
         "productCode": "LGS043",
