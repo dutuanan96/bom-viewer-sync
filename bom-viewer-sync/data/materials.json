@@ -17625,11 +17625,8 @@
         },
         "drawings": [
           {
-            "name": "LGS043-S-层板.pdf",
-            "path": "Google Drive > LGS043-S > LGS043-S-层板.pdf",
-            "url": "https://drive.google.com/file/d/12qn59Rtc5CB1jB3nHO3Igs7yW5UrGfsa/view?usp=sharing",
-            "matched_name": "LGS043-S-层板",
-            "score": 1009
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@576e98935092a04c6a04d9c9a4c43b2b8f4b23c0/assets/pdfs/LGS043CB101BH_aee2292d22db6dbbf27bc7e7870dce0320b94d207f0e78d691a4eb615a233cee_LGS043-S-_.pdf",
+            "name": "LGS043-S-层板"
           }
         ],
         "models3d": [
@@ -17639,7 +17636,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS043-S-a4dfcb25.glb",
             "matched_name": "LGS043-S-层板",
             "score": 1300,
-            "bytes": 37380
+            "bytes": 37380,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS043-S-a4dfcb25.glb"
           }
         ],
         "unit": {

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-27T00:36:39.425Z",
+  "updatedAt": "2026-08-27T00:41:52.097Z",
   "products": [
     "5106",
     "LGS031",
@@ -272128,6 +272128,29 @@
   },
   "notifications": [
     {
+      "id": "notif_aj46hy",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-08-27T00:41:52.097Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "LGS043CB101KD",
+          "field": "drawings",
+          "before": "LGS043-S-层板.pdf|https://drive.google.com/file/d/12qn59Rtc5CB1jB3nHO3Igs7yW5UrGfsa/view?usp=sharing",
+          "after": "LGS043-S-层板|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@576e98935092a04c6a04d9c9a4c43b2b8f4b23c0/assets/pdfs/LGS043CB101BH_aee2292d22db6dbbf27bc7e7870dce0320b94d207f0e78d691a4eb615a233cee_LGS043-S-_.pdf"
+        },
+        {
+          "kind": "material",
+          "code": "LGS043CB101KD",
+          "field": "models3d",
+          "before": "LGS043-S-层板.glb|models3d/catalog/LGS043-S-a4dfcb25.glb",
+          "after": "LGS043-S-层板.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS043-S-a4dfcb25.glb"
+        }
+      ]
+    },
+    {
       "id": "notif_4loiui",
       "type": "github-save",
       "actor": "admin",
@@ -273378,29 +273401,6 @@
           "field": "",
           "before": "ZJG15065423BH",
           "after": "ZJG15064123BH"
-        }
-      ]
-    },
-    {
-      "id": "notif_v65mt2",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-19T09:29:42.739Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS334",
-          "field": "effectiveRevision",
-          "before": "V4",
-          "after": "V4.1"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS334",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
         }
       ]
     }
@@ -300115,6 +300115,31 @@
       }
     ],
     "LGS043": [
+      {
+        "id": "history_1uj27jx",
+        "productCode": "LGS043",
+        "revision": "V3.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-08-27T00:41:52.097Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS043CB101KD",
+            "field": "drawings",
+            "before": "LGS043-S-层板.pdf|https://drive.google.com/file/d/12qn59Rtc5CB1jB3nHO3Igs7yW5UrGfsa/view?usp=sharing",
+            "after": "LGS043-S-层板|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@576e98935092a04c6a04d9c9a4c43b2b8f4b23c0/assets/pdfs/LGS043CB101BH_aee2292d22db6dbbf27bc7e7870dce0320b94d207f0e78d691a4eb615a233cee_LGS043-S-_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS043CB101KD",
+            "field": "models3d",
+            "before": "LGS043-S-层板.glb|models3d/catalog/LGS043-S-a4dfcb25.glb",
+            "after": "LGS043-S-层板.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS043-S-a4dfcb25.glb"
+          }
+        ]
+      },
       {
         "id": "history_g1yov5",
         "productCode": "LGS043",
