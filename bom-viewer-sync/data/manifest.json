@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-09-05T07:50:46.563Z",
+  "updatedAt": "2026-09-05T07:52:18.882Z",
   "products": [
     "5106",
     "LGS031",
@@ -24611,12 +24611,12 @@
     },
     "LGS733": {
       "currentRevision": "V4.2",
-      "effectiveRevision": "V4.1",
+      "effectiveRevision": "V4.2",
       "currentRevisionInfo": {
         "sourceRevision": "V4.1",
         "createdAt": "2026-08-24T05:24:49.584Z",
         "changeReason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -51196,6 +51196,14 @@
           "previousRevision": "V4.2",
           "occurredAt": "2026-09-05T07:48:14.750Z",
           "reason": "取消PE100X60"
+        },
+        {
+          "id": "effectivity_mto34l12",
+          "action": "release",
+          "revision": "V4.2",
+          "previousRevision": "V4.1",
+          "occurredAt": "2026-09-05T07:52:18.806Z",
+          "reason": "更新"
         }
       ]
     },
@@ -250070,12 +250078,12 @@
     },
     "LGS833": {
       "currentRevision": "V4.2",
-      "effectiveRevision": "V4.1",
+      "effectiveRevision": "V4.2",
       "currentRevisionInfo": {
         "sourceRevision": "V4.1",
         "createdAt": "2026-08-24T05:24:49.640Z",
         "changeReason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -272138,11 +272146,56 @@
           "previousRevision": "V4.2",
           "occurredAt": "2026-09-05T07:49:20.659Z",
           "reason": "取消PE100X60"
+        },
+        {
+          "id": "effectivity_mto34l28",
+          "action": "release",
+          "revision": "V4.2",
+          "previousRevision": "V4.1",
+          "occurredAt": "2026-09-05T07:52:18.848Z",
+          "reason": "更新"
         }
       ]
     }
   },
   "notifications": [
+    {
+      "id": "notif_1klwnqq",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-09-05T07:52:18.882Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS733",
+          "field": "effectiveRevision",
+          "before": "V4.1",
+          "after": "V4.2"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS733",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS833",
+          "field": "effectiveRevision",
+          "before": "V4.1",
+          "after": "V4.2"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS833",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        }
+      ]
+    },
     {
       "id": "notif_14xtk04",
       "type": "github-save",
@@ -273366,57 +273419,6 @@
           "field": "",
           "before": "",
           "after": ""
-        }
-      ]
-    },
-    {
-      "id": "notif_1v41ti6",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-19T09:40:10.146Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS434",
-          "field": "effectiveRevision",
-          "before": "V5",
-          "after": "V5.1"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS434",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS233",
-          "field": "effectiveRevision",
-          "before": "V4",
-          "after": "V4.1"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS233",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS133",
-          "field": "effectiveRevision",
-          "before": "V4",
-          "after": "V4.1"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS133",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
         }
       ]
     }
@@ -294951,6 +294953,31 @@
     ],
     "LGS733": [
       {
+        "id": "history_51quep",
+        "productCode": "LGS733",
+        "revision": "V4.2",
+        "action": "release",
+        "actor": "admin",
+        "reason": "更新",
+        "createdAt": "2026-09-05T07:52:18.882Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS733",
+            "field": "effectiveRevision",
+            "before": "V4.1",
+            "after": "V4.2"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS733",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
+      {
         "id": "history_1u0kpy0",
         "productCode": "LGS733",
         "revision": "V4.2",
@@ -296828,6 +296855,31 @@
       }
     ],
     "LGS833": [
+      {
+        "id": "history_qz07z6",
+        "productCode": "LGS833",
+        "revision": "V4.2",
+        "action": "release",
+        "actor": "admin",
+        "reason": "更新",
+        "createdAt": "2026-09-05T07:52:18.882Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS833",
+            "field": "effectiveRevision",
+            "before": "V4.1",
+            "after": "V4.2"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS833",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
       {
         "id": "history_3p54qr",
         "productCode": "LGS833",
