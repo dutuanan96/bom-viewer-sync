@@ -15130,14 +15130,14 @@
       },
       "mat_q03tfs": {
         "id": "mat_q03tfs",
-        "code": "LG05254BH",
+        "code": "LG05252BH",
         "name": {
-          "zh": "254拉杆",
-          "vi": "254 thanh đũa"
+          "zh": "252拉杆",
+          "vi": "252 thanh đũa"
         },
         "spec": {
-          "zh": "Ø5x254mm",
-          "vi": "Ø5x254mm"
+          "zh": "Ø5x252mm",
+          "vi": "Ø5x252mm"
         },
         "material": {
           "zh": "Q195",
@@ -15153,11 +15153,8 @@
         },
         "drawings": [
           {
-            "name": "254拉杆.pdf",
-            "path": "Google Drive > LGS032-S > 254拉杆.pdf",
-            "url": "https://drive.google.com/file/d/1Z6_Q10QmTVo5l_SkpcPgEN6FgJVV1OrB/view?usp=sharing",
-            "matched_name": "254拉杆",
-            "score": 1005
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@1b0a7bba3ad86cc36e5ce2aa86e0a6f2b9d9df58/assets/pdfs/LG05252BH_8b9fcd10c86d48ed1eb4ca4b7cca55af4574f08be05cd4d509ad9ed46a42915f_252_.pdf",
+            "name": "252拉杆.pdf"
           }
         ],
         "models3d": [
@@ -15167,7 +15164,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/254-d2333a3d.glb",
             "matched_name": "254拉杆",
             "score": 1300,
-            "bytes": 25716
+            "bytes": 25716,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/254-d2333a3d.glb"
           }
         ],
         "unit": {
@@ -20351,14 +20349,14 @@
       },
       "mat_fxovzg": {
         "id": "mat_fxovzg",
-        "code": "LG05254WH",
+        "code": "LG05252WH",
         "name": {
-          "zh": "254拉杆",
-          "vi": "254 thanh đũa"
+          "zh": "252拉杆",
+          "vi": "252 thanh đũa"
         },
         "spec": {
-          "zh": "Ø5x254mm",
-          "vi": "Ø5x254mm"
+          "zh": "Ø5x252mm",
+          "vi": "Ø5x252mm"
         },
         "material": {
           "zh": "Q195",
@@ -20374,10 +20372,8 @@
         },
         "drawings": [
           {
-            "name": "254拉杆.pdf",
-            "path": "Google Drive > LGS032-S > 254拉杆.pdf",
-            "url": "https://drive.google.com/file/d/1Z6_Q10QmTVo5l_SkpcPgEN6FgJVV1OrB/view?usp=sharing",
-            "previewUrl": "https://drive.google.com/file/d/1Z6_Q10QmTVo5l_SkpcPgEN6FgJVV1OrB/view?usp=sharing"
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b62af22907b457227ed21c8f86c36e3d70206a65/assets/pdfs/LG05252WH_8b9fcd10c86d48ed1eb4ca4b7cca55af4574f08be05cd4d509ad9ed46a42915f_252_.pdf",
+            "name": "252拉杆.pdf"
           }
         ],
         "models3d": [
@@ -20387,7 +20383,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/254-d2333a3d.glb",
             "matched_name": "254拉杆",
             "score": 1100,
-            "bytes": 25716
+            "bytes": 25716,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/254-d2333a3d.glb"
           }
         ],
         "unit": {

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-09-05T07:52:18.882Z",
+  "updatedAt": "2026-09-08T06:20:24.790Z",
   "products": [
     "5106",
     "LGS031",
@@ -272160,6 +272160,71 @@
   },
   "notifications": [
     {
+      "id": "notif_1wdxe1q",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-09-08T06:20:24.790Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "LG05252BH",
+          "field": "code",
+          "before": "LG05254BH",
+          "after": "LG05252BH"
+        },
+        {
+          "kind": "material",
+          "code": "LG05252BH",
+          "field": "name",
+          "before": "254拉杆 / 254 thanh đũa",
+          "after": "252拉杆 / 252 thanh đũa"
+        },
+        {
+          "kind": "material",
+          "code": "LG05252BH",
+          "field": "spec",
+          "before": "Ø5x254mm",
+          "after": "Ø5x252mm"
+        },
+        {
+          "kind": "material",
+          "code": "LG05252BH",
+          "field": "drawings",
+          "before": "254拉杆.pdf|https://drive.google.com/file/d/1Z6_Q10QmTVo5l_SkpcPgEN6FgJVV1OrB/view?usp=sharing",
+          "after": "252拉杆.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@1b0a7bba3ad86cc36e5ce2aa86e0a6f2b9d9df58/assets/pdfs/LG05252BH_8b9fcd10c86d48ed1eb4ca4b7cca55af4574f08be05cd4d509ad9ed46a42915f_252_.pdf"
+        },
+        {
+          "kind": "material",
+          "code": "LG05252BH",
+          "field": "models3d",
+          "before": "254拉杆.glb|models3d/catalog/254-d2333a3d.glb",
+          "after": "254拉杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/254-d2333a3d.glb"
+        },
+        {
+          "kind": "material",
+          "code": "LG05252WH",
+          "field": "code",
+          "before": "LG05254WH",
+          "after": "LG05252WH"
+        },
+        {
+          "kind": "material",
+          "code": "LG05252WH",
+          "field": "name",
+          "before": "254拉杆 / 254 thanh đũa",
+          "after": "252拉杆 / 252 thanh đũa"
+        },
+        {
+          "kind": "material",
+          "code": "LG05252WH",
+          "field": "spec",
+          "before": "Ø5x254mm",
+          "after": "Ø5x252mm"
+        }
+      ]
+    },
+    {
       "id": "notif_1klwnqq",
       "type": "github-save",
       "actor": "admin",
@@ -273398,29 +273463,6 @@
       "createdAt": "2026-08-19T10:11:00.408Z",
       "version": 2,
       "changes": []
-    },
-    {
-      "id": "notif_xd8kjc",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-19T10:04:31.151Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material_added",
-          "code": "LGS043YZKBH647",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "material_added",
-          "code": "LGS043ZZKBH647",
-          "field": "",
-          "before": "",
-          "after": ""
-        }
-      ]
     }
   ],
   "bomHistory": {
@@ -274554,6 +274596,52 @@
     ],
     "LGS231": [
       {
+        "id": "history_1i61j4v",
+        "productCode": "LGS231",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-09-08T06:20:24.790Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "code",
+            "before": "LG05254BH",
+            "after": "LG05252BH"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "name",
+            "before": "254拉杆 / 254 thanh đũa",
+            "after": "252拉杆 / 252 thanh đũa"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "spec",
+            "before": "Ø5x254mm",
+            "after": "Ø5x252mm"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "drawings",
+            "before": "254拉杆.pdf|https://drive.google.com/file/d/1Z6_Q10QmTVo5l_SkpcPgEN6FgJVV1OrB/view?usp=sharing",
+            "after": "252拉杆.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@1b0a7bba3ad86cc36e5ce2aa86e0a6f2b9d9df58/assets/pdfs/LG05252BH_8b9fcd10c86d48ed1eb4ca4b7cca55af4574f08be05cd4d509ad9ed46a42915f_252_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "models3d",
+            "before": "254拉杆.glb|models3d/catalog/254-d2333a3d.glb",
+            "after": "254拉杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/254-d2333a3d.glb"
+          }
+        ]
+      },
+      {
         "id": "history_3ndde4",
         "productCode": "LGS231",
         "revision": "V3",
@@ -275240,6 +275328,87 @@
       }
     ],
     "LGS233": [
+      {
+        "id": "history_z8rsmf",
+        "productCode": "LGS233",
+        "revision": "V4.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-09-08T06:20:24.790Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "code",
+            "before": "LG05254BH",
+            "after": "LG05252BH"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "name",
+            "before": "254拉杆 / 254 thanh đũa",
+            "after": "252拉杆 / 252 thanh đũa"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "spec",
+            "before": "Ø5x254mm",
+            "after": "Ø5x252mm"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "drawings",
+            "before": "254拉杆.pdf|https://drive.google.com/file/d/1Z6_Q10QmTVo5l_SkpcPgEN6FgJVV1OrB/view?usp=sharing",
+            "after": "252拉杆.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@1b0a7bba3ad86cc36e5ce2aa86e0a6f2b9d9df58/assets/pdfs/LG05252BH_8b9fcd10c86d48ed1eb4ca4b7cca55af4574f08be05cd4d509ad9ed46a42915f_252_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "models3d",
+            "before": "254拉杆.glb|models3d/catalog/254-d2333a3d.glb",
+            "after": "254拉杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/254-d2333a3d.glb"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "code",
+            "before": "LG05254WH",
+            "after": "LG05252WH"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "name",
+            "before": "254拉杆 / 254 thanh đũa",
+            "after": "252拉杆 / 252 thanh đũa"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "spec",
+            "before": "Ø5x254mm",
+            "after": "Ø5x252mm"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "drawings",
+            "before": "254拉杆.pdf|https://drive.google.com/file/d/1Z6_Q10QmTVo5l_SkpcPgEN6FgJVV1OrB/view?usp=sharing",
+            "after": "252拉杆.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b62af22907b457227ed21c8f86c36e3d70206a65/assets/pdfs/LG05252WH_8b9fcd10c86d48ed1eb4ca4b7cca55af4574f08be05cd4d509ad9ed46a42915f_252_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "models3d",
+            "before": "254拉杆.glb|models3d/catalog/254-d2333a3d.glb",
+            "after": "254拉杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/254-d2333a3d.glb"
+          }
+        ]
+      },
       {
         "id": "history_1rag41u",
         "productCode": "LGS233",
@@ -277071,6 +277240,52 @@
     ],
     "LGS334": [
       {
+        "id": "history_uab67f",
+        "productCode": "LGS334",
+        "revision": "V4.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-09-08T06:20:24.790Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "code",
+            "before": "LG05254BH",
+            "after": "LG05252BH"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "name",
+            "before": "254拉杆 / 254 thanh đũa",
+            "after": "252拉杆 / 252 thanh đũa"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "spec",
+            "before": "Ø5x254mm",
+            "after": "Ø5x252mm"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "drawings",
+            "before": "254拉杆.pdf|https://drive.google.com/file/d/1Z6_Q10QmTVo5l_SkpcPgEN6FgJVV1OrB/view?usp=sharing",
+            "after": "252拉杆.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@1b0a7bba3ad86cc36e5ce2aa86e0a6f2b9d9df58/assets/pdfs/LG05252BH_8b9fcd10c86d48ed1eb4ca4b7cca55af4574f08be05cd4d509ad9ed46a42915f_252_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "models3d",
+            "before": "254拉杆.glb|models3d/catalog/254-d2333a3d.glb",
+            "after": "254拉杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/254-d2333a3d.glb"
+          }
+        ]
+      },
+      {
         "id": "history_1bzdfei",
         "productCode": "LGS334",
         "revision": "V4.2",
@@ -278406,6 +278621,87 @@
       }
     ],
     "LGS434": [
+      {
+        "id": "history_69egcg",
+        "productCode": "LGS434",
+        "revision": "V5.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-09-08T06:20:24.790Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "code",
+            "before": "LG05254BH",
+            "after": "LG05252BH"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "name",
+            "before": "254拉杆 / 254 thanh đũa",
+            "after": "252拉杆 / 252 thanh đũa"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "spec",
+            "before": "Ø5x254mm",
+            "after": "Ø5x252mm"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "drawings",
+            "before": "254拉杆.pdf|https://drive.google.com/file/d/1Z6_Q10QmTVo5l_SkpcPgEN6FgJVV1OrB/view?usp=sharing",
+            "after": "252拉杆.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@1b0a7bba3ad86cc36e5ce2aa86e0a6f2b9d9df58/assets/pdfs/LG05252BH_8b9fcd10c86d48ed1eb4ca4b7cca55af4574f08be05cd4d509ad9ed46a42915f_252_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "models3d",
+            "before": "254拉杆.glb|models3d/catalog/254-d2333a3d.glb",
+            "after": "254拉杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/254-d2333a3d.glb"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "code",
+            "before": "LG05254WH",
+            "after": "LG05252WH"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "name",
+            "before": "254拉杆 / 254 thanh đũa",
+            "after": "252拉杆 / 252 thanh đũa"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "spec",
+            "before": "Ø5x254mm",
+            "after": "Ø5x252mm"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "drawings",
+            "before": "254拉杆.pdf|https://drive.google.com/file/d/1Z6_Q10QmTVo5l_SkpcPgEN6FgJVV1OrB/view?usp=sharing",
+            "after": "252拉杆.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b62af22907b457227ed21c8f86c36e3d70206a65/assets/pdfs/LG05252WH_8b9fcd10c86d48ed1eb4ca4b7cca55af4574f08be05cd4d509ad9ed46a42915f_252_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "models3d",
+            "before": "254拉杆.glb|models3d/catalog/254-d2333a3d.glb",
+            "after": "254拉杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/254-d2333a3d.glb"
+          }
+        ]
+      },
       {
         "id": "history_muat1b",
         "productCode": "LGS434",
@@ -279821,6 +280117,87 @@
     ],
     "LGS420": [
       {
+        "id": "history_153o1rd",
+        "productCode": "LGS420",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-09-08T06:20:24.790Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "code",
+            "before": "LG05254BH",
+            "after": "LG05252BH"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "name",
+            "before": "254拉杆 / 254 thanh đũa",
+            "after": "252拉杆 / 252 thanh đũa"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "spec",
+            "before": "Ø5x254mm",
+            "after": "Ø5x252mm"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "drawings",
+            "before": "254拉杆.pdf|https://drive.google.com/file/d/1Z6_Q10QmTVo5l_SkpcPgEN6FgJVV1OrB/view?usp=sharing",
+            "after": "252拉杆.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@1b0a7bba3ad86cc36e5ce2aa86e0a6f2b9d9df58/assets/pdfs/LG05252BH_8b9fcd10c86d48ed1eb4ca4b7cca55af4574f08be05cd4d509ad9ed46a42915f_252_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "models3d",
+            "before": "254拉杆.glb|models3d/catalog/254-d2333a3d.glb",
+            "after": "254拉杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/254-d2333a3d.glb"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "code",
+            "before": "LG05254WH",
+            "after": "LG05252WH"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "name",
+            "before": "254拉杆 / 254 thanh đũa",
+            "after": "252拉杆 / 252 thanh đũa"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "spec",
+            "before": "Ø5x254mm",
+            "after": "Ø5x252mm"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "drawings",
+            "before": "254拉杆.pdf|https://drive.google.com/file/d/1Z6_Q10QmTVo5l_SkpcPgEN6FgJVV1OrB/view?usp=sharing",
+            "after": "252拉杆.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b62af22907b457227ed21c8f86c36e3d70206a65/assets/pdfs/LG05252WH_8b9fcd10c86d48ed1eb4ca4b7cca55af4574f08be05cd4d509ad9ed46a42915f_252_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "models3d",
+            "before": "254拉杆.glb|models3d/catalog/254-d2333a3d.glb",
+            "after": "254拉杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/254-d2333a3d.glb"
+          }
+        ]
+      },
+      {
         "id": "history_6zco6u",
         "productCode": "LGS420",
         "revision": "V4",
@@ -280531,6 +280908,52 @@
     ],
     "LGS421": [
       {
+        "id": "history_iz68zy",
+        "productCode": "LGS421",
+        "revision": "V4",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-09-08T06:20:24.790Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "code",
+            "before": "LG05254BH",
+            "after": "LG05252BH"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "name",
+            "before": "254拉杆 / 254 thanh đũa",
+            "after": "252拉杆 / 252 thanh đũa"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "spec",
+            "before": "Ø5x254mm",
+            "after": "Ø5x252mm"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "drawings",
+            "before": "254拉杆.pdf|https://drive.google.com/file/d/1Z6_Q10QmTVo5l_SkpcPgEN6FgJVV1OrB/view?usp=sharing",
+            "after": "252拉杆.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@1b0a7bba3ad86cc36e5ce2aa86e0a6f2b9d9df58/assets/pdfs/LG05252BH_8b9fcd10c86d48ed1eb4ca4b7cca55af4574f08be05cd4d509ad9ed46a42915f_252_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "models3d",
+            "before": "254拉杆.glb|models3d/catalog/254-d2333a3d.glb",
+            "after": "254拉杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/254-d2333a3d.glb"
+          }
+        ]
+      },
+      {
         "id": "history_1n7yvcl",
         "productCode": "LGS421",
         "revision": "V4",
@@ -281150,6 +281573,87 @@
       }
     ],
     "LGS333": [
+      {
+        "id": "history_7k5c2s",
+        "productCode": "LGS333",
+        "revision": "V4.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-09-08T06:20:24.790Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "code",
+            "before": "LG05254BH",
+            "after": "LG05252BH"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "name",
+            "before": "254拉杆 / 254 thanh đũa",
+            "after": "252拉杆 / 252 thanh đũa"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "spec",
+            "before": "Ø5x254mm",
+            "after": "Ø5x252mm"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "drawings",
+            "before": "254拉杆.pdf|https://drive.google.com/file/d/1Z6_Q10QmTVo5l_SkpcPgEN6FgJVV1OrB/view?usp=sharing",
+            "after": "252拉杆.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@1b0a7bba3ad86cc36e5ce2aa86e0a6f2b9d9df58/assets/pdfs/LG05252BH_8b9fcd10c86d48ed1eb4ca4b7cca55af4574f08be05cd4d509ad9ed46a42915f_252_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "models3d",
+            "before": "254拉杆.glb|models3d/catalog/254-d2333a3d.glb",
+            "after": "254拉杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/254-d2333a3d.glb"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "code",
+            "before": "LG05254WH",
+            "after": "LG05252WH"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "name",
+            "before": "254拉杆 / 254 thanh đũa",
+            "after": "252拉杆 / 252 thanh đũa"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "spec",
+            "before": "Ø5x254mm",
+            "after": "Ø5x252mm"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "drawings",
+            "before": "254拉杆.pdf|https://drive.google.com/file/d/1Z6_Q10QmTVo5l_SkpcPgEN6FgJVV1OrB/view?usp=sharing",
+            "after": "252拉杆.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b62af22907b457227ed21c8f86c36e3d70206a65/assets/pdfs/LG05252WH_8b9fcd10c86d48ed1eb4ca4b7cca55af4574f08be05cd4d509ad9ed46a42915f_252_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "models3d",
+            "before": "254拉杆.glb|models3d/catalog/254-d2333a3d.glb",
+            "after": "254拉杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/254-d2333a3d.glb"
+          }
+        ]
+      },
       {
         "id": "history_fksfut",
         "productCode": "LGS333",
@@ -282842,6 +283346,52 @@
     ],
     "LGS232": [
       {
+        "id": "history_1b42v28",
+        "productCode": "LGS232",
+        "revision": "V3.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-09-08T06:20:24.790Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "code",
+            "before": "LG05254BH",
+            "after": "LG05252BH"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "name",
+            "before": "254拉杆 / 254 thanh đũa",
+            "after": "252拉杆 / 252 thanh đũa"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "spec",
+            "before": "Ø5x254mm",
+            "after": "Ø5x252mm"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "drawings",
+            "before": "254拉杆.pdf|https://drive.google.com/file/d/1Z6_Q10QmTVo5l_SkpcPgEN6FgJVV1OrB/view?usp=sharing",
+            "after": "252拉杆.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@1b0a7bba3ad86cc36e5ce2aa86e0a6f2b9d9df58/assets/pdfs/LG05252BH_8b9fcd10c86d48ed1eb4ca4b7cca55af4574f08be05cd4d509ad9ed46a42915f_252_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "models3d",
+            "before": "254拉杆.glb|models3d/catalog/254-d2333a3d.glb",
+            "after": "254拉杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/254-d2333a3d.glb"
+          }
+        ]
+      },
+      {
         "id": "history_sn0cak",
         "productCode": "LGS232",
         "revision": "V3.1",
@@ -284068,6 +284618,87 @@
       }
     ],
     "LGS032": [
+      {
+        "id": "history_1rrqd7e",
+        "productCode": "LGS032",
+        "revision": "V3.3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-COLOR: 新增 4 个已确认颜色 SKU；按已发布颜色 BOM 替换指定颜色物料。",
+        "createdAt": "2026-09-08T06:20:24.790Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "code",
+            "before": "LG05254BH",
+            "after": "LG05252BH"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "name",
+            "before": "254拉杆 / 254 thanh đũa",
+            "after": "252拉杆 / 252 thanh đũa"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "spec",
+            "before": "Ø5x254mm",
+            "after": "Ø5x252mm"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "drawings",
+            "before": "254拉杆.pdf|https://drive.google.com/file/d/1Z6_Q10QmTVo5l_SkpcPgEN6FgJVV1OrB/view?usp=sharing",
+            "after": "252拉杆.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@1b0a7bba3ad86cc36e5ce2aa86e0a6f2b9d9df58/assets/pdfs/LG05252BH_8b9fcd10c86d48ed1eb4ca4b7cca55af4574f08be05cd4d509ad9ed46a42915f_252_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "models3d",
+            "before": "254拉杆.glb|models3d/catalog/254-d2333a3d.glb",
+            "after": "254拉杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/254-d2333a3d.glb"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "code",
+            "before": "LG05254WH",
+            "after": "LG05252WH"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "name",
+            "before": "254拉杆 / 254 thanh đũa",
+            "after": "252拉杆 / 252 thanh đũa"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "spec",
+            "before": "Ø5x254mm",
+            "after": "Ø5x252mm"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "drawings",
+            "before": "254拉杆.pdf|https://drive.google.com/file/d/1Z6_Q10QmTVo5l_SkpcPgEN6FgJVV1OrB/view?usp=sharing",
+            "after": "252拉杆.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b62af22907b457227ed21c8f86c36e3d70206a65/assets/pdfs/LG05252WH_8b9fcd10c86d48ed1eb4ca4b7cca55af4574f08be05cd4d509ad9ed46a42915f_252_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "models3d",
+            "before": "254拉杆.glb|models3d/catalog/254-d2333a3d.glb",
+            "after": "254拉杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/254-d2333a3d.glb"
+          }
+        ]
+      },
       {
         "id": "history_11ne6vd",
         "productCode": "LGS032",
@@ -288308,6 +288939,87 @@
     ],
     "LGS131": [
       {
+        "id": "history_eowzag",
+        "productCode": "LGS131",
+        "revision": "V3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "",
+        "createdAt": "2026-09-08T06:20:24.790Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "code",
+            "before": "LG05254BH",
+            "after": "LG05252BH"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "name",
+            "before": "254拉杆 / 254 thanh đũa",
+            "after": "252拉杆 / 252 thanh đũa"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "spec",
+            "before": "Ø5x254mm",
+            "after": "Ø5x252mm"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "drawings",
+            "before": "254拉杆.pdf|https://drive.google.com/file/d/1Z6_Q10QmTVo5l_SkpcPgEN6FgJVV1OrB/view?usp=sharing",
+            "after": "252拉杆.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@1b0a7bba3ad86cc36e5ce2aa86e0a6f2b9d9df58/assets/pdfs/LG05252BH_8b9fcd10c86d48ed1eb4ca4b7cca55af4574f08be05cd4d509ad9ed46a42915f_252_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "models3d",
+            "before": "254拉杆.glb|models3d/catalog/254-d2333a3d.glb",
+            "after": "254拉杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/254-d2333a3d.glb"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "code",
+            "before": "LG05254WH",
+            "after": "LG05252WH"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "name",
+            "before": "254拉杆 / 254 thanh đũa",
+            "after": "252拉杆 / 252 thanh đũa"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "spec",
+            "before": "Ø5x254mm",
+            "after": "Ø5x252mm"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "drawings",
+            "before": "254拉杆.pdf|https://drive.google.com/file/d/1Z6_Q10QmTVo5l_SkpcPgEN6FgJVV1OrB/view?usp=sharing",
+            "after": "252拉杆.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b62af22907b457227ed21c8f86c36e3d70206a65/assets/pdfs/LG05252WH_8b9fcd10c86d48ed1eb4ca4b7cca55af4574f08be05cd4d509ad9ed46a42915f_252_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "models3d",
+            "before": "254拉杆.glb|models3d/catalog/254-d2333a3d.glb",
+            "after": "254拉杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/254-d2333a3d.glb"
+          }
+        ]
+      },
+      {
         "id": "history_1jt6bck",
         "productCode": "LGS131",
         "revision": "V3",
@@ -289052,6 +289764,52 @@
       }
     ],
     "LGS132": [
+      {
+        "id": "history_1oy1bmb",
+        "productCode": "LGS132",
+        "revision": "V3.3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-COLOR: 新增 4 个已确认颜色 SKU；按已发布颜色 BOM 替换指定颜色物料。",
+        "createdAt": "2026-09-08T06:20:24.790Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "code",
+            "before": "LG05254BH",
+            "after": "LG05252BH"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "name",
+            "before": "254拉杆 / 254 thanh đũa",
+            "after": "252拉杆 / 252 thanh đũa"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "spec",
+            "before": "Ø5x254mm",
+            "after": "Ø5x252mm"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "drawings",
+            "before": "254拉杆.pdf|https://drive.google.com/file/d/1Z6_Q10QmTVo5l_SkpcPgEN6FgJVV1OrB/view?usp=sharing",
+            "after": "252拉杆.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@1b0a7bba3ad86cc36e5ce2aa86e0a6f2b9d9df58/assets/pdfs/LG05252BH_8b9fcd10c86d48ed1eb4ca4b7cca55af4574f08be05cd4d509ad9ed46a42915f_252_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "models3d",
+            "before": "254拉杆.glb|models3d/catalog/254-d2333a3d.glb",
+            "after": "254拉杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/254-d2333a3d.glb"
+          }
+        ]
+      },
       {
         "id": "history_aa3583",
         "productCode": "LGS132",
@@ -290873,6 +291631,52 @@
     ],
     "LGS133": [
       {
+        "id": "history_24vonm",
+        "productCode": "LGS133",
+        "revision": "V4.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-COLOR: 新增 4 个已确认颜色 SKU；按已发布颜色 BOM 替换指定颜色物料。",
+        "createdAt": "2026-09-08T06:20:24.790Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "code",
+            "before": "LG05254BH",
+            "after": "LG05252BH"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "name",
+            "before": "254拉杆 / 254 thanh đũa",
+            "after": "252拉杆 / 252 thanh đũa"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "spec",
+            "before": "Ø5x254mm",
+            "after": "Ø5x252mm"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "drawings",
+            "before": "254拉杆.pdf|https://drive.google.com/file/d/1Z6_Q10QmTVo5l_SkpcPgEN6FgJVV1OrB/view?usp=sharing",
+            "after": "252拉杆.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@1b0a7bba3ad86cc36e5ce2aa86e0a6f2b9d9df58/assets/pdfs/LG05252BH_8b9fcd10c86d48ed1eb4ca4b7cca55af4574f08be05cd4d509ad9ed46a42915f_252_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "models3d",
+            "before": "254拉杆.glb|models3d/catalog/254-d2333a3d.glb",
+            "after": "254拉杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/254-d2333a3d.glb"
+          }
+        ]
+      },
+      {
         "id": "history_16uns92",
         "productCode": "LGS133",
         "revision": "V4.2",
@@ -292051,6 +292855,87 @@
       }
     ],
     "LGS433": [
+      {
+        "id": "history_16rfmm1",
+        "productCode": "LGS433",
+        "revision": "V4.1",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0710-LGS: 高度变更至671mm，侧框647mm，底脚变更为41底脚。",
+        "createdAt": "2026-09-08T06:20:24.790Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "code",
+            "before": "LG05254BH",
+            "after": "LG05252BH"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "name",
+            "before": "254拉杆 / 254 thanh đũa",
+            "after": "252拉杆 / 252 thanh đũa"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "spec",
+            "before": "Ø5x254mm",
+            "after": "Ø5x252mm"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "drawings",
+            "before": "254拉杆.pdf|https://drive.google.com/file/d/1Z6_Q10QmTVo5l_SkpcPgEN6FgJVV1OrB/view?usp=sharing",
+            "after": "252拉杆.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@1b0a7bba3ad86cc36e5ce2aa86e0a6f2b9d9df58/assets/pdfs/LG05252BH_8b9fcd10c86d48ed1eb4ca4b7cca55af4574f08be05cd4d509ad9ed46a42915f_252_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "models3d",
+            "before": "254拉杆.glb|models3d/catalog/254-d2333a3d.glb",
+            "after": "254拉杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/254-d2333a3d.glb"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "code",
+            "before": "LG05254WH",
+            "after": "LG05252WH"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "name",
+            "before": "254拉杆 / 254 thanh đũa",
+            "after": "252拉杆 / 252 thanh đũa"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "spec",
+            "before": "Ø5x254mm",
+            "after": "Ø5x252mm"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "drawings",
+            "before": "254拉杆.pdf|https://drive.google.com/file/d/1Z6_Q10QmTVo5l_SkpcPgEN6FgJVV1OrB/view?usp=sharing",
+            "after": "252拉杆.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b62af22907b457227ed21c8f86c36e3d70206a65/assets/pdfs/LG05252WH_8b9fcd10c86d48ed1eb4ca4b7cca55af4574f08be05cd4d509ad9ed46a42915f_252_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "models3d",
+            "before": "254拉杆.glb|models3d/catalog/254-d2333a3d.glb",
+            "after": "254拉杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/254-d2333a3d.glb"
+          }
+        ]
+      },
       {
         "id": "history_kwqm91",
         "productCode": "LGS433",
@@ -293377,6 +294262,87 @@
       }
     ],
     "LGS723": [
+      {
+        "id": "history_frh4d",
+        "productCode": "LGS723",
+        "revision": "V4.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-09-08T06:20:24.790Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "code",
+            "before": "LG05254BH",
+            "after": "LG05252BH"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "name",
+            "before": "254拉杆 / 254 thanh đũa",
+            "after": "252拉杆 / 252 thanh đũa"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "spec",
+            "before": "Ø5x254mm",
+            "after": "Ø5x252mm"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "drawings",
+            "before": "254拉杆.pdf|https://drive.google.com/file/d/1Z6_Q10QmTVo5l_SkpcPgEN6FgJVV1OrB/view?usp=sharing",
+            "after": "252拉杆.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@1b0a7bba3ad86cc36e5ce2aa86e0a6f2b9d9df58/assets/pdfs/LG05252BH_8b9fcd10c86d48ed1eb4ca4b7cca55af4574f08be05cd4d509ad9ed46a42915f_252_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "models3d",
+            "before": "254拉杆.glb|models3d/catalog/254-d2333a3d.glb",
+            "after": "254拉杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/254-d2333a3d.glb"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "code",
+            "before": "LG05254WH",
+            "after": "LG05252WH"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "name",
+            "before": "254拉杆 / 254 thanh đũa",
+            "after": "252拉杆 / 252 thanh đũa"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "spec",
+            "before": "Ø5x254mm",
+            "after": "Ø5x252mm"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "drawings",
+            "before": "254拉杆.pdf|https://drive.google.com/file/d/1Z6_Q10QmTVo5l_SkpcPgEN6FgJVV1OrB/view?usp=sharing",
+            "after": "252拉杆.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b62af22907b457227ed21c8f86c36e3d70206a65/assets/pdfs/LG05252WH_8b9fcd10c86d48ed1eb4ca4b7cca55af4574f08be05cd4d509ad9ed46a42915f_252_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "models3d",
+            "before": "254拉杆.glb|models3d/catalog/254-d2333a3d.glb",
+            "after": "254拉杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/254-d2333a3d.glb"
+          }
+        ]
+      },
       {
         "id": "history_hed4d2",
         "productCode": "LGS723",
@@ -294952,6 +295918,87 @@
       }
     ],
     "LGS733": [
+      {
+        "id": "history_1il0d3c",
+        "productCode": "LGS733",
+        "revision": "V4.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-09-08T06:20:24.790Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "code",
+            "before": "LG05254BH",
+            "after": "LG05252BH"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "name",
+            "before": "254拉杆 / 254 thanh đũa",
+            "after": "252拉杆 / 252 thanh đũa"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "spec",
+            "before": "Ø5x254mm",
+            "after": "Ø5x252mm"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "drawings",
+            "before": "254拉杆.pdf|https://drive.google.com/file/d/1Z6_Q10QmTVo5l_SkpcPgEN6FgJVV1OrB/view?usp=sharing",
+            "after": "252拉杆.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@1b0a7bba3ad86cc36e5ce2aa86e0a6f2b9d9df58/assets/pdfs/LG05252BH_8b9fcd10c86d48ed1eb4ca4b7cca55af4574f08be05cd4d509ad9ed46a42915f_252_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "models3d",
+            "before": "254拉杆.glb|models3d/catalog/254-d2333a3d.glb",
+            "after": "254拉杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/254-d2333a3d.glb"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "code",
+            "before": "LG05254WH",
+            "after": "LG05252WH"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "name",
+            "before": "254拉杆 / 254 thanh đũa",
+            "after": "252拉杆 / 252 thanh đũa"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "spec",
+            "before": "Ø5x254mm",
+            "after": "Ø5x252mm"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "drawings",
+            "before": "254拉杆.pdf|https://drive.google.com/file/d/1Z6_Q10QmTVo5l_SkpcPgEN6FgJVV1OrB/view?usp=sharing",
+            "after": "252拉杆.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b62af22907b457227ed21c8f86c36e3d70206a65/assets/pdfs/LG05252WH_8b9fcd10c86d48ed1eb4ca4b7cca55af4574f08be05cd4d509ad9ed46a42915f_252_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "models3d",
+            "before": "254拉杆.glb|models3d/catalog/254-d2333a3d.glb",
+            "after": "254拉杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/254-d2333a3d.glb"
+          }
+        ]
+      },
       {
         "id": "history_51quep",
         "productCode": "LGS733",
@@ -296856,6 +297903,87 @@
     ],
     "LGS833": [
       {
+        "id": "history_1c6bt5p",
+        "productCode": "LGS833",
+        "revision": "V4.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-09-08T06:20:24.790Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "code",
+            "before": "LG05254BH",
+            "after": "LG05252BH"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "name",
+            "before": "254拉杆 / 254 thanh đũa",
+            "after": "252拉杆 / 252 thanh đũa"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "spec",
+            "before": "Ø5x254mm",
+            "after": "Ø5x252mm"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "drawings",
+            "before": "254拉杆.pdf|https://drive.google.com/file/d/1Z6_Q10QmTVo5l_SkpcPgEN6FgJVV1OrB/view?usp=sharing",
+            "after": "252拉杆.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@1b0a7bba3ad86cc36e5ce2aa86e0a6f2b9d9df58/assets/pdfs/LG05252BH_8b9fcd10c86d48ed1eb4ca4b7cca55af4574f08be05cd4d509ad9ed46a42915f_252_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "models3d",
+            "before": "254拉杆.glb|models3d/catalog/254-d2333a3d.glb",
+            "after": "254拉杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/254-d2333a3d.glb"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "code",
+            "before": "LG05254WH",
+            "after": "LG05252WH"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "name",
+            "before": "254拉杆 / 254 thanh đũa",
+            "after": "252拉杆 / 252 thanh đũa"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "spec",
+            "before": "Ø5x254mm",
+            "after": "Ø5x252mm"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "drawings",
+            "before": "254拉杆.pdf|https://drive.google.com/file/d/1Z6_Q10QmTVo5l_SkpcPgEN6FgJVV1OrB/view?usp=sharing",
+            "after": "252拉杆.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b62af22907b457227ed21c8f86c36e3d70206a65/assets/pdfs/LG05252WH_8b9fcd10c86d48ed1eb4ca4b7cca55af4574f08be05cd4d509ad9ed46a42915f_252_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "models3d",
+            "before": "254拉杆.glb|models3d/catalog/254-d2333a3d.glb",
+            "after": "254拉杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/254-d2333a3d.glb"
+          }
+        ]
+      },
+      {
         "id": "history_qz07z6",
         "productCode": "LGS833",
         "revision": "V4.2",
@@ -298475,6 +299603,87 @@
       }
     ],
     "LGS834": [
+      {
+        "id": "history_14eex8c",
+        "productCode": "LGS834",
+        "revision": "V4.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-09-08T06:20:24.790Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "code",
+            "before": "LG05254BH",
+            "after": "LG05252BH"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "name",
+            "before": "254拉杆 / 254 thanh đũa",
+            "after": "252拉杆 / 252 thanh đũa"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "spec",
+            "before": "Ø5x254mm",
+            "after": "Ø5x252mm"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "drawings",
+            "before": "254拉杆.pdf|https://drive.google.com/file/d/1Z6_Q10QmTVo5l_SkpcPgEN6FgJVV1OrB/view?usp=sharing",
+            "after": "252拉杆.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@1b0a7bba3ad86cc36e5ce2aa86e0a6f2b9d9df58/assets/pdfs/LG05252BH_8b9fcd10c86d48ed1eb4ca4b7cca55af4574f08be05cd4d509ad9ed46a42915f_252_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252BH",
+            "field": "models3d",
+            "before": "254拉杆.glb|models3d/catalog/254-d2333a3d.glb",
+            "after": "254拉杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/254-d2333a3d.glb"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "code",
+            "before": "LG05254WH",
+            "after": "LG05252WH"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "name",
+            "before": "254拉杆 / 254 thanh đũa",
+            "after": "252拉杆 / 252 thanh đũa"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "spec",
+            "before": "Ø5x254mm",
+            "after": "Ø5x252mm"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "drawings",
+            "before": "254拉杆.pdf|https://drive.google.com/file/d/1Z6_Q10QmTVo5l_SkpcPgEN6FgJVV1OrB/view?usp=sharing",
+            "after": "252拉杆.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@b62af22907b457227ed21c8f86c36e3d70206a65/assets/pdfs/LG05252WH_8b9fcd10c86d48ed1eb4ca4b7cca55af4574f08be05cd4d509ad9ed46a42915f_252_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LG05252WH",
+            "field": "models3d",
+            "before": "254拉杆.glb|models3d/catalog/254-d2333a3d.glb",
+            "after": "254拉杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/254-d2333a3d.glb"
+          }
+        ]
+      },
       {
         "id": "history_16fr4hm",
         "productCode": "LGS834",
