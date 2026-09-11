@@ -1,0 +1,1173 @@
+{
+  "generatedAt": "2026-09-11T05:11:38.307Z",
+  "purpose": "Read-only migration proposal. No URL in this report is approved for rewrite.",
+  "requiredEvidence": [
+    "Approved source PDF or independently recorded full SHA-256 content hash.",
+    "Git blob identity at a candidate commit matches the approved source PDF.",
+    "Admin review confirming the historical revision and every shared-material reference to update."
+  ],
+  "prohibitedEvidence": [
+    "Filename or truncated filename hash.",
+    "Current @main content.",
+    "Newest Git commit."
+  ],
+  "records": [
+    {
+      "recordPath": "productRevisions.LGS032.revisions.0.snapshot.materialDb.materials.mat_1c0a8em.drawings.0",
+      "name": "41底脚.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS032.revisions.0.snapshot.materialDb.materials.mat_1c1n9dj.drawings.0",
+      "name": "LGS布抽35x28.2x18.7.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS032.revisions.0.snapshot.materialDb.materials.mat_n9hhug.drawings.0",
+      "name": "LGS布抽35x28.2x18.7.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS032.revisions.0.snapshot.materialDb.materials.mat_bc350282187swh.drawings.0",
+      "name": "LGS布抽35x28.2x18.7.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS032.revisions.1.snapshot.materialDb.materials.mat_1c1n9dj.drawings.0",
+      "name": "LGS布抽35x28.2x18.7.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS032.revisions.1.snapshot.materialDb.materials.mat_n9hhug.drawings.0",
+      "name": "LGS布抽35x28.2x18.7.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS733.revisions.0.snapshot.materialDb.materials.mat_lgs723ykbh647.drawings.0",
+      "name": "LGS723_733右侧框.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs723ykbh647-9bf038bf.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs723ykbh647-9bf038bf.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-lgs723ykbh647-9bf038bf.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS733.revisions.0.snapshot.materialDb.materials.mat_lgs723zkbh647.drawings.0",
+      "name": "LGS723_733左侧框.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs723zkbh647-ea6a04ac.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs723zkbh647-ea6a04ac.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-lgs723zkbh647-ea6a04ac.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS733.revisions.0.snapshot.materialDb.materials.mat_w8qr6q.drawings.0",
+      "name": "LGS布抽25.7x28.2x16.8.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-w8qr6q-075e44dd.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-w8qr6q-075e44dd.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-w8qr6q-075e44dd.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS733.revisions.0.snapshot.materialDb.materials.mat_1c1n9dj.drawings.0",
+      "name": "LGS布抽35x28.2x18.7.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS733.revisions.0.snapshot.materialDb.materials.mat_zjg150641wh.drawings.0",
+      "name": "41底脚.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS733.revisions.0.snapshot.materialDb.materials.mat_lgs723ykwh647.drawings.0",
+      "name": "LGS723_733右侧框.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs723ykwh647-9bf038bf.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs723ykwh647-9bf038bf.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-lgs723ykwh647-9bf038bf.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS733.revisions.0.snapshot.materialDb.materials.mat_lgs723zkwh647.drawings.0",
+      "name": "LGS723_733左侧框.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs723zkwh647-ea6a04ac.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs723zkwh647-ea6a04ac.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-lgs723zkwh647-ea6a04ac.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS733.revisions.0.snapshot.materialDb.materials.mat_1jr1p4e.drawings.0",
+      "name": "LGS布抽25.7x28.2x16.8.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-w8qr6q-075e44dd.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-w8qr6q-075e44dd.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-w8qr6q-075e44dd.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS733.revisions.0.snapshot.materialDb.materials.mat_16qztuh.drawings.0",
+      "name": "LGS布抽35x28.2x18.7.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS733.revisions.0.snapshot.materialDb.materials.mat_1aqkble.drawings.0",
+      "name": "LGS布抽25.7x28.2x16.8.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-w8qr6q-075e44dd.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-w8qr6q-075e44dd.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-w8qr6q-075e44dd.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS733.revisions.0.snapshot.materialDb.materials.mat_n9hhug.drawings.0",
+      "name": "LGS布抽35x28.2x18.7.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS333.revisions.0.snapshot.materialDb.materials.mat_lgs333ykbh647.drawings.0",
+      "name": "LGS333-433右侧框.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs333ykbh647-93ba9266.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs333ykbh647-93ba9266.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-lgs333ykbh647-93ba9266.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS333.revisions.0.snapshot.materialDb.materials.mat_lgs333zkbh647.drawings.0",
+      "name": "LGS333-433左侧框.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs333zkbh647-4e4b17b0.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs333zkbh647-4e4b17b0.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-lgs333zkbh647-4e4b17b0.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS333.revisions.0.snapshot.materialDb.materials.mat_w8qr6q.drawings.0",
+      "name": "LGS布抽25.7x28.2x16.8.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-w8qr6q-075e44dd.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-w8qr6q-075e44dd.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-w8qr6q-075e44dd.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS333.revisions.0.snapshot.materialDb.materials.mat_1c1n9dj.drawings.0",
+      "name": "LGS布抽35x28.2x18.7.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS333.revisions.0.snapshot.materialDb.materials.mat_zjg150641wh.drawings.0",
+      "name": "41底脚.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS333.revisions.0.snapshot.materialDb.materials.mat_lgs333ykwh647.drawings.0",
+      "name": "LGS333-433右侧框.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs333ykwh647-93ba9266.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs333ykwh647-93ba9266.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-lgs333ykwh647-93ba9266.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS333.revisions.0.snapshot.materialDb.materials.mat_lgs333zkwh647.drawings.0",
+      "name": "LGS333-433左侧框.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs333zkwh647-4e4b17b0.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs333zkwh647-4e4b17b0.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-lgs333zkwh647-4e4b17b0.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS333.revisions.0.snapshot.materialDb.materials.mat_1jr1p4e.drawings.0",
+      "name": "LGS布抽25.7x28.2x16.8.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-w8qr6q-075e44dd.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-w8qr6q-075e44dd.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-w8qr6q-075e44dd.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS333.revisions.0.snapshot.materialDb.materials.mat_16qztuh.drawings.0",
+      "name": "LGS布抽35x28.2x18.7.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS333.revisions.0.snapshot.materialDb.materials.mat_1aqkble.drawings.0",
+      "name": "LGS布抽25.7x28.2x16.8.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-w8qr6q-075e44dd.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-w8qr6q-075e44dd.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-w8qr6q-075e44dd.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS333.revisions.0.snapshot.materialDb.materials.mat_n9hhug.drawings.0",
+      "name": "LGS布抽35x28.2x18.7.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS334.revisions.0.snapshot.materialDb.materials.mat_lgs334ykbh647.drawings.0",
+      "name": "LGS334_434右侧框.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs334ykbh647-d6f27cea.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs334ykbh647-d6f27cea.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-lgs334ykbh647-d6f27cea.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS334.revisions.0.snapshot.materialDb.materials.mat_lgs334zkbh647.drawings.0",
+      "name": "LGS334_434左侧框.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs334zkbh647-8f50b826.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs334zkbh647-8f50b826.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-lgs334zkbh647-8f50b826.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS334.revisions.0.snapshot.materialDb.materials.mat_k8w6yo.drawings.0",
+      "name": "LGS布抽34x32.7x16.8.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-k8w6yo-b3034e62.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-k8w6yo-b3034e62.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-k8w6yo-b3034e62.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS334.revisions.0.snapshot.materialDb.materials.mat_1b7en7f.drawings.0",
+      "name": "LGS布抽46x32.7x18.7.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-1b7en7f-0b0c833b.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-1b7en7f-0b0c833b.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-1b7en7f-0b0c833b.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS033.revisions.0.snapshot.materialDb.materials.mat_1c0a8em.drawings.0",
+      "name": "41底脚.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS033.revisions.0.snapshot.materialDb.materials.mat_lgs033ykbh647.drawings.0",
+      "name": "LGS033右侧框.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs033ykbh647-ded5d4e7.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs033ykbh647-ded5d4e7.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-lgs033ykbh647-ded5d4e7.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS033.revisions.0.snapshot.materialDb.materials.mat_lgs033zkbh647.drawings.0",
+      "name": "LGS033左侧框.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs033zkbh647-7ed39cf2.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs033zkbh647-7ed39cf2.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-lgs033zkbh647-7ed39cf2.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS033.revisions.0.snapshot.materialDb.materials.mat_1c1n9dj.drawings.0",
+      "name": "LGS布抽35x28.2x18.7.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS033.revisions.0.snapshot.materialDb.materials.mat_zjg150641wh.drawings.0",
+      "name": "41底脚.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS033.revisions.0.snapshot.materialDb.materials.mat_lgs033ykwh647.drawings.0",
+      "name": "LGS033右侧框.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs033ykbh647-ded5d4e7.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs033ykbh647-ded5d4e7.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-lgs033ykbh647-ded5d4e7.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS033.revisions.0.snapshot.materialDb.materials.mat_lgs033zkwh647.drawings.0",
+      "name": "LGS033左侧框.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs033zkbh647-7ed39cf2.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs033zkbh647-7ed39cf2.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-lgs033zkbh647-7ed39cf2.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS033.revisions.0.snapshot.materialDb.materials.mat_16qztuh.drawings.0",
+      "name": "LGS布抽35x28.2x18.7.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS101.revisions.0.snapshot.materialDb.materials.mat_1ak3o25.drawings.0",
+      "name": "LGS布抽35x28.2x15.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-1ak3o25-7e1abda3.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-1ak3o25-7e1abda3.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-1ak3o25-7e1abda3.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS101.revisions.0.snapshot.materialDb.materials.mat_ongyuj.drawings.0",
+      "name": "LGS布抽35x28.2x15.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-1ak3o25-7e1abda3.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-1ak3o25-7e1abda3.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-1ak3o25-7e1abda3.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS101.revisions.0.snapshot.materialDb.materials.mat_1hafqtb.drawings.0",
+      "name": "LGS布抽35x28.2x15.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-1ak3o25-7e1abda3.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-1ak3o25-7e1abda3.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-1ak3o25-7e1abda3.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS111.revisions.0.snapshot.materialDb.materials.mat_1ak3o25.drawings.0",
+      "name": "LGS布抽35x28.2x15.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-1ak3o25-7e1abda3.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-1ak3o25-7e1abda3.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-1ak3o25-7e1abda3.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS111.revisions.0.snapshot.materialDb.materials.mat_ongyuj.drawings.0",
+      "name": "LGS布抽35x28.2x15.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-1ak3o25-7e1abda3.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-1ak3o25-7e1abda3.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-1ak3o25-7e1abda3.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS111.revisions.0.snapshot.materialDb.materials.mat_1hafqtb.drawings.0",
+      "name": "LGS布抽35x28.2x15.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-1ak3o25-7e1abda3.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-1ak3o25-7e1abda3.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-1ak3o25-7e1abda3.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS233.revisions.0.snapshot.materialDb.materials.mat_lgs233ykbh647.drawings.0",
+      "name": "LGS233右侧框.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs233ykbh647-9b4d4259.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs233ykbh647-9b4d4259.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-lgs233ykbh647-9b4d4259.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS233.revisions.0.snapshot.materialDb.materials.mat_lgs233zkbh647.drawings.0",
+      "name": "LGS233左侧框.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs233zkbh647-3b3d4fc4.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs233zkbh647-3b3d4fc4.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-lgs233zkbh647-3b3d4fc4.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS233.revisions.0.snapshot.materialDb.materials.mat_hbnb0h.drawings.0",
+      "name": "LGS布抽55x32.7x17.3.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-hbnb0h-d8f9e8eb.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-hbnb0h-d8f9e8eb.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-hbnb0h-d8f9e8eb.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS233.revisions.0.snapshot.materialDb.materials.mat_17pzu53.drawings.0",
+      "name": "LGS布抽55x32.7x18.7.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-1gbo2nh-fd24e277.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-1gbo2nh-fd24e277.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-1gbo2nh-fd24e277.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS233.revisions.0.snapshot.materialDb.materials.mat_lgs233ykwh647.drawings.0",
+      "name": "LGS233右侧框.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs233ykwh647-9b4d4259.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs233ykwh647-9b4d4259.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-lgs233ykwh647-9b4d4259.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS233.revisions.0.snapshot.materialDb.materials.mat_lgs233zkwh647.drawings.0",
+      "name": "LGS233左侧框.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs233zkwh647-3b3d4fc4.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs233zkwh647-3b3d4fc4.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-lgs233zkwh647-3b3d4fc4.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS233.revisions.0.snapshot.materialDb.materials.mat_1wasq9b.drawings.0",
+      "name": "LGS布抽55x32.7x17.3.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-hbnb0h-d8f9e8eb.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-hbnb0h-d8f9e8eb.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-hbnb0h-d8f9e8eb.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS233.revisions.0.snapshot.materialDb.materials.mat_1gbo2nh.drawings.0",
+      "name": "LGS布抽55x32.7x18.7.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-1gbo2nh-fd24e277.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-1gbo2nh-fd24e277.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-1gbo2nh-fd24e277.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS233.revisions.0.snapshot.materialDb.materials.mat_hin4d7.drawings.0",
+      "name": "LGS布抽55x32.7x17.3.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-hbnb0h-d8f9e8eb.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-hbnb0h-d8f9e8eb.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-hbnb0h-d8f9e8eb.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS233.revisions.0.snapshot.materialDb.materials.mat_14ndfbd.drawings.0",
+      "name": "LGS布抽55x32.7x18.7.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-1gbo2nh-fd24e277.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-1gbo2nh-fd24e277.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-1gbo2nh-fd24e277.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS834.revisions.0.snapshot.materialDb.materials.mat_zjg150641wh.drawings.0",
+      "name": "41底脚.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS834.revisions.0.snapshot.materialDb.materials.mat_lgs834ykwh647.drawings.0",
+      "name": "LGS834右侧框.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs834ykwh647-dcb6f52e.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs834ykwh647-dcb6f52e.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-lgs834ykwh647-dcb6f52e.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS834.revisions.0.snapshot.materialDb.materials.mat_lgs834zkwh647.drawings.0",
+      "name": "LGS834左侧框.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs834zkwh647-b8c46711.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs834zkwh647-b8c46711.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-lgs834zkwh647-b8c46711.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS834.revisions.0.snapshot.materialDb.materials.mat_1lehgzz.drawings.0",
+      "name": "LGS布抽46x32.7x18.7.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-1b7en7f-0b0c833b.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-1b7en7f-0b0c833b.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-1b7en7f-0b0c833b.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS834.revisions.0.snapshot.materialDb.materials.mat_lgs834ykbh647.drawings.0",
+      "name": "LGS834右侧框.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs834ykbh647-dcb6f52e.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs834ykbh647-dcb6f52e.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-lgs834ykbh647-dcb6f52e.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS834.revisions.0.snapshot.materialDb.materials.mat_lgs834zkbh647.drawings.0",
+      "name": "LGS834左侧框.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs834zkbh647-b8c46711.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs834zkbh647-b8c46711.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-lgs834zkbh647-b8c46711.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS834.revisions.0.snapshot.materialDb.materials.mat_1b7en7f.drawings.0",
+      "name": "LGS布抽46x32.7x18.7.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-1b7en7f-0b0c833b.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-1b7en7f-0b0c833b.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-1b7en7f-0b0c833b.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS723.revisions.0.snapshot.materialDb.materials.mat_lgs723ykbh647.drawings.0",
+      "name": "LGS723_733右侧框.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs723ykbh647-9bf038bf.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs723ykbh647-9bf038bf.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-lgs723ykbh647-9bf038bf.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS723.revisions.0.snapshot.materialDb.materials.mat_lgs723zkbh647.drawings.0",
+      "name": "LGS723_733左侧框.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs723zkbh647-ea6a04ac.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs723zkbh647-ea6a04ac.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-lgs723zkbh647-ea6a04ac.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS723.revisions.0.snapshot.materialDb.materials.mat_11onhu3.drawings.0",
+      "name": "LGS布抽30x28.2x16.8.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-11onhu3-d5938da4.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-11onhu3-d5938da4.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-11onhu3-d5938da4.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS723.revisions.0.snapshot.materialDb.materials.mat_117swgv.drawings.0",
+      "name": "LGS布抽46x28.2x18.7.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-117swgv-d573cb03.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-117swgv-d573cb03.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-117swgv-d573cb03.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS723.revisions.0.snapshot.materialDb.materials.mat_lgs723ykwh647.drawings.0",
+      "name": "LGS723_733右侧框.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs723ykwh647-9bf038bf.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs723ykwh647-9bf038bf.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-lgs723ykwh647-9bf038bf.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS723.revisions.0.snapshot.materialDb.materials.mat_lgs723zkwh647.drawings.0",
+      "name": "LGS723_733左侧框.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs723zkwh647-ea6a04ac.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs723zkwh647-ea6a04ac.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-lgs723zkwh647-ea6a04ac.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS723.revisions.0.snapshot.materialDb.materials.mat_qks5j1.drawings.0",
+      "name": "LGS布抽30x28.2x16.8.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-11onhu3-d5938da4.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-11onhu3-d5938da4.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-11onhu3-d5938da4.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS723.revisions.0.snapshot.materialDb.materials.mat_1q3oqep.drawings.0",
+      "name": "LGS布抽46x28.2x18.7.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-117swgv-d573cb03.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-117swgv-d573cb03.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-117swgv-d573cb03.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS723.revisions.0.snapshot.materialDb.materials.mat_tr0vtl.drawings.0",
+      "name": "LGS布抽30x28.2x16.8.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-11onhu3-d5938da4.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-11onhu3-d5938da4.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-11onhu3-d5938da4.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS723.revisions.0.snapshot.materialDb.materials.mat_oyn5dx.drawings.0",
+      "name": "LGS布抽46x28.2x18.7.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-117swgv-d573cb03.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-117swgv-d573cb03.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-117swgv-d573cb03.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS132.revisions.0.snapshot.materialDb.materials.mat_lgs132ykbh647.drawings.0",
+      "name": "LGS232_132-S-侧框右.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs132ykbh647-45f568c7.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs132ykbh647-45f568c7.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-lgs132ykbh647-45f568c7.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS132.revisions.0.snapshot.materialDb.materials.mat_1c0a8em.drawings.0",
+      "name": "41底脚.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS132.revisions.0.snapshot.materialDb.materials.mat_1b7en7f.drawings.0",
+      "name": "LGS布抽46x32.7x18.7.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-1b7en7f-0b0c833b.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-1b7en7f-0b0c833b.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-1b7en7f-0b0c833b.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS132.revisions.0.snapshot.materialDb.materials.mat_lgs132zkbh647.drawings.0",
+      "name": "LGS232_132-S-侧框左.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs132zkbh647-ff6261d9.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs132zkbh647-ff6261d9.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-lgs132zkbh647-ff6261d9.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS132.revisions.0.snapshot.materialDb.materials.mat_bc460327187swh.drawings.0",
+      "name": "LGS布抽46x32.7x18.7.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-1b7en7f-0b0c833b.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-1b7en7f-0b0c833b.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-1b7en7f-0b0c833b.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS132.revisions.1.snapshot.materialDb.materials.mat_lgs132ykbh647.drawings.0",
+      "name": "LGS232_132-S-侧框右.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs132ykbh647-45f568c7.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs132ykbh647-45f568c7.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-lgs132ykbh647-45f568c7.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS132.revisions.1.snapshot.materialDb.materials.mat_1b7en7f.drawings.0",
+      "name": "LGS布抽46x32.7x18.7.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-1b7en7f-0b0c833b.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-1b7en7f-0b0c833b.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-1b7en7f-0b0c833b.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS132.revisions.1.snapshot.materialDb.materials.mat_lgs132zkbh647.drawings.0",
+      "name": "LGS232_132-S-侧框左.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs132zkbh647-ff6261d9.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs132zkbh647-ff6261d9.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-lgs132zkbh647-ff6261d9.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS133.revisions.0.snapshot.materialDb.materials.mat_lgs133ykbh647.drawings.0",
+      "name": "LGS133右侧框.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs133ykbh647-e9e5445a.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs133ykbh647-e9e5445a.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-lgs133ykbh647-e9e5445a.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS133.revisions.0.snapshot.materialDb.materials.mat_lgs133zkbh647.drawings.0",
+      "name": "LGS133左侧框.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs133zkbh647-f5c5947b.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs133zkbh647-f5c5947b.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-lgs133zkbh647-f5c5947b.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS133.revisions.0.snapshot.materialDb.materials.mat_173uydn.drawings.0",
+      "name": "LGS布抽46x32.7x17.3.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-173uydn-3633881f.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-173uydn-3633881f.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-173uydn-3633881f.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS133.revisions.0.snapshot.materialDb.materials.mat_1f7665v.drawings.0",
+      "name": "LGS布抽46x32.7x18.7.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-1b7en7f-0b0c833b.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-1b7en7f-0b0c833b.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-1b7en7f-0b0c833b.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS833.revisions.0.snapshot.materialDb.materials.mat_lgs833ykbh647.drawings.0",
+      "name": "LGS833右侧框.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs833ykbh647-5a0d567a.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs833ykbh647-5a0d567a.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-lgs833ykbh647-5a0d567a.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS833.revisions.0.snapshot.materialDb.materials.mat_lgs833zkbh647.drawings.0",
+      "name": "LGS833左侧框.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs833zkbh647-db7af8d5.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs833zkbh647-db7af8d5.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-lgs833zkbh647-db7af8d5.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS833.revisions.0.snapshot.materialDb.materials.mat_1c1n9dj.drawings.0",
+      "name": "LGS布抽35x28.2x18.7.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS833.revisions.0.snapshot.materialDb.materials.mat_zjg150641wh.drawings.0",
+      "name": "41底脚.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS833.revisions.0.snapshot.materialDb.materials.mat_lgs833ykwh647.drawings.0",
+      "name": "LGS833右侧框.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs833ykwh647-5a0d567a.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs833ykwh647-5a0d567a.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-lgs833ykwh647-5a0d567a.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS833.revisions.0.snapshot.materialDb.materials.mat_lgs833zkwh647.drawings.0",
+      "name": "LGS833左侧框.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs833zkwh647-db7af8d5.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs833zkwh647-db7af8d5.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-lgs833zkwh647-db7af8d5.pdf",
+      "candidateCommits": [
+        "f29104d2bc232195bfdfd77d581fd39e33309bdc"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS833.revisions.0.snapshot.materialDb.materials.mat_16qztuh.drawings.0",
+      "name": "LGS布抽35x28.2x18.7.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    },
+    {
+      "recordPath": "productRevisions.LGS833.revisions.0.snapshot.materialDb.materials.mat_n9hhug.drawings.0",
+      "name": "LGS布抽35x28.2x18.7.pdf",
+      "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "canonicalRepositoryPath": "bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+      "candidateCommits": [
+        "30888e3792051b3dd6bd276ce1ea04858afb19b4"
+      ],
+      "authoritativeCommit": null,
+      "migrationStatus": "requires_blob_evidence_and_admin_approval"
+    }
+  ],
+  "distinctUrls": [
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-117swgv-d573cb03.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-11onhu3-d5938da4.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-173uydn-3633881f.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-1ak3o25-7e1abda3.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-1b7en7f-0b0c833b.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-1gbo2nh-fd24e277.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-hbnb0h-d8f9e8eb.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-k8w6yo-b3034e62.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs033ykbh647-ded5d4e7.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs033zkbh647-7ed39cf2.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs132ykbh647-45f568c7.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs132zkbh647-ff6261d9.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs133ykbh647-e9e5445a.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs133zkbh647-f5c5947b.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs233ykbh647-9b4d4259.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs233ykwh647-9b4d4259.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs233zkbh647-3b3d4fc4.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs233zkwh647-3b3d4fc4.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs333ykbh647-93ba9266.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs333ykwh647-93ba9266.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs333zkbh647-4e4b17b0.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs333zkwh647-4e4b17b0.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs334ykbh647-d6f27cea.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs334zkbh647-8f50b826.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs723ykbh647-9bf038bf.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs723ykwh647-9bf038bf.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs723zkbh647-ea6a04ac.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs723zkwh647-ea6a04ac.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs833ykbh647-5a0d567a.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs833ykwh647-5a0d567a.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs833zkbh647-db7af8d5.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs833zkwh647-db7af8d5.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs834ykbh647-dcb6f52e.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs834ykwh647-dcb6f52e.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs834zkbh647-b8c46711.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs834zkwh647-b8c46711.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-n9hhug-a4146384.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-w8qr6q-075e44dd.pdf",
+    "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-zjg150641wh-56ec2a6e.pdf"
+  ]
+}

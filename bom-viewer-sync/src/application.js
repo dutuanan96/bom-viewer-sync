@@ -1315,6 +1315,8 @@ class BomApplication {
       || (this.mode === 'admin' ? createGithubAssetStorageAdapter({ config: ASSET_STORAGE_CONFIG }) : null);
     this.materialAssetUploadVersions = new Map();
     this.notificationToastTimer = null;
+    this.activePdfObjectUrl = null;
+    this.pdfPreviewRequestId = 0;
     this.state = this.initialState();
   }
 
