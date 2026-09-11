@@ -97,7 +97,7 @@ export function pdfFrameUrl(url, locationLike = globalThis.location) {
     && ['', 'localhost', '127.0.0.1'].includes(locationLike?.hostname || '');
 
   // If local document and url contains local catalog drawing path, use local relative path
-  if (isLocalDocument) {
+  if (isLocalDocument && !/^[a-z][a-z0-9+.-]*:/i.test(value)) {
     const localMatch = value.match(/(?:drawings\/catalog\/[^/?#]+\.pdf)$/i);
     if (localMatch) return localMatch[0];
   }

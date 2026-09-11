@@ -238,7 +238,54 @@ function genericToolbar(count, label) {
     <div class="table-actions">${actions}</div>`;
 }
 
+function clearPdfPreview() {
+  const frame = this.query('#pdfFrame');
+  frame.src = 'about:blank';
+  if (this.activePdfObjectUrl) {
+    globalThis.URL.revokeObjectURL(this.activePdfObjectUrl);
+    this.activePdfObjectUrl = null;
+  }
+}
+
+async function loadPdfPreview(sourceUrl, requestId) {
+  let response;
+  try {
+    response = await globalThis.fetch(sourceUrl);
+  } catch (error) {
+    if (requestId === this.pdfPreviewRequestId) {
+      console.warn('PDF preview fetch failed', { sourceUrl, message: error?.message || 'network error' });
+    }
+    return;
+  }
+  if (!response.ok) {
+    if (requestId === this.pdfPreviewRequestId) {
+      console.warn('PDF preview HTTP failure', { sourceUrl, status: response.status, statusText: response.statusText });
+    }
+    return;
+  }
+  let blob;
+  try {
+    blob = await response.blob();
+  } catch (error) {
+    if (requestId === this.pdfPreviewRequestId) {
+      console.warn('PDF preview blob conversion failed', { sourceUrl, message: error?.message || 'unknown error' });
+    }
+    return;
+  }
+  if (requestId !== this.pdfPreviewRequestId) return;
+  const objectUrl = globalThis.URL.createObjectURL(blob);
+  if (requestId !== this.pdfPreviewRequestId) {
+    globalThis.URL.revokeObjectURL(objectUrl);
+    return;
+  }
+  this.activePdfObjectUrl = objectUrl;
+  this.query('#pdfFrame').src = objectUrl;
+}
+
 function showModal(url, title, subtitle) {
+  this.pdfPreviewRequestId = (this.pdfPreviewRequestId || 0) + 1;
+  const requestId = this.pdfPreviewRequestId;
+  this.clearPdfPreview();
   this.query('#pdfModalTitle').textContent = title || this.label('viewDrawing');
   this.query('#pdfModalSubtitle').textContent = subtitle || '';
   const frame = this.query('#pdfFrame');
@@ -248,14 +295,17 @@ function showModal(url, title, subtitle) {
   modelViewer.removeAttribute('src');
   const resetButton = this.query('#modelResetBtn');
   if (resetButton) resetButton.hidden = true;
-  frame.src = pdfFrameUrl(url);
+  const sourceUrl = pdfFrameUrl(url);
   this.query('#pdfOpenLink').href = url || '#';
   this.query('#pdfOpenLink').textContent = this.label('download');
   this.query('#pdfCloseBtn').textContent = this.label('close');
   this.query('#pdfModal').classList.add('open');
+  void this.loadPdfPreview(sourceUrl, requestId);
 }
 
 function showModel3dModal(model, fallbackTitle) {
+  this.pdfPreviewRequestId = (this.pdfPreviewRequestId || 0) + 1;
+  this.clearPdfPreview();
   const previewUrl = model.previewUrl || model.url || '';
   const sourceUrl = model.sourceUrl || previewUrl;
   const frame = this.query('#pdfFrame');
@@ -263,7 +313,6 @@ function showModel3dModal(model, fallbackTitle) {
   this.query('#pdfModalTitle').textContent = model.name || fallbackTitle || '3D';
   this.query('#pdfModalSubtitle').textContent = this.label('modelControlHint');
   frame.hidden = true;
-  frame.src = 'about:blank';
   modelViewer.hidden = false;
   modelViewer.setAttribute('auto-rotate', '');
   const resetButton = this.query('#modelResetBtn');
@@ -310,7 +359,8 @@ function ensureModelViewer() {
 }
 
 function closeModal() {
-  this.query('#pdfFrame').src = 'about:blank';
+  this.pdfPreviewRequestId = (this.pdfPreviewRequestId || 0) + 1;
+  this.clearPdfPreview();
   const modelViewer = this.query('#model3dViewer');
   if (modelViewer) {
     modelViewer.removeAttribute('src');
@@ -626,6 +676,8 @@ export const sharedViewMethods = {
   renderEmpty,
   genericToolbar,
   showModal,
+  clearPdfPreview,
+  loadPdfPreview,
   showModel3dModal,
   ensureModelViewer,
   closeModal,

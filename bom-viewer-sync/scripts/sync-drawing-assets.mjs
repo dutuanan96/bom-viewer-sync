@@ -17,6 +17,7 @@ import path from 'node:path';
 const repoRoot = path.resolve(import.meta.dirname, '..');
 const materialsPath = path.join(repoRoot, 'data', 'materials.json');
 const catalogDir = path.join(repoRoot, 'drawings', 'catalog');
+const COMMIT_SHA_PATTERN = /^[a-f0-9]{40}$/i;
 
 // Parse CLI flags
 const args = process.argv.slice(2);
@@ -25,6 +26,16 @@ const sourceIdx = args.indexOf('--source');
 const sourcePath = sourceIdx >= 0 ? args[sourceIdx + 1] : null;
 const linksIdx = args.indexOf('--links');
 const linksPath = linksIdx >= 0 ? args[linksIdx + 1] : null;
+const commitShaIdx = args.indexOf('--commit-sha');
+const commitSha = commitShaIdx >= 0 ? args[commitShaIdx + 1] : null;
+
+export function buildDrawingCdnUrl(relativePath, commit) {
+  const commitSha = String(commit || '').trim();
+  if (!COMMIT_SHA_PATTERN.test(commitSha)) {
+    throw new TypeError('commitSha must be a full Git commit SHA');
+  }
+  return `https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@${commitSha}/bom-viewer-sync/${relativePath}`;
+}
 
 export function loadMaterialsData() {
   const content = readFileSync(materialsPath, 'utf8');
@@ -97,6 +108,10 @@ export function computeFileHash(buffer) {
 }
 
 export function syncDrawingsFromDirectory(sourceDir, options = {}) {
+  const commitSha = String(options.commitSha || '').trim();
+  if (!COMMIT_SHA_PATTERN.test(commitSha)) {
+    throw new TypeError('commitSha must be a full Git commit SHA');
+  }
   const materialsData = options.materialsData || loadMaterialsData();
   const materials = materialsData.materialDb?.materials || {};
   const pdfs = scanPdfFiles(sourceDir);
@@ -122,7 +137,7 @@ export function syncDrawingsFromDirectory(sourceDir, options = {}) {
       const catalogFileName = `drawing-${id.replace(/^mat_/, '')}-${hash}.pdf`;
       const targetCatalogPath = path.join(catalogDir, catalogFileName);
       const relativePath = `drawings/catalog/${catalogFileName}`;
-      const cdnUrl = `https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/${relativePath}`;
+      const cdnUrl = buildDrawingCdnUrl(relativePath, commitSha);
 
       const existingDrawing = (material.drawings || [])[0];
       const isAlreadySynced = existingDrawing && existingDrawing.path === relativePath && existingDrawing.url === cdnUrl;
@@ -166,12 +181,12 @@ if (process.argv[1] === import.meta.filename) {
 === JinTai PDM Drawing Asset Sync Tool ===
 
 Usage:
-  node scripts/sync-drawing-assets.mjs --source <folder_path> [--dry-run]
-  node scripts/sync-drawing-assets.mjs --links <links_file.json> [--dry-run]
+  node scripts/sync-drawing-assets.mjs --source <folder_path> --commit-sha <full-commit-sha> [--dry-run]
+  node scripts/sync-drawing-assets.mjs --links <links_file.json> --commit-sha <full-commit-sha> [--dry-run]
 
 Examples:
   node scripts/sync-drawing-assets.mjs --source "D:\\1.金汰产品\\11款致欧第20260526_671变更"
-  node scripts/sync-drawing-assets.mjs --source "G:\\My Drive\\BOM-Drawings" --dry-run
+  node scripts/sync-drawing-assets.mjs --source "G:\\My Drive\\BOM-Drawings" --commit-sha <full-commit-sha> --dry-run
 `);
     process.exit(0);
   }
@@ -180,7 +195,7 @@ Examples:
     console.log(`\nScanning folder: ${sourcePath}`);
     console.log(`Dry run mode: ${isDryRun ? 'ENABLED (no files will be written)' : 'DISABLED (live sync)'}\n`);
 
-    const result = syncDrawingsFromDirectory(sourcePath, { dryRun: isDryRun });
+    const result = syncDrawingsFromDirectory(sourcePath, { dryRun: isDryRun, commitSha });
 
     console.log(`=== SCAN RESULTS ===`);
     console.log(`Total PDF files found: ${result.totalPdfs}`);

@@ -1,6 +1,15 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { matchMaterials, computeFileHash } from '../scripts/sync-drawing-assets.mjs';
+import { buildDrawingCdnUrl, matchMaterials, computeFileHash, syncDrawingsFromDirectory } from '../scripts/sync-drawing-assets.mjs';
+
+test('buildDrawingCdnUrl emits a full-SHA pinned URL and rejects mutable refs', () => {
+  const commitSha = 'a'.repeat(40);
+  const url = buildDrawingCdnUrl('drawings/catalog/drawing-m1-12345678.pdf', commitSha);
+  assert.equal(url, `https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@${commitSha}/bom-viewer-sync/drawings/catalog/drawing-m1-12345678.pdf`);
+  assert.doesNotMatch(url, /@main/);
+  assert.throws(() => buildDrawingCdnUrl('drawings/catalog/drawing.pdf', 'main'), /commitSha/);
+  assert.throws(() => syncDrawingsFromDirectory('missing-directory', { commitSha: 'main' }), /commitSha/);
+});
 
 test('matchMaterials matches by exact material code', () => {
   const materials = {
