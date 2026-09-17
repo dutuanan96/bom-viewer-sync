@@ -15618,11 +15618,8 @@
         },
         "drawings": [
           {
-            "name": "595拉杆.pdf",
-            "path": "Google Drive > LGS033 > 595拉杆.pdf",
-            "url": "https://drive.google.com/file/d/1DUGCZNLRo0fA6hUXmNuX4CFfh4mVviAW/view?usp=sharing",
-            "matched_name": "595拉杆",
-            "score": 1005
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@77d71e2fa688df7efb4d4a19b59fcaf804393275/assets/pdfs/LG05595BH_34e328c51b24e492c9cc47bced7f699ae2aaecef9e0fcb210cfbf3346c8e9d13_595_.pdf",
+            "name": "595拉杆.pdf"
           }
         ],
         "models3d": [
@@ -15632,7 +15629,8 @@
             "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/595-52562f01.glb",
             "matched_name": "595拉杆",
             "score": 1300,
-            "bytes": 333568
+            "bytes": 333568,
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/595-52562f01.glb"
           }
         ],
         "unit": {

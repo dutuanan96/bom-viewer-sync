@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-09-08T06:20:24.790Z",
+  "updatedAt": "2026-09-17T01:52:57.396Z",
   "products": [
     "5106",
     "LGS031",
@@ -272160,6 +272160,29 @@
   },
   "notifications": [
     {
+      "id": "notif_alkg4i",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-09-17T01:52:57.396Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "LG05595BH",
+          "field": "drawings",
+          "before": "595拉杆.pdf|https://drive.google.com/file/d/1DUGCZNLRo0fA6hUXmNuX4CFfh4mVviAW/view?usp=sharing",
+          "after": "595拉杆.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@77d71e2fa688df7efb4d4a19b59fcaf804393275/assets/pdfs/LG05595BH_34e328c51b24e492c9cc47bced7f699ae2aaecef9e0fcb210cfbf3346c8e9d13_595_.pdf"
+        },
+        {
+          "kind": "material",
+          "code": "LG05595BH",
+          "field": "models3d",
+          "before": "595拉杆.glb|models3d/catalog/595-52562f01.glb",
+          "after": "595拉杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/595-52562f01.glb"
+        }
+      ]
+    },
+    {
       "id": "notif_1wdxe1q",
       "type": "github-save",
       "actor": "admin",
@@ -273455,14 +273478,6 @@
           "after": "LGS043ZZKBH647"
         }
       ]
-    },
-    {
-      "id": "notif_rcf5lu",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-19T10:11:00.408Z",
-      "version": 2,
-      "changes": []
     }
   ],
   "bomHistory": {
@@ -275328,6 +275343,31 @@
       }
     ],
     "LGS233": [
+      {
+        "id": "history_10ys7n2",
+        "productCode": "LGS233",
+        "revision": "V4.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-09-17T01:52:57.396Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LG05595BH",
+            "field": "drawings",
+            "before": "595拉杆.pdf|https://drive.google.com/file/d/1DUGCZNLRo0fA6hUXmNuX4CFfh4mVviAW/view?usp=sharing",
+            "after": "595拉杆.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@77d71e2fa688df7efb4d4a19b59fcaf804393275/assets/pdfs/LG05595BH_34e328c51b24e492c9cc47bced7f699ae2aaecef9e0fcb210cfbf3346c8e9d13_595_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LG05595BH",
+            "field": "models3d",
+            "before": "595拉杆.glb|models3d/catalog/595-52562f01.glb",
+            "after": "595拉杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/595-52562f01.glb"
+          }
+        ]
+      },
       {
         "id": "history_z8rsmf",
         "productCode": "LGS233",
@@ -286879,6 +286919,31 @@
     ],
     "LGS033": [
       {
+        "id": "history_wa98ns",
+        "productCode": "LGS033",
+        "revision": "V4.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-COLOR: 新增 4 个已确认颜色 SKU；按已发布颜色 BOM 替换指定颜色物料。",
+        "createdAt": "2026-09-17T01:52:57.396Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LG05595BH",
+            "field": "drawings",
+            "before": "595拉杆.pdf|https://drive.google.com/file/d/1DUGCZNLRo0fA6hUXmNuX4CFfh4mVviAW/view?usp=sharing",
+            "after": "595拉杆.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@77d71e2fa688df7efb4d4a19b59fcaf804393275/assets/pdfs/LG05595BH_34e328c51b24e492c9cc47bced7f699ae2aaecef9e0fcb210cfbf3346c8e9d13_595_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LG05595BH",
+            "field": "models3d",
+            "before": "595拉杆.glb|models3d/catalog/595-52562f01.glb",
+            "after": "595拉杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/595-52562f01.glb"
+          }
+        ]
+      },
+      {
         "id": "history_1p0yy9t",
         "productCode": "LGS033",
         "revision": "V4.2",
@@ -291630,6 +291695,31 @@
       }
     ],
     "LGS133": [
+      {
+        "id": "history_1dfdzn9",
+        "productCode": "LGS133",
+        "revision": "V4.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-COLOR: 新增 4 个已确认颜色 SKU；按已发布颜色 BOM 替换指定颜色物料。",
+        "createdAt": "2026-09-17T01:52:57.396Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LG05595BH",
+            "field": "drawings",
+            "before": "595拉杆.pdf|https://drive.google.com/file/d/1DUGCZNLRo0fA6hUXmNuX4CFfh4mVviAW/view?usp=sharing",
+            "after": "595拉杆.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@77d71e2fa688df7efb4d4a19b59fcaf804393275/assets/pdfs/LG05595BH_34e328c51b24e492c9cc47bced7f699ae2aaecef9e0fcb210cfbf3346c8e9d13_595_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LG05595BH",
+            "field": "models3d",
+            "before": "595拉杆.glb|models3d/catalog/595-52562f01.glb",
+            "after": "595拉杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/595-52562f01.glb"
+          }
+        ]
+      },
       {
         "id": "history_24vonm",
         "productCode": "LGS133",
