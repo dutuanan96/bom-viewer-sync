@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-09-17T01:55:17.905Z",
+  "updatedAt": "2026-09-17T02:15:08.345Z",
   "products": [
     "5106",
     "LGS031",
@@ -272168,6 +272168,29 @@
   },
   "notifications": [
     {
+      "id": "notif_1fqqxjm",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-09-17T02:15:08.345Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "LG05595WH",
+          "field": "drawings",
+          "before": "595拉杆.pdf|https://drive.google.com/file/d/1DUGCZNLRo0fA6hUXmNuX4CFfh4mVviAW/view?usp=sharing",
+          "after": "595拉杆.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@77d71e2fa688df7efb4d4a19b59fcaf804393275/assets/pdfs/LG05595BH_34e328c51b24e492c9cc47bced7f699ae2aaecef9e0fcb210cfbf3346c8e9d13_595_.pdf"
+        },
+        {
+          "kind": "material",
+          "code": "LG05595WH",
+          "field": "models3d",
+          "before": "595拉杆.glb|models3d/catalog/595-52562f01.glb",
+          "after": "595拉杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/595-52562f01.glb"
+        }
+      ]
+    },
+    {
       "id": "notif_1cf49y4",
       "type": "github-save",
       "actor": "admin",
@@ -273433,29 +273456,6 @@
           "field": "M6GS1515BH",
           "before": "",
           "after": ""
-        }
-      ]
-    },
-    {
-      "id": "notif_1kmsqsq",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-19T10:40:30.368Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS043",
-          "field": "effectiveRevision",
-          "before": "V3",
-          "after": "V3.1"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS043",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
         }
       ]
     }
@@ -275323,6 +275323,31 @@
       }
     ],
     "LGS233": [
+      {
+        "id": "history_1f08moo",
+        "productCode": "LGS233",
+        "revision": "V4.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-09-17T02:15:08.345Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LG05595WH",
+            "field": "drawings",
+            "before": "595拉杆.pdf|https://drive.google.com/file/d/1DUGCZNLRo0fA6hUXmNuX4CFfh4mVviAW/view?usp=sharing",
+            "after": "595拉杆.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@77d71e2fa688df7efb4d4a19b59fcaf804393275/assets/pdfs/LG05595BH_34e328c51b24e492c9cc47bced7f699ae2aaecef9e0fcb210cfbf3346c8e9d13_595_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LG05595WH",
+            "field": "models3d",
+            "before": "595拉杆.glb|models3d/catalog/595-52562f01.glb",
+            "after": "595拉杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/595-52562f01.glb"
+          }
+        ]
+      },
       {
         "id": "history_10ys7n2",
         "productCode": "LGS233",
@@ -286898,6 +286923,31 @@
       }
     ],
     "LGS033": [
+      {
+        "id": "history_4zl782",
+        "productCode": "LGS033",
+        "revision": "V4.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-COLOR: 新增 4 个已确认颜色 SKU；按已发布颜色 BOM 替换指定颜色物料。",
+        "createdAt": "2026-09-17T02:15:08.345Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LG05595WH",
+            "field": "drawings",
+            "before": "595拉杆.pdf|https://drive.google.com/file/d/1DUGCZNLRo0fA6hUXmNuX4CFfh4mVviAW/view?usp=sharing",
+            "after": "595拉杆.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@77d71e2fa688df7efb4d4a19b59fcaf804393275/assets/pdfs/LG05595BH_34e328c51b24e492c9cc47bced7f699ae2aaecef9e0fcb210cfbf3346c8e9d13_595_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LG05595WH",
+            "field": "models3d",
+            "before": "595拉杆.glb|models3d/catalog/595-52562f01.glb",
+            "after": "595拉杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/595-52562f01.glb"
+          }
+        ]
+      },
       {
         "id": "history_3gjgnn",
         "productCode": "LGS033",
