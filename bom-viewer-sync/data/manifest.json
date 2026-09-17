@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-09-17T01:52:57.396Z",
+  "updatedAt": "2026-09-17T01:55:17.905Z",
   "products": [
     "5106",
     "LGS031",
@@ -108843,12 +108843,12 @@
     },
     "LGS033": {
       "currentRevision": "V4.2",
-      "effectiveRevision": "V4.1",
+      "effectiveRevision": "V4.2",
       "currentRevisionInfo": {
         "sourceRevision": "V4.1",
         "createdAt": "2026-08-24T08:31:40.848Z",
         "changeReason": "ECN-2026-0824-COLOR: 新增 4 个已确认颜色 SKU；按已发布颜色 BOM 替换指定颜色物料。",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -122157,6 +122157,14 @@
           "revision": "V4.1",
           "previousRevision": "V4",
           "occurredAt": "2026-08-19T03:38:14.945Z",
+          "reason": "更新"
+        },
+        {
+          "id": "effectivity_mu4vnoj1",
+          "action": "release",
+          "revision": "V4.2",
+          "previousRevision": "V4.1",
+          "occurredAt": "2026-09-17T01:55:17.869Z",
           "reason": "更新"
         }
       ]
@@ -272160,6 +272168,29 @@
   },
   "notifications": [
     {
+      "id": "notif_1cf49y4",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-09-17T01:55:17.905Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS033",
+          "field": "effectiveRevision",
+          "before": "V4.1",
+          "after": "V4.2"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS033",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        }
+      ]
+    },
+    {
       "id": "notif_alkg4i",
       "type": "github-save",
       "actor": "admin",
@@ -273425,57 +273456,6 @@
           "field": "workflowState",
           "before": "draft",
           "after": "released"
-        }
-      ]
-    },
-    {
-      "id": "notif_qgaptg",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-19T10:39:05.521Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS043",
-          "field": "effectiveRevision",
-          "before": "V3.1",
-          "after": "V3"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS043",
-          "field": "workflowState",
-          "before": "released",
-          "after": "draft"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS043K101S",
-          "field": "",
-          "before": "LGS043YZKBH",
-          "after": "LGS043YZKBH647"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS043K101S",
-          "field": "",
-          "before": "LGS043ZZKBH",
-          "after": "LGS043ZZKBH647"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS043B101S",
-          "field": "",
-          "before": "LGS043YZKBH",
-          "after": "LGS043YZKBH647"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS043B101S",
-          "field": "",
-          "before": "LGS043ZZKBH",
-          "after": "LGS043ZZKBH647"
         }
       ]
     }
@@ -286918,6 +286898,31 @@
       }
     ],
     "LGS033": [
+      {
+        "id": "history_3gjgnn",
+        "productCode": "LGS033",
+        "revision": "V4.2",
+        "action": "release",
+        "actor": "admin",
+        "reason": "更新",
+        "createdAt": "2026-09-17T01:55:17.905Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS033",
+            "field": "effectiveRevision",
+            "before": "V4.1",
+            "after": "V4.2"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS033",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
       {
         "id": "history_wa98ns",
         "productCode": "LGS033",
