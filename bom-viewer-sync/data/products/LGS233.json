@@ -1395,12 +1395,12 @@
         },
         {
           "stt": "3",
-          "mat_code": "PPHJ1285",
+          "mat_code": "SCPPHJ505030",
           "comp_code": "",
-          "name_zh": "PP护角",
-          "name_vi": "PP góc nhựa",
-          "spec": "内径高12mm,边厚度8.5mm",
-          "spec_vi": "đường kính trong cao 12mm,độ dày cạnh 8.5mm",
+          "name_zh": "双层PP护角",
+          "name_vi": "góc nhựa PP đôi",
+          "spec": "50x50x30mm",
+          "spec_vi": "50x50x30mm",
           "material_zh": "PP",
           "material_vi": "PP",
           "color_zh": "黑色",
@@ -1413,7 +1413,7 @@
             "zh": "个",
             "vi": "cái"
           },
-          "qty": "8",
+          "qty": "4",
           "remark": ""
         },
         {
@@ -1852,6 +1852,52 @@
           },
           "qty": "1",
           "remark": "包装对象：LGS233SZQHLBH×2\n规则：2件/袋；用袋：1袋"
+        },
+        {
+          "stt": "80",
+          "mat_code": "PM7503005",
+          "comp_code": "",
+          "name_zh": "泡沫",
+          "name_vi": "mút xốp",
+          "spec": "20kg, 750x30x5mm",
+          "spec_vi": "20kg, 750x30x5mm",
+          "material_zh": "EPS泡沫",
+          "material_vi": "EPS mút xốp",
+          "color_zh": "白色",
+          "color_vi": "màu trắng",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "复古色",
+          "color_ver_vi": "复古色",
+          "unit": {
+            "zh": "块",
+            "vi": "miếng"
+          },
+          "qty": "1",
+          "remark": ""
+        },
+        {
+          "stt": "81",
+          "mat_code": "PM2603005",
+          "comp_code": "",
+          "name_zh": "泡沫",
+          "name_vi": "mút xốp",
+          "spec": "20Kg,260x30x5mm",
+          "spec_vi": "20Kg,260x30x5mm",
+          "material_zh": "EPS泡沫",
+          "material_vi": "EPS mút xốp",
+          "color_zh": "白色",
+          "color_vi": "màu trắng",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "复古色",
+          "color_ver_vi": "复古色",
+          "unit": {
+            "zh": "块",
+            "vi": "miếng"
+          },
+          "qty": "2",
+          "remark": ""
         }
       ]
     },
@@ -3243,12 +3289,12 @@
         },
         {
           "stt": "3",
-          "mat_code": "PPHJ1285",
+          "mat_code": "SCPPHJ505030",
           "comp_code": "",
-          "name_zh": "PP护角",
-          "name_vi": "PP góc nhựa",
-          "spec": "内径高12mm,边厚度8.5mm",
-          "spec_vi": "đường kính trong cao 12mm,độ dày cạnh 8.5mm",
+          "name_zh": "双层PP护角",
+          "name_vi": "góc nhựa PP đôi",
+          "spec": "50x50x30mm",
+          "spec_vi": "50x50x30mm",
           "material_zh": "PP",
           "material_vi": "PP",
           "color_zh": "黑色",
@@ -3261,7 +3307,7 @@
             "zh": "个",
             "vi": "cái"
           },
-          "qty": "8",
+          "qty": "4",
           "remark": ""
         },
         {
@@ -3700,6 +3746,52 @@
           },
           "qty": "1",
           "remark": "包装对象：LGS233SZQHLWH×2\n规则：2件/袋；用袋：1袋"
+        },
+        {
+          "stt": "80",
+          "mat_code": "PM7503005",
+          "comp_code": "",
+          "name_zh": "泡沫",
+          "name_vi": "mút xốp",
+          "spec": "20kg, 750x30x5mm",
+          "spec_vi": "20kg, 750x30x5mm",
+          "material_zh": "EPS泡沫",
+          "material_vi": "EPS mút xốp",
+          "color_zh": "白色",
+          "color_vi": "màu trắng",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "白色",
+          "color_ver_vi": "白色",
+          "unit": {
+            "zh": "块",
+            "vi": "miếng"
+          },
+          "qty": "1",
+          "remark": ""
+        },
+        {
+          "stt": "81",
+          "mat_code": "PM2603005",
+          "comp_code": "",
+          "name_zh": "泡沫",
+          "name_vi": "mút xốp",
+          "spec": "20Kg,260x30x5mm",
+          "spec_vi": "20Kg,260x30x5mm",
+          "material_zh": "EPS泡沫",
+          "material_vi": "EPS mút xốp",
+          "color_zh": "白色",
+          "color_vi": "màu trắng",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "白色",
+          "color_ver_vi": "白色",
+          "unit": {
+            "zh": "块",
+            "vi": "miếng"
+          },
+          "qty": "2",
+          "remark": ""
         }
       ]
     },
@@ -5091,12 +5183,12 @@
         },
         {
           "stt": "3",
-          "mat_code": "PPHJ1285",
+          "mat_code": "SCPPHJ505030",
           "comp_code": "",
-          "name_zh": "PP护角",
-          "name_vi": "PP góc nhựa",
-          "spec": "内径高12mm,边厚度8.5mm",
-          "spec_vi": "đường kính trong cao 12mm,độ dày cạnh 8.5mm",
+          "name_zh": "双层PP护角",
+          "name_vi": "góc nhựa PP đôi",
+          "spec": "50x50x30mm",
+          "spec_vi": "50x50x30mm",
           "material_zh": "PP",
           "material_vi": "PP",
           "color_zh": "黑色",
@@ -5109,7 +5201,7 @@
             "zh": "个",
             "vi": "cái"
           },
-          "qty": "8",
+          "qty": "4",
           "remark": ""
         },
         {
@@ -5548,6 +5640,52 @@
           },
           "qty": "1",
           "remark": "包装对象：LGS233SZQHLBH×2\n规则：2件/袋；用袋：1袋"
+        },
+        {
+          "stt": "80",
+          "mat_code": "PM7503005",
+          "comp_code": "",
+          "name_zh": "泡沫",
+          "name_vi": "mút xốp",
+          "spec": "20kg, 750x30x5mm",
+          "spec_vi": "20kg, 750x30x5mm",
+          "material_zh": "EPS泡沫",
+          "material_vi": "EPS mút xốp",
+          "color_zh": "白色",
+          "color_vi": "màu trắng",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "黑色",
+          "color_ver_vi": "黑色",
+          "unit": {
+            "zh": "块",
+            "vi": "miếng"
+          },
+          "qty": "1",
+          "remark": ""
+        },
+        {
+          "stt": "81",
+          "mat_code": "PM2603005",
+          "comp_code": "",
+          "name_zh": "泡沫",
+          "name_vi": "mút xốp",
+          "spec": "20Kg,260x30x5mm",
+          "spec_vi": "20Kg,260x30x5mm",
+          "material_zh": "EPS泡沫",
+          "material_vi": "EPS mút xốp",
+          "color_zh": "白色",
+          "color_vi": "màu trắng",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "黑色",
+          "color_ver_vi": "黑色",
+          "unit": {
+            "zh": "块",
+            "vi": "miếng"
+          },
+          "qty": "2",
+          "remark": ""
         }
       ]
     },
@@ -6930,12 +7068,12 @@
         },
         {
           "stt": "3",
-          "mat_code": "PPHJ1285",
+          "mat_code": "SCPPHJ505030",
           "comp_code": "",
-          "name_zh": "PP护角",
-          "name_vi": "PP góc nhựa",
-          "spec": "内径高12mm,边厚度8.5mm",
-          "spec_vi": "đường kính trong cao 12mm,độ dày cạnh 8.5mm",
+          "name_zh": "双层PP护角",
+          "name_vi": "góc nhựa PP đôi",
+          "spec": "50x50x30mm",
+          "spec_vi": "50x50x30mm",
           "material_zh": "PP",
           "material_vi": "PP",
           "color_zh": "黑色",
@@ -6948,7 +7086,7 @@
             "zh": "个",
             "vi": "cái"
           },
-          "qty": "8",
+          "qty": "4",
           "remark": ""
         },
         {
@@ -7387,6 +7525,52 @@
           },
           "qty": "1",
           "remark": "包装对象：LGS233SZQHLBH×2\n规则：2件/袋；用袋：1袋"
+        },
+        {
+          "stt": "80",
+          "mat_code": "PM7503005",
+          "comp_code": "",
+          "name_zh": "泡沫",
+          "name_vi": "mút xốp",
+          "spec": "20kg, 750x30x5mm",
+          "spec_vi": "20kg, 750x30x5mm",
+          "material_zh": "EPS泡沫",
+          "material_vi": "EPS mút xốp",
+          "color_zh": "白色",
+          "color_vi": "màu trắng",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "山纹黑",
+          "color_ver_vi": "山纹黑",
+          "unit": {
+            "zh": "块",
+            "vi": "miếng"
+          },
+          "qty": "1",
+          "remark": ""
+        },
+        {
+          "stt": "81",
+          "mat_code": "PM2603005",
+          "comp_code": "",
+          "name_zh": "泡沫",
+          "name_vi": "mút xốp",
+          "spec": "20Kg,260x30x5mm",
+          "spec_vi": "20Kg,260x30x5mm",
+          "material_zh": "EPS泡沫",
+          "material_vi": "EPS mút xốp",
+          "color_zh": "白色",
+          "color_vi": "màu trắng",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "山纹黑",
+          "color_ver_vi": "山纹黑",
+          "unit": {
+            "zh": "块",
+            "vi": "miếng"
+          },
+          "qty": "2",
+          "remark": ""
         }
       ]
     }

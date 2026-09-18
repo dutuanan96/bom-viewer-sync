@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-09-18T00:46:17.155Z",
+  "updatedAt": "2026-09-18T00:55:32.377Z",
   "products": [
     "5106",
     "LGS031",
@@ -146229,12 +146229,12 @@
     },
     "LGS233": {
       "currentRevision": "V4.2",
-      "effectiveRevision": "V4.2",
+      "effectiveRevision": "V4.1",
       "currentRevisionInfo": {
         "sourceRevision": "V4.1",
         "createdAt": "2026-08-24T05:24:49.392Z",
         "changeReason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
-        "workflowState": "released"
+        "workflowState": "draft"
       },
       "revisions": [
         {
@@ -169363,6 +169363,14 @@
           "previousRevision": "V4.1",
           "occurredAt": "2026-08-24T05:51:54.319Z",
           "reason": "更新"
+        },
+        {
+          "id": "effectivity_mu68r0np",
+          "action": "withdraw",
+          "revision": "V4.2",
+          "previousRevision": "V4.2",
+          "occurredAt": "2026-09-18T00:49:34.741Z",
+          "reason": "变更包材"
         }
       ]
     },
@@ -272168,6 +272176,71 @@
   },
   "notifications": [
     {
+      "id": "notif_vlav4g",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-09-18T00:55:32.377Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS233",
+          "field": "effectiveRevision",
+          "before": "V4.2",
+          "after": "V4.1"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS233",
+          "field": "workflowState",
+          "before": "released",
+          "after": "draft"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS233KD02S",
+          "field": "",
+          "before": "PPHJ1285",
+          "after": "SCPPHJ505030"
+        },
+        {
+          "kind": "bom_qty_changed",
+          "code": "LGS233KD02S",
+          "field": "SCPPHJ505030",
+          "before": "8",
+          "after": "4"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS233WH02S",
+          "field": "",
+          "before": "PPHJ1285",
+          "after": "SCPPHJ505030"
+        },
+        {
+          "kind": "bom_qty_changed",
+          "code": "LGS233WH02S",
+          "field": "SCPPHJ505030",
+          "before": "8",
+          "after": "4"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS233BH02S",
+          "field": "",
+          "before": "PPHJ1285",
+          "after": "SCPPHJ505030"
+        },
+        {
+          "kind": "bom_qty_changed",
+          "code": "LGS233BH02S",
+          "field": "SCPPHJ505030",
+          "before": "8",
+          "after": "4"
+        }
+      ]
+    },
+    {
       "id": "notif_1o3akpa",
       "type": "github-save",
       "actor": "admin",
@@ -273391,43 +273464,6 @@
           "field": "models3d",
           "before": "5106层板.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-5106-5106cb101kd-51b71776.glb",
           "after": "5106层板.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@06be3c85b6bedf64ae367e348f3aa7ccb0869517/assets/models/5106CB101KD_51b71776d03d1b130c625b6da4aaf2e791fe0d7040b361a618b9fd8b4cafd274_5106_.glb"
-        }
-      ]
-    },
-    {
-      "id": "notif_sa0u7u",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-19T10:53:05.034Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "bom_added",
-          "code": "LGS032ZKBH647",
-          "field": "FG1515064804",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "bom_added",
-          "code": "LGS032YKBH647",
-          "field": "FG1515064804",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "bom_deleted",
-          "code": "LGS032ZKBH647",
-          "field": "FG1515064816",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "bom_deleted",
-          "code": "LGS032YKBH647",
-          "field": "FG1515064816",
-          "before": "",
-          "after": ""
         }
       ]
     }
@@ -275295,6 +275331,143 @@
       }
     ],
     "LGS233": [
+      {
+        "id": "history_1oi696",
+        "productCode": "LGS233",
+        "revision": "V4.2",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-B201: 新增山纹黑 B201 SKU；沿用黑色 BOM，仅替换布抽及印有 SKU 的纸箱。",
+        "createdAt": "2026-09-18T00:55:32.377Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS233",
+            "field": "effectiveRevision",
+            "before": "V4.2",
+            "after": "V4.1"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS233",
+            "field": "workflowState",
+            "before": "released",
+            "after": "draft"
+          },
+          {
+            "kind": "bom_material_changed",
+            "code": "LGS233KD02S",
+            "field": "",
+            "before": "PPHJ1285",
+            "after": "SCPPHJ505030"
+          },
+          {
+            "kind": "bom_qty_changed",
+            "code": "LGS233KD02S",
+            "field": "SCPPHJ505030",
+            "before": "8",
+            "after": "4"
+          },
+          {
+            "kind": "bom_material_changed",
+            "code": "LGS233WH02S",
+            "field": "",
+            "before": "PPHJ1285",
+            "after": "SCPPHJ505030"
+          },
+          {
+            "kind": "bom_qty_changed",
+            "code": "LGS233WH02S",
+            "field": "SCPPHJ505030",
+            "before": "8",
+            "after": "4"
+          },
+          {
+            "kind": "bom_material_changed",
+            "code": "LGS233BH02S",
+            "field": "",
+            "before": "PPHJ1285",
+            "after": "SCPPHJ505030"
+          },
+          {
+            "kind": "bom_qty_changed",
+            "code": "LGS233BH02S",
+            "field": "SCPPHJ505030",
+            "before": "8",
+            "after": "4"
+          },
+          {
+            "kind": "bom_material_changed",
+            "code": "LGS233B201S",
+            "field": "",
+            "before": "PPHJ1285",
+            "after": "SCPPHJ505030"
+          },
+          {
+            "kind": "bom_qty_changed",
+            "code": "LGS233B201S",
+            "field": "SCPPHJ505030",
+            "before": "8",
+            "after": "4"
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS233KD02S",
+            "field": "PM7503005",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS233KD02S",
+            "field": "PM2603005",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS233WH02S",
+            "field": "PM7503005",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS233WH02S",
+            "field": "PM2603005",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS233BH02S",
+            "field": "PM7503005",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS233BH02S",
+            "field": "PM2603005",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS233B201S",
+            "field": "PM7503005",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_added",
+            "code": "LGS233B201S",
+            "field": "PM2603005",
+            "before": "",
+            "after": ""
+          }
+        ]
+      },
       {
         "id": "history_1f08moo",
         "productCode": "LGS233",
