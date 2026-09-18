@@ -45820,6 +45820,66 @@
         "drawings": [],
         "models3d": [],
         "unit": "根"
+      },
+      "mat_1a1iwx6": {
+        "id": "mat_1a1iwx6",
+        "code": "PM7503005",
+        "name": {
+          "zh": "泡沫",
+          "vi": "mút xốp"
+        },
+        "spec": {
+          "zh": "20kg, 750x30x5mm",
+          "vi": "20kg, 750x30x5mm"
+        },
+        "material": {
+          "zh": "EPS泡沫",
+          "vi": "EPS mút xốp"
+        },
+        "color": {
+          "zh": "白色",
+          "vi": "màu trắng"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "块",
+          "vi": "miếng"
+        }
+      },
+      "mat_5t7bbe": {
+        "id": "mat_5t7bbe",
+        "code": "PM2603005",
+        "name": {
+          "zh": "泡沫",
+          "vi": "mút xốp"
+        },
+        "spec": {
+          "zh": "20Kg,260x30x5mm",
+          "vi": "20Kg,260x30x5mm"
+        },
+        "material": {
+          "zh": "EPS泡沫",
+          "vi": "EPS mút xốp"
+        },
+        "color": {
+          "zh": "白色",
+          "vi": "màu trắng"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "块",
+          "vi": "miếng"
+        }
       }
     },
     "bomEntries": [

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-09-17T02:15:08.345Z",
+  "updatedAt": "2026-09-18T00:46:17.155Z",
   "products": [
     "5106",
     "LGS031",
@@ -272168,6 +272168,29 @@
   },
   "notifications": [
     {
+      "id": "notif_1o3akpa",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-09-18T00:46:17.155Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material_added",
+          "code": "PM2603005",
+          "field": "",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "material_added",
+          "code": "PM7503005",
+          "field": "",
+          "before": "",
+          "after": ""
+        }
+      ]
+    },
+    {
       "id": "notif_1fqqxjm",
       "type": "github-save",
       "actor": "admin",
@@ -273403,57 +273426,6 @@
           "kind": "bom_deleted",
           "code": "LGS032YKBH647",
           "field": "FG1515064816",
-          "before": "",
-          "after": ""
-        }
-      ]
-    },
-    {
-      "id": "notif_1d0lz9i",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-19T10:44:57.415Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "bom_added",
-          "code": "LGS043YZKBH647",
-          "field": "FG1515064930",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "bom_added",
-          "code": "LGS043YZKBH647",
-          "field": "FG1515066170",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "bom_added",
-          "code": "LGS043YZKBH647",
-          "field": "M6GS1515BH",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "bom_added",
-          "code": "LGS043ZZKBH647",
-          "field": "FG1515064930",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "bom_added",
-          "code": "LGS043ZZKBH647",
-          "field": "FG1515066170",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "bom_added",
-          "code": "LGS043ZZKBH647",
-          "field": "M6GS1515BH",
           "before": "",
           "after": ""
         }
