@@ -24843,7 +24843,7 @@
         "id": "mat_18zk1lh",
         "code": "LGS333XHHLBH",
         "name": {
-          "zh": "LGS333_433_733_833底部横杆后",
+          "zh": "LGS333_733_833底部横杆后",
           "vi": "LGS333_433_733_833 Thanh dưới sau"
         },
         "spec": {
@@ -25396,7 +25396,7 @@
         "id": "mat_1lhv5f5",
         "code": "LGS333XHHLWH",
         "name": {
-          "zh": "LGS333_433_733_833底部横杆后",
+          "zh": "LGS333_733_833底部横杆后",
           "vi": "LGS333_433_733_833 Thanh dưới sau"
         },
         "spec": {
@@ -25887,7 +25887,7 @@
         "id": "mat_6aufm8",
         "code": "LGS334XQZHLBH",
         "name": {
-          "zh": "LGS334_434_834-底部横杆左-前",
+          "zh": "LGS334_834-底部横杆左-前",
           "vi": "LGS334_434_834-thanh dưới trái-trước"
         },
         "spec": {
@@ -25931,7 +25931,7 @@
         "id": "mat_1df0gky",
         "code": "LGS334XHZHLBH",
         "name": {
-          "zh": "LGS334_434_834-底部横杆左-后",
+          "zh": "LGS334_834-底部横杆左-后",
           "vi": "LGS334_434_834-thanh dưới trái-sau"
         },
         "spec": {
@@ -29066,7 +29066,7 @@
         "id": "mat_1p7u36s",
         "code": "LGS334XQZHLWH",
         "name": {
-          "zh": "LGS334_434_834-底部横杆左-前",
+          "zh": "LGS334_834-底部横杆左-前",
           "vi": "LGS334_434_834 thanh dưới trái-trước"
         },
         "spec": {
@@ -29110,7 +29110,7 @@
         "id": "mat_1ppmijq",
         "code": "LGS334XHZHLWH",
         "name": {
-          "zh": "LGS334_434_834-底部横杆左-后",
+          "zh": "LGS334_834-底部横杆左-后",
           "vi": "LGS334_434_834-thanh dưới trái-sau"
         },
         "spec": {
@@ -32064,7 +32064,7 @@
         "id": "mat_1va23cf",
         "code": "LGS333XQHLBH",
         "name": {
-          "zh": "LGS333_433_733_833底部横杆前",
+          "zh": "LGS333_733_833底部横杆前",
           "vi": "LGS333_433_733_833 Thanh dưới trước"
         },
         "spec": {
@@ -32342,7 +32342,7 @@
         "id": "mat_t6uv63",
         "code": "LGS333XQHLWH",
         "name": {
-          "zh": "LGS333_433_733_833底部横杆前",
+          "zh": "LGS333_733_833底部横杆前",
           "vi": "LGS333_433_733_833 Thanh dưới trước"
         },
         "spec": {
@@ -45880,6 +45880,480 @@
           "zh": "块",
           "vi": "miếng"
         }
+      },
+      "mat_nlpls4022bz": {
+        "id": "mat_nlpls4022bz",
+        "code": "NLPLS4022BZ",
+        "name": {
+          "zh": "M4×22内六角螺丝",
+          "vi": "M4×22 ốc lục giác"
+        },
+        "spec": {
+          "zh": "M4×22mm",
+          "vi": "M4×22mm"
+        },
+        "material": {
+          "zh": "#10",
+          "vi": "#10"
+        },
+        "color": {
+          "zh": "黑色",
+          "vi": "màu đen"
+        },
+        "attr": {
+          "zh": "五金包",
+          "vi": "túi ngũ kim"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": "颗"
+      },
+      "mat_nlpls4022wz": {
+        "id": "mat_nlpls4022wz",
+        "code": "NLPLS4022WZ",
+        "name": {
+          "zh": "M4×22内六角螺丝",
+          "vi": "M4×22 ốc lục giác"
+        },
+        "spec": {
+          "zh": "M4×22mm",
+          "vi": "M4×22mm"
+        },
+        "material": {
+          "zh": "#10",
+          "vi": "#10"
+        },
+        "color": {
+          "zh": "镀锌",
+          "vi": "mạ kẽm"
+        },
+        "attr": {
+          "zh": "五金包",
+          "vi": "túi ngũ kim"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": "颗"
+      },
+      "mat_lgs433sqhldepv5wh": {
+        "id": "mat_lgs433sqhldepv5wh",
+        "code": "LGS433SQHLDEPV5WH",
+        "name": {
+          "zh": "LGS433顶部横杆",
+          "vi": "Thanh ngang trên LGS433"
+        },
+        "spec": {
+          "zh": "1098x31x15mm",
+          "vi": "1098x31x15mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "白砂纹",
+          "vi": "trắng nhám"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "根",
+          "vi": "thanh"
+        }
+      },
+      "mat_lgs433sqhldepv5bh": {
+        "id": "mat_lgs433sqhldepv5bh",
+        "code": "LGS433SQHLDEPV5BH",
+        "name": {
+          "zh": "LGS433顶部横杆",
+          "vi": "Thanh ngang trên LGS433"
+        },
+        "spec": {
+          "zh": "1098x31x15mm",
+          "vi": "1098x31x15mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "黑砂纹",
+          "vi": "đen nhám"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
+      },
+      "mat_lgs433xqhlwh": {
+        "id": "mat_lgs433xqhlwh",
+        "code": "LGS433XQHLWH",
+        "name": {
+          "zh": "LGS433底部横杆前_组件",
+          "vi": "Cụm thanh ngang đáy trước LGS433"
+        },
+        "spec": {
+          "zh": "1098x15x15mm",
+          "vi": "1098x15x15mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "白砂纹",
+          "vi": "trắng nhám"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "根",
+          "vi": "thanh"
+        }
+      },
+      "mat_lgs433xqhlbh": {
+        "id": "mat_lgs433xqhlbh",
+        "code": "LGS433XQHLBH",
+        "name": {
+          "zh": "LGS433底部横杆前_组件",
+          "vi": "Cụm thanh ngang đáy trước LGS433"
+        },
+        "spec": {
+          "zh": "1098x15x15mm",
+          "vi": "1098x15x15mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "黑砂纹",
+          "vi": "đen nhám"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "根",
+          "vi": "thanh"
+        }
+      },
+      "mat_lgs433xhhlwh": {
+        "id": "mat_lgs433xhhlwh",
+        "code": "LGS433XHHLWH",
+        "name": {
+          "zh": "LGS433底部横杆后_组件",
+          "vi": "Cụm thanh ngang đáy sau LGS433"
+        },
+        "spec": {
+          "zh": "1098x15x15mm",
+          "vi": "1098x15x15mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "白砂纹",
+          "vi": "trắng nhám"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "根",
+          "vi": "thanh"
+        }
+      },
+      "mat_lgs433xhhlbh": {
+        "id": "mat_lgs433xhhlbh",
+        "code": "LGS433XHHLBH",
+        "name": {
+          "zh": "LGS433底部横杆后_组件",
+          "vi": "Cụm thanh ngang đáy sau LGS433"
+        },
+        "spec": {
+          "zh": "1098x15x15mm",
+          "vi": "1098x15x15mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "黑砂纹",
+          "vi": "đen nhám"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
+      },
+      "mat_lgs434xqzhlwh": {
+        "id": "mat_lgs434xqzhlwh",
+        "code": "LGS434XQZHLWH",
+        "name": {
+          "zh": "LGS434底部横杆左-前_组件",
+          "vi": "Cụm thanh ngang đáy trái-trước LGS434"
+        },
+        "spec": {
+          "zh": "760x15x15mm",
+          "vi": "760x15x15mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "白砂纹",
+          "vi": "trắng nhám"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "根",
+          "vi": "thanh"
+        }
+      },
+      "mat_lgs434xqzhlbh": {
+        "id": "mat_lgs434xqzhlbh",
+        "code": "LGS434XQZHLBH",
+        "name": {
+          "zh": "LGS434底部横杆左-前_组件",
+          "vi": "Cụm thanh ngang đáy trái-trước LGS434"
+        },
+        "spec": {
+          "zh": "760x15x15mm",
+          "vi": "760x15x15mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "黑砂纹",
+          "vi": "đen nhám"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
+      },
+      "mat_lgs434xhzhlwh": {
+        "id": "mat_lgs434xhzhlwh",
+        "code": "LGS434XHZHLWH",
+        "name": {
+          "zh": "LGS434底部横杆左-后_组件",
+          "vi": "Cụm thanh ngang đáy trái-sau LGS434"
+        },
+        "spec": {
+          "zh": "760x15x15mm",
+          "vi": "760x15x15mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "白砂纹",
+          "vi": "trắng nhám"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "根",
+          "vi": "thanh"
+        }
+      },
+      "mat_lgs434xhzhlbh": {
+        "id": "mat_lgs434xhzhlbh",
+        "code": "LGS434XHZHLBH",
+        "name": {
+          "zh": "LGS434底部横杆左-后_组件",
+          "vi": "Cụm thanh ngang đáy trái-sau LGS434"
+        },
+        "spec": {
+          "zh": "760x15x15mm",
+          "vi": "760x15x15mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "黑砂纹",
+          "vi": "đen nhám"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
+      },
+      "mat_lgs434szhldepwh": {
+        "id": "mat_lgs434szhldepwh",
+        "code": "LGS434SZHLDEPWH",
+        "name": {
+          "zh": "LGS434中部横杆左_组件",
+          "vi": "Cụm thanh ngang giữa trái LGS434"
+        },
+        "spec": {
+          "zh": "754x31x15mm",
+          "vi": "754x31x15mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "白砂纹",
+          "vi": "trắng nhám"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "根",
+          "vi": "thanh"
+        }
+      },
+      "mat_lgs434szhldepbh": {
+        "id": "mat_lgs434szhldepbh",
+        "code": "LGS434SZHLDEPBH",
+        "name": {
+          "zh": "LGS434中部横杆左_组件",
+          "vi": "Cụm thanh ngang giữa trái LGS434"
+        },
+        "spec": {
+          "zh": "754x31x15mm",
+          "vi": "754x31x15mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "黑砂纹",
+          "vi": "đen nhám"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
+      },
+      "mat_lgs434syhldepwh": {
+        "id": "mat_lgs434syhldepwh",
+        "code": "LGS434SYHLDEPWH",
+        "name": {
+          "zh": "LGS434中部横杆右_组件",
+          "vi": "Cụm thanh ngang giữa phải LGS434"
+        },
+        "spec": {
+          "zh": "714x31x15mm",
+          "vi": "714x31x15mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "白砂纹",
+          "vi": "trắng nhám"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "根",
+          "vi": "thanh"
+        }
+      },
+      "mat_lgs434syhldepbh": {
+        "id": "mat_lgs434syhldepbh",
+        "code": "LGS434SYHLDEPBH",
+        "name": {
+          "zh": "LGS434中部横杆右_组件",
+          "vi": "Cụm thanh ngang giữa phải LGS434"
+        },
+        "spec": {
+          "zh": "714x31x15mm",
+          "vi": "714x31x15mm"
+        },
+        "material": {
+          "zh": "Q195",
+          "vi": "Q195"
+        },
+        "color": {
+          "zh": "黑砂纹",
+          "vi": "đen nhám"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       }
     },
     "bomEntries": [
@@ -54598,20 +55072,6 @@
         "order": 5
       },
       {
-        "id": "bom_6nuytu",
-        "parentType": "product",
-        "parentId": "LGS433",
-        "productCode": "LGS433",
-        "color": "复古色",
-        "materialId": "mat_1c0a8em",
-        "stt": "6",
-        "comp_code": "M",
-        "qty": "2",
-        "color_ver": "复古色",
-        "color_ver_vi": "màu gỗ cổ",
-        "order": 6
-      },
-      {
         "id": "bom_1wd0af3",
         "parentType": "product",
         "parentId": "LGS433",
@@ -54673,7 +55133,7 @@
         "parentId": "LGS433",
         "productCode": "LGS433",
         "color": "复古色",
-        "materialId": "mat_1va23cf",
+        "materialId": "mat_lgs433xqhlbh",
         "stt": "11",
         "comp_code": "G",
         "qty": "1",
@@ -54687,7 +55147,7 @@
         "parentId": "LGS433",
         "productCode": "LGS433",
         "color": "复古色",
-        "materialId": "mat_18zk1lh",
+        "materialId": "mat_lgs433xhhlbh",
         "stt": "12",
         "comp_code": "F",
         "qty": "1",
@@ -54743,7 +55203,7 @@
         "parentId": "LGS433",
         "productCode": "LGS433",
         "color": "复古色",
-        "materialId": "mat_1c39qwo",
+        "materialId": "mat_lgs433sqhldepv5bh",
         "stt": "17",
         "comp_code": "J",
         "qty": "2",
@@ -54910,20 +55370,6 @@
         "order": 5
       },
       {
-        "id": "bom_16m94pg",
-        "parentType": "product",
-        "parentId": "LGS433",
-        "productCode": "LGS433",
-        "color": "白色",
-        "materialId": "mat_zjg150641wh",
-        "stt": "6",
-        "comp_code": "M",
-        "qty": "2",
-        "color_ver": "白色",
-        "color_ver_vi": "màu trắng",
-        "order": 6
-      },
-      {
         "id": "bom_1x4zjnj",
         "parentType": "product",
         "parentId": "LGS433",
@@ -54985,7 +55431,7 @@
         "parentId": "LGS433",
         "productCode": "LGS433",
         "color": "白色",
-        "materialId": "mat_t6uv63",
+        "materialId": "mat_lgs433xqhlwh",
         "stt": "11",
         "comp_code": "G",
         "qty": "1",
@@ -54999,7 +55445,7 @@
         "parentId": "LGS433",
         "productCode": "LGS433",
         "color": "白色",
-        "materialId": "mat_1lhv5f5",
+        "materialId": "mat_lgs433xhhlwh",
         "stt": "12",
         "comp_code": "F",
         "qty": "1",
@@ -55055,7 +55501,7 @@
         "parentId": "LGS433",
         "productCode": "LGS433",
         "color": "白色",
-        "materialId": "mat_cgc524",
+        "materialId": "mat_lgs433sqhldepv5wh",
         "stt": "17",
         "comp_code": "J",
         "qty": "2",
@@ -55222,20 +55668,6 @@
         "order": 5
       },
       {
-        "id": "bom_kewvnq",
-        "parentType": "product",
-        "parentId": "LGS433",
-        "productCode": "LGS433",
-        "color": "黑色",
-        "materialId": "mat_1c0a8em",
-        "stt": "6",
-        "comp_code": "M",
-        "qty": "2",
-        "color_ver": "黑色",
-        "color_ver_vi": "màu đen",
-        "order": 6
-      },
-      {
         "id": "bom_16ard3v",
         "parentType": "product",
         "parentId": "LGS433",
@@ -55297,7 +55729,7 @@
         "parentId": "LGS433",
         "productCode": "LGS433",
         "color": "黑色",
-        "materialId": "mat_1va23cf",
+        "materialId": "mat_lgs433xqhlbh",
         "stt": "11",
         "comp_code": "G",
         "qty": "1",
@@ -55311,7 +55743,7 @@
         "parentId": "LGS433",
         "productCode": "LGS433",
         "color": "黑色",
-        "materialId": "mat_18zk1lh",
+        "materialId": "mat_lgs433xhhlbh",
         "stt": "12",
         "comp_code": "F",
         "qty": "1",
@@ -55367,7 +55799,7 @@
         "parentId": "LGS433",
         "productCode": "LGS433",
         "color": "黑色",
-        "materialId": "mat_1c39qwo",
+        "materialId": "mat_lgs433sqhldepv5bh",
         "stt": "17",
         "comp_code": "J",
         "qty": "2",
@@ -55506,20 +55938,6 @@
         "order": 3
       },
       {
-        "id": "bom_hjux6p",
-        "parentType": "product",
-        "parentId": "LGS434",
-        "productCode": "LGS434",
-        "color": "白色",
-        "materialId": "mat_zjg150641wh",
-        "stt": "4",
-        "comp_code": "M",
-        "qty": "2",
-        "color_ver": "白色",
-        "color_ver_vi": "màu trắng",
-        "order": 4
-      },
-      {
         "id": "bom_6j6dju",
         "parentType": "product",
         "parentId": "LGS434",
@@ -55609,7 +56027,7 @@
         "parentId": "LGS434",
         "productCode": "LGS434",
         "color": "白色",
-        "materialId": "mat_1p7u36s",
+        "materialId": "mat_lgs434xqzhlwh",
         "stt": "11",
         "comp_code": "J1",
         "qty": "1",
@@ -55623,7 +56041,7 @@
         "parentId": "LGS434",
         "productCode": "LGS434",
         "color": "白色",
-        "materialId": "mat_1ppmijq",
+        "materialId": "mat_lgs434xhzhlwh",
         "stt": "12",
         "comp_code": "J2",
         "qty": "1",
@@ -55665,27 +56083,13 @@
         "parentId": "LGS434",
         "productCode": "LGS434",
         "color": "白色",
-        "materialId": "mat_1gdsuz4",
+        "materialId": "mat_lgs434szhldepwh",
         "stt": "15",
         "comp_code": "T1",
-        "qty": "1",
+        "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 15
-      },
-      {
-        "id": "bom_1yakksm",
-        "parentType": "product",
-        "parentId": "LGS434",
-        "productCode": "LGS434",
-        "color": "白色",
-        "materialId": "mat_1xtwol6",
-        "stt": "16",
-        "comp_code": "T2",
-        "qty": "1",
-        "color_ver": "白色",
-        "color_ver_vi": "màu trắng",
-        "order": 16
       },
       {
         "id": "bom_1mj3wcn",
@@ -55707,27 +56111,13 @@
         "parentId": "LGS434",
         "productCode": "LGS434",
         "color": "白色",
-        "materialId": "mat_su5niu",
+        "materialId": "mat_lgs434syhldepwh",
         "stt": "18",
         "comp_code": "U1",
-        "qty": "1",
+        "qty": "2",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 18
-      },
-      {
-        "id": "bom_1q9s7vd",
-        "parentType": "product",
-        "parentId": "LGS434",
-        "productCode": "LGS434",
-        "color": "白色",
-        "materialId": "mat_m5bx08",
-        "stt": "19",
-        "comp_code": "U2",
-        "qty": "1",
-        "color_ver": "白色",
-        "color_ver_vi": "màu trắng",
-        "order": 19
       },
       {
         "id": "bom_1xpk6rs",
@@ -55916,20 +56306,6 @@
         "order": 3
       },
       {
-        "id": "bom_1quzc77",
-        "parentType": "product",
-        "parentId": "LGS434",
-        "productCode": "LGS434",
-        "color": "黑色",
-        "materialId": "mat_1c0a8em",
-        "stt": "4",
-        "comp_code": "M",
-        "qty": "2",
-        "color_ver": "黑色",
-        "color_ver_vi": "màu đen",
-        "order": 4
-      },
-      {
         "id": "bom_1w19g72",
         "parentType": "product",
         "parentId": "LGS434",
@@ -56019,7 +56395,7 @@
         "parentId": "LGS434",
         "productCode": "LGS434",
         "color": "黑色",
-        "materialId": "mat_6aufm8",
+        "materialId": "mat_lgs434xqzhlbh",
         "stt": "11",
         "comp_code": "J1",
         "qty": "1",
@@ -56033,7 +56409,7 @@
         "parentId": "LGS434",
         "productCode": "LGS434",
         "color": "黑色",
-        "materialId": "mat_1df0gky",
+        "materialId": "mat_lgs434xhzhlbh",
         "stt": "12",
         "comp_code": "J2",
         "qty": "1",
@@ -56075,27 +56451,13 @@
         "parentId": "LGS434",
         "productCode": "LGS434",
         "color": "黑色",
-        "materialId": "mat_5p95gk",
+        "materialId": "mat_lgs434szhldepbh",
         "stt": "15",
         "comp_code": "T1",
-        "qty": "1",
+        "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 15
-      },
-      {
-        "id": "bom_4p8bf9",
-        "parentType": "product",
-        "parentId": "LGS434",
-        "productCode": "LGS434",
-        "color": "黑色",
-        "materialId": "mat_i2358e",
-        "stt": "16",
-        "comp_code": "T2",
-        "qty": "1",
-        "color_ver": "黑色",
-        "color_ver_vi": "màu đen",
-        "order": 16
       },
       {
         "id": "bom_g91j35",
@@ -56117,27 +56479,13 @@
         "parentId": "LGS434",
         "productCode": "LGS434",
         "color": "黑色",
-        "materialId": "mat_amfjdu",
+        "materialId": "mat_lgs434syhldepbh",
         "stt": "18",
         "comp_code": "U1",
-        "qty": "1",
+        "qty": "2",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 18
-      },
-      {
-        "id": "bom_1lbpn6b",
-        "parentType": "product",
-        "parentId": "LGS434",
-        "productCode": "LGS434",
-        "color": "黑色",
-        "materialId": "mat_1menews",
-        "stt": "19",
-        "comp_code": "U2",
-        "qty": "1",
-        "color_ver": "黑色",
-        "color_ver_vi": "màu đen",
-        "order": 19
       },
       {
         "id": "bom_pjr2ca",
@@ -64600,7 +64948,7 @@
         "childMaterialId": "mat_6zvz0v",
         "stt": "3",
         "comp_code": "3",
-        "qty": "8+2",
+        "qty": "4+1",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 3
@@ -64750,7 +65098,7 @@
         "childMaterialId": "mat_cau6z8",
         "stt": "3",
         "comp_code": "3",
-        "qty": "8+2",
+        "qty": "4+1",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 3
@@ -64900,7 +65248,7 @@
         "childMaterialId": "mat_6zvz0v",
         "stt": "3",
         "comp_code": "3",
-        "qty": "8+2",
+        "qty": "4+1",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 3
@@ -65050,7 +65398,7 @@
         "childMaterialId": "mat_cau6z8",
         "stt": "3",
         "comp_code": "3",
-        "qty": "12+2",
+        "qty": "8+1",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 3
@@ -65230,7 +65578,7 @@
         "childMaterialId": "mat_6zvz0v",
         "stt": "3",
         "comp_code": "3",
-        "qty": "12+2",
+        "qty": "8+1",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 3
@@ -103588,6 +103936,831 @@
         "color_ver": "山纹黑",
         "color_ver_vi": "山纹黑",
         "order": 80
+      },
+      {
+        "id": "bomc_1unhgh7",
+        "parentType": "material",
+        "parentId": "mat_lgs433sqhldepv5wh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_fg1515065566",
+        "childMaterialId": "mat_fg1515065566",
+        "stt": "",
+        "comp_code": "",
+        "qty": "0.2",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 0
+      },
+      {
+        "id": "bomc_byiibb",
+        "parentType": "material",
+        "parentId": "mat_lgs433sqhldepv5wh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_m6ylm139",
+        "childMaterialId": "mat_m6ylm139",
+        "stt": "",
+        "comp_code": "",
+        "qty": "2",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 1
+      },
+      {
+        "id": "bomc_xe0atg",
+        "parentType": "material",
+        "parentId": "mat_lgs433sqhldepv5bh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_fg1515065566",
+        "childMaterialId": "mat_fg1515065566",
+        "stt": "",
+        "comp_code": "",
+        "qty": "0.2",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 0
+      },
+      {
+        "id": "bomc_1y22828",
+        "parentType": "material",
+        "parentId": "mat_lgs433sqhldepv5bh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_m6ylm139",
+        "childMaterialId": "mat_m6ylm139",
+        "stt": "",
+        "comp_code": "",
+        "qty": "2",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 1
+      },
+      {
+        "id": "bomc_1ieetie",
+        "parentType": "material",
+        "parentId": "mat_lgs433xqhlwh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_fg1515065566",
+        "childMaterialId": "mat_fg1515065566",
+        "stt": "",
+        "comp_code": "",
+        "qty": "0.2",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 0
+      },
+      {
+        "id": "bomc_1t30992",
+        "parentType": "material",
+        "parentId": "mat_lgs433xqhlwh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_m6ylm139",
+        "childMaterialId": "mat_m6ylm139",
+        "stt": "",
+        "comp_code": "",
+        "qty": "2",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 1
+      },
+      {
+        "id": "bomc_1cwe00o",
+        "parentType": "material",
+        "parentId": "mat_lgs433xqhlwh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_fg1515066013",
+        "childMaterialId": "mat_fg1515066013",
+        "stt": "",
+        "comp_code": "",
+        "qty": "0.007407",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 2
+      },
+      {
+        "id": "bomc_116b9ay",
+        "parentType": "material",
+        "parentId": "mat_lgs433xqhlwh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_m6gs1515wh",
+        "childMaterialId": "mat_m6gs1515wh",
+        "stt": "",
+        "comp_code": "",
+        "qty": "1",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 3
+      },
+      {
+        "id": "bomc_1f8dh9j",
+        "parentType": "material",
+        "parentId": "mat_lgs433xhhlwh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_fg1515065566",
+        "childMaterialId": "mat_fg1515065566",
+        "stt": "",
+        "comp_code": "",
+        "qty": "0.2",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 0
+      },
+      {
+        "id": "bomc_t85yrv",
+        "parentType": "material",
+        "parentId": "mat_lgs433xhhlwh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_m6ylm139",
+        "childMaterialId": "mat_m6ylm139",
+        "stt": "",
+        "comp_code": "",
+        "qty": "2",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 1
+      },
+      {
+        "id": "bomc_670x9x",
+        "parentType": "material",
+        "parentId": "mat_lgs433xhhlwh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_fg1515066013",
+        "childMaterialId": "mat_fg1515066013",
+        "stt": "",
+        "comp_code": "",
+        "qty": "0.007407",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 2
+      },
+      {
+        "id": "bomc_3fotkb",
+        "parentType": "material",
+        "parentId": "mat_lgs433xhhlwh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_m6gs1515wh",
+        "childMaterialId": "mat_m6gs1515wh",
+        "stt": "",
+        "comp_code": "",
+        "qty": "1",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 3
+      },
+      {
+        "id": "bomc_fjua5b",
+        "parentType": "material",
+        "parentId": "mat_lgs433xhhlwh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_m6lmlm",
+        "childMaterialId": "mat_m6lmlm",
+        "stt": "",
+        "comp_code": "",
+        "qty": "1",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 4
+      },
+      {
+        "id": "bomc_3xwbh5",
+        "parentType": "material",
+        "parentId": "mat_lgs434xqzhlwh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_fg1515066150",
+        "childMaterialId": "mat_fg1515066150",
+        "stt": "",
+        "comp_code": "",
+        "qty": "0.125",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 0
+      },
+      {
+        "id": "bomc_ge9aqv",
+        "parentType": "material",
+        "parentId": "mat_lgs434xqzhlwh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_m6ylm139",
+        "childMaterialId": "mat_m6ylm139",
+        "stt": "",
+        "comp_code": "",
+        "qty": "1",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 1
+      },
+      {
+        "id": "bomc_1sf2qvl",
+        "parentType": "material",
+        "parentId": "mat_lgs434xqzhlwh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_fg1515066013",
+        "childMaterialId": "mat_fg1515066013",
+        "stt": "",
+        "comp_code": "",
+        "qty": "0.007407",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 2
+      },
+      {
+        "id": "bomc_j70r87",
+        "parentType": "material",
+        "parentId": "mat_lgs434xqzhlwh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_m6gs1515wh",
+        "childMaterialId": "mat_m6gs1515wh",
+        "stt": "",
+        "comp_code": "",
+        "qty": "1",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 3
+      },
+      {
+        "id": "bomc_mwsl4y",
+        "parentType": "material",
+        "parentId": "mat_lgs434xhzhlwh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_fg1515066150",
+        "childMaterialId": "mat_fg1515066150",
+        "stt": "",
+        "comp_code": "",
+        "qty": "0.125",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 0
+      },
+      {
+        "id": "bomc_1m3ptfc",
+        "parentType": "material",
+        "parentId": "mat_lgs434xhzhlwh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_m6ylm139",
+        "childMaterialId": "mat_m6ylm139",
+        "stt": "",
+        "comp_code": "",
+        "qty": "1",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 1
+      },
+      {
+        "id": "bomc_9lm5gi",
+        "parentType": "material",
+        "parentId": "mat_lgs434xhzhlwh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_fg1515066013",
+        "childMaterialId": "mat_fg1515066013",
+        "stt": "",
+        "comp_code": "",
+        "qty": "0.007407",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 2
+      },
+      {
+        "id": "bomc_1joeeh4",
+        "parentType": "material",
+        "parentId": "mat_lgs434xhzhlwh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_m6gs1515wh",
+        "childMaterialId": "mat_m6gs1515wh",
+        "stt": "",
+        "comp_code": "",
+        "qty": "1",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 3
+      },
+      {
+        "id": "bomc_1ovtxkc",
+        "parentType": "material",
+        "parentId": "mat_lgs434xhzhlwh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_m6lmlm",
+        "childMaterialId": "mat_m6lmlm",
+        "stt": "",
+        "comp_code": "",
+        "qty": "1",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 4
+      },
+      {
+        "id": "bomc_12nfcka",
+        "parentType": "material",
+        "parentId": "mat_lgs434szhldepwh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_fg132132105190",
+        "childMaterialId": "mat_fg132132105190",
+        "stt": "",
+        "comp_code": "",
+        "qty": "0.015625",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 0
+      },
+      {
+        "id": "bomc_f76hlh",
+        "parentType": "material",
+        "parentId": "mat_lgs434szhldepwh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
+        "stt": "",
+        "comp_code": "",
+        "qty": "0.125",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 1
+      },
+      {
+        "id": "bomc_gpfyld",
+        "parentType": "material",
+        "parentId": "mat_lgs434szhldepwh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_m6ylm139",
+        "childMaterialId": "mat_m6ylm139",
+        "stt": "",
+        "comp_code": "",
+        "qty": "1",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 2
+      },
+      {
+        "id": "bomc_9xawdn",
+        "parentType": "material",
+        "parentId": "mat_lgs434syhldepwh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
+        "stt": "",
+        "comp_code": "",
+        "qty": "0.125",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 0
+      },
+      {
+        "id": "bomc_1ioksdh",
+        "parentType": "material",
+        "parentId": "mat_lgs434syhldepwh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_m6ylm139",
+        "childMaterialId": "mat_m6ylm139",
+        "stt": "",
+        "comp_code": "",
+        "qty": "1",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 1
+      },
+      {
+        "id": "bomc_1kita7h",
+        "parentType": "material",
+        "parentId": "mat_lgs433xqhlbh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_fg1515065566",
+        "childMaterialId": "mat_fg1515065566",
+        "stt": "",
+        "comp_code": "",
+        "qty": "0.2",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 0
+      },
+      {
+        "id": "bomc_aoftl9",
+        "parentType": "material",
+        "parentId": "mat_lgs433xqhlbh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_m6ylm139",
+        "childMaterialId": "mat_m6ylm139",
+        "stt": "",
+        "comp_code": "",
+        "qty": "2",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 1
+      },
+      {
+        "id": "bomc_jhok1j",
+        "parentType": "material",
+        "parentId": "mat_lgs433xqhlbh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_fg1515066013",
+        "childMaterialId": "mat_fg1515066013",
+        "stt": "",
+        "comp_code": "",
+        "qty": "0.007407",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 2
+      },
+      {
+        "id": "bomc_1cpl4uk",
+        "parentType": "material",
+        "parentId": "mat_lgs433xqhlbh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_m6gs1515bh",
+        "childMaterialId": "mat_m6gs1515bh",
+        "stt": "",
+        "comp_code": "",
+        "qty": "1",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 3
+      },
+      {
+        "id": "bomc_ogh1bc",
+        "parentType": "material",
+        "parentId": "mat_lgs433xhhlbh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_fg1515065566",
+        "childMaterialId": "mat_fg1515065566",
+        "stt": "",
+        "comp_code": "",
+        "qty": "0.2",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 0
+      },
+      {
+        "id": "bomc_1i6i0to",
+        "parentType": "material",
+        "parentId": "mat_lgs433xhhlbh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_m6ylm139",
+        "childMaterialId": "mat_m6ylm139",
+        "stt": "",
+        "comp_code": "",
+        "qty": "2",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 1
+      },
+      {
+        "id": "bomc_86hg8m",
+        "parentType": "material",
+        "parentId": "mat_lgs433xhhlbh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_fg1515066013",
+        "childMaterialId": "mat_fg1515066013",
+        "stt": "",
+        "comp_code": "",
+        "qty": "0.007407",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 2
+      },
+      {
+        "id": "bomc_zjq9zl",
+        "parentType": "material",
+        "parentId": "mat_lgs433xhhlbh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_m6gs1515bh",
+        "childMaterialId": "mat_m6gs1515bh",
+        "stt": "",
+        "comp_code": "",
+        "qty": "1",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 3
+      },
+      {
+        "id": "bomc_1dpp9js",
+        "parentType": "material",
+        "parentId": "mat_lgs433xhhlbh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_m6lmlm",
+        "childMaterialId": "mat_m6lmlm",
+        "stt": "",
+        "comp_code": "",
+        "qty": "1",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 4
+      },
+      {
+        "id": "bomc_6hs122",
+        "parentType": "material",
+        "parentId": "mat_lgs434xqzhlbh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_fg1515066150",
+        "childMaterialId": "mat_fg1515066150",
+        "stt": "",
+        "comp_code": "",
+        "qty": "0.125",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 0
+      },
+      {
+        "id": "bomc_1efih40",
+        "parentType": "material",
+        "parentId": "mat_lgs434xqzhlbh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_m6ylm139",
+        "childMaterialId": "mat_m6ylm139",
+        "stt": "",
+        "comp_code": "",
+        "qty": "1",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 1
+      },
+      {
+        "id": "bomc_1s7pncq",
+        "parentType": "material",
+        "parentId": "mat_lgs434xqzhlbh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_fg1515066013",
+        "childMaterialId": "mat_fg1515066013",
+        "stt": "",
+        "comp_code": "",
+        "qty": "0.007407",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 2
+      },
+      {
+        "id": "bomc_1q84nrx",
+        "parentType": "material",
+        "parentId": "mat_lgs434xqzhlbh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_m6gs1515bh",
+        "childMaterialId": "mat_m6gs1515bh",
+        "stt": "",
+        "comp_code": "",
+        "qty": "1",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 3
+      },
+      {
+        "id": "bomc_okxm9t",
+        "parentType": "material",
+        "parentId": "mat_lgs434xhzhlbh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_fg1515066150",
+        "childMaterialId": "mat_fg1515066150",
+        "stt": "",
+        "comp_code": "",
+        "qty": "0.125",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 0
+      },
+      {
+        "id": "bomc_6jna8v",
+        "parentType": "material",
+        "parentId": "mat_lgs434xhzhlbh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_m6ylm139",
+        "childMaterialId": "mat_m6ylm139",
+        "stt": "",
+        "comp_code": "",
+        "qty": "1",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 1
+      },
+      {
+        "id": "bomc_i9nk6x",
+        "parentType": "material",
+        "parentId": "mat_lgs434xhzhlbh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_fg1515066013",
+        "childMaterialId": "mat_fg1515066013",
+        "stt": "",
+        "comp_code": "",
+        "qty": "0.007407",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 2
+      },
+      {
+        "id": "bomc_p83eka",
+        "parentType": "material",
+        "parentId": "mat_lgs434xhzhlbh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_m6gs1515bh",
+        "childMaterialId": "mat_m6gs1515bh",
+        "stt": "",
+        "comp_code": "",
+        "qty": "1",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 3
+      },
+      {
+        "id": "bomc_xd96h7",
+        "parentType": "material",
+        "parentId": "mat_lgs434xhzhlbh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_m6lmlm",
+        "childMaterialId": "mat_m6lmlm",
+        "stt": "",
+        "comp_code": "",
+        "qty": "1",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 4
+      },
+      {
+        "id": "bomc_stjwnx",
+        "parentType": "material",
+        "parentId": "mat_lgs434szhldepbh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_fg132132105190",
+        "childMaterialId": "mat_fg132132105190",
+        "stt": "",
+        "comp_code": "",
+        "qty": "0.015625",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 0
+      },
+      {
+        "id": "bomc_7m4i2u",
+        "parentType": "material",
+        "parentId": "mat_lgs434szhldepbh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
+        "stt": "",
+        "comp_code": "",
+        "qty": "0.125",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 1
+      },
+      {
+        "id": "bomc_1k08ybm",
+        "parentType": "material",
+        "parentId": "mat_lgs434szhldepbh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_m6ylm139",
+        "childMaterialId": "mat_m6ylm139",
+        "stt": "",
+        "comp_code": "",
+        "qty": "1",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 2
+      },
+      {
+        "id": "bomc_1exgkdw",
+        "parentType": "material",
+        "parentId": "mat_lgs434syhldepbh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_fg1515065814",
+        "childMaterialId": "mat_fg1515065814",
+        "stt": "",
+        "comp_code": "",
+        "qty": "0.125",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 0
+      },
+      {
+        "id": "bomc_m3kcjy",
+        "parentType": "material",
+        "parentId": "mat_lgs434syhldepbh",
+        "productCode": "",
+        "color": "",
+        "materialId": "mat_m6ylm139",
+        "childMaterialId": "mat_m6ylm139",
+        "stt": "",
+        "comp_code": "",
+        "qty": "1",
+        "color_ver": "",
+        "color_ver_vi": "",
+        "order": 1
+      },
+      {
+        "id": "bomc_wsi99s",
+        "parentType": "material",
+        "parentId": "mat_f21qte",
+        "productCode": "LGS433",
+        "color": "复古色",
+        "materialId": "mat_nlpls4022bz",
+        "childMaterialId": "mat_nlpls4022bz",
+        "stt": "",
+        "comp_code": "",
+        "qty": "4+1",
+        "color_ver": "复古色",
+        "color_ver_vi": "复古色",
+        "order": 20
+      },
+      {
+        "id": "bomc_1xtlkez",
+        "parentType": "material",
+        "parentId": "mat_f21qte",
+        "productCode": "LGS433",
+        "color": "黑色",
+        "materialId": "mat_nlpls4022bz",
+        "childMaterialId": "mat_nlpls4022bz",
+        "stt": "",
+        "comp_code": "",
+        "qty": "4+1",
+        "color_ver": "黑色",
+        "color_ver_vi": "黑色",
+        "order": 21
+      },
+      {
+        "id": "bomc_1mgp8t",
+        "parentType": "material",
+        "parentId": "mat_xhsgou",
+        "productCode": "LGS433",
+        "color": "白色",
+        "materialId": "mat_nlpls4022wz",
+        "childMaterialId": "mat_nlpls4022wz",
+        "stt": "",
+        "comp_code": "",
+        "qty": "4+1",
+        "color_ver": "白色",
+        "color_ver_vi": "白色",
+        "order": 10
+      },
+      {
+        "id": "bomc_hgihv",
+        "parentType": "material",
+        "parentId": "mat_wo2pto",
+        "productCode": "LGS434",
+        "color": "白色",
+        "materialId": "mat_nlpls4022wz",
+        "childMaterialId": "mat_nlpls4022wz",
+        "stt": "",
+        "comp_code": "",
+        "qty": "4+1",
+        "color_ver": "白色",
+        "color_ver_vi": "白色",
+        "order": 12
+      },
+      {
+        "id": "bomc_1bmbito",
+        "parentType": "material",
+        "parentId": "mat_1l7qniw",
+        "productCode": "LGS434",
+        "color": "黑色",
+        "materialId": "mat_nlpls4022bz",
+        "childMaterialId": "mat_nlpls4022bz",
+        "stt": "",
+        "comp_code": "",
+        "qty": "4+1",
+        "color_ver": "黑色",
+        "color_ver_vi": "黑色",
+        "order": 12
       }
     ],
     "VT5106WJB": {
