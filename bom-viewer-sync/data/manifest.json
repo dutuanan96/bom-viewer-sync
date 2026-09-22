@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-09-22T05:40:13.270Z",
+  "updatedAt": "2026-09-22T06:39:23.358Z",
   "products": [
     "5106",
     "LGS031",
@@ -51217,9 +51217,9 @@
         "workflowState": "draft",
         "releasePrerequisites": {
           "gateId": "ECN-LGS433-V5-LGS434-V6-DRAWINGS",
-          "layerDrawingsVerified": false,
-          "assemblyDrawingsVerified": false,
-          "weldedFootGeometryVerified": false
+          "layerDrawingsVerified": true,
+          "assemblyDrawingsVerified": true,
+          "weldedFootGeometryVerified": true
         }
       },
       "revisions": [
@@ -118863,9 +118863,9 @@
         "workflowState": "draft",
         "releasePrerequisites": {
           "gateId": "ECN-LGS433-V5-LGS434-V6-DRAWINGS",
-          "layerDrawingsVerified": false,
-          "assemblyDrawingsVerified": false,
-          "weldedFootGeometryVerified": false
+          "layerDrawingsVerified": true,
+          "assemblyDrawingsVerified": true,
+          "weldedFootGeometryVerified": true
         }
       },
       "revisions": [
@@ -341400,6 +341400,14 @@
   },
   "notifications": [
     {
+      "id": "notif_9l7jio",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-09-22T06:39:23.358Z",
+      "version": 2,
+      "changes": []
+    },
+    {
       "id": "notif_34x946",
       "type": "github-save",
       "actor": "admin",
@@ -342664,71 +342672,6 @@
           "field": "workflowState",
           "before": "draft",
           "after": "released"
-        }
-      ]
-    },
-    {
-      "id": "notif_krftc8",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-24T05:26:47.165Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "product",
-          "code": "LGS032",
-          "field": "revision",
-          "before": "V3.1",
-          "after": "V3.2"
-        },
-        {
-          "kind": "product",
-          "code": "LGS032",
-          "field": "山纹黑.sku",
-          "before": "",
-          "after": "LGS032B201S"
-        },
-        {
-          "kind": "product",
-          "code": "LGS032",
-          "field": "山纹黑.name_zh",
-          "before": "",
-          "after": "山纹黑3列3层6抽开放式带灯带电布抽电视柜-45inch"
-        },
-        {
-          "kind": "product",
-          "code": "LGS032",
-          "field": "山纹黑.name_vi",
-          "before": "",
-          "after": "đen vân gỗ 3 cột 3 tầng 6 Tủ đựng TV kiểu ngăn kéo mở có đèn và điện-45inch"
-        },
-        {
-          "kind": "product",
-          "code": "LGS032",
-          "field": "山纹黑.size",
-          "before": "",
-          "after": "300Dx1138Wx671Hmm"
-        },
-        {
-          "kind": "product",
-          "code": "LGS101",
-          "field": "revision",
-          "before": "",
-          "after": "V2.1"
-        },
-        {
-          "kind": "product",
-          "code": "LGS101",
-          "field": "山纹黑.sku",
-          "before": "",
-          "after": "LGS101B201S"
-        },
-        {
-          "kind": "product",
-          "code": "LGS101",
-          "field": "山纹黑.name_zh",
-          "before": "",
-          "after": "1抽基础款山纹黑布艺边桌-1pcs"
         }
       ]
     }
