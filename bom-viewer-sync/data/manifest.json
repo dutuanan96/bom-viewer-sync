@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-09-22T04:18:35.534Z",
+  "updatedAt": "2026-09-22T04:23:14.368Z",
   "products": [
     "5106",
     "LGS031",
@@ -341400,6 +341400,14 @@
   },
   "notifications": [
     {
+      "id": "notif_1buiusw",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-09-22T04:23:14.368Z",
+      "version": 2,
+      "changes": []
+    },
+    {
       "id": "notif_g7wo9c",
       "type": "github-save",
       "actor": "admin",
@@ -342742,22 +342750,6 @@
           "field": "name",
           "before": "说明书 / sách hướng dẫn",
           "after": "LGS131说明书 / LGS131sách hướng dẫn"
-        }
-      ]
-    },
-    {
-      "id": "notif_6iz27u",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-22T00:58:04.776Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "5106",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
         }
       ]
     }
