@@ -340,12 +340,12 @@
         },
         {
           "stt": "4",
-          "mat_code": "ZJG15065423BH",
+          "mat_code": "ZJG15064123BH",
           "comp_code": "M",
-          "name_zh": "54底脚(螺纹长23mm)",
-          "name_vi": "54 chân đế ốc dài",
-          "spec": "80.5x15x15mm",
-          "spec_vi": "80.5x15x15mm",
+          "name_zh": "41底脚(螺纹长23mm)",
+          "name_vi": "41 chân đế ốc dài",
+          "spec": "67.5x15x15mm",
+          "spec_vi": "67.5x15x15mm",
           "material_zh": "Q195",
           "material_vi": "Q195",
           "color_zh": "黑砂纹",
@@ -381,7 +381,7 @@
                 "zh": "根",
                 "vi": "thanh"
               },
-              "qty": "0.009091",
+              "qty": "0.006993",
               "remark": ""
             },
             {
@@ -2004,12 +2004,12 @@
         },
         {
           "stt": "4",
-          "mat_code": "ZJG15065423BH",
+          "mat_code": "ZJG15064123BH",
           "comp_code": "M",
-          "name_zh": "54底脚(螺纹长23mm)",
-          "name_vi": "54 chân đế ốc dài",
-          "spec": "80.5x15x15mm",
-          "spec_vi": "80.5x15x15mm",
+          "name_zh": "41底脚(螺纹长23mm)",
+          "name_vi": "41 chân đế ốc dài",
+          "spec": "67.5x15x15mm",
+          "spec_vi": "67.5x15x15mm",
           "material_zh": "Q195",
           "material_vi": "Q195",
           "color_zh": "黑砂纹",
@@ -2045,7 +2045,7 @@
                 "zh": "根",
                 "vi": "thanh"
               },
-              "qty": "0.009091",
+              "qty": "0.006993",
               "remark": ""
             },
             {
@@ -3333,5 +3333,5 @@
   },
   "name_zh": "3列3层9抽-57inch复古色",
   "name_vi": "LGS133-3 cột 3 tầng 9 ngăn kéo -57inch",
-  "revision": "V4.2"
+  "revision": "V4.3"
 }

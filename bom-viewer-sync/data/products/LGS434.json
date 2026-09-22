@@ -386,12 +386,12 @@
         },
         {
           "stt": "4",
-          "mat_code": "ZJG150654WH",
+          "mat_code": "ZJG150641WH",
           "comp_code": "M",
-          "name_zh": "54底脚",
-          "name_vi": "54 chân đế",
-          "spec": "70x15x15mm",
-          "spec_vi": "70x15x15mm",
+          "name_zh": "41底脚",
+          "name_vi": "Chân đế 41",
+          "spec": "57x15x15mm",
+          "spec_vi": "57x15x15mm",
           "material_zh": "Q195",
           "material_vi": "Q195",
           "color_zh": "白砂纹",
@@ -427,7 +427,7 @@
                 "zh": "根",
                 "vi": "thanh"
               },
-              "qty": "0.009091",
+              "qty": "0.006993",
               "remark": ""
             },
             {
@@ -2961,12 +2961,12 @@
         },
         {
           "stt": "4",
-          "mat_code": "ZJG150654BH",
+          "mat_code": "ZJG150641BH",
           "comp_code": "M",
-          "name_zh": "54底脚",
-          "name_vi": "54 chân đế",
-          "spec": "70x15x15mm",
-          "spec_vi": "70x15x15mm",
+          "name_zh": "41底脚",
+          "name_vi": "Chân đế 41",
+          "spec": "57x15x15mm",
+          "spec_vi": "57x15x15mm",
           "material_zh": "Q195",
           "material_vi": "Q195",
           "color_zh": "黑砂纹",
@@ -2982,29 +2982,6 @@
           "qty": "2",
           "remark": "",
           "materials": [
-            {
-              "stt": "",
-              "mat_code": "FG1515066013",
-              "comp_code": "",
-              "name_zh": "方管",
-              "name_vi": "Sắt hộp",
-              "spec": "15×15×0.6Tmm，长度 6013mm",
-              "spec_vi": "15×15×0.6Tmm, dài 6013mm",
-              "material_zh": "Q195",
-              "material_vi": "Q195",
-              "color_zh": "光亮",
-              "color_vi": "sáng bóng",
-              "attr_zh": "原材料",
-              "attr_vi": "Nguyên vật liệu",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "根",
-                "vi": "thanh"
-              },
-              "qty": "0.009091",
-              "remark": ""
-            },
             {
               "stt": "",
               "mat_code": "M6GS1515BH",
@@ -3072,6 +3049,29 @@
                 "vi": "viên"
               },
               "qty": "1",
+              "remark": ""
+            },
+            {
+              "stt": "",
+              "mat_code": "FG1515066013",
+              "comp_code": "",
+              "name_zh": "方管",
+              "name_vi": "Sắt hộp",
+              "spec": "15×15×0.6Tmm，长度 6013mm",
+              "spec_vi": "15×15×0.6Tmm, dài 6013mm",
+              "material_zh": "Q195",
+              "material_vi": "Q195",
+              "color_zh": "光亮",
+              "color_vi": "sáng bóng",
+              "attr_zh": "原材料",
+              "attr_vi": "Nguyên vật liệu",
+              "color_ver": "",
+              "color_ver_vi": "",
+              "unit": {
+                "zh": "根",
+                "vi": "thanh"
+              },
+              "qty": "0.006993",
               "remark": ""
             }
           ]
@@ -5158,5 +5158,5 @@
   },
   "name_zh": "3列3层灯电款开放空间8抽斗柜-57inch云白色",
   "name_vi": "LGS434-3 cột 3 Phiên bản tầng mở có đèn và điện 8 tủ ngăn kéo-57inch",
-  "revision": "V5.1"
+  "revision": "V5.2"
 }
