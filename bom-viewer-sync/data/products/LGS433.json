@@ -223,29 +223,6 @@
               "remark": ""
             },
             {
-              "stt": "9",
-              "mat_code": "NLDP15508020BH",
-              "comp_code": "8",
-              "name_zh": "尼龙垫片",
-              "name_vi": "lông đền nhựa",
-              "spec": "外径15.5×内孔8.0×厚2.0mm",
-              "spec_vi": "đường kính ngoài 15.5×lỗ trong 8.0×dày 2.0mm",
-              "material_zh": "PP",
-              "material_vi": "PP",
-              "color_zh": "黑色",
-              "color_vi": "màu đen",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "复古色",
-              "color_ver_vi": "màu gỗ cổ",
-              "unit": {
-                "zh": "个",
-                "vi": "cái"
-              },
-              "qty": "2",
-              "remark": ""
-            },
-            {
               "stt": "10",
               "mat_code": "PTZGLS6308BZ",
               "comp_code": "9",
@@ -1999,29 +1976,6 @@
               "remark": ""
             },
             {
-              "stt": "9",
-              "mat_code": "NLDP15508020WH",
-              "comp_code": "8",
-              "name_zh": "尼龙垫片",
-              "name_vi": "lông đền nhựa",
-              "spec": "外径15.5×内孔8.0×厚2.0mm",
-              "spec_vi": "ØØØng kính ngoài 15.5×lØ trong 8.0×dày 2.0mm",
-              "material_zh": "PP",
-              "material_vi": "PP",
-              "color_zh": "白色",
-              "color_vi": "màu trắng",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "白色",
-              "color_ver_vi": "màu trắng",
-              "unit": {
-                "zh": "个",
-                "vi": "cái"
-              },
-              "qty": "2",
-              "remark": ""
-            },
-            {
               "stt": "10",
               "mat_code": "PTZGLS6308WZ",
               "comp_code": "9",
@@ -3772,29 +3726,6 @@
                 "vi": "cái"
               },
               "qty": "6",
-              "remark": ""
-            },
-            {
-              "stt": "9",
-              "mat_code": "NLDP15508020BH",
-              "comp_code": "8",
-              "name_zh": "尼龙垫片",
-              "name_vi": "lông đền nhựa",
-              "spec": "外径15.5×内孔8.0×厚2.0mm",
-              "spec_vi": "đường kính ngoài 15.5×lỗ trong 8.0×dày 2.0mm",
-              "material_zh": "PP",
-              "material_vi": "PP",
-              "color_zh": "黑色",
-              "color_vi": "màu đen",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "黑色",
-              "color_ver_vi": "màu đen",
-              "unit": {
-                "zh": "个",
-                "vi": "cái"
-              },
-              "qty": "2",
               "remark": ""
             },
             {

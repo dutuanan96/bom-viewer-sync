@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-09-22T04:23:14.368Z",
+  "updatedAt": "2026-09-22T05:40:13.270Z",
   "products": [
     "5106",
     "LGS031",
@@ -341400,6 +341400,50 @@
   },
   "notifications": [
     {
+      "id": "notif_34x946",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-09-22T05:40:13.270Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "bom_deleted",
+          "code": "LGS433WJBBH",
+          "field": "NLDP15508020BH",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "bom_deleted",
+          "code": "LGS433WJBWH",
+          "field": "NLDP15508020WH",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "bom_deleted",
+          "code": "LGS433WJBBH",
+          "field": "NLDP15508020BH",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "bom_deleted",
+          "code": "LGS434WJBWH",
+          "field": "NLDP15508020WH",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "bom_deleted",
+          "code": "LGS434WJBBH",
+          "field": "NLDP15508020BH",
+          "before": "",
+          "after": ""
+        }
+      ]
+    },
+    {
       "id": "notif_1buiusw",
       "type": "github-save",
       "actor": "admin",
@@ -342685,71 +342729,6 @@
           "field": "山纹黑.name_zh",
           "before": "",
           "after": "1抽基础款山纹黑布艺边桌-1pcs"
-        }
-      ]
-    },
-    {
-      "id": "notif_1kmidbq",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-22T01:08:54.386Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "5106SMS",
-          "field": "name",
-          "before": "说明书 / sách hướng dẫn",
-          "after": " 5106说明书 /  5106 sách hướng dẫn"
-        },
-        {
-          "kind": "material",
-          "code": "LGS031SMS",
-          "field": "name",
-          "before": "说明书 / sách hướng dẫn",
-          "after": "LGS031说明书 / LGS031 sách hướng dẫn"
-        },
-        {
-          "kind": "material",
-          "code": "LGS032SMS",
-          "field": "name",
-          "before": "说明书 / sách hướng dẫn",
-          "after": "LGS032说明书 / LGS032 sách hướng dẫn"
-        },
-        {
-          "kind": "material",
-          "code": "LGS033SMS",
-          "field": "name",
-          "before": "说明书 / sách hướng dẫn",
-          "after": "LGS033说明书 / LGS033 sách hướng dẫn"
-        },
-        {
-          "kind": "material",
-          "code": "LGS043SMS",
-          "field": "name",
-          "before": "说明书 / sách hướng dẫn",
-          "after": "LGS043说明书 / LGS043 sách hướng dẫn"
-        },
-        {
-          "kind": "material",
-          "code": "LGS101SMS",
-          "field": "name",
-          "before": "说明书 / sách hướng dẫn",
-          "after": "LGS101说明书 / LGS101 sách hướng dẫn"
-        },
-        {
-          "kind": "material",
-          "code": "LGS111SMS",
-          "field": "name",
-          "before": "说明书 / sách hướng dẫn",
-          "after": "LGS111说明书 / LGS111 sách hướng dẫn"
-        },
-        {
-          "kind": "material",
-          "code": "LGS131SMS",
-          "field": "name",
-          "before": "说明书 / sách hướng dẫn",
-          "after": "LGS131说明书 / LGS131sách hướng dẫn"
         }
       ]
     }
@@ -348303,6 +348282,31 @@
       }
     ],
     "LGS434": [
+      {
+        "id": "history_obco45",
+        "productCode": "LGS434",
+        "revision": "V6",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-LGS433-V5-LGS434-V6: 移除41底脚，改为44mm底脚直接焊接于新底部横杆组件，改用M4×22内六角螺丝。",
+        "createdAt": "2026-09-22T05:40:13.270Z",
+        "changes": [
+          {
+            "kind": "bom_deleted",
+            "code": "LGS434WJBWH",
+            "field": "NLDP15508020WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS434WJBBH",
+            "field": "NLDP15508020BH",
+            "before": "",
+            "after": ""
+          }
+        ]
+      },
       {
         "id": "history_pp2paz",
         "productCode": "LGS434",
@@ -363298,6 +363302,38 @@
       }
     ],
     "LGS433": [
+      {
+        "id": "history_16k24hl",
+        "productCode": "LGS433",
+        "revision": "V5",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-LGS433-V5-LGS434-V6: 移除41底脚，改为44mm底脚直接焊接于新底部横杆组件，改用M4×22内六角螺丝。",
+        "createdAt": "2026-09-22T05:40:13.270Z",
+        "changes": [
+          {
+            "kind": "bom_deleted",
+            "code": "LGS433WJBBH",
+            "field": "NLDP15508020BH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS433WJBWH",
+            "field": "NLDP15508020WH",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS433WJBBH",
+            "field": "NLDP15508020BH",
+            "before": "",
+            "after": ""
+          }
+        ]
+      },
       {
         "id": "history_1gfys3z",
         "productCode": "LGS433",
