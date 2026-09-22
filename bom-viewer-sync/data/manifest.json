@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-09-22T01:12:24.644Z",
+  "updatedAt": "2026-09-22T01:14:46.945Z",
   "products": [
     "5106",
     "LGS031",
@@ -84578,12 +84578,12 @@
     },
     "LGS334": {
       "currentRevision": "V4.3",
-      "effectiveRevision": "V4.2",
+      "effectiveRevision": "V4.3",
       "currentRevisionInfo": {
         "sourceRevision": "V4.2",
         "createdAt": "2026-09-22T01:11:27.927Z",
         "changeReason": "ECN-2026-0922-FOOT: 将54底脚替换为41底脚，按颜色 SKU 保持黑白物料编码一致。",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -106670,17 +106670,25 @@
           "previousRevision": "V4.1",
           "occurredAt": "2026-08-24T05:51:54.346Z",
           "reason": "更新"
+        },
+        {
+          "id": "effectivity_mubzeu2k",
+          "action": "release",
+          "revision": "V4.3",
+          "previousRevision": "V4.2",
+          "occurredAt": "2026-09-22T01:14:46.844Z",
+          "reason": "54底脚改为41底脚"
         }
       ]
     },
     "LGS434": {
       "currentRevision": "V5.2",
-      "effectiveRevision": "V5.1",
+      "effectiveRevision": "V5.2",
       "currentRevisionInfo": {
         "sourceRevision": "V5.1",
         "createdAt": "2026-09-22T01:11:27.964Z",
         "changeReason": "ECN-2026-0922-FOOT: 将54底脚替换为41底脚，按颜色 SKU 保持黑白物料编码一致。",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -131157,6 +131165,14 @@
           "previousRevision": "V5",
           "occurredAt": "2026-08-19T09:40:10.109Z",
           "reason": "更新"
+        },
+        {
+          "id": "effectivity_mubzeu3k",
+          "action": "release",
+          "revision": "V5.2",
+          "previousRevision": "V5.1",
+          "occurredAt": "2026-09-22T01:14:46.880Z",
+          "reason": "54底脚改为41底脚"
         }
       ]
     },
@@ -168548,12 +168564,12 @@
     },
     "LGS233": {
       "currentRevision": "V4.3",
-      "effectiveRevision": "V4.2",
+      "effectiveRevision": "V4.3",
       "currentRevisionInfo": {
         "sourceRevision": "V4.2",
         "createdAt": "2026-09-22T01:11:27.893Z",
         "changeReason": "ECN-2026-0922-FOOT: 将54底脚替换为41底脚，按颜色 SKU 保持黑白物料编码一致。",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -206742,6 +206758,14 @@
           "previousRevision": "V4.1",
           "occurredAt": "2026-09-18T00:59:08.693Z",
           "reason": "包材变更"
+        },
+        {
+          "id": "effectivity_mubzeu1e",
+          "action": "release",
+          "revision": "V4.3",
+          "previousRevision": "V4.2",
+          "occurredAt": "2026-09-22T01:14:46.802Z",
+          "reason": "54底脚改为41底脚"
         }
       ]
     },
@@ -278437,12 +278461,12 @@
     },
     "LGS133": {
       "currentRevision": "V4.3",
-      "effectiveRevision": "V4.2",
+      "effectiveRevision": "V4.3",
       "currentRevisionInfo": {
         "sourceRevision": "V4.2",
         "createdAt": "2026-09-22T01:11:27.860Z",
         "changeReason": "ECN-2026-0922-FOOT: 将54底脚替换为41底脚，按颜色 SKU 保持黑白物料编码一致。",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -294411,6 +294435,14 @@
           "previousRevision": "V4.1",
           "occurredAt": "2026-08-24T10:08:56.379Z",
           "reason": "更新"
+        },
+        {
+          "id": "effectivity_mubzeu4j",
+          "action": "release",
+          "revision": "V4.3",
+          "previousRevision": "V4.2",
+          "occurredAt": "2026-09-22T01:14:46.915Z",
+          "reason": "54底脚改为41底脚"
         }
       ]
     },
@@ -316559,6 +316591,71 @@
   },
   "notifications": [
     {
+      "id": "notif_hramnm",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-09-22T01:14:46.945Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS334",
+          "field": "effectiveRevision",
+          "before": "V4.2",
+          "after": "V4.3"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS334",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS434",
+          "field": "effectiveRevision",
+          "before": "V5.1",
+          "after": "V5.2"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS434",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS233",
+          "field": "effectiveRevision",
+          "before": "V4.2",
+          "after": "V4.3"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS233",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS133",
+          "field": "effectiveRevision",
+          "before": "V4.2",
+          "after": "V4.3"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS133",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        }
+      ]
+    },
+    {
       "id": "notif_4b3vga",
       "type": "github-save",
       "actor": "admin",
@@ -317824,36 +317921,6 @@
           "field": "NLPLS6022BZ",
           "before": "5",
           "after": "4+1"
-        }
-      ]
-    },
-    {
-      "id": "notif_1p44a96",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-21T11:31:13.259Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "BCLS129228BH",
-          "field": "drawings",
-          "before": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
-          "after": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@d0732d938fcca58e9ce36d3a10a5a379dfb7b854/assets/pdfs/BCLS129228BH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf"
-        },
-        {
-          "kind": "material",
-          "code": "BCLS129228WH",
-          "field": "drawings",
-          "before": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-bcls129228bh-3d9972b5.pdf",
-          "after": "把手.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@62aa00058bf6665ad42eb57c809665b7ba181dd2/assets/pdfs/BCLS129228WH_a647e9513338706169c7c9a167aa32cee121f7fb9cca7a601e6739eab962575c_pdf.pdf"
-        },
-        {
-          "kind": "material",
-          "code": "BCLS129228WH",
-          "field": "models3d",
-          "before": "把手.glb|models3d/catalog/model-ae20b397.glb",
-          "after": "把手.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-ae20b397.glb"
         }
       ]
     }
@@ -319721,6 +319788,31 @@
       }
     ],
     "LGS233": [
+      {
+        "id": "history_rh00ts",
+        "productCode": "LGS233",
+        "revision": "V4.3",
+        "action": "release",
+        "actor": "admin",
+        "reason": "54底脚改为41底脚",
+        "createdAt": "2026-09-22T01:14:46.945Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS233",
+            "field": "effectiveRevision",
+            "before": "V4.2",
+            "after": "V4.3"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS233",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
       {
         "id": "history_1mzw4cr",
         "productCode": "LGS233",
@@ -321905,6 +321997,31 @@
     ],
     "LGS334": [
       {
+        "id": "history_17krr0q",
+        "productCode": "LGS334",
+        "revision": "V4.3",
+        "action": "release",
+        "actor": "admin",
+        "reason": "54底脚改为41底脚",
+        "createdAt": "2026-09-22T01:14:46.945Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS334",
+            "field": "effectiveRevision",
+            "before": "V4.2",
+            "after": "V4.3"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS334",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
+      {
         "id": "history_20mdj3",
         "productCode": "LGS334",
         "revision": "V4.3",
@@ -323332,6 +323449,31 @@
       }
     ],
     "LGS434": [
+      {
+        "id": "history_tjy0op",
+        "productCode": "LGS434",
+        "revision": "V5.2",
+        "action": "release",
+        "actor": "admin",
+        "reason": "54底脚改为41底脚",
+        "createdAt": "2026-09-22T01:14:46.945Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS434",
+            "field": "effectiveRevision",
+            "before": "V5.1",
+            "after": "V5.2"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS434",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
       {
         "id": "history_1jwx9aw",
         "productCode": "LGS434",
@@ -336462,6 +336604,31 @@
       }
     ],
     "LGS133": [
+      {
+        "id": "history_4zgkyn",
+        "productCode": "LGS133",
+        "revision": "V4.3",
+        "action": "release",
+        "actor": "admin",
+        "reason": "54底脚改为41底脚",
+        "createdAt": "2026-09-22T01:14:46.945Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS133",
+            "field": "effectiveRevision",
+            "before": "V4.2",
+            "after": "V4.3"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS133",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
       {
         "id": "history_fmjggy",
         "productCode": "LGS133",
