@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-09-22T08:53:25.565Z",
+  "updatedAt": "2026-09-22T09:59:26.335Z",
   "products": [
     "5106",
     "LGS031",
@@ -341400,6 +341400,71 @@
   },
   "notifications": [
     {
+      "id": "notif_12g0cdy",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-09-22T09:59:26.335Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "LGS434SYHLDEPBH",
+          "field": "drawings",
+          "before": "",
+          "after": "LGS434中部横杆右.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@c47592c84b3895ff9345dc527b7133457e4361fc/assets/pdfs/LGS434SYHLDEPBH_a32eb8fe2b71fd9d009581881ee61c0244a510bcfc4c5d067978de8156cdc46b_LGS434_.pdf"
+        },
+        {
+          "kind": "material",
+          "code": "LGS434SYHLDEPBH",
+          "field": "models3d",
+          "before": "",
+          "after": "LGS434中部横杆右V6.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8b2aa118149d3f03838df6b4205e5f48a917d79e/assets/models/LGS434SYHLDEPBH_98587387c7aba671aed0627b485131f63e4243c3a7324bfb87574c9de7d3868e_LGS434_V6.glb"
+        },
+        {
+          "kind": "material",
+          "code": "LGS434SZHLDEPBH",
+          "field": "drawings",
+          "before": "",
+          "after": "LGS434中部横杆左_组件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@5f669f515b991d550ab70c08a5211bc67263e4cb/assets/pdfs/LGS434SZHLDEPBH_4ad26ccf1116e45086d10a4cc248775925013aa412b9fabd56b5a385cc621ac3_LGS434_.pdf"
+        },
+        {
+          "kind": "material",
+          "code": "LGS434SZHLDEPBH",
+          "field": "models3d",
+          "before": "",
+          "after": "LGS434-中部横杆左_组件V6.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@f06ca912eb2daaaac63877e8bfbf26c89a0bf1e1/assets/models/LGS434SZHLDEPBH_4db2d44249e1c9941bb331facf4b75c0f52c74cb546b228e272bc47d2084b5fa_LGS434-_V6.glb"
+        },
+        {
+          "kind": "material",
+          "code": "LGS434XHZHLBH",
+          "field": "drawings",
+          "before": "",
+          "after": "LGS434底部横杆左-后.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@9adf1c3afed166ef5e60a07f6341f4e61bcf5bc5/assets/pdfs/LGS434XHZHLBH_371f9621b505450d861529d559df9fcaf60bd7e7f8b47a5887286f307a14f846_LGS434_-_.pdf"
+        },
+        {
+          "kind": "material",
+          "code": "LGS434XHZHLBH",
+          "field": "models3d",
+          "before": "",
+          "after": "LGS434底部横杆左-后V6.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@22d6031feb56f8d38c31950dddd10da5f19f35d0/assets/models/LGS434XHZHLBH_8074edb97339a40f1c20f7c62dd213e94229f52f10ab9a6a0d7474cd22aac9c8_LGS434_-_V6.glb"
+        },
+        {
+          "kind": "material",
+          "code": "LGS434XQZHLBH",
+          "field": "drawings",
+          "before": "",
+          "after": "LGS434底部横杆左-前.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@dd48a3adb00aae9d145c3939bf334ec777ebfe8f/assets/pdfs/LGS434XQZHLBH_c47bc6be8fe990d1a0867a5c30a7c04c15765cfeb1e3e8370f2adb9c700607c2_LGS434_-_.pdf"
+        },
+        {
+          "kind": "material",
+          "code": "LGS434XQZHLBH",
+          "field": "models3d",
+          "before": "",
+          "after": "LGS434底部横杆左-前V6.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@08a95767dfe0ced554d872150381410e504c0a6c/assets/models/LGS434XQZHLBH_a1c72b8dd545e0d08ef57bca7738b07d5fb004ad922f6bda71f2c21c0c5ca383_LGS434_-_V6.glb"
+        }
+      ]
+    },
+    {
       "id": "notif_hc1sxc",
       "type": "github-save",
       "actor": "admin",
@@ -342600,71 +342665,6 @@
           "field": "workflowState",
           "before": "draft",
           "after": "released"
-        }
-      ]
-    },
-    {
-      "id": "notif_csc0hc",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-24T05:47:54.500Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS032",
-          "field": "effectiveRevision",
-          "before": "V3.2",
-          "after": "V3.1"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS032",
-          "field": "workflowState",
-          "before": "released",
-          "after": "draft"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS733",
-          "field": "effectiveRevision",
-          "before": "V4.2",
-          "after": "V4.1"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS733",
-          "field": "workflowState",
-          "before": "released",
-          "after": "draft"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS333",
-          "field": "effectiveRevision",
-          "before": "V4.2",
-          "after": "V4.1"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS333",
-          "field": "workflowState",
-          "before": "released",
-          "after": "draft"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS334",
-          "field": "effectiveRevision",
-          "before": "V4.2",
-          "after": "V4.1"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS334",
-          "field": "workflowState",
-          "before": "released",
-          "after": "draft"
         }
       ]
     }
@@ -348218,6 +348218,73 @@
       }
     ],
     "LGS434": [
+      {
+        "id": "history_yiafrx",
+        "productCode": "LGS434",
+        "revision": "V6",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-LGS433-V5-LGS434-V6: 移除41底脚，改为44mm底脚直接焊接于新底部横杆组件，改用M4×22内六角螺丝。",
+        "createdAt": "2026-09-22T09:59:26.335Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "LGS434SYHLDEPBH",
+            "field": "drawings",
+            "before": "",
+            "after": "LGS434中部横杆右.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@c47592c84b3895ff9345dc527b7133457e4361fc/assets/pdfs/LGS434SYHLDEPBH_a32eb8fe2b71fd9d009581881ee61c0244a510bcfc4c5d067978de8156cdc46b_LGS434_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS434SYHLDEPBH",
+            "field": "models3d",
+            "before": "",
+            "after": "LGS434中部横杆右V6.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@8b2aa118149d3f03838df6b4205e5f48a917d79e/assets/models/LGS434SYHLDEPBH_98587387c7aba671aed0627b485131f63e4243c3a7324bfb87574c9de7d3868e_LGS434_V6.glb"
+          },
+          {
+            "kind": "material",
+            "code": "LGS434SZHLDEPBH",
+            "field": "drawings",
+            "before": "",
+            "after": "LGS434中部横杆左_组件.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@5f669f515b991d550ab70c08a5211bc67263e4cb/assets/pdfs/LGS434SZHLDEPBH_4ad26ccf1116e45086d10a4cc248775925013aa412b9fabd56b5a385cc621ac3_LGS434_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS434SZHLDEPBH",
+            "field": "models3d",
+            "before": "",
+            "after": "LGS434-中部横杆左_组件V6.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@f06ca912eb2daaaac63877e8bfbf26c89a0bf1e1/assets/models/LGS434SZHLDEPBH_4db2d44249e1c9941bb331facf4b75c0f52c74cb546b228e272bc47d2084b5fa_LGS434-_V6.glb"
+          },
+          {
+            "kind": "material",
+            "code": "LGS434XHZHLBH",
+            "field": "drawings",
+            "before": "",
+            "after": "LGS434底部横杆左-后.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@9adf1c3afed166ef5e60a07f6341f4e61bcf5bc5/assets/pdfs/LGS434XHZHLBH_371f9621b505450d861529d559df9fcaf60bd7e7f8b47a5887286f307a14f846_LGS434_-_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS434XHZHLBH",
+            "field": "models3d",
+            "before": "",
+            "after": "LGS434底部横杆左-后V6.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@22d6031feb56f8d38c31950dddd10da5f19f35d0/assets/models/LGS434XHZHLBH_8074edb97339a40f1c20f7c62dd213e94229f52f10ab9a6a0d7474cd22aac9c8_LGS434_-_V6.glb"
+          },
+          {
+            "kind": "material",
+            "code": "LGS434XQZHLBH",
+            "field": "drawings",
+            "before": "",
+            "after": "LGS434底部横杆左-前.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@dd48a3adb00aae9d145c3939bf334ec777ebfe8f/assets/pdfs/LGS434XQZHLBH_c47bc6be8fe990d1a0867a5c30a7c04c15765cfeb1e3e8370f2adb9c700607c2_LGS434_-_.pdf"
+          },
+          {
+            "kind": "material",
+            "code": "LGS434XQZHLBH",
+            "field": "models3d",
+            "before": "",
+            "after": "LGS434底部横杆左-前V6.glb|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@08a95767dfe0ced554d872150381410e504c0a6c/assets/models/LGS434XQZHLBH_a1c72b8dd545e0d08ef57bca7738b07d5fb004ad922f6bda71f2c21c0c5ca383_LGS434_-_V6.glb"
+          }
+        ]
+      },
       {
         "id": "history_obco45",
         "productCode": "LGS434",
