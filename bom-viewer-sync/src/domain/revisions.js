@@ -2,6 +2,29 @@ import { clone } from './materials.js';
 
 const DEFAULT_PRODUCT_REVISION = 'A.1';
 const DEFAULT_REVISION_WORKFLOW_STATE = 'released';
+export const ECN_DRAWING_RELEASE_GATE_ID = 'ECN-LGS433-V5-LGS434-V6-DRAWINGS';
+
+const ECN_RELEASE_GATE_PRODUCTS = Object.freeze({ LGS433: 'V5', LGS434: 'V6' });
+
+function createEcnReleasePrerequisites() {
+  return {
+    gateId: ECN_DRAWING_RELEASE_GATE_ID,
+    layerDrawingsVerified: false,
+    assemblyDrawingsVerified: false,
+    weldedFootGeometryVerified: false,
+  };
+}
+
+function isEcnGatedRevision(productCode, revision) {
+  return ECN_RELEASE_GATE_PRODUCTS[productCode] === revision;
+}
+
+function hasSatisfiedEcnReleasePrerequisites(prerequisites) {
+  return prerequisites?.gateId === ECN_DRAWING_RELEASE_GATE_ID
+    && prerequisites.layerDrawingsVerified === true
+    && prerequisites.assemblyDrawingsVerified === true
+    && prerequisites.weldedFootGeometryVerified === true;
+}
 const NEW_REVISION_WORKFLOW_STATE = 'draft';
 
 function revisionCode(value, fallback = '') {
@@ -19,6 +42,9 @@ function revisionMetadata(value, fallbackWorkflowState = DEFAULT_REVISION_WORKFL
     createdAt: String(source.createdAt || ''),
     changeReason: String(source.changeReason || ''),
     workflowState: revisionWorkflowState(source.workflowState, fallbackWorkflowState),
+    ...(source.releasePrerequisites && typeof source.releasePrerequisites === 'object'
+      ? { releasePrerequisites: clone(source.releasePrerequisites) }
+      : {}),
   };
 }
 
@@ -246,15 +272,19 @@ function createProductRevision(payload, productCode, nextRevision, options) {
     snapshot,
   };
   payload.productRevisions = normalizeProductRevisionRegistry(payload);
+  const currentRevisionInfo = {
+    sourceRevision: currentRevision,
+    createdAt: String(options?.createdAt || new Date().toISOString()),
+    changeReason: String(options?.changeReason || '').trim(),
+    workflowState: NEW_REVISION_WORKFLOW_STATE,
+    ...(isEcnGatedRevision(productCode, nextCode)
+      ? { releasePrerequisites: createEcnReleasePrerequisites() }
+      : {}),
+  };
   payload.productRevisions[productCode] = {
     currentRevision: nextCode,
     effectiveRevision: hasRevisionRecord ? record.effectiveRevision : currentRevision,
-    currentRevisionInfo: {
-      sourceRevision: currentRevision,
-      createdAt: String(options?.createdAt || new Date().toISOString()),
-      changeReason: String(options?.changeReason || '').trim(),
-      workflowState: NEW_REVISION_WORKFLOW_STATE,
-    },
+    currentRevisionInfo,
     revisions: [
       historicalRevision,
       ...record.revisions.filter((item) => item.revision !== currentRevision),
@@ -275,6 +305,7 @@ function releaseProductRevision(payload, productCode, selectedRevision, options)
   if (record.currentRevisionInfo.workflowState !== NEW_REVISION_WORKFLOW_STATE) {
     throw new Error('REVISION_NOT_DRAFT');
   }
+  assertEcnReleasePrerequisites(payload, productCode, selected);
 
   const occurredAt = String(options?.occurredAt || new Date().toISOString());
   const eventId = String(options?.eventId || `effectivity_${Date.now().toString(36)}`);
@@ -298,6 +329,30 @@ function releaseProductRevision(payload, productCode, selectedRevision, options)
     },
   ];
   return nextRecord;
+}
+
+function assertEcnReleasePrerequisites(payload, productCode, selectedRevision) {
+  if (!isEcnGatedRevision(productCode, selectedRevision)) return;
+  const prerequisites = payload?.productRevisions?.[productCode]?.currentRevisionInfo?.releasePrerequisites;
+  if (!hasSatisfiedEcnReleasePrerequisites(prerequisites)) {
+    throw new Error('ECN_RELEASE_PREREQUISITES_INCOMPLETE');
+  }
+}
+
+export function setEcnReleasePrerequisiteEvidence(payload, productCode, evidence) {
+  const record = productRevisionRecord(payload, productCode);
+  if (!isEcnGatedRevision(productCode, record.currentRevision)) {
+    throw new Error('ECN_RELEASE_GATE_NOT_APPLICABLE');
+  }
+  const current = record.currentRevisionInfo.releasePrerequisites || createEcnReleasePrerequisites();
+  payload.productRevisions[productCode].currentRevisionInfo.releasePrerequisites = {
+    ...current,
+    ...Object.fromEntries(Object.entries(evidence || {}).filter(([key, value]) => (
+      ['layerDrawingsVerified', 'assemblyDrawingsVerified', 'weldedFootGeometryVerified'].includes(key)
+      && typeof value === 'boolean'
+    ))),
+  };
+  return payload.productRevisions[productCode].currentRevisionInfo.releasePrerequisites;
 }
 
 function withdrawProductRevision(payload, productCode, selectedRevision, options) {
@@ -391,5 +446,6 @@ export {
   payloadForProductRevision,
   productRevisionOptions,
   releaseProductRevision,
+  assertEcnReleasePrerequisites,
   withdrawProductRevision,
 };

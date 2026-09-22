@@ -590,10 +590,13 @@ function validateMaterialPatch(patch) {
   for (const key of ['name', 'spec', 'material', 'color', 'attr']) {
     if (key in patch) validateLocalizedPair(patch[key], `material patch ${key}`);
   }
-  for (const key of ['code', 'unit']) {
-    if (key in patch && (typeof patch[key] !== 'string' || patch[key].length > 200)) {
-      throw new Error(`material patch ${key} must be a bounded string`);
-    }
+  if ('code' in patch && (typeof patch.code !== 'string' || patch.code.length > 200)) {
+    throw new Error('material patch code must be a bounded string');
+  }
+  if ('unit' in patch && typeof patch.unit !== 'string') {
+    validateLocalizedPair(patch.unit, 'material patch unit');
+  } else if ('unit' in patch && patch.unit.length > 200) {
+    throw new Error('material patch unit must be a bounded string');
   }
   if ('drawings' in patch) validateAssetList(patch.drawings, 'drawings');
   if ('models3d' in patch) validateAssetList(patch.models3d, 'models3d');

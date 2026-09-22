@@ -193,7 +193,7 @@ export function validateMutationContext(snapshot, mutation) {
     && mutation.operationType !== 'consolidate_materials'
     && mutation.operationType !== 'remove_orphan_bom_entry'
   ) {
-    if (!isEditable) {
+    if (!isEditable && !snapshot.isEcnProposal) {
       const err = new Error(`BOM mutations require a draft revision for product ${targetProductCode || ''}.`);
       err.code = ERROR_CODES.AI_POLICY_BLOCKED;
       throw err;
@@ -202,8 +202,11 @@ export function validateMutationContext(snapshot, mutation) {
 
   if (mutation.operationType === 'add_bom_item' || mutation.operationType === 'update_bom_quantity') {
     if (
+      !snapshot.isEcnProposal
+      && (
       snapshot.selection?.productCode !== mutation.targetId ||
       snapshot.selection?.color !== mutation.payload.color
+      )
     ) {
       const err = new Error('BOM mutation target must match the selected product and color.');
       err.code = ERROR_CODES.AI_POLICY_BLOCKED;
@@ -217,10 +220,10 @@ export function validateMutationContext(snapshot, mutation) {
       err.code = ERROR_CODES.AI_POLICY_BLOCKED;
       throw err;
     }
-    if (
+    if (!snapshot.isEcnProposal && (
       snapshot.selection?.productCode !== (entry.productCode || entry.parentId) ||
       snapshot.selection?.color !== entry.color
-    ) {
+    )) {
       const err = new Error('BOM entry mutation must match the selected product and color.');
       err.code = ERROR_CODES.AI_POLICY_BLOCKED;
       throw err;
@@ -405,7 +408,7 @@ export function applyMutationToPayload(payload, mutation) {
       attr: { zh: String(input.attr?.zh || '零件'), vi: String(input.attr?.vi || input.attr?.zh || 'linh kiện') },
       drawings: clone(input.drawings || []),
       models3d: clone(input.models3d || []),
-      ...(input.unit ? { unit: String(input.unit) } : {}),
+      ...(input.unit ? { unit: clone(input.unit) } : {}),
     };
   } else if (operationType === 'consolidate_materials') {
     const input = clone(opPayload.material);
@@ -420,7 +423,7 @@ export function applyMutationToPayload(payload, mutation) {
       attr: clone(input.attr || {}),
       drawings: clone(input.drawings || []),
       models3d: clone(input.models3d || []),
-      ...(input.unit ? { unit: String(input.unit) } : {}),
+      ...(input.unit ? { unit: clone(input.unit) } : {}),
     };
     for (const entry of payload.materialDb.bomEntries || []) {
       if (sourceIds.has(entry.parentId)) entry.parentId = targetId;
@@ -431,7 +434,7 @@ export function applyMutationToPayload(payload, mutation) {
   } else if (operationType === 'update_material') {
     const record = updateMaterialRecord(payload, targetId, opPayload.patch);
     if (!record) throw new Error(`Material ${targetId} not found.`);
-    if (Object.prototype.hasOwnProperty.call(opPayload.patch, 'unit')) record.unit = String(opPayload.patch.unit || '');
+    if (Object.prototype.hasOwnProperty.call(opPayload.patch, 'unit')) record.unit = clone(opPayload.patch.unit);
   } else if (operationType === 'update_material_field') {
     const mat = payload.materialDb?.materials?.[targetId];
     if (!mat) throw new Error(`Material ${targetId} not found.`);

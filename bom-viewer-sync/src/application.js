@@ -54,6 +54,8 @@ import {
   buildMutationProposalReview,
 } from './features/ai-assistant/mutation-engine.js';
 import { buildFourColorVariantProposalBatches } from './features/ecn-proposal/four-color-variant-proposal-builder.js';
+import { buildFootReplacementProposalBatches } from './features/ecn-proposal/foot-replacement-proposal-builder.js';
+import { buildLgs433Lgs434V6ProposalBatches } from './features/ecn-proposal/lgs433-lgs434-v6-proposal-builder.js';
 import { buildSharedMaterialAssetProposalBatches } from './features/ecn-proposal/shared-material-asset-proposal-builder.js';
 import { buildOrphanBomCleanupBatches, findOrphanBomEntries } from './features/orphan-cleanup/orphan-bom-proposal-builder.js';
 import { createLocalAiStore } from './features/ai-assistant/local-store.js';
@@ -68,6 +70,7 @@ import {
   isHistoricalProductRevision,
   payloadForProductRevision,
   productRevisionOptions as revisionOptionsForProduct,
+  assertEcnReleasePrerequisites,
   releaseProductRevision,
   withdrawProductRevision,
 } from './domain/revisions.js';
@@ -95,6 +98,13 @@ const ASSET_STORAGE_CONFIG = {
 };
 
 function buildEcnProposalBatches(payload, maxBatchSize) {
+  const currentRevisions = payload?.productRevisions || {};
+  if (currentRevisions.LGS433?.currentRevision === 'V4.1'
+    && currentRevisions.LGS434?.currentRevision === 'V5.2') {
+    return buildLgs433Lgs434V6ProposalBatches(payload, maxBatchSize);
+  }
+  const footBatches = buildFootReplacementProposalBatches(payload, maxBatchSize);
+  if (footBatches.length > 0) return footBatches;
   const sharedAssetBatches = buildSharedMaterialAssetProposalBatches(payload, maxBatchSize);
   if (sharedAssetBatches.length > 0) return sharedAssetBatches;
   const colorBatches = buildFourColorVariantProposalBatches(payload, maxBatchSize);
@@ -1354,6 +1364,8 @@ class BomApplication {
       dirty: false,
       ecnProposalActive: false,
       ecnProposalRunId: null,
+      ecnProposalBatches: null,
+      ecnProposalBatchIndex: 0,
       orphanProposalActive: false,
       orphanProposalRunId: null,
       remediationHandoffEligible: false,
@@ -1706,6 +1718,19 @@ class BomApplication {
     const runId = `ecn_run_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
     this.state.ecnProposalRunId = runId;
     this.state.ecnProposalActive = true;
+    try {
+      const snapshot = this.getSnapshot();
+      this.state.ecnProposalBatches = buildEcnProposalBatches(snapshot.payload, 40);
+      this.state.ecnProposalBatchIndex = 0;
+    } catch (error) {
+      this.state.ecnProposalActive = false;
+      this.state.ecnProposalRunId = null;
+      this.state.ecnProposalBatches = null;
+      this.state.ecnProposalBatchIndex = 0;
+      this.syncEcnProposalButtonState();
+      this.setStatus(`${this.label('ecnProposalError')}: ${error.message}`, 'error');
+      return;
+    }
     this.syncEcnProposalButtonState();
     this.setStatus(this.label('ecnProposalLoading'), 'info');
     this.toggleAiChat?.(true);
@@ -1716,30 +1741,36 @@ class BomApplication {
     if (!this.isAdmin()) {
       this.state.ecnProposalActive = false;
       this.state.ecnProposalRunId = null;
+      this.state.ecnProposalBatches = null;
+      this.state.ecnProposalBatchIndex = 0;
       this.syncEcnProposalButtonState();
       return;
     }
     if (this.state.ecnProposalRunId !== runId || !this.state.ecnProposalActive) {
       return;
     }
-    const snapshot = this.getSnapshot();
-    const batches = buildEcnProposalBatches(snapshot.payload, 40);
-    if (!batches.length) {
+    const batches = this.state.ecnProposalBatches || [];
+    const batch = batches[this.state.ecnProposalBatchIndex];
+    if (!batch) {
       this.state.ecnProposalActive = false;
       this.state.ecnProposalRunId = null;
+      this.state.ecnProposalBatches = null;
+      this.state.ecnProposalBatchIndex = 0;
       this.syncEcnProposalButtonState();
       if (this.aiFeature?.ui?.renderMessage) {
         this.aiFeature.ui.renderMessage({ role: 'assistant', text: this.label('loadEcnProposalDone') });
       }
       return;
     }
-    this._renderEcnProposalBatch(batches[0], runId);
+    this._renderEcnProposalBatch(batch, runId);
   }
 
   _renderEcnProposalBatch(batch, runId) {
     if (!this.isAdmin()) {
       this.state.ecnProposalActive = false;
       this.state.ecnProposalRunId = null;
+      this.state.ecnProposalBatches = null;
+      this.state.ecnProposalBatchIndex = 0;
       this.syncEcnProposalButtonState();
       return;
     }
@@ -1751,6 +1782,7 @@ class BomApplication {
       const snapshot = {
         ...rawSnapshot,
         dirty: false,
+        isEcnProposal: true,
       };
       const review = buildMutationProposalReview(snapshot, { operations: batch.operations }, (k) => this.label(k));
       this.aiFeature.ui.renderMessage({
@@ -1775,6 +1807,7 @@ class BomApplication {
             const currentSnapshot = {
               ...this.getSnapshot(),
               dirty: false,
+              isEcnProposal: true,
             };
             const transaction = applyMutationProposalTransaction(currentSnapshot, selectedProposal);
             this.applyAiMutation({
@@ -1783,11 +1816,14 @@ class BomApplication {
               payload: transaction.payload,
               sourceCommit: currentSnapshot.sourceMetadata?.commitSha,
             });
-            // Load next batch after UI settles; re-computes from new payload so only remaining ops appear
+            this.state.ecnProposalBatchIndex += 1;
+            // The complete operation sequence was generated from the original canonical snapshot.
             setTimeout(() => this._executeNextEcnProposalBatch(runId), 0);
           } catch (e) {
             this.state.ecnProposalActive = false;
             this.state.ecnProposalRunId = null;
+            this.state.ecnProposalBatches = null;
+            this.state.ecnProposalBatchIndex = 0;
             this.syncEcnProposalButtonState();
             this.aiFeature.ui.renderMessage({ role: 'assistant', text: this.label('ai.proposal.applyError') || 'Error applying proposal' });
           }
@@ -1798,6 +1834,8 @@ class BomApplication {
     } catch (error) {
       this.state.ecnProposalActive = false;
       this.state.ecnProposalRunId = null;
+      this.state.ecnProposalBatches = null;
+      this.state.ecnProposalBatchIndex = 0;
       this.syncEcnProposalButtonState();
       const errorMsg = `${this.label('ecnProposalError')}: ${error.message}`;
       this.setStatus(errorMsg, 'error');
@@ -3855,6 +3893,7 @@ class BomApplication {
           RELEASE_REASON_REQUIRED: 'revisionReleaseReasonRequired',
           REVISION_NOT_CURRENT: 'revisionReleaseCurrentOnly',
           REVISION_NOT_DRAFT: 'revisionReleaseDraftOnly',
+          ECN_RELEASE_PREREQUISITES_INCOMPLETE: 'revisionReleaseFailed',
         };
         this.setStatus(this.label(errorKeys[error.message] || 'revisionReleaseFailed'), 'error');
       }
@@ -3985,6 +4024,8 @@ class BomApplication {
       this.state.dirty = false;
       this.state.ecnProposalActive = false;
       this.state.ecnProposalRunId = null;
+      this.state.ecnProposalBatches = null;
+      this.state.ecnProposalBatchIndex = 0;
       this.syncEcnProposalButtonState();
       this.state.orphanProposalActive = false;
       this.state.orphanProposalRunId = null;
@@ -4042,6 +4083,8 @@ class BomApplication {
     this.state.dirty = false;
     this.state.ecnProposalActive = false;
     this.state.ecnProposalRunId = null;
+    this.state.ecnProposalBatches = null;
+    this.state.ecnProposalBatchIndex = 0;
     this.syncEcnProposalButtonState();
     this.state.orphanProposalActive = false;
     this.state.orphanProposalRunId = null;
@@ -4096,6 +4139,10 @@ class BomApplication {
         required: true,
       }], async (values) => {
         try {
+          productCodes.forEach((productCode) => {
+            const currentRevision = this.state.payload.productRevisions?.[productCode]?.currentRevision;
+            assertEcnReleasePrerequisites(this.state.payload, productCode, currentRevision);
+          });
           for (const productCode of productCodes) {
             releaseProductRevision(this.state.payload, productCode, undefined, { reason: values.releaseReason });
           }
