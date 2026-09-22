@@ -45973,8 +45973,8 @@
           "vi": "Thanh ngang trên LGS433"
         },
         "spec": {
-          "zh": "1098x31x15mm",
-          "vi": "1098x31x15mm"
+          "zh": "1098x15x15mm",
+          "vi": "1098x15x15mm"
         },
         "material": {
           "zh": "Q195",
@@ -45988,8 +45988,19 @@
           "zh": "零件",
           "vi": "linh kiện"
         },
-        "drawings": [],
-        "models3d": [],
+        "drawings": [
+          {
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@439677bfcbbf3e2355f254baa5acb50877d669d4/assets/pdfs/LGS433SQHLDEPV5BH_c980abe54fe7cfc51cfffe221951951baf706d2c02ccdb3141f11266d79af696_LGS433_.pdf",
+            "name": "LGS433顶部横杆.pdf"
+          }
+        ],
+        "models3d": [
+          {
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@864a845b0b2263234666d3b8c98995460e423bc1/assets/models/LGS433SQHLDEPV5BH_7b35aadd0f603c8c1adb0bc9fba1482249bb46e0c5c8c7710da66655dadb90f6_LGS433_V5.glb",
+            "name": "LGS433顶部横杆V5.glb",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@864a845b0b2263234666d3b8c98995460e423bc1/assets/models/LGS433SQHLDEPV5BH_7b35aadd0f603c8c1adb0bc9fba1482249bb46e0c5c8c7710da66655dadb90f6_LGS433_V5.glb"
+          }
+        ],
         "unit": {
           "zh": "个",
           "vi": "cái"
@@ -46048,8 +46059,19 @@
           "zh": "零件",
           "vi": "linh kiện"
         },
-        "drawings": [],
-        "models3d": [],
+        "drawings": [
+          {
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@765b74f7013209bb713cf7c02b4841c891df8b3e/assets/pdfs/LGS433XQHLBH_2183df8a686e4c0697b15f64a2c6db540e12517a1d47c5bc1fb3b2f2cc6c2a91_LGS433_.pdf",
+            "name": "LGS433底部横杆前.pdf"
+          }
+        ],
+        "models3d": [
+          {
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@cf582029f1fbe4d696709a8c37e71f86f5dfe64a/assets/models/LGS433XQHLBH_f8e1fce64fb901aa3f7d4f14343e70465ee96e921d7fc2f55aa1b522242719c3_LGS433_V5.glb",
+            "name": "LGS433底部横杆前V5.glb",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@cf582029f1fbe4d696709a8c37e71f86f5dfe64a/assets/models/LGS433XQHLBH_f8e1fce64fb901aa3f7d4f14343e70465ee96e921d7fc2f55aa1b522242719c3_LGS433_V5.glb"
+          }
+        ],
         "unit": {
           "zh": "根",
           "vi": "thanh"
@@ -46108,8 +46130,19 @@
           "zh": "零件",
           "vi": "linh kiện"
         },
-        "drawings": [],
-        "models3d": [],
+        "drawings": [
+          {
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@e5e65d6156a79a1d450466b5a5558173ffe4ff70/assets/pdfs/LGS433XHHLBH_4ddcb0e85da99a52fc508cc35b3386f22f6d7ccfe8d733028e352339249a33e2_LGS433_.pdf",
+            "name": "LGS433底部横杆后.pdf"
+          }
+        ],
+        "models3d": [
+          {
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@afb712022c8b9c6d82cb50a2a05994be3ecafa6d/assets/models/LGS433XHHLBH_f8bca9144ceb92767607a303675768222140b900010d977c23712adeaa41b5da_LGS433_V5.glb",
+            "name": "LGS433底部横杆后V5.glb",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@afb712022c8b9c6d82cb50a2a05994be3ecafa6d/assets/models/LGS433XHHLBH_f8bca9144ceb92767607a303675768222140b900010d977c23712adeaa41b5da_LGS433_V5.glb"
+          }
+        ],
         "unit": {
           "zh": "个",
           "vi": "cái"
