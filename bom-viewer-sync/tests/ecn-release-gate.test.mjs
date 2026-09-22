@@ -6,6 +6,7 @@ import {
   releaseProductRevision,
   setEcnReleasePrerequisiteEvidence,
 } from '../src/domain/revisions.js';
+import { catalogViewMethods } from '../src/ui/catalog-view.js';
 
 function gatedPayload() {
   return coreUtils.normalizePayload({
@@ -84,6 +85,34 @@ test('ordinary unrelated product revision release is unaffected', () => {
   const payload = gatedPayload();
   releaseProductRevision(payload, 'P1', 'V2', { reason: 'release' });
   assert.equal(payload.productRevisions.P1.currentRevisionInfo.workflowState, 'released');
+});
+
+test('Admin UI displays and confirms only current gated draft prerequisites', () => {
+  const payload = gatedPayload();
+  const app = Object.create(BomApplication.prototype);
+  app.state = { payload, currentSku: 'LGS433', selectedRevision: 'V5', dirty: false };
+  app.mode = 'admin';
+  app.label = (key) => key;
+  app.isAdmin = () => true;
+  app.markDirty = () => { app.state.dirty = true; };
+  app.renderAll = () => {};
+  app.setStatus = () => {};
+
+  const html = catalogViewMethods.ecnReleasePrerequisitesHtml.call(app);
+  assert.match(html, /layerDrawingsVerified/);
+  assert.match(html, /assemblyDrawingsVerified/);
+  assert.match(html, /weldedFootGeometryVerified/);
+  assert.match(html, /ecnPrerequisitePending/);
+
+  app.confirmEcnReleasePrerequisite({ dataset: { prerequisiteKey: 'layerDrawingsVerified' } });
+  assert.equal(payload.productRevisions.LGS433.currentRevisionInfo.releasePrerequisites.layerDrawingsVerified, true);
+  assert.equal(app.state.dirty, true);
+
+  const nonAdmin = Object.create(BomApplication.prototype);
+  nonAdmin.state = { payload: gatedPayload(), currentSku: 'LGS433', selectedRevision: 'V5' };
+  nonAdmin.isAdmin = () => false;
+  nonAdmin.confirmEcnReleasePrerequisite({ dataset: { prerequisiteKey: 'layerDrawingsVerified' } });
+  assert.equal(nonAdmin.state.payload.productRevisions.LGS433.currentRevisionInfo.releasePrerequisites.layerDrawingsVerified, false);
 });
 
 test('post-save batch release is blocked before any gated revision is mutated', async () => {

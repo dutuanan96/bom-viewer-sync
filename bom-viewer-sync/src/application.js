@@ -72,6 +72,7 @@ import {
   productRevisionOptions as revisionOptionsForProduct,
   assertEcnReleasePrerequisites,
   releaseProductRevision,
+  setEcnReleasePrerequisiteEvidence,
   withdrawProductRevision,
 } from './domain/revisions.js';
 import { bomViewMethods } from './ui/bom-view.js';
@@ -1078,6 +1079,17 @@ Object.assign(TEXT.zh, {
   revisionReleaseCurrentOnly: '\u53ea\u80fd\u53d1\u5e03\u6700\u65b0\u7248\u672c',
   revisionReleaseDraftOnly: '\u53ea\u80fd\u53d1\u5e03\u8349\u7a3f\u7248\u672c',
   revisionReleaseFailed: '\u53d1\u5e03\u7248\u672c\u5931\u8d25',
+  ecnReleasePrerequisitesTitle: '\u0045\u0043\u004e \u53d1\u5e03\u524d\u7f6e\u6761\u4ef6',
+  ecnReleasePrerequisitesHelp: '\u4ec5 Admin \u53ef\u786e\u8ba4\u3002\u786e\u8ba4\u540e\u8bf7\u4fdd\u5b58\u5230 GitHub\uff0c\u4e09\u9879\u5168\u90e8\u5b8c\u6210\u540e\u624d\u53ef\u53d1\u5e03\u3002',
+  ecnPrerequisiteLayerDrawings: '\u5c42\u677f2D\u56fe\u7eb8\u5df2\u9a8c\u8bc1',
+  ecnPrerequisiteAssemblyDrawings: '\u6a2a\u6746\u7ec4\u4ef62D\u56fe\u7eb8\u5df2\u9a8c\u8bc1',
+  ecnPrerequisiteWeldedFoot: '44mm\u710a\u63a5\u5e95\u811a\u51e0\u4f55\u5df2\u9a8c\u8bc1',
+  ecnPrerequisiteConfirm: '\u786e\u8ba4',
+  ecnPrerequisiteVerified: '\u5df2\u786e\u8ba4',
+  ecnPrerequisitePending: '\u5f85\u786e\u8ba4',
+  ecnPrerequisitesComplete: '\u5df2\u5b8c\u6210',
+  ecnPrerequisitesIncomplete: '\u672a\u5b8c\u6210',
+  ecnPrerequisiteSaved: '\u5df2\u66f4\u65b0\uff0c\u8bf7\u4fdd\u5b58\u5230 GitHub',
   uploadAsset: '\u4e0a\u4f20\u6587\u4ef6',
   replaceAsset: '\u66ff\u6362\u6587\u4ef6',
   selectExistingAsset: '\u9009\u62e9\u5df2\u6709',
@@ -1263,6 +1275,17 @@ Object.assign(TEXT.vi, {
   revisionReleaseCurrentOnly: 'Ch\u1ec9 c\u00f3 th\u1ec3 ph\u00e1t h\u00e0nh phi\u00ean b\u1ea3n m\u1edbi nh\u1ea5t',
   revisionReleaseDraftOnly: 'Ch\u1ec9 c\u00f3 th\u1ec3 ph\u00e1t h\u00e0nh b\u1ea3n nh\u00e1p',
   revisionReleaseFailed: 'Kh\u00f4ng th\u1ec3 ph\u00e1t h\u00e0nh phi\u00ean b\u1ea3n',
+  ecnReleasePrerequisitesTitle: 'Điều kiện tiên quyết ECN trước khi phát hành',
+  ecnReleasePrerequisitesHelp: 'Chỉ Admin được xác nhận. Hãy lưu lên GitHub sau khi xác nhận; chỉ được phát hành khi hoàn tất cả ba mục.',
+  ecnPrerequisiteLayerDrawings: 'Đã xác minh bản vẽ 2D tấm tầng',
+  ecnPrerequisiteAssemblyDrawings: 'Đã xác minh bản vẽ 2D cụm thanh ngang',
+  ecnPrerequisiteWeldedFoot: 'Đã xác minh hình học chân hàn 44mm',
+  ecnPrerequisiteConfirm: 'Xác nhận',
+  ecnPrerequisiteVerified: 'Đã xác nhận',
+  ecnPrerequisitePending: 'Chờ xác nhận',
+  ecnPrerequisitesComplete: 'Đã hoàn tất',
+  ecnPrerequisitesIncomplete: 'Chưa hoàn tất',
+  ecnPrerequisiteSaved: 'Đã cập nhật, hãy lưu lên GitHub',
   uploadAsset: 'T\u1ea3i t\u1ec7p l\u00ean',
   replaceAsset: 'Thay th\u1ebf t\u1ec7p',
   selectExistingAsset: 'Ch\u1ecdn t\u1ec7p c\u00f3 s\u1eb5n',
@@ -2567,6 +2590,7 @@ class BomApplication {
     if (action === 'add-product' && this.isAdmin()) this.addProduct();
     if (action === 'create-product-revision' && this.isAdmin()) this.createProductRevisionFromPrompt();
     if (action === 'release-product-revision' && this.isAdmin()) this.releaseProductRevisionFromPrompt();
+    if (action === 'confirm-ecn-release-prerequisite' && this.isAdmin()) this.confirmEcnReleasePrerequisite(actionElement);
     if (action === 'withdraw-revision' && this.isAdmin()) this.withdrawProductRevisionFromPrompt();
     if (action === 'load-ecn-proposal' && this.isAdmin()) this.loadEcnProposalBatch();
     if (action === 'load-orphan-cleanup-proposal' && this.isAdmin()) this.loadOrphanCleanupProposalBatch();
@@ -3898,6 +3922,22 @@ class BomApplication {
         this.setStatus(this.label(errorKeys[error.message] || 'revisionReleaseFailed'), 'error');
       }
     });
+  }
+
+  confirmEcnReleasePrerequisite(actionElement) {
+    if (!this.isAdmin()) return;
+    const key = actionElement?.dataset?.prerequisiteKey;
+    const allowedKeys = new Set(['layerDrawingsVerified', 'assemblyDrawingsVerified', 'weldedFootGeometryVerified']);
+    const revisionInfo = this.selectedProductRevisionInfo();
+    const isGatedDraft = ['LGS433', 'LGS434'].includes(this.state.currentSku)
+      && revisionInfo?.revision === (this.state.currentSku === 'LGS433' ? 'V5' : 'V6')
+      && revisionInfo.current
+      && revisionInfo.workflowState === 'draft';
+    if (!allowedKeys.has(key) || !isGatedDraft) return;
+    setEcnReleasePrerequisiteEvidence(this.state.payload, this.state.currentSku, { [key]: true });
+    this.markDirty();
+    this.renderAll();
+    this.setStatus(this.label('ecnPrerequisiteSaved'), 'dirty');
   }
 
   addDatabaseMaterial() {

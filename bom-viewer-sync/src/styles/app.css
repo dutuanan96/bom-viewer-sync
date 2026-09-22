@@ -2568,6 +2568,68 @@ body.pdm-shell {
   margin-top: 6px;
 }
 
+.ecn-release-prerequisites {
+  margin: 18px 0 24px;
+  padding: 18px 22px;
+}
+
+.ecn-release-prerequisites-header,
+.ecn-release-prerequisite-row {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+}
+
+.ecn-release-prerequisites-header {
+  justify-content: space-between;
+}
+
+.ecn-release-prerequisites h2 {
+  align-items: center;
+  display: flex;
+  font-size: 16px;
+  gap: 8px;
+  margin: 0;
+}
+
+.ecn-release-prerequisites h2 .material-symbols-outlined {
+  color: #0052cc;
+}
+
+.ecn-release-prerequisites p {
+  color: #52606d;
+  font-size: 12px;
+  margin: 5px 0 0;
+}
+
+.ecn-release-prerequisite-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.ecn-release-prerequisite-row {
+  border-top: 1px solid #e1e2e4;
+  min-height: 42px;
+}
+
+.ecn-release-prerequisite-row > :first-child {
+  flex: 1;
+}
+
+.ecn-release-prerequisite-state {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.ecn-release-prerequisite-state.verified {
+  color: #166534;
+}
+
+.ecn-release-prerequisite-state.pending {
+  color: #7a5200;
+}
+
 .pdm-meta-line {
   align-items: center;
   color: #434654;

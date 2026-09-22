@@ -243,6 +243,7 @@ function contentHeaderHtml(product, colorData) {
     </div>
     <div class="header-actions">${this.headerActionsHtml()}</div>
   </div>
+  ${this.ecnReleasePrerequisitesHtml()}
   <div class="detail-card-grid">
     ${this.productSpecCardHtml(product, colorData)}
     ${this.assemblyPreviewHtml(colorData)}
@@ -315,6 +316,40 @@ function revisionTransitionHtml(revisionInfo) {
     items.push(`<span><strong>${escapeHTML(this.label('revisionCreatedAt'))}:</strong> ${escapeHTML(this.formatDate(revisionInfo.createdAt))}</span>`);
   }
   return `<div class="revision-transition-line">${items.join('<span class="dot"></span>')}</div>`;
+}
+
+function ecnReleasePrerequisitesHtml() {
+  const revisionInfo = this.selectedProductRevisionInfo();
+  const isGatedDraft = ['LGS433', 'LGS434'].includes(this.state.currentSku)
+    && revisionInfo?.revision === (this.state.currentSku === 'LGS433' ? 'V5' : 'V6')
+    && revisionInfo.current
+    && revisionInfo.workflowState === 'draft'
+    && revisionInfo.releasePrerequisites;
+  if (!isGatedDraft) return '';
+
+  const prerequisites = revisionInfo.releasePrerequisites;
+  const items = [
+    ['layerDrawingsVerified', 'ecnPrerequisiteLayerDrawings'],
+    ['assemblyDrawingsVerified', 'ecnPrerequisiteAssemblyDrawings'],
+    ['weldedFootGeometryVerified', 'ecnPrerequisiteWeldedFoot'],
+  ];
+  const complete = items.every(([key]) => prerequisites[key] === true);
+  return `<section class="detail-card ecn-release-prerequisites" aria-labelledby="ecnReleasePrerequisitesTitle">
+    <div class="ecn-release-prerequisites-header">
+      <div>
+        <h2 id="ecnReleasePrerequisitesTitle"><span class="material-symbols-outlined">fact_check</span>${escapeHTML(this.label('ecnReleasePrerequisitesTitle'))}</h2>
+        <p>${escapeHTML(this.label('ecnReleasePrerequisitesHelp'))}</p>
+      </div>
+      <span class="status-badge ${complete ? 'effective' : 'draft'}">${escapeHTML(this.label(complete ? 'ecnPrerequisitesComplete' : 'ecnPrerequisitesIncomplete'))}</span>
+    </div>
+    <div class="ecn-release-prerequisite-list">${items.map(([key, labelKey]) => {
+      const verified = prerequisites[key] === true;
+      const action = this.isAdmin() && !verified
+        ? `<button class="btn btn-outline" type="button" data-action="confirm-ecn-release-prerequisite" data-prerequisite-key="${escapeHTML(key)}">${escapeHTML(this.label('ecnPrerequisiteConfirm'))}</button>`
+        : '';
+      return `<div class="ecn-release-prerequisite-row"><span>${escapeHTML(this.label(labelKey))}</span><span class="ecn-release-prerequisite-state ${verified ? 'verified' : 'pending'}">${escapeHTML(this.label(verified ? 'ecnPrerequisiteVerified' : 'ecnPrerequisitePending'))}</span>${action}</div>`;
+    }).join('')}</div>
+  </section>`;
 }
 
 function headerActionsHtml() {
@@ -473,6 +508,7 @@ export const catalogViewMethods = {
   revisionSelectorHtml,
   revisionStatusBadgesHtml,
   revisionTransitionHtml,
+  ecnReleasePrerequisitesHtml,
   productColorDotHtml,
   colorDotClass,
   contentHeaderHtml,
