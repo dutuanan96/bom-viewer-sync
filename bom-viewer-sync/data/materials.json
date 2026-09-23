@@ -45885,8 +45885,8 @@
         "id": "mat_nlpls4022bz",
         "code": "NLPLS4022BZ",
         "name": {
-          "zh": "M4×22内六角螺丝",
-          "vi": "M4×22 ốc lục giác"
+          "zh": "M4×22十字螺丝",
+          "vi": "M4×22 ốc chữ thập"
         },
         "spec": {
           "zh": "M4×22mm",
@@ -45906,14 +45906,17 @@
         },
         "drawings": [],
         "models3d": [],
-        "unit": "颗"
+        "unit": {
+          "zh": "颗",
+          "vi": "颗"
+        }
       },
       "mat_nlpls4022wz": {
         "id": "mat_nlpls4022wz",
         "code": "NLPLS4022WZ",
         "name": {
-          "zh": "M4×22内六角螺丝",
-          "vi": "M4×22 ốc lục giác"
+          "zh": "M4×22十字螺丝",
+          "vi": "M4×22 ốc chữ thập"
         },
         "spec": {
           "zh": "M4×22mm",
@@ -45933,7 +45936,10 @@
         },
         "drawings": [],
         "models3d": [],
-        "unit": "颗"
+        "unit": {
+          "zh": "颗",
+          "vi": "颗"
+        }
       },
       "mat_lgs433sqhldepv5wh": {
         "id": "mat_lgs433sqhldepv5wh",

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-09-23T10:45:00.000Z",
+  "updatedAt": "2026-09-23T06:15:26.954Z",
   "products": [
     "5106",
     "LGS031",
@@ -341405,8 +341405,44 @@
       "actor": "admin",
       "createdAt": "2026-09-23T10:45:00.000Z",
       "version": 2,
-      "summary": "ECN修正: LGS433 V5 / LGS434 V6 新结构五金包V1S、独立纸箱与B201S变体",
-      "details": "修正新结构SKU为V1S，创建独立V1S五金包母件并恢复旧五金包完整历史构成，创建独立瓦楞纸箱并引入B201S山纹黑变体（保持Draft状态未发布）。"
+      "changes": []
+    },
+    {
+      "id": "notif_1lp7h2w",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-09-23T06:15:26.954Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material",
+          "code": "NLPLS4022BZ",
+          "field": "name",
+          "before": "M4×22内六角螺丝 / M4×22 ốc lục giác",
+          "after": "M4×22十字螺丝 / M4×22 ốc chữ thập"
+        },
+        {
+          "kind": "material",
+          "code": "NLPLS4022BZ",
+          "field": "unit",
+          "before": "颗",
+          "after": "[object Object]"
+        },
+        {
+          "kind": "material",
+          "code": "NLPLS4022WZ",
+          "field": "name",
+          "before": "M4×22内六角螺丝 / M4×22 ốc lục giác",
+          "after": "M4×22十字螺丝 / M4×22 ốc chữ thập"
+        },
+        {
+          "kind": "material",
+          "code": "NLPLS4022WZ",
+          "field": "unit",
+          "before": "颗",
+          "after": "[object Object]"
+        }
+      ]
     },
     {
       "id": "notif_12g0cdy",
@@ -342544,136 +342580,6 @@
           "field": "黑色.name_zh",
           "before": "",
           "after": "3列3层9抽-45inch烟墨黑"
-        }
-      ]
-    },
-    {
-      "id": "notif_1u5y70o",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-24T07:14:36.869Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "LGS033YKWH647",
-          "field": "drawings",
-          "before": "LGS033右侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs033ykwh647-ded5d4e7.pdf",
-          "after": "LGS033右侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs033ykbh647-ded5d4e7.pdf"
-        },
-        {
-          "kind": "material",
-          "code": "LGS033ZKWH647",
-          "field": "drawings",
-          "before": "LGS033左侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs033zkwh647-7ed39cf2.pdf",
-          "after": "LGS033左侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs033zkbh647-7ed39cf2.pdf"
-        },
-        {
-          "kind": "material",
-          "code": "LGS131CBZWH",
-          "field": "models3d",
-          "before": "LGS131_231_232-中间层板|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb;LGS232_231_131-中间层板.glb|models3d/catalog/LGS232-231-131-6e6242dc.glb",
-          "after": "LGS131_231_232-中间层板|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb"
-        },
-        {
-          "kind": "material",
-          "code": "LGS131SHLBHGK",
-          "field": "models3d",
-          "before": "LGS231_131-顶部横杆后.glb|models3d/catalog/LGS231-131-593b50c9.glb",
-          "after": "LGS231_131-顶部横杆后.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS231-131-593b50c9.glb"
-        },
-        {
-          "kind": "material",
-          "code": "LGS131XHLBH",
-          "field": "models3d",
-          "before": "LGS231_131-底部横杆.glb|models3d/catalog/LGS231-131-8264a80a.glb",
-          "after": "LGS231_131-底部横杆.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS231-131-8264a80a.glb"
-        },
-        {
-          "kind": "material",
-          "code": "LGS232CBSBH",
-          "field": "models3d",
-          "before": "LGS232_231_131-中间层板.glb|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb;LGS131_231_232-中间层板|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb",
-          "after": "LGS131_231_232-中间层板|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb"
-        },
-        {
-          "kind": "material",
-          "code": "LGS232CBSKD",
-          "field": "models3d",
-          "before": "LGS232_231_131-中间层板.glb|models3d/catalog/LGS232-231-131-6e6242dc.glb;LGS131_231_232-中间层板|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb",
-          "after": "LGS131_231_232-中间层板|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-231-131-6e6242dc.glb"
-        },
-        {
-          "kind": "material",
-          "code": "LGS233YKWH647",
-          "field": "drawings",
-          "before": "LGS233右侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs233ykwh647-9b4d4259.pdf",
-          "after": "LGS233右侧框.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-sync@main/bom-viewer-sync/drawings/catalog/drawing-lgs233ykbh647-9b4d4259.pdf"
-        }
-      ]
-    },
-    {
-      "id": "notif_1x4s9so",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-24T05:51:54.604Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS032",
-          "field": "effectiveRevision",
-          "before": "V3.1",
-          "after": "V3.2"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS032",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS733",
-          "field": "effectiveRevision",
-          "before": "V4.1",
-          "after": "V4.2"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS733",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS333",
-          "field": "effectiveRevision",
-          "before": "V4.1",
-          "after": "V4.2"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS333",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS334",
-          "field": "effectiveRevision",
-          "before": "V4.1",
-          "after": "V4.2"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS334",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
         }
       ]
     }
@@ -348234,7 +348140,47 @@
         "action": "save",
         "actor": "admin",
         "reason": "ECN修正: 新结构SKU更名V1S，引入独立五金包LGS434WJBBHV1S/WHV1S，860×410×145mm独立纸箱及B201S变体（保持Draft）",
-        "createdAt": "2026-09-23T10:45:00.000Z"
+        "createdAt": "2026-09-23T10:45:00.000Z",
+        "changes": []
+      },
+      {
+        "id": "history_dq4spc",
+        "productCode": "LGS434",
+        "revision": "V6",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-LGS433-V5-LGS434-V6: 移除41底脚，改为44mm底脚直接焊接于新底部横杆组件，改用M4×22内六角螺丝。",
+        "createdAt": "2026-09-23T06:15:26.954Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "NLPLS4022BZ",
+            "field": "name",
+            "before": "M4×22内六角螺丝 / M4×22 ốc lục giác",
+            "after": "M4×22十字螺丝 / M4×22 ốc chữ thập"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS4022BZ",
+            "field": "unit",
+            "before": "颗",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS4022WZ",
+            "field": "name",
+            "before": "M4×22内六角螺丝 / M4×22 ốc lục giác",
+            "after": "M4×22十字螺丝 / M4×22 ốc chữ thập"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS4022WZ",
+            "field": "unit",
+            "before": "颗",
+            "after": "[object Object]"
+          }
+        ]
       },
       {
         "id": "history_yiafrx",
@@ -363330,7 +363276,47 @@
         "action": "save",
         "actor": "admin",
         "reason": "ECN修正: 新结构SKU更名V1S，引入独立五金包LGS433WJBBHV1S/WHV1S，1185×340×105mm独立纸箱及B201S变体（保持Draft）",
-        "createdAt": "2026-09-23T10:45:00.000Z"
+        "createdAt": "2026-09-23T10:45:00.000Z",
+        "changes": []
+      },
+      {
+        "id": "history_168lytj",
+        "productCode": "LGS433",
+        "revision": "V5",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-LGS433-V5-LGS434-V6: 移除41底脚，改为44mm底脚直接焊接于新底部横杆组件，改用M4×22内六角螺丝。",
+        "createdAt": "2026-09-23T06:15:26.954Z",
+        "changes": [
+          {
+            "kind": "material",
+            "code": "NLPLS4022BZ",
+            "field": "name",
+            "before": "M4×22内六角螺丝 / M4×22 ốc lục giác",
+            "after": "M4×22十字螺丝 / M4×22 ốc chữ thập"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS4022BZ",
+            "field": "unit",
+            "before": "颗",
+            "after": "[object Object]"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS4022WZ",
+            "field": "name",
+            "before": "M4×22内六角螺丝 / M4×22 ốc lục giác",
+            "after": "M4×22十字螺丝 / M4×22 ốc chữ thập"
+          },
+          {
+            "kind": "material",
+            "code": "NLPLS4022WZ",
+            "field": "unit",
+            "before": "颗",
+            "after": "[object Object]"
+          }
+        ]
       },
       {
         "id": "history_hz003a",
