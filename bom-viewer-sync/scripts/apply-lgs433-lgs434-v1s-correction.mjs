@@ -1,24 +1,27 @@
 /**
- * Deterministic ECN correction script for LGS433 V5 and LGS434 V6 drafts.
+ * Deterministic, idempotent ECN correction script for LGS433 V5 and LGS434 V6 drafts.
  * 
- * Corrects:
- * 1. SKU naming with V1S
- * 2. New hardware pack parents (LGS433WJBBHV1S, LGS433WJBWHV1S, LGS434WJBBHV1S, LGS434WJBWHV1S)
- * 3. Restores old hardware pack parent compositions (LGS433WJBBH, LGS433WJBWH, LGS434WJBBH, LGS434WJBWH)
- * 4. Adds B201S / 山纹黑 variants
- * 5. Creates SKU-specific cartons with correct dimensions
- * 6. Reuses existing SWH fabric drawer materials
- * 7. Preserves historical released snapshots V4.1 and V5.2 unchanged
- * 8. Keeps V5/V6 as DRAFT without release
+ * Strictly enforces:
+ * 1. Precondition guards on revision lifecycle and material identities.
+ * 2. Idempotent application (running once or multiple times produces identical canonical data).
+ * 3. Exact unique hardware pack child counts (no duplicate tuples, no duplicate IDs).
+ * 4. Full preservation of historical old hardware pack metadata.
+ * 5. Full predecessor metadata propagation for new V1S hardware pack rows.
+ * 6. Product.colors array synchronized with color_info keys for LGS433 and LGS434.
+ * 7. Change-control and BOM history recording in manifest.json.
+ * 8. Historical snapshots V4.1 and V5.2 remain completely immutable.
+ * 9. Draft state preserved: V5 and V6 remain DRAFT without release.
  */
 import { lstatSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
+import { clone } from '../src/domain/materials.js';
 import { syncLegacyBomFromMaterialDb } from '../src/domain/relationships.js';
 import { assertLogicalShardCount, buildLogicalShardFiles, parseLogicalShardFiles, toRepositoryShardFiles } from '../src/domain/sharded-files.js';
 import { stableId } from '../src/shared/primitives.js';
 
 const repoRoot = path.resolve(import.meta.dirname, '..');
 const dataRoot = path.join(repoRoot, 'data');
+const CORRECTION_TIMESTAMP = '2026-09-23T10:45:00.000Z';
 
 export async function loadCurrentPayload() {
   const logicalFiles = new Map();
@@ -39,11 +42,70 @@ export async function loadCurrentPayload() {
   return await parseLogicalShardFiles(logicalFiles);
 }
 
+export function assertPreconditions(payload) {
+  // 1. Check LGS433 revision state
+  const r433 = payload.productRevisions?.['LGS433'];
+  if (!r433) throw new Error('Precondition failed: Missing LGS433 in productRevisions');
+  if (r433.currentRevision !== 'V5') {
+    throw new Error(`Precondition failed: LGS433 currentRevision expected V5, got ${r433.currentRevision}`);
+  }
+  if (r433.currentRevisionInfo?.workflowState !== 'draft') {
+    throw new Error(`Precondition failed: LGS433 workflowState expected draft, got ${r433.currentRevisionInfo?.workflowState}`);
+  }
+  if (r433.effectiveRevision !== 'V4.1') {
+    throw new Error(`Precondition failed: LGS433 effectiveRevision expected V4.1, got ${r433.effectiveRevision}`);
+  }
+
+  // 2. Check LGS434 revision state
+  const r434 = payload.productRevisions?.['LGS434'];
+  if (!r434) throw new Error('Precondition failed: Missing LGS434 in productRevisions');
+  if (r434.currentRevision !== 'V6') {
+    throw new Error(`Precondition failed: LGS434 currentRevision expected V6, got ${r434.currentRevision}`);
+  }
+  if (r434.currentRevisionInfo?.workflowState !== 'draft') {
+    throw new Error(`Precondition failed: LGS434 workflowState expected draft, got ${r434.currentRevisionInfo?.workflowState}`);
+  }
+  if (r434.effectiveRevision !== 'V5.2') {
+    throw new Error(`Precondition failed: LGS434 effectiveRevision expected V5.2, got ${r434.effectiveRevision}`);
+  }
+
+  // 3. Verify old hardware pack materials exist with expected IDs
+  const materials = payload.materialDb.materials;
+  const expectedOld = [
+    ['LGS433WJBBH', 'mat_f21qte'],
+    ['LGS433WJBWH', 'mat_xhsgou'],
+    ['LGS434WJBBH', 'mat_1l7qniw'],
+    ['LGS434WJBWH', 'mat_wo2pto']
+  ];
+  for (const [code, expectedId] of expectedOld) {
+    const mat = materials[expectedId];
+    if (!mat || mat.code !== code) {
+      throw new Error(`Precondition failed: Expected material ${code} with ID ${expectedId}`);
+    }
+  }
+
+  // 4. Verify existing SWH drawer materials
+  const expectedSwh = [
+    ['BC257282168SWH', 'mat_bc257282168swh'],
+    ['BC350282187SWH', 'mat_bc350282187swh'],
+    ['BC340327168SWH', 'mat_bc340327168swh'],
+    ['BC460327187SWH', 'mat_bc460327187swh']
+  ];
+  for (const [code, expectedId] of expectedSwh) {
+    const mat = materials[expectedId];
+    if (!mat || mat.code !== code) {
+      throw new Error(`Precondition failed: Expected existing SWH drawer material ${code} with ID ${expectedId}`);
+    }
+  }
+}
+
 export function applyCorrection(payload) {
+  assertPreconditions(payload);
+
   const materials = payload.materialDb.materials;
   let bomEntries = payload.materialDb.bomEntries;
 
-  // 1. Define new materials
+  // 1. Define new materials (11 materials)
   const newMaterials = [
     // LGS433 Hardware Packs V1S
     {
@@ -184,184 +246,130 @@ export function applyCorrection(payload) {
   ];
 
   for (const m of newMaterials) {
-    if (!materials[m.id]) {
-      materials[m.id] = m;
+    const existingWithSameCode = Object.values(materials).find(x => x.code === m.code);
+    if (existingWithSameCode && existingWithSameCode.id !== m.id) {
+      throw new Error(`Collision guard: Material ${m.code} already exists with different ID ${existingWithSameCode.id}`);
     }
+    materials[m.id] = m;
   }
 
-  // 2. Remove existing child relations for the 4 old hardware packs from bomEntries
-  const oldHwPackIds = new Set(['mat_f21qte', 'mat_xhsgou', 'mat_1l7qniw', 'mat_wo2pto']);
-  bomEntries = bomEntries.filter(e => !(e.parentType === 'material' && oldHwPackIds.has(e.parentId)));
+  // 2. Load historical snapshot authority rows for old hardware packs
+  const v41 = payload.productRevisions?.['LGS433']?.revisions.find(r => r.revision === 'V4.1');
+  const v52 = payload.productRevisions?.['LGS434']?.revisions.find(r => r.revision === 'V5.2');
+  if (!v41 || !v52) throw new Error('Historical snapshots V4.1 or V5.2 missing from productRevisions');
 
-  // 3. Define historical child relations for OLD hardware packs (restoration)
-  // Child material ID lookup:
-  const LNSLSD65254BZ = 'mat_1atkf4g';
-  const NLPLS6022BZ = 'mat_1112bk6';
-  const NLPLS6010BZ = 'mat_6zvz0v';
-  const BCLS129228BH = 'mat_vz636a';
-  const ZGLS4010CZ = 'mat_1bb87nh';
-  const SLPZLS6030WH = 'mat_3cqqc3';
-  const ZGLS3560BH = 'mat_qqu0zl';
-  const TZJD629825BH = 'mat_gm18ar';
-  const NLDP15508020BH = 'mat_f3e6hw';
-  const PTZGLS6308BZ = 'mat_1cjiqmc';
+  const v41Entries = v41.snapshot.materialDb.bomEntries.filter(e => e.parentType === 'material');
+  const v52Entries = v52.snapshot.materialDb.bomEntries.filter(e => e.parentType === 'material');
 
-  const NLPLS6022WZ = 'mat_zmmild';
-  const NLPLS6010WZ = 'mat_cau6z8';
-  const BCLS129228WH = 'mat_1fhhxvk';
-  const ZGLS4010WZ = 'mat_m5oo3m';
-  const ZGLS3560WH = 'mat_zgls3560wh_mrdf0jhj';
-  const TZJD629825WH = 'mat_1h27jfj';
-  const NLDP15508020WH = 'mat_1kajjg0';
-  const PTZGLS6308WZ = 'mat_vwmnnz';
+  const old433BHRows = v41Entries.filter(e => e.parentId === 'mat_f21qte').map(r => clone(r));
+  const old433WHRows = v41Entries.filter(e => e.parentId === 'mat_xhsgou').map(r => clone(r));
+  const old434BHRows = v52Entries.filter(e => e.parentId === 'mat_1l7qniw').map(r => clone(r));
+  const old434WHRows = v52Entries.filter(e => e.parentId === 'mat_wo2pto').map(r => clone(r));
 
-  const MS6030YS = 'mat_144gpyx';
-  const LNBS57253BZ = 'mat_1h3f36d';
+  if (old433BHRows.length !== 20 || old433WHRows.length !== 10 || old434BHRows.length !== 12 || old434WHRows.length !== 12) {
+    throw new Error(`Unexpected historical hardware pack row counts in snapshots: ${old433BHRows.length}, ${old433WHRows.length}, ${old434BHRows.length}, ${old434WHRows.length}`);
+  }
 
-  // New M4x22 screws:
-  const NLPLS4022BZ = 'mat_nlpls4022bz';
-  const NLPLS4022WZ = 'mat_nlpls4022wz';
+  // 3. Construct new V1S hardware pack rows from predecessor rows with full metadata preserved
+  function buildV1SRows({ predecessorRows, parentId, productCode, scopeColor, isWhite, is434 }) {
+    const rows = [];
+    const colorVerZh = scopeColor;
+    const colorVerVi = scopeColor === '山纹黑'
+      ? 'màu đen vân gỗ'
+      : (scopeColor === '复古色' ? 'màu gỗ cổ' : (scopeColor === '白色' ? 'màu trắng' : 'màu đen'));
 
-  const restoredOldRelations = [
-    // LGS433WJBBH (mat_f21qte) for 复古色 and 黑色 (M6x12: 8+2, nylon: 2, no M4x22)
-    ...['复古色', '黑色'].flatMap(color => [
-      { parentId: 'mat_f21qte', materialId: LNSLSD65254BZ, qty: '1', productCode: 'LGS433', color, order: 0 },
-      { parentId: 'mat_f21qte', materialId: NLPLS6022BZ, qty: '26+2', productCode: 'LGS433', color, order: 1 },
-      { parentId: 'mat_f21qte', materialId: NLPLS6010BZ, qty: '8+2', productCode: 'LGS433', color, order: 2 },
-      { parentId: 'mat_f21qte', materialId: BCLS129228BH, qty: '8', productCode: 'LGS433', color, order: 3 },
-      { parentId: 'mat_f21qte', materialId: ZGLS4010CZ, qty: '16+2', productCode: 'LGS433', color, order: 4 },
-      { parentId: 'mat_f21qte', materialId: SLPZLS6030WH, qty: '2', productCode: 'LGS433', color, order: 5 },
-      { parentId: 'mat_f21qte', materialId: ZGLS3560BH, qty: '2', productCode: 'LGS433', color, order: 6 },
-      { parentId: 'mat_f21qte', materialId: TZJD629825BH, qty: '6', productCode: 'LGS433', color, order: 7 },
-      { parentId: 'mat_f21qte', materialId: NLDP15508020BH, qty: '2', productCode: 'LGS433', color, order: 8 },
-      { parentId: 'mat_f21qte', materialId: PTZGLS6308BZ, qty: '2', productCode: 'LGS433', color, order: 9 }
-    ]),
-    // LGS433WJBWH (mat_xhsgou) for 白色 (M6x12: 8+2, nylon: 2, no M4x22)
-    ...[
-      { parentId: 'mat_xhsgou', materialId: LNSLSD65254BZ, qty: '1', productCode: 'LGS433', color: '白色', order: 0 },
-      { parentId: 'mat_xhsgou', materialId: NLPLS6022WZ, qty: '26+2', productCode: 'LGS433', color: '白色', order: 1 },
-      { parentId: 'mat_xhsgou', materialId: NLPLS6010WZ, qty: '8+2', productCode: 'LGS433', color: '白色', order: 2 },
-      { parentId: 'mat_xhsgou', materialId: BCLS129228WH, qty: '8', productCode: 'LGS433', color: '白色', order: 3 },
-      { parentId: 'mat_xhsgou', materialId: ZGLS4010WZ, qty: '16+2', productCode: 'LGS433', color: '白色', order: 4 },
-      { parentId: 'mat_xhsgou', materialId: SLPZLS6030WH, qty: '2', productCode: 'LGS433', color: '白色', order: 5 },
-      { parentId: 'mat_xhsgou', materialId: ZGLS3560WH, qty: '2', productCode: 'LGS433', color: '白色', order: 6 },
-      { parentId: 'mat_xhsgou', materialId: TZJD629825WH, qty: '6', productCode: 'LGS433', color: '白色', order: 7 },
-      { parentId: 'mat_xhsgou', materialId: NLDP15508020WH, qty: '2', productCode: 'LGS433', color: '白色', order: 8 },
-      { parentId: 'mat_xhsgou', materialId: PTZGLS6308WZ, qty: '2', productCode: 'LGS433', color: '白色', order: 9 }
-    ],
-    // LGS434WJBBH (mat_1l7qniw) for 黑色 (M6x12: 12+2, nylon: 2, no M4x22)
-    ...[
-      { parentId: 'mat_1l7qniw', materialId: LNSLSD65254BZ, qty: '2', productCode: 'LGS434', color: '黑色', order: 0 },
-      { parentId: 'mat_1l7qniw', materialId: NLPLS6022BZ, qty: '34+2', productCode: 'LGS434', color: '黑色', order: 1 },
-      { parentId: 'mat_1l7qniw', materialId: NLPLS6010BZ, qty: '12+2', productCode: 'LGS434', color: '黑色', order: 2 },
-      { parentId: 'mat_1l7qniw', materialId: BCLS129228BH, qty: '8', productCode: 'LGS434', color: '黑色', order: 3 },
-      { parentId: 'mat_1l7qniw', materialId: ZGLS4010CZ, qty: '16+2', productCode: 'LGS434', color: '黑色', order: 4 },
-      { parentId: 'mat_1l7qniw', materialId: SLPZLS6030WH, qty: '2', productCode: 'LGS434', color: '黑色', order: 5 },
-      { parentId: 'mat_1l7qniw', materialId: ZGLS3560BH, qty: '2', productCode: 'LGS434', color: '黑色', order: 6 },
-      { parentId: 'mat_1l7qniw', materialId: TZJD629825BH, qty: '6', productCode: 'LGS434', color: '黑色', order: 7 },
-      { parentId: 'mat_1l7qniw', materialId: NLDP15508020BH, qty: '2', productCode: 'LGS434', color: '黑色', order: 8 },
-      { parentId: 'mat_1l7qniw', materialId: MS6030YS, qty: '3', productCode: 'LGS434', color: '黑色', order: 9 },
-      { parentId: 'mat_1l7qniw', materialId: LNBS57253BZ, qty: '1', productCode: 'LGS434', color: '黑色', order: 10 },
-      { parentId: 'mat_1l7qniw', materialId: PTZGLS6308BZ, qty: '2', productCode: 'LGS434', color: '黑色', order: 11 }
-    ],
-    // LGS434WJBWH (mat_wo2pto) for 白色 (M6x12: 12+2, nylon: 2, no M4x22)
-    ...[
-      { parentId: 'mat_wo2pto', materialId: LNSLSD65254BZ, qty: '2', productCode: 'LGS434', color: '白色', order: 0 },
-      { parentId: 'mat_wo2pto', materialId: NLPLS6022WZ, qty: '34+2', productCode: 'LGS434', color: '白色', order: 1 },
-      { parentId: 'mat_wo2pto', materialId: NLPLS6010WZ, qty: '12+2', productCode: 'LGS434', color: '白色', order: 2 },
-      { parentId: 'mat_wo2pto', materialId: BCLS129228WH, qty: '8', productCode: 'LGS434', color: '白色', order: 3 },
-      { parentId: 'mat_wo2pto', materialId: ZGLS4010WZ, qty: '16+2', productCode: 'LGS434', color: '白色', order: 4 },
-      { parentId: 'mat_wo2pto', materialId: SLPZLS6030WH, qty: '2', productCode: 'LGS434', color: '白色', order: 5 },
-      { parentId: 'mat_wo2pto', materialId: ZGLS3560WH, qty: '2', productCode: 'LGS434', color: '白色', order: 6 },
-      { parentId: 'mat_wo2pto', materialId: TZJD629825WH, qty: '6', productCode: 'LGS434', color: '白色', order: 7 },
-      { parentId: 'mat_wo2pto', materialId: NLDP15508020WH, qty: '2', productCode: 'LGS434', color: '白色', order: 8 },
-      { parentId: 'mat_wo2pto', materialId: MS6030YS, qty: '3', productCode: 'LGS434', color: '白色', order: 9 },
-      { parentId: 'mat_wo2pto', materialId: LNBS57253BZ, qty: '1', productCode: 'LGS434', color: '白色', order: 10 },
-      { parentId: 'mat_wo2pto', materialId: PTZGLS6308WZ, qty: '2', productCode: 'LGS434', color: '白色', order: 11 }
-    ]
-  ].map(r => ({
-    id: stableId('bomc', `restored|${r.parentId}|${r.materialId}|${r.productCode}|${r.color}|${r.order}`),
-    parentType: 'material',
-    parentId: r.parentId,
-    productCode: r.productCode,
-    color: r.color,
-    materialId: r.materialId,
-    qty: r.qty,
-    order: r.order
-  }));
+    for (const pred of predecessorRows) {
+      const childMatId = pred.materialId || pred.childMaterialId;
+      const isM6x12 = childMatId === (isWhite ? 'mat_cau6z8' : 'mat_6zvz0v');
+      const isNylon = childMatId === (isWhite ? 'mat_1kajjg0' : 'mat_f3e6hw');
 
-  // 4. Define child relations for NEW V1S hardware packs
-  const newV1SRelations = [
-    // LGS433WJBBHV1S (mat_lgs433wjbbhv1s) for 复古色, 黑色, 山纹黑 (M6x12: 4+1, M4x22: 4+1, no nylon)
-    ...['复古色', '黑色', '山纹黑'].flatMap(color => [
-      { parentId: 'mat_lgs433wjbbhv1s', materialId: LNSLSD65254BZ, qty: '1', productCode: 'LGS433', color, order: 0 },
-      { parentId: 'mat_lgs433wjbbhv1s', materialId: NLPLS6022BZ, qty: '26+2', productCode: 'LGS433', color, order: 1 },
-      { parentId: 'mat_lgs433wjbbhv1s', materialId: NLPLS6010BZ, qty: '4+1', productCode: 'LGS433', color, order: 2 },
-      { parentId: 'mat_lgs433wjbbhv1s', materialId: BCLS129228BH, qty: '8', productCode: 'LGS433', color, order: 3 },
-      { parentId: 'mat_lgs433wjbbhv1s', materialId: ZGLS4010CZ, qty: '16+2', productCode: 'LGS433', color, order: 4 },
-      { parentId: 'mat_lgs433wjbbhv1s', materialId: SLPZLS6030WH, qty: '2', productCode: 'LGS433', color, order: 5 },
-      { parentId: 'mat_lgs433wjbbhv1s', materialId: ZGLS3560BH, qty: '2', productCode: 'LGS433', color, order: 6 },
-      { parentId: 'mat_lgs433wjbbhv1s', materialId: TZJD629825BH, qty: '6', productCode: 'LGS433', color, order: 7 },
-      { parentId: 'mat_lgs433wjbbhv1s', materialId: PTZGLS6308BZ, qty: '2', productCode: 'LGS433', color, order: 8 },
-      { parentId: 'mat_lgs433wjbbhv1s', materialId: NLPLS4022BZ, qty: '4+1', productCode: 'LGS433', color, order: 9 }
-    ]),
-    // LGS433WJBWHV1S (mat_lgs433wjbwhv1s) for 白色 (M6x12: 4+1, M4x22: 4+1, no nylon)
-    ...[
-      { parentId: 'mat_lgs433wjbwhv1s', materialId: LNSLSD65254BZ, qty: '1', productCode: 'LGS433', color: '白色', order: 0 },
-      { parentId: 'mat_lgs433wjbwhv1s', materialId: NLPLS6022WZ, qty: '26+2', productCode: 'LGS433', color: '白色', order: 1 },
-      { parentId: 'mat_lgs433wjbwhv1s', materialId: NLPLS6010WZ, qty: '4+1', productCode: 'LGS433', color: '白色', order: 2 },
-      { parentId: 'mat_lgs433wjbwhv1s', materialId: BCLS129228WH, qty: '8', productCode: 'LGS433', color: '白色', order: 3 },
-      { parentId: 'mat_lgs433wjbwhv1s', materialId: ZGLS4010WZ, qty: '16+2', productCode: 'LGS433', color: '白色', order: 4 },
-      { parentId: 'mat_lgs433wjbwhv1s', materialId: SLPZLS6030WH, qty: '2', productCode: 'LGS433', color: '白色', order: 5 },
-      { parentId: 'mat_lgs433wjbwhv1s', materialId: ZGLS3560WH, qty: '2', productCode: 'LGS433', color: '白色', order: 6 },
-      { parentId: 'mat_lgs433wjbwhv1s', materialId: TZJD629825WH, qty: '6', productCode: 'LGS433', color: '白色', order: 7 },
-      { parentId: 'mat_lgs433wjbwhv1s', materialId: PTZGLS6308WZ, qty: '2', productCode: 'LGS433', color: '白色', order: 8 },
-      { parentId: 'mat_lgs433wjbwhv1s', materialId: NLPLS4022WZ, qty: '4+1', productCode: 'LGS433', color: '白色', order: 9 }
-    ],
-    // LGS434WJBBHV1S (mat_lgs434wjbbhv1s) for 黑色, 山纹黑 (M6x12: 8+1, M4x22: 4+1, no nylon)
-    ...['黑色', '山纹黑'].flatMap(color => [
-      { parentId: 'mat_lgs434wjbbhv1s', materialId: LNSLSD65254BZ, qty: '2', productCode: 'LGS434', color, order: 0 },
-      { parentId: 'mat_lgs434wjbbhv1s', materialId: NLPLS6022BZ, qty: '34+2', productCode: 'LGS434', color, order: 1 },
-      { parentId: 'mat_lgs434wjbbhv1s', materialId: NLPLS6010BZ, qty: '8+1', productCode: 'LGS434', color, order: 2 },
-      { parentId: 'mat_lgs434wjbbhv1s', materialId: BCLS129228BH, qty: '8', productCode: 'LGS434', color, order: 3 },
-      { parentId: 'mat_lgs434wjbbhv1s', materialId: ZGLS4010CZ, qty: '16+2', productCode: 'LGS434', color, order: 4 },
-      { parentId: 'mat_lgs434wjbbhv1s', materialId: SLPZLS6030WH, qty: '2', productCode: 'LGS434', color, order: 5 },
-      { parentId: 'mat_lgs434wjbbhv1s', materialId: ZGLS3560BH, qty: '2', productCode: 'LGS434', color, order: 6 },
-      { parentId: 'mat_lgs434wjbbhv1s', materialId: TZJD629825BH, qty: '6', productCode: 'LGS434', color, order: 7 },
-      { parentId: 'mat_lgs434wjbbhv1s', materialId: MS6030YS, qty: '3', productCode: 'LGS434', color, order: 8 },
-      { parentId: 'mat_lgs434wjbbhv1s', materialId: LNBS57253BZ, qty: '1', productCode: 'LGS434', color, order: 9 },
-      { parentId: 'mat_lgs434wjbbhv1s', materialId: PTZGLS6308BZ, qty: '2', productCode: 'LGS434', color, order: 10 },
-      { parentId: 'mat_lgs434wjbbhv1s', materialId: NLPLS4022BZ, qty: '4+1', productCode: 'LGS434', color, order: 11 }
-    ]),
-    // LGS434WJBWHV1S (mat_lgs434wjbwhv1s) for 白色 (M6x12: 8+1, M4x22: 4+1, no nylon)
-    ...[
-      { parentId: 'mat_lgs434wjbwhv1s', materialId: LNSLSD65254BZ, qty: '2', productCode: 'LGS434', color: '白色', order: 0 },
-      { parentId: 'mat_lgs434wjbwhv1s', materialId: NLPLS6022WZ, qty: '34+2', productCode: 'LGS434', color: '白色', order: 1 },
-      { parentId: 'mat_lgs434wjbwhv1s', materialId: NLPLS6010WZ, qty: '8+1', productCode: 'LGS434', color: '白色', order: 2 },
-      { parentId: 'mat_lgs434wjbwhv1s', materialId: BCLS129228WH, qty: '8', productCode: 'LGS434', color: '白色', order: 3 },
-      { parentId: 'mat_lgs434wjbwhv1s', materialId: ZGLS4010WZ, qty: '16+2', productCode: 'LGS434', color: '白色', order: 4 },
-      { parentId: 'mat_lgs434wjbwhv1s', materialId: SLPZLS6030WH, qty: '2', productCode: 'LGS434', color: '白色', order: 5 },
-      { parentId: 'mat_lgs434wjbwhv1s', materialId: ZGLS3560WH, qty: '2', productCode: 'LGS434', color: '白色', order: 6 },
-      { parentId: 'mat_lgs434wjbwhv1s', materialId: TZJD629825WH, qty: '6', productCode: 'LGS434', color: '白色', order: 7 },
-      { parentId: 'mat_lgs434wjbwhv1s', materialId: MS6030YS, qty: '3', productCode: 'LGS434', color: '白色', order: 8 },
-      { parentId: 'mat_lgs434wjbwhv1s', materialId: LNBS57253BZ, qty: '1', productCode: 'LGS434', color: '白色', order: 9 },
-      { parentId: 'mat_lgs434wjbwhv1s', materialId: PTZGLS6308WZ, qty: '2', productCode: 'LGS434', color: '白色', order: 10 },
-      { parentId: 'mat_lgs434wjbwhv1s', materialId: NLPLS4022WZ, qty: '4+1', productCode: 'LGS434', color: '白色', order: 11 }
-    ]
-  ].map(r => ({
-    id: stableId('bomc', `v1s|${r.parentId}|${r.materialId}|${r.productCode}|${r.color}|${r.order}`),
-    parentType: 'material',
-    parentId: r.parentId,
-    productCode: r.productCode,
-    color: r.color,
-    materialId: r.materialId,
-    qty: r.qty,
-    order: r.order
-  }));
+      if (isNylon) {
+        // Replace nylon washer with M4x22, preserving predecessor relation metadata
+        const m4x22Id = isWhite ? 'mat_nlpls4022wz' : 'mat_nlpls4022bz';
+        rows.push({
+          id: stableId('bomc', `v1s|${parentId}|${m4x22Id}|${productCode}|${scopeColor}`),
+          parentType: 'material',
+          parentId,
+          productCode,
+          color: scopeColor,
+          materialId: m4x22Id,
+          childMaterialId: m4x22Id,
+          stt: pred.stt || '',
+          comp_code: pred.comp_code || '',
+          qty: '4+1',
+          color_ver: colorVerZh,
+          color_ver_vi: colorVerVi,
+          order: pred.order ?? 0
+        });
+      } else if (isM6x12) {
+        // M6x12: 4+1 for 433, 8+1 for 434
+        const m6Qty = is434 ? '8+1' : '4+1';
+        rows.push({
+          ...clone(pred),
+          id: stableId('bomc', `v1s|${parentId}|${childMatId}|${productCode}|${scopeColor}`),
+          parentId,
+          color: scopeColor,
+          color_ver: colorVerZh,
+          color_ver_vi: colorVerVi,
+          qty: m6Qty
+        });
+      } else {
+        // Unchanged child: clone predecessor row completely
+        rows.push({
+          ...clone(pred),
+          id: stableId('bomc', `v1s|${parentId}|${childMatId}|${productCode}|${scopeColor}`),
+          parentId,
+          color: scopeColor,
+          color_ver: colorVerZh,
+          color_ver_vi: colorVerVi
+        });
+      }
+    }
+    return rows;
+  }
 
-  bomEntries.push(...restoredOldRelations, ...newV1SRelations);
+  const v433BHPred = old433BHRows.filter(r => r.color === '黑色');
+  const v433KDPred = old433BHRows.filter(r => r.color === '复古色');
 
-  // 5. Update product-level entries for LGS433 and LGS434 using material code
+  const newV1SRows = [
+    // LGS433WJBBHV1S (30 rows = 10 * 3 colors)
+    ...buildV1SRows({ predecessorRows: v433KDPred, parentId: 'mat_lgs433wjbbhv1s', productCode: 'LGS433', scopeColor: '复古色', isWhite: false, is434: false }),
+    ...buildV1SRows({ predecessorRows: v433BHPred, parentId: 'mat_lgs433wjbbhv1s', productCode: 'LGS433', scopeColor: '黑色', isWhite: false, is434: false }),
+    ...buildV1SRows({ predecessorRows: v433BHPred, parentId: 'mat_lgs433wjbbhv1s', productCode: 'LGS433', scopeColor: '山纹黑', isWhite: false, is434: false }),
+
+    // LGS433WJBWHV1S (10 rows = 10 * 1 color)
+    ...buildV1SRows({ predecessorRows: old433WHRows, parentId: 'mat_lgs433wjbwhv1s', productCode: 'LGS433', scopeColor: '白色', isWhite: true, is434: false }),
+
+    // LGS434WJBBHV1S (24 rows = 12 * 2 colors)
+    ...buildV1SRows({ predecessorRows: old434BHRows, parentId: 'mat_lgs434wjbbhv1s', productCode: 'LGS434', scopeColor: '黑色', isWhite: false, is434: true }),
+    ...buildV1SRows({ predecessorRows: old434BHRows, parentId: 'mat_lgs434wjbbhv1s', productCode: 'LGS434', scopeColor: '山纹黑', isWhite: false, is434: true }),
+
+    // LGS434WJBWHV1S (12 rows = 12 * 1 color)
+    ...buildV1SRows({ predecessorRows: old434WHRows, parentId: 'mat_lgs434wjbwhv1s', productCode: 'LGS434', scopeColor: '白色', isWhite: true, is434: true }),
+  ];
+
+  if (newV1SRows.length !== 76) {
+    throw new Error(`Expected exactly 76 V1S hardware pack rows, got ${newV1SRows.length}`);
+  }
+
+  // 4. Idempotently replace hardware pack child relations
+  // Remove ALL existing relations for ALL 8 hardware packs first
+  const allTargetHwPackIds = new Set([
+    'mat_f21qte', 'mat_xhsgou', 'mat_1l7qniw', 'mat_wo2pto',
+    'mat_lgs433wjbbhv1s', 'mat_lgs433wjbwhv1s', 'mat_lgs434wjbbhv1s', 'mat_lgs434wjbwhv1s'
+  ]);
+  bomEntries = bomEntries.filter(e => !(e.parentType === 'material' && allTargetHwPackIds.has(e.parentId)));
+
+  // Add the 54 restored historical rows + 76 V1S rows
+  bomEntries.push(
+    ...old433BHRows,
+    ...old433WHRows,
+    ...old434BHRows,
+    ...old434WHRows,
+    ...newV1SRows
+  );
+
+  // 5. Update product-level entries for LGS433 and LGS434
   const cartonCodeToNewId = {
     LGS433PKXKD: 'mat_lgs433pkxkdv1s',
     LGS433PKXWH: 'mat_lgs433pkxwhv1s',
@@ -396,8 +404,8 @@ export function applyCorrection(payload) {
     }
   }
 
-  // 6. Create product-level BOM entries for 山纹黑 (B201S)
-  // Remove any pre-existing 山纹黑 entries for LGS433 and LGS434 if present
+  // 6. Idempotently create product-level BOM entries for 山纹黑 (B201S)
+  // Remove any pre-existing 山纹黑 entries for LGS433 and LGS434 before recreating
   bomEntries = bomEntries.filter(e => !(e.parentType === 'product' && ['LGS433', 'LGS434'].includes(e.productCode) && e.color === '山纹黑'));
 
   const lgs433BlackEntries = bomEntries.filter(e => e.parentType === 'product' && e.productCode === 'LGS433' && e.color === '黑色');
@@ -409,7 +417,7 @@ export function applyCorrection(payload) {
     else if (matCode === 'BC350282187BH') matId = 'mat_bc350282187swh';
 
     return {
-      ...e,
+      ...clone(e),
       id: stableId('bom', `LGS433|山纹黑|${matId}|${idx}`),
       color: '山纹黑',
       color_ver: '山纹黑',
@@ -427,7 +435,7 @@ export function applyCorrection(payload) {
     else if (matCode === 'BC460327187BH') matId = 'mat_bc460327187swh';
 
     return {
-      ...e,
+      ...clone(e),
       id: stableId('bom', `LGS434|山纹黑|${matId}|${idx}`),
       color: '山纹黑',
       color_ver: '山纹黑',
@@ -439,7 +447,7 @@ export function applyCorrection(payload) {
   bomEntries.push(...lgs433SwhEntries, ...lgs434SwhEntries);
   payload.materialDb.bomEntries = bomEntries;
 
-  // 7. Update Product records (color_info, skus, names)
+  // 7. Update Product records (color_info, skus, names, and product.colors array)
   const p433 = payload.bom['LGS433'];
   p433.color_info['复古色'].sku = 'LGS433KD02V1S';
   p433.color_info['白色'].sku = 'LGS433WH02V1S';
@@ -454,6 +462,9 @@ export function applyCorrection(payload) {
     color_ver_vi: 'màu đen vân gỗ',
     materials: []
   };
+  if (!p433.colors.includes('山纹黑')) {
+    p433.colors = [...p433.colors, '山纹黑'];
+  }
 
   const p434 = payload.bom['LGS434'];
   p434.color_info['白色'].sku = 'LGS434WH02V1S';
@@ -468,8 +479,59 @@ export function applyCorrection(payload) {
     color_ver_vi: 'màu đen vân gỗ',
     materials: []
   };
+  if (!p434.colors.includes('山纹黑')) {
+    p434.colors = [...p434.colors, '山纹黑'];
+  }
 
-  // 8. Sync legacy product BOM from materialDb
+  // 8. Change control & Manifest history (without releasing any revision)
+  payload.updatedAt = CORRECTION_TIMESTAMP;
+
+  // Add change-control notification if not already present
+  if (!payload.notifications) payload.notifications = [];
+  const notifId = 'notif_ecn_433_434_v1s_draft';
+  if (!payload.notifications.some(n => n.id === notifId)) {
+    payload.notifications.unshift({
+      id: notifId,
+      type: 'ecn-draft-correction',
+      actor: 'admin',
+      createdAt: CORRECTION_TIMESTAMP,
+      version: 2,
+      summary: 'ECN修正: LGS433 V5 / LGS434 V6 新结构五金包V1S、独立纸箱与B201S变体',
+      details: '修正新结构SKU为V1S，创建独立V1S五金包母件并恢复旧五金包完整历史构成，创建独立瓦楞纸箱并引入B201S山纹黑变体（保持Draft状态未发布）。'
+    });
+  }
+
+  // Add BOM history entries for LGS433 and LGS434 if not already present
+  if (!payload.bomHistory) payload.bomHistory = {};
+  if (!payload.bomHistory['LGS433']) payload.bomHistory['LGS433'] = [];
+  const h433Id = 'history_lgs433_v5_v1s_correction';
+  if (!payload.bomHistory['LGS433'].some(h => h.id === h433Id)) {
+    payload.bomHistory['LGS433'].unshift({
+      id: h433Id,
+      productCode: 'LGS433',
+      revision: 'V5',
+      action: 'save',
+      actor: 'admin',
+      reason: 'ECN修正: 新结构SKU更名V1S，引入独立五金包LGS433WJBBHV1S/WHV1S，1185×340×105mm独立纸箱及B201S变体（保持Draft）',
+      createdAt: CORRECTION_TIMESTAMP
+    });
+  }
+
+  if (!payload.bomHistory['LGS434']) payload.bomHistory['LGS434'] = [];
+  const h434Id = 'history_lgs434_v6_v1s_correction';
+  if (!payload.bomHistory['LGS434'].some(h => h.id === h434Id)) {
+    payload.bomHistory['LGS434'].unshift({
+      id: h434Id,
+      productCode: 'LGS434',
+      revision: 'V6',
+      action: 'save',
+      actor: 'admin',
+      reason: 'ECN修正: 新结构SKU更名V1S，引入独立五金包LGS434WJBBHV1S/WHV1S，860×410×145mm独立纸箱及B201S变体（保持Draft）',
+      createdAt: CORRECTION_TIMESTAMP
+    });
+  }
+
+  // 9. Sync legacy product BOM from materialDb
   syncLegacyBomFromMaterialDb(payload);
 
   return payload;

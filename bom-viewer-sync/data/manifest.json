@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-09-22T09:59:26.335Z",
+  "updatedAt": "2026-09-23T10:45:00.000Z",
   "products": [
     "5106",
     "LGS031",
@@ -341400,6 +341400,15 @@
   },
   "notifications": [
     {
+      "id": "notif_ecn_433_434_v1s_draft",
+      "type": "ecn-draft-correction",
+      "actor": "admin",
+      "createdAt": "2026-09-23T10:45:00.000Z",
+      "version": 2,
+      "summary": "ECN修正: LGS433 V5 / LGS434 V6 新结构五金包V1S、独立纸箱与B201S变体",
+      "details": "修正新结构SKU为V1S，创建独立V1S五金包母件并恢复旧五金包完整历史构成，创建独立瓦楞纸箱并引入B201S山纹黑变体（保持Draft状态未发布）。"
+    },
+    {
       "id": "notif_12g0cdy",
       "type": "github-save",
       "actor": "admin",
@@ -348218,6 +348227,15 @@
       }
     ],
     "LGS434": [
+      {
+        "id": "history_lgs434_v6_v1s_correction",
+        "productCode": "LGS434",
+        "revision": "V6",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN修正: 新结构SKU更名V1S，引入独立五金包LGS434WJBBHV1S/WHV1S，860×410×145mm独立纸箱及B201S变体（保持Draft）",
+        "createdAt": "2026-09-23T10:45:00.000Z"
+      },
       {
         "id": "history_yiafrx",
         "productCode": "LGS434",
@@ -363305,6 +363323,15 @@
       }
     ],
     "LGS433": [
+      {
+        "id": "history_lgs433_v5_v1s_correction",
+        "productCode": "LGS433",
+        "revision": "V5",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN修正: 新结构SKU更名V1S，引入独立五金包LGS433WJBBHV1S/WHV1S，1185×340×105mm独立纸箱及B201S变体（保持Draft）",
+        "createdAt": "2026-09-23T10:45:00.000Z"
+      },
       {
         "id": "history_hz003a",
         "productCode": "LGS433",

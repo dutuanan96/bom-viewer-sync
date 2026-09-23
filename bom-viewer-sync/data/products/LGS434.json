@@ -2,7 +2,8 @@
   "code": "LGS434",
   "colors": [
     "白色",
-    "黑色"
+    "黑色",
+    "山纹黑"
   ],
   "color_info": {
     "白色": {
@@ -38,9 +39,9 @@
           "remark": "",
           "materials": [
             {
-              "stt": "",
+              "stt": "1",
               "mat_code": "LNSLSD65254BZ",
-              "comp_code": "",
+              "comp_code": "1",
               "name_zh": "L型内六角带十字螺丝刀",
               "name_vi": "L vít lục giác có đầu chữ thập",
               "spec": "S4",
@@ -51,8 +52,8 @@
               "color_vi": "mạ kẽm",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
+              "color_ver": "白色",
+              "color_ver_vi": "màu trắng",
               "unit": {
                 "zh": "只",
                 "vi": "cái"
@@ -61,32 +62,9 @@
               "remark": ""
             },
             {
-              "stt": "",
-              "mat_code": "LNSLSD65254BZ",
-              "comp_code": "",
-              "name_zh": "L型内六角带十字螺丝刀",
-              "name_vi": "L vít lục giác có đầu chữ thập",
-              "spec": "S4",
-              "spec_vi": "S4",
-              "material_zh": "#10",
-              "material_vi": "#10",
-              "color_zh": "镀锌",
-              "color_vi": "mạ kẽm",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "只",
-                "vi": "cái"
-              },
-              "qty": "2",
-              "remark": ""
-            },
-            {
-              "stt": "",
+              "stt": "2",
               "mat_code": "NLPLS6022WZ",
-              "comp_code": "",
+              "comp_code": "2",
               "name_zh": "M6x22内六角螺丝",
               "name_vi": "M6x22 ốc lục giác",
               "spec": "M6x22mm",
@@ -97,8 +75,8 @@
               "color_vi": "mạ kẽm",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
+              "color_ver": "白色",
+              "color_ver_vi": "màu trắng",
               "unit": {
                 "zh": "颗",
                 "vi": "viên"
@@ -107,32 +85,9 @@
               "remark": ""
             },
             {
-              "stt": "",
-              "mat_code": "NLPLS6022WZ",
-              "comp_code": "",
-              "name_zh": "M6x22内六角螺丝",
-              "name_vi": "M6x22 ốc lục giác",
-              "spec": "M6x22mm",
-              "spec_vi": "M6x22mm",
-              "material_zh": "#10",
-              "material_vi": "#10",
-              "color_zh": "镀锌",
-              "color_vi": "mạ kẽm",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "颗",
-                "vi": "viên"
-              },
-              "qty": "34+2",
-              "remark": ""
-            },
-            {
-              "stt": "",
+              "stt": "3",
               "mat_code": "NLPLS6010WZ",
-              "comp_code": "",
+              "comp_code": "3",
               "name_zh": "M6x12内六角螺丝",
               "name_vi": "M6x12 ốc lục giác",
               "spec": "M6x12mm",
@@ -143,8 +98,8 @@
               "color_vi": "mạ kẽm",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
+              "color_ver": "白色",
+              "color_ver_vi": "màu trắng",
               "unit": {
                 "zh": "颗",
                 "vi": "viên"
@@ -153,32 +108,9 @@
               "remark": ""
             },
             {
-              "stt": "",
-              "mat_code": "NLPLS6010WZ",
-              "comp_code": "",
-              "name_zh": "M6x12内六角螺丝",
-              "name_vi": "M6x12 ốc lục giác",
-              "spec": "M6x12mm",
-              "spec_vi": "M6x12mm",
-              "material_zh": "#10",
-              "material_vi": "#10",
-              "color_zh": "镀锌",
-              "color_vi": "mạ kẽm",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "颗",
-                "vi": "viên"
-              },
-              "qty": "8+1",
-              "remark": ""
-            },
-            {
-              "stt": "",
+              "stt": "4",
               "mat_code": "BCLS129228WH",
-              "comp_code": "",
+              "comp_code": "4",
               "name_zh": "把手",
               "name_vi": "tay nắm",
               "spec": "129x22x8mm",
@@ -189,8 +121,8 @@
               "color_vi": "màu trắng",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
+              "color_ver": "白色",
+              "color_ver_vi": "màu trắng",
               "unit": {
                 "zh": "只",
                 "vi": "cái"
@@ -199,32 +131,9 @@
               "remark": ""
             },
             {
-              "stt": "",
-              "mat_code": "BCLS129228WH",
-              "comp_code": "",
-              "name_zh": "把手",
-              "name_vi": "tay nắm",
-              "spec": "129x22x8mm",
-              "spec_vi": "129x22x8mm",
-              "material_zh": "PP&GF40",
-              "material_vi": "PP&GF40",
-              "color_zh": "白色",
-              "color_vi": "màu trắng",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "只",
-                "vi": "cái"
-              },
-              "qty": "8",
-              "remark": ""
-            },
-            {
-              "stt": "",
+              "stt": "5",
               "mat_code": "ZGLS4010WZ",
-              "comp_code": "",
+              "comp_code": "5",
               "name_zh": "ST4x10圆头十字自攻螺丝",
               "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
               "spec": "ST4x10mm",
@@ -235,8 +144,8 @@
               "color_vi": "mạ kẽm",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
+              "color_ver": "白色",
+              "color_ver_vi": "màu trắng",
               "unit": {
                 "zh": "颗",
                 "vi": "viên"
@@ -245,32 +154,9 @@
               "remark": ""
             },
             {
-              "stt": "",
-              "mat_code": "ZGLS4010WZ",
-              "comp_code": "",
-              "name_zh": "ST4x10圆头十字自攻螺丝",
-              "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
-              "spec": "ST4x10mm",
-              "spec_vi": "ST4x10mm",
-              "material_zh": "#10",
-              "material_vi": "#10",
-              "color_zh": "镀锌",
-              "color_vi": "mạ kẽm",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "颗",
-                "vi": "viên"
-              },
-              "qty": "16+2",
-              "remark": ""
-            },
-            {
-              "stt": "",
+              "stt": "6",
               "mat_code": "SLPZLS6030WH",
-              "comp_code": "",
+              "comp_code": "6",
               "name_zh": "塑料膨胀螺丝",
               "name_vi": "Ốc tắc kê nhựa",
               "spec": "6x30mm",
@@ -281,8 +167,8 @@
               "color_vi": "màu trắng",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
+              "color_ver": "白色",
+              "color_ver_vi": "màu trắng",
               "unit": {
                 "zh": "颗",
                 "vi": "viên"
@@ -291,32 +177,9 @@
               "remark": ""
             },
             {
-              "stt": "",
-              "mat_code": "SLPZLS6030WH",
-              "comp_code": "",
-              "name_zh": "塑料膨胀螺丝",
-              "name_vi": "Ốc tắc kê nhựa",
-              "spec": "6x30mm",
-              "spec_vi": "6x30mm",
-              "material_zh": "PP",
-              "material_vi": "PP",
-              "color_zh": "白色",
-              "color_vi": "màu trắng",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "颗",
-                "vi": "viên"
-              },
-              "qty": "2",
-              "remark": ""
-            },
-            {
-              "stt": "",
+              "stt": "7",
               "mat_code": "ZGLS3560WH",
-              "comp_code": "",
+              "comp_code": "6",
               "name_zh": "自攻螺丝",
               "name_vi": "ốc tự cắt",
               "spec": "M3.5x60mm",
@@ -327,8 +190,8 @@
               "color_vi": "mạ kẽm",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
+              "color_ver": "白色",
+              "color_ver_vi": "màu trắng",
               "unit": {
                 "zh": "颗",
                 "vi": "viên"
@@ -337,32 +200,9 @@
               "remark": ""
             },
             {
-              "stt": "",
-              "mat_code": "ZGLS3560WH",
-              "comp_code": "",
-              "name_zh": "自攻螺丝",
-              "name_vi": "ốc tự cắt",
-              "spec": "M3.5x60mm",
-              "spec_vi": "M3.5x60mm",
-              "material_zh": "#10",
-              "material_vi": "#10",
-              "color_zh": "镀锌",
-              "color_vi": "mạ kẽm",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "颗",
-                "vi": "viên"
-              },
-              "qty": "2",
-              "remark": ""
-            },
-            {
-              "stt": "",
+              "stt": "8",
               "mat_code": "TZJD629825WH",
-              "comp_code": "",
+              "comp_code": "7",
               "name_zh": "10-底脚",
               "name_vi": "10-chân đế",
               "spec": "M6x10mm",
@@ -373,8 +213,8 @@
               "color_vi": "màu trắng",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
+              "color_ver": "白色",
+              "color_ver_vi": "màu trắng",
               "unit": {
                 "zh": "只",
                 "vi": "cái"
@@ -383,170 +223,9 @@
               "remark": ""
             },
             {
-              "stt": "",
-              "mat_code": "TZJD629825WH",
-              "comp_code": "",
-              "name_zh": "10-底脚",
-              "name_vi": "10-chân đế",
-              "spec": "M6x10mm",
-              "spec_vi": "M6x10mm",
-              "material_zh": "PP&镀锌碳钢",
-              "material_vi": "PP&thép mạ kẽm",
-              "color_zh": "白色",
-              "color_vi": "màu trắng",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "只",
-                "vi": "cái"
-              },
-              "qty": "6",
-              "remark": ""
-            },
-            {
-              "stt": "",
-              "mat_code": "MS6030YS",
-              "comp_code": "",
-              "name_zh": "6x30木榫",
-              "name_vi": "6x30 chốt gỗ",
-              "spec": "Ø6x30mm",
-              "spec_vi": "Ø6x30mm",
-              "material_zh": "木",
-              "material_vi": "gỗ",
-              "color_zh": "木色",
-              "color_vi": "màu gỗ",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "个",
-                "vi": "cái"
-              },
-              "qty": "3",
-              "remark": ""
-            },
-            {
-              "stt": "",
-              "mat_code": "MS6030YS",
-              "comp_code": "",
-              "name_zh": "6x30木榫",
-              "name_vi": "6x30 chốt gỗ",
-              "spec": "Ø6x30mm",
-              "spec_vi": "Ø6x30mm",
-              "material_zh": "木",
-              "material_vi": "gỗ",
-              "color_zh": "木色",
-              "color_vi": "màu gỗ",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "个",
-                "vi": "cái"
-              },
-              "qty": "3",
-              "remark": ""
-            },
-            {
-              "stt": "",
-              "mat_code": "LNBS57253BZ",
-              "comp_code": "",
-              "name_zh": "L型内六角扳手",
-              "name_vi": "L cờ lê lục giác",
-              "spec": "S3",
-              "spec_vi": "S3",
-              "material_zh": "#10",
-              "material_vi": "#10",
-              "color_zh": "镀锌",
-              "color_vi": "mạ kẽm",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "只",
-                "vi": "cái"
-              },
-              "qty": "1",
-              "remark": ""
-            },
-            {
-              "stt": "",
-              "mat_code": "LNBS57253BZ",
-              "comp_code": "",
-              "name_zh": "L型内六角扳手",
-              "name_vi": "L cờ lê lục giác",
-              "spec": "S3",
-              "spec_vi": "S3",
-              "material_zh": "#10",
-              "material_vi": "#10",
-              "color_zh": "镀锌",
-              "color_vi": "mạ kẽm",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "只",
-                "vi": "cái"
-              },
-              "qty": "1",
-              "remark": ""
-            },
-            {
-              "stt": "",
-              "mat_code": "PTZGLS6308WZ",
-              "comp_code": "",
-              "name_zh": "ST3.5x12平头十字自攻螺丝",
-              "name_vi": "ST3.5x12 ốc tự cắt đầu bằng chữ thập",
-              "spec": "ST3.5x12mm",
-              "spec_vi": "ST3.5x12mm",
-              "material_zh": "#10",
-              "material_vi": "#10",
-              "color_zh": "镀锌",
-              "color_vi": "mạ kẽm",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "颗",
-                "vi": "viên"
-              },
-              "qty": "2",
-              "remark": ""
-            },
-            {
-              "stt": "",
-              "mat_code": "PTZGLS6308WZ",
-              "comp_code": "",
-              "name_zh": "ST3.5x12平头十字自攻螺丝",
-              "name_vi": "ST3.5x12 ốc tự cắt đầu bằng chữ thập",
-              "spec": "ST3.5x12mm",
-              "spec_vi": "ST3.5x12mm",
-              "material_zh": "#10",
-              "material_vi": "#10",
-              "color_zh": "镀锌",
-              "color_vi": "mạ kẽm",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "颗",
-                "vi": "viên"
-              },
-              "qty": "2",
-              "remark": ""
-            },
-            {
-              "stt": "",
+              "stt": "9",
               "mat_code": "NLPLS4022WZ",
-              "comp_code": "",
+              "comp_code": "8",
               "name_zh": "M4×22内六角螺丝",
               "name_vi": "M4×22 ốc lục giác",
               "spec": "M4×22mm",
@@ -557,30 +236,79 @@
               "color_vi": "mạ kẽm",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
+              "color_ver": "白色",
+              "color_ver_vi": "màu trắng",
               "unit": "颗",
               "qty": "4+1",
               "remark": ""
             },
             {
-              "stt": "",
-              "mat_code": "NLPLS4022WZ",
-              "comp_code": "",
-              "name_zh": "M4×22内六角螺丝",
-              "name_vi": "M4×22 ốc lục giác",
-              "spec": "M4×22mm",
-              "spec_vi": "M4×22mm",
+              "stt": "10",
+              "mat_code": "MS6030YS",
+              "comp_code": "9",
+              "name_zh": "6x30木榫",
+              "name_vi": "6x30 chốt gỗ",
+              "spec": "Ø6x30mm",
+              "spec_vi": "Ø6x30mm",
+              "material_zh": "木",
+              "material_vi": "gỗ",
+              "color_zh": "木色",
+              "color_vi": "màu gỗ",
+              "attr_zh": "五金包",
+              "attr_vi": "túi ngũ kim",
+              "color_ver": "白色",
+              "color_ver_vi": "màu trắng",
+              "unit": {
+                "zh": "个",
+                "vi": "cái"
+              },
+              "qty": "3",
+              "remark": ""
+            },
+            {
+              "stt": "11",
+              "mat_code": "LNBS57253BZ",
+              "comp_code": "10",
+              "name_zh": "L型内六角扳手",
+              "name_vi": "L cờ lê lục giác",
+              "spec": "S3",
+              "spec_vi": "S3",
               "material_zh": "#10",
               "material_vi": "#10",
               "color_zh": "镀锌",
               "color_vi": "mạ kẽm",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": "颗",
-              "qty": "4+1",
+              "color_ver": "白色",
+              "color_ver_vi": "màu trắng",
+              "unit": {
+                "zh": "只",
+                "vi": "cái"
+              },
+              "qty": "1",
+              "remark": ""
+            },
+            {
+              "stt": "12",
+              "mat_code": "PTZGLS6308WZ",
+              "comp_code": "11",
+              "name_zh": "ST3.5x12平头十字自攻螺丝",
+              "name_vi": "ST3.5x12 ốc tự cắt đầu bằng chữ thập",
+              "spec": "ST3.5x12mm",
+              "spec_vi": "ST3.5x12mm",
+              "material_zh": "#10",
+              "material_vi": "#10",
+              "color_zh": "镀锌",
+              "color_vi": "mạ kẽm",
+              "attr_zh": "五金包",
+              "attr_vi": "túi ngũ kim",
+              "color_ver": "白色",
+              "color_ver_vi": "màu trắng",
+              "unit": {
+                "zh": "颗",
+                "vi": "viên"
+              },
+              "qty": "2",
               "remark": ""
             }
           ]
@@ -2578,9 +2306,9 @@
           "remark": "",
           "materials": [
             {
-              "stt": "",
+              "stt": "1",
               "mat_code": "LNSLSD65254BZ",
-              "comp_code": "",
+              "comp_code": "1",
               "name_zh": "L型内六角带十字螺丝刀",
               "name_vi": "L vít lục giác có đầu chữ thập",
               "spec": "S4",
@@ -2591,8 +2319,8 @@
               "color_vi": "mạ kẽm",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
+              "color_ver": "黑色",
+              "color_ver_vi": "màu đen",
               "unit": {
                 "zh": "只",
                 "vi": "cái"
@@ -2601,32 +2329,9 @@
               "remark": ""
             },
             {
-              "stt": "",
-              "mat_code": "LNSLSD65254BZ",
-              "comp_code": "",
-              "name_zh": "L型内六角带十字螺丝刀",
-              "name_vi": "L vít lục giác có đầu chữ thập",
-              "spec": "S4",
-              "spec_vi": "S4",
-              "material_zh": "#10",
-              "material_vi": "#10",
-              "color_zh": "镀锌",
-              "color_vi": "mạ kẽm",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "只",
-                "vi": "cái"
-              },
-              "qty": "2",
-              "remark": ""
-            },
-            {
-              "stt": "",
+              "stt": "2",
               "mat_code": "NLPLS6022BZ",
-              "comp_code": "",
+              "comp_code": "2",
               "name_zh": "M6x22内六角螺丝",
               "name_vi": "M6x22 ốc lục giác",
               "spec": "M6x22mm",
@@ -2637,8 +2342,8 @@
               "color_vi": "màu đen",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
+              "color_ver": "黑色",
+              "color_ver_vi": "màu đen",
               "unit": {
                 "zh": "颗",
                 "vi": "viên"
@@ -2647,32 +2352,9 @@
               "remark": ""
             },
             {
-              "stt": "",
-              "mat_code": "NLPLS6022BZ",
-              "comp_code": "",
-              "name_zh": "M6x22内六角螺丝",
-              "name_vi": "M6x22 ốc lục giác",
-              "spec": "M6x22mm",
-              "spec_vi": "M6x22mm",
-              "material_zh": "#10",
-              "material_vi": "#10",
-              "color_zh": "黑色",
-              "color_vi": "màu đen",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "颗",
-                "vi": "viên"
-              },
-              "qty": "34+2",
-              "remark": ""
-            },
-            {
-              "stt": "",
+              "stt": "3",
               "mat_code": "NLPLS6010BZ",
-              "comp_code": "",
+              "comp_code": "3",
               "name_zh": "M6x12内六角螺丝",
               "name_vi": "M6x12 ốc lục giác",
               "spec": "M6x12mm",
@@ -2683,8 +2365,8 @@
               "color_vi": "màu đen",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
+              "color_ver": "黑色",
+              "color_ver_vi": "màu đen",
               "unit": {
                 "zh": "颗",
                 "vi": "viên"
@@ -2693,32 +2375,9 @@
               "remark": ""
             },
             {
-              "stt": "",
-              "mat_code": "NLPLS6010BZ",
-              "comp_code": "",
-              "name_zh": "M6x12内六角螺丝",
-              "name_vi": "M6x12 ốc lục giác",
-              "spec": "M6x12mm",
-              "spec_vi": "M6x12mm",
-              "material_zh": "#10",
-              "material_vi": "#10",
-              "color_zh": "黑色",
-              "color_vi": "màu đen",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "颗",
-                "vi": "viên"
-              },
-              "qty": "8+1",
-              "remark": ""
-            },
-            {
-              "stt": "",
+              "stt": "4",
               "mat_code": "BCLS129228BH",
-              "comp_code": "",
+              "comp_code": "4",
               "name_zh": "把手",
               "name_vi": "tay nắm",
               "spec": "129x22x8mm",
@@ -2729,8 +2388,8 @@
               "color_vi": "màu đen",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
+              "color_ver": "黑色",
+              "color_ver_vi": "màu đen",
               "unit": {
                 "zh": "只",
                 "vi": "cái"
@@ -2739,32 +2398,9 @@
               "remark": ""
             },
             {
-              "stt": "",
-              "mat_code": "BCLS129228BH",
-              "comp_code": "",
-              "name_zh": "把手",
-              "name_vi": "tay nắm",
-              "spec": "129x22x8mm",
-              "spec_vi": "129x22x8mm",
-              "material_zh": "PP&GF40",
-              "material_vi": "PP&GF40",
-              "color_zh": "黑色",
-              "color_vi": "màu đen",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "只",
-                "vi": "cái"
-              },
-              "qty": "8",
-              "remark": ""
-            },
-            {
-              "stt": "",
+              "stt": "5",
               "mat_code": "ZGLS4010CZ",
-              "comp_code": "",
+              "comp_code": "5",
               "name_zh": "ST4x10圆头十字自攻螺丝",
               "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
               "spec": "ST4x10mm",
@@ -2775,8 +2411,8 @@
               "color_vi": "màu đen",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
+              "color_ver": "黑色",
+              "color_ver_vi": "màu đen",
               "unit": {
                 "zh": "颗",
                 "vi": "viên"
@@ -2785,32 +2421,9 @@
               "remark": ""
             },
             {
-              "stt": "",
-              "mat_code": "ZGLS4010CZ",
-              "comp_code": "",
-              "name_zh": "ST4x10圆头十字自攻螺丝",
-              "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
-              "spec": "ST4x10mm",
-              "spec_vi": "ST4x10mm",
-              "material_zh": "#10",
-              "material_vi": "#10",
-              "color_zh": "黑色",
-              "color_vi": "màu đen",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "颗",
-                "vi": "viên"
-              },
-              "qty": "16+2",
-              "remark": ""
-            },
-            {
-              "stt": "",
+              "stt": "6",
               "mat_code": "SLPZLS6030WH",
-              "comp_code": "",
+              "comp_code": "6",
               "name_zh": "塑料膨胀螺丝",
               "name_vi": "Ốc tắc kê nhựa",
               "spec": "6x30mm",
@@ -2821,8 +2434,8 @@
               "color_vi": "màu trắng",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
+              "color_ver": "黑色",
+              "color_ver_vi": "màu đen",
               "unit": {
                 "zh": "颗",
                 "vi": "viên"
@@ -2831,32 +2444,9 @@
               "remark": ""
             },
             {
-              "stt": "",
-              "mat_code": "SLPZLS6030WH",
-              "comp_code": "",
-              "name_zh": "塑料膨胀螺丝",
-              "name_vi": "Ốc tắc kê nhựa",
-              "spec": "6x30mm",
-              "spec_vi": "6x30mm",
-              "material_zh": "PP",
-              "material_vi": "PP",
-              "color_zh": "白色",
-              "color_vi": "màu trắng",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "颗",
-                "vi": "viên"
-              },
-              "qty": "2",
-              "remark": ""
-            },
-            {
-              "stt": "",
+              "stt": "7",
               "mat_code": "ZGLS3560BH",
-              "comp_code": "",
+              "comp_code": "6",
               "name_zh": "自攻螺丝",
               "name_vi": "ốc tự cắt",
               "spec": "M3.5x60mm",
@@ -2867,8 +2457,8 @@
               "color_vi": "màu đen",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
+              "color_ver": "黑色",
+              "color_ver_vi": "màu đen",
               "unit": {
                 "zh": "颗",
                 "vi": "viên"
@@ -2877,32 +2467,9 @@
               "remark": ""
             },
             {
-              "stt": "",
-              "mat_code": "ZGLS3560BH",
-              "comp_code": "",
-              "name_zh": "自攻螺丝",
-              "name_vi": "ốc tự cắt",
-              "spec": "M3.5x60mm",
-              "spec_vi": "M3.5x60mm",
-              "material_zh": "#10",
-              "material_vi": "#10",
-              "color_zh": "黑色",
-              "color_vi": "màu đen",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "颗",
-                "vi": "viên"
-              },
-              "qty": "2",
-              "remark": ""
-            },
-            {
-              "stt": "",
+              "stt": "8",
               "mat_code": "TZJD629825BH",
-              "comp_code": "",
+              "comp_code": "7",
               "name_zh": "10-底脚",
               "name_vi": "10-chân đế",
               "spec": "M6x10mm",
@@ -2913,8 +2480,8 @@
               "color_vi": "màu đen",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
+              "color_ver": "黑色",
+              "color_ver_vi": "màu đen",
               "unit": {
                 "zh": "只",
                 "vi": "cái"
@@ -2923,170 +2490,9 @@
               "remark": ""
             },
             {
-              "stt": "",
-              "mat_code": "TZJD629825BH",
-              "comp_code": "",
-              "name_zh": "10-底脚",
-              "name_vi": "10-chân đế",
-              "spec": "M6x10mm",
-              "spec_vi": "M6x10mm",
-              "material_zh": "PP&镀锌碳钢",
-              "material_vi": "PP&thép mạ kẽm",
-              "color_zh": "黑色",
-              "color_vi": "màu đen",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "只",
-                "vi": "cái"
-              },
-              "qty": "6",
-              "remark": ""
-            },
-            {
-              "stt": "",
-              "mat_code": "MS6030YS",
-              "comp_code": "",
-              "name_zh": "6x30木榫",
-              "name_vi": "6x30 chốt gỗ",
-              "spec": "Ø6x30mm",
-              "spec_vi": "Ø6x30mm",
-              "material_zh": "木",
-              "material_vi": "gỗ",
-              "color_zh": "木色",
-              "color_vi": "màu gỗ",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "个",
-                "vi": "cái"
-              },
-              "qty": "3",
-              "remark": ""
-            },
-            {
-              "stt": "",
-              "mat_code": "MS6030YS",
-              "comp_code": "",
-              "name_zh": "6x30木榫",
-              "name_vi": "6x30 chốt gỗ",
-              "spec": "Ø6x30mm",
-              "spec_vi": "Ø6x30mm",
-              "material_zh": "木",
-              "material_vi": "gỗ",
-              "color_zh": "木色",
-              "color_vi": "màu gỗ",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "个",
-                "vi": "cái"
-              },
-              "qty": "3",
-              "remark": ""
-            },
-            {
-              "stt": "",
-              "mat_code": "LNBS57253BZ",
-              "comp_code": "",
-              "name_zh": "L型内六角扳手",
-              "name_vi": "L cờ lê lục giác",
-              "spec": "S3",
-              "spec_vi": "S3",
-              "material_zh": "#10",
-              "material_vi": "#10",
-              "color_zh": "镀锌",
-              "color_vi": "mạ kẽm",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "只",
-                "vi": "cái"
-              },
-              "qty": "1",
-              "remark": ""
-            },
-            {
-              "stt": "",
-              "mat_code": "LNBS57253BZ",
-              "comp_code": "",
-              "name_zh": "L型内六角扳手",
-              "name_vi": "L cờ lê lục giác",
-              "spec": "S3",
-              "spec_vi": "S3",
-              "material_zh": "#10",
-              "material_vi": "#10",
-              "color_zh": "镀锌",
-              "color_vi": "mạ kẽm",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "只",
-                "vi": "cái"
-              },
-              "qty": "1",
-              "remark": ""
-            },
-            {
-              "stt": "",
-              "mat_code": "PTZGLS6308BZ",
-              "comp_code": "",
-              "name_zh": "ST3.5x12平头十字自攻螺丝",
-              "name_vi": "ST3.5x12 ốc tự cắt đầu bằng chữ thập",
-              "spec": "ST3.5x12mm",
-              "spec_vi": "ST3.5x12mm",
-              "material_zh": "#10",
-              "material_vi": "#10",
-              "color_zh": "黑色",
-              "color_vi": "màu đen",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "颗",
-                "vi": "viên"
-              },
-              "qty": "2",
-              "remark": ""
-            },
-            {
-              "stt": "",
-              "mat_code": "PTZGLS6308BZ",
-              "comp_code": "",
-              "name_zh": "ST3.5x12平头十字自攻螺丝",
-              "name_vi": "ST3.5x12 ốc tự cắt đầu bằng chữ thập",
-              "spec": "ST3.5x12mm",
-              "spec_vi": "ST3.5x12mm",
-              "material_zh": "#10",
-              "material_vi": "#10",
-              "color_zh": "黑色",
-              "color_vi": "màu đen",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "颗",
-                "vi": "viên"
-              },
-              "qty": "2",
-              "remark": ""
-            },
-            {
-              "stt": "",
+              "stt": "9",
               "mat_code": "NLPLS4022BZ",
-              "comp_code": "",
+              "comp_code": "8",
               "name_zh": "M4×22内六角螺丝",
               "name_vi": "M4×22 ốc lục giác",
               "spec": "M4×22mm",
@@ -3097,30 +2503,79 @@
               "color_vi": "màu đen",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
+              "color_ver": "黑色",
+              "color_ver_vi": "màu đen",
               "unit": "颗",
               "qty": "4+1",
               "remark": ""
             },
             {
-              "stt": "",
-              "mat_code": "NLPLS4022BZ",
-              "comp_code": "",
-              "name_zh": "M4×22内六角螺丝",
-              "name_vi": "M4×22 ốc lục giác",
-              "spec": "M4×22mm",
-              "spec_vi": "M4×22mm",
+              "stt": "10",
+              "mat_code": "MS6030YS",
+              "comp_code": "9",
+              "name_zh": "6x30木榫",
+              "name_vi": "6x30 chốt gỗ",
+              "spec": "Ø6x30mm",
+              "spec_vi": "Ø6x30mm",
+              "material_zh": "木",
+              "material_vi": "gỗ",
+              "color_zh": "木色",
+              "color_vi": "màu gỗ",
+              "attr_zh": "五金包",
+              "attr_vi": "túi ngũ kim",
+              "color_ver": "黑色",
+              "color_ver_vi": "màu đen",
+              "unit": {
+                "zh": "个",
+                "vi": "cái"
+              },
+              "qty": "3",
+              "remark": ""
+            },
+            {
+              "stt": "11",
+              "mat_code": "LNBS57253BZ",
+              "comp_code": "10",
+              "name_zh": "L型内六角扳手",
+              "name_vi": "L cờ lê lục giác",
+              "spec": "S3",
+              "spec_vi": "S3",
+              "material_zh": "#10",
+              "material_vi": "#10",
+              "color_zh": "镀锌",
+              "color_vi": "mạ kẽm",
+              "attr_zh": "五金包",
+              "attr_vi": "túi ngũ kim",
+              "color_ver": "黑色",
+              "color_ver_vi": "màu đen",
+              "unit": {
+                "zh": "只",
+                "vi": "cái"
+              },
+              "qty": "1",
+              "remark": ""
+            },
+            {
+              "stt": "12",
+              "mat_code": "PTZGLS6308BZ",
+              "comp_code": "11",
+              "name_zh": "ST3.5x12平头十字自攻螺丝",
+              "name_vi": "ST3.5x12 ốc tự cắt đầu bằng chữ thập",
+              "spec": "ST3.5x12mm",
+              "spec_vi": "ST3.5x12mm",
               "material_zh": "#10",
               "material_vi": "#10",
               "color_zh": "黑色",
               "color_vi": "màu đen",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": "颗",
-              "qty": "4+1",
+              "color_ver": "黑色",
+              "color_ver_vi": "màu đen",
+              "unit": {
+                "zh": "颗",
+                "vi": "viên"
+              },
+              "qty": "2",
               "remark": ""
             }
           ]
@@ -5118,9 +4573,9 @@
           "remark": "",
           "materials": [
             {
-              "stt": "",
+              "stt": "1",
               "mat_code": "LNSLSD65254BZ",
-              "comp_code": "",
+              "comp_code": "1",
               "name_zh": "L型内六角带十字螺丝刀",
               "name_vi": "L vít lục giác có đầu chữ thập",
               "spec": "S4",
@@ -5131,8 +4586,8 @@
               "color_vi": "mạ kẽm",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
+              "color_ver": "山纹黑",
+              "color_ver_vi": "màu đen vân gỗ",
               "unit": {
                 "zh": "只",
                 "vi": "cái"
@@ -5141,32 +4596,9 @@
               "remark": ""
             },
             {
-              "stt": "",
-              "mat_code": "LNSLSD65254BZ",
-              "comp_code": "",
-              "name_zh": "L型内六角带十字螺丝刀",
-              "name_vi": "L vít lục giác có đầu chữ thập",
-              "spec": "S4",
-              "spec_vi": "S4",
-              "material_zh": "#10",
-              "material_vi": "#10",
-              "color_zh": "镀锌",
-              "color_vi": "mạ kẽm",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "只",
-                "vi": "cái"
-              },
-              "qty": "2",
-              "remark": ""
-            },
-            {
-              "stt": "",
+              "stt": "2",
               "mat_code": "NLPLS6022BZ",
-              "comp_code": "",
+              "comp_code": "2",
               "name_zh": "M6x22内六角螺丝",
               "name_vi": "M6x22 ốc lục giác",
               "spec": "M6x22mm",
@@ -5177,8 +4609,8 @@
               "color_vi": "màu đen",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
+              "color_ver": "山纹黑",
+              "color_ver_vi": "màu đen vân gỗ",
               "unit": {
                 "zh": "颗",
                 "vi": "viên"
@@ -5187,32 +4619,9 @@
               "remark": ""
             },
             {
-              "stt": "",
-              "mat_code": "NLPLS6022BZ",
-              "comp_code": "",
-              "name_zh": "M6x22内六角螺丝",
-              "name_vi": "M6x22 ốc lục giác",
-              "spec": "M6x22mm",
-              "spec_vi": "M6x22mm",
-              "material_zh": "#10",
-              "material_vi": "#10",
-              "color_zh": "黑色",
-              "color_vi": "màu đen",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "颗",
-                "vi": "viên"
-              },
-              "qty": "34+2",
-              "remark": ""
-            },
-            {
-              "stt": "",
+              "stt": "3",
               "mat_code": "NLPLS6010BZ",
-              "comp_code": "",
+              "comp_code": "3",
               "name_zh": "M6x12内六角螺丝",
               "name_vi": "M6x12 ốc lục giác",
               "spec": "M6x12mm",
@@ -5223,8 +4632,8 @@
               "color_vi": "màu đen",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
+              "color_ver": "山纹黑",
+              "color_ver_vi": "màu đen vân gỗ",
               "unit": {
                 "zh": "颗",
                 "vi": "viên"
@@ -5233,32 +4642,9 @@
               "remark": ""
             },
             {
-              "stt": "",
-              "mat_code": "NLPLS6010BZ",
-              "comp_code": "",
-              "name_zh": "M6x12内六角螺丝",
-              "name_vi": "M6x12 ốc lục giác",
-              "spec": "M6x12mm",
-              "spec_vi": "M6x12mm",
-              "material_zh": "#10",
-              "material_vi": "#10",
-              "color_zh": "黑色",
-              "color_vi": "màu đen",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "颗",
-                "vi": "viên"
-              },
-              "qty": "8+1",
-              "remark": ""
-            },
-            {
-              "stt": "",
+              "stt": "4",
               "mat_code": "BCLS129228BH",
-              "comp_code": "",
+              "comp_code": "4",
               "name_zh": "把手",
               "name_vi": "tay nắm",
               "spec": "129x22x8mm",
@@ -5269,8 +4655,8 @@
               "color_vi": "màu đen",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
+              "color_ver": "山纹黑",
+              "color_ver_vi": "màu đen vân gỗ",
               "unit": {
                 "zh": "只",
                 "vi": "cái"
@@ -5279,32 +4665,9 @@
               "remark": ""
             },
             {
-              "stt": "",
-              "mat_code": "BCLS129228BH",
-              "comp_code": "",
-              "name_zh": "把手",
-              "name_vi": "tay nắm",
-              "spec": "129x22x8mm",
-              "spec_vi": "129x22x8mm",
-              "material_zh": "PP&GF40",
-              "material_vi": "PP&GF40",
-              "color_zh": "黑色",
-              "color_vi": "màu đen",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "只",
-                "vi": "cái"
-              },
-              "qty": "8",
-              "remark": ""
-            },
-            {
-              "stt": "",
+              "stt": "5",
               "mat_code": "ZGLS4010CZ",
-              "comp_code": "",
+              "comp_code": "5",
               "name_zh": "ST4x10圆头十字自攻螺丝",
               "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
               "spec": "ST4x10mm",
@@ -5315,8 +4678,8 @@
               "color_vi": "màu đen",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
+              "color_ver": "山纹黑",
+              "color_ver_vi": "màu đen vân gỗ",
               "unit": {
                 "zh": "颗",
                 "vi": "viên"
@@ -5325,32 +4688,9 @@
               "remark": ""
             },
             {
-              "stt": "",
-              "mat_code": "ZGLS4010CZ",
-              "comp_code": "",
-              "name_zh": "ST4x10圆头十字自攻螺丝",
-              "name_vi": "ST4x10 ốc tự cắt đầu tròn chữ thập",
-              "spec": "ST4x10mm",
-              "spec_vi": "ST4x10mm",
-              "material_zh": "#10",
-              "material_vi": "#10",
-              "color_zh": "黑色",
-              "color_vi": "màu đen",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "颗",
-                "vi": "viên"
-              },
-              "qty": "16+2",
-              "remark": ""
-            },
-            {
-              "stt": "",
+              "stt": "6",
               "mat_code": "SLPZLS6030WH",
-              "comp_code": "",
+              "comp_code": "6",
               "name_zh": "塑料膨胀螺丝",
               "name_vi": "Ốc tắc kê nhựa",
               "spec": "6x30mm",
@@ -5361,8 +4701,8 @@
               "color_vi": "màu trắng",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
+              "color_ver": "山纹黑",
+              "color_ver_vi": "màu đen vân gỗ",
               "unit": {
                 "zh": "颗",
                 "vi": "viên"
@@ -5371,32 +4711,9 @@
               "remark": ""
             },
             {
-              "stt": "",
-              "mat_code": "SLPZLS6030WH",
-              "comp_code": "",
-              "name_zh": "塑料膨胀螺丝",
-              "name_vi": "Ốc tắc kê nhựa",
-              "spec": "6x30mm",
-              "spec_vi": "6x30mm",
-              "material_zh": "PP",
-              "material_vi": "PP",
-              "color_zh": "白色",
-              "color_vi": "màu trắng",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "颗",
-                "vi": "viên"
-              },
-              "qty": "2",
-              "remark": ""
-            },
-            {
-              "stt": "",
+              "stt": "7",
               "mat_code": "ZGLS3560BH",
-              "comp_code": "",
+              "comp_code": "6",
               "name_zh": "自攻螺丝",
               "name_vi": "ốc tự cắt",
               "spec": "M3.5x60mm",
@@ -5407,8 +4724,8 @@
               "color_vi": "màu đen",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
+              "color_ver": "山纹黑",
+              "color_ver_vi": "màu đen vân gỗ",
               "unit": {
                 "zh": "颗",
                 "vi": "viên"
@@ -5417,32 +4734,9 @@
               "remark": ""
             },
             {
-              "stt": "",
-              "mat_code": "ZGLS3560BH",
-              "comp_code": "",
-              "name_zh": "自攻螺丝",
-              "name_vi": "ốc tự cắt",
-              "spec": "M3.5x60mm",
-              "spec_vi": "M3.5x60mm",
-              "material_zh": "#10",
-              "material_vi": "#10",
-              "color_zh": "黑色",
-              "color_vi": "màu đen",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "颗",
-                "vi": "viên"
-              },
-              "qty": "2",
-              "remark": ""
-            },
-            {
-              "stt": "",
+              "stt": "8",
               "mat_code": "TZJD629825BH",
-              "comp_code": "",
+              "comp_code": "7",
               "name_zh": "10-底脚",
               "name_vi": "10-chân đế",
               "spec": "M6x10mm",
@@ -5453,8 +4747,8 @@
               "color_vi": "màu đen",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
+              "color_ver": "山纹黑",
+              "color_ver_vi": "màu đen vân gỗ",
               "unit": {
                 "zh": "只",
                 "vi": "cái"
@@ -5463,170 +4757,9 @@
               "remark": ""
             },
             {
-              "stt": "",
-              "mat_code": "TZJD629825BH",
-              "comp_code": "",
-              "name_zh": "10-底脚",
-              "name_vi": "10-chân đế",
-              "spec": "M6x10mm",
-              "spec_vi": "M6x10mm",
-              "material_zh": "PP&镀锌碳钢",
-              "material_vi": "PP&thép mạ kẽm",
-              "color_zh": "黑色",
-              "color_vi": "màu đen",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "只",
-                "vi": "cái"
-              },
-              "qty": "6",
-              "remark": ""
-            },
-            {
-              "stt": "",
-              "mat_code": "MS6030YS",
-              "comp_code": "",
-              "name_zh": "6x30木榫",
-              "name_vi": "6x30 chốt gỗ",
-              "spec": "Ø6x30mm",
-              "spec_vi": "Ø6x30mm",
-              "material_zh": "木",
-              "material_vi": "gỗ",
-              "color_zh": "木色",
-              "color_vi": "màu gỗ",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "个",
-                "vi": "cái"
-              },
-              "qty": "3",
-              "remark": ""
-            },
-            {
-              "stt": "",
-              "mat_code": "MS6030YS",
-              "comp_code": "",
-              "name_zh": "6x30木榫",
-              "name_vi": "6x30 chốt gỗ",
-              "spec": "Ø6x30mm",
-              "spec_vi": "Ø6x30mm",
-              "material_zh": "木",
-              "material_vi": "gỗ",
-              "color_zh": "木色",
-              "color_vi": "màu gỗ",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "个",
-                "vi": "cái"
-              },
-              "qty": "3",
-              "remark": ""
-            },
-            {
-              "stt": "",
-              "mat_code": "LNBS57253BZ",
-              "comp_code": "",
-              "name_zh": "L型内六角扳手",
-              "name_vi": "L cờ lê lục giác",
-              "spec": "S3",
-              "spec_vi": "S3",
-              "material_zh": "#10",
-              "material_vi": "#10",
-              "color_zh": "镀锌",
-              "color_vi": "mạ kẽm",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "只",
-                "vi": "cái"
-              },
-              "qty": "1",
-              "remark": ""
-            },
-            {
-              "stt": "",
-              "mat_code": "LNBS57253BZ",
-              "comp_code": "",
-              "name_zh": "L型内六角扳手",
-              "name_vi": "L cờ lê lục giác",
-              "spec": "S3",
-              "spec_vi": "S3",
-              "material_zh": "#10",
-              "material_vi": "#10",
-              "color_zh": "镀锌",
-              "color_vi": "mạ kẽm",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "只",
-                "vi": "cái"
-              },
-              "qty": "1",
-              "remark": ""
-            },
-            {
-              "stt": "",
-              "mat_code": "PTZGLS6308BZ",
-              "comp_code": "",
-              "name_zh": "ST3.5x12平头十字自攻螺丝",
-              "name_vi": "ST3.5x12 ốc tự cắt đầu bằng chữ thập",
-              "spec": "ST3.5x12mm",
-              "spec_vi": "ST3.5x12mm",
-              "material_zh": "#10",
-              "material_vi": "#10",
-              "color_zh": "黑色",
-              "color_vi": "màu đen",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "颗",
-                "vi": "viên"
-              },
-              "qty": "2",
-              "remark": ""
-            },
-            {
-              "stt": "",
-              "mat_code": "PTZGLS6308BZ",
-              "comp_code": "",
-              "name_zh": "ST3.5x12平头十字自攻螺丝",
-              "name_vi": "ST3.5x12 ốc tự cắt đầu bằng chữ thập",
-              "spec": "ST3.5x12mm",
-              "spec_vi": "ST3.5x12mm",
-              "material_zh": "#10",
-              "material_vi": "#10",
-              "color_zh": "黑色",
-              "color_vi": "màu đen",
-              "attr_zh": "五金包",
-              "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": {
-                "zh": "颗",
-                "vi": "viên"
-              },
-              "qty": "2",
-              "remark": ""
-            },
-            {
-              "stt": "",
+              "stt": "9",
               "mat_code": "NLPLS4022BZ",
-              "comp_code": "",
+              "comp_code": "8",
               "name_zh": "M4×22内六角螺丝",
               "name_vi": "M4×22 ốc lục giác",
               "spec": "M4×22mm",
@@ -5637,30 +4770,79 @@
               "color_vi": "màu đen",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
+              "color_ver": "山纹黑",
+              "color_ver_vi": "màu đen vân gỗ",
               "unit": "颗",
               "qty": "4+1",
               "remark": ""
             },
             {
-              "stt": "",
-              "mat_code": "NLPLS4022BZ",
-              "comp_code": "",
-              "name_zh": "M4×22内六角螺丝",
-              "name_vi": "M4×22 ốc lục giác",
-              "spec": "M4×22mm",
-              "spec_vi": "M4×22mm",
+              "stt": "10",
+              "mat_code": "MS6030YS",
+              "comp_code": "9",
+              "name_zh": "6x30木榫",
+              "name_vi": "6x30 chốt gỗ",
+              "spec": "Ø6x30mm",
+              "spec_vi": "Ø6x30mm",
+              "material_zh": "木",
+              "material_vi": "gỗ",
+              "color_zh": "木色",
+              "color_vi": "màu gỗ",
+              "attr_zh": "五金包",
+              "attr_vi": "túi ngũ kim",
+              "color_ver": "山纹黑",
+              "color_ver_vi": "màu đen vân gỗ",
+              "unit": {
+                "zh": "个",
+                "vi": "cái"
+              },
+              "qty": "3",
+              "remark": ""
+            },
+            {
+              "stt": "11",
+              "mat_code": "LNBS57253BZ",
+              "comp_code": "10",
+              "name_zh": "L型内六角扳手",
+              "name_vi": "L cờ lê lục giác",
+              "spec": "S3",
+              "spec_vi": "S3",
+              "material_zh": "#10",
+              "material_vi": "#10",
+              "color_zh": "镀锌",
+              "color_vi": "mạ kẽm",
+              "attr_zh": "五金包",
+              "attr_vi": "túi ngũ kim",
+              "color_ver": "山纹黑",
+              "color_ver_vi": "màu đen vân gỗ",
+              "unit": {
+                "zh": "只",
+                "vi": "cái"
+              },
+              "qty": "1",
+              "remark": ""
+            },
+            {
+              "stt": "12",
+              "mat_code": "PTZGLS6308BZ",
+              "comp_code": "11",
+              "name_zh": "ST3.5x12平头十字自攻螺丝",
+              "name_vi": "ST3.5x12 ốc tự cắt đầu bằng chữ thập",
+              "spec": "ST3.5x12mm",
+              "spec_vi": "ST3.5x12mm",
               "material_zh": "#10",
               "material_vi": "#10",
               "color_zh": "黑色",
               "color_vi": "màu đen",
               "attr_zh": "五金包",
               "attr_vi": "túi ngũ kim",
-              "color_ver": "",
-              "color_ver_vi": "",
-              "unit": "颗",
-              "qty": "4+1",
+              "color_ver": "山纹黑",
+              "color_ver_vi": "màu đen vân gỗ",
+              "unit": {
+                "zh": "颗",
+                "vi": "viên"
+              },
+              "qty": "2",
               "remark": ""
             }
           ]
