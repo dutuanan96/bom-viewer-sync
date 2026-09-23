@@ -162,6 +162,15 @@ hardwarePackRelations.forEach((entry) => {
     candidate.materialId === entry.parentId &&
     candidate.productCode === entry.productCode &&
     candidate.color === entry.color
+  )) || Object.values(payload.productRevisions || {}).some((prodRev) => (
+    (prodRev.revisions || []).some((rev) => (
+      rev.snapshot?.materialDb?.bomEntries?.some((candidate) => (
+        candidate.parentType === 'product' &&
+        candidate.materialId === entry.parentId &&
+        candidate.productCode === entry.productCode &&
+        candidate.color === entry.color
+      ))
+    ))
   ));
   if (!parentIsUsed) {
     report('ERROR', 'UNREACHABLE_HARDWARE_RELATION', `Hardware-pack relation ${entry.id} is not reachable from ${entry.productCode}/${entry.color}`, entry);

@@ -151,7 +151,7 @@ function materialRecordFromLegacy(material, productCode) {
 function isHardwarePackSummary(material) {
   const code = material?.mat_code || material?.code || '';
   const name = material?.name_zh || material?.name?.zh || '';
-  return /^LGS\d+WJB(BH|WH)$/i.test(String(code || '')) ||
+  return /^LGS\d+WJB(BH|WH)(V\d+S)?$/i.test(String(code || '')) ||
     /^LGS\d+五金包$/i.test(String(name || ''));
 }
 
