@@ -123,6 +123,31 @@ function proposalSnapshot() {
   };
 }
 
+test('BOM packaging remark is reviewed and updated atomically with quantity', () => {
+  const snapshot = proposalSnapshot();
+  snapshot.payload.materialDb.bomEntries[0].remark = 'Old packing';
+  const proposal = { operations: [
+    { operationType: 'update_bom_item', targetId: 'entry-1', payload: { comp_code: 'A', quantity: 3, remark: '3+3+2 rails' } },
+    { operationType: 'add_bom_item', targetId: 'LGS001', payload: { color: 'black', materialId: 'M2', comp_code: '', quantity: 1, remark: '2 welded rails / bag' } },
+  ] };
+  const review = buildMutationProposalReview(snapshot, proposal);
+  assert.equal(review.verification.valid, true);
+  assert.ok(review.finalDiff.some((change) => change.kind === 'bom_remark_changed' && change.after === '3+3+2 rails'));
+  const result = applyMutationProposalTransaction(snapshot, proposal);
+  assert.equal(result.payload.materialDb.bomEntries[0].remark, '3+3+2 rails');
+  assert.equal(result.payload.materialDb.bomEntries[0].qty, '3');
+  assert.equal(result.payload.materialDb.bomEntries.at(-1).remark, '2 welded rails / bag');
+  assert.equal(snapshot.payload.materialDb.bomEntries[0].remark, 'Old packing');
+  const unchanged = applyMutationProposalTransaction(snapshot, { operations: [
+    { operationType: 'update_bom_item', targetId: 'entry-1', payload: { comp_code: 'A', quantity: 2 } },
+  ] });
+  assert.equal(unchanged.payload.materialDb.bomEntries[0].remark, 'Old packing');
+  const invalid = structuredClone(proposal);
+  invalid.operations[1].payload.remark = 123;
+  assert.throws(() => applyMutationProposalTransaction(snapshot, invalid), /invalid BOM remark/);
+  assert.equal(snapshot.payload.materialDb.bomEntries[0].qty, '1');
+});
+
 test('mutation-engine: batch review follows allowlisted Admin material and BOM actions', () => {
   const snapshot = proposalSnapshot();
   const proposal = {

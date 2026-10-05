@@ -46020,8 +46020,8 @@
           "vi": "Cụm thanh ngang đáy trước LGS433"
         },
         "spec": {
-          "zh": "1098x15x15mm",
-          "vi": "1098x15x15mm"
+          "zh": "1098x62x15mm",
+          "vi": "1098x62x15mm"
         },
         "material": {
           "zh": "Q195",
@@ -46050,8 +46050,8 @@
           "vi": "Cụm thanh ngang đáy trước LGS433"
         },
         "spec": {
-          "zh": "1098x15x15mm",
-          "vi": "1098x15x15mm"
+          "zh": "1098x62x15mm",
+          "vi": "1098x62x15mm"
         },
         "material": {
           "zh": "Q195",
@@ -46091,8 +46091,8 @@
           "vi": "Cụm thanh ngang đáy sau LGS433"
         },
         "spec": {
-          "zh": "1098x15x15mm",
-          "vi": "1098x15x15mm"
+          "zh": "1098x62x15mm",
+          "vi": "1098x62x15mm"
         },
         "material": {
           "zh": "Q195",
@@ -46121,8 +46121,8 @@
           "vi": "Cụm thanh ngang đáy sau LGS433"
         },
         "spec": {
-          "zh": "1098x15x15mm",
-          "vi": "1098x15x15mm"
+          "zh": "1098x62x15mm",
+          "vi": "1098x62x15mm"
         },
         "material": {
           "zh": "Q195",
@@ -46162,8 +46162,8 @@
           "vi": "Cụm thanh ngang đáy trái-trước LGS434"
         },
         "spec": {
-          "zh": "760x15x15mm",
-          "vi": "760x15x15mm"
+          "zh": "760x62x15mm",
+          "vi": "760x62x15mm"
         },
         "material": {
           "zh": "Q195",
@@ -46192,8 +46192,8 @@
           "vi": "Cụm thanh ngang đáy trái-trước LGS434"
         },
         "spec": {
-          "zh": "760x15x15mm",
-          "vi": "760x15x15mm"
+          "zh": "760x62x15mm",
+          "vi": "760x62x15mm"
         },
         "material": {
           "zh": "Q195",
@@ -46233,8 +46233,8 @@
           "vi": "Cụm thanh ngang đáy trái-sau LGS434"
         },
         "spec": {
-          "zh": "760x15x15mm",
-          "vi": "760x15x15mm"
+          "zh": "760x62x15mm",
+          "vi": "760x62x15mm"
         },
         "material": {
           "zh": "Q195",
@@ -46263,8 +46263,8 @@
           "vi": "Cụm thanh ngang đáy trái-sau LGS434"
         },
         "spec": {
-          "zh": "760x15x15mm",
-          "vi": "760x15x15mm"
+          "zh": "760x62x15mm",
+          "vi": "760x62x15mm"
         },
         "material": {
           "zh": "Q195",
@@ -46767,6 +46767,66 @@
         },
         "drawings": [],
         "models3d": []
+      },
+      "mat_pe1160x120": {
+        "id": "mat_pe1160x120",
+        "code": "PE1160X120",
+        "name": {
+          "zh": "PE袋",
+          "vi": "túi PE"
+        },
+        "spec": {
+          "zh": "1160×120mm",
+          "vi": "1160×120mm"
+        },
+        "material": {
+          "zh": "PE",
+          "vi": "PE"
+        },
+        "color": {
+          "zh": "透明",
+          "vi": "trong suốt"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
+      },
+      "mat_pe830x120": {
+        "id": "mat_pe830x120",
+        "code": "PE830X120",
+        "name": {
+          "zh": "PE袋",
+          "vi": "túi PE"
+        },
+        "spec": {
+          "zh": "830×120mm",
+          "vi": "830×120mm"
+        },
+        "material": {
+          "zh": "PE",
+          "vi": "PE"
+        },
+        "color": {
+          "zh": "透明",
+          "vi": "trong suốt"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       }
     },
     "bomEntries": [
@@ -88743,8 +88803,8 @@
         "materialId": "mat_1oe9icu",
         "stt": "",
         "comp_code": "",
-        "qty": "2",
-        "remark": "包装对象：LGS333XQHLBH×1、LGS333XHHLBH×1、LGS433SQHLDEPBH×2\n规则：2件/袋；用袋：2袋",
+        "qty": "1",
+        "remark": "包装对象：LGS433SQHLDEPV5BH×2\n规则：2件/袋；用袋：1袋",
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
         "order": 58
@@ -88758,8 +88818,8 @@
         "materialId": "mat_1oe9icu",
         "stt": "",
         "comp_code": "",
-        "qty": "2",
-        "remark": "包装对象：LGS333XQHLWH×1、LGS333XHHLWH×1、LGS433SQHLDEPWH×2\n规则：2件/袋；用袋：2袋",
+        "qty": "1",
+        "remark": "包装对象：LGS433SQHLDEPV5WH×2\n规则：2件/袋；用袋：1袋",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 58
@@ -88773,8 +88833,8 @@
         "materialId": "mat_1oe9icu",
         "stt": "",
         "comp_code": "",
-        "qty": "2",
-        "remark": "包装对象：LGS333XQHLBH×1、LGS333XHHLBH×1、LGS433SQHLDEPBH×2\n规则：2件/袋；用袋：2袋",
+        "qty": "1",
+        "remark": "包装对象：LGS433SQHLDEPV5BH×2\n规则：2件/袋；用袋：1袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 58
@@ -88938,8 +88998,8 @@
         "materialId": "mat_1ss3c8v",
         "stt": "",
         "comp_code": "",
-        "qty": "4",
-        "remark": "包装对象：LGS334XQYHLWH×1、LGS334XHYHLWH×1、LGS334XQZHLWH×1、LGS334XHZHLWH×1、LGS434SQZHLDEPWH×1、LGS434SHZHLDEPWH×1、LGS434SQYHLDEPWH×1、LGS434SHYHLDEPWH×1、LGS434DBHLWH×2\n规则：2–3件/袋；用袋：4袋；合计：10件",
+        "qty": "3",
+        "remark": "包装对象：LGS334XQYHLWH×1、LGS334XHYHLWH×1、LGS434SZHLDEPWH×2、LGS434SYHLDEPWH×2、LGS434DBHLWH×2\n规则：2–3件/袋；用袋：3袋；分袋：3+3+2；合计：8件",
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
         "order": 74
@@ -88953,8 +89013,8 @@
         "materialId": "mat_1ss3c8v",
         "stt": "",
         "comp_code": "",
-        "qty": "4",
-        "remark": "包装对象：LGS334XQYHLBH×1、LGS334XHYHLBH×1、LGS334XQZHLBH×1、LGS334XHZHLBH×1、LGS434SQZHLDEPBH×1、LGS434SHZHLDEPBH×1、LGS434SQYHLDEPBH×1、LGS434SHYHLDEPBH×1、LGS434DBHLBH×2\n规则：2–3件/袋；用袋：4袋；合计：10件",
+        "qty": "3",
+        "remark": "包装对象：LGS334XQYHLBH×1、LGS334XHYHLBH×1、LGS434SZHLDEPBH×2、LGS434SYHLDEPBH×2、LGS434DBHLBH×2\n规则：2–3件/袋；用袋：3袋；分袋：3+3+2；合计：8件",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
         "order": 74
@@ -106730,8 +106790,8 @@
         "materialId": "mat_1oe9icu",
         "stt": "",
         "comp_code": "",
-        "qty": "2",
-        "remark": "包装对象：LGS333XQHLBH×1、LGS333XHHLBH×1、LGS433SQHLDEPBH×2\n规则：2件/袋；用袋：2袋",
+        "qty": "1",
+        "remark": "包装对象：LGS433SQHLDEPV5BH×2\n规则：2件/袋；用袋：1袋",
         "color_ver": "山纹黑",
         "color_ver_vi": "màu đen vân gỗ",
         "order": 58
@@ -107398,8 +107458,8 @@
         "materialId": "mat_1ss3c8v",
         "stt": "",
         "comp_code": "",
-        "qty": "4",
-        "remark": "包装对象：LGS334XQYHLBH×1、LGS334XHYHLBH×1、LGS334XQZHLBH×1、LGS334XHZHLBH×1、LGS434SQZHLDEPBH×1、LGS434SHZHLDEPBH×1、LGS434SQYHLDEPBH×1、LGS434SHYHLDEPBH×1、LGS434DBHLBH×2\n规则：2–3件/袋；用袋：4袋；合计：10件",
+        "qty": "3",
+        "remark": "包装对象：LGS334XQYHLBH×1、LGS334XHYHLBH×1、LGS434SZHLDEPBH×2、LGS434SYHLDEPBH×2、LGS434DBHLBH×2\n规则：2–3件/袋；用袋：3袋；分袋：3+3+2；合计：8件",
         "color_ver": "山纹黑",
         "color_ver_vi": "màu đen vân gỗ",
         "order": 74
@@ -107432,6 +107492,111 @@
         "color_ver": "山纹黑",
         "color_ver_vi": "màu đen vân gỗ",
         "order": 22
+      },
+      {
+        "id": "bom_1toztu2",
+        "parentType": "product",
+        "parentId": "LGS433",
+        "productCode": "LGS433",
+        "color": "复古色",
+        "materialId": "mat_pe1160x120",
+        "stt": "59",
+        "comp_code": "",
+        "qty": "1",
+        "remark": "包装对象：LGS433XQHLBH×1、LGS433XHHLBH×1\n规则：2件/袋；用袋：1袋；含焊接底脚组件",
+        "color_ver": "复古色",
+        "color_ver_vi": "复古色",
+        "order": 58
+      },
+      {
+        "id": "bom_1b140my",
+        "parentType": "product",
+        "parentId": "LGS433",
+        "productCode": "LGS433",
+        "color": "白色",
+        "materialId": "mat_pe1160x120",
+        "stt": "59",
+        "comp_code": "",
+        "qty": "1",
+        "remark": "包装对象：LGS433XQHLWH×1、LGS433XHHLWH×1\n规则：2件/袋；用袋：1袋；含焊接底脚组件",
+        "color_ver": "白色",
+        "color_ver_vi": "白色",
+        "order": 58
+      },
+      {
+        "id": "bom_5zxaee",
+        "parentType": "product",
+        "parentId": "LGS433",
+        "productCode": "LGS433",
+        "color": "黑色",
+        "materialId": "mat_pe1160x120",
+        "stt": "59",
+        "comp_code": "",
+        "qty": "1",
+        "remark": "包装对象：LGS433XQHLBH×1、LGS433XHHLBH×1\n规则：2件/袋；用袋：1袋；含焊接底脚组件",
+        "color_ver": "黑色",
+        "color_ver_vi": "黑色",
+        "order": 58
+      },
+      {
+        "id": "bom_thj1f3",
+        "parentType": "product",
+        "parentId": "LGS433",
+        "productCode": "LGS433",
+        "color": "山纹黑",
+        "materialId": "mat_pe1160x120",
+        "stt": "49",
+        "comp_code": "",
+        "qty": "1",
+        "remark": "包装对象：LGS433XQHLBH×1、LGS433XHHLBH×1\n规则：2件/袋；用袋：1袋；含焊接底脚组件",
+        "color_ver": "山纹黑",
+        "color_ver_vi": "山纹黑",
+        "order": 48
+      },
+      {
+        "id": "bom_1g31xv4",
+        "parentType": "product",
+        "parentId": "LGS434",
+        "productCode": "LGS434",
+        "color": "白色",
+        "materialId": "mat_pe830x120",
+        "stt": "71",
+        "comp_code": "",
+        "qty": "1",
+        "remark": "包装对象：LGS434XQZHLWH×1、LGS434XHZHLWH×1\n规则：2件/袋；用袋：1袋；含焊接底脚组件",
+        "color_ver": "白色",
+        "color_ver_vi": "白色",
+        "order": 70
+      },
+      {
+        "id": "bom_1rd00dw",
+        "parentType": "product",
+        "parentId": "LGS434",
+        "productCode": "LGS434",
+        "color": "黑色",
+        "materialId": "mat_pe830x120",
+        "stt": "71",
+        "comp_code": "",
+        "qty": "1",
+        "remark": "包装对象：LGS434XQZHLBH×1、LGS434XHZHLBH×1\n规则：2件/袋；用袋：1袋；含焊接底脚组件",
+        "color_ver": "黑色",
+        "color_ver_vi": "黑色",
+        "order": 70
+      },
+      {
+        "id": "bom_1ng5d60",
+        "parentType": "product",
+        "parentId": "LGS434",
+        "productCode": "LGS434",
+        "color": "山纹黑",
+        "materialId": "mat_pe830x120",
+        "stt": "59",
+        "comp_code": "",
+        "qty": "1",
+        "remark": "包装对象：LGS434XQZHLBH×1、LGS434XHZHLBH×1\n规则：2件/袋；用袋：1袋；含焊接底脚组件",
+        "color_ver": "山纹黑",
+        "color_ver_vi": "山纹黑",
+        "order": 58
       }
     ],
     "VT5106WJB": {

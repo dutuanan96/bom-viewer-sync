@@ -18,6 +18,7 @@ const CHANGE_KIND_LABELS = {
   bom_added: 'diffKindBomAdded',
   bom_deleted: 'diffKindBomDeleted',
   bom_qty_changed: 'diffKindBomQty',
+  bom_remark_changed: 'diffKindBomRemark',
   product_added: 'diffKindProductAdded',
 };
 

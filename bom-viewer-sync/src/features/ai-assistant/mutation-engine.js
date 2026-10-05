@@ -483,6 +483,7 @@ export function applyMutationToPayload(payload, mutation) {
       stt: String(scopedEntries.length + 1),
       comp_code: opPayload.comp_code,
       qty: String(opPayload.quantity),
+      ...('remark' in opPayload ? { remark: opPayload.remark } : {}),
       color_ver: opPayload.color,
       color_ver_vi: opPayload.color,
       order: scopedEntries.length,
@@ -493,6 +494,7 @@ export function applyMutationToPayload(payload, mutation) {
     if (!entry) throw new Error(`BOM entry ${targetId} not found.`);
     entry.comp_code = opPayload.comp_code;
     entry.qty = String(opPayload.quantity);
+    if ('remark' in opPayload) entry.remark = opPayload.remark;
     shouldSyncBom = true;
   } else if (operationType === 'update_bom_quantity') {
     const product = payload.bom?.[targetId];

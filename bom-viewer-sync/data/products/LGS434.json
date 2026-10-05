@@ -790,8 +790,8 @@
           "comp_code": "J1",
           "name_zh": "LGS434底部横杆左-前_组件",
           "name_vi": "Cụm thanh ngang đáy trái-trước LGS434",
-          "spec": "760x15x15mm",
-          "spec_vi": "760x15x15mm",
+          "spec": "760x62x15mm",
+          "spec_vi": "760x62x15mm",
           "material_zh": "Q195",
           "material_vi": "Q195",
           "color_zh": "白砂纹",
@@ -907,8 +907,8 @@
           "comp_code": "J2",
           "name_zh": "LGS434底部横杆左-后_组件",
           "name_vi": "Cụm thanh ngang đáy trái-sau LGS434",
-          "spec": "760x15x15mm",
-          "spec_vi": "760x15x15mm",
+          "spec": "760x62x15mm",
+          "spec_vi": "760x62x15mm",
           "material_zh": "Q195",
           "material_vi": "Q195",
           "color_zh": "白砂纹",
@@ -2160,6 +2160,29 @@
           "remark": ""
         },
         {
+          "stt": "71",
+          "mat_code": "PE830X120",
+          "comp_code": "",
+          "name_zh": "PE袋",
+          "name_vi": "túi PE",
+          "spec": "830×120mm",
+          "spec_vi": "830×120mm",
+          "material_zh": "PE",
+          "material_vi": "PE",
+          "color_zh": "透明",
+          "color_vi": "trong suốt",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "白色",
+          "color_ver_vi": "白色",
+          "unit": {
+            "zh": "个",
+            "vi": "cái"
+          },
+          "qty": "1",
+          "remark": "包装对象：LGS434XQZHLWH×1、LGS434XHZHLWH×1\n规则：2件/袋；用袋：1袋；含焊接底脚组件"
+        },
+        {
           "stt": "15",
           "mat_code": "VTJGB035012",
           "comp_code": "",
@@ -2248,8 +2271,8 @@
             "zh": "个",
             "vi": "cái"
           },
-          "qty": "4",
-          "remark": "包装对象：LGS334XQYHLWH×1、LGS334XHYHLWH×1、LGS334XQZHLWH×1、LGS334XHZHLWH×1、LGS434SQZHLDEPWH×1、LGS434SHZHLDEPWH×1、LGS434SQYHLDEPWH×1、LGS434SHYHLDEPWH×1、LGS434DBHLWH×2\n规则：2–3件/袋；用袋：4袋；合计：10件"
+          "qty": "3",
+          "remark": "包装对象：LGS334XQYHLWH×1、LGS334XHYHLWH×1、LGS434SZHLDEPWH×2、LGS434SYHLDEPWH×2、LGS434DBHLWH×2\n规则：2–3件/袋；用袋：3袋；分袋：3+3+2；合计：8件"
         },
         {
           "stt": "",
@@ -3060,8 +3083,8 @@
           "comp_code": "J1",
           "name_zh": "LGS434底部横杆左-前_组件",
           "name_vi": "Cụm thanh ngang đáy trái-trước LGS434",
-          "spec": "760x15x15mm",
-          "spec_vi": "760x15x15mm",
+          "spec": "760x62x15mm",
+          "spec_vi": "760x62x15mm",
           "material_zh": "Q195",
           "material_vi": "Q195",
           "color_zh": "黑砂纹",
@@ -3177,8 +3200,8 @@
           "comp_code": "J2",
           "name_zh": "LGS434底部横杆左-后_组件",
           "name_vi": "Cụm thanh ngang đáy trái-sau LGS434",
-          "spec": "760x15x15mm",
-          "spec_vi": "760x15x15mm",
+          "spec": "760x62x15mm",
+          "spec_vi": "760x62x15mm",
           "material_zh": "Q195",
           "material_vi": "Q195",
           "color_zh": "黑砂纹",
@@ -4430,6 +4453,29 @@
           "remark": ""
         },
         {
+          "stt": "71",
+          "mat_code": "PE830X120",
+          "comp_code": "",
+          "name_zh": "PE袋",
+          "name_vi": "túi PE",
+          "spec": "830×120mm",
+          "spec_vi": "830×120mm",
+          "material_zh": "PE",
+          "material_vi": "PE",
+          "color_zh": "透明",
+          "color_vi": "trong suốt",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "黑色",
+          "color_ver_vi": "黑色",
+          "unit": {
+            "zh": "个",
+            "vi": "cái"
+          },
+          "qty": "1",
+          "remark": "包装对象：LGS434XQZHLBH×1、LGS434XHZHLBH×1\n规则：2件/袋；用袋：1袋；含焊接底脚组件"
+        },
+        {
           "stt": "15",
           "mat_code": "JGB120052",
           "comp_code": "",
@@ -4518,8 +4564,8 @@
             "zh": "个",
             "vi": "cái"
           },
-          "qty": "4",
-          "remark": "包装对象：LGS334XQYHLBH×1、LGS334XHYHLBH×1、LGS334XQZHLBH×1、LGS334XHZHLBH×1、LGS434SQZHLDEPBH×1、LGS434SHZHLDEPBH×1、LGS434SQYHLDEPBH×1、LGS434SHYHLDEPBH×1、LGS434DBHLBH×2\n规则：2–3件/袋；用袋：4袋；合计：10件"
+          "qty": "3",
+          "remark": "包装对象：LGS334XQYHLBH×1、LGS334XHYHLBH×1、LGS434SZHLDEPBH×2、LGS434SYHLDEPBH×2、LGS434DBHLBH×2\n规则：2–3件/袋；用袋：3袋；分袋：3+3+2；合计：8件"
         },
         {
           "stt": "",
@@ -5330,8 +5376,8 @@
           "comp_code": "J1",
           "name_zh": "LGS434底部横杆左-前_组件",
           "name_vi": "Cụm thanh ngang đáy trái-trước LGS434",
-          "spec": "760x15x15mm",
-          "spec_vi": "760x15x15mm",
+          "spec": "760x62x15mm",
+          "spec_vi": "760x62x15mm",
           "material_zh": "Q195",
           "material_vi": "Q195",
           "color_zh": "黑砂纹",
@@ -5447,8 +5493,8 @@
           "comp_code": "J2",
           "name_zh": "LGS434底部横杆左-后_组件",
           "name_vi": "Cụm thanh ngang đáy trái-sau LGS434",
-          "spec": "760x15x15mm",
-          "spec_vi": "760x15x15mm",
+          "spec": "760x62x15mm",
+          "spec_vi": "760x62x15mm",
           "material_zh": "Q195",
           "material_vi": "Q195",
           "color_zh": "黑砂纹",
@@ -6418,6 +6464,29 @@
           "remark": ""
         },
         {
+          "stt": "59",
+          "mat_code": "PE830X120",
+          "comp_code": "",
+          "name_zh": "PE袋",
+          "name_vi": "túi PE",
+          "spec": "830×120mm",
+          "spec_vi": "830×120mm",
+          "material_zh": "PE",
+          "material_vi": "PE",
+          "color_zh": "透明",
+          "color_vi": "trong suốt",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "山纹黑",
+          "color_ver_vi": "山纹黑",
+          "unit": {
+            "zh": "个",
+            "vi": "cái"
+          },
+          "qty": "1",
+          "remark": "包装对象：LGS434XQZHLBH×1、LGS434XHZHLBH×1\n规则：2件/袋；用袋：1袋；含焊接底脚组件"
+        },
+        {
           "stt": "3",
           "mat_code": "SCPPHJ505030",
           "comp_code": "",
@@ -6782,8 +6851,8 @@
             "zh": "个",
             "vi": "cái"
           },
-          "qty": "4",
-          "remark": "包装对象：LGS334XQYHLBH×1、LGS334XHYHLBH×1、LGS334XQZHLBH×1、LGS334XHZHLBH×1、LGS434SQZHLDEPBH×1、LGS434SHZHLDEPBH×1、LGS434SQYHLDEPBH×1、LGS434SHYHLDEPBH×1、LGS434DBHLBH×2\n规则：2–3件/袋；用袋：4袋；合计：10件"
+          "qty": "3",
+          "remark": "包装对象：LGS334XQYHLBH×1、LGS334XHYHLBH×1、LGS434SZHLDEPBH×2、LGS434SYHLDEPBH×2、LGS434DBHLBH×2\n规则：2–3件/袋；用袋：3袋；分袋：3+3+2；合计：8件"
         },
         {
           "stt": "",

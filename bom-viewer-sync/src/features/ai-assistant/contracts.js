@@ -445,11 +445,11 @@ export function validateMutation(mutation) {
       throw policyError(`${mutation.operationType} payload must be empty`);
     }
   } else if (mutation.operationType === 'add_bom_item') {
-    validateExactPayloadKeys(mutation, ['color', 'comp_code', 'materialId', 'quantity']);
+    validateExactPayloadKeys(mutation, ['color', 'comp_code', 'materialId', 'quantity', ...('remark' in mutation.payload ? ['remark'] : [])]);
     validateProductId(mutation.targetId, 'add_bom_item targetId');
     validateBomItemPayload(mutation.payload, true);
   } else if (mutation.operationType === 'update_bom_item') {
-    validateExactPayloadKeys(mutation, ['comp_code', 'quantity']);
+    validateExactPayloadKeys(mutation, ['comp_code', 'quantity', ...('remark' in mutation.payload ? ['remark'] : [])]);
     validateBomItemPayload(mutation.payload, false);
   } else if (mutation.operationType === 'replace_bom_item') {
     validateExactPayloadKeys(mutation, ['materialId']);
@@ -619,6 +619,9 @@ function validateMaterialRecordInput(material) {
 }
 
 function validateBomItemPayload(payload, requiresMaterial) {
+  if ('remark' in payload && (typeof payload.remark !== 'string' || payload.remark.length > 4000)) {
+    throw new Error('invalid BOM remark');
+  }
   if (requiresMaterial) {
     validateSafeIdentifier(payload.materialId, 'materialId');
     if (typeof payload.color !== 'string' || !payload.color.trim() || payload.color.length > 100) {

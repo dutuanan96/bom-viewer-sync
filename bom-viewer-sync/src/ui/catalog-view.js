@@ -13,6 +13,7 @@ const HISTORY_KIND_LABELS = {
   bom_qty_changed: 'diffKindBomQty',
   bom_material_changed: 'diffKindBomMaterial',
   bom_comp_code_changed: 'diffKindBomComponentCode',
+  bom_remark_changed: 'diffKindBomRemark',
   product: 'diffKindProduct',
   product_added: 'diffKindProductAdded',
   revision: 'diffKindRevision',

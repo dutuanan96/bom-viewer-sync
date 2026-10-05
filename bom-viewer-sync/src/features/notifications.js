@@ -184,6 +184,10 @@ export function describePayloadChanges(previousPayload, nextPayload) {
       if (String(prevEntry.qty) !== String(nextEntry.qty)) {
         changes.push({ kind: 'bom_qty_changed', code: parentLabel, field: childLabel, before: String(prevEntry.qty ?? ''), after: String(nextEntry.qty ?? '') });
       }
+      if (String(prevEntry.remark ?? '') !== String(nextEntry.remark ?? '')) {
+        changes.push({ kind: 'bom_remark_changed', code: parentLabel, field: childLabel,
+          before: String(prevEntry.remark ?? ''), after: String(nextEntry.remark ?? '') });
+      }
     }
   }
 
