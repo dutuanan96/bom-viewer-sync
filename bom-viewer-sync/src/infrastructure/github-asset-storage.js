@@ -3,12 +3,15 @@ export const MAX_ASSET_BYTES = 20_000_000;
 const HASH_PATTERN = /^[a-f0-9]{64}$/;
 const COMMIT_PATTERN = /^[a-f0-9]{40}$/i;
 const BASE64_CHUNK_SIZE = 0x8000;
-const MEDIA_PREFIX = {
-  'application/pdf': 'assets/pdfs/',
-  'model/gltf-binary': 'assets/models/',
-  'model/gltf+json': 'assets/models/',
+const MEDIA_PREFIXES = {
+  'application/pdf': ['assets/pdfs/', 'assets/products/manuals/'],
+  'model/gltf-binary': ['assets/models/', 'assets/products/assembly/'],
+  'model/gltf+json': ['assets/models/', 'assets/products/assembly/'],
+  'image/jpeg': ['assets/products/images/'],
+  'image/png': ['assets/products/images/'],
+  'image/webp': ['assets/products/images/'],
 };
-const ASSET_PATH_PATTERN = /^assets\/(?:pdfs|models)\/[A-Za-z0-9._-]+$/;
+const ASSET_PATH_PATTERN = /^assets\/(?:pdfs|models|products\/(?:manuals|assembly|images))\/[A-Za-z0-9._-]+$/;
 
 export class GithubAssetStorageError extends Error {
   constructor(message, { code, status, endpoint } = {}) {
@@ -36,6 +39,12 @@ function sanitizeSegment(value, label) {
   return sanitized;
 }
 
+function encodeIdentitySegment(value, label) {
+  const source = String(value || '').trim();
+  if (!source) throw new TypeError(`${label} is required`);
+  return Array.from(source, (character) => character.codePointAt(0).toString(16)).join('-');
+}
+
 function originalFileExtension(value) {
   const match = String(value || '').trim().match(/(\.[A-Za-z0-9]+)$/);
   return match ? match[1].toLowerCase() : '';
@@ -59,9 +68,9 @@ function validateUpload({ path, contentType, bytes }) {
   if (bytes.byteLength > MAX_ASSET_BYTES) {
     throw new TypeError(`bytes must not exceed ${MAX_ASSET_BYTES}`);
   }
-  const prefix = MEDIA_PREFIX[contentType];
-  if (!prefix) throw new TypeError(`Unsupported contentType: ${contentType}`);
-  if (!String(path).startsWith(prefix) || !ASSET_PATH_PATTERN.test(String(path))) {
+  const prefixes = MEDIA_PREFIXES[contentType];
+  if (!prefixes) throw new TypeError(`Unsupported contentType: ${contentType}`);
+  if (!prefixes.some((prefix) => String(path).startsWith(prefix)) || !ASSET_PATH_PATTERN.test(String(path))) {
     throw new TypeError('Invalid asset path');
   }
 }
@@ -117,18 +126,43 @@ export async function sha256Hex(value) {
   return Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, '0')).join('');
 }
 
-export function buildAssetPath({ kind, materialCode, originalName, contentHash }) {
+export function buildAssetPath({
+  ownerType = 'material',
+  kind,
+  materialCode,
+  productCode,
+  revision,
+  color,
+  originalName,
+  contentHash,
+}) {
   if (!HASH_PATTERN.test(String(contentHash || ''))) {
     throw new TypeError('contentHash must be a lowercase SHA-256 digest');
   }
-  const folders = { pdf: 'pdfs', glb: 'models', gltf: 'models' };
-  const folder = folders[kind];
-  if (!folder) throw new TypeError(`Unsupported asset kind: ${kind}`);
-  const code = sanitizeSegment(materialCode, 'materialCode');
   const extension = originalFileExtension(originalName);
   const name = sanitizeSegment(originalName, 'originalName');
   const suffix = extension && !name.toLowerCase().endsWith(extension) ? extension : '';
-  return `assets/${folder}/${code}_${contentHash}_${name}${suffix}`;
+  if (ownerType === 'material') {
+    const folders = { pdf: 'pdfs', glb: 'models', gltf: 'models' };
+    const folder = folders[kind];
+    if (!folder) throw new TypeError(`Unsupported asset kind: ${kind}`);
+    const code = sanitizeSegment(materialCode, 'materialCode');
+    return `assets/${folder}/${code}_${contentHash}_${name}${suffix}`;
+  }
+  if (ownerType !== 'product') throw new TypeError(`Unsupported asset owner: ${ownerType}`);
+  const code = sanitizeSegment(productCode, 'productCode');
+  const revisionPart = sanitizeSegment(revision, 'revision');
+  if (kind === 'pdf') {
+    return `assets/products/manuals/${code}_${revisionPart}_${contentHash}_${name}${suffix}`;
+  }
+  if (kind === 'glb' || kind === 'gltf') {
+    return `assets/products/assembly/${code}_${revisionPart}_${contentHash}_${name}${suffix}`;
+  }
+  if (['jpg', 'jpeg', 'png', 'webp'].includes(kind)) {
+    const colorPart = encodeIdentitySegment(color, 'color');
+    return `assets/products/images/${code}_${revisionPart}_${colorPart}_${contentHash}_${name}${suffix}`;
+  }
+  throw new TypeError(`Unsupported asset kind: ${kind}`);
 }
 
 export function buildCdnUrl({ config, commitSha, path }) {

@@ -1,6 +1,7 @@
 import { createPdmNavigation } from '../domain/bom.js';
 import { normalizeText, queryMatches, stripProductColorName } from '../domain/materials.js';
 import { assetDisplayUrl } from '../infrastructure/assets.js';
+import { resolveProductAssets, resolveProductImage } from '../domain/product-assets.js';
 import { escapeHTML } from './shared-view.js';
 import { findOrphanBomEntries } from '../features/orphan-cleanup/orphan-bom-proposal-builder.js';
 
@@ -250,7 +251,8 @@ function contentHeaderHtml(product, colorData) {
     ${this.assemblyPreviewHtml(colorData)}
     ${this.productImagePreviewHtml(colorData)}
   </div>
-  <div class="color-tabs">${this.colorTabsHtml(product)}</div>`;
+  <div class="color-tabs">${this.colorTabsHtml(product)}</div>
+  ${this.productAssetsEditorHtml(colorData)}`;
 }
 
 function bomHistoryHtml(expanded = false) {
@@ -415,7 +417,6 @@ function productImagePreviewHtml(colorData) {
 }
 
 function productPreviewImage(colorData) {
-  const catalog = this.state.productImages?.[this.state.currentSku] || {};
   const colorKeys = [
     this.state.currentColor,
     colorData?.color_ver,
@@ -424,11 +425,73 @@ function productPreviewImage(colorData) {
     colorData?.color_vi,
     'default'
   ].filter(Boolean);
-  for (const key of colorKeys) {
-    const image = catalog[key];
-    if (image?.url) return image;
-  }
-  return null;
+  const assets = resolveProductAssets(
+    this.state.payload,
+    this.state.currentSku,
+    typeof this.selectedProductRevision === 'function' ? this.selectedProductRevision() : '',
+  );
+  return resolveProductImage(assets, colorKeys);
+}
+
+function productAssetsEditorHtml(colorData) {
+  if (!this.isAdmin()) return '';
+  const productCode = this.state.currentSku;
+  const revision = this.selectedProductRevision();
+  const assets = resolveProductAssets(this.state.payload, productCode, revision);
+  const colorKey = this.state.currentColor || colorData?.color_ver || colorData?.color_zh || 'default';
+  const colorLabel = this.colorLabel(colorData) || colorKey;
+  const image = resolveProductImage(assets, [
+    colorKey,
+    colorData?.color_ver,
+    colorData?.color_zh,
+    colorData?.color_ver_vi,
+    colorData?.color_vi,
+    'default',
+  ]);
+  const manuals = assets.manuals.length ? assets.manuals : [{}];
+  const models = assets.assemblyModels.length ? assets.assemblyModels : [{}];
+  const editable = this.canEditProductRevision();
+  const rowHtml = (typeKey, asset, index, rowColor = '') => {
+    const pending = asset.pendingAssetId && this.state.pendingMaterialAssets?.[asset.pendingAssetId];
+    const assetUrl = asset.url || asset.previewUrl || '';
+    const statusKey = pending ? 'assetPendingUpload' : assetUrl ? 'assetUploadedStatus' : 'assetNotUploaded';
+    const accept = typeKey === 'manual'
+      ? '.pdf,application/pdf'
+      : typeKey === 'assembly'
+        ? '.glb,.gltf,model/gltf-binary,model/gltf+json'
+        : '.jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp';
+    const viewLabel = typeKey === 'manual' ? 'viewManual' : typeKey === 'assembly' ? 'viewAssembly' : 'view';
+    const view = assetUrl
+      ? `<button class="drawing-btn primary" type="button" data-action="open-product-asset" data-product-asset-type="${typeKey}" data-product-asset-index="${index}" data-product-asset-color="${escapeHTML(rowColor)}">${escapeHTML(this.label(viewLabel))}</button>`
+      : '';
+    const controls = editable
+      ? `<button class="drawing-btn" type="button" data-action="upload-product-asset-file">${escapeHTML(this.label(assetUrl || asset.pendingAssetId ? 'replaceAsset' : 'uploadAsset'))}</button>
+        <input class="product-asset-file-input" type="file" hidden accept="${accept}" data-product-asset-file-input data-product-asset-type="${typeKey}" data-product-asset-index="${index}" data-product-asset-color="${escapeHTML(rowColor)}">
+        ${(assetUrl || asset.pendingAssetId) ? `<button class="drawing-btn danger" type="button" data-action="remove-product-asset" data-product-asset-type="${typeKey}" data-product-asset-index="${index}" data-product-asset-color="${escapeHTML(rowColor)}">${escapeHTML(this.label('removeProductAsset'))}</button>` : ''}`
+      : '';
+    const label = typeKey === 'image' ? colorLabel : (asset.name || this.label(typeKey === 'manual' ? 'manual' : 'assemblyModel'));
+    const feedback = this.state.materialAssetFeedback;
+    const feedbackHtml = feedback?.ownerType === 'product'
+      && feedback.productCode === productCode
+      && feedback.revision === revision
+      && feedback.typeKey === typeKey
+      && feedback.index === index
+      && feedback.color === rowColor
+      ? `<small class="asset-inline-feedback error">${escapeHTML(feedback.message)}</small>`
+      : '';
+    return `<div class="product-asset-entry">
+      <div class="product-asset-summary"><strong>${escapeHTML(label)}</strong><span>${escapeHTML(this.label(statusKey))}</span>${pending ? `<small>${escapeHTML(pending.originalName || asset.name || '')}</small>` : asset.name ? `<small>${escapeHTML(asset.name)}</small>` : ''}${feedbackHtml}</div>
+      <div class="product-asset-actions">${view}${controls}</div>
+    </div>`;
+  };
+  return `<section class="detail-card product-assets-card" aria-labelledby="productAssetsTitle">
+    <div class="product-assets-header"><div><h2 id="productAssetsTitle">${escapeHTML(this.label('productAssetsTitle'))}</h2>
+      <p>${escapeHTML(this.label('spu'))}: ${escapeHTML(productCode)} · ${escapeHTML(this.label('revision'))}: ${escapeHTML(revision)}</p></div>
+      ${editable ? '' : `<span class="read-only-note">${escapeHTML(this.label(this.isHistoricalRevision() ? 'historicalRevisionReadOnly' : 'releasedRevisionReadOnly'))}</span>`}</div>
+    <div class="product-assets-group"><h3>${escapeHTML(this.label('manual'))}</h3>${manuals.map((asset, index) => rowHtml('manual', asset, index)).join('')}</div>
+    <div class="product-assets-group"><h3>${escapeHTML(this.label('assemblyModel'))}</h3>${models.map((asset, index) => rowHtml('assembly', asset, index)).join('')}</div>
+    <div class="product-assets-group"><h3>${escapeHTML(this.label('productImage'))} · ${escapeHTML(colorLabel)}</h3>${rowHtml('image', image || {}, 0, colorKey)}</div>
+  </section>`;
 }
 
 function renderSku(colorData) {
@@ -479,7 +542,11 @@ function productInput(value, field, className) {
 }
 
 function manualButtons() {
-  const manuals = this.state.manuals[this.state.currentSku] || [];
+  const manuals = resolveProductAssets(
+    this.state.payload,
+    this.state.currentSku,
+    typeof this.selectedProductRevision === 'function' ? this.selectedProductRevision() : '',
+  ).manuals;
   if (!manuals.length) return escapeHTML(this.label('noManual'));
   return manuals.map((manual, index) => {
     const suffix = manuals.length > 1 ? ` ${index + 1}` : '';
@@ -520,6 +587,7 @@ export const catalogViewMethods = {
   assemblyPreviewHtml,
   productImagePreviewHtml,
   productPreviewImage,
+  productAssetsEditorHtml,
   renderSku,
   metaHtml,
   metaItem,

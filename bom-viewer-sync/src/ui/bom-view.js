@@ -8,6 +8,7 @@ import {
 } from '../domain/materials.js';
 import { assetKey } from '../infrastructure/assets.js';
 import { escapeHTML } from './shared-view.js';
+import { resolveProductAssets } from '../domain/product-assets.js';
 
 function renderInspector() {
   const panel = this.query('#inspectorPanel');
@@ -522,10 +523,11 @@ function models3dFor(material) {
 }
 
 function productModels3d() {
-  const skuModels = this.state.models3d[this.state.currentSku] || {};
-  return Object.entries(skuModels)
-    .filter(([key]) => !key.includes('|'))
-    .flatMap(([, models]) => models);
+  return resolveProductAssets(
+    this.state.payload,
+    this.state.currentSku,
+    typeof this.selectedProductRevision === 'function' ? this.selectedProductRevision() : '',
+  ).assemblyModels;
 }
 
 function drawingKey(value) {

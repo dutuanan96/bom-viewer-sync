@@ -63,18 +63,22 @@ test('material rows use only material-owned assets while product assembly models
   const context = {
     state: {
       currentSku: 'LGS001',
+      payload: coreUtils.normalizePayload({
+        bom: {},
+        models3d: {
+          LGS001: {
+            'mat001|panel': [{ name: 'legacy-product-panel.glb' }],
+            assembly: [{ name: 'LGS001-assembly.glb' }],
+          },
+        },
+      }),
       drawings: {
         LGS001: {
           'mat001|panel': [{ name: 'legacy-product-panel.pdf' }],
         },
       },
-      models3d: {
-        LGS001: {
-          'mat001|panel': [{ name: 'legacy-product-panel.glb' }],
-          assembly: [{ name: 'LGS001-assembly.glb' }],
-        },
-      },
     },
+    selectedProductRevision: () => '',
   };
   const materialWithoutOwnedAssets = {
     mat_code: 'MAT001',

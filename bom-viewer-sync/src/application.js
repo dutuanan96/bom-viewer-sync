@@ -26,9 +26,11 @@ import {
 } from './infrastructure/github-asset-storage.js';
 import {
   MaterialAssetUploadError,
-  resolvePendingMaterialAssets,
+  resolvePendingAssetReferences,
   validateMaterialAssetFile,
+  validateAssetFile,
 } from './features/material-asset-upload.js';
+import { resolveProductAssets, resolveProductImage } from './domain/product-assets.js';
 import { stableId } from './shared/primitives.js';
 import { appendBomHistory } from './features/bom-history.js';
 import {
@@ -1092,6 +1094,11 @@ Object.assign(TEXT.zh, {
   ecnPrerequisitesComplete: '\u5df2\u5b8c\u6210',
   ecnPrerequisitesIncomplete: '\u672a\u5b8c\u6210',
   ecnPrerequisiteSaved: '\u5df2\u66f4\u65b0\uff0c\u8bf7\u4fdd\u5b58\u5230 GitHub',
+  productAssetsTitle: '\u4ea7\u54c1\u8d44\u4ea7',
+  assemblyModel: '3D \u88c5\u914d\u6a21\u578b',
+  assetNotUploaded: '\u672a\u4e0a\u4f20',
+  assetUploadedStatus: '\u5df2\u4e0a\u4f20',
+  removeProductAsset: '\u79fb\u9664',
   uploadAsset: '\u4e0a\u4f20\u6587\u4ef6',
   replaceAsset: '\u66ff\u6362\u6587\u4ef6',
   selectExistingAsset: '\u9009\u62e9\u5df2\u6709',
@@ -1108,8 +1115,9 @@ Object.assign(TEXT.zh, {
   invalidPdfFile: '\u65e0\u6548\u7684 PDF \u6587\u4ef6',
   invalidGlbFile: '\u65e0\u6548\u7684 GLB \u6587\u4ef6',
   invalidGltfFile: '\u65e0\u6548\u7684 GLTF \u6587\u4ef6\u6216\u5305\u542b\u975e HTTPS \u5916\u90e8\u8d44\u6e90',
+  invalidImageFile: '\u65e0\u6548\u7684\u56fe\u7247\u6587\u4ef6',
   pendingAssetMissing: '\u5f85\u4e0a\u4f20\u6587\u4ef6\u5df2\u4e22\u5931\uff0c\u8bf7\u91cd\u65b0\u9009\u62e9',
-  uploadingAssets: '\u6b63\u5728\u4e0a\u4f20 2D/3D \u6587\u4ef6...',
+  uploadingAssets: '\u6b63\u5728\u4e0a\u4f20\u8d44\u4ea7\u6587\u4ef6...',
   assetUploadFailed: '\u6587\u4ef6\u4e0a\u4f20\u5931\u8d25'
 });
 
@@ -1288,6 +1296,11 @@ Object.assign(TEXT.vi, {
   ecnPrerequisitesComplete: 'Đã hoàn tất',
   ecnPrerequisitesIncomplete: 'Chưa hoàn tất',
   ecnPrerequisiteSaved: 'Đã cập nhật, hãy lưu lên GitHub',
+  productAssetsTitle: 'Tài sản sản phẩm',
+  assemblyModel: 'Mô hình lắp ráp 3D',
+  assetNotUploaded: 'Chưa tải lên',
+  assetUploadedStatus: 'Đã tải lên',
+  removeProductAsset: 'Gỡ bỏ',
   uploadAsset: 'T\u1ea3i t\u1ec7p l\u00ean',
   replaceAsset: 'Thay th\u1ebf t\u1ec7p',
   selectExistingAsset: 'Ch\u1ecdn t\u1ec7p c\u00f3 s\u1eb5n',
@@ -1304,8 +1317,9 @@ Object.assign(TEXT.vi, {
   invalidPdfFile: 'T\u1ec7p PDF kh\u00f4ng h\u1ee3p l\u1ec7',
   invalidGlbFile: 'T\u1ec7p GLB kh\u00f4ng h\u1ee3p l\u1ec7',
   invalidGltfFile: 'T\u1ec7p GLTF kh\u00f4ng h\u1ee3p l\u1ec7 ho\u1eb7c c\u00f3 t\u00e0i nguy\u00ean ngo\u00e0i kh\u00f4ng d\u00f9ng HTTPS',
+  invalidImageFile: 'T\u1ec7p h\u00ecnh \u1ea3nh kh\u00f4ng h\u1ee3p l\u1ec7',
   pendingAssetMissing: 'T\u1ec7p ch\u1edd t\u1ea3i l\u00ean \u0111\u00e3 b\u1ecb m\u1ea5t, h\u00e3y ch\u1ecdn l\u1ea1i',
-  uploadingAssets: '\u0110ang t\u1ea3i t\u1ec7p 2D/3D l\u00ean...',
+  uploadingAssets: '\u0110ang t\u1ea3i t\u00e0i s\u1ea3n l\u00ean...',
   assetUploadFailed: 'T\u1ea3i t\u1ec7p l\u00ean th\u1ea5t b\u1ea1i'
 });
 
@@ -2294,7 +2308,10 @@ class BomApplication {
       return;
     }
     const productModel3d = event.target.closest('[data-product-model3d-index]');
-    if (productModel3d) this.openProductModel3d(Number(productModel3d.dataset.productModel3dIndex));
+    if (productModel3d) {
+      this.openProductModel3d(Number(productModel3d.dataset.productModel3dIndex));
+      return;
+    }
   }
 
   bindActions() {
@@ -2452,6 +2469,11 @@ class BomApplication {
         this.selectProductRevision(revisionSelect.value);
         return;
       }
+      const productAssetInput = event.target.closest?.('[data-product-asset-file-input]');
+      if (productAssetInput) {
+        void this.handleProductAssetFileInput(productAssetInput);
+        return;
+      }
       this.handleProductInput(event, true);
     });
     this.query('.content').addEventListener('input', (event) => this.handleMaterialInput(event, false));
@@ -2586,6 +2608,9 @@ class BomApplication {
     if (action === 'delete-asset-row' && this.isAdmin()) this.deleteMaterialAssetRow(actionElement);
     if (action === 'open-asset') this.openAsset(actionElement);
     if (action === 'upload-asset-file' && this.isAdmin()) this.openMaterialAssetFilePicker(actionElement);
+    if (action === 'upload-product-asset-file' && this.canEditProductRevision()) this.openProductAssetFilePicker(actionElement);
+    if (action === 'remove-product-asset' && this.canEditProductRevision()) this.removeProductAsset(actionElement);
+    if (action === 'open-product-asset') this.openProductAsset(actionElement);
     if (action === 'select-existing-asset' && this.isAdmin()) this.selectExistingMaterialAsset(actionElement);
     if (action === 'copy') this.copyTable();
     if (action === 'exportExcel') this.exportExcel();
@@ -3427,6 +3452,18 @@ class BomApplication {
     };
     collect(this.state.materialDraft);
     Object.values(this.state.materialDb?.materials || {}).forEach(collect);
+    for (const revisions of Object.values(this.state.payload?.productAssets || {})) {
+      for (const assets of Object.values(revisions || {})) {
+        ['manuals', 'assemblyModels'].forEach((key) => {
+          (assets?.[key] || []).forEach((asset) => {
+            if (asset?.pendingAssetId) referenced.add(asset.pendingAssetId);
+          });
+        });
+        Object.values(assets?.images || {}).forEach((asset) => {
+          if (asset?.pendingAssetId) referenced.add(asset.pendingAssetId);
+        });
+      }
+    }
     Object.keys(this.state.pendingMaterialAssets || {}).forEach((pendingId) => {
       if (!referenced.has(pendingId)) delete this.state.pendingMaterialAssets[pendingId];
     });
@@ -3439,6 +3476,7 @@ class BomApplication {
       INVALID_PDF_FILE: 'invalidPdfFile',
       INVALID_GLB_FILE: 'invalidGlbFile',
       INVALID_GLTF_FILE: 'invalidGltfFile',
+      INVALID_IMAGE_FILE: 'invalidImageFile',
       ASSET_TOKEN_REQUIRED: 'assetTokenRequired',
       PENDING_ASSET_MISSING: 'pendingAssetMissing',
       ASSET_UPLOAD_FAILED: 'assetUploadFailed',
@@ -3512,6 +3550,150 @@ class BomApplication {
     } finally {
       input.value = '';
     }
+  }
+
+  productAssetRevision(productCode = this.state.currentSku, revision = this.selectedProductRevision()) {
+    const registry = this.state.payload.productAssets || (this.state.payload.productAssets = {});
+    const revisions = registry[productCode] || (registry[productCode] = {});
+    if (!Object.prototype.hasOwnProperty.call(revisions, revision)) {
+      revisions[revision] = clone(resolveProductAssets(this.state.payload, productCode, revision));
+    }
+    return revisions[revision];
+  }
+
+  openProductAssetFilePicker(button) {
+    button?.closest('.product-asset-entry')?.querySelector('[data-product-asset-file-input]')?.click();
+  }
+
+  async handleProductAssetFileInput(input) {
+    if (!this.canEditProductRevision()) return;
+    const file = input?.files?.[0];
+    const typeKey = input?.dataset?.productAssetType;
+    const index = Number.parseInt(input?.dataset?.productAssetIndex, 10);
+    const color = String(input?.dataset?.productAssetColor || '');
+    if (!file || !['manual', 'assembly', 'image'].includes(typeKey) || !Number.isInteger(index)) return;
+
+    const productCode = this.state.currentSku;
+    const revision = this.selectedProductRevision();
+    const uploadKey = `product:${productCode}:${revision}:${color}:${typeKey}:${index}`;
+    const uploadVersion = (this.materialAssetUploadVersions.get(uploadKey) || 0) + 1;
+    this.materialAssetUploadVersions.set(uploadKey, uploadVersion);
+    try {
+      const validated = await validateAssetFile({ file, ownerType: 'product', typeKey });
+      const contentHash = await sha256Hex(validated.bytes);
+      const path = buildAssetPath({
+        ownerType: 'product',
+        kind: validated.kind,
+        productCode,
+        revision,
+        color: typeKey === 'image' ? color : undefined,
+        originalName: validated.originalName,
+        contentHash,
+      });
+      if (this.materialAssetUploadVersions.get(uploadKey) !== uploadVersion
+        || this.state.currentSku !== productCode
+        || this.selectedProductRevision() !== revision
+        || (typeKey === 'image' && this.state.currentColor && String(this.state.currentColor) !== color)
+        || !this.canEditProductRevision()) return;
+
+      const assets = this.productAssetRevision(productCode, revision);
+      const listKey = typeKey === 'manual' ? 'manuals' : 'assemblyModels';
+      let currentAsset;
+      if (typeKey === 'image') {
+        currentAsset = assets.images[color] || {};
+      } else {
+        assets[listKey] = assets[listKey] || [];
+        if (index > assets[listKey].length) return;
+        if (!assets[listKey][index]) assets[listKey][index] = {};
+        currentAsset = assets[listKey][index];
+      }
+      const previousPendingId = currentAsset.pendingAssetId;
+      this.state.pendingMaterialAssets[path] = {
+        path,
+        ownerType: 'product',
+        contentType: validated.contentType,
+        contentHash,
+        bytes: validated.bytes,
+        originalName: validated.originalName,
+      };
+      const nextAsset = {
+        name: validated.originalName,
+        url: '',
+        pendingAssetId: path,
+      };
+      if (typeKey === 'image') assets.images[color] = nextAsset;
+      else assets[listKey][index] = nextAsset;
+      if (previousPendingId && previousPendingId !== path) {
+        delete this.state.pendingMaterialAssets[previousPendingId];
+      }
+      this.state.materialAssetFeedback = null;
+      this.prunePendingMaterialAssets();
+      this.markDirty();
+      this.renderAll();
+      this.setStatus(this.label('assetFileQueued'), 'dirty');
+    } catch (error) {
+      if (this.materialAssetUploadVersions.get(uploadKey) !== uploadVersion) return;
+      const validationError = error instanceof MaterialAssetUploadError
+        ? error
+        : new MaterialAssetUploadError('ASSET_UPLOAD_FAILED');
+      const message = this.materialAssetErrorLabel(validationError);
+      this.state.materialAssetFeedback = {
+        ownerType: 'product', productCode, revision, typeKey, index, color, message, state: 'error',
+      };
+      this.renderAll();
+      this.setStatus(message, 'error');
+    } finally {
+      input.value = '';
+    }
+  }
+
+  removeProductAsset(button) {
+    if (!this.canEditProductRevision()) return;
+    const typeKey = button?.dataset?.productAssetType;
+    const index = Number.parseInt(button?.dataset?.productAssetIndex, 10);
+    const color = String(button?.dataset?.productAssetColor || '');
+    const assets = this.productAssetRevision();
+    let removed;
+    if (typeKey === 'image') {
+      removed = assets.images?.[color];
+      delete assets.images[color];
+    } else {
+      const listKey = typeKey === 'manual' ? 'manuals' : typeKey === 'assembly' ? 'assemblyModels' : '';
+      if (!listKey || !Number.isInteger(index)) return;
+      removed = assets[listKey]?.[index];
+      assets[listKey]?.splice(index, 1);
+    }
+    if (!removed) return;
+    if (removed.pendingAssetId) delete this.state.pendingMaterialAssets[removed.pendingAssetId];
+    this.state.materialAssetFeedback = null;
+    this.prunePendingMaterialAssets();
+    this.markDirty();
+    this.renderAll();
+    this.setStatus(this.label('dirty'), 'dirty');
+  }
+
+  openProductAsset(button) {
+    const typeKey = button?.dataset?.productAssetType;
+    const index = Number.parseInt(button?.dataset?.productAssetIndex, 10);
+    const color = String(button?.dataset?.productAssetColor || '');
+    const assets = resolveProductAssets(
+      this.state.payload,
+      this.state.currentSku,
+      this.selectedProductRevision(),
+    );
+    const asset = typeKey === 'manual'
+      ? assets.manuals[index]
+      : typeKey === 'assembly'
+        ? assets.assemblyModels[index]
+        : typeKey === 'image'
+          ? resolveProductImage(assets, [color])
+          : null;
+    if (!asset?.url && !asset?.previewUrl) return;
+    if (typeKey === 'assembly') {
+      this.showModel3dModal(asset, asset.name || this.label('assemblyModel'));
+      return;
+    }
+    this.showModal(asset.url, asset.name, this.label(typeKey === 'manual' ? 'manual' : 'productImage'));
   }
 
   selectExistingMaterialAsset(button) {
@@ -4211,6 +4393,7 @@ class BomApplication {
       manuals: this.state.manuals,
       models3d: this.state.models3d,
       productImages: this.state.productImages,
+      productAssets: this.state.payload.productAssets,
       productRevisions: this.state.payload.productRevisions,
       materialDb: this.state.materialDb,
       notifications: this.state.payload.notifications,
@@ -4224,7 +4407,7 @@ class BomApplication {
     }
     let resolution;
     try {
-      resolution = await resolvePendingMaterialAssets({
+      resolution = await resolvePendingAssetReferences({
         payload: localPayload,
         pendingAssets: this.state.pendingMaterialAssets,
         upload: (pending) => this.githubAssetStorage.uploadAsset({
@@ -4321,7 +4504,11 @@ class BomApplication {
   }
 
   openManual(index) {
-    const manual = (this.state.manuals[this.state.currentSku] || [])[index];
+    const manual = resolveProductAssets(
+      this.state.payload,
+      this.state.currentSku,
+      this.selectedProductRevision(),
+    ).manuals[index];
     if (manual) this.showModal(manual.url, manual.name, manual.path || this.label('manual'));
   }
 

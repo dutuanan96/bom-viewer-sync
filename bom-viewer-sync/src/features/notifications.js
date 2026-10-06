@@ -38,6 +38,22 @@ function materialChangeValue(record, field) {
   return String(record[field] ?? '');
 }
 
+function assetSummary(asset) {
+  return `${asset?.name || ''}|${asset?.url || asset?.path || asset?.pendingAssetId || ''}`;
+}
+
+function productAssetChangeValue(assets, field) {
+  if (!assets) return '';
+  if (field === 'images') {
+    return Object.entries(assets.images || {})
+      .sort(([left], [right]) => left.localeCompare(right))
+      .map(([color, asset]) => `${color}:${assetSummary(asset)}`)
+      .join(';');
+  }
+  const list = field === 'manuals' ? assets.manuals : assets.assemblyModels;
+  return (list || []).map(assetSummary).join(';');
+}
+
 export function describePayloadChanges(previousPayload, nextPayload) {
   const previous = previousPayload || {};
   const next = nextPayload || {};
@@ -138,6 +154,31 @@ export function describePayloadChanges(previousPayload, nextPayload) {
       const after = String(afterValue || '');
       if (before !== after) {
         changes.push({ kind: 'revision', code: String(code), field, before, after });
+      }
+    }
+  }
+
+  const productAssetProducts = new Set([
+    ...Object.keys(previous.productAssets || {}),
+    ...Object.keys(next.productAssets || {}),
+  ]);
+  for (const code of productAssetProducts) {
+    const previousRevisions = previous.productAssets?.[code] || {};
+    const nextRevisions = next.productAssets?.[code] || {};
+    const revisionCodes = new Set([...Object.keys(previousRevisions), ...Object.keys(nextRevisions)]);
+    for (const revision of revisionCodes) {
+      for (const field of ['manuals', 'assemblyModels', 'images']) {
+        const before = productAssetChangeValue(previousRevisions[revision], field);
+        const after = productAssetChangeValue(nextRevisions[revision], field);
+        if (before !== after) {
+          changes.push({
+            kind: 'product',
+            code: String(code),
+            field: `${revision}.${field}`,
+            before,
+            after,
+          });
+        }
       }
     }
   }

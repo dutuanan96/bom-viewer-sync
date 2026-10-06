@@ -3330,6 +3330,73 @@ body.pdm-shell {
   color: #b42318;
 }
 
+.product-assets-card {
+  margin-top: 18px;
+  padding: 18px 20px;
+}
+
+.product-assets-card h2 {
+  color: #191c1e;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0;
+}
+
+.product-assets-header,
+.product-asset-entry {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.product-assets-header p {
+  color: #687083;
+  font-size: 12px;
+  margin: 5px 0 0;
+}
+
+.product-assets-group {
+  border-top: 1px solid #eef0f5;
+  margin-top: 12px;
+  padding-top: 10px;
+}
+
+.product-assets-group h3 {
+  font-size: 13px;
+  margin: 0 0 7px;
+}
+
+.product-asset-entry {
+  border-top: 1px solid #f2f3f7;
+  padding: 8px 0;
+}
+
+.product-asset-summary {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.product-asset-summary span,
+.product-asset-summary small {
+  color: #687083;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.product-asset-actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+.product-asset-file-input {
+  display: none;
+}
+
 @media (max-width: 1100px) {
 
   .material-master-form,
@@ -3340,6 +3407,16 @@ body.pdm-shell {
 
   .material-asset-edit-fields {
     grid-template-columns: 1fr;
+  }
+
+  .product-asset-entry {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .product-assets-header {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
 

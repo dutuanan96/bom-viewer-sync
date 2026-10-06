@@ -1,4 +1,5 @@
 import { clone } from './materials.js';
+import { normalizeProductAssetRegistry, resolveProductAssets } from './product-assets.js';
 
 const DEFAULT_PRODUCT_REVISION = 'A.1';
 const DEFAULT_REVISION_WORKFLOW_STATE = 'released';
@@ -260,7 +261,9 @@ function createProductRevision(payload, productCode, nextRevision, options) {
   const currentRevision = hasRevisionRecord
     ? record.currentRevision
     : revisionCode(options?.currentRevision, record.currentRevision);
-  if (nextCode === currentRevision || record.revisions.some((item) => item.revision === nextCode)) {
+  if (nextCode === currentRevision
+    || record.revisions.some((item) => item.revision === nextCode)
+    || Object.prototype.hasOwnProperty.call(payload.productAssets?.[productCode] || {}, nextCode)) {
     throw new Error('REVISION_EXISTS');
   }
 
@@ -271,6 +274,11 @@ function createProductRevision(payload, productCode, nextRevision, options) {
     ...record.currentRevisionInfo,
     snapshot,
   };
+  payload.productAssets = normalizeProductAssetRegistry(payload.productAssets);
+  payload.productAssets[productCode] = payload.productAssets[productCode] || {};
+  payload.productAssets[productCode][nextCode] = clone(
+    resolveProductAssets(payload, productCode, currentRevision),
+  );
   payload.productRevisions = normalizeProductRevisionRegistry(payload);
   const currentRevisionInfo = {
     sourceRevision: currentRevision,
