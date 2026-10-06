@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-09-23T06:15:26.954Z",
+  "updatedAt": "2026-10-06T01:35:07.030Z",
   "products": [
     "5106",
     "LGS031",
@@ -341400,6 +341400,36 @@
   },
   "notifications": [
     {
+      "id": "notif_ldl7ws",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-10-06T01:35:07.030Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "product",
+          "code": "LGS433",
+          "field": "V5.manuals",
+          "before": "",
+          "after": "LGS433-S-A4-说明书-V6.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@9822be3e48b3d1c5c367af60b012ef360380cd53/assets/products/manuals/LGS433_V5_ed6a19a0ea9a2c48cd7c712c9786ebb8e69d48d03086873b5feebc7d7ffb45c9_LGS433-S-A4-_-V6.pdf"
+        },
+        {
+          "kind": "product",
+          "code": "LGS433",
+          "field": "V5.assemblyModels",
+          "before": "",
+          "after": "LGS433-3列3层灯电款开放空间8抽斗柜-45inch.glb|models3d/catalog/LGS433-3-3-8-45inch-4df4b236.glb"
+        },
+        {
+          "kind": "product",
+          "code": "LGS433",
+          "field": "V5.images",
+          "before": "",
+          "after": "复古色:LGS433_KD.jpg|https://drive.google.com/file/d/1udLtKMuiN9ayK4QJNRsSja_8rabKitHU/view?usp=sharing;白色:LGS433_WB.jpg|https://drive.google.com/file/d/1-1-ATcLGX6871H81ug6CZJhRhpMcFuHF/view?usp=sharing;黑色:LGS433_BH.jpg|https://drive.google.com/file/d/1PN8Ptx3XwcUniAH90Fx4MqwQjQ39orsS/view?usp=sharing"
+        }
+      ]
+    },
+    {
       "id": "notif_ecn_433_434_v1s_draft",
       "type": "ecn-draft-correction",
       "actor": "admin",
@@ -342517,73 +342547,58 @@
           "after": ""
         }
       ]
-    },
-    {
-      "id": "notif_tvgwo0",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-24T08:34:12.435Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "product",
-          "code": "LGS032",
-          "field": "revision",
-          "before": "V3.2",
-          "after": "V3.3"
-        },
-        {
-          "kind": "product",
-          "code": "LGS032",
-          "field": "白色.sku",
-          "before": "",
-          "after": "LGS032W101S"
-        },
-        {
-          "kind": "product",
-          "code": "LGS032",
-          "field": "白色.name_zh",
-          "before": "",
-          "after": "白色3列3层6抽开放式带灯带电布抽电视柜-45inch"
-        },
-        {
-          "kind": "product",
-          "code": "LGS032",
-          "field": "白色.name_vi",
-          "before": "",
-          "after": "màu trắng 3 cột 3 tầng 6 Tủ đựng TV kiểu ngăn kéo mở có đèn và điện-45inch"
-        },
-        {
-          "kind": "product",
-          "code": "LGS032",
-          "field": "白色.size",
-          "before": "",
-          "after": "300Dx1138Wx671Hmm"
-        },
-        {
-          "kind": "product",
-          "code": "LGS033",
-          "field": "revision",
-          "before": "V4.1",
-          "after": "V4.2"
-        },
-        {
-          "kind": "product",
-          "code": "LGS033",
-          "field": "黑色.sku",
-          "before": "",
-          "after": "LGS033B101S"
-        },
-        {
-          "kind": "product",
-          "code": "LGS033",
-          "field": "黑色.name_zh",
-          "before": "",
-          "after": "3列3层9抽-45inch烟墨黑"
-        }
-      ]
     }
   ],
+  "productAssets": {
+    "LGS433": {
+      "V5": {
+        "manuals": [
+          {
+            "name": "LGS433-S-A4-说明书-V6.pdf",
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@9822be3e48b3d1c5c367af60b012ef360380cd53/assets/products/manuals/LGS433_V5_ed6a19a0ea9a2c48cd7c712c9786ebb8e69d48d03086873b5feebc7d7ffb45c9_LGS433-S-A4-_-V6.pdf",
+            "path": "assets/products/manuals/LGS433_V5_ed6a19a0ea9a2c48cd7c712c9786ebb8e69d48d03086873b5feebc7d7ffb45c9_LGS433-S-A4-_-V6.pdf",
+            "contentHash": "ed6a19a0ea9a2c48cd7c712c9786ebb8e69d48d03086873b5feebc7d7ffb45c9"
+          }
+        ],
+        "assemblyModels": [
+          {
+            "name": "LGS433-3列3层灯电款开放空间8抽斗柜-45inch.glb",
+            "path": "models3d/catalog/LGS433-3-3-8-45inch-4df4b236.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS433-3-3-8-45inch-4df4b236.glb",
+            "matched_name": "LGS433 assembly",
+            "score": 1600,
+            "bytes": 5221236
+          }
+        ],
+        "images": {
+          "黑色": {
+            "name": "LGS433_BH.jpg",
+            "path": "product-images/LGS433_BH.jpg",
+            "url": "https://drive.google.com/file/d/1PN8Ptx3XwcUniAH90Fx4MqwQjQ39orsS/view?usp=sharing",
+            "source": "google-drive",
+            "driveId": "1PN8Ptx3XwcUniAH90Fx4MqwQjQ39orsS",
+            "directUrl": "https://drive.google.com/thumbnail?id=1PN8Ptx3XwcUniAH90Fx4MqwQjQ39orsS&sz=w1600"
+          },
+          "复古色": {
+            "name": "LGS433_KD.jpg",
+            "path": "product-images/LGS433_KD.jpg",
+            "url": "https://drive.google.com/file/d/1udLtKMuiN9ayK4QJNRsSja_8rabKitHU/view?usp=sharing",
+            "source": "google-drive",
+            "driveId": "1udLtKMuiN9ayK4QJNRsSja_8rabKitHU",
+            "directUrl": "https://drive.google.com/thumbnail?id=1udLtKMuiN9ayK4QJNRsSja_8rabKitHU&sz=w1600"
+          },
+          "白色": {
+            "name": "LGS433_WB.jpg",
+            "path": "product-images/LGS433_WB.jpg",
+            "url": "https://drive.google.com/file/d/1-1-ATcLGX6871H81ug6CZJhRhpMcFuHF/view?usp=sharing",
+            "source": "google-drive",
+            "driveId": "1-1-ATcLGX6871H81ug6CZJhRhpMcFuHF",
+            "directUrl": "https://drive.google.com/thumbnail?id=1-1-ATcLGX6871H81ug6CZJhRhpMcFuHF&sz=w1600"
+          }
+        }
+      }
+    }
+  },
   "bomHistory": {
     "5106": [
       {
@@ -363269,6 +363284,38 @@
       }
     ],
     "LGS433": [
+      {
+        "id": "history_1pr3vn4",
+        "productCode": "LGS433",
+        "revision": "V5",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-LGS433-V5-LGS434-V6: 移除41底脚，改为44mm底脚直接焊接于新底部横杆组件，改用M4×22内六角螺丝。",
+        "createdAt": "2026-10-06T01:35:07.030Z",
+        "changes": [
+          {
+            "kind": "product",
+            "code": "LGS433",
+            "field": "V5.manuals",
+            "before": "",
+            "after": "LGS433-S-A4-说明书-V6.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@9822be3e48b3d1c5c367af60b012ef360380cd53/assets/products/manuals/LGS433_V5_ed6a19a0ea9a2c48cd7c712c9786ebb8e69d48d03086873b5feebc7d7ffb45c9_LGS433-S-A4-_-V6.pdf"
+          },
+          {
+            "kind": "product",
+            "code": "LGS433",
+            "field": "V5.assemblyModels",
+            "before": "",
+            "after": "LGS433-3列3层灯电款开放空间8抽斗柜-45inch.glb|models3d/catalog/LGS433-3-3-8-45inch-4df4b236.glb"
+          },
+          {
+            "kind": "product",
+            "code": "LGS433",
+            "field": "V5.images",
+            "before": "",
+            "after": "复古色:LGS433_KD.jpg|https://drive.google.com/file/d/1udLtKMuiN9ayK4QJNRsSja_8rabKitHU/view?usp=sharing;白色:LGS433_WB.jpg|https://drive.google.com/file/d/1-1-ATcLGX6871H81ug6CZJhRhpMcFuHF/view?usp=sharing;黑色:LGS433_BH.jpg|https://drive.google.com/file/d/1PN8Ptx3XwcUniAH90Fx4MqwQjQ39orsS/view?usp=sharing"
+          }
+        ]
+      },
       {
         "id": "history_lgs433_v5_v1s_correction",
         "productCode": "LGS433",
