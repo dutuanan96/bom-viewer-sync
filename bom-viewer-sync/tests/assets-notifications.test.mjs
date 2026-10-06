@@ -95,6 +95,27 @@ test('PDF preview fetches into a Blob URL and preserves the original download UR
   });
 });
 
+test('Google Drive PDF previews load directly in the iframe without fetch or Blob URLs', async () => {
+  await withPdfPreviewGlobals(async ({ objectUrls }) => {
+    const { app, elements } = createPdfPreviewApp();
+    const sourceUrl = 'https://drive.google.com/file/d/drive-file-id/view';
+    let fetchCount = 0;
+    globalThis.fetch = async () => {
+      fetchCount += 1;
+      throw new Error('Google Drive preview must not be fetched');
+    };
+
+    sharedViewMethods.showModal.call(app, sourceUrl, 'Drawing');
+    await flushAsyncWork();
+
+    assert.equal(elements['#pdfFrame'].src, 'https://drive.google.com/file/d/drive-file-id/preview');
+    assert.equal(fetchCount, 0);
+    assert.deepEqual(objectUrls, []);
+    assert.equal(app.activePdfObjectUrl, undefined);
+    assert.equal(elements['#pdfOpenLink'].href, sourceUrl);
+  });
+});
+
 test('PDF preview logs HTTP and fetch failures without creating object URLs', async () => {
   await withPdfPreviewGlobals(async ({ objectUrls, warnings }) => {
     const { app } = createPdfPreviewApp();
@@ -191,7 +212,13 @@ test('asset matching remains color-neutral and Drive-aware', () => {
   assert.equal(assets[0].name, 'panel.pdf');
   assert.equal(driveFileId('https://drive.google.com/file/d/file-id/view'), 'file-id');
   assert.equal(pdfFrameUrl('https://drive.google.com/file/d/file-id/view'), 'https://drive.google.com/file/d/file-id/preview');
+  assert.equal(pdfFrameUrl('https://drive.google.com/open?id=file-id'), 'https://drive.google.com/file/d/file-id/preview');
   assert.equal(pdfFrameUrl('https://example.test/drawing.pdf'), 'https://example.test/drawing.pdf');
+  assert.equal(pdfFrameUrl('https://example.test/drawing.pdf?id=file-id'), 'https://example.test/drawing.pdf?id=file-id');
+  assert.equal(
+    pdfFrameUrl('https://raw.githubusercontent.com/acme/repo/main/drawings/catalog/drawing.pdf'),
+    'https://cdn.jsdelivr.net/gh/acme/repo@main/drawings/catalog/drawing.pdf',
+  );
   assert.equal(
     pdfFrameUrl('https://cdn.jsdelivr.net/gh/acme/repo@main/drawings/catalog/drawing.pdf', { protocol: 'file:', hostname: '' }),
     'https://cdn.jsdelivr.net/gh/acme/repo@main/drawings/catalog/drawing.pdf',

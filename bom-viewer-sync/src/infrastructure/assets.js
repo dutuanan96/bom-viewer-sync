@@ -90,8 +90,9 @@ export function assetDisplayUrl(asset, locationLike = globalThis.location) {
 
 export function pdfFrameUrl(url, locationLike = globalThis.location) {
   const value = String(url || '').trim();
-  const match = value.match(/drive\.google\.com\/file\/d\/([^/?#]+)/i);
-  if (match) return `https://drive.google.com/file/d/${encodeURIComponent(match[1])}/preview`;
+  const isGoogleDriveUrl = /^(?:https?:\/\/|\/\/)?drive\.google\.com(?:[:/?#]|$)/i.test(value);
+  const driveId = isGoogleDriveUrl ? driveFileId(value) : '';
+  if (driveId) return `https://drive.google.com/file/d/${encodeURIComponent(driveId)}/preview`;
 
   const isLocalDocument = ['file:', 'http:'].includes(locationLike?.protocol)
     && ['', 'localhost', '127.0.0.1'].includes(locationLike?.hostname || '');

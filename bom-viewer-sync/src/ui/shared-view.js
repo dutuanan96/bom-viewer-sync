@@ -301,7 +301,11 @@ function showModal(url, title, subtitle) {
   this.query('#pdfOpenLink').textContent = this.label('download');
   this.query('#pdfCloseBtn').textContent = this.label('close');
   this.query('#pdfModal').classList.add('open');
-  void this.loadPdfPreview(sourceUrl, requestId);
+  if (sourceUrl.startsWith('https://drive.google.com/file/d/')) {
+    frame.src = sourceUrl;
+  } else {
+    void this.loadPdfPreview(sourceUrl, requestId);
+  }
 }
 
 function showModel3dModal(model, fallbackTitle) {
