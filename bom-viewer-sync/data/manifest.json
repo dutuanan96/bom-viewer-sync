@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-10-06T01:35:07.030Z",
+  "updatedAt": "2026-10-06T01:43:05.633Z",
   "products": [
     "5106",
     "LGS031",
@@ -341400,6 +341400,36 @@
   },
   "notifications": [
     {
+      "id": "notif_bd5gts",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-10-06T01:43:05.633Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "product",
+          "code": "LGS434",
+          "field": "V6.manuals",
+          "before": "",
+          "after": "LGS434-S-A4-说明书-V7.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@5a192e64ea2ee475d750995655831080f7bf8960/assets/products/manuals/LGS434_V6_904fa1ac42478405477eafd67daeefd75eca2828f82b118896d991d0cb07c102_LGS434-S-A4-_-V7.pdf"
+        },
+        {
+          "kind": "product",
+          "code": "LGS434",
+          "field": "V6.assemblyModels",
+          "before": "",
+          "after": "LGS434-3列3层灯电款开放空间8抽斗柜-57inch.glb|models3d/catalog/LGS434-3-3-8-57inch-d6959a41.glb"
+        },
+        {
+          "kind": "product",
+          "code": "LGS434",
+          "field": "V6.images",
+          "before": "",
+          "after": "白色:LGS434_WH.jpg|https://drive.google.com/file/d/1VFbbznGHoRFWNi07uzXKkDC2acHOkuGP/view?usp=sharing;黑色:LGS434_BH.jpg|https://drive.google.com/file/d/197KLcas-6tWpMTJhMn9ZkQqoR6mNde5A/view?usp=sharing"
+        }
+      ]
+    },
+    {
       "id": "notif_ldl7ws",
       "type": "github-save",
       "actor": "admin",
@@ -342482,71 +342512,6 @@
           "after": "[object Object]"
         }
       ]
-    },
-    {
-      "id": "notif_ns91z4",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-24T09:09:17.345Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material_added",
-          "code": "DD0310WH",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "material_added",
-          "code": "LGS032YKWH647",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "material_added",
-          "code": "LGS032ZKWH647",
-          "field": "",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS032W101S",
-          "field": "",
-          "before": "LGS032ZKBH647",
-          "after": "LGS032ZKWH647"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS032W101S",
-          "field": "",
-          "before": "LGS032YKBH647",
-          "after": "LGS032YKWH647"
-        },
-        {
-          "kind": "bom_material_changed",
-          "code": "LGS032W101S",
-          "field": "",
-          "before": "DD0310",
-          "after": "DD0310WH"
-        },
-        {
-          "kind": "bom_added",
-          "code": "LGS132YZKKD",
-          "field": "FG1515066091",
-          "before": "",
-          "after": ""
-        },
-        {
-          "kind": "bom_added",
-          "code": "LGS132YZKKD",
-          "field": "M6YLM139",
-          "before": "",
-          "after": ""
-        }
-      ]
     }
   ],
   "productAssets": {
@@ -342594,6 +342559,46 @@
             "source": "google-drive",
             "driveId": "1-1-ATcLGX6871H81ug6CZJhRhpMcFuHF",
             "directUrl": "https://drive.google.com/thumbnail?id=1-1-ATcLGX6871H81ug6CZJhRhpMcFuHF&sz=w1600"
+          }
+        }
+      }
+    },
+    "LGS434": {
+      "V6": {
+        "manuals": [
+          {
+            "name": "LGS434-S-A4-说明书-V7.pdf",
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@5a192e64ea2ee475d750995655831080f7bf8960/assets/products/manuals/LGS434_V6_904fa1ac42478405477eafd67daeefd75eca2828f82b118896d991d0cb07c102_LGS434-S-A4-_-V7.pdf",
+            "path": "assets/products/manuals/LGS434_V6_904fa1ac42478405477eafd67daeefd75eca2828f82b118896d991d0cb07c102_LGS434-S-A4-_-V7.pdf",
+            "contentHash": "904fa1ac42478405477eafd67daeefd75eca2828f82b118896d991d0cb07c102"
+          }
+        ],
+        "assemblyModels": [
+          {
+            "name": "LGS434-3列3层灯电款开放空间8抽斗柜-57inch.glb",
+            "path": "models3d/catalog/LGS434-3-3-8-57inch-d6959a41.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS434-3-3-8-57inch-d6959a41.glb",
+            "matched_name": "LGS434 assembly",
+            "score": 1600,
+            "bytes": 6098408
+          }
+        ],
+        "images": {
+          "黑色": {
+            "name": "LGS434_BH.jpg",
+            "path": "product-images/LGS434_BH.jpg",
+            "url": "https://drive.google.com/file/d/197KLcas-6tWpMTJhMn9ZkQqoR6mNde5A/view?usp=sharing",
+            "source": "google-drive",
+            "driveId": "197KLcas-6tWpMTJhMn9ZkQqoR6mNde5A",
+            "directUrl": "https://drive.google.com/thumbnail?id=197KLcas-6tWpMTJhMn9ZkQqoR6mNde5A&sz=w1600"
+          },
+          "白色": {
+            "name": "LGS434_WH.jpg",
+            "path": "product-images/LGS434_WH.jpg",
+            "url": "https://drive.google.com/file/d/1VFbbznGHoRFWNi07uzXKkDC2acHOkuGP/view?usp=sharing",
+            "source": "google-drive",
+            "driveId": "1VFbbznGHoRFWNi07uzXKkDC2acHOkuGP",
+            "directUrl": "https://drive.google.com/thumbnail?id=1VFbbznGHoRFWNi07uzXKkDC2acHOkuGP&sz=w1600"
           }
         }
       }
@@ -348148,6 +348153,38 @@
       }
     ],
     "LGS434": [
+      {
+        "id": "history_11a51ul",
+        "productCode": "LGS434",
+        "revision": "V6",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-LGS433-V5-LGS434-V6: 移除41底脚，改为44mm底脚直接焊接于新底部横杆组件，改用M4×22内六角螺丝。",
+        "createdAt": "2026-10-06T01:43:05.633Z",
+        "changes": [
+          {
+            "kind": "product",
+            "code": "LGS434",
+            "field": "V6.manuals",
+            "before": "",
+            "after": "LGS434-S-A4-说明书-V7.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@5a192e64ea2ee475d750995655831080f7bf8960/assets/products/manuals/LGS434_V6_904fa1ac42478405477eafd67daeefd75eca2828f82b118896d991d0cb07c102_LGS434-S-A4-_-V7.pdf"
+          },
+          {
+            "kind": "product",
+            "code": "LGS434",
+            "field": "V6.assemblyModels",
+            "before": "",
+            "after": "LGS434-3列3层灯电款开放空间8抽斗柜-57inch.glb|models3d/catalog/LGS434-3-3-8-57inch-d6959a41.glb"
+          },
+          {
+            "kind": "product",
+            "code": "LGS434",
+            "field": "V6.images",
+            "before": "",
+            "after": "白色:LGS434_WH.jpg|https://drive.google.com/file/d/1VFbbznGHoRFWNi07uzXKkDC2acHOkuGP/view?usp=sharing;黑色:LGS434_BH.jpg|https://drive.google.com/file/d/197KLcas-6tWpMTJhMn9ZkQqoR6mNde5A/view?usp=sharing"
+          }
+        ]
+      },
       {
         "id": "history_lgs434_v6_v1s_correction",
         "productCode": "LGS434",
