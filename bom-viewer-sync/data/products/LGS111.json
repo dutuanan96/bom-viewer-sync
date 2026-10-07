@@ -826,7 +826,7 @@
             "zh": "张",
             "vi": "tờ"
           },
-          "qty": "1",
+          "qty": "2",
           "remark": ""
         },
         {
@@ -849,7 +849,7 @@
             "zh": "张",
             "vi": "tờ"
           },
-          "qty": "1",
+          "qty": "2",
           "remark": ""
         },
         {
@@ -872,30 +872,7 @@
             "zh": "张",
             "vi": "tờ"
           },
-          "qty": "2",
-          "remark": ""
-        },
-        {
-          "stt": "9",
-          "mat_code": "XHBX04",
-          "comp_code": "",
-          "name_zh": "序号标 X04",
-          "name_vi": "nhãn STT X04",
-          "spec": "∅10mm",
-          "spec_vi": "∅10mm",
-          "material_zh": "不干胶纸",
-          "material_vi": "giấy tự dính",
-          "color_zh": "白底黑字",
-          "color_vi": "nền trắng chữ đen",
-          "attr_zh": "包材",
-          "attr_vi": "vật liệu đóng gói",
-          "color_ver": "复古色",
-          "color_ver_vi": "复古色",
-          "unit": {
-            "zh": "张",
-            "vi": "tờ"
-          },
-          "qty": "2",
+          "qty": "4",
           "remark": ""
         },
         {
@@ -1880,7 +1857,7 @@
             "zh": "张",
             "vi": "tờ"
           },
-          "qty": "1",
+          "qty": "2",
           "remark": ""
         },
         {
@@ -1903,7 +1880,7 @@
             "zh": "张",
             "vi": "tờ"
           },
-          "qty": "1",
+          "qty": "2",
           "remark": ""
         },
         {
@@ -1926,30 +1903,7 @@
             "zh": "张",
             "vi": "tờ"
           },
-          "qty": "2",
-          "remark": ""
-        },
-        {
-          "stt": "9",
-          "mat_code": "XHBX04",
-          "comp_code": "",
-          "name_zh": "序号标 X04",
-          "name_vi": "nhãn STT X04",
-          "spec": "∅10mm",
-          "spec_vi": "∅10mm",
-          "material_zh": "不干胶纸",
-          "material_vi": "giấy tự dính",
-          "color_zh": "白底黑字",
-          "color_vi": "nền trắng chữ đen",
-          "attr_zh": "包材",
-          "attr_vi": "vật liệu đóng gói",
-          "color_ver": "白色",
-          "color_ver_vi": "白色",
-          "unit": {
-            "zh": "张",
-            "vi": "tờ"
-          },
-          "qty": "2",
+          "qty": "4",
           "remark": ""
         },
         {
@@ -2934,7 +2888,7 @@
             "zh": "张",
             "vi": "tờ"
           },
-          "qty": "1",
+          "qty": "2",
           "remark": ""
         },
         {
@@ -2957,7 +2911,7 @@
             "zh": "张",
             "vi": "tờ"
           },
-          "qty": "1",
+          "qty": "2",
           "remark": ""
         },
         {
@@ -2980,30 +2934,7 @@
             "zh": "张",
             "vi": "tờ"
           },
-          "qty": "2",
-          "remark": ""
-        },
-        {
-          "stt": "9",
-          "mat_code": "XHBX04",
-          "comp_code": "",
-          "name_zh": "序号标 X04",
-          "name_vi": "nhãn STT X04",
-          "spec": "∅10mm",
-          "spec_vi": "∅10mm",
-          "material_zh": "不干胶纸",
-          "material_vi": "giấy tự dính",
-          "color_zh": "白底黑字",
-          "color_vi": "nền trắng chữ đen",
-          "attr_zh": "包材",
-          "attr_vi": "vật liệu đóng gói",
-          "color_ver": "黑色",
-          "color_ver_vi": "黑色",
-          "unit": {
-            "zh": "张",
-            "vi": "tờ"
-          },
-          "qty": "2",
+          "qty": "4",
           "remark": ""
         },
         {
@@ -3985,7 +3916,7 @@
             "zh": "张",
             "vi": "tờ"
           },
-          "qty": "1",
+          "qty": "2",
           "remark": ""
         },
         {
@@ -4008,7 +3939,7 @@
             "zh": "张",
             "vi": "tờ"
           },
-          "qty": "1",
+          "qty": "2",
           "remark": ""
         },
         {
@@ -4031,30 +3962,7 @@
             "zh": "张",
             "vi": "tờ"
           },
-          "qty": "2",
-          "remark": ""
-        },
-        {
-          "stt": "9",
-          "mat_code": "XHBX04",
-          "comp_code": "",
-          "name_zh": "序号标 X04",
-          "name_vi": "nhãn STT X04",
-          "spec": "∅10mm",
-          "spec_vi": "∅10mm",
-          "material_zh": "不干胶纸",
-          "material_vi": "giấy tự dính",
-          "color_zh": "白底黑字",
-          "color_vi": "nền trắng chữ đen",
-          "attr_zh": "包材",
-          "attr_vi": "vật liệu đóng gói",
-          "color_ver": "山纹黑",
-          "color_ver_vi": "màu đen vân gỗ",
-          "unit": {
-            "zh": "张",
-            "vi": "tờ"
-          },
-          "qty": "2",
+          "qty": "4",
           "remark": ""
         },
         {
