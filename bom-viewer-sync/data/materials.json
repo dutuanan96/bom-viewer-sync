@@ -3455,16 +3455,18 @@
     ],
     "LGS433": [
       {
-        "name": "LGS433-S-A4-说明书-V4.pdf",
-        "path": "Google Drive > LGS433 > LGS433-S-A4-说明书-V4.pdf",
-        "url": "https://drive.google.com/file/d/1zVRZ1_oKIgbOYu4YKJLA_QbYCJiywL2a/view?usp=sharing"
+        "name": "LGS433-S-A4-说明书-V6.pdf",
+        "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@9822be3e48b3d1c5c367af60b012ef360380cd53/assets/products/manuals/LGS433_V5_ed6a19a0ea9a2c48cd7c712c9786ebb8e69d48d03086873b5feebc7d7ffb45c9_LGS433-S-A4-_-V6.pdf",
+        "path": "assets/products/manuals/LGS433_V5_ed6a19a0ea9a2c48cd7c712c9786ebb8e69d48d03086873b5feebc7d7ffb45c9_LGS433-S-A4-_-V6.pdf",
+        "contentHash": "ed6a19a0ea9a2c48cd7c712c9786ebb8e69d48d03086873b5feebc7d7ffb45c9"
       }
     ],
     "LGS434": [
       {
-        "name": "LGS434-S-A4-说明书-V5.pdf",
-        "path": "Google Drive > LGS434 > LGS434-S-A4-说明书-V5.pdf",
-        "url": "https://drive.google.com/file/d/1LqL8vNleORyJk96-nRmJtpJyWTIHvO36/view?usp=sharing"
+        "name": "LGS434-S-A4-说明书-V7.pdf",
+        "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@5a192e64ea2ee475d750995655831080f7bf8960/assets/products/manuals/LGS434_V6_904fa1ac42478405477eafd67daeefd75eca2828f82b118896d991d0cb07c102_LGS434-S-A4-_-V7.pdf",
+        "path": "assets/products/manuals/LGS434_V6_904fa1ac42478405477eafd67daeefd75eca2828f82b118896d991d0cb07c102_LGS434-S-A4-_-V7.pdf",
+        "contentHash": "904fa1ac42478405477eafd67daeefd75eca2828f82b118896d991d0cb07c102"
       }
     ],
     "LGS723": [
