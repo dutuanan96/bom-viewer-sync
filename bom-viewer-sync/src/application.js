@@ -30,7 +30,11 @@ import {
   validateMaterialAssetFile,
   validateAssetFile,
 } from './features/material-asset-upload.js';
-import { resolveProductAssets, resolveProductImage } from './domain/product-assets.js';
+import {
+  resolveProductAssets,
+  resolveProductImage,
+  syncLegacyProductAssetMirrors,
+} from './domain/product-assets.js';
 import { stableId } from './shared/primitives.js';
 import { appendBomHistory } from './features/bom-history.js';
 import {
@@ -4441,6 +4445,7 @@ class BomApplication {
       payload.bomHistory[productCode]?.[0]?.createdAt === updatedAt &&
       payload.productRevisions?.[productCode]?.currentRevisionInfo?.workflowState === 'draft'
     ));
+    syncLegacyProductAssetMirrors(payload);
     await this.githubData.write({ token, expectedHeadSha: remoteFile.expectedHeadSha, payload, message: `chore: update sharded bom data ${updatedAt}` });
     resolution.completedPendingIds.forEach((pendingId) => {
       delete this.state.pendingMaterialAssets[pendingId];

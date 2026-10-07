@@ -60,6 +60,55 @@ export function resolveProductAssets(payload, productCode, revision) {
   };
 }
 
+export function syncLegacyProductAssetMirrors(payload) {
+  if (!isRecord(payload) || !isRecord(payload.productRevisions)) return payload;
+
+  for (const [productCode, revisionInfo] of Object.entries(payload.productRevisions)) {
+    const currentRevision = revisionInfo?.currentRevision;
+    if (currentRevision == null || currentRevision === '') continue;
+
+    const revisions = payload.productAssets?.[productCode];
+    const revisionKey = String(currentRevision);
+    if (!isRecord(revisions) || !Object.prototype.hasOwnProperty.call(revisions, revisionKey)) continue;
+
+    const canonical = revisions[revisionKey];
+    if (canonical === undefined) continue;
+
+    if (!isRecord(payload.manuals)) payload.manuals = {};
+    payload.manuals[productCode] = Array.isArray(canonical?.manuals)
+      ? clone(canonical.manuals)
+      : [];
+
+    if (!isRecord(payload.productImages)) payload.productImages = {};
+    payload.productImages[productCode] = isRecord(canonical?.images)
+      ? clone(canonical.images)
+      : {};
+
+    const existingModels = isRecord(payload.models3d)
+      ? payload.models3d[productCode]
+      : undefined;
+    const existingBuckets = isRecord(existingModels) ? Object.entries(existingModels) : [];
+    const materialEntries = existingBuckets.filter(([key]) => key.includes('|'));
+    const existingProductKey = existingBuckets.find(([key]) => !key.includes('|'))?.[0];
+    const modelEntries = [...materialEntries];
+    if (Array.isArray(canonical?.assemblyModels) && canonical.assemblyModels.length > 0) {
+      modelEntries.push([
+        existingProductKey || productCode,
+        clone(canonical.assemblyModels),
+      ]);
+    }
+
+    if (modelEntries.length > 0) {
+      if (!isRecord(payload.models3d)) payload.models3d = {};
+      payload.models3d[productCode] = Object.fromEntries(modelEntries);
+    } else if (isRecord(payload.models3d)) {
+      delete payload.models3d[productCode];
+    }
+  }
+
+  return payload;
+}
+
 export function resolveProductImage(productAssets, colorKeys) {
   for (const key of colorKeys || []) {
     if (key == null || key === '') continue;

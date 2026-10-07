@@ -4,7 +4,11 @@ import { normalizePayload } from '../src/infrastructure/github-data.js';
 import { buildAssetPath, sha256Hex } from '../src/infrastructure/github-asset-storage.js';
 import { createGithubAssetStorageAdapter } from '../src/infrastructure/github-asset-storage.js';
 import { createProductRevision } from '../src/domain/revisions.js';
-import { resolveProductAssets, resolveProductImage } from '../src/domain/product-assets.js';
+import {
+  resolveProductAssets,
+  resolveProductImage,
+  syncLegacyProductAssetMirrors,
+} from '../src/domain/product-assets.js';
 import { buildLogicalShardFiles, parseLogicalShardFiles } from '../src/domain/sharded-files.js';
 import { catalogViewMethods } from '../src/ui/catalog-view.js';
 import { BomApplication } from '../src/application.js';
@@ -166,9 +170,15 @@ test('GitHub asset storage accepts product namespaces while retaining material n
   }
 });
 
-test('productAssets round-trips through manifest sharding and payload normalization', async () => {
+test('productAssets and legacy product assets round-trip through manifest sharding and payload normalization', async () => {
   const payload = normalizePayload({
     bom: { LGS433: { code: 'LGS433', colors: [], color_info: {} } },
+    manuals: { LGS433: [{ name: 'legacy.pdf', url: 'https://cdn.example/legacy.pdf' }] },
+    models3d: { LGS433: {
+      assembly: [{ name: 'legacy.glb', url: 'https://cdn.example/legacy.glb' }],
+      'M1|material one': [{ name: 'component.glb', url: 'https://cdn.example/component.glb' }],
+    } },
+    productImages: { LGS433: { black: { name: 'legacy.webp', url: 'https://cdn.example/legacy.webp' } } },
     productAssets: {
       LGS433: {
         V5: {
@@ -185,6 +195,176 @@ test('productAssets round-trips through manifest sharding and payload normalizat
   assert.deepEqual(manifest.productAssets, payload.productAssets);
   const reloaded = normalizePayload(await parseLogicalShardFiles(files));
   assert.deepEqual(reloaded.productAssets, payload.productAssets);
+  assert.deepEqual(reloaded.manuals, payload.manuals);
+  assert.deepEqual(reloaded.models3d, payload.models3d);
+  assert.deepEqual(reloaded.productImages, payload.productImages);
+});
+
+test('current canonical product assets mirror to legacy fields and replace stale assembly buckets', () => {
+  const componentModels = {
+    'M1|material one': [{ name: 'component-1.glb', url: 'https://cdn.example/component-1.glb' }],
+    'M2|material two': [{ name: 'component-2.glb', url: 'https://cdn.example/component-2.glb' }],
+  };
+  const payload = normalizePayload({
+    bom: { P1: { code: 'P1', colors: [], color_info: {} } },
+    productRevisions: { P1: { currentRevision: 'V5' } },
+    productAssets: {
+      P1: {
+        V5: {
+          manuals: [{ name: 'current.pdf', url: 'https://cdn.example/current.pdf' }],
+          assemblyModels: [{ name: 'current.glb', url: 'https://cdn.example/current.glb' }],
+          images: { black: { name: 'current.webp', url: 'https://cdn.example/current.webp' } },
+        },
+      },
+    },
+    manuals: { P1: [{ name: 'stale.pdf', url: 'https://cdn.example/stale.pdf' }] },
+    models3d: { P1: {
+      'old product assembly': [{ name: 'stale.glb', url: 'https://cdn.example/stale.glb' }],
+      'duplicate stale assembly': [{ name: 'stale-duplicate.glb', url: 'https://cdn.example/stale-duplicate.glb' }],
+      ...componentModels,
+    } },
+    productImages: { P1: { black: { name: 'stale.webp', url: 'https://cdn.example/stale.webp' } } },
+    materialDb: { materials: {}, bomEntries: [] },
+  });
+  const componentModelsBefore = structuredClone(componentModels);
+
+  assert.equal(syncLegacyProductAssetMirrors(payload), payload);
+  assert.deepEqual(payload.manuals.P1, payload.productAssets.P1.V5.manuals);
+  assert.notEqual(payload.manuals.P1, payload.productAssets.P1.V5.manuals);
+  assert.deepEqual(payload.productImages.P1, payload.productAssets.P1.V5.images);
+  assert.notEqual(payload.productImages.P1, payload.productAssets.P1.V5.images);
+  assert.deepEqual(payload.models3d.P1['old product assembly'], payload.productAssets.P1.V5.assemblyModels);
+  assert.notEqual(payload.models3d.P1['old product assembly'], payload.productAssets.P1.V5.assemblyModels);
+  assert.equal(Object.hasOwn(payload.models3d.P1, 'duplicate stale assembly'), false);
+  assert.deepEqual(Object.fromEntries(Object.entries(payload.models3d.P1).filter(([key]) => key.includes('|'))), componentModelsBefore);
+  assert.equal(Object.keys(payload.models3d.P1).filter((key) => !key.includes('|')).length, 1);
+});
+
+test('uses the product code as assembly bucket key when no product bucket exists', () => {
+  const componentModel = [{ name: 'component.glb', url: 'https://cdn.example/component.glb' }];
+  const payload = normalizePayload({
+    bom: { P1: { code: 'P1', colors: [], color_info: {} } },
+    productRevisions: { P1: { currentRevision: 'V2' } },
+    productAssets: {
+      P1: {
+        V2: {
+          manuals: [],
+          assemblyModels: [{ name: 'current.glb', url: 'https://cdn.example/current.glb' }],
+          images: {},
+        },
+      },
+    },
+    models3d: { P1: { 'M1|material one': componentModel } },
+    materialDb: { materials: {}, bomEntries: [] },
+  });
+
+  syncLegacyProductAssetMirrors(payload);
+
+  assert.deepEqual(payload.models3d.P1.P1, payload.productAssets.P1.V2.assemblyModels);
+  assert.deepEqual(payload.models3d.P1['M1|material one'], componentModel);
+  assert.deepEqual(Object.keys(payload.models3d.P1).filter((key) => !key.includes('|')), ['P1']);
+});
+
+test('empty current canonical assets remove stale legacy assets but preserve material models', () => {
+  const componentModels = [{ name: 'component.glb', url: 'https://cdn.example/component.glb' }];
+  const payload = normalizePayload({
+    bom: {
+      P1: { code: 'P1', colors: [], color_info: {} },
+      P2: { code: 'P2', colors: [], color_info: {} },
+    },
+    productRevisions: {
+      P1: { currentRevision: 'V2' },
+      P2: { currentRevision: 'V3' },
+    },
+    productAssets: {
+      P1: { V2: { manuals: [], assemblyModels: [], images: {} } },
+      P2: { V3: { manuals: [], assemblyModels: [], images: {} } },
+    },
+    manuals: {
+      P1: [{ name: 'stale.pdf', url: 'https://cdn.example/stale.pdf' }],
+      P2: [{ name: 'stale-2.pdf', url: 'https://cdn.example/stale-2.pdf' }],
+    },
+    models3d: {
+      P1: {
+        assembly: [{ name: 'stale.glb', url: 'https://cdn.example/stale.glb' }],
+        'M1|material one': componentModels,
+      },
+      P2: { assembly: [{ name: 'stale-2.glb', url: 'https://cdn.example/stale-2.glb' }] },
+    },
+    productImages: {
+      P1: { black: { name: 'stale.webp', url: 'https://cdn.example/stale.webp' } },
+      P2: { white: { name: 'stale-2.webp', url: 'https://cdn.example/stale-2.webp' } },
+    },
+    materialDb: { materials: {}, bomEntries: [] },
+  });
+
+  syncLegacyProductAssetMirrors(payload);
+
+  assert.deepEqual(payload.manuals.P1, []);
+  assert.deepEqual(payload.productImages.P1, {});
+  assert.deepEqual(payload.models3d.P1, { 'M1|material one': componentModels });
+  assert.deepEqual(payload.manuals.P2, []);
+  assert.deepEqual(payload.productImages.P2, {});
+  assert.equal(Object.hasOwn(payload.models3d, 'P2'), false);
+});
+
+test('products without an exact current canonical entry leave legacy fields untouched', () => {
+  const payload = normalizePayload({
+    bom: { P1: { code: 'P1', colors: [], color_info: {} } },
+    productRevisions: { P1: { currentRevision: 'V5' } },
+    productAssets: { P1: { V4: { manuals: [], assemblyModels: [], images: {} } } },
+    manuals: { P1: [{ name: 'legacy.pdf', url: 'https://cdn.example/legacy.pdf' }] },
+    models3d: { P1: { assembly: [{ name: 'legacy.glb', url: 'https://cdn.example/legacy.glb' }] } },
+    productImages: { P1: { black: { name: 'legacy.webp', url: 'https://cdn.example/legacy.webp' } } },
+    materialDb: { materials: {}, bomEntries: [] },
+  });
+  const legacyFields = {
+    manuals: payload.manuals.P1,
+    models3d: payload.models3d.P1,
+    productImages: payload.productImages.P1,
+  };
+  const legacySnapshot = structuredClone(legacyFields);
+
+  syncLegacyProductAssetMirrors(payload);
+
+  assert.deepEqual(legacyFields, legacySnapshot);
+  assert.equal(payload.productAssets.P1.V5, undefined);
+});
+
+test('current legacy mirrors do not affect an exact historical canonical revision', () => {
+  const payload = normalizePayload({
+    bom: { P1: { code: 'P1', colors: [], color_info: {} } },
+    productRevisions: { P1: { currentRevision: 'V5' } },
+    productAssets: {
+      P1: {
+        V4: { manuals: [{ name: 'old.pdf', url: 'https://cdn.example/old.pdf' }], assemblyModels: [], images: {} },
+        V5: { manuals: [{ name: 'current.pdf', url: 'https://cdn.example/current.pdf' }], assemblyModels: [], images: {} },
+      },
+    },
+    manuals: { P1: [{ name: 'legacy-stale.pdf', url: 'https://cdn.example/legacy-stale.pdf' }] },
+    materialDb: { materials: {}, bomEntries: [] },
+  });
+
+  syncLegacyProductAssetMirrors(payload);
+
+  assert.equal(resolveProductAssets(payload, 'P1', 'V4').manuals[0].name, 'old.pdf');
+  assert.equal(resolveProductAssets(payload, 'P1', 'V5').manuals[0].name, 'current.pdf');
+});
+
+test('an exact empty canonical revision remains authoritative over non-empty legacy mirrors', () => {
+  const payload = normalizePayload({
+    bom: { P1: { code: 'P1', colors: [], color_info: {} } },
+    productRevisions: { P1: { currentRevision: 'V5' } },
+    productAssets: { P1: { V5: { manuals: [], assemblyModels: [], images: {} } } },
+    manuals: { P1: [{ name: 'legacy.pdf', url: 'https://cdn.example/legacy.pdf' }] },
+    models3d: { P1: { assembly: [{ name: 'legacy.glb', url: 'https://cdn.example/legacy.glb' }] } },
+    productImages: { P1: { black: { name: 'legacy.webp', url: 'https://cdn.example/legacy.webp' } } },
+    materialDb: { materials: {}, bomEntries: [] },
+  });
+
+  const assets = resolveProductAssets(payload, 'P1', 'V5');
+
+  assert.deepEqual(assets, { manuals: [], assemblyModels: [], images: {} });
 });
 
 test('resolves canonical assets by selected revision and falls back to legacy product fields', () => {
@@ -462,8 +642,33 @@ test('product asset updates appear in the existing payload change summary', () =
 test('product asset selection stays pending until Save, then writes a commit-pinned product reference', async () => {
   const product = { code: 'P1', revision: 'V2', colors: ['black'], color_info: { black: { sku: 'P1-B' } } };
   const localPayload = normalizePayload({
-    bom: { P1: product },
-    productRevisions: { P1: { currentRevision: 'V2', currentRevisionInfo: { workflowState: 'draft' }, revisions: [] } },
+    bom: {
+      P1: product,
+      P2: { code: 'P2', revision: 'V3', colors: [], color_info: {} },
+    },
+    productRevisions: {
+      P1: { currentRevision: 'V2', currentRevisionInfo: { workflowState: 'draft' }, revisions: [] },
+      P2: { currentRevision: 'V3', currentRevisionInfo: { workflowState: 'draft' }, revisions: [] },
+    },
+    productAssets: { P1: { V2: { manuals: [], assemblyModels: [], images: {} } } },
+    manuals: {
+      P1: [{ name: 'stale.pdf', url: 'https://cdn.example/stale.pdf' }],
+      P2: [{ name: 'unmigrated.pdf', url: 'https://cdn.example/unmigrated.pdf' }],
+    },
+    models3d: {
+      P1: {
+        assembly: [{ name: 'stale.glb', url: 'https://cdn.example/stale.glb' }],
+        'M1|material one': [{ name: 'component.glb', url: 'https://cdn.example/component.glb' }],
+      },
+      P2: {
+        assembly: [{ name: 'unmigrated.glb', url: 'https://cdn.example/unmigrated.glb' }],
+        'M2|material two': [{ name: 'unmigrated-component.glb', url: 'https://cdn.example/unmigrated-component.glb' }],
+      },
+    },
+    productImages: {
+      P1: { black: { name: 'stale.webp', url: 'https://cdn.example/stale.webp' } },
+      P2: { white: { name: 'unmigrated.webp', url: 'https://cdn.example/unmigrated.webp' } },
+    },
     materialDb: { materials: {}, bomEntries: [] },
   });
   const remotePayload = structuredClone(localPayload);
@@ -523,6 +728,15 @@ test('product asset selection stays pending until Save, then writes a commit-pin
   assert.equal(uploadCount, 1);
   assert.match(writtenPayload.productAssets.P1.V2.manuals[0].url, /bom-viewer-assets@[a-f0-9]{40}/);
   assert.equal(writtenPayload.productAssets.P1.V2.manuals[0].pendingAssetId, undefined);
+  assert.deepEqual(writtenPayload.manuals.P1, writtenPayload.productAssets.P1.V2.manuals);
+  assert.equal(writtenPayload.manuals.P1[0].url, writtenPayload.productAssets.P1.V2.manuals[0].url);
+  assert.deepEqual(writtenPayload.productImages.P1, {});
+  assert.deepEqual(Object.keys(writtenPayload.models3d.P1), ['M1|material one']);
+  assert.deepEqual(writtenPayload.models3d.P1['M1|material one'], localPayload.models3d.P1['M1|material one']);
+  assert.equal(writtenPayload.productAssets.P2, undefined);
+  assert.deepEqual(writtenPayload.manuals.P2, localPayload.manuals.P2);
+  assert.deepEqual(writtenPayload.models3d.P2, localPayload.models3d.P2);
+  assert.deepEqual(writtenPayload.productImages.P2, localPayload.productImages.P2);
   assert.equal(Object.keys(app.state.pendingMaterialAssets).length, 0);
 });
 
