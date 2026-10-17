@@ -9645,16 +9645,6 @@
       ]
     },
     "LGS433": {
-      "lgs4333列3层灯电款开放空间8抽斗柜45inch": [
-        {
-          "name": "LGS433-3列3层灯电款开放空间8抽斗柜-45inch.glb",
-          "path": "models3d/catalog/LGS433-3-3-8-45inch-4df4b236.glb",
-          "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS433-3-3-8-45inch-4df4b236.glb",
-          "matched_name": "LGS433 assembly",
-          "score": 1600,
-          "bytes": 5221236
-        }
-      ],
       "lg05254bh|254拉杆": [
         {
           "name": "254拉杆.glb",
@@ -10224,19 +10214,19 @@
           "score": 1100,
           "bytes": 19736
         }
+      ],
+      "lgs4333列3层灯电款开放空间8抽斗柜45inch": [
+        {
+          "name": "LGS433-3列3层灯电款开放空间8抽斗柜-45inch.glb",
+          "path": "models3d/catalog/LGS433-3-3-8-45inch-4df4b236.glb",
+          "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS433-3-3-8-45inch-4df4b236.glb",
+          "matched_name": "LGS433 assembly",
+          "score": 1600,
+          "bytes": 5221236
+        }
       ]
     },
     "LGS434": {
-      "lgs4343列3层灯电款开放空间8抽斗柜57inch": [
-        {
-          "name": "LGS434-3列3层灯电款开放空间8抽斗柜-57inch.glb",
-          "path": "models3d/catalog/LGS434-3-3-8-57inch-d6959a41.glb",
-          "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS434-3-3-8-57inch-d6959a41.glb",
-          "matched_name": "LGS434 assembly",
-          "score": 1600,
-          "bytes": 6098408
-        }
-      ],
       "lg05254wh|254拉杆": [
         {
           "name": "254拉杆.glb",
@@ -10955,6 +10945,16 @@
           "matched_name": "ST3.5X12平头十字自攻螺丝",
           "score": 1100,
           "bytes": 325680
+        }
+      ],
+      "lgs4343列3层灯电款开放空间8抽斗柜57inch": [
+        {
+          "name": "LGS434-3列3层灯电款开放空间8抽斗柜-57inch.glb",
+          "path": "models3d/catalog/LGS434-3-3-8-57inch-d6959a41.glb",
+          "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS434-3-3-8-57inch-d6959a41.glb",
+          "matched_name": "LGS434 assembly",
+          "score": 1600,
+          "bytes": 6098408
         }
       ]
     },
@@ -92708,36 +92708,6 @@
         "comp_code": "",
         "stt": "",
         "remark": ""
-      },
-      {
-        "id": "bomc_m7css8",
-        "parentType": "material",
-        "parentId": "mat_fwib1i",
-        "productCode": "",
-        "color": "",
-        "materialId": "mat_fg1515064816647",
-        "childMaterialId": "mat_fg1515064816647",
-        "stt": "",
-        "comp_code": "",
-        "qty": "0.333333",
-        "color_ver": "",
-        "color_ver_vi": "",
-        "order": 4
-      },
-      {
-        "id": "bomc_1b13qkk",
-        "parentType": "material",
-        "parentId": "mat_pxy79y",
-        "productCode": "",
-        "color": "",
-        "materialId": "mat_fg1515064816647",
-        "childMaterialId": "mat_fg1515064816647",
-        "stt": "",
-        "comp_code": "",
-        "qty": "0.333333",
-        "color_ver": "",
-        "color_ver_vi": "",
-        "order": 4
       },
       {
         "id": "bomv_1j0kn0d",

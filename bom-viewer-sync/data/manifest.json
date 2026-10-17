@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-10-06T01:43:05.633Z",
+  "updatedAt": "2026-10-17T00:54:07.183Z",
   "products": [
     "5106",
     "LGS031",
@@ -341400,6 +341400,29 @@
   },
   "notifications": [
     {
+      "id": "notif_3yhodu",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-10-17T00:54:07.183Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "bom_deleted",
+          "code": "LGS032ZKBH647",
+          "field": "FG1515064816647",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "bom_deleted",
+          "code": "LGS032YKBH647",
+          "field": "FG1515064816647",
+          "before": "",
+          "after": ""
+        }
+      ]
+    },
+    {
       "id": "notif_bd5gts",
       "type": "github-save",
       "actor": "admin",
@@ -342445,71 +342468,6 @@
           "field": "workflowState",
           "before": "draft",
           "after": "released"
-        }
-      ]
-    },
-    {
-      "id": "notif_19i3c1m",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-24T09:28:47.018Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "LGS032SHLWH",
-          "field": "color",
-          "before": "白色 / màu trắng",
-          "after": "白砂纹 / trắng nhám"
-        },
-        {
-          "kind": "material",
-          "code": "LGS032SHLWH",
-          "field": "unit",
-          "before": "根",
-          "after": "[object Object]"
-        },
-        {
-          "kind": "material",
-          "code": "LGS032XHLWH",
-          "field": "color",
-          "before": "白色 / màu trắng",
-          "after": "白砂纹 / trắng nhám"
-        },
-        {
-          "kind": "material",
-          "code": "LGS032XHLWH",
-          "field": "unit",
-          "before": "根",
-          "after": "[object Object]"
-        },
-        {
-          "kind": "material",
-          "code": "LGS032XQHLWH",
-          "field": "color",
-          "before": "白色 / màu trắng",
-          "after": "白砂纹 / trắng nhám"
-        },
-        {
-          "kind": "material",
-          "code": "LGS032XQHLWH",
-          "field": "unit",
-          "before": "根",
-          "after": "[object Object]"
-        },
-        {
-          "kind": "material",
-          "code": "LGS032YKWH647",
-          "field": "color",
-          "before": "白色 / màu trắng",
-          "after": "白砂纹 / trắng nhám"
-        },
-        {
-          "kind": "material",
-          "code": "LGS032YKWH647",
-          "field": "unit",
-          "before": "个",
-          "after": "[object Object]"
         }
       ]
     }
@@ -354913,6 +354871,31 @@
       }
     ],
     "LGS032": [
+      {
+        "id": "history_gwgejj",
+        "productCode": "LGS032",
+        "revision": "V3.3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-COLOR: 新增 4 个已确认颜色 SKU；按已发布颜色 BOM 替换指定颜色物料。",
+        "createdAt": "2026-10-17T00:54:07.183Z",
+        "changes": [
+          {
+            "kind": "bom_deleted",
+            "code": "LGS032ZKBH647",
+            "field": "FG1515064816647",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS032YKBH647",
+            "field": "FG1515064816647",
+            "before": "",
+            "after": ""
+          }
+        ]
+      },
       {
         "id": "history_1rrqd7e",
         "productCode": "LGS032",
