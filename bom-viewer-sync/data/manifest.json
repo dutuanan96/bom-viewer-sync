@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-10-17T00:54:07.183Z",
+  "updatedAt": "2026-10-19T00:32:19.128Z",
   "products": [
     "5106",
     "LGS031",
@@ -341400,6 +341400,29 @@
   },
   "notifications": [
     {
+      "id": "notif_ohpspm",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-10-19T00:32:19.128Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "bom_deleted",
+          "code": "LGS032ZKWH647",
+          "field": "FG1515064816647",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "bom_deleted",
+          "code": "LGS032YKWH647",
+          "field": "FG1515064816647",
+          "before": "",
+          "after": ""
+        }
+      ]
+    },
+    {
       "id": "notif_3yhodu",
       "type": "github-save",
       "actor": "admin",
@@ -342442,29 +342465,6 @@
         {
           "kind": "revision",
           "code": "LGS032",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
-        }
-      ]
-    },
-    {
-      "id": "notif_1nav4ys",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-24T09:35:22.980Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS132",
-          "field": "effectiveRevision",
-          "before": "V3.2",
-          "after": "V3.3"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS132",
           "field": "workflowState",
           "before": "draft",
           "after": "released"
@@ -354871,6 +354871,31 @@
       }
     ],
     "LGS032": [
+      {
+        "id": "history_l29cfd",
+        "productCode": "LGS032",
+        "revision": "V3.3",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-2026-0824-COLOR: 新增 4 个已确认颜色 SKU；按已发布颜色 BOM 替换指定颜色物料。",
+        "createdAt": "2026-10-19T00:32:19.128Z",
+        "changes": [
+          {
+            "kind": "bom_deleted",
+            "code": "LGS032ZKWH647",
+            "field": "FG1515064816647",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_deleted",
+            "code": "LGS032YKWH647",
+            "field": "FG1515064816647",
+            "before": "",
+            "after": ""
+          }
+        ]
+      },
       {
         "id": "history_gwgejj",
         "productCode": "LGS032",
