@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-10-19T00:32:19.128Z",
+  "updatedAt": "2026-10-20T06:48:45.298Z",
   "products": [
     "5106",
     "LGS031",
@@ -341400,6 +341400,50 @@
   },
   "notifications": [
     {
+      "id": "notif_10hx9ym",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-10-20T06:48:45.298Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "material_added",
+          "code": "PM3329511",
+          "field": "",
+          "before": "",
+          "after": ""
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS433KD02V1S",
+          "field": "",
+          "before": "PM3229511",
+          "after": "PM3329511"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS433WH02V1S",
+          "field": "",
+          "before": "PM3229511",
+          "after": "PM3329511"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS433BH02V1S",
+          "field": "",
+          "before": "PM3229511",
+          "after": "PM3329511"
+        },
+        {
+          "kind": "bom_material_changed",
+          "code": "LGS433B201S",
+          "field": "",
+          "before": "PM3229511",
+          "after": "PM3329511"
+        }
+      ]
+    },
+    {
       "id": "notif_ohpspm",
       "type": "github-save",
       "actor": "admin",
@@ -342442,29 +342486,6 @@
         {
           "kind": "revision",
           "code": "LGS133",
-          "field": "workflowState",
-          "before": "draft",
-          "after": "released"
-        }
-      ]
-    },
-    {
-      "id": "notif_ry4d74",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-24T09:37:45.899Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "revision",
-          "code": "LGS032",
-          "field": "effectiveRevision",
-          "before": "V3.2",
-          "after": "V3.3"
-        },
-        {
-          "kind": "revision",
-          "code": "LGS032",
           "field": "workflowState",
           "before": "draft",
           "after": "released"
@@ -363329,6 +363350,52 @@
       }
     ],
     "LGS433": [
+      {
+        "id": "history_1hj5bs7",
+        "productCode": "LGS433",
+        "revision": "V5",
+        "action": "save",
+        "actor": "admin",
+        "reason": "ECN-LGS433-V5-LGS434-V6: 移除41底脚，改为44mm底脚直接焊接于新底部横杆组件，改用M4×22内六角螺丝。",
+        "createdAt": "2026-10-20T06:48:45.298Z",
+        "changes": [
+          {
+            "kind": "material_added",
+            "code": "PM3329511",
+            "field": "",
+            "before": "",
+            "after": ""
+          },
+          {
+            "kind": "bom_material_changed",
+            "code": "LGS433KD02V1S",
+            "field": "",
+            "before": "PM3229511",
+            "after": "PM3329511"
+          },
+          {
+            "kind": "bom_material_changed",
+            "code": "LGS433WH02V1S",
+            "field": "",
+            "before": "PM3229511",
+            "after": "PM3329511"
+          },
+          {
+            "kind": "bom_material_changed",
+            "code": "LGS433BH02V1S",
+            "field": "",
+            "before": "PM3229511",
+            "after": "PM3329511"
+          },
+          {
+            "kind": "bom_material_changed",
+            "code": "LGS433B201S",
+            "field": "",
+            "before": "PM3229511",
+            "after": "PM3329511"
+          }
+        ]
+      },
       {
         "id": "history_1pr3vn4",
         "productCode": "LGS433",
