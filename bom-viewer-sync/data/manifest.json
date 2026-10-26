@@ -121455,6 +121455,374 @@
                       },
                       "qty": "2",
                       "remark": "包装对象：3911515XZHSLWH×2、391515XZQSLWH×2\n规则：2件/袋；用袋：2袋"
+                    },
+                    {
+                      "stt": "",
+                      "mat_code": "M10BADHZ",
+                      "comp_code": "",
+                      "name_zh": "序号标 M",
+                      "name_vi": "nhãn STT M",
+                      "spec": "∅10mm",
+                      "spec_vi": "∅10mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy tự dính",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "白色",
+                      "color_ver_vi": "màu trắng",
+                      "unit": {
+                        "zh": "张",
+                        "vi": "tờ"
+                      },
+                      "qty": "2",
+                      "remark": ""
+                    },
+                    {
+                      "stt": "",
+                      "mat_code": "L210BADHZ",
+                      "comp_code": "",
+                      "name_zh": "序号标 L2",
+                      "name_vi": "nhãn STT L2",
+                      "spec": "∅10mm",
+                      "spec_vi": "∅10mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy tự dính",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "白色",
+                      "color_ver_vi": "màu trắng",
+                      "unit": {
+                        "zh": "张",
+                        "vi": "tờ"
+                      },
+                      "qty": "2",
+                      "remark": ""
+                    },
+                    {
+                      "stt": "",
+                      "mat_code": "L110BADHZ",
+                      "comp_code": "",
+                      "name_zh": "序号标 L1",
+                      "name_vi": "nhãn STT L1",
+                      "spec": "∅10mm",
+                      "spec_vi": "∅10mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy tự dính",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "白色",
+                      "color_ver_vi": "màu trắng",
+                      "unit": {
+                        "zh": "张",
+                        "vi": "tờ"
+                      },
+                      "qty": "2",
+                      "remark": ""
+                    },
+                    {
+                      "stt": "",
+                      "mat_code": "K110BADHZ",
+                      "comp_code": "",
+                      "name_zh": "序号标 K1",
+                      "name_vi": "nhãn STT K1",
+                      "spec": "∅10mm",
+                      "spec_vi": "∅10mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy tự dính",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "白色",
+                      "color_ver_vi": "màu trắng",
+                      "unit": {
+                        "zh": "张",
+                        "vi": "tờ"
+                      },
+                      "qty": "1",
+                      "remark": ""
+                    },
+                    {
+                      "stt": "",
+                      "mat_code": "K210BADHZ",
+                      "comp_code": "",
+                      "name_zh": "序号标 K2",
+                      "name_vi": "nhãn STT K2",
+                      "spec": "∅10mm",
+                      "spec_vi": "∅10mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy tự dính",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "白色",
+                      "color_ver_vi": "màu trắng",
+                      "unit": {
+                        "zh": "张",
+                        "vi": "tờ"
+                      },
+                      "qty": "1",
+                      "remark": ""
+                    },
+                    {
+                      "stt": "",
+                      "mat_code": "J110BADHZ",
+                      "comp_code": "",
+                      "name_zh": "序号标 J1",
+                      "name_vi": "nhãn STT J1",
+                      "spec": "∅10mm",
+                      "spec_vi": "∅10mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy tự dính",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "白色",
+                      "color_ver_vi": "màu trắng",
+                      "unit": {
+                        "zh": "张",
+                        "vi": "tờ"
+                      },
+                      "qty": "1",
+                      "remark": ""
+                    },
+                    {
+                      "stt": "",
+                      "mat_code": "J210BADHZ",
+                      "comp_code": "",
+                      "name_zh": "序号标 J2",
+                      "name_vi": "nhãn STT J2",
+                      "spec": "∅10mm",
+                      "spec_vi": "∅10mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy tự dính",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "白色",
+                      "color_ver_vi": "màu trắng",
+                      "unit": {
+                        "zh": "张",
+                        "vi": "tờ"
+                      },
+                      "qty": "1",
+                      "remark": ""
+                    },
+                    {
+                      "stt": "",
+                      "mat_code": "F10BADHZ",
+                      "comp_code": "",
+                      "name_zh": "序号标 F",
+                      "name_vi": "nhãn STT F",
+                      "spec": "∅10mm",
+                      "spec_vi": "∅10mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy tự dính",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "白色",
+                      "color_ver_vi": "màu trắng",
+                      "unit": {
+                        "zh": "张",
+                        "vi": "tờ"
+                      },
+                      "qty": "1",
+                      "remark": ""
+                    },
+                    {
+                      "stt": "",
+                      "mat_code": "E10BADHZ",
+                      "comp_code": "",
+                      "name_zh": "序号标 E",
+                      "name_vi": "nhãn STT E",
+                      "spec": "∅10mm",
+                      "spec_vi": "∅10mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy tự dính",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "白色",
+                      "color_ver_vi": "màu trắng",
+                      "unit": {
+                        "zh": "张",
+                        "vi": "tờ"
+                      },
+                      "qty": "1",
+                      "remark": ""
+                    },
+                    {
+                      "stt": "",
+                      "mat_code": "T110BADHZ",
+                      "comp_code": "",
+                      "name_zh": "序号标 T1",
+                      "name_vi": "nhãn STT T1",
+                      "spec": "∅10mm",
+                      "spec_vi": "∅10mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy tự dính",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "白色",
+                      "color_ver_vi": "màu trắng",
+                      "unit": {
+                        "zh": "张",
+                        "vi": "tờ"
+                      },
+                      "qty": "1",
+                      "remark": ""
+                    },
+                    {
+                      "stt": "",
+                      "mat_code": "T210BADHZ",
+                      "comp_code": "",
+                      "name_zh": "序号标 T2",
+                      "name_vi": "nhãn STT T2",
+                      "spec": "∅10mm",
+                      "spec_vi": "∅10mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy tự dính",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "白色",
+                      "color_ver_vi": "màu trắng",
+                      "unit": {
+                        "zh": "张",
+                        "vi": "tờ"
+                      },
+                      "qty": "1",
+                      "remark": ""
+                    },
+                    {
+                      "stt": "",
+                      "mat_code": "U110BADHZ",
+                      "comp_code": "",
+                      "name_zh": "序号标 U1",
+                      "name_vi": "nhãn STT U1",
+                      "spec": "∅10mm",
+                      "spec_vi": "∅10mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy tự dính",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "白色",
+                      "color_ver_vi": "màu trắng",
+                      "unit": {
+                        "zh": "张",
+                        "vi": "tờ"
+                      },
+                      "qty": "1",
+                      "remark": ""
+                    },
+                    {
+                      "stt": "",
+                      "mat_code": "U210BADHZ",
+                      "comp_code": "",
+                      "name_zh": "序号标 U2",
+                      "name_vi": "nhãn STT U2",
+                      "spec": "∅10mm",
+                      "spec_vi": "∅10mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy tự dính",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "白色",
+                      "color_ver_vi": "màu trắng",
+                      "unit": {
+                        "zh": "张",
+                        "vi": "tờ"
+                      },
+                      "qty": "1",
+                      "remark": ""
+                    },
+                    {
+                      "stt": "",
+                      "mat_code": "I110BADHZ",
+                      "comp_code": "",
+                      "name_zh": "序号标 I1",
+                      "name_vi": "nhãn STT I1",
+                      "spec": "∅10mm",
+                      "spec_vi": "∅10mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy tự dính",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "白色",
+                      "color_ver_vi": "màu trắng",
+                      "unit": {
+                        "zh": "张",
+                        "vi": "tờ"
+                      },
+                      "qty": "1",
+                      "remark": ""
+                    },
+                    {
+                      "stt": "",
+                      "mat_code": "I210BADHZ",
+                      "comp_code": "",
+                      "name_zh": "序号标 I2",
+                      "name_vi": "nhãn STT I2",
+                      "spec": "∅10mm",
+                      "spec_vi": "∅10mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy tự dính",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "白色",
+                      "color_ver_vi": "màu trắng",
+                      "unit": {
+                        "zh": "张",
+                        "vi": "tờ"
+                      },
+                      "qty": "1",
+                      "remark": ""
+                    },
+                    {
+                      "stt": "",
+                      "mat_code": "G10BADHZ",
+                      "comp_code": "",
+                      "name_zh": "序号标 G",
+                      "name_vi": "nhãn STT G",
+                      "spec": "∅10mm",
+                      "spec_vi": "∅10mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy tự dính",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "白色",
+                      "color_ver_vi": "màu trắng",
+                      "unit": {
+                        "zh": "张",
+                        "vi": "tờ"
+                      },
+                      "qty": "2",
+                      "remark": ""
                     }
                   ]
                 },
@@ -124030,6 +124398,374 @@
                       },
                       "qty": "2",
                       "remark": "包装对象：3911515XZHSLBH×2、3911515XZQSLBH×2\n规则：2件/袋；用袋：2袋"
+                    },
+                    {
+                      "stt": "",
+                      "mat_code": "M10BADHZ",
+                      "comp_code": "",
+                      "name_zh": "序号标 M",
+                      "name_vi": "nhãn STT M",
+                      "spec": "∅10mm",
+                      "spec_vi": "∅10mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy tự dính",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "unit": {
+                        "zh": "张",
+                        "vi": "tờ"
+                      },
+                      "qty": "2",
+                      "remark": ""
+                    },
+                    {
+                      "stt": "",
+                      "mat_code": "L210BADHZ",
+                      "comp_code": "",
+                      "name_zh": "序号标 L2",
+                      "name_vi": "nhãn STT L2",
+                      "spec": "∅10mm",
+                      "spec_vi": "∅10mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy tự dính",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "unit": {
+                        "zh": "张",
+                        "vi": "tờ"
+                      },
+                      "qty": "2",
+                      "remark": ""
+                    },
+                    {
+                      "stt": "",
+                      "mat_code": "L110BADHZ",
+                      "comp_code": "",
+                      "name_zh": "序号标 L1",
+                      "name_vi": "nhãn STT L1",
+                      "spec": "∅10mm",
+                      "spec_vi": "∅10mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy tự dính",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "unit": {
+                        "zh": "张",
+                        "vi": "tờ"
+                      },
+                      "qty": "2",
+                      "remark": ""
+                    },
+                    {
+                      "stt": "",
+                      "mat_code": "K110BADHZ",
+                      "comp_code": "",
+                      "name_zh": "序号标 K1",
+                      "name_vi": "nhãn STT K1",
+                      "spec": "∅10mm",
+                      "spec_vi": "∅10mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy tự dính",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "unit": {
+                        "zh": "张",
+                        "vi": "tờ"
+                      },
+                      "qty": "1",
+                      "remark": ""
+                    },
+                    {
+                      "stt": "",
+                      "mat_code": "K210BADHZ",
+                      "comp_code": "",
+                      "name_zh": "序号标 K2",
+                      "name_vi": "nhãn STT K2",
+                      "spec": "∅10mm",
+                      "spec_vi": "∅10mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy tự dính",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "unit": {
+                        "zh": "张",
+                        "vi": "tờ"
+                      },
+                      "qty": "1",
+                      "remark": ""
+                    },
+                    {
+                      "stt": "",
+                      "mat_code": "J110BADHZ",
+                      "comp_code": "",
+                      "name_zh": "序号标 J1",
+                      "name_vi": "nhãn STT J1",
+                      "spec": "∅10mm",
+                      "spec_vi": "∅10mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy tự dính",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "unit": {
+                        "zh": "张",
+                        "vi": "tờ"
+                      },
+                      "qty": "1",
+                      "remark": ""
+                    },
+                    {
+                      "stt": "",
+                      "mat_code": "J210BADHZ",
+                      "comp_code": "",
+                      "name_zh": "序号标 J2",
+                      "name_vi": "nhãn STT J2",
+                      "spec": "∅10mm",
+                      "spec_vi": "∅10mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy tự dính",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "unit": {
+                        "zh": "张",
+                        "vi": "tờ"
+                      },
+                      "qty": "1",
+                      "remark": ""
+                    },
+                    {
+                      "stt": "",
+                      "mat_code": "F10BADHZ",
+                      "comp_code": "",
+                      "name_zh": "序号标 F",
+                      "name_vi": "nhãn STT F",
+                      "spec": "∅10mm",
+                      "spec_vi": "∅10mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy tự dính",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "unit": {
+                        "zh": "张",
+                        "vi": "tờ"
+                      },
+                      "qty": "1",
+                      "remark": ""
+                    },
+                    {
+                      "stt": "",
+                      "mat_code": "E10BADHZ",
+                      "comp_code": "",
+                      "name_zh": "序号标 E",
+                      "name_vi": "nhãn STT E",
+                      "spec": "∅10mm",
+                      "spec_vi": "∅10mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy tự dính",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "unit": {
+                        "zh": "张",
+                        "vi": "tờ"
+                      },
+                      "qty": "1",
+                      "remark": ""
+                    },
+                    {
+                      "stt": "",
+                      "mat_code": "T110BADHZ",
+                      "comp_code": "",
+                      "name_zh": "序号标 T1",
+                      "name_vi": "nhãn STT T1",
+                      "spec": "∅10mm",
+                      "spec_vi": "∅10mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy tự dính",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "unit": {
+                        "zh": "张",
+                        "vi": "tờ"
+                      },
+                      "qty": "1",
+                      "remark": ""
+                    },
+                    {
+                      "stt": "",
+                      "mat_code": "T210BADHZ",
+                      "comp_code": "",
+                      "name_zh": "序号标 T2",
+                      "name_vi": "nhãn STT T2",
+                      "spec": "∅10mm",
+                      "spec_vi": "∅10mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy tự dính",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "unit": {
+                        "zh": "张",
+                        "vi": "tờ"
+                      },
+                      "qty": "1",
+                      "remark": ""
+                    },
+                    {
+                      "stt": "",
+                      "mat_code": "U110BADHZ",
+                      "comp_code": "",
+                      "name_zh": "序号标 U1",
+                      "name_vi": "nhãn STT U1",
+                      "spec": "∅10mm",
+                      "spec_vi": "∅10mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy tự dính",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "unit": {
+                        "zh": "张",
+                        "vi": "tờ"
+                      },
+                      "qty": "1",
+                      "remark": ""
+                    },
+                    {
+                      "stt": "",
+                      "mat_code": "U210BADHZ",
+                      "comp_code": "",
+                      "name_zh": "序号标 U2",
+                      "name_vi": "nhãn STT U2",
+                      "spec": "∅10mm",
+                      "spec_vi": "∅10mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy tự dính",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "unit": {
+                        "zh": "张",
+                        "vi": "tờ"
+                      },
+                      "qty": "1",
+                      "remark": ""
+                    },
+                    {
+                      "stt": "",
+                      "mat_code": "I110BADHZ",
+                      "comp_code": "",
+                      "name_zh": "序号标 I1",
+                      "name_vi": "nhãn STT I1",
+                      "spec": "∅10mm",
+                      "spec_vi": "∅10mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy tự dính",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "unit": {
+                        "zh": "张",
+                        "vi": "tờ"
+                      },
+                      "qty": "1",
+                      "remark": ""
+                    },
+                    {
+                      "stt": "",
+                      "mat_code": "I210BADHZ",
+                      "comp_code": "",
+                      "name_zh": "序号标 I2",
+                      "name_vi": "nhãn STT I2",
+                      "spec": "∅10mm",
+                      "spec_vi": "∅10mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy tự dính",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "unit": {
+                        "zh": "张",
+                        "vi": "tờ"
+                      },
+                      "qty": "1",
+                      "remark": ""
+                    },
+                    {
+                      "stt": "",
+                      "mat_code": "G10BADHZ",
+                      "comp_code": "",
+                      "name_zh": "序号标 G",
+                      "name_vi": "nhãn STT G",
+                      "spec": "∅10mm",
+                      "spec_vi": "∅10mm",
+                      "material_zh": "不干胶纸",
+                      "material_vi": "giấy tự dính",
+                      "color_zh": "白底黑字",
+                      "color_vi": "nền trắng chữ đen",
+                      "attr_zh": "包材",
+                      "attr_vi": "vật liệu đóng gói",
+                      "color_ver": "黑色",
+                      "color_ver_vi": "màu đen",
+                      "unit": {
+                        "zh": "张",
+                        "vi": "tờ"
+                      },
+                      "qty": "2",
+                      "remark": ""
                     }
                   ]
                 }
@@ -128589,6 +129325,486 @@
                     "zh": "颗",
                     "vi": "viên"
                   }
+                },
+                "mat_1t4px74": {
+                  "id": "mat_1t4px74",
+                  "code": "M10BADHZ",
+                  "name": {
+                    "zh": "序号标 M",
+                    "vi": "nhãn STT M"
+                  },
+                  "spec": {
+                    "zh": "∅10mm",
+                    "vi": "∅10mm"
+                  },
+                  "material": {
+                    "zh": "不干胶纸",
+                    "vi": "giấy tự dính"
+                  },
+                  "color": {
+                    "zh": "白底黑字",
+                    "vi": "nền trắng chữ đen"
+                  },
+                  "attr": {
+                    "zh": "包材",
+                    "vi": "vật liệu đóng gói"
+                  },
+                  "drawings": [],
+                  "models3d": [],
+                  "unit": {
+                    "zh": "张",
+                    "vi": "tờ"
+                  }
+                },
+                "mat_hjpzcd": {
+                  "id": "mat_hjpzcd",
+                  "code": "L210BADHZ",
+                  "name": {
+                    "zh": "序号标 L2",
+                    "vi": "nhãn STT L2"
+                  },
+                  "spec": {
+                    "zh": "∅10mm",
+                    "vi": "∅10mm"
+                  },
+                  "material": {
+                    "zh": "不干胶纸",
+                    "vi": "giấy tự dính"
+                  },
+                  "color": {
+                    "zh": "白底黑字",
+                    "vi": "nền trắng chữ đen"
+                  },
+                  "attr": {
+                    "zh": "包材",
+                    "vi": "vật liệu đóng gói"
+                  },
+                  "drawings": [],
+                  "models3d": [],
+                  "unit": {
+                    "zh": "张",
+                    "vi": "tờ"
+                  }
+                },
+                "mat_h1ewyu": {
+                  "id": "mat_h1ewyu",
+                  "code": "L110BADHZ",
+                  "name": {
+                    "zh": "序号标 L1",
+                    "vi": "nhãn STT L1"
+                  },
+                  "spec": {
+                    "zh": "∅10mm",
+                    "vi": "∅10mm"
+                  },
+                  "material": {
+                    "zh": "不干胶纸",
+                    "vi": "giấy tự dính"
+                  },
+                  "color": {
+                    "zh": "白底黑字",
+                    "vi": "nền trắng chữ đen"
+                  },
+                  "attr": {
+                    "zh": "包材",
+                    "vi": "vật liệu đóng gói"
+                  },
+                  "drawings": [],
+                  "models3d": [],
+                  "unit": {
+                    "zh": "张",
+                    "vi": "tờ"
+                  }
+                },
+                "mat_1lp3u90": {
+                  "id": "mat_1lp3u90",
+                  "code": "K110BADHZ",
+                  "name": {
+                    "zh": "序号标 K1",
+                    "vi": "nhãn STT K1"
+                  },
+                  "spec": {
+                    "zh": "∅10mm",
+                    "vi": "∅10mm"
+                  },
+                  "material": {
+                    "zh": "不干胶纸",
+                    "vi": "giấy tự dính"
+                  },
+                  "color": {
+                    "zh": "白底黑字",
+                    "vi": "nền trắng chữ đen"
+                  },
+                  "attr": {
+                    "zh": "包材",
+                    "vi": "vật liệu đóng gói"
+                  },
+                  "drawings": [],
+                  "models3d": [],
+                  "unit": {
+                    "zh": "张",
+                    "vi": "tờ"
+                  }
+                },
+                "mat_79esu7": {
+                  "id": "mat_79esu7",
+                  "code": "K210BADHZ",
+                  "name": {
+                    "zh": "序号标 K2",
+                    "vi": "nhãn STT K2"
+                  },
+                  "spec": {
+                    "zh": "∅10mm",
+                    "vi": "∅10mm"
+                  },
+                  "material": {
+                    "zh": "不干胶纸",
+                    "vi": "giấy tự dính"
+                  },
+                  "color": {
+                    "zh": "白底黑字",
+                    "vi": "nền trắng chữ đen"
+                  },
+                  "attr": {
+                    "zh": "包材",
+                    "vi": "vật liệu đóng gói"
+                  },
+                  "drawings": [],
+                  "models3d": [],
+                  "unit": {
+                    "zh": "张",
+                    "vi": "tờ"
+                  }
+                },
+                "mat_t52tin": {
+                  "id": "mat_t52tin",
+                  "code": "J110BADHZ",
+                  "name": {
+                    "zh": "序号标 J1",
+                    "vi": "nhãn STT J1"
+                  },
+                  "spec": {
+                    "zh": "∅10mm",
+                    "vi": "∅10mm"
+                  },
+                  "material": {
+                    "zh": "不干胶纸",
+                    "vi": "giấy tự dính"
+                  },
+                  "color": {
+                    "zh": "白底黑字",
+                    "vi": "nền trắng chữ đen"
+                  },
+                  "attr": {
+                    "zh": "包材",
+                    "vi": "vật liệu đóng gói"
+                  },
+                  "drawings": [],
+                  "models3d": [],
+                  "unit": {
+                    "zh": "张",
+                    "vi": "tờ"
+                  }
+                },
+                "mat_12b1b6c": {
+                  "id": "mat_12b1b6c",
+                  "code": "J210BADHZ",
+                  "name": {
+                    "zh": "序号标 J2",
+                    "vi": "nhãn STT J2"
+                  },
+                  "spec": {
+                    "zh": "∅10mm",
+                    "vi": "∅10mm"
+                  },
+                  "material": {
+                    "zh": "不干胶纸",
+                    "vi": "giấy tự dính"
+                  },
+                  "color": {
+                    "zh": "白底黑字",
+                    "vi": "nền trắng chữ đen"
+                  },
+                  "attr": {
+                    "zh": "包材",
+                    "vi": "vật liệu đóng gói"
+                  },
+                  "drawings": [],
+                  "models3d": [],
+                  "unit": {
+                    "zh": "张",
+                    "vi": "tờ"
+                  }
+                },
+                "mat_1o55ssz": {
+                  "id": "mat_1o55ssz",
+                  "code": "F10BADHZ",
+                  "name": {
+                    "zh": "序号标 F",
+                    "vi": "nhãn STT F"
+                  },
+                  "spec": {
+                    "zh": "∅10mm",
+                    "vi": "∅10mm"
+                  },
+                  "material": {
+                    "zh": "不干胶纸",
+                    "vi": "giấy tự dính"
+                  },
+                  "color": {
+                    "zh": "白底黑字",
+                    "vi": "nền trắng chữ đen"
+                  },
+                  "attr": {
+                    "zh": "包材",
+                    "vi": "vật liệu đóng gói"
+                  },
+                  "drawings": [],
+                  "models3d": [],
+                  "unit": {
+                    "zh": "张",
+                    "vi": "tờ"
+                  }
+                },
+                "mat_71376w": {
+                  "id": "mat_71376w",
+                  "code": "E10BADHZ",
+                  "name": {
+                    "zh": "序号标 E",
+                    "vi": "nhãn STT E"
+                  },
+                  "spec": {
+                    "zh": "∅10mm",
+                    "vi": "∅10mm"
+                  },
+                  "material": {
+                    "zh": "不干胶纸",
+                    "vi": "giấy tự dính"
+                  },
+                  "color": {
+                    "zh": "白底黑字",
+                    "vi": "nền trắng chữ đen"
+                  },
+                  "attr": {
+                    "zh": "包材",
+                    "vi": "vật liệu đóng gói"
+                  },
+                  "drawings": [],
+                  "models3d": [],
+                  "unit": {
+                    "zh": "张",
+                    "vi": "tờ"
+                  }
+                },
+                "mat_lgs434_v52_label_t1": {
+                  "id": "mat_lgs434_v52_label_t1",
+                  "code": "T110BADHZ",
+                  "name": {
+                    "zh": "序号标 T1",
+                    "vi": "nhãn STT T1"
+                  },
+                  "spec": {
+                    "zh": "∅10mm",
+                    "vi": "∅10mm"
+                  },
+                  "material": {
+                    "zh": "不干胶纸",
+                    "vi": "giấy tự dính"
+                  },
+                  "color": {
+                    "zh": "白底黑字",
+                    "vi": "nền trắng chữ đen"
+                  },
+                  "attr": {
+                    "zh": "包材",
+                    "vi": "vật liệu đóng gói"
+                  },
+                  "drawings": [],
+                  "models3d": [],
+                  "unit": {
+                    "zh": "张",
+                    "vi": "tờ"
+                  }
+                },
+                "mat_lgs434_v52_label_t2": {
+                  "id": "mat_lgs434_v52_label_t2",
+                  "code": "T210BADHZ",
+                  "name": {
+                    "zh": "序号标 T2",
+                    "vi": "nhãn STT T2"
+                  },
+                  "spec": {
+                    "zh": "∅10mm",
+                    "vi": "∅10mm"
+                  },
+                  "material": {
+                    "zh": "不干胶纸",
+                    "vi": "giấy tự dính"
+                  },
+                  "color": {
+                    "zh": "白底黑字",
+                    "vi": "nền trắng chữ đen"
+                  },
+                  "attr": {
+                    "zh": "包材",
+                    "vi": "vật liệu đóng gói"
+                  },
+                  "drawings": [],
+                  "models3d": [],
+                  "unit": {
+                    "zh": "张",
+                    "vi": "tờ"
+                  }
+                },
+                "mat_lgs434_v52_label_u1": {
+                  "id": "mat_lgs434_v52_label_u1",
+                  "code": "U110BADHZ",
+                  "name": {
+                    "zh": "序号标 U1",
+                    "vi": "nhãn STT U1"
+                  },
+                  "spec": {
+                    "zh": "∅10mm",
+                    "vi": "∅10mm"
+                  },
+                  "material": {
+                    "zh": "不干胶纸",
+                    "vi": "giấy tự dính"
+                  },
+                  "color": {
+                    "zh": "白底黑字",
+                    "vi": "nền trắng chữ đen"
+                  },
+                  "attr": {
+                    "zh": "包材",
+                    "vi": "vật liệu đóng gói"
+                  },
+                  "drawings": [],
+                  "models3d": [],
+                  "unit": {
+                    "zh": "张",
+                    "vi": "tờ"
+                  }
+                },
+                "mat_lgs434_v52_label_u2": {
+                  "id": "mat_lgs434_v52_label_u2",
+                  "code": "U210BADHZ",
+                  "name": {
+                    "zh": "序号标 U2",
+                    "vi": "nhãn STT U2"
+                  },
+                  "spec": {
+                    "zh": "∅10mm",
+                    "vi": "∅10mm"
+                  },
+                  "material": {
+                    "zh": "不干胶纸",
+                    "vi": "giấy tự dính"
+                  },
+                  "color": {
+                    "zh": "白底黑字",
+                    "vi": "nền trắng chữ đen"
+                  },
+                  "attr": {
+                    "zh": "包材",
+                    "vi": "vật liệu đóng gói"
+                  },
+                  "drawings": [],
+                  "models3d": [],
+                  "unit": {
+                    "zh": "张",
+                    "vi": "tờ"
+                  }
+                },
+                "mat_lsiqz6": {
+                  "id": "mat_lsiqz6",
+                  "code": "I110BADHZ",
+                  "name": {
+                    "zh": "序号标 I1",
+                    "vi": "nhãn STT I1"
+                  },
+                  "spec": {
+                    "zh": "∅10mm",
+                    "vi": "∅10mm"
+                  },
+                  "material": {
+                    "zh": "不干胶纸",
+                    "vi": "giấy tự dính"
+                  },
+                  "color": {
+                    "zh": "白底黑字",
+                    "vi": "nền trắng chữ đen"
+                  },
+                  "attr": {
+                    "zh": "包材",
+                    "vi": "vật liệu đóng gói"
+                  },
+                  "drawings": [],
+                  "models3d": [],
+                  "unit": {
+                    "zh": "张",
+                    "vi": "tờ"
+                  }
+                },
+                "mat_h9mxbd": {
+                  "id": "mat_h9mxbd",
+                  "code": "I210BADHZ",
+                  "name": {
+                    "zh": "序号标 I2",
+                    "vi": "nhãn STT I2"
+                  },
+                  "spec": {
+                    "zh": "∅10mm",
+                    "vi": "∅10mm"
+                  },
+                  "material": {
+                    "zh": "不干胶纸",
+                    "vi": "giấy tự dính"
+                  },
+                  "color": {
+                    "zh": "白底黑字",
+                    "vi": "nền trắng chữ đen"
+                  },
+                  "attr": {
+                    "zh": "包材",
+                    "vi": "vật liệu đóng gói"
+                  },
+                  "drawings": [],
+                  "models3d": [],
+                  "unit": {
+                    "zh": "张",
+                    "vi": "tờ"
+                  }
+                },
+                "mat_m77d5q": {
+                  "id": "mat_m77d5q",
+                  "code": "G10BADHZ",
+                  "name": {
+                    "zh": "序号标 G",
+                    "vi": "nhãn STT G"
+                  },
+                  "spec": {
+                    "zh": "∅10mm",
+                    "vi": "∅10mm"
+                  },
+                  "material": {
+                    "zh": "不干胶纸",
+                    "vi": "giấy tự dính"
+                  },
+                  "color": {
+                    "zh": "白底黑字",
+                    "vi": "nền trắng chữ đen"
+                  },
+                  "attr": {
+                    "zh": "包材",
+                    "vi": "vật liệu đóng gói"
+                  },
+                  "drawings": [],
+                  "models3d": [],
+                  "unit": {
+                    "zh": "张",
+                    "vi": "tờ"
+                  }
                 }
               },
               "bomEntries": [
@@ -131495,6 +132711,454 @@
                   "order": 2,
                   "comp_code": "",
                   "stt": ""
+                },
+                {
+                  "id": "bom_lgs434_v52_wh_m",
+                  "parentType": "product",
+                  "parentId": "LGS434",
+                  "productCode": "LGS434",
+                  "color": "白色",
+                  "materialId": "mat_1t4px74",
+                  "stt": "",
+                  "comp_code": "",
+                  "qty": "2",
+                  "color_ver": "白色",
+                  "color_ver_vi": "màu trắng",
+                  "order": 76
+                },
+                {
+                  "id": "bom_lgs434_v52_wh_l2",
+                  "parentType": "product",
+                  "parentId": "LGS434",
+                  "productCode": "LGS434",
+                  "color": "白色",
+                  "materialId": "mat_hjpzcd",
+                  "stt": "",
+                  "comp_code": "",
+                  "qty": "2",
+                  "color_ver": "白色",
+                  "color_ver_vi": "màu trắng",
+                  "order": 77
+                },
+                {
+                  "id": "bom_lgs434_v52_wh_l1",
+                  "parentType": "product",
+                  "parentId": "LGS434",
+                  "productCode": "LGS434",
+                  "color": "白色",
+                  "materialId": "mat_h1ewyu",
+                  "stt": "",
+                  "comp_code": "",
+                  "qty": "2",
+                  "color_ver": "白色",
+                  "color_ver_vi": "màu trắng",
+                  "order": 78
+                },
+                {
+                  "id": "bom_lgs434_v52_wh_k1",
+                  "parentType": "product",
+                  "parentId": "LGS434",
+                  "productCode": "LGS434",
+                  "color": "白色",
+                  "materialId": "mat_1lp3u90",
+                  "stt": "",
+                  "comp_code": "",
+                  "qty": "1",
+                  "color_ver": "白色",
+                  "color_ver_vi": "màu trắng",
+                  "order": 79
+                },
+                {
+                  "id": "bom_lgs434_v52_wh_k2",
+                  "parentType": "product",
+                  "parentId": "LGS434",
+                  "productCode": "LGS434",
+                  "color": "白色",
+                  "materialId": "mat_79esu7",
+                  "stt": "",
+                  "comp_code": "",
+                  "qty": "1",
+                  "color_ver": "白色",
+                  "color_ver_vi": "màu trắng",
+                  "order": 80
+                },
+                {
+                  "id": "bom_lgs434_v52_wh_j1",
+                  "parentType": "product",
+                  "parentId": "LGS434",
+                  "productCode": "LGS434",
+                  "color": "白色",
+                  "materialId": "mat_t52tin",
+                  "stt": "",
+                  "comp_code": "",
+                  "qty": "1",
+                  "color_ver": "白色",
+                  "color_ver_vi": "màu trắng",
+                  "order": 81
+                },
+                {
+                  "id": "bom_lgs434_v52_wh_j2",
+                  "parentType": "product",
+                  "parentId": "LGS434",
+                  "productCode": "LGS434",
+                  "color": "白色",
+                  "materialId": "mat_12b1b6c",
+                  "stt": "",
+                  "comp_code": "",
+                  "qty": "1",
+                  "color_ver": "白色",
+                  "color_ver_vi": "màu trắng",
+                  "order": 82
+                },
+                {
+                  "id": "bom_lgs434_v52_wh_f",
+                  "parentType": "product",
+                  "parentId": "LGS434",
+                  "productCode": "LGS434",
+                  "color": "白色",
+                  "materialId": "mat_1o55ssz",
+                  "stt": "",
+                  "comp_code": "",
+                  "qty": "1",
+                  "color_ver": "白色",
+                  "color_ver_vi": "màu trắng",
+                  "order": 83
+                },
+                {
+                  "id": "bom_lgs434_v52_wh_e",
+                  "parentType": "product",
+                  "parentId": "LGS434",
+                  "productCode": "LGS434",
+                  "color": "白色",
+                  "materialId": "mat_71376w",
+                  "stt": "",
+                  "comp_code": "",
+                  "qty": "1",
+                  "color_ver": "白色",
+                  "color_ver_vi": "màu trắng",
+                  "order": 84
+                },
+                {
+                  "id": "bom_lgs434_v52_wh_t1",
+                  "parentType": "product",
+                  "parentId": "LGS434",
+                  "productCode": "LGS434",
+                  "color": "白色",
+                  "materialId": "mat_lgs434_v52_label_t1",
+                  "stt": "",
+                  "comp_code": "",
+                  "qty": "1",
+                  "color_ver": "白色",
+                  "color_ver_vi": "màu trắng",
+                  "order": 85
+                },
+                {
+                  "id": "bom_lgs434_v52_wh_t2",
+                  "parentType": "product",
+                  "parentId": "LGS434",
+                  "productCode": "LGS434",
+                  "color": "白色",
+                  "materialId": "mat_lgs434_v52_label_t2",
+                  "stt": "",
+                  "comp_code": "",
+                  "qty": "1",
+                  "color_ver": "白色",
+                  "color_ver_vi": "màu trắng",
+                  "order": 86
+                },
+                {
+                  "id": "bom_lgs434_v52_wh_u1",
+                  "parentType": "product",
+                  "parentId": "LGS434",
+                  "productCode": "LGS434",
+                  "color": "白色",
+                  "materialId": "mat_lgs434_v52_label_u1",
+                  "stt": "",
+                  "comp_code": "",
+                  "qty": "1",
+                  "color_ver": "白色",
+                  "color_ver_vi": "màu trắng",
+                  "order": 87
+                },
+                {
+                  "id": "bom_lgs434_v52_wh_u2",
+                  "parentType": "product",
+                  "parentId": "LGS434",
+                  "productCode": "LGS434",
+                  "color": "白色",
+                  "materialId": "mat_lgs434_v52_label_u2",
+                  "stt": "",
+                  "comp_code": "",
+                  "qty": "1",
+                  "color_ver": "白色",
+                  "color_ver_vi": "màu trắng",
+                  "order": 88
+                },
+                {
+                  "id": "bom_lgs434_v52_wh_i1",
+                  "parentType": "product",
+                  "parentId": "LGS434",
+                  "productCode": "LGS434",
+                  "color": "白色",
+                  "materialId": "mat_lsiqz6",
+                  "stt": "",
+                  "comp_code": "",
+                  "qty": "1",
+                  "color_ver": "白色",
+                  "color_ver_vi": "màu trắng",
+                  "order": 89
+                },
+                {
+                  "id": "bom_lgs434_v52_wh_i2",
+                  "parentType": "product",
+                  "parentId": "LGS434",
+                  "productCode": "LGS434",
+                  "color": "白色",
+                  "materialId": "mat_h9mxbd",
+                  "stt": "",
+                  "comp_code": "",
+                  "qty": "1",
+                  "color_ver": "白色",
+                  "color_ver_vi": "màu trắng",
+                  "order": 90
+                },
+                {
+                  "id": "bom_lgs434_v52_wh_g",
+                  "parentType": "product",
+                  "parentId": "LGS434",
+                  "productCode": "LGS434",
+                  "color": "白色",
+                  "materialId": "mat_m77d5q",
+                  "stt": "",
+                  "comp_code": "",
+                  "qty": "2",
+                  "color_ver": "白色",
+                  "color_ver_vi": "màu trắng",
+                  "order": 91
+                },
+                {
+                  "id": "bom_lgs434_v52_bh_m",
+                  "parentType": "product",
+                  "parentId": "LGS434",
+                  "productCode": "LGS434",
+                  "color": "黑色",
+                  "materialId": "mat_1t4px74",
+                  "stt": "",
+                  "comp_code": "",
+                  "qty": "2",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 76
+                },
+                {
+                  "id": "bom_lgs434_v52_bh_l2",
+                  "parentType": "product",
+                  "parentId": "LGS434",
+                  "productCode": "LGS434",
+                  "color": "黑色",
+                  "materialId": "mat_hjpzcd",
+                  "stt": "",
+                  "comp_code": "",
+                  "qty": "2",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 77
+                },
+                {
+                  "id": "bom_lgs434_v52_bh_l1",
+                  "parentType": "product",
+                  "parentId": "LGS434",
+                  "productCode": "LGS434",
+                  "color": "黑色",
+                  "materialId": "mat_h1ewyu",
+                  "stt": "",
+                  "comp_code": "",
+                  "qty": "2",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 78
+                },
+                {
+                  "id": "bom_lgs434_v52_bh_k1",
+                  "parentType": "product",
+                  "parentId": "LGS434",
+                  "productCode": "LGS434",
+                  "color": "黑色",
+                  "materialId": "mat_1lp3u90",
+                  "stt": "",
+                  "comp_code": "",
+                  "qty": "1",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 79
+                },
+                {
+                  "id": "bom_lgs434_v52_bh_k2",
+                  "parentType": "product",
+                  "parentId": "LGS434",
+                  "productCode": "LGS434",
+                  "color": "黑色",
+                  "materialId": "mat_79esu7",
+                  "stt": "",
+                  "comp_code": "",
+                  "qty": "1",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 80
+                },
+                {
+                  "id": "bom_lgs434_v52_bh_j1",
+                  "parentType": "product",
+                  "parentId": "LGS434",
+                  "productCode": "LGS434",
+                  "color": "黑色",
+                  "materialId": "mat_t52tin",
+                  "stt": "",
+                  "comp_code": "",
+                  "qty": "1",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 81
+                },
+                {
+                  "id": "bom_lgs434_v52_bh_j2",
+                  "parentType": "product",
+                  "parentId": "LGS434",
+                  "productCode": "LGS434",
+                  "color": "黑色",
+                  "materialId": "mat_12b1b6c",
+                  "stt": "",
+                  "comp_code": "",
+                  "qty": "1",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 82
+                },
+                {
+                  "id": "bom_lgs434_v52_bh_f",
+                  "parentType": "product",
+                  "parentId": "LGS434",
+                  "productCode": "LGS434",
+                  "color": "黑色",
+                  "materialId": "mat_1o55ssz",
+                  "stt": "",
+                  "comp_code": "",
+                  "qty": "1",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 83
+                },
+                {
+                  "id": "bom_lgs434_v52_bh_e",
+                  "parentType": "product",
+                  "parentId": "LGS434",
+                  "productCode": "LGS434",
+                  "color": "黑色",
+                  "materialId": "mat_71376w",
+                  "stt": "",
+                  "comp_code": "",
+                  "qty": "1",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 84
+                },
+                {
+                  "id": "bom_lgs434_v52_bh_t1",
+                  "parentType": "product",
+                  "parentId": "LGS434",
+                  "productCode": "LGS434",
+                  "color": "黑色",
+                  "materialId": "mat_lgs434_v52_label_t1",
+                  "stt": "",
+                  "comp_code": "",
+                  "qty": "1",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 85
+                },
+                {
+                  "id": "bom_lgs434_v52_bh_t2",
+                  "parentType": "product",
+                  "parentId": "LGS434",
+                  "productCode": "LGS434",
+                  "color": "黑色",
+                  "materialId": "mat_lgs434_v52_label_t2",
+                  "stt": "",
+                  "comp_code": "",
+                  "qty": "1",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 86
+                },
+                {
+                  "id": "bom_lgs434_v52_bh_u1",
+                  "parentType": "product",
+                  "parentId": "LGS434",
+                  "productCode": "LGS434",
+                  "color": "黑色",
+                  "materialId": "mat_lgs434_v52_label_u1",
+                  "stt": "",
+                  "comp_code": "",
+                  "qty": "1",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 87
+                },
+                {
+                  "id": "bom_lgs434_v52_bh_u2",
+                  "parentType": "product",
+                  "parentId": "LGS434",
+                  "productCode": "LGS434",
+                  "color": "黑色",
+                  "materialId": "mat_lgs434_v52_label_u2",
+                  "stt": "",
+                  "comp_code": "",
+                  "qty": "1",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 88
+                },
+                {
+                  "id": "bom_lgs434_v52_bh_i1",
+                  "parentType": "product",
+                  "parentId": "LGS434",
+                  "productCode": "LGS434",
+                  "color": "黑色",
+                  "materialId": "mat_lsiqz6",
+                  "stt": "",
+                  "comp_code": "",
+                  "qty": "1",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 89
+                },
+                {
+                  "id": "bom_lgs434_v52_bh_i2",
+                  "parentType": "product",
+                  "parentId": "LGS434",
+                  "productCode": "LGS434",
+                  "color": "黑色",
+                  "materialId": "mat_h9mxbd",
+                  "stt": "",
+                  "comp_code": "",
+                  "qty": "1",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 90
+                },
+                {
+                  "id": "bom_lgs434_v52_bh_g",
+                  "parentType": "product",
+                  "parentId": "LGS434",
+                  "productCode": "LGS434",
+                  "color": "黑色",
+                  "materialId": "mat_m77d5q",
+                  "stt": "",
+                  "comp_code": "",
+                  "qty": "2",
+                  "color_ver": "黑色",
+                  "color_ver_vi": "màu đen",
+                  "order": 91
                 }
               ]
             }

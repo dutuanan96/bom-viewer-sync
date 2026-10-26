@@ -47129,6 +47129,126 @@
           "zh": "块",
           "vi": "miếng"
         }
+      },
+      "mat_lgs434_v52_label_t1": {
+        "id": "mat_lgs434_v52_label_t1",
+        "code": "T110BADHZ",
+        "name": {
+          "zh": "序号标 T1",
+          "vi": "nhãn STT T1"
+        },
+        "spec": {
+          "zh": "∅10mm",
+          "vi": "∅10mm"
+        },
+        "material": {
+          "zh": "不干胶纸",
+          "vi": "giấy tự dính"
+        },
+        "color": {
+          "zh": "白底黑字",
+          "vi": "nền trắng chữ đen"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "张",
+          "vi": "tờ"
+        }
+      },
+      "mat_lgs434_v52_label_t2": {
+        "id": "mat_lgs434_v52_label_t2",
+        "code": "T210BADHZ",
+        "name": {
+          "zh": "序号标 T2",
+          "vi": "nhãn STT T2"
+        },
+        "spec": {
+          "zh": "∅10mm",
+          "vi": "∅10mm"
+        },
+        "material": {
+          "zh": "不干胶纸",
+          "vi": "giấy tự dính"
+        },
+        "color": {
+          "zh": "白底黑字",
+          "vi": "nền trắng chữ đen"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "张",
+          "vi": "tờ"
+        }
+      },
+      "mat_lgs434_v52_label_u1": {
+        "id": "mat_lgs434_v52_label_u1",
+        "code": "U110BADHZ",
+        "name": {
+          "zh": "序号标 U1",
+          "vi": "nhãn STT U1"
+        },
+        "spec": {
+          "zh": "∅10mm",
+          "vi": "∅10mm"
+        },
+        "material": {
+          "zh": "不干胶纸",
+          "vi": "giấy tự dính"
+        },
+        "color": {
+          "zh": "白底黑字",
+          "vi": "nền trắng chữ đen"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "张",
+          "vi": "tờ"
+        }
+      },
+      "mat_lgs434_v52_label_u2": {
+        "id": "mat_lgs434_v52_label_u2",
+        "code": "U210BADHZ",
+        "name": {
+          "zh": "序号标 U2",
+          "vi": "nhãn STT U2"
+        },
+        "spec": {
+          "zh": "∅10mm",
+          "vi": "∅10mm"
+        },
+        "material": {
+          "zh": "不干胶纸",
+          "vi": "giấy tự dính"
+        },
+        "color": {
+          "zh": "白底黑字",
+          "vi": "nền trắng chữ đen"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "张",
+          "vi": "tờ"
+        }
       }
     },
     "bomEntries": [
