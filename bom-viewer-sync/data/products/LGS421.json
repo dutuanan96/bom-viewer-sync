@@ -1458,7 +1458,7 @@
         },
         {
           "stt": "10",
-          "mat_code": "XHBBL010",
+          "mat_code": "XHBBL010RD",
           "comp_code": "",
           "name_zh": "序号标BL",
           "name_vi": "nhãn STT BL",
@@ -1466,8 +1466,8 @@
           "spec_vi": "∅10mm",
           "material_zh": "不干胶纸",
           "material_vi": "giấy tự dính",
-          "color_zh": "白底黑字",
-          "color_vi": "nền trắng chữ đen",
+          "color_zh": "蓝底黑字",
+          "color_vi": "nền xanh dương chữ đen",
           "attr_zh": "包材",
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "复古色",
@@ -1481,7 +1481,7 @@
         },
         {
           "stt": "11",
-          "mat_code": "XHBBR010",
+          "mat_code": "XHBBR010RD",
           "comp_code": "",
           "name_zh": "序号标BR",
           "name_vi": "nhãn STT BR",
@@ -1489,8 +1489,8 @@
           "spec_vi": "∅10mm",
           "material_zh": "不干胶纸",
           "material_vi": "giấy tự dính",
-          "color_zh": "白底黑字",
-          "color_vi": "nền trắng chữ đen",
+          "color_zh": "绿底黑字",
+          "color_vi": "nền xanh lá chữ đen",
           "attr_zh": "包材",
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "复古色",
@@ -3233,7 +3233,7 @@
         },
         {
           "stt": "10",
-          "mat_code": "XHBBL010",
+          "mat_code": "XHBBL010RD",
           "comp_code": "",
           "name_zh": "序号标BL",
           "name_vi": "nhãn STT BL",
@@ -3241,8 +3241,8 @@
           "spec_vi": "∅10mm",
           "material_zh": "不干胶纸",
           "material_vi": "giấy tự dính",
-          "color_zh": "白底黑字",
-          "color_vi": "nền trắng chữ đen",
+          "color_zh": "蓝底黑字",
+          "color_vi": "nền xanh dương chữ đen",
           "attr_zh": "包材",
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "黑色",
@@ -3256,7 +3256,7 @@
         },
         {
           "stt": "11",
-          "mat_code": "XHBBR010",
+          "mat_code": "XHBBR010RD",
           "comp_code": "",
           "name_zh": "序号标BR",
           "name_vi": "nhãn STT BR",
@@ -3264,8 +3264,8 @@
           "spec_vi": "∅10mm",
           "material_zh": "不干胶纸",
           "material_vi": "giấy tự dính",
-          "color_zh": "白底黑字",
-          "color_vi": "nền trắng chữ đen",
+          "color_zh": "绿底黑字",
+          "color_vi": "nền xanh lá chữ đen",
           "attr_zh": "包材",
           "attr_vi": "vật liệu đóng gói",
           "color_ver": "黑色",
@@ -3557,5 +3557,6 @@
     }
   },
   "name_zh": "复古色4列2层2抽开放式带灯带电布抽电视柜-70inch",
-  "name_vi": "màu gỗ cổ 4 cột 2 tầng 2 Tủ đựng TV kiểu ngăn kéo mở có đèn và điện-70inch"
+  "name_vi": "màu gỗ cổ 4 cột 2 tầng 2 Tủ đựng TV kiểu ngăn kéo mở có đèn và điện-70inch",
+  "revision": "V4.1"
 }
