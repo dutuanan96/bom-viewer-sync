@@ -31,9 +31,8 @@ test('approved four-color variants resolve to the current BOM and Material Maste
   }
 });
 
-test('obsolete four-color ECN fails closed after its source material was replaced', () => {
+test('completed four-color ECN does not rerun after its source material was replaced', () => {
   const payload = loadCanonicalPayload();
   assert.equal(Object.values(payload.materialDb.materials).some((material) => material.code === 'LG05254BH'), false);
-  assert.throws(() => buildFourColorVariantProposalBatches(payload, 40),
-    /Source material LG05254BH not found/);
+  assert.deepEqual(buildFourColorVariantProposalBatches(payload, 40), []);
 });

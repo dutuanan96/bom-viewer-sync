@@ -332,6 +332,7 @@ function buildMaterialChildOperations(payload, configs) {
 
 export function buildAllFourColorVariantOperations(payload) {
   const configs = pendingConfigs(payload);
+  if (configs.length === 0) return [];
   return [
     ...buildMasterDataOperations(payload, COLOR_VARIANTS),
     ...buildVariantOperations(payload, configs),

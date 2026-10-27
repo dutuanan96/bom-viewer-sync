@@ -76,6 +76,7 @@ export function buildFootReplacementOperations(payload) {
 
 export function buildFootReplacementProposalBatches(payload, maxBatchSize = 40) {
   const operations = buildFootReplacementOperations(payload);
+  if (operations.length === 0) return [];
   if (operations.length !== TARGET_PRODUCTS.length + 10) {
     throw new Error(`Expected 14 foot replacement operations, received ${operations.length}.`);
   }
