@@ -75,3 +75,16 @@ test('BL/BR label codes, shape, color, and BOM references match strip length in 
   assert.deepEqual({ currentProducts, currentRows, historicalRevisions, historicalRows },
     { currentProducts: 22, currentRows: 136, historicalRevisions: 53, historicalRows: 274 });
 });
+
+test('three corrected LGS revisions are released and production-effective', () => {
+  for (const productCode of ['LGS031', 'LGS131', 'LGS231']) {
+    const record = revisions[productCode];
+    assert.equal(record.currentRevision, 'V3.1');
+    assert.equal(record.effectiveRevision, 'V3.1');
+    assert.equal(record.currentRevisionInfo.workflowState, 'released');
+    assert.ok(record.revisions.some((revision) => revision.revision === 'V3'
+      && revision.workflowState === 'released' && revision.snapshot?.product));
+    assert.ok(record.effectivityEvents.some((event) => event.action === 'release'
+      && event.revision === 'V3.1' && event.previousRevision === 'V3'));
+  }
+});

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-10-27T02:55:02.700Z",
+  "updatedAt": "2026-10-27T03:29:24.428Z",
   "products": [
     "5106",
     "LGS031",
@@ -253351,12 +253351,12 @@
     },
     "LGS031": {
       "currentRevision": "V3.1",
-      "effectiveRevision": "V3",
+      "effectiveRevision": "V3.1",
       "currentRevisionInfo": {
         "sourceRevision": "V3",
         "createdAt": "2026-10-27T02:55:02.700Z",
         "changeReason": "ECN-2026-1027-SEQUENCE-LABEL: 为缺少序号标的布抽条补充BL/BR；280mm使用10x10mm方形，325mm使用∅10mm圆形；BL蓝底黑字，BR绿底黑字。",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -258839,6 +258839,14 @@
           "previousRevision": "",
           "occurredAt": "2026-08-06T09:38:41.923Z",
           "reason": "更新"
+        },
+        {
+          "id": "effectivity_blbr_v31_lgs031",
+          "action": "release",
+          "revision": "V3.1",
+          "previousRevision": "V3",
+          "occurredAt": "2026-10-27T03:29:24.428Z",
+          "reason": "序号标BL/BR补充完成并核对：LGS031为280mm方形，LGS131和LGS231为325mm圆形；每色各1张。"
         }
       ]
     },
@@ -293284,12 +293292,12 @@
     },
     "LGS231": {
       "currentRevision": "V3.1",
-      "effectiveRevision": "V3",
+      "effectiveRevision": "V3.1",
       "currentRevisionInfo": {
         "sourceRevision": "V3",
         "createdAt": "2026-10-27T02:55:02.700Z",
         "changeReason": "ECN-2026-1027-SEQUENCE-LABEL: 为缺少序号标的布抽条补充BL/BR；280mm使用10x10mm方形，325mm使用∅10mm圆形；BL蓝底黑字，BR绿底黑字。",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -300974,6 +300982,14 @@
           "previousRevision": "",
           "occurredAt": "2026-08-12T06:29:52.415Z",
           "reason": "更新"
+        },
+        {
+          "id": "effectivity_blbr_v31_lgs231",
+          "action": "release",
+          "revision": "V3.1",
+          "previousRevision": "V3",
+          "occurredAt": "2026-10-27T03:29:24.428Z",
+          "reason": "序号标BL/BR补充完成并核对：LGS031为280mm方形，LGS131和LGS231为325mm圆形；每色各1张。"
         }
       ]
     },
@@ -454525,12 +454541,12 @@
     },
     "LGS131": {
       "currentRevision": "V3.1",
-      "effectiveRevision": "V3",
+      "effectiveRevision": "V3.1",
       "currentRevisionInfo": {
         "sourceRevision": "V3",
         "createdAt": "2026-10-27T02:55:02.700Z",
         "changeReason": "ECN-2026-1027-SEQUENCE-LABEL: 为缺少序号标的布抽条补充BL/BR；280mm使用10x10mm方形，325mm使用∅10mm圆形；BL蓝底黑字，BR绿底黑字。",
-        "workflowState": "draft"
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -465882,6 +465898,14 @@
           "previousRevision": "",
           "occurredAt": "2026-08-12T06:29:52.416Z",
           "reason": "更新"
+        },
+        {
+          "id": "effectivity_blbr_v31_lgs131",
+          "action": "release",
+          "revision": "V3.1",
+          "previousRevision": "V3",
+          "occurredAt": "2026-10-27T03:29:24.428Z",
+          "reason": "序号标BL/BR补充完成并核对：LGS031为280mm方形，LGS131和LGS231为325mm圆形；每色各1张。"
         }
       ]
     },
@@ -572451,6 +572475,31 @@
     ],
     "LGS231": [
       {
+        "id": "history_blbr_v31_lgs231",
+        "productCode": "LGS231",
+        "revision": "V3.1",
+        "action": "release",
+        "actor": "codex",
+        "reason": "序号标BL/BR补充完成并核对：LGS031为280mm方形，LGS131和LGS231为325mm圆形；每色各1张。",
+        "createdAt": "2026-10-27T03:29:24.428Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS231",
+            "field": "effectiveRevision",
+            "before": "V3",
+            "after": "V3.1"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS231",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
+      {
         "id": "history_1i61j4v",
         "productCode": "LGS231",
         "revision": "V3",
@@ -583361,6 +583410,31 @@
     ],
     "LGS031": [
       {
+        "id": "history_blbr_v31_lgs031",
+        "productCode": "LGS031",
+        "revision": "V3.1",
+        "action": "release",
+        "actor": "codex",
+        "reason": "序号标BL/BR补充完成并核对：LGS031为280mm方形，LGS131和LGS231为325mm圆形；每色各1张。",
+        "createdAt": "2026-10-27T03:29:24.428Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS031",
+            "field": "effectiveRevision",
+            "before": "V3",
+            "after": "V3.1"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS031",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
+      {
         "id": "history_109mc1m",
         "productCode": "LGS031",
         "revision": "V3",
@@ -588074,6 +588148,31 @@
       }
     ],
     "LGS131": [
+      {
+        "id": "history_blbr_v31_lgs131",
+        "productCode": "LGS131",
+        "revision": "V3.1",
+        "action": "release",
+        "actor": "codex",
+        "reason": "序号标BL/BR补充完成并核对：LGS031为280mm方形，LGS131和LGS231为325mm圆形；每色各1张。",
+        "createdAt": "2026-10-27T03:29:24.428Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS131",
+            "field": "effectiveRevision",
+            "before": "V3",
+            "after": "V3.1"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS131",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
       {
         "id": "history_eowzag",
         "productCode": "LGS131",
