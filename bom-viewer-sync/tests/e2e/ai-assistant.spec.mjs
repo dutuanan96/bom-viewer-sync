@@ -439,14 +439,14 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
         const trustedMessage = body.messages.find(message => message.content?.startsWith('TRUSTED_LOCAL_PDM_RESULT'));
         expect(body.messages.some(message => message.role === 'user' && message.content === firstQuery)).toBe(true);
         expect(trustedMessage?.content).toContain('get_revision_history');
-        expect(trustedMessage?.content).toContain('V3.2');
-        expect(trustedMessage?.content).toContain('"effectiveRevision":"V3.2"');
+        expect(trustedMessage?.content).toContain('V3.3');
+        expect(trustedMessage?.content).toContain('"effectiveRevision":"V3.3"');
         expect(messagesText).not.toContain('22 products');
         await route.fulfill({
           json: {
             choices: [{ message: {
               role: 'assistant',
-              content: '{"text":"LGS032 的当前设计修订版 V3.2 已发布，且为现行生产版本。","citations":[]}'
+              content: '{"text":"LGS032 的当前设计修订版 V3.3 已发布，且为现行生产版本。","citations":[]}'
             } }]
           }
         });
@@ -455,10 +455,10 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
 
       if (requestCount === 2) {
         expect(messagesText).toContain(firstQuery);
-        expect(messagesText).toContain('当前设计修订版 V3.2');
+        expect(messagesText).toContain('当前设计修订版 V3.3');
         expect(messagesText).toContain('这个版本是否已发布？');
         await route.fulfill({
-          json: { choices: [{ message: { role: 'assistant', content: '{"text":"V3.2 已发布，生产使用 V3.2。","citations":[]}' } }] }
+          json: { choices: [{ message: { role: 'assistant', content: '{"text":"V3.3 已发布，生产使用 V3.3。","citations":[]}' } }] }
         });
         return;
       }
@@ -481,7 +481,7 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
 
     await page.fill('.ai-input-area textarea', firstQuery);
     await page.press('.ai-input-area textarea', 'Enter');
-    await expect(page.locator('.ai-message-row.assistant .ai-message').last()).toContainText('V3.2');
+    await expect(page.locator('.ai-message-row.assistant .ai-message').last()).toContainText('V3.3');
 
     await page.fill('.ai-input-area textarea', '这个版本是否已发布？');
     await page.press('.ai-input-area textarea', 'Enter');

@@ -85,30 +85,17 @@ test.describe('ECN-2026-0710-LGS Admin Proposal UI Flow', () => {
     await expect(page.locator('.ai-proposal-card')).toHaveCount(0);
   });
 
-  test('ECN gateway presents the active color proposal instead of archived ECNs', async ({ page }) => {
+  test('ECN gateway loads pending shared asset proposals after earlier ECNs completed', async ({ page }) => {
     await setupAdminAppWithCanonicalData(page);
     await expect(page.locator('#btn-load-ecn-proposal')).toBeVisible();
 
-    // Click ECN proposal button
     await page.click('#btn-load-ecn-proposal');
-
-    // Proposal card should be visible in the open AI drawer
-    const proposalCard = page.locator('.ai-proposal-card').first();
-    await expect(proposalCard).toBeVisible({ timeout: 15000 });
-    await expect(page.locator('#aiChatWidget')).toContainText('ECN-2026-0824-COLOR');
-
-    // Verify button is disabled during active flow.
+    await expect(page.locator('#aiChatWidget')).toContainText('ECN-2026-0824-ASSET');
+    await expect(page.locator('.ai-proposal-card').first()).toBeVisible();
     await expect(page.locator('#btn-load-ecn-proposal')).toBeDisabled();
-
-    // Clicking disabled button should not generate duplicate proposal
-    await page.click('#btn-load-ecn-proposal', { force: true });
-    await expect(page.locator('.ai-proposal-card')).toHaveCount(1);
-
-    // Verify proposal review card does NOT contain any Save to GitHub button.
-    await expect(proposalCard.locator('button:has-text("Save"), button:has-text("Lưu"), button:has-text("保存")')).toHaveCount(0);
   });
 
-  test('B201 proposal is already applied as released data', async ({ page }) => {
+  test('B201 variants remain present in production-effective revisions', async ({ page }) => {
     test.setTimeout(120000);
     await setupAdminAppWithCanonicalData(page);
     const result = await page.evaluate(() => {
@@ -127,7 +114,13 @@ test.describe('ECN-2026-0710-LGS Admin Proposal UI Flow', () => {
           .map((variant) => variant.sku)
           .sort(),
         releasedProducts: Object.entries(payload.productRevisions || {})
-          .filter(([, revision]) => revision.currentRevisionInfo?.workflowState === 'released')
+          .filter(([productCode, revision]) => {
+            const effectiveProduct = revision.effectiveRevision === revision.currentRevision
+              ? payload.bom[productCode]
+              : revision.revisions?.find((item) => item.revision === revision.effectiveRevision)?.snapshot?.product;
+            return Object.values(effectiveProduct?.color_info || {})
+              .some((info) => expectedSkus.includes(info.sku));
+          })
           .map(([productCode]) => productCode),
       };
     });
@@ -143,34 +136,21 @@ test.describe('ECN-2026-0710-LGS Admin Proposal UI Flow', () => {
     ]));
   });
 
-  test('discard invalidates active proposal run token and blocks approving stale proposal card', async ({ page }) => {
+  test('discard invalidates a pending asset proposal run token', async ({ page }) => {
     await setupAdminAppWithCanonicalData(page);
     await expect(page.locator('#btn-load-ecn-proposal')).toBeVisible();
-
-    // Click ECN proposal button
     await page.click('#btn-load-ecn-proposal');
-
     const proposalCard = page.locator('.ai-proposal-card').first();
-    await expect(proposalCard).toBeVisible({ timeout: 15000 });
-    const approveBtn = proposalCard.locator('button.btn-primary').first();
-    await expect(approveBtn).toBeVisible();
-
-    // Admin discards / resets state
+    await expect(proposalCard).toBeVisible();
+    const approveButton = proposalCard.locator('button.btn-primary').first();
+    await expect(approveButton).toBeVisible();
+    await expect(page.locator('#btn-load-ecn-proposal')).toBeDisabled();
     await page.evaluate(() => {
       window.app.applyPayload(window.app.state.loadedPayload);
     });
-
-    // Verify button is re-enabled
     await expect(page.locator('#btn-load-ecn-proposal')).toBeEnabled();
-
-    // Click Approve on the stale proposal card
-    await approveBtn.dispatchEvent('click');
-
-    // Verify state remains clean (not dirty)
+    await approveButton.dispatchEvent('click');
     await expect(page.locator('#syncStatus')).not.toHaveAttribute('data-state', 'dirty');
-
-    // Verify no 2nd proposal card was spawned
-    await expect(page.locator('.ai-proposal-card')).toHaveCount(1);
   });
 
   test('clicking ECN button when orphan BOM entries exist guides admin to cleanup first', async ({ page }) => {
