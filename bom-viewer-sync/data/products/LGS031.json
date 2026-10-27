@@ -1173,6 +1173,52 @@
           },
           "qty": "2",
           "remark": "包装对象：LGS031XHLBH×4\n规则：2件/袋；用袋：2袋"
+        },
+        {
+          "stt": "14",
+          "mat_code": "XHBBL1010SQ",
+          "comp_code": "",
+          "name_zh": "序号标BL",
+          "name_vi": "nhãn STT BL",
+          "spec": "10x10mm",
+          "spec_vi": "10x10mm",
+          "material_zh": "不干胶纸",
+          "material_vi": "giấy tự dính",
+          "color_zh": "蓝底黑字",
+          "color_vi": "nền xanh dương chữ đen",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "复古色",
+          "color_ver_vi": "màu gỗ cổ",
+          "unit": {
+            "zh": "张",
+            "vi": "tờ"
+          },
+          "qty": "1",
+          "remark": ""
+        },
+        {
+          "stt": "15",
+          "mat_code": "XHBBR1010SQ",
+          "comp_code": "",
+          "name_zh": "序号标BR",
+          "name_vi": "nhãn STT BR",
+          "spec": "10x10mm",
+          "spec_vi": "10x10mm",
+          "material_zh": "不干胶纸",
+          "material_vi": "giấy tự dính",
+          "color_zh": "绿底黑字",
+          "color_vi": "nền xanh lá chữ đen",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "复古色",
+          "color_ver_vi": "màu gỗ cổ",
+          "unit": {
+            "zh": "张",
+            "vi": "tờ"
+          },
+          "qty": "1",
+          "remark": ""
         }
       ]
     },
@@ -2344,10 +2390,57 @@
           },
           "qty": "2",
           "remark": "包装对象：LGS031XHLBH×4\n规则：2件/袋；用袋：2袋"
+        },
+        {
+          "stt": "14",
+          "mat_code": "XHBBL1010SQ",
+          "comp_code": "",
+          "name_zh": "序号标BL",
+          "name_vi": "nhãn STT BL",
+          "spec": "10x10mm",
+          "spec_vi": "10x10mm",
+          "material_zh": "不干胶纸",
+          "material_vi": "giấy tự dính",
+          "color_zh": "蓝底黑字",
+          "color_vi": "nền xanh dương chữ đen",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "黑色",
+          "color_ver_vi": "màu đen",
+          "unit": {
+            "zh": "张",
+            "vi": "tờ"
+          },
+          "qty": "1",
+          "remark": ""
+        },
+        {
+          "stt": "15",
+          "mat_code": "XHBBR1010SQ",
+          "comp_code": "",
+          "name_zh": "序号标BR",
+          "name_vi": "nhãn STT BR",
+          "spec": "10x10mm",
+          "spec_vi": "10x10mm",
+          "material_zh": "不干胶纸",
+          "material_vi": "giấy tự dính",
+          "color_zh": "绿底黑字",
+          "color_vi": "nền xanh lá chữ đen",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "黑色",
+          "color_ver_vi": "màu đen",
+          "unit": {
+            "zh": "张",
+            "vi": "tờ"
+          },
+          "qty": "1",
+          "remark": ""
         }
       ]
     }
   },
   "name_zh": "复古色3列2层1抽开放式带灯带电布抽电视柜-45inch",
-  "name_vi": "màu gỗ cổ 3 cột 2 tầng 1 Tủ đựng TV kiểu ngăn kéo mở có đèn và điện-45inch"
+  "name_vi": "màu gỗ cổ 3 cột 2 tầng 1 Tủ đựng TV kiểu ngăn kéo mở có đèn và điện-45inch",
+  "revision": "V3.1"
 }
