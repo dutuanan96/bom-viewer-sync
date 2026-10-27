@@ -155,7 +155,8 @@ for (const filePath of knowledgeFiles) {
     parsed = JSON.parse(content);
   });
 
-  if (parsed) {
+  // The drawing URL migration report is evidence, not an AI knowledge pack.
+  if (parsed && filePath !== resolve('knowledge/legacy-drawing-url-migration-proposal.json')) {
     for (const field of REQUIRED_SCHEMA_FIELDS) {
       check(`${filePath}: has '${field}'`, () => {
         if (!parsed[field]) throw new Error(`Missing required field: ${field}`);

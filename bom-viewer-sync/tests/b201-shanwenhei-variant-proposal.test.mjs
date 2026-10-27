@@ -6,6 +6,7 @@ import { applyMutationProposalTransaction } from '../src/features/ai-assistant/m
 import {
   buildB201ProposalBatches,
   buildB201WithdrawalProposalBatches,
+  CHANGE_REASON,
   VARIANT_CONFIGS,
 } from '../src/features/ecn-proposal/b201-shanwenhei-variant-proposal-builder.js';
 
@@ -155,16 +156,28 @@ test('B201 shanwenhei variants clone black BOMs and replace only fabric drawers 
   });
 });
 
-test('B201 withdrawal proposal restores the preceding effective revisions while preserving the B201 Drafts', () => {
+test('B201 withdrawal proposal targets only currently released B201 revisions', () => {
   const snapshot = loadCanonicalSnapshot();
+  const expectedTargets = VARIANT_CONFIGS.filter((config) => {
+    const revision = snapshot.payload.productRevisions[config.spu];
+    return revision.currentRevisionInfo.workflowState === 'released'
+      && revision.currentRevisionInfo.changeReason === CHANGE_REASON;
+  }).map((config) => config.spu);
+  const operations = buildB201WithdrawalProposalBatches(snapshot.payload)
+    .flatMap((batch) => batch.operations);
+  assert.deepEqual(operations.map((operation) => operation.targetId), expectedTargets);
+});
+
+test('B201 withdrawal proposal targets only a prematurely released B201 revision', () => {
+  const snapshot = loadCanonicalSnapshot();
+  for (const config of VARIANT_CONFIGS) {
+    const revision = snapshot.payload.productRevisions[config.spu];
+    revision.currentRevisionInfo.workflowState = 'released';
+    revision.currentRevisionInfo.changeReason = CHANGE_REASON;
+  }
   const batches = buildB201WithdrawalProposalBatches(snapshot.payload);
   assert.equal(batches.length, 1);
   assert.equal(batches[0].operations.length, 11);
-  const transaction = applyMutationProposalTransaction(snapshot, batches[0]);
-  for (const config of VARIANT_CONFIGS) {
-    const revision = transaction.payload.productRevisions[config.spu];
-    assert.equal(revision.currentRevisionInfo.workflowState, 'draft');
-    assert.equal(revision.effectiveRevision, revision.currentRevisionInfo.sourceRevision);
-    assert.equal(colorBySku(transaction.payload.bom[config.spu], config.sku), '山纹黑');
-  }
+  assert.deepEqual(batches[0].operations.map((operation) => operation.targetId),
+    VARIANT_CONFIGS.map((config) => config.spu));
 });

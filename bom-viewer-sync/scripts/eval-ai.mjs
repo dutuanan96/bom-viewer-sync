@@ -202,7 +202,7 @@ function specialistCase(id, description, fn) {
   });
 }
 
-specialistCase('SPECIALIST-REV-LGS032', 'LGS032 released revision status', () => {
+specialistCase('SPECIALIST-REV-LGS032', 'LGS032 revision status', () => {
   const route = routePdmIntent({
     query: 'LGS032当前版本是什么？',
     availableTools: ROUTER_TOOLS
@@ -211,10 +211,12 @@ specialistCase('SPECIALIST-REV-LGS032', 'LGS032 released revision status', () =>
     throw new Error(`Unexpected revision route: ${JSON.stringify(route)}`);
   }
   const result = kb.getRevisionHistory({ productId: 'LGS032' });
-  if (result.currentRevision !== 'V3.2') {
-    throw new Error(`Expected current V3.2, got ${JSON.stringify(result.currentRevisionInfo)}`);
+  const expected = snapshot.payload.productRevisions.LGS032;
+  if (result.currentRevision !== expected.currentRevision
+    || result.effectiveRevision !== expected.effectiveRevision
+    || result.currentRevisionInfo.workflowState !== expected.currentRevisionInfo.workflowState) {
+    throw new Error(`Revision status differs from canonical metadata: ${JSON.stringify(result)}`);
   }
-  if (result.effectiveRevision !== 'V3.2') throw new Error(`Expected effective V3.2, got ${result.effectiveRevision}`);
 });
 
 specialistCase('SPECIALIST-COMPARE', 'LGS031 and LGS032 structured comparison', () => {

@@ -104,6 +104,23 @@ export function applyCorrection(payload) {
 
   const materials = payload.materialDb.materials;
   let bomEntries = payload.materialDb.bomEntries;
+  const v1sPackIds = [
+    'mat_lgs433wjbbhv1s', 'mat_lgs433wjbwhv1s',
+    'mat_lgs434wjbbhv1s', 'mat_lgs434wjbwhv1s',
+  ];
+  const existingPacks = v1sPackIds.filter((id) => materials[id]);
+  if (existingPacks.length) {
+    if (existingPacks.length !== v1sPackIds.length) throw new Error('Partial V1S hardware pack state');
+    const counts = v1sPackIds.map((id) => bomEntries.filter((entry) =>
+      entry.parentType === 'material' && entry.parentId === id).length);
+    const original = [30, 10, 24, 12];
+    const corrected = [30, 10, 22, 11];
+    if (!counts.every((count, index) => count === original[index])
+      && !counts.every((count, index) => count === corrected[index])) {
+      throw new Error(`Unexpected V1S hardware pack counts: ${counts.join(', ')}`);
+    }
+    return payload;
+  }
 
   // 1. Define new materials (11 materials)
   const newMaterials = [

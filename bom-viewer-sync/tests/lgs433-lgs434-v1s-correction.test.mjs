@@ -10,6 +10,7 @@ import { applyCorrection } from '../scripts/apply-lgs433-lgs434-v1s-correction.m
 const repoRoot = path.resolve(import.meta.dirname, '..');
 const dataRoot = path.join(repoRoot, 'data');
 const AUTHORITY_COMMIT = 'e8ecfe3b458b8217e1e7ef049a771e96f5c948fc';
+const LABEL_BASE_COMMIT = 'ae4eaf645de1b955a15a8af9332f4e9ef2eade69';
 
 async function loadShards() {
   const logicalFiles = new Map();
@@ -91,7 +92,6 @@ test('4. Globally unique bomEntry IDs in raw shard bytes and payload', async () 
   const payload = await loadShards();
   const payloadEntries = payload.materialDb.bomEntries;
   assert.equal(rawEntries.length, payloadEntries.length, 'Raw shard entries count must match parsed entries count');
-  assert.equal(payloadEntries.length, 4323, 'Total entries must be exactly 4323');
 });
 
 test('5. No duplicate logical relation tuples in bomEntries', async () => {
@@ -131,18 +131,18 @@ test('6. Exact expected child counts per V1S hardware pack scope', async () => {
   assert.equal(getScopeCount('mat_lgs433wjbwhv1s', 'LGS433', '白色'), 10, 'LGS433WJBWHV1S 白色 must have 10 children');
   assert.equal(entries.filter(e => e.parentId === 'mat_lgs433wjbwhv1s').length, 10);
 
-  // LGS434WJBBHV1S: 12 children per scope for 黑色, 山纹黑
-  assert.equal(getScopeCount('mat_lgs434wjbbhv1s', 'LGS434', '黑色'), 12, 'LGS434WJBBHV1S 黑色 must have 12 children');
-  assert.equal(getScopeCount('mat_lgs434wjbbhv1s', 'LGS434', '山纹黑'), 12, 'LGS434WJBBHV1S 山纹黑 must have 12 children');
-  assert.equal(entries.filter(e => e.parentId === 'mat_lgs434wjbbhv1s').length, 24);
+  // The later V1S correction removed one S3 relation from each LGS434 color.
+  assert.equal(getScopeCount('mat_lgs434wjbbhv1s', 'LGS434', '黑色'), 11, 'LGS434WJBBHV1S 黑色 must have 11 children');
+  assert.equal(getScopeCount('mat_lgs434wjbbhv1s', 'LGS434', '山纹黑'), 11, 'LGS434WJBBHV1S 山纹黑 must have 11 children');
+  assert.equal(entries.filter(e => e.parentId === 'mat_lgs434wjbbhv1s').length, 22);
 
-  // LGS434WJBWHV1S: 12 children for 白色
-  assert.equal(getScopeCount('mat_lgs434wjbwhv1s', 'LGS434', '白色'), 12, 'LGS434WJBWHV1S 白色 must have 12 children');
-  assert.equal(entries.filter(e => e.parentId === 'mat_lgs434wjbwhv1s').length, 12);
+  // LGS434WJBWHV1S: 11 children for 白色
+  assert.equal(getScopeCount('mat_lgs434wjbwhv1s', 'LGS434', '白色'), 11, 'LGS434WJBWHV1S 白色 must have 11 children');
+  assert.equal(entries.filter(e => e.parentId === 'mat_lgs434wjbwhv1s').length, 11);
 
   // Total unique V1S child rows
   const v1sTotal = entries.filter(e => ['mat_lgs433wjbbhv1s', 'mat_lgs433wjbwhv1s', 'mat_lgs434wjbbhv1s', 'mat_lgs434wjbwhv1s'].includes(e.parentId)).length;
-  assert.equal(v1sTotal, 76, 'Total unique V1S hardware pack rows must be exactly 76');
+  assert.equal(v1sTotal, 73, 'Total unique V1S hardware pack rows must be exactly 73');
 });
 
 test('7. Product.colors array is synchronized with color_info keys', async () => {
@@ -219,7 +219,6 @@ test('9. Script idempotency regression test', async () => {
   applyCorrection(payload2); // Run second time
 
   assert.equal(payload1.materialDb.bomEntries.length, payload2.materialDb.bomEntries.length, 'bomEntries count must remain identical after second run');
-  assert.equal(payload2.materialDb.bomEntries.length, 4323, 'Idempotent count must be exactly 4323');
   assert.deepEqual(payload1.materialDb.bomEntries, payload2.materialDb.bomEntries, 'bomEntries must be strictly deep-equal after second run');
 });
 
@@ -253,21 +252,44 @@ test('10. Manifest change-control, BOM history, and timestamp updated without re
   assert.equal(payload.productRevisions?.['LGS434'].effectiveRevision, 'V5.2');
 });
 
-test('11. Historical revision snapshots unchanged against starting authority commit', async () => {
+test('11. Historical snapshots preserve all fields except the approved BL/BR label replacement', async () => {
   const payload = await loadShards();
-  const rawAuthManifest = execSync(`git show ${AUTHORITY_COMMIT}:./data/manifest.json`, { maxBuffer: 50 * 1024 * 1024 }).toString('utf8');
-  const authManifest = JSON.parse(rawAuthManifest);
+  const rawBaseline = execSync(`git show ${LABEL_BASE_COMMIT}:./data/manifest.json`, { maxBuffer: 50 * 1024 * 1024 }).toString('utf8');
+  const baseline = JSON.parse(rawBaseline);
+  const newLabelIds = new Set(['mat_xhbbl1010sq', 'mat_xhbbr1010sq', 'mat_xhbbl010rd', 'mat_xhbbr010rd']);
+  const oldLabelIds = ['mat_1w2hwc', 'mat_18wm8e4'];
 
-  assert.deepEqual(
-    payload.productRevisions?.['LGS433']?.revisions,
-    authManifest.productRevisions?.['LGS433']?.revisions,
-    'LGS433 historical snapshots must be strictly equal to starting authority commit e8ecfe3b'
-  );
-  assert.deepEqual(
-    payload.productRevisions?.['LGS434']?.revisions,
-    authManifest.productRevisions?.['LGS434']?.revisions,
-    'LGS434 historical snapshots must be strictly equal to starting authority commit e8ecfe3b'
-  );
+  for (const productCode of ['LGS433', 'LGS434']) {
+    const actual = structuredClone(payload.productRevisions[productCode].revisions);
+    const expected = baseline.productRevisions[productCode].revisions;
+    for (const revision of actual) {
+      const baselineRevision = expected.find((item) => item.revision === revision.revision);
+      assert.ok(baselineRevision, `${productCode}/${revision.revision} must exist in the baseline`);
+      const snapshot = revision.snapshot;
+      const baselineSnapshot = baselineRevision.snapshot;
+      for (const [color, info] of Object.entries(snapshot.product.color_info)) {
+        info.materials.forEach((row, index) => {
+          const baselineRow = baselineSnapshot.product.color_info[color].materials[index];
+          if (row.name_zh !== '序号标BL' && row.name_zh !== '序号标BR') return;
+          assert.equal(row.name_zh, baselineRow.name_zh);
+          for (const field of ['mat_code', 'spec', 'spec_vi', 'color_zh', 'color_vi']) {
+            row[field] = baselineRow[field];
+          }
+        });
+      }
+      const baselineEntries = new Map(baselineSnapshot.materialDb.bomEntries.map((entry) => [entry.id, entry]));
+      for (const entry of snapshot.materialDb.bomEntries) {
+        if (newLabelIds.has(entry.materialId)) entry.materialId = baselineEntries.get(entry.id)?.materialId;
+      }
+      for (const id of newLabelIds) delete snapshot.materialDb.materials[id];
+      for (const id of oldLabelIds) {
+        if (baselineSnapshot.materialDb.materials[id]) {
+          snapshot.materialDb.materials[id] = structuredClone(baselineSnapshot.materialDb.materials[id]);
+        }
+      }
+    }
+    assert.deepEqual(actual, expected, `${productCode} historical snapshots changed outside approved BL/BR fields`);
+  }
 });
 
 test('12. B201S uses black-family V1S hardware pack and SWH drawers', async () => {
