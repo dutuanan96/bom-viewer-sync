@@ -53,6 +53,13 @@ test('BL/BR label codes, shape, color, and BOM references match strip length in 
   let historicalRevisions = 0;
   let historicalRows = 0;
   for (const product of products) {
+    for (const [color, info] of Object.entries(product.color_info || {})) {
+      if (!(info.materials || []).some((row) => row.name_zh?.includes('布抽条'))) continue;
+      const sides = (info.materials || [])
+        .filter((row) => row.name_zh === '序号标BL' || row.name_zh === '序号标BR')
+        .map((row) => row.name_zh.slice(-2)).sort();
+      assert.deepEqual(sides, ['BL', 'BR'], `${product.code}/${color} must have both strip labels`);
+    }
     const count = verifyLabels(product, materialDb.bomEntries, null, product.code);
     if (count) currentProducts++;
     currentRows += count;
@@ -66,5 +73,5 @@ test('BL/BR label codes, shape, color, and BOM references match strip length in 
     }
   }
   assert.deepEqual({ currentProducts, currentRows, historicalRevisions, historicalRows },
-    { currentProducts: 19, currentRows: 122, historicalRevisions: 53, historicalRows: 274 });
+    { currentProducts: 22, currentRows: 136, historicalRevisions: 53, historicalRows: 274 });
 });
