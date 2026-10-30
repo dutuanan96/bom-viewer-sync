@@ -83,7 +83,7 @@ export function assetDisplayUrl(asset, locationLike = globalThis.location) {
   const remoteUrl = asset?.directUrl || asset?.url || '';
   const driveId = asset?.driveId || driveFileId(remoteUrl) || driveFileId(asset?.url || '');
   if (driveId) return `https://drive.google.com/thumbnail?id=${encodeURIComponent(driveId)}&sz=w1600`;
-  const isLocalDocument = ['file:', 'http:'].includes(locationLike?.protocol)
+  const isLocalDocument = locationLike?.protocol === 'http:'
     && ['', 'localhost', '127.0.0.1'].includes(locationLike?.hostname || '');
   return isLocalDocument && pathUrl ? pathUrl : remoteUrl || pathUrl;
 }

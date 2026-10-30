@@ -394,3 +394,18 @@ test('Admin creation flows assign stable IDs and create their records', () => {
   assert.match(app.state.materialDraft.id, /^mat_/);
   assert.equal(app.state.selectedMaterialId, app.state.materialDraft.id);
 });
+
+test('portable product images prefer a remote URL over a missing adjacent asset path', () => {
+  const asset = {
+    path: 'product-images/5106_KD.jpg',
+    url: 'https://raw.githubusercontent.com/acme/repo/main/product-images/5106_KD.jpg',
+  };
+  const localFile = { protocol: 'file:', hostname: '' };
+  assert.equal(assetDisplayUrl(asset, localFile), asset.url);
+  assert.equal(assetDisplayUrl({ ...asset, directUrl: 'https://cdn.example/5106.jpg' }, localFile),
+    'https://cdn.example/5106.jpg');
+  assert.equal(assetDisplayUrl({ path: asset.path }, localFile), asset.path);
+  assert.equal(assetDisplayUrl(asset, { protocol: 'http:', hostname: 'localhost' }), asset.path);
+  assert.equal(assetDisplayUrl(asset, { protocol: 'http:', hostname: '127.0.0.1' }), asset.path);
+  assert.equal(assetDisplayUrl(asset, { protocol: 'https:', hostname: 'viewer.example' }), asset.url);
+});
