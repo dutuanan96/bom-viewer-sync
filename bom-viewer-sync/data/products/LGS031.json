@@ -224,7 +224,7 @@
             {
               "stt": "9",
               "mat_code": "ZGLS3560BH",
-              "comp_code": "9",
+              "comp_code": "8",
               "name_zh": "自攻螺丝",
               "name_vi": "ốc tự cắt",
               "spec": "M3.5x60mm",
@@ -247,7 +247,7 @@
             {
               "stt": "10",
               "mat_code": "LNSLSD65254BZ",
-              "comp_code": "10",
+              "comp_code": "9",
               "name_zh": "L型内六角带十字螺丝刀",
               "name_vi": "L vít lục giác có đầu chữ thập",
               "spec": "S4",
@@ -270,7 +270,7 @@
             {
               "stt": "11",
               "mat_code": "LNBS57253BZ",
-              "comp_code": "11",
+              "comp_code": "10",
               "name_zh": "L型内六角扳手",
               "name_vi": "L cờ lê lục giác",
               "spec": "S3",
@@ -1441,7 +1441,7 @@
             {
               "stt": "9",
               "mat_code": "ZGLS3560BH",
-              "comp_code": "9",
+              "comp_code": "8",
               "name_zh": "自攻螺丝",
               "name_vi": "ốc tự cắt",
               "spec": "M3.5x60mm",
@@ -1464,7 +1464,7 @@
             {
               "stt": "10",
               "mat_code": "LNSLSD65254BZ",
-              "comp_code": "10",
+              "comp_code": "9",
               "name_zh": "L型内六角带十字螺丝刀",
               "name_vi": "L vít lục giác có đầu chữ thập",
               "spec": "S4",
@@ -1487,7 +1487,7 @@
             {
               "stt": "11",
               "mat_code": "LNBS57253BZ",
-              "comp_code": "11",
+              "comp_code": "10",
               "name_zh": "L型内六角扳手",
               "name_vi": "L cờ lê lục giác",
               "spec": "S3",

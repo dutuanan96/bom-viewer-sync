@@ -42,7 +42,7 @@
             {
               "stt": "",
               "mat_code": "LNSLSD65254BZ",
-              "comp_code": "1",
+              "comp_code": "8",
               "name_zh": "L型内六角带十字螺丝刀",
               "name_vi": "L vít lục giác có đầu chữ thập",
               "spec": "S4",
@@ -65,7 +65,7 @@
             {
               "stt": "",
               "mat_code": "LNBS57253BZ",
-              "comp_code": "2",
+              "comp_code": "9",
               "name_zh": "L型内六角扳手",
               "name_vi": "L cờ lê lục giác",
               "spec": "S3",
@@ -111,7 +111,7 @@
             {
               "stt": "",
               "mat_code": "NLPLS6010BZ",
-              "comp_code": "4",
+              "comp_code": "5",
               "name_zh": "M6x12内六角螺丝",
               "name_vi": "M6x12 ốc lục giác",
               "spec": "M6x12mm",
@@ -134,7 +134,7 @@
             {
               "stt": "",
               "mat_code": "BCLS024019022BH",
-              "comp_code": "5",
+              "comp_code": "2",
               "name_zh": "圆把手",
               "name_vi": "tay nắm",
               "spec": "Ø24×Ø19×H22mm",
@@ -203,7 +203,7 @@
             {
               "stt": "",
               "mat_code": "ZGLS3560BH",
-              "comp_code": "8",
+              "comp_code": "7",
               "name_zh": "自攻螺丝",
               "name_vi": "ốc tự cắt",
               "spec": "M3.5x60mm",
@@ -226,7 +226,7 @@
             {
               "stt": "",
               "mat_code": "TZJD629825BH",
-              "comp_code": "9",
+              "comp_code": "1",
               "name_zh": "10-底脚",
               "name_vi": "10-chân đế",
               "spec": "M6x10mm",
@@ -249,7 +249,7 @@
             {
               "stt": "",
               "mat_code": "GSSNZGLS5040BZ",
-              "comp_code": "10",
+              "comp_code": "4",
               "name_zh": "ST5x38内六角过山丝",
               "name_vi": "ST5x38 ốc tự khoan lục giác",
               "spec": "Ø5x38mm",
@@ -1073,7 +1073,7 @@
             {
               "stt": "",
               "mat_code": "LNSLSD65254BZ",
-              "comp_code": "1",
+              "comp_code": "8",
               "name_zh": "L型内六角带十字螺丝刀",
               "name_vi": "L vít lục giác có đầu chữ thập",
               "spec": "S4",
@@ -1096,7 +1096,7 @@
             {
               "stt": "",
               "mat_code": "LNBS57253BZ",
-              "comp_code": "2",
+              "comp_code": "9",
               "name_zh": "L型内六角扳手",
               "name_vi": "L cờ lê lục giác",
               "spec": "S3",
@@ -1142,7 +1142,7 @@
             {
               "stt": "",
               "mat_code": "NLPLS6010WZ",
-              "comp_code": "4",
+              "comp_code": "5",
               "name_zh": "M6x12内六角螺丝",
               "name_vi": "M6x12 ốc lục giác",
               "spec": "M6x12mm",
@@ -1165,7 +1165,7 @@
             {
               "stt": "",
               "mat_code": "BCLS024019022WH",
-              "comp_code": "5",
+              "comp_code": "2",
               "name_zh": "圆把手",
               "name_vi": "tay nắm",
               "spec": "Ø24×Ø19×H22mm",
@@ -1234,7 +1234,7 @@
             {
               "stt": "",
               "mat_code": "ZGLS3560WH",
-              "comp_code": "8",
+              "comp_code": "7",
               "name_zh": "自攻螺丝",
               "name_vi": "ốc tự cắt",
               "spec": "M3.5x60mm",
@@ -1257,7 +1257,7 @@
             {
               "stt": "",
               "mat_code": "TZJD629825WH",
-              "comp_code": "9",
+              "comp_code": "1",
               "name_zh": "10-底脚",
               "name_vi": "10-chân đế",
               "spec": "M6x10mm",
@@ -1280,7 +1280,7 @@
             {
               "stt": "",
               "mat_code": "GSSNZGLS5040WZ",
-              "comp_code": "10",
+              "comp_code": "4",
               "name_zh": "ST5x38内六角过山丝",
               "name_vi": "ST5x38 ốc tự khoan lục giác",
               "spec": "Ø5x38mm",
@@ -2104,7 +2104,7 @@
             {
               "stt": "",
               "mat_code": "LNSLSD65254BZ",
-              "comp_code": "1",
+              "comp_code": "8",
               "name_zh": "L型内六角带十字螺丝刀",
               "name_vi": "L vít lục giác có đầu chữ thập",
               "spec": "S4",
@@ -2127,7 +2127,7 @@
             {
               "stt": "",
               "mat_code": "LNBS57253BZ",
-              "comp_code": "2",
+              "comp_code": "9",
               "name_zh": "L型内六角扳手",
               "name_vi": "L cờ lê lục giác",
               "spec": "S3",
@@ -2173,7 +2173,7 @@
             {
               "stt": "",
               "mat_code": "NLPLS6010BZ",
-              "comp_code": "4",
+              "comp_code": "5",
               "name_zh": "M6x12内六角螺丝",
               "name_vi": "M6x12 ốc lục giác",
               "spec": "M6x12mm",
@@ -2196,7 +2196,7 @@
             {
               "stt": "",
               "mat_code": "BCLS024019022BH",
-              "comp_code": "5",
+              "comp_code": "2",
               "name_zh": "圆把手",
               "name_vi": "tay nắm",
               "spec": "Ø24×Ø19×H22mm",
@@ -2265,7 +2265,7 @@
             {
               "stt": "",
               "mat_code": "ZGLS3560BH",
-              "comp_code": "8",
+              "comp_code": "7",
               "name_zh": "自攻螺丝",
               "name_vi": "ốc tự cắt",
               "spec": "M3.5x60mm",
@@ -2288,7 +2288,7 @@
             {
               "stt": "",
               "mat_code": "TZJD629825BH",
-              "comp_code": "9",
+              "comp_code": "1",
               "name_zh": "10-底脚",
               "name_vi": "10-chân đế",
               "spec": "M6x10mm",
@@ -2311,7 +2311,7 @@
             {
               "stt": "",
               "mat_code": "GSSNZGLS5040BZ",
-              "comp_code": "10",
+              "comp_code": "4",
               "name_zh": "ST5x38内六角过山丝",
               "name_vi": "ST5x38 ốc tự khoan lục giác",
               "spec": "Ø5x38mm",
@@ -3135,7 +3135,7 @@
             {
               "stt": "",
               "mat_code": "LNSLSD65254BZ",
-              "comp_code": "1",
+              "comp_code": "8",
               "name_zh": "L型内六角带十字螺丝刀",
               "name_vi": "L vít lục giác có đầu chữ thập",
               "spec": "S4",
@@ -3158,7 +3158,7 @@
             {
               "stt": "",
               "mat_code": "LNBS57253BZ",
-              "comp_code": "2",
+              "comp_code": "9",
               "name_zh": "L型内六角扳手",
               "name_vi": "L cờ lê lục giác",
               "spec": "S3",
@@ -3204,7 +3204,7 @@
             {
               "stt": "",
               "mat_code": "NLPLS6010BZ",
-              "comp_code": "4",
+              "comp_code": "5",
               "name_zh": "M6x12内六角螺丝",
               "name_vi": "M6x12 ốc lục giác",
               "spec": "M6x12mm",
@@ -3227,7 +3227,7 @@
             {
               "stt": "",
               "mat_code": "BCLS024019022BH",
-              "comp_code": "5",
+              "comp_code": "2",
               "name_zh": "圆把手",
               "name_vi": "tay nắm",
               "spec": "Ø24×Ø19×H22mm",
@@ -3296,7 +3296,7 @@
             {
               "stt": "",
               "mat_code": "ZGLS3560BH",
-              "comp_code": "8",
+              "comp_code": "7",
               "name_zh": "自攻螺丝",
               "name_vi": "ốc tự cắt",
               "spec": "M3.5x60mm",
@@ -3319,7 +3319,7 @@
             {
               "stt": "",
               "mat_code": "TZJD629825BH",
-              "comp_code": "9",
+              "comp_code": "1",
               "name_zh": "10-底脚",
               "name_vi": "10-chân đế",
               "spec": "M6x10mm",
@@ -3342,7 +3342,7 @@
             {
               "stt": "",
               "mat_code": "GSSNZGLS5040BZ",
-              "comp_code": "10",
+              "comp_code": "4",
               "name_zh": "ST5x38内六角过山丝",
               "name_vi": "ST5x38 ốc tự khoan lục giác",
               "spec": "Ø5x38mm",

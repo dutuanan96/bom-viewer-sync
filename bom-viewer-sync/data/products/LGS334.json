@@ -40,7 +40,7 @@
             {
               "stt": "1",
               "mat_code": "LNSLSD65254BZ",
-              "comp_code": "1",
+              "comp_code": "9",
               "name_zh": "L型内六角带十字螺丝刀",
               "name_vi": "L vít lục giác có đầu chữ thập",
               "spec": "S4",
@@ -63,7 +63,7 @@
             {
               "stt": "2",
               "mat_code": "NLPLS6022BZ",
-              "comp_code": "2",
+              "comp_code": "3",
               "name_zh": "M6x22内六角螺丝",
               "name_vi": "M6x22 ốc lục giác",
               "spec": "M6x22mm",
@@ -86,7 +86,7 @@
             {
               "stt": "3",
               "mat_code": "NLPLS6010BZ",
-              "comp_code": "3",
+              "comp_code": "4",
               "name_zh": "M6x12内六角螺丝",
               "name_vi": "M6x12 ốc lục giác",
               "spec": "M6x12mm",
@@ -109,7 +109,7 @@
             {
               "stt": "4",
               "mat_code": "BCLS129228BH",
-              "comp_code": "4",
+              "comp_code": "2",
               "name_zh": "把手",
               "name_vi": "tay nắm",
               "spec": "129x22x8mm",
@@ -155,7 +155,7 @@
             {
               "stt": "6",
               "mat_code": "SLPZLS6030WH",
-              "comp_code": "6",
+              "comp_code": "8",
               "name_zh": "塑料膨胀螺丝",
               "name_vi": "Ốc tắc kê nhựa",
               "spec": "6x30mm",
@@ -178,7 +178,7 @@
             {
               "stt": "7",
               "mat_code": "ZGLS3560BH",
-              "comp_code": "6",
+              "comp_code": "8",
               "name_zh": "自攻螺丝",
               "name_vi": "ốc tự cắt",
               "spec": "M3.5x60mm",
@@ -201,7 +201,7 @@
             {
               "stt": "8",
               "mat_code": "TZJD629825BH",
-              "comp_code": "7",
+              "comp_code": "1",
               "name_zh": "10-底脚",
               "name_vi": "10-chân đế",
               "spec": "M6x10mm",
@@ -224,7 +224,7 @@
             {
               "stt": "9",
               "mat_code": "NLDP15508020BH",
-              "comp_code": "8",
+              "comp_code": "6",
               "name_zh": "尼龙垫片",
               "name_vi": "lông đền nhựa",
               "spec": "外径15.5×内孔8.0×厚2.0mm",
@@ -247,7 +247,7 @@
             {
               "stt": "10",
               "mat_code": "MS6030YS",
-              "comp_code": "9",
+              "comp_code": "7",
               "name_zh": "6x30木榫",
               "name_vi": "6x30 chốt gỗ",
               "spec": "Ø6x30mm",
@@ -2379,7 +2379,7 @@
             {
               "stt": "1",
               "mat_code": "LNSLSD65254BZ",
-              "comp_code": "1",
+              "comp_code": "9",
               "name_zh": "L型内六角带十字螺丝刀",
               "name_vi": "L vít lục giác có đầu chữ thập",
               "spec": "S4",
@@ -2402,7 +2402,7 @@
             {
               "stt": "2",
               "mat_code": "NLPLS6022BZ",
-              "comp_code": "2",
+              "comp_code": "3",
               "name_zh": "M6x22内六角螺丝",
               "name_vi": "M6x22 ốc lục giác",
               "spec": "M6x22mm",
@@ -2425,7 +2425,7 @@
             {
               "stt": "3",
               "mat_code": "NLPLS6010BZ",
-              "comp_code": "3",
+              "comp_code": "4",
               "name_zh": "M6x12内六角螺丝",
               "name_vi": "M6x12 ốc lục giác",
               "spec": "M6x12mm",
@@ -2448,7 +2448,7 @@
             {
               "stt": "4",
               "mat_code": "BCLS129228BH",
-              "comp_code": "4",
+              "comp_code": "2",
               "name_zh": "把手",
               "name_vi": "tay nắm",
               "spec": "129x22x8mm",
@@ -2494,7 +2494,7 @@
             {
               "stt": "6",
               "mat_code": "SLPZLS6030WH",
-              "comp_code": "6",
+              "comp_code": "8",
               "name_zh": "塑料膨胀螺丝",
               "name_vi": "Ốc tắc kê nhựa",
               "spec": "6x30mm",
@@ -2517,7 +2517,7 @@
             {
               "stt": "7",
               "mat_code": "ZGLS3560BH",
-              "comp_code": "6",
+              "comp_code": "8",
               "name_zh": "自攻螺丝",
               "name_vi": "ốc tự cắt",
               "spec": "M3.5x60mm",
@@ -2540,7 +2540,7 @@
             {
               "stt": "8",
               "mat_code": "TZJD629825BH",
-              "comp_code": "7",
+              "comp_code": "1",
               "name_zh": "10-底脚",
               "name_vi": "10-chân đế",
               "spec": "M6x10mm",
@@ -2563,7 +2563,7 @@
             {
               "stt": "9",
               "mat_code": "NLDP15508020BH",
-              "comp_code": "8",
+              "comp_code": "6",
               "name_zh": "尼龙垫片",
               "name_vi": "lông đền nhựa",
               "spec": "外径15.5×内孔8.0×厚2.0mm",
@@ -2586,7 +2586,7 @@
             {
               "stt": "10",
               "mat_code": "MS6030YS",
-              "comp_code": "9",
+              "comp_code": "7",
               "name_zh": "6x30木榫",
               "name_vi": "6x30 chốt gỗ",
               "spec": "Ø6x30mm",
