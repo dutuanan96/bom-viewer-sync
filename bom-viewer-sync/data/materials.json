@@ -92735,7 +92735,7 @@
         "childMaterialId": "mat_st5x50nlxzgls",
         "qty": "4",
         "order": 1,
-        "comp_code": "",
+        "comp_code": "1",
         "stt": "1",
         "remark": "固定层板"
       },
@@ -92747,7 +92747,7 @@
         "childMaterialId": "mat_vz636a",
         "qty": "2",
         "order": 2,
-        "comp_code": "",
+        "comp_code": "2",
         "stt": "2",
         "remark": "配M4x10自攻螺钉"
       },
@@ -92759,7 +92759,7 @@
         "childMaterialId": "mat_1bb87nh",
         "qty": "4+1",
         "order": 3,
-        "comp_code": "",
+        "comp_code": "2",
         "stt": "2",
         "remark": "备用1颗 (共5颗)"
       },
@@ -92771,7 +92771,7 @@
         "childMaterialId": "mat_nlpls6010bh",
         "qty": "4+1",
         "order": 4,
-        "comp_code": "",
+        "comp_code": "3",
         "stt": "3",
         "remark": "备用1颗 (共5颗)"
       },
@@ -92783,7 +92783,7 @@
         "childMaterialId": "mat_1112bk6",
         "qty": "4+1",
         "order": 5,
-        "comp_code": "",
+        "comp_code": "4",
         "stt": "4",
         "remark": "备用1颗 (共5颗)"
       },
@@ -92795,7 +92795,7 @@
         "childMaterialId": "mat_3cqqc3",
         "qty": "2",
         "order": 6,
-        "comp_code": "",
+        "comp_code": "5",
         "stt": "5",
         "remark": "防倒固定"
       },
@@ -92807,7 +92807,7 @@
         "childMaterialId": "mat_1atkf4g",
         "qty": "1",
         "order": 7,
-        "comp_code": "",
+        "comp_code": "6",
         "stt": "6",
         "remark": "组装工具"
       },
@@ -92819,7 +92819,7 @@
         "childMaterialId": "mat_qqu0zl",
         "qty": "2",
         "order": 8,
-        "comp_code": "",
+        "comp_code": "7",
         "stt": "7",
         "remark": "防倒固定"
       },
@@ -92831,7 +92831,7 @@
         "childMaterialId": "mat_tzjd619619bh",
         "qty": "4",
         "order": 9,
-        "comp_code": "",
+        "comp_code": "8",
         "stt": "8",
         "remark": "底脚"
       },
