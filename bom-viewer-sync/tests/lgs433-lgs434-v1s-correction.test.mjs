@@ -4,6 +4,8 @@ import { execSync } from 'node:child_process';
 import { lstatSync, readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { isHardwarePackSummary } from '../src/domain/materials.js';
+import { buildBomTreeRows } from '../src/domain/relationships.js';
+import { payloadForProductRevision } from '../src/domain/revisions.js';
 import { assertLogicalShardCount, parseLogicalShardFiles } from '../src/domain/sharded-files.js';
 import { applyCorrection } from '../scripts/apply-lgs433-lgs434-v1s-correction.mjs';
 
@@ -11,6 +13,18 @@ const repoRoot = path.resolve(import.meta.dirname, '..');
 const dataRoot = path.join(repoRoot, 'data');
 const AUTHORITY_COMMIT = 'e8ecfe3b458b8217e1e7ef049a771e96f5c948fc';
 const LABEL_BASE_COMMIT = 'ae4eaf645de1b955a15a8af9332f4e9ef2eade69';
+
+// Owner-approved released corrections use the old manuals, not the V1S manuals.
+const releasedNumbers = {
+  LGS433: {
+    TZJD: '1', BCLS: '2', NLPLS6022: '3', NLPLS6010: '4', ZGLS4010: '5',
+    PTZGLS: '6', NLDP: '7', SLPZ: '8', ZGLS3560: '8', LNSLSD: '9',
+  },
+  LGS434: {
+    TZJD: '1', BCLS: '2', NLPLS6022: '3', NLPLS6010: '4', ZGLS4010: '5',
+    PTZGLS: '6', NLDP: '7', MS6030: '8', SLPZ: '9', ZGLS3560: '9', LNSLSD: '10',
+  },
+};
 
 async function loadShards() {
   const logicalFiles = new Map();
@@ -166,7 +180,7 @@ test('7. Product.colors array is synchronized with color_info keys', async () =>
   }
 });
 
-test('8. Full metadata preservation for old hardware packs compared against authority commit', async () => {
+test('8. Old hardware metadata preserves authority except reviewed manual number corrections', async () => {
   const payload = await loadShards();
   const rawAuthManifest = execSync(`git show ${AUTHORITY_COMMIT}:./data/manifest.json`, { maxBuffer: 50 * 1024 * 1024 }).toString('utf8');
   const authManifest = JSON.parse(rawAuthManifest);
@@ -201,13 +215,22 @@ test('8. Full metadata preservation for old hardware packs compared against auth
   assert.equal(currentOld433.length, authOld433.length, 'LGS433 old pack row count must match historical baseline');
   assert.equal(currentOld434.length, authOld434.length, 'LGS434 old pack row count must match historical baseline');
 
-  const normAuth433 = authOld433.map(normalizeRow).sort((a, b) => a.id.localeCompare(b.id));
-  const normCur433 = currentOld433.map(normalizeRow).sort((a, b) => a.id.localeCompare(b.id));
-  assert.deepEqual(normCur433, normAuth433, 'LGS433 old hardware pack rows must match historical snapshot with full metadata');
+  const normalizeAuthorityRow = (row, productCode) => {
+    const material = payload.materialDb.materials[row.childMaterialId || row.materialId];
+    const match = Object.entries(releasedNumbers[productCode])
+      .find(([prefix]) => material.code.startsWith(prefix));
+    return { ...normalizeRow(row), comp_code: match ? match[1] : String(row.comp_code || '') };
+  };
 
-  const normAuth434 = authOld434.map(normalizeRow).sort((a, b) => a.id.localeCompare(b.id));
+  const normAuth433 = authOld433.map(row => normalizeAuthorityRow(row, 'LGS433'))
+    .sort((a, b) => a.id.localeCompare(b.id));
+  const normCur433 = currentOld433.map(normalizeRow).sort((a, b) => a.id.localeCompare(b.id));
+  assert.deepEqual(normCur433, normAuth433, 'LGS433 old hardware pack rows must preserve metadata with reviewed manual numbers');
+
+  const normAuth434 = authOld434.map(row => normalizeAuthorityRow(row, 'LGS434'))
+    .sort((a, b) => a.id.localeCompare(b.id));
   const normCur434 = currentOld434.map(normalizeRow).sort((a, b) => a.id.localeCompare(b.id));
-  assert.deepEqual(normCur434, normAuth434, 'LGS434 old hardware pack rows must match historical snapshot with full metadata');
+  assert.deepEqual(normCur434, normAuth434, 'LGS434 old hardware pack rows must preserve metadata with reviewed manual numbers');
 });
 
 test('9. Script idempotency regression test', async () => {
@@ -252,7 +275,7 @@ test('10. Manifest change-control, BOM history, and timestamp updated without re
   assert.equal(payload.productRevisions?.['LGS434'].effectiveRevision, 'V5.2');
 });
 
-test('11. Historical snapshots preserve all fields except the approved BL/BR label replacement', async () => {
+test('11. Historical snapshots preserve fields outside approved labels and released hardware numbers', async () => {
   const payload = await loadShards();
   const rawBaseline = execSync(`git show ${LABEL_BASE_COMMIT}:./data/manifest.json`, { maxBuffer: 50 * 1024 * 1024 }).toString('utf8');
   const baseline = JSON.parse(rawBaseline);
@@ -261,7 +284,24 @@ test('11. Historical snapshots preserve all fields except the approved BL/BR lab
 
   for (const productCode of ['LGS433', 'LGS434']) {
     const actual = structuredClone(payload.productRevisions[productCode].revisions);
-    const expected = baseline.productRevisions[productCode].revisions;
+    const expected = structuredClone(baseline.productRevisions[productCode].revisions);
+    const effectiveRevision = payload.productRevisions[productCode].effectiveRevision;
+    const released = expected.find(item => item.revision === effectiveRevision).snapshot;
+    const expectedNumber = (materialCode, fallback) => Object.entries(releasedNumbers[productCode])
+      .find(([prefix]) => materialCode.startsWith(prefix))?.[1] ?? fallback;
+    for (const info of Object.values(released.product.color_info)) {
+      for (const pack of info.materials.filter(row => row.mat_code.startsWith(`${productCode}WJB`))) {
+        for (const row of pack.materials) row.comp_code = expectedNumber(row.mat_code, row.comp_code);
+      }
+    }
+    const packIds = new Set(Object.entries(released.materialDb.materials)
+      .filter(([, material]) => material.code.startsWith(`${productCode}WJB`))
+      .map(([id]) => id));
+    for (const entry of released.materialDb.bomEntries) {
+      if (entry.parentType !== 'material' || !packIds.has(entry.parentId)) continue;
+      const material = released.materialDb.materials[entry.childMaterialId || entry.materialId];
+      entry.comp_code = expectedNumber(material.code, entry.comp_code);
+    }
     for (const revision of actual) {
       const baselineRevision = expected.find((item) => item.revision === revision.revision);
       assert.ok(baselineRevision, `${productCode}/${revision.revision} must exist in the baseline`);
@@ -288,7 +328,7 @@ test('11. Historical snapshots preserve all fields except the approved BL/BR lab
         }
       }
     }
-    assert.deepEqual(actual, expected, `${productCode} historical snapshots changed outside approved BL/BR fields`);
+    assert.deepEqual(actual, expected, `${productCode} historical snapshots changed outside approved label and released hardware number fields`);
   }
 });
 
@@ -349,4 +389,26 @@ test('13. Cartons verified: LGS433 V1S = 1185×340×105mm, LGS434 V1S = 860×410
     const m = Object.values(materials).find(x => x.code === code);
     assert.ok(m, `Old carton ${code} must still exist untouched`);
   }
+});
+
+
+test('released and draft BOM trees resolve number 7 against their own manual hardware', async () => {
+  const payload = await loadShards();
+  const before = JSON.stringify(payload);
+  for (const code of ['LGS433', 'LGS434']) {
+    const record = payload.productRevisions[code];
+    for (const [revision, prefix] of [
+      [record.effectiveRevision, 'NLDP15508020'],
+      [record.currentRevision, 'NLPLS4022'],
+    ]) {
+      const selected = payloadForProductRevision(payload, code, revision);
+      for (const color of selected.bom[code].colors) {
+        const rows = buildBomTreeRows(selected, code, color)
+          .filter(row => row.comp_code === '7');
+        assert.equal(rows.length, 1, `${code}/${revision}/${color} must resolve one number 7`);
+        assert.ok(rows[0].mat_code.startsWith(prefix), `${code}/${revision} has the wrong number 7`);
+      }
+    }
+  }
+  assert.equal(JSON.stringify(payload), before, 'Selecting a revision must not mutate either hardware pack');
 });
