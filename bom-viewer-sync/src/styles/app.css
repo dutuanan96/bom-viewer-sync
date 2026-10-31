@@ -2874,11 +2874,11 @@ body.pdm-shell {
 }
 
 .bom-table .col-mat-code {
-  width: 11%;
+  width: 14%;
 }
 
 .bom-table .col-comp-code {
-  width: 7%;
+  width: 4%;
 }
 
 .bom-table.editing .col-comp-code {
@@ -2887,33 +2887,33 @@ body.pdm-shell {
 }
 
 .bom-table .col-description {
-  width: 13%;
+  width: 16%;
 }
 
 .bom-table .col-spec {
-  width: 13%;
+  width: 14%;
 }
 
 .bom-table .col-material {
-  width: 11%;
-}
-
-.bom-table .col-color {
   width: 7%;
 }
 
+.bom-table .col-color {
+  width: 5%;
+}
+
 .bom-table .col-attr {
-  width: 6%;
+  width: 5%;
 }
 
 .bom-table .col-unit {
-  width: 4%;
+  width: 3%;
   min-width: 40px;
   text-align: center;
 }
 
 .bom-table .col-qty {
-  width: 5%;
+  width: 6%;
 }
 
 .bom-table .col-remark {
@@ -2931,7 +2931,7 @@ body.pdm-shell {
 }
 
 .bom-table .col-3d {
-  width: 4%;
+  width: 3%;
 }
 
 .bom-table td:has(.edit-input) {
@@ -2982,7 +2982,9 @@ body.pdm-shell {
 
 .bom-table .bom-remark-token {
   display: inline-block;
-  white-space: nowrap;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 @media (max-width: 1100px) {
@@ -3025,8 +3027,7 @@ body.pdm-shell {
 }
 
 .pdm-shell .bom-table td:nth-child(4),
-.pdm-shell .bom-table td:nth-child(5),
-.pdm-shell .bom-table td:nth-child(10) {
+.pdm-shell .bom-table td:nth-child(5) {
   overflow-wrap: anywhere;
   white-space: normal;
 }
@@ -4762,7 +4763,8 @@ table,
   table-layout: auto !important;
 }
 
-.bom-table {
+.pdm-shell .bom-table {
+  min-width: 1480px;
   table-layout: fixed !important;
 }
 
