@@ -3,6 +3,7 @@ import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import test from 'node:test';
 import { resolveProductAssets } from '../src/domain/product-assets.js';
+import { validateAssetFile } from '../src/features/material-asset-upload.js';
 
 const read = file => JSON.parse(fs.readFileSync(file, 'utf8'));
 const manifest = read('data/manifest.json');
@@ -10,12 +11,34 @@ const database = read('data/materials.json').materialDb;
 const product = read('data/products/LGS133.json');
 const registry = manifest.productRevisions.LGS133;
 
-test('V5 has no inherited product assets while V4.3 still resolves its original documents and images', () => {
+test('V5 uses its STEP-derived assembly without inheriting manuals or images from V4.3', async () => {
   const shared = read('data/materials.json');
   const payload = { ...manifest, ...shared };
-  assert.deepEqual(resolveProductAssets(payload, 'LGS133', 'V5'), {
-    manuals: [], assemblyModels: [], images: {},
-  });
+  const draftAssets = resolveProductAssets(payload, 'LGS133', 'V5');
+  assert.deepEqual(draftAssets.manuals, []);
+  assert.deepEqual(draftAssets.images, {});
+  assert.equal(draftAssets.assemblyModels.length, 1);
+  const model = draftAssets.assemblyModels[0];
+  assert.equal(model.path, 'models3d/catalog/model-lgs133-v5-assembly-55f33315a598.glb');
+  assert.ok(model.url.endsWith(`/bom-viewer-sync/${model.path}`));
+  const bytes = fs.readFileSync(model.path);
+  assert.equal(bytes.readUInt32LE(4), 2);
+  assert.equal(bytes.readUInt32LE(8), bytes.length);
+  assert.equal(createHash('sha256').update(bytes).digest('hex'),
+    '55f33315a59813b6c4c514ad84b53cb56628ac9a7cabc75a0ed12c564bbb0722');
+  const gltf = JSON.parse(bytes.subarray(20, 20 + bytes.readUInt32LE(12)).toString('utf8'));
+  assert.equal(gltf.asset.version, '2.0');
+  assert.equal(gltf.meshes.length, 144);
+  assert.equal(gltf.nodes.find(node => node.extras?.source_sha256)?.extras.source_sha256,
+    'b593025ca9d4e2973f6075046b8eb460e8cad175bb1b14417ae83b7b40ab3710');
+  assert.ok(gltf.buffers.every(buffer => !buffer.uri));
+  assert.equal((await validateAssetFile({
+    file: {
+      name: model.name, type: 'model/gltf-binary', size: bytes.length,
+      arrayBuffer: async () => bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength),
+    },
+    ownerType: 'product', typeKey: 'assembly',
+  })).kind, 'glb');
   const effectiveAssets = resolveProductAssets(payload, 'LGS133', 'V4.3');
   assert.ok(effectiveAssets.manuals.length > 0);
   assert.ok(effectiveAssets.assemblyModels.length > 0);
