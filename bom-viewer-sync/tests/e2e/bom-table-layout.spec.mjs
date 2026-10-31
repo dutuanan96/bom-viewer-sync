@@ -52,6 +52,11 @@ for (const width of [1920, 1440, 1024]) {
     const codeOverflow = await table.locator('.mat-code').evaluateAll(elements =>
       elements.some(element => element.scrollWidth > element.clientWidth + 1));
     expect(codeOverflow).toBe(false);
+    if (width >= 1440) {
+      const material = table.locator('tbody tr').first().locator('td').nth(5);
+      await expect(material).toHaveCSS('white-space', 'normal');
+      expect(await material.evaluate(element => element.scrollWidth > element.clientWidth + 1)).toBe(false);
+    }
     await page.screenshot({ path: testInfo.outputPath(`bom-table-${width}.png`) });
   });
 }
