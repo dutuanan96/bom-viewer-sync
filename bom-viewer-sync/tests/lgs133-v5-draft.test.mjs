@@ -2,12 +2,25 @@ import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import test from 'node:test';
+import { resolveProductAssets } from '../src/domain/product-assets.js';
 
 const read = file => JSON.parse(fs.readFileSync(file, 'utf8'));
 const manifest = read('data/manifest.json');
 const database = read('data/materials.json').materialDb;
 const product = read('data/products/LGS133.json');
 const registry = manifest.productRevisions.LGS133;
+
+test('V5 has no inherited product assets while V4.3 still resolves its original documents and images', () => {
+  const shared = read('data/materials.json');
+  const payload = { ...manifest, ...shared };
+  assert.deepEqual(resolveProductAssets(payload, 'LGS133', 'V5'), {
+    manuals: [], assemblyModels: [], images: {},
+  });
+  const effectiveAssets = resolveProductAssets(payload, 'LGS133', 'V4.3');
+  assert.ok(effectiveAssets.manuals.length > 0);
+  assert.ok(effectiveAssets.assemblyModels.length > 0);
+  assert.ok(Object.keys(effectiveAssets.images).length > 0);
+});
 const historyHashes = {
   'V4.3': 'deaa962bfd6b7c96ba42a6999e523f3f76319ef9f5dcf25aea208a2f0d27dcb8',
   'V4.2': 'eddb2645a14b9a07fbfde6b1f73bfa4f936e6c16f65221734d6843a7d093fa33',
