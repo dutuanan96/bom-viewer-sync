@@ -4784,6 +4784,24 @@ table,
   padding: 4px 3px;
 }
 
+.pdm-shell .bom-table th {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-overflow: clip;
+}
+
+.pdm-shell .bom-table .color-dot-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+  white-space: normal;
+}
+
+.pdm-shell .bom-table .color-dot-wrapper > span:last-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
 .pdm-shell .bom-table .mat-code {
   white-space: normal;
   overflow-wrap: anywhere;

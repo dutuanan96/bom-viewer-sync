@@ -10,7 +10,7 @@ const colgroup = bomViewMethods.tableColgroupHtml.call({
   canEditProductRevision: () => false,
   state: { editMode: false },
 });
-const headings = ['Level', 'Material code', 'No.', 'Name', 'Specification', 'Material', 'Color', 'Attribute', 'Unit', 'Qty', 'Remarks', '2D', '3D'];
+const headings = ['Level', 'Material code', 'No.', 'Name', 'Specification', 'Material', 'Color', 'Attribute', 'Unit', 'Qty', 'Remarks', '2D图纸', '3D'];
 const rows = [
   ['1', 'BC460327187KD', 'Y06', 'LGS布抽46x32.7x18.7', '460×327×187mm', 'MDF&纸板&无纺布', '复古色', '零件', '个', '9', '-', '2D', '-'],
   ['2', 'FG1515066150', '', '方管', '15×15×0.6Tmm，长度6150mm', 'Q195', '光亮', '原材料', '根', '0.132246', '760mm横杆用量：0.125根；44mm底脚用量：0.007246根。两种零件分别编程切割，禁止混切。', '-', '-'],
@@ -18,6 +18,7 @@ const rows = [
 ];
 function cellHtml(value, index) {
   if (index === 1) return `<td><span class="mat-code">${value}</span></td>`;
+  if (index === 6) return `<td><div class="color-dot-wrapper"><span class="color-dot"></span><span>${value}</span></div></td>`;
   if (index === 9) return `<td><span class="qty">${value}</span></td>`;
   if (index === 10) return `<td class="bom-remark"><span class="bom-remark-token">${value}</span></td>`;
   if (index >= 11 && value !== '-') {
@@ -39,8 +40,15 @@ for (const width of [1920, 1440, 1024]) {
     const spec = await table.locator('tbody tr').first().locator('td').nth(4).boundingBox();
     expect(name.width).toBeGreaterThanOrEqual(width >= 1440 ? 140 : 85);
     expect(spec.width).toBeGreaterThanOrEqual(width >= 1440 ? 135 : 80);
+    const headersOverflow = await table.locator('th').evaluateAll(elements =>
+      elements.filter(element => getComputedStyle(element).display !== 'none')
+        .some(element => element.scrollWidth > element.clientWidth + 1));
+    expect(headersOverflow).toBe(false);
+    const colorOverflow = await table.locator('.color-dot-wrapper').evaluateAll(elements =>
+      elements.some(element => element.scrollWidth > element.parentElement.clientWidth - 12 + 1));
+    expect(colorOverflow).toBe(false);
     const firstRow = await table.locator('tbody tr').first().boundingBox();
-    expect(firstRow.height).toBeLessThan(90);
+    expect(firstRow.height).toBeLessThan(width >= 1440 ? 90 : 110);
     await expect(table.locator('tbody tr').nth(1).locator('td').nth(9)).toHaveCSS('white-space', 'nowrap');
     const bodyOverflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);
     expect(bodyOverflow).toBe(false);
