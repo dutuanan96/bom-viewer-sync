@@ -68,4 +68,3 @@ for (const width of [1920, 1440, 1024]) {
     await page.screenshot({ path: testInfo.outputPath(`bom-table-${width}.png`) });
   });
 }
-
