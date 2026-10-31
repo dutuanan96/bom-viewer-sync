@@ -2874,7 +2874,7 @@ body.pdm-shell {
 }
 
 .bom-table .col-mat-code {
-  width: 14%;
+  width: 12%;
 }
 
 .bom-table .col-comp-code {
@@ -2913,7 +2913,7 @@ body.pdm-shell {
 }
 
 .bom-table .col-qty {
-  width: 6%;
+  width: 7%;
 }
 
 .bom-table .col-remark {
@@ -2931,7 +2931,7 @@ body.pdm-shell {
 }
 
 .bom-table .col-3d {
-  width: 3%;
+  width: 4%;
 }
 
 .bom-table td:has(.edit-input) {
@@ -2992,9 +2992,17 @@ body.pdm-shell {
   .bom-table th:nth-child(6),
   .bom-table td:nth-child(6),
   .bom-table .col-3d,
-  .bom-table th:nth-child(12),
-  .bom-table td:nth-child(12) {
+  .bom-table th:nth-child(13),
+  .bom-table td:nth-child(13) {
     display: none;
+  }
+
+  .bom-table .col-qty {
+    width: 12%;
+  }
+
+  .bom-table .col-remark {
+    width: 10%;
   }
 }
 
@@ -3026,6 +3034,7 @@ body.pdm-shell {
   padding-right: 6px;
 }
 
+.pdm-shell .bom-table td:nth-child(2),
 .pdm-shell .bom-table td:nth-child(4),
 .pdm-shell .bom-table td:nth-child(5) {
   overflow-wrap: anywhere;
@@ -4764,8 +4773,19 @@ table,
 }
 
 .pdm-shell .bom-table {
-  min-width: 1480px;
+  min-width: 0;
   table-layout: fixed !important;
+}
+
+.pdm-shell .bom-table .drawing-btn {
+  min-height: 28px;
+  max-width: 100%;
+  padding: 4px 3px;
+}
+
+.pdm-shell .bom-table td > div {
+  padding: 0;
+  border-bottom: 0;
 }
 
 th,

@@ -16,7 +16,16 @@ const rows = [
   ['2', 'FG1515066150', '', '方管', '15×15×0.6Tmm，长度6150mm', 'Q195', '光亮', '原材料', '根', '0.132246', '760mm横杆用量：0.125根；44mm底脚用量：0.007246根。两种零件分别编程切割，禁止混切。', '-', '-'],
   ['1', 'LGS133XHZHLBHV5', 'J', 'LGS133-底部横杆左-后_组件（V5）', '760×62×15mm', 'Q195', '黑砂纹', '零件', '个', '1', '44mm底脚与横杆焊接成一体。', '2D', '3D'],
 ];
-const markup = `<style>${css}</style><div class="table-container" style="width:calc(100vw - 380px);margin:24px"><table class="bom-table">${colgroup}<thead><tr>${headings.map(label => `<th>${label}</th>`).join('')}</tr></thead><tbody>${rows.map(row => `<tr>${row.map((value, index) => `<td${index === 10 ? ' class="bom-remark"' : ''}>${value}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+function cellHtml(value, index) {
+  if (index === 1) return `<td><span class="mat-code">${value}</span></td>`;
+  if (index === 9) return `<td><span class="qty">${value}</span></td>`;
+  if (index === 10) return `<td class="bom-remark"><span class="bom-remark-token">${value}</span></td>`;
+  if (index >= 11 && value !== '-') {
+    return `<td><div class="drawing-tools"><button class="drawing-btn primary">查看</button></div></td>`;
+  }
+  return `<td>${value}</td>`;
+}
+const markup = `<style>${css}</style><div class="table-container" style="width:calc(100vw - 380px);margin:24px"><table class="bom-table">${colgroup}<thead><tr>${headings.map(label => `<th>${label}</th>`).join('')}</tr></thead><tbody>${rows.map(row => `<tr>${row.map(cellHtml).join('')}</tr>`).join('')}</tbody></table></div>`;
 
 if (process.platform === 'win32') test.use({ channel: 'msedge' });
 
@@ -28,13 +37,18 @@ for (const width of [1920, 1440, 1024]) {
     await expect(table).toHaveCSS('table-layout', 'fixed');
     const name = await table.locator('tbody tr').first().locator('td').nth(3).boundingBox();
     const spec = await table.locator('tbody tr').first().locator('td').nth(4).boundingBox();
-    expect(name.width).toBeGreaterThanOrEqual(180);
-    expect(spec.width).toBeGreaterThanOrEqual(180);
+    expect(name.width).toBeGreaterThanOrEqual(width >= 1440 ? 140 : 85);
+    expect(spec.width).toBeGreaterThanOrEqual(width >= 1440 ? 135 : 80);
     const firstRow = await table.locator('tbody tr').first().boundingBox();
     expect(firstRow.height).toBeLessThan(90);
     await expect(table.locator('tbody tr').nth(1).locator('td').nth(9)).toHaveCSS('white-space', 'nowrap');
     const bodyOverflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);
     expect(bodyOverflow).toBe(false);
+    const tableOverflow = await page.locator('.table-container').evaluate(element => element.scrollWidth > element.clientWidth + 1);
+    expect(tableOverflow).toBe(false);
+    const quantityOverflow = await table.locator('tbody tr').nth(1).locator('td').nth(9)
+      .evaluate(element => element.scrollWidth > element.clientWidth);
+    expect(quantityOverflow).toBe(false);
     await page.screenshot({ path: testInfo.outputPath(`bom-table-${width}.png`) });
   });
 }
