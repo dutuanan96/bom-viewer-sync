@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-10-27T03:29:24.428Z",
+  "updatedAt": "2026-10-31T06:38:48.298Z",
   "products": [
     "5106",
     "LGS031",
@@ -497815,13 +497815,13 @@
       ]
     },
     "LGS133": {
-      "currentRevision": "V4.3",
+      "currentRevision": "V5",
       "effectiveRevision": "V4.3",
       "currentRevisionInfo": {
-        "sourceRevision": "V4.2",
-        "createdAt": "2026-09-22T01:11:27.860Z",
-        "changeReason": "ECN-2026-0922-FOOT: 将54底脚替换为41底脚，按颜色 SKU 保持黑白物料编码一致。",
-        "workflowState": "released"
+        "sourceRevision": "V4.3",
+        "createdAt": "2026-10-31T06:38:48.298Z",
+        "changeReason": "V5结构变更草稿：J/K焊接44mm底脚并配M6管塞；更新方管定额；顶板连接片编号6、用量2；M6×12为10+2；包装数量沿用V4.3，更新包装尺寸。每个激光文件仅切一种零件。待确认：连接件壁厚1T/0.6T、尼龙垫片、抽底板及抽条尺寸、F组件708/709、顶板颜色及包装适配。未经审核不得发布。",
+        "workflowState": "draft"
       },
       "revisions": [
         {
