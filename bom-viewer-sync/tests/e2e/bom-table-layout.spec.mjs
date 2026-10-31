@@ -49,6 +49,9 @@ for (const width of [1920, 1440, 1024]) {
     const quantityOverflow = await table.locator('tbody tr').nth(1).locator('td').nth(9)
       .evaluate(element => element.scrollWidth > element.clientWidth);
     expect(quantityOverflow).toBe(false);
+    const codeOverflow = await table.locator('.mat-code').evaluateAll(elements =>
+      elements.some(element => element.scrollWidth > element.clientWidth + 1));
+    expect(codeOverflow).toBe(false);
     await page.screenshot({ path: testInfo.outputPath(`bom-table-${width}.png`) });
   });
 }

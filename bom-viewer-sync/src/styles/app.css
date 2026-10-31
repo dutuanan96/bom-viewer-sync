@@ -4783,6 +4783,11 @@ table,
   padding: 4px 3px;
 }
 
+.pdm-shell .bom-table .mat-code {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
 .pdm-shell .bom-table td > div {
   padding: 0;
   border-bottom: 0;
