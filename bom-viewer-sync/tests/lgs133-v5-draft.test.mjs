@@ -141,3 +141,43 @@ test('V5 packaging uses revised dimensions with V4.3 per-product quantities rath
     assert.equal(Object.values(database.materials).filter(material => material.code === code).length, 1);
   }
 });
+
+test('draft material names omit revision suffixes and top panels use one color suffix', () => {
+  const newMaterials = Object.values(database.materials).filter(material =>
+    /V5/.test(material.code) && (material.id.startsWith('mat_lgs133') || material.id.startsWith('mat_zhj')));
+  assert.ok(newMaterials.length > 0);
+  for (const material of newMaterials) {
+    assert.equal(/V5/.test(material.name.zh), false);
+    assert.equal(/V5/.test(material.name.vi), false);
+  }
+  const variants = Object.values(product.color_info);
+  for (const [suffix, color, variant] of [
+    ['KD', '\u590d\u53e4\u8272', variants.find(item => item.sku === 'LGS133KD02S')],
+    ['BH', '\u9ed1\u8272', variants.find(item => item.sku !== 'LGS133KD02S')],
+  ]) {
+    const panel = component(variant.materials, 'A');
+    assert.equal(panel.mat_code, `LGS133DB201V5${suffix}`);
+    assert.equal(panel.color_zh, color);
+    const record = Object.values(database.materials).find(item => item.code === panel.mat_code);
+    assert.equal(record.color.zh, color);
+    assert.equal(panel.name_zh, record.name.zh);
+    assert.equal(panel.spec, '734x350x12mm');
+    assert.equal(panel.qty, '2');
+  }
+});
+
+test('renamed draft hardware bag retains all ten children in each product color', () => {
+  for (const [color, variant] of Object.entries(product.color_info)) {
+    const pack = variant.materials.find(row => row.mat_code === 'LGS133WJBBHV5');
+    const entries = database.bomEntries.filter(entry =>
+      entry.parentType === 'material' && entry.parentId === 'mat_lgs133wjbbhv5' &&
+      entry.productCode === 'LGS133' && entry.color === color);
+    assert.equal(entries.length, 10);
+    for (const row of pack.materials) {
+      const record = Object.values(database.materials).find(item => item.code === row.mat_code);
+      const relation = entries.find(entry => (entry.childMaterialId || entry.materialId) === record.id);
+      assert.ok(relation);
+      assert.equal(relation.qty, row.qty);
+    }
+  }
+});
