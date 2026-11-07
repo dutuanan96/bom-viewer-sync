@@ -570846,6 +570846,35 @@
       }
     },
     "LGS133": {
+      "V4.3": {
+        "manuals": [
+          {
+            "name": "LGS133-S-A4-说明书-V4.pdf",
+            "path": "Google Drive > LGS133 > LGS133-S-A4-说明书-V4.pdf",
+            "url": "https://drive.google.com/file/d/1l0OA2bG0NQjVeFnfSuqclMgVhhqW1F3E/view?usp=sharing"
+          }
+        ],
+        "assemblyModels": [
+          {
+            "name": "LGS133-3列3层9抽-57inch.glb",
+            "path": "models3d/catalog/LGS133-3-3-9-57inch-180f5033.glb",
+            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS133-3-3-9-57inch-180f5033.glb",
+            "matched_name": "LGS133 assembly",
+            "score": 1600,
+            "bytes": 3793492
+          }
+        ],
+        "images": {
+          "复古色": {
+            "name": "LGS133_KD.jpg",
+            "path": "product-images/LGS133_KD.jpg",
+            "url": "https://drive.google.com/file/d/12xd2rSMk8Mb6rklkSmUQkUjK1B3kyabP/view?usp=sharing",
+            "source": "google-drive",
+            "driveId": "12xd2rSMk8Mb6rklkSmUQkUjK1B3kyabP",
+            "directUrl": "https://drive.google.com/thumbnail?id=12xd2rSMk8Mb6rklkSmUQkUjK1B3kyabP&sz=w1600"
+          }
+        }
+      },
       "V4.4": {
         "manuals": [],
         "assemblyModels": [],
