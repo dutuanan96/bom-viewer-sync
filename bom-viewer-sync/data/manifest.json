@@ -39428,7 +39428,7 @@
       "currentRevisionInfo": {
         "sourceRevision": "V4.2",
         "createdAt": "2026-10-26T07:33:32.000Z",
-        "changeReason": "ECN-2026-1026-SEQUENCE-LABEL：280mm布抽条使用10x10mm方形序号标，325mm布抽条使用∅10mm圆形序号标；BL蓝底黑字，BR绿底黑字。",
+        "changeReason": "ECN-2026-1026-SEQUENCE-LABEL：280mm布抽条使用10x10mm方形序号标，325mm布抽条使用∅10mm圆形序号标；BL蓝底黑字，BR绿底黑字。补充黑色包装单瓦纸板1130x300mm×2张（原BOM漏项）。",
         "workflowState": "draft"
       },
       "revisions": [
@@ -414397,7 +414397,7 @@
       "currentRevisionInfo": {
         "sourceRevision": "V4.2",
         "createdAt": "2026-10-26T07:33:32.000Z",
-        "changeReason": "ECN-2026-1026-SEQUENCE-LABEL：280mm布抽条使用10x10mm方形序号标，325mm布抽条使用∅10mm圆形序号标；BL蓝底黑字，BR绿底黑字。",
+        "changeReason": "ECN-2026-1026-SEQUENCE-LABEL：280mm布抽条使用10x10mm方形序号标，325mm布抽条使用∅10mm圆形序号标；BL蓝底黑字，BR绿底黑字。补充黑色包装单瓦纸板990x300mm×2张（原BOM漏项）。",
         "workflowState": "draft"
       },
       "revisions": [
