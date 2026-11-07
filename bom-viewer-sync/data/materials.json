@@ -47580,6 +47580,66 @@
           "zh": "个",
           "vi": "cái"
         }
+      },
+      "mat_dwzb990300": {
+        "id": "mat_dwzb990300",
+        "code": "DWZB990300",
+        "name": {
+          "zh": "单瓦纸板",
+          "vi": "tấm giấy carton sóng đơn"
+        },
+        "spec": {
+          "zh": "990x300mm",
+          "vi": "990x300mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "张",
+          "vi": "tờ"
+        }
+      },
+      "mat_dwzb1130300": {
+        "id": "mat_dwzb1130300",
+        "code": "DWZB1130300",
+        "name": {
+          "zh": "单瓦纸板",
+          "vi": "tấm giấy carton sóng đơn"
+        },
+        "spec": {
+          "zh": "1130x300mm",
+          "vi": "1130x300mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "张",
+          "vi": "tờ"
+        }
       }
     },
     "bomEntries": [
@@ -76841,26 +76901,26 @@
         "order": 51
       },
       {
+        "id": "bom_dwzb990300_bh",
+        "parentType": "product",
+        "parentId": "LGS723",
+        "productCode": "LGS723",
+        "color": "黑色",
+        "materialId": "mat_dwzb990300",
+        "stt": "9",
+        "comp_code": "",
+        "qty": "2",
+        "color_ver": "黑色",
+        "color_ver_vi": "黑色",
+        "order": 52
+      },
+      {
         "id": "mat_76fbe059",
         "parentType": "product",
         "parentId": "LGS723",
         "productCode": "LGS723",
         "color": "黑色",
         "materialId": "mat_xhbbl1010sq",
-        "stt": "9",
-        "comp_code": "",
-        "qty": "1",
-        "color_ver": "黑色",
-        "color_ver_vi": "黑色",
-        "order": 52
-      },
-      {
-        "id": "mat_b0d994da",
-        "parentType": "product",
-        "parentId": "LGS723",
-        "productCode": "LGS723",
-        "color": "黑色",
-        "materialId": "mat_xhbbr1010sq",
         "stt": "10",
         "comp_code": "",
         "qty": "1",
@@ -76869,12 +76929,12 @@
         "order": 53
       },
       {
-        "id": "mat_9097e1e3",
+        "id": "mat_b0d994da",
         "parentType": "product",
         "parentId": "LGS723",
         "productCode": "LGS723",
         "color": "黑色",
-        "materialId": "mat_f60urh",
+        "materialId": "mat_xhbbr1010sq",
         "stt": "11",
         "comp_code": "",
         "qty": "1",
@@ -76883,18 +76943,32 @@
         "order": 54
       },
       {
-        "id": "mat_8a7d591",
+        "id": "mat_9097e1e3",
         "parentType": "product",
         "parentId": "LGS723",
         "productCode": "LGS723",
         "color": "黑色",
-        "materialId": "mat_z3s5zi",
+        "materialId": "mat_f60urh",
         "stt": "12",
         "comp_code": "",
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
         "order": 55
+      },
+      {
+        "id": "mat_8a7d591",
+        "parentType": "product",
+        "parentId": "LGS723",
+        "productCode": "LGS723",
+        "color": "黑色",
+        "materialId": "mat_z3s5zi",
+        "stt": "13",
+        "comp_code": "",
+        "qty": "1",
+        "color_ver": "黑色",
+        "color_ver_vi": "黑色",
+        "order": 56
       },
       {
         "id": "mat_9d565187",
@@ -77009,26 +77083,26 @@
         "order": 53
       },
       {
+        "id": "bom_dwzb1130300_bh",
+        "parentType": "product",
+        "parentId": "LGS733",
+        "productCode": "LGS733",
+        "color": "黑色",
+        "materialId": "mat_dwzb1130300",
+        "stt": "9",
+        "comp_code": "",
+        "qty": "2",
+        "color_ver": "黑色",
+        "color_ver_vi": "黑色",
+        "order": 54
+      },
+      {
         "id": "mat_f2a007a8",
         "parentType": "product",
         "parentId": "LGS733",
         "productCode": "LGS733",
         "color": "黑色",
         "materialId": "mat_xhbbl1010sq",
-        "stt": "9",
-        "comp_code": "",
-        "qty": "1",
-        "color_ver": "黑色",
-        "color_ver_vi": "黑色",
-        "order": 54
-      },
-      {
-        "id": "mat_38d11dc5",
-        "parentType": "product",
-        "parentId": "LGS733",
-        "productCode": "LGS733",
-        "color": "黑色",
-        "materialId": "mat_xhbbr1010sq",
         "stt": "10",
         "comp_code": "",
         "qty": "1",
@@ -77037,12 +77111,12 @@
         "order": 55
       },
       {
-        "id": "mat_76352de8",
+        "id": "mat_38d11dc5",
         "parentType": "product",
         "parentId": "LGS733",
         "productCode": "LGS733",
         "color": "黑色",
-        "materialId": "mat_f60urh",
+        "materialId": "mat_xhbbr1010sq",
         "stt": "11",
         "comp_code": "",
         "qty": "1",
@@ -77051,18 +77125,32 @@
         "order": 56
       },
       {
-        "id": "mat_bc360662",
+        "id": "mat_76352de8",
         "parentType": "product",
         "parentId": "LGS733",
         "productCode": "LGS733",
         "color": "黑色",
-        "materialId": "mat_z3s5zi",
+        "materialId": "mat_f60urh",
         "stt": "12",
         "comp_code": "",
         "qty": "1",
         "color_ver": "黑色",
         "color_ver_vi": "黑色",
         "order": 57
+      },
+      {
+        "id": "mat_bc360662",
+        "parentType": "product",
+        "parentId": "LGS733",
+        "productCode": "LGS733",
+        "color": "黑色",
+        "materialId": "mat_z3s5zi",
+        "stt": "13",
+        "comp_code": "",
+        "qty": "1",
+        "color_ver": "黑色",
+        "color_ver_vi": "黑色",
+        "order": 58
       },
       {
         "id": "mat_fe1b9455",
@@ -86004,7 +86092,7 @@
         "remark": "",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 56
+        "order": 57
       },
       {
         "id": "bom_hgihrc",
@@ -86049,7 +86137,7 @@
         "remark": "",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 57
+        "order": 58
       },
       {
         "id": "bom_pbbe2e",
@@ -86094,7 +86182,7 @@
         "remark": "",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 58
+        "order": 59
       },
       {
         "id": "bom_jecgdr",
@@ -86139,7 +86227,7 @@
         "remark": "",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 59
+        "order": 60
       },
       {
         "id": "bom_1xqb05n",
@@ -86184,7 +86272,7 @@
         "remark": "",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 60
+        "order": 61
       },
       {
         "id": "bom_1efzw8b",
@@ -86229,7 +86317,7 @@
         "remark": "",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 61
+        "order": 62
       },
       {
         "id": "bom_3bkr8a",
@@ -86274,7 +86362,7 @@
         "remark": "",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 62
+        "order": 63
       },
       {
         "id": "bom_1any8cd",
@@ -86319,7 +86407,7 @@
         "remark": "",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 63
+        "order": 64
       },
       {
         "id": "bom_zb0ky",
@@ -86364,7 +86452,7 @@
         "remark": "",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 64
+        "order": 65
       },
       {
         "id": "bom_1qtpfg8",
@@ -86409,7 +86497,7 @@
         "remark": "",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 58
+        "order": 59
       },
       {
         "id": "bom_1xjo033",
@@ -86454,7 +86542,7 @@
         "remark": "",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 59
+        "order": 60
       },
       {
         "id": "bom_1nb82ma",
@@ -86499,7 +86587,7 @@
         "remark": "",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 60
+        "order": 61
       },
       {
         "id": "bom_w67xn7",
@@ -86544,7 +86632,7 @@
         "remark": "",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 61
+        "order": 62
       },
       {
         "id": "bom_tn3e1e",
@@ -86589,7 +86677,7 @@
         "remark": "",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 62
+        "order": 63
       },
       {
         "id": "bom_1nfiih8",
@@ -86634,7 +86722,7 @@
         "remark": "",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 63
+        "order": 64
       },
       {
         "id": "bom_17ufuzb",
@@ -86679,7 +86767,7 @@
         "remark": "",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 64
+        "order": 65
       },
       {
         "id": "bom_1vktllm",
@@ -86724,7 +86812,7 @@
         "remark": "",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 65
+        "order": 66
       },
       {
         "id": "bom_1xd3d3x",
@@ -86769,7 +86857,7 @@
         "remark": "",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 66
+        "order": 67
       },
       {
         "id": "bom_1yc8ubr",
@@ -86814,7 +86902,7 @@
         "remark": "",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 67
+        "order": 68
       },
       {
         "id": "bom_1u0xett",
@@ -88194,7 +88282,7 @@
         "remark": "包装对象：LGS723ZKBH×1、LGS723YKBH×1\n规则：1件/袋；用袋：2袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 65
+        "order": 66
       },
       {
         "id": "bom_1efknyk",
@@ -88239,7 +88327,7 @@
         "remark": "包装对象：LGS723ZZQHLBH×2、LGS723XQHLBH×1、LGS723XHHLBH×1、LGS723SQHLBH×2\n规则：2件/袋；用袋：3袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 66
+        "order": 67
       },
       {
         "id": "bom_176uu3e",
@@ -88284,7 +88372,7 @@
         "remark": "包装对象：LGS723XZQSLBH×1、LGS723XZHSLBH×1\n规则：2件/袋；用袋：1袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 67
+        "order": 68
       },
       {
         "id": "bom_reddol",
@@ -88329,7 +88417,7 @@
         "remark": "包装对象：LGS333SZKBH×2\n规则：1件/袋；用袋：2袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 68
+        "order": 69
       },
       {
         "id": "bom_1erni6c",
@@ -88374,7 +88462,7 @@
         "remark": "包装对象：LGS723ZKBH×1、LGS723YKBH×1\n规则：1件/袋；用袋：2袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 68
+        "order": 69
       },
       {
         "id": "bom_z8y5wm",
@@ -88419,7 +88507,7 @@
         "remark": "包装对象：LGS333XHHLBH×1、LGS333XQHLBH×1、LGS333SQHLBH×2、LGS733SQHLBH×2\n规则：2件/袋；用袋：3袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 69
+        "order": 70
       },
       {
         "id": "bom_1303yb3",
@@ -88464,7 +88552,7 @@
         "remark": "包装对象：LGS723XZHSLBH×2、LGS723XZQSLBH×2\n规则：2件/袋；用袋：2袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 70
+        "order": 71
       },
       {
         "id": "bom_1c138vi",
@@ -88509,7 +88597,7 @@
         "remark": "包装对象：LGS333SZKBH×3\n规则：1件/袋、2件/袋；用袋：2袋",
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "order": 71
+        "order": 72
       },
       {
         "id": "bom_o1sbd4",
