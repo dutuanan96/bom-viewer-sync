@@ -300985,13 +300985,13 @@
       ]
     },
     "LGS233": {
-      "currentRevision": "V4.3",
+      "currentRevision": "V5",
       "effectiveRevision": "V4.3",
       "currentRevisionInfo": {
-        "sourceRevision": "V4.2",
-        "createdAt": "2026-09-22T01:11:27.893Z",
-        "changeReason": "ECN-2026-0922-FOOT: 将54底脚替换为41底脚，按颜色 SKU 保持黑白物料编码一致。",
-        "workflowState": "released"
+        "sourceRevision": "V4.3",
+        "createdAt": "2026-11-09T06:35:00.581Z",
+        "changeReason": "V5结构草稿：共用LGS133黑色五金包及C/D/E框架；白色保留对应颜色。F/G843mm；J/K895mm焊44mm底脚并配M6管塞；取消S。激光单零件文件，夹持预留80mm。待确认：抽屉/底板/抽条规格、C孔位、连接件规格、顶板孔位及包装试装。未审核不得发布。",
+        "workflowState": "draft"
       },
       "revisions": [
         {
@@ -571403,6 +571403,11 @@
     },
     "LGS233": {
       "V4.4": {
+        "manuals": [],
+        "assemblyModels": [],
+        "images": {}
+      },
+      "V5": {
         "manuals": [],
         "assemblyModels": [],
         "images": {}
