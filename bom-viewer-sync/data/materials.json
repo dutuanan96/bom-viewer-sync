@@ -3348,11 +3348,41 @@
         "url": "https://drive.google.com/file/d/13zHGdLCuE3_39vsy4nv0DYxqhRkyvM0P/view?usp=sharing"
       }
     ],
-    "LGS032": [],
-    "LGS033": [],
-    "LGS043": [],
-    "LGS101": [],
-    "LGS111": [],
+    "LGS032": [
+      {
+        "name": "LGS032-S-A4-说明书-V3.pdf",
+        "path": "Google Drive > LGS032-S > LGS032-S-A4-说明书-V3.pdf",
+        "url": "https://drive.google.com/file/d/1CSDl0-ojTTs2mCOWk4aPbaPHgJK4RSW6/view?usp=sharing"
+      }
+    ],
+    "LGS033": [
+      {
+        "name": "LGS033-S-A4-说明书-V4.pdf",
+        "path": "Google Drive > LGS033 > LGS033-S-A4-说明书-V4.pdf",
+        "url": "https://drive.google.com/file/d/1wjBX7gwUgS2xROYkapRsocsWJ_9D9S1t/view?usp=sharing"
+      }
+    ],
+    "LGS043": [
+      {
+        "name": "LGS043-S-A4-说明书-V3.pdf",
+        "path": "Google Drive > LGS043-S > LGS043-S-A4-说明书-V3.pdf",
+        "url": "https://drive.google.com/file/d/1PzBx0qGLhu45EeN_KfvuwJuqYP016CN0/view?usp=sharing"
+      }
+    ],
+    "LGS101": [
+      {
+        "name": "LGS101-S-A4-说明书-V2.pdf",
+        "path": "Google Drive > LGS101-111 > LGS101-S-A4-说明书-V2.pdf",
+        "url": "https://drive.google.com/file/d/10eZg3-UEoc2EQx-qgTWx_QlxaqQZtnlw/view?usp=sharing"
+      }
+    ],
+    "LGS111": [
+      {
+        "name": "LGS111-S-A4-说明书-V2.pdf",
+        "path": "Google Drive > LGS101-111 > LGS111-S-A4-说明书-V2.pdf",
+        "url": "https://drive.google.com/file/d/1_PWxBscBpZusRFynxKezUiJEnR4upNFE/view?usp=sharing"
+      }
+    ],
     "LGS131": [
       {
         "name": "LGS131-S-A4-说明书-V3.pdf",
@@ -3360,7 +3390,13 @@
         "url": "https://drive.google.com/file/d/1Qr4SAgnNJ4xavLoNme9vc5lIbidj849s/view?usp=sharing"
       }
     ],
-    "LGS132": [],
+    "LGS132": [
+      {
+        "name": "LGS132-S-A4-说明书-V3.pdf",
+        "path": "Google Drive > LGS132-S > LGS132-S-A4-说明书-V3.pdf",
+        "url": "https://drive.google.com/file/d/1BwkAHma_Dt2TIrm7T-lcMH0hrXj8mrPu/view?usp=sharing"
+      }
+    ],
     "LGS133": [],
     "LGS231": [
       {
@@ -3369,7 +3405,13 @@
         "url": "https://drive.google.com/file/d/1Hx_XY8OOtt3iiHtVCDOHkNE3PhLwEwAF/view?usp=sharing"
       }
     ],
-    "LGS232": [],
+    "LGS232": [
+      {
+        "name": "LGS232-S-A4-说明书-V3.pdf",
+        "path": "Google Drive > LGS232-S > LGS232-S-A4-说明书-V3.pdf",
+        "url": "https://drive.google.com/file/d/1eVzMVXdGWoTIZbBoPQQSbSYg8LEhOe90/view?usp=sharing"
+      }
+    ],
     "LGS233": [
       {
         "name": "LGS233-S-A4-说明书-V4.pdf",
@@ -3377,10 +3419,34 @@
         "url": "https://drive.google.com/file/d/1bM3JZlINYueZUF4mWg7RxB_5tQwmyRro/view?usp=sharing"
       }
     ],
-    "LGS333": [],
-    "LGS334": [],
-    "LGS420": [],
-    "LGS421": [],
+    "LGS333": [
+      {
+        "name": "LGS333-S-A4-说明书-V4.pdf",
+        "path": "Google Drive > LGS333 > LGS333-S-A4-说明书-V4.pdf",
+        "url": "https://drive.google.com/file/d/1l2ZEdRKFukoRtHSj8ppuCrwmC6AtZ7XR/view?usp=sharing"
+      }
+    ],
+    "LGS334": [
+      {
+        "name": "LGS334-S-A4-说明书-V4.pdf",
+        "path": "Google Drive > LGS334 > LGS334-S-A4-说明书-V4.pdf",
+        "url": "https://drive.google.com/file/d/1xY7uWCn7DGhjAswHSCGao1qeTdvEB5TI/view?usp=sharing"
+      }
+    ],
+    "LGS420": [
+      {
+        "name": "LGS420-S-A4-说明书-V4.pdf",
+        "path": "Google Drive > LGS420-S > LGS420-S-A4-说明书-V4.pdf",
+        "url": "https://drive.google.com/file/d/1aTbVI0qhRd5SMfNXuWZ6Wb0tksYLOtit/view?usp=sharing"
+      }
+    ],
+    "LGS421": [
+      {
+        "name": "LGS421-S-A4-说明书-V4.pdf",
+        "path": "Google Drive > LGS421-S > LGS421-S-A4-说明书-V4.pdf",
+        "url": "https://drive.google.com/file/d/1Yd0Pf_yGRlp0JMSdhovOHpmB7XORpwIp/view?usp=sharing"
+      }
+    ],
     "LGS433": [
       {
         "name": "LGS433-S-A4-说明书-V6.pdf",
@@ -3397,10 +3463,34 @@
         "contentHash": "904fa1ac42478405477eafd67daeefd75eca2828f82b118896d991d0cb07c102"
       }
     ],
-    "LGS723": [],
-    "LGS733": [],
-    "LGS833": [],
-    "LGS834": []
+    "LGS723": [
+      {
+        "name": "LGS723-S-A4-说明书-V4.pdf",
+        "path": "Google Drive > LGS723 > LGS723-S-A4-说明书-V4.pdf",
+        "url": "https://drive.google.com/file/d/1NCn4ALXR34QJFxo9K3XQr5e-Fwomn_KR/view?usp=sharing"
+      }
+    ],
+    "LGS733": [
+      {
+        "name": "LGS733-S-A4-说明书-V4.pdf",
+        "path": "Google Drive > LGS733 > LGS733-S-A4-说明书-V4.pdf",
+        "url": "https://drive.google.com/file/d/1JHNlLCGAOAXX9w3Rh-Nh8WgXqi8EIKLk/view?usp=sharing"
+      }
+    ],
+    "LGS833": [
+      {
+        "name": "LGS833-S-A4-说明书-V4.pdf",
+        "path": "Google Drive > LGS833 > LGS833-S-A4-说明书-V4.pdf",
+        "url": "https://drive.google.com/file/d/1KdfB1iZbZoqJ0sr3646MCNl3zFyVkcZe/view?usp=sharing"
+      }
+    ],
+    "LGS834": [
+      {
+        "name": "LGS834-S-A4-说明书-V4.pdf",
+        "path": "Google Drive > LGS834 > LGS834-S-A4-说明书-V4.pdf",
+        "url": "https://drive.google.com/file/d/1735SJl4GLXHaR-e8dHJgW21FSmvxQvWd/view?usp=sharing"
+      }
+    ]
   },
   "models3d": {
     "5106": {
@@ -4168,6 +4258,16 @@
           "score": 1100,
           "bytes": 19736
         }
+      ],
+      "lgs032s3列3层6抽开放式带灯带电布抽电视柜": [
+        {
+          "name": "LGS032-S_3列3层6抽开放式带灯带电布抽电视柜.glb",
+          "path": "models3d/catalog/LGS032-S-3-3-6-1d52da88.glb",
+          "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS032-S-3-3-6-1d52da88.glb",
+          "matched_name": "LGS032 assembly",
+          "score": 1200,
+          "bytes": 5729012
+        }
       ]
     },
     "LGS033": {
@@ -4489,6 +4589,16 @@
           "matched_name": "10-底脚",
           "score": 1100,
           "bytes": 466004
+        }
+      ],
+      "lgs0333列3层9抽45inch": [
+        {
+          "name": "LGS033-3列3层9抽-45inch.glb",
+          "path": "models3d/catalog/LGS033-3-3-9-45inch-4b22f8a9.glb",
+          "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS033-3-3-9-45inch-4b22f8a9.glb",
+          "matched_name": "LGS033 assembly",
+          "score": 1600,
+          "bytes": 4703368
         }
       ]
     },
@@ -4912,6 +5022,16 @@
           "score": 1100,
           "bytes": 100308
         }
+      ],
+      "lgs043s列3层11抽开放式带灯带电布抽电视柜": [
+        {
+          "name": "LGS043-S-列3层11抽开放式带灯带电布抽电视柜.glb",
+          "path": "models3d/catalog/LGS043-S-3-11-e6a9bea7.glb",
+          "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS043-S-3-11-e6a9bea7.glb",
+          "matched_name": "LGS043 assembly",
+          "score": 1200,
+          "bytes": 12831120
+        }
       ]
     },
     "LGS101": {
@@ -5273,6 +5393,16 @@
           "matched_name": "LGS布抽底板28x35",
           "score": 1100,
           "bytes": 1320
+        }
+      ],
+      "lgs101s1抽边桌stp": [
+        {
+          "name": "LGS101-S-1抽边桌_stp.glb",
+          "path": "models3d/catalog/LGS101-S-1-stp-9227fde2.glb",
+          "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS101-S-1-stp-9227fde2.glb",
+          "matched_name": "LGS101 assembly",
+          "score": 1200,
+          "bytes": 840948
         }
       ]
     },
@@ -6340,6 +6470,16 @@
           "score": 1100,
           "bytes": 6960
         }
+      ],
+      "lgs132s3列3层6抽开放式带灯带电布抽电视柜": [
+        {
+          "name": "LGS132-S-3列3层6抽开放式带灯带电布抽电视柜.glb",
+          "path": "models3d/catalog/LGS132-S-3-3-6-2fb0fb6f.glb",
+          "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS132-S-3-3-6-2fb0fb6f.glb",
+          "matched_name": "LGS132 assembly",
+          "score": 1200,
+          "bytes": 6536732
+        }
       ]
     },
     "LGS133": {
@@ -7292,6 +7432,16 @@
           "matched_name": "LGS232_231_131-中间层板",
           "score": 1100,
           "bytes": 25284
+        }
+      ],
+      "lgs232s3列3层6抽开放式带灯带电布抽电视柜": [
+        {
+          "name": "LGS232-S-3列3层6抽开放式带灯带电布抽电视柜.glb",
+          "path": "models3d/catalog/LGS232-S-3-3-6-ccf21e7f.glb",
+          "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-S-3-3-6-ccf21e7f.glb",
+          "matched_name": "LGS232 assembly",
+          "score": 1200,
+          "bytes": 6388868
         }
       ]
     },
@@ -8277,6 +8427,16 @@
           "score": 1100,
           "bytes": 19736
         }
+      ],
+      "lgs3333列3层基础款10抽斗柜45inch": [
+        {
+          "name": "LGS333-3列3层基础款10抽斗柜-45inch.glb",
+          "path": "models3d/catalog/LGS333-3-3-10-45inch-aa0b2fc7.glb",
+          "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS333-3-3-10-45inch-aa0b2fc7.glb",
+          "matched_name": "LGS333 assembly",
+          "score": 1600,
+          "bytes": 5736404
+        }
       ]
     },
     "LGS334": {
@@ -8578,6 +8738,16 @@
           "matched_name": "6x30木榫",
           "score": 1100,
           "bytes": 6960
+        }
+      ],
+      "lgs3343列3层基础款10抽斗柜57inch": [
+        {
+          "name": "LGS334-3列3层基础款10抽斗柜-57inch.glb",
+          "path": "models3d/catalog/LGS334-3-3-10-57inch-af8d79d8.glb",
+          "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-3-3-10-57inch-af8d79d8.glb",
+          "matched_name": "LGS334 assembly",
+          "score": 1600,
+          "bytes": 6013664
         }
       ]
     },
@@ -9091,6 +9261,16 @@
           "score": 1100,
           "bytes": 55524
         }
+      ],
+      "lgs420s3列2层2抽开放式带灯带电布抽电视柜": [
+        {
+          "name": "LGS420-S_3列2层2抽开放式带灯带电布抽电视柜.glb",
+          "path": "models3d/catalog/LGS420-S-3-2-2-6318026b.glb",
+          "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS420-S-3-2-2-6318026b.glb",
+          "matched_name": "LGS420 assembly",
+          "score": 1200,
+          "bytes": 5873296
+        }
       ]
     },
     "LGS421": {
@@ -9442,6 +9622,16 @@
           "matched_name": "LGS421-S_中间层板",
           "score": 1100,
           "bytes": 31336
+        }
+      ],
+      "lgs421s4列2层2抽开放式带灯带电布抽电视柜": [
+        {
+          "name": "LGS421-S-4列2层2抽开放式带灯带电布抽电视柜.glb",
+          "path": "models3d/catalog/LGS421-S-4-2-2-4f41a347.glb",
+          "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS421-S-4-2-2-4f41a347.glb",
+          "matched_name": "LGS421 assembly",
+          "score": 1200,
+          "bytes": 6010748
         }
       ]
     },
@@ -11339,6 +11529,16 @@
           "score": 1100,
           "bytes": 19736
         }
+      ],
+      "lgs7232列3层开放层架带灯带电5抽斗柜云": [
+        {
+          "name": "LGS723-2列3层开放层架带灯带电5抽斗柜云.glb",
+          "path": "models3d/catalog/LGS723-2-3-5-6545b64d.glb",
+          "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS723-2-3-5-6545b64d.glb",
+          "matched_name": "LGS723 assembly",
+          "score": 1600,
+          "bytes": 5501344
+        }
       ]
     },
     "LGS733": {
@@ -11941,6 +12141,16 @@
           "score": 1100,
           "bytes": 19736
         }
+      ],
+      "lgs7333列3层开放层架带灯带电7抽斗柜": [
+        {
+          "name": "LGS733-3列3层开放层架带灯带电7抽斗柜.glb",
+          "path": "models3d/catalog/LGS733-3-3-7-d3f6ac0c.glb",
+          "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS733-3-3-7-d3f6ac0c.glb",
+          "matched_name": "LGS733 assembly",
+          "score": 1600,
+          "bytes": 6355900
+        }
       ]
     },
     "LGS833": {
@@ -12432,6 +12642,16 @@
           "matched_name": "LGS布抽35x28x18.7",
           "score": 1100,
           "bytes": 19736
+        }
+      ],
+      "lgs8333列3层开放层架带灯带电6抽斗柜45inch": [
+        {
+          "name": "LGS833-3列3层开放层架带灯带电6抽斗柜-45inch.glb",
+          "path": "models3d/catalog/LGS833-3-3-6-45inch-78a2793f.glb",
+          "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS833-3-3-6-45inch-78a2793f.glb",
+          "matched_name": "LGS833 assembly",
+          "score": 1600,
+          "bytes": 4867936
         }
       ]
     },
@@ -13024,6 +13244,16 @@
           "matched_name": "ST3.5X12平头十字自攻螺丝",
           "score": 1100,
           "bytes": 325680
+        }
+      ],
+      "lgs8343列3层开放层架带灯带电6抽斗柜57inch": [
+        {
+          "name": "LGS834-3列3层开放层架带灯带电6抽斗柜-57inch.glb",
+          "path": "models3d/catalog/LGS834-3-3-6-57inch-eed6a3b8.glb",
+          "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS834-3-3-6-57inch-eed6a3b8.glb",
+          "matched_name": "LGS834 assembly",
+          "score": 1600,
+          "bytes": 3940804
         }
       ]
     }
