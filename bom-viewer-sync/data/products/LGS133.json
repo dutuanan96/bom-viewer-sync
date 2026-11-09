@@ -1251,7 +1251,7 @@
         },
         {
           "stt": "20",
-          "mat_code": "LGS133SMS",
+          "mat_code": "LGS133SMSV5",
           "comp_code": "",
           "name_zh": "LGS133说明书",
           "name_vi": "LGS133 sách hướng dẫn",
@@ -1270,7 +1270,7 @@
             "vi": "quyển"
           },
           "qty": "1",
-          "remark": ""
+          "remark": "V5说明书，文件待提供。"
         },
         {
           "stt": "21",
@@ -2865,7 +2865,7 @@
         },
         {
           "stt": "20",
-          "mat_code": "LGS133SMS",
+          "mat_code": "LGS133SMSV5",
           "comp_code": "",
           "name_zh": "LGS133说明书",
           "name_vi": "LGS133 sách hướng dẫn",
@@ -2884,7 +2884,7 @@
             "vi": "quyển"
           },
           "qty": "1",
-          "remark": ""
+          "remark": "V5说明书，文件待提供。"
         },
         {
           "stt": "21",

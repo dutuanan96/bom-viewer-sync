@@ -18,7 +18,9 @@ test('LGS233 V5 covers all four colors while effective V4.3 and historical snaps
   assert.equal(createHash('sha256').update(JSON.stringify(registry.revisions)).digest('hex'),
     '22489729641f17f992d4a70058248722f2c4ca8816951f07c8d72a2aa5239675');
   assert.equal(Object.keys(product.color_info).length, 4);
-  assert.deepEqual(manifest.productAssets.LGS233.V5, { manuals: [], assemblyModels: [], images: {} });
+  assert.deepEqual(manifest.productAssets.LGS233.V5.manuals, []);
+  assert.deepEqual(manifest.productAssets.LGS233.V5.images, {});
+  assert.equal(manifest.productAssets.LGS233.V5.assemblyModels.length, 1);
 });
 
 test('shared frames, hardware quantities, and welded assemblies resolve for every color', () => {
