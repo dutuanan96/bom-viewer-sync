@@ -1576,7 +1576,7 @@
             "zh": "块",
             "vi": "miếng"
           },
-          "qty": "2",
+          "qty": "1",
           "remark": ""
         },
         {
@@ -3704,7 +3704,7 @@
             "zh": "块",
             "vi": "miếng"
           },
-          "qty": "2",
+          "qty": "1",
           "remark": ""
         },
         {
@@ -4264,5 +4264,5 @@
   },
   "name_zh": "复古色4列3层11抽开放式带灯带电布抽电视柜-68inch",
   "name_vi": "màu gỗ cổ 4 cột 3 tầng 11 Tủ đựng TV kiểu ngăn kéo mở có đèn và điện-68inch",
-  "revision": "V3.2"
+  "revision": "V3.1"
 }

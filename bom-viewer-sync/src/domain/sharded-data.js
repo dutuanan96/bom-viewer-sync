@@ -40,6 +40,8 @@ export async function assembleShardedPayload(manifest, materials, loadProduct) {
     productImages: manifest.productImages,
     productAssets: manifest.productAssets,
     productRevisions: manifest.productRevisions,
+    bomVersions: manifest.bomVersions,
+    closedDrafts: manifest.closedDrafts,
     notifications: manifest.notifications,
     bomHistory: manifest.bomHistory,
     bom,
@@ -67,6 +69,12 @@ export function splitPayloadToShards(payload) {
     productRevisions: clone(payload.productRevisions || {}),
     notifications: clone(payload.notifications || [])
   };
+  if (Object.keys(payload.bomVersions || {}).length > 0) {
+    manifest.bomVersions = clone(payload.bomVersions);
+  }
+  if (Object.keys(payload.closedDrafts || {}).length > 0) {
+    manifest.closedDrafts = clone(payload.closedDrafts);
+  }
   if (Object.keys(payload.productAssets || {}).length > 0) {
     manifest.productAssets = clone(payload.productAssets);
   }

@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import test from 'node:test';
+import { payloadForProductRevision } from '../src/domain/revisions.js';
 
 const read = (path) => JSON.parse(fs.readFileSync(new URL(`../${path}`, import.meta.url), 'utf8'));
 const manifest = read('data/manifest.json');
@@ -10,16 +11,18 @@ for (const [productCode, materialCode, spec] of [
   ['LGS723', 'DWZB990300', '990x300mm'],
   ['LGS733', 'DWZB1130300', '1130x300mm'],
 ]) {
-  test(`${productCode} black Draft contains two cardboard sheets without changing revision`, () => {
+test(`${productCode} effective packaging BOM contains two cardboard sheets without design revision`, () => {
     const revision = manifest.productRevisions[productCode];
     const product = read(`data/products/${productCode}.json`);
     const material = Object.values(materialDb.materials).find((item) => item.code === materialCode);
-    const rows = product.color_info['黑色'].materials.filter((item) => item.mat_code === materialCode);
-    const entries = materialDb.bomEntries.filter((item) => item.productCode === productCode
+    const active = payloadForProductRevision({ ...manifest, materialDb, bom: { [productCode]: product } },
+      productCode, 'V4.2');
+    const rows = active.bom[productCode].color_info['黑色'].materials.filter((item) => item.mat_code === materialCode);
+    const entries = active.materialDb.bomEntries.filter((item) => item.productCode === productCode
       && item.color === '黑色' && item.materialId === material?.id);
-    assert.equal(revision.currentRevision, 'V4.3');
+    assert.equal(revision.currentRevision, 'V4.2');
     assert.equal(revision.effectiveRevision, 'V4.2');
-    assert.equal(revision.currentRevisionInfo.workflowState, 'draft');
+    assert.equal(revision.currentRevisionInfo.workflowState, 'released');
     assert.equal(material?.spec.zh, spec);
     assert.equal(material?.unit.zh, '张');
     assert.equal(rows.length, 1);

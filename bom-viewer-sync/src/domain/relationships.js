@@ -1,5 +1,6 @@
 import { isRenderableProductEntry, resolveBomRows } from './bom.js';
 import { clone, legacyRowFromRecord } from './materials.js';
+import { applyEffectiveBomVersion } from './bom-versions.js';
 
 const materialEntryIndexCache = new WeakMap();
 
@@ -95,8 +96,9 @@ function productEntryCoveredByParent(payload, productEntry, productEntries, prod
 }
 
 function buildBomTreeRows(payload, productCode, colorName) {
-  const source = payload || {};
-  const flatRows = resolveBomRows(payload, productCode, colorName);
+  const source = applyEffectiveBomVersion(payload, productCode,
+    payload?.productRevisions?.[productCode]?.effectiveRevision) || {};
+  const flatRows = resolveBomRows(source, productCode, colorName);
   if (!source.materialDb?.materials || !source.materialDb?.bomEntries) return flatRows.map((r) => ({ ...r, _level: 1 }));
   const productEntries = source.materialDb.bomEntries
     .filter((entry) => isRenderableProductEntry(source, entry, productCode, colorName))

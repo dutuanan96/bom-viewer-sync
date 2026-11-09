@@ -482,10 +482,16 @@ function usageStatus(revisionSet, revision) {
 function materialWhereUsed(payload, materialId) {
   const entries = (payload?.materialDb?.bomEntries || []);
   const effectiveEntries = (payload?.materialDb?.effectiveEntries || []);
+  const packagingEntries = Object.entries(payload?.bomVersions || {}).flatMap(([productCode, version]) => (
+    version.designRevision === payload?.productRevisions?.[productCode]?.effectiveRevision
+      ? (version.changes || []).filter((change) => change.type === 'add' && change.entry)
+        .map((change) => ({ ...change.entry, revision: version.designRevision }))
+      : []
+  ));
   const currentMaterial = payload?.materialDb?.materials?.[materialId];
   const currentDb = {
     materials: payload?.materialDb?.materials || {},
-    bomEntries: [...entries, ...effectiveEntries],
+    bomEntries: [...entries, ...effectiveEntries, ...packagingEntries],
   };
   const productEntries = productUsageEntries(currentDb, new Set([materialId]));
   const revisionEntryMap = new Map();

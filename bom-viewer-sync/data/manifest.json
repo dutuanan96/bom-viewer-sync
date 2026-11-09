@@ -1279,13 +1279,13 @@
       ]
     },
     "LGS032": {
-      "currentRevision": "V3.4",
+      "currentRevision": "V3.3",
       "effectiveRevision": "V3.3",
       "currentRevisionInfo": {
-        "sourceRevision": "V3.3",
-        "createdAt": "2026-10-26T07:33:32.000Z",
-        "changeReason": "ECN-2026-1026-SEQUENCE-LABEL：280mm布抽条使用10x10mm方形序号标，325mm布抽条使用∅10mm圆形序号标；BL蓝底黑字，BR绿底黑字。",
-        "workflowState": "draft"
+        "sourceRevision": "",
+        "createdAt": "",
+        "changeReason": "",
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -39710,13 +39710,13 @@
       ]
     },
     "LGS733": {
-      "currentRevision": "V4.3",
+      "currentRevision": "V4.2",
       "effectiveRevision": "V4.2",
       "currentRevisionInfo": {
-        "sourceRevision": "V4.2",
-        "createdAt": "2026-10-26T07:33:32.000Z",
-        "changeReason": "ECN-2026-1026-SEQUENCE-LABEL：280mm布抽条使用10x10mm方形序号标，325mm布抽条使用∅10mm圆形序号标；BL蓝底黑字，BR绿底黑字。补充黑色包装单瓦纸板1130x300mm×2张（原BOM漏项）。",
-        "workflowState": "draft"
+        "sourceRevision": "",
+        "createdAt": "",
+        "changeReason": "",
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -106407,13 +106407,13 @@
       ]
     },
     "LGS333": {
-      "currentRevision": "V4.3",
+      "currentRevision": "V4.2",
       "effectiveRevision": "V4.2",
       "currentRevisionInfo": {
-        "sourceRevision": "V4.2",
-        "createdAt": "2026-10-26T07:33:32.000Z",
-        "changeReason": "ECN-2026-1026-SEQUENCE-LABEL：280mm布抽条使用10x10mm方形序号标，325mm布抽条使用∅10mm圆形序号标；BL蓝底黑字，BR绿底黑字。",
-        "workflowState": "draft"
+        "sourceRevision": "",
+        "createdAt": "",
+        "changeReason": "",
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -143039,13 +143039,13 @@
       ]
     },
     "LGS334": {
-      "currentRevision": "V4.4",
+      "currentRevision": "V4.3",
       "effectiveRevision": "V4.3",
       "currentRevisionInfo": {
-        "sourceRevision": "V4.3",
-        "createdAt": "2026-10-26T07:33:32.000Z",
-        "changeReason": "ECN-2026-1026-SEQUENCE-LABEL：280mm布抽条使用10x10mm方形序号标，325mm布抽条使用∅10mm圆形序号标；BL蓝底黑字，BR绿底黑字。",
-        "workflowState": "draft"
+        "sourceRevision": "",
+        "createdAt": "",
+        "changeReason": "",
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -213641,13 +213641,13 @@
       ]
     },
     "LGS033": {
-      "currentRevision": "V4.3",
+      "currentRevision": "V4.2",
       "effectiveRevision": "V4.2",
       "currentRevisionInfo": {
-        "sourceRevision": "V4.2",
-        "createdAt": "2026-10-26T07:33:32.000Z",
-        "changeReason": "ECN-2026-1026-SEQUENCE-LABEL：280mm布抽条使用10x10mm方形序号标，325mm布抽条使用∅10mm圆形序号标；BL蓝底黑字，BR绿底黑字。",
-        "workflowState": "draft"
+        "sourceRevision": "",
+        "createdAt": "",
+        "changeReason": "",
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -235963,13 +235963,13 @@
       ]
     },
     "LGS101": {
-      "currentRevision": "V2.2",
+      "currentRevision": "V2.1",
       "effectiveRevision": "V2.1",
       "currentRevisionInfo": {
-        "sourceRevision": "V2.1",
-        "createdAt": "2026-10-26T07:33:32.000Z",
-        "changeReason": "ECN-2026-1026-SEQUENCE-LABEL：280mm布抽条使用10x10mm方形序号标，325mm布抽条使用∅10mm圆形序号标；BL蓝底黑字，BR绿底黑字。",
-        "workflowState": "draft"
+        "sourceRevision": "",
+        "createdAt": "",
+        "changeReason": "",
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -258842,13 +258842,13 @@
       ]
     },
     "LGS043": {
-      "currentRevision": "V3.2",
+      "currentRevision": "V3.1",
       "effectiveRevision": "V3.1",
       "currentRevisionInfo": {
-        "sourceRevision": "V3.1",
-        "createdAt": "2026-10-26T07:33:32.000Z",
-        "changeReason": "ECN-2026-1026-SEQUENCE-LABEL：280mm布抽条使用10x10mm方形序号标，325mm布抽条使用∅10mm圆形序号标；BL蓝底黑字，BR绿底黑字。",
-        "workflowState": "draft"
+        "sourceRevision": "",
+        "createdAt": "",
+        "changeReason": "",
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -276862,13 +276862,13 @@
       ]
     },
     "LGS111": {
-      "currentRevision": "V2.2",
+      "currentRevision": "V2.1",
       "effectiveRevision": "V2.1",
       "currentRevisionInfo": {
-        "sourceRevision": "V2.1",
-        "createdAt": "2026-10-26T07:33:32.000Z",
-        "changeReason": "ECN-2026-1026-SEQUENCE-LABEL：280mm布抽条使用10x10mm方形序号标，325mm布抽条使用∅10mm圆形序号标；BL蓝底黑字，BR绿底黑字。",
-        "workflowState": "draft"
+        "sourceRevision": "",
+        "createdAt": "",
+        "changeReason": "",
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -354246,13 +354246,13 @@
       ]
     },
     "LGS421": {
-      "currentRevision": "V4.1",
+      "currentRevision": "V4",
       "effectiveRevision": "V4",
       "currentRevisionInfo": {
-        "sourceRevision": "V4",
-        "createdAt": "2026-10-26T07:33:32.000Z",
-        "changeReason": "ECN-2026-1026-SEQUENCE-LABEL：280mm布抽条使用10x10mm方形序号标，325mm布抽条使用∅10mm圆形序号标；BL蓝底黑字，BR绿底黑字。",
-        "workflowState": "draft"
+        "sourceRevision": "",
+        "createdAt": "",
+        "changeReason": "",
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -362321,13 +362321,13 @@
       ]
     },
     "LGS834": {
-      "currentRevision": "V4.3",
+      "currentRevision": "V4.2",
       "effectiveRevision": "V4.2",
       "currentRevisionInfo": {
-        "sourceRevision": "V4.2",
-        "createdAt": "2026-10-26T07:33:32.000Z",
-        "changeReason": "ECN-2026-1026-SEQUENCE-LABEL：280mm布抽条使用10x10mm方形序号标，325mm布抽条使用∅10mm圆形序号标；BL蓝底黑字，BR绿底黑字。",
-        "workflowState": "draft"
+        "sourceRevision": "",
+        "createdAt": "",
+        "changeReason": "",
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -396796,13 +396796,13 @@
       ]
     },
     "LGS232": {
-      "currentRevision": "V3.2",
+      "currentRevision": "V3.1",
       "effectiveRevision": "V3.1",
       "currentRevisionInfo": {
-        "sourceRevision": "V3.1",
-        "createdAt": "2026-10-26T07:33:32.000Z",
-        "changeReason": "ECN-2026-1026-SEQUENCE-LABEL：280mm布抽条使用10x10mm方形序号标，325mm布抽条使用∅10mm圆形序号标；BL蓝底黑字，BR绿底黑字。",
-        "workflowState": "draft"
+        "sourceRevision": "",
+        "createdAt": "",
+        "changeReason": "",
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -414679,13 +414679,13 @@
       ]
     },
     "LGS723": {
-      "currentRevision": "V4.3",
+      "currentRevision": "V4.2",
       "effectiveRevision": "V4.2",
       "currentRevisionInfo": {
-        "sourceRevision": "V4.2",
-        "createdAt": "2026-10-26T07:33:32.000Z",
-        "changeReason": "ECN-2026-1026-SEQUENCE-LABEL：280mm布抽条使用10x10mm方形序号标，325mm布抽条使用∅10mm圆形序号标；BL蓝底黑字，BR绿底黑字。补充黑色包装单瓦纸板990x300mm×2张（原BOM漏项）。",
-        "workflowState": "draft"
+        "sourceRevision": "",
+        "createdAt": "",
+        "changeReason": "",
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -465901,13 +465901,13 @@
       ]
     },
     "LGS132": {
-      "currentRevision": "V3.4",
+      "currentRevision": "V3.3",
       "effectiveRevision": "V3.3",
       "currentRevisionInfo": {
-        "sourceRevision": "V3.3",
-        "createdAt": "2026-10-26T07:33:32.000Z",
-        "changeReason": "ECN-2026-1026-SEQUENCE-LABEL：280mm布抽条使用10x10mm方形序号标，325mm布抽条使用∅10mm圆形序号标；BL蓝底黑字，BR绿底黑字。",
-        "workflowState": "draft"
+        "sourceRevision": "",
+        "createdAt": "",
+        "changeReason": "",
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -521767,13 +521767,13 @@
       ]
     },
     "LGS420": {
-      "currentRevision": "V4.1",
+      "currentRevision": "V4",
       "effectiveRevision": "V4",
       "currentRevisionInfo": {
-        "sourceRevision": "V4",
-        "createdAt": "2026-10-26T07:33:32.000Z",
-        "changeReason": "ECN-2026-1026-SEQUENCE-LABEL：280mm布抽条使用10x10mm方形序号标，325mm布抽条使用∅10mm圆形序号标；BL蓝底黑字，BR绿底黑字。",
-        "workflowState": "draft"
+        "sourceRevision": "",
+        "createdAt": "",
+        "changeReason": "",
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -533864,13 +533864,13 @@
       ]
     },
     "LGS833": {
-      "currentRevision": "V4.3",
+      "currentRevision": "V4.2",
       "effectiveRevision": "V4.2",
       "currentRevisionInfo": {
-        "sourceRevision": "V4.2",
-        "createdAt": "2026-10-26T07:33:32.000Z",
-        "changeReason": "ECN-2026-1026-SEQUENCE-LABEL：280mm布抽条使用10x10mm方形序号标，325mm布抽条使用∅10mm圆形序号标；BL蓝底黑字，BR绿底黑字。",
-        "workflowState": "draft"
+        "sourceRevision": "",
+        "createdAt": "",
+        "changeReason": "",
+        "workflowState": "released"
       },
       "revisions": [
         {
@@ -571091,43 +571091,6 @@
       }
     },
     "LGS032": {
-      "V3.4": {
-        "manuals": [
-          {
-            "name": "LGS032-S-A4-说明书-V3.pdf",
-            "path": "Google Drive > LGS032-S > LGS032-S-A4-说明书-V3.pdf",
-            "url": "https://drive.google.com/file/d/1CSDl0-ojTTs2mCOWk4aPbaPHgJK4RSW6/view?usp=sharing"
-          }
-        ],
-        "assemblyModels": [
-          {
-            "name": "LGS032-S_3列3层6抽开放式带灯带电布抽电视柜.glb",
-            "path": "models3d/catalog/LGS032-S-3-3-6-1d52da88.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS032-S-3-3-6-1d52da88.glb",
-            "matched_name": "LGS032 assembly",
-            "score": 1200,
-            "bytes": 5729012
-          }
-        ],
-        "images": {
-          "黑色": {
-            "name": "LGS032_BH.jpg",
-            "path": "product-images/LGS032_BH.jpg",
-            "url": "https://drive.google.com/file/d/1rW0jxzQaFlcp5PLt7DRCj766sTaOr5GC/view?usp=sharing",
-            "source": "google-drive",
-            "driveId": "1rW0jxzQaFlcp5PLt7DRCj766sTaOr5GC",
-            "directUrl": "https://drive.google.com/thumbnail?id=1rW0jxzQaFlcp5PLt7DRCj766sTaOr5GC&sz=w1600"
-          },
-          "复古色": {
-            "name": "LGS032_KD.jpg",
-            "path": "product-images/LGS032_KD.jpg",
-            "url": "https://drive.google.com/file/d/1geyv8b1d3vh9t_UTi0D8CeOT_UwJGrws/view?usp=sharing",
-            "source": "google-drive",
-            "driveId": "1geyv8b1d3vh9t_UTi0D8CeOT_UwJGrws",
-            "directUrl": "https://drive.google.com/thumbnail?id=1geyv8b1d3vh9t_UTi0D8CeOT_UwJGrws&sz=w1600"
-          }
-        }
-      },
       "V3.3": {
         "manuals": [
           {
@@ -571167,43 +571130,6 @@
       }
     },
     "LGS033": {
-      "V4.3": {
-        "manuals": [
-          {
-            "name": "LGS033-S-A4-说明书-V4.pdf",
-            "path": "Google Drive > LGS033 > LGS033-S-A4-说明书-V4.pdf",
-            "url": "https://drive.google.com/file/d/1wjBX7gwUgS2xROYkapRsocsWJ_9D9S1t/view?usp=sharing"
-          }
-        ],
-        "assemblyModels": [
-          {
-            "name": "LGS033-3列3层9抽-45inch.glb",
-            "path": "models3d/catalog/LGS033-3-3-9-45inch-4b22f8a9.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS033-3-3-9-45inch-4b22f8a9.glb",
-            "matched_name": "LGS033 assembly",
-            "score": 1600,
-            "bytes": 4703368
-          }
-        ],
-        "images": {
-          "复古色": {
-            "name": "LGS033_KD.jpg",
-            "path": "product-images/LGS033_KD.jpg",
-            "url": "https://drive.google.com/file/d/1WHogIpy7KC3wUCi0awPMSMvrozhekupa/view?usp=sharing",
-            "source": "google-drive",
-            "driveId": "1WHogIpy7KC3wUCi0awPMSMvrozhekupa",
-            "directUrl": "https://drive.google.com/thumbnail?id=1WHogIpy7KC3wUCi0awPMSMvrozhekupa&sz=w1600"
-          },
-          "白色": {
-            "name": "LGS033_WH.jpg",
-            "path": "product-images/LGS033_WH.jpg",
-            "url": "https://drive.google.com/file/d/1_EhFYbInTbaQek03LVq4jNsoYGuUKSQd/view?usp=sharing",
-            "source": "google-drive",
-            "driveId": "1_EhFYbInTbaQek03LVq4jNsoYGuUKSQd",
-            "directUrl": "https://drive.google.com/thumbnail?id=1_EhFYbInTbaQek03LVq4jNsoYGuUKSQd&sz=w1600"
-          }
-        }
-      },
       "V4.2": {
         "manuals": [
           {
@@ -571243,43 +571169,6 @@
       }
     },
     "LGS043": {
-      "V3.2": {
-        "manuals": [
-          {
-            "name": "LGS043-S-A4-说明书-V3.pdf",
-            "path": "Google Drive > LGS043-S > LGS043-S-A4-说明书-V3.pdf",
-            "url": "https://drive.google.com/file/d/1PzBx0qGLhu45EeN_KfvuwJuqYP016CN0/view?usp=sharing"
-          }
-        ],
-        "assemblyModels": [
-          {
-            "name": "LGS043-S-列3层11抽开放式带灯带电布抽电视柜.glb",
-            "path": "models3d/catalog/LGS043-S-3-11-e6a9bea7.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS043-S-3-11-e6a9bea7.glb",
-            "matched_name": "LGS043 assembly",
-            "score": 1200,
-            "bytes": 12831120
-          }
-        ],
-        "images": {
-          "黑色": {
-            "name": "LGS043_BH.jpg",
-            "path": "product-images/LGS043_BH.jpg",
-            "url": "https://drive.google.com/file/d/1VvDBIdxPf2S-XtDSTW1tULxetX7X_yj-/view?usp=sharing",
-            "source": "google-drive",
-            "driveId": "1VvDBIdxPf2S-XtDSTW1tULxetX7X_yj-",
-            "directUrl": "https://drive.google.com/thumbnail?id=1VvDBIdxPf2S-XtDSTW1tULxetX7X_yj-&sz=w1600"
-          },
-          "复古色": {
-            "name": "LGS043_KD.jpg",
-            "path": "product-images/LGS043_KD.jpg",
-            "url": "https://drive.google.com/file/d/1ORqLekrQqMGYLJVmxGxsc4UjhPv8YN0M/view?usp=sharing",
-            "source": "google-drive",
-            "driveId": "1ORqLekrQqMGYLJVmxGxsc4UjhPv8YN0M",
-            "directUrl": "https://drive.google.com/thumbnail?id=1ORqLekrQqMGYLJVmxGxsc4UjhPv8YN0M&sz=w1600"
-          }
-        }
-      },
       "V3.1": {
         "manuals": [
           {
@@ -571319,51 +571208,6 @@
       }
     },
     "LGS101": {
-      "V2.2": {
-        "manuals": [
-          {
-            "name": "LGS101-S-A4-说明书-V2.pdf",
-            "path": "Google Drive > LGS101-111 > LGS101-S-A4-说明书-V2.pdf",
-            "url": "https://drive.google.com/file/d/10eZg3-UEoc2EQx-qgTWx_QlxaqQZtnlw/view?usp=sharing"
-          }
-        ],
-        "assemblyModels": [
-          {
-            "name": "LGS101-S-1抽边桌_stp.glb",
-            "path": "models3d/catalog/LGS101-S-1-stp-9227fde2.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS101-S-1-stp-9227fde2.glb",
-            "matched_name": "LGS101 assembly",
-            "score": 1200,
-            "bytes": 840948
-          }
-        ],
-        "images": {
-          "黑色": {
-            "name": "LGS101B.jpg",
-            "path": "product-images/LGS101B.jpg",
-            "url": "https://drive.google.com/file/d/1rCkn9trDcCXaC-_uLgsxrBWsn9xMDHN5/view?usp=sharing",
-            "source": "google-drive",
-            "driveId": "1rCkn9trDcCXaC-_uLgsxrBWsn9xMDHN5",
-            "directUrl": "https://drive.google.com/thumbnail?id=1rCkn9trDcCXaC-_uLgsxrBWsn9xMDHN5&sz=w1600"
-          },
-          "复古色": {
-            "name": "LGS101K.jpg",
-            "path": "product-images/LGS101K.jpg",
-            "url": "https://drive.google.com/file/d/1XOQJ6s1NQ7ziCKBgorwvW5AV4_QTMw0l/view?usp=sharing",
-            "source": "google-drive",
-            "driveId": "1XOQJ6s1NQ7ziCKBgorwvW5AV4_QTMw0l",
-            "directUrl": "https://drive.google.com/thumbnail?id=1XOQJ6s1NQ7ziCKBgorwvW5AV4_QTMw0l&sz=w1600"
-          },
-          "白色": {
-            "name": "LGS101W.jpg",
-            "path": "product-images/LGS101W.jpg",
-            "url": "https://drive.google.com/file/d/1HAxvV540lX-VMfiA5wmxgaA5YCqyroWr/view?usp=sharing",
-            "source": "google-drive",
-            "driveId": "1HAxvV540lX-VMfiA5wmxgaA5YCqyroWr",
-            "directUrl": "https://drive.google.com/thumbnail?id=1HAxvV540lX-VMfiA5wmxgaA5YCqyroWr&sz=w1600"
-          }
-        }
-      },
       "V2.1": {
         "manuals": [
           {
@@ -571411,34 +571255,6 @@
       }
     },
     "LGS111": {
-      "V2.2": {
-        "manuals": [
-          {
-            "name": "LGS111-S-A4-说明书-V2.pdf",
-            "path": "Google Drive > LGS101-111 > LGS111-S-A4-说明书-V2.pdf",
-            "url": "https://drive.google.com/file/d/1_PWxBscBpZusRFynxKezUiJEnR4upNFE/view?usp=sharing"
-          }
-        ],
-        "assemblyModels": [],
-        "images": {
-          "黑色": {
-            "name": "LGS111B.jpg",
-            "path": "product-images/LGS111B.jpg",
-            "url": "https://drive.google.com/file/d/16I6tW_DcJ1TB9c3TI9ZwD2fZ3C8YrNBT/view?usp=sharing",
-            "source": "google-drive",
-            "driveId": "16I6tW_DcJ1TB9c3TI9ZwD2fZ3C8YrNBT",
-            "directUrl": "https://drive.google.com/thumbnail?id=16I6tW_DcJ1TB9c3TI9ZwD2fZ3C8YrNBT&sz=w1600"
-          },
-          "复古色": {
-            "name": "LGS111K.jpg",
-            "path": "product-images/LGS111K.jpg",
-            "url": "https://drive.google.com/file/d/1bmAscXrp_4LK2WT7-3gTQIWYZv06ym5F/view?usp=sharing",
-            "source": "google-drive",
-            "driveId": "1bmAscXrp_4LK2WT7-3gTQIWYZv06ym5F",
-            "directUrl": "https://drive.google.com/thumbnail?id=1bmAscXrp_4LK2WT7-3gTQIWYZv06ym5F&sz=w1600"
-          }
-        }
-      },
       "V2.1": {
         "manuals": [
           {
@@ -571469,35 +571285,6 @@
       }
     },
     "LGS132": {
-      "V3.4": {
-        "manuals": [
-          {
-            "name": "LGS132-S-A4-说明书-V3.pdf",
-            "path": "Google Drive > LGS132-S > LGS132-S-A4-说明书-V3.pdf",
-            "url": "https://drive.google.com/file/d/1BwkAHma_Dt2TIrm7T-lcMH0hrXj8mrPu/view?usp=sharing"
-          }
-        ],
-        "assemblyModels": [
-          {
-            "name": "LGS132-S-3列3层6抽开放式带灯带电布抽电视柜.glb",
-            "path": "models3d/catalog/LGS132-S-3-3-6-2fb0fb6f.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS132-S-3-3-6-2fb0fb6f.glb",
-            "matched_name": "LGS132 assembly",
-            "score": 1200,
-            "bytes": 6536732
-          }
-        ],
-        "images": {
-          "黑色": {
-            "name": "LGS132_BH.jpg",
-            "path": "product-images/LGS132_BH.jpg",
-            "url": "https://drive.google.com/file/d/1VSo5jj8DIrvzvd-gbCSm-AVkIYvLZLbJ/view?usp=sharing",
-            "source": "google-drive",
-            "driveId": "1VSo5jj8DIrvzvd-gbCSm-AVkIYvLZLbJ",
-            "directUrl": "https://drive.google.com/thumbnail?id=1VSo5jj8DIrvzvd-gbCSm-AVkIYvLZLbJ&sz=w1600"
-          }
-        }
-      },
       "V3.3": {
         "manuals": [
           {
@@ -571576,43 +571363,6 @@
       }
     },
     "LGS232": {
-      "V3.2": {
-        "manuals": [
-          {
-            "name": "LGS232-S-A4-说明书-V3.pdf",
-            "path": "Google Drive > LGS232-S > LGS232-S-A4-说明书-V3.pdf",
-            "url": "https://drive.google.com/file/d/1eVzMVXdGWoTIZbBoPQQSbSYg8LEhOe90/view?usp=sharing"
-          }
-        ],
-        "assemblyModels": [
-          {
-            "name": "LGS232-S-3列3层6抽开放式带灯带电布抽电视柜.glb",
-            "path": "models3d/catalog/LGS232-S-3-3-6-ccf21e7f.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS232-S-3-3-6-ccf21e7f.glb",
-            "matched_name": "LGS232 assembly",
-            "score": 1200,
-            "bytes": 6388868
-          }
-        ],
-        "images": {
-          "黑色": {
-            "name": "LGS232_BH.jpg",
-            "path": "product-images/LGS232_BH.jpg",
-            "url": "https://drive.google.com/file/d/1KzCK_u229a7F9fVNys9ShpKOQ6WBPqrR/view?usp=sharing",
-            "source": "google-drive",
-            "driveId": "1KzCK_u229a7F9fVNys9ShpKOQ6WBPqrR",
-            "directUrl": "https://drive.google.com/thumbnail?id=1KzCK_u229a7F9fVNys9ShpKOQ6WBPqrR&sz=w1600"
-          },
-          "复古色": {
-            "name": "LGS232_KD.png",
-            "path": "product-images/LGS232_KD.png",
-            "url": "https://drive.google.com/file/d/1ISb33_hs5NYsoRXtoYtBkNWYT_YtcGwJ/view?usp=sharing",
-            "source": "google-drive",
-            "driveId": "1ISb33_hs5NYsoRXtoYtBkNWYT_YtcGwJ",
-            "directUrl": "https://drive.google.com/thumbnail?id=1ISb33_hs5NYsoRXtoYtBkNWYT_YtcGwJ&sz=w1600"
-          }
-        }
-      },
       "V3.1": {
         "manuals": [
           {
@@ -571659,51 +571409,6 @@
       }
     },
     "LGS333": {
-      "V4.3": {
-        "manuals": [
-          {
-            "name": "LGS333-S-A4-说明书-V4.pdf",
-            "path": "Google Drive > LGS333 > LGS333-S-A4-说明书-V4.pdf",
-            "url": "https://drive.google.com/file/d/1l2ZEdRKFukoRtHSj8ppuCrwmC6AtZ7XR/view?usp=sharing"
-          }
-        ],
-        "assemblyModels": [
-          {
-            "name": "LGS333-3列3层基础款10抽斗柜-45inch.glb",
-            "path": "models3d/catalog/LGS333-3-3-10-45inch-aa0b2fc7.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS333-3-3-10-45inch-aa0b2fc7.glb",
-            "matched_name": "LGS333 assembly",
-            "score": 1600,
-            "bytes": 5736404
-          }
-        ],
-        "images": {
-          "黑色": {
-            "name": "LGS333_BH.jpg",
-            "path": "product-images/LGS333_BH.jpg",
-            "url": "https://drive.google.com/file/d/1A7V2FX6xUOIWvSEv7IG2NjOddJUwOD-A/view?usp=sharing",
-            "source": "google-drive",
-            "driveId": "1A7V2FX6xUOIWvSEv7IG2NjOddJUwOD-A",
-            "directUrl": "https://drive.google.com/thumbnail?id=1A7V2FX6xUOIWvSEv7IG2NjOddJUwOD-A&sz=w1600"
-          },
-          "复古色": {
-            "name": "LGS333_KD.jpg",
-            "path": "product-images/LGS333_KD.jpg",
-            "url": "https://drive.google.com/file/d/1f85QkNhbON0NgrPUZXgq8yhXKrwFthIY/view?usp=sharing",
-            "source": "google-drive",
-            "driveId": "1f85QkNhbON0NgrPUZXgq8yhXKrwFthIY",
-            "directUrl": "https://drive.google.com/thumbnail?id=1f85QkNhbON0NgrPUZXgq8yhXKrwFthIY&sz=w1600"
-          },
-          "白色": {
-            "name": "LGS333_WH.jpg",
-            "path": "product-images/LGS333_WH.jpg",
-            "url": "https://drive.google.com/file/d/1bmqAgmbEL3hXlAeR0iEDf_lmIXLu2TWo/view?usp=sharing",
-            "source": "google-drive",
-            "driveId": "1bmqAgmbEL3hXlAeR0iEDf_lmIXLu2TWo",
-            "directUrl": "https://drive.google.com/thumbnail?id=1bmqAgmbEL3hXlAeR0iEDf_lmIXLu2TWo&sz=w1600"
-          }
-        }
-      },
       "V4.2": {
         "manuals": [
           {
@@ -571751,35 +571456,6 @@
       }
     },
     "LGS334": {
-      "V4.4": {
-        "manuals": [
-          {
-            "name": "LGS334-S-A4-说明书-V4.pdf",
-            "path": "Google Drive > LGS334 > LGS334-S-A4-说明书-V4.pdf",
-            "url": "https://drive.google.com/file/d/1xY7uWCn7DGhjAswHSCGao1qeTdvEB5TI/view?usp=sharing"
-          }
-        ],
-        "assemblyModels": [
-          {
-            "name": "LGS334-3列3层基础款10抽斗柜-57inch.glb",
-            "path": "models3d/catalog/LGS334-3-3-10-57inch-af8d79d8.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS334-3-3-10-57inch-af8d79d8.glb",
-            "matched_name": "LGS334 assembly",
-            "score": 1600,
-            "bytes": 6013664
-          }
-        ],
-        "images": {
-          "黑色": {
-            "name": "LGS334_BH.jpg",
-            "path": "product-images/LGS334_BH.jpg",
-            "url": "https://drive.google.com/file/d/1upgjDV-HUkSVU-ah5hRr-q30G5hnH3SO/view?usp=sharing",
-            "source": "google-drive",
-            "driveId": "1upgjDV-HUkSVU-ah5hRr-q30G5hnH3SO",
-            "directUrl": "https://drive.google.com/thumbnail?id=1upgjDV-HUkSVU-ah5hRr-q30G5hnH3SO&sz=w1600"
-          }
-        }
-      },
       "V4.3": {
         "manuals": [
           {
@@ -571811,51 +571487,6 @@
       }
     },
     "LGS420": {
-      "V4.1": {
-        "manuals": [
-          {
-            "name": "LGS420-S-A4-说明书-V4.pdf",
-            "path": "Google Drive > LGS420-S > LGS420-S-A4-说明书-V4.pdf",
-            "url": "https://drive.google.com/file/d/1aTbVI0qhRd5SMfNXuWZ6Wb0tksYLOtit/view?usp=sharing"
-          }
-        ],
-        "assemblyModels": [
-          {
-            "name": "LGS420-S_3列2层2抽开放式带灯带电布抽电视柜.glb",
-            "path": "models3d/catalog/LGS420-S-3-2-2-6318026b.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS420-S-3-2-2-6318026b.glb",
-            "matched_name": "LGS420 assembly",
-            "score": 1200,
-            "bytes": 5873296
-          }
-        ],
-        "images": {
-          "黑色": {
-            "name": "LGS420_BH.jpg",
-            "path": "product-images/LGS420_BH.jpg",
-            "url": "https://drive.google.com/file/d/1NB0KmiBQfkA_qV4oAQQGg9uRuFO9XUlE/view?usp=sharing",
-            "source": "google-drive",
-            "driveId": "1NB0KmiBQfkA_qV4oAQQGg9uRuFO9XUlE",
-            "directUrl": "https://drive.google.com/thumbnail?id=1NB0KmiBQfkA_qV4oAQQGg9uRuFO9XUlE&sz=w1600"
-          },
-          "复古色": {
-            "name": "LGS420_KD.jpg",
-            "path": "product-images/LGS420_KD.jpg",
-            "url": "https://drive.google.com/file/d/1I3Am_4lm7yiBdN1lEzjTkYybIP0Y-Zf8/view?usp=sharing",
-            "source": "google-drive",
-            "driveId": "1I3Am_4lm7yiBdN1lEzjTkYybIP0Y-Zf8",
-            "directUrl": "https://drive.google.com/thumbnail?id=1I3Am_4lm7yiBdN1lEzjTkYybIP0Y-Zf8&sz=w1600"
-          },
-          "白色": {
-            "name": "LGS420_WH.jpg",
-            "path": "product-images/LGS420_WH.jpg",
-            "url": "https://drive.google.com/file/d/1g3uOtpkyZ5JLZcQMIsnUEzsEibi4n-q7/view?usp=sharing",
-            "source": "google-drive",
-            "driveId": "1g3uOtpkyZ5JLZcQMIsnUEzsEibi4n-q7",
-            "directUrl": "https://drive.google.com/thumbnail?id=1g3uOtpkyZ5JLZcQMIsnUEzsEibi4n-q7&sz=w1600"
-          }
-        }
-      },
       "V4": {
         "manuals": [
           {
@@ -571903,43 +571534,6 @@
       }
     },
     "LGS421": {
-      "V4.1": {
-        "manuals": [
-          {
-            "name": "LGS421-S-A4-说明书-V4.pdf",
-            "path": "Google Drive > LGS421-S > LGS421-S-A4-说明书-V4.pdf",
-            "url": "https://drive.google.com/file/d/1Yd0Pf_yGRlp0JMSdhovOHpmB7XORpwIp/view?usp=sharing"
-          }
-        ],
-        "assemblyModels": [
-          {
-            "name": "LGS421-S-4列2层2抽开放式带灯带电布抽电视柜.glb",
-            "path": "models3d/catalog/LGS421-S-4-2-2-4f41a347.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS421-S-4-2-2-4f41a347.glb",
-            "matched_name": "LGS421 assembly",
-            "score": 1200,
-            "bytes": 6010748
-          }
-        ],
-        "images": {
-          "黑色": {
-            "name": "LGS421_BH.jpg",
-            "path": "product-images/LGS421_BH.jpg",
-            "url": "https://drive.google.com/file/d/121po694OugqN8oZ5Tl0pzv_Qy654VSjy/view?usp=sharing",
-            "source": "google-drive",
-            "driveId": "121po694OugqN8oZ5Tl0pzv_Qy654VSjy",
-            "directUrl": "https://drive.google.com/thumbnail?id=121po694OugqN8oZ5Tl0pzv_Qy654VSjy&sz=w1600"
-          },
-          "复古色": {
-            "name": "LGS421_KD.jpg",
-            "path": "product-images/LGS421_KD.jpg",
-            "url": "https://drive.google.com/file/d/12gE0U1Sk0Q6IrPC62Vl1bzmq9gMtliXJ/view?usp=sharing",
-            "source": "google-drive",
-            "driveId": "12gE0U1Sk0Q6IrPC62Vl1bzmq9gMtliXJ",
-            "directUrl": "https://drive.google.com/thumbnail?id=12gE0U1Sk0Q6IrPC62Vl1bzmq9gMtliXJ&sz=w1600"
-          }
-        }
-      },
       "V4": {
         "manuals": [
           {
@@ -571979,51 +571573,6 @@
       }
     },
     "LGS723": {
-      "V4.3": {
-        "manuals": [
-          {
-            "name": "LGS723-S-A4-说明书-V4.pdf",
-            "path": "Google Drive > LGS723 > LGS723-S-A4-说明书-V4.pdf",
-            "url": "https://drive.google.com/file/d/1NCn4ALXR34QJFxo9K3XQr5e-Fwomn_KR/view?usp=sharing"
-          }
-        ],
-        "assemblyModels": [
-          {
-            "name": "LGS723-2列3层开放层架带灯带电5抽斗柜云.glb",
-            "path": "models3d/catalog/LGS723-2-3-5-6545b64d.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS723-2-3-5-6545b64d.glb",
-            "matched_name": "LGS723 assembly",
-            "score": 1600,
-            "bytes": 5501344
-          }
-        ],
-        "images": {
-          "黑色": {
-            "name": "LGS723_BH.jpg",
-            "path": "product-images/LGS723_BH.jpg",
-            "url": "https://drive.google.com/file/d/1EMulLjvDAwtHN9fEDNsM3d-pEVpKpUpU/view?usp=sharing",
-            "source": "google-drive",
-            "driveId": "1EMulLjvDAwtHN9fEDNsM3d-pEVpKpUpU",
-            "directUrl": "https://drive.google.com/thumbnail?id=1EMulLjvDAwtHN9fEDNsM3d-pEVpKpUpU&sz=w1600"
-          },
-          "复古色": {
-            "name": "LGS723_KD.jpg",
-            "path": "product-images/LGS723_KD.jpg",
-            "url": "https://drive.google.com/file/d/17q5NmBQZwx8-Q4bo5utjgze6DnaYFN5G/view?usp=sharing",
-            "source": "google-drive",
-            "driveId": "17q5NmBQZwx8-Q4bo5utjgze6DnaYFN5G",
-            "directUrl": "https://drive.google.com/thumbnail?id=17q5NmBQZwx8-Q4bo5utjgze6DnaYFN5G&sz=w1600"
-          },
-          "白色": {
-            "name": "LGS723_WH.jpg",
-            "path": "product-images/LGS723_WH.jpg",
-            "url": "https://drive.google.com/file/d/1DCFtOoBz8XjhGNhKI2Ocbe1QeYk0Vyoy/view?usp=sharing",
-            "source": "google-drive",
-            "driveId": "1DCFtOoBz8XjhGNhKI2Ocbe1QeYk0Vyoy",
-            "directUrl": "https://drive.google.com/thumbnail?id=1DCFtOoBz8XjhGNhKI2Ocbe1QeYk0Vyoy&sz=w1600"
-          }
-        }
-      },
       "V4.2": {
         "manuals": [
           {
@@ -572071,51 +571620,6 @@
       }
     },
     "LGS733": {
-      "V4.3": {
-        "manuals": [
-          {
-            "name": "LGS733-S-A4-说明书-V4.pdf",
-            "path": "Google Drive > LGS733 > LGS733-S-A4-说明书-V4.pdf",
-            "url": "https://drive.google.com/file/d/1JHNlLCGAOAXX9w3Rh-Nh8WgXqi8EIKLk/view?usp=sharing"
-          }
-        ],
-        "assemblyModels": [
-          {
-            "name": "LGS733-3列3层开放层架带灯带电7抽斗柜.glb",
-            "path": "models3d/catalog/LGS733-3-3-7-d3f6ac0c.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS733-3-3-7-d3f6ac0c.glb",
-            "matched_name": "LGS733 assembly",
-            "score": 1600,
-            "bytes": 6355900
-          }
-        ],
-        "images": {
-          "黑色": {
-            "name": "LGS733_BH.jpg",
-            "path": "product-images/LGS733_BH.jpg",
-            "url": "https://drive.google.com/file/d/1qkbg3JTVyde7ys8X8YwaeQmOFCWPuFEj/view?usp=sharing",
-            "source": "google-drive",
-            "driveId": "1qkbg3JTVyde7ys8X8YwaeQmOFCWPuFEj",
-            "directUrl": "https://drive.google.com/thumbnail?id=1qkbg3JTVyde7ys8X8YwaeQmOFCWPuFEj&sz=w1600"
-          },
-          "复古色": {
-            "name": "LGS733_KD.jpg",
-            "path": "product-images/LGS733_KD.jpg",
-            "url": "https://drive.google.com/file/d/1HeaUrgvghQDx1eb0T3cjlJAUQuN_w4LL/view?usp=sharing",
-            "source": "google-drive",
-            "driveId": "1HeaUrgvghQDx1eb0T3cjlJAUQuN_w4LL",
-            "directUrl": "https://drive.google.com/thumbnail?id=1HeaUrgvghQDx1eb0T3cjlJAUQuN_w4LL&sz=w1600"
-          },
-          "白色": {
-            "name": "LGS733_WH.jpg",
-            "path": "product-images/LGS733_WH.jpg",
-            "url": "https://drive.google.com/file/d/1utxfqYSfegNSpgubhJ8fvocE5D6z9hhI/view?usp=sharing",
-            "source": "google-drive",
-            "driveId": "1utxfqYSfegNSpgubhJ8fvocE5D6z9hhI",
-            "directUrl": "https://drive.google.com/thumbnail?id=1utxfqYSfegNSpgubhJ8fvocE5D6z9hhI&sz=w1600"
-          }
-        }
-      },
       "V4.2": {
         "manuals": [
           {
@@ -572163,51 +571667,6 @@
       }
     },
     "LGS833": {
-      "V4.3": {
-        "manuals": [
-          {
-            "name": "LGS833-S-A4-说明书-V4.pdf",
-            "path": "Google Drive > LGS833 > LGS833-S-A4-说明书-V4.pdf",
-            "url": "https://drive.google.com/file/d/1KdfB1iZbZoqJ0sr3646MCNl3zFyVkcZe/view?usp=sharing"
-          }
-        ],
-        "assemblyModels": [
-          {
-            "name": "LGS833-3列3层开放层架带灯带电6抽斗柜-45inch.glb",
-            "path": "models3d/catalog/LGS833-3-3-6-45inch-78a2793f.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS833-3-3-6-45inch-78a2793f.glb",
-            "matched_name": "LGS833 assembly",
-            "score": 1600,
-            "bytes": 4867936
-          }
-        ],
-        "images": {
-          "黑色": {
-            "name": "LGS833_BH.jpg",
-            "path": "product-images/LGS833_BH.jpg",
-            "url": "https://drive.google.com/file/d/1gi2JLCWCkVwI4JYdxKTjA7tfUiN8DSr2/view?usp=sharing",
-            "source": "google-drive",
-            "driveId": "1gi2JLCWCkVwI4JYdxKTjA7tfUiN8DSr2",
-            "directUrl": "https://drive.google.com/thumbnail?id=1gi2JLCWCkVwI4JYdxKTjA7tfUiN8DSr2&sz=w1600"
-          },
-          "复古色": {
-            "name": "LGS833_KD.jpg",
-            "path": "product-images/LGS833_KD.jpg",
-            "url": "https://drive.google.com/file/d/1pExtmtPUquEXyC4nZnM5_lZBk-GRrnp-/view?usp=sharing",
-            "source": "google-drive",
-            "driveId": "1pExtmtPUquEXyC4nZnM5_lZBk-GRrnp-",
-            "directUrl": "https://drive.google.com/thumbnail?id=1pExtmtPUquEXyC4nZnM5_lZBk-GRrnp-&sz=w1600"
-          },
-          "白色": {
-            "name": "LGS833_WH.jpg",
-            "path": "product-images/LGS833_WH.jpg",
-            "url": "https://drive.google.com/file/d/1TkEoKMWVihtAlwhVcLkn1fADxsaeCjf0/view?usp=sharing",
-            "source": "google-drive",
-            "driveId": "1TkEoKMWVihtAlwhVcLkn1fADxsaeCjf0",
-            "directUrl": "https://drive.google.com/thumbnail?id=1TkEoKMWVihtAlwhVcLkn1fADxsaeCjf0&sz=w1600"
-          }
-        }
-      },
       "V4.2": {
         "manuals": [
           {
@@ -572255,43 +571714,6 @@
       }
     },
     "LGS834": {
-      "V4.3": {
-        "manuals": [
-          {
-            "name": "LGS834-S-A4-说明书-V4.pdf",
-            "path": "Google Drive > LGS834 > LGS834-S-A4-说明书-V4.pdf",
-            "url": "https://drive.google.com/file/d/1735SJl4GLXHaR-e8dHJgW21FSmvxQvWd/view?usp=sharing"
-          }
-        ],
-        "assemblyModels": [
-          {
-            "name": "LGS834-3列3层开放层架带灯带电6抽斗柜-57inch.glb",
-            "path": "models3d/catalog/LGS834-3-3-6-57inch-eed6a3b8.glb",
-            "previewUrl": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS834-3-3-6-57inch-eed6a3b8.glb",
-            "matched_name": "LGS834 assembly",
-            "score": 1600,
-            "bytes": 3940804
-          }
-        ],
-        "images": {
-          "黑色": {
-            "name": "LGS834_BH.jpg",
-            "path": "product-images/LGS834_BH.jpg",
-            "url": "https://drive.google.com/file/d/1heFcfk5mvfKOneXzKKoYefT88plS2CcC/view?usp=sharing",
-            "source": "google-drive",
-            "driveId": "1heFcfk5mvfKOneXzKKoYefT88plS2CcC",
-            "directUrl": "https://drive.google.com/thumbnail?id=1heFcfk5mvfKOneXzKKoYefT88plS2CcC&sz=w1600"
-          },
-          "白色": {
-            "name": "LGS834_WB.jpg",
-            "path": "product-images/LGS834_WB.jpg",
-            "url": "https://drive.google.com/file/d/1uGpL00AWeLardXkZCKUeFvxGcUj8B5zG/view?usp=sharing",
-            "source": "google-drive",
-            "driveId": "1uGpL00AWeLardXkZCKUeFvxGcUj8B5zG",
-            "directUrl": "https://drive.google.com/thumbnail?id=1uGpL00AWeLardXkZCKUeFvxGcUj8B5zG&sz=w1600"
-          }
-        }
-      },
       "V4.2": {
         "manuals": [
           {
@@ -603332,6 +602754,262 @@
             "after": ""
           }
         ]
+      }
+    ]
+  },
+  "bomVersions": {
+    "LGS723": {
+      "effectiveVersion": "B1",
+      "designRevision": "V4.2",
+      "reason": "Packaging BOM correction",
+      "changes": [
+        {
+          "type": "add",
+          "color": "黑色",
+          "code": "DWZB990300",
+          "row": {
+            "stt": "9",
+            "mat_code": "DWZB990300",
+            "comp_code": "",
+            "name_zh": "单瓦纸板",
+            "name_vi": "tấm giấy carton sóng đơn",
+            "spec": "990x300mm",
+            "spec_vi": "990x300mm",
+            "material_zh": "瓦楞纸",
+            "material_vi": "giấy carton",
+            "color_zh": "纸色",
+            "color_vi": "màu giấy",
+            "attr_zh": "包材",
+            "attr_vi": "vật liệu đóng gói",
+            "color_ver": "黑色",
+            "color_ver_vi": "黑色",
+            "unit": {
+              "zh": "张",
+              "vi": "tờ"
+            },
+            "qty": "2",
+            "remark": ""
+          },
+          "entry": {
+            "id": "bom_dwzb990300_bh",
+            "parentType": "product",
+            "parentId": "LGS723",
+            "productCode": "LGS723",
+            "color": "黑色",
+            "materialId": "mat_dwzb990300",
+            "stt": "9",
+            "comp_code": "",
+            "qty": "2",
+            "color_ver": "黑色",
+            "color_ver_vi": "黑色",
+            "order": 52
+          }
+        }
+      ]
+    },
+    "LGS733": {
+      "effectiveVersion": "B1",
+      "designRevision": "V4.2",
+      "reason": "Packaging BOM correction",
+      "changes": [
+        {
+          "type": "add",
+          "color": "黑色",
+          "code": "DWZB1130300",
+          "row": {
+            "stt": "9",
+            "mat_code": "DWZB1130300",
+            "comp_code": "",
+            "name_zh": "单瓦纸板",
+            "name_vi": "tấm giấy carton sóng đơn",
+            "spec": "1130x300mm",
+            "spec_vi": "1130x300mm",
+            "material_zh": "瓦楞纸",
+            "material_vi": "giấy carton",
+            "color_zh": "纸色",
+            "color_vi": "màu giấy",
+            "attr_zh": "包材",
+            "attr_vi": "vật liệu đóng gói",
+            "color_ver": "黑色",
+            "color_ver_vi": "黑色",
+            "unit": {
+              "zh": "张",
+              "vi": "tờ"
+            },
+            "qty": "2",
+            "remark": ""
+          },
+          "entry": {
+            "id": "bom_dwzb1130300_bh",
+            "parentType": "product",
+            "parentId": "LGS733",
+            "productCode": "LGS733",
+            "color": "黑色",
+            "materialId": "mat_dwzb1130300",
+            "stt": "9",
+            "comp_code": "",
+            "qty": "2",
+            "color_ver": "黑色",
+            "color_ver_vi": "黑色",
+            "order": 54
+          }
+        }
+      ]
+    },
+    "LGS043": {
+      "effectiveVersion": "B1",
+      "designRevision": "V3.1",
+      "reason": "Packaging foam quantity correction",
+      "changes": [
+        {
+          "type": "quantity",
+          "color": "复古色",
+          "code": "PM3504035",
+          "qty": "2"
+        },
+        {
+          "type": "quantity",
+          "color": "黑色",
+          "code": "PM3504035",
+          "qty": "2"
+        }
+      ]
+    }
+  },
+  "closedDrafts": {
+    "LGS032": [
+      {
+        "revision": "V3.4",
+        "sourceRevision": "V3.3",
+        "createdAt": "2026-10-26T07:33:32.000Z",
+        "changeReason": "ECN-2026-1026-SEQUENCE-LABEL：280mm布抽条使用10x10mm方形序号标，325mm布抽条使用∅10mm圆形序号标；BL蓝底黑字，BR绿底黑字。",
+        "closedReason": "No BOM or product change"
+      }
+    ],
+    "LGS733": [
+      {
+        "revision": "V4.3",
+        "sourceRevision": "V4.2",
+        "createdAt": "2026-10-26T07:33:32.000Z",
+        "changeReason": "ECN-2026-1026-SEQUENCE-LABEL：280mm布抽条使用10x10mm方形序号标，325mm布抽条使用∅10mm圆形序号标；BL蓝底黑字，BR绿底黑字。补充黑色包装单瓦纸板1130x300mm×2张（原BOM漏项）。",
+        "closedReason": "Packaging change moved to BOM B1"
+      }
+    ],
+    "LGS333": [
+      {
+        "revision": "V4.3",
+        "sourceRevision": "V4.2",
+        "createdAt": "2026-10-26T07:33:32.000Z",
+        "changeReason": "ECN-2026-1026-SEQUENCE-LABEL：280mm布抽条使用10x10mm方形序号标，325mm布抽条使用∅10mm圆形序号标；BL蓝底黑字，BR绿底黑字。",
+        "closedReason": "No BOM or product change"
+      }
+    ],
+    "LGS334": [
+      {
+        "revision": "V4.4",
+        "sourceRevision": "V4.3",
+        "createdAt": "2026-10-26T07:33:32.000Z",
+        "changeReason": "ECN-2026-1026-SEQUENCE-LABEL：280mm布抽条使用10x10mm方形序号标，325mm布抽条使用∅10mm圆形序号标；BL蓝底黑字，BR绿底黑字。",
+        "closedReason": "No BOM or product change"
+      }
+    ],
+    "LGS033": [
+      {
+        "revision": "V4.3",
+        "sourceRevision": "V4.2",
+        "createdAt": "2026-10-26T07:33:32.000Z",
+        "changeReason": "ECN-2026-1026-SEQUENCE-LABEL：280mm布抽条使用10x10mm方形序号标，325mm布抽条使用∅10mm圆形序号标；BL蓝底黑字，BR绿底黑字。",
+        "closedReason": "No BOM or product change"
+      }
+    ],
+    "LGS101": [
+      {
+        "revision": "V2.2",
+        "sourceRevision": "V2.1",
+        "createdAt": "2026-10-26T07:33:32.000Z",
+        "changeReason": "ECN-2026-1026-SEQUENCE-LABEL：280mm布抽条使用10x10mm方形序号标，325mm布抽条使用∅10mm圆形序号标；BL蓝底黑字，BR绿底黑字。",
+        "closedReason": "No BOM or product change"
+      }
+    ],
+    "LGS043": [
+      {
+        "revision": "V3.2",
+        "sourceRevision": "V3.1",
+        "createdAt": "2026-10-26T07:33:32.000Z",
+        "changeReason": "ECN-2026-1026-SEQUENCE-LABEL：280mm布抽条使用10x10mm方形序号标，325mm布抽条使用∅10mm圆形序号标；BL蓝底黑字，BR绿底黑字。",
+        "closedReason": "Packaging change moved to BOM B1"
+      }
+    ],
+    "LGS111": [
+      {
+        "revision": "V2.2",
+        "sourceRevision": "V2.1",
+        "createdAt": "2026-10-26T07:33:32.000Z",
+        "changeReason": "ECN-2026-1026-SEQUENCE-LABEL：280mm布抽条使用10x10mm方形序号标，325mm布抽条使用∅10mm圆形序号标；BL蓝底黑字，BR绿底黑字。",
+        "closedReason": "No BOM or product change"
+      }
+    ],
+    "LGS421": [
+      {
+        "revision": "V4.1",
+        "sourceRevision": "V4",
+        "createdAt": "2026-10-26T07:33:32.000Z",
+        "changeReason": "ECN-2026-1026-SEQUENCE-LABEL：280mm布抽条使用10x10mm方形序号标，325mm布抽条使用∅10mm圆形序号标；BL蓝底黑字，BR绿底黑字。",
+        "closedReason": "No BOM or product change"
+      }
+    ],
+    "LGS834": [
+      {
+        "revision": "V4.3",
+        "sourceRevision": "V4.2",
+        "createdAt": "2026-10-26T07:33:32.000Z",
+        "changeReason": "ECN-2026-1026-SEQUENCE-LABEL：280mm布抽条使用10x10mm方形序号标，325mm布抽条使用∅10mm圆形序号标；BL蓝底黑字，BR绿底黑字。",
+        "closedReason": "No BOM or product change"
+      }
+    ],
+    "LGS232": [
+      {
+        "revision": "V3.2",
+        "sourceRevision": "V3.1",
+        "createdAt": "2026-10-26T07:33:32.000Z",
+        "changeReason": "ECN-2026-1026-SEQUENCE-LABEL：280mm布抽条使用10x10mm方形序号标，325mm布抽条使用∅10mm圆形序号标；BL蓝底黑字，BR绿底黑字。",
+        "closedReason": "No BOM or product change"
+      }
+    ],
+    "LGS723": [
+      {
+        "revision": "V4.3",
+        "sourceRevision": "V4.2",
+        "createdAt": "2026-10-26T07:33:32.000Z",
+        "changeReason": "ECN-2026-1026-SEQUENCE-LABEL：280mm布抽条使用10x10mm方形序号标，325mm布抽条使用∅10mm圆形序号标；BL蓝底黑字，BR绿底黑字。补充黑色包装单瓦纸板990x300mm×2张（原BOM漏项）。",
+        "closedReason": "Packaging change moved to BOM B1"
+      }
+    ],
+    "LGS132": [
+      {
+        "revision": "V3.4",
+        "sourceRevision": "V3.3",
+        "createdAt": "2026-10-26T07:33:32.000Z",
+        "changeReason": "ECN-2026-1026-SEQUENCE-LABEL：280mm布抽条使用10x10mm方形序号标，325mm布抽条使用∅10mm圆形序号标；BL蓝底黑字，BR绿底黑字。",
+        "closedReason": "No BOM or product change"
+      }
+    ],
+    "LGS420": [
+      {
+        "revision": "V4.1",
+        "sourceRevision": "V4",
+        "createdAt": "2026-10-26T07:33:32.000Z",
+        "changeReason": "ECN-2026-1026-SEQUENCE-LABEL：280mm布抽条使用10x10mm方形序号标，325mm布抽条使用∅10mm圆形序号标；BL蓝底黑字，BR绿底黑字。",
+        "closedReason": "No BOM or product change"
+      }
+    ],
+    "LGS833": [
+      {
+        "revision": "V4.3",
+        "sourceRevision": "V4.2",
+        "createdAt": "2026-10-26T07:33:32.000Z",
+        "changeReason": "ECN-2026-1026-SEQUENCE-LABEL：280mm布抽条使用10x10mm方形序号标，325mm布抽条使用∅10mm圆形序号标；BL蓝底黑字，BR绿底黑字。",
+        "closedReason": "No BOM or product change"
       }
     ]
   }

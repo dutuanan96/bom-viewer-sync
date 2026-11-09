@@ -5298,29 +5298,6 @@
         },
         {
           "stt": "9",
-          "mat_code": "DWZB990300",
-          "comp_code": "",
-          "name_zh": "单瓦纸板",
-          "name_vi": "tấm giấy carton sóng đơn",
-          "spec": "990x300mm",
-          "spec_vi": "990x300mm",
-          "material_zh": "瓦楞纸",
-          "material_vi": "giấy carton",
-          "color_zh": "纸色",
-          "color_vi": "màu giấy",
-          "attr_zh": "包材",
-          "attr_vi": "vật liệu đóng gói",
-          "color_ver": "黑色",
-          "color_ver_vi": "黑色",
-          "unit": {
-            "zh": "张",
-            "vi": "tờ"
-          },
-          "qty": "2",
-          "remark": ""
-        },
-        {
-          "stt": "10",
           "mat_code": "XHBBL1010SQ",
           "comp_code": "",
           "name_zh": "序号标BL",
@@ -5343,7 +5320,7 @@
           "remark": ""
         },
         {
-          "stt": "11",
+          "stt": "10",
           "mat_code": "XHBBR1010SQ",
           "comp_code": "",
           "name_zh": "序号标BR",
@@ -5366,7 +5343,7 @@
           "remark": ""
         },
         {
-          "stt": "12",
+          "stt": "11",
           "mat_code": "JGB120052",
           "comp_code": "",
           "name_zh": "警告标",
@@ -5389,7 +5366,7 @@
           "remark": ""
         },
         {
-          "stt": "13",
+          "stt": "12",
           "mat_code": "VTJGB035012",
           "comp_code": "",
           "name_zh": "产地标",
@@ -7606,5 +7583,5 @@
   },
   "name_zh": "2列3层开放层架带灯带电5抽斗柜复古色",
   "name_vi": "LGS723-2 cột 2 tầng 5 tủ ngăn kéo-39inch",
-  "revision": "V4.3"
+  "revision": "V4.2"
 }
