@@ -47,7 +47,7 @@ test('shared frames, hardware quantities, and welded assemblies resolve for ever
       const row = component(rows, symbol);
       assert.equal(row.spec, '843x15x15mm');
       assert.equal(row.materials.find(item => item.mat_code === 'FG1515065718').qty, '0.142857');
-      assert.equal(row.materials.find(item => item.mat_code === 'FG132132105190').qty, '0.015873');
+      assert.equal(row.materials.find(item => item.mat_code === 'FG132132105190').qty, '0.015625');
     }
     assert.equal(component(rows, '6').qty, '2');
     assert.equal(component(rows, 'Y08').qty, '9');
@@ -68,8 +68,8 @@ test('shared frames, hardware quantities, and welded assemblies resolve for ever
   }
 });
 
-test('single-part laser programs leave at least 80 mm for clamping', () => {
-  for (const [stock, cut, count] of [[5718, 803, 7], [5464, 895, 6], [5464, 44, 122], [5190, 80, 63]]) {
+test('main-tube laser programs leave at least 80 mm for clamping', () => {
+  for (const [stock, cut, count] of [[5718, 803, 7], [5464, 895, 6], [5464, 44, 122]]) {
     assert.equal(Math.floor((stock - 80) / cut), count);
     assert.ok(stock - cut * count >= 80);
   }
@@ -86,5 +86,23 @@ test('revised packaging reuses the stock corner and retains per-product quantiti
     assert.equal(foam.spec, '20kg, 552x90x12mm');
     assert.equal(foam.qty, '2');
     assert.equal(rows.some(row => ['ZHJ5050100', 'PM55210010'].includes(row.mat_code)), false);
+  }
+});
+
+test('80 mm connectors use the owner-approved 64 cuts with a nominal 70 mm tail', () => {
+  assert.equal(5190 - 80 * 64, 70);
+  assert.equal(1 / 64, 0.015625);
+  assert.ok(70 >= 50 && 70 <= 80);
+  const parents = new Set(Object.values(database.materials)
+    .filter(material => /^LGS233X[HQ]YHL.*V5$/.test(material.code)).map(material => material.id));
+  const rawId = byCode.get('FG132132105190').id;
+  const entries = database.bomEntries.filter(entry => entry.parentType === 'material' &&
+    parents.has(entry.parentId) && entry.productCode === 'LGS233' &&
+    (entry.childMaterialId || entry.materialId) === rawId);
+  assert.equal(entries.length, 8);
+  for (const entry of entries) {
+    assert.equal(entry.qty, '0.015625');
+    assert.match(entry.remark, /64/);
+    assert.match(entry.remark, /70mm/);
   }
 });
