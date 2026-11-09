@@ -74,3 +74,17 @@ test('single-part laser programs leave at least 80 mm for clamping', () => {
     assert.ok(stock - cut * count >= 80);
   }
 });
+
+test('revised packaging reuses the stock corner and retains per-product quantities', () => {
+  for (const variant of Object.values(product.color_info)) {
+    const rows = variant.materials;
+    const carton = rows.find(row => row.mat_code.startsWith('LGS233ZFX'));
+    assert.equal(carton.spec, '955x565x100mm');
+    assert.equal(carton.qty, '1');
+    assert.equal(rows.find(row => row.mat_code === 'ZHJ505090').qty, '4');
+    const foam = rows.find(row => row.mat_code === 'PM5529012');
+    assert.equal(foam.spec, '20kg, 552x90x12mm');
+    assert.equal(foam.qty, '2');
+    assert.equal(rows.some(row => ['ZHJ5050100', 'PM55210010'].includes(row.mat_code)), false);
+  }
+});

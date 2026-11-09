@@ -48350,6 +48350,153 @@
           "zh": "块",
           "vi": "miếng"
         }
+      },
+      "mat_pm5529012": {
+        "id": "mat_pm5529012",
+        "code": "PM5529012",
+        "name": {
+          "zh": "泡沫",
+          "vi": "mút xốp"
+        },
+        "spec": {
+          "zh": "20kg, 552x90x12mm",
+          "vi": "20kg, 552x90x12mm"
+        },
+        "material": {
+          "zh": "EPS泡沫",
+          "vi": "EPS mút xốp"
+        },
+        "color": {
+          "zh": "白色",
+          "vi": "màu trắng"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "块",
+          "vi": "miếng"
+        }
+      },
+      "mat_lgs233zfxkdv5": {
+        "id": "mat_lgs233zfxkdv5",
+        "code": "LGS233ZFXKDV5",
+        "name": {
+          "zh": "中封箱",
+          "vi": "thùng đóng giữa"
+        },
+        "spec": {
+          "zh": "955x565x100mm",
+          "vi": "955x565x100mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
+      },
+      "mat_lgs233zfxwhv5": {
+        "id": "mat_lgs233zfxwhv5",
+        "code": "LGS233ZFXWHV5",
+        "name": {
+          "zh": "中封箱",
+          "vi": "thùng đóng giữa"
+        },
+        "spec": {
+          "zh": "955x565x100mm",
+          "vi": "955x565x100mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
+      },
+      "mat_lgs233zfxbhv5": {
+        "id": "mat_lgs233zfxbhv5",
+        "code": "LGS233ZFXBHV5",
+        "name": {
+          "zh": "中封箱",
+          "vi": "thùng đóng giữa"
+        },
+        "spec": {
+          "zh": "955x565x100mm",
+          "vi": "955x565x100mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
+      },
+      "mat_lgs233zfxswhv5": {
+        "id": "mat_lgs233zfxswhv5",
+        "code": "LGS233ZFXSWHV5",
+        "name": {
+          "zh": "中封箱（LGS233B201S）",
+          "vi": "thùng đóng giữa (LGS233B201S)"
+        },
+        "spec": {
+          "zh": "955x565x100mm",
+          "vi": "955x565x100mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": "个"
       }
     },
     "bomEntries": [
@@ -53760,7 +53907,7 @@
         "parentId": "LGS233",
         "productCode": "LGS233",
         "color": "复古色",
-        "materialId": "mat_12e9s1f",
+        "materialId": "mat_lgs233zfxkdv5",
         "stt": "15",
         "comp_code": "",
         "qty": "1",
@@ -53775,7 +53922,7 @@
         "parentId": "LGS233",
         "productCode": "LGS233",
         "color": "复古色",
-        "materialId": "mat_18i5rbs",
+        "materialId": "mat_b8cef361",
         "stt": "16",
         "comp_code": "",
         "qty": "4",
@@ -53805,7 +53952,7 @@
         "parentId": "LGS233",
         "productCode": "LGS233",
         "color": "复古色",
-        "materialId": "mat_dd376149",
+        "materialId": "mat_pm5529012",
         "stt": "18",
         "comp_code": "",
         "qty": "2",
@@ -54315,7 +54462,7 @@
         "parentId": "LGS233",
         "productCode": "LGS233",
         "color": "白色",
-        "materialId": "mat_62tvr6",
+        "materialId": "mat_lgs233zfxwhv5",
         "stt": "15",
         "comp_code": "",
         "qty": "1",
@@ -54330,7 +54477,7 @@
         "parentId": "LGS233",
         "productCode": "LGS233",
         "color": "白色",
-        "materialId": "mat_18i5rbs",
+        "materialId": "mat_b8cef361",
         "stt": "16",
         "comp_code": "",
         "qty": "4",
@@ -54360,7 +54507,7 @@
         "parentId": "LGS233",
         "productCode": "LGS233",
         "color": "白色",
-        "materialId": "mat_dd376149",
+        "materialId": "mat_pm5529012",
         "stt": "18",
         "comp_code": "",
         "qty": "2",
@@ -54870,7 +55017,7 @@
         "parentId": "LGS233",
         "productCode": "LGS233",
         "color": "黑色",
-        "materialId": "mat_yrn9p",
+        "materialId": "mat_lgs233zfxbhv5",
         "stt": "15",
         "comp_code": "",
         "qty": "1",
@@ -54885,7 +55032,7 @@
         "parentId": "LGS233",
         "productCode": "LGS233",
         "color": "黑色",
-        "materialId": "mat_18i5rbs",
+        "materialId": "mat_b8cef361",
         "stt": "16",
         "comp_code": "",
         "qty": "4",
@@ -54915,7 +55062,7 @@
         "parentId": "LGS233",
         "productCode": "LGS233",
         "color": "黑色",
-        "materialId": "mat_dd376149",
+        "materialId": "mat_pm5529012",
         "stt": "18",
         "comp_code": "",
         "qty": "2",
@@ -95070,7 +95217,7 @@
         "parentId": "LGS233",
         "productCode": "LGS233",
         "color": "山纹黑",
-        "materialId": "mat_lgs233zfxswh",
+        "materialId": "mat_lgs233zfxswhv5",
         "stt": "15",
         "comp_code": "",
         "qty": "1",
@@ -95085,7 +95232,7 @@
         "parentId": "LGS233",
         "productCode": "LGS233",
         "color": "山纹黑",
-        "materialId": "mat_18i5rbs",
+        "materialId": "mat_b8cef361",
         "stt": "16",
         "comp_code": "",
         "qty": "4",
@@ -95115,7 +95262,7 @@
         "parentId": "LGS233",
         "productCode": "LGS233",
         "color": "山纹黑",
-        "materialId": "mat_dd376149",
+        "materialId": "mat_pm5529012",
         "stt": "18",
         "comp_code": "",
         "qty": "2",
