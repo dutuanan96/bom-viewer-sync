@@ -300990,7 +300990,7 @@
       "currentRevisionInfo": {
         "sourceRevision": "V4.3",
         "createdAt": "2026-11-09T06:35:00.581Z",
-        "changeReason": "V5结构草稿：共用LGS133黑色五金包及C/D/E框架；白色保留对应颜色。F/G843mm；J/K895mm焊44mm底脚并配M6管塞；取消S。激光单零件文件，夹持预留80mm。待确认：抽屉/底板/抽条规格、C孔位、连接件规格、顶板孔位及包装试装。未审核不得发布。",
+        "changeReason": "V5结构草稿：共用LGS133黑色五金包及C/D/E框架；白色保留对应颜色。F/G843mm；J/K895mm焊44mm底脚并配M6管塞；取消S。激光单零件文件，主管夹持预留80mm；80mm连接件每5190mm原管切64段，名义尾料70mm。待确认：抽屉/底板/抽条规格、C孔位、连接件规格、顶板孔位及包装试装。未审核不得发布。",
         "workflowState": "draft"
       },
       "revisions": [
