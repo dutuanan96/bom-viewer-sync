@@ -1207,7 +1207,7 @@
         },
         {
           "stt": "19",
-          "mat_code": "LGS233SMS",
+          "mat_code": "LGS233SMSV5",
           "comp_code": "",
           "name_zh": "LGS233说明书",
           "name_vi": "LGS233 sách hướng dẫn",
@@ -1226,7 +1226,7 @@
             "vi": "quyển"
           },
           "qty": "1",
-          "remark": ""
+          "remark": "V5说明书，文件待提供。"
         },
         {
           "stt": "20",
@@ -2821,7 +2821,7 @@
         },
         {
           "stt": "19",
-          "mat_code": "LGS233SMS",
+          "mat_code": "LGS233SMSV5",
           "comp_code": "",
           "name_zh": "LGS233说明书",
           "name_vi": "LGS233 sách hướng dẫn",
@@ -2840,7 +2840,7 @@
             "vi": "quyển"
           },
           "qty": "1",
-          "remark": ""
+          "remark": "V5说明书，文件待提供。"
         },
         {
           "stt": "20",
@@ -4435,7 +4435,7 @@
         },
         {
           "stt": "19",
-          "mat_code": "LGS233SMS",
+          "mat_code": "LGS233SMSV5",
           "comp_code": "",
           "name_zh": "LGS233说明书",
           "name_vi": "LGS233 sách hướng dẫn",
@@ -4454,7 +4454,7 @@
             "vi": "quyển"
           },
           "qty": "1",
-          "remark": ""
+          "remark": "V5说明书，文件待提供。"
         },
         {
           "stt": "20",
@@ -6043,7 +6043,7 @@
         },
         {
           "stt": "19",
-          "mat_code": "LGS233SMS",
+          "mat_code": "LGS233SMSV5",
           "comp_code": "",
           "name_zh": "LGS233说明书",
           "name_vi": "LGS233 sách hướng dẫn",
@@ -6062,7 +6062,7 @@
             "vi": "quyển"
           },
           "qty": "1",
-          "remark": ""
+          "remark": "V5说明书，文件待提供。"
         },
         {
           "stt": "20",

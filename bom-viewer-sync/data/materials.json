@@ -48497,6 +48497,66 @@
         "drawings": [],
         "models3d": [],
         "unit": "个"
+      },
+      "mat_lgs133smsv5": {
+        "id": "mat_lgs133smsv5",
+        "code": "LGS133SMSV5",
+        "name": {
+          "zh": "LGS133说明书",
+          "vi": "LGS133 sách hướng dẫn"
+        },
+        "spec": {
+          "zh": "A4",
+          "vi": "A4"
+        },
+        "material": {
+          "zh": "铜版纸",
+          "vi": "giấy couché"
+        },
+        "color": {
+          "zh": "白底黑字",
+          "vi": "nền trắng chữ đen"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "本",
+          "vi": "quyển"
+        }
+      },
+      "mat_lgs233smsv5": {
+        "id": "mat_lgs233smsv5",
+        "code": "LGS233SMSV5",
+        "name": {
+          "zh": "LGS233说明书",
+          "vi": "LGS233 sách hướng dẫn"
+        },
+        "spec": {
+          "zh": "A4",
+          "vi": "A4"
+        },
+        "material": {
+          "zh": "铜版纸",
+          "vi": "giấy couché"
+        },
+        "color": {
+          "zh": "白底黑字",
+          "vi": "nền trắng chữ đen"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "本",
+          "vi": "quyển"
+        }
       }
     },
     "bomEntries": [
@@ -53967,14 +54027,14 @@
         "parentId": "LGS233",
         "productCode": "LGS233",
         "color": "复古色",
-        "materialId": "mat_ogmirw",
+        "materialId": "mat_lgs233smsv5",
         "stt": "19",
         "comp_code": "",
         "qty": "1",
         "order": 19,
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "remark": ""
+        "remark": "V5说明书，文件待提供。"
       },
       {
         "id": "bom_lgs233v5_0_20",
@@ -54522,14 +54582,14 @@
         "parentId": "LGS233",
         "productCode": "LGS233",
         "color": "白色",
-        "materialId": "mat_ogmirw",
+        "materialId": "mat_lgs233smsv5",
         "stt": "19",
         "comp_code": "",
         "qty": "1",
         "order": 19,
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "remark": ""
+        "remark": "V5说明书，文件待提供。"
       },
       {
         "id": "bom_lgs233v5_1_20",
@@ -55077,14 +55137,14 @@
         "parentId": "LGS233",
         "productCode": "LGS233",
         "color": "黑色",
-        "materialId": "mat_ogmirw",
+        "materialId": "mat_lgs233smsv5",
         "stt": "19",
         "comp_code": "",
         "qty": "1",
         "order": 19,
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "remark": ""
+        "remark": "V5说明书，文件待提供。"
       },
       {
         "id": "bom_lgs233v5_2_20",
@@ -95277,14 +95337,14 @@
         "parentId": "LGS233",
         "productCode": "LGS233",
         "color": "山纹黑",
-        "materialId": "mat_ogmirw",
+        "materialId": "mat_lgs233smsv5",
         "stt": "19",
         "comp_code": "",
         "qty": "1",
         "order": 19,
         "color_ver": "山纹黑",
         "color_ver_vi": "màu đen vân gỗ",
-        "remark": ""
+        "remark": "V5说明书，文件待提供。"
       },
       {
         "id": "bom_lgs233v5_3_20",
@@ -111862,14 +111922,14 @@
         "parentId": "LGS133",
         "productCode": "LGS133",
         "color": "复古色",
-        "materialId": "mat_15yxbyv",
+        "materialId": "mat_lgs133smsv5",
         "stt": "20",
         "comp_code": "",
         "qty": "1",
         "order": 20,
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "remark": ""
+        "remark": "V5说明书，文件待提供。"
       },
       {
         "id": "bom_lgs133v5_0_21",
@@ -112402,14 +112462,14 @@
         "parentId": "LGS133",
         "productCode": "LGS133",
         "color": "黑色",
-        "materialId": "mat_15yxbyv",
+        "materialId": "mat_lgs133smsv5",
         "stt": "20",
         "comp_code": "",
         "qty": "1",
         "order": 20,
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "remark": ""
+        "remark": "V5说明书，文件待提供。"
       },
       {
         "id": "bom_lgs133v5_1_21",

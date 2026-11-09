@@ -571409,7 +571409,13 @@
       },
       "V5": {
         "manuals": [],
-        "assemblyModels": [],
+        "assemblyModels": [
+          {
+            "name": "LGS233-V5-assembly.glb",
+            "path": "models3d/catalog/model-lgs233-v5-assembly-1549ab7314a9.glb",
+            "url": "https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/model-lgs233-v5-assembly-1549ab7314a9.glb"
+          }
+        ],
         "images": {}
       }
     },
