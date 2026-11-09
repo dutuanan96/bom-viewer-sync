@@ -242,6 +242,9 @@ function contentHeaderHtml(product, colorData) {
         <span>${escapeHTML(this.label('lastModified'))}: ${escapeHTML(this.formatDate(this.state.payload.updatedAt))}</span>
       </div>
       ${this.revisionTransitionHtml(revisionInfo)}
+      ${this.state.payload.bomVersions?.[this.state.currentSku]?.designRevision === revisionInfo?.revision
+        ? `<div class="revision-transition"><span><strong>${escapeHTML(this.label('packagingBomVersion'))}:</strong> ${escapeHTML(this.state.payload.bomVersions[this.state.currentSku].effectiveVersion)}</span></div>`
+        : ''}
     </div>
     <div class="header-actions">${this.headerActionsHtml()}</div>
   </div>

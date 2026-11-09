@@ -55,6 +55,8 @@ export function normalizePayload(payload, fallbackProductImages = {}) {
     models3d: clone(source.models3d),
     productImages: clone({ ...fallbackProductImages, ...(source.productImages || {}) }),
     productRevisions: normalizeProductRevisionRegistry(source),
+    ...(Object.keys(source.bomVersions || {}).length ? { bomVersions: clone(source.bomVersions) } : {}),
+    ...(Object.keys(source.closedDrafts || {}).length ? { closedDrafts: clone(source.closedDrafts) } : {}),
     notifications: normalizeNotifications(source.notifications),
   };
   const productAssets = normalizeProductAssetRegistry(source.productAssets);

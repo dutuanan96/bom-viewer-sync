@@ -8,6 +8,7 @@ import {
   queryMatches,
   uniqueValues,
 } from './materials.js';
+import { applyEffectiveBomVersion } from './bom-versions.js';
 
 function normalizePayload(payload) {
   const source = payload || {};
@@ -23,7 +24,8 @@ function isRenderableProductEntry(source, entry, productCode, colorName) {
 }
 
 function resolveBomRows(payload, productCode, colorName) {
-  const source = payload || {};
+  const source = applyEffectiveBomVersion(payload, productCode,
+    payload?.productRevisions?.[productCode]?.effectiveRevision) || {};
   if (!source.materialDb?.materials || !source.materialDb?.bomEntries) {
     return (((source.bom || {})[productCode] || {}).color_info || {})[colorName]?.materials || [];
   }
@@ -38,13 +40,15 @@ function resolveBomRows(payload, productCode, colorName) {
 }
 
 function productSidebarItem(payload, productCode, lang) {
-  const product = payload?.bom?.[productCode] || {};
+  const source = applyEffectiveBomVersion(payload, productCode,
+    payload?.productRevisions?.[productCode]?.effectiveRevision);
+  const product = source?.bom?.[productCode] || {};
   const colorData = product.color_info?.[product.colors?.[0]] || Object.values(product.color_info || {})[0] || {};
   const name = lang === 'vi'
     ? (colorData.name_vi || colorData.name_zh || colorData.name || productCode)
     : (colorData.name_zh || colorData.name || colorData.name_vi || productCode);
   const materialCount = Object.entries(product.color_info || {})
-    .reduce((total, [colorName]) => total + resolveBomRows(payload, productCode, colorName).length, 0);
+    .reduce((total, [colorName]) => total + resolveBomRows(source, productCode, colorName).length, 0);
   return {
     type: 'product',
     id: productCode,

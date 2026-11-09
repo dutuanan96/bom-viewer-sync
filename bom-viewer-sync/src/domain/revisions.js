@@ -1,5 +1,6 @@
 import { clone } from './materials.js';
 import { normalizeProductAssetRegistry, resolveProductAssets } from './product-assets.js';
+import { applyEffectiveBomVersion } from './bom-versions.js';
 
 const DEFAULT_PRODUCT_REVISION = 'A.1';
 const DEFAULT_REVISION_WORKFLOW_STATE = 'released';
@@ -190,7 +191,7 @@ function productRevisionOptions(payload, productCode) {
       effective: record.currentRevision === record.effectiveRevision,
       ...record.currentRevisionInfo,
     },
-    ...record.revisions.map((item) => ({
+    ...record.revisions.filter((item) => item.revision !== record.currentRevision).map((item) => ({
       revision: item.revision,
       current: false,
       effective: item.revision === record.effectiveRevision,
@@ -299,6 +300,11 @@ function createProductRevision(payload, productCode, nextRevision, options) {
     ],
     effectivityEvents: record.effectivityEvents,
   };
+  const activeBom = applyEffectiveBomVersion(payload, productCode, currentRevision);
+  if (activeBom !== payload) {
+    payload.bom[productCode] = activeBom.bom[productCode];
+    payload.materialDb.bomEntries = activeBom.materialDb.bomEntries;
+  }
   payload.bom[productCode].revision = nextCode;
   return payload.productRevisions[productCode];
 }
@@ -412,7 +418,7 @@ function withdrawProductRevision(payload, productCode, selectedRevision, options
 function payloadForProductRevision(payload, productCode, selectedRevision) {
   const record = productRevisionRecord(payload, productCode);
   const selected = revisionCode(selectedRevision, record.currentRevision);
-  if (selected === record.currentRevision) return payload;
+  if (selected === record.currentRevision) return applyEffectiveBomVersion(payload, productCode, selected);
   const historical = record.revisions.find((item) => item.revision === selected);
   if (!historical || !hasProductSnapshot(historical)) return payload;
   const snapshot = normalizeRevisionSnapshot(historical.snapshot);
@@ -434,11 +440,11 @@ function payloadForProductRevision(payload, productCode, selectedRevision) {
     snapshot.materialDb.materials = mergedMaterials;
   }
 
-  return {
+  return applyEffectiveBomVersion({
     ...payload,
     bom: { [productCode]: snapshot.product },
     materialDb: snapshot.materialDb,
-  };
+  }, productCode, selected);
 }
 
 export {
