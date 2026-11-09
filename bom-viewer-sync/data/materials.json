@@ -111532,7 +111532,7 @@
         "order": 26,
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "remark": ""
+        "remark": "包装对象：LGS133ZYKBHV5×2、LGS133ZKBH647V5×1、LGS133YKBH647V5×1\n规则：1件/袋；用袋：4袋"
       },
       {
         "id": "bom_lgs133v5_0_27",
@@ -111543,11 +111543,11 @@
         "materialId": "mat_1ss3c8v",
         "stt": "27",
         "comp_code": "",
-        "qty": "2",
+        "qty": "1",
         "order": 27,
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "remark": ""
+        "remark": "包装对象：LGS133XHYHLBHV5×1、LGS133XQYHLBHV5×1\n规则：F/G同袋，2件/袋；用袋：1袋"
       },
       {
         "id": "bom_lgs133v5_0_28",
@@ -111555,14 +111555,14 @@
         "parentId": "LGS133",
         "productCode": "LGS133",
         "color": "复古色",
-        "materialId": "mat_1o488o",
+        "materialId": "mat_pe830x120",
         "stt": "28",
         "comp_code": "",
         "qty": "1",
         "order": 28,
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "remark": "用量沿用V4.3，V5包装对象待确认。"
+        "remark": "包装对象：LGS133XHZHLBHV5×1、LGS133XQZHLBHV5×1\n规则：J/K同袋，2件/袋；用袋：1袋\n同向叠放，底脚位置对齐。装袋前保护焊接棱角；需实物试装确认袋口余量。"
       },
       {
         "id": "bom_lgs133v5_0_29",
@@ -112072,7 +112072,7 @@
         "order": 26,
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "remark": ""
+        "remark": "包装对象：LGS133ZYKBHV5×2、LGS133ZKBH647V5×1、LGS133YKBH647V5×1\n规则：1件/袋；用袋：4袋"
       },
       {
         "id": "bom_lgs133v5_1_27",
@@ -112083,11 +112083,11 @@
         "materialId": "mat_1ss3c8v",
         "stt": "27",
         "comp_code": "",
-        "qty": "2",
+        "qty": "1",
         "order": 27,
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "remark": ""
+        "remark": "包装对象：LGS133XHYHLBHV5×1、LGS133XQYHLBHV5×1\n规则：F/G同袋，2件/袋；用袋：1袋"
       },
       {
         "id": "bom_lgs133v5_1_28",
@@ -112095,14 +112095,14 @@
         "parentId": "LGS133",
         "productCode": "LGS133",
         "color": "黑色",
-        "materialId": "mat_1o488o",
+        "materialId": "mat_pe830x120",
         "stt": "28",
         "comp_code": "",
         "qty": "1",
         "order": 28,
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "remark": "用量沿用V4.3，V5包装对象待确认。"
+        "remark": "包装对象：LGS133XHZHLBHV5×1、LGS133XQZHLBHV5×1\n规则：J/K同袋，2件/袋；用袋：1袋\n同向叠放，底脚位置对齐。装袋前保护焊接棱角；需实物试装确认袋口余量。"
       },
       {
         "id": "bom_lgs133v5_1_29",

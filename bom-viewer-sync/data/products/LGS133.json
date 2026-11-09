@@ -1408,7 +1408,7 @@
             "vi": "cái"
           },
           "qty": "4",
-          "remark": ""
+          "remark": "包装对象：LGS133ZYKBHV5×2、LGS133ZKBH647V5×1、LGS133YKBH647V5×1\n规则：1件/袋；用袋：4袋"
         },
         {
           "stt": "27",
@@ -1430,17 +1430,17 @@
             "zh": "个",
             "vi": "cái"
           },
-          "qty": "2",
-          "remark": ""
+          "qty": "1",
+          "remark": "包装对象：LGS133XHYHLBHV5×1、LGS133XQYHLBHV5×1\n规则：F/G同袋，2件/袋；用袋：1袋"
         },
         {
           "stt": "28",
-          "mat_code": "PE600X60",
+          "mat_code": "PE830X120",
           "comp_code": "",
           "name_zh": "PE袋",
           "name_vi": "túi PE",
-          "spec": "600×60mm",
-          "spec_vi": "600×60mm",
+          "spec": "830×120mm",
+          "spec_vi": "830×120mm",
           "material_zh": "PE",
           "material_vi": "PE",
           "color_zh": "透明",
@@ -1454,7 +1454,7 @@
             "vi": "cái"
           },
           "qty": "1",
-          "remark": "用量沿用V4.3，V5包装对象待确认。"
+          "remark": "包装对象：LGS133XHZHLBHV5×1、LGS133XQZHLBHV5×1\n规则：J/K同袋，2件/袋；用袋：1袋\n同向叠放，底脚位置对齐。装袋前保护焊接棱角；需实物试装确认袋口余量。"
         },
         {
           "stt": "29",
@@ -3022,7 +3022,7 @@
             "vi": "cái"
           },
           "qty": "4",
-          "remark": ""
+          "remark": "包装对象：LGS133ZYKBHV5×2、LGS133ZKBH647V5×1、LGS133YKBH647V5×1\n规则：1件/袋；用袋：4袋"
         },
         {
           "stt": "27",
@@ -3044,17 +3044,17 @@
             "zh": "个",
             "vi": "cái"
           },
-          "qty": "2",
-          "remark": ""
+          "qty": "1",
+          "remark": "包装对象：LGS133XHYHLBHV5×1、LGS133XQYHLBHV5×1\n规则：F/G同袋，2件/袋；用袋：1袋"
         },
         {
           "stt": "28",
-          "mat_code": "PE600X60",
+          "mat_code": "PE830X120",
           "comp_code": "",
           "name_zh": "PE袋",
           "name_vi": "túi PE",
-          "spec": "600×60mm",
-          "spec_vi": "600×60mm",
+          "spec": "830×120mm",
+          "spec_vi": "830×120mm",
           "material_zh": "PE",
           "material_vi": "PE",
           "color_zh": "透明",
@@ -3068,7 +3068,7 @@
             "vi": "cái"
           },
           "qty": "1",
-          "remark": "用量沿用V4.3，V5包装对象待确认。"
+          "remark": "包装对象：LGS133XHZHLBHV5×1、LGS133XQZHLBHV5×1\n规则：J/K同袋，2件/袋；用袋：1袋\n同向叠放，底脚位置对齐。装袋前保护焊接棱角；需实物试装确认袋口余量。"
         },
         {
           "stt": "29",
