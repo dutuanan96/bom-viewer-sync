@@ -1119,8 +1119,8 @@
           "comp_code": "",
           "name_zh": "中封箱",
           "name_vi": "thùng đóng giữa",
-          "spec": "955x565x100mm",
-          "spec_vi": "955x565x100mm",
+          "spec": "960x560x100mm",
+          "spec_vi": "960x560x100mm",
           "material_zh": "瓦楞纸",
           "material_vi": "giấy carton",
           "color_zh": "纸色",
@@ -1138,12 +1138,12 @@
         },
         {
           "stt": "16",
-          "mat_code": "ZHJ505090",
+          "mat_code": "ZHJ5050100",
           "comp_code": "",
           "name_zh": "纸护角",
           "name_vi": "giấy nẹp",
-          "spec": "50x50x90mm",
-          "spec_vi": "50x50x90mm",
+          "spec": "50x50x100mm",
+          "spec_vi": "50x50x100mm",
           "material_zh": "瓦楞纸",
           "material_vi": "giấy carton",
           "color_zh": "纸色",
@@ -1156,7 +1156,7 @@
             "zh": "个",
             "vi": "cái"
           },
-          "qty": "4",
+          "qty": "2",
           "remark": ""
         },
         {
@@ -1184,12 +1184,12 @@
         },
         {
           "stt": "18",
-          "mat_code": "PM5529012",
+          "mat_code": "PM5609012",
           "comp_code": "",
           "name_zh": "泡沫",
           "name_vi": "mút xốp",
-          "spec": "20kg, 552x90x12mm",
-          "spec_vi": "20kg, 552x90x12mm",
+          "spec": "20kg, 560x90x12mm",
+          "spec_vi": "20kg, 560x90x12mm",
           "material_zh": "EPS泡沫",
           "material_vi": "EPS mút xốp",
           "color_zh": "白色",
@@ -1617,6 +1617,52 @@
             "vi": "miếng"
           },
           "qty": "2",
+          "remark": ""
+        },
+        {
+          "stt": "37",
+          "mat_code": "PM19019070",
+          "comp_code": "",
+          "name_zh": "泡沫",
+          "name_vi": "mút xốp",
+          "spec": "16kg, 190x190x70mm",
+          "spec_vi": "16kg, 190x190x70mm",
+          "material_zh": "EPS泡沫",
+          "material_vi": "EPS mút xốp",
+          "color_zh": "白色",
+          "color_vi": "màu trắng",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "复古色",
+          "color_ver_vi": "màu gỗ cổ",
+          "unit": {
+            "zh": "块",
+            "vi": "miếng"
+          },
+          "qty": "1",
+          "remark": ""
+        },
+        {
+          "stt": "38",
+          "mat_code": "PM18011055",
+          "comp_code": "",
+          "name_zh": "泡沫",
+          "name_vi": "mút xốp",
+          "spec": "16kg, 180x110x55mm",
+          "spec_vi": "16kg, 180x110x55mm",
+          "material_zh": "EPS泡沫",
+          "material_vi": "EPS mút xốp",
+          "color_zh": "白色",
+          "color_vi": "màu trắng",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "复古色",
+          "color_ver_vi": "màu gỗ cổ",
+          "unit": {
+            "zh": "块",
+            "vi": "miếng"
+          },
+          "qty": "1",
           "remark": ""
         }
       ]
@@ -2733,8 +2779,8 @@
           "comp_code": "",
           "name_zh": "中封箱",
           "name_vi": "thùng đóng giữa",
-          "spec": "955x565x100mm",
-          "spec_vi": "955x565x100mm",
+          "spec": "960x560x100mm",
+          "spec_vi": "960x560x100mm",
           "material_zh": "瓦楞纸",
           "material_vi": "giấy carton",
           "color_zh": "纸色",
@@ -2752,12 +2798,12 @@
         },
         {
           "stt": "16",
-          "mat_code": "ZHJ505090",
+          "mat_code": "ZHJ5050100",
           "comp_code": "",
           "name_zh": "纸护角",
           "name_vi": "giấy nẹp",
-          "spec": "50x50x90mm",
-          "spec_vi": "50x50x90mm",
+          "spec": "50x50x100mm",
+          "spec_vi": "50x50x100mm",
           "material_zh": "瓦楞纸",
           "material_vi": "giấy carton",
           "color_zh": "纸色",
@@ -2770,7 +2816,7 @@
             "zh": "个",
             "vi": "cái"
           },
-          "qty": "4",
+          "qty": "2",
           "remark": ""
         },
         {
@@ -2798,12 +2844,12 @@
         },
         {
           "stt": "18",
-          "mat_code": "PM5529012",
+          "mat_code": "PM5609012",
           "comp_code": "",
           "name_zh": "泡沫",
           "name_vi": "mút xốp",
-          "spec": "20kg, 552x90x12mm",
-          "spec_vi": "20kg, 552x90x12mm",
+          "spec": "20kg, 560x90x12mm",
+          "spec_vi": "20kg, 560x90x12mm",
           "material_zh": "EPS泡沫",
           "material_vi": "EPS mút xốp",
           "color_zh": "白色",
@@ -3231,6 +3277,52 @@
             "vi": "miếng"
           },
           "qty": "2",
+          "remark": ""
+        },
+        {
+          "stt": "37",
+          "mat_code": "PM19019070",
+          "comp_code": "",
+          "name_zh": "泡沫",
+          "name_vi": "mút xốp",
+          "spec": "16kg, 190x190x70mm",
+          "spec_vi": "16kg, 190x190x70mm",
+          "material_zh": "EPS泡沫",
+          "material_vi": "EPS mút xốp",
+          "color_zh": "白色",
+          "color_vi": "màu trắng",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "白色",
+          "color_ver_vi": "màu trắng",
+          "unit": {
+            "zh": "块",
+            "vi": "miếng"
+          },
+          "qty": "1",
+          "remark": ""
+        },
+        {
+          "stt": "38",
+          "mat_code": "PM18011055",
+          "comp_code": "",
+          "name_zh": "泡沫",
+          "name_vi": "mút xốp",
+          "spec": "16kg, 180x110x55mm",
+          "spec_vi": "16kg, 180x110x55mm",
+          "material_zh": "EPS泡沫",
+          "material_vi": "EPS mút xốp",
+          "color_zh": "白色",
+          "color_vi": "màu trắng",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "白色",
+          "color_ver_vi": "màu trắng",
+          "unit": {
+            "zh": "块",
+            "vi": "miếng"
+          },
+          "qty": "1",
           "remark": ""
         }
       ]
@@ -4347,8 +4439,8 @@
           "comp_code": "",
           "name_zh": "中封箱",
           "name_vi": "thùng đóng giữa",
-          "spec": "955x565x100mm",
-          "spec_vi": "955x565x100mm",
+          "spec": "960x560x100mm",
+          "spec_vi": "960x560x100mm",
           "material_zh": "瓦楞纸",
           "material_vi": "giấy carton",
           "color_zh": "纸色",
@@ -4366,12 +4458,12 @@
         },
         {
           "stt": "16",
-          "mat_code": "ZHJ505090",
+          "mat_code": "ZHJ5050100",
           "comp_code": "",
           "name_zh": "纸护角",
           "name_vi": "giấy nẹp",
-          "spec": "50x50x90mm",
-          "spec_vi": "50x50x90mm",
+          "spec": "50x50x100mm",
+          "spec_vi": "50x50x100mm",
           "material_zh": "瓦楞纸",
           "material_vi": "giấy carton",
           "color_zh": "纸色",
@@ -4384,7 +4476,7 @@
             "zh": "个",
             "vi": "cái"
           },
-          "qty": "4",
+          "qty": "2",
           "remark": ""
         },
         {
@@ -4412,12 +4504,12 @@
         },
         {
           "stt": "18",
-          "mat_code": "PM5529012",
+          "mat_code": "PM5609012",
           "comp_code": "",
           "name_zh": "泡沫",
           "name_vi": "mút xốp",
-          "spec": "20kg, 552x90x12mm",
-          "spec_vi": "20kg, 552x90x12mm",
+          "spec": "20kg, 560x90x12mm",
+          "spec_vi": "20kg, 560x90x12mm",
           "material_zh": "EPS泡沫",
           "material_vi": "EPS mút xốp",
           "color_zh": "白色",
@@ -4845,6 +4937,52 @@
             "vi": "miếng"
           },
           "qty": "2",
+          "remark": ""
+        },
+        {
+          "stt": "37",
+          "mat_code": "PM19019070",
+          "comp_code": "",
+          "name_zh": "泡沫",
+          "name_vi": "mút xốp",
+          "spec": "16kg, 190x190x70mm",
+          "spec_vi": "16kg, 190x190x70mm",
+          "material_zh": "EPS泡沫",
+          "material_vi": "EPS mút xốp",
+          "color_zh": "白色",
+          "color_vi": "màu trắng",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "黑色",
+          "color_ver_vi": "màu đen",
+          "unit": {
+            "zh": "块",
+            "vi": "miếng"
+          },
+          "qty": "1",
+          "remark": ""
+        },
+        {
+          "stt": "38",
+          "mat_code": "PM18011055",
+          "comp_code": "",
+          "name_zh": "泡沫",
+          "name_vi": "mút xốp",
+          "spec": "16kg, 180x110x55mm",
+          "spec_vi": "16kg, 180x110x55mm",
+          "material_zh": "EPS泡沫",
+          "material_vi": "EPS mút xốp",
+          "color_zh": "白色",
+          "color_vi": "màu trắng",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "黑色",
+          "color_ver_vi": "màu đen",
+          "unit": {
+            "zh": "块",
+            "vi": "miếng"
+          },
+          "qty": "1",
           "remark": ""
         }
       ]
@@ -5958,8 +6096,8 @@
           "comp_code": "",
           "name_zh": "中封箱（LGS233B201S）",
           "name_vi": "thùng đóng giữa (LGS233B201S)",
-          "spec": "955x565x100mm",
-          "spec_vi": "955x565x100mm",
+          "spec": "960x560x100mm",
+          "spec_vi": "960x560x100mm",
           "material_zh": "瓦楞纸",
           "material_vi": "giấy carton",
           "color_zh": "纸色",
@@ -5974,12 +6112,12 @@
         },
         {
           "stt": "16",
-          "mat_code": "ZHJ505090",
+          "mat_code": "ZHJ5050100",
           "comp_code": "",
           "name_zh": "纸护角",
           "name_vi": "giấy nẹp",
-          "spec": "50x50x90mm",
-          "spec_vi": "50x50x90mm",
+          "spec": "50x50x100mm",
+          "spec_vi": "50x50x100mm",
           "material_zh": "瓦楞纸",
           "material_vi": "giấy carton",
           "color_zh": "纸色",
@@ -5992,7 +6130,7 @@
             "zh": "个",
             "vi": "cái"
           },
-          "qty": "4",
+          "qty": "2",
           "remark": ""
         },
         {
@@ -6020,12 +6158,12 @@
         },
         {
           "stt": "18",
-          "mat_code": "PM5529012",
+          "mat_code": "PM5609012",
           "comp_code": "",
           "name_zh": "泡沫",
           "name_vi": "mút xốp",
-          "spec": "20kg, 552x90x12mm",
-          "spec_vi": "20kg, 552x90x12mm",
+          "spec": "20kg, 560x90x12mm",
+          "spec_vi": "20kg, 560x90x12mm",
           "material_zh": "EPS泡沫",
           "material_vi": "EPS mút xốp",
           "color_zh": "白色",
@@ -6453,6 +6591,52 @@
             "vi": "miếng"
           },
           "qty": "2",
+          "remark": ""
+        },
+        {
+          "stt": "37",
+          "mat_code": "PM19019070",
+          "comp_code": "",
+          "name_zh": "泡沫",
+          "name_vi": "mút xốp",
+          "spec": "16kg, 190x190x70mm",
+          "spec_vi": "16kg, 190x190x70mm",
+          "material_zh": "EPS泡沫",
+          "material_vi": "EPS mút xốp",
+          "color_zh": "白色",
+          "color_vi": "màu trắng",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "山纹黑",
+          "color_ver_vi": "màu đen vân gỗ",
+          "unit": {
+            "zh": "块",
+            "vi": "miếng"
+          },
+          "qty": "1",
+          "remark": ""
+        },
+        {
+          "stt": "38",
+          "mat_code": "PM18011055",
+          "comp_code": "",
+          "name_zh": "泡沫",
+          "name_vi": "mút xốp",
+          "spec": "16kg, 180x110x55mm",
+          "spec_vi": "16kg, 180x110x55mm",
+          "material_zh": "EPS泡沫",
+          "material_vi": "EPS mút xốp",
+          "color_zh": "白色",
+          "color_vi": "màu trắng",
+          "attr_zh": "包材",
+          "attr_vi": "vật liệu đóng gói",
+          "color_ver": "山纹黑",
+          "color_ver_vi": "màu đen vân gỗ",
+          "unit": {
+            "zh": "块",
+            "vi": "miếng"
+          },
+          "qty": "1",
           "remark": ""
         }
       ]
