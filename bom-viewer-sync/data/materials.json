@@ -47669,8 +47669,8 @@
           "vi": "thùng đóng giữa"
         },
         "spec": {
-          "zh": "820x485x125mm",
-          "vi": "820x485x125mm"
+          "zh": "820x470x125mm",
+          "vi": "820x470x125mm"
         },
         "material": {
           "zh": "瓦楞纸",
@@ -47789,8 +47789,8 @@
           "vi": "thùng đóng giữa"
         },
         "spec": {
-          "zh": "820x485x125mm",
-          "vi": "820x485x125mm"
+          "zh": "820x470x125mm",
+          "vi": "820x470x125mm"
         },
         "material": {
           "zh": "瓦楞纸",
@@ -48556,6 +48556,66 @@
         "unit": {
           "zh": "本",
           "vi": "quyển"
+        }
+      },
+      "mat_pm46211512": {
+        "id": "mat_pm46211512",
+        "code": "PM46211512",
+        "name": {
+          "zh": "泡沫",
+          "vi": "mút xốp"
+        },
+        "spec": {
+          "zh": "20kg, 462x115x12mm",
+          "vi": "20kg, 462x115x12mm"
+        },
+        "material": {
+          "zh": "EPS泡沫",
+          "vi": "EPS mút xốp"
+        },
+        "color": {
+          "zh": "白色",
+          "vi": "màu trắng"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "块",
+          "vi": "miếng"
+        }
+      },
+      "mat_pm7554530": {
+        "id": "mat_pm7554530",
+        "code": "PM7554530",
+        "name": {
+          "zh": "泡沫",
+          "vi": "mút xốp"
+        },
+        "spec": {
+          "zh": "16kg, 755x45x30mm",
+          "vi": "16kg, 755x45x30mm"
+        },
+        "material": {
+          "zh": "EPS泡沫",
+          "vi": "EPS mút xốp"
+        },
+        "color": {
+          "zh": "白色",
+          "vi": "màu trắng"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "块",
+          "vi": "miếng"
         }
       }
     },
@@ -111892,7 +111952,7 @@
         "parentId": "LGS133",
         "productCode": "LGS133",
         "color": "复古色",
-        "materialId": "mat_pm47212510v5",
+        "materialId": "mat_pm46211512",
         "stt": "18",
         "comp_code": "",
         "qty": "2",
@@ -111907,7 +111967,7 @@
         "parentId": "LGS133",
         "productCode": "LGS133",
         "color": "复古色",
-        "materialId": "mat_7f7a80de",
+        "materialId": "mat_pm7554530",
         "stt": "19",
         "comp_code": "",
         "qty": "2",
@@ -112432,7 +112492,7 @@
         "parentId": "LGS133",
         "productCode": "LGS133",
         "color": "黑色",
-        "materialId": "mat_pm47212510v5",
+        "materialId": "mat_pm46211512",
         "stt": "18",
         "comp_code": "",
         "qty": "2",
@@ -112447,7 +112507,7 @@
         "parentId": "LGS133",
         "productCode": "LGS133",
         "color": "黑色",
-        "materialId": "mat_7f7a80de",
+        "materialId": "mat_pm7554530",
         "stt": "19",
         "comp_code": "",
         "qty": "2",
