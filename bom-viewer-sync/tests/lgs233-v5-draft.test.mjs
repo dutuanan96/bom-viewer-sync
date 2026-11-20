@@ -87,7 +87,7 @@ test('all four draft colors use the revised packing specifications and quantitie
       ['PM19019070', '16kg, 190x190x70mm', '1'],
       ['PM5609012', '20kg, 560x90x12mm', '2'],
       ['PM18011055', '16kg, 180x110x55mm', '1'],
-      ['ZHJ5050100', '50x50x100mm', '2'],
+      ['ZHJ5050908T', '50x50x90x8Tmm', '2'],
       ['ZK925100', '单瓦925x100mm', '1'],
     ]) {
       const [row, ...duplicates] = rows.filter(item => item.mat_code === code);
@@ -95,7 +95,7 @@ test('all four draft colors use the revised packing specifications and quantitie
       assert.equal(row.spec, spec);
       assert.equal(row.qty, qty);
     }
-    assert.equal(rows.some(row => ['ZHJ505090', 'PM5529012'].includes(row.mat_code)), false);
+    assert.equal(rows.some(row => ['ZHJ505090', 'ZHJ5050100', 'PM5529012'].includes(row.mat_code)), false);
   }
 });
 
