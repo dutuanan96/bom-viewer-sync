@@ -77,17 +77,25 @@ test('main-tube laser programs leave at least 80 mm for clamping', () => {
   }
 });
 
-test('revised packaging reuses the stock corner and retains per-product quantities', () => {
+test('all four draft colors use the revised packing specifications and quantities', () => {
   for (const variant of Object.values(product.color_info)) {
     const rows = variant.materials;
     const carton = rows.find(row => row.mat_code.startsWith('LGS233ZFX'));
-    assert.equal(carton.spec, '955x565x100mm');
+    assert.equal(carton.spec, '960x560x100mm');
     assert.equal(carton.qty, '1');
-    assert.equal(rows.find(row => row.mat_code === 'ZHJ505090').qty, '4');
-    const foam = rows.find(row => row.mat_code === 'PM5529012');
-    assert.equal(foam.spec, '20kg, 552x90x12mm');
-    assert.equal(foam.qty, '2');
-    assert.equal(rows.some(row => ['ZHJ5050100', 'PM55210010'].includes(row.mat_code)), false);
+    for (const [code, spec, qty] of [
+      ['PM19019070', '16kg, 190x190x70mm', '1'],
+      ['PM5609012', '20kg, 560x90x12mm', '2'],
+      ['PM18011055', '16kg, 180x110x55mm', '1'],
+      ['ZHJ5050100', '50x50x100mm', '2'],
+      ['ZK925100', '单瓦925x100mm', '1'],
+    ]) {
+      const [row, ...duplicates] = rows.filter(item => item.mat_code === code);
+      assert.equal(duplicates.length, 0);
+      assert.equal(row.spec, spec);
+      assert.equal(row.qty, qty);
+    }
+    assert.equal(rows.some(row => ['ZHJ505090', 'PM5529012'].includes(row.mat_code)), false);
   }
 });
 
