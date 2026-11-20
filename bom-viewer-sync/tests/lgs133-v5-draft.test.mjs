@@ -118,17 +118,18 @@ test('V5 packaging uses revised dimensions with V4.3 per-product quantities rath
   for (const variant of Object.values(product.color_info)) {
     const find = code => variant.materials.find(row => row.mat_code === code);
     const carton = variant.materials.find(row => /^LGS133ZFX(?:KD|BH)V5$/.test(row.mat_code));
-    assert.equal(carton.spec, '820x485x125mm');
+    assert.equal(carton.spec, '820x470x125mm');
     assert.equal(carton.qty, '1');
-    assert.equal(find('PM47211512').spec, '20kg, 472x115x12mm');
-    assert.equal(find('PM47211512').qty, '2');
-    assert.equal(find('PM7405034').qty, '2');
+    assert.equal(find('PM46211512').spec, '20kg, 462x115x12mm');
+    assert.equal(find('PM46211512').qty, '2');
+    assert.equal(find('PM7554530').spec, '16kg, 755x45x30mm');
+    assert.equal(find('PM7554530').qty, '2');
     assert.equal(find('PE600X60'), undefined);
     assert.match(find('PE830X120').remark, /J\/K/);
     assert.match(find('PE830X60').remark, /F\/G/);
     assert.equal(find('ZHJ8080115').spec, '80x80x115mm');
     assert.equal(find('ZHJ8080115').qty, '4');
-    for (const code of ['ZHJ8080115', 'PM47211512']) {
+    for (const code of ['ZHJ8080115', 'PM46211512', 'PM7554530']) {
       const matches = Object.values(database.materials).filter(material => material.code === code);
       assert.equal(matches.length, 1);
       assert.equal(/V5|LGS133/.test(matches[0].name.zh), false);
