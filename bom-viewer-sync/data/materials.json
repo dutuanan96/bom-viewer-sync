@@ -48707,6 +48707,36 @@
           "zh": "块",
           "vi": "miếng"
         }
+      },
+      "mat_zhj5050908t": {
+        "id": "mat_zhj5050908t",
+        "code": "ZHJ5050908T",
+        "name": {
+          "zh": "纸护角",
+          "vi": "giấy nẹp"
+        },
+        "spec": {
+          "zh": "50x50x90x8Tmm",
+          "vi": "50x50x90x8Tmm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       }
     },
     "bomEntries": [
@@ -54132,7 +54162,7 @@
         "parentId": "LGS233",
         "productCode": "LGS233",
         "color": "复古色",
-        "materialId": "mat_18i5rbs",
+        "materialId": "mat_zhj5050908t",
         "stt": "16",
         "comp_code": "",
         "qty": "2",
@@ -54687,7 +54717,7 @@
         "parentId": "LGS233",
         "productCode": "LGS233",
         "color": "白色",
-        "materialId": "mat_18i5rbs",
+        "materialId": "mat_zhj5050908t",
         "stt": "16",
         "comp_code": "",
         "qty": "2",
@@ -55242,7 +55272,7 @@
         "parentId": "LGS233",
         "productCode": "LGS233",
         "color": "黑色",
-        "materialId": "mat_18i5rbs",
+        "materialId": "mat_zhj5050908t",
         "stt": "16",
         "comp_code": "",
         "qty": "2",
@@ -95442,7 +95472,7 @@
         "parentId": "LGS233",
         "productCode": "LGS233",
         "color": "山纹黑",
-        "materialId": "mat_18i5rbs",
+        "materialId": "mat_zhj5050908t",
         "stt": "16",
         "comp_code": "",
         "qty": "2",
