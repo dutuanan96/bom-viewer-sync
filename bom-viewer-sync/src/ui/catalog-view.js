@@ -410,7 +410,7 @@ function assemblyPreviewHtml(colorData) {
 function productImagePreviewHtml(colorData) {
   const image = this.productPreviewImage(colorData);
   const viewer = image
-    ? `<img class="assembly-image" src="${escapeHTML(assetDisplayUrl(image))}" alt="${escapeHTML(image.name || this.localizedProductName(colorData))}" loading="lazy">`
+    ? `<img class="assembly-image" src="${escapeHTML(assetDisplayUrl(image, globalThis.location, this.config))}" alt="${escapeHTML(image.name || this.localizedProductName(colorData))}" loading="lazy">`
     : `<div class="assembly-placeholder"><span class="material-symbols-outlined">image</span><strong>${escapeHTML(colorData.sku || this.state.currentSku)}</strong><small>${escapeHTML(this.label('productImage'))}</small></div>`;
   return `<section class="detail-card preview-card product-image-preview">
     <div class="preview-dots"></div>

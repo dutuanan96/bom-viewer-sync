@@ -78,10 +78,15 @@ export function driveFileId(url) {
   return idMatch ? decodeURIComponent(idMatch[1]) : '';
 }
 
-export function assetDisplayUrl(asset, locationLike = globalThis.location) {
+export function assetDisplayUrl(asset, locationLike = globalThis.location, config) {
   const pathUrl = asset?.path || '';
   const remoteUrl = asset?.directUrl || asset?.url || '';
   const driveId = asset?.driveId || driveFileId(remoteUrl) || driveFileId(asset?.url || '');
+  if (driveId && config?.owner && config?.repo && /^product-images\/[\w.-]+\.(?:jpe?g|png|webp)$/i.test(pathUrl)) {
+    const projectPath = (config.shardRoot || 'data').split('/').slice(0, -1).map(encodeURIComponent);
+    const repository = [config.owner, config.repo, config.branch || 'main'].map(encodeURIComponent);
+    return `https://raw.githubusercontent.com/${[...repository, ...projectPath, pathUrl].join('/')}`;
+  }
   if (driveId) return `https://drive.google.com/thumbnail?id=${encodeURIComponent(driveId)}&sz=w1600`;
   const isLocalDocument = locationLike?.protocol === 'http:'
     && ['', 'localhost', '127.0.0.1'].includes(locationLike?.hostname || '');
