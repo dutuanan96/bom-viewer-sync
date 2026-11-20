@@ -409,3 +409,17 @@ test('portable product images prefer a remote URL over a missing adjacent asset 
   assert.equal(assetDisplayUrl(asset, { protocol: 'http:', hostname: '127.0.0.1' }), asset.path);
   assert.equal(assetDisplayUrl(asset, { protocol: 'https:', hostname: 'viewer.example' }), asset.url);
 });
+
+test('repository-backed Drive product images load from GitHub in a portable viewer', () => {
+  const config = { owner: 'acme', repo: 'pdm', branch: 'main', shardRoot: 'pdm/data' };
+  const portable = { protocol: 'file:', hostname: '' };
+  const image = { path: 'product-images/LGS433_KD.jpg', driveId: 'drive-id' };
+  assert.equal(assetDisplayUrl(image, portable, config),
+    'https://raw.githubusercontent.com/acme/pdm/main/pdm/product-images/LGS433_KD.jpg');
+  assert.equal(assetDisplayUrl(image, portable, { ...config, shardRoot: 'data' }),
+    'https://raw.githubusercontent.com/acme/pdm/main/product-images/LGS433_KD.jpg');
+  assert.equal(assetDisplayUrl(image, { protocol: 'http:', hostname: 'localhost' }, config),
+    'https://raw.githubusercontent.com/acme/pdm/main/pdm/product-images/LGS433_KD.jpg');
+  assert.equal(assetDisplayUrl({ ...image, path: 'product-images/../outside.jpg' }, portable, config),
+    'https://drive.google.com/thumbnail?id=drive-id&sz=w1600');
+});
