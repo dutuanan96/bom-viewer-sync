@@ -72,10 +72,13 @@ test('shared frames, hardware quantities, and welded assemblies resolve for ever
       assert.equal(entry.qty, row.qty);
       assert.equal(entry.remark || '', row.remark || '');
     }
-    for (const [code, quantity] of [['PE720X400', '4'], ['PE950X60', '1'], ['PE1160X120', '1']]) {
+    for (const [code, quantity] of [['PE720X400', '4'], ['PE950X60', '1'], ['PE970X120', '1']]) {
       assert.equal(rows.find(row => row.mat_code === code).qty, quantity);
     }
-    assert.equal(rows.some(row => row.mat_code === 'PE620X60'), false);
+    const weldedArmBag = rows.find(row => row.mat_code === 'PE970X120');
+    assert.equal(weldedArmBag.spec, '970×120mm');
+    assert.match(weldedArmBag.remark, /J\/K.*75mm/);
+    assert.equal(rows.some(row => ['PE620X60', 'PE1160X120'].includes(row.mat_code)), false);
   }
 });
 

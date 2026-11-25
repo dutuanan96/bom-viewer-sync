@@ -48737,6 +48737,36 @@
           "zh": "个",
           "vi": "cái"
         }
+      },
+      "mat_pe970x120": {
+        "id": "mat_pe970x120",
+        "code": "PE970X120",
+        "name": {
+          "zh": "PE袋",
+          "vi": "túi PE"
+        },
+        "spec": {
+          "zh": "970×120mm",
+          "vi": "970×120mm"
+        },
+        "material": {
+          "zh": "PE",
+          "vi": "PE"
+        },
+        "color": {
+          "zh": "透明",
+          "vi": "trong suốt"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
       }
     },
     "bomEntries": [
@@ -54432,14 +54462,14 @@
         "parentId": "LGS233",
         "productCode": "LGS233",
         "color": "复古色",
-        "materialId": "mat_pe1160x120",
+        "materialId": "mat_pe970x120",
         "stt": "34",
         "comp_code": "",
         "qty": "1",
         "order": 34,
         "color_ver": "复古色",
         "color_ver_vi": "màu gỗ cổ",
-        "remark": "包装对象：LGS233XHZHLBHV5×1、LGS233XQZHLBHV5×1\n规则：J/K同袋，2件/袋；用袋：1袋\n同向叠放、底脚对齐；保护焊接棱角，多余袋长折回，需实物试装。"
+        "remark": "包装对象：LGS233XHZHLBHV5×1、LGS233XQZHLBHV5×1\n规则：J/K同袋，2件/袋；用袋：1袋\nJ/K长895mm，袋长名义余量75mm。同向叠放、底脚对齐，保护焊接棱角。袋口沿杆身折回，试装确认袋口余量及装箱效果。"
       },
       {
         "id": "bom_lgs233v5_0_35",
@@ -54987,14 +55017,14 @@
         "parentId": "LGS233",
         "productCode": "LGS233",
         "color": "白色",
-        "materialId": "mat_pe1160x120",
+        "materialId": "mat_pe970x120",
         "stt": "34",
         "comp_code": "",
         "qty": "1",
         "order": 34,
         "color_ver": "白色",
         "color_ver_vi": "màu trắng",
-        "remark": "包装对象：LGS233XHZHLWHV5×1、LGS233XQZHLWHV5×1\n规则：J/K同袋，2件/袋；用袋：1袋\n同向叠放、底脚对齐；保护焊接棱角，多余袋长折回，需实物试装。"
+        "remark": "包装对象：LGS233XHZHLWHV5×1、LGS233XQZHLWHV5×1\n规则：J/K同袋，2件/袋；用袋：1袋\nJ/K长895mm，袋长名义余量75mm。同向叠放、底脚对齐，保护焊接棱角。袋口沿杆身折回，试装确认袋口余量及装箱效果。"
       },
       {
         "id": "bom_lgs233v5_1_35",
@@ -55542,14 +55572,14 @@
         "parentId": "LGS233",
         "productCode": "LGS233",
         "color": "黑色",
-        "materialId": "mat_pe1160x120",
+        "materialId": "mat_pe970x120",
         "stt": "34",
         "comp_code": "",
         "qty": "1",
         "order": 34,
         "color_ver": "黑色",
         "color_ver_vi": "màu đen",
-        "remark": "包装对象：LGS233XHZHLBHV5×1、LGS233XQZHLBHV5×1\n规则：J/K同袋，2件/袋；用袋：1袋\n同向叠放、底脚对齐；保护焊接棱角，多余袋长折回，需实物试装。"
+        "remark": "包装对象：LGS233XHZHLBHV5×1、LGS233XQZHLBHV5×1\n规则：J/K同袋，2件/袋；用袋：1袋\nJ/K长895mm，袋长名义余量75mm。同向叠放、底脚对齐，保护焊接棱角。袋口沿杆身折回，试装确认袋口余量及装箱效果。"
       },
       {
         "id": "bom_lgs233v5_2_35",
@@ -95742,14 +95772,14 @@
         "parentId": "LGS233",
         "productCode": "LGS233",
         "color": "山纹黑",
-        "materialId": "mat_pe1160x120",
+        "materialId": "mat_pe970x120",
         "stt": "34",
         "comp_code": "",
         "qty": "1",
         "order": 34,
         "color_ver": "山纹黑",
         "color_ver_vi": "màu đen vân gỗ",
-        "remark": "包装对象：LGS233XHZHLBHV5×1、LGS233XQZHLBHV5×1\n规则：J/K同袋，2件/袋；用袋：1袋\n同向叠放、底脚对齐；保护焊接棱角，多余袋长折回，需实物试装。"
+        "remark": "包装对象：LGS233XHZHLBHV5×1、LGS233XQZHLBHV5×1\n规则：J/K同袋，2件/袋；用袋：1袋\nJ/K长895mm，袋长名义余量75mm。同向叠放、底脚对齐，保护焊接棱角。袋口沿杆身折回，试装确认袋口余量及装箱效果。"
       },
       {
         "id": "bom_lgs233v5_3_35",
