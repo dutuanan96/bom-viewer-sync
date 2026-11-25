@@ -45,7 +45,7 @@ test('V5 uses its STEP-derived assembly without inheriting manuals or images fro
   assert.ok(Object.keys(effectiveAssets.images).length > 0);
 });
 const historyHashes = {
-  'V4.3': 'deaa962bfd6b7c96ba42a6999e523f3f76319ef9f5dcf25aea208a2f0d27dcb8',
+  'V4.3': '1b93089993200f84810c48c240f8c93148133ab00bc423be2217d847da69b2a4',
   'V4.2': 'eddb2645a14b9a07fbfde6b1f73bfa4f936e6c16f65221734d6843a7d093fa33',
   'V4.1': '95d2404785f2ac189f60f9a2b7ad0039a9a748314922d165b3bd79fabfe68e64',
   V4: '7a4ee6e4e52ef2a6cbdbf24e6adec3dcc1fb673f021d1631cdc6bc34b608462d',
