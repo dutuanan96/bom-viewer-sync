@@ -47363,10 +47363,10 @@
       },
       "mat_lgs133wjbbhv5": {
         "id": "mat_lgs133wjbbhv5",
-        "code": "LGS133WJBBHV5",
+        "code": "LGS133233WJBBHV5",
         "name": {
-          "zh": "LGS133五金包",
-          "vi": "LGS133Túi ngũ kim"
+          "zh": "LGS133233五金包",
+          "vi": "Túi ốc LGS133/LGS233"
         },
         "spec": {
           "zh": "详见明细",
@@ -111465,34 +111465,6 @@
         "color": "黑色"
       },
       {
-        "id": "bomc_lgs133v5_mat_lgs133wjbbhv5_8_0",
-        "parentType": "material",
-        "parentId": "mat_lgs133wjbbhv5",
-        "materialId": "mat_f3e6hw",
-        "childMaterialId": "mat_f3e6hw",
-        "qty": "4",
-        "order": 8,
-        "comp_code": "6",
-        "stt": "9",
-        "remark": "",
-        "productCode": "LGS133",
-        "color": "复古色"
-      },
-      {
-        "id": "bomc_lgs133v5_mat_lgs133wjbbhv5_8_1",
-        "parentType": "material",
-        "parentId": "mat_lgs133wjbbhv5",
-        "materialId": "mat_f3e6hw",
-        "childMaterialId": "mat_f3e6hw",
-        "qty": "4",
-        "order": 8,
-        "comp_code": "6",
-        "stt": "9",
-        "remark": "",
-        "productCode": "LGS133",
-        "color": "黑色"
-      },
-      {
         "id": "bomc_lgs133v5_mat_lgs133wjbbhv5_9_0",
         "parentType": "material",
         "parentId": "mat_lgs133wjbbhv5",
@@ -112989,20 +112961,6 @@
         "remark": ""
       },
       {
-        "id": "bomc_lgs233v5_pack_0_8",
-        "parentType": "material",
-        "parentId": "mat_lgs133wjbbhv5",
-        "productCode": "LGS233",
-        "color": "复古色",
-        "materialId": "mat_f3e6hw",
-        "childMaterialId": "mat_f3e6hw",
-        "qty": "4",
-        "stt": "9",
-        "comp_code": "6",
-        "order": 8,
-        "remark": ""
-      },
-      {
         "id": "bomc_lgs233v5_pack_0_9",
         "parentType": "material",
         "parentId": "mat_lgs133wjbbhv5",
@@ -113308,20 +113266,6 @@
         "stt": "8",
         "comp_code": "1",
         "order": 7,
-        "remark": ""
-      },
-      {
-        "id": "bomc_lgs233v5_1_0_8",
-        "parentType": "material",
-        "parentId": "mat_lgs233wjbwhv5",
-        "productCode": "LGS233",
-        "color": "白色",
-        "materialId": "mat_1kajjg0",
-        "childMaterialId": "mat_1kajjg0",
-        "qty": "4",
-        "stt": "9",
-        "comp_code": "6",
-        "order": 8,
         "remark": ""
       },
       {
@@ -113759,20 +113703,6 @@
         "remark": ""
       },
       {
-        "id": "bomc_lgs233v5_pack_2_8",
-        "parentType": "material",
-        "parentId": "mat_lgs133wjbbhv5",
-        "productCode": "LGS233",
-        "color": "黑色",
-        "materialId": "mat_f3e6hw",
-        "childMaterialId": "mat_f3e6hw",
-        "qty": "4",
-        "stt": "9",
-        "comp_code": "6",
-        "order": 8,
-        "remark": ""
-      },
-      {
         "id": "bomc_lgs233v5_pack_2_9",
         "parentType": "material",
         "parentId": "mat_lgs133wjbbhv5",
@@ -114078,20 +114008,6 @@
         "stt": "8",
         "comp_code": "1",
         "order": 7,
-        "remark": ""
-      },
-      {
-        "id": "bomc_lgs233v5_pack_3_8",
-        "parentType": "material",
-        "parentId": "mat_lgs133wjbbhv5",
-        "productCode": "LGS233",
-        "color": "山纹黑",
-        "materialId": "mat_f3e6hw",
-        "childMaterialId": "mat_f3e6hw",
-        "qty": "4",
-        "stt": "9",
-        "comp_code": "6",
-        "order": 8,
         "remark": ""
       },
       {
