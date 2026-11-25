@@ -29,8 +29,17 @@ test('shared frames, hardware quantities, and welded assemblies resolve for ever
     const white = variant.sku === 'LGS233WH02S';
     for (const symbol of ['M', 'S', 'X01', 'Y09']) assert.equal(component(rows, symbol), undefined);
     const pack = rows.find(row => /WJB/.test(row.mat_code));
-    assert.equal(pack.mat_code, white ? 'LGS233WJBWHV5' : 'LGS133WJBBHV5');
+    assert.equal(pack.mat_code, white ? 'LGS233WJBWHV5' : 'LGS133233WJBBHV5');
     const hardware = pack.materials;
+    assert.equal(hardware.length, 9);
+    assert.equal(hardware.some(row => row.mat_code.startsWith('NLDP15508020')), false);
+    const packId = byCode.get(pack.mat_code).id;
+    const packEntries = database.bomEntries.filter(entry => entry.parentType === 'material' &&
+      entry.parentId === packId && entry.productCode === 'LGS233' && entry.color === color);
+    assert.deepEqual(
+      packEntries.map(entry => [entry.childMaterialId || entry.materialId, entry.qty]),
+      hardware.map(row => [byCode.get(row.mat_code).id, row.qty]),
+    );
     assert.equal(hardware.find(row => row.mat_code === (white ? 'NLPLS6022WZ' : 'NLPLS6022BZ')).qty, '16+2');
     assert.equal(hardware.find(row => row.mat_code === (white ? 'NLPLS6010WZ' : 'NLPLS6010BZ')).qty, '10+2');
     assert.equal(hardware.find(row => row.mat_code === (white ? 'TZJD629825WH' : 'TZJD629825BH')).qty, '6');

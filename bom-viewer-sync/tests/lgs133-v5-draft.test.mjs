@@ -108,7 +108,7 @@ test('both variants contain the revised welded structures and one grouped raw-pi
       assert.equal(row.materials.some(item => item.mat_code === 'M6LMLM'), false);
     }
     assert.equal(child(component(rows, 'C'), 'M6LMLM').qty, '1');
-    const pack = rows.find(row => row.mat_code === 'LGS133WJBBHV5');
+    const pack = rows.find(row => row.mat_code === 'LGS133233WJBBHV5');
     assert.equal(child(pack, 'NLPLS6010BZ').qty, '10+2');
     assert.equal(child(pack, 'TZJD629825BH').qty, '6');
   }
@@ -170,13 +170,15 @@ test('draft material names omit revision suffixes and top panels use one color s
   }
 });
 
-test('renamed draft hardware bag retains all ten children in each product color', () => {
+test('shared draft hardware bag resolves all nine children in each product color', () => {
   for (const [color, variant] of Object.entries(product.color_info)) {
-    const pack = variant.materials.find(row => row.mat_code === 'LGS133WJBBHV5');
+    const pack = variant.materials.find(row => row.mat_code === 'LGS133233WJBBHV5');
     const entries = database.bomEntries.filter(entry =>
       entry.parentType === 'material' && entry.parentId === 'mat_lgs133wjbbhv5' &&
       entry.productCode === 'LGS133' && entry.color === color);
-    assert.equal(entries.length, 10);
+    assert.equal(entries.length, 9);
+    assert.equal(pack.materials.length, 9);
+    assert.equal(pack.materials.some(row => row.mat_code.startsWith('NLDP15508020')), false);
     for (const row of pack.materials) {
       const record = Object.values(database.materials).find(item => item.code === row.mat_code);
       const relation = entries.find(entry => (entry.childMaterialId || entry.materialId) === record.id);
