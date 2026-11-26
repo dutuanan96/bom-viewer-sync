@@ -77,3 +77,45 @@ test('a new design Draft inherits effective packaging without changing its relea
   assert.equal(draft.productRevisions.LGS723.revisions.find((item) => item.revision === 'V4.2')
     .snapshot.product.color_info['黑色'].materials.some((item) => item.mat_code === 'DWZB990300'), false);
 });
+
+test('LGS033 B1 replaces packaging for the three existing colors without modifying V4.2', () => {
+  const code = 'LGS033';
+  const revision = manifest.productRevisions[code];
+  const active = payloadForProductRevision(payload, code, 'V4.2');
+  const baselineSnapshot = structuredClone(revision.revisions.find((item) => item.revision === 'V4.2'));
+  const replacements = [
+    ['ZHJ5050105', 'ZHJ505090', '50x50x90mm', '4'],
+    ['PM32210511', 'PM3229008', '20kg, 322x90x8mm', '2'],
+  ];
+
+  assert.equal(manifest.bomVersions[code].effectiveVersion, 'B1');
+  assert.equal(revision.currentRevision, 'V4.2');
+  assert.equal(revision.effectiveRevision, 'V4.2');
+  assert.equal(productRevisionOptions(payload, code).filter((item) => item.revision === 'V4.2').length, 1);
+  assert.equal(payloadForProductRevision(active, code, 'V4.2'), active);
+  assert.deepEqual(Object.keys(active.bom[code].color_info), ['复古色', '白色', '黑色']);
+
+  for (const [oldCode, newCode, spec, quantity] of replacements) {
+    const oldId = Object.values(materials.materialDb.materials).find((item) => item.code === oldCode).id;
+    const newId = Object.values(materials.materialDb.materials).find((item) => item.code === newCode).id;
+    for (const color of active.bom[code].colors) {
+      const rows = resolveBomRows(active, code, color);
+      const tree = buildBomTreeRows(active, code, color);
+      assert.equal(rows.length, resolveBomRows(payload, code, color).length);
+      assert.ok(rows.every((item) => item.mat_code !== oldCode));
+      assert.ok(tree.every((item) => item.mat_code !== oldCode));
+      const row = rows.find((item) => item.mat_code === newCode);
+      assert.equal(row?.spec, spec);
+      assert.equal(row?.qty, quantity);
+      assert.match(row?.remark, /1001/);
+      assert.equal(tree.find((item) => item.mat_code === newCode)?.qty, quantity);
+      assert.equal(new PdmKnowledge({ payload }).getBom({ productId: code, color })
+        .rows.find((item) => item.matCode === newCode)?.qty, quantity);
+      assert.ok(products[code].color_info[color].materials.some((item) => item.mat_code === oldCode));
+    }
+    const isEffectiveUse = (item) => item.productCode === code && item.status === 'effective';
+    assert.equal(materialWhereUsed(payload, newId).usageEntries.filter(isEffectiveUse).length, 3);
+    assert.equal(materialWhereUsed(payload, oldId).usageEntries.filter(isEffectiveUse).length, 0);
+  }
+  assert.deepEqual(revision.revisions.find((item) => item.revision === 'V4.2'), baselineSnapshot);
+});

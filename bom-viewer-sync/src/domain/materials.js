@@ -482,16 +482,27 @@ function usageStatus(revisionSet, revision) {
 function materialWhereUsed(payload, materialId) {
   const entries = (payload?.materialDb?.bomEntries || []);
   const effectiveEntries = (payload?.materialDb?.effectiveEntries || []);
-  const packagingEntries = Object.entries(payload?.bomVersions || {}).flatMap(([productCode, version]) => (
-    version.designRevision === payload?.productRevisions?.[productCode]?.effectiveRevision
-      ? (version.changes || []).filter((change) => change.type === 'add' && change.entry)
-        .map((change) => ({ ...change.entry, revision: version.designRevision }))
-      : []
-  ));
+  const packagingEntries = [];
+  const replaced = new Set();
+  const keyForEntry = (entry, revision) =>
+    `${entry.productCode}|${entry.color}|${revision}|${entry.id}`;
+  for (const [productCode, version] of Object.entries(payload?.bomVersions || {})) {
+    if (version.designRevision !== payload?.productRevisions?.[productCode]?.effectiveRevision) continue;
+    for (const change of version.changes || []) {
+      if (!change.entry || !['add', 'replace'].includes(change.type)) continue;
+      packagingEntries.push({ ...change.entry, revision: version.designRevision });
+      if (change.type === 'replace') replaced.add(keyForEntry(change.entry, version.designRevision));
+    }
+  }
   const currentMaterial = payload?.materialDb?.materials?.[materialId];
   const currentDb = {
     materials: payload?.materialDb?.materials || {},
-    bomEntries: [...entries, ...effectiveEntries, ...packagingEntries],
+    bomEntries: [
+      ...[...entries, ...effectiveEntries].filter((entry) => !replaced.has(
+        keyForEntry(entry, entry.revision || payload?.productRevisions?.[entry.productCode]?.currentRevision),
+      )),
+      ...packagingEntries,
+    ],
   };
   const productEntries = productUsageEntries(currentDb, new Set([materialId]));
   const revisionEntryMap = new Map();
@@ -519,9 +530,10 @@ function materialWhereUsed(payload, materialId) {
         .filter((material) => material?.id === materialId || (currentMaterial?.code && material?.code === currentMaterial.code))
         .map((material) => material.id);
       if (!snapshotMaterialIds.length) return;
-      const snapshotUsage = productUsageEntries(snapshotDb, new Set(snapshotMaterialIds), productCode);
-      if (!snapshotUsage.length) return;
       const revisionCode = String(revision?.revision || '');
+      const snapshotUsage = productUsageEntries(snapshotDb, new Set(snapshotMaterialIds), productCode)
+        .filter((entry) => !replaced.has(keyForEntry(entry, revisionCode)));
+      if (!snapshotUsage.length) return;
       revisionEntryMap.set(`${productCode}|${revisionCode}`, { productCode, revision: revisionCode });
       snapshotUsage.forEach((entry) => {
         const usage = {
