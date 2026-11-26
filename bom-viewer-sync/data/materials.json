@@ -48797,6 +48797,153 @@
           "zh": "个",
           "vi": "cái"
         }
+      },
+      "mat_pm60012010": {
+        "id": "mat_pm60012010",
+        "code": "PM60012010",
+        "name": {
+          "zh": "泡沫",
+          "vi": "mút xốp"
+        },
+        "spec": {
+          "zh": "16kg, 600x120x10mm",
+          "vi": "16kg, 600x120x10mm"
+        },
+        "material": {
+          "zh": "EPS泡沫",
+          "vi": "EPS mút xốp"
+        },
+        "color": {
+          "zh": "白色",
+          "vi": "màu trắng"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "块",
+          "vi": "miếng"
+        }
+      },
+      "mat_pm66031006": {
+        "id": "mat_pm66031006",
+        "code": "PM66031006",
+        "name": {
+          "zh": "泡沫",
+          "vi": "mút xốp"
+        },
+        "spec": {
+          "zh": "16kg, 660x310x6mm",
+          "vi": "16kg, 660x310x6mm"
+        },
+        "material": {
+          "zh": "EPS泡沫",
+          "vi": "EPS mút xốp"
+        },
+        "color": {
+          "zh": "白色",
+          "vi": "màu trắng"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "块",
+          "vi": "miếng"
+        }
+      },
+      "mat_lgs834zfxwhb1": {
+        "id": "mat_lgs834zfxwhb1",
+        "code": "LGS834ZFXWHB1",
+        "name": {
+          "zh": "中封箱",
+          "vi": "thùng đóng giữa"
+        },
+        "spec": {
+          "zh": "975x380x155mm",
+          "vi": "975x380x155mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
+      },
+      "mat_lgs834zfxbhb1": {
+        "id": "mat_lgs834zfxbhb1",
+        "code": "LGS834ZFXBHB1",
+        "name": {
+          "zh": "中封箱",
+          "vi": "thùng đóng giữa"
+        },
+        "spec": {
+          "zh": "975x380x155mm",
+          "vi": "975x380x155mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "个",
+          "vi": "cái"
+        }
+      },
+      "mat_lgs834zfxswhb1": {
+        "id": "mat_lgs834zfxswhb1",
+        "code": "LGS834ZFXSWHB1",
+        "name": {
+          "zh": "中封箱（LGS834B201S）",
+          "vi": "thùng đóng giữa (LGS834B201S)"
+        },
+        "spec": {
+          "zh": "975x380x155mm",
+          "vi": "975x380x155mm"
+        },
+        "material": {
+          "zh": "瓦楞纸",
+          "vi": "giấy carton"
+        },
+        "color": {
+          "zh": "纸色",
+          "vi": "màu giấy"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": "个"
       }
     },
     "bomEntries": [

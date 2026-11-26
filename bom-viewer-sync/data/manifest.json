@@ -603188,6 +603188,397 @@
           "qty": "2"
         }
       ]
+    },
+    "LGS834": {
+      "effectiveVersion": "B1",
+      "designRevision": "V4.2",
+      "reason": "LGS834三色包装变更：纸箱改为975x380x155mm，并更新两种泡沫厚度。",
+      "changes": [
+        {
+          "type": "replace",
+          "color": "白色",
+          "code": "LGS834ZFXWH",
+          "row": {
+            "stt": "1",
+            "mat_code": "LGS834ZFXWHB1",
+            "comp_code": "",
+            "name_zh": "中封箱",
+            "name_vi": "thùng đóng giữa",
+            "spec": "975x380x155mm",
+            "spec_vi": "975x380x155mm",
+            "material_zh": "瓦楞纸",
+            "material_vi": "giấy carton",
+            "color_zh": "纸色",
+            "color_vi": "màu giấy",
+            "attr_zh": "包材",
+            "attr_vi": "vật liệu đóng gói",
+            "color_ver": "白色",
+            "color_ver_vi": "白色",
+            "unit": {
+              "zh": "个",
+              "vi": "cái"
+            },
+            "qty": "1",
+            "remark": "原PDM规格：990x380x160mm。"
+          },
+          "entry": {
+            "id": "mat_42f7bd42",
+            "parentType": "product",
+            "parentId": "LGS834",
+            "productCode": "LGS834",
+            "color": "白色",
+            "materialId": "mat_lgs834zfxwhb1",
+            "stt": "1",
+            "comp_code": "",
+            "qty": "1",
+            "color_ver": "白色",
+            "color_ver_vi": "白色",
+            "order": 50,
+            "remark": "原PDM规格：990x380x160mm。"
+          }
+        },
+        {
+          "type": "replace",
+          "color": "白色",
+          "code": "PM60012008",
+          "row": {
+            "stt": "6",
+            "mat_code": "PM60012010",
+            "comp_code": "",
+            "name_zh": "泡沫",
+            "name_vi": "mút xốp",
+            "spec": "16kg, 600x120x10mm",
+            "spec_vi": "16kg, 600x120x10mm",
+            "material_zh": "EPS泡沫",
+            "material_vi": "EPS mút xốp",
+            "color_zh": "白色",
+            "color_vi": "màu trắng",
+            "attr_zh": "包材",
+            "attr_vi": "vật liệu đóng gói",
+            "color_ver": "白色",
+            "color_ver_vi": "白色",
+            "unit": {
+              "zh": "块",
+              "vi": "miếng"
+            },
+            "qty": "2",
+            "remark": "原PDM规格：16kg, 600x120x8mm。"
+          },
+          "entry": {
+            "id": "mat_ce58316c",
+            "parentType": "product",
+            "parentId": "LGS834",
+            "productCode": "LGS834",
+            "color": "白色",
+            "materialId": "mat_pm60012010",
+            "stt": "6",
+            "comp_code": "",
+            "qty": "2",
+            "color_ver": "白色",
+            "color_ver_vi": "白色",
+            "order": 55,
+            "remark": "原PDM规格：16kg, 600x120x8mm。"
+          }
+        },
+        {
+          "type": "replace",
+          "color": "白色",
+          "code": "PM66031010",
+          "row": {
+            "stt": "8",
+            "mat_code": "PM66031006",
+            "comp_code": "",
+            "name_zh": "泡沫",
+            "name_vi": "mút xốp",
+            "spec": "16kg, 660x310x6mm",
+            "spec_vi": "16kg, 660x310x6mm",
+            "material_zh": "EPS泡沫",
+            "material_vi": "EPS mút xốp",
+            "color_zh": "白色",
+            "color_vi": "màu trắng",
+            "attr_zh": "包材",
+            "attr_vi": "vật liệu đóng gói",
+            "color_ver": "白色",
+            "color_ver_vi": "白色",
+            "unit": {
+              "zh": "块",
+              "vi": "miếng"
+            },
+            "qty": "1",
+            "remark": "原PDM规格：16kg, 660x310x10mm。"
+          },
+          "entry": {
+            "id": "mat_adea5c49",
+            "parentType": "product",
+            "parentId": "LGS834",
+            "productCode": "LGS834",
+            "color": "白色",
+            "materialId": "mat_pm66031006",
+            "stt": "8",
+            "comp_code": "",
+            "qty": "1",
+            "color_ver": "白色",
+            "color_ver_vi": "白色",
+            "order": 57,
+            "remark": "原PDM规格：16kg, 660x310x10mm。"
+          }
+        },
+        {
+          "type": "replace",
+          "color": "黑色",
+          "code": "LGS834ZFXBH",
+          "row": {
+            "stt": "1",
+            "mat_code": "LGS834ZFXBHB1",
+            "comp_code": "",
+            "name_zh": "中封箱",
+            "name_vi": "thùng đóng giữa",
+            "spec": "975x380x155mm",
+            "spec_vi": "975x380x155mm",
+            "material_zh": "瓦楞纸",
+            "material_vi": "giấy carton",
+            "color_zh": "纸色",
+            "color_vi": "màu giấy",
+            "attr_zh": "包材",
+            "attr_vi": "vật liệu đóng gói",
+            "color_ver": "黑色",
+            "color_ver_vi": "黑色",
+            "unit": {
+              "zh": "个",
+              "vi": "cái"
+            },
+            "qty": "1",
+            "remark": "原PDM规格：990x380x160mm。"
+          },
+          "entry": {
+            "id": "mat_1886e2ef",
+            "parentType": "product",
+            "parentId": "LGS834",
+            "productCode": "LGS834",
+            "color": "黑色",
+            "materialId": "mat_lgs834zfxbhb1",
+            "stt": "1",
+            "comp_code": "",
+            "qty": "1",
+            "color_ver": "黑色",
+            "color_ver_vi": "黑色",
+            "order": 50,
+            "remark": "原PDM规格：990x380x160mm。"
+          }
+        },
+        {
+          "type": "replace",
+          "color": "黑色",
+          "code": "PM60012008",
+          "row": {
+            "stt": "6",
+            "mat_code": "PM60012010",
+            "comp_code": "",
+            "name_zh": "泡沫",
+            "name_vi": "mút xốp",
+            "spec": "16kg, 600x120x10mm",
+            "spec_vi": "16kg, 600x120x10mm",
+            "material_zh": "EPS泡沫",
+            "material_vi": "EPS mút xốp",
+            "color_zh": "白色",
+            "color_vi": "màu trắng",
+            "attr_zh": "包材",
+            "attr_vi": "vật liệu đóng gói",
+            "color_ver": "黑色",
+            "color_ver_vi": "黑色",
+            "unit": {
+              "zh": "块",
+              "vi": "miếng"
+            },
+            "qty": "2",
+            "remark": "原PDM规格：16kg, 600x120x8mm。"
+          },
+          "entry": {
+            "id": "mat_6beb1cd8",
+            "parentType": "product",
+            "parentId": "LGS834",
+            "productCode": "LGS834",
+            "color": "黑色",
+            "materialId": "mat_pm60012010",
+            "stt": "6",
+            "comp_code": "",
+            "qty": "2",
+            "color_ver": "黑色",
+            "color_ver_vi": "黑色",
+            "order": 55,
+            "remark": "原PDM规格：16kg, 600x120x8mm。"
+          }
+        },
+        {
+          "type": "replace",
+          "color": "黑色",
+          "code": "PM66031010",
+          "row": {
+            "stt": "8",
+            "mat_code": "PM66031006",
+            "comp_code": "",
+            "name_zh": "泡沫",
+            "name_vi": "mút xốp",
+            "spec": "16kg, 660x310x6mm",
+            "spec_vi": "16kg, 660x310x6mm",
+            "material_zh": "EPS泡沫",
+            "material_vi": "EPS mút xốp",
+            "color_zh": "白色",
+            "color_vi": "màu trắng",
+            "attr_zh": "包材",
+            "attr_vi": "vật liệu đóng gói",
+            "color_ver": "黑色",
+            "color_ver_vi": "黑色",
+            "unit": {
+              "zh": "块",
+              "vi": "miếng"
+            },
+            "qty": "1",
+            "remark": "原PDM规格：16kg, 660x310x10mm。"
+          },
+          "entry": {
+            "id": "mat_c479da05",
+            "parentType": "product",
+            "parentId": "LGS834",
+            "productCode": "LGS834",
+            "color": "黑色",
+            "materialId": "mat_pm66031006",
+            "stt": "8",
+            "comp_code": "",
+            "qty": "1",
+            "color_ver": "黑色",
+            "color_ver_vi": "黑色",
+            "order": 57,
+            "remark": "原PDM规格：16kg, 660x310x10mm。"
+          }
+        },
+        {
+          "type": "replace",
+          "color": "山纹黑",
+          "code": "LGS834ZFXSWH",
+          "row": {
+            "stt": "1",
+            "mat_code": "LGS834ZFXSWHB1",
+            "comp_code": "",
+            "name_zh": "中封箱（LGS834B201S）",
+            "name_vi": "thùng đóng giữa (LGS834B201S)",
+            "spec": "975x380x155mm",
+            "spec_vi": "975x380x155mm",
+            "material_zh": "瓦楞纸",
+            "material_vi": "giấy carton",
+            "color_zh": "纸色",
+            "color_vi": "màu giấy",
+            "attr_zh": "包材",
+            "attr_vi": "vật liệu đóng gói",
+            "color_ver": "山纹黑",
+            "color_ver_vi": "màu đen vân gỗ",
+            "unit": "个",
+            "qty": "1",
+            "remark": "原PDM规格：990x380x160mm。"
+          },
+          "entry": {
+            "id": "bomv_z6op4g",
+            "parentType": "product",
+            "parentId": "LGS834",
+            "productCode": "LGS834",
+            "color": "山纹黑",
+            "materialId": "mat_lgs834zfxswhb1",
+            "stt": "1",
+            "comp_code": "",
+            "qty": "1",
+            "color_ver": "山纹黑",
+            "color_ver_vi": "màu đen vân gỗ",
+            "order": 50,
+            "remark": "原PDM规格：990x380x160mm。"
+          }
+        },
+        {
+          "type": "replace",
+          "color": "山纹黑",
+          "code": "PM60012008",
+          "row": {
+            "stt": "6",
+            "mat_code": "PM60012010",
+            "comp_code": "",
+            "name_zh": "泡沫",
+            "name_vi": "mút xốp",
+            "spec": "16kg, 600x120x10mm",
+            "spec_vi": "16kg, 600x120x10mm",
+            "material_zh": "EPS泡沫",
+            "material_vi": "EPS mút xốp",
+            "color_zh": "白色",
+            "color_vi": "màu trắng",
+            "attr_zh": "包材",
+            "attr_vi": "vật liệu đóng gói",
+            "color_ver": "山纹黑",
+            "color_ver_vi": "màu đen vân gỗ",
+            "unit": {
+              "zh": "块",
+              "vi": "miếng"
+            },
+            "qty": "2",
+            "remark": "原PDM规格：16kg, 600x120x8mm。"
+          },
+          "entry": {
+            "id": "bomv_12uczb8",
+            "parentType": "product",
+            "parentId": "LGS834",
+            "productCode": "LGS834",
+            "color": "山纹黑",
+            "materialId": "mat_pm60012010",
+            "stt": "6",
+            "comp_code": "",
+            "qty": "2",
+            "color_ver": "山纹黑",
+            "color_ver_vi": "màu đen vân gỗ",
+            "order": 55,
+            "remark": "原PDM规格：16kg, 600x120x8mm。"
+          }
+        },
+        {
+          "type": "replace",
+          "color": "山纹黑",
+          "code": "PM66031010",
+          "row": {
+            "stt": "8",
+            "mat_code": "PM66031006",
+            "comp_code": "",
+            "name_zh": "泡沫",
+            "name_vi": "mút xốp",
+            "spec": "16kg, 660x310x6mm",
+            "spec_vi": "16kg, 660x310x6mm",
+            "material_zh": "EPS泡沫",
+            "material_vi": "EPS mút xốp",
+            "color_zh": "白色",
+            "color_vi": "màu trắng",
+            "attr_zh": "包材",
+            "attr_vi": "vật liệu đóng gói",
+            "color_ver": "山纹黑",
+            "color_ver_vi": "màu đen vân gỗ",
+            "unit": {
+              "zh": "块",
+              "vi": "miếng"
+            },
+            "qty": "1",
+            "remark": "原PDM规格：16kg, 660x310x10mm。"
+          },
+          "entry": {
+            "id": "bomv_1n8etw0",
+            "parentType": "product",
+            "parentId": "LGS834",
+            "productCode": "LGS834",
+            "color": "山纹黑",
+            "materialId": "mat_pm66031006",
+            "stt": "8",
+            "comp_code": "",
+            "qty": "1",
+            "color_ver": "山纹黑",
+            "color_ver_vi": "màu đen vân gỗ",
+            "order": 57,
+            "remark": "原PDM规格：16kg, 660x310x10mm。"
+          }
+        }
+      ]
     }
   },
   "closedDrafts": {

@@ -117,3 +117,49 @@ test('LGS033 B1 replaces packaging for the three existing colors without modifyi
   }
   assert.deepEqual(revision.revisions.find((item) => item.revision === 'V4.2'), baselineSnapshot);
 });
+
+test('LGS834 B1 applies the new packaging to all three existing SKUs on V4.2', () => {
+  const code = 'LGS834';
+  const revision = manifest.productRevisions[code];
+  const version = manifest.bomVersions[code];
+  const active = payloadForProductRevision(payload, code, 'V4.2');
+
+  assert.equal(revision.currentRevision, 'V4.2');
+  assert.equal(revision.effectiveRevision, 'V4.2');
+  assert.equal(version.effectiveVersion, 'B1');
+  assert.equal(version.changes.length, 9);
+  assert.deepEqual(active.bom[code].colors, ['白色', '黑色', '山纹黑']);
+  assert.equal(payloadForProductRevision(active, code, 'V4.2'), active);
+
+  for (const [color, carton] of [
+    ['白色', 'LGS834ZFXWHB1'],
+    ['黑色', 'LGS834ZFXBHB1'],
+    ['山纹黑', 'LGS834ZFXSWHB1'],
+  ]) {
+    const rows = resolveBomRows(active, code, color);
+    const oldRows = products[code].color_info[color].materials;
+    const tree = buildBomTreeRows(active, code, color);
+    assert.equal(rows.length, oldRows.length);
+    for (const [materialCode, spec, qty] of [
+      [carton, '975x380x155mm', '1'],
+      ['PM60012010', '16kg, 600x120x10mm', '2'],
+      ['PM66031006', '16kg, 660x310x6mm', '1'],
+    ]) {
+      const row = rows.find((item) => item.mat_code === materialCode);
+      assert.equal(row?.spec, spec);
+      assert.equal(row?.qty, qty);
+      assert.equal(tree.find((item) => item.mat_code === materialCode)?.qty, qty);
+    }
+    for (const replacement of version.changes.filter((row) => row.color === color)) {
+      assert.ok(oldRows.some((row) => row.mat_code === replacement.code));
+      assert.ok(rows.every((row) => row.mat_code !== replacement.code));
+    }
+  }
+  for (const materialCode of ['PM60012010', 'PM66031006']) {
+    const material = Object.values(materials.materialDb.materials).find((item) => item.code === materialCode);
+    const usage = materialWhereUsed(payload, material.id).usageEntries;
+    assert.equal(usage.length, 3);
+    assert.ok(usage.every((item) => item.productCode === code && item.status === 'effective'));
+  }
+  assert.equal(payloadForProductRevision(payload, code, 'V4.1').bom[code].colors.includes('山纹黑'), false);
+});
