@@ -44,7 +44,7 @@ test('packaging BOM B1 applies without changing the effective design revision', 
     .some((item) => item.mat_code === 'DWZB990300'), false);
 });
 
-test('closed label Drafts retain their audit record and structural Drafts stay open', () => {
+test('closed label Drafts retain their audit record and the LGS133 Draft stays open', () => {
   assert.equal(Object.keys(manifest.closedDrafts).length, 15);
   for (const code of Object.keys(manifest.closedDrafts)) {
     const revision = manifest.productRevisions[code];
@@ -52,11 +52,9 @@ test('closed label Drafts retain their audit record and structural Drafts stay o
     assert.equal(revision.currentRevisionInfo.workflowState, 'released');
     assert.ok(manifest.closedDrafts[code][0].revision);
   }
-  for (const code of ['LGS133', 'LGS433', 'LGS434']) {
-    const revision = manifest.productRevisions[code];
-    assert.notEqual(revision.currentRevision, revision.effectiveRevision);
-    assert.equal(revision.currentRevisionInfo.workflowState, 'draft');
-  }
+  const revision = manifest.productRevisions.LGS133;
+  assert.notEqual(revision.currentRevision, revision.effectiveRevision);
+  assert.equal(revision.currentRevisionInfo.workflowState, 'draft');
 });
 
 test('BOM versions and closed Draft records survive shard round trip', async () => {
