@@ -275,7 +275,7 @@ test('10. Manifest change-control, BOM history, and timestamp updated without re
   assert.equal(payload.productRevisions?.['LGS434'].effectiveRevision, 'V5.2');
 });
 
-test('11. Historical snapshots preserve fields outside approved labels and released hardware numbers', async () => {
+test('11. Historical snapshots preserve fields outside approved labels, hardware numbers and units', async () => {
   const payload = await loadShards();
   const rawBaseline = execSync(`git show ${LABEL_BASE_COMMIT}:./data/manifest.json`, { maxBuffer: 50 * 1024 * 1024 }).toString('utf8');
   const baseline = JSON.parse(rawBaseline);
@@ -287,6 +287,20 @@ test('11. Historical snapshots preserve fields outside approved labels and relea
     const expected = structuredClone(baseline.productRevisions[productCode].revisions);
     const effectiveRevision = payload.productRevisions[productCode].effectiveRevision;
     const released = expected.find(item => item.revision === effectiveRevision).snapshot;
+    // PR #99 corrected the unit of M6YLM139 in the effective snapshots.
+    const weldNut = Object.values(released.materialDb.materials).find((item) => item.code === 'M6YLM139');
+    assert.ok(weldNut, `${productCode}/${effectiveRevision} must include M6YLM139`);
+    weldNut.unit = { zh: '\u9897', vi: 'vi\u00ean' };
+
+    function applyApprovedUnit(rows) {
+      for (const row of rows) {
+        if (row.mat_code === weldNut.code) row.unit = { ...weldNut.unit };
+        if (row.materials?.length) applyApprovedUnit(row.materials);
+      }
+    }
+    for (const info of Object.values(released.product.color_info)) {
+      applyApprovedUnit(info.materials);
+    }
     const expectedNumber = (materialCode, fallback) => Object.entries(releasedNumbers[productCode])
       .find(([prefix]) => materialCode.startsWith(prefix))?.[1] ?? fallback;
     for (const info of Object.values(released.product.color_info)) {
@@ -328,7 +342,7 @@ test('11. Historical snapshots preserve fields outside approved labels and relea
         }
       }
     }
-    assert.deepEqual(actual, expected, `${productCode} historical snapshots changed outside approved label and released hardware number fields`);
+    assert.deepEqual(actual, expected, `${productCode} historical snapshots changed outside approved label, hardware number and unit fields`);
   }
 });
 
