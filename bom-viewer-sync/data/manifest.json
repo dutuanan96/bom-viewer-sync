@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-06T06:56:40.510Z",
+  "updatedAt": "2026-11-26T03:33:34.701Z",
   "products": [
     "5106",
     "LGS031",
@@ -83177,12 +83177,12 @@
     },
     "LGS433": {
       "currentRevision": "V5",
-      "effectiveRevision": "V4.1",
+      "effectiveRevision": "V5",
       "currentRevisionInfo": {
         "sourceRevision": "V4.1",
         "createdAt": "2026-09-22T04:16:33.280Z",
         "changeReason": "ECN-LGS433-V5-LGS434-V6: 移除41底脚，改为44mm底脚直接焊接于新底部横杆组件，改用M4×22内六角螺丝。；ECN-2026-1026-SEQUENCE-LABEL：280mm方形10x10mm，325mm圆形∅10mm；BL蓝底黑字，BR绿底黑字。",
-        "workflowState": "draft",
+        "workflowState": "released",
         "releasePrerequisites": {
           "gateId": "ECN-LGS433-V5-LGS434-V6-DRAWINGS",
           "layerDrawingsVerified": true,
@@ -106403,6 +106403,14 @@
           "previousRevision": "V4",
           "occurredAt": "2026-08-19T03:23:43.190Z",
           "reason": "更新"
+        },
+        {
+          "id": "effectivity_release_lgs433_v5",
+          "action": "release",
+          "revision": "V5",
+          "previousRevision": "V4.1",
+          "occurredAt": "2026-11-26T03:33:34.701Z",
+          "reason": "按已核对的ECN发放新结构BOM。4号螺丝以BOM确认的M6×12为准，现有说明书第4页标注的M6×10待更正。"
         }
       ]
     },
@@ -174840,12 +174848,12 @@
     },
     "LGS434": {
       "currentRevision": "V6",
-      "effectiveRevision": "V5.2",
+      "effectiveRevision": "V6",
       "currentRevisionInfo": {
         "sourceRevision": "V5.2",
         "createdAt": "2026-09-22T04:16:33.316Z",
         "changeReason": "ECN-LGS433-V5-LGS434-V6: 移除41底脚，改为44mm底脚直接焊接于新底部横杆组件，改用M4×22内六角螺丝。；ECN-2026-1026-SEQUENCE-LABEL：280mm方形10x10mm，325mm圆形∅10mm；BL蓝底黑字，BR绿底黑字。",
-        "workflowState": "draft",
+        "workflowState": "released",
         "releasePrerequisites": {
           "gateId": "ECN-LGS433-V5-LGS434-V6-DRAWINGS",
           "layerDrawingsVerified": true,
@@ -213637,6 +213645,14 @@
           "previousRevision": "V5.1",
           "occurredAt": "2026-09-22T01:14:46.880Z",
           "reason": "54底脚改为41底脚"
+        },
+        {
+          "id": "effectivity_release_lgs434_v6",
+          "action": "release",
+          "revision": "V6",
+          "previousRevision": "V5.2",
+          "occurredAt": "2026-11-26T03:33:34.701Z",
+          "reason": "按已核对的ECN发放新结构BOM。4号螺丝以BOM确认的M6×12为准，现有说明书第4页标注的M6×10待更正。"
         }
       ]
     },
@@ -569908,6 +569924,43 @@
   },
   "notifications": [
     {
+      "id": "notif_1u5xka0",
+      "type": "github-save",
+      "actor": "admin",
+      "createdAt": "2026-11-26T03:33:34.701Z",
+      "version": 2,
+      "changes": [
+        {
+          "kind": "revision",
+          "code": "LGS433",
+          "field": "effectiveRevision",
+          "before": "V4.1",
+          "after": "V5"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS433",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS434",
+          "field": "effectiveRevision",
+          "before": "V5.2",
+          "after": "V6"
+        },
+        {
+          "kind": "revision",
+          "code": "LGS434",
+          "field": "workflowState",
+          "before": "draft",
+          "after": "released"
+        }
+      ]
+    },
+    {
       "id": "notif_bsozxq",
       "type": "github-save",
       "actor": "admin",
@@ -570932,71 +570985,6 @@
           "field": "drawings",
           "before": "LGS834层板.pdf|https://drive.google.com/file/d/1TrZlhKsIuxSvyHln4qMCyOo2AYp7DDrh/view?usp=sharing",
           "after": "LGS834层板.pdf|https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@36f4622cc3c00be15f1efa662c98fe9c770ac154/assets/pdfs/LGS834CB201BH_d581203d4d1fc30b9b6c4fc3ff2ec0c33ffebcac81f488c9ab23bc41f46b9c6e_LGS834_.pdf"
-        }
-      ]
-    },
-    {
-      "id": "notif_1w71g0e",
-      "type": "github-save",
-      "actor": "admin",
-      "createdAt": "2026-08-24T10:51:16.133Z",
-      "version": 2,
-      "changes": [
-        {
-          "kind": "material",
-          "code": "BC257282168SWH",
-          "field": "unit",
-          "before": "个",
-          "after": "[object Object]"
-        },
-        {
-          "kind": "material",
-          "code": "BC257282168SWH",
-          "field": "models3d",
-          "before": "",
-          "after": "LGS布抽25.7x28.2x16.8|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-25-7x28x16-8-5b14edee.glb"
-        },
-        {
-          "kind": "material",
-          "code": "BC300282168SWH",
-          "field": "unit",
-          "before": "个",
-          "after": "[object Object]"
-        },
-        {
-          "kind": "material",
-          "code": "BC300282168SWH",
-          "field": "models3d",
-          "before": "",
-          "after": "LGS布抽30x28.2x16.8|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-30x28x16-8-c3a4a1a2.glb"
-        },
-        {
-          "kind": "material",
-          "code": "BC350282150SWH",
-          "field": "unit",
-          "before": "个",
-          "after": "[object Object]"
-        },
-        {
-          "kind": "material",
-          "code": "BC350282150SWH",
-          "field": "models3d",
-          "before": "",
-          "after": "LGS布抽35x28.2x15|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-35x28x15-60f009c9.glb"
-        },
-        {
-          "kind": "material",
-          "code": "BC350282187SWH",
-          "field": "unit",
-          "before": "个",
-          "after": "[object Object]"
-        },
-        {
-          "kind": "material",
-          "code": "BC350282187SWH",
-          "field": "models3d",
-          "before": "",
-          "after": "LGS布抽35x28.2x18.7|https://raw.githubusercontent.com/dutuanan96/bom-viewer-sync/main/bom-viewer-sync/models3d/catalog/LGS-35x28x18-7-3549de43.glb"
         }
       ]
     }
@@ -577463,6 +577451,31 @@
       }
     ],
     "LGS434": [
+      {
+        "id": "history_1183eua",
+        "productCode": "LGS434",
+        "revision": "V6",
+        "action": "release",
+        "actor": "admin",
+        "reason": "按已核对的ECN发放新结构BOM。4号螺丝以BOM确认的M6×12为准，现有说明书第4页标注的M6×10待更正。",
+        "createdAt": "2026-11-26T03:33:34.701Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS434",
+            "field": "effectiveRevision",
+            "before": "V5.2",
+            "after": "V6"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS434",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
       {
         "id": "history_11a51ul",
         "productCode": "LGS434",
@@ -592731,6 +592744,31 @@
       }
     ],
     "LGS433": [
+      {
+        "id": "history_6kb8rh",
+        "productCode": "LGS433",
+        "revision": "V5",
+        "action": "release",
+        "actor": "admin",
+        "reason": "按已核对的ECN发放新结构BOM。4号螺丝以BOM确认的M6×12为准，现有说明书第4页标注的M6×10待更正。",
+        "createdAt": "2026-11-26T03:33:34.701Z",
+        "changes": [
+          {
+            "kind": "revision",
+            "code": "LGS433",
+            "field": "effectiveRevision",
+            "before": "V4.1",
+            "after": "V5"
+          },
+          {
+            "kind": "revision",
+            "code": "LGS433",
+            "field": "workflowState",
+            "before": "draft",
+            "after": "released"
+          }
+        ]
+      },
       {
         "id": "history_1hj5bs7",
         "productCode": "LGS433",

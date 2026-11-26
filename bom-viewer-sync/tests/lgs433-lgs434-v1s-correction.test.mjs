@@ -233,11 +233,18 @@ test('8. Old hardware metadata preserves authority except reviewed manual number
   assert.deepEqual(normCur434, normAuth434, 'LGS434 old hardware pack rows must preserve metadata with reviewed manual numbers');
 });
 
-test('9. Script idempotency regression test', async () => {
-  const payload1 = await loadShards();
+test('9. The correction is idempotent on Drafts and rejects released revisions', async () => {
+  const released = await loadShards();
+  assert.throws(() => applyCorrection(released), /workflowState expected draft, got released/);
+  const draft = structuredClone(released);
+  for (const [code, previousRevision] of [['LGS433', 'V4.1'], ['LGS434', 'V5.2']]) {
+    draft.productRevisions[code].currentRevisionInfo.workflowState = 'draft';
+    draft.productRevisions[code].effectiveRevision = previousRevision;
+  }
+  const payload1 = structuredClone(draft);
   applyCorrection(payload1);
 
-  const payload2 = await loadShards();
+  const payload2 = structuredClone(draft);
   applyCorrection(payload2);
   applyCorrection(payload2); // Run second time
 
@@ -245,7 +252,7 @@ test('9. Script idempotency regression test', async () => {
   assert.deepEqual(payload1.materialDb.bomEntries, payload2.materialDb.bomEntries, 'bomEntries must be strictly deep-equal after second run');
 });
 
-test('10. Manifest change-control, BOM history, and timestamp updated without release', async () => {
+test('10. The approved V1S revisions are effective and retain the original Draft audit history', async () => {
   const payload = await loadShards();
   assert.ok(payload.updatedAt, 'updatedAt must be present');
 
@@ -265,14 +272,18 @@ test('10. Manifest change-control, BOM history, and timestamp updated without re
   assert.equal(h434.revision, 'V6');
   assert.equal(h434.action, 'save');
 
-  // Check lifecycle states remain draft
-  assert.equal(payload.productRevisions?.['LGS433'].currentRevision, 'V5');
-  assert.equal(payload.productRevisions?.['LGS433'].currentRevisionInfo.workflowState, 'draft');
-  assert.equal(payload.productRevisions?.['LGS433'].effectiveRevision, 'V4.1');
-
-  assert.equal(payload.productRevisions?.['LGS434'].currentRevision, 'V6');
-  assert.equal(payload.productRevisions?.['LGS434'].currentRevisionInfo.workflowState, 'draft');
-  assert.equal(payload.productRevisions?.['LGS434'].effectiveRevision, 'V5.2');
+  for (const [code, revision, previousRevision] of [['LGS433', 'V5', 'V4.1'], ['LGS434', 'V6', 'V5.2']]) {
+    const record = payload.productRevisions[code];
+    assert.equal(record.currentRevision, revision);
+    assert.equal(record.effectiveRevision, revision);
+    assert.equal(record.currentRevisionInfo.workflowState, 'released');
+    assert.ok(record.revisions.some((item) => item.revision === previousRevision));
+    const event = record.effectivityEvents.at(-1);
+    assert.equal(event.action, 'release');
+    assert.equal(event.revision, revision);
+    assert.equal(event.previousRevision, previousRevision);
+    assert.match(event.reason, /M6.12/);
+  }
 });
 
 test('11. Historical snapshots preserve fields outside approved labels, hardware numbers and units', async () => {
@@ -285,11 +296,11 @@ test('11. Historical snapshots preserve fields outside approved labels, hardware
   for (const productCode of ['LGS433', 'LGS434']) {
     const actual = structuredClone(payload.productRevisions[productCode].revisions);
     const expected = structuredClone(baseline.productRevisions[productCode].revisions);
-    const effectiveRevision = payload.productRevisions[productCode].effectiveRevision;
-    const released = expected.find(item => item.revision === effectiveRevision).snapshot;
+    const sourceRevision = payload.productRevisions[productCode].currentRevisionInfo.sourceRevision;
+    const released = expected.find(item => item.revision === sourceRevision).snapshot;
     // PR #99 corrected the unit of M6YLM139 in the effective snapshots.
     const weldNut = Object.values(released.materialDb.materials).find((item) => item.code === 'M6YLM139');
-    assert.ok(weldNut, `${productCode}/${effectiveRevision} must include M6YLM139`);
+    assert.ok(weldNut, `${productCode}/${sourceRevision} must include M6YLM139`);
     weldNut.unit = { zh: '\u9897', vi: 'vi\u00ean' };
 
     function applyApprovedUnit(rows) {
@@ -406,13 +417,13 @@ test('13. Cartons verified: LGS433 V1S = 1185×340×105mm, LGS434 V1S = 860×410
 });
 
 
-test('released and draft BOM trees resolve number 7 against their own manual hardware', async () => {
+test('historical and current BOM trees resolve number 7 against their own manual hardware', async () => {
   const payload = await loadShards();
   const before = JSON.stringify(payload);
   for (const code of ['LGS433', 'LGS434']) {
     const record = payload.productRevisions[code];
     for (const [revision, prefix] of [
-      [record.effectiveRevision, 'NLDP15508020'],
+      [record.currentRevisionInfo.sourceRevision, 'NLDP15508020'],
       [record.currentRevision, 'NLPLS4022'],
     ]) {
       const selected = payloadForProductRevision(payload, code, revision);
