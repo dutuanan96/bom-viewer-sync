@@ -36966,6 +36966,36 @@
           "vi": "miếng"
         }
       },
+      "mat_pm3229008": {
+        "id": "mat_pm3229008",
+        "code": "PM3229008",
+        "name": {
+          "zh": "泡沫",
+          "vi": "mút xốp"
+        },
+        "spec": {
+          "zh": "20kg, 322x90x8mm",
+          "vi": "20kg, 322x90x8mm"
+        },
+        "material": {
+          "zh": "EPS泡沫",
+          "vi": "EPS mút xốp"
+        },
+        "color": {
+          "zh": "白色",
+          "vi": "màu trắng"
+        },
+        "attr": {
+          "zh": "包材",
+          "vi": "vật liệu đóng gói"
+        },
+        "drawings": [],
+        "models3d": [],
+        "unit": {
+          "zh": "块",
+          "vi": "miếng"
+        }
+      },
       "mat_10a5682": {
         "id": "mat_10a5682",
         "code": "PM32210511",

@@ -602769,6 +602769,271 @@
     ]
   },
   "bomVersions": {
+    "LGS033": {
+      "effectiveVersion": "B1",
+      "designRevision": "V4.2",
+      "reason": "从1001订单起变更LGS033纸护角及泡沫规格",
+      "changes": [
+        {
+          "type": "replace",
+          "color": "复古色",
+          "code": "ZHJ5050105",
+          "row": {
+            "stt": "2",
+            "mat_code": "ZHJ505090",
+            "comp_code": "",
+            "name_zh": "纸护角",
+            "name_vi": "giấy nẹp",
+            "spec": "50x50x90mm",
+            "spec_vi": "50x50x90mm",
+            "material_zh": "瓦楞纸",
+            "material_vi": "giấy carton",
+            "color_zh": "纸色",
+            "color_vi": "màu giấy",
+            "attr_zh": "包材",
+            "attr_vi": "vật liệu đóng gói",
+            "color_ver": "复古色",
+            "color_ver_vi": "复古色",
+            "unit": {
+              "zh": "个",
+              "vi": "cái"
+            },
+            "qty": "4",
+            "remark": "原尺寸50*50*105mm/从1001订单改为50*50*90mm"
+          },
+          "entry": {
+            "id": "mat_a53ff3a5",
+            "parentType": "product",
+            "parentId": "LGS033",
+            "productCode": "LGS033",
+            "color": "复古色",
+            "materialId": "mat_b8cef361",
+            "stt": "2",
+            "comp_code": "",
+            "qty": "4",
+            "color_ver": "复古色",
+            "color_ver_vi": "复古色",
+            "order": 32,
+            "remark": "原尺寸50*50*105mm/从1001订单改为50*50*90mm"
+          }
+        },
+        {
+          "type": "replace",
+          "color": "复古色",
+          "code": "PM32210511",
+          "row": {
+            "stt": "4",
+            "mat_code": "PM3229008",
+            "comp_code": "",
+            "name_zh": "泡沫",
+            "name_vi": "mút xốp",
+            "spec": "20kg, 322x90x8mm",
+            "spec_vi": "20kg, 322x90x8mm",
+            "material_zh": "EPS泡沫",
+            "material_vi": "EPS mút xốp",
+            "color_zh": "白色",
+            "color_vi": "màu trắng",
+            "attr_zh": "包材",
+            "attr_vi": "vật liệu đóng gói",
+            "color_ver": "复古色",
+            "color_ver_vi": "复古色",
+            "unit": {
+              "zh": "块",
+              "vi": "miếng"
+            },
+            "qty": "2",
+            "remark": "原尺寸20Kg, 322*105*11mm/从1001订单改为322*90*8mm"
+          },
+          "entry": {
+            "id": "mat_db5fc5df",
+            "parentType": "product",
+            "parentId": "LGS033",
+            "productCode": "LGS033",
+            "color": "复古色",
+            "materialId": "mat_pm3229008",
+            "stt": "4",
+            "comp_code": "",
+            "qty": "2",
+            "color_ver": "复古色",
+            "color_ver_vi": "复古色",
+            "order": 34,
+            "remark": "原尺寸20Kg, 322*105*11mm/从1001订单改为322*90*8mm"
+          }
+        },
+        {
+          "type": "replace",
+          "color": "白色",
+          "code": "ZHJ5050105",
+          "row": {
+            "stt": "2",
+            "mat_code": "ZHJ505090",
+            "comp_code": "",
+            "name_zh": "纸护角",
+            "name_vi": "giấy nẹp",
+            "spec": "50x50x90mm",
+            "spec_vi": "50x50x90mm",
+            "material_zh": "瓦楞纸",
+            "material_vi": "giấy carton",
+            "color_zh": "纸色",
+            "color_vi": "màu giấy",
+            "attr_zh": "包材",
+            "attr_vi": "vật liệu đóng gói",
+            "color_ver": "白色",
+            "color_ver_vi": "白色",
+            "unit": {
+              "zh": "个",
+              "vi": "cái"
+            },
+            "qty": "4",
+            "remark": "原尺寸50*50*105mm/从1001订单改为50*50*90mm"
+          },
+          "entry": {
+            "id": "mat_92d87e19",
+            "parentType": "product",
+            "parentId": "LGS033",
+            "productCode": "LGS033",
+            "color": "白色",
+            "materialId": "mat_b8cef361",
+            "stt": "2",
+            "comp_code": "",
+            "qty": "4",
+            "color_ver": "白色",
+            "color_ver_vi": "白色",
+            "order": 32,
+            "remark": "原尺寸50*50*105mm/从1001订单改为50*50*90mm"
+          }
+        },
+        {
+          "type": "replace",
+          "color": "白色",
+          "code": "PM32210511",
+          "row": {
+            "stt": "4",
+            "mat_code": "PM3229008",
+            "comp_code": "",
+            "name_zh": "泡沫",
+            "name_vi": "mút xốp",
+            "spec": "20kg, 322x90x8mm",
+            "spec_vi": "20kg, 322x90x8mm",
+            "material_zh": "EPS泡沫",
+            "material_vi": "EPS mút xốp",
+            "color_zh": "白色",
+            "color_vi": "màu trắng",
+            "attr_zh": "包材",
+            "attr_vi": "vật liệu đóng gói",
+            "color_ver": "白色",
+            "color_ver_vi": "白色",
+            "unit": {
+              "zh": "块",
+              "vi": "miếng"
+            },
+            "qty": "2",
+            "remark": "原尺寸20Kg, 322*105*11mm/从1001订单改为322*90*8mm"
+          },
+          "entry": {
+            "id": "mat_56858b13",
+            "parentType": "product",
+            "parentId": "LGS033",
+            "productCode": "LGS033",
+            "color": "白色",
+            "materialId": "mat_pm3229008",
+            "stt": "4",
+            "comp_code": "",
+            "qty": "2",
+            "color_ver": "白色",
+            "color_ver_vi": "白色",
+            "order": 34,
+            "remark": "原尺寸20Kg, 322*105*11mm/从1001订单改为322*90*8mm"
+          }
+        },
+        {
+          "type": "replace",
+          "color": "黑色",
+          "code": "ZHJ5050105",
+          "row": {
+            "stt": "2",
+            "mat_code": "ZHJ505090",
+            "comp_code": "",
+            "name_zh": "纸护角",
+            "name_vi": "giấy nẹp",
+            "spec": "50x50x90mm",
+            "spec_vi": "50x50x90mm",
+            "material_zh": "瓦楞纸",
+            "material_vi": "giấy carton",
+            "color_zh": "纸色",
+            "color_vi": "màu giấy",
+            "attr_zh": "包材",
+            "attr_vi": "vật liệu đóng gói",
+            "color_ver": "黑色",
+            "color_ver_vi": "màu đen",
+            "unit": {
+              "zh": "个",
+              "vi": "cái"
+            },
+            "qty": "4",
+            "remark": "原尺寸50*50*105mm/从1001订单改为50*50*90mm"
+          },
+          "entry": {
+            "id": "bomv_jx639j",
+            "parentType": "product",
+            "parentId": "LGS033",
+            "productCode": "LGS033",
+            "color": "黑色",
+            "materialId": "mat_b8cef361",
+            "stt": "2",
+            "comp_code": "",
+            "qty": "4",
+            "color_ver": "黑色",
+            "color_ver_vi": "màu đen",
+            "order": 32,
+            "remark": "原尺寸50*50*105mm/从1001订单改为50*50*90mm"
+          }
+        },
+        {
+          "type": "replace",
+          "color": "黑色",
+          "code": "PM32210511",
+          "row": {
+            "stt": "4",
+            "mat_code": "PM3229008",
+            "comp_code": "",
+            "name_zh": "泡沫",
+            "name_vi": "mút xốp",
+            "spec": "20kg, 322x90x8mm",
+            "spec_vi": "20kg, 322x90x8mm",
+            "material_zh": "EPS泡沫",
+            "material_vi": "EPS mút xốp",
+            "color_zh": "白色",
+            "color_vi": "màu trắng",
+            "attr_zh": "包材",
+            "attr_vi": "vật liệu đóng gói",
+            "color_ver": "黑色",
+            "color_ver_vi": "màu đen",
+            "unit": {
+              "zh": "块",
+              "vi": "miếng"
+            },
+            "qty": "2",
+            "remark": "原尺寸20Kg, 322*105*11mm/从1001订单改为322*90*8mm"
+          },
+          "entry": {
+            "id": "bomv_i37pq8",
+            "parentType": "product",
+            "parentId": "LGS033",
+            "productCode": "LGS033",
+            "color": "黑色",
+            "materialId": "mat_pm3229008",
+            "stt": "4",
+            "comp_code": "",
+            "qty": "2",
+            "color_ver": "黑色",
+            "color_ver_vi": "màu đen",
+            "order": 34,
+            "remark": "原尺寸20Kg, 322*105*11mm/从1001订单改为322*90*8mm"
+          }
+        }
+      ]
+    },
     "LGS723": {
       "effectiveVersion": "B1",
       "designRevision": "V4.2",
