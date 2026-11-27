@@ -73,7 +73,7 @@ test('BL/BR label codes, shape, color, and BOM references match strip length in 
     }
   }
   assert.deepEqual({ currentProducts, currentRows, historicalRevisions, historicalRows },
-    { currentProducts: 22, currentRows: 136, historicalRevisions: 53, historicalRows: 274 });
+    { currentProducts: 22, currentRows: 136, historicalRevisions: 55, historicalRows: 288 });
 });
 
 test('three corrected LGS revisions are released and production-effective', () => {
