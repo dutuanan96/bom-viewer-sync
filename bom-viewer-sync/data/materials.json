@@ -48944,6 +48944,186 @@
         "drawings": [],
         "models3d": [],
         "unit": "个"
+      },
+      "mat_lgs433cb101kdv5": {
+        "id": "mat_lgs433cb101kdv5",
+        "code": "LGS433CB101KDV5",
+        "name": {
+          "zh": "LGS433-层板",
+          "vi": "LGS433-tấm tầng"
+        },
+        "spec": {
+          "zh": "542x290x12mm，4×M4带介内外牙，孔位距边127/7.5mm",
+          "vi": "542x290x12mm, 4 insert ren M4, tâm lỗ cách mép 127/7.5 mm"
+        },
+        "material": {
+          "zh": "PB",
+          "vi": "PB"
+        },
+        "color": {
+          "zh": "复古色",
+          "vi": "màu gỗ cổ"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [
+          {
+            "name": "LGS433-层板-V5.pdf",
+            "path": "drawings/catalog/drawing-3fefcd31e83e4d7a.pdf",
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@62470de36c608b7be1c00ffef5a87a436db09e1b/drawings/catalog/drawing-3fefcd31e83e4d7a.pdf"
+          }
+        ],
+        "models3d": [],
+        "unit": {
+          "zh": "块",
+          "vi": "miếng"
+        }
+      },
+      "mat_lgs433cb101whv5": {
+        "id": "mat_lgs433cb101whv5",
+        "code": "LGS433CB101WHV5",
+        "name": {
+          "zh": "LGS433-层板",
+          "vi": "LGS433-tấm tầng"
+        },
+        "spec": {
+          "zh": "542x290x12mm，4×M4带介内外牙，孔位距边127/7.5mm",
+          "vi": "542x290x12mm, 4 insert ren M4, tâm lỗ cách mép 127/7.5 mm"
+        },
+        "material": {
+          "zh": "PB",
+          "vi": "PB"
+        },
+        "color": {
+          "zh": "白色",
+          "vi": "màu trắng"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [
+          {
+            "name": "LGS433-层板-V5.pdf",
+            "path": "drawings/catalog/drawing-3fefcd31e83e4d7a.pdf",
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@62470de36c608b7be1c00ffef5a87a436db09e1b/drawings/catalog/drawing-3fefcd31e83e4d7a.pdf"
+          }
+        ],
+        "models3d": [],
+        "unit": {
+          "zh": "块",
+          "vi": "miếng"
+        }
+      },
+      "mat_lgs433cb101bhv5": {
+        "id": "mat_lgs433cb101bhv5",
+        "code": "LGS433CB101BHV5",
+        "name": {
+          "zh": "LGS433-层板",
+          "vi": "LGS433-tấm tầng"
+        },
+        "spec": {
+          "zh": "542x290x12mm，4×M4带介内外牙，孔位距边127/7.5mm",
+          "vi": "542x290x12mm, 4 insert ren M4, tâm lỗ cách mép 127/7.5 mm"
+        },
+        "material": {
+          "zh": "PB",
+          "vi": "PB"
+        },
+        "color": {
+          "zh": "黑色",
+          "vi": "màu đen"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [
+          {
+            "name": "LGS433-层板-V5.pdf",
+            "path": "drawings/catalog/drawing-3fefcd31e83e4d7a.pdf",
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@62470de36c608b7be1c00ffef5a87a436db09e1b/drawings/catalog/drawing-3fefcd31e83e4d7a.pdf"
+          }
+        ],
+        "models3d": [],
+        "unit": {
+          "zh": "块",
+          "vi": "miếng"
+        }
+      },
+      "mat_lgs434cb101whv5": {
+        "id": "mat_lgs434cb101whv5",
+        "code": "LGS434CB101WHV5",
+        "name": {
+          "zh": "LGS434层板",
+          "vi": "LGS434 tấm tầng"
+        },
+        "spec": {
+          "zh": "706x335x12mm，4×M4带介内外牙，孔位距边177/7.5mm",
+          "vi": "706x335x12mm, 4 insert ren M4, tâm lỗ cách mép 177/7.5 mm"
+        },
+        "material": {
+          "zh": "PB",
+          "vi": "PB"
+        },
+        "color": {
+          "zh": "白色",
+          "vi": "màu trắng"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [
+          {
+            "name": "LGS434层板-V5.pdf",
+            "path": "drawings/catalog/drawing-fc65a653cdac4c5e.pdf",
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@62470de36c608b7be1c00ffef5a87a436db09e1b/drawings/catalog/drawing-fc65a653cdac4c5e.pdf"
+          }
+        ],
+        "models3d": [],
+        "unit": {
+          "zh": "块",
+          "vi": "miếng"
+        }
+      },
+      "mat_lgs434cb101bhv5": {
+        "id": "mat_lgs434cb101bhv5",
+        "code": "LGS434CB101BHV5",
+        "name": {
+          "zh": "LGS434层板",
+          "vi": "LGS434 tấm tầng"
+        },
+        "spec": {
+          "zh": "706x335x12mm，4×M4带介内外牙，孔位距边177/7.5mm",
+          "vi": "706x335x12mm, 4 insert ren M4, tâm lỗ cách mép 177/7.5 mm"
+        },
+        "material": {
+          "zh": "PB",
+          "vi": "PB"
+        },
+        "color": {
+          "zh": "黑色",
+          "vi": "màu đen"
+        },
+        "attr": {
+          "zh": "零件",
+          "vi": "linh kiện"
+        },
+        "drawings": [
+          {
+            "name": "LGS434层板-V5.pdf",
+            "path": "drawings/catalog/drawing-fc65a653cdac4c5e.pdf",
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@62470de36c608b7be1c00ffef5a87a436db09e1b/drawings/catalog/drawing-fc65a653cdac4c5e.pdf"
+          }
+        ],
+        "models3d": [],
+        "unit": {
+          "zh": "块",
+          "vi": "miếng"
+        }
       }
     },
     "bomEntries": [

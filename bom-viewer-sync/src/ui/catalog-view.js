@@ -229,6 +229,8 @@ function colorDotClass(label) {
 function contentHeaderHtml(product, colorData) {
   const name = this.localizedProductName(colorData);
   const revisionInfo = this.selectedProductRevisionInfo();
+  const bomVersion = this.state.payload.bomVersions?.[this.state.currentSku];
+  const versionLabel = bomVersion?.kind === 'engineering-correction' ? 'bomCorrectionLabel' : 'packagingBomVersion';
   const title = this.canEditProductRevision() && this.state.editMode
     ? this.productInput(name, 'name', 'edit-title')
     : `<h1>${escapeHTML(name)}</h1>`;
@@ -242,8 +244,8 @@ function contentHeaderHtml(product, colorData) {
         <span>${escapeHTML(this.label('lastModified'))}: ${escapeHTML(this.formatDate(this.state.payload.updatedAt))}</span>
       </div>
       ${this.revisionTransitionHtml(revisionInfo)}
-      ${this.state.payload.bomVersions?.[this.state.currentSku]?.designRevision === revisionInfo?.revision
-        ? `<div class="revision-transition"><span><strong>${escapeHTML(this.label('packagingBomVersion'))}:</strong> ${escapeHTML(this.state.payload.bomVersions[this.state.currentSku].effectiveVersion)}</span></div>`
+      ${bomVersion?.designRevision && bomVersion.designRevision === revisionInfo?.revision
+        ? `<div class="revision-transition"><span><strong>${escapeHTML(this.label(versionLabel))}:</strong> ${escapeHTML(bomVersion.effectiveVersion)}</span></div>`
         : ''}
     </div>
     <div class="header-actions">${this.headerActionsHtml()}</div>
