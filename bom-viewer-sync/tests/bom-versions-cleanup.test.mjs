@@ -183,6 +183,7 @@ test('shelf code corrections keep the current LGS433 and LGS434 design revisions
     assert.equal(payloadForProductRevision(active, code, revision), active);
 
     const drawingUrls = new Set();
+    const modelUrls = new Set();
     for (const [color, original] of Object.entries(products[code].color_info)) {
       const oldShelf = original.materials.find((row) => row.mat_code.startsWith(code + 'CB101'));
       const rows = resolveBomRows(active, code, color);
@@ -202,9 +203,16 @@ test('shelf code corrections keep the current LGS433 and LGS434 design revisions
       const material = Object.values(materials.materialDb.materials).find((row) => row.code === expectedCode);
       assert.ok(material.drawings[0].url.endsWith('/' + asset));
       drawingUrls.add(material.drawings[0].url);
+      const model = material.models3d[0];
+      assert.ok(model.url.startsWith('https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@0ed55ed10cb41dd86efd1877944658fab33ce29a/'));
+      assert.ok(model.url.endsWith(code + 'CB101V5.glb'));
+      assert.equal(model.previewUrl, model.url);
+      assert.match(model.contentHash, /^[a-f0-9]{64}$/);
+      modelUrls.add(model.url);
       newCodes.add(expectedCode);
     }
     assert.equal(drawingUrls.size, 1);
+    assert.equal(modelUrls.size, 1);
   }
   assert.equal(newCodes.size, 5);
 });
