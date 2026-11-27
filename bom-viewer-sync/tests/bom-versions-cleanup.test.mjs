@@ -163,3 +163,48 @@ test('LGS834 B1 applies the new packaging to all three existing SKUs on V4.2', (
   }
   assert.equal(payloadForProductRevision(payload, code, 'V4.1').bom[code].colors.includes('山纹黑'), false);
 });
+
+test('shelf code corrections keep the current LGS433 and LGS434 design revisions released', () => {
+  const newCodes = new Set();
+  for (const [code, revision, historical, offset, count, asset] of [
+    ['LGS433', 'V5', 'V4.1', '127/7.5', 4, 'drawing-3fefcd31e83e4d7a.pdf'],
+    ['LGS434', 'V6', 'V5.2', '177/7.5', 3, 'drawing-fc65a653cdac4c5e.pdf'],
+  ]) {
+    const record = manifest.productRevisions[code];
+    const correction = manifest.bomVersions[code];
+    const active = payloadForProductRevision(payload, code, revision);
+    const previous = payloadForProductRevision(payload, code, historical);
+
+    assert.equal(record.currentRevision, revision);
+    assert.equal(record.effectiveRevision, revision);
+    assert.equal(record.currentRevisionInfo.workflowState, 'released');
+    assert.equal(correction.kind, 'engineering-correction');
+    assert.equal(correction.changes.length, count);
+    assert.equal(payloadForProductRevision(active, code, revision), active);
+
+    const drawingUrls = new Set();
+    for (const [color, original] of Object.entries(products[code].color_info)) {
+      const oldShelf = original.materials.find((row) => row.mat_code.startsWith(code + 'CB101'));
+      const rows = resolveBomRows(active, code, color);
+      const expectedCode = oldShelf.mat_code + 'V5';
+      const shelf = rows.find((row) => row.mat_code === expectedCode);
+      assert.equal(rows.length, original.materials.length);
+      assert.equal(shelf?.qty, oldShelf.qty);
+      assert.equal(shelf?.comp_code, oldShelf.comp_code);
+      assert.ok(shelf.spec.startsWith(oldShelf.spec));
+      assert.ok(shelf.spec.includes('4×M4'));
+      assert.ok(shelf.spec.includes(offset));
+      assert.ok(rows.every((row) => row.mat_code !== oldShelf.mat_code));
+      assert.ok(buildBomTreeRows(active, code, color).some((row) => row.mat_code === expectedCode));
+      if (previous.bom[code].color_info[color]) {
+        assert.ok(resolveBomRows(previous, code, color).some((row) => row.mat_code === oldShelf.mat_code));
+      }
+      const material = Object.values(materials.materialDb.materials).find((row) => row.code === expectedCode);
+      assert.ok(material.drawings[0].url.endsWith('/' + asset));
+      drawingUrls.add(material.drawings[0].url);
+      newCodes.add(expectedCode);
+    }
+    assert.equal(drawingUrls.size, 1);
+  }
+  assert.equal(newCodes.size, 5);
+});
