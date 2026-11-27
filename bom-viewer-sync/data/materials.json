@@ -48975,7 +48975,15 @@
             "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@62470de36c608b7be1c00ffef5a87a436db09e1b/drawings/catalog/drawing-3fefcd31e83e4d7a.pdf"
           }
         ],
-        "models3d": [],
+        "models3d": [
+          {
+            "name": "LGS433CB101V5.glb",
+            "path": "assets/models/LGS433CB101V5_55bad9e78b1eed78ca97afe704e8f62c8aa03faeba0601aa7a95bdab85b59862_LGS433CB101V5.glb",
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@0ed55ed10cb41dd86efd1877944658fab33ce29a/assets/models/LGS433CB101V5_55bad9e78b1eed78ca97afe704e8f62c8aa03faeba0601aa7a95bdab85b59862_LGS433CB101V5.glb",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@0ed55ed10cb41dd86efd1877944658fab33ce29a/assets/models/LGS433CB101V5_55bad9e78b1eed78ca97afe704e8f62c8aa03faeba0601aa7a95bdab85b59862_LGS433CB101V5.glb",
+            "contentHash": "55bad9e78b1eed78ca97afe704e8f62c8aa03faeba0601aa7a95bdab85b59862"
+          }
+        ],
         "unit": {
           "zh": "块",
           "vi": "miếng"
@@ -49011,7 +49019,15 @@
             "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@62470de36c608b7be1c00ffef5a87a436db09e1b/drawings/catalog/drawing-3fefcd31e83e4d7a.pdf"
           }
         ],
-        "models3d": [],
+        "models3d": [
+          {
+            "name": "LGS433CB101V5.glb",
+            "path": "assets/models/LGS433CB101V5_55bad9e78b1eed78ca97afe704e8f62c8aa03faeba0601aa7a95bdab85b59862_LGS433CB101V5.glb",
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@0ed55ed10cb41dd86efd1877944658fab33ce29a/assets/models/LGS433CB101V5_55bad9e78b1eed78ca97afe704e8f62c8aa03faeba0601aa7a95bdab85b59862_LGS433CB101V5.glb",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@0ed55ed10cb41dd86efd1877944658fab33ce29a/assets/models/LGS433CB101V5_55bad9e78b1eed78ca97afe704e8f62c8aa03faeba0601aa7a95bdab85b59862_LGS433CB101V5.glb",
+            "contentHash": "55bad9e78b1eed78ca97afe704e8f62c8aa03faeba0601aa7a95bdab85b59862"
+          }
+        ],
         "unit": {
           "zh": "块",
           "vi": "miếng"
@@ -49047,7 +49063,15 @@
             "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@62470de36c608b7be1c00ffef5a87a436db09e1b/drawings/catalog/drawing-3fefcd31e83e4d7a.pdf"
           }
         ],
-        "models3d": [],
+        "models3d": [
+          {
+            "name": "LGS433CB101V5.glb",
+            "path": "assets/models/LGS433CB101V5_55bad9e78b1eed78ca97afe704e8f62c8aa03faeba0601aa7a95bdab85b59862_LGS433CB101V5.glb",
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@0ed55ed10cb41dd86efd1877944658fab33ce29a/assets/models/LGS433CB101V5_55bad9e78b1eed78ca97afe704e8f62c8aa03faeba0601aa7a95bdab85b59862_LGS433CB101V5.glb",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@0ed55ed10cb41dd86efd1877944658fab33ce29a/assets/models/LGS433CB101V5_55bad9e78b1eed78ca97afe704e8f62c8aa03faeba0601aa7a95bdab85b59862_LGS433CB101V5.glb",
+            "contentHash": "55bad9e78b1eed78ca97afe704e8f62c8aa03faeba0601aa7a95bdab85b59862"
+          }
+        ],
         "unit": {
           "zh": "块",
           "vi": "miếng"
@@ -49083,7 +49107,15 @@
             "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@62470de36c608b7be1c00ffef5a87a436db09e1b/drawings/catalog/drawing-fc65a653cdac4c5e.pdf"
           }
         ],
-        "models3d": [],
+        "models3d": [
+          {
+            "name": "LGS434CB101V5.glb",
+            "path": "assets/models/LGS434CB101V5_aa072f350106ed3664009750bc794e53640a930131aed0a946ab111f64ba4722_LGS434CB101V5.glb",
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@0ed55ed10cb41dd86efd1877944658fab33ce29a/assets/models/LGS434CB101V5_aa072f350106ed3664009750bc794e53640a930131aed0a946ab111f64ba4722_LGS434CB101V5.glb",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@0ed55ed10cb41dd86efd1877944658fab33ce29a/assets/models/LGS434CB101V5_aa072f350106ed3664009750bc794e53640a930131aed0a946ab111f64ba4722_LGS434CB101V5.glb",
+            "contentHash": "aa072f350106ed3664009750bc794e53640a930131aed0a946ab111f64ba4722"
+          }
+        ],
         "unit": {
           "zh": "块",
           "vi": "miếng"
@@ -49119,7 +49151,15 @@
             "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@62470de36c608b7be1c00ffef5a87a436db09e1b/drawings/catalog/drawing-fc65a653cdac4c5e.pdf"
           }
         ],
-        "models3d": [],
+        "models3d": [
+          {
+            "name": "LGS434CB101V5.glb",
+            "path": "assets/models/LGS434CB101V5_aa072f350106ed3664009750bc794e53640a930131aed0a946ab111f64ba4722_LGS434CB101V5.glb",
+            "url": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@0ed55ed10cb41dd86efd1877944658fab33ce29a/assets/models/LGS434CB101V5_aa072f350106ed3664009750bc794e53640a930131aed0a946ab111f64ba4722_LGS434CB101V5.glb",
+            "previewUrl": "https://cdn.jsdelivr.net/gh/dutuanan96/bom-viewer-assets@0ed55ed10cb41dd86efd1877944658fab33ce29a/assets/models/LGS434CB101V5_aa072f350106ed3664009750bc794e53640a930131aed0a946ab111f64ba4722_LGS434CB101V5.glb",
+            "contentHash": "aa072f350106ed3664009750bc794e53640a930131aed0a946ab111f64ba4722"
+          }
+        ],
         "unit": {
           "zh": "块",
           "vi": "miếng"
