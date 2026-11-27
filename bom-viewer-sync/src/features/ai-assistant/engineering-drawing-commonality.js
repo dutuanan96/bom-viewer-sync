@@ -1,3 +1,6 @@
+import { archivedPdfAddress, isDriveAssetUrl, readVerifiedPdf } from '../../infrastructure/assets.js';
+import { encodeBase64Bytes } from '../../infrastructure/github-asset-storage.js';
+
 const STATUS = Object.freeze({
   CONFIRMED: 'CONFIRMED_COMMON',
   LIKELY: 'LIKELY_COMMON_NEEDS_CONFIRMATION',
@@ -204,12 +207,13 @@ function isPdfAsset(asset) {
   return /\.pdf(?:$|[?#])/i.test(asset?.url || '') || /\.pdf$/i.test(asset?.name || '');
 }
 
-function directPdfUrl(value) {
-  const url = text(value, 2000);
-  const match = url.match(/^https:\/\/drive\.google\.com\/file\/d\/([^/]+)\//i);
-  return match
-    ? `https://drive.google.com/uc?export=download&id=${encodeURIComponent(match[1])}`
-    : url;
+export async function prepareDrawingAnalysisAsset(asset, { config, fetchImpl = globalThis.fetch } = {}) {
+  if (!isDriveAssetUrl(asset.url)) return asset;
+  const archive = archivedPdfAddress(asset.url, config);
+  if (!archive) throw new Error('DRAWING_ARCHIVE_UNAVAILABLE');
+  const response = await fetchImpl(archive.url, { redirect: 'error' });
+  const bytes = await readVerifiedPdf(response, archive.hash);
+  return { ...asset, file_url: `data:application/pdf;base64,${encodeBase64Bytes(bytes)}` };
 }
 
 export function findPartAssets(part, snapshot) {
@@ -227,7 +231,7 @@ export function findPartAssets(part, snapshot) {
           name: text(asset?.name, 300),
           path: text(asset?.path, 1000),
           url: text(asset?.url, 2000),
-          file_url: directPdfUrl(asset?.url),
+          file_url: isDriveAssetUrl(asset?.url) ? '' : text(asset?.url, 2000),
           matched_name: text(asset?.matched_name || asset?.matchedName, 300),
         });
       }

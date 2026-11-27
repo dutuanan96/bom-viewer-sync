@@ -13,6 +13,7 @@ import {
   stripProductColorName,
   updateMaterialRecord,
 } from './domain/materials.js';
+import { assetDisplayUrl } from './infrastructure/assets.js';
 import {
   normalizeConfig,
   normalizePayload,
@@ -318,6 +319,9 @@ const TEXT = {
     close: '关闭',
     resetModelView: '恢复默认视角',
     modelControlHint: '拖动旋转 · 滚轮缩放',
+    archivedDrawingReview: '恢复的存档图纸，尺寸标注及白色件适用性待确认',
+    archivedPdfUnavailable: '存档文件暂不可用，请联系管理员检查文件',
+    archivedDrawingReference: '原图链接已失效，此为与历史物料规格一致的参考图',
     'ai.title': 'AI 助手',
     'ai.settings.title': 'AI 设置',
     'ai.settings.connection': '连接',
@@ -724,6 +728,9 @@ const TEXT = {
     close: 'Đóng',
     resetModelView: 'Về góc mặc định',
     modelControlHint: 'Kéo để xoay · Lăn để phóng to',
+    archivedDrawingReview: 'Bản vẽ khôi phục. Cần xác nhận cách ghi kích thước và áp dụng cho chi tiết màu trắng.',
+    archivedPdfUnavailable: 'Tệp lưu trữ chưa mở được. Hãy liên hệ quản trị viên để kiểm tra.',
+    archivedDrawingReference: 'Link gốc đã lỗi. Đây là bản tham chiếu khớp quy cách vật liệu trong BOM lịch sử.',
     'ai.title': 'Trợ lý AI',
     'ai.settings.title': 'Cài đặt AI',
     'ai.settings.connection': 'Kết nối',
@@ -1466,6 +1473,7 @@ class BomApplication {
     this.memoryManager ||= createMemoryManager({ localStore: this.aiLocalStore });
     this.aiFeature = createAiAssistantFeature({
       mode: this.mode,
+      drawingAssetsConfig: this.config,
       openPdmPrompt: (title, fields, onConfirm, onCancel) => this.openPdmPrompt(title, fields, onConfirm, onCancel),
       openPdmConfirm: (message, onConfirm) => this.openPdmConfirm(message, onConfirm),
       getSnapshot: () => this.getSnapshot(),
@@ -3701,7 +3709,8 @@ class BomApplication {
       this.showModel3dModal(asset, asset.name || this.label('assemblyModel'));
       return;
     }
-    this.showModal(asset.url, asset.name, this.label(typeKey === 'manual' ? 'manual' : 'productImage'));
+    const url = typeKey === 'image' ? assetDisplayUrl(asset, globalThis.location, this.config) : asset.url;
+    this.showModal(url, asset.name, this.label(typeKey === 'manual' ? 'manual' : 'productImage'));
   }
 
   selectExistingMaterialAsset(button) {
@@ -4527,7 +4536,11 @@ class BomApplication {
     const material = this.state.lastRows[index];
     const drawing = material ? this.drawingsFor(material)[0] : null;
     const materialName = material ? materialText(material, 'name', this.state.lang) : '';
-    if (drawing) this.showModal(drawing.url, drawing.name, materialName || drawing.name || '');
+    if (drawing) this.showModal(drawing.url, drawing.name, materialName || drawing.name || '', {
+      product: this.state.currentSku,
+      revision: this.selectedProductRevision(),
+      materialCode: material.mat_code,
+    });
   }
 
   openModel3d(index) {

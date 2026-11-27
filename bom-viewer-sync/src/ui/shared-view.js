@@ -1,5 +1,5 @@
 import { localizedValue } from '../domain/materials.js';
-import { pdfFrameUrl } from '../infrastructure/assets.js';
+import { archivedPdfAddress, isDriveAssetUrl, pdfFrameUrl, readVerifiedPdf } from '../infrastructure/assets.js';
 
 export function escapeHTML(value) {
   return String(value ?? '').replace(/[&<>"']/g, (char) => ({
@@ -248,10 +248,10 @@ function clearPdfPreview() {
   }
 }
 
-async function loadPdfPreview(sourceUrl, requestId) {
+async function loadPdfPreview(sourceUrl, requestId, expectedHash = '') {
   let response;
   try {
-    response = await globalThis.fetch(sourceUrl);
+    response = await globalThis.fetch(sourceUrl, expectedHash ? { redirect: 'error' } : undefined);
   } catch (error) {
     if (requestId === this.pdfPreviewRequestId) {
       console.warn('PDF preview fetch failed', { sourceUrl, message: error?.message || 'network error' });
@@ -266,7 +266,12 @@ async function loadPdfPreview(sourceUrl, requestId) {
   }
   let blob;
   try {
-    blob = await response.blob();
+    if (expectedHash) {
+      const bytes = await readVerifiedPdf(response, expectedHash);
+      blob = new Blob([bytes], { type: 'application/pdf' });
+    } else {
+      blob = await response.blob();
+    }
   } catch (error) {
     if (requestId === this.pdfPreviewRequestId) {
       console.warn('PDF preview blob conversion failed', { sourceUrl, message: error?.message || 'unknown error' });
@@ -281,14 +286,16 @@ async function loadPdfPreview(sourceUrl, requestId) {
   }
   this.activePdfObjectUrl = objectUrl;
   this.query('#pdfFrame').src = objectUrl;
+  return objectUrl;
 }
 
-function showModal(url, title, subtitle) {
+function showModal(url, title, subtitle, drawingContext) {
   this.pdfPreviewRequestId = (this.pdfPreviewRequestId || 0) + 1;
   const requestId = this.pdfPreviewRequestId;
   this.clearPdfPreview();
   this.query('#pdfModalTitle').textContent = title || this.label('viewDrawing');
-  this.query('#pdfModalSubtitle').textContent = subtitle || '';
+  const subtitleElement = this.query('#pdfModalSubtitle');
+  subtitleElement.textContent = subtitle || '';
   const frame = this.query('#pdfFrame');
   const modelViewer = this.ensureModelViewer();
   frame.hidden = false;
@@ -296,15 +303,37 @@ function showModal(url, title, subtitle) {
   modelViewer.removeAttribute('src');
   const resetButton = this.query('#modelResetBtn');
   if (resetButton) resetButton.hidden = true;
-  const sourceUrl = pdfFrameUrl(url);
-  this.query('#pdfOpenLink').href = url || '#';
+  const legacyDriveUrl = isDriveAssetUrl(url);
+  const archive = archivedPdfAddress(url, this.config, globalThis.location, drawingContext);
+  const download = this.query('#pdfOpenLink');
+  download.hidden = legacyDriveUrl;
+  download.href = legacyDriveUrl ? '#' : (url || '#');
+  download.download = '';
   this.query('#pdfOpenLink').textContent = this.label('download');
   this.query('#pdfCloseBtn').textContent = this.label('close');
   this.query('#pdfModal').classList.add('open');
-  if (sourceUrl.startsWith('https://drive.google.com/file/d/')) {
-    frame.src = sourceUrl;
+  if (archive) {
+    void this.loadPdfPreview(archive.url, requestId, archive.hash).then((objectUrl) => {
+      if (requestId !== this.pdfPreviewRequestId) return;
+      if (!objectUrl) {
+        subtitleElement.textContent = [subtitle, this.label('archivedPdfUnavailable')].filter(Boolean).join(' · ');
+        return;
+      }
+      download.href = objectUrl;
+      download.hidden = false;
+      const fileName = archive.title || title || 'drawing.pdf';
+      download.download = /\.pdf$/i.test(fileName) ? fileName : `${fileName}.pdf`;
+      if (archive.title) {
+        this.query('#pdfModalTitle').textContent = archive.title;
+        subtitleElement.textContent = [subtitle, this.label('archivedDrawingReference')].filter(Boolean).join(' · ');
+      } else if (archive.needsDrawingReview) {
+        subtitleElement.textContent = [subtitle, this.label('archivedDrawingReview')].filter(Boolean).join(' · ');
+      }
+    });
+  } else if (legacyDriveUrl) {
+    subtitleElement.textContent = [subtitle, this.label('archivedPdfUnavailable')].filter(Boolean).join(' · ');
   } else {
-    void this.loadPdfPreview(sourceUrl, requestId);
+    void this.loadPdfPreview(pdfFrameUrl(url), requestId);
   }
 }
 
@@ -336,6 +365,8 @@ function showModel3dModal(model, fallbackTitle) {
   }, { once: true });
   modelViewer.setAttribute('src', previewUrl);
   this.query('#pdfOpenLink').href = sourceUrl || '#';
+  this.query('#pdfOpenLink').hidden = false;
+  this.query('#pdfOpenLink').download = '';
   this.query('#pdfOpenLink').textContent = model.sourceUrl ? 'STEP' : 'Open';
   this.query('#pdfCloseBtn').textContent = this.label('close');
   this.query('#pdfModal').classList.add('open');

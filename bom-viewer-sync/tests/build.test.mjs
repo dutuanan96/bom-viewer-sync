@@ -99,12 +99,11 @@ test('generated CSP governs resources and exactly hashes every inline script', (
       "'self'",
       'data:',
       'blob:',
-      'https://drive.google.com',
-      'https://lh3.googleusercontent.com',
       'https://raw.githubusercontent.com',
       'https://cdn.jsdelivr.net',
     ]);
     assert.deepEqual(csp.get('connect-src'), [
+      "'self'",
       'https://api.github.com',
       'https://raw.githubusercontent.com',
       'https://cdn.jsdelivr.net',
@@ -113,7 +112,6 @@ test('generated CSP governs resources and exactly hashes every inline script', (
     assert.deepEqual(csp.get('frame-src'), [
       "'self'",
       'blob:',
-      'https://drive.google.com',
       'https://raw.githubusercontent.com',
       'https://cdn.jsdelivr.net',
     ]);
