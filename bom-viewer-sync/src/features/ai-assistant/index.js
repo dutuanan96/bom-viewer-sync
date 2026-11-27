@@ -19,6 +19,7 @@ import {
   buildSingleDrawingAnalysisMessages,
   parseDrawingAnalysisResponse,
   parseSingleDrawingAnalysisResponse,
+  prepareDrawingAnalysisAsset,
   runDrawingCommonalityCheck,
   runSingleDrawingAnalysis,
 } from './engineering-drawing-commonality.js';
@@ -871,6 +872,7 @@ export function createAiAssistantFeature({
   openPdmPrompt,
   openPdmConfirm,
   githubSyncConfig = {},
+  drawingAssetsConfig,
   onApplyFallbackProposal,
 }) {
   let settings = null;
@@ -889,9 +891,10 @@ export function createAiAssistantFeature({
           model: drawingModel,
           analyzeDocument: drawingModel
             ? async (part, asset) => {
+                const document = await prepareDrawingAnalysisAsset(asset, { config: drawingAssetsConfig, fetchImpl });
                 const response = await gateway.chat({
                   model: drawingModel,
-                  messages: buildSingleDrawingAnalysisMessages(part, asset),
+                  messages: buildSingleDrawingAnalysisMessages(part, document),
                   tools: [],
                   maxTokens: 3200,
                   pdfProcessing: { engine: 'native' },
@@ -909,9 +912,14 @@ export function createAiAssistantFeature({
           model: drawingModel,
           analyzePair: drawingModel
             ? async (pair, leftAsset, rightAsset) => {
+                const options = { config: drawingAssetsConfig, fetchImpl };
+                const [left, right] = await Promise.all([
+                  prepareDrawingAnalysisAsset(leftAsset, options),
+                  prepareDrawingAnalysisAsset(rightAsset, options),
+                ]);
                 const response = await gateway.chat({
                   model: drawingModel,
-                  messages: buildDrawingAnalysisMessages(pair, leftAsset, rightAsset),
+                  messages: buildDrawingAnalysisMessages(pair, left, right),
                   tools: [],
                   maxTokens: 2600,
                   pdfProcessing: { engine: 'native' },

@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
@@ -27,6 +28,18 @@ async function waitForViewerReady(page) {
 async function blockRemotePdmData(page) {
   await page.route('https://api.github.com/**', route => route.abort());
   await page.route('https://raw.githubusercontent.com/**', route => route.abort());
+}
+
+async function serveVerifiedDrawingArchives(page) {
+  const checksums = new Set();
+  await page.route('https://drive.google.com/**', route => route.abort());
+  await page.route(/^https:\/\/raw\.githubusercontent\.com\/[^?#]+\/drawings\/catalog\/drawing-[a-f0-9]{64}\.pdf$/, async route => {
+    const name = new URL(route.request().url()).pathname.split('/').at(-1);
+    const bytes = readFileSync(resolve('drawings/catalog', name));
+    checksums.add(name.slice(8, -4));
+    await route.fulfill({ body: bytes, contentType: 'application/pdf', headers: { 'Access-Control-Allow-Origin': '*' } });
+  });
+  return checksums;
 }
 
 test.describe('R2.5 AI Assistant UI Flow', () => {
@@ -217,6 +230,7 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
     test.setTimeout(90000);
     const payload = loadCanonicalPayload();
     await blockRemotePdmData(page);
+    const checksums = await serveVerifiedDrawingArchives(page);
     const pdfRequests = [];
     await page.route('https://openrouter.ai/api/v1/chat/completions', async route => {
       const body = route.request().postDataJSON();
@@ -291,7 +305,7 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
         loadPublic: async () => canonicalPayload,
         getSourceMetadata: () => ({ commitSha: 'a'.repeat(40) }),
       };
-      window.__aiDrawingTestApp = window.BomApp.createApp({ mode: 'viewer', githubData });
+      window.__aiDrawingTestApp = window.BomApp.createApp({ mode: 'viewer', githubData, config: window.BOM_REPO_CONFIG });
     }, payload);
     await page.waitForFunction(() => Boolean(window.__aiDrawingTestApp?.state.lastLoadAt));
     await waitForViewerReady(page);
@@ -314,12 +328,17 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
       'LGS723_733中竖梁-后.pdf',
     ]);
     expect(pdfRequests.every(request => request.plugins?.[0]?.pdf?.engine === 'native')).toBe(true);
+    for (const file of pdfRequests.flatMap(request => request.files)) {
+      expect(file.file_data).toMatch(/^data:application\/pdf;base64,JVBERi0/);
+      expect(checksums.has(createHash('sha256').update(Buffer.from(file.file_data.split(',')[1], 'base64')).digest('hex'))).toBe(true);
+    }
   });
 
   test('single drawing analysis sends one exact PDF to MiMo and keeps unreadable dimensions unverified', async ({ page }) => {
     test.setTimeout(90000);
     const payload = loadCanonicalPayload();
     await blockRemotePdmData(page);
+    const checksums = await serveVerifiedDrawingArchives(page);
     const pdfRequests = [];
     await page.route('https://openrouter.ai/api/v1/chat/completions', async route => {
       const body = route.request().postDataJSON();
@@ -404,7 +423,7 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
         loadPublic: async () => canonicalPayload,
         getSourceMetadata: () => ({ commitSha: 'a'.repeat(40) }),
       };
-      window.__aiSingleDrawingTestApp = window.BomApp.createApp({ mode: 'viewer', githubData });
+      window.__aiSingleDrawingTestApp = window.BomApp.createApp({ mode: 'viewer', githubData, config: window.BOM_REPO_CONFIG });
     }, payload);
     await page.waitForFunction(() => Boolean(window.__aiSingleDrawingTestApp?.state.lastLoadAt));
     await waitForViewerReady(page);
@@ -423,6 +442,9 @@ test.describe('R2.5 AI Assistant UI Flow', () => {
     expect(pdfRequests[0].model).toBe('xiaomi/mimo-v2.5');
     expect(pdfRequests[0].file.filename).toBe('LGS043-S-\u5e95\u90e8\u7ad6\u6746\u524d.pdf');
     expect(pdfRequests[0].plugins?.[0]?.pdf?.engine).toBe('native');
+    expect(pdfRequests[0].file.file_data).toMatch(/^data:application\/pdf;base64,JVBERi0/);
+    const bytes = Buffer.from(pdfRequests[0].file.file_data.split(',')[1], 'base64');
+    expect(checksums.has(createHash('sha256').update(bytes).digest('hex'))).toBe(true);
   });
 
   test('LGS032 revision question is prefetched and Clear Chat removes follow-up context', async ({ page }) => {

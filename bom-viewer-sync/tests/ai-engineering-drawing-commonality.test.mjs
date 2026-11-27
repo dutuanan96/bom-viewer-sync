@@ -6,6 +6,7 @@ import {
   buildSingleDrawingAnalysisMessages,
   deriveCommonalityStatus,
   findPartAssets,
+  prepareDrawingAnalysisAsset,
   resolvePartsFromQuery,
   resolveSinglePartFromQuery,
   runDrawingCommonalityCheck,
@@ -213,17 +214,32 @@ test('acceptance case resolves exact front/front and rear/rear drawing pairs', (
   assert.equal(findPartAssets(resolved.pairs[0].right, snapshot)[0].name, 'LGS723_733中竖梁-前.pdf');
 });
 
-test('drawing messages attach exact PDFs and explicitly require page/view evidence', () => {
+test('drawing messages attach verified archives and explicitly require page/view evidence', async () => {
   const snapshot = loadSnapshot();
   const pair = resolvePartsFromQuery({ query: QUERY, snapshot }).pairs[0];
   const leftAsset = findPartAssets(pair.left, snapshot)[0];
   const rightAsset = findPartAssets(pair.right, snapshot)[0];
-  const messages = buildDrawingAnalysisMessages(pair, leftAsset, rightAsset);
+  const config = { owner: 'acme', repo: 'pdm' };
+  const fetchImpl = async url => {
+    const archivePath = new URL(url).pathname.split('/').slice(4).join('/');
+    assert.match(archivePath, /^drawings\/catalog\/drawing-[a-f0-9]{64}\.pdf$/);
+    return new Response(readFileSync(new URL(`../${archivePath}`, import.meta.url)));
+  };
+  const [left, right] = await Promise.all([
+    prepareDrawingAnalysisAsset(leftAsset, { config, fetchImpl }),
+    prepareDrawingAnalysisAsset(rightAsset, { config, fetchImpl }),
+  ]);
+  const messages = buildDrawingAnalysisMessages(pair, left, right);
 
   assert.match(messages[0].content, /page number, view or region/i);
   assert.equal(messages[1].content[1].type, 'file');
-  assert.match(messages[1].content[1].file.file_data, /^https:\/\/drive\.google\.com\/uc\?/);
+  assert.equal(leftAsset.file_url, '');
+  assert.match(messages[1].content[1].file.file_data, /^data:application\/pdf;base64,JVBERi0/);
   assert.match(messages[1].content[2].file.filename, /中竖梁-前\.pdf$/);
+  await assert.rejects(prepareDrawingAnalysisAsset(leftAsset, {
+    config,
+    fetchImpl: async () => new Response('%PDF-1.7\nwrong PDF'),
+  }), /checksum mismatch/);
 });
 
 test('deterministic status cannot be confirmed while tolerance or revision is unverified', () => {
