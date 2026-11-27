@@ -13,6 +13,7 @@ const repoRoot = path.resolve(import.meta.dirname, '..');
 const dataRoot = path.join(repoRoot, 'data');
 const AUTHORITY_COMMIT = 'e8ecfe3b458b8217e1e7ef049a771e96f5c948fc';
 const LABEL_BASE_COMMIT = 'ae4eaf645de1b955a15a8af9332f4e9ef2eade69';
+const V1S_RELEASE_COMMIT = '1a68286d28136366f203b991a3eed8051224ee13';
 
 // Owner-approved released corrections use the old manuals, not the V1S manuals.
 const releasedNumbers = {
@@ -26,16 +27,18 @@ const releasedNumbers = {
   },
 };
 
-async function loadShards() {
+async function loadShards(commit) {
+  const readShard = (logicalPath) => commit
+    ? execSync(`git show ${commit}:./data/${logicalPath}`, { maxBuffer: 50 * 1024 * 1024 }).toString('utf8')
+    : readFileSync(path.join(dataRoot, logicalPath), 'utf8');
   const logicalFiles = new Map();
   for (const logicalPath of ['manifest.json', 'materials.json']) {
-    const absolutePath = path.join(dataRoot, logicalPath);
-    logicalFiles.set(logicalPath, readFileSync(absolutePath, 'utf8'));
+    logicalFiles.set(logicalPath, readShard(logicalPath));
   }
   const productsRoot = path.join(dataRoot, 'products');
   for (const entry of readdirSync(productsRoot, { withFileTypes: true })) {
     if (entry.isFile()) {
-      logicalFiles.set(`products/${entry.name}`, readFileSync(path.join(productsRoot, entry.name), 'utf8'));
+      logicalFiles.set(`products/${entry.name}`, readShard(`products/${entry.name}`));
     }
   }
   assertLogicalShardCount(logicalFiles);
@@ -234,7 +237,7 @@ test('8. Old hardware metadata preserves authority except reviewed manual number
 });
 
 test('9. The correction is idempotent on Drafts and rejects released revisions', async () => {
-  const released = await loadShards();
+  const released = await loadShards(V1S_RELEASE_COMMIT);
   assert.throws(() => applyCorrection(released), /workflowState expected draft, got released/);
   const draft = structuredClone(released);
   for (const [code, previousRevision] of [['LGS433', 'V4.1'], ['LGS434', 'V5.2']]) {
@@ -274,9 +277,8 @@ test('10. The approved V1S revisions are effective and retain the original Draft
 
   for (const [code, revision, previousRevision] of [['LGS433', 'V5', 'V4.1'], ['LGS434', 'V6', 'V5.2']]) {
     const record = payload.productRevisions[code];
-    assert.equal(record.currentRevision, revision);
     assert.equal(record.effectiveRevision, revision);
-    assert.equal(record.currentRevisionInfo.workflowState, 'released');
+    assert.equal(record.revisions.find((item) => item.revision === revision)?.workflowState, 'released');
     assert.ok(record.revisions.some((item) => item.revision === previousRevision));
     const event = record.effectivityEvents.at(-1);
     assert.equal(event.action, 'release');
@@ -294,9 +296,12 @@ test('11. Historical snapshots preserve fields outside approved labels, hardware
   const oldLabelIds = ['mat_1w2hwc', 'mat_18wm8e4'];
 
   for (const productCode of ['LGS433', 'LGS434']) {
-    const actual = structuredClone(payload.productRevisions[productCode].revisions);
+    const record = payload.productRevisions[productCode];
     const expected = structuredClone(baseline.productRevisions[productCode].revisions);
-    const sourceRevision = payload.productRevisions[productCode].currentRevisionInfo.sourceRevision;
+    const expectedRevisionCodes = new Set(expected.map((item) => item.revision));
+    const actual = structuredClone(record.revisions.filter((item) => expectedRevisionCodes.has(item.revision)));
+    const sourceRevision = record.effectivityEvents.findLast((event) => event.action === 'release'
+      && event.revision === record.effectiveRevision).previousRevision;
     const released = expected.find(item => item.revision === sourceRevision).snapshot;
     // PR #99 corrected the unit of M6YLM139 in the effective snapshots.
     const weldNut = Object.values(released.materialDb.materials).find((item) => item.code === 'M6YLM139');
@@ -423,7 +428,8 @@ test('historical and current BOM trees resolve number 7 against their own manual
   for (const code of ['LGS433', 'LGS434']) {
     const record = payload.productRevisions[code];
     for (const [revision, prefix] of [
-      [record.currentRevisionInfo.sourceRevision, 'NLDP15508020'],
+      [code === 'LGS433' ? 'V4.1' : 'V5.2', 'NLDP15508020'],
+      [record.effectiveRevision, 'NLPLS4022'],
       [record.currentRevision, 'NLPLS4022'],
     ]) {
       const selected = payloadForProductRevision(payload, code, revision);
@@ -436,4 +442,46 @@ test('historical and current BOM trees resolve number 7 against their own manual
     }
   }
   assert.equal(JSON.stringify(payload), before, 'Selecting a revision must not mutate either hardware pack');
+});
+
+test('shelf-hole correction uses five separate V5 part codes only in the two corrective Drafts', async () => {
+  const payload = await loadShards();
+  const released = await loadShards(V1S_RELEASE_COMMIT);
+  const expected = [
+    ['LGS433', 'V5', 'V5.1', '542x290x12mm', '127/7.5', 'drawing-3fefcd31e83e4d7a.pdf'],
+    ['LGS434', 'V6', 'V6.1', '706x335x12mm', '177/7.5', 'drawing-fc65a653cdac4c5e.pdf'],
+  ];
+  const distinctNewCodes = new Set();
+  for (const [code, effective, draft, dimensions, offset, drawing] of expected) {
+    const record = payload.productRevisions[code];
+    const snapshot = record.revisions.find((item) => item.revision === effective);
+    assert.equal(record.currentRevision, draft);
+    assert.equal(record.effectiveRevision, effective);
+    assert.equal(record.currentRevisionInfo.workflowState, 'draft');
+    assert.deepEqual(snapshot.snapshot.product, released.bom[code]);
+    assert.deepEqual(record.revisions.filter((item) => item.revision !== effective),
+      released.productRevisions[code].revisions);
+
+    const drawingUrls = new Set();
+    for (const [color, original] of Object.entries(released.bom[code].color_info)) {
+      const oldShelf = original.materials.find((item) => item.mat_code.startsWith(code + 'CB101'));
+      const next = payload.bom[code].color_info[color];
+      assert.equal(next.sku, original.sku);
+      const newShelf = next.materials.find((item) => item.mat_code.startsWith(code + 'CB101'));
+      assert.equal(newShelf.mat_code, oldShelf.mat_code + 'V5');
+      assert.equal(newShelf.qty, oldShelf.qty);
+      assert.equal(newShelf.comp_code, oldShelf.comp_code);
+      assert.ok(newShelf.spec.startsWith(dimensions));
+      assert.ok(newShelf.spec.includes('4×M4'));
+      assert.ok(newShelf.spec.includes(offset));
+      distinctNewCodes.add(newShelf.mat_code);
+      const material = Object.values(payload.materialDb.materials).find((item) => item.code === newShelf.mat_code);
+      assert.ok(material.drawings[0].url.endsWith('/' + drawing));
+      drawingUrls.add(material.drawings[0].url);
+      assert.deepEqual(snapshot.snapshot.product.color_info[color].materials.find((item) =>
+        item.mat_code === oldShelf.mat_code), oldShelf);
+    }
+    assert.equal(drawingUrls.size, 1);
+  }
+  assert.equal(distinctNewCodes.size, 5);
 });
